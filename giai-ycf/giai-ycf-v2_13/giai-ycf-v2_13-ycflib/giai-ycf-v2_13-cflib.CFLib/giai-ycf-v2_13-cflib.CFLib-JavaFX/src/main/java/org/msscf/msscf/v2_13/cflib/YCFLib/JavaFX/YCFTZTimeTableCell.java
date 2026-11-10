@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,16 +21,16 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.util.Calendar;
 import java.util.UUID;
 import javafx.scene.control.TableCell;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFTZTimeTableCell<T>
+public class YCFTZTimeTableCell<T>
 extends TableCell<T,Calendar>
 {
 	@Override protected void updateItem( Calendar item, boolean empty ) {
@@ -40,7 +40,7 @@ extends TableCell<T,Calendar>
 			setStyle( "" );
 		}
 		else {
-			String cellText = CFLibXmlUtil.formatTZTime( item );
+			String cellText = YCFLibXmlUtil.formatTZTime( item );
 			setText( cellText );
 			setStyle( "-fx-alignment: CENTER-LEFT" );
 		}

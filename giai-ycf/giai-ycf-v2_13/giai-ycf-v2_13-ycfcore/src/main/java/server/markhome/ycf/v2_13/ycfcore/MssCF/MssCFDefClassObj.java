@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -29,28 +29,28 @@ import java.net.*;
 import java.security.cert.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFDefClassObj
-extends CFGenKbDefClassObj
+public class MssYCFDefClassObj
+extends YCFGenKbDefClassObj
 {
-	public MssCFDefClassObj()
+	public MssYCFDefClassObj()
 	{
 		super();
 	}
 
-	public MssCFDefClassObj(MssCFEngine schema)
+	public MssYCFDefClassObj(MssYCFEngine schema)
 	{
 		super( schema );
 	}
 
 	public Boolean Equals(Object obj)
 	{
-		if (obj instanceof MssCFDefClassObj)
+		if (obj instanceof MssYCFDefClassObj)
 		{
-			MssCFDefClassObj rhs = (MssCFDefClassObj)obj;
+			MssYCFDefClassObj rhs = (MssYCFDefClassObj)obj;
 			if (getRequiredId() == rhs.getRequiredId())
 			{
 				return (true);

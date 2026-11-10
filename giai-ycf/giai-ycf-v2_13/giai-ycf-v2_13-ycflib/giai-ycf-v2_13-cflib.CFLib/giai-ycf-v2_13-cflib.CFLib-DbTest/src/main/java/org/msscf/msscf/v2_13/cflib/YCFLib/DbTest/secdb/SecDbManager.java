@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,7 +20,7 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash256;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash256;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -72,7 +72,7 @@ public class SecDbManager extends SecDbUser {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subdeptof")
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "subdeptof", nullable = false, unique = false, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "subdeptof", nullable = false, unique = false, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
     private SecDbManager subDepartmentOf;
 
@@ -83,38 +83,38 @@ public class SecDbManager extends SecDbUser {
         super();
     }
 
-    public SecDbManager(CFLibDbKeyHash256 pid) {
+    public SecDbManager(YCFLibDbKeyHash256 pid) {
         super(pid);
         this.title = "";
         this.departmentCode = "";
     }
 
-    public SecDbManager(CFLibDbKeyHash256 pid, SecDbUser user) {
+    public SecDbManager(YCFLibDbKeyHash256 pid, SecDbUser user) {
         super(pid, user.getUsername(), user.getEmail());
         this.title = "";
         this.departmentCode = "";
     }
 
-    public SecDbManager(CFLibDbKeyHash256 pid, String username, String email) {
+    public SecDbManager(YCFLibDbKeyHash256 pid, String username, String email) {
         super(pid, username, email);
         this.title = "";
         this.departmentCode = "";
     }
 
-    public SecDbManager(CFLibDbKeyHash256 pid, String username, String email, String title, String departmentCode) {
+    public SecDbManager(YCFLibDbKeyHash256 pid, String username, String email, String title, String departmentCode) {
         super(pid, username, email);
         this.title = title;
         this.departmentCode = departmentCode;
     }
 
-    public SecDbManager(CFLibDbKeyHash256 pid, String username, String email, String title, String departmentCode, SecDbManager subDepartmentOf) {
+    public SecDbManager(YCFLibDbKeyHash256 pid, String username, String email, String title, String departmentCode, SecDbManager subDepartmentOf) {
         super(pid, username, email);
         this.title = title;
         this.departmentCode = departmentCode;
         this.subDepartmentOf = subDepartmentOf;
     }
 
-    public SecDbManager(CFLibDbKeyHash256 pid, String username, String email, String title, String departmentCode, SecDbManager subDepartmentOf, Set<SecDbManager> departments) {
+    public SecDbManager(YCFLibDbKeyHash256 pid, String username, String email, String title, String departmentCode, SecDbManager subDepartmentOf, Set<SecDbManager> departments) {
         super(pid, username, email);
         this.title = title;
         this.departmentCode = departmentCode;
@@ -122,10 +122,10 @@ public class SecDbManager extends SecDbUser {
         this.departments = departments != null ? departments : new HashSet<>();
     }
 
-    public SecDbManager(CFLibDbKeyHash256 pid, String username, String email, String memberDeptCode, String title, String departmentCode,
+    public SecDbManager(YCFLibDbKeyHash256 pid, String username, String email, String memberDeptCode, String title, String departmentCode,
                           SecDbManager subDepartmentOf, Set<SecDbManager> departments,
-                          java.time.LocalDateTime createdAt, CFLibDbKeyHash256 createdBy,
-                          java.time.LocalDateTime updatedAt, CFLibDbKeyHash256 updatedBy) {
+                          java.time.LocalDateTime createdAt, YCFLibDbKeyHash256 createdBy,
+                          java.time.LocalDateTime updatedAt, YCFLibDbKeyHash256 updatedBy) {
         super(pid, username, email, memberDeptCode, createdAt, createdBy, updatedAt, updatedBy);
         this.title = title;
         this.departmentCode = departmentCode;

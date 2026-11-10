@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a RelationCol by RelNextIdx index key object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,21 +55,21 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamRelationColByRelNextIdxKey
+public class YCFBamRelationColByRelNextIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected long requiredRelationId;
 	protected Long optionalNextId;
-	public CFBamRelationColByRelNextIdxKey() {
-		requiredTenantId = CFBamRelationColBuff.TENANTID_INIT_VALUE;
-		requiredRelationId = CFBamRelationColBuff.RELATIONID_INIT_VALUE;
+	public YCFBamRelationColByRelNextIdxKey() {
+		requiredTenantId = YCFBamRelationColBuff.TENANTID_INIT_VALUE;
+		requiredRelationId = YCFBamRelationColBuff.RELATIONID_INIT_VALUE;
 		optionalNextId = null;
 	}
 
@@ -78,13 +78,13 @@ public class CFBamRelationColByRelNextIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFBamRelationColBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamRelationColBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFBamRelationColBuff.TENANTID_MIN_VALUE );
+				YCFBamRelationColBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -94,13 +94,13 @@ public class CFBamRelationColByRelNextIdxKey
 	}
 
 	public void setRequiredRelationId( long value ) {
-		if( value < CFBamRelationColBuff.RELATIONID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamRelationColBuff.RELATIONID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredRelationId",
 				1,
 				"value",
 				value,
-				CFBamRelationColBuff.RELATIONID_MIN_VALUE );
+				YCFBamRelationColBuff.RELATIONID_MIN_VALUE );
 		}
 		requiredRelationId = value;
 	}
@@ -113,13 +113,13 @@ public class CFBamRelationColByRelNextIdxKey
 		if( value == null ) {
 			optionalNextId = null;
 		}
-		else if( value < CFBamRelationColBuff.NEXTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamRelationColBuff.NEXTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNextId",
 				1,
 				"value",
 				value,
-				CFBamRelationColBuff.NEXTID_MIN_VALUE );
+				YCFBamRelationColBuff.NEXTID_MIN_VALUE );
 		}
 		else {
 			optionalNextId = value;
@@ -130,8 +130,8 @@ public class CFBamRelationColByRelNextIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamRelationColByRelNextIdxKey ) {
-			CFBamRelationColByRelNextIdxKey rhs = (CFBamRelationColByRelNextIdxKey)obj;
+		else if( obj instanceof YCFBamRelationColByRelNextIdxKey ) {
+			YCFBamRelationColByRelNextIdxKey rhs = (YCFBamRelationColByRelNextIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -152,8 +152,8 @@ public class CFBamRelationColByRelNextIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationColBuff ) {
-			CFBamRelationColBuff rhs = (CFBamRelationColBuff)obj;
+		else if( obj instanceof YCFBamRelationColBuff ) {
+			YCFBamRelationColBuff rhs = (YCFBamRelationColBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -193,8 +193,8 @@ public class CFBamRelationColByRelNextIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFBamRelationColByRelNextIdxKey ) {
-			CFBamRelationColByRelNextIdxKey rhs = (CFBamRelationColByRelNextIdxKey)obj;
+		else if( obj instanceof YCFBamRelationColByRelNextIdxKey ) {
+			YCFBamRelationColByRelNextIdxKey rhs = (YCFBamRelationColByRelNextIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -227,8 +227,8 @@ public class CFBamRelationColByRelNextIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationColBuff ) {
-			CFBamRelationColBuff rhs = (CFBamRelationColBuff)obj;
+		else if( obj instanceof YCFBamRelationColBuff ) {
+			YCFBamRelationColBuff rhs = (YCFBamRelationColBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -262,7 +262,7 @@ public class CFBamRelationColByRelNextIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -271,7 +271,7 @@ public class CFBamRelationColByRelNextIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFBamRelationColByRelNextIdx"
+		String ret = "<YCFBamRelationColByRelNextIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredRelationId=" + "\"" + Long.toString( getRequiredRelationId() ) + "\""
 			+ " OptionalNextId=" + ( ( getOptionalNextId() == null ) ? "null" : "\"" + getOptionalNextId().toString() + "\"" )

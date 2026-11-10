@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GenItem.
+// Description: Java 11 Object interface for YCFGenKb GenItem.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGenItemObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbGenItemObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a GenItem.
 	 *
-	 *	@return	CFGenKbGenItemObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbGenItemObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbGenItemObj realise();
+	IYCFGenKbGenItemObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -59,99 +59,99 @@ public interface ICFGenKbGenItemObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbGenItemObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbGenItemObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbGenItemObj read();
+	IYCFGenKbGenItemObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbGenItemObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbGenItemObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbGenItemObj read( boolean forceRead );
+	IYCFGenKbGenItemObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this GenItem instance.
 	 *
-	 *	@return	The newly locked ICFGenKbGenItemEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbGenItemEditObj edition of this instance.
 	 */
-	ICFGenKbGenItemEditObj beginEdit();
+	IYCFGenKbGenItemEditObj beginEdit();
 
 	/**
 	 *	End this edition of this GenItem instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this GenItem instance.
 	 *
-	 *	@return	The ICFGenKbGenItemEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGenItemEditObj edition of this instance.
 	 */
-	ICFGenKbGenItemEditObj getEdit();
+	IYCFGenKbGenItemEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this GenItem instance as a ICFGenKbGenItemEditObj.
+	 *	Get the current edition of this GenItem instance as a IYCFGenKbGenItemEditObj.
 	 *
-	 *	@return	The ICFGenKbGenItemEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGenItemEditObj edition of this instance.
 	 */
-	ICFGenKbGenItemEditObj getEditAsGenItem();
+	IYCFGenKbGenItemEditObj getEditAsGenItem();
 
 	/**
-	 *	Get the ICFGenKbGenItemTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGenItemTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGenItemTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGenItemTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGenItemTableObj getGenItemTable();
+	IYCFGenKbGenItemTableObj getGenItemTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbGenItemBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGenItemBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGenItemBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGenItemBuff instance which currently backs this object.
 	 */
-	CFGenKbGenItemBuff getBuff();
+	YCFGenKbGenItemBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbGenItemBuff value );
+	void setBuff( YCFGenKbGenItemBuff value );
 
 	/**
-	 *	Get the CFGenKbGenItemBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGenItemBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGenItemBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGenItemBuff instance which currently backs this object.
 	 */
-	CFGenKbGenItemBuff getGenItemBuff();
+	YCFGenKbGenItemBuff getGenItemBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbGenItemPKey primary key for this instance.
+	 *	@return	YCFGenKbGenItemPKey primary key for this instance.
 	 */
-	CFGenKbGenItemPKey getPKey();
+	YCFGenKbGenItemPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbGenItemPKey primary key value for this instance.
+	 *	@param YCFGenKbGenItemPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbGenItemPKey value );
+	void setPKey( YCFGenKbGenItemPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -269,116 +269,116 @@ public interface ICFGenKbGenItemObj
 	Long getOptionalProbeGenItemId();
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant();
+	IYCFGenKbTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
-	 *	Get the required ICFGenKbRuleCartObj instance referenced by the Cartridge key.
+	 *	Get the required IYCFGenKbRuleCartObj instance referenced by the Cartridge key.
 	 *
-	 *	@return	The required ICFGenKbRuleCartObj instance referenced by the Cartridge key.
+	 *	@return	The required IYCFGenKbRuleCartObj instance referenced by the Cartridge key.
 	 */
-	ICFGenKbRuleCartObj getRequiredContainerCartridge();
+	IYCFGenKbRuleCartObj getRequiredContainerCartridge();
 
 	/**
-	 *	Get the required ICFGenKbRuleCartObj instance referenced by the Cartridge key.
+	 *	Get the required IYCFGenKbRuleCartObj instance referenced by the Cartridge key.
 	 *
-	 *	@return	The required ICFGenKbRuleCartObj instance referenced by the Cartridge key.
+	 *	@return	The required IYCFGenKbRuleCartObj instance referenced by the Cartridge key.
 	 */
-	ICFGenKbRuleCartObj getRequiredContainerCartridge( boolean forceRead );
+	IYCFGenKbRuleCartObj getRequiredContainerCartridge( boolean forceRead );
 
 	/**
-	 *	Get the required ICFGenKbRuleTypeObj instance referenced by the RuleType key.
+	 *	Get the required IYCFGenKbRuleTypeObj instance referenced by the RuleType key.
 	 *
-	 *	@return	The required ICFGenKbRuleTypeObj instance referenced by the RuleType key.
+	 *	@return	The required IYCFGenKbRuleTypeObj instance referenced by the RuleType key.
 	 */
-	ICFGenKbRuleTypeObj getRequiredLookupRuleType();
+	IYCFGenKbRuleTypeObj getRequiredLookupRuleType();
 
 	/**
-	 *	Get the required ICFGenKbRuleTypeObj instance referenced by the RuleType key.
+	 *	Get the required IYCFGenKbRuleTypeObj instance referenced by the RuleType key.
 	 *
-	 *	@return	The required ICFGenKbRuleTypeObj instance referenced by the RuleType key.
+	 *	@return	The required IYCFGenKbRuleTypeObj instance referenced by the RuleType key.
 	 */
-	ICFGenKbRuleTypeObj getRequiredLookupRuleType( boolean forceRead );
+	IYCFGenKbRuleTypeObj getRequiredLookupRuleType( boolean forceRead );
 
 	/**
-	 *	Get the required ICFGenKbToolSetObj instance referenced by the ToolSet key.
+	 *	Get the required IYCFGenKbToolSetObj instance referenced by the ToolSet key.
 	 *
-	 *	@return	The required ICFGenKbToolSetObj instance referenced by the ToolSet key.
+	 *	@return	The required IYCFGenKbToolSetObj instance referenced by the ToolSet key.
 	 */
-	ICFGenKbToolSetObj getRequiredLookupToolSet();
+	IYCFGenKbToolSetObj getRequiredLookupToolSet();
 
 	/**
-	 *	Get the required ICFGenKbToolSetObj instance referenced by the ToolSet key.
+	 *	Get the required IYCFGenKbToolSetObj instance referenced by the ToolSet key.
 	 *
-	 *	@return	The required ICFGenKbToolSetObj instance referenced by the ToolSet key.
+	 *	@return	The required IYCFGenKbToolSetObj instance referenced by the ToolSet key.
 	 */
-	ICFGenKbToolSetObj getRequiredLookupToolSet( boolean forceRead );
+	IYCFGenKbToolSetObj getRequiredLookupToolSet( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbDefClassObj instance referenced by the ScopeDef key.
+	 *	Get the optional IYCFGenKbDefClassObj instance referenced by the ScopeDef key.
 	 *
-	 *	@return	The optional ICFGenKbDefClassObj instance referenced by the ScopeDef key.
+	 *	@return	The optional IYCFGenKbDefClassObj instance referenced by the ScopeDef key.
 	 */
-	ICFGenKbDefClassObj getOptionalLookupScopeDef();
+	IYCFGenKbDefClassObj getOptionalLookupScopeDef();
 
 	/**
-	 *	Get the optional ICFGenKbDefClassObj instance referenced by the ScopeDef key.
+	 *	Get the optional IYCFGenKbDefClassObj instance referenced by the ScopeDef key.
 	 *
-	 *	@return	The optional ICFGenKbDefClassObj instance referenced by the ScopeDef key.
+	 *	@return	The optional IYCFGenKbDefClassObj instance referenced by the ScopeDef key.
 	 */
-	ICFGenKbDefClassObj getOptionalLookupScopeDef( boolean forceRead );
+	IYCFGenKbDefClassObj getOptionalLookupScopeDef( boolean forceRead );
 
 	/**
-	 *	Get the required ICFGenKbDefClassObj instance referenced by the GenDef key.
+	 *	Get the required IYCFGenKbDefClassObj instance referenced by the GenDef key.
 	 *
-	 *	@return	The required ICFGenKbDefClassObj instance referenced by the GenDef key.
+	 *	@return	The required IYCFGenKbDefClassObj instance referenced by the GenDef key.
 	 */
-	ICFGenKbDefClassObj getRequiredLookupGenDef();
+	IYCFGenKbDefClassObj getRequiredLookupGenDef();
 
 	/**
-	 *	Get the required ICFGenKbDefClassObj instance referenced by the GenDef key.
+	 *	Get the required IYCFGenKbDefClassObj instance referenced by the GenDef key.
 	 *
-	 *	@return	The required ICFGenKbDefClassObj instance referenced by the GenDef key.
+	 *	@return	The required IYCFGenKbDefClassObj instance referenced by the GenDef key.
 	 */
-	ICFGenKbDefClassObj getRequiredLookupGenDef( boolean forceRead );
+	IYCFGenKbDefClassObj getRequiredLookupGenDef( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbGelExecutableObj instance referenced by the GelExec key.
+	 *	Get the optional IYCFGenKbGelExecutableObj instance referenced by the GelExec key.
 	 *
-	 *	@return	The optional ICFGenKbGelExecutableObj instance referenced by the GelExec key.
+	 *	@return	The optional IYCFGenKbGelExecutableObj instance referenced by the GelExec key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsGelExec();
+	IYCFGenKbGelExecutableObj getOptionalComponentsGelExec();
 
 	/**
-	 *	Get the optional ICFGenKbGelExecutableObj instance referenced by the GelExec key.
+	 *	Get the optional IYCFGenKbGelExecutableObj instance referenced by the GelExec key.
 	 *
-	 *	@return	The optional ICFGenKbGelExecutableObj instance referenced by the GelExec key.
+	 *	@return	The optional IYCFGenKbGelExecutableObj instance referenced by the GelExec key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsGelExec( boolean forceRead );
+	IYCFGenKbGelExecutableObj getOptionalComponentsGelExec( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbGenItemObj instance referenced by the Probe key.
+	 *	Get the optional IYCFGenKbGenItemObj instance referenced by the Probe key.
 	 *
-	 *	@return	The optional ICFGenKbGenItemObj instance referenced by the Probe key.
+	 *	@return	The optional IYCFGenKbGenItemObj instance referenced by the Probe key.
 	 */
-	ICFGenKbGenItemObj getOptionalLookupProbe();
+	IYCFGenKbGenItemObj getOptionalLookupProbe();
 
 	/**
-	 *	Get the optional ICFGenKbGenItemObj instance referenced by the Probe key.
+	 *	Get the optional IYCFGenKbGenItemObj instance referenced by the Probe key.
 	 *
-	 *	@return	The optional ICFGenKbGenItemObj instance referenced by the Probe key.
+	 *	@return	The optional IYCFGenKbGenItemObj instance referenced by the Probe key.
 	 */
-	ICFGenKbGenItemObj getOptionalLookupProbe( boolean forceRead );
+	IYCFGenKbGenItemObj getOptionalLookupProbe( boolean forceRead );
 
 	/**
 	 *	Internal use only.

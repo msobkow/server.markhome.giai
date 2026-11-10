@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for GelExecutable.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,61 +28,61 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamGelExecutableTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamGelExecutableTable in-memory RAM DbIO implementation
  *	for GelExecutable.
  */
-public class CFGenKbRamGelExecutableTable
-	implements ICFGenKbGelExecutableTable
+public class YCFGenKbRamGelExecutableTable
+	implements IYCFGenKbGelExecutableTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbGelInstructionPKey,
-				CFGenKbGelExecutableBuff > dictByPKey
-		= new HashMap< CFGenKbGelInstructionPKey,
-				CFGenKbGelExecutableBuff >();
-	private Map< CFGenKbGelExecutableByGenItemIdxKey,
-				Map< CFGenKbGelInstructionPKey,
-					CFGenKbGelExecutableBuff >> dictByGenItemIdx
-		= new HashMap< CFGenKbGelExecutableByGenItemIdxKey,
-				Map< CFGenKbGelInstructionPKey,
-					CFGenKbGelExecutableBuff >>();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbGelInstructionPKey,
+				YCFGenKbGelExecutableBuff > dictByPKey
+		= new HashMap< YCFGenKbGelInstructionPKey,
+				YCFGenKbGelExecutableBuff >();
+	private Map< YCFGenKbGelExecutableByGenItemIdxKey,
+				Map< YCFGenKbGelInstructionPKey,
+					YCFGenKbGelExecutableBuff >> dictByGenItemIdx
+		= new HashMap< YCFGenKbGelExecutableByGenItemIdxKey,
+				Map< YCFGenKbGelInstructionPKey,
+					YCFGenKbGelExecutableBuff >>();
 
-	public CFGenKbRamGelExecutableTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamGelExecutableTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createGelExecutable( CFGenKbAuthorization Authorization,
-		CFGenKbGelExecutableBuff Buff )
+	public void createGelExecutable( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelExecutableBuff Buff )
 	{
 		final String S_ProcName = "createGelExecutable";
 		schema.getTableGelSequence().createGelSequence( Authorization,
 			Buff );
-		CFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		pkey.setRequiredGelInstId( Buff.getRequiredGelInstId() );
-		CFGenKbGelExecutableByGenItemIdxKey keyGenItemIdx = schema.getFactoryGelExecutable().newGenItemIdxKey();
+		YCFGenKbGelExecutableByGenItemIdxKey keyGenItemIdx = schema.getFactoryGelExecutable().newGenItemIdxKey();
 		keyGenItemIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyGenItemIdx.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		// Validate foreign keys
@@ -98,7 +98,7 @@ public class CFGenKbRamGelExecutableTable
 						Buff.getRequiredGelCacheId(),
 						Buff.getRequiredGelInstId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Superclass",
 						"SuperClass",
@@ -112,27 +112,27 @@ public class CFGenKbRamGelExecutableTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFGenKbGelInstructionPKey, CFGenKbGelExecutableBuff > subdictGenItemIdx;
+		Map< YCFGenKbGelInstructionPKey, YCFGenKbGelExecutableBuff > subdictGenItemIdx;
 		if( dictByGenItemIdx.containsKey( keyGenItemIdx ) ) {
 			subdictGenItemIdx = dictByGenItemIdx.get( keyGenItemIdx );
 		}
 		else {
-			subdictGenItemIdx = new HashMap< CFGenKbGelInstructionPKey, CFGenKbGelExecutableBuff >();
+			subdictGenItemIdx = new HashMap< YCFGenKbGelInstructionPKey, YCFGenKbGelExecutableBuff >();
 			dictByGenItemIdx.put( keyGenItemIdx, subdictGenItemIdx );
 		}
 		subdictGenItemIdx.put( pkey, Buff );
 
 	}
 
-	public CFGenKbGelExecutableBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey )
+	public YCFGenKbGelExecutableBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGelExecutable.readDerived";
-		CFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
+		final String S_ProcName = "YCFGenKbRamGelExecutable.readDerived";
+		YCFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredGelCacheId( PKey.getRequiredGelCacheId() );
 		key.setRequiredGelInstId( PKey.getRequiredGelInstId() );
-		CFGenKbGelExecutableBuff buff;
+		YCFGenKbGelExecutableBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -142,15 +142,15 @@ public class CFGenKbRamGelExecutableTable
 		return( buff );
 	}
 
-	public CFGenKbGelExecutableBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey )
+	public YCFGenKbGelExecutableBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGelExecutable.readDerived";
-		CFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
+		final String S_ProcName = "YCFGenKbRamGelExecutable.readDerived";
+		YCFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredGelCacheId( PKey.getRequiredGelCacheId() );
 		key.setRequiredGelInstId( PKey.getRequiredGelInstId() );
-		CFGenKbGelExecutableBuff buff;
+		YCFGenKbGelExecutableBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -160,10 +160,10 @@ public class CFGenKbRamGelExecutableTable
 		return( buff );
 	}
 
-	public CFGenKbGelExecutableBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamGelExecutable.readAllDerived";
-		CFGenKbGelExecutableBuff[] retList = new CFGenKbGelExecutableBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbGelExecutableBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbGelExecutableBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamGelExecutable.readAllDerived";
+		YCFGenKbGelExecutableBuff[] retList = new YCFGenKbGelExecutableBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbGelExecutableBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -171,59 +171,59 @@ public class CFGenKbRamGelExecutableTable
 		return( retList );
 	}
 
-	public CFGenKbGelExecutableBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readDerivedByTenantIdx";
-		CFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readDerivedByTenantIdx";
+		YCFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByTenantIdx( Authorization,
 			TenantId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGelInstructionBuff buff;
-			ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
+			YCFGenKbGelInstructionBuff buff;
+			ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGelExecutableBuff ) ) {
-					filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGelExecutableBuff ) ) {
+					filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGelExecutableBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readDerivedByGelCacheIdx";
-		CFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByGelCacheIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readDerivedByGelCacheIdx";
+		YCFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByGelCacheIdx( Authorization,
 			TenantId,
 			GelCacheId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGelInstructionBuff buff;
-			ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
+			YCFGenKbGelInstructionBuff buff;
+			ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGelExecutableBuff ) ) {
-					filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGelExecutableBuff ) ) {
+					filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGelExecutableBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readDerivedByChainIdx";
-		CFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByChainIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readDerivedByChainIdx";
+		YCFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByChainIdx( Authorization,
 			ChainInstTenantId,
 			ChainInstGelCacheId,
 			ChainInstGelInstId );
@@ -231,25 +231,25 @@ public class CFGenKbRamGelExecutableTable
 			return( null );
 		}
 		else {
-			CFGenKbGelInstructionBuff buff;
-			ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
+			YCFGenKbGelInstructionBuff buff;
+			ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGelExecutableBuff ) ) {
-					filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGelExecutableBuff ) ) {
+					filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGelExecutableBuff[] readDerivedByFirstInstIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readDerivedByFirstInstIdx( YCFGenKbAuthorization Authorization,
 		Long FirstInstTenantId,
 		Long FirstInstGelCacheId,
 		Long FirstInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelSequence.readDerivedByFirstInstIdx";
-		CFGenKbGelSequenceBuff buffList[] = schema.getTableGelSequence().readDerivedByFirstInstIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelSequence.readDerivedByFirstInstIdx";
+		YCFGenKbGelSequenceBuff buffList[] = schema.getTableGelSequence().readDerivedByFirstInstIdx( Authorization,
 			FirstInstTenantId,
 			FirstInstGelCacheId,
 			FirstInstId );
@@ -257,25 +257,25 @@ public class CFGenKbRamGelExecutableTable
 			return( null );
 		}
 		else {
-			CFGenKbGelSequenceBuff buff;
-			ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
+			YCFGenKbGelSequenceBuff buff;
+			ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGelExecutableBuff ) ) {
-					filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGelExecutableBuff ) ) {
+					filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGelExecutableBuff[] readDerivedByLastInstIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readDerivedByLastInstIdx( YCFGenKbAuthorization Authorization,
 		Long LastInstTenantId,
 		Long LastInstGelCacheId,
 		Long LastInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelSequence.readDerivedByLastInstIdx";
-		CFGenKbGelSequenceBuff buffList[] = schema.getTableGelSequence().readDerivedByLastInstIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelSequence.readDerivedByLastInstIdx";
+		YCFGenKbGelSequenceBuff buffList[] = schema.getTableGelSequence().readDerivedByLastInstIdx( Authorization,
 			LastInstTenantId,
 			LastInstGelCacheId,
 			LastInstId );
@@ -283,59 +283,59 @@ public class CFGenKbRamGelExecutableTable
 			return( null );
 		}
 		else {
-			CFGenKbGelSequenceBuff buff;
-			ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
+			YCFGenKbGelSequenceBuff buff;
+			ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGelExecutableBuff ) ) {
-					filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGelExecutableBuff ) ) {
+					filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGelExecutableBuff[] readDerivedByGenItemIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readDerivedByGenItemIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId )
 	{
-		final String S_ProcName = "CFGenKbRamGelExecutable.readDerivedByGenItemIdx";
-		CFGenKbGelExecutableByGenItemIdxKey key = schema.getFactoryGelExecutable().newGenItemIdxKey();
+		final String S_ProcName = "YCFGenKbRamGelExecutable.readDerivedByGenItemIdx";
+		YCFGenKbGelExecutableByGenItemIdxKey key = schema.getFactoryGelExecutable().newGenItemIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
 
-		CFGenKbGelExecutableBuff[] recArray;
+		YCFGenKbGelExecutableBuff[] recArray;
 		if( dictByGenItemIdx.containsKey( key ) ) {
-			Map< CFGenKbGelInstructionPKey, CFGenKbGelExecutableBuff > subdictGenItemIdx
+			Map< YCFGenKbGelInstructionPKey, YCFGenKbGelExecutableBuff > subdictGenItemIdx
 				= dictByGenItemIdx.get( key );
-			recArray = new CFGenKbGelExecutableBuff[ subdictGenItemIdx.size() ];
-			Iterator< CFGenKbGelExecutableBuff > iter = subdictGenItemIdx.values().iterator();
+			recArray = new YCFGenKbGelExecutableBuff[ subdictGenItemIdx.size() ];
+			Iterator< YCFGenKbGelExecutableBuff > iter = subdictGenItemIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbGelInstructionPKey, CFGenKbGelExecutableBuff > subdictGenItemIdx
-				= new HashMap< CFGenKbGelInstructionPKey, CFGenKbGelExecutableBuff >();
+			Map< YCFGenKbGelInstructionPKey, YCFGenKbGelExecutableBuff > subdictGenItemIdx
+				= new HashMap< YCFGenKbGelInstructionPKey, YCFGenKbGelExecutableBuff >();
 			dictByGenItemIdx.put( key, subdictGenItemIdx );
-			recArray = new CFGenKbGelExecutableBuff[0];
+			recArray = new YCFGenKbGelExecutableBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbGelExecutableBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readDerivedByPIdx() ";
-		CFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readDerivedByPIdx() ";
+		YCFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
 		key.setRequiredGelInstId( GelInstId );
 
-		CFGenKbGelExecutableBuff buff;
+		YCFGenKbGelExecutableBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -345,177 +345,177 @@ public class CFGenKbRamGelExecutableTable
 		return( buff );
 	}
 
-	public CFGenKbGelExecutableBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey )
+	public YCFGenKbGelExecutableBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGelExecutable.readBuff";
-		CFGenKbGelExecutableBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamGelExecutable.readBuff";
+		YCFGenKbGelExecutableBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a92e" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbGelExecutableBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey )
+	public YCFGenKbGelExecutableBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbGelExecutableBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbGelExecutableBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a92e" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbGelExecutableBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbGelExecutableBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamGelExecutable.readAllBuff";
-		CFGenKbGelExecutableBuff buff;
-		ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
-		CFGenKbGelExecutableBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamGelExecutable.readAllBuff";
+		YCFGenKbGelExecutableBuff buff;
+		ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
+		YCFGenKbGelExecutableBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a92e" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 	}
 
-	public CFGenKbGelExecutableBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readBuffByPIdx() ";
-		CFGenKbGelExecutableBuff buff = readDerivedByPIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readBuffByPIdx() ";
+		YCFGenKbGelExecutableBuff buff = readDerivedByPIdx( Authorization,
 			TenantId,
 			GelCacheId,
 			GelInstId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a916" ) ) {
-			return( (CFGenKbGelExecutableBuff)buff );
+			return( (YCFGenKbGelExecutableBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbGelExecutableBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readBuffByTenantIdx() ";
-		CFGenKbGelExecutableBuff buff;
-		ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
-		CFGenKbGelExecutableBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readBuffByTenantIdx() ";
+		YCFGenKbGelExecutableBuff buff;
+		ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
+		YCFGenKbGelExecutableBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a916" ) ) {
-				filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 	}
 
-	public CFGenKbGelExecutableBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readBuffByGelCacheIdx() ";
-		CFGenKbGelExecutableBuff buff;
-		ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
-		CFGenKbGelExecutableBuff[] buffList = readDerivedByGelCacheIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readBuffByGelCacheIdx() ";
+		YCFGenKbGelExecutableBuff buff;
+		ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
+		YCFGenKbGelExecutableBuff[] buffList = readDerivedByGelCacheIdx( Authorization,
 			TenantId,
 			GelCacheId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a916" ) ) {
-				filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 	}
 
-	public CFGenKbGelExecutableBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readBuffByChainIdx() ";
-		CFGenKbGelExecutableBuff buff;
-		ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
-		CFGenKbGelExecutableBuff[] buffList = readDerivedByChainIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readBuffByChainIdx() ";
+		YCFGenKbGelExecutableBuff buff;
+		ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
+		YCFGenKbGelExecutableBuff[] buffList = readDerivedByChainIdx( Authorization,
 			ChainInstTenantId,
 			ChainInstGelCacheId,
 			ChainInstGelInstId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a916" ) ) {
-				filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 	}
 
-	public CFGenKbGelExecutableBuff[] readBuffByFirstInstIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readBuffByFirstInstIdx( YCFGenKbAuthorization Authorization,
 		Long FirstInstTenantId,
 		Long FirstInstGelCacheId,
 		Long FirstInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelSequence.readBuffByFirstInstIdx() ";
-		CFGenKbGelExecutableBuff buff;
-		ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
-		CFGenKbGelExecutableBuff[] buffList = readDerivedByFirstInstIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelSequence.readBuffByFirstInstIdx() ";
+		YCFGenKbGelExecutableBuff buff;
+		ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
+		YCFGenKbGelExecutableBuff[] buffList = readDerivedByFirstInstIdx( Authorization,
 			FirstInstTenantId,
 			FirstInstGelCacheId,
 			FirstInstId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a91d" ) ) {
-				filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 	}
 
-	public CFGenKbGelExecutableBuff[] readBuffByLastInstIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readBuffByLastInstIdx( YCFGenKbAuthorization Authorization,
 		Long LastInstTenantId,
 		Long LastInstGelCacheId,
 		Long LastInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelSequence.readBuffByLastInstIdx() ";
-		CFGenKbGelExecutableBuff buff;
-		ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
-		CFGenKbGelExecutableBuff[] buffList = readDerivedByLastInstIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelSequence.readBuffByLastInstIdx() ";
+		YCFGenKbGelExecutableBuff buff;
+		ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
+		YCFGenKbGelExecutableBuff[] buffList = readDerivedByLastInstIdx( Authorization,
 			LastInstTenantId,
 			LastInstGelCacheId,
 			LastInstId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a91d" ) ) {
-				filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 	}
 
-	public CFGenKbGelExecutableBuff[] readBuffByGenItemIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] readBuffByGenItemIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId )
 	{
-		final String S_ProcName = "CFGenKbRamGelExecutable.readBuffByGenItemIdx() ";
-		CFGenKbGelExecutableBuff buff;
-		ArrayList<CFGenKbGelExecutableBuff> filteredList = new ArrayList<CFGenKbGelExecutableBuff>();
-		CFGenKbGelExecutableBuff[] buffList = readDerivedByGenItemIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelExecutable.readBuffByGenItemIdx() ";
+		YCFGenKbGelExecutableBuff buff;
+		ArrayList<YCFGenKbGelExecutableBuff> filteredList = new ArrayList<YCFGenKbGelExecutableBuff>();
+		YCFGenKbGelExecutableBuff[] buffList = readDerivedByGenItemIdx( Authorization,
 			TenantId,
 			GelCacheId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a92e" ) ) {
-				filteredList.add( (CFGenKbGelExecutableBuff)buff );
+				filteredList.add( (YCFGenKbGelExecutableBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelExecutableBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelExecutableBuff[0] ) );
 	}
 
 	/**
@@ -531,9 +531,9 @@ public class CFGenKbRamGelExecutableTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbGelExecutableBuff[] pageBuffByFirstInstIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] pageBuffByFirstInstIdx( YCFGenKbAuthorization Authorization,
 		Long FirstInstTenantId,
 		Long FirstInstGelCacheId,
 		Long FirstInstId,
@@ -542,7 +542,7 @@ public class CFGenKbRamGelExecutableTable
 		Long priorGelInstId )
 	{
 		final String S_ProcName = "pageBuffByFirstInstIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -558,9 +558,9 @@ public class CFGenKbRamGelExecutableTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbGelExecutableBuff[] pageBuffByLastInstIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] pageBuffByLastInstIdx( YCFGenKbAuthorization Authorization,
 		Long LastInstTenantId,
 		Long LastInstGelCacheId,
 		Long LastInstId,
@@ -569,7 +569,7 @@ public class CFGenKbRamGelExecutableTable
 		Long priorGelInstId )
 	{
 		final String S_ProcName = "pageBuffByLastInstIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -583,9 +583,9 @@ public class CFGenKbRamGelExecutableTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbGelExecutableBuff[] pageBuffByGenItemIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelExecutableBuff[] pageBuffByGenItemIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		Long priorTenantId,
@@ -593,31 +593,31 @@ public class CFGenKbRamGelExecutableTable
 		Long priorGelInstId )
 	{
 		final String S_ProcName = "pageBuffByGenItemIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateGelExecutable( CFGenKbAuthorization Authorization,
-		CFGenKbGelExecutableBuff Buff )
+	public void updateGelExecutable( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelExecutableBuff Buff )
 	{
 		schema.getTableGelSequence().updateGelSequence( Authorization,
 			Buff );
-		CFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		pkey.setRequiredGelInstId( Buff.getRequiredGelInstId() );
-		CFGenKbGelExecutableBuff existing = dictByPKey.get( pkey );
+		YCFGenKbGelExecutableBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateGelExecutable",
 				"Existing record not found",
 				"GelExecutable",
 				pkey );
 		}
-		CFGenKbGelExecutableByGenItemIdxKey existingKeyGenItemIdx = schema.getFactoryGelExecutable().newGenItemIdxKey();
+		YCFGenKbGelExecutableByGenItemIdxKey existingKeyGenItemIdx = schema.getFactoryGelExecutable().newGenItemIdxKey();
 		existingKeyGenItemIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyGenItemIdx.setRequiredGelCacheId( existing.getRequiredGelCacheId() );
 
-		CFGenKbGelExecutableByGenItemIdxKey newKeyGenItemIdx = schema.getFactoryGelExecutable().newGenItemIdxKey();
+		YCFGenKbGelExecutableByGenItemIdxKey newKeyGenItemIdx = schema.getFactoryGelExecutable().newGenItemIdxKey();
 		newKeyGenItemIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyGenItemIdx.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 
@@ -634,7 +634,7 @@ public class CFGenKbRamGelExecutableTable
 						Buff.getRequiredGelCacheId(),
 						Buff.getRequiredGelInstId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateGelExecutable",
 						"Superclass",
 						"SuperClass",
@@ -646,7 +646,7 @@ public class CFGenKbRamGelExecutableTable
 
 		// Update is valid
 
-		Map< CFGenKbGelInstructionPKey, CFGenKbGelExecutableBuff > subdict;
+		Map< YCFGenKbGelInstructionPKey, YCFGenKbGelExecutableBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -659,33 +659,33 @@ public class CFGenKbRamGelExecutableTable
 			subdict = dictByGenItemIdx.get( newKeyGenItemIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbGelInstructionPKey, CFGenKbGelExecutableBuff >();
+			subdict = new HashMap< YCFGenKbGelInstructionPKey, YCFGenKbGelExecutableBuff >();
 			dictByGenItemIdx.put( newKeyGenItemIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteGelExecutable( CFGenKbAuthorization Authorization,
-		CFGenKbGelExecutableBuff Buff )
+	public void deleteGelExecutable( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelExecutableBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamGelExecutableTable.deleteGelExecutable() ";
+		final String S_ProcName = "YCFGenKbRamGelExecutableTable.deleteGelExecutable() ";
 		String classCode;
-		CFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		pkey.setRequiredGelInstId( Buff.getRequiredGelInstId() );
-		CFGenKbGelExecutableBuff existing = dictByPKey.get( pkey );
+		YCFGenKbGelExecutableBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteGelExecutable",
 				pkey );
 		}
-		CFGenKbGelExecutableBuff editSubobj = schema.getTableGelExecutable().readDerivedByPIdx( Authorization,
+		YCFGenKbGelExecutableBuff editSubobj = schema.getTableGelExecutable().readDerivedByPIdx( Authorization,
 			existing.getRequiredTenantId(),
 			existing.getRequiredGelCacheId(),
 			existing.getRequiredGelInstId() );
@@ -700,7 +700,7 @@ public class CFGenKbRamGelExecutableTable
 			schema.getTableGelExecutable().updateGelExecutable( Authorization, editSubobj );
 		}
 		else {
-			new CFLibUnsupportedClassException( getClass(),
+			new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"Unrecognized ClassCode \"" + classCode + "\"" );
 		}
@@ -716,14 +716,14 @@ public class CFGenKbRamGelExecutableTable
 						existing.getRequiredGelCacheId(),
 						existing.getRequiredGelInstId() );
 		}
-		CFGenKbGelExecutableByGenItemIdxKey keyGenItemIdx = schema.getFactoryGelExecutable().newGenItemIdxKey();
+		YCFGenKbGelExecutableByGenItemIdxKey keyGenItemIdx = schema.getFactoryGelExecutable().newGenItemIdxKey();
 		keyGenItemIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyGenItemIdx.setRequiredGelCacheId( existing.getRequiredGelCacheId() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbGelInstructionPKey, CFGenKbGelExecutableBuff > subdict;
+		Map< YCFGenKbGelInstructionPKey, YCFGenKbGelExecutableBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -733,35 +733,35 @@ public class CFGenKbRamGelExecutableTable
 		schema.getTableGelSequence().deleteGelSequence( Authorization,
 			Buff );
 	}
-	public void deleteGelExecutableByGenItemIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelExecutableByGenItemIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId )
 	{
-		CFGenKbGelExecutableByGenItemIdxKey key = schema.getFactoryGelExecutable().newGenItemIdxKey();
+		YCFGenKbGelExecutableByGenItemIdxKey key = schema.getFactoryGelExecutable().newGenItemIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredGelCacheId( argGelCacheId );
 		deleteGelExecutableByGenItemIdx( Authorization, key );
 	}
 
-	public void deleteGelExecutableByGenItemIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelExecutableByGenItemIdxKey argKey )
+	public void deleteGelExecutableByGenItemIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelExecutableByGenItemIdxKey argKey )
 	{
-		CFGenKbGelExecutableBuff cur;
+		YCFGenKbGelExecutableBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelExecutableBuff> matchSet = new LinkedList<CFGenKbGelExecutableBuff>();
-		Iterator<CFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelExecutableBuff> matchSet = new LinkedList<YCFGenKbGelExecutableBuff>();
+		Iterator<YCFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelExecutable().readDerivedByPIdx( Authorization,
@@ -772,22 +772,22 @@ public class CFGenKbRamGelExecutableTable
 		}
 	}
 
-	public void deleteGelExecutableByFirstInstIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelExecutableByFirstInstIdx( YCFGenKbAuthorization Authorization,
 		Long argFirstInstTenantId,
 		Long argFirstInstGelCacheId,
 		Long argFirstInstId )
 	{
-		CFGenKbGelSequenceByFirstInstIdxKey key = schema.getFactoryGelSequence().newFirstInstIdxKey();
+		YCFGenKbGelSequenceByFirstInstIdxKey key = schema.getFactoryGelSequence().newFirstInstIdxKey();
 		key.setOptionalFirstInstTenantId( argFirstInstTenantId );
 		key.setOptionalFirstInstGelCacheId( argFirstInstGelCacheId );
 		key.setOptionalFirstInstId( argFirstInstId );
 		deleteGelExecutableByFirstInstIdx( Authorization, key );
 	}
 
-	public void deleteGelExecutableByFirstInstIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSequenceByFirstInstIdxKey argKey )
+	public void deleteGelExecutableByFirstInstIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSequenceByFirstInstIdxKey argKey )
 	{
-		CFGenKbGelExecutableBuff cur;
+		YCFGenKbGelExecutableBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalFirstInstTenantId() != null ) {
 			anyNotNull = true;
@@ -801,15 +801,15 @@ public class CFGenKbRamGelExecutableTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelExecutableBuff> matchSet = new LinkedList<CFGenKbGelExecutableBuff>();
-		Iterator<CFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelExecutableBuff> matchSet = new LinkedList<YCFGenKbGelExecutableBuff>();
+		Iterator<YCFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelExecutable().readDerivedByPIdx( Authorization,
@@ -820,22 +820,22 @@ public class CFGenKbRamGelExecutableTable
 		}
 	}
 
-	public void deleteGelExecutableByLastInstIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelExecutableByLastInstIdx( YCFGenKbAuthorization Authorization,
 		Long argLastInstTenantId,
 		Long argLastInstGelCacheId,
 		Long argLastInstId )
 	{
-		CFGenKbGelSequenceByLastInstIdxKey key = schema.getFactoryGelSequence().newLastInstIdxKey();
+		YCFGenKbGelSequenceByLastInstIdxKey key = schema.getFactoryGelSequence().newLastInstIdxKey();
 		key.setOptionalLastInstTenantId( argLastInstTenantId );
 		key.setOptionalLastInstGelCacheId( argLastInstGelCacheId );
 		key.setOptionalLastInstId( argLastInstId );
 		deleteGelExecutableByLastInstIdx( Authorization, key );
 	}
 
-	public void deleteGelExecutableByLastInstIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSequenceByLastInstIdxKey argKey )
+	public void deleteGelExecutableByLastInstIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSequenceByLastInstIdxKey argKey )
 	{
-		CFGenKbGelExecutableBuff cur;
+		YCFGenKbGelExecutableBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalLastInstTenantId() != null ) {
 			anyNotNull = true;
@@ -849,15 +849,15 @@ public class CFGenKbRamGelExecutableTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelExecutableBuff> matchSet = new LinkedList<CFGenKbGelExecutableBuff>();
-		Iterator<CFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelExecutableBuff> matchSet = new LinkedList<YCFGenKbGelExecutableBuff>();
+		Iterator<YCFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelExecutable().readDerivedByPIdx( Authorization,
@@ -868,20 +868,20 @@ public class CFGenKbRamGelExecutableTable
 		}
 	}
 
-	public void deleteGelExecutableByPIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelExecutableByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId )
 	{
-		CFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredGelCacheId( argGelCacheId );
 		key.setRequiredGelInstId( argGelInstId );
 		deleteGelExecutableByPIdx( Authorization, key );
 	}
 
-	public void deleteGelExecutableByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey )
+	public void deleteGelExecutableByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -890,16 +890,16 @@ public class CFGenKbRamGelExecutableTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbGelExecutableBuff cur;
-		LinkedList<CFGenKbGelExecutableBuff> matchSet = new LinkedList<CFGenKbGelExecutableBuff>();
-		Iterator<CFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
+		YCFGenKbGelExecutableBuff cur;
+		LinkedList<YCFGenKbGelExecutableBuff> matchSet = new LinkedList<YCFGenKbGelExecutableBuff>();
+		Iterator<YCFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelExecutable().readDerivedByPIdx( Authorization,
@@ -910,32 +910,32 @@ public class CFGenKbRamGelExecutableTable
 		}
 	}
 
-	public void deleteGelExecutableByTenantIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelExecutableByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId )
 	{
-		CFGenKbGelInstructionByTenantIdxKey key = schema.getFactoryGelInstruction().newTenantIdxKey();
+		YCFGenKbGelInstructionByTenantIdxKey key = schema.getFactoryGelInstruction().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteGelExecutableByTenantIdx( Authorization, key );
 	}
 
-	public void deleteGelExecutableByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey )
+	public void deleteGelExecutableByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey )
 	{
-		CFGenKbGelExecutableBuff cur;
+		YCFGenKbGelExecutableBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelExecutableBuff> matchSet = new LinkedList<CFGenKbGelExecutableBuff>();
-		Iterator<CFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelExecutableBuff> matchSet = new LinkedList<YCFGenKbGelExecutableBuff>();
+		Iterator<YCFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelExecutable().readDerivedByPIdx( Authorization,
@@ -946,35 +946,35 @@ public class CFGenKbRamGelExecutableTable
 		}
 	}
 
-	public void deleteGelExecutableByGelCacheIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelExecutableByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId )
 	{
-		CFGenKbGelInstructionByGelCacheIdxKey key = schema.getFactoryGelInstruction().newGelCacheIdxKey();
+		YCFGenKbGelInstructionByGelCacheIdxKey key = schema.getFactoryGelInstruction().newGelCacheIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredGelCacheId( argGelCacheId );
 		deleteGelExecutableByGelCacheIdx( Authorization, key );
 	}
 
-	public void deleteGelExecutableByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey )
+	public void deleteGelExecutableByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey )
 	{
-		CFGenKbGelExecutableBuff cur;
+		YCFGenKbGelExecutableBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelExecutableBuff> matchSet = new LinkedList<CFGenKbGelExecutableBuff>();
-		Iterator<CFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelExecutableBuff> matchSet = new LinkedList<YCFGenKbGelExecutableBuff>();
+		Iterator<YCFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelExecutable().readDerivedByPIdx( Authorization,
@@ -985,22 +985,22 @@ public class CFGenKbRamGelExecutableTable
 		}
 	}
 
-	public void deleteGelExecutableByChainIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelExecutableByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId )
 	{
-		CFGenKbGelInstructionByChainIdxKey key = schema.getFactoryGelInstruction().newChainIdxKey();
+		YCFGenKbGelInstructionByChainIdxKey key = schema.getFactoryGelInstruction().newChainIdxKey();
 		key.setOptionalChainInstTenantId( argChainInstTenantId );
 		key.setOptionalChainInstGelCacheId( argChainInstGelCacheId );
 		key.setOptionalChainInstGelInstId( argChainInstGelInstId );
 		deleteGelExecutableByChainIdx( Authorization, key );
 	}
 
-	public void deleteGelExecutableByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey )
+	public void deleteGelExecutableByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey )
 	{
-		CFGenKbGelExecutableBuff cur;
+		YCFGenKbGelExecutableBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalChainInstTenantId() != null ) {
 			anyNotNull = true;
@@ -1014,15 +1014,15 @@ public class CFGenKbRamGelExecutableTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelExecutableBuff> matchSet = new LinkedList<CFGenKbGelExecutableBuff>();
-		Iterator<CFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelExecutableBuff> matchSet = new LinkedList<YCFGenKbGelExecutableBuff>();
+		Iterator<YCFGenKbGelExecutableBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelExecutableBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelExecutable().readDerivedByPIdx( Authorization,

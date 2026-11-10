@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,47 +23,47 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.ICFGenKbDefClassObj;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.IYCFGenKbDefClassObj;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
 
-public class MSSBamCFIndexColObj
+public class MSSBamYCFIndexColObj
 {
-	public MSSBamCFIndexColObj() {
+	public MSSBamYCFIndexColObj() {
 	}
 
-	protected static ICFBamTableColObj probeForFromColumn( ICFBamTableObj searchTable,
-		ICFBamSchema.RelationTypeEnum relationType,
+	protected static IYCFBamTableColObj probeForFromColumn( IYCFBamTableObj searchTable,
+		IYCFBamSchema.RelationTypeEnum relationType,
 		boolean isNullable,
-		ICFBamValueObj typeSpec )
+		IYCFBamValueObj typeSpec )
 	{
-		ICFBamRelationObj searchSuperRelation = MSSBamCFTableObj.getSuperClassRelation( searchTable );
+		IYCFBamRelationObj searchSuperRelation = MSSBamYCFTableObj.getSuperClassRelation( searchTable );
 		if( searchSuperRelation != null ) {
-			ICFBamTableColObj superValue = probeForFromColumn( searchSuperRelation.getRequiredLookupToTable(),
+			IYCFBamTableColObj superValue = probeForFromColumn( searchSuperRelation.getRequiredLookupToTable(),
 				relationType,
 				isNullable,
 				typeSpec );
@@ -72,13 +72,13 @@ public class MSSBamCFIndexColObj
 			}
 		}
 
-		ICFBamRelationObj relation;
-		ICFBamRelationColObj relationCol;
-		ICFBamIndexColObj fromCol;
-		ICFBamValueObj dataCol;
-		ICFBamTableColObj fromTableCol;
-		Iterator<ICFBamRelationObj> iterRelations = searchTable.getOptionalComponentsRelation().iterator();
-		Iterator<ICFBamRelationColObj> iterRelationColumns;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationColObj relationCol;
+		IYCFBamIndexColObj fromCol;
+		IYCFBamValueObj dataCol;
+		IYCFBamTableColObj fromTableCol;
+		Iterator<IYCFBamRelationObj> iterRelations = searchTable.getOptionalComponentsRelation().iterator();
+		Iterator<IYCFBamRelationColObj> iterRelationColumns;
 
 		while( iterRelations.hasNext() ) {
 			relation = iterRelations.next();
@@ -88,8 +88,8 @@ public class MSSBamCFIndexColObj
 					relationCol = iterRelationColumns.next();
 					fromCol = relationCol.getRequiredLookupFromCol();
 					dataCol = fromCol.getRequiredLookupColumn();
-					if( dataCol instanceof ICFBamTableColObj ) {
-						fromTableCol = (ICFBamTableColObj)dataCol;
+					if( dataCol instanceof IYCFBamTableColObj ) {
+						fromTableCol = (IYCFBamTableColObj)dataCol;
 						if( fromTableCol.getRequiredIsNullable() == isNullable ) {
 							if( fromTableCol.getRequiredParentDataType() == typeSpec ) {
 								return( fromTableCol );
@@ -103,14 +103,14 @@ public class MSSBamCFIndexColObj
 		return( null );
 	}
 
-	protected static ICFBamTableColObj probeForFromColumn( ICFBamTableObj searchTable,
+	protected static IYCFBamTableColObj probeForFromColumn( IYCFBamTableObj searchTable,
 		String relationTypeName,
 		boolean isNullable,
-		ICFBamValueObj typeSpec )
+		IYCFBamValueObj typeSpec )
 	{
-		ICFBamSchema.RelationTypeEnum relationType = CFBamSchema.parseRelationTypeEnum( relationTypeName ); 
+		IYCFBamSchema.RelationTypeEnum relationType = YCFBamSchema.parseRelationTypeEnum( relationTypeName ); 
 		if( relationType == null ) {
-			throw new CFLibNullArgumentException( CFBamIndexColObj.class,
+			throw new YCFLibNullArgumentException( YCFBamIndexColObj.class,
 				"probeForFromColumn",
 				1,
 				"Resolution of RelationType " + relationTypeName );
@@ -118,11 +118,11 @@ public class MSSBamCFIndexColObj
 		return( probeForFromColumn( searchTable, relationType, isNullable, typeSpec ) );
 	}
 
-	public static ICFBamValueObj getWidestLookupColumn( ICFBamIndexColObj targetIndexCol, MSSBamCFGenContext genContext )
+	public static IYCFBamValueObj getWidestLookupColumn( IYCFBamIndexColObj targetIndexCol, MSSBamYCFGenContext genContext )
 	{
-		final String S_ProcName = "CFBamIndexColObj.getWidestLookupColumn() ";
+		final String S_ProcName = "YCFBamIndexColObj.getWidestLookupColumn() ";
 
-		MssCFEngine genEngine = genContext.getGenEngine();
+		MssYCFEngine genEngine = genContext.getGenEngine();
 
 		/*
 		 *	In order to implement the named lookups, what I need
@@ -155,11 +155,11 @@ public class MSSBamCFIndexColObj
 
 		// Determine the target column type
 
-		ICFBamValueObj targetColumn = targetIndexCol.getRequiredLookupColumn();
+		IYCFBamValueObj targetColumn = targetIndexCol.getRequiredLookupColumn();
 
-		ICFBamValueObj typeSpec;
-		if( targetColumn instanceof ICFBamTableColObj ) {
-			typeSpec = ((ICFBamTableColObj)targetColumn).getRequiredParentDataType();
+		IYCFBamValueObj typeSpec;
+		if( targetColumn instanceof IYCFBamTableColObj ) {
+			typeSpec = ((IYCFBamTableColObj)targetColumn).getRequiredParentDataType();
 		}
 		else {
 			genEngine.getLog().message( S_ProcName + "Can only resolve TableCol columns, not "
@@ -171,24 +171,24 @@ public class MSSBamCFIndexColObj
 		// Emulate a "poptop Table" to get the table to be searched
 
 		String goalTypeName = "Table";
-		ICFGenKbDefClassObj goalType = genEngine.getDefClassTableObj().readDefClassByNameIdx(goalTypeName);
+		IYCFGenKbDefClassObj goalType = genEngine.getDefClassTableObj().readDefClassByNameIdx(goalTypeName);
 		if( goalType == null ) {
 			genEngine.getLog().message( S_ProcName + "Could not find goal class \"" + goalTypeName + "\""
 				+ "\" is invalid" );
 			return( null );
 		}
 
-		ICFGenKbDefClassObj	objectDefType = genEngine.getDefClassTableObj().readDefClassByNameIdx( "Object" );
+		IYCFGenKbDefClassObj	objectDefType = genEngine.getDefClassTableObj().readDefClassByNameIdx( "Object" );
 		if( objectDefType == null ) {
 			genEngine.getLog().message( S_ProcName + "Could not find object type \"Object\". \"" );
 			return( null );
 		}
 
-		MSSBamCFGenContext goalContext = genContext;
-		MSSBamCFGenContext prevContext;
-		MSSBamCFGenContext topContext = null;
+		MSSBamYCFGenContext goalContext = genContext;
+		MSSBamYCFGenContext prevContext;
+		MSSBamYCFGenContext topContext = null;
 		String searchTypeName;
-		ICFGenKbDefClassObj searchType;
+		IYCFGenKbDefClassObj searchType;
 
 		while (goalContext != null) {
 			searchTypeName = goalContext.getRequiredLookupGenDef().getRequiredName();
@@ -212,7 +212,7 @@ public class MSSBamCFIndexColObj
 				topContext = goalContext;
 			}
 
-			prevContext = (MSSBamCFGenContext)goalContext.getPrevContext();
+			prevContext = (MSSBamYCFGenContext)goalContext.getPrevContext();
 			if (prevContext != goalContext) {
 				goalContext = prevContext;
 			}
@@ -226,10 +226,10 @@ public class MSSBamCFIndexColObj
 			return (null);
 		}
 
-		ICFBamTableObj searchTable;
-		ICFLibAnyObj refDef = topContext.getGenDef();
-		if( refDef instanceof ICFBamTableObj ) {
-			searchTable = (ICFBamTableObj)refDef;
+		IYCFBamTableObj searchTable;
+		IYCFLibAnyObj refDef = topContext.getGenDef();
+		if( refDef instanceof IYCFBamTableObj ) {
+			searchTable = (IYCFBamTableObj)refDef;
 		}
 		else {
 			genEngine.getLog().message( S_ProcName + "Top context says it has a definition derived from \"" + goalTypeName + "\", but returned an "
@@ -247,7 +247,7 @@ public class MSSBamCFIndexColObj
 		// If not found, search for the shallowest optional Lookup attribute derived from the specified data type
 		// If not found, barf
 
-		ICFBamTableColObj matchingTableCol = probeForFromColumn( searchTable, "Owner", false, typeSpec );
+		IYCFBamTableColObj matchingTableCol = probeForFromColumn( searchTable, "Owner", false, typeSpec );
 		if( matchingTableCol != null ) {
 			return( matchingTableCol );
 		}

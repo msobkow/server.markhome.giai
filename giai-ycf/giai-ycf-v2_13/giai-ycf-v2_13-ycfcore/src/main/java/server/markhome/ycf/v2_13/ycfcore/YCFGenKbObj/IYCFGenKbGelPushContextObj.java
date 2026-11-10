@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelPushContext.
+// Description: Java 11 Object interface for YCFGenKb GelPushContext.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,45 +27,45 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGelPushContextObj
-	extends ICFGenKbGelInstructionObj
+public interface IYCFGenKbGelPushContextObj
+	extends IYCFGenKbGelInstructionObj
 {
 	/**
-	 *	Get the current edition of this GelPushContext instance as a ICFGenKbGelPushContextEditObj.
+	 *	Get the current edition of this GelPushContext instance as a IYCFGenKbGelPushContextEditObj.
 	 *
-	 *	@return	The ICFGenKbGelPushContextEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelPushContextEditObj edition of this instance.
 	 */
-	ICFGenKbGelPushContextEditObj getEditAsGelPushContext();
+	IYCFGenKbGelPushContextEditObj getEditAsGelPushContext();
 
 	/**
-	 *	Get the ICFGenKbGelPushContextTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelPushContextTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelPushContextTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelPushContextTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelPushContextTableObj getGelPushContextTable();
+	IYCFGenKbGelPushContextTableObj getGelPushContextTable();
 
 	/**
-	 *	Get the CFGenKbGelPushContextBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelPushContextBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelPushContextBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelPushContextBuff instance which currently backs this object.
 	 */
-	CFGenKbGelPushContextBuff getGelPushContextBuff();
+	YCFGenKbGelPushContextBuff getGelPushContextBuff();
 
 	/**
 	 *	Get the required String attribute GoalTypeName.
@@ -96,17 +96,17 @@ public interface ICFGenKbGelPushContextObj
 	Long getOptionalRemainderInstId();
 
 	/**
-	 *	Get the optional ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	Get the optional IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 *
-	 *	@return	The optional ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	@return	The optional IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 */
-	ICFGenKbGelInstructionObj getOptionalLookupRemainder();
+	IYCFGenKbGelInstructionObj getOptionalLookupRemainder();
 
 	/**
-	 *	Get the optional ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	Get the optional IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 *
-	 *	@return	The optional ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	@return	The optional IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 */
-	ICFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead );
+	IYCFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead );
 
 }

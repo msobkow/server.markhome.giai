@@ -1,17 +1,17 @@
-// Description: Java 11 base object instance implementation for CFBam DelDep.
+// Description: Java 11 base object instance implementation for YCFBam DelDep.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,35 +45,35 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamDelDepObj
-	extends CFBamScopeObj
-	implements ICFBamDelDepObj
+public class YCFBamDelDepObj
+	extends YCFBamScopeObj
+	implements IYCFBamDelDepObj
 {
 	public final static String CLASS_CODE = "a81a";
-	protected ICFBamRelationObj requiredLookupRelation;
-	protected ICFBamSchemaDefObj optionalLookupDefSchema;
+	protected IYCFBamRelationObj requiredLookupRelation;
+	protected IYCFBamSchemaDefObj optionalLookupDefSchema;
 
-	public CFBamDelDepObj() {
+	public YCFBamDelDepObj() {
 		super();
 		requiredLookupRelation = null;
 		optionalLookupDefSchema = null;
 	}
 
-	public CFBamDelDepObj( ICFBamSchemaObj argSchema ) {
+	public YCFBamDelDepObj( IYCFBamSchemaObj argSchema ) {
 		super( argSchema );
 		requiredLookupRelation = null;
 		optionalLookupDefSchema = null;
@@ -94,14 +94,14 @@ public class CFBamDelDepObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -112,10 +112,10 @@ public class CFBamDelDepObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -124,11 +124,11 @@ public class CFBamDelDepObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -152,16 +152,16 @@ public class CFBamDelDepObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -173,40 +173,40 @@ public class CFBamDelDepObj
 		return( qualName );
 	}
 
-	public ICFBamScopeObj realise() {
-		ICFBamDelDepObj retobj = ((ICFBamSchemaObj)schema).getDelDepTableObj().realiseDelDep(
-			(ICFBamDelDepObj)this );
-		return( (ICFBamScopeObj)retobj );
+	public IYCFBamScopeObj realise() {
+		IYCFBamDelDepObj retobj = ((IYCFBamSchemaObj)schema).getDelDepTableObj().realiseDelDep(
+			(IYCFBamDelDepObj)this );
+		return( (IYCFBamScopeObj)retobj );
 	}
 
 	public void forget() {
-		((ICFBamSchemaObj)schema).getDelDepTableObj().reallyDeepDisposeDelDep( (ICFBamDelDepObj)this );
+		((IYCFBamSchemaObj)schema).getDelDepTableObj().reallyDeepDisposeDelDep( (IYCFBamDelDepObj)this );
 	}
 
-	public ICFBamScopeObj read() {
-		ICFBamDelDepObj retobj = ((ICFBamSchemaObj)schema).getDelDepTableObj().readDelDepByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFBamScopeObj read() {
+		IYCFBamDelDepObj retobj = ((IYCFBamSchemaObj)schema).getDelDepTableObj().readDelDepByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), false );
-		return( (ICFBamScopeObj)retobj );
+		return( (IYCFBamScopeObj)retobj );
 	}
 
-	public ICFBamScopeObj read( boolean forceRead ) {
-		ICFBamDelDepObj retobj = ((ICFBamSchemaObj)schema).getDelDepTableObj().readDelDepByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFBamScopeObj read( boolean forceRead ) {
+		IYCFBamDelDepObj retobj = ((IYCFBamSchemaObj)schema).getDelDepTableObj().readDelDepByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), forceRead );
-		return( (ICFBamScopeObj)retobj );
+		return( (IYCFBamScopeObj)retobj );
 	}
 
-	public ICFBamDelDepTableObj getDelDepTable() {
-		return( ((ICFBamSchemaObj)schema).getDelDepTableObj() );
+	public IYCFBamDelDepTableObj getDelDepTable() {
+		return( ((IYCFBamSchemaObj)schema).getDelDepTableObj() );
 	}
 
-	public CFBamScopeBuff getBuff() {
+	public YCFBamScopeBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFBamSchema)schema.getBackingStore()).getFactoryDelDep().newBuff();
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getFactoryDelDep().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFBamSchema)schema.getBackingStore()).getTableDelDep().readDerivedByIdIdx( ((ICFBamSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getTableDelDep().readDerivedByIdIdx( ((IYCFBamSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredId() );
 				if( buff != null ) {
@@ -217,13 +217,13 @@ public class CFBamDelDepObj
 		return( buff );
 	}
 
-	public void setBuff( CFBamScopeBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFBamDelDepBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFBamScopeBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFBamDelDepBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFBamDelDepBuff" );
+				"YCFBamDelDepBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -232,33 +232,33 @@ public class CFBamDelDepObj
 		optionalLookupDefSchema = null;
 	}
 
-	public CFBamDelDepBuff getDelDepBuff() {
-		return( (CFBamDelDepBuff)getBuff() );
+	public YCFBamDelDepBuff getDelDepBuff() {
+		return( (YCFBamDelDepBuff)getBuff() );
 	}
 
-	public ICFBamScopeEditObj beginEdit() {
+	public IYCFBamScopeEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFBamDelDepObj lockobj;
+		IYCFBamDelDepObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFBamDelDepObj)this;
+			lockobj = (IYCFBamDelDepObj)this;
 		}
 		else {
-			lockobj = ((ICFBamSchemaObj)schema).getDelDepTableObj().lockDelDep( getPKey() );
+			lockobj = ((IYCFBamSchemaObj)schema).getDelDepTableObj().lockDelDep( getPKey() );
 		}
-		edit = ((ICFBamSchemaObj)schema).getDelDepTableObj().newEditInstance( lockobj );
-		return( (ICFBamScopeEditObj)edit );
+		edit = ((IYCFBamSchemaObj)schema).getDelDepTableObj().newEditInstance( lockobj );
+		return( (IYCFBamScopeEditObj)edit );
 	}
 
-	public ICFBamDelDepEditObj getEditAsDelDep() {
-		return( (ICFBamDelDepEditObj)edit );
+	public IYCFBamDelDepEditObj getEditAsDelDep() {
+		return( (IYCFBamDelDepEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFBamScopeBuff buff = getBuff();
-			createdBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFBamScopeBuff buff = getBuff();
+			createdBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -267,10 +267,10 @@ public class CFBamDelDepObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFBamScopeBuff buff = getBuff();
-			updatedBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFBamScopeBuff buff = getBuff();
+			updatedBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -295,26 +295,26 @@ public class CFBamDelDepObj
 		return( getDelDepBuff().getRequiredRelationId() );
 	}
 
-	public ICFBamRelationObj getRequiredLookupRelation() {
+	public IYCFBamRelationObj getRequiredLookupRelation() {
 		return( getRequiredLookupRelation( false ) );
 	}
 
-	public ICFBamRelationObj getRequiredLookupRelation( boolean forceRead ) {
+	public IYCFBamRelationObj getRequiredLookupRelation( boolean forceRead ) {
 		if( ( requiredLookupRelation == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredLookupRelation = ((ICFBamSchemaObj)schema).getRelationTableObj().readRelationByIdIdx( getDelDepBuff().getRequiredRelationTenantId(),
+				requiredLookupRelation = ((IYCFBamSchemaObj)schema).getRelationTableObj().readRelationByIdIdx( getDelDepBuff().getRequiredRelationTenantId(),
 					getDelDepBuff().getRequiredRelationId(), forceRead );
 			}
 		}
 		return( requiredLookupRelation );
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema() {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema() {
 		return( getOptionalLookupDefSchema( false ) );
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
 		if( ( optionalLookupDefSchema == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getDelDepBuff().getOptionalDefSchemaTenantId() == null ) {
@@ -324,7 +324,7 @@ public class CFBamDelDepObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalLookupDefSchema = ((ICFBamSchemaObj)schema).getSchemaDefTableObj().readSchemaDefByIdIdx( getDelDepBuff().getOptionalDefSchemaTenantId(),
+				optionalLookupDefSchema = ((IYCFBamSchemaObj)schema).getSchemaDefTableObj().readSchemaDefByIdIdx( getDelDepBuff().getOptionalDefSchemaTenantId(),
 					getDelDepBuff().getOptionalDefSchemaId(), forceRead );
 			}
 		}

@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelPushContextTableObj
+public interface IYCFGenKbGelPushContextTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelPushContextTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelPushContextObj newInstance();
+	IYCFGenKbGelPushContextObj newInstance();
 
 	/**
 	 *	Instantiate a new GelPushContext edition of the specified GelPushContext instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelPushContextEditObj newEditInstance( ICFGenKbGelPushContextObj orig );
+	IYCFGenKbGelPushContextEditObj newEditInstance( IYCFGenKbGelPushContextObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPushContextObj realiseGelPushContext( ICFGenKbGelPushContextObj Obj );
+	IYCFGenKbGelPushContextObj realiseGelPushContext( IYCFGenKbGelPushContextObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPushContextObj createGelPushContext( ICFGenKbGelPushContextObj Obj );
+	IYCFGenKbGelPushContextObj createGelPushContext( IYCFGenKbGelPushContextObj Obj );
 
 	/**
 	 *	Read a GelPushContext-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelPushContextTableObj
 	 *	@return	The GelPushContext-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelPushContextObj readGelPushContext( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelPushContextObj readGelPushContext( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelPushContext-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelPushContextTableObj
 	 *	@return	The GelPushContext-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelPushContextObj readGelPushContext( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelPushContextObj readGelPushContext( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelPushContextObj readCachedGelPushContext( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelPushContextObj readCachedGelPushContext( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelPushContext( ICFGenKbGelPushContextObj obj );
+	public void reallyDeepDisposeGelPushContext( IYCFGenKbGelPushContextObj obj );
 
-	void deepDisposeGelPushContext( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelPushContext( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPushContextObj lockGelPushContext( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelPushContextObj lockGelPushContext( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelPushContext-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelPushContextObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelPushContextObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readAllGelPushContext();
+	List<IYCFGenKbGelPushContextObj> readAllGelPushContext();
 
 	/**
 	 *	Return a sorted map of all the GelPushContext-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelPushContextObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelPushContextObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readAllGelPushContext( boolean forceRead );
+	List<IYCFGenKbGelPushContextObj> readAllGelPushContext( boolean forceRead );
 
-	List<ICFGenKbGelPushContextObj> readCachedAllGelPushContext();
+	List<IYCFGenKbGelPushContextObj> readCachedAllGelPushContext();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelPushContextTableObj
 	 *
 	 *	@param	argGelInstId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelPushContextObj readGelPushContextByPIdx( long TenantId,
+	IYCFGenKbGelPushContextObj readGelPushContextByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelPushContextTableObj
 	 *
 	 *	@param	argGelInstId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelPushContextObj readGelPushContextByPIdx( long TenantId,
+	IYCFGenKbGelPushContextObj readGelPushContextByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readGelPushContextByTenantIdx( long TenantId );
+	List<IYCFGenKbGelPushContextObj> readGelPushContextByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readGelPushContextByTenantIdx( long TenantId,
+	List<IYCFGenKbGelPushContextObj> readGelPushContextByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readGelPushContextByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelPushContextObj> readGelPushContextByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readGelPushContextByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelPushContextObj> readGelPushContextByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelPushContextTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readGelPushContextByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelPushContextObj> readGelPushContextByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
@@ -229,16 +229,16 @@ public interface ICFGenKbGelPushContextTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readGelPushContextByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelPushContextObj> readGelPushContextByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
@@ -246,15 +246,15 @@ public interface ICFGenKbGelPushContextTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readGelPushContextByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelPushContextObj> readGelPushContextByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelPushContextObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelPushContext key attribute of the instance generating the id.
 	 *
@@ -262,28 +262,28 @@ public interface ICFGenKbGelPushContextTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelPushContext key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelPushContextObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPushContextObj> readGelPushContextByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelPushContextObj> readGelPushContextByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId,
 		boolean forceRead );
 
-	ICFGenKbGelPushContextObj readCachedGelPushContextByPIdx( long TenantId,
+	IYCFGenKbGelPushContextObj readCachedGelPushContextByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelPushContextObj> readCachedGelPushContextByTenantIdx( long TenantId );
+	List<IYCFGenKbGelPushContextObj> readCachedGelPushContextByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelPushContextObj> readCachedGelPushContextByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelPushContextObj> readCachedGelPushContextByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelPushContextObj> readCachedGelPushContextByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelPushContextObj> readCachedGelPushContextByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
-	List<ICFGenKbGelPushContextObj> readCachedGelPushContextByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelPushContextObj> readCachedGelPushContextByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
@@ -307,12 +307,12 @@ public interface ICFGenKbGelPushContextTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPushContextObj updateGelPushContext( ICFGenKbGelPushContextObj Obj );
+	IYCFGenKbGelPushContextObj updateGelPushContext( IYCFGenKbGelPushContextObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelPushContext( ICFGenKbGelPushContextObj Obj );
+	void deleteGelPushContext( IYCFGenKbGelPushContextObj Obj );
 
 	/**
 	 *	Internal use only.

@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOCcyTableObj
+public interface IYCFSecISOCcyTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecISOCcyTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecISOCcyObj newInstance();
+	IYCFSecISOCcyObj newInstance();
 
 	/**
 	 *	Instantiate a new ISOCcy edition of the specified ISOCcy instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecISOCcyEditObj newEditInstance( ICFSecISOCcyObj orig );
+	IYCFSecISOCcyEditObj newEditInstance( IYCFSecISOCcyObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCcyObj realiseISOCcy( ICFSecISOCcyObj Obj );
+	IYCFSecISOCcyObj realiseISOCcy( IYCFSecISOCcyObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCcyObj createISOCcy( ICFSecISOCcyObj Obj );
+	IYCFSecISOCcyObj createISOCcy( IYCFSecISOCcyObj Obj );
 
 	/**
 	 *	Read a ISOCcy-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecISOCcyTableObj
 	 *	@return	The ISOCcy-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOCcyObj readISOCcy( CFSecISOCcyPKey pkey );
+	IYCFSecISOCcyObj readISOCcy( YCFSecISOCcyPKey pkey );
 
 	/**
 	 *	Read a ISOCcy-derived instance by it's primary key.
@@ -90,106 +90,106 @@ public interface ICFSecISOCcyTableObj
 	 *	@return	The ISOCcy-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOCcyObj readISOCcy( CFSecISOCcyPKey pkey,
+	IYCFSecISOCcyObj readISOCcy( YCFSecISOCcyPKey pkey,
 		boolean forceRead );
 
-	ICFSecISOCcyObj readCachedISOCcy( CFSecISOCcyPKey pkey );
+	IYCFSecISOCcyObj readCachedISOCcy( YCFSecISOCcyPKey pkey );
 
-	public void reallyDeepDisposeISOCcy( ICFSecISOCcyObj obj );
+	public void reallyDeepDisposeISOCcy( IYCFSecISOCcyObj obj );
 
-	void deepDisposeISOCcy( CFSecISOCcyPKey pkey );
+	void deepDisposeISOCcy( YCFSecISOCcyPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCcyObj lockISOCcy( CFSecISOCcyPKey pkey );
+	IYCFSecISOCcyObj lockISOCcy( YCFSecISOCcyPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ISOCcy-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOCcyObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOCcyObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOCcyObj> readAllISOCcy();
+	List<IYCFSecISOCcyObj> readAllISOCcy();
 
 	/**
 	 *	Return a sorted map of all the ISOCcy-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOCcyObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOCcyObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOCcyObj> readAllISOCcy( boolean forceRead );
+	List<IYCFSecISOCcyObj> readAllISOCcy( boolean forceRead );
 
-	List<ICFSecISOCcyObj> readCachedAllISOCcy();
+	List<IYCFSecISOCcyObj> readCachedAllISOCcy();
 
 	/**
-	 *	Get the CFSecISOCcyObj instance for the primary key attributes.
+	 *	Get the YCFSecISOCcyObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOCcyId	The ISOCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCcyObj cached instance for the primary key, or
+	 *	@return	YCFSecISOCcyObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCcyObj readISOCcyByIdIdx( short ISOCcyId );
+	IYCFSecISOCcyObj readISOCcyByIdIdx( short ISOCcyId );
 
 	/**
-	 *	Get the CFSecISOCcyObj instance for the primary key attributes.
+	 *	Get the YCFSecISOCcyObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOCcyId	The ISOCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCcyObj refreshed instance for the primary key, or
+	 *	@return	YCFSecISOCcyObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCcyObj readISOCcyByIdIdx( short ISOCcyId,
+	IYCFSecISOCcyObj readISOCcyByIdIdx( short ISOCcyId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecISOCcyObj instance for the unique CcyCdIdx key.
+	 *	Get the YCFSecISOCcyObj instance for the unique CcyCdIdx key.
 	 *
 	 *	@param	argISOCode	The ISOCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCcyObj cached instance for the unique CcyCdIdx key, or
+	 *	@return	YCFSecISOCcyObj cached instance for the unique CcyCdIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCcyObj readISOCcyByCcyCdIdx(String ISOCode );
+	IYCFSecISOCcyObj readISOCcyByCcyCdIdx(String ISOCode );
 
 	/**
-	 *	Get the CFSecISOCcyObj instance for the unique CcyCdIdx key.
+	 *	Get the YCFSecISOCcyObj instance for the unique CcyCdIdx key.
 	 *
 	 *	@param	argISOCode	The ISOCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCcyObj refreshed instance for the unique CcyCdIdx key, or
+	 *	@return	YCFSecISOCcyObj refreshed instance for the unique CcyCdIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCcyObj readISOCcyByCcyCdIdx(String ISOCode,
+	IYCFSecISOCcyObj readISOCcyByCcyCdIdx(String ISOCode,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecISOCcyObj instance for the unique CcyNmIdx key.
+	 *	Get the YCFSecISOCcyObj instance for the unique CcyNmIdx key.
 	 *
 	 *	@param	argName	The ISOCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCcyObj cached instance for the unique CcyNmIdx key, or
+	 *	@return	YCFSecISOCcyObj cached instance for the unique CcyNmIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCcyObj readISOCcyByCcyNmIdx(String Name );
+	IYCFSecISOCcyObj readISOCcyByCcyNmIdx(String Name );
 
 	/**
-	 *	Get the CFSecISOCcyObj instance for the unique CcyNmIdx key.
+	 *	Get the YCFSecISOCcyObj instance for the unique CcyNmIdx key.
 	 *
 	 *	@param	argName	The ISOCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCcyObj refreshed instance for the unique CcyNmIdx key, or
+	 *	@return	YCFSecISOCcyObj refreshed instance for the unique CcyNmIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCcyObj readISOCcyByCcyNmIdx(String Name,
+	IYCFSecISOCcyObj readISOCcyByCcyNmIdx(String Name,
 		boolean forceRead );
 
-	ICFSecISOCcyObj readCachedISOCcyByIdIdx( short ISOCcyId );
+	IYCFSecISOCcyObj readCachedISOCcyByIdIdx( short ISOCcyId );
 
-	ICFSecISOCcyObj readCachedISOCcyByCcyCdIdx( String ISOCode );
+	IYCFSecISOCcyObj readCachedISOCcyByCcyCdIdx( String ISOCode );
 
-	ICFSecISOCcyObj readCachedISOCcyByCcyNmIdx( String Name );
+	IYCFSecISOCcyObj readCachedISOCcyByCcyNmIdx( String Name );
 
 	void deepDisposeISOCcyByIdIdx( short ISOCcyId );
 
@@ -200,12 +200,12 @@ public interface ICFSecISOCcyTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCcyObj updateISOCcy( ICFSecISOCcyObj Obj );
+	IYCFSecISOCcyObj updateISOCcy( IYCFSecISOCcyObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteISOCcy( ICFSecISOCcyObj Obj );
+	void deleteISOCcy( IYCFSecISOCcyObj Obj );
 
 	/**
 	 *	Internal use only.

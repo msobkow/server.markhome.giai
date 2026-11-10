@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a URLProtocol by IsSecureIdx index key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,17 +36,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntURLProtocolByIsSecureIdxKey
+public class YCFIntURLProtocolByIsSecureIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected boolean requiredIsSecure;
-	public CFIntURLProtocolByIsSecureIdxKey() {
-		requiredIsSecure = CFIntURLProtocolBuff.ISSECURE_INIT_VALUE;
+	public YCFIntURLProtocolByIsSecureIdxKey() {
+		requiredIsSecure = YCFIntURLProtocolBuff.ISSECURE_INIT_VALUE;
 	}
 
 	public boolean getRequiredIsSecure() {
@@ -61,15 +61,15 @@ public class CFIntURLProtocolByIsSecureIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntURLProtocolByIsSecureIdxKey ) {
-			CFIntURLProtocolByIsSecureIdxKey rhs = (CFIntURLProtocolByIsSecureIdxKey)obj;
+		else if( obj instanceof YCFIntURLProtocolByIsSecureIdxKey ) {
+			YCFIntURLProtocolByIsSecureIdxKey rhs = (YCFIntURLProtocolByIsSecureIdxKey)obj;
 			if( getRequiredIsSecure() != rhs.getRequiredIsSecure() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolBuff ) {
-			CFIntURLProtocolBuff rhs = (CFIntURLProtocolBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolBuff ) {
+			YCFIntURLProtocolBuff rhs = (YCFIntURLProtocolBuff)obj;
 			if( getRequiredIsSecure() != rhs.getRequiredIsSecure() ) {
 				return( false );
 			}
@@ -95,8 +95,8 @@ public class CFIntURLProtocolByIsSecureIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFIntURLProtocolByIsSecureIdxKey ) {
-			CFIntURLProtocolByIsSecureIdxKey rhs = (CFIntURLProtocolByIsSecureIdxKey)obj;
+		else if( obj instanceof YCFIntURLProtocolByIsSecureIdxKey ) {
+			YCFIntURLProtocolByIsSecureIdxKey rhs = (YCFIntURLProtocolByIsSecureIdxKey)obj;
 			if( getRequiredIsSecure() ) {
 				if( ! rhs.getRequiredIsSecure() ) {
 					return( 1 );
@@ -109,8 +109,8 @@ public class CFIntURLProtocolByIsSecureIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolBuff ) {
-			CFIntURLProtocolBuff rhs = (CFIntURLProtocolBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolBuff ) {
+			YCFIntURLProtocolBuff rhs = (YCFIntURLProtocolBuff)obj;
 			if( getRequiredIsSecure() ) {
 				if( ! rhs.getRequiredIsSecure() ) {
 					return( 1 );
@@ -124,7 +124,7 @@ public class CFIntURLProtocolByIsSecureIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -133,7 +133,7 @@ public class CFIntURLProtocolByIsSecureIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFIntURLProtocolByIsSecureIdx"
+		String ret = "<YCFIntURLProtocolByIsSecureIdx"
 			+ " RequiredIsSecure=" + (( getRequiredIsSecure() ) ? "\"true\"" : "\"false\"" )
 			+ "/>";
 		return( ret );

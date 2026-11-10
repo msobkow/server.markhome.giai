@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,17 +21,17 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.text.*;
 
 import javafx.geometry.Pos;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFInt64Editor
-extends CFFormattedTextField
+public class YCFInt64Editor
+extends YCFFormattedTextField
 {
 	protected static Format defaultFormat = null;
 	protected long minValue = -9223372036854775808L;
@@ -59,7 +59,7 @@ extends CFFormattedTextField
 		return( defaultFormat );
 	}
 
-	public CFInt64Editor() {
+	public YCFInt64Editor() {
 		setAlignment( Pos.CENTER_RIGHT );
 		setMinWidth( 210 );
 		setPrefWidth( 210 );
@@ -105,14 +105,14 @@ extends CFFormattedTextField
 		else {
 			Long v = Long.valueOf( text );
 			if( v == null ) {
-				throw new CFLibInvalidArgumentException( fieldName,
+				throw new YCFLibInvalidArgumentException( fieldName,
 						S_ProcName,
 						0,
 						"text",
 						text );
 			}
 			if( v.compareTo( minValue ) < 0 ) {
-				throw new CFLibArgumentUnderflowException( fieldName,
+				throw new YCFLibArgumentUnderflowException( fieldName,
 						S_ProcName,
 						1,
 						fieldName,
@@ -120,7 +120,7 @@ extends CFFormattedTextField
 						minValue );
 			}
 			if( v.compareTo( maxValue ) > 0 ) {
-				throw new CFLibArgumentOverflowException( fieldName,
+				throw new YCFLibArgumentOverflowException( fieldName,
 						S_ProcName,
 						1,
 						fieldName,

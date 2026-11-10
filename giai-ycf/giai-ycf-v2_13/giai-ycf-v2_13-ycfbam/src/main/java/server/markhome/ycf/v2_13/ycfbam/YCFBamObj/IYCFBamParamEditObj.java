@@ -1,17 +1,17 @@
-// Description: Java 11 Instance Edit Object interface for CFBam Param.
+// Description: Java 11 Instance Edit Object interface for YCFBam Param.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,36 +45,36 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamParamEditObj
-	extends ICFBamParamObj
+public interface IYCFBamParamEditObj
+	extends IYCFBamParamObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFBamParamObj.
+	 *	@return The original, non-modifiable instance as a base IYCFBamParamObj.
 	 */
-	ICFBamParamObj getOrig();
+	IYCFBamParamObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFBamParamObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFBamParamObj.
 	 */
-	ICFBamParamObj getOrigAsParam();
+	IYCFBamParamObj getOrigAsParam();
 
 	/*
 	 *	create() may return a different instance than the
@@ -85,17 +85,17 @@ public interface ICFBamParamEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFBamParamObj create();
+	IYCFBamParamObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFBamParamEditObj update();
+	YCFBamParamEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFBamParamEditObj deleteInstance();
+	YCFBamParamEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -154,95 +154,95 @@ public interface ICFBamParamEditObj
 	void setRequiredIsNullable( boolean value );
 
 	/**
-	 *	Get the ICFBamServerMethodObj instance referenced by the ServerMeth key.
+	 *	Get the IYCFBamServerMethodObj instance referenced by the ServerMeth key.
 	 *
-	 *	@return	The ICFBamServerMethodObj instance referenced by the ServerMeth key.
+	 *	@return	The IYCFBamServerMethodObj instance referenced by the ServerMeth key.
 	 */
-	ICFBamServerMethodObj getRequiredContainerServerMeth();
+	IYCFBamServerMethodObj getRequiredContainerServerMeth();
 
 	/**
-	 *	Set the ICFBamServerMethodObj instance referenced by the ServerMeth key.
+	 *	Set the IYCFBamServerMethodObj instance referenced by the ServerMeth key.
 	 *
-	 *	@param	value	the ICFBamServerMethodObj instance to be referenced by the ServerMeth key.
+	 *	@param	value	the IYCFBamServerMethodObj instance to be referenced by the ServerMeth key.
 	 */
-	void setRequiredContainerServerMeth( ICFBamServerMethodObj value );
+	void setRequiredContainerServerMeth( IYCFBamServerMethodObj value );
 
 	/**
-	 *	Get the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Set the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFSecTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFSecTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredOwnerTenant( ICFSecTenantObj value );
+	void setRequiredOwnerTenant( IYCFSecTenantObj value );
 
 	/**
-	 *	Get the ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Get the IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@return	The ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	@return	The IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupDefSchema();
+	IYCFBamSchemaDefObj getOptionalLookupDefSchema();
 
 	/**
-	 *	Set the ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Set the IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@param	value	the ICFBamSchemaDefObj instance to be referenced by the DefSchema key.
+	 *	@param	value	the IYCFBamSchemaDefObj instance to be referenced by the DefSchema key.
 	 */
-	void setOptionalLookupDefSchema( ICFBamSchemaDefObj value );
+	void setOptionalLookupDefSchema( IYCFBamSchemaDefObj value );
 
 	/**
-	 *	Get the ICFBamParamObj instance referenced by the Prev key.
+	 *	Get the IYCFBamParamObj instance referenced by the Prev key.
 	 *
-	 *	@return	The ICFBamParamObj instance referenced by the Prev key.
+	 *	@return	The IYCFBamParamObj instance referenced by the Prev key.
 	 */
-	ICFBamParamObj getOptionalLookupPrev();
+	IYCFBamParamObj getOptionalLookupPrev();
 
 	/**
-	 *	Set the ICFBamParamObj instance referenced by the Prev key.
+	 *	Set the IYCFBamParamObj instance referenced by the Prev key.
 	 *
-	 *	@param	value	the ICFBamParamObj instance to be referenced by the Prev key.
+	 *	@param	value	the IYCFBamParamObj instance to be referenced by the Prev key.
 	 */
-	void setOptionalLookupPrev( ICFBamParamObj value );
+	void setOptionalLookupPrev( IYCFBamParamObj value );
 
 	/**
-	 *	Get the ICFBamParamObj instance referenced by the Next key.
+	 *	Get the IYCFBamParamObj instance referenced by the Next key.
 	 *
-	 *	@return	The ICFBamParamObj instance referenced by the Next key.
+	 *	@return	The IYCFBamParamObj instance referenced by the Next key.
 	 */
-	ICFBamParamObj getOptionalLookupNext();
+	IYCFBamParamObj getOptionalLookupNext();
 
 	/**
-	 *	Set the ICFBamParamObj instance referenced by the Next key.
+	 *	Set the IYCFBamParamObj instance referenced by the Next key.
 	 *
-	 *	@param	value	the ICFBamParamObj instance to be referenced by the Next key.
+	 *	@param	value	the IYCFBamParamObj instance to be referenced by the Next key.
 	 */
-	void setOptionalLookupNext( ICFBamParamObj value );
+	void setOptionalLookupNext( IYCFBamParamObj value );
 
 	/**
-	 *	Get the ICFBamValueObj instance referenced by the Type key.
+	 *	Get the IYCFBamValueObj instance referenced by the Type key.
 	 *
-	 *	@return	The ICFBamValueObj instance referenced by the Type key.
+	 *	@return	The IYCFBamValueObj instance referenced by the Type key.
 	 */
-	ICFBamValueObj getRequiredLookupType();
+	IYCFBamValueObj getRequiredLookupType();
 
 	/**
-	 *	Set the ICFBamValueObj instance referenced by the Type key.
+	 *	Set the IYCFBamValueObj instance referenced by the Type key.
 	 *
-	 *	@param	value	the ICFBamValueObj instance to be referenced by the Type key.
+	 *	@param	value	the IYCFBamValueObj instance to be referenced by the Type key.
 	 */
-	void setRequiredLookupType( ICFBamValueObj value );
+	void setRequiredLookupType( IYCFBamValueObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFSecSecUserObj value );
+	void setCreatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -254,9 +254,9 @@ public interface ICFBamParamEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFSecSecUserObj value );
+	void setUpdatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

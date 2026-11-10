@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelPushContext.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelPushContextTable database interface for GelPushContext
+ *	YCFGenKbGelPushContextTable database interface for GelPushContext
  */
-public interface ICFGenKbGelPushContextTable
+public interface IYCFGenKbGelPushContextTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelPushContext( CFGenKbAuthorization Authorization,
-		CFGenKbGelPushContextBuff Buff );
+	void createGelPushContext( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPushContextBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelPushContext( CFGenKbAuthorization Authorization,
-		CFGenKbGelPushContextBuff Buff );
+	void updateGelPushContext( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPushContextBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelPushContext( CFGenKbAuthorization Authorization,
-		CFGenKbGelPushContextBuff Buff );
+	void deleteGelPushContext( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPushContextBuff Buff );
 	/**
 	 *	Delete the GelPushContext instances identified by the key RemainderIdx.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argRemainderInstId	The GelPushContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPushContextByRemainderIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPushContextByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long argRemainderTenantId,
 		long argRemainderGelCacheId,
 		Long argRemainderInstId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPushContextByRemainderIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelPushContextByRemainderIdxKey argKey );
+	void deleteGelPushContextByRemainderIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPushContextByRemainderIdxKey argKey );
 	/**
 	 *	Delete the GelPushContext instance identified by the primary key attributes.
 	 *
@@ -115,7 +115,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argGelInstId	The GelPushContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPushContextByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPushContextByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -127,8 +127,8 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelPushContextByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelPushContextByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelPushContext instances identified by the key TenantIdx.
 	 *
@@ -136,7 +136,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argTenantId	The GelPushContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPushContextByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPushContextByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -146,8 +146,8 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPushContextByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelPushContextByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelPushContext instances identified by the key GelCacheIdx.
 	 *
@@ -157,7 +157,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argGelCacheId	The GelPushContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPushContextByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPushContextByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -168,8 +168,8 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPushContextByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelPushContextByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelPushContext instances identified by the key ChainIdx.
 	 *
@@ -181,7 +181,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelPushContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPushContextByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPushContextByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -193,8 +193,8 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPushContextByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelPushContextByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -207,8 +207,8 @@ public interface ICFGenKbGelPushContextTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelPushContextBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPushContextBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelPushContext buffer instance by primary key.
@@ -220,8 +220,8 @@ public interface ICFGenKbGelPushContextTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelPushContextBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPushContextBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelPushContext instances.
@@ -230,7 +230,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPushContextBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelPushContextBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelPushContext buffer instance identified by the unique key PIdx.
@@ -246,7 +246,7 @@ public interface ICFGenKbGelPushContextTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelPushContextBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -260,7 +260,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPushContextBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -274,7 +274,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPushContextBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -291,7 +291,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPushContextBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -309,7 +309,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPushContextBuff[] readDerivedByRemainderIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff[] readDerivedByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
@@ -324,10 +324,10 @@ public interface ICFGenKbGelPushContextTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPushContextBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPushContextBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelPushContext buffer instance identified by the primary key.
@@ -339,10 +339,10 @@ public interface ICFGenKbGelPushContextTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPushContextBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPushContextBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelPushContext buffer instances.
@@ -351,7 +351,7 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return All the specific GelPushContext instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelPushContextBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelPushContextBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelPushContext buffer instance identified by the unique key PIdx.
@@ -367,9 +367,9 @@ public interface ICFGenKbGelPushContextTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPushContextBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -383,9 +383,9 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPushContextBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -399,9 +399,9 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPushContextBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -418,9 +418,9 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPushContextBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -438,9 +438,9 @@ public interface ICFGenKbGelPushContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPushContextBuff[] readBuffByRemainderIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPushContextBuff[] readBuffByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
@@ -448,7 +448,7 @@ public interface ICFGenKbGelPushContextTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

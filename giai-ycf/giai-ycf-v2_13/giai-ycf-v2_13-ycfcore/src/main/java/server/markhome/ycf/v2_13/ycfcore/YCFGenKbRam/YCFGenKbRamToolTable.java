@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for Tool.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,67 +28,67 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamToolTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamToolTable in-memory RAM DbIO implementation
  *	for Tool.
  */
-public class CFGenKbRamToolTable
-	implements ICFGenKbToolTable
+public class YCFGenKbRamToolTable
+	implements IYCFGenKbToolTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbToolPKey,
-				CFGenKbToolBuff > dictByPKey
-		= new HashMap< CFGenKbToolPKey,
-				CFGenKbToolBuff >();
-	private Map< CFGenKbToolByNameIdxKey,
-			CFGenKbToolBuff > dictByNameIdx
-		= new HashMap< CFGenKbToolByNameIdxKey,
-			CFGenKbToolBuff >();
-	private Map< CFGenKbToolByReplacesIdxKey,
-				Map< CFGenKbToolPKey,
-					CFGenKbToolBuff >> dictByReplacesIdx
-		= new HashMap< CFGenKbToolByReplacesIdxKey,
-				Map< CFGenKbToolPKey,
-					CFGenKbToolBuff >>();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbToolPKey,
+				YCFGenKbToolBuff > dictByPKey
+		= new HashMap< YCFGenKbToolPKey,
+				YCFGenKbToolBuff >();
+	private Map< YCFGenKbToolByNameIdxKey,
+			YCFGenKbToolBuff > dictByNameIdx
+		= new HashMap< YCFGenKbToolByNameIdxKey,
+			YCFGenKbToolBuff >();
+	private Map< YCFGenKbToolByReplacesIdxKey,
+				Map< YCFGenKbToolPKey,
+					YCFGenKbToolBuff >> dictByReplacesIdx
+		= new HashMap< YCFGenKbToolByReplacesIdxKey,
+				Map< YCFGenKbToolPKey,
+					YCFGenKbToolBuff >>();
 
-	public CFGenKbRamToolTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamToolTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createTool( CFGenKbAuthorization Authorization,
-		CFGenKbToolBuff Buff )
+	public void createTool( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolBuff Buff )
 	{
 		final String S_ProcName = "createTool";
-		CFGenKbToolPKey pkey = schema.getFactoryTool().newPKey();
+		YCFGenKbToolPKey pkey = schema.getFactoryTool().newPKey();
 		pkey.setRequiredId( schema.nextToolIdGen() );
 		Buff.setRequiredId( pkey.getRequiredId() );
-		CFGenKbToolByNameIdxKey keyNameIdx = schema.getFactoryTool().newNameIdxKey();
+		YCFGenKbToolByNameIdxKey keyNameIdx = schema.getFactoryTool().newNameIdxKey();
 		keyNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFGenKbToolByReplacesIdxKey keyReplacesIdx = schema.getFactoryTool().newReplacesIdxKey();
+		YCFGenKbToolByReplacesIdxKey keyReplacesIdx = schema.getFactoryTool().newReplacesIdxKey();
 		keyReplacesIdx.setOptionalReplacesId( Buff.getOptionalReplacesId() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByNameIdx.containsKey( keyNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"ToolName",
 				keyNameIdx );
@@ -102,25 +102,25 @@ public class CFGenKbRamToolTable
 
 		dictByNameIdx.put( keyNameIdx, Buff );
 
-		Map< CFGenKbToolPKey, CFGenKbToolBuff > subdictReplacesIdx;
+		Map< YCFGenKbToolPKey, YCFGenKbToolBuff > subdictReplacesIdx;
 		if( dictByReplacesIdx.containsKey( keyReplacesIdx ) ) {
 			subdictReplacesIdx = dictByReplacesIdx.get( keyReplacesIdx );
 		}
 		else {
-			subdictReplacesIdx = new HashMap< CFGenKbToolPKey, CFGenKbToolBuff >();
+			subdictReplacesIdx = new HashMap< YCFGenKbToolPKey, YCFGenKbToolBuff >();
 			dictByReplacesIdx.put( keyReplacesIdx, subdictReplacesIdx );
 		}
 		subdictReplacesIdx.put( pkey, Buff );
 
 	}
 
-	public CFGenKbToolBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey PKey )
+	public YCFGenKbToolBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readDerived";
-		CFGenKbToolPKey key = schema.getFactoryTool().newPKey();
+		final String S_ProcName = "YCFGenKbRamTool.readDerived";
+		YCFGenKbToolPKey key = schema.getFactoryTool().newPKey();
 		key.setRequiredId( PKey.getRequiredId() );
-		CFGenKbToolBuff buff;
+		YCFGenKbToolBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -130,13 +130,13 @@ public class CFGenKbRamToolTable
 		return( buff );
 	}
 
-	public CFGenKbToolBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey PKey )
+	public YCFGenKbToolBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readDerived";
-		CFGenKbToolPKey key = schema.getFactoryTool().newPKey();
+		final String S_ProcName = "YCFGenKbRamTool.readDerived";
+		YCFGenKbToolPKey key = schema.getFactoryTool().newPKey();
 		key.setRequiredId( PKey.getRequiredId() );
-		CFGenKbToolBuff buff;
+		YCFGenKbToolBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -146,10 +146,10 @@ public class CFGenKbRamToolTable
 		return( buff );
 	}
 
-	public CFGenKbToolBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamTool.readAllDerived";
-		CFGenKbToolBuff[] retList = new CFGenKbToolBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbToolBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbToolBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamTool.readAllDerived";
+		YCFGenKbToolBuff[] retList = new YCFGenKbToolBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbToolBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -157,14 +157,14 @@ public class CFGenKbRamToolTable
 		return( retList );
 	}
 
-	public CFGenKbToolBuff readDerivedByNameIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbToolBuff readDerivedByNameIdx( YCFGenKbAuthorization Authorization,
 		String Name )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readDerivedByNameIdx";
-		CFGenKbToolByNameIdxKey key = schema.getFactoryTool().newNameIdxKey();
+		final String S_ProcName = "YCFGenKbRamTool.readDerivedByNameIdx";
+		YCFGenKbToolByNameIdxKey key = schema.getFactoryTool().newNameIdxKey();
 		key.setRequiredName( Name );
 
-		CFGenKbToolBuff buff;
+		YCFGenKbToolBuff buff;
 		if( dictByNameIdx.containsKey( key ) ) {
 			buff = dictByNameIdx.get( key );
 		}
@@ -174,41 +174,41 @@ public class CFGenKbRamToolTable
 		return( buff );
 	}
 
-	public CFGenKbToolBuff[] readDerivedByReplacesIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbToolBuff[] readDerivedByReplacesIdx( YCFGenKbAuthorization Authorization,
 		Short ReplacesId )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readDerivedByReplacesIdx";
-		CFGenKbToolByReplacesIdxKey key = schema.getFactoryTool().newReplacesIdxKey();
+		final String S_ProcName = "YCFGenKbRamTool.readDerivedByReplacesIdx";
+		YCFGenKbToolByReplacesIdxKey key = schema.getFactoryTool().newReplacesIdxKey();
 		key.setOptionalReplacesId( ReplacesId );
 
-		CFGenKbToolBuff[] recArray;
+		YCFGenKbToolBuff[] recArray;
 		if( dictByReplacesIdx.containsKey( key ) ) {
-			Map< CFGenKbToolPKey, CFGenKbToolBuff > subdictReplacesIdx
+			Map< YCFGenKbToolPKey, YCFGenKbToolBuff > subdictReplacesIdx
 				= dictByReplacesIdx.get( key );
-			recArray = new CFGenKbToolBuff[ subdictReplacesIdx.size() ];
-			Iterator< CFGenKbToolBuff > iter = subdictReplacesIdx.values().iterator();
+			recArray = new YCFGenKbToolBuff[ subdictReplacesIdx.size() ];
+			Iterator< YCFGenKbToolBuff > iter = subdictReplacesIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbToolPKey, CFGenKbToolBuff > subdictReplacesIdx
-				= new HashMap< CFGenKbToolPKey, CFGenKbToolBuff >();
+			Map< YCFGenKbToolPKey, YCFGenKbToolBuff > subdictReplacesIdx
+				= new HashMap< YCFGenKbToolPKey, YCFGenKbToolBuff >();
 			dictByReplacesIdx.put( key, subdictReplacesIdx );
-			recArray = new CFGenKbToolBuff[0];
+			recArray = new YCFGenKbToolBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbToolBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbToolBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		short Id )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readDerivedByIdIdx() ";
-		CFGenKbToolPKey key = schema.getFactoryTool().newPKey();
+		final String S_ProcName = "YCFGenKbRamTool.readDerivedByIdIdx() ";
+		YCFGenKbToolPKey key = schema.getFactoryTool().newPKey();
 		key.setRequiredId( Id );
 
-		CFGenKbToolBuff buff;
+		YCFGenKbToolBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -218,124 +218,124 @@ public class CFGenKbRamToolTable
 		return( buff );
 	}
 
-	public CFGenKbToolBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey PKey )
+	public YCFGenKbToolBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readBuff";
-		CFGenKbToolBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamTool.readBuff";
+		YCFGenKbToolBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a927" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbToolBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey PKey )
+	public YCFGenKbToolBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbToolBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbToolBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a927" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbToolBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbToolBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readAllBuff";
-		CFGenKbToolBuff buff;
-		ArrayList<CFGenKbToolBuff> filteredList = new ArrayList<CFGenKbToolBuff>();
-		CFGenKbToolBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamTool.readAllBuff";
+		YCFGenKbToolBuff buff;
+		ArrayList<YCFGenKbToolBuff> filteredList = new ArrayList<YCFGenKbToolBuff>();
+		YCFGenKbToolBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a927" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbToolBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbToolBuff[0] ) );
 	}
 
-	public CFGenKbToolBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbToolBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		short Id )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readBuffByIdIdx() ";
-		CFGenKbToolBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamTool.readBuffByIdIdx() ";
+		YCFGenKbToolBuff buff = readDerivedByIdIdx( Authorization,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a927" ) ) {
-			return( (CFGenKbToolBuff)buff );
+			return( (YCFGenKbToolBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbToolBuff readBuffByNameIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbToolBuff readBuffByNameIdx( YCFGenKbAuthorization Authorization,
 		String Name )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readBuffByNameIdx() ";
-		CFGenKbToolBuff buff = readDerivedByNameIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamTool.readBuffByNameIdx() ";
+		YCFGenKbToolBuff buff = readDerivedByNameIdx( Authorization,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a927" ) ) {
-			return( (CFGenKbToolBuff)buff );
+			return( (YCFGenKbToolBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbToolBuff[] readBuffByReplacesIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbToolBuff[] readBuffByReplacesIdx( YCFGenKbAuthorization Authorization,
 		Short ReplacesId )
 	{
-		final String S_ProcName = "CFGenKbRamTool.readBuffByReplacesIdx() ";
-		CFGenKbToolBuff buff;
-		ArrayList<CFGenKbToolBuff> filteredList = new ArrayList<CFGenKbToolBuff>();
-		CFGenKbToolBuff[] buffList = readDerivedByReplacesIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamTool.readBuffByReplacesIdx() ";
+		YCFGenKbToolBuff buff;
+		ArrayList<YCFGenKbToolBuff> filteredList = new ArrayList<YCFGenKbToolBuff>();
+		YCFGenKbToolBuff[] buffList = readDerivedByReplacesIdx( Authorization,
 			ReplacesId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a927" ) ) {
-				filteredList.add( (CFGenKbToolBuff)buff );
+				filteredList.add( (YCFGenKbToolBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbToolBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbToolBuff[0] ) );
 	}
 
-	public void updateTool( CFGenKbAuthorization Authorization,
-		CFGenKbToolBuff Buff )
+	public void updateTool( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolBuff Buff )
 	{
-		CFGenKbToolPKey pkey = schema.getFactoryTool().newPKey();
+		YCFGenKbToolPKey pkey = schema.getFactoryTool().newPKey();
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFGenKbToolBuff existing = dictByPKey.get( pkey );
+		YCFGenKbToolBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateTool",
 				"Existing record not found",
 				"Tool",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateTool",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFGenKbToolByNameIdxKey existingKeyNameIdx = schema.getFactoryTool().newNameIdxKey();
+		YCFGenKbToolByNameIdxKey existingKeyNameIdx = schema.getFactoryTool().newNameIdxKey();
 		existingKeyNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFGenKbToolByNameIdxKey newKeyNameIdx = schema.getFactoryTool().newNameIdxKey();
+		YCFGenKbToolByNameIdxKey newKeyNameIdx = schema.getFactoryTool().newNameIdxKey();
 		newKeyNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFGenKbToolByReplacesIdxKey existingKeyReplacesIdx = schema.getFactoryTool().newReplacesIdxKey();
+		YCFGenKbToolByReplacesIdxKey existingKeyReplacesIdx = schema.getFactoryTool().newReplacesIdxKey();
 		existingKeyReplacesIdx.setOptionalReplacesId( existing.getOptionalReplacesId() );
 
-		CFGenKbToolByReplacesIdxKey newKeyReplacesIdx = schema.getFactoryTool().newReplacesIdxKey();
+		YCFGenKbToolByReplacesIdxKey newKeyReplacesIdx = schema.getFactoryTool().newReplacesIdxKey();
 		newKeyReplacesIdx.setOptionalReplacesId( Buff.getOptionalReplacesId() );
 
 		// Check unique indexes
 
 		if( ! existingKeyNameIdx.equals( newKeyNameIdx ) ) {
 			if( dictByNameIdx.containsKey( newKeyNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateTool",
 					"ToolName",
 					newKeyNameIdx );
@@ -346,7 +346,7 @@ public class CFGenKbRamToolTable
 
 		// Update is valid
 
-		Map< CFGenKbToolPKey, CFGenKbToolBuff > subdict;
+		Map< YCFGenKbToolPKey, YCFGenKbToolBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -362,34 +362,34 @@ public class CFGenKbRamToolTable
 			subdict = dictByReplacesIdx.get( newKeyReplacesIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbToolPKey, CFGenKbToolBuff >();
+			subdict = new HashMap< YCFGenKbToolPKey, YCFGenKbToolBuff >();
 			dictByReplacesIdx.put( newKeyReplacesIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteTool( CFGenKbAuthorization Authorization,
-		CFGenKbToolBuff Buff )
+	public void deleteTool( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamToolTable.deleteTool() ";
+		final String S_ProcName = "YCFGenKbRamToolTable.deleteTool() ";
 		String classCode;
-		CFGenKbToolPKey pkey = schema.getFactoryTool().newPKey();
+		YCFGenKbToolPKey pkey = schema.getFactoryTool().newPKey();
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFGenKbToolBuff existing = dictByPKey.get( pkey );
+		YCFGenKbToolBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteTool",
 				pkey );
 		}
-		CFGenKbToolByNameIdxKey keyNameIdx = schema.getFactoryTool().newNameIdxKey();
+		YCFGenKbToolByNameIdxKey keyNameIdx = schema.getFactoryTool().newNameIdxKey();
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFGenKbToolByReplacesIdxKey keyReplacesIdx = schema.getFactoryTool().newReplacesIdxKey();
+		YCFGenKbToolByReplacesIdxKey keyReplacesIdx = schema.getFactoryTool().newReplacesIdxKey();
 		keyReplacesIdx.setOptionalReplacesId( existing.getOptionalReplacesId() );
 
 		// Validate reverse foreign keys
@@ -397,7 +397,7 @@ public class CFGenKbRamToolTable
 		if( schema.getTableToolSet().readDerivedByTool0Idx( Authorization,
 					existing.getRequiredId() ).length > 0 )
 		{
-			throw new CFLibDependentsDetectedException( getClass(),
+			throw new YCFLibDependentsDetectedException( getClass(),
 				"deleteTool",
 				"Lookup",
 				"Tool0",
@@ -406,7 +406,7 @@ public class CFGenKbRamToolTable
 		}
 
 		// Delete is valid
-		Map< CFGenKbToolPKey, CFGenKbToolBuff > subdict;
+		Map< YCFGenKbToolPKey, YCFGenKbToolBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -416,32 +416,32 @@ public class CFGenKbRamToolTable
 		subdict.remove( pkey );
 
 	}
-	public void deleteToolByIdIdx( CFGenKbAuthorization Authorization,
+	public void deleteToolByIdIdx( YCFGenKbAuthorization Authorization,
 		short argId )
 	{
-		CFGenKbToolPKey key = schema.getFactoryTool().newPKey();
+		YCFGenKbToolPKey key = schema.getFactoryTool().newPKey();
 		key.setRequiredId( argId );
 		deleteToolByIdIdx( Authorization, key );
 	}
 
-	public void deleteToolByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey argKey )
+	public void deleteToolByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbToolBuff cur;
-		LinkedList<CFGenKbToolBuff> matchSet = new LinkedList<CFGenKbToolBuff>();
-		Iterator<CFGenKbToolBuff> values = dictByPKey.values().iterator();
+		YCFGenKbToolBuff cur;
+		LinkedList<YCFGenKbToolBuff> matchSet = new LinkedList<YCFGenKbToolBuff>();
+		Iterator<YCFGenKbToolBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbToolBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbToolBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTool().readDerivedByIdIdx( Authorization,
@@ -450,32 +450,32 @@ public class CFGenKbRamToolTable
 		}
 	}
 
-	public void deleteToolByNameIdx( CFGenKbAuthorization Authorization,
+	public void deleteToolByNameIdx( YCFGenKbAuthorization Authorization,
 		String argName )
 	{
-		CFGenKbToolByNameIdxKey key = schema.getFactoryTool().newNameIdxKey();
+		YCFGenKbToolByNameIdxKey key = schema.getFactoryTool().newNameIdxKey();
 		key.setRequiredName( argName );
 		deleteToolByNameIdx( Authorization, key );
 	}
 
-	public void deleteToolByNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbToolByNameIdxKey argKey )
+	public void deleteToolByNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolByNameIdxKey argKey )
 	{
-		CFGenKbToolBuff cur;
+		YCFGenKbToolBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbToolBuff> matchSet = new LinkedList<CFGenKbToolBuff>();
-		Iterator<CFGenKbToolBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbToolBuff> matchSet = new LinkedList<YCFGenKbToolBuff>();
+		Iterator<YCFGenKbToolBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbToolBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbToolBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTool().readDerivedByIdIdx( Authorization,
@@ -484,18 +484,18 @@ public class CFGenKbRamToolTable
 		}
 	}
 
-	public void deleteToolByReplacesIdx( CFGenKbAuthorization Authorization,
+	public void deleteToolByReplacesIdx( YCFGenKbAuthorization Authorization,
 		Short argReplacesId )
 	{
-		CFGenKbToolByReplacesIdxKey key = schema.getFactoryTool().newReplacesIdxKey();
+		YCFGenKbToolByReplacesIdxKey key = schema.getFactoryTool().newReplacesIdxKey();
 		key.setOptionalReplacesId( argReplacesId );
 		deleteToolByReplacesIdx( Authorization, key );
 	}
 
-	public void deleteToolByReplacesIdx( CFGenKbAuthorization Authorization,
-		CFGenKbToolByReplacesIdxKey argKey )
+	public void deleteToolByReplacesIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolByReplacesIdxKey argKey )
 	{
-		CFGenKbToolBuff cur;
+		YCFGenKbToolBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalReplacesId() != null ) {
 			anyNotNull = true;
@@ -503,15 +503,15 @@ public class CFGenKbRamToolTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbToolBuff> matchSet = new LinkedList<CFGenKbToolBuff>();
-		Iterator<CFGenKbToolBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbToolBuff> matchSet = new LinkedList<YCFGenKbToolBuff>();
+		Iterator<YCFGenKbToolBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbToolBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbToolBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTool().readDerivedByIdIdx( Authorization,

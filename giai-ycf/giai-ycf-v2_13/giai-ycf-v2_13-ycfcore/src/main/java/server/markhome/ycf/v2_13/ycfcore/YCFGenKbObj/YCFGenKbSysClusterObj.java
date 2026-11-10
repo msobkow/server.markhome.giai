@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb SysCluster.
+// Description: Java 11 base object instance implementation for YCFGenKb SysCluster.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,33 +27,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbSysClusterObj
-	implements ICFGenKbSysClusterObj
+public class YCFGenKbSysClusterObj
+	implements IYCFGenKbSysClusterObj
 {
 	public final static String CLASS_CODE = "a90f";
 	protected boolean isNew;
-	protected ICFGenKbSysClusterEditObj edit;
-	protected ICFGenKbSchemaObj schema;
-	protected CFGenKbSysClusterPKey pKey;
-	protected CFGenKbSysClusterBuff buff;
-	protected ICFGenKbClusterObj requiredContainerCluster;
+	protected IYCFGenKbSysClusterEditObj edit;
+	protected IYCFGenKbSchemaObj schema;
+	protected YCFGenKbSysClusterPKey pKey;
+	protected YCFGenKbSysClusterBuff buff;
+	protected IYCFGenKbClusterObj requiredContainerCluster;
 
-	public CFGenKbSysClusterObj() {
+	public YCFGenKbSysClusterObj() {
 		isNew = true;
 		requiredContainerCluster = null;
 	}
 
-	public CFGenKbSysClusterObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbSysClusterObj( IYCFGenKbSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -68,13 +68,13 @@ public class CFGenKbSysClusterObj
 		return( "SysCluster" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFGenKbClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getScope() {
+		IYCFGenKbClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFGenKbClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFGenKbClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
@@ -85,14 +85,14 @@ public class CFGenKbSysClusterObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -103,10 +103,10 @@ public class CFGenKbSysClusterObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -115,20 +115,20 @@ public class CFGenKbSysClusterObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -152,13 +152,13 @@ public class CFGenKbSysClusterObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -172,13 +172,13 @@ public class CFGenKbSysClusterObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -190,46 +190,46 @@ public class CFGenKbSysClusterObj
 		return( fullName );
 	}
 
-	public ICFGenKbSysClusterObj realise() {
-		ICFGenKbSysClusterObj retobj = ((ICFGenKbSchemaObj)schema).getSysClusterTableObj().realiseSysCluster(
-			(ICFGenKbSysClusterObj)this );
-		return( (ICFGenKbSysClusterObj)retobj );
+	public IYCFGenKbSysClusterObj realise() {
+		IYCFGenKbSysClusterObj retobj = ((IYCFGenKbSchemaObj)schema).getSysClusterTableObj().realiseSysCluster(
+			(IYCFGenKbSysClusterObj)this );
+		return( (IYCFGenKbSysClusterObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getSysClusterTableObj().reallyDeepDisposeSysCluster( (ICFGenKbSysClusterObj)this );
+		((IYCFGenKbSchemaObj)schema).getSysClusterTableObj().reallyDeepDisposeSysCluster( (IYCFGenKbSysClusterObj)this );
 	}
 
-	public ICFGenKbSysClusterObj read() {
-		ICFGenKbSysClusterObj retobj = ((ICFGenKbSchemaObj)schema).getSysClusterTableObj().readSysClusterByIdIdx( getPKey().getRequiredSingletonId(), false );
-		return( (ICFGenKbSysClusterObj)retobj );
+	public IYCFGenKbSysClusterObj read() {
+		IYCFGenKbSysClusterObj retobj = ((IYCFGenKbSchemaObj)schema).getSysClusterTableObj().readSysClusterByIdIdx( getPKey().getRequiredSingletonId(), false );
+		return( (IYCFGenKbSysClusterObj)retobj );
 	}
 
-	public ICFGenKbSysClusterObj read( boolean forceRead ) {
-		ICFGenKbSysClusterObj retobj = ((ICFGenKbSchemaObj)schema).getSysClusterTableObj().readSysClusterByIdIdx( getPKey().getRequiredSingletonId(), forceRead );
-		return( (ICFGenKbSysClusterObj)retobj );
+	public IYCFGenKbSysClusterObj read( boolean forceRead ) {
+		IYCFGenKbSysClusterObj retobj = ((IYCFGenKbSchemaObj)schema).getSysClusterTableObj().readSysClusterByIdIdx( getPKey().getRequiredSingletonId(), forceRead );
+		return( (IYCFGenKbSysClusterObj)retobj );
 	}
 
-	public ICFGenKbSysClusterTableObj getSysClusterTable() {
-		return( ((ICFGenKbSchemaObj)schema).getSysClusterTableObj() );
+	public IYCFGenKbSysClusterTableObj getSysClusterTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getSysClusterTableObj() );
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
+	public void setSchema( IYCFGenKbSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFGenKbSysClusterBuff getBuff() {
+	public YCFGenKbSysClusterBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySysCluster().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySysCluster().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableSysCluster().readDerivedByIdIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSysCluster().readDerivedByIdIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredSingletonId() );
 				if( buff != null ) {
 					copyBuffToPKey();
@@ -239,31 +239,31 @@ public class CFGenKbSysClusterObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbSysClusterBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbSysClusterBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbSysClusterBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbSysClusterBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbSysClusterBuff" );
+				"YCFGenKbSysClusterBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
 		requiredContainerCluster = null;
 	}
 
-	public CFGenKbSysClusterBuff getSysClusterBuff() {
-		return( (CFGenKbSysClusterBuff)getBuff() );
+	public YCFGenKbSysClusterBuff getSysClusterBuff() {
+		return( (YCFGenKbSysClusterBuff)getBuff() );
 	}
 
-	public CFGenKbSysClusterPKey getPKey() {
+	public YCFGenKbSysClusterPKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySysCluster().newPKey();
+			pKey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySysCluster().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFGenKbSysClusterPKey value ) {
+	public void setPKey( YCFGenKbSysClusterPKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -278,31 +278,31 @@ public class CFGenKbSysClusterObj
 		isNew = value;
 	}
 
-	public ICFGenKbSysClusterEditObj beginEdit() {
+	public IYCFGenKbSysClusterEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbSysClusterObj lockobj;
+		IYCFGenKbSysClusterObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbSysClusterObj)this;
+			lockobj = (IYCFGenKbSysClusterObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getSysClusterTableObj().lockSysCluster( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getSysClusterTableObj().lockSysCluster( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getSysClusterTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbSysClusterEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getSysClusterTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbSysClusterEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFGenKbSysClusterEditObj getEdit() {
+	public IYCFGenKbSysClusterEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFGenKbSysClusterEditObj getEditAsSysCluster() {
-		return( (ICFGenKbSysClusterEditObj)edit );
+	public IYCFGenKbSysClusterEditObj getEditAsSysCluster() {
+		return( (IYCFGenKbSysClusterEditObj)edit );
 	}
 
 	public int getRequiredSingletonId() {
@@ -313,15 +313,15 @@ public class CFGenKbSysClusterObj
 		return( getSysClusterBuff().getRequiredClusterId() );
 	}
 
-	public ICFGenKbClusterObj getRequiredContainerCluster() {
+	public IYCFGenKbClusterObj getRequiredContainerCluster() {
 		return( getRequiredContainerCluster( false ) );
 	}
 
-	public ICFGenKbClusterObj getRequiredContainerCluster( boolean forceRead ) {
+	public IYCFGenKbClusterObj getRequiredContainerCluster( boolean forceRead ) {
 		if( ( requiredContainerCluster == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerCluster = ((ICFGenKbSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getSysClusterBuff().getRequiredClusterId(), forceRead );
+				requiredContainerCluster = ((IYCFGenKbSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getSysClusterBuff().getRequiredClusterId(), forceRead );
 			}
 		}
 		return( requiredContainerCluster );

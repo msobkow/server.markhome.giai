@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb GenTrunc.
+// Description: Java 11 edit object instance implementation for YCFGenKb GenTrunc.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,39 +27,39 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGenTruncEditObj
-	extends CFGenKbGenRuleEditObj
+public class YCFGenKbGenTruncEditObj
+	extends YCFGenKbGenRuleEditObj
 
-	implements ICFGenKbGenTruncEditObj
+	implements IYCFGenKbGenTruncEditObj
 {
 
-	public CFGenKbGenTruncEditObj( ICFGenKbGenTruncObj argOrig ) {
+	public YCFGenKbGenTruncEditObj( IYCFGenKbGenTruncObj argOrig ) {
 		super( argOrig );
 	}
 
 	public String getClassCode() {
-		return( CFGenKbGenTruncObj.CLASS_CODE );
+		return( YCFGenKbGenTruncObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "GenTrunc" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -69,14 +69,14 @@ public class CFGenKbGenTruncEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -87,10 +87,10 @@ public class CFGenKbGenTruncEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -99,11 +99,11 @@ public class CFGenKbGenTruncEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -127,13 +127,13 @@ public class CFGenKbGenTruncEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -145,9 +145,9 @@ public class CFGenKbGenTruncEditObj
 		return( qualName );
 	}
 
-	public ICFGenKbGenItemObj realise() {
+	public IYCFGenKbGenItemObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbGenTruncObj retobj = getSchema().getGenTruncTableObj().realiseGenTrunc( (ICFGenKbGenTruncObj)this );
+		IYCFGenKbGenTruncObj retobj = getSchema().getGenTruncTableObj().realiseGenTrunc( (IYCFGenKbGenTruncObj)this );
 		return( retobj );
 	}
 
@@ -155,56 +155,56 @@ public class CFGenKbGenTruncEditObj
 		getOrigAsGenTrunc().forget();
 	}
 
-	public ICFGenKbGenItemObj create() {
+	public IYCFGenKbGenItemObj create() {
 		copyBuffToOrig();
-		ICFGenKbGenTruncObj retobj = ((ICFGenKbSchemaObj)getOrigAsGenTrunc().getSchema()).getGenTruncTableObj().createGenTrunc( getOrigAsGenTrunc() );
+		IYCFGenKbGenTruncObj retobj = ((IYCFGenKbSchemaObj)getOrigAsGenTrunc().getSchema()).getGenTruncTableObj().createGenTrunc( getOrigAsGenTrunc() );
 		if( retobj == getOrigAsGenTrunc() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbGenItemEditObj update() {
-		getSchema().getGenTruncTableObj().updateGenTrunc( (ICFGenKbGenTruncObj)this );
+	public YCFGenKbGenItemEditObj update() {
+		getSchema().getGenTruncTableObj().updateGenTrunc( (IYCFGenKbGenTruncObj)this );
 		return( null );
 	}
 
-	public CFGenKbGenItemEditObj deleteInstance() {
+	public YCFGenKbGenItemEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getGenTruncTableObj().deleteGenTrunc( getOrigAsGenTrunc() );
 		return( null );
 	}
 
-	public ICFGenKbGenTruncTableObj getGenTruncTable() {
+	public IYCFGenKbGenTruncTableObj getGenTruncTable() {
 		return( orig.getSchema().getGenTruncTableObj() );
 	}
 
-	public ICFGenKbGenTruncEditObj getEditAsGenTrunc() {
-		return( (ICFGenKbGenTruncEditObj)this );
+	public IYCFGenKbGenTruncEditObj getEditAsGenTrunc() {
+		return( (IYCFGenKbGenTruncEditObj)this );
 	}
 
-	public ICFGenKbGenTruncObj getOrigAsGenTrunc() {
-		return( (ICFGenKbGenTruncObj)orig );
+	public IYCFGenKbGenTruncObj getOrigAsGenTrunc() {
+		return( (IYCFGenKbGenTruncObj)orig );
 	}
 
-	public CFGenKbGenItemBuff getBuff() {
+	public YCFGenKbGenItemBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsGenTrunc().getSchema().getBackingStore()).getFactoryGenTrunc().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsGenTrunc().getSchema().getBackingStore()).getFactoryGenTrunc().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGenItemBuff value ) {
+	public void setBuff( YCFGenKbGenItemBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 		}
 	}
 
-	public CFGenKbGenTruncBuff getGenTruncBuff() {
-		return( (CFGenKbGenTruncBuff)getBuff() );
+	public YCFGenKbGenTruncBuff getGenTruncBuff() {
+		return( (YCFGenKbGenTruncBuff)getBuff() );
 	}
 
 	public int getRequiredTruncateAt() {
@@ -218,14 +218,14 @@ public class CFGenKbGenTruncEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbGenTruncBuff origBuff = getOrigAsGenTrunc().getGenTruncBuff();
-		CFGenKbGenTruncBuff myBuff = getGenTruncBuff();
+		YCFGenKbGenTruncBuff origBuff = getOrigAsGenTrunc().getGenTruncBuff();
+		YCFGenKbGenTruncBuff myBuff = getGenTruncBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbGenTruncBuff origBuff = getOrigAsGenTrunc().getGenTruncBuff();
-		CFGenKbGenTruncBuff myBuff = getGenTruncBuff();
+		YCFGenKbGenTruncBuff origBuff = getOrigAsGenTrunc().getGenTruncBuff();
+		YCFGenKbGenTruncBuff myBuff = getGenTruncBuff();
 		myBuff.set( origBuff );
 	}
 }

@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for DoubleCol.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamDoubleColTable database interface for DoubleCol
+ *	YCFBamDoubleColTable database interface for DoubleCol
  */
-public interface ICFBamDoubleColTable
+public interface IYCFBamDoubleColTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createDoubleCol( CFSecAuthorization Authorization,
-		CFBamDoubleColBuff Buff );
+	void createDoubleCol( YCFSecAuthorization Authorization,
+		YCFBamDoubleColBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateDoubleCol( CFSecAuthorization Authorization,
-		CFBamDoubleColBuff Buff );
+	void updateDoubleCol( YCFSecAuthorization Authorization,
+		YCFBamDoubleColBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteDoubleCol( CFSecAuthorization Authorization,
-		CFBamDoubleColBuff Buff );
+	void deleteDoubleCol( YCFSecAuthorization Authorization,
+		YCFBamDoubleColBuff Buff );
 	/**
 	 *	Delete the DoubleCol instances identified by the key TableIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argTableId	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByTableIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByTableIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId );
 
@@ -121,8 +121,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByTableIdx( CFSecAuthorization Authorization,
-		CFBamDoubleColByTableIdxKey argKey );
+	void deleteDoubleColByTableIdx( YCFSecAuthorization Authorization,
+		YCFBamDoubleColByTableIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instance identified by the primary key attributes.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argId	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByIdIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -143,8 +143,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteDoubleColByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteDoubleColByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key UNameIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argName	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByUNameIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -168,8 +168,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteDoubleColByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key ValTentIdx.
 	 *
@@ -177,7 +177,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argTenantId	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByValTentIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -187,8 +187,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteDoubleColByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key ScopeIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argScopeId	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByScopeIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -209,8 +209,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteDoubleColByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key DefSchemaIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argDefSchemaId	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -231,8 +231,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteDoubleColByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key PrevIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argPrevId	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByPrevIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -253,8 +253,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteDoubleColByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key NextIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argNextId	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByNextIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -275,8 +275,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteDoubleColByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key ContPrevIdx.
 	 *
@@ -288,7 +288,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argPrevId	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -300,8 +300,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteDoubleColByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key ContNextIdx.
 	 *
@@ -313,7 +313,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argNextId	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByContNextIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -325,8 +325,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteDoubleColByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key CodeVisIdx.
 	 *
@@ -334,8 +334,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argCodeVis	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteDoubleColByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the DoubleCol instances identified by the key CodeVisIdx.
@@ -344,8 +344,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteDoubleColByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the DoubleCol instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -357,10 +357,10 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argCodeVis	The DoubleCol key attribute of the instance generating the id.
 	 */
-	void deleteDoubleColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteDoubleColByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the DoubleCol instances identified by the key ScopeCodeVisIdx.
@@ -369,8 +369,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDoubleColByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteDoubleColByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -383,8 +383,8 @@ public interface ICFBamDoubleColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDoubleColBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDoubleColBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived DoubleCol buffer instance by primary key.
@@ -396,8 +396,8 @@ public interface ICFBamDoubleColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDoubleColBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDoubleColBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all DoubleCol instances.
@@ -406,7 +406,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamDoubleColBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived DoubleCol buffer instance identified by the unique key IdIdx.
@@ -420,7 +420,7 @@ public interface ICFBamDoubleColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDoubleColBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -438,7 +438,7 @@ public interface ICFBamDoubleColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDoubleColBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -452,7 +452,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -466,7 +466,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -481,7 +481,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -496,7 +496,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -511,7 +511,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -528,7 +528,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -546,7 +546,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -560,8 +560,8 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamDoubleColBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived DoubleCol buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -576,10 +576,10 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived DoubleCol buffer instances identified by the duplicate key TableIdx.
@@ -592,7 +592,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDoubleColBuff[] readDerivedByTableIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readDerivedByTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -606,10 +606,10 @@ public interface ICFBamDoubleColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDoubleColBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific DoubleCol buffer instance identified by the primary key.
@@ -621,10 +621,10 @@ public interface ICFBamDoubleColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDoubleColBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific DoubleCol buffer instances.
@@ -633,7 +633,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return All the specific DoubleCol instances in the database accessible for the Authorization.
 	 */
-	CFBamDoubleColBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamDoubleColBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific DoubleCol buffer instance identified by the unique key IdIdx.
@@ -647,9 +647,9 @@ public interface ICFBamDoubleColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -667,9 +667,9 @@ public interface ICFBamDoubleColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -683,9 +683,9 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -699,9 +699,9 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -716,9 +716,9 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -733,9 +733,9 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -750,9 +750,9 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -769,9 +769,9 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -789,9 +789,9 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -805,10 +805,10 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamDoubleColBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific DoubleCol buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -823,12 +823,12 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific DoubleCol buffer instances identified by the duplicate key TableIdx.
@@ -841,9 +841,9 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDoubleColBuff[] readBuffByTableIdx( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff[] readBuffByTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -852,7 +852,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamDoubleColBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -862,7 +862,7 @@ public interface ICFBamDoubleColTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamDoubleColBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamDoubleColBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -870,7 +870,7 @@ public interface ICFBamDoubleColTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

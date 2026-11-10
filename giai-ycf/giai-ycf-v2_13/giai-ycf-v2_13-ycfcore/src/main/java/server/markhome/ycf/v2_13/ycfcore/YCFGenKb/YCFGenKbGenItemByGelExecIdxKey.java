@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenItem by GelExecIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenItemByGelExecIdxKey
+public class YCFGenKbGenItemByGelExecIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalGelExecutableTenantId;
 	protected Long optionalGelExecutableGelCacheId;
 	protected Long optionalGelExecutableId;
-	public CFGenKbGenItemByGelExecIdxKey() {
+	public YCFGenKbGenItemByGelExecIdxKey() {
 		optionalGelExecutableTenantId = null;
 		optionalGelExecutableGelCacheId = null;
 		optionalGelExecutableId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGenItemByGelExecIdxKey
 		if( value == null ) {
 			optionalGelExecutableTenantId = null;
 		}
-		else if( value < CFGenKbGenItemBuff.GELEXECUTABLETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenItemBuff.GELEXECUTABLETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalGelExecutableTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.GELEXECUTABLETENANTID_MIN_VALUE );
+				YCFGenKbGenItemBuff.GELEXECUTABLETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalGelExecutableTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGenItemByGelExecIdxKey
 		if( value == null ) {
 			optionalGelExecutableGelCacheId = null;
 		}
-		else if( value < CFGenKbGenItemBuff.GELEXECUTABLEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenItemBuff.GELEXECUTABLEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalGelExecutableGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.GELEXECUTABLEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenItemBuff.GELEXECUTABLEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalGelExecutableGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGenItemByGelExecIdxKey
 		if( value == null ) {
 			optionalGelExecutableId = null;
 		}
-		else if( value < CFGenKbGenItemBuff.GELEXECUTABLEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenItemBuff.GELEXECUTABLEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalGelExecutableId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.GELEXECUTABLEID_MIN_VALUE );
+				YCFGenKbGenItemBuff.GELEXECUTABLEID_MIN_VALUE );
 		}
 		else {
 			optionalGelExecutableId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGenItemByGelExecIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenItemByGelExecIdxKey ) {
-			CFGenKbGenItemByGelExecIdxKey rhs = (CFGenKbGenItemByGelExecIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByGelExecIdxKey ) {
+			YCFGenKbGenItemByGelExecIdxKey rhs = (YCFGenKbGenItemByGelExecIdxKey)obj;
 			if( getOptionalGelExecutableTenantId() != null ) {
 				if( rhs.getOptionalGelExecutableTenantId() != null ) {
 					if( ! getOptionalGelExecutableTenantId().equals( rhs.getOptionalGelExecutableTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGenItemByGelExecIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getOptionalGelExecutableTenantId() != null ) {
 				if( rhs.getOptionalGelExecutableTenantId() != null ) {
 					if( ! getOptionalGelExecutableTenantId().equals( rhs.getOptionalGelExecutableTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGenItemByGelExecIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenItemByGelExecIdxKey ) {
-			CFGenKbGenItemByGelExecIdxKey rhs = (CFGenKbGenItemByGelExecIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByGelExecIdxKey ) {
+			YCFGenKbGenItemByGelExecIdxKey rhs = (YCFGenKbGenItemByGelExecIdxKey)obj;
 			if( getOptionalGelExecutableTenantId() != null ) {
 				Long lhsGelExecutableTenantId = getOptionalGelExecutableTenantId();
 				if( rhs.getOptionalGelExecutableTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGenItemByGelExecIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getOptionalGelExecutableTenantId() != null ) {
 				Long lhsGelExecutableTenantId = getOptionalGelExecutableTenantId();
 				if( rhs.getOptionalGelExecutableTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGenItemByGelExecIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGenItemByGelExecIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenItemByGelExecIdx"
+		String ret = "<YCFGenKbGenItemByGelExecIdx"
 			+ " OptionalGelExecutableTenantId=" + ( ( getOptionalGelExecutableTenantId() == null ) ? "null" : "\"" + getOptionalGelExecutableTenantId().toString() + "\"" )
 			+ " OptionalGelExecutableGelCacheId=" + ( ( getOptionalGelExecutableGelCacheId() == null ) ? "null" : "\"" + getOptionalGelExecutableGelCacheId().toString() + "\"" )
 			+ " OptionalGelExecutableId=" + ( ( getOptionalGelExecutableId() == null ) ? "null" : "\"" + getOptionalGelExecutableId().toString() + "\"" )

@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam DbKeyHash256Gen.
+// Description: Java 11 edit object instance implementation for YCFBam DbKeyHash256Gen.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,45 +45,45 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamDbKeyHash256GenEditObj
-	extends CFBamDbKeyHash256TypeEditObj
+public class YCFBamDbKeyHash256GenEditObj
+	extends YCFBamDbKeyHash256TypeEditObj
 
-	implements ICFBamDbKeyHash256GenEditObj
+	implements IYCFBamDbKeyHash256GenEditObj
 {
-	protected ICFBamTableObj optionalLookupDispenser;
+	protected IYCFBamTableObj optionalLookupDispenser;
 
-	public CFBamDbKeyHash256GenEditObj( ICFBamDbKeyHash256GenObj argOrig ) {
+	public YCFBamDbKeyHash256GenEditObj( IYCFBamDbKeyHash256GenObj argOrig ) {
 		super( argOrig );
 		optionalLookupDispenser = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamDbKeyHash256GenObj.CLASS_CODE );
+		return( YCFBamDbKeyHash256GenObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "DbKeyHash256Gen" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -93,14 +93,14 @@ public class CFBamDbKeyHash256GenEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -111,10 +111,10 @@ public class CFBamDbKeyHash256GenEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -123,11 +123,11 @@ public class CFBamDbKeyHash256GenEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -151,16 +151,16 @@ public class CFBamDbKeyHash256GenEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -172,9 +172,9 @@ public class CFBamDbKeyHash256GenEditObj
 		return( qualName );
 	}
 
-	public ICFBamValueObj realise() {
+	public IYCFBamValueObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamDbKeyHash256GenObj retobj = getSchema().getDbKeyHash256GenTableObj().realiseDbKeyHash256Gen( (ICFBamDbKeyHash256GenObj)this );
+		IYCFBamDbKeyHash256GenObj retobj = getSchema().getDbKeyHash256GenTableObj().realiseDbKeyHash256Gen( (IYCFBamDbKeyHash256GenObj)this );
 		return( retobj );
 	}
 
@@ -182,69 +182,69 @@ public class CFBamDbKeyHash256GenEditObj
 		getOrigAsDbKeyHash256Gen().forget();
 	}
 
-	public ICFBamValueObj moveUp() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveUp() {
+		throw new YCFLibUsageException( getClass(),
 			"moveUp",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj moveDown() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveDown() {
+		throw new YCFLibUsageException( getClass(),
 			"moveDown",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj create() {
+	public IYCFBamValueObj create() {
 		copyBuffToOrig();
-		ICFBamDbKeyHash256GenObj retobj = ((ICFBamSchemaObj)getOrigAsDbKeyHash256Gen().getSchema()).getDbKeyHash256GenTableObj().createDbKeyHash256Gen( getOrigAsDbKeyHash256Gen() );
+		IYCFBamDbKeyHash256GenObj retobj = ((IYCFBamSchemaObj)getOrigAsDbKeyHash256Gen().getSchema()).getDbKeyHash256GenTableObj().createDbKeyHash256Gen( getOrigAsDbKeyHash256Gen() );
 		if( retobj == getOrigAsDbKeyHash256Gen() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamValueEditObj update() {
-		getSchema().getDbKeyHash256GenTableObj().updateDbKeyHash256Gen( (ICFBamDbKeyHash256GenObj)this );
+	public YCFBamValueEditObj update() {
+		getSchema().getDbKeyHash256GenTableObj().updateDbKeyHash256Gen( (IYCFBamDbKeyHash256GenObj)this );
 		return( null );
 	}
 
-	public CFBamValueEditObj deleteInstance() {
+	public YCFBamValueEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getDbKeyHash256GenTableObj().deleteDbKeyHash256Gen( getOrigAsDbKeyHash256Gen() );
 		return( null );
 	}
 
-	public ICFBamDbKeyHash256GenTableObj getDbKeyHash256GenTable() {
+	public IYCFBamDbKeyHash256GenTableObj getDbKeyHash256GenTable() {
 		return( orig.getSchema().getDbKeyHash256GenTableObj() );
 	}
 
-	public ICFBamDbKeyHash256GenEditObj getEditAsDbKeyHash256Gen() {
-		return( (ICFBamDbKeyHash256GenEditObj)this );
+	public IYCFBamDbKeyHash256GenEditObj getEditAsDbKeyHash256Gen() {
+		return( (IYCFBamDbKeyHash256GenEditObj)this );
 	}
 
-	public ICFBamDbKeyHash256GenObj getOrigAsDbKeyHash256Gen() {
-		return( (ICFBamDbKeyHash256GenObj)orig );
+	public IYCFBamDbKeyHash256GenObj getOrigAsDbKeyHash256Gen() {
+		return( (IYCFBamDbKeyHash256GenObj)orig );
 	}
 
-	public CFBamValueBuff getBuff() {
+	public YCFBamValueBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsDbKeyHash256Gen().getSchema().getBackingStore()).getFactoryDbKeyHash256Gen().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsDbKeyHash256Gen().getSchema().getBackingStore()).getFactoryDbKeyHash256Gen().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamValueBuff value ) {
+	public void setBuff( YCFBamValueBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			optionalLookupDispenser = null;
 		}
 	}
 
-	public CFBamDbKeyHash256GenBuff getDbKeyHash256GenBuff() {
-		return( (CFBamDbKeyHash256GenBuff)getBuff() );
+	public YCFBamDbKeyHash256GenBuff getDbKeyHash256GenBuff() {
+		return( (YCFBamDbKeyHash256GenBuff)getBuff() );
 	}
 
 	public Long getOptionalDispenserTenantId() {
@@ -275,11 +275,11 @@ public class CFBamDbKeyHash256GenEditObj
 		}
 	}
 
-	public ICFBamTableObj getOptionalLookupDispenser() {
+	public IYCFBamTableObj getOptionalLookupDispenser() {
 		return( getOptionalLookupDispenser( false ) );
 	}
 
-	public ICFBamTableObj getOptionalLookupDispenser( boolean forceRead ) {
+	public IYCFBamTableObj getOptionalLookupDispenser( boolean forceRead ) {
 		if( forceRead || ( optionalLookupDispenser == null ) ) {
 			boolean anyMissing = false;
 			if( getDbKeyHash256GenBuff().getOptionalDispenserTenantId() == null ) {
@@ -289,7 +289,7 @@ public class CFBamDbKeyHash256GenEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsDbKeyHash256Gen().getSchema()).getTableTableObj().readTableByIdIdx( getDbKeyHash256GenBuff().getOptionalDispenserTenantId(),
+				IYCFBamTableObj obj = ((IYCFBamSchemaObj)getOrigAsDbKeyHash256Gen().getSchema()).getTableTableObj().readTableByIdIdx( getDbKeyHash256GenBuff().getOptionalDispenserTenantId(),
 					getDbKeyHash256GenBuff().getOptionalDispenserId() );
 				optionalLookupDispenser = obj;
 			}
@@ -297,7 +297,7 @@ public class CFBamDbKeyHash256GenEditObj
 		return( optionalLookupDispenser );
 	}
 
-	public void setOptionalLookupDispenser( ICFBamTableObj value ) {
+	public void setOptionalLookupDispenser( IYCFBamTableObj value ) {
 			if( buff == null ) {
 				getDbKeyHash256GenBuff();
 			}
@@ -313,14 +313,14 @@ public class CFBamDbKeyHash256GenEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamDbKeyHash256GenBuff origBuff = getOrigAsDbKeyHash256Gen().getDbKeyHash256GenBuff();
-		CFBamDbKeyHash256GenBuff myBuff = getDbKeyHash256GenBuff();
+		YCFBamDbKeyHash256GenBuff origBuff = getOrigAsDbKeyHash256Gen().getDbKeyHash256GenBuff();
+		YCFBamDbKeyHash256GenBuff myBuff = getDbKeyHash256GenBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamDbKeyHash256GenBuff origBuff = getOrigAsDbKeyHash256Gen().getDbKeyHash256GenBuff();
-		CFBamDbKeyHash256GenBuff myBuff = getDbKeyHash256GenBuff();
+		YCFBamDbKeyHash256GenBuff origBuff = getOrigAsDbKeyHash256Gen().getDbKeyHash256GenBuff();
+		YCFBamDbKeyHash256GenBuff myBuff = getDbKeyHash256GenBuff();
 		myBuff.set( origBuff );
 	}
 }

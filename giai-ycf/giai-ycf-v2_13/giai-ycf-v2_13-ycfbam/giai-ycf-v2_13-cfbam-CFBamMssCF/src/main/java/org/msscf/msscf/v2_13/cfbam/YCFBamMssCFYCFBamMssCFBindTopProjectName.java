@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Binding for TopProject Column Name.
+// Description: Java 11 MssYCF Binding for TopProject Column Name.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,88 +27,88 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.math.*;
 import java.sql.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 import org.apache.commons.codec.binary.Base64;
 
 /**
- *	CFBamMssCFBindTopProjectName binds TopProject.Name
- *	as an instance of MssCFGenBindObj.
+ *	YCFBamMssYCFBindTopProjectName binds TopProject.Name
+ *	as an instance of MssYCFGenBindObj.
  */
-public class CFBamMssCFBindTopProjectName
-	extends MssCFGenBindObj
+public class YCFBamMssYCFBindTopProjectName
+	extends MssYCFGenBindObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFBindTopProjectName() {
+	public YCFBamMssYCFBindTopProjectName() {
 		super();
 	}
 
-	public CFBamMssCFBindTopProjectName( MssCFEngine argEngine ) {
+	public YCFBamMssYCFBindTopProjectName( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
 			"TopProject",
 			"Name" );
 	}
-	public Object getValueObject( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindTopProjectName.getValueObject() ";
+	public Object getValueObject( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindTopProjectName.getValueObject() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
 		}
 
 		String name;
-		if( genDef instanceof ICFBamTopProjectObj ) {
-			name = ((ICFBamTopProjectObj)genDef).getRequiredName();
+		if( genDef instanceof IYCFBamTopProjectObj ) {
+			name = ((IYCFBamTopProjectObj)genDef).getRequiredName();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamTopProjectObj" );
+				"IYCFBamTopProjectObj" );
 		}
 
 		return( name );
 	}
 
-	public String expandBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindTopProjectName.expandBody() ";
+	public String expandBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindTopProjectName.expandBody() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
@@ -116,16 +116,16 @@ public class CFBamMssCFBindTopProjectName
 
 		String ret;
 
-		if( genDef instanceof ICFBamTopProjectObj ) {
-			String name = ((ICFBamTopProjectObj)genDef).getRequiredName();
+		if( genDef instanceof IYCFBamTopProjectObj ) {
+			String name = ((IYCFBamTopProjectObj)genDef).getRequiredName();
 			ret = name;
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamTopProjectObj" );
+				"IYCFBamTopProjectObj" );
 		}
 
 		return( ret );

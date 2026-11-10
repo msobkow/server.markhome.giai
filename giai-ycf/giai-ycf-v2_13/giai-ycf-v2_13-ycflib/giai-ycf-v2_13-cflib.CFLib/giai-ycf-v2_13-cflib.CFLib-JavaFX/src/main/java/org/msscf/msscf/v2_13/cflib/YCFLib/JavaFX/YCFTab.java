@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,36 +21,36 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import javafx.scene.control.Tab;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
-public class CFTab
+public class YCFTab
 extends Tab
-implements ICFPaneCommon
+implements IYCFPaneCommon
 {
-	protected ICFLibAnyObj javaFXFocus = null;
-	protected CFPane.PaneMode paneMode = CFPane.PaneMode.Unknown;
+	protected IYCFLibAnyObj javaFXFocus = null;
+	protected YCFPane.PaneMode paneMode = YCFPane.PaneMode.Unknown;
 	
-	public CFTab() {
+	public YCFTab() {
 		super();
 	}
 
-	public ICFLibAnyObj getJavaFXFocus() {
+	public IYCFLibAnyObj getJavaFXFocus() {
 		return( javaFXFocus );
 	}
 	
-	public void setJavaFXFocus( ICFLibAnyObj value ) {
+	public void setJavaFXFocus( IYCFLibAnyObj value ) {
 		javaFXFocus = value;
 	}
 	
-	public CFPane.PaneMode getPaneMode() {
+	public YCFPane.PaneMode getPaneMode() {
 		return( paneMode );
 	}
 	
-	public void setPaneMode( CFPane.PaneMode value ) {
+	public void setPaneMode( YCFPane.PaneMode value ) {
 		paneMode = value;
 	}
 }

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -34,7 +34,7 @@ import java.io.PrintStream;
  *	<p>
  *	All methods of the interface are expected to be synchronized.
  */
-public interface ICFLibMessageLog {
+public interface IYCFLibMessageLog {
 
 	/**
 	 *	Get an PrintStream that wraps this log

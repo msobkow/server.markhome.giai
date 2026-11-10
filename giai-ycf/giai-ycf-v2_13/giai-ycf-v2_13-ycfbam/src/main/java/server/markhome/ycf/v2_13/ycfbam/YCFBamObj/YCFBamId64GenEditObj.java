@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam Id64Gen.
+// Description: Java 11 edit object instance implementation for YCFBam Id64Gen.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,45 +45,45 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamId64GenEditObj
-	extends CFBamInt64TypeEditObj
+public class YCFBamId64GenEditObj
+	extends YCFBamInt64TypeEditObj
 
-	implements ICFBamId64GenEditObj
+	implements IYCFBamId64GenEditObj
 {
-	protected ICFBamTableObj optionalLookupDispenser;
+	protected IYCFBamTableObj optionalLookupDispenser;
 
-	public CFBamId64GenEditObj( ICFBamId64GenObj argOrig ) {
+	public YCFBamId64GenEditObj( IYCFBamId64GenObj argOrig ) {
 		super( argOrig );
 		optionalLookupDispenser = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamId64GenObj.CLASS_CODE );
+		return( YCFBamId64GenObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "Id64Gen" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -93,14 +93,14 @@ public class CFBamId64GenEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -111,10 +111,10 @@ public class CFBamId64GenEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -123,11 +123,11 @@ public class CFBamId64GenEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -151,16 +151,16 @@ public class CFBamId64GenEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -172,9 +172,9 @@ public class CFBamId64GenEditObj
 		return( qualName );
 	}
 
-	public ICFBamValueObj realise() {
+	public IYCFBamValueObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamId64GenObj retobj = getSchema().getId64GenTableObj().realiseId64Gen( (ICFBamId64GenObj)this );
+		IYCFBamId64GenObj retobj = getSchema().getId64GenTableObj().realiseId64Gen( (IYCFBamId64GenObj)this );
 		return( retobj );
 	}
 
@@ -182,69 +182,69 @@ public class CFBamId64GenEditObj
 		getOrigAsId64Gen().forget();
 	}
 
-	public ICFBamValueObj moveUp() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveUp() {
+		throw new YCFLibUsageException( getClass(),
 			"moveUp",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj moveDown() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveDown() {
+		throw new YCFLibUsageException( getClass(),
 			"moveDown",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj create() {
+	public IYCFBamValueObj create() {
 		copyBuffToOrig();
-		ICFBamId64GenObj retobj = ((ICFBamSchemaObj)getOrigAsId64Gen().getSchema()).getId64GenTableObj().createId64Gen( getOrigAsId64Gen() );
+		IYCFBamId64GenObj retobj = ((IYCFBamSchemaObj)getOrigAsId64Gen().getSchema()).getId64GenTableObj().createId64Gen( getOrigAsId64Gen() );
 		if( retobj == getOrigAsId64Gen() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamValueEditObj update() {
-		getSchema().getId64GenTableObj().updateId64Gen( (ICFBamId64GenObj)this );
+	public YCFBamValueEditObj update() {
+		getSchema().getId64GenTableObj().updateId64Gen( (IYCFBamId64GenObj)this );
 		return( null );
 	}
 
-	public CFBamValueEditObj deleteInstance() {
+	public YCFBamValueEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getId64GenTableObj().deleteId64Gen( getOrigAsId64Gen() );
 		return( null );
 	}
 
-	public ICFBamId64GenTableObj getId64GenTable() {
+	public IYCFBamId64GenTableObj getId64GenTable() {
 		return( orig.getSchema().getId64GenTableObj() );
 	}
 
-	public ICFBamId64GenEditObj getEditAsId64Gen() {
-		return( (ICFBamId64GenEditObj)this );
+	public IYCFBamId64GenEditObj getEditAsId64Gen() {
+		return( (IYCFBamId64GenEditObj)this );
 	}
 
-	public ICFBamId64GenObj getOrigAsId64Gen() {
-		return( (ICFBamId64GenObj)orig );
+	public IYCFBamId64GenObj getOrigAsId64Gen() {
+		return( (IYCFBamId64GenObj)orig );
 	}
 
-	public CFBamValueBuff getBuff() {
+	public YCFBamValueBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsId64Gen().getSchema().getBackingStore()).getFactoryId64Gen().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsId64Gen().getSchema().getBackingStore()).getFactoryId64Gen().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamValueBuff value ) {
+	public void setBuff( YCFBamValueBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			optionalLookupDispenser = null;
 		}
 	}
 
-	public CFBamId64GenBuff getId64GenBuff() {
-		return( (CFBamId64GenBuff)getBuff() );
+	public YCFBamId64GenBuff getId64GenBuff() {
+		return( (YCFBamId64GenBuff)getBuff() );
 	}
 
 	public Long getOptionalDispenserTenantId() {
@@ -275,11 +275,11 @@ public class CFBamId64GenEditObj
 		}
 	}
 
-	public ICFBamTableObj getOptionalLookupDispenser() {
+	public IYCFBamTableObj getOptionalLookupDispenser() {
 		return( getOptionalLookupDispenser( false ) );
 	}
 
-	public ICFBamTableObj getOptionalLookupDispenser( boolean forceRead ) {
+	public IYCFBamTableObj getOptionalLookupDispenser( boolean forceRead ) {
 		if( forceRead || ( optionalLookupDispenser == null ) ) {
 			boolean anyMissing = false;
 			if( getId64GenBuff().getOptionalDispenserTenantId() == null ) {
@@ -289,7 +289,7 @@ public class CFBamId64GenEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsId64Gen().getSchema()).getTableTableObj().readTableByIdIdx( getId64GenBuff().getOptionalDispenserTenantId(),
+				IYCFBamTableObj obj = ((IYCFBamSchemaObj)getOrigAsId64Gen().getSchema()).getTableTableObj().readTableByIdIdx( getId64GenBuff().getOptionalDispenserTenantId(),
 					getId64GenBuff().getOptionalDispenserId() );
 				optionalLookupDispenser = obj;
 			}
@@ -297,7 +297,7 @@ public class CFBamId64GenEditObj
 		return( optionalLookupDispenser );
 	}
 
-	public void setOptionalLookupDispenser( ICFBamTableObj value ) {
+	public void setOptionalLookupDispenser( IYCFBamTableObj value ) {
 			if( buff == null ) {
 				getId64GenBuff();
 			}
@@ -313,14 +313,14 @@ public class CFBamId64GenEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamId64GenBuff origBuff = getOrigAsId64Gen().getId64GenBuff();
-		CFBamId64GenBuff myBuff = getId64GenBuff();
+		YCFBamId64GenBuff origBuff = getOrigAsId64Gen().getId64GenBuff();
+		YCFBamId64GenBuff myBuff = getId64GenBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamId64GenBuff origBuff = getOrigAsId64Gen().getId64GenBuff();
-		CFBamId64GenBuff myBuff = getId64GenBuff();
+		YCFBamId64GenBuff origBuff = getOrigAsId64Gen().getId64GenBuff();
+		YCFBamId64GenBuff myBuff = getId64GenBuff();
 		myBuff.set( origBuff );
 	}
 }

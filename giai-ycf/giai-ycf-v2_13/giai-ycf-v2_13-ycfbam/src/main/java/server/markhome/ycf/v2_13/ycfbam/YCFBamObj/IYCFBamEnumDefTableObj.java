@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamEnumDefTableObj
+public interface IYCFBamEnumDefTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamEnumDefObj newInstance();
+	IYCFBamEnumDefObj newInstance();
 
 	/**
 	 *	Instantiate a new EnumDef edition of the specified EnumDef instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamEnumDefEditObj newEditInstance( ICFBamEnumDefObj orig );
+	IYCFBamEnumDefEditObj newEditInstance( IYCFBamEnumDefObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamEnumDefObj realiseEnumDef( ICFBamEnumDefObj Obj );
+	IYCFBamEnumDefObj realiseEnumDef( IYCFBamEnumDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamEnumDefObj createEnumDef( ICFBamEnumDefObj Obj );
+	IYCFBamEnumDefObj createEnumDef( IYCFBamEnumDefObj Obj );
 
 	/**
 	 *	Read a EnumDef-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamEnumDefTableObj
 	 *	@return	The EnumDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamEnumDefObj readEnumDef( CFBamValuePKey pkey );
+	IYCFBamEnumDefObj readEnumDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a EnumDef-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamEnumDefTableObj
 	 *	@return	The EnumDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamEnumDefObj readEnumDef( CFBamValuePKey pkey,
+	IYCFBamEnumDefObj readEnumDef( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamEnumDefObj readCachedEnumDef( CFBamValuePKey pkey );
+	IYCFBamEnumDefObj readCachedEnumDef( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeEnumDef( ICFBamEnumDefObj obj );
+	public void reallyDeepDisposeEnumDef( IYCFBamEnumDefObj obj );
 
-	void deepDisposeEnumDef( CFBamValuePKey pkey );
+	void deepDisposeEnumDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamEnumDefObj lockEnumDef( CFBamValuePKey pkey );
+	IYCFBamEnumDefObj lockEnumDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the EnumDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamEnumDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamEnumDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamEnumDefObj> readAllEnumDef();
+	List<IYCFBamEnumDefObj> readAllEnumDef();
 
 	/**
 	 *	Return a sorted map of all the EnumDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamEnumDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamEnumDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamEnumDefObj> readAllEnumDef( boolean forceRead );
+	List<IYCFBamEnumDefObj> readAllEnumDef( boolean forceRead );
 
-	List<ICFBamEnumDefObj> readCachedAllEnumDef();
+	List<IYCFBamEnumDefObj> readCachedAllEnumDef();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamEnumDefObj readEnumDefByIdIdx( long TenantId,
+	IYCFBamEnumDefObj readEnumDefByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamEnumDefObj readEnumDefByIdIdx( long TenantId,
+	IYCFBamEnumDefObj readEnumDefByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@param	argName	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamEnumDefObj readEnumDefByUNameIdx( long TenantId,
+	IYCFBamEnumDefObj readEnumDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@param	argName	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamEnumDefObj readEnumDefByUNameIdx( long TenantId,
+	IYCFBamEnumDefObj readEnumDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByValTentIdx( long TenantId );
+	List<IYCFBamEnumDefObj> readEnumDefByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamEnumDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByValTentIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByScopeIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamEnumDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByScopeIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamEnumDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamEnumDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByNextIdx( Long NextTenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamEnumDefObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByNextIdx( Long NextTenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@param	argPrevId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByContPrevIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamEnumDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@param	argPrevId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByContPrevIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@param	argNextId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByContNextIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamEnumDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@param	argNextId	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByContNextIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamEnumDefObj> readEnumDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamEnumDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamEnumDefObj> readEnumDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamEnumDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
 	 *
@@ -446,48 +446,48 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamEnumDefObj> readEnumDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readEnumDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
-	ICFBamEnumDefObj readCachedEnumDefByIdIdx( long TenantId,
+	IYCFBamEnumDefObj readCachedEnumDefByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamEnumDefObj readCachedEnumDefByUNameIdx( long TenantId,
+	IYCFBamEnumDefObj readCachedEnumDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamEnumDefObj> readCachedEnumDefByValTentIdx( long TenantId );
+	List<IYCFBamEnumDefObj> readCachedEnumDefByValTentIdx( long TenantId );
 
-	List<ICFBamEnumDefObj> readCachedEnumDefByScopeIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readCachedEnumDefByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamEnumDefObj> readCachedEnumDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamEnumDefObj> readCachedEnumDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamEnumDefObj> readCachedEnumDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamEnumDefObj> readCachedEnumDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamEnumDefObj> readCachedEnumDefByNextIdx( Long NextTenantId,
+	List<IYCFBamEnumDefObj> readCachedEnumDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamEnumDefObj> readCachedEnumDefByContPrevIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readCachedEnumDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamEnumDefObj> readCachedEnumDefByContNextIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readCachedEnumDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamEnumDefObj> readCachedEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamEnumDefObj> readCachedEnumDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamEnumDefObj> readCachedEnumDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamEnumDefObj> readCachedEnumDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeEnumDefByIdIdx( long TenantId,
 		long Id );
@@ -518,21 +518,21 @@ public interface ICFBamEnumDefTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeEnumDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeEnumDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamEnumDefObj updateEnumDef( ICFBamEnumDefObj Obj );
+	IYCFBamEnumDefObj updateEnumDef( IYCFBamEnumDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteEnumDef( ICFBamEnumDefObj Obj );
+	void deleteEnumDef( IYCFBamEnumDefObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -635,7 +635,7 @@ public interface ICFBamEnumDefTableObj
 	 *
 	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
 	 */
-	void deleteEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteEnumDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -648,19 +648,19 @@ public interface ICFBamEnumDefTableObj
 	 */
 	void deleteEnumDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Move the CFBamEnumDefObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamEnumDefObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamEnumDefObj refreshed cache instance.
+	 *	@return	YCFBamEnumDefObj refreshed cache instance.
 	 */
-	ICFBamEnumDefObj moveUpEnumDef( ICFBamEnumDefObj Obj );
+	IYCFBamEnumDefObj moveUpEnumDef( IYCFBamEnumDefObj Obj );
 
 	/**
-	 *	Move the CFBamEnumDefObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamEnumDefObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamEnumDefObj refreshed cache instance.
+	 *	@return	YCFBamEnumDefObj refreshed cache instance.
 	 */
-	ICFBamEnumDefObj moveDownEnumDef( ICFBamEnumDefObj Obj );
+	IYCFBamEnumDefObj moveDownEnumDef( IYCFBamEnumDefObj Obj );
 }

@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for NmTokenType.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamNmTokenTypeTable database interface for NmTokenType
+ *	YCFBamNmTokenTypeTable database interface for NmTokenType
  */
-public interface ICFBamNmTokenTypeTable
+public interface IYCFBamNmTokenTypeTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createNmTokenType( CFSecAuthorization Authorization,
-		CFBamNmTokenTypeBuff Buff );
+	void createNmTokenType( YCFSecAuthorization Authorization,
+		YCFBamNmTokenTypeBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateNmTokenType( CFSecAuthorization Authorization,
-		CFBamNmTokenTypeBuff Buff );
+	void updateNmTokenType( YCFSecAuthorization Authorization,
+		YCFBamNmTokenTypeBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteNmTokenType( CFSecAuthorization Authorization,
-		CFBamNmTokenTypeBuff Buff );
+	void deleteNmTokenType( YCFSecAuthorization Authorization,
+		YCFBamNmTokenTypeBuff Buff );
 	/**
 	 *	Delete the NmTokenType instances identified by the key SchemaIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argSchemaDefId	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeBySchemaIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId );
 
@@ -121,8 +121,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamNmTokenTypeBySchemaIdxKey argKey );
+	void deleteNmTokenTypeBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamNmTokenTypeBySchemaIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instance identified by the primary key attributes.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argId	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByIdIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -143,8 +143,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteNmTokenTypeByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteNmTokenTypeByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key UNameIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argName	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByUNameIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -168,8 +168,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteNmTokenTypeByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key ValTentIdx.
 	 *
@@ -177,7 +177,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argTenantId	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByValTentIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -187,8 +187,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteNmTokenTypeByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key ScopeIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argScopeId	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByScopeIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -209,8 +209,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteNmTokenTypeByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key DefSchemaIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argDefSchemaId	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -231,8 +231,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteNmTokenTypeByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key PrevIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argPrevId	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByPrevIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -253,8 +253,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteNmTokenTypeByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key NextIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argNextId	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByNextIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -275,8 +275,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteNmTokenTypeByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key ContPrevIdx.
 	 *
@@ -288,7 +288,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argPrevId	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -300,8 +300,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteNmTokenTypeByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key ContNextIdx.
 	 *
@@ -313,7 +313,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argNextId	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByContNextIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -325,8 +325,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteNmTokenTypeByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key CodeVisIdx.
 	 *
@@ -334,8 +334,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argCodeVis	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteNmTokenTypeByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the NmTokenType instances identified by the key CodeVisIdx.
@@ -344,8 +344,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteNmTokenTypeByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the NmTokenType instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -357,10 +357,10 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argCodeVis	The NmTokenType key attribute of the instance generating the id.
 	 */
-	void deleteNmTokenTypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteNmTokenTypeByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the NmTokenType instances identified by the key ScopeCodeVisIdx.
@@ -369,8 +369,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteNmTokenTypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteNmTokenTypeByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -383,8 +383,8 @@ public interface ICFBamNmTokenTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamNmTokenTypeBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamNmTokenTypeBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived NmTokenType buffer instance by primary key.
@@ -396,8 +396,8 @@ public interface ICFBamNmTokenTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamNmTokenTypeBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamNmTokenTypeBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all NmTokenType instances.
@@ -406,7 +406,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamNmTokenTypeBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived NmTokenType buffer instance identified by the unique key IdIdx.
@@ -420,7 +420,7 @@ public interface ICFBamNmTokenTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamNmTokenTypeBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -438,7 +438,7 @@ public interface ICFBamNmTokenTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamNmTokenTypeBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -452,7 +452,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -466,7 +466,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -481,7 +481,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -496,7 +496,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -511,7 +511,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -528,7 +528,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -546,7 +546,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -560,8 +560,8 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamNmTokenTypeBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived NmTokenType buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -576,10 +576,10 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived NmTokenType buffer instances identified by the duplicate key SchemaIdx.
@@ -592,7 +592,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamNmTokenTypeBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -606,10 +606,10 @@ public interface ICFBamNmTokenTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamNmTokenTypeBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific NmTokenType buffer instance identified by the primary key.
@@ -621,10 +621,10 @@ public interface ICFBamNmTokenTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamNmTokenTypeBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific NmTokenType buffer instances.
@@ -633,7 +633,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return All the specific NmTokenType instances in the database accessible for the Authorization.
 	 */
-	CFBamNmTokenTypeBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamNmTokenTypeBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific NmTokenType buffer instance identified by the unique key IdIdx.
@@ -647,9 +647,9 @@ public interface ICFBamNmTokenTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -667,9 +667,9 @@ public interface ICFBamNmTokenTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -683,9 +683,9 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -699,9 +699,9 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -716,9 +716,9 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -733,9 +733,9 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -750,9 +750,9 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -769,9 +769,9 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -789,9 +789,9 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -805,10 +805,10 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamNmTokenTypeBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific NmTokenType buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -823,12 +823,12 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific NmTokenType buffer instances identified by the duplicate key SchemaIdx.
@@ -841,9 +841,9 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamNmTokenTypeBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -852,7 +852,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamNmTokenTypeBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -862,7 +862,7 @@ public interface ICFBamNmTokenTypeTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamNmTokenTypeBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamNmTokenTypeBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -870,7 +870,7 @@ public interface ICFBamNmTokenTypeTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

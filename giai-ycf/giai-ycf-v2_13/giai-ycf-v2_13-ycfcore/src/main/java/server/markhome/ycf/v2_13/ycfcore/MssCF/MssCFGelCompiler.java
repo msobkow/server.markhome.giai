@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,40 +21,40 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.CFGenKbGelInstructionPKey;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.YCFGenKbGelInstructionPKey;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGelCompiler
+public class MssYCFGelCompiler
 {
-	protected MssCFEngine				genEngine = null;
-	protected ICFGenKbGelCacheObj		myGelCache = null;
+	protected MssYCFEngine				genEngine = null;
+	protected IYCFGenKbGelCacheObj		myGelCache = null;
 	protected boolean					compileError = false;
-	protected ICFLibMessageLog			log = null;
-	protected CFLibCachedMessageLog		msglog = new CFLibCachedMessageLog();
+	protected IYCFLibMessageLog			log = null;
+	protected YCFLibCachedMessageLog		msglog = new YCFLibCachedMessageLog();
 
-	public MssCFEngine getGenEngine() {
+	public MssYCFEngine getGenEngine() {
 		return( genEngine );
 	}
 
-	public void setGenEngine( MssCFEngine value ) {
+	public void setGenEngine( MssYCFEngine value ) {
 		genEngine = value;
 	}
 
-	public ICFGenKbGelCacheObj getMyGelCache() {
+	public IYCFGenKbGelCacheObj getMyGelCache() {
 		if( myGelCache == null ) {
 			myGelCache = genEngine.getGelCache();
 		}
 		return( myGelCache );
 	}
 
-	public ICFLibMessageLog getLog() {
+	public IYCFLibMessageLog getLog() {
 		if( log == null ) {
 			if( genEngine != null ) {
 				log = genEngine.getLog();
@@ -64,11 +64,11 @@ public class MssCFGelCompiler
 		return( log );
 	}
 
-	public void setLog( ICFLibMessageLog newlog ) {
+	public void setLog( IYCFLibMessageLog newlog ) {
 		log = newlog;
 	}
 
-	public ICFLibMessageLog getCompileLog() {
+	public IYCFLibMessageLog getCompileLog() {
 		return( msglog );
 	}
 
@@ -88,22 +88,22 @@ public class MssCFGelCompiler
 		compileError = false;
 	}
 
-	public String getGenGenerateOnce( MssCFGenContext genContext ) {
+	public String getGenGenerateOnce( MssYCFGenContext genContext ) {
 		String retval = genContext.getGenGenerateOnce();
 		return( retval );
 	}
 
-	public String getGenModuleName( MssCFGenContext genContext ) {
+	public String getGenModuleName( MssYCFGenContext genContext ) {
 		String retval = genContext.getGenModuleName();
 		return( retval );
 	}
 
-	public String getGenBasePackageName( MssCFGenContext genContext ) {
+	public String getGenBasePackageName( MssYCFGenContext genContext ) {
 		String retval = genContext.getGenBasePackageName();
 		return( retval );
 	}
 
-	public String getGenSubPackageName( MssCFGenContext genContext ) {
+	public String getGenSubPackageName( MssYCFGenContext genContext ) {
 		String retval = genContext.getGenSubPackageName();
 		return( retval );
 	}
@@ -111,7 +111,7 @@ public class MssCFGelCompiler
 	/**
 	 *	Construct an instance.  Only invoked to create binding entries.
 	 */
-	public MssCFGelCompiler( MssCFEngine engine )	{
+	public MssYCFGelCompiler( MssYCFEngine engine )	{
 		setGenEngine( engine );
 	}
 
@@ -122,11 +122,11 @@ public class MssCFGelCompiler
 	 *	This top level public interface invokes the compileMacro()
 	 *	method to compile the elements of the Executable.
 	 */
-	public ICFGenKbGelExecutableObj compileExecutable( String keyExecutableName, String body ) {
+	public IYCFGenKbGelExecutableObj compileExecutable( String keyExecutableName, String body ) {
 		return( compileExecutable( keyExecutableName, body, null ) );
 	}
 
-	public ICFGenKbGelExecutableObj compileExecutable( String keyExecutableName, String body, ICFGenKbGenItemObj optGenItem ) {
+	public IYCFGenKbGelExecutableObj compileExecutable( String keyExecutableName, String body, IYCFGenKbGenItemObj optGenItem ) {
 		final String S_ProcName = "compileExecutable";
 		final String S_KeyExecutableName = "keyExecutableName";
 		final String S_Dot = ".";
@@ -135,7 +135,7 @@ public class MssCFGelCompiler
 		final String S_Newline = "\n";
 
 		if( ( keyExecutableName == null ) || ( keyExecutableName.length() <= 0 ) ) {
-			throw new CFLibEmptyArgumentException( getClass(), S_ProcName, 1, S_KeyExecutableName );
+			throw new YCFLibEmptyArgumentException( getClass(), S_ProcName, 1, S_KeyExecutableName );
 		}
 
 		// Establish value of myGelCache
@@ -145,30 +145,30 @@ public class MssCFGelCompiler
 		clearCompileError();
 
 		// Probe for an existing executable, returning it if found
-		ICFGenKbGelExecutableObj foundExec = myGelCache.lookupExecutable( keyExecutableName );
+		IYCFGenKbGelExecutableObj foundExec = myGelCache.lookupExecutable( keyExecutableName );
 		if( foundExec != null ) {
 			return( foundExec );
 		}
 
 		// Establish the encompassing GelExecutable that is the result of our compiling efforts
-		ICFGenKbGelExecutableObj executableObj = genEngine.getGelExecutableTableObj().newInstance();
-		ICFGenKbGelExecutableEditObj executableEdit = (ICFGenKbGelExecutableEditObj)executableObj.beginEdit();
+		IYCFGenKbGelExecutableObj executableObj = genEngine.getGelExecutableTableObj().newInstance();
+		IYCFGenKbGelExecutableEditObj executableEdit = (IYCFGenKbGelExecutableEditObj)executableObj.beginEdit();
 		executableEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		executableEdit.setRequiredContainerGelCache( myGelCache );
 		executableEdit.setRequiredSourceText( body );
-		executableObj = (ICFGenKbGelExecutableObj)executableEdit.create();
+		executableObj = (IYCFGenKbGelExecutableObj)executableEdit.create();
 		executableEdit = null;
 
 		boolean anyErrors = false;
 
-		ICFGenKbGelInstructionObj instruction;
+		IYCFGenKbGelInstructionObj instruction;
 		if( ( body == null ) || ( body.length() <= 0 ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinEmpty( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)( builtinObj.beginEdit() );
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinEmpty( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)( builtinObj.beginEdit() );
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( "" );
-			builtinObj = (ICFGenKbGelBuiltinObj)( builtinEdit.create() );
+			builtinObj = (IYCFGenKbGelBuiltinObj)( builtinEdit.create() );
 			try {
 				executableObj.addCalledInstruction( myGelCache, builtinObj );
 			}
@@ -226,13 +226,13 @@ public class MssCFGelCompiler
 
 								if( macro.length() <= 0 ) {
 									// Two dollar signs in a row means to embed a single dollar sign
-									ICFGenKbGelBoilerplateObj boilerplateObj = genEngine.getGelBoilerplateTableObj().newInstance();
-									ICFGenKbGelBoilerplateEditObj boilerplateEdit = (ICFGenKbGelBoilerplateEditObj)( boilerplateObj.beginEdit() );
+									IYCFGenKbGelBoilerplateObj boilerplateObj = genEngine.getGelBoilerplateTableObj().newInstance();
+									IYCFGenKbGelBoilerplateEditObj boilerplateEdit = (IYCFGenKbGelBoilerplateEditObj)( boilerplateObj.beginEdit() );
 									boilerplateEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 									boilerplateEdit.setRequiredContainerGelCache( myGelCache );
 									boilerplateEdit.setRequiredSourceText( "$" );
 									try {
-										boilerplateObj = (ICFGenKbGelBoilerplateObj)( boilerplateEdit.create() );
+										boilerplateObj = (IYCFGenKbGelBoilerplateObj)( boilerplateEdit.create() );
 									}
 									catch( Exception e ) {
 										boilerplateEdit.endEdit();
@@ -249,12 +249,12 @@ public class MssCFGelCompiler
 								else {
 									normalizedMacro = normalizeMacro( macro.toString() );
 									if( normalizedMacro.length() > 0 ) {
-										ICFGenKbGelInstructionObj compiledMacro = null;
+										IYCFGenKbGelInstructionObj compiledMacro = null;
 										compiledMacro = compileMacro( normalizedMacro );
 										if( compiledMacro == null ) {
 											setCompileError();
-											ICFGenKbGelErrorObj errorObj = genEngine.getGelErrorTableObj().newInstance();
-											ICFGenKbGelErrorEditObj errorEdit = (ICFGenKbGelErrorEditObj)( errorObj.beginEdit() );
+											IYCFGenKbGelErrorObj errorObj = genEngine.getGelErrorTableObj().newInstance();
+											IYCFGenKbGelErrorEditObj errorEdit = (IYCFGenKbGelErrorEditObj)( errorObj.beginEdit() );
 											errorEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 											errorEdit.setRequiredContainerGelCache( myGelCache );
 											StringBuffer errorExpansion = new StringBuffer( "$" );
@@ -262,9 +262,9 @@ public class MssCFGelCompiler
 											errorExpansion.append( "$" );
 											errorEdit.setRequiredSourceText( errorExpansion.toString() );
 											try {
-												errorObj = (ICFGenKbGelErrorObj)( errorEdit.create() );
+												errorObj = (IYCFGenKbGelErrorObj)( errorEdit.create() );
 												errorEdit = null;
-												errorObj = (ICFGenKbGelErrorObj)( myGelCache.rememberMacro( normalizedMacro, errorObj ) );
+												errorObj = (IYCFGenKbGelErrorObj)( myGelCache.rememberMacro( normalizedMacro, errorObj ) );
 											}
 											catch( Exception e ) {
 												errorObj = null;
@@ -298,8 +298,8 @@ public class MssCFGelCompiler
 										// Empty normalized macro bodies are illegal
 										setCompileError();
 
-										ICFGenKbGelErrorObj errorObj = genEngine.getGelErrorTableObj().newInstance();
-										ICFGenKbGelErrorEditObj errorEdit = (ICFGenKbGelErrorEditObj)( errorObj.beginEdit() );
+										IYCFGenKbGelErrorObj errorObj = genEngine.getGelErrorTableObj().newInstance();
+										IYCFGenKbGelErrorEditObj errorEdit = (IYCFGenKbGelErrorEditObj)( errorObj.beginEdit() );
 										errorEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 										errorEdit.setRequiredContainerGelCache( myGelCache );
 										StringBuffer srctext = new StringBuffer( "$" );
@@ -307,7 +307,7 @@ public class MssCFGelCompiler
 										srctext.append( '$' );
 										errorEdit.setRequiredSourceText( srctext.toString() );
 										try {
-											errorObj = (ICFGenKbGelErrorObj)( errorEdit.create() );
+											errorObj = (IYCFGenKbGelErrorObj)( errorEdit.create() );
 										}
 										catch( Exception e ) {
 											errorEdit.endEdit();
@@ -368,13 +368,13 @@ public class MssCFGelCompiler
 
 							case '$':
 								if( boilerplate.length() > 0 ) {
-									ICFGenKbGelBoilerplateObj boilerplateObj = genEngine.getGelBoilerplateTableObj().newInstance();
-									ICFGenKbGelBoilerplateEditObj boilerplateEdit = (ICFGenKbGelBoilerplateEditObj)( boilerplateObj.beginEdit() );
+									IYCFGenKbGelBoilerplateObj boilerplateObj = genEngine.getGelBoilerplateTableObj().newInstance();
+									IYCFGenKbGelBoilerplateEditObj boilerplateEdit = (IYCFGenKbGelBoilerplateEditObj)( boilerplateObj.beginEdit() );
 									boilerplateEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 									boilerplateEdit.setRequiredContainerGelCache( myGelCache );
 									boilerplateEdit.setRequiredSourceText( boilerplate.toString() );
 									try {
-										boilerplateObj = (ICFGenKbGelBoilerplateObj)( boilerplateEdit.create() );
+										boilerplateObj = (IYCFGenKbGelBoilerplateObj)( boilerplateEdit.create() );
 									}
 									catch( Exception e ) {
 										boilerplateEdit.endEdit();
@@ -406,15 +406,15 @@ public class MssCFGelCompiler
 			if( macroStarted ) {
 				setCompileError();
 
-				ICFGenKbGelErrorObj errorObj = genEngine.getGelErrorTableObj().newInstance();
-				ICFGenKbGelErrorEditObj errorEdit = (ICFGenKbGelErrorEditObj)( errorObj.beginEdit() );
+				IYCFGenKbGelErrorObj errorObj = genEngine.getGelErrorTableObj().newInstance();
+				IYCFGenKbGelErrorEditObj errorEdit = (IYCFGenKbGelErrorEditObj)( errorObj.beginEdit() );
 				errorEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 				errorEdit.setRequiredContainerGelCache( myGelCache );
 				StringBuffer myText = new StringBuffer( "$" );
 				myText.append( macro );
 				errorEdit.setRequiredSourceText( myText.toString() );
 				try {
-					errorObj = (ICFGenKbGelErrorObj)( errorEdit.create() );
+					errorObj = (IYCFGenKbGelErrorObj)( errorEdit.create() );
 				}
 				catch( Exception e ) {
 					errorEdit.endEdit();
@@ -446,13 +446,13 @@ public class MssCFGelCompiler
 		//	Don't forget any trailing boilerplate
 
 			if( boilerplate.length() > 0 ) {
-				ICFGenKbGelBoilerplateObj boilerplateObj = genEngine.getGelBoilerplateTableObj().newInstance();
-				ICFGenKbGelBoilerplateEditObj boilerplateEdit = (ICFGenKbGelBoilerplateEditObj)( boilerplateObj.beginEdit() );
+				IYCFGenKbGelBoilerplateObj boilerplateObj = genEngine.getGelBoilerplateTableObj().newInstance();
+				IYCFGenKbGelBoilerplateEditObj boilerplateEdit = (IYCFGenKbGelBoilerplateEditObj)( boilerplateObj.beginEdit() );
 				boilerplateEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 				boilerplateEdit.setRequiredContainerGelCache( myGelCache );
 				boilerplateEdit.setRequiredSourceText( boilerplate.toString() );
 				try {
-					boilerplateObj = (ICFGenKbGelBoilerplateObj)( boilerplateEdit.create() );
+					boilerplateObj = (IYCFGenKbGelBoilerplateObj)( boilerplateEdit.create() );
 				}
 				catch( Exception e ) {
 					boilerplateEdit.endEdit();
@@ -488,14 +488,14 @@ public class MssCFGelCompiler
 			msg.append( "() Could not compile GEL executable " + keyExecutableName );
 			if( optGenItem != null ) {
 				String definedNear;
-				if( optGenItem instanceof ICFGenKbGenRuleObj ) {
-					definedNear = ((ICFGenKbGenRuleObj)optGenItem).getRequiredDefinedNear();
+				if( optGenItem instanceof IYCFGenKbGenRuleObj ) {
+					definedNear = ((IYCFGenKbGenRuleObj)optGenItem).getRequiredDefinedNear();
 				}
-				else if( optGenItem instanceof ICFGenKbGenTruncObj ) {
-					definedNear = ((ICFGenKbGenTruncObj)optGenItem).getRequiredDefinedNear();
+				else if( optGenItem instanceof IYCFGenKbGenTruncObj ) {
+					definedNear = ((IYCFGenKbGenTruncObj)optGenItem).getRequiredDefinedNear();
 				}
-				else if( optGenItem instanceof ICFGenKbGenFileObj ) {
-					definedNear = ((ICFGenKbGenFileObj)optGenItem).getRequiredDefinedNear();
+				else if( optGenItem instanceof IYCFGenKbGenFileObj ) {
+					definedNear = ((IYCFGenKbGenFileObj)optGenItem).getRequiredDefinedNear();
 				}
 				else {
 					definedNear = "";
@@ -631,7 +631,7 @@ public class MssCFGelCompiler
 
 	/**
 	 *	Built-in macros are used to access information directly from the generation
-	 *	context and the MssCFGenFileObj definition used to open the current generation
+	 *	context and the MssYCFGenFileObj definition used to open the current generation
 	 *	file.
 	 *	<p>
 	 *	GenFileFullName expands to the fully pathed name of the currently open file.
@@ -692,31 +692,31 @@ public class MssCFGelCompiler
 	 * parsed into a Long and a decimal string returned.
 	 */
 	public final static String _HEX_TO_DECIMAL = "hexToDecimal";
-	protected class MssCFBuiltinEmpty
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinEmpty
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinEmpty( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinEmpty( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( "" );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = "";
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGeneratingClass
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGeneratingClass
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGeneratingClass( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGeneratingClass( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENERATINGCLASS );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval;
-			MssCFGenContext genFileContext = genContext.getGenFileContext();
+			MssYCFGenContext genFileContext = genContext.getGenFileContext();
 			if( genFileContext != null ) {
 				retval = genFileContext.getGenDef().getClass().getSimpleName();
 			}
@@ -727,225 +727,225 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinGeneratingBuild
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGeneratingBuild
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGeneratingBuild( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGeneratingBuild( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENERATINGBUILD );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGeneratingBuild();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenFileBaseName
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenFileBaseName
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenFileBaseName( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenFileBaseName( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENFILEBASENAME );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenFileBaseName();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenFileGenerateOnce
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenFileGenerateOnce
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenFileGenerateOnce( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenFileGenerateOnce( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENFILEGENERATEONCE );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenFileGenerateOnce();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenFileModuleName
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenFileModuleName
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenFileModuleName( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenFileModuleName( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENFILEMODULENAME );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenFileModuleName();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenFileName
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenFileName
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenFileName( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenFileName( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENFILENAME );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenFileName();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenFileFullName
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenFileFullName
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenFileFullName( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenFileFullName( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENFILEFULLNAME );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenFileFullName();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenSubPackageName
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenSubPackageName
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenSubPackageName( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenSubPackageName( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENSUBPACKAGE );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenSubPackageName();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinSourceBundle
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinSourceBundle
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinSourceBundle( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinSourceBundle( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_SOURCEBUNDLE );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getSourceBundle();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinSourcePackage
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinSourcePackage
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinSourcePackage( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinSourcePackage( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_SOURCEPACKAGE );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getSourcePackage();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGeneratorName
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGeneratorName
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGeneratorName( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGeneratorName( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENERATORNAME );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGeneratorName();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGeneratorVersion
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGeneratorVersion
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGeneratorVersion( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGeneratorVersion( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENERATORVERSION );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGeneratorVersion();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenDate
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenDate
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenDate( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenDate( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENDATE );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenDate();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenTime
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenTime
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenTime( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenTime( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENTIME );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenTime();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenTimestamp
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenTimestamp
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenTimestamp( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenTimestamp( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENTIMESTAMP );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenTimestamp();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinGenSerializableUID
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenSerializableUID
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenSerializableUID( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFBuiltinGenSerializableUID( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 			getBuff().setRequiredSourceText( _BUILTIN_GENSERIALIZABLEUID );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = genContext.getGenSerializableUID();
 			return retval;
 		}
 	}
 
-	protected class MssCFConstrainMax
-	extends CFGenKbGelConstrainObj
+	protected class MssYCFConstrainMax
+	extends YCFGenKbGelConstrainObj
 	{
-		public MssCFConstrainMax( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFConstrainMax( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			final String S_ProcName = "MssCFConstrainMax.expand() ";
+		public String expand( MssYCFGenContext genContext ) {
+			final String S_ProcName = "MssYCFConstrainMax.expand() ";
 			long actualConstraint;
 			Long hardConstraint = getOptionalHardConstraint();
 			if( hardConstraint != null ) {
@@ -958,27 +958,27 @@ public class MssCFGelCompiler
 				}
 
 				String constraintStrValue;
-				ICFGenKbGenItemObj constraintItem = genContext.getGenEngine().findContextItem(genContext, constrainingName );
+				IYCFGenKbGenItemObj constraintItem = genContext.getGenEngine().findContextItem(genContext, constrainingName );
 				if( constraintItem != null ) {
-					if( constraintItem instanceof MssCFGenFileObj ) {
-						constraintStrValue = ((MssCFGenFileObj)constraintItem).expandBody( genContext );
+					if( constraintItem instanceof MssYCFGenFileObj ) {
+						constraintStrValue = ((MssYCFGenFileObj)constraintItem).expandBody( genContext );
 					}
-					else if( constraintItem instanceof MssCFGenRuleObj ) {
-						constraintStrValue = ((MssCFGenRuleObj)constraintItem).expandBody( genContext );
+					else if( constraintItem instanceof MssYCFGenRuleObj ) {
+						constraintStrValue = ((MssYCFGenRuleObj)constraintItem).expandBody( genContext );
 					}
-					else if (constraintItem instanceof MssCFGenTruncObj)
+					else if (constraintItem instanceof MssYCFGenTruncObj)
 					{
-						constraintStrValue = ((MssCFGenTruncObj)constraintItem).expandBody( genContext );
+						constraintStrValue = ((MssYCFGenTruncObj)constraintItem).expandBody( genContext );
 					}
-					else if (constraintItem instanceof MssCFGenBindObj)
+					else if (constraintItem instanceof MssYCFGenBindObj)
 					{
-						constraintStrValue = ((MssCFGenBindObj)constraintItem).expandBody( genContext );
+						constraintStrValue = ((MssYCFGenBindObj)constraintItem).expandBody( genContext );
 					}
-					else if( constraintItem instanceof MssCFGenReferenceObj ) {
+					else if( constraintItem instanceof MssYCFGenReferenceObj ) {
 						throw new RuntimeException(S_ProcName + "Cannot expand reference " + constraintItem.getRequiredName() + " directly");
 					}
-					else if( constraintItem instanceof MssCFGenIteratorObj ) {
-						constraintStrValue = ((MssCFGenIteratorObj)constraintItem).expandBody( genContext );
+					else if( constraintItem instanceof MssYCFGenIteratorObj ) {
+						constraintStrValue = ((MssYCFGenIteratorObj)constraintItem).expandBody( genContext );
 					}
 					else {
 						throw new RuntimeException( S_ProcName +  "Unsupported generation item class" );
@@ -1017,7 +1017,7 @@ public class MssCFGelCompiler
 				}
 			}
 
-			ICFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
+			IYCFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
 			if( remainder == null ) {
 				throw new RuntimeException( S_ProcName + "Remainder of macro was not compiled to produce a constrained value" );
 			}
@@ -1069,15 +1069,15 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFConstrainMin
-	extends CFGenKbGelConstrainObj
+	protected class MssYCFConstrainMin
+	extends YCFGenKbGelConstrainObj
 	{
-		public MssCFConstrainMin( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFConstrainMin( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			final String S_ProcName = "MssCFConstrainMin.expand() ";
+		public String expand( MssYCFGenContext genContext ) {
+			final String S_ProcName = "MssYCFConstrainMin.expand() ";
 			long actualConstraint;
 			Long hardConstraint = getOptionalHardConstraint();
 			if( hardConstraint != null ) {
@@ -1090,27 +1090,27 @@ public class MssCFGelCompiler
 				}
 
 				String constraintStrValue;
-				ICFGenKbGenItemObj constraintItem = genContext.getGenEngine().findContextItem(genContext, constrainingName );
+				IYCFGenKbGenItemObj constraintItem = genContext.getGenEngine().findContextItem(genContext, constrainingName );
 				if( constraintItem != null ) {
-					if( constraintItem instanceof MssCFGenFileObj ) {
-						constraintStrValue = ((MssCFGenFileObj)constraintItem).expandBody( genContext );
+					if( constraintItem instanceof MssYCFGenFileObj ) {
+						constraintStrValue = ((MssYCFGenFileObj)constraintItem).expandBody( genContext );
 					}
-					else if( constraintItem instanceof MssCFGenRuleObj ) {
-						constraintStrValue = ((MssCFGenRuleObj)constraintItem).expandBody( genContext );
+					else if( constraintItem instanceof MssYCFGenRuleObj ) {
+						constraintStrValue = ((MssYCFGenRuleObj)constraintItem).expandBody( genContext );
 					}
-					else if (constraintItem instanceof MssCFGenTruncObj)
+					else if (constraintItem instanceof MssYCFGenTruncObj)
 					{
-						constraintStrValue = ((MssCFGenTruncObj)constraintItem).expandBody( genContext );
+						constraintStrValue = ((MssYCFGenTruncObj)constraintItem).expandBody( genContext );
 					}
-					else if (constraintItem instanceof MssCFGenBindObj)
+					else if (constraintItem instanceof MssYCFGenBindObj)
 					{
-						constraintStrValue = ((MssCFGenBindObj)constraintItem).expandBody( genContext );
+						constraintStrValue = ((MssYCFGenBindObj)constraintItem).expandBody( genContext );
 					}
-					else if( constraintItem instanceof MssCFGenReferenceObj ) {
+					else if( constraintItem instanceof MssYCFGenReferenceObj ) {
 						throw new RuntimeException(S_ProcName + "Cannot expand reference " + constraintItem.getRequiredName() + " directly");
 					}
-					else if( constraintItem instanceof MssCFGenIteratorObj ) {
-						constraintStrValue = ((MssCFGenIteratorObj)constraintItem).expandBody( genContext );
+					else if( constraintItem instanceof MssYCFGenIteratorObj ) {
+						constraintStrValue = ((MssYCFGenIteratorObj)constraintItem).expandBody( genContext );
 					}
 					else {
 						throw new RuntimeException( S_ProcName +  "Unsupported generation item class" );
@@ -1149,7 +1149,7 @@ public class MssCFGelCompiler
 				}
 			}
 
-			ICFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
+			IYCFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
 			if( remainder == null ) {
 				throw new RuntimeException( S_ProcName + "Remainder of macro was not compiled to produce a constrained value" );
 			}
@@ -1201,64 +1201,64 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFCounterNew
-	extends CFGenKbGelCounterObj
+	protected class MssYCFCounterNew
+	extends YCFGenKbGelCounterObj
 	{
-		public MssCFCounterNew( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFCounterNew( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			genContext.addCounter( getRequiredCounterName() );
 			return( "" );
 		}
 	}
 
-	protected class MssCFCounterIncrement
-	extends CFGenKbGelCounterObj
+	protected class MssYCFCounterIncrement
+	extends YCFGenKbGelCounterObj
 	{
-		public MssCFCounterIncrement( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFCounterIncrement( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			MssCFCounter counter = genContext.getCounter( getRequiredCounterName() );
+		public String expand( MssYCFGenContext genContext ) {
+			MssYCFCounter counter = genContext.getCounter( getRequiredCounterName() );
 			if( counter == null ) {
-				throw new RuntimeException( "MssCFCounterIncrement.expand() Counter \"" + getRequiredCounterName() + "\" does not exist in the genContext" );
+				throw new RuntimeException( "MssYCFCounterIncrement.expand() Counter \"" + getRequiredCounterName() + "\" does not exist in the genContext" );
 			}
 			counter.increment();
 			return( "" );
 		}
 	}
 
-	protected class MssCFCounterDecrement
-	extends CFGenKbGelCounterObj
+	protected class MssYCFCounterDecrement
+	extends YCFGenKbGelCounterObj
 	{
-		public MssCFCounterDecrement( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFCounterDecrement( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			MssCFCounter counter = genContext.getCounter( getRequiredCounterName() );
+		public String expand( MssYCFGenContext genContext ) {
+			MssYCFCounter counter = genContext.getCounter( getRequiredCounterName() );
 			if( counter == null ) {
-				throw new RuntimeException( "MssCFCounterDecrement.expand() Counter \"" + getRequiredCounterName() + "\" does not exist in the genContext" );
+				throw new RuntimeException( "MssYCFCounterDecrement.expand() Counter \"" + getRequiredCounterName() + "\" does not exist in the genContext" );
 			}
 			counter.decrement();
 			return( "" );
 		}
 	}
 
-	protected class MssCFCounterValue
-	extends CFGenKbGelCounterObj
+	protected class MssYCFCounterValue
+	extends YCFGenKbGelCounterObj
 	{
-		public MssCFCounterValue( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFCounterValue( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			MssCFCounter counter = genContext.getCounter( getRequiredCounterName() );
+		public String expand( MssYCFGenContext genContext ) {
+			MssYCFCounter counter = genContext.getCounter( getRequiredCounterName() );
 			if( counter == null ) {
-				throw new RuntimeException( "MssCFCounterValue.expand() Counter \"" + getRequiredCounterName() + "\" does not exist in the genContext" );
+				throw new RuntimeException( "MssYCFCounterValue.expand() Counter \"" + getRequiredCounterName() + "\" does not exist in the genContext" );
 			}
 			int value = counter.getCounter();
 			String retval = Integer.toString( value );
@@ -1266,21 +1266,21 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFModifierStripLeadingZeroes
-	extends CFGenKbGelModifierObj
+	protected class MssYCFModifierStripLeadingZeroes
+	extends YCFGenKbGelModifierObj
 	{
-		public MssCFModifierStripLeadingZeroes( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFModifierStripLeadingZeroes( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval;
 			String raw;
 			if( getOptionalLookupRemainder() != null ) {
 				raw = getOptionalLookupRemainder().expand( genContext );
 			}
 			else {
-				throw new CFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
+				throw new YCFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
 			}
 			if( raw != null ) {
 				int start = 0;
@@ -1297,21 +1297,21 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFModifierCoerceUpper
-	extends CFGenKbGelModifierObj
+	protected class MssYCFModifierCoerceUpper
+	extends YCFGenKbGelModifierObj
 	{
-		public MssCFModifierCoerceUpper( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFModifierCoerceUpper( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval;
 			String raw;
 			if( getOptionalLookupRemainder() != null ) {
 				raw = getOptionalLookupRemainder().expand( genContext );
 			}
 			else {
-				throw new CFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
+				throw new YCFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
 			}
 			if( raw != null ) {
 				retval = raw.toUpperCase();
@@ -1323,21 +1323,21 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFModifierCoerceLower
-	extends CFGenKbGelModifierObj
+	protected class MssYCFModifierCoerceLower
+	extends YCFGenKbGelModifierObj
 	{
-		public MssCFModifierCoerceLower( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFModifierCoerceLower( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval;
 			String raw;
 			if( getOptionalLookupRemainder() != null ) {
 				raw = getOptionalLookupRemainder().expand( genContext );
 			}
 			else {
-				throw new CFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
+				throw new YCFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
 			}
 			if( raw != null ) {
 				retval = raw.toLowerCase();
@@ -1349,21 +1349,21 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFModifierCoerceMixed
-	extends CFGenKbGelModifierObj
+	protected class MssYCFModifierCoerceMixed
+	extends YCFGenKbGelModifierObj
 	{
-		public MssCFModifierCoerceMixed( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFModifierCoerceMixed( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval;
 			String raw;
 			if( getOptionalLookupRemainder() != null ) {
 				raw = getOptionalLookupRemainder().expand( genContext );
 			}
 			else {
-				throw new CFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
+				throw new YCFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
 			}
 			if( raw != null ) {
 				retval = raw;  // coerceMixed effectively does nothing.
@@ -1375,21 +1375,21 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFModifierCoerceLeadLower
-	extends CFGenKbGelModifierObj
+	protected class MssYCFModifierCoerceLeadLower
+	extends YCFGenKbGelModifierObj
 	{
-		public MssCFModifierCoerceLeadLower( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFModifierCoerceLeadLower( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval;
 			String raw;
 			if( getOptionalLookupRemainder() != null ) {
 				raw = getOptionalLookupRemainder().expand( genContext );
 			}
 			else {
-				throw new CFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
+				throw new YCFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
 			}
 			if( raw != null ) {
 				char ch = raw.charAt( 0 );
@@ -1411,20 +1411,20 @@ public class MssCFGelCompiler
 			return( retval );
 		}
 	}
-	protected class MssCFModifierHexToDecimal
-	extends CFGenKbGelModifierObj
+	protected class MssYCFModifierHexToDecimal
+	extends YCFGenKbGelModifierObj
 	{
-		public MssCFModifierHexToDecimal( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFModifierHexToDecimal( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String raw;
 			if( getOptionalLookupRemainder() != null ) {
 				raw = getOptionalLookupRemainder().expand( genContext );
 			}
 			else {
-				throw new CFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
+				throw new YCFLibRuntimeException( getClass(), "expand", "Modifiers must have a remainder to evaluate" );
 			}
 			if( raw != null && !raw.isEmpty()) {
 				try {
@@ -1441,20 +1441,20 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFPop
-	extends CFGenKbGelPopObj
+	protected class MssYCFPop
+	extends YCFGenKbGelPopObj
 	{
-		public MssCFPop( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFPop( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			final String S_ProcName = "MssCFPop.expand() ";
-			MssCFEngine genEngine = genContext.getGenEngine();
+		public String expand( MssYCFGenContext genContext ) {
+			final String S_ProcName = "MssYCFPop.expand() ";
+			MssYCFEngine genEngine = genContext.getGenEngine();
 
 			String goalTypeName = this.getRequiredGoalTypeName();
 			int numToPop = Integer.parseInt( goalTypeName );
-			MssCFGenContext goalContext = genContext;
+			MssYCFGenContext goalContext = genContext;
 			while( ( numToPop > 0 ) && ( goalContext != null ) ) {
 				goalContext = goalContext.getPrevContext();
 				numToPop --;
@@ -1467,7 +1467,7 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			ICFLibAnyObj refDef = goalContext.getGenDef();
+			IYCFLibAnyObj refDef = goalContext.getGenDef();
 			if( refDef == null ) {
 				genEngine.getLog().message( S_ProcName + "GenDef of popped context is null! \""
 						+ "$" + getRequiredSourceText() + "$"
@@ -1475,13 +1475,13 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			MssCFGenContext refContext = goalContext.buildRefContext( goalContext.getGeneratingBuild(), refDef );
+			MssYCFGenContext refContext = goalContext.buildRefContext( goalContext.getGeneratingBuild(), refDef );
 			if (refContext == null) {
 				throw new RuntimeException(S_ProcName + "buildRefContext() failed");
 			}
 			refContext.setPrevContext(genContext);
 
-			ICFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
+			IYCFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
 			if( remainder == null ) {
 				throw new RuntimeException( S_ProcName + "Remainder of macro was not compiled for execution" );
 			}
@@ -1492,20 +1492,20 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFPushContext
-	extends CFGenKbGelPushContextObj
+	protected class MssYCFPushContext
+	extends YCFGenKbGelPushContextObj
 	{
-		public MssCFPushContext( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFPushContext( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			final String S_ProcName = "MssCFPushContext.expand() ";
-			MssCFEngine genEngine = genContext.getGenEngine();
+		public String expand( MssYCFGenContext genContext ) {
+			final String S_ProcName = "MssYCFPushContext.expand() ";
+			MssYCFEngine genEngine = genContext.getGenEngine();
 
 			String goalTypeName = this.getRequiredGoalTypeName();
 			int numToPop = Integer.parseInt( goalTypeName );
-			MssCFGenContext goalContext = genContext;
+			MssYCFGenContext goalContext = genContext;
 			while( ( numToPop > 0 ) && ( goalContext != null ) ) {
 				goalContext = goalContext.getPrevContext();
 				numToPop --;
@@ -1518,7 +1518,7 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			ICFLibAnyObj refDef = goalContext.getGenDef();
+			IYCFLibAnyObj refDef = goalContext.getGenDef();
 			if( refDef == null ) {
 				genEngine.getLog().message( S_ProcName + "GenDef of popped context is null! \""
 						+ "$" + getRequiredSourceText() + "$"
@@ -1526,13 +1526,13 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			MssCFGenContext refContext = goalContext.buildRefContext( goalContext.getGeneratingBuild(), refDef );
+			MssYCFGenContext refContext = goalContext.buildRefContext( goalContext.getGeneratingBuild(), refDef );
 			if (refContext == null) {
 				throw new RuntimeException(S_ProcName + "buildRefContext() failed");
 			}
 			refContext.setPrevContext(genContext);
 
-			ICFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
+			IYCFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
 			if( remainder == null ) {
 				throw new RuntimeException( S_ProcName + "Remainder of macro was not compiled for execution" );
 			}
@@ -1543,20 +1543,20 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFPopContext
-	extends CFGenKbGelPopContextObj
+	protected class MssYCFPopContext
+	extends YCFGenKbGelPopContextObj
 	{
-		public MssCFPopContext( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFPopContext( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			final String S_ProcName = "MssCFPopContext.expand() ";
-			MssCFEngine genEngine = genContext.getGenEngine();
+		public String expand( MssYCFGenContext genContext ) {
+			final String S_ProcName = "MssYCFPopContext.expand() ";
+			MssYCFEngine genEngine = genContext.getGenEngine();
 
 			String goalTypeName = this.getRequiredGoalTypeName();
 			int numToPop = Integer.parseInt( goalTypeName );
-			MssCFGenContext goalContext = genContext;
+			MssYCFGenContext goalContext = genContext;
 			while( ( numToPop > 0 ) && ( goalContext != null ) ) {
 				goalContext = goalContext.getPrevContext();
 				numToPop --;
@@ -1569,7 +1569,7 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			ICFLibAnyObj refDef = goalContext.getGenDef();
+			IYCFLibAnyObj refDef = goalContext.getGenDef();
 			if( refDef == null ) {
 				genEngine.getLog().message( S_ProcName + "GenDef of popped context is null! \""
 						+ "$" + getRequiredSourceText() + "$"
@@ -1577,13 +1577,13 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			MssCFGenContext refContext = goalContext.buildRefContext( goalContext.getGeneratingBuild(), refDef );
+			MssYCFGenContext refContext = goalContext.buildRefContext( goalContext.getGeneratingBuild(), refDef );
 			if (refContext == null) {
 				throw new RuntimeException(S_ProcName + "buildRefContext() failed");
 			}
 			refContext.setPrevContext(genContext);
 
-			ICFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
+			IYCFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
 			if( remainder == null ) {
 				throw new RuntimeException( S_ProcName + "Remainder of macro was not compiled for execution" );
 			}
@@ -1594,18 +1594,18 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFPopTo
-	extends CFGenKbGelPopObj
+	protected class MssYCFPopTo
+	extends YCFGenKbGelPopObj
 	{
-		public MssCFPopTo( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFPopTo( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			final String S_ProcName = "MssCFPopTo.expand() ";
-			MssCFEngine genEngine = genContext.getGenEngine();
+		public String expand( MssYCFGenContext genContext ) {
+			final String S_ProcName = "MssYCFPopTo.expand() ";
+			MssYCFEngine genEngine = genContext.getGenEngine();
 			String goalTypeName = this.getRequiredGoalTypeName();
-			ICFGenKbDefClassObj goalType = genEngine.getDefClassTableObj().readDefClassByNameIdx(goalTypeName);
+			IYCFGenKbDefClassObj goalType = genEngine.getDefClassTableObj().readDefClassByNameIdx(goalTypeName);
 			if( goalType == null ) {
 				genEngine.getLog().message( S_ProcName + "Could not find goal class \"" + goalTypeName + "\". \""
 					+ "$" + getRequiredSourceText() + "$"
@@ -1613,7 +1613,7 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			ICFGenKbDefClassObj	objectDefType = genEngine.getDefClassTableObj().readDefClassByNameIdx( "Object" );
+			IYCFGenKbDefClassObj	objectDefType = genEngine.getDefClassTableObj().readDefClassByNameIdx( "Object" );
 			if( objectDefType == null ) {
 				genEngine.getLog().message( S_ProcName + "Could not find object type \"Object\". \""
 						+ "$" + getRequiredSourceText() + "$"
@@ -1621,10 +1621,10 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			MssCFGenContext goalContext = genContext;
+			MssYCFGenContext goalContext = genContext;
 
 			String searchTypeName = goalContext.getRequiredLookupGenDef().getRequiredName();
-			ICFGenKbDefClassObj searchType = genEngine.getDefClassTableObj().readDefClassByNameIdx(searchTypeName);
+			IYCFGenKbDefClassObj searchType = genEngine.getDefClassTableObj().readDefClassByNameIdx(searchTypeName);
 			if( searchType == null ) {
 				genEngine.getLog().message( S_ProcName + "Could not find search class \"" + searchTypeName + "\". \""
 					+ "$" + getRequiredSourceText() + "$"
@@ -1632,7 +1632,7 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			ICFLibAnyObj refDef = null;
+			IYCFLibAnyObj refDef = null;
 
 			if( ( goalType == null )
 			 || ( goalType == objectDefType )
@@ -1691,14 +1691,14 @@ public class MssCFGelCompiler
 			String ret;
 
 			if( refDef != null ) {
-				MssCFGenContext refContext = genContext.buildRefContext( genContext.getGeneratingBuild(), refDef );
+				MssYCFGenContext refContext = genContext.buildRefContext( genContext.getGeneratingBuild(), refDef );
 				if (refContext == null) {
 					throw new RuntimeException(S_ProcName + "buildRefContext() failed");
 				}
 
 				refContext.setPrevContext(genContext);
 
-				ICFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
+				IYCFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
 				if( remainder == null ) {
 					throw new RuntimeException( S_ProcName + "Remainder of macro was not compiled for execution" );
 				}
@@ -1713,18 +1713,18 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFPopTop
-	extends CFGenKbGelPopObj
+	protected class MssYCFPopTop
+	extends YCFGenKbGelPopObj
 	{
-		public MssCFPopTop( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFPopTop( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			final String S_ProcName = "MssCFPopTop.expand() ";
-			MssCFEngine genEngine = genContext.getGenEngine();
+		public String expand( MssYCFGenContext genContext ) {
+			final String S_ProcName = "MssYCFPopTop.expand() ";
+			MssYCFEngine genEngine = genContext.getGenEngine();
 			String goalTypeName = this.getRequiredGoalTypeName();
-			ICFGenKbDefClassObj goalType = genEngine.getDefClassTableObj().readDefClassByNameIdx(goalTypeName);
+			IYCFGenKbDefClassObj goalType = genEngine.getDefClassTableObj().readDefClassByNameIdx(goalTypeName);
 			if( goalType == null ) {
 				genEngine.getLog().message( S_ProcName + "Could not find goal class \"" + goalTypeName + "\". \""
 					+ "$" + getRequiredSourceText() + "$"
@@ -1732,7 +1732,7 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			ICFGenKbDefClassObj	objectDefType = genEngine.getDefClassTableObj().readDefClassByNameIdx( "Object" );
+			IYCFGenKbDefClassObj	objectDefType = genEngine.getDefClassTableObj().readDefClassByNameIdx( "Object" );
 			if( objectDefType == null ) {
 				genEngine.getLog().message( S_ProcName + "Could not find object type \"Object\". \""
 						+ "$" + getRequiredSourceText() + "$"
@@ -1740,10 +1740,10 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			MssCFGenContext goalContext = genContext;
-			MssCFGenContext topContext = null;
+			MssYCFGenContext goalContext = genContext;
+			MssYCFGenContext topContext = null;
 			String searchTypeName;
-			ICFGenKbDefClassObj searchType;
+			IYCFGenKbDefClassObj searchType;
 
 			while ( goalContext != null) {
 				searchTypeName = goalContext.getRequiredLookupGenDef().getRequiredName();
@@ -1784,7 +1784,7 @@ public class MssCFGelCompiler
 				return (null);
 			}
 
-			ICFLibAnyObj refDef = topContext.getGenDef();
+			IYCFLibAnyObj refDef = topContext.getGenDef();
 			if( refDef == null ) {
 				genEngine.getLog().message( S_ProcName + "GenDef of popped context is null! \""
 						+ "$" + getRequiredSourceText() + "$"
@@ -1792,13 +1792,13 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			MssCFGenContext refContext = topContext.buildRefContext( topContext.getGeneratingBuild(), refDef);
+			MssYCFGenContext refContext = topContext.buildRefContext( topContext.getGeneratingBuild(), refDef);
 			if (refContext == null) {
 				throw new RuntimeException(S_ProcName + "buildRefContext() failed");
 			}
 			refContext.setPrevContext(genContext);
 
-			ICFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
+			IYCFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
 			if( remainder == null ) {
 				throw new RuntimeException( S_ProcName + "Remainder of macro was not compiled for execution" );
 			}
@@ -1809,18 +1809,18 @@ public class MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFPopOneFromTop
-	extends CFGenKbGelPopObj
+	protected class MssYCFPopOneFromTop
+	extends YCFGenKbGelPopObj
 	{
-		public MssCFPopOneFromTop( ICFGenKbSchemaObj argSchema ) {
+		public MssYCFPopOneFromTop( IYCFGenKbSchemaObj argSchema ) {
 			super( argSchema );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			final String S_ProcName = "MssCFPopOneFromTop.expand() ";
-			MssCFEngine genEngine = genContext.getGenEngine();
+		public String expand( MssYCFGenContext genContext ) {
+			final String S_ProcName = "MssYCFPopOneFromTop.expand() ";
+			MssYCFEngine genEngine = genContext.getGenEngine();
 			String goalTypeName = this.getRequiredGoalTypeName();
-			ICFGenKbDefClassObj goalType = genEngine.getDefClassTableObj().readDefClassByNameIdx(goalTypeName);
+			IYCFGenKbDefClassObj goalType = genEngine.getDefClassTableObj().readDefClassByNameIdx(goalTypeName);
 			if( goalType == null ) {
 				genEngine.getLog().message( S_ProcName + "Could not find goal class \"" + goalTypeName + "\". \""
 					+ "$" + getRequiredSourceText() + "$"
@@ -1828,7 +1828,7 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			ICFGenKbDefClassObj	objectDefType = genEngine.getDefClassTableObj().readDefClassByNameIdx( "Object" );
+			IYCFGenKbDefClassObj	objectDefType = genEngine.getDefClassTableObj().readDefClassByNameIdx( "Object" );
 			if( objectDefType == null ) {
 				genEngine.getLog().message( S_ProcName + "Could not find object type \"Object\". \""
 						+ "$" + getRequiredSourceText() + "$"
@@ -1836,11 +1836,11 @@ public class MssCFGelCompiler
 				return( null );
 			}
 
-			MssCFGenContext topContext = null;
-			MssCFGenContext oneFromTopContext = null;
-			MssCFGenContext goalContext = genContext;
+			MssYCFGenContext topContext = null;
+			MssYCFGenContext oneFromTopContext = null;
+			MssYCFGenContext goalContext = genContext;
 			String searchTypeName;
-			ICFGenKbDefClassObj searchType;
+			IYCFGenKbDefClassObj searchType;
 
 			while (goalContext != null) {
 				searchTypeName = goalContext.getRequiredLookupGenDef().getRequiredName();
@@ -1882,15 +1882,15 @@ public class MssCFGelCompiler
 				return (null);
 			}
 
-			ICFLibAnyObj refDef = topContext.getGenDef();
+			IYCFLibAnyObj refDef = topContext.getGenDef();
 
-			MssCFGenContext refContext = topContext.buildRefContext( topContext.getGeneratingBuild(), refDef);
+			MssYCFGenContext refContext = topContext.buildRefContext( topContext.getGeneratingBuild(), refDef);
 			if (refContext == null) {
 				throw new RuntimeException(S_ProcName + "buildRefContext() failed");
 			}
 			refContext.setPrevContext(genContext);
 
-			ICFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
+			IYCFGenKbGelInstructionObj remainder = getOptionalLookupRemainder();
 			if( remainder == null ) {
 				throw new RuntimeException( S_ProcName + "Remainder of macro was not compiled for execution" );
 			}
@@ -1971,15 +1971,15 @@ public class MssCFGelCompiler
 	 *	@param		body		String
 	 *	@return	String		The result of expanding the body.
 	 */
-	protected ICFGenKbGelInstructionObj compileMacro( String macro )
+	protected IYCFGenKbGelInstructionObj compileMacro( String macro )
 	{
 		char				ch;
 		int					start;
 		int					lenMacro;
 		String				remainingMacro;
 		String				subExpansion;
-		ICFGenKbGelInstructionObj ret = null;
-		ICFGenKbGenItemObj	genItem = null;
+		IYCFGenKbGelInstructionObj ret = null;
+		IYCFGenKbGenItemObj	genItem = null;
 
 		final String S_ProcName = "compileMacro() ";
 
@@ -2043,15 +2043,15 @@ public class MssCFGelCompiler
 			}
 			remainingMacro = macro.substring(start);
 
-			ICFGenKbGelModifierObj modifierObj = new MssCFModifierStripLeadingZeroes( genEngine ); 
-			ICFGenKbGelModifierEditObj modifierEdit = (ICFGenKbGelModifierEditObj)modifierObj.beginEdit();
+			IYCFGenKbGelModifierObj modifierObj = new MssYCFModifierStripLeadingZeroes( genEngine ); 
+			IYCFGenKbGelModifierEditObj modifierEdit = (IYCFGenKbGelModifierEditObj)modifierObj.beginEdit();
 			modifierEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			modifierEdit.setRequiredContainerGelCache( myGelCache );
 			modifierEdit.setRequiredSourceText( macro );
-			modifierObj = (ICFGenKbGelModifierObj)modifierEdit.create();
+			modifierObj = (IYCFGenKbGelModifierObj)modifierEdit.create();
 			modifierEdit = null;
 
-			ICFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
+			IYCFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
 			if( remainderInstruction == null ) {
 				ret = null;
 				setCompileError();
@@ -2062,7 +2062,7 @@ public class MssCFGelCompiler
 				getCompileLog().message( msg.toString() );
 			}
 			else {
-				modifierEdit = (ICFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
+				modifierEdit = (IYCFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
 				modifierEdit.setOptionalLookupRemainder( remainderInstruction );
 				try {
 					modifierEdit.update();
@@ -2090,15 +2090,15 @@ public class MssCFGelCompiler
 			}
 			remainingMacro = macro.substring(start);
 
-			ICFGenKbGelModifierObj modifierObj = new MssCFModifierCoerceUpper( genEngine ); 
-			ICFGenKbGelModifierEditObj modifierEdit = (ICFGenKbGelModifierEditObj)modifierObj.beginEdit();
+			IYCFGenKbGelModifierObj modifierObj = new MssYCFModifierCoerceUpper( genEngine ); 
+			IYCFGenKbGelModifierEditObj modifierEdit = (IYCFGenKbGelModifierEditObj)modifierObj.beginEdit();
 			modifierEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			modifierEdit.setRequiredContainerGelCache( myGelCache );
 			modifierEdit.setRequiredSourceText( macro );
-			modifierObj = (ICFGenKbGelModifierObj)modifierEdit.create();
+			modifierObj = (IYCFGenKbGelModifierObj)modifierEdit.create();
 			modifierEdit = null;
 
-			ICFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
+			IYCFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
 			if( remainderInstruction == null ) {
 				ret = null;
 				setCompileError();
@@ -2109,7 +2109,7 @@ public class MssCFGelCompiler
 				getCompileLog().message( msg.toString() );
 			}
 			else {
-				modifierEdit = (ICFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
+				modifierEdit = (IYCFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
 				modifierEdit.setOptionalLookupRemainder( remainderInstruction );
 				try {
 					modifierEdit.update();
@@ -2136,15 +2136,15 @@ public class MssCFGelCompiler
 			}
 			remainingMacro = macro.substring(start);
 
-			ICFGenKbGelModifierObj modifierObj = new MssCFModifierCoerceLower( genEngine ); 
-			ICFGenKbGelModifierEditObj modifierEdit = (ICFGenKbGelModifierEditObj)modifierObj.beginEdit();
+			IYCFGenKbGelModifierObj modifierObj = new MssYCFModifierCoerceLower( genEngine ); 
+			IYCFGenKbGelModifierEditObj modifierEdit = (IYCFGenKbGelModifierEditObj)modifierObj.beginEdit();
 			modifierEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			modifierEdit.setRequiredContainerGelCache( myGelCache );
 			modifierEdit.setRequiredSourceText( macro );
-			modifierObj = (ICFGenKbGelModifierObj)modifierEdit.create();
+			modifierObj = (IYCFGenKbGelModifierObj)modifierEdit.create();
 			modifierEdit = null;
 
-			ICFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
+			IYCFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
 			if( remainderInstruction == null ) {
 				ret = null;
 				setCompileError();
@@ -2155,7 +2155,7 @@ public class MssCFGelCompiler
 				getCompileLog().message( msg.toString() );
 			}
 			else {
-				modifierEdit = (ICFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
+				modifierEdit = (IYCFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
 				modifierEdit.setOptionalLookupRemainder( remainderInstruction );
 				try {
 					modifierEdit.update();
@@ -2182,15 +2182,15 @@ public class MssCFGelCompiler
 			}
 			remainingMacro = macro.substring(start);
 
-			ICFGenKbGelModifierObj modifierObj = new MssCFModifierCoerceMixed( genEngine ); 
-			ICFGenKbGelModifierEditObj modifierEdit = (ICFGenKbGelModifierEditObj)modifierObj.beginEdit();
+			IYCFGenKbGelModifierObj modifierObj = new MssYCFModifierCoerceMixed( genEngine ); 
+			IYCFGenKbGelModifierEditObj modifierEdit = (IYCFGenKbGelModifierEditObj)modifierObj.beginEdit();
 			modifierEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			modifierEdit.setRequiredContainerGelCache( myGelCache );
 			modifierEdit.setRequiredSourceText( macro );
-			modifierObj = (ICFGenKbGelModifierObj)modifierEdit.create();
+			modifierObj = (IYCFGenKbGelModifierObj)modifierEdit.create();
 			modifierEdit = null;
 
-			ICFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
+			IYCFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
 			if( remainderInstruction == null ) {
 				ret = null;
 				setCompileError();
@@ -2201,7 +2201,7 @@ public class MssCFGelCompiler
 				getCompileLog().message( msg.toString() );
 			}
 			else {
-				modifierEdit = (ICFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
+				modifierEdit = (IYCFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
 				modifierEdit.setOptionalLookupRemainder( remainderInstruction );
 				try {
 					modifierEdit.update();
@@ -2228,15 +2228,15 @@ public class MssCFGelCompiler
 			}
 			remainingMacro = macro.substring(start);
 
-			ICFGenKbGelModifierObj modifierObj = new MssCFModifierCoerceLeadLower( genEngine ); 
-			ICFGenKbGelModifierEditObj modifierEdit = (ICFGenKbGelModifierEditObj)modifierObj.beginEdit();
+			IYCFGenKbGelModifierObj modifierObj = new MssYCFModifierCoerceLeadLower( genEngine ); 
+			IYCFGenKbGelModifierEditObj modifierEdit = (IYCFGenKbGelModifierEditObj)modifierObj.beginEdit();
 			modifierEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			modifierEdit.setRequiredContainerGelCache( myGelCache );
 			modifierEdit.setRequiredSourceText( macro );
-			modifierObj = (ICFGenKbGelModifierObj)modifierEdit.create();
+			modifierObj = (IYCFGenKbGelModifierObj)modifierEdit.create();
 			modifierEdit = null;
 
-			ICFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
+			IYCFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
 			if( remainderInstruction == null ) {
 				ret = null;
 				setCompileError();
@@ -2247,7 +2247,7 @@ public class MssCFGelCompiler
 				getCompileLog().message( msg.toString() );
 			}
 			else {
-				modifierEdit = (ICFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
+				modifierEdit = (IYCFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
 				modifierEdit.setOptionalLookupRemainder( remainderInstruction );
 				try {
 					modifierEdit.update();
@@ -2274,15 +2274,15 @@ public class MssCFGelCompiler
 			}
 			remainingMacro = macro.substring(start);
 
-			ICFGenKbGelModifierObj modifierObj = new MssCFModifierHexToDecimal( genEngine ); 
-			ICFGenKbGelModifierEditObj modifierEdit = (ICFGenKbGelModifierEditObj)modifierObj.beginEdit();
+			IYCFGenKbGelModifierObj modifierObj = new MssYCFModifierHexToDecimal( genEngine ); 
+			IYCFGenKbGelModifierEditObj modifierEdit = (IYCFGenKbGelModifierEditObj)modifierObj.beginEdit();
 			modifierEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			modifierEdit.setRequiredContainerGelCache( myGelCache );
 			modifierEdit.setRequiredSourceText( macro );
-			modifierObj = (ICFGenKbGelModifierObj)modifierEdit.create();
+			modifierObj = (IYCFGenKbGelModifierObj)modifierEdit.create();
 			modifierEdit = null;
 
-			ICFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
+			IYCFGenKbGelInstructionObj remainderInstruction = compileMacro( remainingMacro );
 			if( remainderInstruction == null ) {
 				ret = null;
 				setCompileError();
@@ -2293,7 +2293,7 @@ public class MssCFGelCompiler
 				getCompileLog().message( msg.toString() );
 			}
 			else {
-				modifierEdit = (ICFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
+				modifierEdit = (IYCFGenKbGelModifierEditObj)( modifierObj.beginEdit() );
 				modifierEdit.setOptionalLookupRemainder( remainderInstruction );
 				try {
 					modifierEdit.update();
@@ -2359,112 +2359,112 @@ public class MssCFGelCompiler
 	//	and current file.
 
 		else if( macro.equals( _EMPTY ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinEmpty( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinEmpty( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENERATINGBUILD ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGeneratingBuild( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGeneratingBuild( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENERATINGCLASS ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGeneratingClass( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGeneratingClass( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENFILEBASENAME ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenFileBaseName( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenFileBaseName( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENFILENAME ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenFileName( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenFileName( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENFILEGENERATEONCE ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenFileGenerateOnce( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenFileGenerateOnce( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENFILEMODULENAME ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenFileModuleName( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenFileModuleName( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENFILEFULLNAME ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenFileFullName( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenFileFullName( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENSUBPACKAGE ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenSubPackageName( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenSubPackageName( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_SOURCEBUNDLE ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinSourceBundle( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinSourceBundle( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_SOURCEPACKAGE ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinSourcePackage( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinSourcePackage( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
@@ -2472,62 +2472,62 @@ public class MssCFGelCompiler
 	//	More built-ins get information about the generation itself
 
 		else if( macro.equals( _BUILTIN_GENERATORNAME ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGeneratorName( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGeneratorName( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENERATORVERSION ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGeneratorVersion( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGeneratorVersion( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENDATE ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenDate( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenDate( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENTIME ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenTime( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenTime( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENTIMESTAMP ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenTimestamp( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenTimestamp( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENSERIALIZABLEUID ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenSerializableUID( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenSerializableUID( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			builtinEdit = null;
 			ret = builtinObj;
 		}
@@ -2536,8 +2536,8 @@ public class MssCFGelCompiler
 	//	and need to expand it's body
 
 		else {
-			ICFGenKbGelExpansionObj expansionObj = genEngine.getGelExpansionTableObj().newInstance(); 
-			ICFGenKbGelExpansionEditObj expansionEdit = (ICFGenKbGelExpansionEditObj)expansionObj.beginEdit();
+			IYCFGenKbGelExpansionObj expansionObj = genEngine.getGelExpansionTableObj().newInstance(); 
+			IYCFGenKbGelExpansionEditObj expansionEdit = (IYCFGenKbGelExpansionEditObj)expansionObj.beginEdit();
 			expansionEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			expansionEdit.setRequiredContainerGelCache( myGelCache );
 			if( macro.length() > 127 )  {
@@ -2547,7 +2547,7 @@ public class MssCFGelCompiler
 				expansionEdit.setRequiredMacroName( macro );
 			}
 			expansionEdit.setRequiredSourceText( macro );
-			expansionObj = (ICFGenKbGelExpansionObj)expansionEdit.create();
+			expansionObj = (IYCFGenKbGelExpansionObj)expansionEdit.create();
 			expansionEdit = null;
 			ret = expansionObj;
 		}
@@ -2568,7 +2568,7 @@ public class MssCFGelCompiler
 	 *	@param		body		String
 	 *	@return	String		The result of expanding the body.
 	 */
-	protected ICFGenKbGelInstructionObj compileIteration( String macro )
+	protected IYCFGenKbGelInstructionObj compileIteration( String macro )
 	{
 		int					start;
 		int					lparen;
@@ -2580,9 +2580,9 @@ public class MssCFGelCompiler
 		String	  			itype = null;
 		String			  	itemname = null;
 		StringBuffer		iteratorName = new StringBuffer();
-		ICFGenKbGelInstructionObj ret = null;
-		ICFGenKbGenItemObj	genItem = null;
-		MssCFGenIteratorObj	iterator = null;
+		IYCFGenKbGelInstructionObj ret = null;
+		IYCFGenKbGenItemObj	genItem = null;
+		MssYCFGenIteratorObj	iterator = null;
 
 		String				bodyBefore = null;
 		String				bodyFirst = null;
@@ -2592,7 +2592,7 @@ public class MssCFGelCompiler
 		String				bodyLone = null;
 		String				bodyEmpty = null;
 
-		final String S_ProcName = "MssCFGelCompiler.compileIteration() ";
+		final String S_ProcName = "MssYCFGelCompiler.compileIteration() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -2992,8 +2992,8 @@ public class MssCFGelCompiler
 	//	The body macros we got for expansion and the number of items in the iteration
 	//	determine exactly what we do for any given case.
 
-		ICFGenKbGelIteratorObj iteratorObj = genEngine.getGelIteratorTableObj().newInstance(); 
-		ICFGenKbGelIteratorEditObj iteratorEdit = (ICFGenKbGelIteratorEditObj)iteratorObj.beginEdit();
+		IYCFGenKbGelIteratorObj iteratorObj = genEngine.getGelIteratorTableObj().newInstance(); 
+		IYCFGenKbGelIteratorEditObj iteratorEdit = (IYCFGenKbGelIteratorEditObj)iteratorObj.beginEdit();
 		iteratorEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		iteratorEdit.setRequiredContainerGelCache( myGelCache );
 		iteratorEdit.setRequiredSourceText( macro );
@@ -3005,7 +3005,7 @@ public class MssCFGelCompiler
 		iteratorEdit.setOptionalExpandAfter( bodyAfter );
 		iteratorEdit.setOptionalExpandLone( bodyLone );
 		iteratorEdit.setOptionalExpandEmpty( bodyEmpty );
-		iteratorObj = (ICFGenKbGelIteratorObj)iteratorEdit.create();
+		iteratorObj = (IYCFGenKbGelIteratorObj)iteratorEdit.create();
 		iteratorEdit = null;
 		ret = iteratorObj;
 
@@ -3021,7 +3021,7 @@ public class MssCFGelCompiler
 	 *	@param		body		String
 	 *	@return	String		The result of expanding the body.
 	 */
-	protected ICFGenKbGelInstructionObj compileSpread( String macro )
+	protected IYCFGenKbGelInstructionObj compileSpread( String macro )
 	{
 		int					start;
 		int					lparen;
@@ -3033,9 +3033,9 @@ public class MssCFGelCompiler
 		String	  			itype = null;
 		String			  	itemname = null;
 		StringBuffer		iteratorName = new StringBuffer();
-		ICFGenKbGelInstructionObj ret = null;
-		ICFGenKbGenItemObj	genItem = null;
-		MssCFGenIteratorObj	iterator = null;
+		IYCFGenKbGelInstructionObj ret = null;
+		IYCFGenKbGenItemObj	genItem = null;
+		MssYCFGenIteratorObj	iterator = null;
 
 		String				bodyBetween = null;
 		String				bodyBefore = null;
@@ -3046,7 +3046,7 @@ public class MssCFGelCompiler
 		String				bodyLone = null;
 		String				bodyEmpty = null;
 
-		final String S_ProcName = "MssCFGelCompiler.compileSpread() ";
+		final String S_ProcName = "MssYCFGelCompiler.compileSpread() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -3464,8 +3464,8 @@ public class MssCFGelCompiler
 	//	The body macros we got for expansion and the number of items in the iteration
 	//	determine exactly what we do for any given case.
 
-		ICFGenKbGelSpreadObj spreadObj = genEngine.getGelSpreadTableObj().newInstance(); 
-		ICFGenKbGelSpreadEditObj spreadEdit = (ICFGenKbGelSpreadEditObj)spreadObj.beginEdit();
+		IYCFGenKbGelSpreadObj spreadObj = genEngine.getGelSpreadTableObj().newInstance(); 
+		IYCFGenKbGelSpreadEditObj spreadEdit = (IYCFGenKbGelSpreadEditObj)spreadObj.beginEdit();
 		spreadEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		spreadEdit.setRequiredContainerGelCache( myGelCache );
 		spreadEdit.setRequiredSourceText( macro );
@@ -3478,7 +3478,7 @@ public class MssCFGelCompiler
 		spreadEdit.setOptionalExpandAfter( bodyAfter );
 		spreadEdit.setOptionalExpandLone( bodyLone );
 		spreadEdit.setOptionalExpandEmpty( bodyEmpty );
-		spreadObj = (ICFGenKbGelSpreadObj)spreadEdit.create();
+		spreadObj = (IYCFGenKbGelSpreadObj)spreadEdit.create();
 		spreadEdit = null;
 		ret = spreadObj;
 
@@ -3504,7 +3504,7 @@ public class MssCFGelCompiler
 	 *	@param		macro		String
 	 *	@return	String		The result of expanding the macro.
 	 */
-	protected ICFGenKbGelInstructionObj compileCounter( String macro )
+	protected IYCFGenKbGelInstructionObj compileCounter( String macro )
 	{
 		int					start;
 		int					lenMacro = 0;
@@ -3512,8 +3512,8 @@ public class MssCFGelCompiler
 		String				counterName = null;
 		String				counterOp = null;
 		String				counterOpName = null;
-		ICFGenKbGelInstructionObj ret = null;
-		final String S_ProcName = "MssCFGelCompiler.compileCounter() ";
+		IYCFGenKbGelInstructionObj ret = null;
+		final String S_ProcName = "MssYCFGelCompiler.compileCounter() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -3623,46 +3623,46 @@ public class MssCFGelCompiler
 		counterOpName = counterOp;
 
 		if( _COUNTER_OP_NEW.equals( counterOpName ) ) {
-			ICFGenKbGelCounterObj counterObj = new MssCFCounterNew( genEngine );
-			ICFGenKbGelCounterEditObj counterEdit = (ICFGenKbGelCounterEditObj)counterObj.beginEdit();
+			IYCFGenKbGelCounterObj counterObj = new MssYCFCounterNew( genEngine );
+			IYCFGenKbGelCounterEditObj counterEdit = (IYCFGenKbGelCounterEditObj)counterObj.beginEdit();
 			counterEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			counterEdit.setRequiredContainerGelCache( myGelCache );
 			counterEdit.setRequiredCounterName( counterName );
 			counterEdit.setRequiredSourceText( macro );
-			counterObj = (ICFGenKbGelCounterObj)counterEdit.create();
+			counterObj = (IYCFGenKbGelCounterObj)counterEdit.create();
 			counterEdit = null;
 			ret = counterObj;
 		}
 		else if( _COUNTER_OP_INCR.equals( counterOpName ) ) {
-			ICFGenKbGelCounterObj counterObj = new MssCFCounterIncrement( genEngine );
-			ICFGenKbGelCounterEditObj counterEdit = (ICFGenKbGelCounterEditObj)counterObj.beginEdit();
+			IYCFGenKbGelCounterObj counterObj = new MssYCFCounterIncrement( genEngine );
+			IYCFGenKbGelCounterEditObj counterEdit = (IYCFGenKbGelCounterEditObj)counterObj.beginEdit();
 			counterEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			counterEdit.setRequiredContainerGelCache( myGelCache );
 			counterEdit.setRequiredCounterName( counterName );
 			counterEdit.setRequiredSourceText( macro );
-			counterObj = (ICFGenKbGelCounterObj)counterEdit.create();
+			counterObj = (IYCFGenKbGelCounterObj)counterEdit.create();
 			counterEdit = null;
 			ret = counterObj;
 		}
 		else if( _COUNTER_OP_DECR.equals( counterOpName ) ) {
-			ICFGenKbGelCounterObj counterObj = new MssCFCounterDecrement( genEngine );
-			ICFGenKbGelCounterEditObj counterEdit = (ICFGenKbGelCounterEditObj)counterObj.beginEdit();
+			IYCFGenKbGelCounterObj counterObj = new MssYCFCounterDecrement( genEngine );
+			IYCFGenKbGelCounterEditObj counterEdit = (IYCFGenKbGelCounterEditObj)counterObj.beginEdit();
 			counterEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			counterEdit.setRequiredContainerGelCache( myGelCache );
 			counterEdit.setRequiredSourceText( macro );
 			counterEdit.setRequiredCounterName( counterName );
-			counterObj = (ICFGenKbGelCounterObj)counterEdit.create();
+			counterObj = (IYCFGenKbGelCounterObj)counterEdit.create();
 			counterEdit = null;
 			ret = counterObj;
 		}
 		else if( _COUNTER_OP_VALUE.equals( counterOpName ) ) {
-			ICFGenKbGelCounterObj counterObj = new MssCFCounterValue( genEngine );
-			ICFGenKbGelCounterEditObj counterEdit = (ICFGenKbGelCounterEditObj)counterObj.beginEdit();
+			IYCFGenKbGelCounterObj counterObj = new MssYCFCounterValue( genEngine );
+			IYCFGenKbGelCounterEditObj counterEdit = (IYCFGenKbGelCounterEditObj)counterObj.beginEdit();
 			counterEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			counterEdit.setRequiredContainerGelCache( myGelCache );
 			counterEdit.setRequiredSourceText( macro );
 			counterEdit.setRequiredCounterName( counterName );
-			counterObj = (ICFGenKbGelCounterObj)counterEdit.create();
+			counterObj = (IYCFGenKbGelCounterObj)counterEdit.create();
 			counterEdit = null;
 			ret = counterObj;
 		}
@@ -3683,14 +3683,14 @@ public class MssCFGelCompiler
 		return( ret );
 	}
 
-	protected ICFGenKbGelInstructionObj compileConstrainMax( String macro )
+	protected IYCFGenKbGelInstructionObj compileConstrainMax( String macro )
 	{
 		int start;
 		int lenMacro = 0;
 		char ch;
 		String constrainLimit = null;
 		String constrainedValue = null;
-		final String S_ProcName = "MssCFGelCompiler.compileConstrainMax() ";
+		final String S_ProcName = "MssYCFGelCompiler.compileConstrainMax() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -3759,15 +3759,15 @@ public class MssCFGelCompiler
 
 		String remainingMacro = macro.substring( start );
 
-		ICFGenKbGelConstrainObj constrainObj = new MssCFConstrainMax( genEngine );
-		ICFGenKbGelConstrainEditObj constrainEdit = (ICFGenKbGelConstrainEditObj)constrainObj.beginEdit();
+		IYCFGenKbGelConstrainObj constrainObj = new MssYCFConstrainMax( genEngine );
+		IYCFGenKbGelConstrainEditObj constrainEdit = (IYCFGenKbGelConstrainEditObj)constrainObj.beginEdit();
 		constrainEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		constrainEdit.setRequiredContainerGelCache( myGelCache );
 		constrainEdit.setRequiredSourceText( macro );
-		constrainObj = (ICFGenKbGelConstrainObj)constrainEdit.create();
+		constrainObj = (IYCFGenKbGelConstrainObj)constrainEdit.create();
 		constrainEdit = null;
 
-		ICFGenKbGelInstructionObj remainder = compileMacro( remainingMacro );
+		IYCFGenKbGelInstructionObj remainder = compileMacro( remainingMacro );
 		if( remainder == null ) {
 			StringBuffer msg = new StringBuffer( getClass().getSimpleName() );
 			msg.append( '.' );
@@ -3802,7 +3802,7 @@ public class MssCFGelCompiler
 			}
 		}
 
-		constrainEdit = (ICFGenKbGelConstrainEditObj)constrainObj.beginEdit();
+		constrainEdit = (IYCFGenKbGelConstrainEditObj)constrainObj.beginEdit();
 		constrainEdit.setOptionalLookupRemainder( remainder );
 		if( isDigitString ) {
 			constrainEdit.setOptionalHardConstraint( Long.parseLong( constrainLimit ) );
@@ -3816,14 +3816,14 @@ public class MssCFGelCompiler
 		return( constrainObj );
 	}
 
-	protected ICFGenKbGelInstructionObj compileConstrainMin( String macro )
+	protected IYCFGenKbGelInstructionObj compileConstrainMin( String macro )
 	{
 		int start;
 		int lenMacro = 0;
 		char ch;
 		String constrainLimit = null;
 		String constrainedValue = null;
-		final String S_ProcName = "MssCFGelCompiler.compileConstrainMin() ";
+		final String S_ProcName = "MssYCFGelCompiler.compileConstrainMin() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -3892,15 +3892,15 @@ public class MssCFGelCompiler
 
 		String remainingMacro = macro.substring( start );
 
-		ICFGenKbGelConstrainObj constrainObj = new MssCFConstrainMin( genEngine );
-		ICFGenKbGelConstrainEditObj constrainEdit = (ICFGenKbGelConstrainEditObj)constrainObj.beginEdit();
+		IYCFGenKbGelConstrainObj constrainObj = new MssYCFConstrainMin( genEngine );
+		IYCFGenKbGelConstrainEditObj constrainEdit = (IYCFGenKbGelConstrainEditObj)constrainObj.beginEdit();
 		constrainEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		constrainEdit.setRequiredContainerGelCache( myGelCache );
 		constrainEdit.setRequiredSourceText( macro );
-		constrainObj = (ICFGenKbGelConstrainObj)constrainEdit.create();
+		constrainObj = (IYCFGenKbGelConstrainObj)constrainEdit.create();
 		constrainEdit = null;
 
-		ICFGenKbGelInstructionObj remainder = compileMacro( remainingMacro );
+		IYCFGenKbGelInstructionObj remainder = compileMacro( remainingMacro );
 		if( remainder == null ) {
 			StringBuffer msg = new StringBuffer( getClass().getSimpleName() );
 			msg.append( '.' );
@@ -3935,7 +3935,7 @@ public class MssCFGelCompiler
 			}
 		}
 
-		constrainEdit = (ICFGenKbGelConstrainEditObj)constrainObj.beginEdit();
+		constrainEdit = (IYCFGenKbGelConstrainEditObj)constrainObj.beginEdit();
 		constrainEdit.setOptionalLookupRemainder( remainder );
 		if( isDigitString ) {
 			constrainEdit.setOptionalHardConstraint( Long.parseLong( constrainLimit ) );
@@ -3957,15 +3957,15 @@ public class MssCFGelCompiler
 	 *	@param		macro		String
 	 *	@return	String		The result of expanding the macro.
 	 */
-	protected ICFGenKbGelInstructionObj compilePop( String macro )
+	protected IYCFGenKbGelInstructionObj compilePop( String macro )
 	{
 		int					start;
 		int					lenMacro = 0;
 		char				ch;
 		String				goalTypeName = null;
 		String				remainingMacro = null;
-		ICFGenKbGelInstructionObj ret = null;
-		final String S_ProcName = "MssCFGelCompiler.compilePop() ";
+		IYCFGenKbGelInstructionObj ret = null;
+		final String S_ProcName = "MssYCFGelCompiler.compilePop() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -4050,16 +4050,16 @@ public class MssCFGelCompiler
 
 		remainingMacro = macro.substring( start );
 
-		ICFGenKbGelPopObj popObj = new MssCFPop( genEngine ); 
-		ICFGenKbGelPopEditObj popEdit = (ICFGenKbGelPopEditObj)popObj.beginEdit();
+		IYCFGenKbGelPopObj popObj = new MssYCFPop( genEngine ); 
+		IYCFGenKbGelPopEditObj popEdit = (IYCFGenKbGelPopEditObj)popObj.beginEdit();
 		popEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		popEdit.setRequiredContainerGelCache( myGelCache );
 		popEdit.setRequiredGoalTypeName( goalTypeName );
 		popEdit.setRequiredSourceText( macro );
-		popObj = (ICFGenKbGelPopObj)popEdit.create();
+		popObj = (IYCFGenKbGelPopObj)popEdit.create();
 		popEdit = null;
 
-		ICFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
+		IYCFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
 		if( remainder == null ) {
 			StringBuffer msg = new StringBuffer( getClass().getSimpleName() );
 			msg.append( '.' );
@@ -4072,7 +4072,7 @@ public class MssCFGelCompiler
 			return (null);
 		}
 
-		popEdit = (ICFGenKbGelPopEditObj)popObj.beginEdit();
+		popEdit = (IYCFGenKbGelPopEditObj)popObj.beginEdit();
 		popEdit.setOptionalLookupRemainder( remainder );
 		popEdit.update();
 		popEdit = null;
@@ -4089,14 +4089,14 @@ public class MssCFGelCompiler
 	 *	@param		macro		String
 	 *	@return	String		The result of expanding the macro.
 	 */
-	protected ICFGenKbGelInstructionObj compilePushContext( String macro )
+	protected IYCFGenKbGelInstructionObj compilePushContext( String macro )
 	{
 		int					start;
 		int					lenMacro = 0;
 		char				ch;
 		String				remainingMacro = null;
-		ICFGenKbGelInstructionObj ret = null;
-		final String S_ProcName = "MssCFGelCompiler.compilePushContext() ";
+		IYCFGenKbGelInstructionObj ret = null;
+		final String S_ProcName = "MssYCFGelCompiler.compilePushContext() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -4153,16 +4153,16 @@ public class MssCFGelCompiler
 
 		remainingMacro = macro.substring( start );
 
-		ICFGenKbGelPushContextObj pushcontextObj = new MssCFPushContext( genEngine ); 
-		ICFGenKbGelPushContextEditObj pushcontextEdit = (ICFGenKbGelPushContextEditObj)pushcontextObj.beginEdit();
+		IYCFGenKbGelPushContextObj pushcontextObj = new MssYCFPushContext( genEngine ); 
+		IYCFGenKbGelPushContextEditObj pushcontextEdit = (IYCFGenKbGelPushContextEditObj)pushcontextObj.beginEdit();
 		pushcontextEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		pushcontextEdit.setRequiredContainerGelCache( myGelCache );
 		pushcontextEdit.setRequiredGoalTypeName( genEngine.getGenContext().getGenDef().getGenDefName() );
 		pushcontextEdit.setRequiredSourceText( macro );
-		pushcontextObj = (ICFGenKbGelPushContextObj)pushcontextEdit.create();
+		pushcontextObj = (IYCFGenKbGelPushContextObj)pushcontextEdit.create();
 		pushcontextEdit = null;
 
-		ICFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
+		IYCFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
 		if( remainder == null ) {
 			StringBuffer msg = new StringBuffer( getClass().getSimpleName() );
 			msg.append( '.' );
@@ -4175,7 +4175,7 @@ public class MssCFGelCompiler
 			return (null);
 		}
 
-		pushcontextEdit = (ICFGenKbGelPushContextEditObj)pushcontextObj.beginEdit();
+		pushcontextEdit = (IYCFGenKbGelPushContextEditObj)pushcontextObj.beginEdit();
 		pushcontextEdit.setOptionalLookupRemainder( remainder );
 		pushcontextEdit.update();
 		pushcontextEdit = null;
@@ -4192,14 +4192,14 @@ public class MssCFGelCompiler
 	 *	@param		macro		String
 	 *	@return	String		The result of expanding the macro.
 	 */
-	protected ICFGenKbGelInstructionObj compilePopContext( String macro )
+	protected IYCFGenKbGelInstructionObj compilePopContext( String macro )
 	{
 		int					start;
 		int					lenMacro = 0;
 		char				ch;
 		String				remainingMacro = null;
-		ICFGenKbGelInstructionObj ret = null;
-		final String S_ProcName = "MssCFGelCompiler.compilePopContext() ";
+		IYCFGenKbGelInstructionObj ret = null;
+		final String S_ProcName = "MssYCFGelCompiler.compilePopContext() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -4242,13 +4242,13 @@ public class MssCFGelCompiler
 
 		remainingMacro = macro.substring( start );
 
-		ICFGenKbGelPopContextObj popcontextObj = new MssCFPopContext( genEngine ); 
-		ICFGenKbGelPopContextEditObj popcontextEdit = (ICFGenKbGelPopContextEditObj)popcontextObj.beginEdit();
+		IYCFGenKbGelPopContextObj popcontextObj = new MssYCFPopContext( genEngine ); 
+		IYCFGenKbGelPopContextEditObj popcontextEdit = (IYCFGenKbGelPopContextEditObj)popcontextObj.beginEdit();
 		popcontextEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		popcontextEdit.setRequiredContainerGelCache( myGelCache );
 		popcontextEdit.setRequiredGoalTypeName( genEngine.getGenContext().getGenDef().getGenDefName() );
 		popcontextEdit.setRequiredSourceText( macro );
-		popcontextObj = (ICFGenKbGelPopContextObj)popcontextEdit.create();
+		popcontextObj = (IYCFGenKbGelPopContextObj)popcontextEdit.create();
 		popcontextEdit = null;
 
 		ret = popcontextObj;
@@ -4267,15 +4267,15 @@ public class MssCFGelCompiler
 	 *	@param		macro		String
 	 *	@return	String		The result of expanding the macro.
 	 */
-	protected ICFGenKbGelInstructionObj compilePopTo( String macro )
+	protected IYCFGenKbGelInstructionObj compilePopTo( String macro )
 	{
 		int					start;
 		int					lenMacro = 0;
 		char				ch;
 		String				goalTypeName = null;
 		String				remainingMacro = null;
-		ICFGenKbGelInstructionObj ret = null;
-		final String S_ProcName = "MssCFGelCompiler.compilePopTo() ";
+		IYCFGenKbGelInstructionObj ret = null;
+		final String S_ProcName = "MssYCFGelCompiler.compilePopTo() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -4362,16 +4362,16 @@ public class MssCFGelCompiler
 
 		remainingMacro = macro.substring( start );
 
-		ICFGenKbGelPopObj popObj = new MssCFPopTo( genEngine ); 
-		ICFGenKbGelPopEditObj popEdit = (ICFGenKbGelPopEditObj)popObj.beginEdit();
+		IYCFGenKbGelPopObj popObj = new MssYCFPopTo( genEngine ); 
+		IYCFGenKbGelPopEditObj popEdit = (IYCFGenKbGelPopEditObj)popObj.beginEdit();
 		popEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		popEdit.setRequiredContainerGelCache( myGelCache );
 		popEdit.setRequiredGoalTypeName( goalTypeName );
 		popEdit.setRequiredSourceText( macro );
-		popObj = (ICFGenKbGelPopObj)popEdit.create();
+		popObj = (IYCFGenKbGelPopObj)popEdit.create();
 		popEdit = null;
 
-		ICFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
+		IYCFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
 		if( remainder == null ) {
 			StringBuffer msg = new StringBuffer( getClass().getSimpleName() );
 			msg.append( '.' );
@@ -4384,7 +4384,7 @@ public class MssCFGelCompiler
 			return (null);
 		}
 
-		popEdit = (ICFGenKbGelPopEditObj)popObj.beginEdit();
+		popEdit = (IYCFGenKbGelPopEditObj)popObj.beginEdit();
 		popEdit.setOptionalLookupRemainder( remainder );
 		popEdit.update();
 		popEdit = null;
@@ -4394,15 +4394,15 @@ public class MssCFGelCompiler
 		return( ret );
 	}
 
-	protected ICFGenKbGelInstructionObj compilePopTop( String macro )
+	protected IYCFGenKbGelInstructionObj compilePopTop( String macro )
 	{
 		int					start;
 		int					lenMacro = 0;
 		char				ch;
 		String				goalTypeName = null;
 		String				remainingMacro = null;
-		ICFGenKbGelInstructionObj ret = null;
-		final String S_ProcName = "MssCFGelCompiler.compilePopTop() ";
+		IYCFGenKbGelInstructionObj ret = null;
+		final String S_ProcName = "MssYCFGelCompiler.compilePopTop() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -4489,16 +4489,16 @@ public class MssCFGelCompiler
 
 		remainingMacro = macro.substring( start );
 
-		ICFGenKbGelPopObj popObj = new MssCFPopTop( genEngine ); 
-		ICFGenKbGelPopEditObj popEdit = (ICFGenKbGelPopEditObj)popObj.beginEdit();
+		IYCFGenKbGelPopObj popObj = new MssYCFPopTop( genEngine ); 
+		IYCFGenKbGelPopEditObj popEdit = (IYCFGenKbGelPopEditObj)popObj.beginEdit();
 		popEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		popEdit.setRequiredContainerGelCache( myGelCache );
 		popEdit.setRequiredGoalTypeName( goalTypeName );
 		popEdit.setRequiredSourceText( macro );
-		popObj = (ICFGenKbGelPopObj)popEdit.create();
+		popObj = (IYCFGenKbGelPopObj)popEdit.create();
 		popEdit = null;
 
-		ICFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
+		IYCFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
 		if( remainder == null ) {
 			StringBuffer msg = new StringBuffer( getClass().getSimpleName() );
 			msg.append( '.' );
@@ -4511,7 +4511,7 @@ public class MssCFGelCompiler
 			return (null);
 		}
 
-		popEdit = (ICFGenKbGelPopEditObj)popObj.beginEdit();
+		popEdit = (IYCFGenKbGelPopEditObj)popObj.beginEdit();
 		popEdit.setOptionalLookupRemainder( remainder );
 		popEdit.update();
 		popEdit = null;
@@ -4521,15 +4521,15 @@ public class MssCFGelCompiler
 		return( ret );
 	}
 
-	protected ICFGenKbGelInstructionObj compilePopOneFromTop( String macro )
+	protected IYCFGenKbGelInstructionObj compilePopOneFromTop( String macro )
 	{
 		int					start;
 		int					lenMacro = 0;
 		char				ch;
 		String				goalTypeName = null;
 		String				remainingMacro = null;
-		ICFGenKbGelInstructionObj ret = null;
-		final String S_ProcName = "MssCFGelCompiler.compilePopOneFromTop() ";
+		IYCFGenKbGelInstructionObj ret = null;
+		final String S_ProcName = "MssYCFGelCompiler.compilePopOneFromTop() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -4616,16 +4616,16 @@ public class MssCFGelCompiler
 
 		remainingMacro = macro.substring( start );
 
-		ICFGenKbGelPopObj popObj = new MssCFPopOneFromTop( genEngine ); 
-		ICFGenKbGelPopEditObj popEdit = (ICFGenKbGelPopEditObj)popObj.beginEdit();
+		IYCFGenKbGelPopObj popObj = new MssYCFPopOneFromTop( genEngine ); 
+		IYCFGenKbGelPopEditObj popEdit = (IYCFGenKbGelPopEditObj)popObj.beginEdit();
 		popEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		popEdit.setRequiredContainerGelCache( myGelCache );
 		popEdit.setRequiredGoalTypeName( goalTypeName );
 		popEdit.setRequiredSourceText( macro );
-		popObj = (ICFGenKbGelPopObj)popEdit.create();
+		popObj = (IYCFGenKbGelPopObj)popEdit.create();
 		popEdit = null;
 
-		ICFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
+		IYCFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
 		if( remainder == null ) {
 			StringBuffer msg = new StringBuffer( getClass().getSimpleName() );
 			msg.append( '.' );
@@ -4638,7 +4638,7 @@ public class MssCFGelCompiler
 			return (null);
 		}
 
-		popEdit = (ICFGenKbGelPopEditObj)popObj.beginEdit();
+		popEdit = (IYCFGenKbGelPopEditObj)popObj.beginEdit();
 		popEdit.setOptionalLookupRemainder( remainder );
 		popEdit.update();
 		popEdit = null;
@@ -4658,16 +4658,16 @@ public class MssCFGelCompiler
 	 *	@param	macro		String
 	 *	@return	String		The result of expanding the macro.
 	 */
-	protected ICFGenKbGelInstructionObj compileReference( String macro )
+	protected IYCFGenKbGelInstructionObj compileReference( String macro )
 	{
 		int						start;
 		int						lenMacro = 0;
 		char					ch;
 		String					refName = null;
 		String					remainingMacro = null;
-		ICFGenKbGelInstructionObj ret = null;
+		IYCFGenKbGelInstructionObj ret = null;
 
-		final String S_ProcName = "MssCFGelCompiler.compileReference() ";
+		final String S_ProcName = "MssYCFGelCompiler.compileReference() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -4751,16 +4751,16 @@ public class MssCFGelCompiler
 
 		remainingMacro = macro.substring( start );
 
-		ICFGenKbGelReferenceObj referenceObj = genEngine.getGelReferenceTableObj().newInstance(); 
-		ICFGenKbGelReferenceEditObj referenceEdit = (ICFGenKbGelReferenceEditObj)referenceObj.beginEdit();
+		IYCFGenKbGelReferenceObj referenceObj = genEngine.getGelReferenceTableObj().newInstance(); 
+		IYCFGenKbGelReferenceEditObj referenceEdit = (IYCFGenKbGelReferenceEditObj)referenceObj.beginEdit();
 		referenceEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		referenceEdit.setRequiredContainerGelCache( myGelCache );
 		referenceEdit.setRequiredReferenceName( refName );
 		referenceEdit.setRequiredSourceText( macro );
-		referenceObj = (ICFGenKbGelReferenceObj)referenceEdit.create();
+		referenceObj = (IYCFGenKbGelReferenceObj)referenceEdit.create();
 		referenceEdit = null;
 
-		ICFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
+		IYCFGenKbGelInstructionObj remainder = compileMacro( remainingMacro);
 		if( remainder == null ) {
 			StringBuffer msg = new StringBuffer( getClass().getSimpleName() );
 			msg.append( '.' );
@@ -4773,7 +4773,7 @@ public class MssCFGelCompiler
 			return (null);
 		}
 
-		referenceEdit = (ICFGenKbGelReferenceEditObj)referenceObj.beginEdit();
+		referenceEdit = (IYCFGenKbGelReferenceEditObj)referenceObj.beginEdit();
 		referenceEdit.setOptionalLookupRemainder( remainder );
 		referenceEdit.update();
 		referenceEdit = null;
@@ -4789,7 +4789,7 @@ public class MssCFGelCompiler
 	 *
 	 *		prefixline PrefixMacro BodyMacro
 	 */
-	protected ICFGenKbGelInstructionObj compilePrefixLine( String macro )
+	protected IYCFGenKbGelInstructionObj compilePrefixLine( String macro )
 	{
 		int start;
 		int lenMacro = 0;
@@ -4799,9 +4799,9 @@ public class MssCFGelCompiler
 		String prefixMacro = null;
 		String body = null;
 		String bodyMacro = null;
-		ICFGenKbGelInstructionObj ret = null;
+		IYCFGenKbGelInstructionObj ret = null;
 
-		final String S_ProcName = "MssCFGelCompiler.compilePrefixLine() ";
+		final String S_ProcName = "MssYCFGelCompiler.compilePrefixLine() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -4883,16 +4883,16 @@ public class MssCFGelCompiler
 			return( null );
 		}
 
-		ICFGenKbGelPrefixLineObj prefixLineObj = genEngine.getGelPrefixLineTableObj().newInstance(); 
-		ICFGenKbGelPrefixLineEditObj prefixLineEdit = (ICFGenKbGelPrefixLineEditObj)prefixLineObj.beginEdit();
+		IYCFGenKbGelPrefixLineObj prefixLineObj = genEngine.getGelPrefixLineTableObj().newInstance(); 
+		IYCFGenKbGelPrefixLineEditObj prefixLineEdit = (IYCFGenKbGelPrefixLineEditObj)prefixLineObj.beginEdit();
 		prefixLineEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		prefixLineEdit.setRequiredContainerGelCache( myGelCache );
 		prefixLineEdit.setRequiredSourceText( macro );
 		prefixLineEdit.setRequiredPrefixName( prefixMacro );
-		prefixLineObj = (ICFGenKbGelPrefixLineObj)prefixLineEdit.create();
+		prefixLineObj = (IYCFGenKbGelPrefixLineObj)prefixLineEdit.create();
 		prefixLineEdit = null;
 
-		ICFGenKbGelInstructionObj gelBody = compileMacro( bodyMacro);
+		IYCFGenKbGelInstructionObj gelBody = compileMacro( bodyMacro);
 		if( gelBody == null ) {
 			StringBuffer msg = new StringBuffer( getClass().getSimpleName() );
 			msg.append( '.' );
@@ -4905,7 +4905,7 @@ public class MssCFGelCompiler
 			return (null);
 		}
 
-		prefixLineEdit = (ICFGenKbGelPrefixLineEditObj)prefixLineObj.beginEdit();
+		prefixLineEdit = (IYCFGenKbGelPrefixLineEditObj)prefixLineObj.beginEdit();
 		prefixLineEdit.setOptionalLookupRemainder( gelBody );
 		prefixLineEdit.update();
 		prefixLineEdit = null;
@@ -4936,7 +4936,7 @@ public class MssCFGelCompiler
 	 *	@param	body		String
 	 *	@return	String		The result of expanding the body.
 	 */
-	protected ICFGenKbGelInstructionObj compileSwitch( String macro )
+	protected IYCFGenKbGelInstructionObj compileSwitch( String macro )
 	{
 		int								start;
 		int								lenMacro = 0;
@@ -4948,9 +4948,9 @@ public class MssCFGelCompiler
 		String							nilMacro = null;
 		String							emptyMacro = null;
 		String							defaultMacro = null;
-		ICFGenKbGelInstructionObj 	ret = null;
+		IYCFGenKbGelInstructionObj 	ret = null;
 
-		final String S_ProcName = "MssCFGelCompiler.compileSwitch() ";
+		final String S_ProcName = "MssYCFGelCompiler.compileSwitch() ";
 		final String S_MsgEmptyNotAllowedForMacro = "Empty value not allowed for macro";
 
 	//	Validate parameters
@@ -5011,14 +5011,14 @@ public class MssCFGelCompiler
 			return( null );
 		}
 
-		ICFGenKbGelSwitchObj switchObj = genEngine.getGelSwitchTableObj().newInstance(); 
-		ICFGenKbGelSwitchEditObj switchEdit = (ICFGenKbGelSwitchEditObj)switchObj.beginEdit();
+		IYCFGenKbGelSwitchObj switchObj = genEngine.getGelSwitchTableObj().newInstance(); 
+		IYCFGenKbGelSwitchEditObj switchEdit = (IYCFGenKbGelSwitchEditObj)switchObj.beginEdit();
 		switchEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 		switchEdit.setRequiredContainerGelCache( myGelCache );
 		switchEdit.setRequiredSourceText( macro );
 		switchEdit.setRequiredValueExpansion( valueMacro );
 		switchEdit.setRequiredDefaultExpansion( "PlaceHolder" );
-		switchObj = (ICFGenKbGelSwitchObj)switchEdit.create();
+		switchObj = (IYCFGenKbGelSwitchObj)switchEdit.create();
 		switchEdit = null;
 
 	//	LOOP until done parsing switch limbs
@@ -5109,7 +5109,7 @@ public class MssCFGelCompiler
 
 				nilMacro = keyMacro;
 
-				switchEdit = (ICFGenKbGelSwitchEditObj)switchObj.beginEdit();
+				switchEdit = (IYCFGenKbGelSwitchEditObj)switchObj.beginEdit();
 				switchEdit.setOptionalNilExpansion( nilMacro );
 				switchEdit.update();
 				switchEdit = null;
@@ -5130,7 +5130,7 @@ public class MssCFGelCompiler
 				}
 				emptyMacro = keyMacro;
 
-				switchEdit = (ICFGenKbGelSwitchEditObj)switchObj.beginEdit();
+				switchEdit = (IYCFGenKbGelSwitchEditObj)switchObj.beginEdit();
 				switchEdit.setOptionalEmptyExpansion( emptyMacro );
 				switchEdit.update();
 				switchEdit = null;
@@ -5151,18 +5151,18 @@ public class MssCFGelCompiler
 				}
 				defaultMacro = keyMacro;
 
-				switchEdit = (ICFGenKbGelSwitchEditObj)switchObj.beginEdit();
+				switchEdit = (IYCFGenKbGelSwitchEditObj)switchObj.beginEdit();
 				switchEdit.setRequiredDefaultExpansion( defaultMacro );
 				switchEdit.update();
 				switchEdit = null;
 			}
 			else {
-				ICFGenKbGelSwitchLimbObj switchLimbObj = genEngine.getGelSwitchLimbTableObj().newInstance(); 
-				ICFGenKbGelSwitchLimbEditObj switchLimbEdit = (ICFGenKbGelSwitchLimbEditObj)switchLimbObj.beginEdit();
+				IYCFGenKbGelSwitchLimbObj switchLimbObj = genEngine.getGelSwitchLimbTableObj().newInstance(); 
+				IYCFGenKbGelSwitchLimbEditObj switchLimbEdit = (IYCFGenKbGelSwitchLimbEditObj)switchLimbObj.beginEdit();
 				switchLimbEdit.setRequiredParentSwitch( switchObj );
 				switchLimbEdit.getBuff().setRequiredLimbName( keyValue );
 				switchLimbEdit.setRequiredLimbExpansion( keyMacro );
-				switchLimbObj = (ICFGenKbGelSwitchLimbObj)switchLimbEdit.create();
+				switchLimbObj = (IYCFGenKbGelSwitchLimbObj)switchLimbEdit.create();
 				switchLimbEdit = null;
 			}
 		}

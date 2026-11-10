@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for MimeType.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,16 +35,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntMimeTypeTable database interface for MimeType
+ *	YCFIntMimeTypeTable database interface for MimeType
  */
-public interface ICFIntMimeTypeTable
+public interface IYCFIntMimeTypeTable
 {
 
 	/**
@@ -55,8 +55,8 @@ public interface ICFIntMimeTypeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createMimeType( CFSecAuthorization Authorization,
-		CFIntMimeTypeBuff Buff );
+	void createMimeType( YCFSecAuthorization Authorization,
+		YCFIntMimeTypeBuff Buff );
 
 
 	/**
@@ -67,8 +67,8 @@ public interface ICFIntMimeTypeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateMimeType( CFSecAuthorization Authorization,
-		CFIntMimeTypeBuff Buff );
+	void updateMimeType( YCFSecAuthorization Authorization,
+		YCFIntMimeTypeBuff Buff );
 
 
 	/**
@@ -78,8 +78,8 @@ public interface ICFIntMimeTypeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteMimeType( CFSecAuthorization Authorization,
-		CFIntMimeTypeBuff Buff );
+	void deleteMimeType( YCFSecAuthorization Authorization,
+		YCFIntMimeTypeBuff Buff );
 	/**
 	 *	Delete the MimeType instance identified by the primary key attributes.
 	 *
@@ -87,7 +87,7 @@ public interface ICFIntMimeTypeTable
 	 *
 	 *	@param	argMimeTypeId	The MimeType key attribute of the instance generating the id.
 	 */
-	void deleteMimeTypeByIdIdx( CFSecAuthorization Authorization,
+	void deleteMimeTypeByIdIdx( YCFSecAuthorization Authorization,
 		int argMimeTypeId );
 
 	/**
@@ -97,8 +97,8 @@ public interface ICFIntMimeTypeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteMimeTypeByIdIdx( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey argKey );
+	void deleteMimeTypeByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey argKey );
 	/**
 	 *	Delete the MimeType instances identified by the key UNameIdx.
 	 *
@@ -106,7 +106,7 @@ public interface ICFIntMimeTypeTable
 	 *
 	 *	@param	argName	The MimeType key attribute of the instance generating the id.
 	 */
-	void deleteMimeTypeByUNameIdx( CFSecAuthorization Authorization,
+	void deleteMimeTypeByUNameIdx( YCFSecAuthorization Authorization,
 		String argName );
 
 	/**
@@ -116,8 +116,8 @@ public interface ICFIntMimeTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteMimeTypeByUNameIdx( CFSecAuthorization Authorization,
-		CFIntMimeTypeByUNameIdxKey argKey );
+	void deleteMimeTypeByUNameIdx( YCFSecAuthorization Authorization,
+		YCFIntMimeTypeByUNameIdxKey argKey );
 
 
 	/**
@@ -130,8 +130,8 @@ public interface ICFIntMimeTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMimeTypeBuff readDerived( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey PKey );
+	YCFIntMimeTypeBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey PKey );
 
 	/**
 	 *	Lock the derived MimeType buffer instance by primary key.
@@ -143,8 +143,8 @@ public interface ICFIntMimeTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMimeTypeBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey PKey );
+	YCFIntMimeTypeBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey PKey );
 
 	/**
 	 *	Read all MimeType instances.
@@ -153,7 +153,7 @@ public interface ICFIntMimeTypeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFIntMimeTypeBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFIntMimeTypeBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived MimeType buffer instance identified by the unique key IdIdx.
@@ -165,7 +165,7 @@ public interface ICFIntMimeTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMimeTypeBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFIntMimeTypeBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		int MimeTypeId );
 
 	/**
@@ -178,7 +178,7 @@ public interface ICFIntMimeTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMimeTypeBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFIntMimeTypeBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		String Name );
 
 	/**
@@ -191,10 +191,10 @@ public interface ICFIntMimeTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMimeTypeBuff readBuff( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey PKey );
+	YCFIntMimeTypeBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey PKey );
 
 	/**
 	 *	Lock the specific MimeType buffer instance identified by the primary key.
@@ -206,10 +206,10 @@ public interface ICFIntMimeTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMimeTypeBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey PKey );
+	YCFIntMimeTypeBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey PKey );
 
 	/**
 	 *	Read all the specific MimeType buffer instances.
@@ -218,7 +218,7 @@ public interface ICFIntMimeTypeTable
 	 *
 	 *	@return All the specific MimeType instances in the database accessible for the Authorization.
 	 */
-	CFIntMimeTypeBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFIntMimeTypeBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific MimeType buffer instance identified by the unique key IdIdx.
@@ -230,9 +230,9 @@ public interface ICFIntMimeTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMimeTypeBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFIntMimeTypeBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		int MimeTypeId );
 
 	/**
@@ -245,15 +245,15 @@ public interface ICFIntMimeTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMimeTypeBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFIntMimeTypeBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		String Name );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

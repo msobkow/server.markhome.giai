@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for SecForm.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,17 +35,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSecFormTable database interface for SecForm
+ *	YCFIntSecFormTable database interface for SecForm
  */
-public interface ICFIntSecFormTable
-extends ICFSecSecFormTable
+public interface IYCFIntSecFormTable
+extends IYCFSecSecFormTable
 {
 
 	/**
@@ -56,8 +56,8 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecForm( CFSecAuthorization Authorization,
-		CFSecSecFormBuff Buff );
+	void createSecForm( YCFSecAuthorization Authorization,
+		YCFSecSecFormBuff Buff );
 
 
 	/**
@@ -68,8 +68,8 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecForm( CFSecAuthorization Authorization,
-		CFSecSecFormBuff Buff );
+	void updateSecForm( YCFSecAuthorization Authorization,
+		YCFSecSecFormBuff Buff );
 
 
 	/**
@@ -79,8 +79,8 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecForm( CFSecAuthorization Authorization,
-		CFSecSecFormBuff Buff );
+	void deleteSecForm( YCFSecAuthorization Authorization,
+		YCFSecSecFormBuff Buff );
 	/**
 	 *	Delete the SecForm instance identified by the primary key attributes.
 	 *
@@ -90,7 +90,7 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	argSecFormId	The SecForm key attribute of the instance generating the id.
 	 */
-	void deleteSecFormByIdIdx( CFSecAuthorization Authorization,
+	void deleteSecFormByIdIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecFormId );
 
@@ -101,8 +101,8 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecFormByIdIdx( CFSecAuthorization Authorization,
-		CFSecSecFormPKey argKey );
+	void deleteSecFormByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey argKey );
 	/**
 	 *	Delete the SecForm instances identified by the key ClusterIdx.
 	 *
@@ -110,7 +110,7 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	argClusterId	The SecForm key attribute of the instance generating the id.
 	 */
-	void deleteSecFormByClusterIdx( CFSecAuthorization Authorization,
+	void deleteSecFormByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -120,8 +120,8 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecFormByClusterIdx( CFSecAuthorization Authorization,
-		CFSecSecFormByClusterIdxKey argKey );
+	void deleteSecFormByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecSecFormByClusterIdxKey argKey );
 	/**
 	 *	Delete the SecForm instances identified by the key SecAppIdx.
 	 *
@@ -131,7 +131,7 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	argSecAppId	The SecForm key attribute of the instance generating the id.
 	 */
-	void deleteSecFormBySecAppIdx( CFSecAuthorization Authorization,
+	void deleteSecFormBySecAppIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecAppId );
 
@@ -142,8 +142,8 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecFormBySecAppIdx( CFSecAuthorization Authorization,
-		CFSecSecFormBySecAppIdxKey argKey );
+	void deleteSecFormBySecAppIdx( YCFSecAuthorization Authorization,
+		YCFSecSecFormBySecAppIdxKey argKey );
 	/**
 	 *	Delete the SecForm instances identified by the key UJEEServletIdx.
 	 *
@@ -155,7 +155,7 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	argJEEServletMapName	The SecForm key attribute of the instance generating the id.
 	 */
-	void deleteSecFormByUJEEServletIdx( CFSecAuthorization Authorization,
+	void deleteSecFormByUJEEServletIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecAppId,
 		String argJEEServletMapName );
@@ -167,8 +167,8 @@ extends ICFSecSecFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecFormByUJEEServletIdx( CFSecAuthorization Authorization,
-		CFSecSecFormByUJEEServletIdxKey argKey );
+	void deleteSecFormByUJEEServletIdx( YCFSecAuthorization Authorization,
+		YCFSecSecFormByUJEEServletIdxKey argKey );
 
 
 	/**
@@ -181,8 +181,8 @@ extends ICFSecSecFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecFormBuff readDerived( CFSecAuthorization Authorization,
-		CFSecSecFormPKey PKey );
+	YCFSecSecFormBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey PKey );
 
 	/**
 	 *	Lock the derived SecForm buffer instance by primary key.
@@ -194,8 +194,8 @@ extends ICFSecSecFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecFormBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecSecFormPKey PKey );
+	YCFSecSecFormBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey PKey );
 
 	/**
 	 *	Read all SecForm instances.
@@ -204,7 +204,7 @@ extends ICFSecSecFormTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecSecFormBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecSecFormBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecForm buffer instance identified by the unique key IdIdx.
@@ -218,7 +218,7 @@ extends ICFSecSecFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecFormBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecFormId );
 
@@ -231,7 +231,7 @@ extends ICFSecSecFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecFormBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -245,7 +245,7 @@ extends ICFSecSecFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecFormBuff[] readDerivedBySecAppIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff[] readDerivedBySecAppIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId );
 
@@ -263,7 +263,7 @@ extends ICFSecSecFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecFormBuff readDerivedByUJEEServletIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff readDerivedByUJEEServletIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId,
 		String JEEServletMapName );
@@ -278,10 +278,10 @@ extends ICFSecSecFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecFormBuff readBuff( CFSecAuthorization Authorization,
-		CFSecSecFormPKey PKey );
+	YCFSecSecFormBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey PKey );
 
 	/**
 	 *	Lock the specific SecForm buffer instance identified by the primary key.
@@ -293,10 +293,10 @@ extends ICFSecSecFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecFormBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecSecFormPKey PKey );
+	YCFSecSecFormBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey PKey );
 
 	/**
 	 *	Read all the specific SecForm buffer instances.
@@ -305,7 +305,7 @@ extends ICFSecSecFormTable
 	 *
 	 *	@return All the specific SecForm instances in the database accessible for the Authorization.
 	 */
-	CFSecSecFormBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecSecFormBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific SecForm buffer instances.
@@ -314,7 +314,7 @@ extends ICFSecSecFormTable
 	 *
 	 *	@return All the specific SecForm instances in the database accessible for the Authorization.
 	 */
-	CFSecSecFormBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		Long priorClusterId,
 		Integer priorSecFormId );
 
@@ -330,9 +330,9 @@ extends ICFSecSecFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecFormBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecFormId );
 
@@ -345,9 +345,9 @@ extends ICFSecSecFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecFormBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -361,9 +361,9 @@ extends ICFSecSecFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecFormBuff[] readBuffBySecAppIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff[] readBuffBySecAppIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId );
 
@@ -381,9 +381,9 @@ extends ICFSecSecFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecFormBuff readBuffByUJEEServletIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff readBuffByUJEEServletIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId,
 		String JEEServletMapName );
@@ -397,9 +397,9 @@ extends ICFSecSecFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecFormBuff[] pageBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff[] pageBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Integer priorSecFormId );
@@ -415,9 +415,9 @@ extends ICFSecSecFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecFormBuff[] pageBuffBySecAppIdx( CFSecAuthorization Authorization,
+	YCFSecSecFormBuff[] pageBuffBySecAppIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId,
 		Long priorClusterId,
@@ -426,7 +426,7 @@ extends ICFSecSecFormTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -1,15 +1,15 @@
-// Description: Java 11 Schema Object interface for CFSec.
+// Description: Java 11 Schema Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,41 +26,41 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSchemaObj
+public interface IYCFSecSchemaObj
 {
-	CFSecAuthorization getAuthorization();
-	void setAuthorization( CFSecAuthorization value );
+	YCFSecAuthorization getAuthorization();
+	void setAuthorization( YCFSecAuthorization value );
 
-	ICFSecSchema getBackingStore();
-	void setBackingStore( ICFSecSchema value );
+	IYCFSecSchema getBackingStore();
+	void setBackingStore( IYCFSecSchema value );
 
 	String getSchemaName();
 
 	void setSecClusterName( String value );
-	ICFSecClusterObj getSecCluster();
-	void setSecCluster( ICFSecClusterObj value );
+	IYCFSecClusterObj getSecCluster();
+	void setSecCluster( IYCFSecClusterObj value );
 
 	void setSecTenantName( String value );
-	ICFSecTenantObj getSecTenant();
-	void setSecTenant( ICFSecTenantObj value );
+	IYCFSecTenantObj getSecTenant();
+	void setSecTenant( IYCFSecTenantObj value );
 
 	void setSecUserName( String value );
-	ICFSecSecUserObj getSecUser();
-	void setSecUser( ICFSecSecUserObj value );
+	IYCFSecSecUserObj getSecUser();
+	void setSecUser( IYCFSecSecUserObj value );
 
 	void setSecSessionId( UUID value );
-	ICFSecSecSessionObj getSecSession();
-	void setSecSession( ICFSecSecSessionObj value );
+	IYCFSecSecSessionObj getSecSession();
+	void setSecSession( IYCFSecSecSessionObj value );
 
 	boolean isConnected();
 	boolean connect();
@@ -144,168 +144,168 @@ public interface ICFSecSchemaObj
 	/**
 	 *	Get the Cluster interface for the schema.
 	 *
-	 *	@return	The ICFSecClusterTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecClusterTableObj interface implementation for the schema.
 	 */
-	ICFSecClusterTableObj getClusterTableObj();
+	IYCFSecClusterTableObj getClusterTableObj();
 
 	/**
 	 *	Get the HostNode interface for the schema.
 	 *
-	 *	@return	The ICFSecHostNodeTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecHostNodeTableObj interface implementation for the schema.
 	 */
-	ICFSecHostNodeTableObj getHostNodeTableObj();
+	IYCFSecHostNodeTableObj getHostNodeTableObj();
 
 	/**
 	 *	Get the ISOCcy interface for the schema.
 	 *
-	 *	@return	The ICFSecISOCcyTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecISOCcyTableObj interface implementation for the schema.
 	 */
-	ICFSecISOCcyTableObj getISOCcyTableObj();
+	IYCFSecISOCcyTableObj getISOCcyTableObj();
 
 	/**
 	 *	Get the ISOCtry interface for the schema.
 	 *
-	 *	@return	The ICFSecISOCtryTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecISOCtryTableObj interface implementation for the schema.
 	 */
-	ICFSecISOCtryTableObj getISOCtryTableObj();
+	IYCFSecISOCtryTableObj getISOCtryTableObj();
 
 	/**
 	 *	Get the ISOCtryCcy interface for the schema.
 	 *
-	 *	@return	The ICFSecISOCtryCcyTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecISOCtryCcyTableObj interface implementation for the schema.
 	 */
-	ICFSecISOCtryCcyTableObj getISOCtryCcyTableObj();
+	IYCFSecISOCtryCcyTableObj getISOCtryCcyTableObj();
 
 	/**
 	 *	Get the ISOCtryLang interface for the schema.
 	 *
-	 *	@return	The ICFSecISOCtryLangTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecISOCtryLangTableObj interface implementation for the schema.
 	 */
-	ICFSecISOCtryLangTableObj getISOCtryLangTableObj();
+	IYCFSecISOCtryLangTableObj getISOCtryLangTableObj();
 
 	/**
 	 *	Get the ISOLang interface for the schema.
 	 *
-	 *	@return	The ICFSecISOLangTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecISOLangTableObj interface implementation for the schema.
 	 */
-	ICFSecISOLangTableObj getISOLangTableObj();
+	IYCFSecISOLangTableObj getISOLangTableObj();
 
 	/**
 	 *	Get the ISOTZone interface for the schema.
 	 *
-	 *	@return	The ICFSecISOTZoneTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecISOTZoneTableObj interface implementation for the schema.
 	 */
-	ICFSecISOTZoneTableObj getISOTZoneTableObj();
+	IYCFSecISOTZoneTableObj getISOTZoneTableObj();
 
 	/**
 	 *	Get the SecApp interface for the schema.
 	 *
-	 *	@return	The ICFSecSecAppTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSecAppTableObj interface implementation for the schema.
 	 */
-	ICFSecSecAppTableObj getSecAppTableObj();
+	IYCFSecSecAppTableObj getSecAppTableObj();
 
 	/**
 	 *	Get the SecDevice interface for the schema.
 	 *
-	 *	@return	The ICFSecSecDeviceTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSecDeviceTableObj interface implementation for the schema.
 	 */
-	ICFSecSecDeviceTableObj getSecDeviceTableObj();
+	IYCFSecSecDeviceTableObj getSecDeviceTableObj();
 
 	/**
 	 *	Get the SecForm interface for the schema.
 	 *
-	 *	@return	The ICFSecSecFormTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSecFormTableObj interface implementation for the schema.
 	 */
-	ICFSecSecFormTableObj getSecFormTableObj();
+	IYCFSecSecFormTableObj getSecFormTableObj();
 
 	/**
 	 *	Get the SecGroup interface for the schema.
 	 *
-	 *	@return	The ICFSecSecGroupTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSecGroupTableObj interface implementation for the schema.
 	 */
-	ICFSecSecGroupTableObj getSecGroupTableObj();
+	IYCFSecSecGroupTableObj getSecGroupTableObj();
 
 	/**
 	 *	Get the SecGroupForm interface for the schema.
 	 *
-	 *	@return	The ICFSecSecGroupFormTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSecGroupFormTableObj interface implementation for the schema.
 	 */
-	ICFSecSecGroupFormTableObj getSecGroupFormTableObj();
+	IYCFSecSecGroupFormTableObj getSecGroupFormTableObj();
 
 	/**
 	 *	Get the SecGrpInc interface for the schema.
 	 *
-	 *	@return	The ICFSecSecGrpIncTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSecGrpIncTableObj interface implementation for the schema.
 	 */
-	ICFSecSecGrpIncTableObj getSecGrpIncTableObj();
+	IYCFSecSecGrpIncTableObj getSecGrpIncTableObj();
 
 	/**
 	 *	Get the SecGrpMemb interface for the schema.
 	 *
-	 *	@return	The ICFSecSecGrpMembTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSecGrpMembTableObj interface implementation for the schema.
 	 */
-	ICFSecSecGrpMembTableObj getSecGrpMembTableObj();
+	IYCFSecSecGrpMembTableObj getSecGrpMembTableObj();
 
 	/**
 	 *	Get the SecSession interface for the schema.
 	 *
-	 *	@return	The ICFSecSecSessionTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSecSessionTableObj interface implementation for the schema.
 	 */
-	ICFSecSecSessionTableObj getSecSessionTableObj();
+	IYCFSecSecSessionTableObj getSecSessionTableObj();
 
 	/**
 	 *	Get the SecUser interface for the schema.
 	 *
-	 *	@return	The ICFSecSecUserTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSecUserTableObj interface implementation for the schema.
 	 */
-	ICFSecSecUserTableObj getSecUserTableObj();
+	IYCFSecSecUserTableObj getSecUserTableObj();
 
 	/**
 	 *	Get the Service interface for the schema.
 	 *
-	 *	@return	The ICFSecServiceTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecServiceTableObj interface implementation for the schema.
 	 */
-	ICFSecServiceTableObj getServiceTableObj();
+	IYCFSecServiceTableObj getServiceTableObj();
 
 	/**
 	 *	Get the ServiceType interface for the schema.
 	 *
-	 *	@return	The ICFSecServiceTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecServiceTypeTableObj interface implementation for the schema.
 	 */
-	ICFSecServiceTypeTableObj getServiceTypeTableObj();
+	IYCFSecServiceTypeTableObj getServiceTypeTableObj();
 
 	/**
 	 *	Get the SysCluster interface for the schema.
 	 *
-	 *	@return	The ICFSecSysClusterTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecSysClusterTableObj interface implementation for the schema.
 	 */
-	ICFSecSysClusterTableObj getSysClusterTableObj();
+	IYCFSecSysClusterTableObj getSysClusterTableObj();
 
 	/**
 	 *	Get the TSecGroup interface for the schema.
 	 *
-	 *	@return	The ICFSecTSecGroupTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecTSecGroupTableObj interface implementation for the schema.
 	 */
-	ICFSecTSecGroupTableObj getTSecGroupTableObj();
+	IYCFSecTSecGroupTableObj getTSecGroupTableObj();
 
 	/**
 	 *	Get the TSecGrpInc interface for the schema.
 	 *
-	 *	@return	The ICFSecTSecGrpIncTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecTSecGrpIncTableObj interface implementation for the schema.
 	 */
-	ICFSecTSecGrpIncTableObj getTSecGrpIncTableObj();
+	IYCFSecTSecGrpIncTableObj getTSecGrpIncTableObj();
 
 	/**
 	 *	Get the TSecGrpMemb interface for the schema.
 	 *
-	 *	@return	The ICFSecTSecGrpMembTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecTSecGrpMembTableObj interface implementation for the schema.
 	 */
-	ICFSecTSecGrpMembTableObj getTSecGrpMembTableObj();
+	IYCFSecTSecGrpMembTableObj getTSecGrpMembTableObj();
 
 	/**
 	 *	Get the Tenant interface for the schema.
 	 *
-	 *	@return	The ICFSecTenantTableObj interface implementation for the schema.
+	 *	@return	The IYCFSecTenantTableObj interface implementation for the schema.
 	 */
-	ICFSecTenantTableObj getTenantTableObj();
+	IYCFSecTenantTableObj getTenantTableObj();
 }

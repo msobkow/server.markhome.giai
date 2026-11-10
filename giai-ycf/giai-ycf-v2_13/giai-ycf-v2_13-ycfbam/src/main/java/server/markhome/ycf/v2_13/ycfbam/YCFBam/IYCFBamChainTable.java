@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for Chain.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamChainTable database interface for Chain
+ *	YCFBamChainTable database interface for Chain
  */
-public interface ICFBamChainTable
+public interface IYCFBamChainTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createChain( CFSecAuthorization Authorization,
-		CFBamChainBuff Buff );
+	void createChain( YCFSecAuthorization Authorization,
+		YCFBamChainBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateChain( CFSecAuthorization Authorization,
-		CFBamChainBuff Buff );
+	void updateChain( YCFSecAuthorization Authorization,
+		YCFBamChainBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteChain( CFSecAuthorization Authorization,
-		CFBamChainBuff Buff );
+	void deleteChain( YCFSecAuthorization Authorization,
+		YCFBamChainBuff Buff );
 	/**
 	 *	Delete the Chain instance identified by the primary key attributes.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argId	The Chain key attribute of the instance generating the id.
 	 */
-	void deleteChainByIdIdx( CFSecAuthorization Authorization,
+	void deleteChainByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -121,8 +121,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteChainByIdIdx( CFSecAuthorization Authorization,
-		CFBamChainPKey argKey );
+	void deleteChainByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamChainPKey argKey );
 	/**
 	 *	Delete the Chain instances identified by the key TenantIdx.
 	 *
@@ -130,7 +130,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argTenantId	The Chain key attribute of the instance generating the id.
 	 */
-	void deleteChainByTenantIdx( CFSecAuthorization Authorization,
+	void deleteChainByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -140,8 +140,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteChainByTenantIdx( CFSecAuthorization Authorization,
-		CFBamChainByTenantIdxKey argKey );
+	void deleteChainByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamChainByTenantIdxKey argKey );
 	/**
 	 *	Delete the Chain instances identified by the key ChainTableIdx.
 	 *
@@ -151,7 +151,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argTableId	The Chain key attribute of the instance generating the id.
 	 */
-	void deleteChainByChainTableIdx( CFSecAuthorization Authorization,
+	void deleteChainByChainTableIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId );
 
@@ -162,8 +162,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteChainByChainTableIdx( CFSecAuthorization Authorization,
-		CFBamChainByChainTableIdxKey argKey );
+	void deleteChainByChainTableIdx( YCFSecAuthorization Authorization,
+		YCFBamChainByChainTableIdxKey argKey );
 	/**
 	 *	Delete the Chain instances identified by the key DefSchemaIdx.
 	 *
@@ -173,7 +173,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argDefSchemaId	The Chain key attribute of the instance generating the id.
 	 */
-	void deleteChainByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteChainByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -184,8 +184,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteChainByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamChainByDefSchemaIdxKey argKey );
+	void deleteChainByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamChainByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the Chain instances identified by the key UNameIdx.
 	 *
@@ -197,7 +197,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argName	The Chain key attribute of the instance generating the id.
 	 */
-	void deleteChainByUNameIdx( CFSecAuthorization Authorization,
+	void deleteChainByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
 		String argName );
@@ -209,8 +209,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteChainByUNameIdx( CFSecAuthorization Authorization,
-		CFBamChainByUNameIdxKey argKey );
+	void deleteChainByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamChainByUNameIdxKey argKey );
 	/**
 	 *	Delete the Chain instances identified by the key PrevRelIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argPrevRelationId	The Chain key attribute of the instance generating the id.
 	 */
-	void deleteChainByPrevRelIdx( CFSecAuthorization Authorization,
+	void deleteChainByPrevRelIdx( YCFSecAuthorization Authorization,
 		long argPrevRelationTenantId,
 		long argPrevRelationId );
 
@@ -231,8 +231,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteChainByPrevRelIdx( CFSecAuthorization Authorization,
-		CFBamChainByPrevRelIdxKey argKey );
+	void deleteChainByPrevRelIdx( YCFSecAuthorization Authorization,
+		YCFBamChainByPrevRelIdxKey argKey );
 	/**
 	 *	Delete the Chain instances identified by the key NextRelIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argNextRelationId	The Chain key attribute of the instance generating the id.
 	 */
-	void deleteChainByNextRelIdx( CFSecAuthorization Authorization,
+	void deleteChainByNextRelIdx( YCFSecAuthorization Authorization,
 		long argNextRelationTenantId,
 		long argNextRelationId );
 
@@ -253,8 +253,8 @@ public interface ICFBamChainTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteChainByNextRelIdx( CFSecAuthorization Authorization,
-		CFBamChainByNextRelIdxKey argKey );
+	void deleteChainByNextRelIdx( YCFSecAuthorization Authorization,
+		YCFBamChainByNextRelIdxKey argKey );
 
 
 	/**
@@ -267,8 +267,8 @@ public interface ICFBamChainTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamChainBuff readDerived( CFSecAuthorization Authorization,
-		CFBamChainPKey PKey );
+	YCFBamChainBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamChainPKey PKey );
 
 	/**
 	 *	Lock the derived Chain buffer instance by primary key.
@@ -280,8 +280,8 @@ public interface ICFBamChainTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamChainBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamChainPKey PKey );
+	YCFBamChainBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamChainPKey PKey );
 
 	/**
 	 *	Read all Chain instances.
@@ -290,7 +290,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamChainBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamChainBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived Chain buffer instance identified by the unique key IdIdx.
@@ -304,7 +304,7 @@ public interface ICFBamChainTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamChainBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -317,7 +317,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamChainBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -331,7 +331,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamChainBuff[] readDerivedByChainTableIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readDerivedByChainTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -346,7 +346,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamChainBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -364,7 +364,7 @@ public interface ICFBamChainTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamChainBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name );
@@ -380,7 +380,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamChainBuff[] readDerivedByPrevRelIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readDerivedByPrevRelIdx( YCFSecAuthorization Authorization,
 		long PrevRelationTenantId,
 		long PrevRelationId );
 
@@ -395,7 +395,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamChainBuff[] readDerivedByNextRelIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readDerivedByNextRelIdx( YCFSecAuthorization Authorization,
 		long NextRelationTenantId,
 		long NextRelationId );
 
@@ -409,10 +409,10 @@ public interface ICFBamChainTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamChainBuff readBuff( CFSecAuthorization Authorization,
-		CFBamChainPKey PKey );
+	YCFBamChainBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamChainPKey PKey );
 
 	/**
 	 *	Lock the specific Chain buffer instance identified by the primary key.
@@ -424,10 +424,10 @@ public interface ICFBamChainTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamChainBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamChainPKey PKey );
+	YCFBamChainBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamChainPKey PKey );
 
 	/**
 	 *	Read all the specific Chain buffer instances.
@@ -436,7 +436,7 @@ public interface ICFBamChainTable
 	 *
 	 *	@return All the specific Chain instances in the database accessible for the Authorization.
 	 */
-	CFBamChainBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamChainBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific Chain buffer instance identified by the unique key IdIdx.
@@ -450,9 +450,9 @@ public interface ICFBamChainTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamChainBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -465,9 +465,9 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamChainBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -481,9 +481,9 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamChainBuff[] readBuffByChainTableIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readBuffByChainTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -498,9 +498,9 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamChainBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -518,9 +518,9 @@ public interface ICFBamChainTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamChainBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name );
@@ -536,9 +536,9 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamChainBuff[] readBuffByPrevRelIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readBuffByPrevRelIdx( YCFSecAuthorization Authorization,
 		long PrevRelationTenantId,
 		long PrevRelationId );
 
@@ -553,16 +553,16 @@ public interface ICFBamChainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamChainBuff[] readBuffByNextRelIdx( CFSecAuthorization Authorization,
+	YCFBamChainBuff[] readBuffByNextRelIdx( YCFSecAuthorization Authorization,
 		long NextRelationTenantId,
 		long NextRelationId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelExecutable buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelExecutableBuff
-	extends CFGenKbGelSequenceBuff
+public class YCFGenKbGelExecutableBuff
+	extends YCFGenKbGelSequenceBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -56,9 +56,9 @@ public class CFGenKbGelExecutableBuff
 	public static final long GENITEMID_MIN_VALUE = 0L;
 	public static final long GENITEMID_MAX_VALUE = 2147483647L;
 	protected long requiredGenItemId;
-	public CFGenKbGelExecutableBuff() {
+	public YCFGenKbGelExecutableBuff() {
 		super();
-		requiredGenItemId = CFGenKbGelExecutableBuff.GENITEMID_INIT_VALUE;
+		requiredGenItemId = YCFGenKbGelExecutableBuff.GENITEMID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -70,21 +70,21 @@ public class CFGenKbGelExecutableBuff
 	}
 
 	public void setRequiredGenItemId( long value ) {
-		if( value < CFGenKbGelExecutableBuff.GENITEMID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelExecutableBuff.GENITEMID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGenItemId",
 				1,
 				"value",
 				value,
-				CFGenKbGelExecutableBuff.GENITEMID_MIN_VALUE );
+				YCFGenKbGelExecutableBuff.GENITEMID_MIN_VALUE );
 		}
-		if( value > CFGenKbGelExecutableBuff.GENITEMID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbGelExecutableBuff.GENITEMID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredGenItemId",
 				1,
 				"value",
 				value,
-				CFGenKbGelExecutableBuff.GENITEMID_MAX_VALUE );
+				YCFGenKbGelExecutableBuff.GENITEMID_MAX_VALUE );
 		}
 		requiredGenItemId = value;
 	}
@@ -93,8 +93,8 @@ public class CFGenKbGelExecutableBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelExecutableBuff ) {
-			CFGenKbGelExecutableBuff rhs = (CFGenKbGelExecutableBuff)obj;
+		else if( obj instanceof YCFGenKbGelExecutableBuff ) {
+			YCFGenKbGelExecutableBuff rhs = (YCFGenKbGelExecutableBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -109,8 +109,8 @@ public class CFGenKbGelExecutableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -122,8 +122,8 @@ public class CFGenKbGelExecutableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelExecutableByGenItemIdxKey ) {
-			CFGenKbGelExecutableByGenItemIdxKey rhs = (CFGenKbGelExecutableByGenItemIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelExecutableByGenItemIdxKey ) {
+			YCFGenKbGelExecutableByGenItemIdxKey rhs = (YCFGenKbGelExecutableByGenItemIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -148,8 +148,8 @@ public class CFGenKbGelExecutableBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelExecutableBuff ) {
-			CFGenKbGelExecutableBuff rhs = (CFGenKbGelExecutableBuff)obj;
+		else if( obj instanceof YCFGenKbGelExecutableBuff ) {
+			YCFGenKbGelExecutableBuff rhs = (YCFGenKbGelExecutableBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -162,8 +162,8 @@ public class CFGenKbGelExecutableBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -184,8 +184,8 @@ public class CFGenKbGelExecutableBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelExecutableByGenItemIdxKey ) {
-			CFGenKbGelExecutableByGenItemIdxKey rhs = (CFGenKbGelExecutableByGenItemIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelExecutableByGenItemIdxKey ) {
+			YCFGenKbGelExecutableByGenItemIdxKey rhs = (YCFGenKbGelExecutableByGenItemIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -206,20 +206,20 @@ public class CFGenKbGelExecutableBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelExecutableBuff ) {
-			setGelExecutableBuff( (CFGenKbGelExecutableBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelExecutableBuff ) {
+			setGelExecutableBuff( (YCFGenKbGelExecutableBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelExecutableBuff" );
+				"YCFGenKbGelExecutableBuff" );
 		}
 	}
 
-	public void setGelExecutableBuff( CFGenKbGelExecutableBuff src ) {
+	public void setGelExecutableBuff( YCFGenKbGelExecutableBuff src ) {
 		super.setGelSequenceBuff( src );
 		setRequiredGenItemId( src.getRequiredGenItemId() );
 	}

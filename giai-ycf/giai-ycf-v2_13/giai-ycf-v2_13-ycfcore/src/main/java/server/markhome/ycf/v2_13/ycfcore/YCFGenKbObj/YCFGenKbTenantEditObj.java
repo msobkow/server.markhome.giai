@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb Tenant.
+// Description: Java 11 edit object instance implementation for YCFGenKb Tenant.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,37 +27,37 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbTenantEditObj
-	implements ICFGenKbTenantEditObj
+public class YCFGenKbTenantEditObj
+	implements IYCFGenKbTenantEditObj
 {
-	protected ICFGenKbTenantObj orig;
-	protected CFGenKbTenantBuff buff;
-	protected ICFGenKbSecUserObj createdBy = null;
-	protected ICFGenKbSecUserObj updatedBy = null;
-	protected ICFGenKbClusterObj requiredContainerCluster;
+	protected IYCFGenKbTenantObj orig;
+	protected YCFGenKbTenantBuff buff;
+	protected IYCFGenKbSecUserObj createdBy = null;
+	protected IYCFGenKbSecUserObj updatedBy = null;
+	protected IYCFGenKbClusterObj requiredContainerCluster;
 
-	public CFGenKbTenantEditObj( ICFGenKbTenantObj argOrig ) {
+	public YCFGenKbTenantEditObj( IYCFGenKbTenantObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFGenKbTenantBuff origBuff = orig.getBuff();
+		YCFGenKbTenantBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredContainerCluster = null;
 	}
 
-	public ICFGenKbSecUserObj getCreatedBy() {
+	public IYCFGenKbSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFGenKbTenantBuff buff = getBuff();
-			createdBy = ((ICFGenKbSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFGenKbTenantBuff buff = getBuff();
+			createdBy = ((IYCFGenKbSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -66,10 +66,10 @@ public class CFGenKbTenantEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFGenKbSecUserObj getUpdatedBy() {
+	public IYCFGenKbSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFGenKbTenantBuff buff = getBuff();
-			updatedBy = ((ICFGenKbSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFGenKbTenantBuff buff = getBuff();
+			updatedBy = ((IYCFGenKbSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -78,7 +78,7 @@ public class CFGenKbTenantEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFGenKbSecUserObj value ) {
+	public void setCreatedBy( IYCFGenKbSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -89,7 +89,7 @@ public class CFGenKbTenantEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFGenKbSecUserObj value ) {
+	public void setUpdatedBy( IYCFGenKbSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -101,20 +101,20 @@ public class CFGenKbTenantEditObj
 	}
 
 	public String getClassCode() {
-		return( CFGenKbTenantObj.CLASS_CODE );
+		return( YCFGenKbTenantObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "Tenant" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFGenKbClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getScope() {
+		IYCFGenKbClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFGenKbClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFGenKbClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
@@ -124,14 +124,14 @@ public class CFGenKbTenantEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -142,10 +142,10 @@ public class CFGenKbTenantEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -154,20 +154,20 @@ public class CFGenKbTenantEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -178,11 +178,11 @@ public class CFGenKbTenantEditObj
 			remainingName = null;
 		}
 		if( subObj == null ) {
-			subObj = ((ICFGenKbSchemaObj)getSchema()).getTSecGroupTableObj().readTSecGroupByUNameIdx( getRequiredId(),
+			subObj = ((IYCFGenKbSchemaObj)getSchema()).getTSecGroupTableObj().readTSecGroupByUNameIdx( getRequiredId(),
 				nextName, false );
 		}
 		if( subObj == null ) {
-			subObj = ((ICFGenKbSchemaObj)getSchema()).getRuleCartTableObj().readRuleCartByNameIdx( getRequiredId(),
+			subObj = ((IYCFGenKbSchemaObj)getSchema()).getRuleCartTableObj().readRuleCartByNameIdx( getRequiredId(),
 				nextName, false );
 		}
 		if( remainingName == null ) {
@@ -199,13 +199,13 @@ public class CFGenKbTenantEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -219,13 +219,13 @@ public class CFGenKbTenantEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -237,9 +237,9 @@ public class CFGenKbTenantEditObj
 		return( fullName );
 	}
 
-	public ICFGenKbTenantObj realise() {
+	public IYCFGenKbTenantObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbTenantObj retobj = getSchema().getTenantTableObj().realiseTenant( (ICFGenKbTenantObj)this );
+		IYCFGenKbTenantObj retobj = getSchema().getTenantTableObj().realiseTenant( (IYCFGenKbTenantObj)this );
 		return( retobj );
 	}
 
@@ -247,10 +247,10 @@ public class CFGenKbTenantEditObj
 		getOrigAsTenant().forget();
 	}
 
-	public ICFGenKbTenantObj read() {
-		ICFGenKbTenantObj retval = getOrigAsTenant().read();
+	public IYCFGenKbTenantObj read() {
+		IYCFGenKbTenantObj retval = getOrigAsTenant().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -258,10 +258,10 @@ public class CFGenKbTenantEditObj
 		return( retval );
 	}
 
-	public ICFGenKbTenantObj read( boolean forceRead ) {
-		ICFGenKbTenantObj retval = getOrigAsTenant().read( forceRead );
+	public IYCFGenKbTenantObj read( boolean forceRead ) {
+		IYCFGenKbTenantObj retval = getOrigAsTenant().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -269,84 +269,84 @@ public class CFGenKbTenantEditObj
 		return( retval );
 	}
 
-	public ICFGenKbTenantObj create() {
+	public IYCFGenKbTenantObj create() {
 		copyBuffToOrig();
-		ICFGenKbTenantObj retobj = ((ICFGenKbSchemaObj)getOrigAsTenant().getSchema()).getTenantTableObj().createTenant( getOrigAsTenant() );
+		IYCFGenKbTenantObj retobj = ((IYCFGenKbSchemaObj)getOrigAsTenant().getSchema()).getTenantTableObj().createTenant( getOrigAsTenant() );
 		if( retobj == getOrigAsTenant() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbTenantEditObj update() {
-		getSchema().getTenantTableObj().updateTenant( (ICFGenKbTenantObj)this );
+	public YCFGenKbTenantEditObj update() {
+		getSchema().getTenantTableObj().updateTenant( (IYCFGenKbTenantObj)this );
 		return( null );
 	}
 
-	public CFGenKbTenantEditObj deleteInstance() {
+	public YCFGenKbTenantEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getTenantTableObj().deleteTenant( getOrigAsTenant() );
 		return( null );
 	}
 
-	public ICFGenKbTenantTableObj getTenantTable() {
+	public IYCFGenKbTenantTableObj getTenantTable() {
 		return( orig.getSchema().getTenantTableObj() );
 	}
 
-	public ICFGenKbTenantEditObj getEdit() {
-		return( (ICFGenKbTenantEditObj)this );
+	public IYCFGenKbTenantEditObj getEdit() {
+		return( (IYCFGenKbTenantEditObj)this );
 	}
 
-	public ICFGenKbTenantEditObj getEditAsTenant() {
-		return( (ICFGenKbTenantEditObj)this );
+	public IYCFGenKbTenantEditObj getEditAsTenant() {
+		return( (IYCFGenKbTenantEditObj)this );
 	}
 
-	public ICFGenKbTenantEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFGenKbTenantEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFGenKbTenantObj getOrig() {
+	public IYCFGenKbTenantObj getOrig() {
 		return( orig );
 	}
 
-	public ICFGenKbTenantObj getOrigAsTenant() {
-		return( (ICFGenKbTenantObj)orig );
+	public IYCFGenKbTenantObj getOrigAsTenant() {
+		return( (IYCFGenKbTenantObj)orig );
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFGenKbTenantBuff getBuff() {
+	public YCFGenKbTenantBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsTenant().getSchema().getBackingStore()).getFactoryTenant().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsTenant().getSchema().getBackingStore()).getFactoryTenant().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbTenantBuff value ) {
+	public void setBuff( YCFGenKbTenantBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredContainerCluster = null;
 		}
 	}
 
-	public CFGenKbTenantBuff getTenantBuff() {
-		return( (CFGenKbTenantBuff)getBuff() );
+	public YCFGenKbTenantBuff getTenantBuff() {
+		return( (YCFGenKbTenantBuff)getBuff() );
 	}
 
-	public CFGenKbTenantPKey getPKey() {
+	public YCFGenKbTenantPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFGenKbTenantPKey value ) {
+	public void setPKey( YCFGenKbTenantPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -377,15 +377,15 @@ public class CFGenKbTenantEditObj
 		}
 	}
 
-	public ICFGenKbClusterObj getRequiredContainerCluster() {
+	public IYCFGenKbClusterObj getRequiredContainerCluster() {
 		return( getRequiredContainerCluster( false ) );
 	}
 
-	public ICFGenKbClusterObj getRequiredContainerCluster( boolean forceRead ) {
+	public IYCFGenKbClusterObj getRequiredContainerCluster( boolean forceRead ) {
 		if( forceRead || ( requiredContainerCluster == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFGenKbClusterObj obj = ((ICFGenKbSchemaObj)getOrigAsTenant().getSchema()).getClusterTableObj().readClusterByIdIdx( getTenantBuff().getRequiredClusterId() );
+				IYCFGenKbClusterObj obj = ((IYCFGenKbSchemaObj)getOrigAsTenant().getSchema()).getClusterTableObj().readClusterByIdIdx( getTenantBuff().getRequiredClusterId() );
 				requiredContainerCluster = obj;
 				if( obj != null ) {
 					getTenantBuff().setRequiredClusterId( obj.getRequiredId() );
@@ -396,7 +396,7 @@ public class CFGenKbTenantEditObj
 		return( requiredContainerCluster );
 	}
 
-	public void setRequiredContainerCluster( ICFGenKbClusterObj value ) {
+	public void setRequiredContainerCluster( IYCFGenKbClusterObj value ) {
 			if( buff == null ) {
 				getTenantBuff();
 			}
@@ -406,30 +406,30 @@ public class CFGenKbTenantEditObj
 			requiredContainerCluster = value;
 	}
 
-	public List<ICFGenKbTSecGroupObj> getOptionalComponentsTSecGroup() {
-		List<ICFGenKbTSecGroupObj> retval;
-		retval = ((ICFGenKbSchemaObj)getOrigAsTenant().getSchema()).getTSecGroupTableObj().readTSecGroupByTenantIdx( getPKey().getRequiredId(),
+	public List<IYCFGenKbTSecGroupObj> getOptionalComponentsTSecGroup() {
+		List<IYCFGenKbTSecGroupObj> retval;
+		retval = ((IYCFGenKbSchemaObj)getOrigAsTenant().getSchema()).getTSecGroupTableObj().readTSecGroupByTenantIdx( getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFGenKbTSecGroupObj> getOptionalComponentsTSecGroup( boolean forceRead ) {
-		List<ICFGenKbTSecGroupObj> retval;
-		retval = ((ICFGenKbSchemaObj)getOrigAsTenant().getSchema()).getTSecGroupTableObj().readTSecGroupByTenantIdx( getPKey().getRequiredId(),
+	public List<IYCFGenKbTSecGroupObj> getOptionalComponentsTSecGroup( boolean forceRead ) {
+		List<IYCFGenKbTSecGroupObj> retval;
+		retval = ((IYCFGenKbSchemaObj)getOrigAsTenant().getSchema()).getTSecGroupTableObj().readTSecGroupByTenantIdx( getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFGenKbRuleCartObj> getOptionalComponentsRuleCart() {
-		List<ICFGenKbRuleCartObj> retval;
-		retval = ((ICFGenKbSchemaObj)getOrigAsTenant().getSchema()).getRuleCartTableObj().readRuleCartByTenantIdx( getPKey().getRequiredId(),
+	public List<IYCFGenKbRuleCartObj> getOptionalComponentsRuleCart() {
+		List<IYCFGenKbRuleCartObj> retval;
+		retval = ((IYCFGenKbSchemaObj)getOrigAsTenant().getSchema()).getRuleCartTableObj().readRuleCartByTenantIdx( getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFGenKbRuleCartObj> getOptionalComponentsRuleCart( boolean forceRead ) {
-		List<ICFGenKbRuleCartObj> retval;
-		retval = ((ICFGenKbSchemaObj)getOrigAsTenant().getSchema()).getRuleCartTableObj().readRuleCartByTenantIdx( getPKey().getRequiredId(),
+	public List<IYCFGenKbRuleCartObj> getOptionalComponentsRuleCart( boolean forceRead ) {
+		List<IYCFGenKbRuleCartObj> retval;
+		retval = ((IYCFGenKbSchemaObj)getOrigAsTenant().getSchema()).getRuleCartTableObj().readRuleCartByTenantIdx( getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
@@ -443,14 +443,14 @@ public class CFGenKbTenantEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbTenantBuff origBuff = getOrigAsTenant().getTenantBuff();
-		CFGenKbTenantBuff myBuff = getTenantBuff();
+		YCFGenKbTenantBuff origBuff = getOrigAsTenant().getTenantBuff();
+		YCFGenKbTenantBuff myBuff = getTenantBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbTenantBuff origBuff = getOrigAsTenant().getTenantBuff();
-		CFGenKbTenantBuff myBuff = getTenantBuff();
+		YCFGenKbTenantBuff origBuff = getOrigAsTenant().getTenantBuff();
+		YCFGenKbTenantBuff myBuff = getTenantBuff();
 		myBuff.set( origBuff );
 	}
 }

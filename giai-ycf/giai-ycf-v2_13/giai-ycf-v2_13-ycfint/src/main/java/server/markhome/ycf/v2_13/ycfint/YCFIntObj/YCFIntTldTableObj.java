@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFInt.
+// Description: Java 11 Table Object implementation for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,53 +26,53 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntTldTableObj
-	implements ICFIntTldTableObj
+public class YCFIntTldTableObj
+	implements IYCFIntTldTableObj
 {
-	protected ICFIntSchemaObj schema;
-	private Map<CFIntTldPKey, ICFIntTldObj> members;
-	private Map<CFIntTldPKey, ICFIntTldObj> allTld;
-	private Map< CFIntTldByTenantIdxKey,
-		Map<CFIntTldPKey, ICFIntTldObj > > indexByTenantIdx;
-	private Map< CFIntTldByNameIdxKey,
-		ICFIntTldObj > indexByNameIdx;
+	protected IYCFIntSchemaObj schema;
+	private Map<YCFIntTldPKey, IYCFIntTldObj> members;
+	private Map<YCFIntTldPKey, IYCFIntTldObj> allTld;
+	private Map< YCFIntTldByTenantIdxKey,
+		Map<YCFIntTldPKey, IYCFIntTldObj > > indexByTenantIdx;
+	private Map< YCFIntTldByNameIdxKey,
+		IYCFIntTldObj > indexByNameIdx;
 	public static String TABLE_NAME = "Tld";
 	public static String TABLE_DBNAME = "tlddef";
 
-	public CFIntTldTableObj() {
+	public YCFIntTldTableObj() {
 		schema = null;
-		members = new HashMap<CFIntTldPKey, ICFIntTldObj>();
+		members = new HashMap<YCFIntTldPKey, IYCFIntTldObj>();
 		allTld = null;
 		indexByTenantIdx = null;
 		indexByNameIdx = null;
 	}
 
-	public CFIntTldTableObj( ICFIntSchemaObj argSchema ) {
-		schema = (ICFIntSchemaObj)argSchema;
-		members = new HashMap<CFIntTldPKey, ICFIntTldObj>();
+	public YCFIntTldTableObj( IYCFIntSchemaObj argSchema ) {
+		schema = (IYCFIntSchemaObj)argSchema;
+		members = new HashMap<YCFIntTldPKey, IYCFIntTldObj>();
 		allTld = null;
 		indexByTenantIdx = null;
 		indexByNameIdx = null;
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
-		schema = (ICFIntSchemaObj)value;
+	public void setSchema( IYCFIntSchemaObj value ) {
+		schema = (IYCFIntSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -84,7 +84,7 @@ public class CFIntTldTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFIntTenantObj.class );
+		return( IYCFIntTenantObj.class );
 	}
 
 
@@ -92,9 +92,9 @@ public class CFIntTldTableObj
 		allTld = null;
 		indexByTenantIdx = null;
 		indexByNameIdx = null;
-		List<ICFIntTldObj> toForget = new LinkedList<ICFIntTldObj>();
-		ICFIntTldObj cur = null;
-		Iterator<ICFIntTldObj> iter = members.values().iterator();
+		List<IYCFIntTldObj> toForget = new LinkedList<IYCFIntTldObj>();
+		IYCFIntTldObj cur = null;
+		Iterator<IYCFIntTldObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -112,10 +112,10 @@ public class CFIntTldTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntTldObj.
+	 *	YCFIntTldObj.
 	 */
-	public ICFIntTldObj newInstance() {
-		ICFIntTldObj inst = new CFIntTldObj( schema );
+	public IYCFIntTldObj newInstance() {
+		IYCFIntTldObj inst = new YCFIntTldObj( schema );
 		return( inst );
 	}
 
@@ -126,19 +126,19 @@ public class CFIntTldTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntTldObj.
+	 *	YCFIntTldObj.
 	 */
-	public ICFIntTldEditObj newEditInstance( ICFIntTldObj orig ) {
-		ICFIntTldEditObj edit = new CFIntTldEditObj( orig );
+	public IYCFIntTldEditObj newEditInstance( IYCFIntTldObj orig ) {
+		IYCFIntTldEditObj edit = new YCFIntTldEditObj( orig );
 		return( edit );
 	}
 
-	public ICFIntTldObj realiseTld( ICFIntTldObj Obj ) {
-		ICFIntTldObj obj = Obj;
-		CFIntTldPKey pkey = obj.getPKey();
-		ICFIntTldObj keepObj = null;
+	public IYCFIntTldObj realiseTld( IYCFIntTldObj Obj ) {
+		IYCFIntTldObj obj = Obj;
+		YCFIntTldPKey pkey = obj.getPKey();
+		IYCFIntTldObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFIntTldObj existingObj = members.get( pkey );
+			IYCFIntTldObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -149,10 +149,10 @@ public class CFIntTldTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByTenantIdx != null ) {
-				CFIntTldByTenantIdxKey keyTenantIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
+				YCFIntTldByTenantIdxKey keyTenantIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntTldPKey, ICFIntTldObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFIntTldPKey, IYCFIntTldObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.remove( keepObj.getPKey() );
 					if( mapTenantIdx.size() <= 0 ) {
@@ -162,8 +162,8 @@ public class CFIntTldTableObj
 			}
 
 			if( indexByNameIdx != null ) {
-				CFIntTldByNameIdxKey keyNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
+				YCFIntTldByNameIdxKey keyNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
 				keyNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByNameIdx.remove( keyNameIdx );
@@ -173,18 +173,18 @@ public class CFIntTldTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByTenantIdx != null ) {
-				CFIntTldByTenantIdxKey keyTenantIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
+				YCFIntTldByTenantIdxKey keyTenantIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntTldPKey, ICFIntTldObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFIntTldPKey, IYCFIntTldObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNameIdx != null ) {
-				CFIntTldByNameIdxKey keyNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
+				YCFIntTldByNameIdxKey keyNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
 				keyNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByNameIdx.put( keyNameIdx, keepObj );
@@ -205,18 +205,18 @@ public class CFIntTldTableObj
 			}
 
 			if( indexByTenantIdx != null ) {
-				CFIntTldByTenantIdxKey keyTenantIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
+				YCFIntTldByTenantIdxKey keyTenantIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntTldPKey, ICFIntTldObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFIntTldPKey, IYCFIntTldObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNameIdx != null ) {
-				CFIntTldByNameIdxKey keyNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
+				YCFIntTldByNameIdxKey keyNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
 				keyNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByNameIdx.put( keyNameIdx, keepObj );
@@ -226,10 +226,10 @@ public class CFIntTldTableObj
 		return( keepObj );
 	}
 
-	public ICFIntTldObj createTld( ICFIntTldObj Obj ) {
-		ICFIntTldObj obj = Obj;
-		CFIntTldBuff buff = obj.getTldBuff();
-		((ICFIntSchema)schema.getBackingStore()).getTableTld().createTld(
+	public IYCFIntTldObj createTld( IYCFIntTldObj Obj ) {
+		IYCFIntTldObj obj = Obj;
+		YCFIntTldBuff buff = obj.getTldBuff();
+		((IYCFIntSchema)schema.getBackingStore()).getTableTld().createTld(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -238,54 +238,54 @@ public class CFIntTldTableObj
 		return( obj );
 	}
 
-	public ICFIntTldObj readTld( CFIntTldPKey pkey ) {
+	public IYCFIntTldObj readTld( YCFIntTldPKey pkey ) {
 		return( readTld( pkey, false ) );
 	}
 
-	public ICFIntTldObj readTld( CFIntTldPKey pkey, boolean forceRead ) {
-		ICFIntTldObj obj = null;
+	public IYCFIntTldObj readTld( YCFIntTldPKey pkey, boolean forceRead ) {
+		IYCFIntTldObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFIntTldBuff readBuff = ((ICFIntSchema)schema.getBackingStore()).getTableTld().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFIntTldBuff readBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableTld().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getTldTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFIntTldObj)obj.realise();
+				obj = (IYCFIntTldObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntTldObj readCachedTld( CFIntTldPKey pkey ) {
-		ICFIntTldObj obj = null;
+	public IYCFIntTldObj readCachedTld( YCFIntTldPKey pkey ) {
+		IYCFIntTldObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeTld( ICFIntTldObj obj )
+	public void reallyDeepDisposeTld( IYCFIntTldObj obj )
 	{
-		final String S_ProcName = "CFIntTldTableObj.reallyDeepDisposeTld() ";
+		final String S_ProcName = "YCFIntTldTableObj.reallyDeepDisposeTld() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFIntTldPKey pkey = obj.getPKey();
-		ICFIntTldObj existing = readCachedTld( pkey );
+		YCFIntTldPKey pkey = obj.getPKey();
+		IYCFIntTldObj existing = readCachedTld( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFIntTldByTenantIdxKey keyTenantIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
+		YCFIntTldByTenantIdxKey keyTenantIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntTldByNameIdxKey keyNameIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
+		YCFIntTldByNameIdxKey keyNameIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
 
@@ -308,57 +308,57 @@ public class CFIntTldTableObj
 
 
 	}
-	public void deepDisposeTld( CFIntTldPKey pkey ) {
-		ICFIntTldObj obj = readCachedTld( pkey );
+	public void deepDisposeTld( YCFIntTldPKey pkey ) {
+		IYCFIntTldObj obj = readCachedTld( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFIntTldObj lockTld( CFIntTldPKey pkey ) {
-		ICFIntTldObj locked = null;
-		CFIntTldBuff lockBuff = ((ICFIntSchema)schema.getBackingStore()).getTableTld().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFIntTldObj lockTld( YCFIntTldPKey pkey ) {
+		IYCFIntTldObj locked = null;
+		YCFIntTldBuff lockBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableTld().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getTldTableObj().newInstance();
-			locked.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
+			locked.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFIntTldObj)locked.realise();
+			locked = (IYCFIntTldObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockTld", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockTld", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFIntTldObj> readAllTld() {
+	public List<IYCFIntTldObj> readAllTld() {
 		return( readAllTld( false ) );
 	}
 
-	public List<ICFIntTldObj> readAllTld( boolean forceRead ) {
+	public List<IYCFIntTldObj> readAllTld( boolean forceRead ) {
 		final String S_ProcName = "readAllTld";
 		if( ( allTld == null ) || forceRead ) {
-			Map<CFIntTldPKey, ICFIntTldObj> map = new HashMap<CFIntTldPKey,ICFIntTldObj>();
+			Map<YCFIntTldPKey, IYCFIntTldObj> map = new HashMap<YCFIntTldPKey,IYCFIntTldObj>();
 			allTld = map;
-			CFIntTldBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableTld().readAllDerived( schema.getAuthorization() );
-			CFIntTldBuff buff;
-			ICFIntTldObj obj;
+			YCFIntTldBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableTld().readAllDerived( schema.getAuthorization() );
+			YCFIntTldBuff buff;
+			IYCFIntTldObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
 				obj.setBuff( buff );
-				ICFIntTldObj realised = (ICFIntTldObj)obj.realise();
+				IYCFIntTldObj realised = (IYCFIntTldObj)obj.realise();
 			}
 		}
 		int len = allTld.size();
-		ICFIntTldObj arr[] = new ICFIntTldObj[len];
-		Iterator<ICFIntTldObj> valIter = allTld.values().iterator();
+		IYCFIntTldObj arr[] = new IYCFIntTldObj[len];
+		Iterator<IYCFIntTldObj> valIter = allTld.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -366,20 +366,20 @@ public class CFIntTldTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntTldObj> arrayList = new ArrayList<ICFIntTldObj>(len);
+		ArrayList<IYCFIntTldObj> arrayList = new ArrayList<IYCFIntTldObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntTldObj> cmp = new Comparator<ICFIntTldObj>() {
-			public int compare( ICFIntTldObj lhs, ICFIntTldObj rhs ) {
+		Comparator<IYCFIntTldObj> cmp = new Comparator<IYCFIntTldObj>() {
+			public int compare( IYCFIntTldObj lhs, IYCFIntTldObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -392,31 +392,31 @@ public class CFIntTldTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTldPKey lhsPKey = lhs.getPKey();
-					CFIntTldPKey rhsPKey = rhs.getPKey();
+					YCFIntTldPKey lhsPKey = lhs.getPKey();
+					YCFIntTldPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntTldObj> sortedList = arrayList;
+		List<IYCFIntTldObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFIntTldObj> readCachedAllTld() {
+	public List<IYCFIntTldObj> readCachedAllTld() {
 		final String S_ProcName = "readCachedAllTld";
-		ArrayList<ICFIntTldObj> arrayList = new ArrayList<ICFIntTldObj>();
+		ArrayList<IYCFIntTldObj> arrayList = new ArrayList<IYCFIntTldObj>();
 		if( allTld != null ) {
 			int len = allTld.size();
-			ICFIntTldObj arr[] = new ICFIntTldObj[len];
-			Iterator<ICFIntTldObj> valIter = allTld.values().iterator();
+			IYCFIntTldObj arr[] = new IYCFIntTldObj[len];
+			Iterator<IYCFIntTldObj> valIter = allTld.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -424,7 +424,7 @@ public class CFIntTldTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -435,8 +435,8 @@ public class CFIntTldTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFIntTldObj> cmp = new Comparator<ICFIntTldObj>() {
-			public int compare( ICFIntTldObj lhs, ICFIntTldObj rhs ) {
+		Comparator<IYCFIntTldObj> cmp = new Comparator<IYCFIntTldObj>() {
+			public int compare( IYCFIntTldObj lhs, IYCFIntTldObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -449,8 +449,8 @@ public class CFIntTldTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTldPKey lhsPKey = lhs.getPKey();
-					CFIntTldPKey rhsPKey = rhs.getPKey();
+					YCFIntTldPKey lhsPKey = lhs.getPKey();
+					YCFIntTldPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -460,7 +460,7 @@ public class CFIntTldTableObj
 		return( arrayList );
 	}
 
-	public ICFIntTldObj readTldByIdIdx( long TenantId,
+	public IYCFIntTldObj readTldByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readTldByIdIdx( TenantId,
@@ -468,61 +468,61 @@ public class CFIntTldTableObj
 			false ) );
 	}
 
-	public ICFIntTldObj readTldByIdIdx( long TenantId,
+	public IYCFIntTldObj readTldByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFIntTldPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey();
+		YCFIntTldPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFIntTldObj obj = readTld( pkey, forceRead );
+		IYCFIntTldObj obj = readTld( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFIntTldObj> readTldByTenantIdx( long TenantId )
+	public List<IYCFIntTldObj> readTldByTenantIdx( long TenantId )
 	{
 		return( readTldByTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFIntTldObj> readTldByTenantIdx( long TenantId,
+	public List<IYCFIntTldObj> readTldByTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTldByTenantIdx";
-		CFIntTldByTenantIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
+		YCFIntTldByTenantIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFIntTldPKey, ICFIntTldObj> dict;
+		Map<YCFIntTldPKey, IYCFIntTldObj> dict;
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFIntTldByTenantIdxKey,
-				Map< CFIntTldPKey, ICFIntTldObj > >();
+			indexByTenantIdx = new HashMap< YCFIntTldByTenantIdxKey,
+				Map< YCFIntTldPKey, IYCFIntTldObj > >();
 		}
 		if( ( ! forceRead ) && indexByTenantIdx.containsKey( key ) ) {
 			dict = indexByTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFIntTldPKey, ICFIntTldObj>();
-			ICFIntTldObj obj;
-			CFIntTldBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableTld().readDerivedByTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFIntTldPKey, IYCFIntTldObj>();
+			IYCFIntTldObj obj;
+			YCFIntTldBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableTld().readDerivedByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFIntTldBuff buff;
+			YCFIntTldBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getTldTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
 				obj.setBuff( buff );
-				ICFIntTldObj realised = (ICFIntTldObj)obj.realise();
+				IYCFIntTldObj realised = (IYCFIntTldObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFIntTldObj arr[] = new ICFIntTldObj[len];
-		Iterator<ICFIntTldObj> valIter = dict.values().iterator();
+		IYCFIntTldObj arr[] = new IYCFIntTldObj[len];
+		Iterator<IYCFIntTldObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -530,20 +530,20 @@ public class CFIntTldTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntTldObj> arrayList = new ArrayList<ICFIntTldObj>(len);
+		ArrayList<IYCFIntTldObj> arrayList = new ArrayList<IYCFIntTldObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntTldObj> cmp = new Comparator<ICFIntTldObj>() {
-			public int compare( ICFIntTldObj lhs, ICFIntTldObj rhs ) {
+		Comparator<IYCFIntTldObj> cmp = new Comparator<IYCFIntTldObj>() {
+			public int compare( IYCFIntTldObj lhs, IYCFIntTldObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -556,19 +556,19 @@ public class CFIntTldTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTldPKey lhsPKey = lhs.getPKey();
-					CFIntTldPKey rhsPKey = rhs.getPKey();
+					YCFIntTldPKey lhsPKey = lhs.getPKey();
+					YCFIntTldPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntTldObj> sortedList = arrayList;
+		List<IYCFIntTldObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFIntTldObj readTldByNameIdx( long TenantId,
+	public IYCFIntTldObj readTldByNameIdx( long TenantId,
 		String Name )
 	{
 		return( readTldByNameIdx( TenantId,
@@ -576,64 +576,64 @@ public class CFIntTldTableObj
 			false ) );
 	}
 
-	public ICFIntTldObj readTldByNameIdx( long TenantId,
+	public IYCFIntTldObj readTldByNameIdx( long TenantId,
 		String Name, boolean forceRead )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFIntTldByNameIdxKey,
-				ICFIntTldObj >();
+			indexByNameIdx = new HashMap< YCFIntTldByNameIdxKey,
+				IYCFIntTldObj >();
 		}
-		CFIntTldByNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
+		YCFIntTldByNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredName( Name );
-		ICFIntTldObj obj = null;
+		IYCFIntTldObj obj = null;
 		if( ( ! forceRead ) && indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
 		}
 		else {
-			CFIntTldBuff buff = ((ICFIntSchema)schema.getBackingStore()).getTableTld().readDerivedByNameIdx( schema.getAuthorization(),
+			YCFIntTldBuff buff = ((IYCFIntSchema)schema.getBackingStore()).getTableTld().readDerivedByNameIdx( schema.getAuthorization(),
 				TenantId,
 				Name );
 			if( buff != null ) {
 				obj = schema.getTldTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFIntTldObj)obj.realise();
+				obj = (IYCFIntTldObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntTldObj readCachedTldByIdIdx( long TenantId,
+	public IYCFIntTldObj readCachedTldByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFIntTldObj obj = null;
-		CFIntTldPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey();
+		IYCFIntTldObj obj = null;
+		YCFIntTldPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedTld( pkey );
 		return( obj );
 	}
 
-	public List<ICFIntTldObj> readCachedTldByTenantIdx( long TenantId )
+	public List<IYCFIntTldObj> readCachedTldByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedTldByTenantIdx";
-		CFIntTldByTenantIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
+		YCFIntTldByTenantIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFIntTldObj> arrayList = new ArrayList<ICFIntTldObj>();
+		ArrayList<IYCFIntTldObj> arrayList = new ArrayList<IYCFIntTldObj>();
 		if( indexByTenantIdx != null ) {
-			Map<CFIntTldPKey, ICFIntTldObj> dict;
+			Map<YCFIntTldPKey, IYCFIntTldObj> dict;
 			if( indexByTenantIdx.containsKey( key ) ) {
 				dict = indexByTenantIdx.get( key );
 				int len = dict.size();
-				ICFIntTldObj arr[] = new ICFIntTldObj[len];
-				Iterator<ICFIntTldObj> valIter = dict.values().iterator();
+				IYCFIntTldObj arr[] = new IYCFIntTldObj[len];
+				Iterator<IYCFIntTldObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -641,7 +641,7 @@ public class CFIntTldTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -654,8 +654,8 @@ public class CFIntTldTableObj
 			}
 		}
 		else {
-			ICFIntTldObj obj;
-			Iterator<ICFIntTldObj> valIter = members.values().iterator();
+			IYCFIntTldObj obj;
+			Iterator<IYCFIntTldObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -665,8 +665,8 @@ public class CFIntTldTableObj
 				}
 			}
 		}
-		Comparator<ICFIntTldObj> cmp = new Comparator<ICFIntTldObj>() {
-			public int compare( ICFIntTldObj lhs, ICFIntTldObj rhs ) {
+		Comparator<IYCFIntTldObj> cmp = new Comparator<IYCFIntTldObj>() {
+			public int compare( IYCFIntTldObj lhs, IYCFIntTldObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -679,8 +679,8 @@ public class CFIntTldTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTldPKey lhsPKey = lhs.getPKey();
-					CFIntTldPKey rhsPKey = rhs.getPKey();
+					YCFIntTldPKey lhsPKey = lhs.getPKey();
+					YCFIntTldPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -690,11 +690,11 @@ public class CFIntTldTableObj
 		return( arrayList );
 	}
 
-	public ICFIntTldObj readCachedTldByNameIdx( long TenantId,
+	public IYCFIntTldObj readCachedTldByNameIdx( long TenantId,
 		String Name )
 	{
-		ICFIntTldObj obj = null;
-		CFIntTldByNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
+		IYCFIntTldObj obj = null;
+		YCFIntTldByNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredName( Name );
 		if( indexByNameIdx != null ) {
@@ -702,7 +702,7 @@ public class CFIntTldTableObj
 				obj = indexByNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFIntTldObj> valIter = members.values().iterator();
+				Iterator<IYCFIntTldObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -714,7 +714,7 @@ public class CFIntTldTableObj
 			}
 		}
 		else {
-			Iterator<ICFIntTldObj> valIter = members.values().iterator();
+			Iterator<IYCFIntTldObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -730,7 +730,7 @@ public class CFIntTldTableObj
 	public void deepDisposeTldByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFIntTldObj obj = readCachedTldByIdIdx( TenantId,
+		IYCFIntTldObj obj = readCachedTldByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -740,10 +740,10 @@ public class CFIntTldTableObj
 	public void deepDisposeTldByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeTldByTenantIdx";
-		ICFIntTldObj obj;
-		List<ICFIntTldObj> arrayList = readCachedTldByTenantIdx( TenantId );
+		IYCFIntTldObj obj;
+		List<IYCFIntTldObj> arrayList = readCachedTldByTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFIntTldObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFIntTldObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -756,25 +756,25 @@ public class CFIntTldTableObj
 	public void deepDisposeTldByNameIdx( long TenantId,
 		String Name )
 	{
-		ICFIntTldObj obj = readCachedTldByNameIdx( TenantId,
+		IYCFIntTldObj obj = readCachedTldByNameIdx( TenantId,
 				Name );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFIntTldObj updateTld( ICFIntTldObj Obj ) {
-		ICFIntTldObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableTld().updateTld( schema.getAuthorization(),
+	public IYCFIntTldObj updateTld( IYCFIntTldObj Obj ) {
+		IYCFIntTldObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableTld().updateTld( schema.getAuthorization(),
 			Obj.getTldBuff() );
-		obj = (ICFIntTldObj)Obj.realise();
+		obj = (IYCFIntTldObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteTld( ICFIntTldObj Obj ) {
-		ICFIntTldObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableTld().deleteTld( schema.getAuthorization(),
+	public void deleteTld( IYCFIntTldObj Obj ) {
+		IYCFIntTldObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableTld().deleteTld( schema.getAuthorization(),
 			obj.getTldBuff() );
 		Obj.forget();
 	}
@@ -782,15 +782,15 @@ public class CFIntTldTableObj
 	public void deleteTldByIdIdx( long TenantId,
 		long Id )
 	{
-		CFIntTldPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey();
+		YCFIntTldPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFIntTldObj obj = readTld( pkey );
+		IYCFIntTldObj obj = readTld( pkey );
 		if( obj != null ) {
-			ICFIntTldEditObj editObj = (ICFIntTldEditObj)obj.getEdit();
+			IYCFIntTldEditObj editObj = (IYCFIntTldEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFIntTldEditObj)obj.beginEdit();
+				editObj = (IYCFIntTldEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -815,19 +815,19 @@ public class CFIntTldTableObj
 
 	public void deleteTldByTenantIdx( long TenantId )
 	{
-		CFIntTldByTenantIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
+		YCFIntTldByTenantIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFIntTldByTenantIdxKey,
-				Map< CFIntTldPKey, ICFIntTldObj > >();
+			indexByTenantIdx = new HashMap< YCFIntTldByTenantIdxKey,
+				Map< YCFIntTldPKey, IYCFIntTldObj > >();
 		}
 		if( indexByTenantIdx.containsKey( key ) ) {
-			Map<CFIntTldPKey, ICFIntTldObj> dict = indexByTenantIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableTld().deleteTldByTenantIdx( schema.getAuthorization(),
+			Map<YCFIntTldPKey, IYCFIntTldObj> dict = indexByTenantIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableTld().deleteTldByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFIntTldObj> iter = dict.values().iterator();
-			ICFIntTldObj obj;
-			List<ICFIntTldObj> toForget = new LinkedList<ICFIntTldObj>();
+			Iterator<IYCFIntTldObj> iter = dict.values().iterator();
+			IYCFIntTldObj obj;
+			List<IYCFIntTldObj> toForget = new LinkedList<IYCFIntTldObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -840,7 +840,7 @@ public class CFIntTldTableObj
 			indexByTenantIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableTld().deleteTldByTenantIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTld().deleteTldByTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeTldByTenantIdx( TenantId );
@@ -850,22 +850,22 @@ public class CFIntTldTableObj
 		String Name )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFIntTldByNameIdxKey,
-				ICFIntTldObj >();
+			indexByNameIdx = new HashMap< YCFIntTldByNameIdxKey,
+				IYCFIntTldObj >();
 		}
-		CFIntTldByNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
+		YCFIntTldByNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTld().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredName( Name );
-		ICFIntTldObj obj = null;
+		IYCFIntTldObj obj = null;
 		if( indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableTld().deleteTldByNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTld().deleteTldByNameIdx( schema.getAuthorization(),
 				TenantId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableTld().deleteTldByNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTld().deleteTldByNameIdx( schema.getAuthorization(),
 				TenantId,
 				Name );
 		}

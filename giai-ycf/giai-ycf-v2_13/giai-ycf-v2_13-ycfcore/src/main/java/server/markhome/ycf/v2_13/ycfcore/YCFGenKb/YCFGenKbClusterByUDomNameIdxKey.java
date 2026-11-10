@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a Cluster by UDomNameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbClusterByUDomNameIdxKey
+public class YCFGenKbClusterByUDomNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String requiredFullDomName;
-	public CFGenKbClusterByUDomNameIdxKey() {
-		requiredFullDomName = new String( CFGenKbClusterBuff.FULLDOMNAME_INIT_VALUE );
+	public YCFGenKbClusterByUDomNameIdxKey() {
+		requiredFullDomName = new String( YCFGenKbClusterBuff.FULLDOMNAME_INIT_VALUE );
 	}
 
 	public String getRequiredFullDomName() {
@@ -55,13 +55,13 @@ public class CFGenKbClusterByUDomNameIdxKey
 
 	public void setRequiredFullDomName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredFullDomName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredFullDomName",
 				1,
 				"value.length()",
@@ -75,15 +75,15 @@ public class CFGenKbClusterByUDomNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbClusterByUDomNameIdxKey ) {
-			CFGenKbClusterByUDomNameIdxKey rhs = (CFGenKbClusterByUDomNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbClusterByUDomNameIdxKey ) {
+			YCFGenKbClusterByUDomNameIdxKey rhs = (YCFGenKbClusterByUDomNameIdxKey)obj;
 			if( ! getRequiredFullDomName().equals( rhs.getRequiredFullDomName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbClusterBuff ) {
-			CFGenKbClusterBuff rhs = (CFGenKbClusterBuff)obj;
+		else if( obj instanceof YCFGenKbClusterBuff ) {
+			YCFGenKbClusterBuff rhs = (YCFGenKbClusterBuff)obj;
 			if( ! getRequiredFullDomName().equals( rhs.getRequiredFullDomName() ) ) {
 				return( false );
 			}
@@ -106,8 +106,8 @@ public class CFGenKbClusterByUDomNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbClusterByUDomNameIdxKey ) {
-			CFGenKbClusterByUDomNameIdxKey rhs = (CFGenKbClusterByUDomNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbClusterByUDomNameIdxKey ) {
+			YCFGenKbClusterByUDomNameIdxKey rhs = (YCFGenKbClusterByUDomNameIdxKey)obj;
 			{
 				int cmp = getRequiredFullDomName().compareTo( rhs.getRequiredFullDomName() );
 				if( cmp != 0 ) {
@@ -116,8 +116,8 @@ public class CFGenKbClusterByUDomNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbClusterBuff ) {
-			CFGenKbClusterBuff rhs = (CFGenKbClusterBuff)obj;
+		else if( obj instanceof YCFGenKbClusterBuff ) {
+			YCFGenKbClusterBuff rhs = (YCFGenKbClusterBuff)obj;
 			{
 				int cmp = getRequiredFullDomName().compareTo( rhs.getRequiredFullDomName() );
 				if( cmp != 0 ) {
@@ -127,7 +127,7 @@ public class CFGenKbClusterByUDomNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -136,8 +136,8 @@ public class CFGenKbClusterByUDomNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbClusterByUDomNameIdx"
-			+ " RequiredFullDomName=" + "\"" + CFGenKbSchema.xmlEncodeString( getRequiredFullDomName() ) + "\""
+		String ret = "<YCFGenKbClusterByUDomNameIdx"
+			+ " RequiredFullDomName=" + "\"" + YCFGenKbSchema.xmlEncodeString( getRequiredFullDomName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

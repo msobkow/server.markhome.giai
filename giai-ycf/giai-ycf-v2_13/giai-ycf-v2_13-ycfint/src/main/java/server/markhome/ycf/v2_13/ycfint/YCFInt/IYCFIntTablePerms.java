@@ -1,15 +1,15 @@
-// Description: Java 11 CFInt Table Permissions Interface.
+// Description: Java 11 YCFInt Table Permissions Interface.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -34,262 +34,262 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFIntTablePerms
-extends ICFSecTablePerms
+public interface IYCFIntTablePerms
+extends IYCFSecTablePerms
 {
 	/**
 	 *	Is the session allowed to create License instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateLicense( CFSecAuthorization Authorization );
+	boolean allowCreateLicense( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read License instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadLicense( CFSecAuthorization Authorization );
+	boolean allowReadLicense( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update License instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateLicense( CFSecAuthorization Authorization );
+	boolean allowUpdateLicense( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete License instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteLicense( CFSecAuthorization Authorization );
+	boolean allowDeleteLicense( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create MajorVersion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateMajorVersion( CFSecAuthorization Authorization );
+	boolean allowCreateMajorVersion( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read MajorVersion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadMajorVersion( CFSecAuthorization Authorization );
+	boolean allowReadMajorVersion( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update MajorVersion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateMajorVersion( CFSecAuthorization Authorization );
+	boolean allowUpdateMajorVersion( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete MajorVersion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteMajorVersion( CFSecAuthorization Authorization );
+	boolean allowDeleteMajorVersion( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create MimeType instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateMimeType( CFSecAuthorization Authorization );
+	boolean allowCreateMimeType( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read MimeType instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadMimeType( CFSecAuthorization Authorization );
+	boolean allowReadMimeType( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update MimeType instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateMimeType( CFSecAuthorization Authorization );
+	boolean allowUpdateMimeType( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete MimeType instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteMimeType( CFSecAuthorization Authorization );
+	boolean allowDeleteMimeType( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create MinorVersion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateMinorVersion( CFSecAuthorization Authorization );
+	boolean allowCreateMinorVersion( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read MinorVersion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadMinorVersion( CFSecAuthorization Authorization );
+	boolean allowReadMinorVersion( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update MinorVersion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateMinorVersion( CFSecAuthorization Authorization );
+	boolean allowUpdateMinorVersion( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete MinorVersion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteMinorVersion( CFSecAuthorization Authorization );
+	boolean allowDeleteMinorVersion( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SubProject instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSubProject( CFSecAuthorization Authorization );
+	boolean allowCreateSubProject( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SubProject instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSubProject( CFSecAuthorization Authorization );
+	boolean allowReadSubProject( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SubProject instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSubProject( CFSecAuthorization Authorization );
+	boolean allowUpdateSubProject( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SubProject instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSubProject( CFSecAuthorization Authorization );
+	boolean allowDeleteSubProject( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create Tld instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateTld( CFSecAuthorization Authorization );
+	boolean allowCreateTld( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read Tld instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadTld( CFSecAuthorization Authorization );
+	boolean allowReadTld( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update Tld instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateTld( CFSecAuthorization Authorization );
+	boolean allowUpdateTld( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete Tld instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteTld( CFSecAuthorization Authorization );
+	boolean allowDeleteTld( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create TopDomain instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateTopDomain( CFSecAuthorization Authorization );
+	boolean allowCreateTopDomain( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read TopDomain instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadTopDomain( CFSecAuthorization Authorization );
+	boolean allowReadTopDomain( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update TopDomain instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateTopDomain( CFSecAuthorization Authorization );
+	boolean allowUpdateTopDomain( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete TopDomain instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteTopDomain( CFSecAuthorization Authorization );
+	boolean allowDeleteTopDomain( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create TopProject instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateTopProject( CFSecAuthorization Authorization );
+	boolean allowCreateTopProject( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read TopProject instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadTopProject( CFSecAuthorization Authorization );
+	boolean allowReadTopProject( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update TopProject instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateTopProject( CFSecAuthorization Authorization );
+	boolean allowUpdateTopProject( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete TopProject instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteTopProject( CFSecAuthorization Authorization );
+	boolean allowDeleteTopProject( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create URLProtocol instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateURLProtocol( CFSecAuthorization Authorization );
+	boolean allowCreateURLProtocol( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read URLProtocol instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadURLProtocol( CFSecAuthorization Authorization );
+	boolean allowReadURLProtocol( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update URLProtocol instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateURLProtocol( CFSecAuthorization Authorization );
+	boolean allowUpdateURLProtocol( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete URLProtocol instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteURLProtocol( CFSecAuthorization Authorization );
+	boolean allowDeleteURLProtocol( YCFSecAuthorization Authorization );
 }

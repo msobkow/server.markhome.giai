@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelSequence.
+// Description: Java 11 Object interface for YCFGenKb GelSequence.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,45 +27,45 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGelSequenceObj
-	extends ICFGenKbGelInstructionObj
+public interface IYCFGenKbGelSequenceObj
+	extends IYCFGenKbGelInstructionObj
 {
 	/**
-	 *	Get the current edition of this GelSequence instance as a ICFGenKbGelSequenceEditObj.
+	 *	Get the current edition of this GelSequence instance as a IYCFGenKbGelSequenceEditObj.
 	 *
-	 *	@return	The ICFGenKbGelSequenceEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelSequenceEditObj edition of this instance.
 	 */
-	ICFGenKbGelSequenceEditObj getEditAsGelSequence();
+	IYCFGenKbGelSequenceEditObj getEditAsGelSequence();
 
 	/**
-	 *	Get the ICFGenKbGelSequenceTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelSequenceTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelSequenceTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelSequenceTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelSequenceTableObj getGelSequenceTable();
+	IYCFGenKbGelSequenceTableObj getGelSequenceTable();
 
 	/**
-	 *	Get the CFGenKbGelSequenceBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelSequenceBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelSequenceBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelSequenceBuff instance which currently backs this object.
 	 */
-	CFGenKbGelSequenceBuff getGelSequenceBuff();
+	YCFGenKbGelSequenceBuff getGelSequenceBuff();
 
 	/**
 	 *	Get the optional Long attribute FirstInstTenantId.
@@ -110,45 +110,45 @@ public interface ICFGenKbGelSequenceObj
 	Long getOptionalLastInstId();
 
 	/**
-	 *	Get the array of optional ICFGenKbGelCallObj array of instances referenced by the Calls key.
+	 *	Get the array of optional IYCFGenKbGelCallObj array of instances referenced by the Calls key.
 	 *
-	 *	@return	The optional ICFGenKbGelCallObj[] array of instances referenced by the Calls key.
+	 *	@return	The optional IYCFGenKbGelCallObj[] array of instances referenced by the Calls key.
 	 */
-	List<ICFGenKbGelCallObj> getOptionalChildrenCalls();
+	List<IYCFGenKbGelCallObj> getOptionalChildrenCalls();
 
 	/**
-	 *	Get the array of optional ICFGenKbGelCallObj array of instances referenced by the Calls key.
+	 *	Get the array of optional IYCFGenKbGelCallObj array of instances referenced by the Calls key.
 	 *
-	 *	@return	The optional ICFGenKbGelCallObj[] array of instances referenced by the Calls key.
+	 *	@return	The optional IYCFGenKbGelCallObj[] array of instances referenced by the Calls key.
 	 */
-	List<ICFGenKbGelCallObj> getOptionalChildrenCalls( boolean forceRead );
+	List<IYCFGenKbGelCallObj> getOptionalChildrenCalls( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbGelCallObj instance referenced by the FirstInst key.
+	 *	Get the optional IYCFGenKbGelCallObj instance referenced by the FirstInst key.
 	 *
-	 *	@return	The optional ICFGenKbGelCallObj instance referenced by the FirstInst key.
+	 *	@return	The optional IYCFGenKbGelCallObj instance referenced by the FirstInst key.
 	 */
-	ICFGenKbGelCallObj getOptionalLookupFirstInst();
+	IYCFGenKbGelCallObj getOptionalLookupFirstInst();
 
 	/**
-	 *	Get the optional ICFGenKbGelCallObj instance referenced by the FirstInst key.
+	 *	Get the optional IYCFGenKbGelCallObj instance referenced by the FirstInst key.
 	 *
-	 *	@return	The optional ICFGenKbGelCallObj instance referenced by the FirstInst key.
+	 *	@return	The optional IYCFGenKbGelCallObj instance referenced by the FirstInst key.
 	 */
-	ICFGenKbGelCallObj getOptionalLookupFirstInst( boolean forceRead );
+	IYCFGenKbGelCallObj getOptionalLookupFirstInst( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbGelCallObj instance referenced by the LastInst key.
+	 *	Get the optional IYCFGenKbGelCallObj instance referenced by the LastInst key.
 	 *
-	 *	@return	The optional ICFGenKbGelCallObj instance referenced by the LastInst key.
+	 *	@return	The optional IYCFGenKbGelCallObj instance referenced by the LastInst key.
 	 */
-	ICFGenKbGelCallObj getOptionalLookupLastInst();
+	IYCFGenKbGelCallObj getOptionalLookupLastInst();
 
 	/**
-	 *	Get the optional ICFGenKbGelCallObj instance referenced by the LastInst key.
+	 *	Get the optional IYCFGenKbGelCallObj instance referenced by the LastInst key.
 	 *
-	 *	@return	The optional ICFGenKbGelCallObj instance referenced by the LastInst key.
+	 *	@return	The optional IYCFGenKbGelCallObj instance referenced by the LastInst key.
 	 */
-	ICFGenKbGelCallObj getOptionalLookupLastInst( boolean forceRead );
+	IYCFGenKbGelCallObj getOptionalLookupLastInst( boolean forceRead );
 
 }

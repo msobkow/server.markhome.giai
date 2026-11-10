@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for SecGroupForm
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,19 +35,19 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSaxLoaderSecGroupFormParse XML SAX Element Handler implementation
+ *	YCFSecSaxLoaderSecGroupFormParse XML SAX Element Handler implementation
  *	for SecGroupForm.
  */
-public class CFSecSaxLoaderSecGroupForm
-	extends CFLibXmlCoreElementHandler
+public class YCFSecSaxLoaderSecGroupForm
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFSecSaxLoaderSecGroupForm( CFSecSaxLoader saxLoader ) {
+	public YCFSecSaxLoaderSecGroupForm( YCFSecSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -59,18 +59,18 @@ public class CFSecSaxLoaderSecGroupForm
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFSecSecGroupFormObj origBuff = null;
-		ICFSecSecGroupFormEditObj editBuff = null;
+		IYCFSecSecGroupFormObj origBuff = null;
+		IYCFSecSecGroupFormEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// SecGroupForm Attributes
 		String attrApp = null;
 		String attrForm = null;
 		// SecGroupForm References
-		ICFSecClusterObj refCluster = null;
-		ICFSecSecGroupObj refGroup = null;
-		ICFSecSecAppObj refApp = null;
-		ICFSecSecFormObj refForm = null;
+		IYCFSecClusterObj refCluster = null;
+		IYCFSecSecGroupObj refGroup = null;
+		IYCFSecSecAppObj refApp = null;
+		IYCFSecSecFormObj refForm = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -79,25 +79,25 @@ public class CFSecSaxLoaderSecGroupForm
 		try {
 			assert qName.equals( "SecGroupForm" );
 
-			CFSecSaxLoader saxLoader = (CFSecSaxLoader)getParser();
+			YCFSecSaxLoader saxLoader = (YCFSecSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFSecSecGroupFormObj)schemaObj.getSecGroupFormTableObj().newInstance();
-			editBuff = (ICFSecSecGroupFormEditObj)origBuff.beginEdit();
+			origBuff = (IYCFSecSecGroupFormObj)schemaObj.getSecGroupFormTableObj().newInstance();
+			editBuff = (IYCFSecSecGroupFormEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -105,7 +105,7 @@ public class CFSecSaxLoaderSecGroupForm
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -114,7 +114,7 @@ public class CFSecSaxLoaderSecGroupForm
 				}
 				else if( attrLocalName.equals( "App" ) ) {
 					if( attrApp != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -123,7 +123,7 @@ public class CFSecSaxLoaderSecGroupForm
 				}
 				else if( attrLocalName.equals( "Form" ) ) {
 					if( attrForm != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -134,7 +134,7 @@ public class CFSecSaxLoaderSecGroupForm
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -143,20 +143,20 @@ public class CFSecSaxLoaderSecGroupForm
 
 			// Ensure that required attributes have values
 			if( ( attrApp == null ) || ( attrApp.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"App" );
 			}
 			if( ( attrForm == null ) || ( attrForm.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Form" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "App", attrApp );
 			curContext.putNamedValue( "Form", attrForm );
@@ -173,7 +173,7 @@ public class CFSecSaxLoaderSecGroupForm
 			}
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -185,33 +185,33 @@ public class CFSecSaxLoaderSecGroupForm
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFSecSecGroupObj ) {
-				refGroup = (ICFSecSecGroupObj) scopeObj;
+			else if( scopeObj instanceof IYCFSecSecGroupObj ) {
+				refGroup = (IYCFSecSecGroupObj) scopeObj;
 				editBuff.setRequiredContainerGroup( refGroup );
-				refCluster = (ICFSecClusterObj)editBuff.getRequiredOwnerCluster();
+				refCluster = (IYCFSecClusterObj)editBuff.getRequiredOwnerCluster();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFSecSecGroupObj" );
+					"IYCFSecSecGroupObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refCluster == null ) {
-				if( scopeObj instanceof ICFSecClusterObj ) {
-					refCluster = (ICFSecClusterObj) scopeObj;
+				if( scopeObj instanceof IYCFSecClusterObj ) {
+					refCluster = (IYCFSecClusterObj) scopeObj;
 					editBuff.setRequiredOwnerCluster( refCluster );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Cluster>" );
@@ -220,10 +220,10 @@ public class CFSecSaxLoaderSecGroupForm
 
 			// Lookup refApp by key name value attr
 			if( ( attrApp != null ) && ( attrApp.length() > 0 ) ) {
-				refApp = (ICFSecSecAppObj)schemaObj.getSecAppTableObj().readSecAppByUJEEMountIdx( editBuff.getRequiredClusterId(),
+				refApp = (IYCFSecSecAppObj)schemaObj.getSecAppTableObj().readSecAppByUJEEMountIdx( editBuff.getRequiredClusterId(),
 				attrApp );
 				if( refApp == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve App reference named \"" + attrApp + "\" to table SecApp" );
@@ -236,11 +236,11 @@ public class CFSecSaxLoaderSecGroupForm
 
 			// Lookup refForm by key name value attr
 			if( ( attrForm != null ) && ( attrForm.length() > 0 ) ) {
-				refForm = (ICFSecSecFormObj)schemaObj.getSecFormTableObj().readSecFormByUJEEServletIdx( editBuff.getRequiredClusterId(),
+				refForm = (IYCFSecSecFormObj)schemaObj.getSecFormTableObj().readSecFormByUJEEServletIdx( editBuff.getRequiredClusterId(),
 				editBuff.getRequiredSecAppId(),
 				attrForm );
 				if( refForm == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve Form reference named \"" + attrForm + "\" to table SecForm" );
@@ -251,9 +251,9 @@ public class CFSecSaxLoaderSecGroupForm
 			}
 			editBuff.setRequiredParentForm( refForm );
 
-			CFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecGroupFormLoaderBehaviour();
-			ICFSecSecGroupFormEditObj editSecGroupForm = null;
-			ICFSecSecGroupFormObj origSecGroupForm = (ICFSecSecGroupFormObj)schemaObj.getSecGroupFormTableObj().readSecGroupFormByUFormIdx( refCluster.getRequiredId(),
+			YCFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecGroupFormLoaderBehaviour();
+			IYCFSecSecGroupFormEditObj editSecGroupForm = null;
+			IYCFSecSecGroupFormObj origSecGroupForm = (IYCFSecSecGroupFormObj)schemaObj.getSecGroupFormTableObj().readSecGroupFormByUFormIdx( refCluster.getRequiredId(),
 			refGroup.getRequiredSecGroupId(),
 			refForm.getRequiredSecFormId() );
 			if( origSecGroupForm == null ) {
@@ -264,12 +264,12 @@ public class CFSecSaxLoaderSecGroupForm
 					case Insert:
 						break;
 					case Update:
-						editSecGroupForm = (ICFSecSecGroupFormEditObj)origSecGroupForm.beginEdit();
+						editSecGroupForm = (IYCFSecSecGroupFormEditObj)origSecGroupForm.beginEdit();
 						editSecGroupForm.setRequiredParentApp( editBuff.getRequiredParentApp() );
 						editSecGroupForm.setRequiredParentForm( editBuff.getRequiredParentForm() );
 						break;
 					case Replace:
-						editSecGroupForm = (ICFSecSecGroupFormEditObj)origSecGroupForm.beginEdit();
+						editSecGroupForm = (IYCFSecSecGroupFormEditObj)origSecGroupForm.beginEdit();
 						editSecGroupForm.deleteInstance();
 						editSecGroupForm = null;
 						origSecGroupForm = null;
@@ -283,7 +283,7 @@ public class CFSecSaxLoaderSecGroupForm
 					editSecGroupForm.update();
 				}
 				else {
-					origSecGroupForm = (ICFSecSecGroupFormObj)editSecGroupForm.create();
+					origSecGroupForm = (IYCFSecSecGroupFormObj)editSecGroupForm.create();
 				}
 				editSecGroupForm = null;
 			}

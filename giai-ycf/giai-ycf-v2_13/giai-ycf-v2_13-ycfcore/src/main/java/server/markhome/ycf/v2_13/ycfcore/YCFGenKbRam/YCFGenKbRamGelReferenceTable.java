@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for GelReference.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,54 +28,54 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamGelReferenceTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamGelReferenceTable in-memory RAM DbIO implementation
  *	for GelReference.
  */
-public class CFGenKbRamGelReferenceTable
-	implements ICFGenKbGelReferenceTable
+public class YCFGenKbRamGelReferenceTable
+	implements IYCFGenKbGelReferenceTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbGelInstructionPKey,
-				CFGenKbGelReferenceBuff > dictByPKey
-		= new HashMap< CFGenKbGelInstructionPKey,
-				CFGenKbGelReferenceBuff >();
-	private Map< CFGenKbGelReferenceByRemainderIdxKey,
-				Map< CFGenKbGelInstructionPKey,
-					CFGenKbGelReferenceBuff >> dictByRemainderIdx
-		= new HashMap< CFGenKbGelReferenceByRemainderIdxKey,
-				Map< CFGenKbGelInstructionPKey,
-					CFGenKbGelReferenceBuff >>();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbGelInstructionPKey,
+				YCFGenKbGelReferenceBuff > dictByPKey
+		= new HashMap< YCFGenKbGelInstructionPKey,
+				YCFGenKbGelReferenceBuff >();
+	private Map< YCFGenKbGelReferenceByRemainderIdxKey,
+				Map< YCFGenKbGelInstructionPKey,
+					YCFGenKbGelReferenceBuff >> dictByRemainderIdx
+		= new HashMap< YCFGenKbGelReferenceByRemainderIdxKey,
+				Map< YCFGenKbGelInstructionPKey,
+					YCFGenKbGelReferenceBuff >>();
 
-	public CFGenKbRamGelReferenceTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamGelReferenceTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createGelReference( CFGenKbAuthorization Authorization,
-		CFGenKbGelReferenceBuff Buff )
+	public void createGelReference( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelReferenceBuff Buff )
 	{
 		final String S_ProcName = "createGelReference";
 		schema.getTableGelInstruction().createGelInstruction( Authorization,
 			Buff );
-		CFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		pkey.setRequiredGelInstId( Buff.getRequiredGelInstId() );
-		CFGenKbGelReferenceByRemainderIdxKey keyRemainderIdx = schema.getFactoryGelReference().newRemainderIdxKey();
+		YCFGenKbGelReferenceByRemainderIdxKey keyRemainderIdx = schema.getFactoryGelReference().newRemainderIdxKey();
 		keyRemainderIdx.setOptionalRemainderTenantId( Buff.getOptionalRemainderTenantId() );
 		keyRemainderIdx.setRequiredRemainderGelCacheId( Buff.getRequiredRemainderGelCacheId() );
 		keyRemainderIdx.setOptionalRemainderInstId( Buff.getOptionalRemainderInstId() );
@@ -83,7 +83,7 @@ public class CFGenKbRamGelReferenceTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		// Validate foreign keys
@@ -99,7 +99,7 @@ public class CFGenKbRamGelReferenceTable
 						Buff.getRequiredGelCacheId(),
 						Buff.getRequiredGelInstId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Superclass",
 						"SuperClass",
@@ -113,27 +113,27 @@ public class CFGenKbRamGelReferenceTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFGenKbGelInstructionPKey, CFGenKbGelReferenceBuff > subdictRemainderIdx;
+		Map< YCFGenKbGelInstructionPKey, YCFGenKbGelReferenceBuff > subdictRemainderIdx;
 		if( dictByRemainderIdx.containsKey( keyRemainderIdx ) ) {
 			subdictRemainderIdx = dictByRemainderIdx.get( keyRemainderIdx );
 		}
 		else {
-			subdictRemainderIdx = new HashMap< CFGenKbGelInstructionPKey, CFGenKbGelReferenceBuff >();
+			subdictRemainderIdx = new HashMap< YCFGenKbGelInstructionPKey, YCFGenKbGelReferenceBuff >();
 			dictByRemainderIdx.put( keyRemainderIdx, subdictRemainderIdx );
 		}
 		subdictRemainderIdx.put( pkey, Buff );
 
 	}
 
-	public CFGenKbGelReferenceBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey )
+	public YCFGenKbGelReferenceBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGelReference.readDerived";
-		CFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
+		final String S_ProcName = "YCFGenKbRamGelReference.readDerived";
+		YCFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredGelCacheId( PKey.getRequiredGelCacheId() );
 		key.setRequiredGelInstId( PKey.getRequiredGelInstId() );
-		CFGenKbGelReferenceBuff buff;
+		YCFGenKbGelReferenceBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -143,15 +143,15 @@ public class CFGenKbRamGelReferenceTable
 		return( buff );
 	}
 
-	public CFGenKbGelReferenceBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey )
+	public YCFGenKbGelReferenceBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGelReference.readDerived";
-		CFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
+		final String S_ProcName = "YCFGenKbRamGelReference.readDerived";
+		YCFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredGelCacheId( PKey.getRequiredGelCacheId() );
 		key.setRequiredGelInstId( PKey.getRequiredGelInstId() );
-		CFGenKbGelReferenceBuff buff;
+		YCFGenKbGelReferenceBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -161,10 +161,10 @@ public class CFGenKbRamGelReferenceTable
 		return( buff );
 	}
 
-	public CFGenKbGelReferenceBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamGelReference.readAllDerived";
-		CFGenKbGelReferenceBuff[] retList = new CFGenKbGelReferenceBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbGelReferenceBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbGelReferenceBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamGelReference.readAllDerived";
+		YCFGenKbGelReferenceBuff[] retList = new YCFGenKbGelReferenceBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbGelReferenceBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -172,59 +172,59 @@ public class CFGenKbRamGelReferenceTable
 		return( retList );
 	}
 
-	public CFGenKbGelReferenceBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readDerivedByTenantIdx";
-		CFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readDerivedByTenantIdx";
+		YCFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByTenantIdx( Authorization,
 			TenantId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGelInstructionBuff buff;
-			ArrayList<CFGenKbGelReferenceBuff> filteredList = new ArrayList<CFGenKbGelReferenceBuff>();
+			YCFGenKbGelInstructionBuff buff;
+			ArrayList<YCFGenKbGelReferenceBuff> filteredList = new ArrayList<YCFGenKbGelReferenceBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGelReferenceBuff ) ) {
-					filteredList.add( (CFGenKbGelReferenceBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGelReferenceBuff ) ) {
+					filteredList.add( (YCFGenKbGelReferenceBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGelReferenceBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGelReferenceBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGelReferenceBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readDerivedByGelCacheIdx";
-		CFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByGelCacheIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readDerivedByGelCacheIdx";
+		YCFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByGelCacheIdx( Authorization,
 			TenantId,
 			GelCacheId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGelInstructionBuff buff;
-			ArrayList<CFGenKbGelReferenceBuff> filteredList = new ArrayList<CFGenKbGelReferenceBuff>();
+			YCFGenKbGelInstructionBuff buff;
+			ArrayList<YCFGenKbGelReferenceBuff> filteredList = new ArrayList<YCFGenKbGelReferenceBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGelReferenceBuff ) ) {
-					filteredList.add( (CFGenKbGelReferenceBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGelReferenceBuff ) ) {
+					filteredList.add( (YCFGenKbGelReferenceBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGelReferenceBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGelReferenceBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGelReferenceBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readDerivedByChainIdx";
-		CFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByChainIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readDerivedByChainIdx";
+		YCFGenKbGelInstructionBuff buffList[] = schema.getTableGelInstruction().readDerivedByChainIdx( Authorization,
 			ChainInstTenantId,
 			ChainInstGelCacheId,
 			ChainInstGelInstId );
@@ -232,61 +232,61 @@ public class CFGenKbRamGelReferenceTable
 			return( null );
 		}
 		else {
-			CFGenKbGelInstructionBuff buff;
-			ArrayList<CFGenKbGelReferenceBuff> filteredList = new ArrayList<CFGenKbGelReferenceBuff>();
+			YCFGenKbGelInstructionBuff buff;
+			ArrayList<YCFGenKbGelReferenceBuff> filteredList = new ArrayList<YCFGenKbGelReferenceBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGelReferenceBuff ) ) {
-					filteredList.add( (CFGenKbGelReferenceBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGelReferenceBuff ) ) {
+					filteredList.add( (YCFGenKbGelReferenceBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGelReferenceBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGelReferenceBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGelReferenceBuff[] readDerivedByRemainderIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff[] readDerivedByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelReference.readDerivedByRemainderIdx";
-		CFGenKbGelReferenceByRemainderIdxKey key = schema.getFactoryGelReference().newRemainderIdxKey();
+		final String S_ProcName = "YCFGenKbRamGelReference.readDerivedByRemainderIdx";
+		YCFGenKbGelReferenceByRemainderIdxKey key = schema.getFactoryGelReference().newRemainderIdxKey();
 		key.setOptionalRemainderTenantId( RemainderTenantId );
 		key.setRequiredRemainderGelCacheId( RemainderGelCacheId );
 		key.setOptionalRemainderInstId( RemainderInstId );
 
-		CFGenKbGelReferenceBuff[] recArray;
+		YCFGenKbGelReferenceBuff[] recArray;
 		if( dictByRemainderIdx.containsKey( key ) ) {
-			Map< CFGenKbGelInstructionPKey, CFGenKbGelReferenceBuff > subdictRemainderIdx
+			Map< YCFGenKbGelInstructionPKey, YCFGenKbGelReferenceBuff > subdictRemainderIdx
 				= dictByRemainderIdx.get( key );
-			recArray = new CFGenKbGelReferenceBuff[ subdictRemainderIdx.size() ];
-			Iterator< CFGenKbGelReferenceBuff > iter = subdictRemainderIdx.values().iterator();
+			recArray = new YCFGenKbGelReferenceBuff[ subdictRemainderIdx.size() ];
+			Iterator< YCFGenKbGelReferenceBuff > iter = subdictRemainderIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbGelInstructionPKey, CFGenKbGelReferenceBuff > subdictRemainderIdx
-				= new HashMap< CFGenKbGelInstructionPKey, CFGenKbGelReferenceBuff >();
+			Map< YCFGenKbGelInstructionPKey, YCFGenKbGelReferenceBuff > subdictRemainderIdx
+				= new HashMap< YCFGenKbGelInstructionPKey, YCFGenKbGelReferenceBuff >();
 			dictByRemainderIdx.put( key, subdictRemainderIdx );
-			recArray = new CFGenKbGelReferenceBuff[0];
+			recArray = new YCFGenKbGelReferenceBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbGelReferenceBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readDerivedByPIdx() ";
-		CFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readDerivedByPIdx() ";
+		YCFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
 		key.setRequiredGelInstId( GelInstId );
 
-		CFGenKbGelReferenceBuff buff;
+		YCFGenKbGelReferenceBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -296,137 +296,137 @@ public class CFGenKbRamGelReferenceTable
 		return( buff );
 	}
 
-	public CFGenKbGelReferenceBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey )
+	public YCFGenKbGelReferenceBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGelReference.readBuff";
-		CFGenKbGelReferenceBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamGelReference.readBuff";
+		YCFGenKbGelReferenceBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a91b" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbGelReferenceBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey )
+	public YCFGenKbGelReferenceBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbGelReferenceBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbGelReferenceBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a91b" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbGelReferenceBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbGelReferenceBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamGelReference.readAllBuff";
-		CFGenKbGelReferenceBuff buff;
-		ArrayList<CFGenKbGelReferenceBuff> filteredList = new ArrayList<CFGenKbGelReferenceBuff>();
-		CFGenKbGelReferenceBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamGelReference.readAllBuff";
+		YCFGenKbGelReferenceBuff buff;
+		ArrayList<YCFGenKbGelReferenceBuff> filteredList = new ArrayList<YCFGenKbGelReferenceBuff>();
+		YCFGenKbGelReferenceBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a91b" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelReferenceBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelReferenceBuff[0] ) );
 	}
 
-	public CFGenKbGelReferenceBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readBuffByPIdx() ";
-		CFGenKbGelReferenceBuff buff = readDerivedByPIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readBuffByPIdx() ";
+		YCFGenKbGelReferenceBuff buff = readDerivedByPIdx( Authorization,
 			TenantId,
 			GelCacheId,
 			GelInstId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a916" ) ) {
-			return( (CFGenKbGelReferenceBuff)buff );
+			return( (YCFGenKbGelReferenceBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbGelReferenceBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readBuffByTenantIdx() ";
-		CFGenKbGelReferenceBuff buff;
-		ArrayList<CFGenKbGelReferenceBuff> filteredList = new ArrayList<CFGenKbGelReferenceBuff>();
-		CFGenKbGelReferenceBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readBuffByTenantIdx() ";
+		YCFGenKbGelReferenceBuff buff;
+		ArrayList<YCFGenKbGelReferenceBuff> filteredList = new ArrayList<YCFGenKbGelReferenceBuff>();
+		YCFGenKbGelReferenceBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a916" ) ) {
-				filteredList.add( (CFGenKbGelReferenceBuff)buff );
+				filteredList.add( (YCFGenKbGelReferenceBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelReferenceBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelReferenceBuff[0] ) );
 	}
 
-	public CFGenKbGelReferenceBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readBuffByGelCacheIdx() ";
-		CFGenKbGelReferenceBuff buff;
-		ArrayList<CFGenKbGelReferenceBuff> filteredList = new ArrayList<CFGenKbGelReferenceBuff>();
-		CFGenKbGelReferenceBuff[] buffList = readDerivedByGelCacheIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readBuffByGelCacheIdx() ";
+		YCFGenKbGelReferenceBuff buff;
+		ArrayList<YCFGenKbGelReferenceBuff> filteredList = new ArrayList<YCFGenKbGelReferenceBuff>();
+		YCFGenKbGelReferenceBuff[] buffList = readDerivedByGelCacheIdx( Authorization,
 			TenantId,
 			GelCacheId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a916" ) ) {
-				filteredList.add( (CFGenKbGelReferenceBuff)buff );
+				filteredList.add( (YCFGenKbGelReferenceBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelReferenceBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelReferenceBuff[0] ) );
 	}
 
-	public CFGenKbGelReferenceBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelInstruction.readBuffByChainIdx() ";
-		CFGenKbGelReferenceBuff buff;
-		ArrayList<CFGenKbGelReferenceBuff> filteredList = new ArrayList<CFGenKbGelReferenceBuff>();
-		CFGenKbGelReferenceBuff[] buffList = readDerivedByChainIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelInstruction.readBuffByChainIdx() ";
+		YCFGenKbGelReferenceBuff buff;
+		ArrayList<YCFGenKbGelReferenceBuff> filteredList = new ArrayList<YCFGenKbGelReferenceBuff>();
+		YCFGenKbGelReferenceBuff[] buffList = readDerivedByChainIdx( Authorization,
 			ChainInstTenantId,
 			ChainInstGelCacheId,
 			ChainInstGelInstId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a916" ) ) {
-				filteredList.add( (CFGenKbGelReferenceBuff)buff );
+				filteredList.add( (YCFGenKbGelReferenceBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelReferenceBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelReferenceBuff[0] ) );
 	}
 
-	public CFGenKbGelReferenceBuff[] readBuffByRemainderIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff[] readBuffByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelReference.readBuffByRemainderIdx() ";
-		CFGenKbGelReferenceBuff buff;
-		ArrayList<CFGenKbGelReferenceBuff> filteredList = new ArrayList<CFGenKbGelReferenceBuff>();
-		CFGenKbGelReferenceBuff[] buffList = readDerivedByRemainderIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelReference.readBuffByRemainderIdx() ";
+		YCFGenKbGelReferenceBuff buff;
+		ArrayList<YCFGenKbGelReferenceBuff> filteredList = new ArrayList<YCFGenKbGelReferenceBuff>();
+		YCFGenKbGelReferenceBuff[] buffList = readDerivedByRemainderIdx( Authorization,
 			RemainderTenantId,
 			RemainderGelCacheId,
 			RemainderInstId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a91b" ) ) {
-				filteredList.add( (CFGenKbGelReferenceBuff)buff );
+				filteredList.add( (YCFGenKbGelReferenceBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelReferenceBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelReferenceBuff[0] ) );
 	}
 
 	/**
@@ -442,9 +442,9 @@ public class CFGenKbRamGelReferenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbGelReferenceBuff[] pageBuffByRemainderIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelReferenceBuff[] pageBuffByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId,
@@ -453,32 +453,32 @@ public class CFGenKbRamGelReferenceTable
 		Long priorGelInstId )
 	{
 		final String S_ProcName = "pageBuffByRemainderIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateGelReference( CFGenKbAuthorization Authorization,
-		CFGenKbGelReferenceBuff Buff )
+	public void updateGelReference( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelReferenceBuff Buff )
 	{
 		schema.getTableGelInstruction().updateGelInstruction( Authorization,
 			Buff );
-		CFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		pkey.setRequiredGelInstId( Buff.getRequiredGelInstId() );
-		CFGenKbGelReferenceBuff existing = dictByPKey.get( pkey );
+		YCFGenKbGelReferenceBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateGelReference",
 				"Existing record not found",
 				"GelReference",
 				pkey );
 		}
-		CFGenKbGelReferenceByRemainderIdxKey existingKeyRemainderIdx = schema.getFactoryGelReference().newRemainderIdxKey();
+		YCFGenKbGelReferenceByRemainderIdxKey existingKeyRemainderIdx = schema.getFactoryGelReference().newRemainderIdxKey();
 		existingKeyRemainderIdx.setOptionalRemainderTenantId( existing.getOptionalRemainderTenantId() );
 		existingKeyRemainderIdx.setRequiredRemainderGelCacheId( existing.getRequiredRemainderGelCacheId() );
 		existingKeyRemainderIdx.setOptionalRemainderInstId( existing.getOptionalRemainderInstId() );
 
-		CFGenKbGelReferenceByRemainderIdxKey newKeyRemainderIdx = schema.getFactoryGelReference().newRemainderIdxKey();
+		YCFGenKbGelReferenceByRemainderIdxKey newKeyRemainderIdx = schema.getFactoryGelReference().newRemainderIdxKey();
 		newKeyRemainderIdx.setOptionalRemainderTenantId( Buff.getOptionalRemainderTenantId() );
 		newKeyRemainderIdx.setRequiredRemainderGelCacheId( Buff.getRequiredRemainderGelCacheId() );
 		newKeyRemainderIdx.setOptionalRemainderInstId( Buff.getOptionalRemainderInstId() );
@@ -496,7 +496,7 @@ public class CFGenKbRamGelReferenceTable
 						Buff.getRequiredGelCacheId(),
 						Buff.getRequiredGelInstId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateGelReference",
 						"Superclass",
 						"SuperClass",
@@ -508,7 +508,7 @@ public class CFGenKbRamGelReferenceTable
 
 		// Update is valid
 
-		Map< CFGenKbGelInstructionPKey, CFGenKbGelReferenceBuff > subdict;
+		Map< YCFGenKbGelInstructionPKey, YCFGenKbGelReferenceBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -521,29 +521,29 @@ public class CFGenKbRamGelReferenceTable
 			subdict = dictByRemainderIdx.get( newKeyRemainderIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbGelInstructionPKey, CFGenKbGelReferenceBuff >();
+			subdict = new HashMap< YCFGenKbGelInstructionPKey, YCFGenKbGelReferenceBuff >();
 			dictByRemainderIdx.put( newKeyRemainderIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteGelReference( CFGenKbAuthorization Authorization,
-		CFGenKbGelReferenceBuff Buff )
+	public void deleteGelReference( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelReferenceBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamGelReferenceTable.deleteGelReference() ";
+		final String S_ProcName = "YCFGenKbRamGelReferenceTable.deleteGelReference() ";
 		String classCode;
-		CFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = schema.getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		pkey.setRequiredGelInstId( Buff.getRequiredGelInstId() );
-		CFGenKbGelReferenceBuff existing = dictByPKey.get( pkey );
+		YCFGenKbGelReferenceBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteGelReference",
 				pkey );
 		}
@@ -551,7 +551,7 @@ public class CFGenKbRamGelReferenceTable
 						existing.getOptionalRemainderTenantId(),
 						existing.getRequiredRemainderGelCacheId(),
 						existing.getOptionalRemainderInstId() );
-		CFGenKbGelReferenceByRemainderIdxKey keyRemainderIdx = schema.getFactoryGelReference().newRemainderIdxKey();
+		YCFGenKbGelReferenceByRemainderIdxKey keyRemainderIdx = schema.getFactoryGelReference().newRemainderIdxKey();
 		keyRemainderIdx.setOptionalRemainderTenantId( existing.getOptionalRemainderTenantId() );
 		keyRemainderIdx.setRequiredRemainderGelCacheId( existing.getRequiredRemainderGelCacheId() );
 		keyRemainderIdx.setOptionalRemainderInstId( existing.getOptionalRemainderInstId() );
@@ -559,7 +559,7 @@ public class CFGenKbRamGelReferenceTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbGelInstructionPKey, CFGenKbGelReferenceBuff > subdict;
+		Map< YCFGenKbGelInstructionPKey, YCFGenKbGelReferenceBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -569,22 +569,22 @@ public class CFGenKbRamGelReferenceTable
 		schema.getTableGelInstruction().deleteGelInstruction( Authorization,
 			Buff );
 	}
-	public void deleteGelReferenceByRemainderIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelReferenceByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long argRemainderTenantId,
 		long argRemainderGelCacheId,
 		Long argRemainderInstId )
 	{
-		CFGenKbGelReferenceByRemainderIdxKey key = schema.getFactoryGelReference().newRemainderIdxKey();
+		YCFGenKbGelReferenceByRemainderIdxKey key = schema.getFactoryGelReference().newRemainderIdxKey();
 		key.setOptionalRemainderTenantId( argRemainderTenantId );
 		key.setRequiredRemainderGelCacheId( argRemainderGelCacheId );
 		key.setOptionalRemainderInstId( argRemainderInstId );
 		deleteGelReferenceByRemainderIdx( Authorization, key );
 	}
 
-	public void deleteGelReferenceByRemainderIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelReferenceByRemainderIdxKey argKey )
+	public void deleteGelReferenceByRemainderIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelReferenceByRemainderIdxKey argKey )
 	{
-		CFGenKbGelReferenceBuff cur;
+		YCFGenKbGelReferenceBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalRemainderTenantId() != null ) {
 			anyNotNull = true;
@@ -596,15 +596,15 @@ public class CFGenKbRamGelReferenceTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelReferenceBuff> matchSet = new LinkedList<CFGenKbGelReferenceBuff>();
-		Iterator<CFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelReferenceBuff> matchSet = new LinkedList<YCFGenKbGelReferenceBuff>();
+		Iterator<YCFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelReference().readDerivedByPIdx( Authorization,
@@ -615,20 +615,20 @@ public class CFGenKbRamGelReferenceTable
 		}
 	}
 
-	public void deleteGelReferenceByPIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelReferenceByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId )
 	{
-		CFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey key = schema.getFactoryGelInstruction().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredGelCacheId( argGelCacheId );
 		key.setRequiredGelInstId( argGelInstId );
 		deleteGelReferenceByPIdx( Authorization, key );
 	}
 
-	public void deleteGelReferenceByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey )
+	public void deleteGelReferenceByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -637,16 +637,16 @@ public class CFGenKbRamGelReferenceTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbGelReferenceBuff cur;
-		LinkedList<CFGenKbGelReferenceBuff> matchSet = new LinkedList<CFGenKbGelReferenceBuff>();
-		Iterator<CFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
+		YCFGenKbGelReferenceBuff cur;
+		LinkedList<YCFGenKbGelReferenceBuff> matchSet = new LinkedList<YCFGenKbGelReferenceBuff>();
+		Iterator<YCFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelReference().readDerivedByPIdx( Authorization,
@@ -657,32 +657,32 @@ public class CFGenKbRamGelReferenceTable
 		}
 	}
 
-	public void deleteGelReferenceByTenantIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelReferenceByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId )
 	{
-		CFGenKbGelInstructionByTenantIdxKey key = schema.getFactoryGelInstruction().newTenantIdxKey();
+		YCFGenKbGelInstructionByTenantIdxKey key = schema.getFactoryGelInstruction().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteGelReferenceByTenantIdx( Authorization, key );
 	}
 
-	public void deleteGelReferenceByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey )
+	public void deleteGelReferenceByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey )
 	{
-		CFGenKbGelReferenceBuff cur;
+		YCFGenKbGelReferenceBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelReferenceBuff> matchSet = new LinkedList<CFGenKbGelReferenceBuff>();
-		Iterator<CFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelReferenceBuff> matchSet = new LinkedList<YCFGenKbGelReferenceBuff>();
+		Iterator<YCFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelReference().readDerivedByPIdx( Authorization,
@@ -693,35 +693,35 @@ public class CFGenKbRamGelReferenceTable
 		}
 	}
 
-	public void deleteGelReferenceByGelCacheIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelReferenceByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId )
 	{
-		CFGenKbGelInstructionByGelCacheIdxKey key = schema.getFactoryGelInstruction().newGelCacheIdxKey();
+		YCFGenKbGelInstructionByGelCacheIdxKey key = schema.getFactoryGelInstruction().newGelCacheIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredGelCacheId( argGelCacheId );
 		deleteGelReferenceByGelCacheIdx( Authorization, key );
 	}
 
-	public void deleteGelReferenceByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey )
+	public void deleteGelReferenceByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey )
 	{
-		CFGenKbGelReferenceBuff cur;
+		YCFGenKbGelReferenceBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelReferenceBuff> matchSet = new LinkedList<CFGenKbGelReferenceBuff>();
-		Iterator<CFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelReferenceBuff> matchSet = new LinkedList<YCFGenKbGelReferenceBuff>();
+		Iterator<YCFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelReference().readDerivedByPIdx( Authorization,
@@ -732,22 +732,22 @@ public class CFGenKbRamGelReferenceTable
 		}
 	}
 
-	public void deleteGelReferenceByChainIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelReferenceByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId )
 	{
-		CFGenKbGelInstructionByChainIdxKey key = schema.getFactoryGelInstruction().newChainIdxKey();
+		YCFGenKbGelInstructionByChainIdxKey key = schema.getFactoryGelInstruction().newChainIdxKey();
 		key.setOptionalChainInstTenantId( argChainInstTenantId );
 		key.setOptionalChainInstGelCacheId( argChainInstGelCacheId );
 		key.setOptionalChainInstGelInstId( argChainInstGelInstId );
 		deleteGelReferenceByChainIdx( Authorization, key );
 	}
 
-	public void deleteGelReferenceByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey )
+	public void deleteGelReferenceByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey )
 	{
-		CFGenKbGelReferenceBuff cur;
+		YCFGenKbGelReferenceBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalChainInstTenantId() != null ) {
 			anyNotNull = true;
@@ -761,15 +761,15 @@ public class CFGenKbRamGelReferenceTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelReferenceBuff> matchSet = new LinkedList<CFGenKbGelReferenceBuff>();
-		Iterator<CFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelReferenceBuff> matchSet = new LinkedList<YCFGenKbGelReferenceBuff>();
+		Iterator<YCFGenKbGelReferenceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelReferenceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelReference().readDerivedByPIdx( Authorization,

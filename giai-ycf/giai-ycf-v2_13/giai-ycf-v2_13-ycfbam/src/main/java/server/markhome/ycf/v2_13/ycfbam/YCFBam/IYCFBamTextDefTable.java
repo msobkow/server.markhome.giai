@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for TextDef.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamTextDefTable database interface for TextDef
+ *	YCFBamTextDefTable database interface for TextDef
  */
-public interface ICFBamTextDefTable
+public interface IYCFBamTextDefTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createTextDef( CFSecAuthorization Authorization,
-		CFBamTextDefBuff Buff );
+	void createTextDef( YCFSecAuthorization Authorization,
+		YCFBamTextDefBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateTextDef( CFSecAuthorization Authorization,
-		CFBamTextDefBuff Buff );
+	void updateTextDef( YCFSecAuthorization Authorization,
+		YCFBamTextDefBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteTextDef( CFSecAuthorization Authorization,
-		CFBamTextDefBuff Buff );
+	void deleteTextDef( YCFSecAuthorization Authorization,
+		YCFBamTextDefBuff Buff );
 	/**
 	 *	Delete the TextDef instance identified by the primary key attributes.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argId	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByIdIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -121,8 +121,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteTextDefByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteTextDefByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key UNameIdx.
 	 *
@@ -134,7 +134,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argName	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByUNameIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -146,8 +146,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteTextDefByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key ValTentIdx.
 	 *
@@ -155,7 +155,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argTenantId	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByValTentIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -165,8 +165,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteTextDefByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key ScopeIdx.
 	 *
@@ -176,7 +176,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argScopeId	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByScopeIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -187,8 +187,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteTextDefByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key DefSchemaIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argDefSchemaId	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -209,8 +209,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteTextDefByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key PrevIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argPrevId	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByPrevIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -231,8 +231,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteTextDefByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key NextIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argNextId	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByNextIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -253,8 +253,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteTextDefByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key ContPrevIdx.
 	 *
@@ -266,7 +266,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argPrevId	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -278,8 +278,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteTextDefByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key ContNextIdx.
 	 *
@@ -291,7 +291,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argNextId	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByContNextIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -303,8 +303,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteTextDefByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key CodeVisIdx.
 	 *
@@ -312,8 +312,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argCodeVis	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteTextDefByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the TextDef instances identified by the key CodeVisIdx.
@@ -322,8 +322,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteTextDefByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the TextDef instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -335,10 +335,10 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argCodeVis	The TextDef key attribute of the instance generating the id.
 	 */
-	void deleteTextDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteTextDefByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the TextDef instances identified by the key ScopeCodeVisIdx.
@@ -347,8 +347,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTextDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteTextDefByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -361,8 +361,8 @@ public interface ICFBamTextDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTextDefBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTextDefBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived TextDef buffer instance by primary key.
@@ -374,8 +374,8 @@ public interface ICFBamTextDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTextDefBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTextDefBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all TextDef instances.
@@ -384,7 +384,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamTextDefBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived TextDef buffer instance identified by the unique key IdIdx.
@@ -398,7 +398,7 @@ public interface ICFBamTextDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTextDefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -416,7 +416,7 @@ public interface ICFBamTextDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTextDefBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -430,7 +430,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -444,7 +444,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -459,7 +459,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -474,7 +474,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -489,7 +489,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -506,7 +506,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -524,7 +524,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -538,8 +538,8 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamTextDefBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived TextDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -554,10 +554,10 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTextDefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read the specific TextDef buffer instance identified by the primary key.
@@ -569,10 +569,10 @@ public interface ICFBamTextDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTextDefBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific TextDef buffer instance identified by the primary key.
@@ -584,10 +584,10 @@ public interface ICFBamTextDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTextDefBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific TextDef buffer instances.
@@ -596,7 +596,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return All the specific TextDef instances in the database accessible for the Authorization.
 	 */
-	CFBamTextDefBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamTextDefBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific TextDef buffer instance identified by the unique key IdIdx.
@@ -610,9 +610,9 @@ public interface ICFBamTextDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -630,9 +630,9 @@ public interface ICFBamTextDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -646,9 +646,9 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -662,9 +662,9 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -679,9 +679,9 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -696,9 +696,9 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -713,9 +713,9 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -732,9 +732,9 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -752,9 +752,9 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -768,10 +768,10 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamTextDefBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific TextDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -786,19 +786,19 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTextDefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the specified buffer up in the chain (i.e. to the previous position.)
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamTextDefBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -808,7 +808,7 @@ public interface ICFBamTextDefTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamTextDefBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamTextDefBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -816,7 +816,7 @@ public interface ICFBamTextDefTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

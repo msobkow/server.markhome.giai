@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFInt SecDevice.
+// Description: Java 11 Instance Edit Object interface for YCFInt SecDevice.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,21 +26,21 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntSecDeviceEditObj
-	extends ICFIntSecDeviceObj,
-		ICFSecSecDeviceEditObj
+public interface IYCFIntSecDeviceEditObj
+	extends IYCFIntSecDeviceObj,
+		IYCFSecSecDeviceEditObj
 {
 	/*
 	 *	create() may return a different instance than the
@@ -51,24 +51,24 @@ public interface ICFIntSecDeviceEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFSecSecDeviceObj create();
+	IYCFSecSecDeviceObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFSecSecDeviceEditObj update();
+	YCFSecSecDeviceEditObj update();
 
 	/**
-	 *	Get the ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	Get the IYCFSecSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	@return	The IYCFSecSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFSecSecUserObj getRequiredContainerSecUser();
+	IYCFSecSecUserObj getRequiredContainerSecUser();
 
 	/**
-	 *	Set the ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	Set the IYCFSecSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@param	value	the ICFSecSecUserObj instance to be referenced by the SecUser key.
+	 *	@param	value	the IYCFSecSecUserObj instance to be referenced by the SecUser key.
 	 */
-	void setRequiredContainerSecUser( ICFSecSecUserObj value );
+	void setRequiredContainerSecUser( IYCFSecSecUserObj value );
 }

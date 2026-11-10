@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFSec TSecGrpMemb.
+// Description: Java 11 Object interface for YCFSec TSecGrpMemb.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,27 +26,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecTSecGrpMembObj
-	extends ICFLibAnyObj
+public interface IYCFSecTSecGrpMembObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -58,9 +58,9 @@ public interface ICFSecTSecGrpMembObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -71,9 +71,9 @@ public interface ICFSecTSecGrpMembObj
 	/**
 	 *	Realise this instance of a TSecGrpMemb.
 	 *
-	 *	@return	CFSecTSecGrpMembObj instance which should be subsequently referenced.
+	 *	@return	YCFSecTSecGrpMembObj instance which should be subsequently referenced.
 	 */
-	ICFSecTSecGrpMembObj realise();
+	IYCFSecTSecGrpMembObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -85,99 +85,99 @@ public interface ICFSecTSecGrpMembObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecTSecGrpMembObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecTSecGrpMembObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecTSecGrpMembObj read();
+	IYCFSecTSecGrpMembObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecTSecGrpMembObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecTSecGrpMembObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecTSecGrpMembObj read( boolean forceRead );
+	IYCFSecTSecGrpMembObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this TSecGrpMemb instance.
 	 *
-	 *	@return	The newly locked ICFSecTSecGrpMembEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecTSecGrpMembEditObj edition of this instance.
 	 */
-	ICFSecTSecGrpMembEditObj beginEdit();
+	IYCFSecTSecGrpMembEditObj beginEdit();
 
 	/**
 	 *	End this edition of this TSecGrpMemb instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this TSecGrpMemb instance.
 	 *
-	 *	@return	The ICFSecTSecGrpMembEditObj edition of this instance.
+	 *	@return	The IYCFSecTSecGrpMembEditObj edition of this instance.
 	 */
-	ICFSecTSecGrpMembEditObj getEdit();
+	IYCFSecTSecGrpMembEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this TSecGrpMemb instance as a ICFSecTSecGrpMembEditObj.
+	 *	Get the current edition of this TSecGrpMemb instance as a IYCFSecTSecGrpMembEditObj.
 	 *
-	 *	@return	The ICFSecTSecGrpMembEditObj edition of this instance.
+	 *	@return	The IYCFSecTSecGrpMembEditObj edition of this instance.
 	 */
-	ICFSecTSecGrpMembEditObj getEditAsTSecGrpMemb();
+	IYCFSecTSecGrpMembEditObj getEditAsTSecGrpMemb();
 
 	/**
-	 *	Get the ICFSecTSecGrpMembTableObj table cache which manages this instance.
+	 *	Get the IYCFSecTSecGrpMembTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecTSecGrpMembTableObj table cache which manages this instance.
+	 *	@return	IYCFSecTSecGrpMembTableObj table cache which manages this instance.
 	 */
-	ICFSecTSecGrpMembTableObj getTSecGrpMembTable();
+	IYCFSecTSecGrpMembTableObj getTSecGrpMembTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecTSecGrpMembBuff instance which currently backs this instance.
+	 *	Get the YCFSecTSecGrpMembBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecTSecGrpMembBuff instance which currently backs this object.
+	 *	@return	YCFSecTSecGrpMembBuff instance which currently backs this object.
 	 */
-	CFSecTSecGrpMembBuff getBuff();
+	YCFSecTSecGrpMembBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecTSecGrpMembBuff value );
+	void setBuff( YCFSecTSecGrpMembBuff value );
 
 	/**
-	 *	Get the CFSecTSecGrpMembBuff instance which currently backs this instance.
+	 *	Get the YCFSecTSecGrpMembBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecTSecGrpMembBuff instance which currently backs this object.
+	 *	@return	YCFSecTSecGrpMembBuff instance which currently backs this object.
 	 */
-	CFSecTSecGrpMembBuff getTSecGrpMembBuff();
+	YCFSecTSecGrpMembBuff getTSecGrpMembBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFSecTSecGrpMembPKey primary key for this instance.
+	 *	@return	YCFSecTSecGrpMembPKey primary key for this instance.
 	 */
-	CFSecTSecGrpMembPKey getPKey();
+	YCFSecTSecGrpMembPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFSecTSecGrpMembPKey primary key value for this instance.
+	 *	@param YCFSecTSecGrpMembPKey primary key value for this instance.
 	 */
-	void setPKey( CFSecTSecGrpMembPKey value );
+	void setPKey( YCFSecTSecGrpMembPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -225,46 +225,46 @@ public interface ICFSecTSecGrpMembObj
 	UUID getRequiredSecUserId();
 
 	/**
-	 *	Get the required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
-	 *	Get the required ICFSecTSecGroupObj instance referenced by the Group key.
+	 *	Get the required IYCFSecTSecGroupObj instance referenced by the Group key.
 	 *
-	 *	@return	The required ICFSecTSecGroupObj instance referenced by the Group key.
+	 *	@return	The required IYCFSecTSecGroupObj instance referenced by the Group key.
 	 */
-	ICFSecTSecGroupObj getRequiredContainerGroup();
+	IYCFSecTSecGroupObj getRequiredContainerGroup();
 
 	/**
-	 *	Get the required ICFSecTSecGroupObj instance referenced by the Group key.
+	 *	Get the required IYCFSecTSecGroupObj instance referenced by the Group key.
 	 *
-	 *	@return	The required ICFSecTSecGroupObj instance referenced by the Group key.
+	 *	@return	The required IYCFSecTSecGroupObj instance referenced by the Group key.
 	 */
-	ICFSecTSecGroupObj getRequiredContainerGroup( boolean forceRead );
+	IYCFSecTSecGroupObj getRequiredContainerGroup( boolean forceRead );
 
 	/**
-	 *	Get the required ICFSecSecUserObj instance referenced by the User key.
+	 *	Get the required IYCFSecSecUserObj instance referenced by the User key.
 	 *
-	 *	@return	The required ICFSecSecUserObj instance referenced by the User key.
+	 *	@return	The required IYCFSecSecUserObj instance referenced by the User key.
 	 */
-	ICFSecSecUserObj getRequiredParentUser();
+	IYCFSecSecUserObj getRequiredParentUser();
 
 	/**
-	 *	Get the required ICFSecSecUserObj instance referenced by the User key.
+	 *	Get the required IYCFSecSecUserObj instance referenced by the User key.
 	 *
-	 *	@return	The required ICFSecSecUserObj instance referenced by the User key.
+	 *	@return	The required IYCFSecSecUserObj instance referenced by the User key.
 	 */
-	ICFSecSecUserObj getRequiredParentUser( boolean forceRead );
+	IYCFSecSecUserObj getRequiredParentUser( boolean forceRead );
 
 	/**
 	 *	Internal use only.

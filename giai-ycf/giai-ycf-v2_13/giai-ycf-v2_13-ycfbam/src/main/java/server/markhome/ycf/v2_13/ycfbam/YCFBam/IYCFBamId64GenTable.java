@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for Id64Gen.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamId64GenTable database interface for Id64Gen
+ *	YCFBamId64GenTable database interface for Id64Gen
  */
-public interface ICFBamId64GenTable
+public interface IYCFBamId64GenTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createId64Gen( CFSecAuthorization Authorization,
-		CFBamId64GenBuff Buff );
+	void createId64Gen( YCFSecAuthorization Authorization,
+		YCFBamId64GenBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateId64Gen( CFSecAuthorization Authorization,
-		CFBamId64GenBuff Buff );
+	void updateId64Gen( YCFSecAuthorization Authorization,
+		YCFBamId64GenBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteId64Gen( CFSecAuthorization Authorization,
-		CFBamId64GenBuff Buff );
+	void deleteId64Gen( YCFSecAuthorization Authorization,
+		YCFBamId64GenBuff Buff );
 	/**
 	 *	Delete the Id64Gen instances identified by the key DispIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argDispenserId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByDispIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByDispIdx( YCFSecAuthorization Authorization,
 		Long argDispenserTenantId,
 		Long argDispenserId );
 
@@ -121,8 +121,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByDispIdx( CFSecAuthorization Authorization,
-		CFBamId64GenByDispIdxKey argKey );
+	void deleteId64GenByDispIdx( YCFSecAuthorization Authorization,
+		YCFBamId64GenByDispIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key SchemaIdx.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argSchemaDefId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenBySchemaIdx( CFSecAuthorization Authorization,
+	void deleteId64GenBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId );
 
@@ -143,8 +143,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamInt64TypeBySchemaIdxKey argKey );
+	void deleteId64GenBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamInt64TypeBySchemaIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instance identified by the primary key attributes.
 	 *
@@ -154,7 +154,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByIdIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -165,8 +165,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteId64GenByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteId64GenByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key UNameIdx.
 	 *
@@ -178,7 +178,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argName	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByUNameIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -190,8 +190,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteId64GenByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key ValTentIdx.
 	 *
@@ -199,7 +199,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argTenantId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByValTentIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -209,8 +209,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteId64GenByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key ScopeIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argScopeId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByScopeIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -231,8 +231,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteId64GenByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key DefSchemaIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argDefSchemaId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -253,8 +253,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteId64GenByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key PrevIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argPrevId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByPrevIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -275,8 +275,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteId64GenByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key NextIdx.
 	 *
@@ -286,7 +286,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argNextId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByNextIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -297,8 +297,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteId64GenByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key ContPrevIdx.
 	 *
@@ -310,7 +310,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argPrevId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -322,8 +322,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteId64GenByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key ContNextIdx.
 	 *
@@ -335,7 +335,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argNextId	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByContNextIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -347,8 +347,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteId64GenByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key CodeVisIdx.
 	 *
@@ -356,8 +356,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argCodeVis	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteId64GenByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the Id64Gen instances identified by the key CodeVisIdx.
@@ -366,8 +366,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteId64GenByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the Id64Gen instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -379,10 +379,10 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argCodeVis	The Id64Gen key attribute of the instance generating the id.
 	 */
-	void deleteId64GenByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteId64GenByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the Id64Gen instances identified by the key ScopeCodeVisIdx.
@@ -391,8 +391,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteId64GenByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteId64GenByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -405,8 +405,8 @@ public interface ICFBamId64GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamId64GenBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamId64GenBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived Id64Gen buffer instance by primary key.
@@ -418,8 +418,8 @@ public interface ICFBamId64GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamId64GenBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamId64GenBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all Id64Gen instances.
@@ -428,7 +428,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamId64GenBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived Id64Gen buffer instance identified by the unique key IdIdx.
@@ -442,7 +442,7 @@ public interface ICFBamId64GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamId64GenBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -460,7 +460,7 @@ public interface ICFBamId64GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamId64GenBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -474,7 +474,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -488,7 +488,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -503,7 +503,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -518,7 +518,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -533,7 +533,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -550,7 +550,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -568,7 +568,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -582,8 +582,8 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamId64GenBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived Id64Gen buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -598,10 +598,10 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived Id64Gen buffer instances identified by the duplicate key SchemaIdx.
@@ -614,7 +614,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -629,7 +629,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamId64GenBuff[] readDerivedByDispIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readDerivedByDispIdx( YCFSecAuthorization Authorization,
 		Long DispenserTenantId,
 		Long DispenserId );
 
@@ -643,10 +643,10 @@ public interface ICFBamId64GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamId64GenBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific Id64Gen buffer instance identified by the primary key.
@@ -658,10 +658,10 @@ public interface ICFBamId64GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamId64GenBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific Id64Gen buffer instances.
@@ -670,7 +670,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return All the specific Id64Gen instances in the database accessible for the Authorization.
 	 */
-	CFBamId64GenBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamId64GenBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific Id64Gen buffer instance identified by the unique key IdIdx.
@@ -684,9 +684,9 @@ public interface ICFBamId64GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -704,9 +704,9 @@ public interface ICFBamId64GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -720,9 +720,9 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -736,9 +736,9 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -753,9 +753,9 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -770,9 +770,9 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -787,9 +787,9 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -806,9 +806,9 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -826,9 +826,9 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -842,10 +842,10 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamId64GenBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Id64Gen buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -860,12 +860,12 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Id64Gen buffer instances identified by the duplicate key SchemaIdx.
@@ -878,9 +878,9 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -895,9 +895,9 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamId64GenBuff[] readBuffByDispIdx( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff[] readBuffByDispIdx( YCFSecAuthorization Authorization,
 		Long DispenserTenantId,
 		Long DispenserId );
 
@@ -906,7 +906,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamId64GenBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -916,7 +916,7 @@ public interface ICFBamId64GenTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamId64GenBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamId64GenBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -924,7 +924,7 @@ public interface ICFBamId64GenTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

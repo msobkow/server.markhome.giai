@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,22 +21,22 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
-public class CFLibDependentsDetectedException extends CFLibRuntimeException {
+public class YCFLibDependentsDetectedException extends YCFLibRuntimeException {
 
 	protected String relnType = null;
 	protected String relnName = null;
 	protected String relnTarget = null;
 	protected Object pkey = null;
 
-	public CFLibDependentsDetectedException(
+	public YCFLibDependentsDetectedException(
 		String msg )
 	{
 		super( msg );
 	}
 	
-	public CFLibDependentsDetectedException(
+	public YCFLibDependentsDetectedException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -44,7 +44,7 @@ public class CFLibDependentsDetectedException extends CFLibRuntimeException {
 		super( throwingClass, methName, msg );
 	}
 
-	public CFLibDependentsDetectedException(
+	public YCFLibDependentsDetectedException(
 		Class throwingClass,
 		String methName,
 		String msg,
@@ -53,7 +53,7 @@ public class CFLibDependentsDetectedException extends CFLibRuntimeException {
 		super( throwingClass, methName, msg, th );
 	}
 
-	public CFLibDependentsDetectedException(
+	public YCFLibDependentsDetectedException(
 		Class throwingClass,
 		String methName,
 		String relationType,
@@ -71,7 +71,7 @@ public class CFLibDependentsDetectedException extends CFLibRuntimeException {
 		pkey = argKey;
 	}
 
-	public CFLibDependentsDetectedException(
+	public YCFLibDependentsDetectedException(
 		Class throwingClass,
 		String methName,
 		String relationType,

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a ToolSet primary key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,22 +37,22 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFGenKbToolSetPKey Primary Key for ToolSet
+ *	YCFGenKbToolSetPKey Primary Key for ToolSet
 
  *		requiredId	Required object attribute Id. */
-public class CFGenKbToolSetPKey
+public class YCFGenKbToolSetPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected short requiredId;
-	public CFGenKbToolSetPKey() {
-		requiredId = CFGenKbToolSetBuff.ID_INIT_VALUE;
+	public YCFGenKbToolSetPKey() {
+		requiredId = YCFGenKbToolSetBuff.ID_INIT_VALUE;
 	}
 
 	public short getRequiredId() {
@@ -60,21 +60,21 @@ public class CFGenKbToolSetPKey
 	}
 
 	public void setRequiredId( short value ) {
-		if( value < CFGenKbToolSetBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbToolSetBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbToolSetBuff.ID_MIN_VALUE );
+				YCFGenKbToolSetBuff.ID_MIN_VALUE );
 		}
-		if( value > CFGenKbToolSetBuff.ID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbToolSetBuff.ID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbToolSetBuff.ID_MAX_VALUE );
+				YCFGenKbToolSetBuff.ID_MAX_VALUE );
 		}
 		requiredId = value;
 	}
@@ -83,15 +83,15 @@ public class CFGenKbToolSetPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbToolSetPKey ) {
-			CFGenKbToolSetPKey rhs = (CFGenKbToolSetPKey)obj;
+		else if( obj instanceof YCFGenKbToolSetPKey ) {
+			YCFGenKbToolSetPKey rhs = (YCFGenKbToolSetPKey)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbToolSetBuff ) {
-			CFGenKbToolSetBuff rhs = (CFGenKbToolSetBuff)obj;
+		else if( obj instanceof YCFGenKbToolSetBuff ) {
+			YCFGenKbToolSetBuff rhs = (YCFGenKbToolSetBuff)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -112,8 +112,8 @@ public class CFGenKbToolSetPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbToolSetPKey ) {
-			CFGenKbToolSetPKey rhs = (CFGenKbToolSetPKey)obj;
+		else if( obj instanceof YCFGenKbToolSetPKey ) {
+			YCFGenKbToolSetPKey rhs = (YCFGenKbToolSetPKey)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -122,8 +122,8 @@ public class CFGenKbToolSetPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbToolSetBuff ) {
-			CFGenKbToolSetBuff rhs = (CFGenKbToolSetBuff)obj;
+		else if( obj instanceof YCFGenKbToolSetBuff ) {
+			YCFGenKbToolSetBuff rhs = (YCFGenKbToolSetBuff)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -133,16 +133,16 @@ public class CFGenKbToolSetPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFGenKbToolSetPKey, CFGenKbToolSetBuff" );
+				"YCFGenKbToolSetPKey, YCFGenKbToolSetBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbToolSetPKey"
+		String ret = "<YCFGenKbToolSetPKey"
 			+ " RequiredId=" + "\"" + Short.toString( getRequiredId() ) + "\""
 			+ "/>";
 		return( ret );

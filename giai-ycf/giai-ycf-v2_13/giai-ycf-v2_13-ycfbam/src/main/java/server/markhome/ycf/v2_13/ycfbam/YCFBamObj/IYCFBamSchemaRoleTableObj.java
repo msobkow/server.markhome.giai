@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamSchemaRoleTableObj
+public interface IYCFBamSchemaRoleTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamSchemaRoleTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamSchemaRoleObj newInstance();
+	IYCFBamSchemaRoleObj newInstance();
 
 	/**
 	 *	Instantiate a new SchemaRole edition of the specified SchemaRole instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamSchemaRoleEditObj newEditInstance( ICFBamSchemaRoleObj orig );
+	IYCFBamSchemaRoleEditObj newEditInstance( IYCFBamSchemaRoleObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamSchemaRoleObj realiseSchemaRole( ICFBamSchemaRoleObj Obj );
+	IYCFBamSchemaRoleObj realiseSchemaRole( IYCFBamSchemaRoleObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamSchemaRoleObj createSchemaRole( ICFBamSchemaRoleObj Obj );
+	IYCFBamSchemaRoleObj createSchemaRole( IYCFBamSchemaRoleObj Obj );
 
 	/**
 	 *	Read a SchemaRole-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamSchemaRoleTableObj
 	 *	@return	The SchemaRole-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamSchemaRoleObj readSchemaRole( CFBamRoleDefPKey pkey );
+	IYCFBamSchemaRoleObj readSchemaRole( YCFBamRoleDefPKey pkey );
 
 	/**
 	 *	Read a SchemaRole-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamSchemaRoleTableObj
 	 *	@return	The SchemaRole-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamSchemaRoleObj readSchemaRole( CFBamRoleDefPKey pkey,
+	IYCFBamSchemaRoleObj readSchemaRole( YCFBamRoleDefPKey pkey,
 		boolean forceRead );
 
-	ICFBamSchemaRoleObj readCachedSchemaRole( CFBamRoleDefPKey pkey );
+	IYCFBamSchemaRoleObj readCachedSchemaRole( YCFBamRoleDefPKey pkey );
 
-	public void reallyDeepDisposeSchemaRole( ICFBamSchemaRoleObj obj );
+	public void reallyDeepDisposeSchemaRole( IYCFBamSchemaRoleObj obj );
 
-	void deepDisposeSchemaRole( CFBamRoleDefPKey pkey );
+	void deepDisposeSchemaRole( YCFBamRoleDefPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamSchemaRoleObj lockSchemaRole( CFBamRoleDefPKey pkey );
+	IYCFBamSchemaRoleObj lockSchemaRole( YCFBamRoleDefPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SchemaRole-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamSchemaRoleObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamSchemaRoleObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readAllSchemaRole();
+	List<IYCFBamSchemaRoleObj> readAllSchemaRole();
 
 	/**
 	 *	Return a sorted map of all the SchemaRole-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamSchemaRoleObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamSchemaRoleObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readAllSchemaRole( boolean forceRead );
+	List<IYCFBamSchemaRoleObj> readAllSchemaRole( boolean forceRead );
 
-	List<ICFBamSchemaRoleObj> readCachedAllSchemaRole();
+	List<IYCFBamSchemaRoleObj> readCachedAllSchemaRole();
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the primary key attributes.
+	 *	Get the YCFBamRoleDefObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj cached instance for the primary key, or
+	 *	@return	YCFBamRoleDefObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRoleObj readSchemaRoleByIdIdx( long TenantId,
+	IYCFBamSchemaRoleObj readSchemaRoleByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the primary key attributes.
+	 *	Get the YCFBamRoleDefObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj refreshed instance for the primary key, or
+	 *	@return	YCFBamRoleDefObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRoleObj readSchemaRoleByIdIdx( long TenantId,
+	IYCFBamSchemaRoleObj readSchemaRoleByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamRoleDefObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamSchemaRoleTableObj
 	 *
 	 *	@param	argName	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamRoleDefObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRoleObj readSchemaRoleByUNameIdx( long TenantId,
+	IYCFBamSchemaRoleObj readSchemaRoleByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamRoleDefObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
@@ -197,16 +197,16 @@ public interface ICFBamSchemaRoleTableObj
 	 *
 	 *	@param	argName	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamRoleDefObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRoleObj readSchemaRoleByUNameIdx( long TenantId,
+	IYCFBamSchemaRoleObj readSchemaRoleByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the unique UDefIdx key.
+	 *	Get the YCFBamRoleDefObj instance for the unique UDefIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
@@ -218,17 +218,17 @@ public interface ICFBamSchemaRoleTableObj
 	 *
 	 *	@param	argName	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj cached instance for the unique UDefIdx key, or
+	 *	@return	YCFBamRoleDefObj cached instance for the unique UDefIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRoleObj readSchemaRoleByUDefIdx( long TenantId,
+	IYCFBamSchemaRoleObj readSchemaRoleByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the unique UDefIdx key.
+	 *	Get the YCFBamRoleDefObj instance for the unique UDefIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
@@ -240,10 +240,10 @@ public interface ICFBamSchemaRoleTableObj
 	 *
 	 *	@param	argName	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj refreshed instance for the unique UDefIdx key, or
+	 *	@return	YCFBamRoleDefObj refreshed instance for the unique UDefIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRoleObj readSchemaRoleByUDefIdx( long TenantId,
+	IYCFBamSchemaRoleObj readSchemaRoleByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
@@ -251,146 +251,130 @@ public interface ICFBamSchemaRoleTableObj
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRoleDefObj instances sorted by their primary keys for the duplicate RoleDefTentIdx key.
+	 *	Get the map of YCFBamRoleDefObj instances sorted by their primary keys for the duplicate RoleDefTentIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleDefTentIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleDefTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleByRoleDefTentIdx( long TenantId );
+	List<IYCFBamSchemaRoleObj> readSchemaRoleByRoleDefTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate RoleDefTentIdx key.
+	 *	Get the map of YCFBamSchemaRoleObj instances sorted by their primary keys for the duplicate RoleDefTentIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleDefTentIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleDefTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleByRoleDefTentIdx( long TenantId,
+	List<IYCFBamSchemaRoleObj> readSchemaRoleByRoleDefTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRoleDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamRoleDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleByScopeIdx( long TenantId,
+	List<IYCFBamSchemaRoleObj> readSchemaRoleByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamSchemaRoleObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleByScopeIdx( long TenantId,
+	List<IYCFBamSchemaRoleObj> readSchemaRoleByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRoleDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamRoleDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamSchemaRoleObj> readSchemaRoleByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamSchemaRoleObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamSchemaRoleObj> readSchemaRoleByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleBySchemaIdx( long TenantId,
+	List<IYCFBamSchemaRoleObj> readSchemaRoleBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	/**
-	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleBySchemaIdx( long TenantId,
+	List<IYCFBamSchemaRoleObj> readSchemaRoleBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate RoleScopeIdx key.
+	 *	Get the map of YCFBamSchemaRoleObj instances sorted by their primary keys for the duplicate RoleScopeIdx key.
 	 *
 	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleScopeIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope );
+	List<IYCFBamSchemaRoleObj> readSchemaRoleByRoleScopeIdx( IYCFBamSchema.RoleScopeEnum RoleScope );
 
 	/**
-	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate RoleScopeIdx key.
+	 *	Get the map of YCFBamSchemaRoleObj instances sorted by their primary keys for the duplicate RoleScopeIdx key.
 	 *
 	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleScopeIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope,
+	List<IYCFBamSchemaRoleObj> readSchemaRoleByRoleScopeIdx( IYCFBamSchema.RoleScopeEnum RoleScope,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchRoleScpIdx key.
-	 *
-	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
-	 *
-	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
-	 *
-	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
-	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchRoleScpIdx key,
-	 *		which may be an empty set.
-	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleBySchRoleScpIdx( long TenantId,
-		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope );
-
-	/**
-	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchRoleScpIdx key.
+	 *	Get the map of YCFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchRoleScpIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 *
@@ -398,43 +382,59 @@ public interface ICFBamSchemaRoleTableObj
 	 *
 	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchRoleScpIdx key,
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchRoleScpIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRoleObj> readSchemaRoleBySchRoleScpIdx( long TenantId,
+	List<IYCFBamSchemaRoleObj> readSchemaRoleBySchRoleScpIdx( long TenantId,
 		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope,
+		IYCFBamSchema.RoleScopeEnum RoleScope );
+
+	/**
+	 *	Get the map of YCFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchRoleScpIdx key.
+	 *
+	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return	List of YCFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchRoleScpIdx key,
+	 *		which may be an empty set.
+	 */
+	List<IYCFBamSchemaRoleObj> readSchemaRoleBySchRoleScpIdx( long TenantId,
+		long SchemaDefId,
+		IYCFBamSchema.RoleScopeEnum RoleScope,
 		boolean forceRead );
 
-	ICFBamSchemaRoleObj readCachedSchemaRoleByIdIdx( long TenantId,
+	IYCFBamSchemaRoleObj readCachedSchemaRoleByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamSchemaRoleObj readCachedSchemaRoleByUNameIdx( long TenantId,
+	IYCFBamSchemaRoleObj readCachedSchemaRoleByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	ICFBamSchemaRoleObj readCachedSchemaRoleByUDefIdx( long TenantId,
+	IYCFBamSchemaRoleObj readCachedSchemaRoleByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name );
 
-	List<ICFBamSchemaRoleObj> readCachedSchemaRoleByRoleDefTentIdx( long TenantId );
+	List<IYCFBamSchemaRoleObj> readCachedSchemaRoleByRoleDefTentIdx( long TenantId );
 
-	List<ICFBamSchemaRoleObj> readCachedSchemaRoleByScopeIdx( long TenantId,
+	List<IYCFBamSchemaRoleObj> readCachedSchemaRoleByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamSchemaRoleObj> readCachedSchemaRoleByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamSchemaRoleObj> readCachedSchemaRoleByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamSchemaRoleObj> readCachedSchemaRoleBySchemaIdx( long TenantId,
+	List<IYCFBamSchemaRoleObj> readCachedSchemaRoleBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
-	List<ICFBamSchemaRoleObj> readCachedSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope );
+	List<IYCFBamSchemaRoleObj> readCachedSchemaRoleByRoleScopeIdx( IYCFBamSchema.RoleScopeEnum RoleScope );
 
-	List<ICFBamSchemaRoleObj> readCachedSchemaRoleBySchRoleScpIdx( long TenantId,
+	List<IYCFBamSchemaRoleObj> readCachedSchemaRoleBySchRoleScpIdx( long TenantId,
 		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope );
+		IYCFBamSchema.RoleScopeEnum RoleScope );
 
 	void deepDisposeSchemaRoleByIdIdx( long TenantId,
 		long Id );
@@ -460,21 +460,21 @@ public interface ICFBamSchemaRoleTableObj
 	void deepDisposeSchemaRoleBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
-	void deepDisposeSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope );
+	void deepDisposeSchemaRoleByRoleScopeIdx( IYCFBamSchema.RoleScopeEnum RoleScope );
 
 	void deepDisposeSchemaRoleBySchRoleScpIdx( long TenantId,
 		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope );
+		IYCFBamSchema.RoleScopeEnum RoleScope );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamSchemaRoleObj updateSchemaRole( ICFBamSchemaRoleObj Obj );
+	IYCFBamSchemaRoleObj updateSchemaRole( IYCFBamSchemaRoleObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSchemaRole( ICFBamSchemaRoleObj Obj );
+	void deleteSchemaRole( IYCFBamSchemaRoleObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -560,7 +560,7 @@ public interface ICFBamSchemaRoleTableObj
 	 *
 	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope );
+	void deleteSchemaRoleByRoleScopeIdx( IYCFBamSchema.RoleScopeEnum RoleScope );
 
 	/**
 	 *	Internal use only.
@@ -573,5 +573,5 @@ public interface ICFBamSchemaRoleTableObj
 	 */
 	void deleteSchemaRoleBySchRoleScpIdx( long TenantId,
 		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope );
+		IYCFBamSchema.RoleScopeEnum RoleScope );
 }

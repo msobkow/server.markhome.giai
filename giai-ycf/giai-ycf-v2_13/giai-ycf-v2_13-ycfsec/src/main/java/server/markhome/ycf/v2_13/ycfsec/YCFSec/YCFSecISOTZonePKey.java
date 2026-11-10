@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ISOTZone primary key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,22 +36,22 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFSecISOTZonePKey Primary Key for ISOTZone
+ *	YCFSecISOTZonePKey Primary Key for ISOTZone
 
  *		requiredISOTZoneId	Required object attribute ISOTZoneId. */
-public class CFSecISOTZonePKey
+public class YCFSecISOTZonePKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected short requiredISOTZoneId;
-	public CFSecISOTZonePKey() {
-		requiredISOTZoneId = CFSecISOTZoneBuff.ISOTZONEID_INIT_VALUE;
+	public YCFSecISOTZonePKey() {
+		requiredISOTZoneId = YCFSecISOTZoneBuff.ISOTZONEID_INIT_VALUE;
 	}
 
 	public short getRequiredISOTZoneId() {
@@ -59,13 +59,13 @@ public class CFSecISOTZonePKey
 	}
 
 	public void setRequiredISOTZoneId( short value ) {
-		if( value < CFSecISOTZoneBuff.ISOTZONEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecISOTZoneBuff.ISOTZONEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOTZoneId",
 				1,
 				"value",
 				value,
-				CFSecISOTZoneBuff.ISOTZONEID_MIN_VALUE );
+				YCFSecISOTZoneBuff.ISOTZONEID_MIN_VALUE );
 		}
 		requiredISOTZoneId = value;
 	}
@@ -74,29 +74,29 @@ public class CFSecISOTZonePKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecISOTZoneHPKey ) {
-			CFSecISOTZoneHPKey rhs = (CFSecISOTZoneHPKey)obj;
+		else if( obj instanceof YCFSecISOTZoneHPKey ) {
+			YCFSecISOTZoneHPKey rhs = (YCFSecISOTZoneHPKey)obj;
 			if( getRequiredISOTZoneId() != rhs.getRequiredISOTZoneId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOTZonePKey ) {
-			CFSecISOTZonePKey rhs = (CFSecISOTZonePKey)obj;
+		else if( obj instanceof YCFSecISOTZonePKey ) {
+			YCFSecISOTZonePKey rhs = (YCFSecISOTZonePKey)obj;
 			if( getRequiredISOTZoneId() != rhs.getRequiredISOTZoneId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOTZoneHBuff ) {
-			CFSecISOTZoneHBuff rhs = (CFSecISOTZoneHBuff)obj;
+		else if( obj instanceof YCFSecISOTZoneHBuff ) {
+			YCFSecISOTZoneHBuff rhs = (YCFSecISOTZoneHBuff)obj;
 			if( getRequiredISOTZoneId() != rhs.getRequiredISOTZoneId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOTZoneBuff ) {
-			CFSecISOTZoneBuff rhs = (CFSecISOTZoneBuff)obj;
+		else if( obj instanceof YCFSecISOTZoneBuff ) {
+			YCFSecISOTZoneBuff rhs = (YCFSecISOTZoneBuff)obj;
 			if( getRequiredISOTZoneId() != rhs.getRequiredISOTZoneId() ) {
 				return( false );
 			}
@@ -117,8 +117,8 @@ public class CFSecISOTZonePKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecISOTZoneHPKey ) {
-			CFSecISOTZoneHPKey rhs = (CFSecISOTZoneHPKey)obj;
+		else if( obj instanceof YCFSecISOTZoneHPKey ) {
+			YCFSecISOTZoneHPKey rhs = (YCFSecISOTZoneHPKey)obj;
 			if( getRequiredISOTZoneId() < rhs.getRequiredISOTZoneId() ) {
 				return( -1 );
 			}
@@ -127,8 +127,8 @@ public class CFSecISOTZonePKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOTZonePKey ) {
-			CFSecISOTZonePKey rhs = (CFSecISOTZonePKey)obj;
+		else if( obj instanceof YCFSecISOTZonePKey ) {
+			YCFSecISOTZonePKey rhs = (YCFSecISOTZonePKey)obj;
 			if( getRequiredISOTZoneId() < rhs.getRequiredISOTZoneId() ) {
 				return( -1 );
 			}
@@ -137,8 +137,8 @@ public class CFSecISOTZonePKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOTZoneBuff ) {
-			CFSecISOTZoneBuff rhs = (CFSecISOTZoneBuff)obj;
+		else if( obj instanceof YCFSecISOTZoneBuff ) {
+			YCFSecISOTZoneBuff rhs = (YCFSecISOTZoneBuff)obj;
 			if( getRequiredISOTZoneId() < rhs.getRequiredISOTZoneId() ) {
 				return( -1 );
 			}
@@ -147,8 +147,8 @@ public class CFSecISOTZonePKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOTZoneHBuff ) {
-			CFSecISOTZoneHBuff rhs = (CFSecISOTZoneHBuff)obj;
+		else if( obj instanceof YCFSecISOTZoneHBuff ) {
+			YCFSecISOTZoneHBuff rhs = (YCFSecISOTZoneHBuff)obj;
 			if( getRequiredISOTZoneId() < rhs.getRequiredISOTZoneId() ) {
 				return( -1 );
 			}
@@ -158,16 +158,16 @@ public class CFSecISOTZonePKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFSecISOTZonePKey, CFSecISOTZoneBuff" );
+				"YCFSecISOTZonePKey, YCFSecISOTZoneBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFSecISOTZonePKey"
+		String ret = "<YCFSecISOTZonePKey"
 			+ " RequiredISOTZoneId=" + "\"" + Short.toString( getRequiredISOTZoneId() ) + "\""
 			+ "/>";
 		return( ret );

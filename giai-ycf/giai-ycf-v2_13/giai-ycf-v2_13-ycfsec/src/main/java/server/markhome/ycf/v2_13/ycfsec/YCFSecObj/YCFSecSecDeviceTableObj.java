@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFSec.
+// Description: Java 11 Table Object implementation for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,51 +26,51 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecSecDeviceTableObj
-	implements ICFSecSecDeviceTableObj
+public class YCFSecSecDeviceTableObj
+	implements IYCFSecSecDeviceTableObj
 {
-	protected ICFSecSchemaObj schema;
-	private Map<CFSecSecDevicePKey, ICFSecSecDeviceObj> members;
-	private Map<CFSecSecDevicePKey, ICFSecSecDeviceObj> allSecDevice;
-	private Map< CFSecSecDeviceByNameIdxKey,
-		ICFSecSecDeviceObj > indexByNameIdx;
-	private Map< CFSecSecDeviceByUserIdxKey,
-		Map<CFSecSecDevicePKey, ICFSecSecDeviceObj > > indexByUserIdx;
+	protected IYCFSecSchemaObj schema;
+	private Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj> members;
+	private Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj> allSecDevice;
+	private Map< YCFSecSecDeviceByNameIdxKey,
+		IYCFSecSecDeviceObj > indexByNameIdx;
+	private Map< YCFSecSecDeviceByUserIdxKey,
+		Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj > > indexByUserIdx;
 	public static String TABLE_NAME = "SecDevice";
 	public static String TABLE_DBNAME = "secdev";
 
-	public CFSecSecDeviceTableObj() {
+	public YCFSecSecDeviceTableObj() {
 		schema = null;
-		members = new HashMap<CFSecSecDevicePKey, ICFSecSecDeviceObj>();
+		members = new HashMap<YCFSecSecDevicePKey, IYCFSecSecDeviceObj>();
 		allSecDevice = null;
 		indexByNameIdx = null;
 		indexByUserIdx = null;
 	}
 
-	public CFSecSecDeviceTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFSecSchemaObj)argSchema;
-		members = new HashMap<CFSecSecDevicePKey, ICFSecSecDeviceObj>();
+	public YCFSecSecDeviceTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFSecSchemaObj)argSchema;
+		members = new HashMap<YCFSecSecDevicePKey, IYCFSecSecDeviceObj>();
 		allSecDevice = null;
 		indexByNameIdx = null;
 		indexByUserIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFSecSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFSecSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -90,9 +90,9 @@ public class CFSecSecDeviceTableObj
 		allSecDevice = null;
 		indexByNameIdx = null;
 		indexByUserIdx = null;
-		List<ICFSecSecDeviceObj> toForget = new LinkedList<ICFSecSecDeviceObj>();
-		ICFSecSecDeviceObj cur = null;
-		Iterator<ICFSecSecDeviceObj> iter = members.values().iterator();
+		List<IYCFSecSecDeviceObj> toForget = new LinkedList<IYCFSecSecDeviceObj>();
+		IYCFSecSecDeviceObj cur = null;
+		Iterator<IYCFSecSecDeviceObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -110,10 +110,10 @@ public class CFSecSecDeviceTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecSecDeviceObj.
+	 *	YCFSecSecDeviceObj.
 	 */
-	public ICFSecSecDeviceObj newInstance() {
-		ICFSecSecDeviceObj inst = new CFSecSecDeviceObj( schema );
+	public IYCFSecSecDeviceObj newInstance() {
+		IYCFSecSecDeviceObj inst = new YCFSecSecDeviceObj( schema );
 		return( inst );
 	}
 
@@ -124,19 +124,19 @@ public class CFSecSecDeviceTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecSecDeviceObj.
+	 *	YCFSecSecDeviceObj.
 	 */
-	public ICFSecSecDeviceEditObj newEditInstance( ICFSecSecDeviceObj orig ) {
-		ICFSecSecDeviceEditObj edit = new CFSecSecDeviceEditObj( orig );
+	public IYCFSecSecDeviceEditObj newEditInstance( IYCFSecSecDeviceObj orig ) {
+		IYCFSecSecDeviceEditObj edit = new YCFSecSecDeviceEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecSecDeviceObj realiseSecDevice( ICFSecSecDeviceObj Obj ) {
-		ICFSecSecDeviceObj obj = Obj;
-		CFSecSecDevicePKey pkey = obj.getPKey();
-		ICFSecSecDeviceObj keepObj = null;
+	public IYCFSecSecDeviceObj realiseSecDevice( IYCFSecSecDeviceObj Obj ) {
+		IYCFSecSecDeviceObj obj = Obj;
+		YCFSecSecDevicePKey pkey = obj.getPKey();
+		IYCFSecSecDeviceObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecSecDeviceObj existingObj = members.get( pkey );
+			IYCFSecSecDeviceObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -147,18 +147,18 @@ public class CFSecSecDeviceTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByNameIdx != null ) {
-				CFSecSecDeviceByNameIdxKey keyNameIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
+				YCFSecSecDeviceByNameIdxKey keyNameIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
 				keyNameIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keyNameIdx.setRequiredDevName( keepObj.getRequiredDevName() );
 				indexByNameIdx.remove( keyNameIdx );
 			}
 
 			if( indexByUserIdx != null ) {
-				CFSecSecDeviceByUserIdxKey keyUserIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
+				YCFSecSecDeviceByUserIdxKey keyUserIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
 				keyUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
-				Map<CFSecSecDevicePKey, ICFSecSecDeviceObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
+				Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
 				if( mapUserIdx != null ) {
 					mapUserIdx.remove( keepObj.getPKey() );
 					if( mapUserIdx.size() <= 0 ) {
@@ -171,18 +171,18 @@ public class CFSecSecDeviceTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByNameIdx != null ) {
-				CFSecSecDeviceByNameIdxKey keyNameIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
+				YCFSecSecDeviceByNameIdxKey keyNameIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
 				keyNameIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keyNameIdx.setRequiredDevName( keepObj.getRequiredDevName() );
 				indexByNameIdx.put( keyNameIdx, keepObj );
 			}
 
 			if( indexByUserIdx != null ) {
-				CFSecSecDeviceByUserIdxKey keyUserIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
+				YCFSecSecDeviceByUserIdxKey keyUserIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
 				keyUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
-				Map<CFSecSecDevicePKey, ICFSecSecDeviceObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
+				Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
 				if( mapUserIdx != null ) {
 					mapUserIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -203,18 +203,18 @@ public class CFSecSecDeviceTableObj
 			}
 
 			if( indexByNameIdx != null ) {
-				CFSecSecDeviceByNameIdxKey keyNameIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
+				YCFSecSecDeviceByNameIdxKey keyNameIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
 				keyNameIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keyNameIdx.setRequiredDevName( keepObj.getRequiredDevName() );
 				indexByNameIdx.put( keyNameIdx, keepObj );
 			}
 
 			if( indexByUserIdx != null ) {
-				CFSecSecDeviceByUserIdxKey keyUserIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
+				YCFSecSecDeviceByUserIdxKey keyUserIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
 				keyUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
-				Map<CFSecSecDevicePKey, ICFSecSecDeviceObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
+				Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
 				if( mapUserIdx != null ) {
 					mapUserIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -224,10 +224,10 @@ public class CFSecSecDeviceTableObj
 		return( keepObj );
 	}
 
-	public ICFSecSecDeviceObj createSecDevice( ICFSecSecDeviceObj Obj ) {
-		ICFSecSecDeviceObj obj = Obj;
-		CFSecSecDeviceBuff buff = obj.getSecDeviceBuff();
-		((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().createSecDevice(
+	public IYCFSecSecDeviceObj createSecDevice( IYCFSecSecDeviceObj Obj ) {
+		IYCFSecSecDeviceObj obj = Obj;
+		YCFSecSecDeviceBuff buff = obj.getSecDeviceBuff();
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().createSecDevice(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -236,55 +236,55 @@ public class CFSecSecDeviceTableObj
 		return( obj );
 	}
 
-	public ICFSecSecDeviceObj readSecDevice( CFSecSecDevicePKey pkey ) {
+	public IYCFSecSecDeviceObj readSecDevice( YCFSecSecDevicePKey pkey ) {
 		return( readSecDevice( pkey, false ) );
 	}
 
-	public ICFSecSecDeviceObj readSecDevice( CFSecSecDevicePKey pkey, boolean forceRead ) {
-		ICFSecSecDeviceObj obj = null;
+	public IYCFSecSecDeviceObj readSecDevice( YCFSecSecDevicePKey pkey, boolean forceRead ) {
+		IYCFSecSecDeviceObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecSecDeviceBuff readBuff = ((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecSecDeviceBuff readBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredSecUserId(),
 				pkey.getRequiredDevName() );
 			if( readBuff != null ) {
 				obj = schema.getSecDeviceTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecSecDeviceObj)obj.realise();
+				obj = (IYCFSecSecDeviceObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecSecDeviceObj readCachedSecDevice( CFSecSecDevicePKey pkey ) {
-		ICFSecSecDeviceObj obj = null;
+	public IYCFSecSecDeviceObj readCachedSecDevice( YCFSecSecDevicePKey pkey ) {
+		IYCFSecSecDeviceObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeSecDevice( ICFSecSecDeviceObj obj )
+	public void reallyDeepDisposeSecDevice( IYCFSecSecDeviceObj obj )
 	{
-		final String S_ProcName = "CFSecSecDeviceTableObj.reallyDeepDisposeSecDevice() ";
+		final String S_ProcName = "YCFSecSecDeviceTableObj.reallyDeepDisposeSecDevice() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecSecDevicePKey pkey = obj.getPKey();
-		ICFSecSecDeviceObj existing = readCachedSecDevice( pkey );
+		YCFSecSecDevicePKey pkey = obj.getPKey();
+		IYCFSecSecDeviceObj existing = readCachedSecDevice( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecSecDeviceByNameIdxKey keyNameIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
+		YCFSecSecDeviceByNameIdxKey keyNameIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
 		keyNameIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 		keyNameIdx.setRequiredDevName( existing.getRequiredDevName() );
 
-		CFSecSecDeviceByUserIdxKey keyUserIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
+		YCFSecSecDeviceByUserIdxKey keyUserIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
 		keyUserIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 
 
@@ -304,57 +304,57 @@ public class CFSecSecDeviceTableObj
 
 
 	}
-	public void deepDisposeSecDevice( CFSecSecDevicePKey pkey ) {
-		ICFSecSecDeviceObj obj = readCachedSecDevice( pkey );
+	public void deepDisposeSecDevice( YCFSecSecDevicePKey pkey ) {
+		IYCFSecSecDeviceObj obj = readCachedSecDevice( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecSecDeviceObj lockSecDevice( CFSecSecDevicePKey pkey ) {
-		ICFSecSecDeviceObj locked = null;
-		CFSecSecDeviceBuff lockBuff = ((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecSecDeviceObj lockSecDevice( YCFSecSecDevicePKey pkey ) {
+		IYCFSecSecDeviceObj locked = null;
+		YCFSecSecDeviceBuff lockBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getSecDeviceTableObj().newInstance();
-			locked.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
+			locked.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecSecDeviceObj)locked.realise();
+			locked = (IYCFSecSecDeviceObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockSecDevice", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockSecDevice", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecSecDeviceObj> readAllSecDevice() {
+	public List<IYCFSecSecDeviceObj> readAllSecDevice() {
 		return( readAllSecDevice( false ) );
 	}
 
-	public List<ICFSecSecDeviceObj> readAllSecDevice( boolean forceRead ) {
+	public List<IYCFSecSecDeviceObj> readAllSecDevice( boolean forceRead ) {
 		final String S_ProcName = "readAllSecDevice";
 		if( ( allSecDevice == null ) || forceRead ) {
-			Map<CFSecSecDevicePKey, ICFSecSecDeviceObj> map = new HashMap<CFSecSecDevicePKey,ICFSecSecDeviceObj>();
+			Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj> map = new HashMap<YCFSecSecDevicePKey,IYCFSecSecDeviceObj>();
 			allSecDevice = map;
-			CFSecSecDeviceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().readAllDerived( schema.getAuthorization() );
-			CFSecSecDeviceBuff buff;
-			ICFSecSecDeviceObj obj;
+			YCFSecSecDeviceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().readAllDerived( schema.getAuthorization() );
+			YCFSecSecDeviceBuff buff;
+			IYCFSecSecDeviceObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecDeviceObj realised = (ICFSecSecDeviceObj)obj.realise();
+				IYCFSecSecDeviceObj realised = (IYCFSecSecDeviceObj)obj.realise();
 			}
 		}
 		int len = allSecDevice.size();
-		ICFSecSecDeviceObj arr[] = new ICFSecSecDeviceObj[len];
-		Iterator<ICFSecSecDeviceObj> valIter = allSecDevice.values().iterator();
+		IYCFSecSecDeviceObj arr[] = new IYCFSecSecDeviceObj[len];
+		Iterator<IYCFSecSecDeviceObj> valIter = allSecDevice.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -362,20 +362,20 @@ public class CFSecSecDeviceTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecDeviceObj> arrayList = new ArrayList<ICFSecSecDeviceObj>(len);
+		ArrayList<IYCFSecSecDeviceObj> arrayList = new ArrayList<IYCFSecSecDeviceObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecDeviceObj> cmp = new Comparator<ICFSecSecDeviceObj>() {
-			public int compare( ICFSecSecDeviceObj lhs, ICFSecSecDeviceObj rhs ) {
+		Comparator<IYCFSecSecDeviceObj> cmp = new Comparator<IYCFSecSecDeviceObj>() {
+			public int compare( IYCFSecSecDeviceObj lhs, IYCFSecSecDeviceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -388,31 +388,31 @@ public class CFSecSecDeviceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecDevicePKey lhsPKey = lhs.getPKey();
-					CFSecSecDevicePKey rhsPKey = rhs.getPKey();
+					YCFSecSecDevicePKey lhsPKey = lhs.getPKey();
+					YCFSecSecDevicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecDeviceObj> sortedList = arrayList;
+		List<IYCFSecSecDeviceObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecDeviceObj> readCachedAllSecDevice() {
+	public List<IYCFSecSecDeviceObj> readCachedAllSecDevice() {
 		final String S_ProcName = "readCachedAllSecDevice";
-		ArrayList<ICFSecSecDeviceObj> arrayList = new ArrayList<ICFSecSecDeviceObj>();
+		ArrayList<IYCFSecSecDeviceObj> arrayList = new ArrayList<IYCFSecSecDeviceObj>();
 		if( allSecDevice != null ) {
 			int len = allSecDevice.size();
-			ICFSecSecDeviceObj arr[] = new ICFSecSecDeviceObj[len];
-			Iterator<ICFSecSecDeviceObj> valIter = allSecDevice.values().iterator();
+			IYCFSecSecDeviceObj arr[] = new IYCFSecSecDeviceObj[len];
+			Iterator<IYCFSecSecDeviceObj> valIter = allSecDevice.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -420,7 +420,7 @@ public class CFSecSecDeviceTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -431,8 +431,8 @@ public class CFSecSecDeviceTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecSecDeviceObj> cmp = new Comparator<ICFSecSecDeviceObj>() {
-			public int compare( ICFSecSecDeviceObj lhs, ICFSecSecDeviceObj rhs ) {
+		Comparator<IYCFSecSecDeviceObj> cmp = new Comparator<IYCFSecSecDeviceObj>() {
+			public int compare( IYCFSecSecDeviceObj lhs, IYCFSecSecDeviceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -445,8 +445,8 @@ public class CFSecSecDeviceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecDevicePKey lhsPKey = lhs.getPKey();
-					CFSecSecDevicePKey rhsPKey = rhs.getPKey();
+					YCFSecSecDevicePKey lhsPKey = lhs.getPKey();
+					YCFSecSecDevicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -459,33 +459,33 @@ public class CFSecSecDeviceTableObj
 	/**
 	 *	Return a sorted map of a page of the SecDevice-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecDeviceObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecDeviceObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	public List<ICFSecSecDeviceObj> pageAllSecDevice(UUID priorSecUserId,
+	public List<IYCFSecSecDeviceObj> pageAllSecDevice(UUID priorSecUserId,
 		String priorDevName )
 	{
 		final String S_ProcName = "pageAllSecDevice";
-		Map<CFSecSecDevicePKey, ICFSecSecDeviceObj> map = new HashMap<CFSecSecDevicePKey,ICFSecSecDeviceObj>();
-		CFSecSecDeviceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().pageAllBuff( schema.getAuthorization(),
+		Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj> map = new HashMap<YCFSecSecDevicePKey,IYCFSecSecDeviceObj>();
+		YCFSecSecDeviceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().pageAllBuff( schema.getAuthorization(),
 			priorSecUserId,
 			priorDevName );
-		CFSecSecDeviceBuff buff;
-		ICFSecSecDeviceObj obj;
-		ICFSecSecDeviceObj realised;
-		ArrayList<ICFSecSecDeviceObj> arrayList = new ArrayList<ICFSecSecDeviceObj>( buffList.length );
+		YCFSecSecDeviceBuff buff;
+		IYCFSecSecDeviceObj obj;
+		IYCFSecSecDeviceObj realised;
+		ArrayList<IYCFSecSecDeviceObj> arrayList = new ArrayList<IYCFSecSecDeviceObj>( buffList.length );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
 			obj.setBuff( buff );
-			realised = (ICFSecSecDeviceObj)obj.realise();
+			realised = (IYCFSecSecDeviceObj)obj.realise();
 			arrayList.add( realised );
 		}
 		return( arrayList );
 	}
 
-	public ICFSecSecDeviceObj readSecDeviceByIdIdx( UUID SecUserId,
+	public IYCFSecSecDeviceObj readSecDeviceByIdIdx( UUID SecUserId,
 		String DevName )
 	{
 		return( readSecDeviceByIdIdx( SecUserId,
@@ -493,17 +493,17 @@ public class CFSecSecDeviceTableObj
 			false ) );
 	}
 
-	public ICFSecSecDeviceObj readSecDeviceByIdIdx( UUID SecUserId,
+	public IYCFSecSecDeviceObj readSecDeviceByIdIdx( UUID SecUserId,
 		String DevName, boolean forceRead )
 	{
-		CFSecSecDevicePKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey();
+		YCFSecSecDevicePKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey();
 		pkey.setRequiredSecUserId( SecUserId );
 		pkey.setRequiredDevName( DevName );
-		ICFSecSecDeviceObj obj = readSecDevice( pkey, forceRead );
+		IYCFSecSecDeviceObj obj = readSecDevice( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFSecSecDeviceObj readSecDeviceByNameIdx( UUID SecUserId,
+	public IYCFSecSecDeviceObj readSecDeviceByNameIdx( UUID SecUserId,
 		String DevName )
 	{
 		return( readSecDeviceByNameIdx( SecUserId,
@@ -511,79 +511,79 @@ public class CFSecSecDeviceTableObj
 			false ) );
 	}
 
-	public ICFSecSecDeviceObj readSecDeviceByNameIdx( UUID SecUserId,
+	public IYCFSecSecDeviceObj readSecDeviceByNameIdx( UUID SecUserId,
 		String DevName, boolean forceRead )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFSecSecDeviceByNameIdxKey,
-				ICFSecSecDeviceObj >();
+			indexByNameIdx = new HashMap< YCFSecSecDeviceByNameIdxKey,
+				IYCFSecSecDeviceObj >();
 		}
-		CFSecSecDeviceByNameIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
+		YCFSecSecDeviceByNameIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setRequiredDevName( DevName );
-		ICFSecSecDeviceObj obj = null;
+		IYCFSecSecDeviceObj obj = null;
 		if( ( ! forceRead ) && indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
 		}
 		else {
-			CFSecSecDeviceBuff buff = ((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().readDerivedByNameIdx( schema.getAuthorization(),
+			YCFSecSecDeviceBuff buff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().readDerivedByNameIdx( schema.getAuthorization(),
 				SecUserId,
 				DevName );
 			if( buff != null ) {
 				obj = schema.getSecDeviceTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecSecDeviceObj)obj.realise();
+				obj = (IYCFSecSecDeviceObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFSecSecDeviceObj> readSecDeviceByUserIdx( UUID SecUserId )
+	public List<IYCFSecSecDeviceObj> readSecDeviceByUserIdx( UUID SecUserId )
 	{
 		return( readSecDeviceByUserIdx( SecUserId,
 			false ) );
 	}
 
-	public List<ICFSecSecDeviceObj> readSecDeviceByUserIdx( UUID SecUserId,
+	public List<IYCFSecSecDeviceObj> readSecDeviceByUserIdx( UUID SecUserId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecDeviceByUserIdx";
-		CFSecSecDeviceByUserIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
+		YCFSecSecDeviceByUserIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
-		Map<CFSecSecDevicePKey, ICFSecSecDeviceObj> dict;
+		Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj> dict;
 		if( indexByUserIdx == null ) {
-			indexByUserIdx = new HashMap< CFSecSecDeviceByUserIdxKey,
-				Map< CFSecSecDevicePKey, ICFSecSecDeviceObj > >();
+			indexByUserIdx = new HashMap< YCFSecSecDeviceByUserIdxKey,
+				Map< YCFSecSecDevicePKey, IYCFSecSecDeviceObj > >();
 		}
 		if( ( ! forceRead ) && indexByUserIdx.containsKey( key ) ) {
 			dict = indexByUserIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecDevicePKey, ICFSecSecDeviceObj>();
-			ICFSecSecDeviceObj obj;
-			CFSecSecDeviceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().readDerivedByUserIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecDevicePKey, IYCFSecSecDeviceObj>();
+			IYCFSecSecDeviceObj obj;
+			YCFSecSecDeviceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().readDerivedByUserIdx( schema.getAuthorization(),
 				SecUserId );
-			CFSecSecDeviceBuff buff;
+			YCFSecSecDeviceBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecDeviceTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecDeviceObj realised = (ICFSecSecDeviceObj)obj.realise();
+				IYCFSecSecDeviceObj realised = (IYCFSecSecDeviceObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByUserIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecDeviceObj arr[] = new ICFSecSecDeviceObj[len];
-		Iterator<ICFSecSecDeviceObj> valIter = dict.values().iterator();
+		IYCFSecSecDeviceObj arr[] = new IYCFSecSecDeviceObj[len];
+		Iterator<IYCFSecSecDeviceObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -591,20 +591,20 @@ public class CFSecSecDeviceTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecDeviceObj> arrayList = new ArrayList<ICFSecSecDeviceObj>(len);
+		ArrayList<IYCFSecSecDeviceObj> arrayList = new ArrayList<IYCFSecSecDeviceObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecDeviceObj> cmp = new Comparator<ICFSecSecDeviceObj>() {
-			public int compare( ICFSecSecDeviceObj lhs, ICFSecSecDeviceObj rhs ) {
+		Comparator<IYCFSecSecDeviceObj> cmp = new Comparator<IYCFSecSecDeviceObj>() {
+			public int compare( IYCFSecSecDeviceObj lhs, IYCFSecSecDeviceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -617,34 +617,34 @@ public class CFSecSecDeviceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecDevicePKey lhsPKey = lhs.getPKey();
-					CFSecSecDevicePKey rhsPKey = rhs.getPKey();
+					YCFSecSecDevicePKey lhsPKey = lhs.getPKey();
+					YCFSecSecDevicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecDeviceObj> sortedList = arrayList;
+		List<IYCFSecSecDeviceObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecSecDeviceObj readCachedSecDeviceByIdIdx( UUID SecUserId,
+	public IYCFSecSecDeviceObj readCachedSecDeviceByIdIdx( UUID SecUserId,
 		String DevName )
 	{
-		ICFSecSecDeviceObj obj = null;
-		CFSecSecDevicePKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey();
+		IYCFSecSecDeviceObj obj = null;
+		YCFSecSecDevicePKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey();
 		pkey.setRequiredSecUserId( SecUserId );
 		pkey.setRequiredDevName( DevName );
 		obj = readCachedSecDevice( pkey );
 		return( obj );
 	}
 
-	public ICFSecSecDeviceObj readCachedSecDeviceByNameIdx( UUID SecUserId,
+	public IYCFSecSecDeviceObj readCachedSecDeviceByNameIdx( UUID SecUserId,
 		String DevName )
 	{
-		ICFSecSecDeviceObj obj = null;
-		CFSecSecDeviceByNameIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
+		IYCFSecSecDeviceObj obj = null;
+		YCFSecSecDeviceByNameIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setRequiredDevName( DevName );
 		if( indexByNameIdx != null ) {
@@ -652,7 +652,7 @@ public class CFSecSecDeviceTableObj
 				obj = indexByNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecSecDeviceObj> valIter = members.values().iterator();
+				Iterator<IYCFSecSecDeviceObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -664,7 +664,7 @@ public class CFSecSecDeviceTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecSecDeviceObj> valIter = members.values().iterator();
+			Iterator<IYCFSecSecDeviceObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -677,25 +677,25 @@ public class CFSecSecDeviceTableObj
 		return( obj );
 	}
 
-	public List<ICFSecSecDeviceObj> readCachedSecDeviceByUserIdx( UUID SecUserId )
+	public List<IYCFSecSecDeviceObj> readCachedSecDeviceByUserIdx( UUID SecUserId )
 	{
 		final String S_ProcName = "readCachedSecDeviceByUserIdx";
-		CFSecSecDeviceByUserIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
+		YCFSecSecDeviceByUserIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
-		ArrayList<ICFSecSecDeviceObj> arrayList = new ArrayList<ICFSecSecDeviceObj>();
+		ArrayList<IYCFSecSecDeviceObj> arrayList = new ArrayList<IYCFSecSecDeviceObj>();
 		if( indexByUserIdx != null ) {
-			Map<CFSecSecDevicePKey, ICFSecSecDeviceObj> dict;
+			Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj> dict;
 			if( indexByUserIdx.containsKey( key ) ) {
 				dict = indexByUserIdx.get( key );
 				int len = dict.size();
-				ICFSecSecDeviceObj arr[] = new ICFSecSecDeviceObj[len];
-				Iterator<ICFSecSecDeviceObj> valIter = dict.values().iterator();
+				IYCFSecSecDeviceObj arr[] = new IYCFSecSecDeviceObj[len];
+				Iterator<IYCFSecSecDeviceObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -703,7 +703,7 @@ public class CFSecSecDeviceTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -716,8 +716,8 @@ public class CFSecSecDeviceTableObj
 			}
 		}
 		else {
-			ICFSecSecDeviceObj obj;
-			Iterator<ICFSecSecDeviceObj> valIter = members.values().iterator();
+			IYCFSecSecDeviceObj obj;
+			Iterator<IYCFSecSecDeviceObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -727,8 +727,8 @@ public class CFSecSecDeviceTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecDeviceObj> cmp = new Comparator<ICFSecSecDeviceObj>() {
-			public int compare( ICFSecSecDeviceObj lhs, ICFSecSecDeviceObj rhs ) {
+		Comparator<IYCFSecSecDeviceObj> cmp = new Comparator<IYCFSecSecDeviceObj>() {
+			public int compare( IYCFSecSecDeviceObj lhs, IYCFSecSecDeviceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -741,8 +741,8 @@ public class CFSecSecDeviceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecDevicePKey lhsPKey = lhs.getPKey();
-					CFSecSecDevicePKey rhsPKey = rhs.getPKey();
+					YCFSecSecDevicePKey lhsPKey = lhs.getPKey();
+					YCFSecSecDevicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -755,7 +755,7 @@ public class CFSecSecDeviceTableObj
 	public void deepDisposeSecDeviceByIdIdx( UUID SecUserId,
 		String DevName )
 	{
-		ICFSecSecDeviceObj obj = readCachedSecDeviceByIdIdx( SecUserId,
+		IYCFSecSecDeviceObj obj = readCachedSecDeviceByIdIdx( SecUserId,
 				DevName );
 		if( obj != null ) {
 			obj.forget();
@@ -765,7 +765,7 @@ public class CFSecSecDeviceTableObj
 	public void deepDisposeSecDeviceByNameIdx( UUID SecUserId,
 		String DevName )
 	{
-		ICFSecSecDeviceObj obj = readCachedSecDeviceByNameIdx( SecUserId,
+		IYCFSecSecDeviceObj obj = readCachedSecDeviceByNameIdx( SecUserId,
 				DevName );
 		if( obj != null ) {
 			obj.forget();
@@ -775,10 +775,10 @@ public class CFSecSecDeviceTableObj
 	public void deepDisposeSecDeviceByUserIdx( UUID SecUserId )
 	{
 		final String S_ProcName = "deepDisposeSecDeviceByUserIdx";
-		ICFSecSecDeviceObj obj;
-		List<ICFSecSecDeviceObj> arrayList = readCachedSecDeviceByUserIdx( SecUserId );
+		IYCFSecSecDeviceObj obj;
+		List<IYCFSecSecDeviceObj> arrayList = readCachedSecDeviceByUserIdx( SecUserId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecDeviceObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecDeviceObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -797,43 +797,43 @@ public class CFSecSecDeviceTableObj
 	 *	@return	A List of SecDevice-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecDeviceObj> pageSecDeviceByUserIdx( UUID SecUserId,
+	public List<IYCFSecSecDeviceObj> pageSecDeviceByUserIdx( UUID SecUserId,
 		UUID priorSecUserId,
 		String priorDevName )
 	{
 		final String S_ProcName = "pageSecDeviceByUserIdx";
-		CFSecSecDeviceByUserIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
+		YCFSecSecDeviceByUserIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
-		List<ICFSecSecDeviceObj> retList = new LinkedList<ICFSecSecDeviceObj>();
-		ICFSecSecDeviceObj obj;
-		CFSecSecDeviceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().pageBuffByUserIdx( schema.getAuthorization(),
+		List<IYCFSecSecDeviceObj> retList = new LinkedList<IYCFSecSecDeviceObj>();
+		IYCFSecSecDeviceObj obj;
+		YCFSecSecDeviceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().pageBuffByUserIdx( schema.getAuthorization(),
 				SecUserId,
 			priorSecUserId,
 			priorDevName );
-		CFSecSecDeviceBuff buff;
+		YCFSecSecDeviceBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecDeviceTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecDeviceObj realised = (ICFSecSecDeviceObj)obj.realise();
+			IYCFSecSecDeviceObj realised = (IYCFSecSecDeviceObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
 	}
 
-	public ICFSecSecDeviceObj updateSecDevice( ICFSecSecDeviceObj Obj ) {
-		ICFSecSecDeviceObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().updateSecDevice( schema.getAuthorization(),
+	public IYCFSecSecDeviceObj updateSecDevice( IYCFSecSecDeviceObj Obj ) {
+		IYCFSecSecDeviceObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().updateSecDevice( schema.getAuthorization(),
 			Obj.getSecDeviceBuff() );
-		obj = (ICFSecSecDeviceObj)Obj.realise();
+		obj = (IYCFSecSecDeviceObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteSecDevice( ICFSecSecDeviceObj Obj ) {
-		ICFSecSecDeviceObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDevice( schema.getAuthorization(),
+	public void deleteSecDevice( IYCFSecSecDeviceObj Obj ) {
+		IYCFSecSecDeviceObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDevice( schema.getAuthorization(),
 			obj.getSecDeviceBuff() );
 		Obj.forget();
 	}
@@ -841,15 +841,15 @@ public class CFSecSecDeviceTableObj
 	public void deleteSecDeviceByIdIdx( UUID SecUserId,
 		String DevName )
 	{
-		CFSecSecDevicePKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey();
+		YCFSecSecDevicePKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newPKey();
 		pkey.setRequiredSecUserId( SecUserId );
 		pkey.setRequiredDevName( DevName );
-		ICFSecSecDeviceObj obj = readSecDevice( pkey );
+		IYCFSecSecDeviceObj obj = readSecDevice( pkey );
 		if( obj != null ) {
-			ICFSecSecDeviceEditObj editObj = (ICFSecSecDeviceEditObj)obj.getEdit();
+			IYCFSecSecDeviceEditObj editObj = (IYCFSecSecDeviceEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecSecDeviceEditObj)obj.beginEdit();
+				editObj = (IYCFSecSecDeviceEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -876,22 +876,22 @@ public class CFSecSecDeviceTableObj
 		String DevName )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFSecSecDeviceByNameIdxKey,
-				ICFSecSecDeviceObj >();
+			indexByNameIdx = new HashMap< YCFSecSecDeviceByNameIdxKey,
+				IYCFSecSecDeviceObj >();
 		}
-		CFSecSecDeviceByNameIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
+		YCFSecSecDeviceByNameIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newNameIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setRequiredDevName( DevName );
-		ICFSecSecDeviceObj obj = null;
+		IYCFSecSecDeviceObj obj = null;
 		if( indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDeviceByNameIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDeviceByNameIdx( schema.getAuthorization(),
 				SecUserId,
 				DevName );
 			obj.forget();
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDeviceByNameIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDeviceByNameIdx( schema.getAuthorization(),
 				SecUserId,
 				DevName );
 		}
@@ -901,19 +901,19 @@ public class CFSecSecDeviceTableObj
 
 	public void deleteSecDeviceByUserIdx( UUID SecUserId )
 	{
-		CFSecSecDeviceByUserIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
+		YCFSecSecDeviceByUserIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecDevice().newUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		if( indexByUserIdx == null ) {
-			indexByUserIdx = new HashMap< CFSecSecDeviceByUserIdxKey,
-				Map< CFSecSecDevicePKey, ICFSecSecDeviceObj > >();
+			indexByUserIdx = new HashMap< YCFSecSecDeviceByUserIdxKey,
+				Map< YCFSecSecDevicePKey, IYCFSecSecDeviceObj > >();
 		}
 		if( indexByUserIdx.containsKey( key ) ) {
-			Map<CFSecSecDevicePKey, ICFSecSecDeviceObj> dict = indexByUserIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDeviceByUserIdx( schema.getAuthorization(),
+			Map<YCFSecSecDevicePKey, IYCFSecSecDeviceObj> dict = indexByUserIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDeviceByUserIdx( schema.getAuthorization(),
 				SecUserId );
-			Iterator<ICFSecSecDeviceObj> iter = dict.values().iterator();
-			ICFSecSecDeviceObj obj;
-			List<ICFSecSecDeviceObj> toForget = new LinkedList<ICFSecSecDeviceObj>();
+			Iterator<IYCFSecSecDeviceObj> iter = dict.values().iterator();
+			IYCFSecSecDeviceObj obj;
+			List<IYCFSecSecDeviceObj> toForget = new LinkedList<IYCFSecSecDeviceObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -926,7 +926,7 @@ public class CFSecSecDeviceTableObj
 			indexByUserIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDeviceByUserIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecDevice().deleteSecDeviceByUserIdx( schema.getAuthorization(),
 				SecUserId );
 		}
 		deepDisposeSecDeviceByUserIdx( SecUserId );

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelCall by SeqIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelCallBySeqIdxKey
+public class YCFGenKbGelCallBySeqIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalSeqInstTenantId;
 	protected Long optionalSeqInstGelCacheId;
 	protected Long optionalSeqInstId;
-	public CFGenKbGelCallBySeqIdxKey() {
+	public YCFGenKbGelCallBySeqIdxKey() {
 		optionalSeqInstTenantId = null;
 		optionalSeqInstGelCacheId = null;
 		optionalSeqInstId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGelCallBySeqIdxKey
 		if( value == null ) {
 			optionalSeqInstTenantId = null;
 		}
-		else if( value < CFGenKbGelCallBuff.SEQINSTTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelCallBuff.SEQINSTTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSeqInstTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelCallBuff.SEQINSTTENANTID_MIN_VALUE );
+				YCFGenKbGelCallBuff.SEQINSTTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalSeqInstTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGelCallBySeqIdxKey
 		if( value == null ) {
 			optionalSeqInstGelCacheId = null;
 		}
-		else if( value < CFGenKbGelCallBuff.SEQINSTGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelCallBuff.SEQINSTGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSeqInstGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelCallBuff.SEQINSTGELCACHEID_MIN_VALUE );
+				YCFGenKbGelCallBuff.SEQINSTGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalSeqInstGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGelCallBySeqIdxKey
 		if( value == null ) {
 			optionalSeqInstId = null;
 		}
-		else if( value < CFGenKbGelCallBuff.SEQINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelCallBuff.SEQINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSeqInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelCallBuff.SEQINSTID_MIN_VALUE );
+				YCFGenKbGelCallBuff.SEQINSTID_MIN_VALUE );
 		}
 		else {
 			optionalSeqInstId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGelCallBySeqIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelCallBySeqIdxKey ) {
-			CFGenKbGelCallBySeqIdxKey rhs = (CFGenKbGelCallBySeqIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelCallBySeqIdxKey ) {
+			YCFGenKbGelCallBySeqIdxKey rhs = (YCFGenKbGelCallBySeqIdxKey)obj;
 			if( getOptionalSeqInstTenantId() != null ) {
 				if( rhs.getOptionalSeqInstTenantId() != null ) {
 					if( ! getOptionalSeqInstTenantId().equals( rhs.getOptionalSeqInstTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGelCallBySeqIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelCallBuff ) {
-			CFGenKbGelCallBuff rhs = (CFGenKbGelCallBuff)obj;
+		else if( obj instanceof YCFGenKbGelCallBuff ) {
+			YCFGenKbGelCallBuff rhs = (YCFGenKbGelCallBuff)obj;
 			if( getOptionalSeqInstTenantId() != null ) {
 				if( rhs.getOptionalSeqInstTenantId() != null ) {
 					if( ! getOptionalSeqInstTenantId().equals( rhs.getOptionalSeqInstTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGelCallBySeqIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelCallBySeqIdxKey ) {
-			CFGenKbGelCallBySeqIdxKey rhs = (CFGenKbGelCallBySeqIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelCallBySeqIdxKey ) {
+			YCFGenKbGelCallBySeqIdxKey rhs = (YCFGenKbGelCallBySeqIdxKey)obj;
 			if( getOptionalSeqInstTenantId() != null ) {
 				Long lhsSeqInstTenantId = getOptionalSeqInstTenantId();
 				if( rhs.getOptionalSeqInstTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGelCallBySeqIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelCallBuff ) {
-			CFGenKbGelCallBuff rhs = (CFGenKbGelCallBuff)obj;
+		else if( obj instanceof YCFGenKbGelCallBuff ) {
+			YCFGenKbGelCallBuff rhs = (YCFGenKbGelCallBuff)obj;
 			if( getOptionalSeqInstTenantId() != null ) {
 				Long lhsSeqInstTenantId = getOptionalSeqInstTenantId();
 				if( rhs.getOptionalSeqInstTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGelCallBySeqIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGelCallBySeqIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelCallBySeqIdx"
+		String ret = "<YCFGenKbGelCallBySeqIdx"
 			+ " OptionalSeqInstTenantId=" + ( ( getOptionalSeqInstTenantId() == null ) ? "null" : "\"" + getOptionalSeqInstTenantId().toString() + "\"" )
 			+ " OptionalSeqInstGelCacheId=" + ( ( getOptionalSeqInstGelCacheId() == null ) ? "null" : "\"" + getOptionalSeqInstGelCacheId().toString() + "\"" )
 			+ " OptionalSeqInstId=" + ( ( getOptionalSeqInstId() == null ) ? "null" : "\"" + getOptionalSeqInstId().toString() + "\"" )

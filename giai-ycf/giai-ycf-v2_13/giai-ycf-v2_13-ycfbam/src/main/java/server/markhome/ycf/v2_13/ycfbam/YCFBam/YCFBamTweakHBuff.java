@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a Tweak history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,14 +55,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamTweakHBuff
+public class YCFBamTweakHBuff
 
-	extends CFBamHPKey	implements Comparable<Object>,
+	extends YCFBamHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final long TENANTID_INIT_VALUE = 0L;
@@ -87,20 +87,20 @@ public class CFBamTweakHBuff
 	protected String requiredName;
 	protected boolean requiredReplacesInherited;
 	protected String requiredTweakGelText;
-	public CFBamTweakHBuff() {
+	public YCFBamTweakHBuff() {
 		super();
-		requiredTenantId = CFBamTweakBuff.TENANTID_INIT_VALUE;
-		requiredScopeId = CFBamTweakBuff.SCOPEID_INIT_VALUE;
-		requiredId = CFBamTweakBuff.ID_INIT_VALUE;
+		requiredTenantId = YCFBamTweakBuff.TENANTID_INIT_VALUE;
+		requiredScopeId = YCFBamTweakBuff.SCOPEID_INIT_VALUE;
+		requiredId = YCFBamTweakBuff.ID_INIT_VALUE;
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
-		requiredName = new String( CFBamTweakBuff.NAME_INIT_VALUE );
-		requiredReplacesInherited = CFBamTweakBuff.REPLACESINHERITED_INIT_VALUE;
-		requiredTweakGelText = new String( CFBamTweakBuff.TWEAKGELTEXT_INIT_VALUE );
+		requiredName = new String( YCFBamTweakBuff.NAME_INIT_VALUE );
+		requiredReplacesInherited = YCFBamTweakBuff.REPLACESINHERITED_INIT_VALUE;
+		requiredTweakGelText = new String( YCFBamTweakBuff.TWEAKGELTEXT_INIT_VALUE );
 	}
 
 	public String getClassCode() {
-		return( CFBamTweakBuff.CLASS_CODE );
+		return( YCFBamTweakBuff.CLASS_CODE );
 	}
 
 	public long getRequiredTenantId() {
@@ -108,13 +108,13 @@ public class CFBamTweakHBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFBamTweakBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamTweakBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFBamTweakBuff.TENANTID_MIN_VALUE );
+				YCFBamTweakBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -124,13 +124,13 @@ public class CFBamTweakHBuff
 	}
 
 	public void setRequiredScopeId( long value ) {
-		if( value < CFBamTweakBuff.SCOPEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamTweakBuff.SCOPEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredScopeId",
 				1,
 				"value",
 				value,
-				CFBamTweakBuff.SCOPEID_MIN_VALUE );
+				YCFBamTweakBuff.SCOPEID_MIN_VALUE );
 		}
 		requiredScopeId = value;
 	}
@@ -140,13 +140,13 @@ public class CFBamTweakHBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFBamTweakBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamTweakBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFBamTweakBuff.ID_MIN_VALUE );
+				YCFBamTweakBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -159,13 +159,13 @@ public class CFBamTweakHBuff
 		if( value == null ) {
 			optionalDefSchemaTenantId = null;
 		}
-		else if( value < CFBamTweakBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTweakBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaTenantId",
 				1,
 				"value",
 				value,
-				CFBamTweakBuff.DEFSCHEMATENANTID_MIN_VALUE );
+				YCFBamTweakBuff.DEFSCHEMATENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaTenantId = value;
@@ -180,13 +180,13 @@ public class CFBamTweakHBuff
 		if( value == null ) {
 			optionalDefSchemaId = null;
 		}
-		else if( value < CFBamTweakBuff.DEFSCHEMAID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTweakBuff.DEFSCHEMAID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaId",
 				1,
 				"value",
 				value,
-				CFBamTweakBuff.DEFSCHEMAID_MIN_VALUE );
+				YCFBamTweakBuff.DEFSCHEMAID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaId = value;
@@ -199,13 +199,13 @@ public class CFBamTweakHBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -229,13 +229,13 @@ public class CFBamTweakHBuff
 
 	public void setRequiredTweakGelText( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredTweakGelText",
 				1,
 				"value" );
 		}
 		if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredTweakGelText",
 				1,
 				"value.length()",
@@ -249,8 +249,8 @@ public class CFBamTweakHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamTweakHBuff ) {
-			CFBamTweakHBuff rhs = (CFBamTweakHBuff)obj;
+		else if( obj instanceof YCFBamTweakHBuff ) {
+			YCFBamTweakHBuff rhs = (YCFBamTweakHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -298,8 +298,8 @@ public class CFBamTweakHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTweakBuff ) {
-			CFBamTweakBuff rhs = (CFBamTweakBuff)obj;
+		else if( obj instanceof YCFBamTweakBuff ) {
+			YCFBamTweakBuff rhs = (YCFBamTweakBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -347,8 +347,8 @@ public class CFBamTweakHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTweakByUNameIdxKey ) {
-			CFBamTweakByUNameIdxKey rhs = (CFBamTweakByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByUNameIdxKey ) {
+			YCFBamTweakByUNameIdxKey rhs = (YCFBamTweakByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -360,8 +360,8 @@ public class CFBamTweakHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTweakByUDefIdxKey ) {
-			CFBamTweakByUDefIdxKey rhs = (CFBamTweakByUDefIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByUDefIdxKey ) {
+			YCFBamTweakByUDefIdxKey rhs = (YCFBamTweakByUDefIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -397,15 +397,15 @@ public class CFBamTweakHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTweakByValTentIdxKey ) {
-			CFBamTweakByValTentIdxKey rhs = (CFBamTweakByValTentIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByValTentIdxKey ) {
+			YCFBamTweakByValTentIdxKey rhs = (YCFBamTweakByValTentIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTweakByScopeIdxKey ) {
-			CFBamTweakByScopeIdxKey rhs = (CFBamTweakByScopeIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByScopeIdxKey ) {
+			YCFBamTweakByScopeIdxKey rhs = (YCFBamTweakByScopeIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -414,8 +414,8 @@ public class CFBamTweakHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTweakByDefSchemaIdxKey ) {
-			CFBamTweakByDefSchemaIdxKey rhs = (CFBamTweakByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByDefSchemaIdxKey ) {
+			YCFBamTweakByDefSchemaIdxKey rhs = (YCFBamTweakByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
 				if( rhs.getOptionalDefSchemaTenantId() != null ) {
 					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
@@ -442,8 +442,8 @@ public class CFBamTweakHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTweakHPKey ) {
-			CFBamTweakHPKey rhs = (CFBamTweakHPKey)obj;
+		else if( obj instanceof YCFBamTweakHPKey ) {
+			YCFBamTweakHPKey rhs = (YCFBamTweakHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -507,8 +507,8 @@ public class CFBamTweakHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamHPKey ) {
-			CFBamHPKey rhs = (CFBamHPKey)obj;
+		else if( obj instanceof YCFBamHPKey ) {
+			YCFBamHPKey rhs = (YCFBamHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -566,8 +566,8 @@ public class CFBamTweakHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTweakPKey ) {
-			CFBamTweakPKey rhs = (CFBamTweakPKey)obj;
+		else if( obj instanceof YCFBamTweakPKey ) {
+			YCFBamTweakPKey rhs = (YCFBamTweakPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -611,16 +611,16 @@ public class CFBamTweakHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamTweakBuff ) {
-			CFBamTweakBuff rhs = (CFBamTweakBuff)obj;
+		else if( obj instanceof YCFBamTweakBuff ) {
+			YCFBamTweakBuff rhs = (YCFBamTweakBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamTweakByUNameIdxKey ) {
-			CFBamTweakByUNameIdxKey rhs = (CFBamTweakByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByUNameIdxKey ) {
+			YCFBamTweakByUNameIdxKey rhs = (YCFBamTweakByUNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -641,8 +641,8 @@ public class CFBamTweakHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTweakByUDefIdxKey ) {
-			CFBamTweakByUDefIdxKey rhs = (CFBamTweakByUDefIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByUDefIdxKey ) {
+			YCFBamTweakByUDefIdxKey rhs = (YCFBamTweakByUDefIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -699,8 +699,8 @@ public class CFBamTweakHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTweakByValTentIdxKey ) {
-			CFBamTweakByValTentIdxKey rhs = (CFBamTweakByValTentIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByValTentIdxKey ) {
+			YCFBamTweakByValTentIdxKey rhs = (YCFBamTweakByValTentIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -709,8 +709,8 @@ public class CFBamTweakHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTweakByScopeIdxKey ) {
-			CFBamTweakByScopeIdxKey rhs = (CFBamTweakByScopeIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByScopeIdxKey ) {
+			YCFBamTweakByScopeIdxKey rhs = (YCFBamTweakByScopeIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -725,8 +725,8 @@ public class CFBamTweakHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTweakByDefSchemaIdxKey ) {
-			CFBamTweakByDefSchemaIdxKey rhs = (CFBamTweakByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamTweakByDefSchemaIdxKey ) {
+			YCFBamTweakByDefSchemaIdxKey rhs = (YCFBamTweakByDefSchemaIdxKey)obj;
 
 			if( getOptionalDefSchemaTenantId() != null ) {
 				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
@@ -765,8 +765,8 @@ public class CFBamTweakHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTweakHBuff ) {
-			CFBamTweakHBuff rhs = (CFBamTweakHBuff)obj;
+		else if( obj instanceof YCFBamTweakHBuff ) {
+			YCFBamTweakHBuff rhs = (YCFBamTweakHBuff)obj;
 
 			int retval = 0;
 			{
@@ -979,8 +979,8 @@ public class CFBamTweakHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamTweakHPKey ) {
-			CFBamTweakHPKey rhs = (CFBamTweakHPKey)obj;
+		else if( obj instanceof YCFBamTweakHPKey ) {
+			YCFBamTweakHPKey rhs = (YCFBamTweakHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -1061,8 +1061,8 @@ public class CFBamTweakHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamTweakPKey ) {
-			CFBamTweakPKey rhs = (CFBamTweakPKey)obj;
+		else if( obj instanceof YCFBamTweakPKey ) {
+			YCFBamTweakPKey rhs = (YCFBamTweakPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -1077,8 +1077,8 @@ public class CFBamTweakHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamHPKey ) {
-			CFBamHPKey rhs = (CFBamHPKey)obj;
+		else if( obj instanceof YCFBamHPKey ) {
+			YCFBamHPKey rhs = (YCFBamHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -1096,11 +1096,11 @@ public class CFBamTweakHBuff
 		}
 	}
 
-	public void set( CFBamTweakBuff src ) {
+	public void set( YCFBamTweakBuff src ) {
 		setTweakBuff( src );
 	}
 
-	public void setTweakBuff( CFBamTweakBuff src ) {
+	public void setTweakBuff( YCFBamTweakBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredScopeId( src.getRequiredScopeId() );
@@ -1112,11 +1112,11 @@ public class CFBamTweakHBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFBamTweakHBuff src ) {
+	public void set( YCFBamTweakHBuff src ) {
 		setTweakBuff( src );
 	}
 
-	public void setTweakBuff( CFBamTweakHBuff src ) {
+	public void setTweakBuff( YCFBamTweakHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredScopeId( src.getRequiredScopeId() );

@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for SecGrpInc.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,63 +35,63 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFSecSecGrpIncFactory implementation for SecGrpInc
+	 *	YCFSecSecGrpIncFactory implementation for SecGrpInc
 	 */
-public class CFSecSecGrpIncDefaultFactory
-	implements ICFSecSecGrpIncFactory
+public class YCFSecSecGrpIncDefaultFactory
+	implements IYCFSecSecGrpIncFactory
 {
-	public CFSecSecGrpIncDefaultFactory() {
+	public YCFSecSecGrpIncDefaultFactory() {
 	}
 
-	public CFSecSecGrpIncPKey newPKey() {
-		CFSecSecGrpIncPKey pkey =
-			new CFSecSecGrpIncPKey();
+	public YCFSecSecGrpIncPKey newPKey() {
+		YCFSecSecGrpIncPKey pkey =
+			new YCFSecSecGrpIncPKey();
 		return( pkey );
 	}
 
-	public CFSecSecGrpIncHPKey newHPKey() {
-		CFSecSecGrpIncHPKey hpkey =
-			new CFSecSecGrpIncHPKey();
+	public YCFSecSecGrpIncHPKey newHPKey() {
+		YCFSecSecGrpIncHPKey hpkey =
+			new YCFSecSecGrpIncHPKey();
 		return( hpkey );
 	}
 
-	public CFSecSecGrpIncByClusterIdxKey newClusterIdxKey() {
-		CFSecSecGrpIncByClusterIdxKey key =
-			new CFSecSecGrpIncByClusterIdxKey();
+	public YCFSecSecGrpIncByClusterIdxKey newClusterIdxKey() {
+		YCFSecSecGrpIncByClusterIdxKey key =
+			new YCFSecSecGrpIncByClusterIdxKey();
 		return( key );
 	}
 
-	public CFSecSecGrpIncByGroupIdxKey newGroupIdxKey() {
-		CFSecSecGrpIncByGroupIdxKey key =
-			new CFSecSecGrpIncByGroupIdxKey();
+	public YCFSecSecGrpIncByGroupIdxKey newGroupIdxKey() {
+		YCFSecSecGrpIncByGroupIdxKey key =
+			new YCFSecSecGrpIncByGroupIdxKey();
 		return( key );
 	}
 
-	public CFSecSecGrpIncByIncludeIdxKey newIncludeIdxKey() {
-		CFSecSecGrpIncByIncludeIdxKey key =
-			new CFSecSecGrpIncByIncludeIdxKey();
+	public YCFSecSecGrpIncByIncludeIdxKey newIncludeIdxKey() {
+		YCFSecSecGrpIncByIncludeIdxKey key =
+			new YCFSecSecGrpIncByIncludeIdxKey();
 		return( key );
 	}
 
-	public CFSecSecGrpIncByUIncludeIdxKey newUIncludeIdxKey() {
-		CFSecSecGrpIncByUIncludeIdxKey key =
-			new CFSecSecGrpIncByUIncludeIdxKey();
+	public YCFSecSecGrpIncByUIncludeIdxKey newUIncludeIdxKey() {
+		YCFSecSecGrpIncByUIncludeIdxKey key =
+			new YCFSecSecGrpIncByUIncludeIdxKey();
 		return( key );
 	}
 
-	public CFSecSecGrpIncBuff newBuff() {
-		CFSecSecGrpIncBuff buff =
-			new CFSecSecGrpIncBuff();
+	public YCFSecSecGrpIncBuff newBuff() {
+		YCFSecSecGrpIncBuff buff =
+			new YCFSecSecGrpIncBuff();
 		return( buff );
 	}
 
-	public CFSecSecGrpIncHBuff newHBuff() {
-		CFSecSecGrpIncHBuff hbuff =
-			new CFSecSecGrpIncHBuff();
+	public YCFSecSecGrpIncHBuff newHBuff() {
+		YCFSecSecGrpIncHBuff hbuff =
+			new YCFSecSecGrpIncHBuff();
 		return( hbuff );
 	}
 }

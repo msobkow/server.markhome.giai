@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelSwitchLimb.
+// Description: Java 11 Object interface for YCFGenKb GelSwitchLimb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelSwitchLimbObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbGelSwitchLimbObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a GelSwitchLimb.
 	 *
-	 *	@return	CFGenKbGelSwitchLimbObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbGelSwitchLimbObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbGelSwitchLimbObj realise();
+	IYCFGenKbGelSwitchLimbObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -59,99 +59,99 @@ public interface ICFGenKbGelSwitchLimbObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbGelSwitchLimbObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbGelSwitchLimbObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbGelSwitchLimbObj read();
+	IYCFGenKbGelSwitchLimbObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbGelSwitchLimbObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbGelSwitchLimbObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbGelSwitchLimbObj read( boolean forceRead );
+	IYCFGenKbGelSwitchLimbObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this GelSwitchLimb instance.
 	 *
-	 *	@return	The newly locked ICFGenKbGelSwitchLimbEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbGelSwitchLimbEditObj edition of this instance.
 	 */
-	ICFGenKbGelSwitchLimbEditObj beginEdit();
+	IYCFGenKbGelSwitchLimbEditObj beginEdit();
 
 	/**
 	 *	End this edition of this GelSwitchLimb instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this GelSwitchLimb instance.
 	 *
-	 *	@return	The ICFGenKbGelSwitchLimbEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelSwitchLimbEditObj edition of this instance.
 	 */
-	ICFGenKbGelSwitchLimbEditObj getEdit();
+	IYCFGenKbGelSwitchLimbEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this GelSwitchLimb instance as a ICFGenKbGelSwitchLimbEditObj.
+	 *	Get the current edition of this GelSwitchLimb instance as a IYCFGenKbGelSwitchLimbEditObj.
 	 *
-	 *	@return	The ICFGenKbGelSwitchLimbEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelSwitchLimbEditObj edition of this instance.
 	 */
-	ICFGenKbGelSwitchLimbEditObj getEditAsGelSwitchLimb();
+	IYCFGenKbGelSwitchLimbEditObj getEditAsGelSwitchLimb();
 
 	/**
-	 *	Get the ICFGenKbGelSwitchLimbTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelSwitchLimbTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelSwitchLimbTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelSwitchLimbTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelSwitchLimbTableObj getGelSwitchLimbTable();
+	IYCFGenKbGelSwitchLimbTableObj getGelSwitchLimbTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbGelSwitchLimbBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelSwitchLimbBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelSwitchLimbBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelSwitchLimbBuff instance which currently backs this object.
 	 */
-	CFGenKbGelSwitchLimbBuff getBuff();
+	YCFGenKbGelSwitchLimbBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbGelSwitchLimbBuff value );
+	void setBuff( YCFGenKbGelSwitchLimbBuff value );
 
 	/**
-	 *	Get the CFGenKbGelSwitchLimbBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelSwitchLimbBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelSwitchLimbBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelSwitchLimbBuff instance which currently backs this object.
 	 */
-	CFGenKbGelSwitchLimbBuff getGelSwitchLimbBuff();
+	YCFGenKbGelSwitchLimbBuff getGelSwitchLimbBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbGelSwitchLimbPKey primary key for this instance.
+	 *	@return	YCFGenKbGelSwitchLimbPKey primary key for this instance.
 	 */
-	CFGenKbGelSwitchLimbPKey getPKey();
+	YCFGenKbGelSwitchLimbPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbGelSwitchLimbPKey primary key value for this instance.
+	 *	@param YCFGenKbGelSwitchLimbPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbGelSwitchLimbPKey value );
+	void setPKey( YCFGenKbGelSwitchLimbPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -206,32 +206,32 @@ public interface ICFGenKbGelSwitchLimbObj
 	String getRequiredLimbExpansion();
 
 	/**
-	 *	Get the required ICFGenKbGelSwitchObj instance referenced by the Switch key.
+	 *	Get the required IYCFGenKbGelSwitchObj instance referenced by the Switch key.
 	 *
-	 *	@return	The required ICFGenKbGelSwitchObj instance referenced by the Switch key.
+	 *	@return	The required IYCFGenKbGelSwitchObj instance referenced by the Switch key.
 	 */
-	ICFGenKbGelSwitchObj getRequiredParentSwitch();
+	IYCFGenKbGelSwitchObj getRequiredParentSwitch();
 
 	/**
-	 *	Get the required ICFGenKbGelSwitchObj instance referenced by the Switch key.
+	 *	Get the required IYCFGenKbGelSwitchObj instance referenced by the Switch key.
 	 *
-	 *	@return	The required ICFGenKbGelSwitchObj instance referenced by the Switch key.
+	 *	@return	The required IYCFGenKbGelSwitchObj instance referenced by the Switch key.
 	 */
-	ICFGenKbGelSwitchObj getRequiredParentSwitch( boolean forceRead );
+	IYCFGenKbGelSwitchObj getRequiredParentSwitch( boolean forceRead );
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant();
+	IYCFGenKbTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
 	 *	Internal use only.

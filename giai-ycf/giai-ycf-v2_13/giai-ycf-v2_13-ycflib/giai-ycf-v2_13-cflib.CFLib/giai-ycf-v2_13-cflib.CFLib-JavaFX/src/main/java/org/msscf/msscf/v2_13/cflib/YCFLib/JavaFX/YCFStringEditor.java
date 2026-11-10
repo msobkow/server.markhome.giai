@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,15 +21,15 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import javafx.geometry.Pos;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFStringEditor
-extends CFTextField
+public class YCFStringEditor
+extends YCFTextField
 {
 	protected int maxLen = 1;
 
@@ -48,7 +48,7 @@ extends CFTextField
 		}
 	}
 
-	public CFStringEditor() {
+	public YCFStringEditor() {
 		super();
 		setAlignment( Pos.CENTER_LEFT );
 		setMinHeight( 25 );
@@ -63,7 +63,7 @@ extends CFTextField
 	public void setMaxLen( int value ) {
 		final String S_ProcName = "setMaxLen";
 		if( maxLen < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldName,
+			throw new YCFLibArgumentUnderflowException( fieldName,
 					S_ProcName,
 					1,
 					"value",
@@ -122,7 +122,7 @@ extends CFTextField
 			return( null );
 		}
 		else if( text.length() > maxLen ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+			throw new YCFLibArgumentOverflowException( fieldName,
 					S_ProcName,
 					0,
 					"MaxLen",

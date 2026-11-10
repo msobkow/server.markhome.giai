@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,54 +45,54 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamRelationTableObj
-	implements ICFBamRelationTableObj
+public class YCFBamRelationTableObj
+	implements IYCFBamRelationTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFBamScopePKey, ICFBamRelationObj> members;
-	private Map<CFBamScopePKey, ICFBamRelationObj> allRelation;
-	private Map< CFBamScopeByTenantIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByTenantIdx;
-	private Map< CFBamRelationByUNameIdxKey,
-		ICFBamRelationObj > indexByUNameIdx;
-	private Map< CFBamRelationByRelnTenantIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByRelnTenantIdx;
-	private Map< CFBamRelationByRelTableIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByRelTableIdx;
-	private Map< CFBamRelationByCodeVisIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByCodeVisIdx;
-	private Map< CFBamRelationByTableCodeVisIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByTableCodeVisIdx;
-	private Map< CFBamRelationByDefSchemaIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByDefSchemaIdx;
-	private Map< CFBamRelationByFromKeyIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByFromKeyIdx;
-	private Map< CFBamRelationByToTblIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByToTblIdx;
-	private Map< CFBamRelationByToKeyIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByToKeyIdx;
-	private Map< CFBamRelationByNarrowedIdxKey,
-		Map<CFBamScopePKey, ICFBamRelationObj > > indexByNarrowedIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFBamScopePKey, IYCFBamRelationObj> members;
+	private Map<YCFBamScopePKey, IYCFBamRelationObj> allRelation;
+	private Map< YCFBamScopeByTenantIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByTenantIdx;
+	private Map< YCFBamRelationByUNameIdxKey,
+		IYCFBamRelationObj > indexByUNameIdx;
+	private Map< YCFBamRelationByRelnTenantIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByRelnTenantIdx;
+	private Map< YCFBamRelationByRelTableIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByRelTableIdx;
+	private Map< YCFBamRelationByCodeVisIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByCodeVisIdx;
+	private Map< YCFBamRelationByTableCodeVisIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByTableCodeVisIdx;
+	private Map< YCFBamRelationByDefSchemaIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByDefSchemaIdx;
+	private Map< YCFBamRelationByFromKeyIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByFromKeyIdx;
+	private Map< YCFBamRelationByToTblIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByToTblIdx;
+	private Map< YCFBamRelationByToKeyIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByToKeyIdx;
+	private Map< YCFBamRelationByNarrowedIdxKey,
+		Map<YCFBamScopePKey, IYCFBamRelationObj > > indexByNarrowedIdx;
 	public static String TABLE_NAME = "Relation";
 	public static String TABLE_DBNAME = "reldef";
 
-	public CFBamRelationTableObj() {
+	public YCFBamRelationTableObj() {
 		schema = null;
-		members = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
+		members = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
 		allRelation = null;
 		indexByTenantIdx = null;
 		indexByUNameIdx = null;
@@ -107,9 +107,9 @@ public class CFBamRelationTableObj
 		indexByNarrowedIdx = null;
 	}
 
-	public CFBamRelationTableObj( ICFBamSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
+	public YCFBamRelationTableObj( IYCFBamSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
 		allRelation = null;
 		indexByTenantIdx = null;
 		indexByUNameIdx = null;
@@ -124,12 +124,12 @@ public class CFBamRelationTableObj
 		indexByNarrowedIdx = null;
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFBamSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFBamSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -141,7 +141,7 @@ public class CFBamRelationTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamSchemaDefObj.class );
+		return( IYCFBamSchemaDefObj.class );
 	}
 
 
@@ -158,9 +158,9 @@ public class CFBamRelationTableObj
 		indexByToTblIdx = null;
 		indexByToKeyIdx = null;
 		indexByNarrowedIdx = null;
-		List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
-		ICFBamRelationObj cur = null;
-		Iterator<ICFBamRelationObj> iter = members.values().iterator();
+		List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
+		IYCFBamRelationObj cur = null;
+		Iterator<IYCFBamRelationObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -178,10 +178,10 @@ public class CFBamRelationTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamRelationObj.
+	 *	YCFBamRelationObj.
 	 */
-	public ICFBamRelationObj newInstance() {
-		ICFBamRelationObj inst = new CFBamRelationObj( schema );
+	public IYCFBamRelationObj newInstance() {
+		IYCFBamRelationObj inst = new YCFBamRelationObj( schema );
 		return( inst );
 	}
 
@@ -192,19 +192,19 @@ public class CFBamRelationTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamRelationObj.
+	 *	YCFBamRelationObj.
 	 */
-	public ICFBamRelationEditObj newEditInstance( ICFBamRelationObj orig ) {
-		ICFBamRelationEditObj edit = new CFBamRelationEditObj( orig );
+	public IYCFBamRelationEditObj newEditInstance( IYCFBamRelationObj orig ) {
+		IYCFBamRelationEditObj edit = new YCFBamRelationEditObj( orig );
 		return( edit );
 	}
 
-	public ICFBamRelationObj realiseRelation( ICFBamRelationObj Obj ) {
-		ICFBamRelationObj obj = Obj;
-		CFBamScopePKey pkey = obj.getPKey();
-		ICFBamRelationObj keepObj = null;
+	public IYCFBamRelationObj realiseRelation( IYCFBamRelationObj Obj ) {
+		IYCFBamRelationObj obj = Obj;
+		YCFBamScopePKey pkey = obj.getPKey();
+		IYCFBamRelationObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFBamRelationObj existingObj = members.get( pkey );
+			IYCFBamRelationObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -215,18 +215,18 @@ public class CFBamRelationTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByTenantIdx != null ) {
-				CFBamScopeByTenantIdxKey keyTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+				YCFBamScopeByTenantIdxKey keyTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					indexByTenantIdx.remove( keyTenantIdx );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamRelationByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
+				YCFBamRelationByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredTableId( keepObj.getRequiredTableId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -234,10 +234,10 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByRelnTenantIdx != null ) {
-				CFBamRelationByRelnTenantIdxKey keyRelnTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
+				YCFBamRelationByRelnTenantIdxKey keyRelnTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
 				keyRelnTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapRelnTenantIdx = indexByRelnTenantIdx.get( keyRelnTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapRelnTenantIdx = indexByRelnTenantIdx.get( keyRelnTenantIdx );
 				if( mapRelnTenantIdx != null ) {
 					mapRelnTenantIdx.remove( keepObj.getPKey() );
 					if( mapRelnTenantIdx.size() <= 0 ) {
@@ -247,11 +247,11 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByRelTableIdx != null ) {
-				CFBamRelationByRelTableIdxKey keyRelTableIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
+				YCFBamRelationByRelTableIdxKey keyRelTableIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
 				keyRelTableIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyRelTableIdx.setRequiredTableId( keepObj.getRequiredTableId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapRelTableIdx = indexByRelTableIdx.get( keyRelTableIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapRelTableIdx = indexByRelTableIdx.get( keyRelTableIdx );
 				if( mapRelTableIdx != null ) {
 					mapRelTableIdx.remove( keepObj.getPKey() );
 					if( mapRelTableIdx.size() <= 0 ) {
@@ -261,10 +261,10 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamRelationByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+				YCFBamRelationByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					mapCodeVisIdx.remove( keepObj.getPKey() );
 					if( mapCodeVisIdx.size() <= 0 ) {
@@ -274,12 +274,12 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByTableCodeVisIdx != null ) {
-				CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+				YCFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
 				keyTableCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyTableCodeVisIdx.setRequiredTableId( keepObj.getRequiredTableId() );
 				keyTableCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapTableCodeVisIdx = indexByTableCodeVisIdx.get( keyTableCodeVisIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapTableCodeVisIdx = indexByTableCodeVisIdx.get( keyTableCodeVisIdx );
 				if( mapTableCodeVisIdx != null ) {
 					mapTableCodeVisIdx.remove( keepObj.getPKey() );
 					if( mapTableCodeVisIdx.size() <= 0 ) {
@@ -289,11 +289,11 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamRelationByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
+				YCFBamRelationByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.remove( keepObj.getPKey() );
 					if( mapDefSchemaIdx.size() <= 0 ) {
@@ -303,11 +303,11 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByFromKeyIdx != null ) {
-				CFBamRelationByFromKeyIdxKey keyFromKeyIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
+				YCFBamRelationByFromKeyIdxKey keyFromKeyIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
 				keyFromKeyIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyFromKeyIdx.setRequiredFromIndexId( keepObj.getRequiredFromIndexId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapFromKeyIdx = indexByFromKeyIdx.get( keyFromKeyIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapFromKeyIdx = indexByFromKeyIdx.get( keyFromKeyIdx );
 				if( mapFromKeyIdx != null ) {
 					mapFromKeyIdx.remove( keepObj.getPKey() );
 					if( mapFromKeyIdx.size() <= 0 ) {
@@ -317,11 +317,11 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByToTblIdx != null ) {
-				CFBamRelationByToTblIdxKey keyToTblIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
+				YCFBamRelationByToTblIdxKey keyToTblIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
 				keyToTblIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyToTblIdx.setRequiredToTableId( keepObj.getRequiredToTableId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapToTblIdx = indexByToTblIdx.get( keyToTblIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapToTblIdx = indexByToTblIdx.get( keyToTblIdx );
 				if( mapToTblIdx != null ) {
 					mapToTblIdx.remove( keepObj.getPKey() );
 					if( mapToTblIdx.size() <= 0 ) {
@@ -331,11 +331,11 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByToKeyIdx != null ) {
-				CFBamRelationByToKeyIdxKey keyToKeyIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
+				YCFBamRelationByToKeyIdxKey keyToKeyIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
 				keyToKeyIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyToKeyIdx.setRequiredToIndexId( keepObj.getRequiredToIndexId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapToKeyIdx = indexByToKeyIdx.get( keyToKeyIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapToKeyIdx = indexByToKeyIdx.get( keyToKeyIdx );
 				if( mapToKeyIdx != null ) {
 					mapToKeyIdx.remove( keepObj.getPKey() );
 					if( mapToKeyIdx.size() <= 0 ) {
@@ -345,11 +345,11 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByNarrowedIdx != null ) {
-				CFBamRelationByNarrowedIdxKey keyNarrowedIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
+				YCFBamRelationByNarrowedIdxKey keyNarrowedIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
 				keyNarrowedIdx.setOptionalNarrowedTenantId( keepObj.getOptionalNarrowedTenantId() );
 				keyNarrowedIdx.setOptionalNarrowedId( keepObj.getOptionalNarrowedId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapNarrowedIdx = indexByNarrowedIdx.get( keyNarrowedIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapNarrowedIdx = indexByNarrowedIdx.get( keyNarrowedIdx );
 				if( mapNarrowedIdx != null ) {
 					mapNarrowedIdx.remove( keepObj.getPKey() );
 					if( mapNarrowedIdx.size() <= 0 ) {
@@ -360,23 +360,23 @@ public class CFBamRelationTableObj
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
-			keepObj = (ICFBamRelationObj)schema.getScopeTableObj().realiseScope( Obj );
+			keepObj = (IYCFBamRelationObj)schema.getScopeTableObj().realiseScope( Obj );
 
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByTenantIdx != null ) {
-				CFBamScopeByTenantIdxKey keyTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+				YCFBamScopeByTenantIdxKey keyTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamRelationByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
+				YCFBamRelationByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredTableId( keepObj.getRequiredTableId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -384,98 +384,98 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByRelnTenantIdx != null ) {
-				CFBamRelationByRelnTenantIdxKey keyRelnTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
+				YCFBamRelationByRelnTenantIdxKey keyRelnTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
 				keyRelnTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapRelnTenantIdx = indexByRelnTenantIdx.get( keyRelnTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapRelnTenantIdx = indexByRelnTenantIdx.get( keyRelnTenantIdx );
 				if( mapRelnTenantIdx != null ) {
 					mapRelnTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByRelTableIdx != null ) {
-				CFBamRelationByRelTableIdxKey keyRelTableIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
+				YCFBamRelationByRelTableIdxKey keyRelTableIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
 				keyRelTableIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyRelTableIdx.setRequiredTableId( keepObj.getRequiredTableId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapRelTableIdx = indexByRelTableIdx.get( keyRelTableIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapRelTableIdx = indexByRelTableIdx.get( keyRelTableIdx );
 				if( mapRelTableIdx != null ) {
 					mapRelTableIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamRelationByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+				YCFBamRelationByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByTableCodeVisIdx != null ) {
-				CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+				YCFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
 				keyTableCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyTableCodeVisIdx.setRequiredTableId( keepObj.getRequiredTableId() );
 				keyTableCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapTableCodeVisIdx = indexByTableCodeVisIdx.get( keyTableCodeVisIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapTableCodeVisIdx = indexByTableCodeVisIdx.get( keyTableCodeVisIdx );
 				if( mapTableCodeVisIdx != null ) {
 					mapTableCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamRelationByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
+				YCFBamRelationByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByFromKeyIdx != null ) {
-				CFBamRelationByFromKeyIdxKey keyFromKeyIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
+				YCFBamRelationByFromKeyIdxKey keyFromKeyIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
 				keyFromKeyIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyFromKeyIdx.setRequiredFromIndexId( keepObj.getRequiredFromIndexId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapFromKeyIdx = indexByFromKeyIdx.get( keyFromKeyIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapFromKeyIdx = indexByFromKeyIdx.get( keyFromKeyIdx );
 				if( mapFromKeyIdx != null ) {
 					mapFromKeyIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByToTblIdx != null ) {
-				CFBamRelationByToTblIdxKey keyToTblIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
+				YCFBamRelationByToTblIdxKey keyToTblIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
 				keyToTblIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyToTblIdx.setRequiredToTableId( keepObj.getRequiredToTableId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapToTblIdx = indexByToTblIdx.get( keyToTblIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapToTblIdx = indexByToTblIdx.get( keyToTblIdx );
 				if( mapToTblIdx != null ) {
 					mapToTblIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByToKeyIdx != null ) {
-				CFBamRelationByToKeyIdxKey keyToKeyIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
+				YCFBamRelationByToKeyIdxKey keyToKeyIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
 				keyToKeyIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyToKeyIdx.setRequiredToIndexId( keepObj.getRequiredToIndexId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapToKeyIdx = indexByToKeyIdx.get( keyToKeyIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapToKeyIdx = indexByToKeyIdx.get( keyToKeyIdx );
 				if( mapToKeyIdx != null ) {
 					mapToKeyIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNarrowedIdx != null ) {
-				CFBamRelationByNarrowedIdxKey keyNarrowedIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
+				YCFBamRelationByNarrowedIdxKey keyNarrowedIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
 				keyNarrowedIdx.setOptionalNarrowedTenantId( keepObj.getOptionalNarrowedTenantId() );
 				keyNarrowedIdx.setOptionalNarrowedId( keepObj.getOptionalNarrowedId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapNarrowedIdx = indexByNarrowedIdx.get( keyNarrowedIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapNarrowedIdx = indexByNarrowedIdx.get( keyNarrowedIdx );
 				if( mapNarrowedIdx != null ) {
 					mapNarrowedIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -487,7 +487,7 @@ public class CFBamRelationTableObj
 		}
 		else {
 			keepObj = obj;
-			keepObj = (ICFBamRelationObj)schema.getScopeTableObj().realiseScope( keepObj );
+			keepObj = (IYCFBamRelationObj)schema.getScopeTableObj().realiseScope( keepObj );
 
 			// Attach new object to PKey, all, alternate, and duplicate indexes
 			members.put( keepObj.getPKey(), keepObj );
@@ -496,18 +496,18 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByTenantIdx != null ) {
-				CFBamScopeByTenantIdxKey keyTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+				YCFBamScopeByTenantIdxKey keyTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamRelationByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
+				YCFBamRelationByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredTableId( keepObj.getRequiredTableId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -515,98 +515,98 @@ public class CFBamRelationTableObj
 			}
 
 			if( indexByRelnTenantIdx != null ) {
-				CFBamRelationByRelnTenantIdxKey keyRelnTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
+				YCFBamRelationByRelnTenantIdxKey keyRelnTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
 				keyRelnTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapRelnTenantIdx = indexByRelnTenantIdx.get( keyRelnTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapRelnTenantIdx = indexByRelnTenantIdx.get( keyRelnTenantIdx );
 				if( mapRelnTenantIdx != null ) {
 					mapRelnTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByRelTableIdx != null ) {
-				CFBamRelationByRelTableIdxKey keyRelTableIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
+				YCFBamRelationByRelTableIdxKey keyRelTableIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
 				keyRelTableIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyRelTableIdx.setRequiredTableId( keepObj.getRequiredTableId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapRelTableIdx = indexByRelTableIdx.get( keyRelTableIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapRelTableIdx = indexByRelTableIdx.get( keyRelTableIdx );
 				if( mapRelTableIdx != null ) {
 					mapRelTableIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamRelationByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+				YCFBamRelationByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByTableCodeVisIdx != null ) {
-				CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+				YCFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
 				keyTableCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyTableCodeVisIdx.setRequiredTableId( keepObj.getRequiredTableId() );
 				keyTableCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapTableCodeVisIdx = indexByTableCodeVisIdx.get( keyTableCodeVisIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapTableCodeVisIdx = indexByTableCodeVisIdx.get( keyTableCodeVisIdx );
 				if( mapTableCodeVisIdx != null ) {
 					mapTableCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamRelationByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
+				YCFBamRelationByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByFromKeyIdx != null ) {
-				CFBamRelationByFromKeyIdxKey keyFromKeyIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
+				YCFBamRelationByFromKeyIdxKey keyFromKeyIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
 				keyFromKeyIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyFromKeyIdx.setRequiredFromIndexId( keepObj.getRequiredFromIndexId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapFromKeyIdx = indexByFromKeyIdx.get( keyFromKeyIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapFromKeyIdx = indexByFromKeyIdx.get( keyFromKeyIdx );
 				if( mapFromKeyIdx != null ) {
 					mapFromKeyIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByToTblIdx != null ) {
-				CFBamRelationByToTblIdxKey keyToTblIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
+				YCFBamRelationByToTblIdxKey keyToTblIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
 				keyToTblIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyToTblIdx.setRequiredToTableId( keepObj.getRequiredToTableId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapToTblIdx = indexByToTblIdx.get( keyToTblIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapToTblIdx = indexByToTblIdx.get( keyToTblIdx );
 				if( mapToTblIdx != null ) {
 					mapToTblIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByToKeyIdx != null ) {
-				CFBamRelationByToKeyIdxKey keyToKeyIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
+				YCFBamRelationByToKeyIdxKey keyToKeyIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
 				keyToKeyIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyToKeyIdx.setRequiredToIndexId( keepObj.getRequiredToIndexId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapToKeyIdx = indexByToKeyIdx.get( keyToKeyIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapToKeyIdx = indexByToKeyIdx.get( keyToKeyIdx );
 				if( mapToKeyIdx != null ) {
 					mapToKeyIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNarrowedIdx != null ) {
-				CFBamRelationByNarrowedIdxKey keyNarrowedIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
+				YCFBamRelationByNarrowedIdxKey keyNarrowedIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
 				keyNarrowedIdx.setOptionalNarrowedTenantId( keepObj.getOptionalNarrowedTenantId() );
 				keyNarrowedIdx.setOptionalNarrowedId( keepObj.getOptionalNarrowedId() );
-				Map<CFBamScopePKey, ICFBamRelationObj > mapNarrowedIdx = indexByNarrowedIdx.get( keyNarrowedIdx );
+				Map<YCFBamScopePKey, IYCFBamRelationObj > mapNarrowedIdx = indexByNarrowedIdx.get( keyNarrowedIdx );
 				if( mapNarrowedIdx != null ) {
 					mapNarrowedIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -616,101 +616,101 @@ public class CFBamRelationTableObj
 		return( keepObj );
 	}
 
-	public ICFBamRelationObj createRelation( ICFBamRelationObj Obj ) {
-		ICFBamRelationObj obj = Obj;
-		CFBamRelationBuff buff = obj.getRelationBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableRelation().createRelation(
+	public IYCFBamRelationObj createRelation( IYCFBamRelationObj Obj ) {
+		IYCFBamRelationObj obj = Obj;
+		YCFBamRelationBuff buff = obj.getRelationBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableRelation().createRelation(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		if( obj.getPKey().getClassCode().equals( "a838" ) ) {
-			obj = (ICFBamRelationObj)(obj.realise());
+			obj = (IYCFBamRelationObj)(obj.realise());
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public ICFBamRelationObj readRelation( CFBamScopePKey pkey ) {
+	public IYCFBamRelationObj readRelation( YCFBamScopePKey pkey ) {
 		return( readRelation( pkey, false ) );
 	}
 
-	public ICFBamRelationObj readRelation( CFBamScopePKey pkey, boolean forceRead ) {
-		ICFBamRelationObj obj = null;
+	public IYCFBamRelationObj readRelation( YCFBamScopePKey pkey, boolean forceRead ) {
+		IYCFBamRelationObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFBamRelationBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFBamRelationBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( readBuff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( readBuff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFBamRelationObj)obj.realise();
+				obj = (IYCFBamRelationObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamRelationObj readCachedRelation( CFBamScopePKey pkey ) {
-		ICFBamRelationObj obj = null;
+	public IYCFBamRelationObj readCachedRelation( YCFBamScopePKey pkey ) {
+		IYCFBamRelationObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeRelation( ICFBamRelationObj obj )
+	public void reallyDeepDisposeRelation( IYCFBamRelationObj obj )
 	{
-		final String S_ProcName = "CFBamRelationTableObj.reallyDeepDisposeRelation() ";
+		final String S_ProcName = "YCFBamRelationTableObj.reallyDeepDisposeRelation() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFBamScopePKey pkey = obj.getPKey();
-		ICFBamRelationObj existing = readCachedRelation( pkey );
+		YCFBamScopePKey pkey = obj.getPKey();
+		IYCFBamRelationObj existing = readCachedRelation( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFBamRelationByUNameIdxKey keyUNameIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
+		YCFBamRelationByUNameIdxKey keyUNameIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamRelationByRelnTenantIdxKey keyRelnTenantIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
+		YCFBamRelationByRelnTenantIdxKey keyRelnTenantIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
 		keyRelnTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFBamRelationByRelTableIdxKey keyRelTableIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
+		YCFBamRelationByRelTableIdxKey keyRelTableIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
 		keyRelTableIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyRelTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamRelationByCodeVisIdxKey keyCodeVisIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+		YCFBamRelationByCodeVisIdxKey keyCodeVisIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
 		keyCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+		YCFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
 		keyTableCodeVisIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyTableCodeVisIdx.setRequiredTableId( existing.getRequiredTableId() );
 		keyTableCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamRelationByDefSchemaIdxKey keyDefSchemaIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
+		YCFBamRelationByDefSchemaIdxKey keyDefSchemaIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamRelationByFromKeyIdxKey keyFromKeyIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
+		YCFBamRelationByFromKeyIdxKey keyFromKeyIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
 		keyFromKeyIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyFromKeyIdx.setRequiredFromIndexId( existing.getRequiredFromIndexId() );
 
-		CFBamRelationByToTblIdxKey keyToTblIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
+		YCFBamRelationByToTblIdxKey keyToTblIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
 		keyToTblIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyToTblIdx.setRequiredToTableId( existing.getRequiredToTableId() );
 
-		CFBamRelationByToKeyIdxKey keyToKeyIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
+		YCFBamRelationByToKeyIdxKey keyToKeyIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
 		keyToKeyIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyToKeyIdx.setRequiredToIndexId( existing.getRequiredToIndexId() );
 
-		CFBamRelationByNarrowedIdxKey keyNarrowedIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
+		YCFBamRelationByNarrowedIdxKey keyNarrowedIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
 		keyNarrowedIdx.setOptionalNarrowedTenantId( existing.getOptionalNarrowedTenantId() );
 		keyNarrowedIdx.setOptionalNarrowedId( existing.getOptionalNarrowedId() );
 
@@ -808,57 +808,57 @@ public class CFBamRelationTableObj
 
 		schema.getScopeTableObj().reallyDeepDisposeScope( obj );
 	}
-	public void deepDisposeRelation( CFBamScopePKey pkey ) {
-		ICFBamRelationObj obj = readCachedRelation( pkey );
+	public void deepDisposeRelation( YCFBamScopePKey pkey ) {
+		IYCFBamRelationObj obj = readCachedRelation( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFBamRelationObj lockRelation( CFBamScopePKey pkey ) {
-		ICFBamRelationObj locked = null;
-		CFBamRelationBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFBamRelationObj lockRelation( YCFBamScopePKey pkey ) {
+		IYCFBamRelationObj locked = null;
+		YCFBamRelationBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
-				locked = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( lockBuff.getClassCode() );
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				locked = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( lockBuff.getClassCode() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFBamRelationObj)locked.realise();
+			locked = (IYCFBamRelationObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockRelation", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockRelation", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFBamRelationObj> readAllRelation() {
+	public List<IYCFBamRelationObj> readAllRelation() {
 		return( readAllRelation( false ) );
 	}
 
-	public List<ICFBamRelationObj> readAllRelation( boolean forceRead ) {
+	public List<IYCFBamRelationObj> readAllRelation( boolean forceRead ) {
 		final String S_ProcName = "readAllRelation";
 		if( ( allRelation == null ) || forceRead ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> map = new HashMap<CFBamScopePKey,ICFBamRelationObj>();
+			Map<YCFBamScopePKey, IYCFBamRelationObj> map = new HashMap<YCFBamScopePKey,IYCFBamRelationObj>();
 			allRelation = map;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readAllDerived( schema.getAuthorization() );
-			CFBamRelationBuff buff;
-			ICFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readAllDerived( schema.getAuthorization() );
+			YCFBamRelationBuff buff;
+			IYCFBamRelationObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 			}
 		}
 		int len = allRelation.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = allRelation.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = allRelation.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -866,20 +866,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -892,31 +892,31 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRelationObj> readCachedAllRelation() {
+	public List<IYCFBamRelationObj> readCachedAllRelation() {
 		final String S_ProcName = "readCachedAllRelation";
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( allRelation != null ) {
 			int len = allRelation.size();
-			ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-			Iterator<ICFBamRelationObj> valIter = allRelation.values().iterator();
+			IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+			Iterator<IYCFBamRelationObj> valIter = allRelation.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -924,7 +924,7 @@ public class CFBamRelationTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -935,8 +935,8 @@ public class CFBamRelationTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -949,8 +949,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -960,7 +960,7 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public ICFBamRelationObj readRelationByIdIdx( long TenantId,
+	public IYCFBamRelationObj readRelationByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readRelationByIdIdx( TenantId,
@@ -968,61 +968,61 @@ public class CFBamRelationTableObj
 			false ) );
 	}
 
-	public ICFBamRelationObj readRelationByIdIdx( long TenantId,
+	public IYCFBamRelationObj readRelationByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFBamScopePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamRelationObj obj = readRelation( pkey, forceRead );
+		IYCFBamRelationObj obj = readRelation( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFBamRelationObj> readRelationByTenantIdx( long TenantId )
+	public List<IYCFBamRelationObj> readRelationByTenantIdx( long TenantId )
 	{
 		return( readRelationByTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByTenantIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByTenantIdx";
-		CFBamScopeByTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFBamScopeByTenantIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByTenantIdx = new HashMap< YCFBamScopeByTenantIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByTenantIdx.containsKey( key ) ) {
 			dict = indexByTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamScopeObj obj;
-			CFBamScopeBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableScope().readDerivedByTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamScopeObj obj;
+			YCFBamScopeBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableScope().readDerivedByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamScopeBuff buff;
+			YCFBamScopeBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1030,20 +1030,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1056,19 +1056,19 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamRelationObj readRelationByUNameIdx( long TenantId,
+	public IYCFBamRelationObj readRelationByUNameIdx( long TenantId,
 		long TableId,
 		String Name )
 	{
@@ -1078,82 +1078,82 @@ public class CFBamRelationTableObj
 			false ) );
 	}
 
-	public ICFBamRelationObj readRelationByUNameIdx( long TenantId,
+	public IYCFBamRelationObj readRelationByUNameIdx( long TenantId,
 		long TableId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamRelationByUNameIdxKey,
-				ICFBamRelationObj >();
+			indexByUNameIdx = new HashMap< YCFBamRelationByUNameIdxKey,
+				IYCFBamRelationObj >();
 		}
-		CFBamRelationByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
+		YCFBamRelationByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		key.setRequiredName( Name );
-		ICFBamRelationObj obj = null;
+		IYCFBamRelationObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFBamRelationBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFBamRelationBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				TableId,
 				Name );
 			if( buff != null ) {
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFBamRelationObj)obj.realise();
+				obj = (IYCFBamRelationObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFBamRelationObj> readRelationByRelnTenantIdx( long TenantId )
+	public List<IYCFBamRelationObj> readRelationByRelnTenantIdx( long TenantId )
 	{
 		return( readRelationByRelnTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByRelnTenantIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByRelnTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByRelnTenantIdx";
-		CFBamRelationByRelnTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
+		YCFBamRelationByRelnTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByRelnTenantIdx == null ) {
-			indexByRelnTenantIdx = new HashMap< CFBamRelationByRelnTenantIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByRelnTenantIdx = new HashMap< YCFBamRelationByRelnTenantIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByRelnTenantIdx.containsKey( key ) ) {
 			dict = indexByRelnTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamRelationObj obj;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByRelnTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByRelnTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamRelationBuff buff;
+			YCFBamRelationBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByRelnTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1161,20 +1161,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1187,19 +1187,19 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRelationObj> readRelationByRelTableIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByRelTableIdx( long TenantId,
 		long TableId )
 	{
 		return( readRelationByRelTableIdx( TenantId,
@@ -1207,48 +1207,48 @@ public class CFBamRelationTableObj
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByRelTableIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByRelTableIdx( long TenantId,
 		long TableId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByRelTableIdx";
-		CFBamRelationByRelTableIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
+		YCFBamRelationByRelTableIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByRelTableIdx == null ) {
-			indexByRelTableIdx = new HashMap< CFBamRelationByRelTableIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByRelTableIdx = new HashMap< YCFBamRelationByRelTableIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByRelTableIdx.containsKey( key ) ) {
 			dict = indexByRelTableIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamRelationObj obj;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByRelTableIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByRelTableIdx( schema.getAuthorization(),
 				TenantId,
 				TableId );
-			CFBamRelationBuff buff;
+			YCFBamRelationBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByRelTableIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1256,20 +1256,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1282,63 +1282,63 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRelationObj> readRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public List<IYCFBamRelationObj> readRelationByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		return( readRelationByCodeVisIdx( CodeVis,
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	public List<IYCFBamRelationObj> readRelationByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByCodeVisIdx";
-		CFBamRelationByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+		YCFBamRelationByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByCodeVisIdx == null ) {
-			indexByCodeVisIdx = new HashMap< CFBamRelationByCodeVisIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByCodeVisIdx = new HashMap< YCFBamRelationByCodeVisIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByCodeVisIdx.containsKey( key ) ) {
 			dict = indexByCodeVisIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamRelationObj obj;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByCodeVisIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
-			CFBamRelationBuff buff;
+			YCFBamRelationBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByCodeVisIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1346,20 +1346,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1372,21 +1372,21 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRelationObj> readRelationByTableCodeVisIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByTableCodeVisIdx( long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		return( readRelationByTableCodeVisIdx( TenantId,
 			TableId,
@@ -1394,51 +1394,51 @@ public class CFBamRelationTableObj
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByTableCodeVisIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByTableCodeVisIdx( long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByTableCodeVisIdx";
-		CFBamRelationByTableCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+		YCFBamRelationByTableCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		key.setRequiredCodeVis( CodeVis );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByTableCodeVisIdx == null ) {
-			indexByTableCodeVisIdx = new HashMap< CFBamRelationByTableCodeVisIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByTableCodeVisIdx = new HashMap< YCFBamRelationByTableCodeVisIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByTableCodeVisIdx.containsKey( key ) ) {
 			dict = indexByTableCodeVisIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamRelationObj obj;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByTableCodeVisIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByTableCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				TableId,
 				CodeVis );
-			CFBamRelationBuff buff;
+			YCFBamRelationBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTableCodeVisIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1446,20 +1446,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1472,19 +1472,19 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRelationObj> readRelationByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamRelationObj> readRelationByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		return( readRelationByDefSchemaIdx( DefSchemaTenantId,
@@ -1492,48 +1492,48 @@ public class CFBamRelationTableObj
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamRelationObj> readRelationByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByDefSchemaIdx";
-		CFBamRelationByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
+		YCFBamRelationByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamRelationByDefSchemaIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamRelationByDefSchemaIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByDefSchemaIdx.containsKey( key ) ) {
 			dict = indexByDefSchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamRelationObj obj;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByDefSchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			CFBamRelationBuff buff;
+			YCFBamRelationBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDefSchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1541,20 +1541,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1567,19 +1567,19 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRelationObj> readRelationByFromKeyIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByFromKeyIdx( long TenantId,
 		long FromIndexId )
 	{
 		return( readRelationByFromKeyIdx( TenantId,
@@ -1587,48 +1587,48 @@ public class CFBamRelationTableObj
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByFromKeyIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByFromKeyIdx( long TenantId,
 		long FromIndexId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByFromKeyIdx";
-		CFBamRelationByFromKeyIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
+		YCFBamRelationByFromKeyIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredFromIndexId( FromIndexId );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByFromKeyIdx == null ) {
-			indexByFromKeyIdx = new HashMap< CFBamRelationByFromKeyIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByFromKeyIdx = new HashMap< YCFBamRelationByFromKeyIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByFromKeyIdx.containsKey( key ) ) {
 			dict = indexByFromKeyIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamRelationObj obj;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByFromKeyIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByFromKeyIdx( schema.getAuthorization(),
 				TenantId,
 				FromIndexId );
-			CFBamRelationBuff buff;
+			YCFBamRelationBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByFromKeyIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1636,20 +1636,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1662,19 +1662,19 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRelationObj> readRelationByToTblIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByToTblIdx( long TenantId,
 		long ToTableId )
 	{
 		return( readRelationByToTblIdx( TenantId,
@@ -1682,48 +1682,48 @@ public class CFBamRelationTableObj
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByToTblIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByToTblIdx( long TenantId,
 		long ToTableId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByToTblIdx";
-		CFBamRelationByToTblIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
+		YCFBamRelationByToTblIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredToTableId( ToTableId );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByToTblIdx == null ) {
-			indexByToTblIdx = new HashMap< CFBamRelationByToTblIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByToTblIdx = new HashMap< YCFBamRelationByToTblIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByToTblIdx.containsKey( key ) ) {
 			dict = indexByToTblIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamRelationObj obj;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByToTblIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByToTblIdx( schema.getAuthorization(),
 				TenantId,
 				ToTableId );
-			CFBamRelationBuff buff;
+			YCFBamRelationBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByToTblIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1731,20 +1731,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1757,19 +1757,19 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRelationObj> readRelationByToKeyIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByToKeyIdx( long TenantId,
 		long ToIndexId )
 	{
 		return( readRelationByToKeyIdx( TenantId,
@@ -1777,48 +1777,48 @@ public class CFBamRelationTableObj
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByToKeyIdx( long TenantId,
+	public List<IYCFBamRelationObj> readRelationByToKeyIdx( long TenantId,
 		long ToIndexId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByToKeyIdx";
-		CFBamRelationByToKeyIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
+		YCFBamRelationByToKeyIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredToIndexId( ToIndexId );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByToKeyIdx == null ) {
-			indexByToKeyIdx = new HashMap< CFBamRelationByToKeyIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByToKeyIdx = new HashMap< YCFBamRelationByToKeyIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByToKeyIdx.containsKey( key ) ) {
 			dict = indexByToKeyIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamRelationObj obj;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByToKeyIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByToKeyIdx( schema.getAuthorization(),
 				TenantId,
 				ToIndexId );
-			CFBamRelationBuff buff;
+			YCFBamRelationBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByToKeyIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1826,20 +1826,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1852,19 +1852,19 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRelationObj> readRelationByNarrowedIdx( Long NarrowedTenantId,
+	public List<IYCFBamRelationObj> readRelationByNarrowedIdx( Long NarrowedTenantId,
 		Long NarrowedId )
 	{
 		return( readRelationByNarrowedIdx( NarrowedTenantId,
@@ -1872,48 +1872,48 @@ public class CFBamRelationTableObj
 			false ) );
 	}
 
-	public List<ICFBamRelationObj> readRelationByNarrowedIdx( Long NarrowedTenantId,
+	public List<IYCFBamRelationObj> readRelationByNarrowedIdx( Long NarrowedTenantId,
 		Long NarrowedId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRelationByNarrowedIdx";
-		CFBamRelationByNarrowedIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
+		YCFBamRelationByNarrowedIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
 		key.setOptionalNarrowedTenantId( NarrowedTenantId );
 		key.setOptionalNarrowedId( NarrowedId );
-		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 		if( indexByNarrowedIdx == null ) {
-			indexByNarrowedIdx = new HashMap< CFBamRelationByNarrowedIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByNarrowedIdx = new HashMap< YCFBamRelationByNarrowedIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( ( ! forceRead ) && indexByNarrowedIdx.containsKey( key ) ) {
 			dict = indexByNarrowedIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
-			ICFBamRelationObj obj;
-			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByNarrowedIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamRelationObj>();
+			IYCFBamRelationObj obj;
+			YCFBamRelationBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByNarrowedIdx( schema.getAuthorization(),
 				NarrowedTenantId,
 				NarrowedId );
-			CFBamRelationBuff buff;
+			YCFBamRelationBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				IYCFBamRelationObj realised = (IYCFBamRelationObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByNarrowedIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+		Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1921,20 +1921,20 @@ public class CFBamRelationTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1947,48 +1947,48 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRelationObj> sortedList = arrayList;
+		List<IYCFBamRelationObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamRelationObj readCachedRelationByIdIdx( long TenantId,
+	public IYCFBamRelationObj readCachedRelationByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamRelationObj obj = null;
-		CFBamScopePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
+		IYCFBamRelationObj obj = null;
+		YCFBamScopePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedRelation( pkey );
 		return( obj );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByTenantIdx( long TenantId )
+	public List<IYCFBamRelationObj> readCachedRelationByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedRelationByTenantIdx";
-		CFBamScopeByTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByTenantIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByTenantIdx.containsKey( key ) ) {
 				dict = indexByTenantIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1996,7 +1996,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2009,8 +2009,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2020,8 +2020,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2034,8 +2034,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2045,12 +2045,12 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public ICFBamRelationObj readCachedRelationByUNameIdx( long TenantId,
+	public IYCFBamRelationObj readCachedRelationByUNameIdx( long TenantId,
 		long TableId,
 		String Name )
 	{
-		ICFBamRelationObj obj = null;
-		CFBamRelationByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
+		IYCFBamRelationObj obj = null;
+		YCFBamRelationByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		key.setRequiredName( Name );
@@ -2059,7 +2059,7 @@ public class CFBamRelationTableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+				Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -2071,7 +2071,7 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2084,25 +2084,25 @@ public class CFBamRelationTableObj
 		return( obj );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByRelnTenantIdx( long TenantId )
+	public List<IYCFBamRelationObj> readCachedRelationByRelnTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedRelationByRelnTenantIdx";
-		CFBamRelationByRelnTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
+		YCFBamRelationByRelnTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByRelnTenantIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByRelnTenantIdx.containsKey( key ) ) {
 				dict = indexByRelnTenantIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2110,7 +2110,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2123,8 +2123,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2134,8 +2134,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2148,8 +2148,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2159,27 +2159,27 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByRelTableIdx( long TenantId,
+	public List<IYCFBamRelationObj> readCachedRelationByRelTableIdx( long TenantId,
 		long TableId )
 	{
 		final String S_ProcName = "readCachedRelationByRelTableIdx";
-		CFBamRelationByRelTableIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
+		YCFBamRelationByRelTableIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByRelTableIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByRelTableIdx.containsKey( key ) ) {
 				dict = indexByRelTableIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2187,7 +2187,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2200,8 +2200,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2211,8 +2211,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2225,8 +2225,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2236,25 +2236,25 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public List<IYCFBamRelationObj> readCachedRelationByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "readCachedRelationByCodeVisIdx";
-		CFBamRelationByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+		YCFBamRelationByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByCodeVisIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByCodeVisIdx.containsKey( key ) ) {
 				dict = indexByCodeVisIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2262,7 +2262,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2275,8 +2275,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2286,8 +2286,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2300,8 +2300,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2311,29 +2311,29 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByTableCodeVisIdx( long TenantId,
+	public List<IYCFBamRelationObj> readCachedRelationByTableCodeVisIdx( long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "readCachedRelationByTableCodeVisIdx";
-		CFBamRelationByTableCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+		YCFBamRelationByTableCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		key.setRequiredCodeVis( CodeVis );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByTableCodeVisIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByTableCodeVisIdx.containsKey( key ) ) {
 				dict = indexByTableCodeVisIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2341,7 +2341,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2354,8 +2354,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2365,8 +2365,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2379,8 +2379,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2390,27 +2390,27 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamRelationObj> readCachedRelationByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "readCachedRelationByDefSchemaIdx";
-		CFBamRelationByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
+		YCFBamRelationByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByDefSchemaIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByDefSchemaIdx.containsKey( key ) ) {
 				dict = indexByDefSchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2418,7 +2418,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2431,8 +2431,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2442,8 +2442,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2456,8 +2456,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2467,27 +2467,27 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByFromKeyIdx( long TenantId,
+	public List<IYCFBamRelationObj> readCachedRelationByFromKeyIdx( long TenantId,
 		long FromIndexId )
 	{
 		final String S_ProcName = "readCachedRelationByFromKeyIdx";
-		CFBamRelationByFromKeyIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
+		YCFBamRelationByFromKeyIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredFromIndexId( FromIndexId );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByFromKeyIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByFromKeyIdx.containsKey( key ) ) {
 				dict = indexByFromKeyIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2495,7 +2495,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2508,8 +2508,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2519,8 +2519,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2533,8 +2533,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2544,27 +2544,27 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByToTblIdx( long TenantId,
+	public List<IYCFBamRelationObj> readCachedRelationByToTblIdx( long TenantId,
 		long ToTableId )
 	{
 		final String S_ProcName = "readCachedRelationByToTblIdx";
-		CFBamRelationByToTblIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
+		YCFBamRelationByToTblIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredToTableId( ToTableId );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByToTblIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByToTblIdx.containsKey( key ) ) {
 				dict = indexByToTblIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2572,7 +2572,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2585,8 +2585,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2596,8 +2596,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2610,8 +2610,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2621,27 +2621,27 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByToKeyIdx( long TenantId,
+	public List<IYCFBamRelationObj> readCachedRelationByToKeyIdx( long TenantId,
 		long ToIndexId )
 	{
 		final String S_ProcName = "readCachedRelationByToKeyIdx";
-		CFBamRelationByToKeyIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
+		YCFBamRelationByToKeyIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredToIndexId( ToIndexId );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByToKeyIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByToKeyIdx.containsKey( key ) ) {
 				dict = indexByToKeyIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2649,7 +2649,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2662,8 +2662,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2673,8 +2673,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2687,8 +2687,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2698,27 +2698,27 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRelationObj> readCachedRelationByNarrowedIdx( Long NarrowedTenantId,
+	public List<IYCFBamRelationObj> readCachedRelationByNarrowedIdx( Long NarrowedTenantId,
 		Long NarrowedId )
 	{
 		final String S_ProcName = "readCachedRelationByNarrowedIdx";
-		CFBamRelationByNarrowedIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
+		YCFBamRelationByNarrowedIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
 		key.setOptionalNarrowedTenantId( NarrowedTenantId );
 		key.setOptionalNarrowedId( NarrowedId );
-		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		ArrayList<IYCFBamRelationObj> arrayList = new ArrayList<IYCFBamRelationObj>();
 		if( indexByNarrowedIdx != null ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict;
 			if( indexByNarrowedIdx.containsKey( key ) ) {
 				dict = indexByNarrowedIdx.get( key );
 				int len = dict.size();
-				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
-				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				IYCFBamRelationObj arr[] = new IYCFBamRelationObj[len];
+				Iterator<IYCFBamRelationObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2726,7 +2726,7 @@ public class CFBamRelationTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2739,8 +2739,8 @@ public class CFBamRelationTableObj
 			}
 		}
 		else {
-			ICFBamRelationObj obj;
-			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			IYCFBamRelationObj obj;
+			Iterator<IYCFBamRelationObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2750,8 +2750,8 @@ public class CFBamRelationTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
-			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+		Comparator<IYCFBamRelationObj> cmp = new Comparator<IYCFBamRelationObj>() {
+			public int compare( IYCFBamRelationObj lhs, IYCFBamRelationObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2764,8 +2764,8 @@ public class CFBamRelationTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2778,7 +2778,7 @@ public class CFBamRelationTableObj
 	public void deepDisposeRelationByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamRelationObj obj = readCachedRelationByIdIdx( TenantId,
+		IYCFBamRelationObj obj = readCachedRelationByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -2788,10 +2788,10 @@ public class CFBamRelationTableObj
 	public void deepDisposeRelationByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeRelationByTenantIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByTenantIdx( TenantId );
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2805,7 +2805,7 @@ public class CFBamRelationTableObj
 		long TableId,
 		String Name )
 	{
-		ICFBamRelationObj obj = readCachedRelationByUNameIdx( TenantId,
+		IYCFBamRelationObj obj = readCachedRelationByUNameIdx( TenantId,
 				TableId,
 				Name );
 		if( obj != null ) {
@@ -2816,10 +2816,10 @@ public class CFBamRelationTableObj
 	public void deepDisposeRelationByRelnTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeRelationByRelnTenantIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByRelnTenantIdx( TenantId );
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByRelnTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2833,11 +2833,11 @@ public class CFBamRelationTableObj
 		long TableId )
 	{
 		final String S_ProcName = "deepDisposeRelationByRelTableIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByRelTableIdx( TenantId,
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByRelTableIdx( TenantId,
 				TableId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2847,13 +2847,13 @@ public class CFBamRelationTableObj
 		}
 	}
 
-	public void deepDisposeRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public void deepDisposeRelationByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "deepDisposeRelationByCodeVisIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByCodeVisIdx( CodeVis );
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByCodeVisIdx( CodeVis );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2865,15 +2865,15 @@ public class CFBamRelationTableObj
 
 	public void deepDisposeRelationByTableCodeVisIdx( long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "deepDisposeRelationByTableCodeVisIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByTableCodeVisIdx( TenantId,
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByTableCodeVisIdx( TenantId,
 				TableId,
 				CodeVis );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2887,11 +2887,11 @@ public class CFBamRelationTableObj
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "deepDisposeRelationByDefSchemaIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByDefSchemaIdx( DefSchemaTenantId,
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByDefSchemaIdx( DefSchemaTenantId,
 				DefSchemaId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2905,11 +2905,11 @@ public class CFBamRelationTableObj
 		long FromIndexId )
 	{
 		final String S_ProcName = "deepDisposeRelationByFromKeyIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByFromKeyIdx( TenantId,
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByFromKeyIdx( TenantId,
 				FromIndexId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2923,11 +2923,11 @@ public class CFBamRelationTableObj
 		long ToTableId )
 	{
 		final String S_ProcName = "deepDisposeRelationByToTblIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByToTblIdx( TenantId,
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByToTblIdx( TenantId,
 				ToTableId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2941,11 +2941,11 @@ public class CFBamRelationTableObj
 		long ToIndexId )
 	{
 		final String S_ProcName = "deepDisposeRelationByToKeyIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByToKeyIdx( TenantId,
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByToKeyIdx( TenantId,
 				ToIndexId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2959,11 +2959,11 @@ public class CFBamRelationTableObj
 		Long NarrowedId )
 	{
 		final String S_ProcName = "deepDisposeRelationByNarrowedIdx";
-		ICFBamRelationObj obj;
-		List<ICFBamRelationObj> arrayList = readCachedRelationByNarrowedIdx( NarrowedTenantId,
+		IYCFBamRelationObj obj;
+		List<IYCFBamRelationObj> arrayList = readCachedRelationByNarrowedIdx( NarrowedTenantId,
 				NarrowedId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRelationObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2973,20 +2973,20 @@ public class CFBamRelationTableObj
 		}
 	}
 
-	public ICFBamRelationObj updateRelation( ICFBamRelationObj Obj ) {
-		ICFBamRelationObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableRelation().updateRelation( schema.getAuthorization(),
+	public IYCFBamRelationObj updateRelation( IYCFBamRelationObj Obj ) {
+		IYCFBamRelationObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableRelation().updateRelation( schema.getAuthorization(),
 			Obj.getRelationBuff() );
 		if( Obj.getClassCode().equals( "a838" ) ) {
-			obj = (ICFBamRelationObj)Obj.realise();
+			obj = (IYCFBamRelationObj)Obj.realise();
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteRelation( ICFBamRelationObj Obj ) {
-		ICFBamRelationObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelation( schema.getAuthorization(),
+	public void deleteRelation( IYCFBamRelationObj Obj ) {
+		IYCFBamRelationObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelation( schema.getAuthorization(),
 			obj.getRelationBuff() );
 		Obj.forget();
 	}
@@ -2994,15 +2994,15 @@ public class CFBamRelationTableObj
 	public void deleteRelationByIdIdx( long TenantId,
 		long Id )
 	{
-		CFBamScopePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamRelationObj obj = readRelation( pkey );
+		IYCFBamRelationObj obj = readRelation( pkey );
 		if( obj != null ) {
-			ICFBamRelationEditObj editObj = (ICFBamRelationEditObj)obj.getEdit();
+			IYCFBamRelationEditObj editObj = (IYCFBamRelationEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFBamRelationEditObj)obj.beginEdit();
+				editObj = (IYCFBamRelationEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -3027,19 +3027,19 @@ public class CFBamRelationTableObj
 
 	public void deleteRelationByTenantIdx( long TenantId )
 	{
-		CFBamScopeByTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFBamScopeByTenantIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByTenantIdx = new HashMap< YCFBamScopeByTenantIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByTenantIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByTenantIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTenantIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByTenantIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3052,7 +3052,7 @@ public class CFBamRelationTableObj
 			indexByTenantIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTenantIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeRelationByTenantIdx( TenantId );
@@ -3063,24 +3063,24 @@ public class CFBamRelationTableObj
 		String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamRelationByUNameIdxKey,
-				ICFBamRelationObj >();
+			indexByUNameIdx = new HashMap< YCFBamRelationByUNameIdxKey,
+				IYCFBamRelationObj >();
 		}
-		CFBamRelationByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
+		YCFBamRelationByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		key.setRequiredName( Name );
-		ICFBamRelationObj obj = null;
+		IYCFBamRelationObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				TableId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				TableId,
 				Name );
@@ -3092,19 +3092,19 @@ public class CFBamRelationTableObj
 
 	public void deleteRelationByRelnTenantIdx( long TenantId )
 	{
-		CFBamRelationByRelnTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
+		YCFBamRelationByRelnTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelnTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByRelnTenantIdx == null ) {
-			indexByRelnTenantIdx = new HashMap< CFBamRelationByRelnTenantIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByRelnTenantIdx = new HashMap< YCFBamRelationByRelnTenantIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByRelnTenantIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByRelnTenantIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByRelnTenantIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByRelnTenantIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByRelnTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3117,7 +3117,7 @@ public class CFBamRelationTableObj
 			indexByRelnTenantIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByRelnTenantIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByRelnTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeRelationByRelnTenantIdx( TenantId );
@@ -3126,21 +3126,21 @@ public class CFBamRelationTableObj
 	public void deleteRelationByRelTableIdx( long TenantId,
 		long TableId )
 	{
-		CFBamRelationByRelTableIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
+		YCFBamRelationByRelTableIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newRelTableIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		if( indexByRelTableIdx == null ) {
-			indexByRelTableIdx = new HashMap< CFBamRelationByRelTableIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByRelTableIdx = new HashMap< YCFBamRelationByRelTableIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByRelTableIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByRelTableIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByRelTableIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByRelTableIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByRelTableIdx( schema.getAuthorization(),
 				TenantId,
 				TableId );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3153,7 +3153,7 @@ public class CFBamRelationTableObj
 			indexByRelTableIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByRelTableIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByRelTableIdx( schema.getAuthorization(),
 				TenantId,
 				TableId );
 		}
@@ -3161,21 +3161,21 @@ public class CFBamRelationTableObj
 				TableId );
 	}
 
-	public void deleteRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public void deleteRelationByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		CFBamRelationByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+		YCFBamRelationByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
 		if( indexByCodeVisIdx == null ) {
-			indexByCodeVisIdx = new HashMap< CFBamRelationByCodeVisIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByCodeVisIdx = new HashMap< YCFBamRelationByCodeVisIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByCodeVisIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByCodeVisIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByCodeVisIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByCodeVisIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3188,7 +3188,7 @@ public class CFBamRelationTableObj
 			indexByCodeVisIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByCodeVisIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
 		}
 		deepDisposeRelationByCodeVisIdx( CodeVis );
@@ -3196,25 +3196,25 @@ public class CFBamRelationTableObj
 
 	public void deleteRelationByTableCodeVisIdx( long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		CFBamRelationByTableCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+		YCFBamRelationByTableCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		key.setRequiredCodeVis( CodeVis );
 		if( indexByTableCodeVisIdx == null ) {
-			indexByTableCodeVisIdx = new HashMap< CFBamRelationByTableCodeVisIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByTableCodeVisIdx = new HashMap< YCFBamRelationByTableCodeVisIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByTableCodeVisIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByTableCodeVisIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTableCodeVisIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByTableCodeVisIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTableCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				TableId,
 				CodeVis );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3227,7 +3227,7 @@ public class CFBamRelationTableObj
 			indexByTableCodeVisIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTableCodeVisIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTableCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				TableId,
 				CodeVis );
@@ -3240,21 +3240,21 @@ public class CFBamRelationTableObj
 	public void deleteRelationByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		CFBamRelationByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
+		YCFBamRelationByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamRelationByDefSchemaIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamRelationByDefSchemaIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByDefSchemaIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByDefSchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByDefSchemaIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByDefSchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3267,7 +3267,7 @@ public class CFBamRelationTableObj
 			indexByDefSchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByDefSchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
 		}
@@ -3278,21 +3278,21 @@ public class CFBamRelationTableObj
 	public void deleteRelationByFromKeyIdx( long TenantId,
 		long FromIndexId )
 	{
-		CFBamRelationByFromKeyIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
+		YCFBamRelationByFromKeyIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newFromKeyIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredFromIndexId( FromIndexId );
 		if( indexByFromKeyIdx == null ) {
-			indexByFromKeyIdx = new HashMap< CFBamRelationByFromKeyIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByFromKeyIdx = new HashMap< YCFBamRelationByFromKeyIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByFromKeyIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByFromKeyIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByFromKeyIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByFromKeyIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByFromKeyIdx( schema.getAuthorization(),
 				TenantId,
 				FromIndexId );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3305,7 +3305,7 @@ public class CFBamRelationTableObj
 			indexByFromKeyIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByFromKeyIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByFromKeyIdx( schema.getAuthorization(),
 				TenantId,
 				FromIndexId );
 		}
@@ -3316,21 +3316,21 @@ public class CFBamRelationTableObj
 	public void deleteRelationByToTblIdx( long TenantId,
 		long ToTableId )
 	{
-		CFBamRelationByToTblIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
+		YCFBamRelationByToTblIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToTblIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredToTableId( ToTableId );
 		if( indexByToTblIdx == null ) {
-			indexByToTblIdx = new HashMap< CFBamRelationByToTblIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByToTblIdx = new HashMap< YCFBamRelationByToTblIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByToTblIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByToTblIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByToTblIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByToTblIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByToTblIdx( schema.getAuthorization(),
 				TenantId,
 				ToTableId );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3343,7 +3343,7 @@ public class CFBamRelationTableObj
 			indexByToTblIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByToTblIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByToTblIdx( schema.getAuthorization(),
 				TenantId,
 				ToTableId );
 		}
@@ -3354,21 +3354,21 @@ public class CFBamRelationTableObj
 	public void deleteRelationByToKeyIdx( long TenantId,
 		long ToIndexId )
 	{
-		CFBamRelationByToKeyIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
+		YCFBamRelationByToKeyIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newToKeyIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredToIndexId( ToIndexId );
 		if( indexByToKeyIdx == null ) {
-			indexByToKeyIdx = new HashMap< CFBamRelationByToKeyIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByToKeyIdx = new HashMap< YCFBamRelationByToKeyIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByToKeyIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByToKeyIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByToKeyIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByToKeyIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByToKeyIdx( schema.getAuthorization(),
 				TenantId,
 				ToIndexId );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3381,7 +3381,7 @@ public class CFBamRelationTableObj
 			indexByToKeyIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByToKeyIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByToKeyIdx( schema.getAuthorization(),
 				TenantId,
 				ToIndexId );
 		}
@@ -3392,21 +3392,21 @@ public class CFBamRelationTableObj
 	public void deleteRelationByNarrowedIdx( Long NarrowedTenantId,
 		Long NarrowedId )
 	{
-		CFBamRelationByNarrowedIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
+		YCFBamRelationByNarrowedIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRelation().newNarrowedIdxKey();
 		key.setOptionalNarrowedTenantId( NarrowedTenantId );
 		key.setOptionalNarrowedId( NarrowedId );
 		if( indexByNarrowedIdx == null ) {
-			indexByNarrowedIdx = new HashMap< CFBamRelationByNarrowedIdxKey,
-				Map< CFBamScopePKey, ICFBamRelationObj > >();
+			indexByNarrowedIdx = new HashMap< YCFBamRelationByNarrowedIdxKey,
+				Map< YCFBamScopePKey, IYCFBamRelationObj > >();
 		}
 		if( indexByNarrowedIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByNarrowedIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByNarrowedIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamRelationObj> dict = indexByNarrowedIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByNarrowedIdx( schema.getAuthorization(),
 				NarrowedTenantId,
 				NarrowedId );
-			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
-			ICFBamRelationObj obj;
-			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			Iterator<IYCFBamRelationObj> iter = dict.values().iterator();
+			IYCFBamRelationObj obj;
+			List<IYCFBamRelationObj> toForget = new LinkedList<IYCFBamRelationObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3419,7 +3419,7 @@ public class CFBamRelationTableObj
 			indexByNarrowedIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByNarrowedIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByNarrowedIdx( schema.getAuthorization(),
 				NarrowedTenantId,
 				NarrowedId );
 		}

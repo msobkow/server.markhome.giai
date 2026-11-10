@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a Tool buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbToolBuff
+public class YCFGenKbToolBuff
 {
 	public final static String CLASS_CODE = "a927";
 	public static final short ID_INIT_VALUE = (short)0;
@@ -55,9 +55,9 @@ public class CFGenKbToolBuff
 	protected Short optionalReplacesId;
 	protected boolean requiredIsSupported;
 	protected int requiredRevision;
-	public CFGenKbToolBuff() {
-		requiredId = CFGenKbToolBuff.ID_INIT_VALUE;
-		requiredName = new String( CFGenKbToolBuff.NAME_INIT_VALUE );
+	public YCFGenKbToolBuff() {
+		requiredId = YCFGenKbToolBuff.ID_INIT_VALUE;
+		requiredName = new String( YCFGenKbToolBuff.NAME_INIT_VALUE );
 		optionalReplacesId = null;
 	}
 
@@ -70,21 +70,21 @@ public class CFGenKbToolBuff
 	}
 
 	public void setRequiredId( short value ) {
-		if( value < CFGenKbToolBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbToolBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbToolBuff.ID_MIN_VALUE );
+				YCFGenKbToolBuff.ID_MIN_VALUE );
 		}
-		if( value > CFGenKbToolBuff.ID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbToolBuff.ID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbToolBuff.ID_MAX_VALUE );
+				YCFGenKbToolBuff.ID_MAX_VALUE );
 		}
 		requiredId = value;
 	}
@@ -95,13 +95,13 @@ public class CFGenKbToolBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -119,21 +119,21 @@ public class CFGenKbToolBuff
 		if( value == null ) {
 			optionalReplacesId = null;
 		}
-		else if( value < CFGenKbToolBuff.REPLACESID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbToolBuff.REPLACESID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalReplacesId",
 				1,
 				"value",
 				value,
-				CFGenKbToolBuff.REPLACESID_MIN_VALUE );
+				YCFGenKbToolBuff.REPLACESID_MIN_VALUE );
 		}
-		else if( value > CFGenKbToolBuff.REPLACESID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFGenKbToolBuff.REPLACESID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalReplacesId",
 				1,
 				"value",
 				value,
-				CFGenKbToolBuff.REPLACESID_MAX_VALUE );
+				YCFGenKbToolBuff.REPLACESID_MAX_VALUE );
 		}
 		else {
 			optionalReplacesId = value;
@@ -160,8 +160,8 @@ public class CFGenKbToolBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbToolBuff ) {
-			CFGenKbToolBuff rhs = (CFGenKbToolBuff)obj;
+		else if( obj instanceof YCFGenKbToolBuff ) {
+			YCFGenKbToolBuff rhs = (YCFGenKbToolBuff)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -185,22 +185,22 @@ public class CFGenKbToolBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbToolPKey ) {
-			CFGenKbToolPKey rhs = (CFGenKbToolPKey)obj;
+		else if( obj instanceof YCFGenKbToolPKey ) {
+			YCFGenKbToolPKey rhs = (YCFGenKbToolPKey)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbToolByNameIdxKey ) {
-			CFGenKbToolByNameIdxKey rhs = (CFGenKbToolByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbToolByNameIdxKey ) {
+			YCFGenKbToolByNameIdxKey rhs = (YCFGenKbToolByNameIdxKey)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbToolByReplacesIdxKey ) {
-			CFGenKbToolByReplacesIdxKey rhs = (CFGenKbToolByReplacesIdxKey)obj;
+		else if( obj instanceof YCFGenKbToolByReplacesIdxKey ) {
+			YCFGenKbToolByReplacesIdxKey rhs = (YCFGenKbToolByReplacesIdxKey)obj;
 			if( getOptionalReplacesId() != null ) {
 				if( rhs.getOptionalReplacesId() != null ) {
 					if( ! getOptionalReplacesId().equals( rhs.getOptionalReplacesId() ) ) {
@@ -246,8 +246,8 @@ public class CFGenKbToolBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbToolBuff ) {
-			CFGenKbToolBuff rhs = (CFGenKbToolBuff)obj;
+		else if( obj instanceof YCFGenKbToolBuff ) {
+			YCFGenKbToolBuff rhs = (YCFGenKbToolBuff)obj;
 			int retval = 0;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
@@ -291,8 +291,8 @@ public class CFGenKbToolBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbToolPKey ) {
-			CFGenKbToolPKey rhs = (CFGenKbToolPKey)obj;
+		else if( obj instanceof YCFGenKbToolPKey ) {
+			YCFGenKbToolPKey rhs = (YCFGenKbToolPKey)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -301,8 +301,8 @@ public class CFGenKbToolBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbToolByNameIdxKey ) {
-			CFGenKbToolByNameIdxKey rhs = (CFGenKbToolByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbToolByNameIdxKey ) {
+			YCFGenKbToolByNameIdxKey rhs = (YCFGenKbToolByNameIdxKey)obj;
 
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
@@ -311,8 +311,8 @@ public class CFGenKbToolBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbToolByReplacesIdxKey ) {
-			CFGenKbToolByReplacesIdxKey rhs = (CFGenKbToolByReplacesIdxKey)obj;
+		else if( obj instanceof YCFGenKbToolByReplacesIdxKey ) {
+			YCFGenKbToolByReplacesIdxKey rhs = (YCFGenKbToolByReplacesIdxKey)obj;
 
 			if( getOptionalReplacesId() != null ) {
 				Short lhsReplacesId = getOptionalReplacesId();
@@ -334,7 +334,7 @@ public class CFGenKbToolBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -342,11 +342,11 @@ public class CFGenKbToolBuff
 		}
 	}
 
-	public void set( CFGenKbToolBuff src ) {
+	public void set( YCFGenKbToolBuff src ) {
 		setToolBuff( src );
 	}
 
-	public void setToolBuff( CFGenKbToolBuff src ) {
+	public void setToolBuff( YCFGenKbToolBuff src ) {
 		setRequiredId( src.getRequiredId() );
 		setRequiredName( src.getRequiredName() );
 		setOptionalReplacesId( src.getOptionalReplacesId() );

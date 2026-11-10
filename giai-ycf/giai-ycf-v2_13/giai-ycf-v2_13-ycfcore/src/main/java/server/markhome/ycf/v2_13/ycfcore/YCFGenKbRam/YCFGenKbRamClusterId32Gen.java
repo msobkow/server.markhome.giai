@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a Cluster 32-bit RAM Id Generator object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -38,13 +38,13 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbRamClusterId32Gen RAM 32-bit Id Generator for Cluster
+ *	YCFGenKbRamClusterId32Gen RAM 32-bit Id Generator for Cluster
  */
-public class CFGenKbRamClusterId32Gen
+public class YCFGenKbRamClusterId32Gen
 	implements Comparable<Object>,
 		Serializable
 {
@@ -53,8 +53,8 @@ public class CFGenKbRamClusterId32Gen
 	protected short sliceId = 0;
 	protected int nextId = 1;
 
-	public CFGenKbRamClusterId32Gen() {
-		requiredId = CFGenKbClusterBuff.ID_INIT_VALUE;
+	public YCFGenKbRamClusterId32Gen() {
+		requiredId = YCFGenKbClusterBuff.ID_INIT_VALUE;
 		sliceId = 0;
 		nextId = 1;
 	}
@@ -69,13 +69,13 @@ public class CFGenKbRamClusterId32Gen
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFGenKbClusterBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbClusterBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbClusterBuff.ID_MIN_VALUE );
+				YCFGenKbClusterBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -92,8 +92,8 @@ public class CFGenKbRamClusterId32Gen
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbRamClusterId32Gen ) {
-			CFGenKbRamClusterId32Gen rhs = (CFGenKbRamClusterId32Gen)obj;
+		else if( obj instanceof YCFGenKbRamClusterId32Gen ) {
+			YCFGenKbRamClusterId32Gen rhs = (YCFGenKbRamClusterId32Gen)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -118,8 +118,8 @@ public class CFGenKbRamClusterId32Gen
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbRamClusterId32Gen ) {
-			CFGenKbRamClusterId32Gen rhs = (CFGenKbRamClusterId32Gen)obj;
+		else if( obj instanceof YCFGenKbRamClusterId32Gen ) {
+			YCFGenKbRamClusterId32Gen rhs = (YCFGenKbRamClusterId32Gen)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -139,16 +139,16 @@ public class CFGenKbRamClusterId32Gen
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFGenKbClusterId32Gen" );
+				"YCFGenKbClusterId32Gen" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbClusterId32Gen"
+		String ret = "<YCFGenKbClusterId32Gen"
 			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
 			+ ", SliceId=\"" + Short.toString( getRequiredSliceId() ) + "\""
 			+ ", NextId=\"" + Integer.toString( nextId ) + "\"/>";

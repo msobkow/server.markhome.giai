@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,12 +20,12 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.appdb;
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash256;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.appdb;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash256;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 
-public interface AppDbAddressRepository extends JpaRepository<AppDbAddress, CFLibDbKeyHash256> {
-    public List<AppDbAddress> findByRefUID(CFLibDbKeyHash256 refUID);
+public interface AppDbAddressRepository extends JpaRepository<AppDbAddress, YCFLibDbKeyHash256> {
+    public List<AppDbAddress> findByRefUID(YCFLibDbKeyHash256 refUID);
 }

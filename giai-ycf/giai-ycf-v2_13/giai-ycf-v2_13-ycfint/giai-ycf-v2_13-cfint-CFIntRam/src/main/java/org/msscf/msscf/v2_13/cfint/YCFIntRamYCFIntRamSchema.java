@@ -1,15 +1,15 @@
-// Description: Java 11 implementation of an in-memory RAM CFInt schema.
+// Description: Java 11 implementation of an in-memory RAM YCFInt schema.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,24 +26,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntRam;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntRam;
 
 import java.lang.reflect.*;
 import java.net.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntSaxLoader.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntSaxLoader.*;
 
-public class CFIntRamSchema
-	extends CFIntSchema
-	implements ICFIntSchema
+public class YCFIntRamSchema
+	extends YCFIntSchema
+	implements IYCFIntSchema
 {
 		protected short nextISOCcyIdGenValue = 1;
 		protected short nextISOCtryIdGenValue = 1;
@@ -56,41 +56,41 @@ public class CFIntRamSchema
 		protected long nextTenantIdGenValue = 1;
 
 
-	public CFIntRamSchema() {
+	public YCFIntRamSchema() {
 		super();
-		tableCluster = new CFIntRamClusterTable( this );
-		tableHostNode = new CFIntRamHostNodeTable( this );
-		tableISOCcy = new CFIntRamISOCcyTable( this );
-		tableISOCtry = new CFIntRamISOCtryTable( this );
-		tableISOCtryCcy = new CFIntRamISOCtryCcyTable( this );
-		tableISOCtryLang = new CFIntRamISOCtryLangTable( this );
-		tableISOLang = new CFIntRamISOLangTable( this );
-		tableISOTZone = new CFIntRamISOTZoneTable( this );
-		tableLicense = new CFIntRamLicenseTable( this );
-		tableMajorVersion = new CFIntRamMajorVersionTable( this );
-		tableMimeType = new CFIntRamMimeTypeTable( this );
-		tableMinorVersion = new CFIntRamMinorVersionTable( this );
-		tableSecApp = new CFIntRamSecAppTable( this );
-		tableSecDevice = new CFIntRamSecDeviceTable( this );
-		tableSecForm = new CFIntRamSecFormTable( this );
-		tableSecGroup = new CFIntRamSecGroupTable( this );
-		tableSecGroupForm = new CFIntRamSecGroupFormTable( this );
-		tableSecGrpInc = new CFIntRamSecGrpIncTable( this );
-		tableSecGrpMemb = new CFIntRamSecGrpMembTable( this );
-		tableSecSession = new CFIntRamSecSessionTable( this );
-		tableSecUser = new CFIntRamSecUserTable( this );
-		tableService = new CFIntRamServiceTable( this );
-		tableServiceType = new CFIntRamServiceTypeTable( this );
-		tableSubProject = new CFIntRamSubProjectTable( this );
-		tableSysCluster = new CFIntRamSysClusterTable( this );
-		tableTSecGroup = new CFIntRamTSecGroupTable( this );
-		tableTSecGrpInc = new CFIntRamTSecGrpIncTable( this );
-		tableTSecGrpMemb = new CFIntRamTSecGrpMembTable( this );
-		tableTenant = new CFIntRamTenantTable( this );
-		tableTld = new CFIntRamTldTable( this );
-		tableTopDomain = new CFIntRamTopDomainTable( this );
-		tableTopProject = new CFIntRamTopProjectTable( this );
-		tableURLProtocol = new CFIntRamURLProtocolTable( this );
+		tableCluster = new YCFIntRamClusterTable( this );
+		tableHostNode = new YCFIntRamHostNodeTable( this );
+		tableISOCcy = new YCFIntRamISOCcyTable( this );
+		tableISOCtry = new YCFIntRamISOCtryTable( this );
+		tableISOCtryCcy = new YCFIntRamISOCtryCcyTable( this );
+		tableISOCtryLang = new YCFIntRamISOCtryLangTable( this );
+		tableISOLang = new YCFIntRamISOLangTable( this );
+		tableISOTZone = new YCFIntRamISOTZoneTable( this );
+		tableLicense = new YCFIntRamLicenseTable( this );
+		tableMajorVersion = new YCFIntRamMajorVersionTable( this );
+		tableMimeType = new YCFIntRamMimeTypeTable( this );
+		tableMinorVersion = new YCFIntRamMinorVersionTable( this );
+		tableSecApp = new YCFIntRamSecAppTable( this );
+		tableSecDevice = new YCFIntRamSecDeviceTable( this );
+		tableSecForm = new YCFIntRamSecFormTable( this );
+		tableSecGroup = new YCFIntRamSecGroupTable( this );
+		tableSecGroupForm = new YCFIntRamSecGroupFormTable( this );
+		tableSecGrpInc = new YCFIntRamSecGrpIncTable( this );
+		tableSecGrpMemb = new YCFIntRamSecGrpMembTable( this );
+		tableSecSession = new YCFIntRamSecSessionTable( this );
+		tableSecUser = new YCFIntRamSecUserTable( this );
+		tableService = new YCFIntRamServiceTable( this );
+		tableServiceType = new YCFIntRamServiceTypeTable( this );
+		tableSubProject = new YCFIntRamSubProjectTable( this );
+		tableSysCluster = new YCFIntRamSysClusterTable( this );
+		tableTSecGroup = new YCFIntRamTSecGroupTable( this );
+		tableTSecGrpInc = new YCFIntRamTSecGrpIncTable( this );
+		tableTSecGrpMemb = new YCFIntRamTSecGrpMembTable( this );
+		tableTenant = new YCFIntRamTenantTable( this );
+		tableTld = new YCFIntRamTldTable( this );
+		tableTopDomain = new YCFIntRamTopDomainTable( this );
+		tableTopProject = new YCFIntRamTopProjectTable( this );
+		tableURLProtocol = new YCFIntRamURLProtocolTable( this );
 	}
 
 	protected boolean sessConnected = false;
@@ -113,19 +113,19 @@ public class CFIntRamSchema
 	public boolean connect( String username, String password ) {
 		final String S_ProcName = "connect";
 		if( ( username == null ) || ( username.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"username" );
 		}
 		if( password == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"password" );
 		}
 		if( ! username.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only 'system' is authorized to use a RAM database" );
 		}
@@ -142,41 +142,41 @@ public class CFIntRamSchema
 	public boolean connect( String loginId, String password, String clusterName, String tenantName ) {
 		final String S_ProcName = "connect";
 		if( ( loginId == null ) || ( loginId.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"loginId" );
 		}
 		if( password == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"password" );
 		}
 		if( clusterName == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				3,
 				"clusterName" );
 		}
 		if( tenantName == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				4,
 				"tenantName" );
 		}
 		if( ! loginId.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only 'system' is authorized to use a RAM database" );
 		}
 		if( ! clusterName.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only the 'system' Cluster is authorized to use a RAM database" );
 		}
 		if( ! tenantName.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only the 'system' Tenant is authorized to use a RAM database" );
 		}
@@ -219,8 +219,8 @@ public class CFIntRamSchema
 		tranOpen = false;
 	}
 
-	public ICFIntSchema newSchema() {
-		throw new CFLibMustOverrideException( getClass(), "newSchema" );
+	public IYCFIntSchema newSchema() {
+		throw new YCFLibMustOverrideException( getClass(), "newSchema" );
 	}
 
 	public short nextISOCcyIdGen() {
@@ -281,31 +281,31 @@ public class CFIntRamSchema
 	public void releasePreparedStatements() {
 	}
 
-	public String fileImport( CFSecAuthorization Authorization,
+	public String fileImport( YCFSecAuthorization Authorization,
 		String fileName,
 		String fileContent )
 	{
 		final String S_ProcName = "fileImport";
 		if( ( fileName == null ) || ( fileName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"fileName" );
 		}
 		if( ( fileContent == null ) || ( fileContent.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"fileContent" );
 		}
 
-		CFIntSaxLoader saxLoader = new CFIntSaxLoader();
-		ICFIntSchemaObj schemaObj = new CFIntSchemaObj();
+		YCFIntSaxLoader saxLoader = new YCFIntSaxLoader();
+		IYCFIntSchemaObj schemaObj = new YCFIntSchemaObj();
 		schemaObj.setBackingStore( this );
 		saxLoader.setSchemaObj( schemaObj );
-		ICFSecClusterObj useCluster = schemaObj.getClusterTableObj().readClusterByIdIdx( Authorization.getSecClusterId() );
-		ICFSecTenantObj useTenant = schemaObj.getTenantTableObj().readTenantByIdIdx( Authorization.getSecTenantId() );
-		CFLibCachedMessageLog runlog = new CFLibCachedMessageLog();
+		IYCFSecClusterObj useCluster = schemaObj.getClusterTableObj().readClusterByIdIdx( Authorization.getSecClusterId() );
+		IYCFSecTenantObj useTenant = schemaObj.getTenantTableObj().readTenantByIdIdx( Authorization.getSecTenantId() );
+		YCFLibCachedMessageLog runlog = new YCFLibCachedMessageLog();
 		saxLoader.setLog( runlog );
 		saxLoader.setUseCluster( useCluster );
 		saxLoader.setUseTenant( useTenant );

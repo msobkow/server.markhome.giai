@@ -1,15 +1,15 @@
-// Description: Java 11 CFSec Authorization Interface.
+// Description: Java 11 YCFSec Authorization Interface.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -34,20 +34,20 @@ import java.net.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.ICFSecClusterObj;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.ICFSecTenantObj;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.ICFSecSecSessionObj;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.IYCFSecClusterObj;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.IYCFSecTenantObj;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.IYCFSecSecSessionObj;
 
 /*
- *	A CFSecAuthorization is an authorization ticket
+ *	A YCFSecAuthorization is an authorization ticket
  *	for the system providing services.  For example, a
  *	database layer implements an Authorization that
  *	resolves a database connection (which may be under the
  *	control of an active cursor).
  */
-public class CFSecAuthorization
+public class YCFSecAuthorization
 	implements Serializable
 {
 	protected UUID authUUID;
@@ -58,7 +58,7 @@ public class CFSecAuthorization
 	protected UUID secSessionId = UUID.randomUUID();
 	protected UUID secUserId = UUID.randomUUID();
 
-	public CFSecAuthorization() {
+	public YCFSecAuthorization() {
 		authUUID = UUID.randomUUID();
 		authUUIDStr = authUUID.toString();
 	}
@@ -84,7 +84,7 @@ public class CFSecAuthorization
 		secClusterId = clusterId;
 	}
 
-	public void setSecCluster( ICFSecClusterObj value ) {
+	public void setSecCluster( IYCFSecClusterObj value ) {
 		// The cluster id is never cleared to 0 after it's been set
 		if( value != null ) {
 			secClusterId = value.getRequiredId();
@@ -99,7 +99,7 @@ public class CFSecAuthorization
 		secTenantId = tenantId;
 	}
 
-	public void setSecTenant( ICFSecTenantObj value ) {
+	public void setSecTenant( IYCFSecTenantObj value ) {
 		// The tenant id is never cleared to 0 after it's been set
 		if( value != null ) {
 			secTenantId = value.getRequiredId();
@@ -114,7 +114,7 @@ public class CFSecAuthorization
 		secSessionId = sessionId;
 	}
 
-	public void setSecSession( ICFSecSecSessionObj value )
+	public void setSecSession( IYCFSecSecSessionObj value )
 	{
 		// The session and user id are never cleared after they've been set
 		if( value != null ) {

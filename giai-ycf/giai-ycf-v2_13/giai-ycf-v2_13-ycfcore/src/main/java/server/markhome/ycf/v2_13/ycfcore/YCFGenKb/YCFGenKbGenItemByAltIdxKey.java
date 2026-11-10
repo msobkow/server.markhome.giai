@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenItem by AltIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenItemByAltIdxKey
+public class YCFGenKbGenItemByAltIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
@@ -48,11 +48,11 @@ public class CFGenKbGenItemByAltIdxKey
 	protected short requiredToolSetId;
 	protected Short optionalScopeDefId;
 	protected short requiredGenDefId;
-	public CFGenKbGenItemByAltIdxKey() {
-		requiredName = new String( CFGenKbGenItemBuff.NAME_INIT_VALUE );
-		requiredToolSetId = CFGenKbGenItemBuff.TOOLSETID_INIT_VALUE;
+	public YCFGenKbGenItemByAltIdxKey() {
+		requiredName = new String( YCFGenKbGenItemBuff.NAME_INIT_VALUE );
+		requiredToolSetId = YCFGenKbGenItemBuff.TOOLSETID_INIT_VALUE;
 		optionalScopeDefId = null;
-		requiredGenDefId = CFGenKbGenItemBuff.GENDEFID_INIT_VALUE;
+		requiredGenDefId = YCFGenKbGenItemBuff.GENDEFID_INIT_VALUE;
 	}
 
 	public String getRequiredName() {
@@ -61,13 +61,13 @@ public class CFGenKbGenItemByAltIdxKey
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -82,21 +82,21 @@ public class CFGenKbGenItemByAltIdxKey
 	}
 
 	public void setRequiredToolSetId( short value ) {
-		if( value < CFGenKbGenItemBuff.TOOLSETID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGenItemBuff.TOOLSETID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredToolSetId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.TOOLSETID_MIN_VALUE );
+				YCFGenKbGenItemBuff.TOOLSETID_MIN_VALUE );
 		}
-		if( value > CFGenKbGenItemBuff.TOOLSETID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbGenItemBuff.TOOLSETID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredToolSetId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.TOOLSETID_MAX_VALUE );
+				YCFGenKbGenItemBuff.TOOLSETID_MAX_VALUE );
 		}
 		requiredToolSetId = value;
 	}
@@ -109,21 +109,21 @@ public class CFGenKbGenItemByAltIdxKey
 		if( value == null ) {
 			optionalScopeDefId = null;
 		}
-		else if( value < CFGenKbGenItemBuff.SCOPEDEFID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenItemBuff.SCOPEDEFID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalScopeDefId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.SCOPEDEFID_MIN_VALUE );
+				YCFGenKbGenItemBuff.SCOPEDEFID_MIN_VALUE );
 		}
-		else if( value > CFGenKbGenItemBuff.SCOPEDEFID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFGenKbGenItemBuff.SCOPEDEFID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalScopeDefId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.SCOPEDEFID_MAX_VALUE );
+				YCFGenKbGenItemBuff.SCOPEDEFID_MAX_VALUE );
 		}
 		else {
 			optionalScopeDefId = value;
@@ -135,21 +135,21 @@ public class CFGenKbGenItemByAltIdxKey
 	}
 
 	public void setRequiredGenDefId( short value ) {
-		if( value < CFGenKbGenItemBuff.GENDEFID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGenItemBuff.GENDEFID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGenDefId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.GENDEFID_MIN_VALUE );
+				YCFGenKbGenItemBuff.GENDEFID_MIN_VALUE );
 		}
-		if( value > CFGenKbGenItemBuff.GENDEFID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbGenItemBuff.GENDEFID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredGenDefId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.GENDEFID_MAX_VALUE );
+				YCFGenKbGenItemBuff.GENDEFID_MAX_VALUE );
 		}
 		requiredGenDefId = value;
 	}
@@ -158,8 +158,8 @@ public class CFGenKbGenItemByAltIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenItemByAltIdxKey ) {
-			CFGenKbGenItemByAltIdxKey rhs = (CFGenKbGenItemByAltIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByAltIdxKey ) {
+			YCFGenKbGenItemByAltIdxKey rhs = (YCFGenKbGenItemByAltIdxKey)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
@@ -183,8 +183,8 @@ public class CFGenKbGenItemByAltIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
@@ -233,8 +233,8 @@ public class CFGenKbGenItemByAltIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenItemByAltIdxKey ) {
-			CFGenKbGenItemByAltIdxKey rhs = (CFGenKbGenItemByAltIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByAltIdxKey ) {
+			YCFGenKbGenItemByAltIdxKey rhs = (YCFGenKbGenItemByAltIdxKey)obj;
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
 				if( cmp != 0 ) {
@@ -273,8 +273,8 @@ public class CFGenKbGenItemByAltIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
 				if( cmp != 0 ) {
@@ -314,7 +314,7 @@ public class CFGenKbGenItemByAltIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -323,8 +323,8 @@ public class CFGenKbGenItemByAltIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenItemByAltIdx"
-			+ " RequiredName=" + "\"" + CFGenKbSchema.xmlEncodeString( getRequiredName() ) + "\""
+		String ret = "<YCFGenKbGenItemByAltIdx"
+			+ " RequiredName=" + "\"" + YCFGenKbSchema.xmlEncodeString( getRequiredName() ) + "\""
 			+ " RequiredToolSetId=" + "\"" + Short.toString( getRequiredToolSetId() ) + "\""
 			+ " OptionalScopeDefId=" + ( ( getOptionalScopeDefId() == null ) ? "null" : "\"" + getOptionalScopeDefId().toString() + "\"" )
 			+ " RequiredGenDefId=" + "\"" + Short.toString( getRequiredGenDefId() ) + "\""

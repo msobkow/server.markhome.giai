@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for URLProtocol.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,16 +35,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntURLProtocolTable database interface for URLProtocol
+ *	YCFIntURLProtocolTable database interface for URLProtocol
  */
-public interface ICFIntURLProtocolTable
+public interface IYCFIntURLProtocolTable
 {
 
 	/**
@@ -55,8 +55,8 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createURLProtocol( CFSecAuthorization Authorization,
-		CFIntURLProtocolBuff Buff );
+	void createURLProtocol( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolBuff Buff );
 
 
 	/**
@@ -67,8 +67,8 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateURLProtocol( CFSecAuthorization Authorization,
-		CFIntURLProtocolBuff Buff );
+	void updateURLProtocol( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolBuff Buff );
 
 
 	/**
@@ -78,8 +78,8 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteURLProtocol( CFSecAuthorization Authorization,
-		CFIntURLProtocolBuff Buff );
+	void deleteURLProtocol( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolBuff Buff );
 	/**
 	 *	Delete the URLProtocol instance identified by the primary key attributes.
 	 *
@@ -87,7 +87,7 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@param	argURLProtocolId	The URLProtocol key attribute of the instance generating the id.
 	 */
-	void deleteURLProtocolByIdIdx( CFSecAuthorization Authorization,
+	void deleteURLProtocolByIdIdx( YCFSecAuthorization Authorization,
 		int argURLProtocolId );
 
 	/**
@@ -97,8 +97,8 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteURLProtocolByIdIdx( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey argKey );
+	void deleteURLProtocolByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey argKey );
 	/**
 	 *	Delete the URLProtocol instances identified by the key UNameIdx.
 	 *
@@ -106,7 +106,7 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@param	argName	The URLProtocol key attribute of the instance generating the id.
 	 */
-	void deleteURLProtocolByUNameIdx( CFSecAuthorization Authorization,
+	void deleteURLProtocolByUNameIdx( YCFSecAuthorization Authorization,
 		String argName );
 
 	/**
@@ -116,8 +116,8 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteURLProtocolByUNameIdx( CFSecAuthorization Authorization,
-		CFIntURLProtocolByUNameIdxKey argKey );
+	void deleteURLProtocolByUNameIdx( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolByUNameIdxKey argKey );
 	/**
 	 *	Delete the URLProtocol instances identified by the key IsSecureIdx.
 	 *
@@ -125,7 +125,7 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@param	argIsSecure	The URLProtocol key attribute of the instance generating the id.
 	 */
-	void deleteURLProtocolByIsSecureIdx( CFSecAuthorization Authorization,
+	void deleteURLProtocolByIsSecureIdx( YCFSecAuthorization Authorization,
 		boolean argIsSecure );
 
 	/**
@@ -135,8 +135,8 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteURLProtocolByIsSecureIdx( CFSecAuthorization Authorization,
-		CFIntURLProtocolByIsSecureIdxKey argKey );
+	void deleteURLProtocolByIsSecureIdx( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolByIsSecureIdxKey argKey );
 
 
 	/**
@@ -149,8 +149,8 @@ public interface ICFIntURLProtocolTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntURLProtocolBuff readDerived( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey PKey );
+	YCFIntURLProtocolBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey PKey );
 
 	/**
 	 *	Lock the derived URLProtocol buffer instance by primary key.
@@ -162,8 +162,8 @@ public interface ICFIntURLProtocolTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntURLProtocolBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey PKey );
+	YCFIntURLProtocolBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey PKey );
 
 	/**
 	 *	Read all URLProtocol instances.
@@ -172,7 +172,7 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFIntURLProtocolBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFIntURLProtocolBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived URLProtocol buffer instance identified by the unique key IdIdx.
@@ -184,7 +184,7 @@ public interface ICFIntURLProtocolTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntURLProtocolBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFIntURLProtocolBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		int URLProtocolId );
 
 	/**
@@ -197,7 +197,7 @@ public interface ICFIntURLProtocolTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntURLProtocolBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFIntURLProtocolBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		String Name );
 
 	/**
@@ -209,7 +209,7 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntURLProtocolBuff[] readDerivedByIsSecureIdx( CFSecAuthorization Authorization,
+	YCFIntURLProtocolBuff[] readDerivedByIsSecureIdx( YCFSecAuthorization Authorization,
 		boolean IsSecure );
 
 	/**
@@ -222,10 +222,10 @@ public interface ICFIntURLProtocolTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntURLProtocolBuff readBuff( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey PKey );
+	YCFIntURLProtocolBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey PKey );
 
 	/**
 	 *	Lock the specific URLProtocol buffer instance identified by the primary key.
@@ -237,10 +237,10 @@ public interface ICFIntURLProtocolTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntURLProtocolBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey PKey );
+	YCFIntURLProtocolBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey PKey );
 
 	/**
 	 *	Read all the specific URLProtocol buffer instances.
@@ -249,7 +249,7 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@return All the specific URLProtocol instances in the database accessible for the Authorization.
 	 */
-	CFIntURLProtocolBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFIntURLProtocolBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific URLProtocol buffer instance identified by the unique key IdIdx.
@@ -261,9 +261,9 @@ public interface ICFIntURLProtocolTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntURLProtocolBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFIntURLProtocolBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		int URLProtocolId );
 
 	/**
@@ -276,9 +276,9 @@ public interface ICFIntURLProtocolTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntURLProtocolBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFIntURLProtocolBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		String Name );
 
 	/**
@@ -290,15 +290,15 @@ public interface ICFIntURLProtocolTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntURLProtocolBuff[] readBuffByIsSecureIdx( CFSecAuthorization Authorization,
+	YCFIntURLProtocolBuff[] readBuffByIsSecureIdx( YCFSecAuthorization Authorization,
 		boolean IsSecure );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

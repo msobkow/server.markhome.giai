@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for SecGrpInc
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,21 +35,21 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSaxLoaderSecGrpIncParse XML SAX Element Handler implementation
+ *	YCFIntSaxLoaderSecGrpIncParse XML SAX Element Handler implementation
  *	for SecGrpInc.
  */
-public class CFIntSaxLoaderSecGrpInc
-	extends CFLibXmlCoreElementHandler
+public class YCFIntSaxLoaderSecGrpInc
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFIntSaxLoaderSecGrpInc( CFIntSaxLoader saxLoader ) {
+	public YCFIntSaxLoaderSecGrpInc( YCFIntSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -61,16 +61,16 @@ public class CFIntSaxLoaderSecGrpInc
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFIntSecGrpIncObj origBuff = null;
-		ICFIntSecGrpIncEditObj editBuff = null;
+		IYCFIntSecGrpIncObj origBuff = null;
+		IYCFIntSecGrpIncEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// SecGrpInc Attributes
 		String attrSubGroup = null;
 		// SecGrpInc References
-		ICFIntClusterObj refCluster = null;
-		ICFIntSecGroupObj refGroup = null;
-		ICFIntSecGroupObj refSubGroup = null;
+		IYCFIntClusterObj refCluster = null;
+		IYCFIntSecGroupObj refGroup = null;
+		IYCFIntSecGroupObj refSubGroup = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -79,25 +79,25 @@ public class CFIntSaxLoaderSecGrpInc
 		try {
 			assert qName.equals( "SecGrpInc" );
 
-			CFIntSaxLoader saxLoader = (CFIntSaxLoader)getParser();
+			YCFIntSaxLoader saxLoader = (YCFIntSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFIntSecGrpIncObj)schemaObj.getSecGrpIncTableObj().newInstance();
-			editBuff = (ICFIntSecGrpIncEditObj)origBuff.beginEdit();
+			origBuff = (IYCFIntSecGrpIncObj)schemaObj.getSecGrpIncTableObj().newInstance();
+			editBuff = (IYCFIntSecGrpIncEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -105,7 +105,7 @@ public class CFIntSaxLoaderSecGrpInc
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -114,7 +114,7 @@ public class CFIntSaxLoaderSecGrpInc
 				}
 				else if( attrLocalName.equals( "SubGroup" ) ) {
 					if( attrSubGroup != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -125,7 +125,7 @@ public class CFIntSaxLoaderSecGrpInc
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -134,14 +134,14 @@ public class CFIntSaxLoaderSecGrpInc
 
 			// Ensure that required attributes have values
 			if( ( attrSubGroup == null ) || ( attrSubGroup.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"SubGroup" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "SubGroup", attrSubGroup );
 
@@ -157,7 +157,7 @@ public class CFIntSaxLoaderSecGrpInc
 			}
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -169,33 +169,33 @@ public class CFIntSaxLoaderSecGrpInc
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFIntSecGroupObj ) {
-				refGroup = (ICFIntSecGroupObj) scopeObj;
+			else if( scopeObj instanceof IYCFIntSecGroupObj ) {
+				refGroup = (IYCFIntSecGroupObj) scopeObj;
 				editBuff.setRequiredContainerGroup( refGroup );
-				refCluster = (ICFIntClusterObj)editBuff.getRequiredOwnerCluster();
+				refCluster = (IYCFIntClusterObj)editBuff.getRequiredOwnerCluster();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFIntSecGroupObj" );
+					"IYCFIntSecGroupObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refCluster == null ) {
-				if( scopeObj instanceof ICFIntClusterObj ) {
-					refCluster = (ICFIntClusterObj) scopeObj;
+				if( scopeObj instanceof IYCFIntClusterObj ) {
+					refCluster = (IYCFIntClusterObj) scopeObj;
 					editBuff.setRequiredOwnerCluster( refCluster );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Cluster>" );
@@ -204,10 +204,10 @@ public class CFIntSaxLoaderSecGrpInc
 
 			// Lookup refSubGroup by key name value attr
 			if( ( attrSubGroup != null ) && ( attrSubGroup.length() > 0 ) ) {
-				refSubGroup = (ICFIntSecGroupObj)schemaObj.getSecGroupTableObj().readSecGroupByUNameIdx( editBuff.getRequiredClusterId(),
+				refSubGroup = (IYCFIntSecGroupObj)schemaObj.getSecGroupTableObj().readSecGroupByUNameIdx( editBuff.getRequiredClusterId(),
 				attrSubGroup );
 				if( refSubGroup == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve SubGroup reference named \"" + attrSubGroup + "\" to table SecGroup" );
@@ -218,9 +218,9 @@ public class CFIntSaxLoaderSecGrpInc
 			}
 			editBuff.setRequiredParentSubGroup( refSubGroup );
 
-			ICFIntSecGrpIncObj origSecGrpInc;
-			ICFIntSecGrpIncEditObj editSecGrpInc = editBuff;
-			origSecGrpInc = (ICFIntSecGrpIncObj)editSecGrpInc.create();
+			IYCFIntSecGrpIncObj origSecGrpInc;
+			IYCFIntSecGrpIncEditObj editSecGrpInc = editBuff;
+			origSecGrpInc = (IYCFIntSecGrpIncObj)editSecGrpInc.create();
 			editSecGrpInc = null;
 
 			curContext.putNamedValue( "Object", origSecGrpInc );

@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb DefClass.
+// Description: Java 11 edit object instance implementation for YCFGenKb DefClass.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,44 +27,44 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbDefClassEditObj
-	implements ICFGenKbDefClassEditObj
+public class YCFGenKbDefClassEditObj
+	implements IYCFGenKbDefClassEditObj
 {
-	protected ICFGenKbDefClassObj orig;
-	protected CFGenKbDefClassBuff buff;
-	protected ICFGenKbDefClassObj optionalParentBaseDefClass;
+	protected IYCFGenKbDefClassObj orig;
+	protected YCFGenKbDefClassBuff buff;
+	protected IYCFGenKbDefClassObj optionalParentBaseDefClass;
 
-	public CFGenKbDefClassEditObj( ICFGenKbDefClassObj argOrig ) {
+	public YCFGenKbDefClassEditObj( IYCFGenKbDefClassObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFGenKbDefClassBuff origBuff = orig.getBuff();
+		YCFGenKbDefClassBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		optionalParentBaseDefClass = null;
 	}
 
 	public String getClassCode() {
-		return( CFGenKbDefClassObj.CLASS_CODE );
+		return( YCFGenKbDefClassObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "DefClass" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -74,14 +74,14 @@ public class CFGenKbDefClassEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -92,10 +92,10 @@ public class CFGenKbDefClassEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -104,20 +104,20 @@ public class CFGenKbDefClassEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -141,13 +141,13 @@ public class CFGenKbDefClassEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -161,13 +161,13 @@ public class CFGenKbDefClassEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -179,9 +179,9 @@ public class CFGenKbDefClassEditObj
 		return( fullName );
 	}
 
-	public ICFGenKbDefClassObj realise() {
+	public IYCFGenKbDefClassObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbDefClassObj retobj = getSchema().getDefClassTableObj().realiseDefClass( (ICFGenKbDefClassObj)this );
+		IYCFGenKbDefClassObj retobj = getSchema().getDefClassTableObj().realiseDefClass( (IYCFGenKbDefClassObj)this );
 		return( retobj );
 	}
 
@@ -189,10 +189,10 @@ public class CFGenKbDefClassEditObj
 		getOrigAsDefClass().forget();
 	}
 
-	public ICFGenKbDefClassObj read() {
-		ICFGenKbDefClassObj retval = getOrigAsDefClass().read();
+	public IYCFGenKbDefClassObj read() {
+		IYCFGenKbDefClassObj retval = getOrigAsDefClass().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -200,10 +200,10 @@ public class CFGenKbDefClassEditObj
 		return( retval );
 	}
 
-	public ICFGenKbDefClassObj read( boolean forceRead ) {
-		ICFGenKbDefClassObj retval = getOrigAsDefClass().read( forceRead );
+	public IYCFGenKbDefClassObj read( boolean forceRead ) {
+		IYCFGenKbDefClassObj retval = getOrigAsDefClass().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -211,84 +211,84 @@ public class CFGenKbDefClassEditObj
 		return( retval );
 	}
 
-	public ICFGenKbDefClassObj create() {
+	public IYCFGenKbDefClassObj create() {
 		copyBuffToOrig();
-		ICFGenKbDefClassObj retobj = ((ICFGenKbSchemaObj)getOrigAsDefClass().getSchema()).getDefClassTableObj().createDefClass( getOrigAsDefClass() );
+		IYCFGenKbDefClassObj retobj = ((IYCFGenKbSchemaObj)getOrigAsDefClass().getSchema()).getDefClassTableObj().createDefClass( getOrigAsDefClass() );
 		if( retobj == getOrigAsDefClass() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbDefClassEditObj update() {
-		getSchema().getDefClassTableObj().updateDefClass( (ICFGenKbDefClassObj)this );
+	public YCFGenKbDefClassEditObj update() {
+		getSchema().getDefClassTableObj().updateDefClass( (IYCFGenKbDefClassObj)this );
 		return( null );
 	}
 
-	public CFGenKbDefClassEditObj deleteInstance() {
+	public YCFGenKbDefClassEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getDefClassTableObj().deleteDefClass( getOrigAsDefClass() );
 		return( null );
 	}
 
-	public ICFGenKbDefClassTableObj getDefClassTable() {
+	public IYCFGenKbDefClassTableObj getDefClassTable() {
 		return( orig.getSchema().getDefClassTableObj() );
 	}
 
-	public ICFGenKbDefClassEditObj getEdit() {
-		return( (ICFGenKbDefClassEditObj)this );
+	public IYCFGenKbDefClassEditObj getEdit() {
+		return( (IYCFGenKbDefClassEditObj)this );
 	}
 
-	public ICFGenKbDefClassEditObj getEditAsDefClass() {
-		return( (ICFGenKbDefClassEditObj)this );
+	public IYCFGenKbDefClassEditObj getEditAsDefClass() {
+		return( (IYCFGenKbDefClassEditObj)this );
 	}
 
-	public ICFGenKbDefClassEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFGenKbDefClassEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFGenKbDefClassObj getOrig() {
+	public IYCFGenKbDefClassObj getOrig() {
 		return( orig );
 	}
 
-	public ICFGenKbDefClassObj getOrigAsDefClass() {
-		return( (ICFGenKbDefClassObj)orig );
+	public IYCFGenKbDefClassObj getOrigAsDefClass() {
+		return( (IYCFGenKbDefClassObj)orig );
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFGenKbDefClassBuff getBuff() {
+	public YCFGenKbDefClassBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsDefClass().getSchema().getBackingStore()).getFactoryDefClass().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsDefClass().getSchema().getBackingStore()).getFactoryDefClass().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbDefClassBuff value ) {
+	public void setBuff( YCFGenKbDefClassBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			optionalParentBaseDefClass = null;
 		}
 	}
 
-	public CFGenKbDefClassBuff getDefClassBuff() {
-		return( (CFGenKbDefClassBuff)getBuff() );
+	public YCFGenKbDefClassBuff getDefClassBuff() {
+		return( (YCFGenKbDefClassBuff)getBuff() );
 	}
 
-	public CFGenKbDefClassPKey getPKey() {
+	public YCFGenKbDefClassPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFGenKbDefClassPKey value ) {
+	public void setPKey( YCFGenKbDefClassPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -319,25 +319,25 @@ public class CFGenKbDefClassEditObj
 		return( getDefClassBuff().getOptionalBaseId() );
 	}
 
-	public ICFGenKbDefClassObj getOptionalParentBaseDefClass() {
+	public IYCFGenKbDefClassObj getOptionalParentBaseDefClass() {
 		return( getOptionalParentBaseDefClass( false ) );
 	}
 
-	public ICFGenKbDefClassObj getOptionalParentBaseDefClass( boolean forceRead ) {
+	public IYCFGenKbDefClassObj getOptionalParentBaseDefClass( boolean forceRead ) {
 		if( forceRead || ( optionalParentBaseDefClass == null ) ) {
 			boolean anyMissing = false;
 			if( getDefClassBuff().getOptionalBaseId() == null ) {
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFGenKbDefClassObj obj = ((ICFGenKbSchemaObj)getOrigAsDefClass().getSchema()).getDefClassTableObj().readDefClassByIdIdx( getDefClassBuff().getOptionalBaseId() );
+				IYCFGenKbDefClassObj obj = ((IYCFGenKbSchemaObj)getOrigAsDefClass().getSchema()).getDefClassTableObj().readDefClassByIdIdx( getDefClassBuff().getOptionalBaseId() );
 				optionalParentBaseDefClass = obj;
 			}
 		}
 		return( optionalParentBaseDefClass );
 	}
 
-	public void setOptionalParentBaseDefClass( ICFGenKbDefClassObj value ) {
+	public void setOptionalParentBaseDefClass( IYCFGenKbDefClassObj value ) {
 			if( buff == null ) {
 				getDefClassBuff();
 			}
@@ -359,14 +359,14 @@ public class CFGenKbDefClassEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbDefClassBuff origBuff = getOrigAsDefClass().getDefClassBuff();
-		CFGenKbDefClassBuff myBuff = getDefClassBuff();
+		YCFGenKbDefClassBuff origBuff = getOrigAsDefClass().getDefClassBuff();
+		YCFGenKbDefClassBuff myBuff = getDefClassBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbDefClassBuff origBuff = getOrigAsDefClass().getDefClassBuff();
-		CFGenKbDefClassBuff myBuff = getDefClassBuff();
+		YCFGenKbDefClassBuff origBuff = getOrigAsDefClass().getDefClassBuff();
+		YCFGenKbDefClassBuff myBuff = getDefClassBuff();
 		myBuff.set( origBuff );
 	}
 }

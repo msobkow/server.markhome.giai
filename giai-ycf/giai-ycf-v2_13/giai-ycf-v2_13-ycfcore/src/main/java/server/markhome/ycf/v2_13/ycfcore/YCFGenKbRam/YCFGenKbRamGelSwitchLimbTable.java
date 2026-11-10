@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for GelSwitchLimb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,53 +28,53 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamGelSwitchLimbTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamGelSwitchLimbTable in-memory RAM DbIO implementation
  *	for GelSwitchLimb.
  */
-public class CFGenKbRamGelSwitchLimbTable
-	implements ICFGenKbGelSwitchLimbTable
+public class YCFGenKbRamGelSwitchLimbTable
+	implements IYCFGenKbGelSwitchLimbTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbGelSwitchLimbPKey,
-				CFGenKbGelSwitchLimbBuff > dictByPKey
-		= new HashMap< CFGenKbGelSwitchLimbPKey,
-				CFGenKbGelSwitchLimbBuff >();
-	private Map< CFGenKbGelSwitchLimbByTenantIdxKey,
-				Map< CFGenKbGelSwitchLimbPKey,
-					CFGenKbGelSwitchLimbBuff >> dictByTenantIdx
-		= new HashMap< CFGenKbGelSwitchLimbByTenantIdxKey,
-				Map< CFGenKbGelSwitchLimbPKey,
-					CFGenKbGelSwitchLimbBuff >>();
-	private Map< CFGenKbGelSwitchLimbBySwitchIdxKey,
-				Map< CFGenKbGelSwitchLimbPKey,
-					CFGenKbGelSwitchLimbBuff >> dictBySwitchIdx
-		= new HashMap< CFGenKbGelSwitchLimbBySwitchIdxKey,
-				Map< CFGenKbGelSwitchLimbPKey,
-					CFGenKbGelSwitchLimbBuff >>();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbGelSwitchLimbPKey,
+				YCFGenKbGelSwitchLimbBuff > dictByPKey
+		= new HashMap< YCFGenKbGelSwitchLimbPKey,
+				YCFGenKbGelSwitchLimbBuff >();
+	private Map< YCFGenKbGelSwitchLimbByTenantIdxKey,
+				Map< YCFGenKbGelSwitchLimbPKey,
+					YCFGenKbGelSwitchLimbBuff >> dictByTenantIdx
+		= new HashMap< YCFGenKbGelSwitchLimbByTenantIdxKey,
+				Map< YCFGenKbGelSwitchLimbPKey,
+					YCFGenKbGelSwitchLimbBuff >>();
+	private Map< YCFGenKbGelSwitchLimbBySwitchIdxKey,
+				Map< YCFGenKbGelSwitchLimbPKey,
+					YCFGenKbGelSwitchLimbBuff >> dictBySwitchIdx
+		= new HashMap< YCFGenKbGelSwitchLimbBySwitchIdxKey,
+				Map< YCFGenKbGelSwitchLimbPKey,
+					YCFGenKbGelSwitchLimbBuff >>();
 
-	public CFGenKbRamGelSwitchLimbTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamGelSwitchLimbTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createGelSwitchLimb( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbBuff Buff )
+	public void createGelSwitchLimb( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbBuff Buff )
 	{
 		final String S_ProcName = "createGelSwitchLimb";
-		CFGenKbGelSwitchLimbPKey pkey = schema.getFactoryGelSwitchLimb().newPKey();
+		YCFGenKbGelSwitchLimbPKey pkey = schema.getFactoryGelSwitchLimb().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		pkey.setRequiredGelInstId( Buff.getRequiredGelInstId() );
@@ -83,10 +83,10 @@ public class CFGenKbRamGelSwitchLimbTable
 		Buff.setRequiredGelCacheId( pkey.getRequiredGelCacheId() );
 		Buff.setRequiredGelInstId( pkey.getRequiredGelInstId() );
 		Buff.setRequiredLimbName( pkey.getRequiredLimbName() );
-		CFGenKbGelSwitchLimbByTenantIdxKey keyTenantIdx = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
+		YCFGenKbGelSwitchLimbByTenantIdxKey keyTenantIdx = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFGenKbGelSwitchLimbBySwitchIdxKey keySwitchIdx = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
+		YCFGenKbGelSwitchLimbBySwitchIdxKey keySwitchIdx = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
 		keySwitchIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keySwitchIdx.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		keySwitchIdx.setRequiredGelInstId( Buff.getRequiredGelInstId() );
@@ -94,7 +94,7 @@ public class CFGenKbRamGelSwitchLimbTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		// Validate foreign keys
@@ -106,7 +106,7 @@ public class CFGenKbRamGelSwitchLimbTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Owner",
 						"Tenant",
@@ -120,38 +120,38 @@ public class CFGenKbRamGelSwitchLimbTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff > subdictTenantIdx;
+		Map< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff > subdictTenantIdx;
 		if( dictByTenantIdx.containsKey( keyTenantIdx ) ) {
 			subdictTenantIdx = dictByTenantIdx.get( keyTenantIdx );
 		}
 		else {
-			subdictTenantIdx = new HashMap< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff >();
+			subdictTenantIdx = new HashMap< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff >();
 			dictByTenantIdx.put( keyTenantIdx, subdictTenantIdx );
 		}
 		subdictTenantIdx.put( pkey, Buff );
 
-		Map< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff > subdictSwitchIdx;
+		Map< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff > subdictSwitchIdx;
 		if( dictBySwitchIdx.containsKey( keySwitchIdx ) ) {
 			subdictSwitchIdx = dictBySwitchIdx.get( keySwitchIdx );
 		}
 		else {
-			subdictSwitchIdx = new HashMap< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff >();
+			subdictSwitchIdx = new HashMap< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff >();
 			dictBySwitchIdx.put( keySwitchIdx, subdictSwitchIdx );
 		}
 		subdictSwitchIdx.put( pkey, Buff );
 
 	}
 
-	public CFGenKbGelSwitchLimbBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey PKey )
+	public YCFGenKbGelSwitchLimbBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readDerived";
-		CFGenKbGelSwitchLimbPKey key = schema.getFactoryGelSwitchLimb().newPKey();
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readDerived";
+		YCFGenKbGelSwitchLimbPKey key = schema.getFactoryGelSwitchLimb().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredGelCacheId( PKey.getRequiredGelCacheId() );
 		key.setRequiredGelInstId( PKey.getRequiredGelInstId() );
 		key.setRequiredLimbName( PKey.getRequiredLimbName() );
-		CFGenKbGelSwitchLimbBuff buff;
+		YCFGenKbGelSwitchLimbBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -161,16 +161,16 @@ public class CFGenKbRamGelSwitchLimbTable
 		return( buff );
 	}
 
-	public CFGenKbGelSwitchLimbBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey PKey )
+	public YCFGenKbGelSwitchLimbBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readDerived";
-		CFGenKbGelSwitchLimbPKey key = schema.getFactoryGelSwitchLimb().newPKey();
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readDerived";
+		YCFGenKbGelSwitchLimbPKey key = schema.getFactoryGelSwitchLimb().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredGelCacheId( PKey.getRequiredGelCacheId() );
 		key.setRequiredGelInstId( PKey.getRequiredGelInstId() );
 		key.setRequiredLimbName( PKey.getRequiredLimbName() );
-		CFGenKbGelSwitchLimbBuff buff;
+		YCFGenKbGelSwitchLimbBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -180,10 +180,10 @@ public class CFGenKbRamGelSwitchLimbTable
 		return( buff );
 	}
 
-	public CFGenKbGelSwitchLimbBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readAllDerived";
-		CFGenKbGelSwitchLimbBuff[] retList = new CFGenKbGelSwitchLimbBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbGelSwitchLimbBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbGelSwitchLimbBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readAllDerived";
+		YCFGenKbGelSwitchLimbBuff[] retList = new YCFGenKbGelSwitchLimbBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbGelSwitchLimbBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -191,78 +191,78 @@ public class CFGenKbRamGelSwitchLimbTable
 		return( retList );
 	}
 
-	public CFGenKbGelSwitchLimbBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelSwitchLimbBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readDerivedByTenantIdx";
-		CFGenKbGelSwitchLimbByTenantIdxKey key = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readDerivedByTenantIdx";
+		YCFGenKbGelSwitchLimbByTenantIdxKey key = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 
-		CFGenKbGelSwitchLimbBuff[] recArray;
+		YCFGenKbGelSwitchLimbBuff[] recArray;
 		if( dictByTenantIdx.containsKey( key ) ) {
-			Map< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff > subdictTenantIdx
+			Map< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff > subdictTenantIdx
 				= dictByTenantIdx.get( key );
-			recArray = new CFGenKbGelSwitchLimbBuff[ subdictTenantIdx.size() ];
-			Iterator< CFGenKbGelSwitchLimbBuff > iter = subdictTenantIdx.values().iterator();
+			recArray = new YCFGenKbGelSwitchLimbBuff[ subdictTenantIdx.size() ];
+			Iterator< YCFGenKbGelSwitchLimbBuff > iter = subdictTenantIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff > subdictTenantIdx
-				= new HashMap< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff >();
+			Map< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff > subdictTenantIdx
+				= new HashMap< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff >();
 			dictByTenantIdx.put( key, subdictTenantIdx );
-			recArray = new CFGenKbGelSwitchLimbBuff[0];
+			recArray = new YCFGenKbGelSwitchLimbBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbGelSwitchLimbBuff[] readDerivedBySwitchIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelSwitchLimbBuff[] readDerivedBySwitchIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readDerivedBySwitchIdx";
-		CFGenKbGelSwitchLimbBySwitchIdxKey key = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readDerivedBySwitchIdx";
+		YCFGenKbGelSwitchLimbBySwitchIdxKey key = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
 		key.setRequiredGelInstId( GelInstId );
 
-		CFGenKbGelSwitchLimbBuff[] recArray;
+		YCFGenKbGelSwitchLimbBuff[] recArray;
 		if( dictBySwitchIdx.containsKey( key ) ) {
-			Map< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff > subdictSwitchIdx
+			Map< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff > subdictSwitchIdx
 				= dictBySwitchIdx.get( key );
-			recArray = new CFGenKbGelSwitchLimbBuff[ subdictSwitchIdx.size() ];
-			Iterator< CFGenKbGelSwitchLimbBuff > iter = subdictSwitchIdx.values().iterator();
+			recArray = new YCFGenKbGelSwitchLimbBuff[ subdictSwitchIdx.size() ];
+			Iterator< YCFGenKbGelSwitchLimbBuff > iter = subdictSwitchIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff > subdictSwitchIdx
-				= new HashMap< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff >();
+			Map< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff > subdictSwitchIdx
+				= new HashMap< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff >();
 			dictBySwitchIdx.put( key, subdictSwitchIdx );
-			recArray = new CFGenKbGelSwitchLimbBuff[0];
+			recArray = new YCFGenKbGelSwitchLimbBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbGelSwitchLimbBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelSwitchLimbBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		String LimbName )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readDerivedByPIdx() ";
-		CFGenKbGelSwitchLimbPKey key = schema.getFactoryGelSwitchLimb().newPKey();
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readDerivedByPIdx() ";
+		YCFGenKbGelSwitchLimbPKey key = schema.getFactoryGelSwitchLimb().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
 		key.setRequiredGelInstId( GelInstId );
 		key.setRequiredLimbName( LimbName );
 
-		CFGenKbGelSwitchLimbBuff buff;
+		YCFGenKbGelSwitchLimbBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -272,135 +272,135 @@ public class CFGenKbRamGelSwitchLimbTable
 		return( buff );
 	}
 
-	public CFGenKbGelSwitchLimbBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey PKey )
+	public YCFGenKbGelSwitchLimbBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readBuff";
-		CFGenKbGelSwitchLimbBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readBuff";
+		YCFGenKbGelSwitchLimbBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a91f" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbGelSwitchLimbBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey PKey )
+	public YCFGenKbGelSwitchLimbBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbGelSwitchLimbBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbGelSwitchLimbBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a91f" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbGelSwitchLimbBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbGelSwitchLimbBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readAllBuff";
-		CFGenKbGelSwitchLimbBuff buff;
-		ArrayList<CFGenKbGelSwitchLimbBuff> filteredList = new ArrayList<CFGenKbGelSwitchLimbBuff>();
-		CFGenKbGelSwitchLimbBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readAllBuff";
+		YCFGenKbGelSwitchLimbBuff buff;
+		ArrayList<YCFGenKbGelSwitchLimbBuff> filteredList = new ArrayList<YCFGenKbGelSwitchLimbBuff>();
+		YCFGenKbGelSwitchLimbBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a91f" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelSwitchLimbBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelSwitchLimbBuff[0] ) );
 	}
 
-	public CFGenKbGelSwitchLimbBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelSwitchLimbBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		String LimbName )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readBuffByPIdx() ";
-		CFGenKbGelSwitchLimbBuff buff = readDerivedByPIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readBuffByPIdx() ";
+		YCFGenKbGelSwitchLimbBuff buff = readDerivedByPIdx( Authorization,
 			TenantId,
 			GelCacheId,
 			GelInstId,
 			LimbName );
 		if( ( buff != null ) && buff.getClassCode().equals( "a91f" ) ) {
-			return( (CFGenKbGelSwitchLimbBuff)buff );
+			return( (YCFGenKbGelSwitchLimbBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbGelSwitchLimbBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelSwitchLimbBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readBuffByTenantIdx() ";
-		CFGenKbGelSwitchLimbBuff buff;
-		ArrayList<CFGenKbGelSwitchLimbBuff> filteredList = new ArrayList<CFGenKbGelSwitchLimbBuff>();
-		CFGenKbGelSwitchLimbBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readBuffByTenantIdx() ";
+		YCFGenKbGelSwitchLimbBuff buff;
+		ArrayList<YCFGenKbGelSwitchLimbBuff> filteredList = new ArrayList<YCFGenKbGelSwitchLimbBuff>();
+		YCFGenKbGelSwitchLimbBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a91f" ) ) {
-				filteredList.add( (CFGenKbGelSwitchLimbBuff)buff );
+				filteredList.add( (YCFGenKbGelSwitchLimbBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelSwitchLimbBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelSwitchLimbBuff[0] ) );
 	}
 
-	public CFGenKbGelSwitchLimbBuff[] readBuffBySwitchIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGelSwitchLimbBuff[] readBuffBySwitchIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimb.readBuffBySwitchIdx() ";
-		CFGenKbGelSwitchLimbBuff buff;
-		ArrayList<CFGenKbGelSwitchLimbBuff> filteredList = new ArrayList<CFGenKbGelSwitchLimbBuff>();
-		CFGenKbGelSwitchLimbBuff[] buffList = readDerivedBySwitchIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimb.readBuffBySwitchIdx() ";
+		YCFGenKbGelSwitchLimbBuff buff;
+		ArrayList<YCFGenKbGelSwitchLimbBuff> filteredList = new ArrayList<YCFGenKbGelSwitchLimbBuff>();
+		YCFGenKbGelSwitchLimbBuff[] buffList = readDerivedBySwitchIdx( Authorization,
 			TenantId,
 			GelCacheId,
 			GelInstId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a91f" ) ) {
-				filteredList.add( (CFGenKbGelSwitchLimbBuff)buff );
+				filteredList.add( (YCFGenKbGelSwitchLimbBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGelSwitchLimbBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGelSwitchLimbBuff[0] ) );
 	}
 
-	public void updateGelSwitchLimb( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbBuff Buff )
+	public void updateGelSwitchLimb( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbBuff Buff )
 	{
-		CFGenKbGelSwitchLimbPKey pkey = schema.getFactoryGelSwitchLimb().newPKey();
+		YCFGenKbGelSwitchLimbPKey pkey = schema.getFactoryGelSwitchLimb().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		pkey.setRequiredGelInstId( Buff.getRequiredGelInstId() );
 		pkey.setRequiredLimbName( Buff.getRequiredLimbName() );
-		CFGenKbGelSwitchLimbBuff existing = dictByPKey.get( pkey );
+		YCFGenKbGelSwitchLimbBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateGelSwitchLimb",
 				"Existing record not found",
 				"GelSwitchLimb",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateGelSwitchLimb",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFGenKbGelSwitchLimbByTenantIdxKey existingKeyTenantIdx = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
+		YCFGenKbGelSwitchLimbByTenantIdxKey existingKeyTenantIdx = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
 		existingKeyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFGenKbGelSwitchLimbByTenantIdxKey newKeyTenantIdx = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
+		YCFGenKbGelSwitchLimbByTenantIdxKey newKeyTenantIdx = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
 		newKeyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFGenKbGelSwitchLimbBySwitchIdxKey existingKeySwitchIdx = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
+		YCFGenKbGelSwitchLimbBySwitchIdxKey existingKeySwitchIdx = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
 		existingKeySwitchIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeySwitchIdx.setRequiredGelCacheId( existing.getRequiredGelCacheId() );
 		existingKeySwitchIdx.setRequiredGelInstId( existing.getRequiredGelInstId() );
 
-		CFGenKbGelSwitchLimbBySwitchIdxKey newKeySwitchIdx = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
+		YCFGenKbGelSwitchLimbBySwitchIdxKey newKeySwitchIdx = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
 		newKeySwitchIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeySwitchIdx.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		newKeySwitchIdx.setRequiredGelInstId( Buff.getRequiredGelInstId() );
@@ -416,7 +416,7 @@ public class CFGenKbRamGelSwitchLimbTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateGelSwitchLimb",
 						"Owner",
 						"Tenant",
@@ -428,7 +428,7 @@ public class CFGenKbRamGelSwitchLimbTable
 
 		// Update is valid
 
-		Map< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff > subdict;
+		Map< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -441,7 +441,7 @@ public class CFGenKbRamGelSwitchLimbTable
 			subdict = dictByTenantIdx.get( newKeyTenantIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff >();
+			subdict = new HashMap< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff >();
 			dictByTenantIdx.put( newKeyTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -454,37 +454,37 @@ public class CFGenKbRamGelSwitchLimbTable
 			subdict = dictBySwitchIdx.get( newKeySwitchIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff >();
+			subdict = new HashMap< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff >();
 			dictBySwitchIdx.put( newKeySwitchIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteGelSwitchLimb( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbBuff Buff )
+	public void deleteGelSwitchLimb( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamGelSwitchLimbTable.deleteGelSwitchLimb() ";
+		final String S_ProcName = "YCFGenKbRamGelSwitchLimbTable.deleteGelSwitchLimb() ";
 		String classCode;
-		CFGenKbGelSwitchLimbPKey pkey = schema.getFactoryGelSwitchLimb().newPKey();
+		YCFGenKbGelSwitchLimbPKey pkey = schema.getFactoryGelSwitchLimb().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredGelCacheId( Buff.getRequiredGelCacheId() );
 		pkey.setRequiredGelInstId( Buff.getRequiredGelInstId() );
 		pkey.setRequiredLimbName( Buff.getRequiredLimbName() );
-		CFGenKbGelSwitchLimbBuff existing = dictByPKey.get( pkey );
+		YCFGenKbGelSwitchLimbBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteGelSwitchLimb",
 				pkey );
 		}
-		CFGenKbGelSwitchLimbByTenantIdxKey keyTenantIdx = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
+		YCFGenKbGelSwitchLimbByTenantIdxKey keyTenantIdx = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFGenKbGelSwitchLimbBySwitchIdxKey keySwitchIdx = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
+		YCFGenKbGelSwitchLimbBySwitchIdxKey keySwitchIdx = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
 		keySwitchIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keySwitchIdx.setRequiredGelCacheId( existing.getRequiredGelCacheId() );
 		keySwitchIdx.setRequiredGelInstId( existing.getRequiredGelInstId() );
@@ -492,7 +492,7 @@ public class CFGenKbRamGelSwitchLimbTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff > subdict;
+		Map< YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -503,13 +503,13 @@ public class CFGenKbRamGelSwitchLimbTable
 		subdict.remove( pkey );
 
 	}
-	public void deleteGelSwitchLimbByPIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelSwitchLimbByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId,
 		String argLimbName )
 	{
-		CFGenKbGelSwitchLimbPKey key = schema.getFactoryGelSwitchLimb().newPKey();
+		YCFGenKbGelSwitchLimbPKey key = schema.getFactoryGelSwitchLimb().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredGelCacheId( argGelCacheId );
 		key.setRequiredGelInstId( argGelInstId );
@@ -517,8 +517,8 @@ public class CFGenKbRamGelSwitchLimbTable
 		deleteGelSwitchLimbByPIdx( Authorization, key );
 	}
 
-	public void deleteGelSwitchLimbByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey argKey )
+	public void deleteGelSwitchLimbByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -528,16 +528,16 @@ public class CFGenKbRamGelSwitchLimbTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbGelSwitchLimbBuff cur;
-		LinkedList<CFGenKbGelSwitchLimbBuff> matchSet = new LinkedList<CFGenKbGelSwitchLimbBuff>();
-		Iterator<CFGenKbGelSwitchLimbBuff> values = dictByPKey.values().iterator();
+		YCFGenKbGelSwitchLimbBuff cur;
+		LinkedList<YCFGenKbGelSwitchLimbBuff> matchSet = new LinkedList<YCFGenKbGelSwitchLimbBuff>();
+		Iterator<YCFGenKbGelSwitchLimbBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelSwitchLimbBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelSwitchLimbBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelSwitchLimb().readDerivedByPIdx( Authorization,
@@ -549,32 +549,32 @@ public class CFGenKbRamGelSwitchLimbTable
 		}
 	}
 
-	public void deleteGelSwitchLimbByTenantIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelSwitchLimbByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId )
 	{
-		CFGenKbGelSwitchLimbByTenantIdxKey key = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
+		YCFGenKbGelSwitchLimbByTenantIdxKey key = schema.getFactoryGelSwitchLimb().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteGelSwitchLimbByTenantIdx( Authorization, key );
 	}
 
-	public void deleteGelSwitchLimbByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbByTenantIdxKey argKey )
+	public void deleteGelSwitchLimbByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbByTenantIdxKey argKey )
 	{
-		CFGenKbGelSwitchLimbBuff cur;
+		YCFGenKbGelSwitchLimbBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelSwitchLimbBuff> matchSet = new LinkedList<CFGenKbGelSwitchLimbBuff>();
-		Iterator<CFGenKbGelSwitchLimbBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelSwitchLimbBuff> matchSet = new LinkedList<YCFGenKbGelSwitchLimbBuff>();
+		Iterator<YCFGenKbGelSwitchLimbBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelSwitchLimbBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelSwitchLimbBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelSwitchLimb().readDerivedByPIdx( Authorization,
@@ -586,22 +586,22 @@ public class CFGenKbRamGelSwitchLimbTable
 		}
 	}
 
-	public void deleteGelSwitchLimbBySwitchIdx( CFGenKbAuthorization Authorization,
+	public void deleteGelSwitchLimbBySwitchIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId )
 	{
-		CFGenKbGelSwitchLimbBySwitchIdxKey key = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
+		YCFGenKbGelSwitchLimbBySwitchIdxKey key = schema.getFactoryGelSwitchLimb().newSwitchIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredGelCacheId( argGelCacheId );
 		key.setRequiredGelInstId( argGelInstId );
 		deleteGelSwitchLimbBySwitchIdx( Authorization, key );
 	}
 
-	public void deleteGelSwitchLimbBySwitchIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbBySwitchIdxKey argKey )
+	public void deleteGelSwitchLimbBySwitchIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbBySwitchIdxKey argKey )
 	{
-		CFGenKbGelSwitchLimbBuff cur;
+		YCFGenKbGelSwitchLimbBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -609,15 +609,15 @@ public class CFGenKbRamGelSwitchLimbTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGelSwitchLimbBuff> matchSet = new LinkedList<CFGenKbGelSwitchLimbBuff>();
-		Iterator<CFGenKbGelSwitchLimbBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGelSwitchLimbBuff> matchSet = new LinkedList<YCFGenKbGelSwitchLimbBuff>();
+		Iterator<YCFGenKbGelSwitchLimbBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGelSwitchLimbBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGelSwitchLimbBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGelSwitchLimb().readDerivedByPIdx( Authorization,

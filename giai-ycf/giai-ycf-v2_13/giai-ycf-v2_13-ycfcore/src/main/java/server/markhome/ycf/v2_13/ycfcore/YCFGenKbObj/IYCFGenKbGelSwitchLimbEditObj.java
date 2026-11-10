@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb GelSwitchLimb.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb GelSwitchLimb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelSwitchLimbEditObj
-	extends ICFGenKbGelSwitchLimbObj
+public interface IYCFGenKbGelSwitchLimbEditObj
+	extends IYCFGenKbGelSwitchLimbObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbGelSwitchLimbObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbGelSwitchLimbObj.
 	 */
-	ICFGenKbGelSwitchLimbObj getOrig();
+	IYCFGenKbGelSwitchLimbObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbGelSwitchLimbObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbGelSwitchLimbObj.
 	 */
-	ICFGenKbGelSwitchLimbObj getOrigAsGelSwitchLimb();
+	IYCFGenKbGelSwitchLimbObj getOrigAsGelSwitchLimb();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbGelSwitchLimbEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbGelSwitchLimbObj create();
+	IYCFGenKbGelSwitchLimbObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbGelSwitchLimbEditObj update();
+	YCFGenKbGelSwitchLimbEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbGelSwitchLimbEditObj deleteInstance();
+	YCFGenKbGelSwitchLimbEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute LimbName.
@@ -104,30 +104,30 @@ public interface ICFGenKbGelSwitchLimbEditObj
 	void setRequiredLimbExpansion( String value );
 
 	/**
-	 *	Get the ICFGenKbGelSwitchObj instance referenced by the Switch key.
+	 *	Get the IYCFGenKbGelSwitchObj instance referenced by the Switch key.
 	 *
-	 *	@return	The ICFGenKbGelSwitchObj instance referenced by the Switch key.
+	 *	@return	The IYCFGenKbGelSwitchObj instance referenced by the Switch key.
 	 */
-	ICFGenKbGelSwitchObj getRequiredParentSwitch();
+	IYCFGenKbGelSwitchObj getRequiredParentSwitch();
 
 	/**
-	 *	Set the ICFGenKbGelSwitchObj instance referenced by the Switch key.
+	 *	Set the IYCFGenKbGelSwitchObj instance referenced by the Switch key.
 	 *
-	 *	@param	value	the ICFGenKbGelSwitchObj instance to be referenced by the Switch key.
+	 *	@param	value	the IYCFGenKbGelSwitchObj instance to be referenced by the Switch key.
 	 */
-	void setRequiredParentSwitch( ICFGenKbGelSwitchObj value );
+	void setRequiredParentSwitch( IYCFGenKbGelSwitchObj value );
 
 	/**
-	 *	Get the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant();
+	IYCFGenKbTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Set the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFGenKbTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFGenKbTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredOwnerTenant( ICFGenKbTenantObj value );
+	void setRequiredOwnerTenant( IYCFGenKbTenantObj value );
 }

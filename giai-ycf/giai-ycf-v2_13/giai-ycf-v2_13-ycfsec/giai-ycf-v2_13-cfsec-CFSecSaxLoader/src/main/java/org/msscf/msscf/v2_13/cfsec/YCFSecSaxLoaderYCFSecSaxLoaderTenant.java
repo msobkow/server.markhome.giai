@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for Tenant
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,19 +35,19 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSaxLoaderTenantParse XML SAX Element Handler implementation
+ *	YCFSecSaxLoaderTenantParse XML SAX Element Handler implementation
  *	for Tenant.
  */
-public class CFSecSaxLoaderTenant
-	extends CFLibXmlCoreElementHandler
+public class YCFSecSaxLoaderTenant
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFSecSaxLoaderTenant( CFSecSaxLoader saxLoader ) {
+	public YCFSecSaxLoaderTenant( YCFSecSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -62,27 +62,27 @@ public class CFSecSaxLoaderTenant
 		try {
 			assert qName.equals( "Tenant" );
 
-			CFSecSaxLoader saxLoader = (CFSecSaxLoader)getParser();
+			YCFSecSaxLoader saxLoader = (YCFSecSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 
-			ICFSecTenantObj useTenant = saxLoader.getUseTenant();
+			IYCFSecTenantObj useTenant = saxLoader.getUseTenant();
 			if( useTenant == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"saxLoader.useTenant" );

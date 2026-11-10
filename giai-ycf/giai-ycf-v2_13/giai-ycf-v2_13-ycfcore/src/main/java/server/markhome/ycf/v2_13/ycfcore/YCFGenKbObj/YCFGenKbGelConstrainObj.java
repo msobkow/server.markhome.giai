@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GelConstrain.
+// Description: Java 11 base object instance implementation for YCFGenKb GelConstrain.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,31 +27,31 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public class CFGenKbGelConstrainObj
-	extends CFGenKbGelInstructionObj
-	implements ICFGenKbGelConstrainObj
+public class YCFGenKbGelConstrainObj
+	extends YCFGenKbGelInstructionObj
+	implements IYCFGenKbGelConstrainObj
 {
 	public final static String CLASS_CODE = "a92c";
-	protected ICFGenKbGelInstructionObj optionalLookupRemainder;
+	protected IYCFGenKbGelInstructionObj optionalLookupRemainder;
 
-	public CFGenKbGelConstrainObj() {
+	public YCFGenKbGelConstrainObj() {
 		super();
 		optionalLookupRemainder = null;
 	}
 
-	public CFGenKbGelConstrainObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGelConstrainObj( IYCFGenKbSchemaObj argSchema ) {
 		super( argSchema );
 		optionalLookupRemainder = null;
 	}
@@ -64,11 +64,11 @@ public class CFGenKbGelConstrainObj
 		return( "GelConstrain" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -79,14 +79,14 @@ public class CFGenKbGelConstrainObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -97,10 +97,10 @@ public class CFGenKbGelConstrainObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -109,11 +109,11 @@ public class CFGenKbGelConstrainObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -137,13 +137,13 @@ public class CFGenKbGelConstrainObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -155,42 +155,42 @@ public class CFGenKbGelConstrainObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
-		ICFGenKbGelConstrainObj retobj = ((ICFGenKbSchemaObj)schema).getGelConstrainTableObj().realiseGelConstrain(
-			(ICFGenKbGelConstrainObj)this );
-		return( (ICFGenKbGelInstructionObj)retobj );
+	public IYCFGenKbGelInstructionObj realise() {
+		IYCFGenKbGelConstrainObj retobj = ((IYCFGenKbSchemaObj)schema).getGelConstrainTableObj().realiseGelConstrain(
+			(IYCFGenKbGelConstrainObj)this );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGelConstrainTableObj().reallyDeepDisposeGelConstrain( (ICFGenKbGelConstrainObj)this );
+		((IYCFGenKbSchemaObj)schema).getGelConstrainTableObj().reallyDeepDisposeGelConstrain( (IYCFGenKbGelConstrainObj)this );
 	}
 
-	public ICFGenKbGelInstructionObj read() {
-		ICFGenKbGelConstrainObj retobj = ((ICFGenKbSchemaObj)schema).getGelConstrainTableObj().readGelConstrainByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read() {
+		IYCFGenKbGelConstrainObj retobj = ((IYCFGenKbSchemaObj)schema).getGelConstrainTableObj().readGelConstrainByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), false );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelInstructionObj read( boolean forceRead ) {
-		ICFGenKbGelConstrainObj retobj = ((ICFGenKbSchemaObj)schema).getGelConstrainTableObj().readGelConstrainByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read( boolean forceRead ) {
+		IYCFGenKbGelConstrainObj retobj = ((IYCFGenKbSchemaObj)schema).getGelConstrainTableObj().readGelConstrainByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), forceRead );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelConstrainTableObj getGelConstrainTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGelConstrainTableObj() );
+	public IYCFGenKbGelConstrainTableObj getGelConstrainTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGelConstrainTableObj() );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelConstrain().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelConstrain().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelConstrain().readDerivedByPIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelConstrain().readDerivedByPIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredGelCacheId(),
 						getPKey().getRequiredGelInstId() );
@@ -202,13 +202,13 @@ public class CFGenKbGelConstrainObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGelConstrainBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGelConstrainBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGelConstrainBuff" );
+				"YCFGenKbGelConstrainBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -218,27 +218,27 @@ public class CFGenKbGelConstrainObj
 		optionalLookupRemainder = null;
 	}
 
-	public CFGenKbGelConstrainBuff getGelConstrainBuff() {
-		return( (CFGenKbGelConstrainBuff)getBuff() );
+	public YCFGenKbGelConstrainBuff getGelConstrainBuff() {
+		return( (YCFGenKbGelConstrainBuff)getBuff() );
 	}
 
-	public ICFGenKbGelInstructionEditObj beginEdit() {
+	public IYCFGenKbGelInstructionEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGelConstrainObj lockobj;
+		IYCFGenKbGelConstrainObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGelConstrainObj)this;
+			lockobj = (IYCFGenKbGelConstrainObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGelConstrainTableObj().lockGelConstrain( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGelConstrainTableObj().lockGelConstrain( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGelConstrainTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGelInstructionEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGelConstrainTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGelInstructionEditObj)edit );
 	}
 
-	public ICFGenKbGelConstrainEditObj getEditAsGelConstrain() {
-		return( (ICFGenKbGelConstrainEditObj)edit );
+	public IYCFGenKbGelConstrainEditObj getEditAsGelConstrain() {
+		return( (IYCFGenKbGelConstrainEditObj)edit );
 	}
 
 	public Long getOptionalHardConstraint() {
@@ -261,11 +261,11 @@ public class CFGenKbGelConstrainObj
 		return( getGelConstrainBuff().getOptionalRemainderInstId() );
 	}
 
-	public ICFGenKbGelInstructionObj getOptionalLookupRemainder() {
+	public IYCFGenKbGelInstructionObj getOptionalLookupRemainder() {
 		return( getOptionalLookupRemainder( false ) );
 	}
 
-	public ICFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead ) {
+	public IYCFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead ) {
 		if( ( optionalLookupRemainder == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGelConstrainBuff().getOptionalRemainderTenantId() == null ) {
@@ -275,7 +275,7 @@ public class CFGenKbGelConstrainObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalLookupRemainder = ((ICFGenKbSchemaObj)schema).getGelInstructionTableObj().readGelInstructionByPIdx( getGelConstrainBuff().getOptionalRemainderTenantId(),
+				optionalLookupRemainder = ((IYCFGenKbSchemaObj)schema).getGelInstructionTableObj().readGelInstructionByPIdx( getGelConstrainBuff().getOptionalRemainderTenantId(),
 					getGelConstrainBuff().getRequiredRemainderGelCacheId(),
 					getGelConstrainBuff().getOptionalRemainderInstId(), forceRead );
 			}
@@ -283,7 +283,7 @@ public class CFGenKbGelConstrainObj
 		return( optionalLookupRemainder );
 	}
 
-	public String expand( MssCFGenContext genContext ) {
-		throw new RuntimeException( "CFGenKbGelConstrainObj.expand() Implemention must be overriden by constraint specialization");
+	public String expand( MssYCFGenContext genContext ) {
+		throw new RuntimeException( "YCFGenKbGelConstrainObj.expand() Implemention must be overriden by constraint specialization");
 	}
 }

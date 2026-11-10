@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for TSecGrpMemb.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,66 +35,66 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntTSecGrpMembFactory implementation for TSecGrpMemb
+	 *	YCFIntTSecGrpMembFactory implementation for TSecGrpMemb
 	 */
-public class CFIntTSecGrpMembDefaultFactory
-	extends CFSecTSecGrpMembDefaultFactory
-	implements ICFIntTSecGrpMembFactory
+public class YCFIntTSecGrpMembDefaultFactory
+	extends YCFSecTSecGrpMembDefaultFactory
+	implements IYCFIntTSecGrpMembFactory
 {
-	public CFIntTSecGrpMembDefaultFactory() {
+	public YCFIntTSecGrpMembDefaultFactory() {
 		super();
 	}
 
-	public CFSecTSecGrpMembPKey newPKey() {
-		CFSecTSecGrpMembPKey pkey =
-			new CFSecTSecGrpMembPKey();
+	public YCFSecTSecGrpMembPKey newPKey() {
+		YCFSecTSecGrpMembPKey pkey =
+			new YCFSecTSecGrpMembPKey();
 		return( pkey );
 	}
 
-	public CFSecTSecGrpMembHPKey newHPKey() {
-		CFSecTSecGrpMembHPKey hpkey =
-			new CFSecTSecGrpMembHPKey();
+	public YCFSecTSecGrpMembHPKey newHPKey() {
+		YCFSecTSecGrpMembHPKey hpkey =
+			new YCFSecTSecGrpMembHPKey();
 		return( hpkey );
 	}
 
-	public CFSecTSecGrpMembByTenantIdxKey newTenantIdxKey() {
-		CFSecTSecGrpMembByTenantIdxKey key =
-			new CFSecTSecGrpMembByTenantIdxKey();
+	public YCFSecTSecGrpMembByTenantIdxKey newTenantIdxKey() {
+		YCFSecTSecGrpMembByTenantIdxKey key =
+			new YCFSecTSecGrpMembByTenantIdxKey();
 		return( key );
 	}
 
-	public CFSecTSecGrpMembByGroupIdxKey newGroupIdxKey() {
-		CFSecTSecGrpMembByGroupIdxKey key =
-			new CFSecTSecGrpMembByGroupIdxKey();
+	public YCFSecTSecGrpMembByGroupIdxKey newGroupIdxKey() {
+		YCFSecTSecGrpMembByGroupIdxKey key =
+			new YCFSecTSecGrpMembByGroupIdxKey();
 		return( key );
 	}
 
-	public CFSecTSecGrpMembByUserIdxKey newUserIdxKey() {
-		CFSecTSecGrpMembByUserIdxKey key =
-			new CFSecTSecGrpMembByUserIdxKey();
+	public YCFSecTSecGrpMembByUserIdxKey newUserIdxKey() {
+		YCFSecTSecGrpMembByUserIdxKey key =
+			new YCFSecTSecGrpMembByUserIdxKey();
 		return( key );
 	}
 
-	public CFSecTSecGrpMembByUUserIdxKey newUUserIdxKey() {
-		CFSecTSecGrpMembByUUserIdxKey key =
-			new CFSecTSecGrpMembByUUserIdxKey();
+	public YCFSecTSecGrpMembByUUserIdxKey newUUserIdxKey() {
+		YCFSecTSecGrpMembByUUserIdxKey key =
+			new YCFSecTSecGrpMembByUUserIdxKey();
 		return( key );
 	}
 
-	public CFSecTSecGrpMembBuff newBuff() {
-		CFSecTSecGrpMembBuff buff =
-			new CFSecTSecGrpMembBuff();
+	public YCFSecTSecGrpMembBuff newBuff() {
+		YCFSecTSecGrpMembBuff buff =
+			new YCFSecTSecGrpMembBuff();
 		return( buff );
 	}
 
-	public CFSecTSecGrpMembHBuff newHBuff() {
-		CFSecTSecGrpMembHBuff hbuff =
-			new CFSecTSecGrpMembHBuff();
+	public YCFSecTSecGrpMembHBuff newHBuff() {
+		YCFSecTSecGrpMembHBuff hbuff =
+			new YCFSecTSecGrpMembHBuff();
 		return( hbuff );
 	}
 }

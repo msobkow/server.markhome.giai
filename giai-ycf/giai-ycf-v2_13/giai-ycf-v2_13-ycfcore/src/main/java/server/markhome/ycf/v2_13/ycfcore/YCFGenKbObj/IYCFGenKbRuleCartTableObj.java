@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbRuleCartTableObj
+public interface IYCFGenKbRuleCartTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbRuleCartTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbRuleCartObj newInstance();
+	IYCFGenKbRuleCartObj newInstance();
 
 	/**
 	 *	Instantiate a new RuleCart edition of the specified RuleCart instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbRuleCartEditObj newEditInstance( ICFGenKbRuleCartObj orig );
+	IYCFGenKbRuleCartEditObj newEditInstance( IYCFGenKbRuleCartObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbRuleCartObj realiseRuleCart( ICFGenKbRuleCartObj Obj );
+	IYCFGenKbRuleCartObj realiseRuleCart( IYCFGenKbRuleCartObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbRuleCartObj createRuleCart( ICFGenKbRuleCartObj Obj );
+	IYCFGenKbRuleCartObj createRuleCart( IYCFGenKbRuleCartObj Obj );
 
 	/**
 	 *	Read a RuleCart-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbRuleCartTableObj
 	 *	@return	The RuleCart-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbRuleCartObj readRuleCart( CFGenKbRuleCartPKey pkey );
+	IYCFGenKbRuleCartObj readRuleCart( YCFGenKbRuleCartPKey pkey );
 
 	/**
 	 *	Read a RuleCart-derived instance by it's primary key.
@@ -91,119 +91,119 @@ public interface ICFGenKbRuleCartTableObj
 	 *	@return	The RuleCart-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbRuleCartObj readRuleCart( CFGenKbRuleCartPKey pkey,
+	IYCFGenKbRuleCartObj readRuleCart( YCFGenKbRuleCartPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbRuleCartObj readCachedRuleCart( CFGenKbRuleCartPKey pkey );
+	IYCFGenKbRuleCartObj readCachedRuleCart( YCFGenKbRuleCartPKey pkey );
 
-	public void reallyDeepDisposeRuleCart( ICFGenKbRuleCartObj obj );
+	public void reallyDeepDisposeRuleCart( IYCFGenKbRuleCartObj obj );
 
-	void deepDisposeRuleCart( CFGenKbRuleCartPKey pkey );
+	void deepDisposeRuleCart( YCFGenKbRuleCartPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbRuleCartObj lockRuleCart( CFGenKbRuleCartPKey pkey );
+	IYCFGenKbRuleCartObj lockRuleCart( YCFGenKbRuleCartPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the RuleCart-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbRuleCartObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbRuleCartObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbRuleCartObj> readAllRuleCart();
+	List<IYCFGenKbRuleCartObj> readAllRuleCart();
 
 	/**
 	 *	Return a sorted map of all the RuleCart-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbRuleCartObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbRuleCartObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbRuleCartObj> readAllRuleCart( boolean forceRead );
+	List<IYCFGenKbRuleCartObj> readAllRuleCart( boolean forceRead );
 
-	List<ICFGenKbRuleCartObj> readCachedAllRuleCart();
+	List<IYCFGenKbRuleCartObj> readCachedAllRuleCart();
 
 	/**
-	 *	Get the CFGenKbRuleCartObj instance for the primary key attributes.
+	 *	Get the YCFGenKbRuleCartObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The RuleCart key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The RuleCart key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbRuleCartObj cached instance for the primary key, or
+	 *	@return	YCFGenKbRuleCartObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbRuleCartObj readRuleCartByIdIdx( long TenantId,
+	IYCFGenKbRuleCartObj readRuleCartByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFGenKbRuleCartObj instance for the primary key attributes.
+	 *	Get the YCFGenKbRuleCartObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The RuleCart key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The RuleCart key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbRuleCartObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbRuleCartObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbRuleCartObj readRuleCartByIdIdx( long TenantId,
+	IYCFGenKbRuleCartObj readRuleCartByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbRuleCartObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbRuleCartObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The RuleCart key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbRuleCartObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbRuleCartObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbRuleCartObj> readRuleCartByTenantIdx( long TenantId );
+	List<IYCFGenKbRuleCartObj> readRuleCartByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbRuleCartObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbRuleCartObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The RuleCart key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbRuleCartObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbRuleCartObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbRuleCartObj> readRuleCartByTenantIdx( long TenantId,
+	List<IYCFGenKbRuleCartObj> readRuleCartByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbRuleCartObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbRuleCartObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The RuleCart key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The RuleCart key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbRuleCartObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbRuleCartObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbRuleCartObj readRuleCartByNameIdx(long TenantId,
+	IYCFGenKbRuleCartObj readRuleCartByNameIdx(long TenantId,
 		String Name );
 
 	/**
-	 *	Get the CFGenKbRuleCartObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbRuleCartObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The RuleCart key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The RuleCart key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbRuleCartObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbRuleCartObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbRuleCartObj readRuleCartByNameIdx(long TenantId,
+	IYCFGenKbRuleCartObj readRuleCartByNameIdx(long TenantId,
 		String Name,
 		boolean forceRead );
 
-	ICFGenKbRuleCartObj readCachedRuleCartByIdIdx( long TenantId,
+	IYCFGenKbRuleCartObj readCachedRuleCartByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFGenKbRuleCartObj> readCachedRuleCartByTenantIdx( long TenantId );
+	List<IYCFGenKbRuleCartObj> readCachedRuleCartByTenantIdx( long TenantId );
 
-	ICFGenKbRuleCartObj readCachedRuleCartByNameIdx( long TenantId,
+	IYCFGenKbRuleCartObj readCachedRuleCartByNameIdx( long TenantId,
 		String Name );
 
 	void deepDisposeRuleCartByIdIdx( long TenantId,
@@ -217,12 +217,12 @@ public interface ICFGenKbRuleCartTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbRuleCartObj updateRuleCart( ICFGenKbRuleCartObj Obj );
+	IYCFGenKbRuleCartObj updateRuleCart( IYCFGenKbRuleCartObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteRuleCart( ICFGenKbRuleCartObj Obj );
+	void deleteRuleCart( IYCFGenKbRuleCartObj Obj );
 
 	/**
 	 *	Internal use only.

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,19 +21,19 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.util.Calendar;
 import javafx.geometry.Pos;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFDateEditor
-extends CFTextField
+public class YCFDateEditor
+extends YCFTextField
 {
-	public final static Calendar MIN_VALUE = CFLib.getUTCGregorianCalendar( 0, 0, 0, 0, 0, 0 );
-	public final static Calendar MAX_VALUE = CFLib.getUTCGregorianCalendar( 9999, 11, 31, 0, 0, 0 );
+	public final static Calendar MIN_VALUE = YCFLib.getUTCGregorianCalendar( 0, 0, 0, 0, 0, 0 );
+	public final static Calendar MAX_VALUE = YCFLib.getUTCGregorianCalendar( 9999, 11, 31, 0, 0, 0 );
 
 	protected Calendar minValue = MIN_VALUE;
 	protected Calendar maxValue = MAX_VALUE;
@@ -55,7 +55,7 @@ extends CFTextField
 		}
 	}
 
-	public CFDateEditor() {
+	public YCFDateEditor() {
 		super();
 		setAlignment( Pos.CENTER_LEFT );
 		setMinHeight( 25 );
@@ -89,14 +89,14 @@ extends CFTextField
 			return( true );
 		}
 		curValue = null;
-		curValue = CFLibXmlUtil.parseDate( fieldName, text );
+		curValue = YCFLibXmlUtil.parseDate( fieldName, text );
 		return( true );
 	}
 
 	public void setDateValue( Calendar value ) {
 		curValue = value;
 		if( curValue != null ) {
-			String str = CFLibXmlUtil.formatDate( value );
+			String str = YCFLibXmlUtil.formatDate( value );
 			setText( str );
 		}
 		else {
@@ -125,7 +125,7 @@ extends CFTextField
 			return( curValue );
 		}
 		else {
-			throw new CFLibInvalidArgumentException( fieldName,
+			throw new YCFLibInvalidArgumentException( fieldName,
 				S_ProcName,
 				0,
 				"text",

@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a Cluster by UDomNameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,16 +36,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecClusterByUDomNameIdxKey
+public class YCFSecClusterByUDomNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String requiredFullDomName;
-	public CFSecClusterByUDomNameIdxKey() {
-		requiredFullDomName = new String( CFSecClusterBuff.FULLDOMNAME_INIT_VALUE );
+	public YCFSecClusterByUDomNameIdxKey() {
+		requiredFullDomName = new String( YCFSecClusterBuff.FULLDOMNAME_INIT_VALUE );
 	}
 
 	public String getRequiredFullDomName() {
@@ -54,13 +54,13 @@ public class CFSecClusterByUDomNameIdxKey
 
 	public void setRequiredFullDomName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredFullDomName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredFullDomName",
 				1,
 				"value.length()",
@@ -74,15 +74,15 @@ public class CFSecClusterByUDomNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecClusterByUDomNameIdxKey ) {
-			CFSecClusterByUDomNameIdxKey rhs = (CFSecClusterByUDomNameIdxKey)obj;
+		else if( obj instanceof YCFSecClusterByUDomNameIdxKey ) {
+			YCFSecClusterByUDomNameIdxKey rhs = (YCFSecClusterByUDomNameIdxKey)obj;
 			if( ! getRequiredFullDomName().equals( rhs.getRequiredFullDomName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecClusterBuff ) {
-			CFSecClusterBuff rhs = (CFSecClusterBuff)obj;
+		else if( obj instanceof YCFSecClusterBuff ) {
+			YCFSecClusterBuff rhs = (YCFSecClusterBuff)obj;
 			if( ! getRequiredFullDomName().equals( rhs.getRequiredFullDomName() ) ) {
 				return( false );
 			}
@@ -105,8 +105,8 @@ public class CFSecClusterByUDomNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecClusterByUDomNameIdxKey ) {
-			CFSecClusterByUDomNameIdxKey rhs = (CFSecClusterByUDomNameIdxKey)obj;
+		else if( obj instanceof YCFSecClusterByUDomNameIdxKey ) {
+			YCFSecClusterByUDomNameIdxKey rhs = (YCFSecClusterByUDomNameIdxKey)obj;
 			{
 				int cmp = getRequiredFullDomName().compareTo( rhs.getRequiredFullDomName() );
 				if( cmp != 0 ) {
@@ -115,8 +115,8 @@ public class CFSecClusterByUDomNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecClusterBuff ) {
-			CFSecClusterBuff rhs = (CFSecClusterBuff)obj;
+		else if( obj instanceof YCFSecClusterBuff ) {
+			YCFSecClusterBuff rhs = (YCFSecClusterBuff)obj;
 			{
 				int cmp = getRequiredFullDomName().compareTo( rhs.getRequiredFullDomName() );
 				if( cmp != 0 ) {
@@ -126,7 +126,7 @@ public class CFSecClusterByUDomNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -135,8 +135,8 @@ public class CFSecClusterByUDomNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecClusterByUDomNameIdx"
-			+ " RequiredFullDomName=" + "\"" + CFSecSchema.xmlEncodeString( getRequiredFullDomName() ) + "\""
+		String ret = "<YCFSecClusterByUDomNameIdx"
+			+ " RequiredFullDomName=" + "\"" + YCFSecSchema.xmlEncodeString( getRequiredFullDomName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

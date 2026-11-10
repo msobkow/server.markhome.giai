@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for ISOLang.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,20 +35,20 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamISOLangTable database interface for ISOLang
+ *	YCFBamISOLangTable database interface for ISOLang
  */
-public interface ICFBamISOLangTable
-extends ICFSecISOLangTable,
-	ICFIntISOLangTable
+public interface IYCFBamISOLangTable
+extends IYCFSecISOLangTable,
+	IYCFIntISOLangTable
 {
 
 	/**
@@ -59,8 +59,8 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createISOLang( CFSecAuthorization Authorization,
-		CFSecISOLangBuff Buff );
+	void createISOLang( YCFSecAuthorization Authorization,
+		YCFSecISOLangBuff Buff );
 
 
 	/**
@@ -71,8 +71,8 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateISOLang( CFSecAuthorization Authorization,
-		CFSecISOLangBuff Buff );
+	void updateISOLang( YCFSecAuthorization Authorization,
+		YCFSecISOLangBuff Buff );
 
 
 	/**
@@ -82,8 +82,8 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteISOLang( CFSecAuthorization Authorization,
-		CFSecISOLangBuff Buff );
+	void deleteISOLang( YCFSecAuthorization Authorization,
+		YCFSecISOLangBuff Buff );
 	/**
 	 *	Delete the ISOLang instance identified by the primary key attributes.
 	 *
@@ -91,7 +91,7 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@param	argISOLangId	The ISOLang key attribute of the instance generating the id.
 	 */
-	void deleteISOLangByIdIdx( CFSecAuthorization Authorization,
+	void deleteISOLangByIdIdx( YCFSecAuthorization Authorization,
 		short argISOLangId );
 
 	/**
@@ -101,8 +101,8 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteISOLangByIdIdx( CFSecAuthorization Authorization,
-		CFSecISOLangPKey argKey );
+	void deleteISOLangByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey argKey );
 	/**
 	 *	Delete the ISOLang instances identified by the key Code3Idx.
 	 *
@@ -110,7 +110,7 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@param	argISO6392Code	The ISOLang key attribute of the instance generating the id.
 	 */
-	void deleteISOLangByCode3Idx( CFSecAuthorization Authorization,
+	void deleteISOLangByCode3Idx( YCFSecAuthorization Authorization,
 		String argISO6392Code );
 
 	/**
@@ -120,8 +120,8 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteISOLangByCode3Idx( CFSecAuthorization Authorization,
-		CFSecISOLangByCode3IdxKey argKey );
+	void deleteISOLangByCode3Idx( YCFSecAuthorization Authorization,
+		YCFSecISOLangByCode3IdxKey argKey );
 	/**
 	 *	Delete the ISOLang instances identified by the key Code2Idx.
 	 *
@@ -129,7 +129,7 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@param	argISO6391Code	The ISOLang key attribute of the instance generating the id.
 	 */
-	void deleteISOLangByCode2Idx( CFSecAuthorization Authorization,
+	void deleteISOLangByCode2Idx( YCFSecAuthorization Authorization,
 		String argISO6391Code );
 
 	/**
@@ -139,8 +139,8 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteISOLangByCode2Idx( CFSecAuthorization Authorization,
-		CFSecISOLangByCode2IdxKey argKey );
+	void deleteISOLangByCode2Idx( YCFSecAuthorization Authorization,
+		YCFSecISOLangByCode2IdxKey argKey );
 
 
 	/**
@@ -153,8 +153,8 @@ extends ICFSecISOLangTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOLangBuff readDerived( CFSecAuthorization Authorization,
-		CFSecISOLangPKey PKey );
+	YCFSecISOLangBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey PKey );
 
 	/**
 	 *	Lock the derived ISOLang buffer instance by primary key.
@@ -166,8 +166,8 @@ extends ICFSecISOLangTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOLangBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecISOLangPKey PKey );
+	YCFSecISOLangBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey PKey );
 
 	/**
 	 *	Read all ISOLang instances.
@@ -176,7 +176,7 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecISOLangBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecISOLangBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived ISOLang buffer instance identified by the unique key IdIdx.
@@ -188,7 +188,7 @@ extends ICFSecISOLangTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOLangBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecISOLangBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		short ISOLangId );
 
 	/**
@@ -201,7 +201,7 @@ extends ICFSecISOLangTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOLangBuff readDerivedByCode3Idx( CFSecAuthorization Authorization,
+	YCFSecISOLangBuff readDerivedByCode3Idx( YCFSecAuthorization Authorization,
 		String ISO6392Code );
 
 	/**
@@ -213,7 +213,7 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecISOLangBuff[] readDerivedByCode2Idx( CFSecAuthorization Authorization,
+	YCFSecISOLangBuff[] readDerivedByCode2Idx( YCFSecAuthorization Authorization,
 		String ISO6391Code );
 
 	/**
@@ -226,10 +226,10 @@ extends ICFSecISOLangTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOLangBuff readBuff( CFSecAuthorization Authorization,
-		CFSecISOLangPKey PKey );
+	YCFSecISOLangBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey PKey );
 
 	/**
 	 *	Lock the specific ISOLang buffer instance identified by the primary key.
@@ -241,10 +241,10 @@ extends ICFSecISOLangTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOLangBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecISOLangPKey PKey );
+	YCFSecISOLangBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey PKey );
 
 	/**
 	 *	Read all the specific ISOLang buffer instances.
@@ -253,7 +253,7 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@return All the specific ISOLang instances in the database accessible for the Authorization.
 	 */
-	CFSecISOLangBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecISOLangBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific ISOLang buffer instance identified by the unique key IdIdx.
@@ -265,9 +265,9 @@ extends ICFSecISOLangTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOLangBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecISOLangBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		short ISOLangId );
 
 	/**
@@ -280,9 +280,9 @@ extends ICFSecISOLangTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOLangBuff readBuffByCode3Idx( CFSecAuthorization Authorization,
+	YCFSecISOLangBuff readBuffByCode3Idx( YCFSecAuthorization Authorization,
 		String ISO6392Code );
 
 	/**
@@ -294,15 +294,15 @@ extends ICFSecISOLangTable,
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOLangBuff[] readBuffByCode2Idx( CFSecAuthorization Authorization,
+	YCFSecISOLangBuff[] readBuffByCode2Idx( YCFSecAuthorization Authorization,
 		String ISO6391Code );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

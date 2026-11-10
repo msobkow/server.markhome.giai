@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for Tld.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,16 +35,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntTldTable database interface for Tld
+ *	YCFIntTldTable database interface for Tld
  */
-public interface ICFIntTldTable
+public interface IYCFIntTldTable
 {
 
 	/**
@@ -55,8 +55,8 @@ public interface ICFIntTldTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createTld( CFSecAuthorization Authorization,
-		CFIntTldBuff Buff );
+	void createTld( YCFSecAuthorization Authorization,
+		YCFIntTldBuff Buff );
 
 
 	/**
@@ -67,8 +67,8 @@ public interface ICFIntTldTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateTld( CFSecAuthorization Authorization,
-		CFIntTldBuff Buff );
+	void updateTld( YCFSecAuthorization Authorization,
+		YCFIntTldBuff Buff );
 
 
 	/**
@@ -78,8 +78,8 @@ public interface ICFIntTldTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteTld( CFSecAuthorization Authorization,
-		CFIntTldBuff Buff );
+	void deleteTld( YCFSecAuthorization Authorization,
+		YCFIntTldBuff Buff );
 	/**
 	 *	Delete the Tld instance identified by the primary key attributes.
 	 *
@@ -89,7 +89,7 @@ public interface ICFIntTldTable
 	 *
 	 *	@param	argId	The Tld key attribute of the instance generating the id.
 	 */
-	void deleteTldByIdIdx( CFSecAuthorization Authorization,
+	void deleteTldByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -100,8 +100,8 @@ public interface ICFIntTldTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteTldByIdIdx( CFSecAuthorization Authorization,
-		CFIntTldPKey argKey );
+	void deleteTldByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntTldPKey argKey );
 	/**
 	 *	Delete the Tld instances identified by the key TenantIdx.
 	 *
@@ -109,7 +109,7 @@ public interface ICFIntTldTable
 	 *
 	 *	@param	argTenantId	The Tld key attribute of the instance generating the id.
 	 */
-	void deleteTldByTenantIdx( CFSecAuthorization Authorization,
+	void deleteTldByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -119,8 +119,8 @@ public interface ICFIntTldTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTldByTenantIdx( CFSecAuthorization Authorization,
-		CFIntTldByTenantIdxKey argKey );
+	void deleteTldByTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntTldByTenantIdxKey argKey );
 	/**
 	 *	Delete the Tld instances identified by the key NameIdx.
 	 *
@@ -130,7 +130,7 @@ public interface ICFIntTldTable
 	 *
 	 *	@param	argName	The Tld key attribute of the instance generating the id.
 	 */
-	void deleteTldByNameIdx( CFSecAuthorization Authorization,
+	void deleteTldByNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		String argName );
 
@@ -141,8 +141,8 @@ public interface ICFIntTldTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTldByNameIdx( CFSecAuthorization Authorization,
-		CFIntTldByNameIdxKey argKey );
+	void deleteTldByNameIdx( YCFSecAuthorization Authorization,
+		YCFIntTldByNameIdxKey argKey );
 
 
 	/**
@@ -155,8 +155,8 @@ public interface ICFIntTldTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTldBuff readDerived( CFSecAuthorization Authorization,
-		CFIntTldPKey PKey );
+	YCFIntTldBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntTldPKey PKey );
 
 	/**
 	 *	Lock the derived Tld buffer instance by primary key.
@@ -168,8 +168,8 @@ public interface ICFIntTldTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTldBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntTldPKey PKey );
+	YCFIntTldBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntTldPKey PKey );
 
 	/**
 	 *	Read all Tld instances.
@@ -178,7 +178,7 @@ public interface ICFIntTldTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFIntTldBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFIntTldBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived Tld buffer instance identified by the unique key IdIdx.
@@ -192,7 +192,7 @@ public interface ICFIntTldTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTldBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFIntTldBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -205,7 +205,7 @@ public interface ICFIntTldTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntTldBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntTldBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -220,7 +220,7 @@ public interface ICFIntTldTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTldBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	YCFIntTldBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String Name );
 
@@ -234,10 +234,10 @@ public interface ICFIntTldTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTldBuff readBuff( CFSecAuthorization Authorization,
-		CFIntTldPKey PKey );
+	YCFIntTldBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntTldPKey PKey );
 
 	/**
 	 *	Lock the specific Tld buffer instance identified by the primary key.
@@ -249,10 +249,10 @@ public interface ICFIntTldTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTldBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntTldPKey PKey );
+	YCFIntTldBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntTldPKey PKey );
 
 	/**
 	 *	Read all the specific Tld buffer instances.
@@ -261,7 +261,7 @@ public interface ICFIntTldTable
 	 *
 	 *	@return All the specific Tld instances in the database accessible for the Authorization.
 	 */
-	CFIntTldBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFIntTldBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific Tld buffer instance identified by the unique key IdIdx.
@@ -275,9 +275,9 @@ public interface ICFIntTldTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTldBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFIntTldBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -290,9 +290,9 @@ public interface ICFIntTldTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTldBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntTldBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -307,16 +307,16 @@ public interface ICFIntTldTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTldBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	YCFIntTldBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String Name );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

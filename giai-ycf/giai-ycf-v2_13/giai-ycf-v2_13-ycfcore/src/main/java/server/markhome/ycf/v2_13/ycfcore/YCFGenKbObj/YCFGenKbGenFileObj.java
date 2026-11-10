@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GenFile.
+// Description: Java 11 base object instance implementation for YCFGenKb GenFile.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,37 +27,37 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGelCompiler;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGelCompiler;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public class CFGenKbGenFileObj
-	extends CFGenKbGenRuleObj
-	implements ICFGenKbGenFileObj
+public class YCFGenKbGenFileObj
+	extends YCFGenKbGenRuleObj
+	implements IYCFGenKbGenFileObj
 {
 	public final static String CLASS_CODE = "a932";
-	protected ICFGenKbGelExecutableObj optionalComponentsSrcBundleGel;
-	protected ICFGenKbGelExecutableObj optionalComponentsBasePackageGel;
-	protected ICFGenKbGelExecutableObj optionalComponentsModuleNameGel;
-	protected ICFGenKbGelExecutableObj optionalComponentsSubPackageGel;
-	protected ICFGenKbGelExecutableObj optionalComponentsExpClassGel;
-	protected ICFGenKbGelExecutableObj optionalComponentsExpKeyNameGel;
-	protected ICFGenKbGelExecutableObj optionalComponentsExpFileNameGel;
+	protected IYCFGenKbGelExecutableObj optionalComponentsSrcBundleGel;
+	protected IYCFGenKbGelExecutableObj optionalComponentsBasePackageGel;
+	protected IYCFGenKbGelExecutableObj optionalComponentsModuleNameGel;
+	protected IYCFGenKbGelExecutableObj optionalComponentsSubPackageGel;
+	protected IYCFGenKbGelExecutableObj optionalComponentsExpClassGel;
+	protected IYCFGenKbGelExecutableObj optionalComponentsExpKeyNameGel;
+	protected IYCFGenKbGelExecutableObj optionalComponentsExpFileNameGel;
 
-	public CFGenKbGenFileObj() {
+	public YCFGenKbGenFileObj() {
 		super();
 	}
 
-	public CFGenKbGenFileObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGenFileObj( IYCFGenKbSchemaObj argSchema ) {
 		super( argSchema );
 	}
 
@@ -69,11 +69,11 @@ public class CFGenKbGenFileObj
 		return( "GenFile" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -83,14 +83,14 @@ public class CFGenKbGenFileObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -101,10 +101,10 @@ public class CFGenKbGenFileObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -113,11 +113,11 @@ public class CFGenKbGenFileObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -141,13 +141,13 @@ public class CFGenKbGenFileObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -159,42 +159,42 @@ public class CFGenKbGenFileObj
 		return( qualName );
 	}
 
-	public ICFGenKbGenItemObj realise() {
-		ICFGenKbGenFileObj retobj = ((ICFGenKbSchemaObj)schema).getGenFileTableObj().realiseGenFile(
-			(ICFGenKbGenFileObj)this );
-		return( (ICFGenKbGenItemObj)retobj );
+	public IYCFGenKbGenItemObj realise() {
+		IYCFGenKbGenFileObj retobj = ((IYCFGenKbSchemaObj)schema).getGenFileTableObj().realiseGenFile(
+			(IYCFGenKbGenFileObj)this );
+		return( (IYCFGenKbGenItemObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGenFileTableObj().reallyDeepDisposeGenFile( (ICFGenKbGenFileObj)this );
+		((IYCFGenKbSchemaObj)schema).getGenFileTableObj().reallyDeepDisposeGenFile( (IYCFGenKbGenFileObj)this );
 	}
 
-	public ICFGenKbGenItemObj read() {
-		ICFGenKbGenFileObj retobj = ((ICFGenKbSchemaObj)schema).getGenFileTableObj().readGenFileByItemIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGenItemObj read() {
+		IYCFGenKbGenFileObj retobj = ((IYCFGenKbSchemaObj)schema).getGenFileTableObj().readGenFileByItemIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredCartridgeId(),
 			getPKey().getRequiredItemId(), false );
-		return( (ICFGenKbGenItemObj)retobj );
+		return( (IYCFGenKbGenItemObj)retobj );
 	}
 
-	public ICFGenKbGenItemObj read( boolean forceRead ) {
-		ICFGenKbGenFileObj retobj = ((ICFGenKbSchemaObj)schema).getGenFileTableObj().readGenFileByItemIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGenItemObj read( boolean forceRead ) {
+		IYCFGenKbGenFileObj retobj = ((IYCFGenKbSchemaObj)schema).getGenFileTableObj().readGenFileByItemIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredCartridgeId(),
 			getPKey().getRequiredItemId(), forceRead );
-		return( (ICFGenKbGenItemObj)retobj );
+		return( (IYCFGenKbGenItemObj)retobj );
 	}
 
-	public ICFGenKbGenFileTableObj getGenFileTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGenFileTableObj() );
+	public IYCFGenKbGenFileTableObj getGenFileTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGenFileTableObj() );
 	}
 
-	public CFGenKbGenItemBuff getBuff() {
+	public YCFGenKbGenItemBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGenFile().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGenFile().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGenFile().readDerivedByItemIdIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGenFile().readDerivedByItemIdIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredCartridgeId(),
 						getPKey().getRequiredItemId() );
@@ -206,13 +206,13 @@ public class CFGenKbGenFileObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGenItemBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGenFileBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGenItemBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGenFileBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGenFileBuff" );
+				"YCFGenKbGenFileBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -225,27 +225,27 @@ public class CFGenKbGenFileObj
 		optionalLookupProbe = null;
 	}
 
-	public CFGenKbGenFileBuff getGenFileBuff() {
-		return( (CFGenKbGenFileBuff)getBuff() );
+	public YCFGenKbGenFileBuff getGenFileBuff() {
+		return( (YCFGenKbGenFileBuff)getBuff() );
 	}
 
-	public ICFGenKbGenItemEditObj beginEdit() {
+	public IYCFGenKbGenItemEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGenFileObj lockobj;
+		IYCFGenKbGenFileObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGenFileObj)this;
+			lockobj = (IYCFGenKbGenFileObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGenFileTableObj().lockGenFile( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGenFileTableObj().lockGenFile( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGenFileTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGenItemEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGenFileTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGenItemEditObj)edit );
 	}
 
-	public ICFGenKbGenFileEditObj getEditAsGenFile() {
-		return( (ICFGenKbGenFileEditObj)edit );
+	public IYCFGenKbGenFileEditObj getEditAsGenFile() {
+		return( (IYCFGenKbGenFileEditObj)edit );
 	}
 
 	public String getOptionalGenerateOnce() {
@@ -364,11 +364,11 @@ public class CFGenKbGenFileObj
 		return( getGenFileBuff().getOptionalExpansionFileNameGelId() );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsSrcBundleGel() {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsSrcBundleGel() {
 		return( getOptionalComponentsSrcBundleGel( false ) );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsSrcBundleGel( boolean forceRead ) {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsSrcBundleGel( boolean forceRead ) {
 		if( ( optionalComponentsSrcBundleGel == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenFileBuff().getOptionalSourceBundleTenantId() == null ) {
@@ -381,7 +381,7 @@ public class CFGenKbGenFileObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalComponentsSrcBundleGel = ((ICFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalSourceBundleTenantId(),
+				optionalComponentsSrcBundleGel = ((IYCFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalSourceBundleTenantId(),
 					getGenFileBuff().getOptionalSourceBundleGelCacheId(),
 					getGenFileBuff().getOptionalSourceBundleGelId(), forceRead );
 			}
@@ -389,11 +389,11 @@ public class CFGenKbGenFileObj
 		return( optionalComponentsSrcBundleGel );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsBasePackageGel() {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsBasePackageGel() {
 		return( getOptionalComponentsBasePackageGel( false ) );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsBasePackageGel( boolean forceRead ) {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsBasePackageGel( boolean forceRead ) {
 		if( ( optionalComponentsBasePackageGel == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenFileBuff().getOptionalBasePackageTenantId() == null ) {
@@ -406,7 +406,7 @@ public class CFGenKbGenFileObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalComponentsBasePackageGel = ((ICFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalBasePackageTenantId(),
+				optionalComponentsBasePackageGel = ((IYCFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalBasePackageTenantId(),
 					getGenFileBuff().getOptionalBasePackageGelCacheId(),
 					getGenFileBuff().getOptionalBasePackageGelId(), forceRead );
 			}
@@ -414,11 +414,11 @@ public class CFGenKbGenFileObj
 		return( optionalComponentsBasePackageGel );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsModuleNameGel() {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsModuleNameGel() {
 		return( getOptionalComponentsModuleNameGel( false ) );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsModuleNameGel( boolean forceRead ) {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsModuleNameGel( boolean forceRead ) {
 		if( ( optionalComponentsModuleNameGel == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenFileBuff().getOptionalModuleNameTenantId() == null ) {
@@ -431,7 +431,7 @@ public class CFGenKbGenFileObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalComponentsModuleNameGel = ((ICFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalModuleNameTenantId(),
+				optionalComponentsModuleNameGel = ((IYCFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalModuleNameTenantId(),
 					getGenFileBuff().getOptionalModuleNameGelCacheId(),
 					getGenFileBuff().getOptionalModuleNameGelId(), forceRead );
 			}
@@ -439,11 +439,11 @@ public class CFGenKbGenFileObj
 		return( optionalComponentsModuleNameGel );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsSubPackageGel() {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsSubPackageGel() {
 		return( getOptionalComponentsSubPackageGel( false ) );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsSubPackageGel( boolean forceRead ) {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsSubPackageGel( boolean forceRead ) {
 		if( ( optionalComponentsSubPackageGel == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenFileBuff().getOptionalSubPackageTenantId() == null ) {
@@ -456,7 +456,7 @@ public class CFGenKbGenFileObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalComponentsSubPackageGel = ((ICFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalSubPackageTenantId(),
+				optionalComponentsSubPackageGel = ((IYCFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalSubPackageTenantId(),
 					getGenFileBuff().getOptionalSubPackageGelCacheId(),
 					getGenFileBuff().getOptionalSubPackageGelId(), forceRead );
 			}
@@ -464,11 +464,11 @@ public class CFGenKbGenFileObj
 		return( optionalComponentsSubPackageGel );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsExpClassGel() {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsExpClassGel() {
 		return( getOptionalComponentsExpClassGel( false ) );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsExpClassGel( boolean forceRead ) {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsExpClassGel( boolean forceRead ) {
 		if( ( optionalComponentsExpClassGel == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenFileBuff().getOptionalExpansionClassNameTenantId() == null ) {
@@ -481,7 +481,7 @@ public class CFGenKbGenFileObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalComponentsExpClassGel = ((ICFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalExpansionClassNameTenantId(),
+				optionalComponentsExpClassGel = ((IYCFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalExpansionClassNameTenantId(),
 					getGenFileBuff().getOptionalExpansionClassNameGelCacheId(),
 					getGenFileBuff().getOptionalExpansionClassNameGelId(), forceRead );
 			}
@@ -489,11 +489,11 @@ public class CFGenKbGenFileObj
 		return( optionalComponentsExpClassGel );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsExpKeyNameGel() {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsExpKeyNameGel() {
 		return( getOptionalComponentsExpKeyNameGel( false ) );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsExpKeyNameGel( boolean forceRead ) {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsExpKeyNameGel( boolean forceRead ) {
 		if( ( optionalComponentsExpKeyNameGel == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenFileBuff().getOptionalExpansionKeyNameTenantId() == null ) {
@@ -506,7 +506,7 @@ public class CFGenKbGenFileObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalComponentsExpKeyNameGel = ((ICFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalExpansionKeyNameTenantId(),
+				optionalComponentsExpKeyNameGel = ((IYCFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalExpansionKeyNameTenantId(),
 					getGenFileBuff().getOptionalExpansionKeyNameGelCacheId(),
 					getGenFileBuff().getOptionalExpansionKeyNameGelId(), forceRead );
 			}
@@ -514,11 +514,11 @@ public class CFGenKbGenFileObj
 		return( optionalComponentsExpKeyNameGel );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsExpFileNameGel() {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsExpFileNameGel() {
 		return( getOptionalComponentsExpFileNameGel( false ) );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsExpFileNameGel( boolean forceRead ) {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsExpFileNameGel( boolean forceRead ) {
 		if( ( optionalComponentsExpFileNameGel == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenFileBuff().getOptionalExpansionFileNameTenantId() == null ) {
@@ -531,7 +531,7 @@ public class CFGenKbGenFileObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalComponentsExpFileNameGel = ((ICFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalExpansionFileNameTenantId(),
+				optionalComponentsExpFileNameGel = ((IYCFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenFileBuff().getOptionalExpansionFileNameTenantId(),
 					getGenFileBuff().getOptionalExpansionFileNameGelCacheId(),
 					getGenFileBuff().getOptionalExpansionFileNameGelId(), forceRead );
 			}
@@ -539,9 +539,9 @@ public class CFGenKbGenFileObj
 		return( optionalComponentsExpFileNameGel );
 	}
 
-	public static ICFGenKbGelExecutableObj getSrcBundleBin( MssCFGelCompiler gelCompiler, ICFGenKbGenFileObj genFile ) {
-		final String S_ProcName = "CFGenKbGenFileObj.getSrcBundleBin() ";
-		ICFGenKbGelExecutableObj bin = genFile.getOptionalComponentsSrcBundleGel();
+	public static IYCFGenKbGelExecutableObj getSrcBundleBin( MssYCFGelCompiler gelCompiler, IYCFGenKbGenFileObj genFile ) {
+		final String S_ProcName = "YCFGenKbGenFileObj.getSrcBundleBin() ";
+		IYCFGenKbGelExecutableObj bin = genFile.getOptionalComponentsSrcBundleGel();
 		if( bin == null ) {
 			String execName = genFile.getRequiredLookupToolSet().getRequiredName()
 				+ "::" + genFile.getRequiredLookupRuleType().getRequiredName()
@@ -555,12 +555,12 @@ public class CFGenKbGenFileObj
 				throw new RuntimeException( S_ProcName + "Could not compile SrcBundle GEL executable from source \"" + source + "\"" );
 			}
 
-			ICFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
+			IYCFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
 			if( editFile != null ) {
 				editFile.setOptionalComponentsSrcBundleGel( bin );
 			}
 			else {
-				editFile = (ICFGenKbGenFileEditObj)genFile.beginEdit();
+				editFile = (IYCFGenKbGenFileEditObj)genFile.beginEdit();
 				editFile.setOptionalComponentsSrcBundleGel( bin );
 				editFile.update();
 				editFile = null;
@@ -569,9 +569,9 @@ public class CFGenKbGenFileObj
 		return( bin );
 	}
 
-	public static ICFGenKbGelExecutableObj getBasePackageBin( MssCFGelCompiler gelCompiler, ICFGenKbGenFileObj genFile ) {
-		final String S_ProcName = "CFGenKbGenFileObj.getBasePackageBin() ";
-		ICFGenKbGelExecutableObj bin = genFile.getOptionalComponentsBasePackageGel();
+	public static IYCFGenKbGelExecutableObj getBasePackageBin( MssYCFGelCompiler gelCompiler, IYCFGenKbGenFileObj genFile ) {
+		final String S_ProcName = "YCFGenKbGenFileObj.getBasePackageBin() ";
+		IYCFGenKbGelExecutableObj bin = genFile.getOptionalComponentsBasePackageGel();
 		if( bin == null ) {
 			String execName = genFile.getRequiredLookupToolSet().getRequiredName()
 				+ "::" + genFile.getRequiredLookupRuleType().getRequiredName()
@@ -585,12 +585,12 @@ public class CFGenKbGenFileObj
 				throw new RuntimeException( S_ProcName + "Could not compile BasePackageName GEL executable from source \"" + source + "\"" );
 			}
 
-			ICFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
+			IYCFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
 			if( editFile != null ) {
 				editFile.setOptionalComponentsBasePackageGel( bin );
 			}
 			else {
-				editFile = (ICFGenKbGenFileEditObj)genFile.beginEdit();
+				editFile = (IYCFGenKbGenFileEditObj)genFile.beginEdit();
 				editFile.setOptionalComponentsBasePackageGel( bin );
 				editFile.update();
 				editFile = null;
@@ -599,10 +599,10 @@ public class CFGenKbGenFileObj
 		return( bin );
 	}
 
-	public static ICFGenKbGelExecutableObj getModuleNameBin( MssCFGelCompiler gelCompiler, ICFGenKbGenFileObj genFile ) {
+	public static IYCFGenKbGelExecutableObj getModuleNameBin( MssYCFGelCompiler gelCompiler, IYCFGenKbGenFileObj genFile ) {
 		final String S_Empty = "";
-		final String S_ProcName = "CFGenKbGenFileObj.getModuleNameBin() ";
-		ICFGenKbGelExecutableObj bin = genFile.getOptionalComponentsModuleNameGel();
+		final String S_ProcName = "YCFGenKbGenFileObj.getModuleNameBin() ";
+		IYCFGenKbGelExecutableObj bin = genFile.getOptionalComponentsModuleNameGel();
 		if( bin == null ) {
 			String execName = genFile.getRequiredLookupToolSet().getRequiredName()
 				+ "::" + genFile.getRequiredLookupRuleType().getRequiredName()
@@ -620,12 +620,12 @@ public class CFGenKbGenFileObj
 				throw new RuntimeException( S_ProcName + "Could not compile ModuleName GEL executable from source \"" + source + "\"" );
 			}
 
-			ICFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
+			IYCFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
 			if( editFile != null ) {
 				editFile.setOptionalComponentsModuleNameGel( bin );
 			}
 			else {
-				editFile = (ICFGenKbGenFileEditObj)genFile.beginEdit();
+				editFile = (IYCFGenKbGenFileEditObj)genFile.beginEdit();
 				editFile.setOptionalComponentsModuleNameGel( bin );
 				editFile.update();
 				editFile = null;
@@ -634,9 +634,9 @@ public class CFGenKbGenFileObj
 		return( bin );
 	}
 
-	public static ICFGenKbGelExecutableObj getSubPackageBin( MssCFGelCompiler gelCompiler, ICFGenKbGenFileObj genFile ) {
-		final String S_ProcName = "CFGenKbGenFileObj.getSubPackageBin() ";
-		ICFGenKbGelExecutableObj bin = genFile.getOptionalComponentsSubPackageGel();
+	public static IYCFGenKbGelExecutableObj getSubPackageBin( MssYCFGelCompiler gelCompiler, IYCFGenKbGenFileObj genFile ) {
+		final String S_ProcName = "YCFGenKbGenFileObj.getSubPackageBin() ";
+		IYCFGenKbGelExecutableObj bin = genFile.getOptionalComponentsSubPackageGel();
 		if( bin == null ) {
 			String execName = genFile.getRequiredLookupToolSet().getRequiredName()
 				+ "::" + genFile.getRequiredLookupRuleType().getRequiredName()
@@ -650,12 +650,12 @@ public class CFGenKbGenFileObj
 				throw new RuntimeException( S_ProcName + "Could not compile SubPackage GEL executable from source \"" + source + "\"" );
 			}
 
-			ICFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
+			IYCFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
 			if( editFile != null ) {
 				editFile.setOptionalComponentsSubPackageGel( bin );
 			}
 			else {
-				editFile = (ICFGenKbGenFileEditObj)genFile.beginEdit();
+				editFile = (IYCFGenKbGenFileEditObj)genFile.beginEdit();
 				editFile.setOptionalComponentsSubPackageGel( bin );
 				editFile.update();
 				editFile = null;
@@ -664,9 +664,9 @@ public class CFGenKbGenFileObj
 		return( bin );
 	}
 
-	public static ICFGenKbGelExecutableObj getExpClassBin( MssCFGelCompiler gelCompiler, ICFGenKbGenFileObj genFile ) {
-		final String S_ProcName = "CFGenKbGenFileObj.getExpClassBin() ";
-		ICFGenKbGelExecutableObj bin = genFile.getOptionalComponentsExpClassGel();
+	public static IYCFGenKbGelExecutableObj getExpClassBin( MssYCFGelCompiler gelCompiler, IYCFGenKbGenFileObj genFile ) {
+		final String S_ProcName = "YCFGenKbGenFileObj.getExpClassBin() ";
+		IYCFGenKbGelExecutableObj bin = genFile.getOptionalComponentsExpClassGel();
 		if( bin == null ) {
 			String execName = genFile.getRequiredLookupToolSet().getRequiredName()
 				+ "::" + genFile.getRequiredLookupRuleType().getRequiredName()
@@ -680,12 +680,12 @@ public class CFGenKbGenFileObj
 				throw new RuntimeException( S_ProcName + "Could not compile ExpClass GEL executable from source \"" + source + "\"" );
 			}
 
-			ICFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
+			IYCFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
 			if( editFile != null ) {
 				editFile.setOptionalComponentsExpClassGel( bin );
 			}
 			else {
-				editFile = (ICFGenKbGenFileEditObj)genFile.beginEdit();
+				editFile = (IYCFGenKbGenFileEditObj)genFile.beginEdit();
 				editFile.setOptionalComponentsExpClassGel( bin );
 				editFile.update();
 				editFile = null;
@@ -694,9 +694,9 @@ public class CFGenKbGenFileObj
 		return( bin );
 	}
 
-	public static ICFGenKbGelExecutableObj getExpKeyNameBin( MssCFGelCompiler gelCompiler, ICFGenKbGenFileObj genFile ) {
-		final String S_ProcName = "CFGenKbGenFileObj.getExpKeyNameBin() ";
-		ICFGenKbGelExecutableObj bin = genFile.getOptionalComponentsExpKeyNameGel();
+	public static IYCFGenKbGelExecutableObj getExpKeyNameBin( MssYCFGelCompiler gelCompiler, IYCFGenKbGenFileObj genFile ) {
+		final String S_ProcName = "YCFGenKbGenFileObj.getExpKeyNameBin() ";
+		IYCFGenKbGelExecutableObj bin = genFile.getOptionalComponentsExpKeyNameGel();
 		if( bin == null ) {
 			String execName = genFile.getRequiredLookupToolSet().getRequiredName()
 				+ "::" + genFile.getRequiredLookupRuleType().getRequiredName()
@@ -710,12 +710,12 @@ public class CFGenKbGenFileObj
 				throw new RuntimeException( S_ProcName + "Could not compile ExpKeyName GEL executable from source \"" + source + "\"" );
 			}
 
-			ICFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
+			IYCFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
 			if( editFile != null ) {
 				editFile.setOptionalComponentsExpKeyNameGel( bin );
 			}
 			else {
-				editFile = (ICFGenKbGenFileEditObj)genFile.beginEdit();
+				editFile = (IYCFGenKbGenFileEditObj)genFile.beginEdit();
 				editFile.setOptionalComponentsExpKeyNameGel( bin );
 				editFile.update();
 				editFile = null;
@@ -724,9 +724,9 @@ public class CFGenKbGenFileObj
 		return( bin );
 	}
 
-	public static ICFGenKbGelExecutableObj getExpFileNameBin( MssCFGelCompiler gelCompiler, ICFGenKbGenFileObj genFile ) {
-		final String S_ProcName = "CFGenKbGenFileObj.getExpFileNameBin() ";
-		ICFGenKbGelExecutableObj bin = genFile.getOptionalComponentsExpFileNameGel();
+	public static IYCFGenKbGelExecutableObj getExpFileNameBin( MssYCFGelCompiler gelCompiler, IYCFGenKbGenFileObj genFile ) {
+		final String S_ProcName = "YCFGenKbGenFileObj.getExpFileNameBin() ";
+		IYCFGenKbGelExecutableObj bin = genFile.getOptionalComponentsExpFileNameGel();
 		if( bin == null ) {
 			String execName = genFile.getRequiredLookupToolSet().getRequiredName()
 				+ "::" + genFile.getRequiredLookupRuleType().getRequiredName()
@@ -740,12 +740,12 @@ public class CFGenKbGenFileObj
 				throw new RuntimeException( S_ProcName + "Could not compile ExpFileName GEL executable from source \"" + source + "\"" );
 			}
 
-			ICFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
+			IYCFGenKbGenFileEditObj editFile = genFile.getEditAsGenFile();
 			if( editFile != null ) {
 				editFile.setOptionalComponentsExpFileNameGel( bin );
 			}
 			else {
-				editFile = (ICFGenKbGenFileEditObj)genFile.beginEdit();
+				editFile = (IYCFGenKbGenFileEditObj)genFile.beginEdit();
 				editFile.setOptionalComponentsExpFileNameGel( bin );
 				editFile.update();
 				editFile = null;

@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a Tenant 64-bit RAM Id Generator object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntRam;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntRam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,15 +37,15 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 /*
- *	CFIntRamTenantId64Gen RAM 64-bit Id Generator for Tenant
+ *	YCFIntRamTenantId64Gen RAM 64-bit Id Generator for Tenant
  */
-public class CFIntRamTenantId64Gen
+public class YCFIntRamTenantId64Gen
 	implements Comparable<Object>,
 		Serializable
 {
@@ -54,8 +54,8 @@ public class CFIntRamTenantId64Gen
 	protected short sliceId = 0;
 	protected long nextId = 1L;
 
-	public CFIntRamTenantId64Gen() {
-		requiredId = CFSecTenantBuff.ID_INIT_VALUE;
+	public YCFIntRamTenantId64Gen() {
+		requiredId = YCFSecTenantBuff.ID_INIT_VALUE;
 		sliceId = 0;
 		nextId = 1L;
 	}
@@ -70,13 +70,13 @@ public class CFIntRamTenantId64Gen
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFSecTenantBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecTenantBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFSecTenantBuff.ID_MIN_VALUE );
+				YCFSecTenantBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -93,8 +93,8 @@ public class CFIntRamTenantId64Gen
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntRamTenantId64Gen ) {
-			CFIntRamTenantId64Gen rhs = (CFIntRamTenantId64Gen)obj;
+		else if( obj instanceof YCFIntRamTenantId64Gen ) {
+			YCFIntRamTenantId64Gen rhs = (YCFIntRamTenantId64Gen)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -119,8 +119,8 @@ public class CFIntRamTenantId64Gen
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntRamTenantId64Gen ) {
-			CFIntRamTenantId64Gen rhs = (CFIntRamTenantId64Gen)obj;
+		else if( obj instanceof YCFIntRamTenantId64Gen ) {
+			YCFIntRamTenantId64Gen rhs = (YCFIntRamTenantId64Gen)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -140,16 +140,16 @@ public class CFIntRamTenantId64Gen
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFIntTenantId64Gen" );
+				"YCFIntTenantId64Gen" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFIntTenantId64Gen"
+		String ret = "<YCFIntTenantId64Gen"
 			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
 			+ ", SliceId=\"" + Short.toString( getRequiredSliceId() ) + "\""
 			+ ", NextId=\"" + Long.toString( nextId ) + "\"/>";

@@ -1,15 +1,15 @@
-// Description: Java 11 edit object instance implementation for CFBam SysCluster.
+// Description: Java 11 edit object instance implementation for YCFBam SysCluster.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,50 +26,50 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamSysClusterEditObj
-	implements ICFBamSysClusterEditObj
+public class YCFBamSysClusterEditObj
+	implements IYCFBamSysClusterEditObj
 {
-	protected ICFSecSysClusterObj orig;
-	protected CFSecSysClusterBuff buff;
-	protected ICFSecClusterObj requiredContainerCluster;
+	protected IYCFSecSysClusterObj orig;
+	protected YCFSecSysClusterBuff buff;
+	protected IYCFSecClusterObj requiredContainerCluster;
 
-	public CFBamSysClusterEditObj( ICFSecSysClusterObj argOrig ) {
+	public YCFBamSysClusterEditObj( IYCFSecSysClusterObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFSecSysClusterBuff origBuff = orig.getBuff();
+		YCFSecSysClusterBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredContainerCluster = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamSysClusterObj.CLASS_CODE );
+		return( YCFBamSysClusterObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "SysCluster" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
@@ -80,14 +80,14 @@ public class CFBamSysClusterEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -98,10 +98,10 @@ public class CFBamSysClusterEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -110,20 +110,20 @@ public class CFBamSysClusterEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -147,13 +147,13 @@ public class CFBamSysClusterEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -167,13 +167,13 @@ public class CFBamSysClusterEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -185,9 +185,9 @@ public class CFBamSysClusterEditObj
 		return( fullName );
 	}
 
-	public ICFSecSysClusterObj realise() {
+	public IYCFSecSysClusterObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFSecSysClusterObj retobj = getSchema().getSysClusterTableObj().realiseSysCluster( (ICFBamSysClusterObj)this );
+		IYCFSecSysClusterObj retobj = getSchema().getSysClusterTableObj().realiseSysCluster( (IYCFBamSysClusterObj)this );
 		return( retobj );
 	}
 
@@ -195,10 +195,10 @@ public class CFBamSysClusterEditObj
 		getOrigAsSysCluster().forget();
 	}
 
-	public ICFSecSysClusterObj read() {
-		ICFSecSysClusterObj retval = getOrigAsSysCluster().read();
+	public IYCFSecSysClusterObj read() {
+		IYCFSecSysClusterObj retval = getOrigAsSysCluster().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -206,10 +206,10 @@ public class CFBamSysClusterEditObj
 		return( retval );
 	}
 
-	public ICFSecSysClusterObj read( boolean forceRead ) {
-		ICFSecSysClusterObj retval = getOrigAsSysCluster().read( forceRead );
+	public IYCFSecSysClusterObj read( boolean forceRead ) {
+		IYCFSecSysClusterObj retval = getOrigAsSysCluster().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -217,84 +217,84 @@ public class CFBamSysClusterEditObj
 		return( retval );
 	}
 
-	public ICFSecSysClusterObj create() {
+	public IYCFSecSysClusterObj create() {
 		copyBuffToOrig();
-		ICFSecSysClusterObj retobj = ((ICFBamSchemaObj)getOrigAsSysCluster().getSchema()).getSysClusterTableObj().createSysCluster( getOrigAsSysCluster() );
+		IYCFSecSysClusterObj retobj = ((IYCFBamSchemaObj)getOrigAsSysCluster().getSchema()).getSysClusterTableObj().createSysCluster( getOrigAsSysCluster() );
 		if( retobj == getOrigAsSysCluster() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFSecSysClusterEditObj update() {
-		getSchema().getSysClusterTableObj().updateSysCluster( (ICFSecSysClusterObj)this );
+	public YCFSecSysClusterEditObj update() {
+		getSchema().getSysClusterTableObj().updateSysCluster( (IYCFSecSysClusterObj)this );
 		return( null );
 	}
 
-	public CFSecSysClusterEditObj deleteInstance() {
+	public YCFSecSysClusterEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getSysClusterTableObj().deleteSysCluster( getOrigAsSysCluster() );
 		return( null );
 	}
 
-	public ICFSecSysClusterTableObj getSysClusterTable() {
+	public IYCFSecSysClusterTableObj getSysClusterTable() {
 		return( orig.getSchema().getSysClusterTableObj() );
 	}
 
-	public ICFSecSysClusterEditObj getEdit() {
-		return( (ICFSecSysClusterEditObj)this );
+	public IYCFSecSysClusterEditObj getEdit() {
+		return( (IYCFSecSysClusterEditObj)this );
 	}
 
-	public ICFSecSysClusterEditObj getEditAsSysCluster() {
-		return( (ICFSecSysClusterEditObj)this );
+	public IYCFSecSysClusterEditObj getEditAsSysCluster() {
+		return( (IYCFSecSysClusterEditObj)this );
 	}
 
-	public ICFSecSysClusterEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFSecSysClusterEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFSecSysClusterObj getOrig() {
+	public IYCFSecSysClusterObj getOrig() {
 		return( orig );
 	}
 
-	public ICFSecSysClusterObj getOrigAsSysCluster() {
-		return( (ICFSecSysClusterObj)orig );
+	public IYCFSecSysClusterObj getOrigAsSysCluster() {
+		return( (IYCFSecSysClusterObj)orig );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFSecSysClusterBuff getBuff() {
+	public YCFSecSysClusterBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsSysCluster().getSchema().getBackingStore()).getFactorySysCluster().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsSysCluster().getSchema().getBackingStore()).getFactorySysCluster().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFSecSysClusterBuff value ) {
+	public void setBuff( YCFSecSysClusterBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredContainerCluster = null;
 		}
 	}
 
-	public CFSecSysClusterBuff getSysClusterBuff() {
-		return( (CFSecSysClusterBuff)getBuff() );
+	public YCFSecSysClusterBuff getSysClusterBuff() {
+		return( (YCFSecSysClusterBuff)getBuff() );
 	}
 
-	public CFSecSysClusterPKey getPKey() {
+	public YCFSecSysClusterPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFSecSysClusterPKey value ) {
+	public void setPKey( YCFSecSysClusterPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -324,15 +324,15 @@ public class CFBamSysClusterEditObj
 		return( getSysClusterBuff().getRequiredClusterId() );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster() {
+	public IYCFSecClusterObj getRequiredContainerCluster() {
 		return( getRequiredContainerCluster( false ) );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
+	public IYCFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
 		if( forceRead || ( requiredContainerCluster == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFSecClusterObj obj = ((ICFBamSchemaObj)getOrigAsSysCluster().getSchema()).getClusterTableObj().readClusterByIdIdx( getSysClusterBuff().getRequiredClusterId() );
+				IYCFSecClusterObj obj = ((IYCFBamSchemaObj)getOrigAsSysCluster().getSchema()).getClusterTableObj().readClusterByIdIdx( getSysClusterBuff().getRequiredClusterId() );
 				requiredContainerCluster = obj;
 				if( obj != null ) {
 					getSysClusterBuff().setRequiredClusterId( obj.getRequiredId() );
@@ -343,7 +343,7 @@ public class CFBamSysClusterEditObj
 		return( requiredContainerCluster );
 	}
 
-	public void setRequiredContainerCluster( ICFSecClusterObj value ) {
+	public void setRequiredContainerCluster( IYCFSecClusterObj value ) {
 			if( buff == null ) {
 				getSysClusterBuff();
 			}
@@ -362,14 +362,14 @@ public class CFBamSysClusterEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFSecSysClusterBuff origBuff = getOrigAsSysCluster().getSysClusterBuff();
-		CFSecSysClusterBuff myBuff = getSysClusterBuff();
+		YCFSecSysClusterBuff origBuff = getOrigAsSysCluster().getSysClusterBuff();
+		YCFSecSysClusterBuff myBuff = getSysClusterBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFSecSysClusterBuff origBuff = getOrigAsSysCluster().getSysClusterBuff();
-		CFSecSysClusterBuff myBuff = getSysClusterBuff();
+		YCFSecSysClusterBuff origBuff = getOrigAsSysCluster().getSysClusterBuff();
+		YCFSecSysClusterBuff myBuff = getSysClusterBuff();
 		myBuff.set( origBuff );
 	}
 }

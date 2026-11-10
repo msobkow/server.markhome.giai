@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustXmlLoader
+ *	MSS Code Factory YCFBam 2.13 CustXmlLoader
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,45 +23,45 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader;
+package org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamXmlLoaderRelationColParse XML SAX Element Handler implementation
+ *	YCFBamXmlLoaderRelationColParse XML SAX Element Handler implementation
  *	for RelationCol.
  */
-public class CFBamXmlLoaderRelationColHandler
-	extends CFLibXmlCoreElementHandler
+public class YCFBamXmlLoaderRelationColHandler
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamXmlLoaderRelationColHandler( CFBamXmlLoader saxLoader ) {
+	public YCFBamXmlLoaderRelationColHandler( YCFBamXmlLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -83,10 +83,10 @@ public class CFBamXmlLoaderRelationColHandler
 			String	attrDescription = null;
 			String	attrToCol = null;
 			// RelationCol References
-			ICFBamRelationObj refRelation = null;
-			ICFBamTenantObj refTenant = null;
-			ICFBamIndexColObj refFromCol = null;
-			ICFBamIndexColObj refToCol = null;
+			IYCFBamRelationObj refRelation = null;
+			IYCFBamTenantObj refTenant = null;
+			IYCFBamIndexColObj refFromCol = null;
+			IYCFBamIndexColObj refToCol = null;
 			// Attribute Extraction
 			String	attrLocalName;
 			int		numAttrs;
@@ -96,24 +96,24 @@ public class CFBamXmlLoaderRelationColHandler
 
 			assert qName.equals( "RelationCol" );
 
-			CFBamXmlLoader saxLoader = (CFBamXmlLoader)getParser();
+			YCFBamXmlLoader saxLoader = (YCFBamXmlLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			ICFBamRelationColEditObj editBuff = (ICFBamRelationColEditObj)schemaObj.getRelationColTableObj().newInstance().beginEdit();
+			IYCFBamRelationColEditObj editBuff = (IYCFBamRelationColEditObj)schemaObj.getRelationColTableObj().newInstance().beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -121,7 +121,7 @@ public class CFBamXmlLoaderRelationColHandler
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -130,7 +130,7 @@ public class CFBamXmlLoaderRelationColHandler
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -139,7 +139,7 @@ public class CFBamXmlLoaderRelationColHandler
 				}
 				else if( attrLocalName.equals( "ShortName" ) ) {
 					if( attrShortName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -148,7 +148,7 @@ public class CFBamXmlLoaderRelationColHandler
 				}
 				else if( attrLocalName.equals( "Label" ) ) {
 					if( attrLabel != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -157,7 +157,7 @@ public class CFBamXmlLoaderRelationColHandler
 				}
 				else if( attrLocalName.equals( "ShortDescription" ) ) {
 					if( attrShortDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -166,7 +166,7 @@ public class CFBamXmlLoaderRelationColHandler
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -175,7 +175,7 @@ public class CFBamXmlLoaderRelationColHandler
 				}
 				else if( attrLocalName.equals( "ToCol" ) ) {
 					if( attrToCol != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -186,7 +186,7 @@ public class CFBamXmlLoaderRelationColHandler
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -195,21 +195,21 @@ public class CFBamXmlLoaderRelationColHandler
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 			if( ( attrToCol == null ) || ( attrToCol.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"ToCol" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
-			if( ! CFBamXmlLoader.getProcessSchema( curContext ) ) {
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
+			if( ! YCFBamXmlLoader.getProcessSchema( curContext ) ) {
 				return;
 			}
 
@@ -248,7 +248,7 @@ public class CFBamXmlLoaderRelationColHandler
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -260,33 +260,33 @@ public class CFBamXmlLoaderRelationColHandler
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamRelationObj ) {
-				refRelation = (ICFBamRelationObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamRelationObj ) {
+				refRelation = (IYCFBamRelationObj) scopeObj;
 				editBuff.setRequiredContainerRelation( refRelation );
-				refTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamRelationObj" );
+					"IYCFBamRelationObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
@@ -295,9 +295,9 @@ public class CFBamXmlLoaderRelationColHandler
 
 			// Lookup refFromCol by qualified name
 			if( ( attrName != null ) && ( attrName.length() > 0 ) ) {
-				refFromCol = (ICFBamIndexColObj)(refRelation.getRequiredLookupFromIndex().getNamedObject( attrName ) );
+				refFromCol = (IYCFBamIndexColObj)(refRelation.getRequiredLookupFromIndex().getNamedObject( attrName ) );
 				if( refFromCol == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve Name/FromCol reference qualified name \"" + attrName + "\" to table IndexCol" );
@@ -310,9 +310,9 @@ public class CFBamXmlLoaderRelationColHandler
 
 			// Lookup refToCol by qualified name
 			if( ( attrToCol != null ) && ( attrToCol.length() > 0 ) ) {
-				refToCol = (ICFBamIndexColObj)(refRelation.getRequiredLookupToIndex().getNamedObject( attrToCol ) );
+				refToCol = (IYCFBamIndexColObj)(refRelation.getRequiredLookupToIndex().getNamedObject( attrToCol ) );
 				if( refToCol == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve ToCol reference qualified name \"" + attrToCol + "\" to table IndexCol" );
@@ -323,8 +323,8 @@ public class CFBamXmlLoaderRelationColHandler
 			}
 			editBuff.setRequiredLookupToCol( refToCol );
 
-			ICFBamRelationColEditObj editRelationCol = editBuff;
-			ICFBamRelationColObj origRelationCol = (ICFBamRelationColObj)editRelationCol.create();
+			IYCFBamRelationColEditObj editRelationCol = editBuff;
+			IYCFBamRelationColObj origRelationCol = (IYCFBamRelationColObj)editRelationCol.create();
 			editRelationCol = null;
 
 			curContext.putNamedValue( "Object", origRelationCol );

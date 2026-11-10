@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object implementation for CFGenKb.
+// Description: Java 11 Table Object implementation for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,46 +27,46 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGelIteratorTableObj
-	implements ICFGenKbGelIteratorTableObj
+public class YCFGenKbGelIteratorTableObj
+	implements IYCFGenKbGelIteratorTableObj
 {
-	protected ICFGenKbSchemaObj schema;
-	private Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> members;
-	private Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> allGelIterator;
-	private Map< CFGenKbGelInstructionByTenantIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > > indexByTenantIdx;
-	private Map< CFGenKbGelInstructionByGelCacheIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > > indexByGelCacheIdx;
-	private Map< CFGenKbGelInstructionByChainIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > > indexByChainIdx;
-	private Map< CFGenKbGelIteratorByBeforeIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > > indexByBeforeIdx;
-	private Map< CFGenKbGelIteratorByFirstIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > > indexByFirstIdx;
-	private Map< CFGenKbGelIteratorByEachIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > > indexByEachIdx;
-	private Map< CFGenKbGelIteratorByLastIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > > indexByLastIdx;
-	private Map< CFGenKbGelIteratorByLoneIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > > indexByLoneIdx;
-	private Map< CFGenKbGelIteratorByEmptyIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > > indexByEmptyIdx;
+	protected IYCFGenKbSchemaObj schema;
+	private Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> members;
+	private Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> allGelIterator;
+	private Map< YCFGenKbGelInstructionByTenantIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > > indexByTenantIdx;
+	private Map< YCFGenKbGelInstructionByGelCacheIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > > indexByGelCacheIdx;
+	private Map< YCFGenKbGelInstructionByChainIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > > indexByChainIdx;
+	private Map< YCFGenKbGelIteratorByBeforeIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > > indexByBeforeIdx;
+	private Map< YCFGenKbGelIteratorByFirstIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > > indexByFirstIdx;
+	private Map< YCFGenKbGelIteratorByEachIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > > indexByEachIdx;
+	private Map< YCFGenKbGelIteratorByLastIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > > indexByLastIdx;
+	private Map< YCFGenKbGelIteratorByLoneIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > > indexByLoneIdx;
+	private Map< YCFGenKbGelIteratorByEmptyIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > > indexByEmptyIdx;
 	public static String TABLE_NAME = "GelIterator";
 	public static String TABLE_DBNAME = "geliter";
 
-	public CFGenKbGelIteratorTableObj() {
+	public YCFGenKbGelIteratorTableObj() {
 		schema = null;
-		members = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
+		members = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
 		allGelIterator = null;
 		indexByTenantIdx = null;
 		indexByGelCacheIdx = null;
@@ -79,9 +79,9 @@ public class CFGenKbGelIteratorTableObj
 		indexByEmptyIdx = null;
 	}
 
-	public CFGenKbGelIteratorTableObj( ICFGenKbSchemaObj argSchema ) {
-		schema = (ICFGenKbSchemaObj)argSchema;
-		members = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
+	public YCFGenKbGelIteratorTableObj( IYCFGenKbSchemaObj argSchema ) {
+		schema = (IYCFGenKbSchemaObj)argSchema;
+		members = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
 		allGelIterator = null;
 		indexByTenantIdx = null;
 		indexByGelCacheIdx = null;
@@ -94,12 +94,12 @@ public class CFGenKbGelIteratorTableObj
 		indexByEmptyIdx = null;
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
-		schema = (ICFGenKbSchemaObj)value;
+	public void setSchema( IYCFGenKbSchemaObj value ) {
+		schema = (IYCFGenKbSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -126,9 +126,9 @@ public class CFGenKbGelIteratorTableObj
 		indexByLastIdx = null;
 		indexByLoneIdx = null;
 		indexByEmptyIdx = null;
-		List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
-		ICFGenKbGelIteratorObj cur = null;
-		Iterator<ICFGenKbGelIteratorObj> iter = members.values().iterator();
+		List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
+		IYCFGenKbGelIteratorObj cur = null;
+		Iterator<IYCFGenKbGelIteratorObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -146,10 +146,10 @@ public class CFGenKbGelIteratorTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbGelIteratorObj.
+	 *	YCFGenKbGelIteratorObj.
 	 */
-	public ICFGenKbGelIteratorObj newInstance() {
-		ICFGenKbGelIteratorObj inst = new CFGenKbGelIteratorObj( schema );
+	public IYCFGenKbGelIteratorObj newInstance() {
+		IYCFGenKbGelIteratorObj inst = new YCFGenKbGelIteratorObj( schema );
 		return( inst );
 	}
 
@@ -160,19 +160,19 @@ public class CFGenKbGelIteratorTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbGelIteratorObj.
+	 *	YCFGenKbGelIteratorObj.
 	 */
-	public ICFGenKbGelIteratorEditObj newEditInstance( ICFGenKbGelIteratorObj orig ) {
-		ICFGenKbGelIteratorEditObj edit = new CFGenKbGelIteratorEditObj( orig );
+	public IYCFGenKbGelIteratorEditObj newEditInstance( IYCFGenKbGelIteratorObj orig ) {
+		IYCFGenKbGelIteratorEditObj edit = new YCFGenKbGelIteratorEditObj( orig );
 		return( edit );
 	}
 
-	public ICFGenKbGelIteratorObj realiseGelIterator( ICFGenKbGelIteratorObj Obj ) {
-		ICFGenKbGelIteratorObj obj = Obj;
-		CFGenKbGelInstructionPKey pkey = obj.getPKey();
-		ICFGenKbGelIteratorObj keepObj = null;
+	public IYCFGenKbGelIteratorObj realiseGelIterator( IYCFGenKbGelIteratorObj Obj ) {
+		IYCFGenKbGelIteratorObj obj = Obj;
+		YCFGenKbGelInstructionPKey pkey = obj.getPKey();
+		IYCFGenKbGelIteratorObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFGenKbGelIteratorObj existingObj = members.get( pkey );
+			IYCFGenKbGelIteratorObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -183,43 +183,43 @@ public class CFGenKbGelIteratorTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByTenantIdx != null ) {
-				CFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+				YCFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					indexByTenantIdx.remove( keyTenantIdx );
 				}
 			}
 
 			if( indexByGelCacheIdx != null ) {
-				CFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+				YCFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 				keyGelCacheIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyGelCacheIdx.setRequiredGelCacheId( keepObj.getRequiredGelCacheId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
 				if( mapGelCacheIdx != null ) {
 					indexByGelCacheIdx.remove( keyGelCacheIdx );
 				}
 			}
 
 			if( indexByChainIdx != null ) {
-				CFGenKbGelInstructionByChainIdxKey keyChainIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+				YCFGenKbGelInstructionByChainIdxKey keyChainIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 				keyChainIdx.setOptionalChainInstTenantId( keepObj.getOptionalChainInstTenantId() );
 				keyChainIdx.setOptionalChainInstGelCacheId( keepObj.getOptionalChainInstGelCacheId() );
 				keyChainIdx.setOptionalChainInstGelInstId( keepObj.getOptionalChainInstGelInstId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
 				if( mapChainIdx != null ) {
 					indexByChainIdx.remove( keyChainIdx );
 				}
 			}
 
 			if( indexByBeforeIdx != null ) {
-				CFGenKbGelIteratorByBeforeIdxKey keyBeforeIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
+				YCFGenKbGelIteratorByBeforeIdxKey keyBeforeIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
 				keyBeforeIdx.setOptionalExpandBefore( keepObj.getOptionalExpandBefore() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapBeforeIdx = indexByBeforeIdx.get( keyBeforeIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapBeforeIdx = indexByBeforeIdx.get( keyBeforeIdx );
 				if( mapBeforeIdx != null ) {
 					mapBeforeIdx.remove( keepObj.getPKey() );
 					if( mapBeforeIdx.size() <= 0 ) {
@@ -229,10 +229,10 @@ public class CFGenKbGelIteratorTableObj
 			}
 
 			if( indexByFirstIdx != null ) {
-				CFGenKbGelIteratorByFirstIdxKey keyFirstIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
+				YCFGenKbGelIteratorByFirstIdxKey keyFirstIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
 				keyFirstIdx.setOptionalExpandFirst( keepObj.getOptionalExpandFirst() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapFirstIdx = indexByFirstIdx.get( keyFirstIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapFirstIdx = indexByFirstIdx.get( keyFirstIdx );
 				if( mapFirstIdx != null ) {
 					mapFirstIdx.remove( keepObj.getPKey() );
 					if( mapFirstIdx.size() <= 0 ) {
@@ -242,10 +242,10 @@ public class CFGenKbGelIteratorTableObj
 			}
 
 			if( indexByEachIdx != null ) {
-				CFGenKbGelIteratorByEachIdxKey keyEachIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
+				YCFGenKbGelIteratorByEachIdxKey keyEachIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
 				keyEachIdx.setRequiredExpandEach( keepObj.getRequiredExpandEach() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapEachIdx = indexByEachIdx.get( keyEachIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapEachIdx = indexByEachIdx.get( keyEachIdx );
 				if( mapEachIdx != null ) {
 					mapEachIdx.remove( keepObj.getPKey() );
 					if( mapEachIdx.size() <= 0 ) {
@@ -255,10 +255,10 @@ public class CFGenKbGelIteratorTableObj
 			}
 
 			if( indexByLastIdx != null ) {
-				CFGenKbGelIteratorByLastIdxKey keyLastIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
+				YCFGenKbGelIteratorByLastIdxKey keyLastIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
 				keyLastIdx.setOptionalExpandLast( keepObj.getOptionalExpandLast() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapLastIdx = indexByLastIdx.get( keyLastIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapLastIdx = indexByLastIdx.get( keyLastIdx );
 				if( mapLastIdx != null ) {
 					mapLastIdx.remove( keepObj.getPKey() );
 					if( mapLastIdx.size() <= 0 ) {
@@ -268,10 +268,10 @@ public class CFGenKbGelIteratorTableObj
 			}
 
 			if( indexByLoneIdx != null ) {
-				CFGenKbGelIteratorByLoneIdxKey keyLoneIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
+				YCFGenKbGelIteratorByLoneIdxKey keyLoneIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
 				keyLoneIdx.setOptionalExpandLone( keepObj.getOptionalExpandLone() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapLoneIdx = indexByLoneIdx.get( keyLoneIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapLoneIdx = indexByLoneIdx.get( keyLoneIdx );
 				if( mapLoneIdx != null ) {
 					mapLoneIdx.remove( keepObj.getPKey() );
 					if( mapLoneIdx.size() <= 0 ) {
@@ -281,10 +281,10 @@ public class CFGenKbGelIteratorTableObj
 			}
 
 			if( indexByEmptyIdx != null ) {
-				CFGenKbGelIteratorByEmptyIdxKey keyEmptyIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
+				YCFGenKbGelIteratorByEmptyIdxKey keyEmptyIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
 				keyEmptyIdx.setOptionalExpandEmpty( keepObj.getOptionalExpandEmpty() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapEmptyIdx = indexByEmptyIdx.get( keyEmptyIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapEmptyIdx = indexByEmptyIdx.get( keyEmptyIdx );
 				if( mapEmptyIdx != null ) {
 					mapEmptyIdx.remove( keepObj.getPKey() );
 					if( mapEmptyIdx.size() <= 0 ) {
@@ -295,98 +295,98 @@ public class CFGenKbGelIteratorTableObj
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
-			keepObj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().realiseGelInstruction( Obj );
+			keepObj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().realiseGelInstruction( Obj );
 
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByTenantIdx != null ) {
-				CFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+				YCFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByGelCacheIdx != null ) {
-				CFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+				YCFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 				keyGelCacheIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyGelCacheIdx.setRequiredGelCacheId( keepObj.getRequiredGelCacheId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
 				if( mapGelCacheIdx != null ) {
 					mapGelCacheIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByChainIdx != null ) {
-				CFGenKbGelInstructionByChainIdxKey keyChainIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+				YCFGenKbGelInstructionByChainIdxKey keyChainIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 				keyChainIdx.setOptionalChainInstTenantId( keepObj.getOptionalChainInstTenantId() );
 				keyChainIdx.setOptionalChainInstGelCacheId( keepObj.getOptionalChainInstGelCacheId() );
 				keyChainIdx.setOptionalChainInstGelInstId( keepObj.getOptionalChainInstGelInstId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
 				if( mapChainIdx != null ) {
 					mapChainIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByBeforeIdx != null ) {
-				CFGenKbGelIteratorByBeforeIdxKey keyBeforeIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
+				YCFGenKbGelIteratorByBeforeIdxKey keyBeforeIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
 				keyBeforeIdx.setOptionalExpandBefore( keepObj.getOptionalExpandBefore() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapBeforeIdx = indexByBeforeIdx.get( keyBeforeIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapBeforeIdx = indexByBeforeIdx.get( keyBeforeIdx );
 				if( mapBeforeIdx != null ) {
 					mapBeforeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByFirstIdx != null ) {
-				CFGenKbGelIteratorByFirstIdxKey keyFirstIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
+				YCFGenKbGelIteratorByFirstIdxKey keyFirstIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
 				keyFirstIdx.setOptionalExpandFirst( keepObj.getOptionalExpandFirst() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapFirstIdx = indexByFirstIdx.get( keyFirstIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapFirstIdx = indexByFirstIdx.get( keyFirstIdx );
 				if( mapFirstIdx != null ) {
 					mapFirstIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByEachIdx != null ) {
-				CFGenKbGelIteratorByEachIdxKey keyEachIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
+				YCFGenKbGelIteratorByEachIdxKey keyEachIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
 				keyEachIdx.setRequiredExpandEach( keepObj.getRequiredExpandEach() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapEachIdx = indexByEachIdx.get( keyEachIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapEachIdx = indexByEachIdx.get( keyEachIdx );
 				if( mapEachIdx != null ) {
 					mapEachIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByLastIdx != null ) {
-				CFGenKbGelIteratorByLastIdxKey keyLastIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
+				YCFGenKbGelIteratorByLastIdxKey keyLastIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
 				keyLastIdx.setOptionalExpandLast( keepObj.getOptionalExpandLast() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapLastIdx = indexByLastIdx.get( keyLastIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapLastIdx = indexByLastIdx.get( keyLastIdx );
 				if( mapLastIdx != null ) {
 					mapLastIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByLoneIdx != null ) {
-				CFGenKbGelIteratorByLoneIdxKey keyLoneIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
+				YCFGenKbGelIteratorByLoneIdxKey keyLoneIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
 				keyLoneIdx.setOptionalExpandLone( keepObj.getOptionalExpandLone() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapLoneIdx = indexByLoneIdx.get( keyLoneIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapLoneIdx = indexByLoneIdx.get( keyLoneIdx );
 				if( mapLoneIdx != null ) {
 					mapLoneIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByEmptyIdx != null ) {
-				CFGenKbGelIteratorByEmptyIdxKey keyEmptyIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
+				YCFGenKbGelIteratorByEmptyIdxKey keyEmptyIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
 				keyEmptyIdx.setOptionalExpandEmpty( keepObj.getOptionalExpandEmpty() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapEmptyIdx = indexByEmptyIdx.get( keyEmptyIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapEmptyIdx = indexByEmptyIdx.get( keyEmptyIdx );
 				if( mapEmptyIdx != null ) {
 					mapEmptyIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -398,7 +398,7 @@ public class CFGenKbGelIteratorTableObj
 		}
 		else {
 			keepObj = obj;
-			keepObj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().realiseGelInstruction( keepObj );
+			keepObj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().realiseGelInstruction( keepObj );
 
 			// Attach new object to PKey, all, alternate, and duplicate indexes
 			members.put( keepObj.getPKey(), keepObj );
@@ -407,93 +407,93 @@ public class CFGenKbGelIteratorTableObj
 			}
 
 			if( indexByTenantIdx != null ) {
-				CFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+				YCFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByGelCacheIdx != null ) {
-				CFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+				YCFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 				keyGelCacheIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyGelCacheIdx.setRequiredGelCacheId( keepObj.getRequiredGelCacheId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
 				if( mapGelCacheIdx != null ) {
 					mapGelCacheIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByChainIdx != null ) {
-				CFGenKbGelInstructionByChainIdxKey keyChainIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+				YCFGenKbGelInstructionByChainIdxKey keyChainIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 				keyChainIdx.setOptionalChainInstTenantId( keepObj.getOptionalChainInstTenantId() );
 				keyChainIdx.setOptionalChainInstGelCacheId( keepObj.getOptionalChainInstGelCacheId() );
 				keyChainIdx.setOptionalChainInstGelInstId( keepObj.getOptionalChainInstGelInstId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
 				if( mapChainIdx != null ) {
 					mapChainIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByBeforeIdx != null ) {
-				CFGenKbGelIteratorByBeforeIdxKey keyBeforeIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
+				YCFGenKbGelIteratorByBeforeIdxKey keyBeforeIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
 				keyBeforeIdx.setOptionalExpandBefore( keepObj.getOptionalExpandBefore() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapBeforeIdx = indexByBeforeIdx.get( keyBeforeIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapBeforeIdx = indexByBeforeIdx.get( keyBeforeIdx );
 				if( mapBeforeIdx != null ) {
 					mapBeforeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByFirstIdx != null ) {
-				CFGenKbGelIteratorByFirstIdxKey keyFirstIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
+				YCFGenKbGelIteratorByFirstIdxKey keyFirstIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
 				keyFirstIdx.setOptionalExpandFirst( keepObj.getOptionalExpandFirst() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapFirstIdx = indexByFirstIdx.get( keyFirstIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapFirstIdx = indexByFirstIdx.get( keyFirstIdx );
 				if( mapFirstIdx != null ) {
 					mapFirstIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByEachIdx != null ) {
-				CFGenKbGelIteratorByEachIdxKey keyEachIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
+				YCFGenKbGelIteratorByEachIdxKey keyEachIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
 				keyEachIdx.setRequiredExpandEach( keepObj.getRequiredExpandEach() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapEachIdx = indexByEachIdx.get( keyEachIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapEachIdx = indexByEachIdx.get( keyEachIdx );
 				if( mapEachIdx != null ) {
 					mapEachIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByLastIdx != null ) {
-				CFGenKbGelIteratorByLastIdxKey keyLastIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
+				YCFGenKbGelIteratorByLastIdxKey keyLastIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
 				keyLastIdx.setOptionalExpandLast( keepObj.getOptionalExpandLast() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapLastIdx = indexByLastIdx.get( keyLastIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapLastIdx = indexByLastIdx.get( keyLastIdx );
 				if( mapLastIdx != null ) {
 					mapLastIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByLoneIdx != null ) {
-				CFGenKbGelIteratorByLoneIdxKey keyLoneIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
+				YCFGenKbGelIteratorByLoneIdxKey keyLoneIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
 				keyLoneIdx.setOptionalExpandLone( keepObj.getOptionalExpandLone() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapLoneIdx = indexByLoneIdx.get( keyLoneIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapLoneIdx = indexByLoneIdx.get( keyLoneIdx );
 				if( mapLoneIdx != null ) {
 					mapLoneIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByEmptyIdx != null ) {
-				CFGenKbGelIteratorByEmptyIdxKey keyEmptyIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
+				YCFGenKbGelIteratorByEmptyIdxKey keyEmptyIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
 				keyEmptyIdx.setOptionalExpandEmpty( keepObj.getOptionalExpandEmpty() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > mapEmptyIdx = indexByEmptyIdx.get( keyEmptyIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > mapEmptyIdx = indexByEmptyIdx.get( keyEmptyIdx );
 				if( mapEmptyIdx != null ) {
 					mapEmptyIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -503,81 +503,81 @@ public class CFGenKbGelIteratorTableObj
 		return( keepObj );
 	}
 
-	public ICFGenKbGelIteratorObj createGelIterator( ICFGenKbGelIteratorObj Obj ) {
-		ICFGenKbGelIteratorObj obj = Obj;
-		CFGenKbGelIteratorBuff buff = obj.getGelIteratorBuff();
-		((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().createGelIterator(
+	public IYCFGenKbGelIteratorObj createGelIterator( IYCFGenKbGelIteratorObj Obj ) {
+		IYCFGenKbGelIteratorObj obj = Obj;
+		YCFGenKbGelIteratorBuff buff = obj.getGelIteratorBuff();
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().createGelIterator(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		if( obj.getPKey().getClassCode().equals( "a917" ) ) {
-			obj = (ICFGenKbGelIteratorObj)(obj.realise());
+			obj = (IYCFGenKbGelIteratorObj)(obj.realise());
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public ICFGenKbGelIteratorObj readGelIterator( CFGenKbGelInstructionPKey pkey ) {
+	public IYCFGenKbGelIteratorObj readGelIterator( YCFGenKbGelInstructionPKey pkey ) {
 		return( readGelIterator( pkey, false ) );
 	}
 
-	public ICFGenKbGelIteratorObj readGelIterator( CFGenKbGelInstructionPKey pkey, boolean forceRead ) {
-		ICFGenKbGelIteratorObj obj = null;
+	public IYCFGenKbGelIteratorObj readGelIterator( YCFGenKbGelInstructionPKey pkey, boolean forceRead ) {
+		IYCFGenKbGelIteratorObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFGenKbGelIteratorBuff readBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByPIdx( schema.getAuthorization(),
+			YCFGenKbGelIteratorBuff readBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByPIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredGelCacheId(),
 				pkey.getRequiredGelInstId() );
 			if( readBuff != null ) {
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( readBuff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( readBuff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFGenKbGelIteratorObj)obj.realise();
+				obj = (IYCFGenKbGelIteratorObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbGelIteratorObj readCachedGelIterator( CFGenKbGelInstructionPKey pkey ) {
-		ICFGenKbGelIteratorObj obj = null;
+	public IYCFGenKbGelIteratorObj readCachedGelIterator( YCFGenKbGelInstructionPKey pkey ) {
+		IYCFGenKbGelIteratorObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeGelIterator( ICFGenKbGelIteratorObj obj )
+	public void reallyDeepDisposeGelIterator( IYCFGenKbGelIteratorObj obj )
 	{
-		final String S_ProcName = "CFGenKbGelIteratorTableObj.reallyDeepDisposeGelIterator() ";
+		final String S_ProcName = "YCFGenKbGelIteratorTableObj.reallyDeepDisposeGelIterator() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFGenKbGelInstructionPKey pkey = obj.getPKey();
-		ICFGenKbGelIteratorObj existing = readCachedGelIterator( pkey );
+		YCFGenKbGelInstructionPKey pkey = obj.getPKey();
+		IYCFGenKbGelIteratorObj existing = readCachedGelIterator( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFGenKbGelIteratorByBeforeIdxKey keyBeforeIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
+		YCFGenKbGelIteratorByBeforeIdxKey keyBeforeIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
 		keyBeforeIdx.setOptionalExpandBefore( existing.getOptionalExpandBefore() );
 
-		CFGenKbGelIteratorByFirstIdxKey keyFirstIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
+		YCFGenKbGelIteratorByFirstIdxKey keyFirstIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
 		keyFirstIdx.setOptionalExpandFirst( existing.getOptionalExpandFirst() );
 
-		CFGenKbGelIteratorByEachIdxKey keyEachIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
+		YCFGenKbGelIteratorByEachIdxKey keyEachIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
 		keyEachIdx.setRequiredExpandEach( existing.getRequiredExpandEach() );
 
-		CFGenKbGelIteratorByLastIdxKey keyLastIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
+		YCFGenKbGelIteratorByLastIdxKey keyLastIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
 		keyLastIdx.setOptionalExpandLast( existing.getOptionalExpandLast() );
 
-		CFGenKbGelIteratorByLoneIdxKey keyLoneIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
+		YCFGenKbGelIteratorByLoneIdxKey keyLoneIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
 		keyLoneIdx.setOptionalExpandLone( existing.getOptionalExpandLone() );
 
-		CFGenKbGelIteratorByEmptyIdxKey keyEmptyIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
+		YCFGenKbGelIteratorByEmptyIdxKey keyEmptyIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
 		keyEmptyIdx.setOptionalExpandEmpty( existing.getOptionalExpandEmpty() );
 
 
@@ -639,57 +639,57 @@ public class CFGenKbGelIteratorTableObj
 
 		schema.getGelInstructionTableObj().reallyDeepDisposeGelInstruction( obj );
 	}
-	public void deepDisposeGelIterator( CFGenKbGelInstructionPKey pkey ) {
-		ICFGenKbGelIteratorObj obj = readCachedGelIterator( pkey );
+	public void deepDisposeGelIterator( YCFGenKbGelInstructionPKey pkey ) {
+		IYCFGenKbGelIteratorObj obj = readCachedGelIterator( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFGenKbGelIteratorObj lockGelIterator( CFGenKbGelInstructionPKey pkey ) {
-		ICFGenKbGelIteratorObj locked = null;
-		CFGenKbGelIteratorBuff lockBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFGenKbGelIteratorObj lockGelIterator( YCFGenKbGelInstructionPKey pkey ) {
+		IYCFGenKbGelIteratorObj locked = null;
+		YCFGenKbGelIteratorBuff lockBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
-				locked = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( lockBuff.getClassCode() );
-			locked.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				locked = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( lockBuff.getClassCode() );
+			locked.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFGenKbGelIteratorObj)locked.realise();
+			locked = (IYCFGenKbGelIteratorObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockGelIterator", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockGelIterator", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readAllGelIterator() {
+	public List<IYCFGenKbGelIteratorObj> readAllGelIterator() {
 		return( readAllGelIterator( false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readAllGelIterator( boolean forceRead ) {
+	public List<IYCFGenKbGelIteratorObj> readAllGelIterator( boolean forceRead ) {
 		final String S_ProcName = "readAllGelIterator";
 		if( ( allGelIterator == null ) || forceRead ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> map = new HashMap<CFGenKbGelInstructionPKey,ICFGenKbGelIteratorObj>();
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> map = new HashMap<YCFGenKbGelInstructionPKey,IYCFGenKbGelIteratorObj>();
 			allGelIterator = map;
-			CFGenKbGelIteratorBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readAllDerived( schema.getAuthorization() );
-			CFGenKbGelIteratorBuff buff;
-			ICFGenKbGelIteratorObj obj;
+			YCFGenKbGelIteratorBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readAllDerived( schema.getAuthorization() );
+			YCFGenKbGelIteratorBuff buff;
+			IYCFGenKbGelIteratorObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 			}
 		}
 		int len = allGelIterator.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = allGelIterator.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = allGelIterator.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -697,20 +697,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -723,31 +723,31 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedAllGelIterator() {
+	public List<IYCFGenKbGelIteratorObj> readCachedAllGelIterator() {
 		final String S_ProcName = "readCachedAllGelIterator";
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( allGelIterator != null ) {
 			int len = allGelIterator.size();
-			ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-			Iterator<ICFGenKbGelIteratorObj> valIter = allGelIterator.values().iterator();
+			IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+			Iterator<IYCFGenKbGelIteratorObj> valIter = allGelIterator.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -755,7 +755,7 @@ public class CFGenKbGelIteratorTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -766,8 +766,8 @@ public class CFGenKbGelIteratorTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -780,8 +780,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -791,7 +791,7 @@ public class CFGenKbGelIteratorTableObj
 		return( arrayList );
 	}
 
-	public ICFGenKbGelIteratorObj readGelIteratorByPIdx( long TenantId,
+	public IYCFGenKbGelIteratorObj readGelIteratorByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
@@ -801,63 +801,63 @@ public class CFGenKbGelIteratorTableObj
 			false ) );
 	}
 
-	public ICFGenKbGelIteratorObj readGelIteratorByPIdx( long TenantId,
+	public IYCFGenKbGelIteratorObj readGelIteratorByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId, boolean forceRead )
 	{
-		CFGenKbGelInstructionPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredGelCacheId( GelCacheId );
 		pkey.setRequiredGelInstId( GelInstId );
-		ICFGenKbGelIteratorObj obj = readGelIterator( pkey, forceRead );
+		IYCFGenKbGelIteratorObj obj = readGelIterator( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByTenantIdx( long TenantId )
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByTenantIdx( long TenantId )
 	{
 		return( readGelIteratorByTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByTenantIdx( long TenantId,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelIteratorByTenantIdx";
-		CFGenKbGelInstructionByTenantIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+		YCFGenKbGelInstructionByTenantIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFGenKbGelInstructionByTenantIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByTenantIdx = new HashMap< YCFGenKbGelInstructionByTenantIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( ( ! forceRead ) && indexByTenantIdx.containsKey( key ) ) {
 			dict = indexByTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
-			ICFGenKbGelInstructionObj obj;
-			CFGenKbGelInstructionBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
+			IYCFGenKbGelInstructionObj obj;
+			YCFGenKbGelInstructionBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFGenKbGelInstructionBuff buff;
+			YCFGenKbGelInstructionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -865,20 +865,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -891,19 +891,19 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByGelCacheIdx( long TenantId,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByGelCacheIdx( long TenantId,
 		long GelCacheId )
 	{
 		return( readGelIteratorByGelCacheIdx( TenantId,
@@ -911,48 +911,48 @@ public class CFGenKbGelIteratorTableObj
 			false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByGelCacheIdx( long TenantId,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelIteratorByGelCacheIdx";
-		CFGenKbGelInstructionByGelCacheIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+		YCFGenKbGelInstructionByGelCacheIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 		if( indexByGelCacheIdx == null ) {
-			indexByGelCacheIdx = new HashMap< CFGenKbGelInstructionByGelCacheIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByGelCacheIdx = new HashMap< YCFGenKbGelInstructionByGelCacheIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( ( ! forceRead ) && indexByGelCacheIdx.containsKey( key ) ) {
 			dict = indexByGelCacheIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
-			ICFGenKbGelInstructionObj obj;
-			CFGenKbGelInstructionBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByGelCacheIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
+			IYCFGenKbGelInstructionObj obj;
+			YCFGenKbGelInstructionBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByGelCacheIdx( schema.getAuthorization(),
 				TenantId,
 				GelCacheId );
-			CFGenKbGelInstructionBuff buff;
+			YCFGenKbGelInstructionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByGelCacheIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -960,20 +960,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -986,19 +986,19 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByChainIdx( Long ChainInstTenantId,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
@@ -1008,51 +1008,51 @@ public class CFGenKbGelIteratorTableObj
 			false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByChainIdx( Long ChainInstTenantId,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelIteratorByChainIdx";
-		CFGenKbGelInstructionByChainIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+		YCFGenKbGelInstructionByChainIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 		key.setOptionalChainInstTenantId( ChainInstTenantId );
 		key.setOptionalChainInstGelCacheId( ChainInstGelCacheId );
 		key.setOptionalChainInstGelInstId( ChainInstGelInstId );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 		if( indexByChainIdx == null ) {
-			indexByChainIdx = new HashMap< CFGenKbGelInstructionByChainIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByChainIdx = new HashMap< YCFGenKbGelInstructionByChainIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( ( ! forceRead ) && indexByChainIdx.containsKey( key ) ) {
 			dict = indexByChainIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
-			ICFGenKbGelInstructionObj obj;
-			CFGenKbGelInstructionBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByChainIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
+			IYCFGenKbGelInstructionObj obj;
+			YCFGenKbGelInstructionBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByChainIdx( schema.getAuthorization(),
 				ChainInstTenantId,
 				ChainInstGelCacheId,
 				ChainInstGelInstId );
-			CFGenKbGelInstructionBuff buff;
+			YCFGenKbGelInstructionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByChainIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1060,20 +1060,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1086,63 +1086,63 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByBeforeIdx( String ExpandBefore )
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByBeforeIdx( String ExpandBefore )
 	{
 		return( readGelIteratorByBeforeIdx( ExpandBefore,
 			false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByBeforeIdx( String ExpandBefore,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByBeforeIdx( String ExpandBefore,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelIteratorByBeforeIdx";
-		CFGenKbGelIteratorByBeforeIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
+		YCFGenKbGelIteratorByBeforeIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
 		key.setOptionalExpandBefore( ExpandBefore );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 		if( indexByBeforeIdx == null ) {
-			indexByBeforeIdx = new HashMap< CFGenKbGelIteratorByBeforeIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByBeforeIdx = new HashMap< YCFGenKbGelIteratorByBeforeIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( ( ! forceRead ) && indexByBeforeIdx.containsKey( key ) ) {
 			dict = indexByBeforeIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
-			ICFGenKbGelIteratorObj obj;
-			CFGenKbGelIteratorBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByBeforeIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
+			IYCFGenKbGelIteratorObj obj;
+			YCFGenKbGelIteratorBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByBeforeIdx( schema.getAuthorization(),
 				ExpandBefore );
-			CFGenKbGelIteratorBuff buff;
+			YCFGenKbGelIteratorBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByBeforeIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1150,20 +1150,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1176,63 +1176,63 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByFirstIdx( String ExpandFirst )
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByFirstIdx( String ExpandFirst )
 	{
 		return( readGelIteratorByFirstIdx( ExpandFirst,
 			false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByFirstIdx( String ExpandFirst,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByFirstIdx( String ExpandFirst,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelIteratorByFirstIdx";
-		CFGenKbGelIteratorByFirstIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
+		YCFGenKbGelIteratorByFirstIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
 		key.setOptionalExpandFirst( ExpandFirst );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 		if( indexByFirstIdx == null ) {
-			indexByFirstIdx = new HashMap< CFGenKbGelIteratorByFirstIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByFirstIdx = new HashMap< YCFGenKbGelIteratorByFirstIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( ( ! forceRead ) && indexByFirstIdx.containsKey( key ) ) {
 			dict = indexByFirstIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
-			ICFGenKbGelIteratorObj obj;
-			CFGenKbGelIteratorBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByFirstIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
+			IYCFGenKbGelIteratorObj obj;
+			YCFGenKbGelIteratorBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByFirstIdx( schema.getAuthorization(),
 				ExpandFirst );
-			CFGenKbGelIteratorBuff buff;
+			YCFGenKbGelIteratorBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByFirstIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1240,20 +1240,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1266,63 +1266,63 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByEachIdx( String ExpandEach )
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByEachIdx( String ExpandEach )
 	{
 		return( readGelIteratorByEachIdx( ExpandEach,
 			false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByEachIdx( String ExpandEach,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByEachIdx( String ExpandEach,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelIteratorByEachIdx";
-		CFGenKbGelIteratorByEachIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
+		YCFGenKbGelIteratorByEachIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
 		key.setRequiredExpandEach( ExpandEach );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 		if( indexByEachIdx == null ) {
-			indexByEachIdx = new HashMap< CFGenKbGelIteratorByEachIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByEachIdx = new HashMap< YCFGenKbGelIteratorByEachIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( ( ! forceRead ) && indexByEachIdx.containsKey( key ) ) {
 			dict = indexByEachIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
-			ICFGenKbGelIteratorObj obj;
-			CFGenKbGelIteratorBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByEachIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
+			IYCFGenKbGelIteratorObj obj;
+			YCFGenKbGelIteratorBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByEachIdx( schema.getAuthorization(),
 				ExpandEach );
-			CFGenKbGelIteratorBuff buff;
+			YCFGenKbGelIteratorBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByEachIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1330,20 +1330,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1356,63 +1356,63 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByLastIdx( String ExpandLast )
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByLastIdx( String ExpandLast )
 	{
 		return( readGelIteratorByLastIdx( ExpandLast,
 			false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByLastIdx( String ExpandLast,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByLastIdx( String ExpandLast,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelIteratorByLastIdx";
-		CFGenKbGelIteratorByLastIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
+		YCFGenKbGelIteratorByLastIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
 		key.setOptionalExpandLast( ExpandLast );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 		if( indexByLastIdx == null ) {
-			indexByLastIdx = new HashMap< CFGenKbGelIteratorByLastIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByLastIdx = new HashMap< YCFGenKbGelIteratorByLastIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( ( ! forceRead ) && indexByLastIdx.containsKey( key ) ) {
 			dict = indexByLastIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
-			ICFGenKbGelIteratorObj obj;
-			CFGenKbGelIteratorBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByLastIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
+			IYCFGenKbGelIteratorObj obj;
+			YCFGenKbGelIteratorBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByLastIdx( schema.getAuthorization(),
 				ExpandLast );
-			CFGenKbGelIteratorBuff buff;
+			YCFGenKbGelIteratorBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByLastIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1420,20 +1420,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1446,63 +1446,63 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByLoneIdx( String ExpandLone )
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByLoneIdx( String ExpandLone )
 	{
 		return( readGelIteratorByLoneIdx( ExpandLone,
 			false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByLoneIdx( String ExpandLone,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByLoneIdx( String ExpandLone,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelIteratorByLoneIdx";
-		CFGenKbGelIteratorByLoneIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
+		YCFGenKbGelIteratorByLoneIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
 		key.setOptionalExpandLone( ExpandLone );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 		if( indexByLoneIdx == null ) {
-			indexByLoneIdx = new HashMap< CFGenKbGelIteratorByLoneIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByLoneIdx = new HashMap< YCFGenKbGelIteratorByLoneIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( ( ! forceRead ) && indexByLoneIdx.containsKey( key ) ) {
 			dict = indexByLoneIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
-			ICFGenKbGelIteratorObj obj;
-			CFGenKbGelIteratorBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByLoneIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
+			IYCFGenKbGelIteratorObj obj;
+			YCFGenKbGelIteratorBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByLoneIdx( schema.getAuthorization(),
 				ExpandLone );
-			CFGenKbGelIteratorBuff buff;
+			YCFGenKbGelIteratorBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByLoneIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1510,20 +1510,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1536,63 +1536,63 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByEmptyIdx( String ExpandEmpty )
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByEmptyIdx( String ExpandEmpty )
 	{
 		return( readGelIteratorByEmptyIdx( ExpandEmpty,
 			false ) );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readGelIteratorByEmptyIdx( String ExpandEmpty,
+	public List<IYCFGenKbGelIteratorObj> readGelIteratorByEmptyIdx( String ExpandEmpty,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelIteratorByEmptyIdx";
-		CFGenKbGelIteratorByEmptyIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
+		YCFGenKbGelIteratorByEmptyIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
 		key.setOptionalExpandEmpty( ExpandEmpty );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 		if( indexByEmptyIdx == null ) {
-			indexByEmptyIdx = new HashMap< CFGenKbGelIteratorByEmptyIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByEmptyIdx = new HashMap< YCFGenKbGelIteratorByEmptyIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( ( ! forceRead ) && indexByEmptyIdx.containsKey( key ) ) {
 			dict = indexByEmptyIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj>();
-			ICFGenKbGelIteratorObj obj;
-			CFGenKbGelIteratorBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByEmptyIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj>();
+			IYCFGenKbGelIteratorObj obj;
+			YCFGenKbGelIteratorBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().readDerivedByEmptyIdx( schema.getAuthorization(),
 				ExpandEmpty );
-			CFGenKbGelIteratorBuff buff;
+			YCFGenKbGelIteratorBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelIteratorObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelIteratorObj realised = (ICFGenKbGelIteratorObj)obj.realise();
+				IYCFGenKbGelIteratorObj realised = (IYCFGenKbGelIteratorObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByEmptyIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-		Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+		IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+		Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1600,20 +1600,20 @@ public class CFGenKbGelIteratorTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>(len);
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1626,24 +1626,24 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelIteratorObj> sortedList = arrayList;
+		List<IYCFGenKbGelIteratorObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFGenKbGelIteratorObj readCachedGelIteratorByPIdx( long TenantId,
+	public IYCFGenKbGelIteratorObj readCachedGelIteratorByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
-		ICFGenKbGelIteratorObj obj = null;
-		CFGenKbGelInstructionPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
+		IYCFGenKbGelIteratorObj obj = null;
+		YCFGenKbGelInstructionPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredGelCacheId( GelCacheId );
 		pkey.setRequiredGelInstId( GelInstId );
@@ -1651,25 +1651,25 @@ public class CFGenKbGelIteratorTableObj
 		return( obj );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedGelIteratorByTenantIdx( long TenantId )
+	public List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedGelIteratorByTenantIdx";
-		CFGenKbGelInstructionByTenantIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+		YCFGenKbGelInstructionByTenantIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( indexByTenantIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 			if( indexByTenantIdx.containsKey( key ) ) {
 				dict = indexByTenantIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-				Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+				IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+				Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1677,7 +1677,7 @@ public class CFGenKbGelIteratorTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1690,8 +1690,8 @@ public class CFGenKbGelIteratorTableObj
 			}
 		}
 		else {
-			ICFGenKbGelIteratorObj obj;
-			Iterator<ICFGenKbGelIteratorObj> valIter = members.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			Iterator<IYCFGenKbGelIteratorObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1701,8 +1701,8 @@ public class CFGenKbGelIteratorTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1715,8 +1715,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1726,27 +1726,27 @@ public class CFGenKbGelIteratorTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedGelIteratorByGelCacheIdx( long TenantId,
+	public List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByGelCacheIdx( long TenantId,
 		long GelCacheId )
 	{
 		final String S_ProcName = "readCachedGelIteratorByGelCacheIdx";
-		CFGenKbGelInstructionByGelCacheIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+		YCFGenKbGelInstructionByGelCacheIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( indexByGelCacheIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 			if( indexByGelCacheIdx.containsKey( key ) ) {
 				dict = indexByGelCacheIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-				Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+				IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+				Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1754,7 +1754,7 @@ public class CFGenKbGelIteratorTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1767,8 +1767,8 @@ public class CFGenKbGelIteratorTableObj
 			}
 		}
 		else {
-			ICFGenKbGelIteratorObj obj;
-			Iterator<ICFGenKbGelIteratorObj> valIter = members.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			Iterator<IYCFGenKbGelIteratorObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1778,8 +1778,8 @@ public class CFGenKbGelIteratorTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1792,8 +1792,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1803,29 +1803,29 @@ public class CFGenKbGelIteratorTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedGelIteratorByChainIdx( Long ChainInstTenantId,
+	public List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
 		final String S_ProcName = "readCachedGelIteratorByChainIdx";
-		CFGenKbGelInstructionByChainIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+		YCFGenKbGelInstructionByChainIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 		key.setOptionalChainInstTenantId( ChainInstTenantId );
 		key.setOptionalChainInstGelCacheId( ChainInstGelCacheId );
 		key.setOptionalChainInstGelInstId( ChainInstGelInstId );
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( indexByChainIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 			if( indexByChainIdx.containsKey( key ) ) {
 				dict = indexByChainIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-				Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+				IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+				Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1833,7 +1833,7 @@ public class CFGenKbGelIteratorTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1846,8 +1846,8 @@ public class CFGenKbGelIteratorTableObj
 			}
 		}
 		else {
-			ICFGenKbGelIteratorObj obj;
-			Iterator<ICFGenKbGelIteratorObj> valIter = members.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			Iterator<IYCFGenKbGelIteratorObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1857,8 +1857,8 @@ public class CFGenKbGelIteratorTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1871,8 +1871,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1882,25 +1882,25 @@ public class CFGenKbGelIteratorTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedGelIteratorByBeforeIdx( String ExpandBefore )
+	public List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByBeforeIdx( String ExpandBefore )
 	{
 		final String S_ProcName = "readCachedGelIteratorByBeforeIdx";
-		CFGenKbGelIteratorByBeforeIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
+		YCFGenKbGelIteratorByBeforeIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
 		key.setOptionalExpandBefore( ExpandBefore );
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( indexByBeforeIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 			if( indexByBeforeIdx.containsKey( key ) ) {
 				dict = indexByBeforeIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-				Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+				IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+				Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1908,7 +1908,7 @@ public class CFGenKbGelIteratorTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1921,8 +1921,8 @@ public class CFGenKbGelIteratorTableObj
 			}
 		}
 		else {
-			ICFGenKbGelIteratorObj obj;
-			Iterator<ICFGenKbGelIteratorObj> valIter = members.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			Iterator<IYCFGenKbGelIteratorObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1932,8 +1932,8 @@ public class CFGenKbGelIteratorTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1946,8 +1946,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1957,25 +1957,25 @@ public class CFGenKbGelIteratorTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedGelIteratorByFirstIdx( String ExpandFirst )
+	public List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByFirstIdx( String ExpandFirst )
 	{
 		final String S_ProcName = "readCachedGelIteratorByFirstIdx";
-		CFGenKbGelIteratorByFirstIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
+		YCFGenKbGelIteratorByFirstIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
 		key.setOptionalExpandFirst( ExpandFirst );
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( indexByFirstIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 			if( indexByFirstIdx.containsKey( key ) ) {
 				dict = indexByFirstIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-				Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+				IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+				Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1983,7 +1983,7 @@ public class CFGenKbGelIteratorTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1996,8 +1996,8 @@ public class CFGenKbGelIteratorTableObj
 			}
 		}
 		else {
-			ICFGenKbGelIteratorObj obj;
-			Iterator<ICFGenKbGelIteratorObj> valIter = members.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			Iterator<IYCFGenKbGelIteratorObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2007,8 +2007,8 @@ public class CFGenKbGelIteratorTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2021,8 +2021,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2032,25 +2032,25 @@ public class CFGenKbGelIteratorTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedGelIteratorByEachIdx( String ExpandEach )
+	public List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByEachIdx( String ExpandEach )
 	{
 		final String S_ProcName = "readCachedGelIteratorByEachIdx";
-		CFGenKbGelIteratorByEachIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
+		YCFGenKbGelIteratorByEachIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
 		key.setRequiredExpandEach( ExpandEach );
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( indexByEachIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 			if( indexByEachIdx.containsKey( key ) ) {
 				dict = indexByEachIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-				Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+				IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+				Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2058,7 +2058,7 @@ public class CFGenKbGelIteratorTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2071,8 +2071,8 @@ public class CFGenKbGelIteratorTableObj
 			}
 		}
 		else {
-			ICFGenKbGelIteratorObj obj;
-			Iterator<ICFGenKbGelIteratorObj> valIter = members.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			Iterator<IYCFGenKbGelIteratorObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2082,8 +2082,8 @@ public class CFGenKbGelIteratorTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2096,8 +2096,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2107,25 +2107,25 @@ public class CFGenKbGelIteratorTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedGelIteratorByLastIdx( String ExpandLast )
+	public List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByLastIdx( String ExpandLast )
 	{
 		final String S_ProcName = "readCachedGelIteratorByLastIdx";
-		CFGenKbGelIteratorByLastIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
+		YCFGenKbGelIteratorByLastIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
 		key.setOptionalExpandLast( ExpandLast );
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( indexByLastIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 			if( indexByLastIdx.containsKey( key ) ) {
 				dict = indexByLastIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-				Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+				IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+				Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2133,7 +2133,7 @@ public class CFGenKbGelIteratorTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2146,8 +2146,8 @@ public class CFGenKbGelIteratorTableObj
 			}
 		}
 		else {
-			ICFGenKbGelIteratorObj obj;
-			Iterator<ICFGenKbGelIteratorObj> valIter = members.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			Iterator<IYCFGenKbGelIteratorObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2157,8 +2157,8 @@ public class CFGenKbGelIteratorTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2171,8 +2171,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2182,25 +2182,25 @@ public class CFGenKbGelIteratorTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedGelIteratorByLoneIdx( String ExpandLone )
+	public List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByLoneIdx( String ExpandLone )
 	{
 		final String S_ProcName = "readCachedGelIteratorByLoneIdx";
-		CFGenKbGelIteratorByLoneIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
+		YCFGenKbGelIteratorByLoneIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
 		key.setOptionalExpandLone( ExpandLone );
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( indexByLoneIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 			if( indexByLoneIdx.containsKey( key ) ) {
 				dict = indexByLoneIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-				Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+				IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+				Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2208,7 +2208,7 @@ public class CFGenKbGelIteratorTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2221,8 +2221,8 @@ public class CFGenKbGelIteratorTableObj
 			}
 		}
 		else {
-			ICFGenKbGelIteratorObj obj;
-			Iterator<ICFGenKbGelIteratorObj> valIter = members.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			Iterator<IYCFGenKbGelIteratorObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2232,8 +2232,8 @@ public class CFGenKbGelIteratorTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2246,8 +2246,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2257,25 +2257,25 @@ public class CFGenKbGelIteratorTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelIteratorObj> readCachedGelIteratorByEmptyIdx( String ExpandEmpty )
+	public List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByEmptyIdx( String ExpandEmpty )
 	{
 		final String S_ProcName = "readCachedGelIteratorByEmptyIdx";
-		CFGenKbGelIteratorByEmptyIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
+		YCFGenKbGelIteratorByEmptyIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
 		key.setOptionalExpandEmpty( ExpandEmpty );
-		ArrayList<ICFGenKbGelIteratorObj> arrayList = new ArrayList<ICFGenKbGelIteratorObj>();
+		ArrayList<IYCFGenKbGelIteratorObj> arrayList = new ArrayList<IYCFGenKbGelIteratorObj>();
 		if( indexByEmptyIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict;
 			if( indexByEmptyIdx.containsKey( key ) ) {
 				dict = indexByEmptyIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelIteratorObj arr[] = new ICFGenKbGelIteratorObj[len];
-				Iterator<ICFGenKbGelIteratorObj> valIter = dict.values().iterator();
+				IYCFGenKbGelIteratorObj arr[] = new IYCFGenKbGelIteratorObj[len];
+				Iterator<IYCFGenKbGelIteratorObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2283,7 +2283,7 @@ public class CFGenKbGelIteratorTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2296,8 +2296,8 @@ public class CFGenKbGelIteratorTableObj
 			}
 		}
 		else {
-			ICFGenKbGelIteratorObj obj;
-			Iterator<ICFGenKbGelIteratorObj> valIter = members.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			Iterator<IYCFGenKbGelIteratorObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2307,8 +2307,8 @@ public class CFGenKbGelIteratorTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelIteratorObj> cmp = new Comparator<ICFGenKbGelIteratorObj>() {
-			public int compare( ICFGenKbGelIteratorObj lhs, ICFGenKbGelIteratorObj rhs ) {
+		Comparator<IYCFGenKbGelIteratorObj> cmp = new Comparator<IYCFGenKbGelIteratorObj>() {
+			public int compare( IYCFGenKbGelIteratorObj lhs, IYCFGenKbGelIteratorObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2321,8 +2321,8 @@ public class CFGenKbGelIteratorTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2336,7 +2336,7 @@ public class CFGenKbGelIteratorTableObj
 		long GelCacheId,
 		long GelInstId )
 	{
-		ICFGenKbGelIteratorObj obj = readCachedGelIteratorByPIdx( TenantId,
+		IYCFGenKbGelIteratorObj obj = readCachedGelIteratorByPIdx( TenantId,
 				GelCacheId,
 				GelInstId );
 		if( obj != null ) {
@@ -2347,10 +2347,10 @@ public class CFGenKbGelIteratorTableObj
 	public void deepDisposeGelIteratorByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeGelIteratorByTenantIdx";
-		ICFGenKbGelIteratorObj obj;
-		List<ICFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByTenantIdx( TenantId );
+		IYCFGenKbGelIteratorObj obj;
+		List<IYCFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2364,11 +2364,11 @@ public class CFGenKbGelIteratorTableObj
 		long GelCacheId )
 	{
 		final String S_ProcName = "deepDisposeGelIteratorByGelCacheIdx";
-		ICFGenKbGelIteratorObj obj;
-		List<ICFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByGelCacheIdx( TenantId,
+		IYCFGenKbGelIteratorObj obj;
+		List<IYCFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByGelCacheIdx( TenantId,
 				GelCacheId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2383,12 +2383,12 @@ public class CFGenKbGelIteratorTableObj
 		Long ChainInstGelInstId )
 	{
 		final String S_ProcName = "deepDisposeGelIteratorByChainIdx";
-		ICFGenKbGelIteratorObj obj;
-		List<ICFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByChainIdx( ChainInstTenantId,
+		IYCFGenKbGelIteratorObj obj;
+		List<IYCFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByChainIdx( ChainInstTenantId,
 				ChainInstGelCacheId,
 				ChainInstGelInstId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2401,10 +2401,10 @@ public class CFGenKbGelIteratorTableObj
 	public void deepDisposeGelIteratorByBeforeIdx( String ExpandBefore )
 	{
 		final String S_ProcName = "deepDisposeGelIteratorByBeforeIdx";
-		ICFGenKbGelIteratorObj obj;
-		List<ICFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByBeforeIdx( ExpandBefore );
+		IYCFGenKbGelIteratorObj obj;
+		List<IYCFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByBeforeIdx( ExpandBefore );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2417,10 +2417,10 @@ public class CFGenKbGelIteratorTableObj
 	public void deepDisposeGelIteratorByFirstIdx( String ExpandFirst )
 	{
 		final String S_ProcName = "deepDisposeGelIteratorByFirstIdx";
-		ICFGenKbGelIteratorObj obj;
-		List<ICFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByFirstIdx( ExpandFirst );
+		IYCFGenKbGelIteratorObj obj;
+		List<IYCFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByFirstIdx( ExpandFirst );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2433,10 +2433,10 @@ public class CFGenKbGelIteratorTableObj
 	public void deepDisposeGelIteratorByEachIdx( String ExpandEach )
 	{
 		final String S_ProcName = "deepDisposeGelIteratorByEachIdx";
-		ICFGenKbGelIteratorObj obj;
-		List<ICFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByEachIdx( ExpandEach );
+		IYCFGenKbGelIteratorObj obj;
+		List<IYCFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByEachIdx( ExpandEach );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2449,10 +2449,10 @@ public class CFGenKbGelIteratorTableObj
 	public void deepDisposeGelIteratorByLastIdx( String ExpandLast )
 	{
 		final String S_ProcName = "deepDisposeGelIteratorByLastIdx";
-		ICFGenKbGelIteratorObj obj;
-		List<ICFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByLastIdx( ExpandLast );
+		IYCFGenKbGelIteratorObj obj;
+		List<IYCFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByLastIdx( ExpandLast );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2465,10 +2465,10 @@ public class CFGenKbGelIteratorTableObj
 	public void deepDisposeGelIteratorByLoneIdx( String ExpandLone )
 	{
 		final String S_ProcName = "deepDisposeGelIteratorByLoneIdx";
-		ICFGenKbGelIteratorObj obj;
-		List<ICFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByLoneIdx( ExpandLone );
+		IYCFGenKbGelIteratorObj obj;
+		List<IYCFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByLoneIdx( ExpandLone );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2481,10 +2481,10 @@ public class CFGenKbGelIteratorTableObj
 	public void deepDisposeGelIteratorByEmptyIdx( String ExpandEmpty )
 	{
 		final String S_ProcName = "deepDisposeGelIteratorByEmptyIdx";
-		ICFGenKbGelIteratorObj obj;
-		List<ICFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByEmptyIdx( ExpandEmpty );
+		IYCFGenKbGelIteratorObj obj;
+		List<IYCFGenKbGelIteratorObj> arrayList = readCachedGelIteratorByEmptyIdx( ExpandEmpty );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelIteratorObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2494,20 +2494,20 @@ public class CFGenKbGelIteratorTableObj
 		}
 	}
 
-	public ICFGenKbGelIteratorObj updateGelIterator( ICFGenKbGelIteratorObj Obj ) {
-		ICFGenKbGelIteratorObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().updateGelIterator( schema.getAuthorization(),
+	public IYCFGenKbGelIteratorObj updateGelIterator( IYCFGenKbGelIteratorObj Obj ) {
+		IYCFGenKbGelIteratorObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().updateGelIterator( schema.getAuthorization(),
 			Obj.getGelIteratorBuff() );
 		if( Obj.getClassCode().equals( "a917" ) ) {
-			obj = (ICFGenKbGelIteratorObj)Obj.realise();
+			obj = (IYCFGenKbGelIteratorObj)Obj.realise();
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteGelIterator( ICFGenKbGelIteratorObj Obj ) {
-		ICFGenKbGelIteratorObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIterator( schema.getAuthorization(),
+	public void deleteGelIterator( IYCFGenKbGelIteratorObj Obj ) {
+		IYCFGenKbGelIteratorObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIterator( schema.getAuthorization(),
 			obj.getGelIteratorBuff() );
 		Obj.forget();
 	}
@@ -2516,16 +2516,16 @@ public class CFGenKbGelIteratorTableObj
 		long GelCacheId,
 		long GelInstId )
 	{
-		CFGenKbGelInstructionPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredGelCacheId( GelCacheId );
 		pkey.setRequiredGelInstId( GelInstId );
-		ICFGenKbGelIteratorObj obj = readGelIterator( pkey );
+		IYCFGenKbGelIteratorObj obj = readGelIterator( pkey );
 		if( obj != null ) {
-			ICFGenKbGelIteratorEditObj editObj = (ICFGenKbGelIteratorEditObj)obj.getEdit();
+			IYCFGenKbGelIteratorEditObj editObj = (IYCFGenKbGelIteratorEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFGenKbGelIteratorEditObj)obj.beginEdit();
+				editObj = (IYCFGenKbGelIteratorEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -2551,19 +2551,19 @@ public class CFGenKbGelIteratorTableObj
 
 	public void deleteGelIteratorByTenantIdx( long TenantId )
 	{
-		CFGenKbGelInstructionByTenantIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+		YCFGenKbGelInstructionByTenantIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFGenKbGelInstructionByTenantIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByTenantIdx = new HashMap< YCFGenKbGelInstructionByTenantIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( indexByTenantIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict = indexByTenantIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByTenantIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict = indexByTenantIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFGenKbGelIteratorObj> iter = dict.values().iterator();
-			ICFGenKbGelIteratorObj obj;
-			List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
+			Iterator<IYCFGenKbGelIteratorObj> iter = dict.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2576,7 +2576,7 @@ public class CFGenKbGelIteratorTableObj
 			indexByTenantIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByTenantIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeGelIteratorByTenantIdx( TenantId );
@@ -2585,21 +2585,21 @@ public class CFGenKbGelIteratorTableObj
 	public void deleteGelIteratorByGelCacheIdx( long TenantId,
 		long GelCacheId )
 	{
-		CFGenKbGelInstructionByGelCacheIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+		YCFGenKbGelInstructionByGelCacheIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
 		if( indexByGelCacheIdx == null ) {
-			indexByGelCacheIdx = new HashMap< CFGenKbGelInstructionByGelCacheIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByGelCacheIdx = new HashMap< YCFGenKbGelInstructionByGelCacheIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( indexByGelCacheIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict = indexByGelCacheIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByGelCacheIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict = indexByGelCacheIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByGelCacheIdx( schema.getAuthorization(),
 				TenantId,
 				GelCacheId );
-			Iterator<ICFGenKbGelIteratorObj> iter = dict.values().iterator();
-			ICFGenKbGelIteratorObj obj;
-			List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
+			Iterator<IYCFGenKbGelIteratorObj> iter = dict.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2612,7 +2612,7 @@ public class CFGenKbGelIteratorTableObj
 			indexByGelCacheIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByGelCacheIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByGelCacheIdx( schema.getAuthorization(),
 				TenantId,
 				GelCacheId );
 		}
@@ -2624,23 +2624,23 @@ public class CFGenKbGelIteratorTableObj
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
-		CFGenKbGelInstructionByChainIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+		YCFGenKbGelInstructionByChainIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 		key.setOptionalChainInstTenantId( ChainInstTenantId );
 		key.setOptionalChainInstGelCacheId( ChainInstGelCacheId );
 		key.setOptionalChainInstGelInstId( ChainInstGelInstId );
 		if( indexByChainIdx == null ) {
-			indexByChainIdx = new HashMap< CFGenKbGelInstructionByChainIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByChainIdx = new HashMap< YCFGenKbGelInstructionByChainIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( indexByChainIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict = indexByChainIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByChainIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict = indexByChainIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByChainIdx( schema.getAuthorization(),
 				ChainInstTenantId,
 				ChainInstGelCacheId,
 				ChainInstGelInstId );
-			Iterator<ICFGenKbGelIteratorObj> iter = dict.values().iterator();
-			ICFGenKbGelIteratorObj obj;
-			List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
+			Iterator<IYCFGenKbGelIteratorObj> iter = dict.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2653,7 +2653,7 @@ public class CFGenKbGelIteratorTableObj
 			indexByChainIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByChainIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByChainIdx( schema.getAuthorization(),
 				ChainInstTenantId,
 				ChainInstGelCacheId,
 				ChainInstGelInstId );
@@ -2665,19 +2665,19 @@ public class CFGenKbGelIteratorTableObj
 
 	public void deleteGelIteratorByBeforeIdx( String ExpandBefore )
 	{
-		CFGenKbGelIteratorByBeforeIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
+		YCFGenKbGelIteratorByBeforeIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newBeforeIdxKey();
 		key.setOptionalExpandBefore( ExpandBefore );
 		if( indexByBeforeIdx == null ) {
-			indexByBeforeIdx = new HashMap< CFGenKbGelIteratorByBeforeIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByBeforeIdx = new HashMap< YCFGenKbGelIteratorByBeforeIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( indexByBeforeIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict = indexByBeforeIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByBeforeIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict = indexByBeforeIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByBeforeIdx( schema.getAuthorization(),
 				ExpandBefore );
-			Iterator<ICFGenKbGelIteratorObj> iter = dict.values().iterator();
-			ICFGenKbGelIteratorObj obj;
-			List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
+			Iterator<IYCFGenKbGelIteratorObj> iter = dict.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2690,7 +2690,7 @@ public class CFGenKbGelIteratorTableObj
 			indexByBeforeIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByBeforeIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByBeforeIdx( schema.getAuthorization(),
 				ExpandBefore );
 		}
 		deepDisposeGelIteratorByBeforeIdx( ExpandBefore );
@@ -2698,19 +2698,19 @@ public class CFGenKbGelIteratorTableObj
 
 	public void deleteGelIteratorByFirstIdx( String ExpandFirst )
 	{
-		CFGenKbGelIteratorByFirstIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
+		YCFGenKbGelIteratorByFirstIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newFirstIdxKey();
 		key.setOptionalExpandFirst( ExpandFirst );
 		if( indexByFirstIdx == null ) {
-			indexByFirstIdx = new HashMap< CFGenKbGelIteratorByFirstIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByFirstIdx = new HashMap< YCFGenKbGelIteratorByFirstIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( indexByFirstIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict = indexByFirstIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByFirstIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict = indexByFirstIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByFirstIdx( schema.getAuthorization(),
 				ExpandFirst );
-			Iterator<ICFGenKbGelIteratorObj> iter = dict.values().iterator();
-			ICFGenKbGelIteratorObj obj;
-			List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
+			Iterator<IYCFGenKbGelIteratorObj> iter = dict.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2723,7 +2723,7 @@ public class CFGenKbGelIteratorTableObj
 			indexByFirstIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByFirstIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByFirstIdx( schema.getAuthorization(),
 				ExpandFirst );
 		}
 		deepDisposeGelIteratorByFirstIdx( ExpandFirst );
@@ -2731,19 +2731,19 @@ public class CFGenKbGelIteratorTableObj
 
 	public void deleteGelIteratorByEachIdx( String ExpandEach )
 	{
-		CFGenKbGelIteratorByEachIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
+		YCFGenKbGelIteratorByEachIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEachIdxKey();
 		key.setRequiredExpandEach( ExpandEach );
 		if( indexByEachIdx == null ) {
-			indexByEachIdx = new HashMap< CFGenKbGelIteratorByEachIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByEachIdx = new HashMap< YCFGenKbGelIteratorByEachIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( indexByEachIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict = indexByEachIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByEachIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict = indexByEachIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByEachIdx( schema.getAuthorization(),
 				ExpandEach );
-			Iterator<ICFGenKbGelIteratorObj> iter = dict.values().iterator();
-			ICFGenKbGelIteratorObj obj;
-			List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
+			Iterator<IYCFGenKbGelIteratorObj> iter = dict.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2756,7 +2756,7 @@ public class CFGenKbGelIteratorTableObj
 			indexByEachIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByEachIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByEachIdx( schema.getAuthorization(),
 				ExpandEach );
 		}
 		deepDisposeGelIteratorByEachIdx( ExpandEach );
@@ -2764,19 +2764,19 @@ public class CFGenKbGelIteratorTableObj
 
 	public void deleteGelIteratorByLastIdx( String ExpandLast )
 	{
-		CFGenKbGelIteratorByLastIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
+		YCFGenKbGelIteratorByLastIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLastIdxKey();
 		key.setOptionalExpandLast( ExpandLast );
 		if( indexByLastIdx == null ) {
-			indexByLastIdx = new HashMap< CFGenKbGelIteratorByLastIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByLastIdx = new HashMap< YCFGenKbGelIteratorByLastIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( indexByLastIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict = indexByLastIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByLastIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict = indexByLastIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByLastIdx( schema.getAuthorization(),
 				ExpandLast );
-			Iterator<ICFGenKbGelIteratorObj> iter = dict.values().iterator();
-			ICFGenKbGelIteratorObj obj;
-			List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
+			Iterator<IYCFGenKbGelIteratorObj> iter = dict.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2789,7 +2789,7 @@ public class CFGenKbGelIteratorTableObj
 			indexByLastIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByLastIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByLastIdx( schema.getAuthorization(),
 				ExpandLast );
 		}
 		deepDisposeGelIteratorByLastIdx( ExpandLast );
@@ -2797,19 +2797,19 @@ public class CFGenKbGelIteratorTableObj
 
 	public void deleteGelIteratorByLoneIdx( String ExpandLone )
 	{
-		CFGenKbGelIteratorByLoneIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
+		YCFGenKbGelIteratorByLoneIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newLoneIdxKey();
 		key.setOptionalExpandLone( ExpandLone );
 		if( indexByLoneIdx == null ) {
-			indexByLoneIdx = new HashMap< CFGenKbGelIteratorByLoneIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByLoneIdx = new HashMap< YCFGenKbGelIteratorByLoneIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( indexByLoneIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict = indexByLoneIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByLoneIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict = indexByLoneIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByLoneIdx( schema.getAuthorization(),
 				ExpandLone );
-			Iterator<ICFGenKbGelIteratorObj> iter = dict.values().iterator();
-			ICFGenKbGelIteratorObj obj;
-			List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
+			Iterator<IYCFGenKbGelIteratorObj> iter = dict.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2822,7 +2822,7 @@ public class CFGenKbGelIteratorTableObj
 			indexByLoneIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByLoneIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByLoneIdx( schema.getAuthorization(),
 				ExpandLone );
 		}
 		deepDisposeGelIteratorByLoneIdx( ExpandLone );
@@ -2830,19 +2830,19 @@ public class CFGenKbGelIteratorTableObj
 
 	public void deleteGelIteratorByEmptyIdx( String ExpandEmpty )
 	{
-		CFGenKbGelIteratorByEmptyIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
+		YCFGenKbGelIteratorByEmptyIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelIterator().newEmptyIdxKey();
 		key.setOptionalExpandEmpty( ExpandEmpty );
 		if( indexByEmptyIdx == null ) {
-			indexByEmptyIdx = new HashMap< CFGenKbGelIteratorByEmptyIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj > >();
+			indexByEmptyIdx = new HashMap< YCFGenKbGelIteratorByEmptyIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj > >();
 		}
 		if( indexByEmptyIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelIteratorObj> dict = indexByEmptyIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByEmptyIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelIteratorObj> dict = indexByEmptyIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByEmptyIdx( schema.getAuthorization(),
 				ExpandEmpty );
-			Iterator<ICFGenKbGelIteratorObj> iter = dict.values().iterator();
-			ICFGenKbGelIteratorObj obj;
-			List<ICFGenKbGelIteratorObj> toForget = new LinkedList<ICFGenKbGelIteratorObj>();
+			Iterator<IYCFGenKbGelIteratorObj> iter = dict.values().iterator();
+			IYCFGenKbGelIteratorObj obj;
+			List<IYCFGenKbGelIteratorObj> toForget = new LinkedList<IYCFGenKbGelIteratorObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2855,7 +2855,7 @@ public class CFGenKbGelIteratorTableObj
 			indexByEmptyIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByEmptyIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelIterator().deleteGelIteratorByEmptyIdx( schema.getAuthorization(),
 				ExpandEmpty );
 		}
 		deepDisposeGelIteratorByEmptyIdx( ExpandEmpty );

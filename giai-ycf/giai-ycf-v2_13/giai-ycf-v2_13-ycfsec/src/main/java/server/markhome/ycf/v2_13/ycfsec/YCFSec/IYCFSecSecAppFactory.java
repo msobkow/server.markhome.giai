@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for SecApp.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,13 +35,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 /*
- *	CFSecSecAppFactory interface for SecApp
+ *	YCFSecSecAppFactory interface for SecApp
  */
-public interface ICFSecSecAppFactory
+public interface IYCFSecSecAppFactory
 {
 
 	/**
@@ -49,41 +49,41 @@ public interface ICFSecSecAppFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecAppPKey newPKey();
+	YCFSecSecAppPKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for SecApp instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecAppHPKey newHPKey();
+	YCFSecSecAppHPKey newHPKey();
 
 	/**
 	 *	Allocate a ClusterIdx key over SecApp instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecAppByClusterIdxKey newClusterIdxKey();
+	YCFSecSecAppByClusterIdxKey newClusterIdxKey();
 
 	/**
 	 *	Allocate a UJEEMountIdx key over SecApp instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecAppByUJEEMountIdxKey newUJEEMountIdxKey();
+	YCFSecSecAppByUJEEMountIdxKey newUJEEMountIdxKey();
 
 	/**
 	 *	Allocate a SecApp instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecAppBuff newBuff();
+	YCFSecSecAppBuff newBuff();
 
 	/**
 	 *	Allocate a SecApp history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecAppHBuff newHBuff();
+	YCFSecSecAppHBuff newHBuff();
 
 }

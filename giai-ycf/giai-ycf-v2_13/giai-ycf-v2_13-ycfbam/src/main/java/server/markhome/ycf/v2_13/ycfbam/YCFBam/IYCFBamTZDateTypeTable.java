@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for TZDateType.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamTZDateTypeTable database interface for TZDateType
+ *	YCFBamTZDateTypeTable database interface for TZDateType
  */
-public interface ICFBamTZDateTypeTable
+public interface IYCFBamTZDateTypeTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createTZDateType( CFSecAuthorization Authorization,
-		CFBamTZDateTypeBuff Buff );
+	void createTZDateType( YCFSecAuthorization Authorization,
+		YCFBamTZDateTypeBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateTZDateType( CFSecAuthorization Authorization,
-		CFBamTZDateTypeBuff Buff );
+	void updateTZDateType( YCFSecAuthorization Authorization,
+		YCFBamTZDateTypeBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteTZDateType( CFSecAuthorization Authorization,
-		CFBamTZDateTypeBuff Buff );
+	void deleteTZDateType( YCFSecAuthorization Authorization,
+		YCFBamTZDateTypeBuff Buff );
 	/**
 	 *	Delete the TZDateType instances identified by the key SchemaIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argSchemaDefId	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeBySchemaIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId );
 
@@ -121,8 +121,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamTZDateTypeBySchemaIdxKey argKey );
+	void deleteTZDateTypeBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamTZDateTypeBySchemaIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instance identified by the primary key attributes.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argId	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByIdIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -143,8 +143,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteTZDateTypeByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteTZDateTypeByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key UNameIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argName	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByUNameIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -168,8 +168,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteTZDateTypeByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key ValTentIdx.
 	 *
@@ -177,7 +177,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argTenantId	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByValTentIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -187,8 +187,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteTZDateTypeByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key ScopeIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argScopeId	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByScopeIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -209,8 +209,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteTZDateTypeByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key DefSchemaIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argDefSchemaId	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -231,8 +231,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteTZDateTypeByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key PrevIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argPrevId	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByPrevIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -253,8 +253,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteTZDateTypeByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key NextIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argNextId	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByNextIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -275,8 +275,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteTZDateTypeByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key ContPrevIdx.
 	 *
@@ -288,7 +288,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argPrevId	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -300,8 +300,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteTZDateTypeByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key ContNextIdx.
 	 *
@@ -313,7 +313,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argNextId	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByContNextIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -325,8 +325,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteTZDateTypeByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key CodeVisIdx.
 	 *
@@ -334,8 +334,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argCodeVis	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteTZDateTypeByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the TZDateType instances identified by the key CodeVisIdx.
@@ -344,8 +344,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteTZDateTypeByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the TZDateType instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -357,10 +357,10 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argCodeVis	The TZDateType key attribute of the instance generating the id.
 	 */
-	void deleteTZDateTypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteTZDateTypeByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the TZDateType instances identified by the key ScopeCodeVisIdx.
@@ -369,8 +369,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTZDateTypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteTZDateTypeByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -383,8 +383,8 @@ public interface ICFBamTZDateTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTZDateTypeBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTZDateTypeBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived TZDateType buffer instance by primary key.
@@ -396,8 +396,8 @@ public interface ICFBamTZDateTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTZDateTypeBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTZDateTypeBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all TZDateType instances.
@@ -406,7 +406,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamTZDateTypeBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived TZDateType buffer instance identified by the unique key IdIdx.
@@ -420,7 +420,7 @@ public interface ICFBamTZDateTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTZDateTypeBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -438,7 +438,7 @@ public interface ICFBamTZDateTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTZDateTypeBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -452,7 +452,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -466,7 +466,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -481,7 +481,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -496,7 +496,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -511,7 +511,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -528,7 +528,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -546,7 +546,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -560,8 +560,8 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamTZDateTypeBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived TZDateType buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -576,10 +576,10 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived TZDateType buffer instances identified by the duplicate key SchemaIdx.
@@ -592,7 +592,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTZDateTypeBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -606,10 +606,10 @@ public interface ICFBamTZDateTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTZDateTypeBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific TZDateType buffer instance identified by the primary key.
@@ -621,10 +621,10 @@ public interface ICFBamTZDateTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTZDateTypeBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific TZDateType buffer instances.
@@ -633,7 +633,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return All the specific TZDateType instances in the database accessible for the Authorization.
 	 */
-	CFBamTZDateTypeBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamTZDateTypeBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific TZDateType buffer instance identified by the unique key IdIdx.
@@ -647,9 +647,9 @@ public interface ICFBamTZDateTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -667,9 +667,9 @@ public interface ICFBamTZDateTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -683,9 +683,9 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -699,9 +699,9 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -716,9 +716,9 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -733,9 +733,9 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -750,9 +750,9 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -769,9 +769,9 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -789,9 +789,9 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -805,10 +805,10 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamTZDateTypeBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific TZDateType buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -823,12 +823,12 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific TZDateType buffer instances identified by the duplicate key SchemaIdx.
@@ -841,9 +841,9 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTZDateTypeBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -852,7 +852,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamTZDateTypeBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -862,7 +862,7 @@ public interface ICFBamTZDateTypeTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamTZDateTypeBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamTZDateTypeBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -870,7 +870,7 @@ public interface ICFBamTZDateTypeTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

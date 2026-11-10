@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelInstruction by TenantIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelInstructionByTenantIdxKey
+public class YCFGenKbGelInstructionByTenantIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
-	public CFGenKbGelInstructionByTenantIdxKey() {
-		requiredTenantId = CFGenKbGelInstructionBuff.TENANTID_INIT_VALUE;
+	public YCFGenKbGelInstructionByTenantIdxKey() {
+		requiredTenantId = YCFGenKbGelInstructionBuff.TENANTID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -54,13 +54,13 @@ public class CFGenKbGelInstructionByTenantIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbGelInstructionBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelInstructionBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.TENANTID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -69,15 +69,15 @@ public class CFGenKbGelInstructionByTenantIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByTenantIdxKey ) {
-			CFGenKbGelInstructionByTenantIdxKey rhs = (CFGenKbGelInstructionByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByTenantIdxKey ) {
+			YCFGenKbGelInstructionByTenantIdxKey rhs = (YCFGenKbGelInstructionByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionBuff ) {
-			CFGenKbGelInstructionBuff rhs = (CFGenKbGelInstructionBuff)obj;
+		else if( obj instanceof YCFGenKbGelInstructionBuff ) {
+			YCFGenKbGelInstructionBuff rhs = (YCFGenKbGelInstructionBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -98,8 +98,8 @@ public class CFGenKbGelInstructionByTenantIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByTenantIdxKey ) {
-			CFGenKbGelInstructionByTenantIdxKey rhs = (CFGenKbGelInstructionByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByTenantIdxKey ) {
+			YCFGenKbGelInstructionByTenantIdxKey rhs = (YCFGenKbGelInstructionByTenantIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -108,8 +108,8 @@ public class CFGenKbGelInstructionByTenantIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionBuff ) {
-			CFGenKbGelInstructionBuff rhs = (CFGenKbGelInstructionBuff)obj;
+		else if( obj instanceof YCFGenKbGelInstructionBuff ) {
+			YCFGenKbGelInstructionBuff rhs = (YCFGenKbGelInstructionBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -119,7 +119,7 @@ public class CFGenKbGelInstructionByTenantIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -128,7 +128,7 @@ public class CFGenKbGelInstructionByTenantIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelInstructionByTenantIdx"
+		String ret = "<YCFGenKbGelInstructionByTenantIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ "/>";
 		return( ret );

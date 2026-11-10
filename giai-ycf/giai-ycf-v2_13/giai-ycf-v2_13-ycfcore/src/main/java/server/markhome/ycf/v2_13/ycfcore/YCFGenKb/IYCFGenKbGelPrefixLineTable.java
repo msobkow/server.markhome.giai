@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelPrefixLine.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelPrefixLineTable database interface for GelPrefixLine
+ *	YCFGenKbGelPrefixLineTable database interface for GelPrefixLine
  */
-public interface ICFGenKbGelPrefixLineTable
+public interface IYCFGenKbGelPrefixLineTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelPrefixLine( CFGenKbAuthorization Authorization,
-		CFGenKbGelPrefixLineBuff Buff );
+	void createGelPrefixLine( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPrefixLineBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelPrefixLine( CFGenKbAuthorization Authorization,
-		CFGenKbGelPrefixLineBuff Buff );
+	void updateGelPrefixLine( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPrefixLineBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelPrefixLine( CFGenKbAuthorization Authorization,
-		CFGenKbGelPrefixLineBuff Buff );
+	void deleteGelPrefixLine( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPrefixLineBuff Buff );
 	/**
 	 *	Delete the GelPrefixLine instances identified by the key RemainderIdx.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argRemainderInstId	The GelPrefixLine key attribute of the instance generating the id.
 	 */
-	void deleteGelPrefixLineByRemainderIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPrefixLineByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long argRemainderTenantId,
 		long argRemainderGelCacheId,
 		Long argRemainderInstId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPrefixLineByRemainderIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelPrefixLineByRemainderIdxKey argKey );
+	void deleteGelPrefixLineByRemainderIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPrefixLineByRemainderIdxKey argKey );
 	/**
 	 *	Delete the GelPrefixLine instance identified by the primary key attributes.
 	 *
@@ -115,7 +115,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argGelInstId	The GelPrefixLine key attribute of the instance generating the id.
 	 */
-	void deleteGelPrefixLineByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPrefixLineByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -127,8 +127,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelPrefixLineByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelPrefixLineByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelPrefixLine instances identified by the key TenantIdx.
 	 *
@@ -136,7 +136,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 */
-	void deleteGelPrefixLineByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPrefixLineByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -146,8 +146,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPrefixLineByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelPrefixLineByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelPrefixLine instances identified by the key GelCacheIdx.
 	 *
@@ -157,7 +157,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argGelCacheId	The GelPrefixLine key attribute of the instance generating the id.
 	 */
-	void deleteGelPrefixLineByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPrefixLineByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -168,8 +168,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPrefixLineByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelPrefixLineByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelPrefixLine instances identified by the key ChainIdx.
 	 *
@@ -181,7 +181,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelPrefixLine key attribute of the instance generating the id.
 	 */
-	void deleteGelPrefixLineByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPrefixLineByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -193,8 +193,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPrefixLineByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelPrefixLineByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -207,8 +207,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelPrefixLineBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPrefixLineBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelPrefixLine buffer instance by primary key.
@@ -220,8 +220,8 @@ public interface ICFGenKbGelPrefixLineTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelPrefixLineBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPrefixLineBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelPrefixLine instances.
@@ -230,7 +230,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPrefixLineBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelPrefixLineBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelPrefixLine buffer instance identified by the unique key PIdx.
@@ -246,7 +246,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelPrefixLineBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -260,7 +260,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPrefixLineBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -274,7 +274,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPrefixLineBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -291,7 +291,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPrefixLineBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -309,7 +309,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPrefixLineBuff[] readDerivedByRemainderIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff[] readDerivedByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
@@ -324,10 +324,10 @@ public interface ICFGenKbGelPrefixLineTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPrefixLineBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPrefixLineBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelPrefixLine buffer instance identified by the primary key.
@@ -339,10 +339,10 @@ public interface ICFGenKbGelPrefixLineTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPrefixLineBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPrefixLineBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelPrefixLine buffer instances.
@@ -351,7 +351,7 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return All the specific GelPrefixLine instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelPrefixLineBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelPrefixLineBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelPrefixLine buffer instance identified by the unique key PIdx.
@@ -367,9 +367,9 @@ public interface ICFGenKbGelPrefixLineTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPrefixLineBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -383,9 +383,9 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPrefixLineBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -399,9 +399,9 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPrefixLineBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -418,9 +418,9 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPrefixLineBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -438,9 +438,9 @@ public interface ICFGenKbGelPrefixLineTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPrefixLineBuff[] readBuffByRemainderIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPrefixLineBuff[] readBuffByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
@@ -448,7 +448,7 @@ public interface ICFGenKbGelPrefixLineTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

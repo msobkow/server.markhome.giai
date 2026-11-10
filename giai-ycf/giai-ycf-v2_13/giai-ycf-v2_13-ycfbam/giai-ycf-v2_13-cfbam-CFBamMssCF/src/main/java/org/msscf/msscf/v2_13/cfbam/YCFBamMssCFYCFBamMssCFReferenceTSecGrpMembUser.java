@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Reference for TSecGrpMemb Relationship User.
+// Description: Java 11 MssYCF Reference for TSecGrpMemb Relationship User.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,33 +27,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.sql.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /**
- *	CFBamMssCFReferenceTSecGrpMembUser binds TSecGrpMemb.User
- *	as an instance of MssCFGenReferenceObj.
+ *	YCFBamMssYCFReferenceTSecGrpMembUser binds TSecGrpMemb.User
+ *	as an instance of MssYCFGenReferenceObj.
  */
-public class CFBamMssCFReferenceTSecGrpMembUser
-	extends MssCFGenReferenceObj
+public class YCFBamMssYCFReferenceTSecGrpMembUser
+	extends MssYCFGenReferenceObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFReferenceTSecGrpMembUser() {
+	public YCFBamMssYCFReferenceTSecGrpMembUser() {
 		super();
 	}
 
-	public CFBamMssCFReferenceTSecGrpMembUser( MssCFEngine argEngine ) {
+	public YCFBamMssYCFReferenceTSecGrpMembUser( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
@@ -62,35 +62,35 @@ public class CFBamMssCFReferenceTSecGrpMembUser
 			"SecUser" );
 	}
 
-	public ICFLibAnyObj dereference( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFReferenceTSecGrpMembUser.dereference() ";
+	public IYCFLibAnyObj dereference( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFReferenceTSecGrpMembUser.dereference() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext.getGenDef()" );
 		}
 
-		ICFBamSecUserObj obj;
+		IYCFBamSecUserObj obj;
 
-		if( genDef instanceof ICFBamTSecGrpMembObj ) {
-			obj = (ICFBamSecUserObj)((ICFBamTSecGrpMembObj)genDef).getRequiredParentUser();
+		if( genDef instanceof IYCFBamTSecGrpMembObj ) {
+			obj = (IYCFBamSecUserObj)((IYCFBamTSecGrpMembObj)genDef).getRequiredParentUser();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamTSecGrpMembObj" );
+				"IYCFBamTSecGrpMembObj" );
 		}
 
 		return( obj );

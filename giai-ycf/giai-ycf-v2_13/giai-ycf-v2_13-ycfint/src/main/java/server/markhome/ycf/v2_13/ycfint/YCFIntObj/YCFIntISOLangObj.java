@@ -1,15 +1,15 @@
-// Description: Java 11 base object instance implementation for CFInt ISOLang.
+// Description: Java 11 base object instance implementation for YCFInt ISOLang.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,35 +26,35 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntISOLangObj
-	implements ICFIntISOLangObj
+public class YCFIntISOLangObj
+	implements IYCFIntISOLangObj
 {
 	public final static String CLASS_CODE = "a007";
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
 	protected boolean isNew;
-	protected ICFSecISOLangEditObj edit;
-	protected ICFSecSchemaObj schema;
-	protected CFSecISOLangPKey pKey;
-	protected CFSecISOLangBuff buff;
+	protected IYCFSecISOLangEditObj edit;
+	protected IYCFSecSchemaObj schema;
+	protected YCFSecISOLangPKey pKey;
+	protected YCFSecISOLangBuff buff;
 
-	public CFIntISOLangObj() {
+	public YCFIntISOLangObj() {
 		isNew = true;
 	}
 
-	public CFIntISOLangObj( ICFSecSchemaObj argSchema ) {
+	public YCFIntISOLangObj( IYCFSecSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -68,11 +68,11 @@ public class CFIntISOLangObj
 		return( "ISOLang" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -82,14 +82,14 @@ public class CFIntISOLangObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -100,10 +100,10 @@ public class CFIntISOLangObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -112,20 +112,20 @@ public class CFIntISOLangObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -149,13 +149,13 @@ public class CFIntISOLangObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -169,13 +169,13 @@ public class CFIntISOLangObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -187,46 +187,46 @@ public class CFIntISOLangObj
 		return( fullName );
 	}
 
-	public ICFSecISOLangObj realise() {
-		ICFSecISOLangObj retobj = ((ICFIntSchemaObj)schema).getISOLangTableObj().realiseISOLang(
-			(ICFSecISOLangObj)this );
-		return( (ICFSecISOLangObj)retobj );
+	public IYCFSecISOLangObj realise() {
+		IYCFSecISOLangObj retobj = ((IYCFIntSchemaObj)schema).getISOLangTableObj().realiseISOLang(
+			(IYCFSecISOLangObj)this );
+		return( (IYCFSecISOLangObj)retobj );
 	}
 
 	public void forget() {
-		((ICFIntSchemaObj)schema).getISOLangTableObj().reallyDeepDisposeISOLang( (ICFSecISOLangObj)this );
+		((IYCFIntSchemaObj)schema).getISOLangTableObj().reallyDeepDisposeISOLang( (IYCFSecISOLangObj)this );
 	}
 
-	public ICFSecISOLangObj read() {
-		ICFSecISOLangObj retobj = ((ICFIntSchemaObj)schema).getISOLangTableObj().readISOLangByIdIdx( getPKey().getRequiredISOLangId(), false );
-		return( (ICFSecISOLangObj)retobj );
+	public IYCFSecISOLangObj read() {
+		IYCFSecISOLangObj retobj = ((IYCFIntSchemaObj)schema).getISOLangTableObj().readISOLangByIdIdx( getPKey().getRequiredISOLangId(), false );
+		return( (IYCFSecISOLangObj)retobj );
 	}
 
-	public ICFSecISOLangObj read( boolean forceRead ) {
-		ICFSecISOLangObj retobj = ((ICFIntSchemaObj)schema).getISOLangTableObj().readISOLangByIdIdx( getPKey().getRequiredISOLangId(), forceRead );
-		return( (ICFSecISOLangObj)retobj );
+	public IYCFSecISOLangObj read( boolean forceRead ) {
+		IYCFSecISOLangObj retobj = ((IYCFIntSchemaObj)schema).getISOLangTableObj().readISOLangByIdIdx( getPKey().getRequiredISOLangId(), forceRead );
+		return( (IYCFSecISOLangObj)retobj );
 	}
 
-	public ICFSecISOLangTableObj getISOLangTable() {
-		return( ((ICFIntSchemaObj)schema).getISOLangTableObj() );
+	public IYCFSecISOLangTableObj getISOLangTable() {
+		return( ((IYCFIntSchemaObj)schema).getISOLangTableObj() );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
+	public void setSchema( IYCFSecSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFSecISOLangBuff getBuff() {
+	public YCFSecISOLangBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOLang().newBuff();
+				buff = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOLang().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFIntSchema)schema.getBackingStore()).getTableISOLang().readDerivedByIdIdx( ((ICFIntSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFIntSchema)schema.getBackingStore()).getTableISOLang().readDerivedByIdIdx( ((IYCFIntSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredISOLangId() );
 				if( buff != null ) {
 					copyBuffToPKey();
@@ -236,30 +236,30 @@ public class CFIntISOLangObj
 		return( buff );
 	}
 
-	public void setBuff( CFSecISOLangBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFSecISOLangBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFSecISOLangBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFSecISOLangBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFSecISOLangBuff" );
+				"YCFSecISOLangBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
 	}
 
-	public CFSecISOLangBuff getISOLangBuff() {
-		return( (CFSecISOLangBuff)getBuff() );
+	public YCFSecISOLangBuff getISOLangBuff() {
+		return( (YCFSecISOLangBuff)getBuff() );
 	}
 
-	public CFSecISOLangPKey getPKey() {
+	public YCFSecISOLangPKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOLang().newPKey();
+			pKey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOLang().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFSecISOLangPKey value ) {
+	public void setPKey( YCFSecISOLangPKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -274,37 +274,37 @@ public class CFIntISOLangObj
 		isNew = value;
 	}
 
-	public ICFSecISOLangEditObj beginEdit() {
+	public IYCFSecISOLangEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFSecISOLangObj lockobj;
+		IYCFSecISOLangObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFSecISOLangObj)this;
+			lockobj = (IYCFSecISOLangObj)this;
 		}
 		else {
-			lockobj = ((ICFIntSchemaObj)schema).getISOLangTableObj().lockISOLang( getPKey() );
+			lockobj = ((IYCFIntSchemaObj)schema).getISOLangTableObj().lockISOLang( getPKey() );
 		}
-		edit = ((ICFIntSchemaObj)schema).getISOLangTableObj().newEditInstance( lockobj );
-		return( (ICFSecISOLangEditObj)edit );
+		edit = ((IYCFIntSchemaObj)schema).getISOLangTableObj().newEditInstance( lockobj );
+		return( (IYCFSecISOLangEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFSecISOLangEditObj getEdit() {
+	public IYCFSecISOLangEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFSecISOLangEditObj getEditAsISOLang() {
-		return( (ICFSecISOLangEditObj)edit );
+	public IYCFSecISOLangEditObj getEditAsISOLang() {
+		return( (IYCFSecISOLangEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFSecISOLangBuff buff = getBuff();
-			createdBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFSecISOLangBuff buff = getBuff();
+			createdBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -313,10 +313,10 @@ public class CFIntISOLangObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFSecISOLangBuff buff = getBuff();
-			updatedBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFSecISOLangBuff buff = getBuff();
+			updatedBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -341,16 +341,16 @@ public class CFIntISOLangObj
 		return( getISOLangBuff().getRequiredEnglishName() );
 	}
 
-	public List<ICFSecISOCtryLangObj> getOptionalChildrenCtry() {
-		List<ICFSecISOCtryLangObj> retval;
-		retval = ((ICFIntSchemaObj)schema).getISOCtryLangTableObj().readISOCtryLangByLangIdx( getPKey().getRequiredISOLangId(),
+	public List<IYCFSecISOCtryLangObj> getOptionalChildrenCtry() {
+		List<IYCFSecISOCtryLangObj> retval;
+		retval = ((IYCFIntSchemaObj)schema).getISOCtryLangTableObj().readISOCtryLangByLangIdx( getPKey().getRequiredISOLangId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFSecISOCtryLangObj> getOptionalChildrenCtry( boolean forceRead ) {
-		List<ICFSecISOCtryLangObj> retval;
-		retval = ((ICFIntSchemaObj)schema).getISOCtryLangTableObj().readISOCtryLangByLangIdx( getPKey().getRequiredISOLangId(),
+	public List<IYCFSecISOCtryLangObj> getOptionalChildrenCtry( boolean forceRead ) {
+		List<IYCFSecISOCtryLangObj> retval;
+		retval = ((IYCFIntSchemaObj)schema).getISOCtryLangTableObj().readISOCtryLangByLangIdx( getPKey().getRequiredISOLangId(),
 			forceRead );
 		return( retval );
 	}

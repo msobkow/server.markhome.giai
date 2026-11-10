@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelBoilerplate.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelBoilerplateTable database interface for GelBoilerplate
+ *	YCFGenKbGelBoilerplateTable database interface for GelBoilerplate
  */
-public interface ICFGenKbGelBoilerplateTable
+public interface IYCFGenKbGelBoilerplateTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelBoilerplate( CFGenKbAuthorization Authorization,
-		CFGenKbGelBoilerplateBuff Buff );
+	void createGelBoilerplate( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelBoilerplateBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelBoilerplate( CFGenKbAuthorization Authorization,
-		CFGenKbGelBoilerplateBuff Buff );
+	void updateGelBoilerplate( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelBoilerplateBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelBoilerplate( CFGenKbAuthorization Authorization,
-		CFGenKbGelBoilerplateBuff Buff );
+	void deleteGelBoilerplate( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelBoilerplateBuff Buff );
 	/**
 	 *	Delete the GelBoilerplate instance identified by the primary key attributes.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	argGelInstId	The GelBoilerplate key attribute of the instance generating the id.
 	 */
-	void deleteGelBoilerplateByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelBoilerplateByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelBoilerplateByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelBoilerplateByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelBoilerplate instances identified by the key TenantIdx.
 	 *
@@ -111,7 +111,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	argTenantId	The GelBoilerplate key attribute of the instance generating the id.
 	 */
-	void deleteGelBoilerplateByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelBoilerplateByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -121,8 +121,8 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelBoilerplateByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelBoilerplateByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelBoilerplate instances identified by the key GelCacheIdx.
 	 *
@@ -132,7 +132,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	argGelCacheId	The GelBoilerplate key attribute of the instance generating the id.
 	 */
-	void deleteGelBoilerplateByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelBoilerplateByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -143,8 +143,8 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelBoilerplateByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelBoilerplateByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelBoilerplate instances identified by the key ChainIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelBoilerplate key attribute of the instance generating the id.
 	 */
-	void deleteGelBoilerplateByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelBoilerplateByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -168,8 +168,8 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelBoilerplateByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelBoilerplateByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -182,8 +182,8 @@ public interface ICFGenKbGelBoilerplateTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelBoilerplateBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelBoilerplateBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelBoilerplate buffer instance by primary key.
@@ -195,8 +195,8 @@ public interface ICFGenKbGelBoilerplateTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelBoilerplateBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelBoilerplateBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelBoilerplate instances.
@@ -205,7 +205,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelBoilerplateBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelBoilerplateBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelBoilerplate buffer instance identified by the unique key PIdx.
@@ -221,7 +221,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelBoilerplateBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBoilerplateBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -235,7 +235,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelBoilerplateBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBoilerplateBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -249,7 +249,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelBoilerplateBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBoilerplateBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -266,7 +266,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelBoilerplateBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBoilerplateBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -281,10 +281,10 @@ public interface ICFGenKbGelBoilerplateTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBoilerplateBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelBoilerplateBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelBoilerplate buffer instance identified by the primary key.
@@ -296,10 +296,10 @@ public interface ICFGenKbGelBoilerplateTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBoilerplateBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelBoilerplateBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelBoilerplate buffer instances.
@@ -308,7 +308,7 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@return All the specific GelBoilerplate instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelBoilerplateBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelBoilerplateBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelBoilerplate buffer instance identified by the unique key PIdx.
@@ -324,9 +324,9 @@ public interface ICFGenKbGelBoilerplateTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBoilerplateBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBoilerplateBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -340,9 +340,9 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBoilerplateBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBoilerplateBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -356,9 +356,9 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBoilerplateBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBoilerplateBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -375,9 +375,9 @@ public interface ICFGenKbGelBoilerplateTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBoilerplateBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBoilerplateBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -385,7 +385,7 @@ public interface ICFGenKbGelBoilerplateTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

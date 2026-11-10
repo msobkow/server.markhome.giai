@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a DelDep buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamDelDepBuff
-	extends CFBamScopeBuff
+public class YCFBamDelDepBuff
+	extends YCFBamScopeBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -82,12 +82,12 @@ public class CFBamDelDepBuff
 	protected Long optionalDefSchemaId;
 	protected long requiredRelationTenantId;
 	protected long requiredRelationId;
-	public CFBamDelDepBuff() {
+	public YCFBamDelDepBuff() {
 		super();
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
-		requiredRelationTenantId = CFBamDelDepBuff.RELATIONTENANTID_INIT_VALUE;
-		requiredRelationId = CFBamDelDepBuff.RELATIONID_INIT_VALUE;
+		requiredRelationTenantId = YCFBamDelDepBuff.RELATIONTENANTID_INIT_VALUE;
+		requiredRelationId = YCFBamDelDepBuff.RELATIONID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -102,13 +102,13 @@ public class CFBamDelDepBuff
 		if( value == null ) {
 			optionalDefSchemaTenantId = null;
 		}
-		else if( value < CFBamDelDepBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamDelDepBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaTenantId",
 				1,
 				"value",
 				value,
-				CFBamDelDepBuff.DEFSCHEMATENANTID_MIN_VALUE );
+				YCFBamDelDepBuff.DEFSCHEMATENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaTenantId = value;
@@ -123,13 +123,13 @@ public class CFBamDelDepBuff
 		if( value == null ) {
 			optionalDefSchemaId = null;
 		}
-		else if( value < CFBamDelDepBuff.DEFSCHEMAID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamDelDepBuff.DEFSCHEMAID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaId",
 				1,
 				"value",
 				value,
-				CFBamDelDepBuff.DEFSCHEMAID_MIN_VALUE );
+				YCFBamDelDepBuff.DEFSCHEMAID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaId = value;
@@ -141,13 +141,13 @@ public class CFBamDelDepBuff
 	}
 
 	public void setRequiredRelationTenantId( long value ) {
-		if( value < CFBamDelDepBuff.RELATIONTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamDelDepBuff.RELATIONTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredRelationTenantId",
 				1,
 				"value",
 				value,
-				CFBamDelDepBuff.RELATIONTENANTID_MIN_VALUE );
+				YCFBamDelDepBuff.RELATIONTENANTID_MIN_VALUE );
 		}
 		requiredRelationTenantId = value;
 	}
@@ -157,13 +157,13 @@ public class CFBamDelDepBuff
 	}
 
 	public void setRequiredRelationId( long value ) {
-		if( value < CFBamDelDepBuff.RELATIONID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamDelDepBuff.RELATIONID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredRelationId",
 				1,
 				"value",
 				value,
-				CFBamDelDepBuff.RELATIONID_MIN_VALUE );
+				YCFBamDelDepBuff.RELATIONID_MIN_VALUE );
 		}
 		requiredRelationId = value;
 	}
@@ -172,8 +172,8 @@ public class CFBamDelDepBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamDelDepBuff ) {
-			CFBamDelDepBuff rhs = (CFBamDelDepBuff)obj;
+		else if( obj instanceof YCFBamDelDepBuff ) {
+			YCFBamDelDepBuff rhs = (YCFBamDelDepBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -212,8 +212,8 @@ public class CFBamDelDepBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamScopePKey ) {
-			CFBamScopePKey rhs = (CFBamScopePKey)obj;
+		else if( obj instanceof YCFBamScopePKey ) {
+			YCFBamScopePKey rhs = (YCFBamScopePKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -222,8 +222,8 @@ public class CFBamDelDepBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamDelDepHBuff ) {
-			CFBamDelDepHBuff rhs = (CFBamDelDepHBuff)obj;
+		else if( obj instanceof YCFBamDelDepHBuff ) {
+			YCFBamDelDepHBuff rhs = (YCFBamDelDepHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -262,8 +262,8 @@ public class CFBamDelDepBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamScopeHPKey ) {
-			CFBamScopeHPKey rhs = (CFBamScopeHPKey)obj;
+		else if( obj instanceof YCFBamScopeHPKey ) {
+			YCFBamScopeHPKey rhs = (YCFBamScopeHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -272,8 +272,8 @@ public class CFBamDelDepBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamDelDepByDefSchemaIdxKey ) {
-			CFBamDelDepByDefSchemaIdxKey rhs = (CFBamDelDepByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamDelDepByDefSchemaIdxKey ) {
+			YCFBamDelDepByDefSchemaIdxKey rhs = (YCFBamDelDepByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
 				if( rhs.getOptionalDefSchemaTenantId() != null ) {
 					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
@@ -300,8 +300,8 @@ public class CFBamDelDepBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamDelDepByDelDepIdxKey ) {
-			CFBamDelDepByDelDepIdxKey rhs = (CFBamDelDepByDelDepIdxKey)obj;
+		else if( obj instanceof YCFBamDelDepByDelDepIdxKey ) {
+			YCFBamDelDepByDelDepIdxKey rhs = (YCFBamDelDepByDelDepIdxKey)obj;
 			if( getRequiredRelationTenantId() != rhs.getRequiredRelationTenantId() ) {
 				return( false );
 			}
@@ -333,8 +333,8 @@ public class CFBamDelDepBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamDelDepBuff ) {
-			CFBamDelDepBuff rhs = (CFBamDelDepBuff)obj;
+		else if( obj instanceof YCFBamDelDepBuff ) {
+			YCFBamDelDepBuff rhs = (YCFBamDelDepBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -389,8 +389,8 @@ public class CFBamDelDepBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamScopePKey ) {
-			CFBamScopePKey rhs = (CFBamScopePKey)obj;
+		else if( obj instanceof YCFBamScopePKey ) {
+			YCFBamScopePKey rhs = (YCFBamScopePKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -405,8 +405,8 @@ public class CFBamDelDepBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamScopeHPKey ) {
-			CFBamScopeHPKey rhs = (CFBamScopeHPKey)obj;
+		else if( obj instanceof YCFBamScopeHPKey ) {
+			YCFBamScopeHPKey rhs = (YCFBamScopeHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -431,8 +431,8 @@ public class CFBamDelDepBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamDelDepHBuff ) {
-			CFBamDelDepHBuff rhs = (CFBamDelDepHBuff)obj;
+		else if( obj instanceof YCFBamDelDepHBuff ) {
+			YCFBamDelDepHBuff rhs = (YCFBamDelDepHBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -487,8 +487,8 @@ public class CFBamDelDepBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamDelDepByDefSchemaIdxKey ) {
-			CFBamDelDepByDefSchemaIdxKey rhs = (CFBamDelDepByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamDelDepByDefSchemaIdxKey ) {
+			YCFBamDelDepByDefSchemaIdxKey rhs = (YCFBamDelDepByDefSchemaIdxKey)obj;
 
 			if( getOptionalDefSchemaTenantId() != null ) {
 				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
@@ -527,8 +527,8 @@ public class CFBamDelDepBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamDelDepByDelDepIdxKey ) {
-			CFBamDelDepByDelDepIdxKey rhs = (CFBamDelDepByDelDepIdxKey)obj;
+		else if( obj instanceof YCFBamDelDepByDelDepIdxKey ) {
+			YCFBamDelDepByDelDepIdxKey rhs = (YCFBamDelDepByDelDepIdxKey)obj;
 
 			if( getRequiredRelationTenantId() < rhs.getRequiredRelationTenantId() ) {
 				return( -1 );
@@ -549,20 +549,20 @@ public class CFBamDelDepBuff
 		}
 	}
 
-	public void set( CFBamScopeBuff src ) {
-		if( src instanceof CFBamDelDepBuff ) {
-			setDelDepBuff( (CFBamDelDepBuff)src );
+	public void set( YCFBamScopeBuff src ) {
+		if( src instanceof YCFBamDelDepBuff ) {
+			setDelDepBuff( (YCFBamDelDepBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamDelDepBuff" );
+				"YCFBamDelDepBuff" );
 		}
 	}
 
-	public void setDelDepBuff( CFBamDelDepBuff src ) {
+	public void setDelDepBuff( YCFBamDelDepBuff src ) {
 		super.setScopeBuff( src );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
 		setOptionalDefSchemaId( src.getOptionalDefSchemaId() );
@@ -570,20 +570,20 @@ public class CFBamDelDepBuff
 		setRequiredRelationId( src.getRequiredRelationId() );
 	}
 
-	public void set( CFBamScopeHBuff src ) {
-		if( src instanceof CFBamDelDepHBuff ) {
-			setDelDepBuff( (CFBamDelDepHBuff)src );
+	public void set( YCFBamScopeHBuff src ) {
+		if( src instanceof YCFBamDelDepHBuff ) {
+			setDelDepBuff( (YCFBamDelDepHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamDelDepHBuff" );
+				"YCFBamDelDepHBuff" );
 		}
 	}
 
-	public void setDelDepBuff( CFBamDelDepHBuff src ) {
+	public void setDelDepBuff( YCFBamDelDepHBuff src ) {
 		super.setScopeBuff( src );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
 		setOptionalDefSchemaId( src.getOptionalDefSchemaId() );

@@ -1,17 +1,17 @@
-// Description: Java 11 Instance Edit Object interface for CFBam Table.
+// Description: Java 11 Instance Edit Object interface for YCFBam Table.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,30 +45,30 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamTableEditObj
-	extends ICFBamTableObj,
-		ICFBamScopeEditObj
+public interface IYCFBamTableEditObj
+	extends IYCFBamTableObj,
+		IYCFBamScopeEditObj
 {
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFBamTableObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFBamTableObj.
 	 */
-	ICFBamTableObj getOrigAsTable();
+	IYCFBamTableObj getOrigAsTable();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -253,46 +253,46 @@ public interface ICFBamTableEditObj
 	void setRequiredIsServerOnly( boolean value );
 
 	/**
-	 *	Get the required ICFBamSchema.LoaderBehaviourEnum attribute LoaderBehaviour.
+	 *	Get the required IYCFBamSchema.LoaderBehaviourEnum attribute LoaderBehaviour.
 	 *
-	 *	@return	The ICFBamSchema.LoaderBehaviourEnum value of the attribute LoaderBehaviour.
+	 *	@return	The IYCFBamSchema.LoaderBehaviourEnum value of the attribute LoaderBehaviour.
 	 */
-	ICFBamSchema.LoaderBehaviourEnum getRequiredLoaderBehaviour();
+	IYCFBamSchema.LoaderBehaviourEnum getRequiredLoaderBehaviour();
 
 	/**
-	 *	Set the required ICFBamSchema.LoaderBehaviourEnum attribute LoaderBehaviour.
+	 *	Set the required IYCFBamSchema.LoaderBehaviourEnum attribute LoaderBehaviour.
 	 *
-	 *	@param	value	the ICFBamSchema.LoaderBehaviourEnum value of the attribute LoaderBehaviour.
+	 *	@param	value	the IYCFBamSchema.LoaderBehaviourEnum value of the attribute LoaderBehaviour.
 	 */
-	void setRequiredLoaderBehaviour( ICFBamSchema.LoaderBehaviourEnum value );
+	void setRequiredLoaderBehaviour( IYCFBamSchema.LoaderBehaviourEnum value );
 
 	/**
-	 *	Get the required ICFBamSchema.SecScopeEnum attribute SecScope.
+	 *	Get the required IYCFBamSchema.SecScopeEnum attribute SecScope.
 	 *
-	 *	@return	The ICFBamSchema.SecScopeEnum value of the attribute SecScope.
+	 *	@return	The IYCFBamSchema.SecScopeEnum value of the attribute SecScope.
 	 */
-	ICFBamSchema.SecScopeEnum getRequiredSecScope();
+	IYCFBamSchema.SecScopeEnum getRequiredSecScope();
 
 	/**
-	 *	Set the required ICFBamSchema.SecScopeEnum attribute SecScope.
+	 *	Set the required IYCFBamSchema.SecScopeEnum attribute SecScope.
 	 *
-	 *	@param	value	the ICFBamSchema.SecScopeEnum value of the attribute SecScope.
+	 *	@param	value	the IYCFBamSchema.SecScopeEnum value of the attribute SecScope.
 	 */
-	void setRequiredSecScope( ICFBamSchema.SecScopeEnum value );
+	void setRequiredSecScope( IYCFBamSchema.SecScopeEnum value );
 
 	/**
-	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *	Get the required IYCFBamSchema.CodeVisibilityEnum attribute CodeVis.
 	 *
-	 *	@return	The ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 *	@return	The IYCFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
 	 */
-	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+	IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
 
 	/**
-	 *	Set the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *	Set the required IYCFBamSchema.CodeVisibilityEnum attribute CodeVis.
 	 *
-	 *	@param	value	the ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 *	@param	value	the IYCFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
 	 */
-	void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value );
+	void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value );
 
 	/**
 	 *	Get the optional String attribute JObjMembers.
@@ -2815,86 +2815,86 @@ public interface ICFBamTableEditObj
 	void setOptionalCsXMsgClientTableBody( String value );
 
 	/**
-	 *	Get the ICFBamSchemaDefObj instance referenced by the SchemaDef key.
+	 *	Get the IYCFBamSchemaDefObj instance referenced by the SchemaDef key.
 	 *
-	 *	@return	The ICFBamSchemaDefObj instance referenced by the SchemaDef key.
+	 *	@return	The IYCFBamSchemaDefObj instance referenced by the SchemaDef key.
 	 */
-	ICFBamSchemaDefObj getRequiredContainerSchemaDef();
+	IYCFBamSchemaDefObj getRequiredContainerSchemaDef();
 
 	/**
-	 *	Set the ICFBamSchemaDefObj instance referenced by the SchemaDef key.
+	 *	Set the IYCFBamSchemaDefObj instance referenced by the SchemaDef key.
 	 *
-	 *	@param	value	the ICFBamSchemaDefObj instance to be referenced by the SchemaDef key.
+	 *	@param	value	the IYCFBamSchemaDefObj instance to be referenced by the SchemaDef key.
 	 */
-	void setRequiredContainerSchemaDef( ICFBamSchemaDefObj value );
+	void setRequiredContainerSchemaDef( IYCFBamSchemaDefObj value );
 
 	/**
-	 *	Get the ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Get the IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@return	The ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	@return	The IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupDefSchema();
+	IYCFBamSchemaDefObj getOptionalLookupDefSchema();
 
 	/**
-	 *	Set the ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Set the IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@param	value	the ICFBamSchemaDefObj instance to be referenced by the DefSchema key.
+	 *	@param	value	the IYCFBamSchemaDefObj instance to be referenced by the DefSchema key.
 	 */
-	void setOptionalLookupDefSchema( ICFBamSchemaDefObj value );
+	void setOptionalLookupDefSchema( IYCFBamSchemaDefObj value );
 
 	/**
-	 *	Get the ICFBamIndexObj instance referenced by the LookupIndex key.
+	 *	Get the IYCFBamIndexObj instance referenced by the LookupIndex key.
 	 *
-	 *	@return	The ICFBamIndexObj instance referenced by the LookupIndex key.
+	 *	@return	The IYCFBamIndexObj instance referenced by the LookupIndex key.
 	 */
-	ICFBamIndexObj getOptionalLookupLookupIndex();
+	IYCFBamIndexObj getOptionalLookupLookupIndex();
 
 	/**
-	 *	Set the ICFBamIndexObj instance referenced by the LookupIndex key.
+	 *	Set the IYCFBamIndexObj instance referenced by the LookupIndex key.
 	 *
-	 *	@param	value	the ICFBamIndexObj instance to be referenced by the LookupIndex key.
+	 *	@param	value	the IYCFBamIndexObj instance to be referenced by the LookupIndex key.
 	 */
-	void setOptionalLookupLookupIndex( ICFBamIndexObj value );
+	void setOptionalLookupLookupIndex( IYCFBamIndexObj value );
 
 	/**
-	 *	Get the ICFBamIndexObj instance referenced by the AltIndex key.
+	 *	Get the IYCFBamIndexObj instance referenced by the AltIndex key.
 	 *
-	 *	@return	The ICFBamIndexObj instance referenced by the AltIndex key.
+	 *	@return	The IYCFBamIndexObj instance referenced by the AltIndex key.
 	 */
-	ICFBamIndexObj getOptionalLookupAltIndex();
+	IYCFBamIndexObj getOptionalLookupAltIndex();
 
 	/**
-	 *	Set the ICFBamIndexObj instance referenced by the AltIndex key.
+	 *	Set the IYCFBamIndexObj instance referenced by the AltIndex key.
 	 *
-	 *	@param	value	the ICFBamIndexObj instance to be referenced by the AltIndex key.
+	 *	@param	value	the IYCFBamIndexObj instance to be referenced by the AltIndex key.
 	 */
-	void setOptionalLookupAltIndex( ICFBamIndexObj value );
+	void setOptionalLookupAltIndex( IYCFBamIndexObj value );
 
 	/**
-	 *	Get the ICFBamTableObj instance referenced by the QualTable key.
+	 *	Get the IYCFBamTableObj instance referenced by the QualTable key.
 	 *
-	 *	@return	The ICFBamTableObj instance referenced by the QualTable key.
+	 *	@return	The IYCFBamTableObj instance referenced by the QualTable key.
 	 */
-	ICFBamTableObj getOptionalLookupQualTable();
+	IYCFBamTableObj getOptionalLookupQualTable();
 
 	/**
-	 *	Set the ICFBamTableObj instance referenced by the QualTable key.
+	 *	Set the IYCFBamTableObj instance referenced by the QualTable key.
 	 *
-	 *	@param	value	the ICFBamTableObj instance to be referenced by the QualTable key.
+	 *	@param	value	the IYCFBamTableObj instance to be referenced by the QualTable key.
 	 */
-	void setOptionalLookupQualTable( ICFBamTableObj value );
+	void setOptionalLookupQualTable( IYCFBamTableObj value );
 
 	/**
-	 *	Get the ICFBamIndexObj instance referenced by the PrimaryIndex key.
+	 *	Get the IYCFBamIndexObj instance referenced by the PrimaryIndex key.
 	 *
-	 *	@return	The ICFBamIndexObj instance referenced by the PrimaryIndex key.
+	 *	@return	The IYCFBamIndexObj instance referenced by the PrimaryIndex key.
 	 */
-	ICFBamIndexObj getOptionalLookupPrimaryIndex();
+	IYCFBamIndexObj getOptionalLookupPrimaryIndex();
 
 	/**
-	 *	Set the ICFBamIndexObj instance referenced by the PrimaryIndex key.
+	 *	Set the IYCFBamIndexObj instance referenced by the PrimaryIndex key.
 	 *
-	 *	@param	value	the ICFBamIndexObj instance to be referenced by the PrimaryIndex key.
+	 *	@param	value	the IYCFBamIndexObj instance to be referenced by the PrimaryIndex key.
 	 */
-	void setOptionalLookupPrimaryIndex( ICFBamIndexObj value );
+	void setOptionalLookupPrimaryIndex( IYCFBamIndexObj value );
 }

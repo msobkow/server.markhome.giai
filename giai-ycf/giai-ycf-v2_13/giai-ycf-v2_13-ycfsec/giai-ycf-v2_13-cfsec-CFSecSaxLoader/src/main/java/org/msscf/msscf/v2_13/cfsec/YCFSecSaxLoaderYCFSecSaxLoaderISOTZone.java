@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for ISOTZone
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,19 +35,19 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSaxLoaderISOTZoneParse XML SAX Element Handler implementation
+ *	YCFSecSaxLoaderISOTZoneParse XML SAX Element Handler implementation
  *	for ISOTZone.
  */
-public class CFSecSaxLoaderISOTZone
-	extends CFLibXmlCoreElementHandler
+public class YCFSecSaxLoaderISOTZone
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFSecSaxLoaderISOTZone( CFSecSaxLoader saxLoader ) {
+	public YCFSecSaxLoaderISOTZone( YCFSecSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -59,8 +59,8 @@ public class CFSecSaxLoaderISOTZone
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFSecISOTZoneObj origBuff = null;
-		ICFSecISOTZoneEditObj editBuff = null;
+		IYCFSecISOTZoneObj origBuff = null;
+		IYCFSecISOTZoneEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// ISOTZone Attributes
@@ -79,25 +79,25 @@ public class CFSecSaxLoaderISOTZone
 		try {
 			assert qName.equals( "ISOTZone" );
 
-			CFSecSaxLoader saxLoader = (CFSecSaxLoader)getParser();
+			YCFSecSaxLoader saxLoader = (YCFSecSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFSecISOTZoneObj)schemaObj.getISOTZoneTableObj().newInstance();
-			editBuff = (ICFSecISOTZoneEditObj)origBuff.beginEdit();
+			origBuff = (IYCFSecISOTZoneObj)schemaObj.getISOTZoneTableObj().newInstance();
+			editBuff = (IYCFSecISOTZoneEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -105,7 +105,7 @@ public class CFSecSaxLoaderISOTZone
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -114,7 +114,7 @@ public class CFSecSaxLoaderISOTZone
 				}
 				else if( attrLocalName.equals( "Iso8601" ) ) {
 					if( attrIso8601 != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -123,7 +123,7 @@ public class CFSecSaxLoaderISOTZone
 				}
 				else if( attrLocalName.equals( "TZName" ) ) {
 					if( attrTZName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -132,7 +132,7 @@ public class CFSecSaxLoaderISOTZone
 				}
 				else if( attrLocalName.equals( "TZHourOffset" ) ) {
 					if( attrTZHourOffset != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -141,7 +141,7 @@ public class CFSecSaxLoaderISOTZone
 				}
 				else if( attrLocalName.equals( "TZMinOffset" ) ) {
 					if( attrTZMinOffset != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -150,7 +150,7 @@ public class CFSecSaxLoaderISOTZone
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -159,7 +159,7 @@ public class CFSecSaxLoaderISOTZone
 				}
 				else if( attrLocalName.equals( "Visible" ) ) {
 					if( attrVisible != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -170,7 +170,7 @@ public class CFSecSaxLoaderISOTZone
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -179,44 +179,44 @@ public class CFSecSaxLoaderISOTZone
 
 			// Ensure that required attributes have values
 			if( attrIso8601 == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Iso8601" );
 			}
 			if( attrTZName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"TZName" );
 			}
 			if( ( attrTZHourOffset == null ) || ( attrTZHourOffset.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"TZHourOffset" );
 			}
 			if( ( attrTZMinOffset == null ) || ( attrTZMinOffset.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"TZMinOffset" );
 			}
 			if( attrDescription == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Description" );
 			}
 			if( ( attrVisible == null ) || ( attrVisible.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Visible" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Iso8601", attrIso8601 );
 			curContext.putNamedValue( "TZName", attrTZName );
@@ -258,7 +258,7 @@ public class CFSecSaxLoaderISOTZone
 				natVisible = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected Visible value, must be one of true, false, yes, no, 1, or 0, not \"" + attrVisible + "\"" );
 			}
@@ -266,7 +266,7 @@ public class CFSecSaxLoaderISOTZone
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -275,9 +275,9 @@ public class CFSecSaxLoaderISOTZone
 				scopeObj = null;
 			}
 
-			CFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getISOTZoneLoaderBehaviour();
-			ICFSecISOTZoneEditObj editISOTZone = null;
-			ICFSecISOTZoneObj origISOTZone = (ICFSecISOTZoneObj)schemaObj.getISOTZoneTableObj().readISOTZoneByUTZNameIdx( editBuff.getRequiredTZName() );
+			YCFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getISOTZoneLoaderBehaviour();
+			IYCFSecISOTZoneEditObj editISOTZone = null;
+			IYCFSecISOTZoneObj origISOTZone = (IYCFSecISOTZoneObj)schemaObj.getISOTZoneTableObj().readISOTZoneByUTZNameIdx( editBuff.getRequiredTZName() );
 			if( origISOTZone == null ) {
 				editISOTZone = editBuff;
 			}
@@ -286,7 +286,7 @@ public class CFSecSaxLoaderISOTZone
 					case Insert:
 						break;
 					case Update:
-						editISOTZone = (ICFSecISOTZoneEditObj)origISOTZone.beginEdit();
+						editISOTZone = (IYCFSecISOTZoneEditObj)origISOTZone.beginEdit();
 						editISOTZone.setRequiredIso8601( editBuff.getRequiredIso8601() );
 						editISOTZone.setRequiredTZName( editBuff.getRequiredTZName() );
 						editISOTZone.setRequiredTZHourOffset( editBuff.getRequiredTZHourOffset() );
@@ -295,7 +295,7 @@ public class CFSecSaxLoaderISOTZone
 						editISOTZone.setRequiredVisible( editBuff.getRequiredVisible() );
 						break;
 					case Replace:
-						editISOTZone = (ICFSecISOTZoneEditObj)origISOTZone.beginEdit();
+						editISOTZone = (IYCFSecISOTZoneEditObj)origISOTZone.beginEdit();
 						editISOTZone.deleteInstance();
 						editISOTZone = null;
 						origISOTZone = null;
@@ -309,7 +309,7 @@ public class CFSecSaxLoaderISOTZone
 					editISOTZone.update();
 				}
 				else {
-					origISOTZone = (ICFSecISOTZoneObj)editISOTZone.create();
+					origISOTZone = (IYCFSecISOTZoneObj)editISOTZone.create();
 				}
 				editISOTZone = null;
 			}

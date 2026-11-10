@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,22 +21,22 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.xml;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.ICFLibMessageLog;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.IYCFLibMessageLog;
 
 /**
  *	An XML Core Context Factory instantiates new instances
  *	derived from XmlCoreContext. 
  */
-public interface CFLibXmlCoreContextFactory {
+public interface YCFLibXmlCoreContextFactory {
 
 	/**
 	 *	Get the application processing logger.
 	 *
 	 *	@return	The application processing Log4J Logger.
 	 */
-	public ICFLibMessageLog getLog();
+	public IYCFLibMessageLog getLog();
 
 	/**
 	 *	Copy an XML Core Context.
@@ -45,21 +45,21 @@ public interface CFLibXmlCoreContextFactory {
 	 *	@param	qName	The QName of the element about to be processed.
 	 *	@param	handler	The XmlCoreElementHandler which will be used for processing.
 	 */
-	public CFLibXmlCoreContext newXmlCoreContext(
-		CFLibXmlCoreContext src,
+	public YCFLibXmlCoreContext newXmlCoreContext(
+		YCFLibXmlCoreContext src,
 		String qName,
-		CFLibXmlCoreElementHandler handler );
+		YCFLibXmlCoreElementHandler handler );
 
 	/**
 	 *	Construct a "root" XML Core Context instance.
 	 *
 	 *	@param	coreParser	The parser which owns this instance.
-	 *	@param	log	ICFLibMessageLog to use, if null, use parser's logger.
+	 *	@param	log	IYCFLibMessageLog to use, if null, use parser's logger.
 	 *	@param	handler	The XmlCoreElementHandler which will be processing the doc root.
 	 */
-	public CFLibXmlCoreContext newXmlCoreContext(
-		CFLibXmlCoreParser coreParser,
-		ICFLibMessageLog jLogger,
-		CFLibXmlCoreElementHandler elementHandler );
+	public YCFLibXmlCoreContext newXmlCoreContext(
+		YCFLibXmlCoreParser coreParser,
+		IYCFLibMessageLog jLogger,
+		YCFLibXmlCoreElementHandler elementHandler );
 
 }

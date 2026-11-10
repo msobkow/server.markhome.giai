@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SecDevice history primary key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,28 +36,28 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFSecSecDeviceHPKey History Primary Key for SecDevice
+ *	YCFSecSecDeviceHPKey History Primary Key for SecDevice
 
  *		requiredSecUserId	Required object attribute SecUserId.
  *		requiredDevName	Required object attribute DevName. */
-public class CFSecSecDeviceHPKey
-	extends CFSecHPKey
+public class YCFSecSecDeviceHPKey
+	extends YCFSecHPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected UUID requiredSecUserId;
 	protected String requiredDevName;
-	public CFSecSecDeviceHPKey()
+	public YCFSecSecDeviceHPKey()
 	{
 		super();
-		requiredSecUserId = UUID.fromString( CFSecSecDeviceBuff.SECUSERID_INIT_VALUE.toString() );
-		requiredDevName = new String( CFSecSecDeviceBuff.DEVNAME_INIT_VALUE );
+		requiredSecUserId = UUID.fromString( YCFSecSecDeviceBuff.SECUSERID_INIT_VALUE.toString() );
+		requiredDevName = new String( YCFSecSecDeviceBuff.DEVNAME_INIT_VALUE );
 	}
 
 	public UUID getRequiredSecUserId() {
@@ -66,7 +66,7 @@ public class CFSecSecDeviceHPKey
 
 	public void setRequiredSecUserId( UUID value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
 				1,
 				"value" );
@@ -80,13 +80,13 @@ public class CFSecSecDeviceHPKey
 
 	public void setRequiredDevName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredDevName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDevName",
 				1,
 				"value.length()",
@@ -100,8 +100,8 @@ public class CFSecSecDeviceHPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSecDeviceHPKey ) {
-			CFSecSecDeviceHPKey rhs = (CFSecSecDeviceHPKey)obj;
+		else if( obj instanceof YCFSecSecDeviceHPKey ) {
+			YCFSecSecDeviceHPKey rhs = (YCFSecSecDeviceHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -165,8 +165,8 @@ public class CFSecSecDeviceHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -224,8 +224,8 @@ public class CFSecSecDeviceHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecDevicePKey ) {
-			CFSecSecDevicePKey rhs = (CFSecSecDevicePKey)obj;
+		else if( obj instanceof YCFSecSecDevicePKey ) {
+			YCFSecSecDevicePKey rhs = (YCFSecSecDevicePKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -234,8 +234,8 @@ public class CFSecSecDeviceHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecDeviceHBuff ) {
-			CFSecSecDeviceHBuff rhs = (CFSecSecDeviceHBuff)obj;
+		else if( obj instanceof YCFSecSecDeviceHBuff ) {
+			YCFSecSecDeviceHBuff rhs = (YCFSecSecDeviceHBuff)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -305,8 +305,8 @@ public class CFSecSecDeviceHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecDeviceBuff ) {
-			CFSecSecDeviceBuff rhs = (CFSecSecDeviceBuff)obj;
+		else if( obj instanceof YCFSecSecDeviceBuff ) {
+			YCFSecSecDeviceBuff rhs = (YCFSecSecDeviceBuff)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -333,8 +333,8 @@ public class CFSecSecDeviceHPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecSecDeviceHBuff ) {
-			CFSecSecDeviceHBuff rhs = (CFSecSecDeviceHBuff)obj;
+		else if( obj instanceof YCFSecSecDeviceHBuff ) {
+			YCFSecSecDeviceHBuff rhs = (YCFSecSecDeviceHBuff)obj;
 			int retval = 0;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
@@ -416,8 +416,8 @@ public class CFSecSecDeviceHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecDeviceHPKey ) {
-			CFSecSecDeviceHPKey rhs = (CFSecSecDeviceHPKey)obj;
+		else if( obj instanceof YCFSecSecDeviceHPKey ) {
+			YCFSecSecDeviceHPKey rhs = (YCFSecSecDeviceHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -498,8 +498,8 @@ public class CFSecSecDeviceHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -568,8 +568,8 @@ public class CFSecSecDeviceHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecDevicePKey ) {
-			CFSecSecDevicePKey rhs = (CFSecSecDevicePKey)obj;
+		else if( obj instanceof YCFSecSecDevicePKey ) {
+			YCFSecSecDevicePKey rhs = (YCFSecSecDevicePKey)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -584,8 +584,8 @@ public class CFSecSecDeviceHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecDeviceBuff ) {
-			CFSecSecDeviceBuff rhs = (CFSecSecDeviceBuff)obj;
+		else if( obj instanceof YCFSecSecDeviceBuff ) {
+			YCFSecSecDeviceBuff rhs = (YCFSecSecDeviceBuff)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -601,18 +601,18 @@ public class CFSecSecDeviceHPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFSecSecDeviceHPKey, CFSecSecDevicePKey, CFSecSecDeviceBuff" );
+				"YCFSecSecDeviceHPKey, YCFSecSecDevicePKey, YCFSecSecDeviceBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFSecSecDeviceHPKey"
+		String ret = "<YCFSecSecDeviceHPKey"
 			+ " RequiredSecUserId=" + "\"" + getRequiredSecUserId().toString() + "\""
-			+ " RequiredDevName=" + "\"" + CFSecSchema.xmlEncodeString( getRequiredDevName() ) + "\""
+			+ " RequiredDevName=" + "\"" + YCFSecSchema.xmlEncodeString( getRequiredDevName() ) + "\""
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
 			+ "/>";
 		return( ret );

@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb GenItem.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb GenItem.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGenItemEditObj
-	extends ICFGenKbGenItemObj
+public interface IYCFGenKbGenItemEditObj
+	extends IYCFGenKbGenItemObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbGenItemObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbGenItemObj.
 	 */
-	ICFGenKbGenItemObj getOrig();
+	IYCFGenKbGenItemObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbGenItemObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbGenItemObj.
 	 */
-	ICFGenKbGenItemObj getOrigAsGenItem();
+	IYCFGenKbGenItemObj getOrigAsGenItem();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbGenItemEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbGenItemObj create();
+	IYCFGenKbGenItemObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbGenItemEditObj update();
+	YCFGenKbGenItemEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbGenItemEditObj deleteInstance();
+	YCFGenKbGenItemEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -90,114 +90,114 @@ public interface ICFGenKbGenItemEditObj
 	void setRequiredName( String value );
 
 	/**
-	 *	Get the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant();
+	IYCFGenKbTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Set the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFGenKbTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFGenKbTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredOwnerTenant( ICFGenKbTenantObj value );
+	void setRequiredOwnerTenant( IYCFGenKbTenantObj value );
 
 	/**
-	 *	Get the ICFGenKbRuleCartObj instance referenced by the Cartridge key.
+	 *	Get the IYCFGenKbRuleCartObj instance referenced by the Cartridge key.
 	 *
-	 *	@return	The ICFGenKbRuleCartObj instance referenced by the Cartridge key.
+	 *	@return	The IYCFGenKbRuleCartObj instance referenced by the Cartridge key.
 	 */
-	ICFGenKbRuleCartObj getRequiredContainerCartridge();
+	IYCFGenKbRuleCartObj getRequiredContainerCartridge();
 
 	/**
-	 *	Set the ICFGenKbRuleCartObj instance referenced by the Cartridge key.
+	 *	Set the IYCFGenKbRuleCartObj instance referenced by the Cartridge key.
 	 *
-	 *	@param	value	the ICFGenKbRuleCartObj instance to be referenced by the Cartridge key.
+	 *	@param	value	the IYCFGenKbRuleCartObj instance to be referenced by the Cartridge key.
 	 */
-	void setRequiredContainerCartridge( ICFGenKbRuleCartObj value );
+	void setRequiredContainerCartridge( IYCFGenKbRuleCartObj value );
 
 	/**
-	 *	Get the ICFGenKbRuleTypeObj instance referenced by the RuleType key.
+	 *	Get the IYCFGenKbRuleTypeObj instance referenced by the RuleType key.
 	 *
-	 *	@return	The ICFGenKbRuleTypeObj instance referenced by the RuleType key.
+	 *	@return	The IYCFGenKbRuleTypeObj instance referenced by the RuleType key.
 	 */
-	ICFGenKbRuleTypeObj getRequiredLookupRuleType();
+	IYCFGenKbRuleTypeObj getRequiredLookupRuleType();
 
 	/**
-	 *	Set the ICFGenKbRuleTypeObj instance referenced by the RuleType key.
+	 *	Set the IYCFGenKbRuleTypeObj instance referenced by the RuleType key.
 	 *
-	 *	@param	value	the ICFGenKbRuleTypeObj instance to be referenced by the RuleType key.
+	 *	@param	value	the IYCFGenKbRuleTypeObj instance to be referenced by the RuleType key.
 	 */
-	void setRequiredLookupRuleType( ICFGenKbRuleTypeObj value );
+	void setRequiredLookupRuleType( IYCFGenKbRuleTypeObj value );
 
 	/**
-	 *	Get the ICFGenKbToolSetObj instance referenced by the ToolSet key.
+	 *	Get the IYCFGenKbToolSetObj instance referenced by the ToolSet key.
 	 *
-	 *	@return	The ICFGenKbToolSetObj instance referenced by the ToolSet key.
+	 *	@return	The IYCFGenKbToolSetObj instance referenced by the ToolSet key.
 	 */
-	ICFGenKbToolSetObj getRequiredLookupToolSet();
+	IYCFGenKbToolSetObj getRequiredLookupToolSet();
 
 	/**
-	 *	Set the ICFGenKbToolSetObj instance referenced by the ToolSet key.
+	 *	Set the IYCFGenKbToolSetObj instance referenced by the ToolSet key.
 	 *
-	 *	@param	value	the ICFGenKbToolSetObj instance to be referenced by the ToolSet key.
+	 *	@param	value	the IYCFGenKbToolSetObj instance to be referenced by the ToolSet key.
 	 */
-	void setRequiredLookupToolSet( ICFGenKbToolSetObj value );
+	void setRequiredLookupToolSet( IYCFGenKbToolSetObj value );
 
 	/**
-	 *	Get the ICFGenKbDefClassObj instance referenced by the ScopeDef key.
+	 *	Get the IYCFGenKbDefClassObj instance referenced by the ScopeDef key.
 	 *
-	 *	@return	The ICFGenKbDefClassObj instance referenced by the ScopeDef key.
+	 *	@return	The IYCFGenKbDefClassObj instance referenced by the ScopeDef key.
 	 */
-	ICFGenKbDefClassObj getOptionalLookupScopeDef();
+	IYCFGenKbDefClassObj getOptionalLookupScopeDef();
 
 	/**
-	 *	Set the ICFGenKbDefClassObj instance referenced by the ScopeDef key.
+	 *	Set the IYCFGenKbDefClassObj instance referenced by the ScopeDef key.
 	 *
-	 *	@param	value	the ICFGenKbDefClassObj instance to be referenced by the ScopeDef key.
+	 *	@param	value	the IYCFGenKbDefClassObj instance to be referenced by the ScopeDef key.
 	 */
-	void setOptionalLookupScopeDef( ICFGenKbDefClassObj value );
+	void setOptionalLookupScopeDef( IYCFGenKbDefClassObj value );
 
 	/**
-	 *	Get the ICFGenKbDefClassObj instance referenced by the GenDef key.
+	 *	Get the IYCFGenKbDefClassObj instance referenced by the GenDef key.
 	 *
-	 *	@return	The ICFGenKbDefClassObj instance referenced by the GenDef key.
+	 *	@return	The IYCFGenKbDefClassObj instance referenced by the GenDef key.
 	 */
-	ICFGenKbDefClassObj getRequiredLookupGenDef();
+	IYCFGenKbDefClassObj getRequiredLookupGenDef();
 
 	/**
-	 *	Set the ICFGenKbDefClassObj instance referenced by the GenDef key.
+	 *	Set the IYCFGenKbDefClassObj instance referenced by the GenDef key.
 	 *
-	 *	@param	value	the ICFGenKbDefClassObj instance to be referenced by the GenDef key.
+	 *	@param	value	the IYCFGenKbDefClassObj instance to be referenced by the GenDef key.
 	 */
-	void setRequiredLookupGenDef( ICFGenKbDefClassObj value );
+	void setRequiredLookupGenDef( IYCFGenKbDefClassObj value );
 
 	/**
-	 *	Get the ICFGenKbGelExecutableObj instance referenced by the GelExec key.
+	 *	Get the IYCFGenKbGelExecutableObj instance referenced by the GelExec key.
 	 *
-	 *	@return	The ICFGenKbGelExecutableObj instance referenced by the GelExec key.
+	 *	@return	The IYCFGenKbGelExecutableObj instance referenced by the GelExec key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsGelExec();
+	IYCFGenKbGelExecutableObj getOptionalComponentsGelExec();
 
 	/**
-	 *	Set the ICFGenKbGelExecutableObj instance referenced by the GelExec key.
+	 *	Set the IYCFGenKbGelExecutableObj instance referenced by the GelExec key.
 	 *
-	 *	@param	value	the ICFGenKbGelExecutableObj instance to be referenced by the GelExec key.
+	 *	@param	value	the IYCFGenKbGelExecutableObj instance to be referenced by the GelExec key.
 	 */
-	void setOptionalComponentsGelExec( ICFGenKbGelExecutableObj value );
+	void setOptionalComponentsGelExec( IYCFGenKbGelExecutableObj value );
 
 	/**
-	 *	Get the ICFGenKbGenItemObj instance referenced by the Probe key.
+	 *	Get the IYCFGenKbGenItemObj instance referenced by the Probe key.
 	 *
-	 *	@return	The ICFGenKbGenItemObj instance referenced by the Probe key.
+	 *	@return	The IYCFGenKbGenItemObj instance referenced by the Probe key.
 	 */
-	ICFGenKbGenItemObj getOptionalLookupProbe();
+	IYCFGenKbGenItemObj getOptionalLookupProbe();
 
 	/**
-	 *	Set the ICFGenKbGenItemObj instance referenced by the Probe key.
+	 *	Set the IYCFGenKbGenItemObj instance referenced by the Probe key.
 	 *
-	 *	@param	value	the ICFGenKbGenItemObj instance to be referenced by the Probe key.
+	 *	@param	value	the IYCFGenKbGenItemObj instance to be referenced by the Probe key.
 	 */
-	void setOptionalLookupProbe( ICFGenKbGenItemObj value );
+	void setOptionalLookupProbe( IYCFGenKbGenItemObj value );
 }

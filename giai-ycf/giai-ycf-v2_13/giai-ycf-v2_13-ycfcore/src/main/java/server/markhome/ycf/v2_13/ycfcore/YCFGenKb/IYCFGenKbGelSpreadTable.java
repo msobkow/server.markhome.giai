@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelSpread.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelSpreadTable database interface for GelSpread
+ *	YCFGenKbGelSpreadTable database interface for GelSpread
  */
-public interface ICFGenKbGelSpreadTable
+public interface IYCFGenKbGelSpreadTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelSpread( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadBuff Buff );
+	void createGelSpread( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelSpread( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadBuff Buff );
+	void updateGelSpread( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelSpread( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadBuff Buff );
+	void deleteGelSpread( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadBuff Buff );
 	/**
 	 *	Delete the GelSpread instances identified by the key BetweenIdx.
 	 *
@@ -86,7 +86,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argExpandBetween	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByBetweenIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByBetweenIdx( YCFGenKbAuthorization Authorization,
 		String argExpandBetween );
 
 	/**
@@ -96,8 +96,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByBetweenIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadByBetweenIdxKey argKey );
+	void deleteGelSpreadByBetweenIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadByBetweenIdxKey argKey );
 	/**
 	 *	Delete the GelSpread instances identified by the key BeforeIdx.
 	 *
@@ -105,7 +105,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argExpandBefore	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByBeforeIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByBeforeIdx( YCFGenKbAuthorization Authorization,
 		String argExpandBefore );
 
 	/**
@@ -115,8 +115,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByBeforeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadByBeforeIdxKey argKey );
+	void deleteGelSpreadByBeforeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadByBeforeIdxKey argKey );
 	/**
 	 *	Delete the GelSpread instances identified by the key FirstIdx.
 	 *
@@ -124,7 +124,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argExpandFirst	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByFirstIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByFirstIdx( YCFGenKbAuthorization Authorization,
 		String argExpandFirst );
 
 	/**
@@ -134,8 +134,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByFirstIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadByFirstIdxKey argKey );
+	void deleteGelSpreadByFirstIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadByFirstIdxKey argKey );
 	/**
 	 *	Delete the GelSpread instances identified by the key EachIdx.
 	 *
@@ -143,7 +143,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argExpandEach	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByEachIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByEachIdx( YCFGenKbAuthorization Authorization,
 		String argExpandEach );
 
 	/**
@@ -153,8 +153,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByEachIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadByEachIdxKey argKey );
+	void deleteGelSpreadByEachIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadByEachIdxKey argKey );
 	/**
 	 *	Delete the GelSpread instances identified by the key LastIdx.
 	 *
@@ -162,7 +162,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argExpandLast	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByLastIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByLastIdx( YCFGenKbAuthorization Authorization,
 		String argExpandLast );
 
 	/**
@@ -172,8 +172,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByLastIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadByLastIdxKey argKey );
+	void deleteGelSpreadByLastIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadByLastIdxKey argKey );
 	/**
 	 *	Delete the GelSpread instances identified by the key LoneIdx.
 	 *
@@ -181,7 +181,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argExpandLone	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByLoneIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByLoneIdx( YCFGenKbAuthorization Authorization,
 		String argExpandLone );
 
 	/**
@@ -191,8 +191,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByLoneIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadByLoneIdxKey argKey );
+	void deleteGelSpreadByLoneIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadByLoneIdxKey argKey );
 	/**
 	 *	Delete the GelSpread instances identified by the key EmptyIdx.
 	 *
@@ -200,7 +200,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argExpandEmpty	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByEmptyIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByEmptyIdx( YCFGenKbAuthorization Authorization,
 		String argExpandEmpty );
 
 	/**
@@ -210,8 +210,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByEmptyIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSpreadByEmptyIdxKey argKey );
+	void deleteGelSpreadByEmptyIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSpreadByEmptyIdxKey argKey );
 	/**
 	 *	Delete the GelSpread instance identified by the primary key attributes.
 	 *
@@ -223,7 +223,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argGelInstId	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -235,8 +235,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelSpreadByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelSpreadByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelSpread instances identified by the key TenantIdx.
 	 *
@@ -244,7 +244,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argTenantId	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -254,8 +254,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelSpreadByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelSpread instances identified by the key GelCacheIdx.
 	 *
@@ -265,7 +265,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argGelCacheId	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -276,8 +276,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelSpreadByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelSpread instances identified by the key ChainIdx.
 	 *
@@ -289,7 +289,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelSpread key attribute of the instance generating the id.
 	 */
-	void deleteGelSpreadByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSpreadByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -301,8 +301,8 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSpreadByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelSpreadByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -315,8 +315,8 @@ public interface ICFGenKbGelSpreadTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelSpreadBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelSpreadBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelSpread buffer instance by primary key.
@@ -328,8 +328,8 @@ public interface ICFGenKbGelSpreadTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelSpreadBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelSpreadBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelSpread instances.
@@ -338,7 +338,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelSpreadBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelSpread buffer instance identified by the unique key PIdx.
@@ -354,7 +354,7 @@ public interface ICFGenKbGelSpreadTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelSpreadBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -368,7 +368,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -382,7 +382,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -399,7 +399,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -413,7 +413,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByBetweenIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByBetweenIdx( YCFGenKbAuthorization Authorization,
 		String ExpandBetween );
 
 	/**
@@ -425,7 +425,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByBeforeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByBeforeIdx( YCFGenKbAuthorization Authorization,
 		String ExpandBefore );
 
 	/**
@@ -437,7 +437,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByFirstIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByFirstIdx( YCFGenKbAuthorization Authorization,
 		String ExpandFirst );
 
 	/**
@@ -449,7 +449,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByEachIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByEachIdx( YCFGenKbAuthorization Authorization,
 		String ExpandEach );
 
 	/**
@@ -461,7 +461,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByLastIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByLastIdx( YCFGenKbAuthorization Authorization,
 		String ExpandLast );
 
 	/**
@@ -473,7 +473,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByLoneIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByLoneIdx( YCFGenKbAuthorization Authorization,
 		String ExpandLone );
 
 	/**
@@ -485,7 +485,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSpreadBuff[] readDerivedByEmptyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readDerivedByEmptyIdx( YCFGenKbAuthorization Authorization,
 		String ExpandEmpty );
 
 	/**
@@ -498,10 +498,10 @@ public interface ICFGenKbGelSpreadTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelSpreadBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelSpread buffer instance identified by the primary key.
@@ -513,10 +513,10 @@ public interface ICFGenKbGelSpreadTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelSpreadBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelSpread buffer instances.
@@ -525,7 +525,7 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return All the specific GelSpread instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelSpreadBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelSpreadBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelSpread buffer instance identified by the unique key PIdx.
@@ -541,9 +541,9 @@ public interface ICFGenKbGelSpreadTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -557,9 +557,9 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -573,9 +573,9 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -592,9 +592,9 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -608,9 +608,9 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByBetweenIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByBetweenIdx( YCFGenKbAuthorization Authorization,
 		String ExpandBetween );
 
 	/**
@@ -622,9 +622,9 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByBeforeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByBeforeIdx( YCFGenKbAuthorization Authorization,
 		String ExpandBefore );
 
 	/**
@@ -636,9 +636,9 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByFirstIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByFirstIdx( YCFGenKbAuthorization Authorization,
 		String ExpandFirst );
 
 	/**
@@ -650,9 +650,9 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByEachIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByEachIdx( YCFGenKbAuthorization Authorization,
 		String ExpandEach );
 
 	/**
@@ -664,9 +664,9 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByLastIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByLastIdx( YCFGenKbAuthorization Authorization,
 		String ExpandLast );
 
 	/**
@@ -678,9 +678,9 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByLoneIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByLoneIdx( YCFGenKbAuthorization Authorization,
 		String ExpandLone );
 
 	/**
@@ -692,15 +692,15 @@ public interface ICFGenKbGelSpreadTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSpreadBuff[] readBuffByEmptyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSpreadBuff[] readBuffByEmptyIdx( YCFGenKbAuthorization Authorization,
 		String ExpandEmpty );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for TokenDef.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamTokenDefTable database interface for TokenDef
+ *	YCFBamTokenDefTable database interface for TokenDef
  */
-public interface ICFBamTokenDefTable
+public interface IYCFBamTokenDefTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createTokenDef( CFSecAuthorization Authorization,
-		CFBamTokenDefBuff Buff );
+	void createTokenDef( YCFSecAuthorization Authorization,
+		YCFBamTokenDefBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateTokenDef( CFSecAuthorization Authorization,
-		CFBamTokenDefBuff Buff );
+	void updateTokenDef( YCFSecAuthorization Authorization,
+		YCFBamTokenDefBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteTokenDef( CFSecAuthorization Authorization,
-		CFBamTokenDefBuff Buff );
+	void deleteTokenDef( YCFSecAuthorization Authorization,
+		YCFBamTokenDefBuff Buff );
 	/**
 	 *	Delete the TokenDef instance identified by the primary key attributes.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argId	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByIdIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -121,8 +121,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteTokenDefByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteTokenDefByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key UNameIdx.
 	 *
@@ -134,7 +134,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argName	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByUNameIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -146,8 +146,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteTokenDefByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key ValTentIdx.
 	 *
@@ -155,7 +155,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argTenantId	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByValTentIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -165,8 +165,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteTokenDefByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key ScopeIdx.
 	 *
@@ -176,7 +176,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argScopeId	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByScopeIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -187,8 +187,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteTokenDefByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key DefSchemaIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argDefSchemaId	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -209,8 +209,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteTokenDefByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key PrevIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argPrevId	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByPrevIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -231,8 +231,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteTokenDefByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key NextIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argNextId	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByNextIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -253,8 +253,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteTokenDefByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key ContPrevIdx.
 	 *
@@ -266,7 +266,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argPrevId	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -278,8 +278,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteTokenDefByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key ContNextIdx.
 	 *
@@ -291,7 +291,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argNextId	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByContNextIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -303,8 +303,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteTokenDefByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key CodeVisIdx.
 	 *
@@ -312,8 +312,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argCodeVis	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteTokenDefByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the TokenDef instances identified by the key CodeVisIdx.
@@ -322,8 +322,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteTokenDefByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the TokenDef instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -335,10 +335,10 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argCodeVis	The TokenDef key attribute of the instance generating the id.
 	 */
-	void deleteTokenDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteTokenDefByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the TokenDef instances identified by the key ScopeCodeVisIdx.
@@ -347,8 +347,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTokenDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteTokenDefByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -361,8 +361,8 @@ public interface ICFBamTokenDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTokenDefBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTokenDefBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived TokenDef buffer instance by primary key.
@@ -374,8 +374,8 @@ public interface ICFBamTokenDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTokenDefBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTokenDefBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all TokenDef instances.
@@ -384,7 +384,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamTokenDefBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived TokenDef buffer instance identified by the unique key IdIdx.
@@ -398,7 +398,7 @@ public interface ICFBamTokenDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTokenDefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -416,7 +416,7 @@ public interface ICFBamTokenDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTokenDefBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -430,7 +430,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -444,7 +444,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -459,7 +459,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -474,7 +474,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -489,7 +489,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -506,7 +506,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -524,7 +524,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -538,8 +538,8 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamTokenDefBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived TokenDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -554,10 +554,10 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTokenDefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read the specific TokenDef buffer instance identified by the primary key.
@@ -569,10 +569,10 @@ public interface ICFBamTokenDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTokenDefBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific TokenDef buffer instance identified by the primary key.
@@ -584,10 +584,10 @@ public interface ICFBamTokenDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamTokenDefBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific TokenDef buffer instances.
@@ -596,7 +596,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return All the specific TokenDef instances in the database accessible for the Authorization.
 	 */
-	CFBamTokenDefBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamTokenDefBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific TokenDef buffer instance identified by the unique key IdIdx.
@@ -610,9 +610,9 @@ public interface ICFBamTokenDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -630,9 +630,9 @@ public interface ICFBamTokenDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -646,9 +646,9 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -662,9 +662,9 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -679,9 +679,9 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -696,9 +696,9 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -713,9 +713,9 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -732,9 +732,9 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -752,9 +752,9 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -768,10 +768,10 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamTokenDefBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific TokenDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -786,19 +786,19 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTokenDefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the specified buffer up in the chain (i.e. to the previous position.)
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamTokenDefBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -808,7 +808,7 @@ public interface ICFBamTokenDefTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamTokenDefBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamTokenDefBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -816,7 +816,7 @@ public interface ICFBamTokenDefTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

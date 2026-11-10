@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for RuleCart.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbRuleCartTable database interface for RuleCart
+ *	YCFGenKbRuleCartTable database interface for RuleCart
  */
-public interface ICFGenKbRuleCartTable
+public interface IYCFGenKbRuleCartTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createRuleCart( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartBuff Buff );
+	void createRuleCart( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateRuleCart( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartBuff Buff );
+	void updateRuleCart( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteRuleCart( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartBuff Buff );
+	void deleteRuleCart( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartBuff Buff );
 	/**
 	 *	Delete the RuleCart instance identified by the primary key attributes.
 	 *
@@ -88,7 +88,7 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@param	argId	The RuleCart key attribute of the instance generating the id.
 	 */
-	void deleteRuleCartByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteRuleCartByIdIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -99,8 +99,8 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteRuleCartByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey argKey );
+	void deleteRuleCartByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey argKey );
 	/**
 	 *	Delete the RuleCart instances identified by the key TenantIdx.
 	 *
@@ -108,7 +108,7 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@param	argTenantId	The RuleCart key attribute of the instance generating the id.
 	 */
-	void deleteRuleCartByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteRuleCartByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -118,8 +118,8 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRuleCartByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartByTenantIdxKey argKey );
+	void deleteRuleCartByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartByTenantIdxKey argKey );
 	/**
 	 *	Delete the RuleCart instances identified by the key NameIdx.
 	 *
@@ -129,7 +129,7 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@param	argName	The RuleCart key attribute of the instance generating the id.
 	 */
-	void deleteRuleCartByNameIdx( CFGenKbAuthorization Authorization,
+	void deleteRuleCartByNameIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		String argName );
 
@@ -140,8 +140,8 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRuleCartByNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartByNameIdxKey argKey );
+	void deleteRuleCartByNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartByNameIdxKey argKey );
 
 
 	/**
@@ -154,8 +154,8 @@ public interface ICFGenKbRuleCartTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbRuleCartBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey PKey );
+	YCFGenKbRuleCartBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey PKey );
 
 	/**
 	 *	Lock the derived RuleCart buffer instance by primary key.
@@ -167,8 +167,8 @@ public interface ICFGenKbRuleCartTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbRuleCartBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey PKey );
+	YCFGenKbRuleCartBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey PKey );
 
 	/**
 	 *	Read all RuleCart instances.
@@ -177,7 +177,7 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbRuleCartBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbRuleCartBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived RuleCart buffer instance identified by the unique key IdIdx.
@@ -191,7 +191,7 @@ public interface ICFGenKbRuleCartTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbRuleCartBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleCartBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -204,7 +204,7 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbRuleCartBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleCartBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -219,7 +219,7 @@ public interface ICFGenKbRuleCartTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbRuleCartBuff readDerivedByNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleCartBuff readDerivedByNameIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		String Name );
 
@@ -233,10 +233,10 @@ public interface ICFGenKbRuleCartTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbRuleCartBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey PKey );
+	YCFGenKbRuleCartBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey PKey );
 
 	/**
 	 *	Lock the specific RuleCart buffer instance identified by the primary key.
@@ -248,10 +248,10 @@ public interface ICFGenKbRuleCartTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbRuleCartBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey PKey );
+	YCFGenKbRuleCartBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey PKey );
 
 	/**
 	 *	Read all the specific RuleCart buffer instances.
@@ -260,7 +260,7 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@return All the specific RuleCart instances in the database accessible for the Authorization.
 	 */
-	CFGenKbRuleCartBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbRuleCartBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific RuleCart buffer instance identified by the unique key IdIdx.
@@ -274,9 +274,9 @@ public interface ICFGenKbRuleCartTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbRuleCartBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleCartBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -289,9 +289,9 @@ public interface ICFGenKbRuleCartTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbRuleCartBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleCartBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -306,16 +306,16 @@ public interface ICFGenKbRuleCartTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbRuleCartBuff readBuffByNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleCartBuff readBuffByNameIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		String Name );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

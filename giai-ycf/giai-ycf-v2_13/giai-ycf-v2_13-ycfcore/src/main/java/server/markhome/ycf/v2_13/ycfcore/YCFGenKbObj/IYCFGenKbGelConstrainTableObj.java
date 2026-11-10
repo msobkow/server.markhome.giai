@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelConstrainTableObj
+public interface IYCFGenKbGelConstrainTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelConstrainTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelConstrainObj newInstance();
+	IYCFGenKbGelConstrainObj newInstance();
 
 	/**
 	 *	Instantiate a new GelConstrain edition of the specified GelConstrain instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelConstrainEditObj newEditInstance( ICFGenKbGelConstrainObj orig );
+	IYCFGenKbGelConstrainEditObj newEditInstance( IYCFGenKbGelConstrainObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelConstrainObj realiseGelConstrain( ICFGenKbGelConstrainObj Obj );
+	IYCFGenKbGelConstrainObj realiseGelConstrain( IYCFGenKbGelConstrainObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelConstrainObj createGelConstrain( ICFGenKbGelConstrainObj Obj );
+	IYCFGenKbGelConstrainObj createGelConstrain( IYCFGenKbGelConstrainObj Obj );
 
 	/**
 	 *	Read a GelConstrain-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelConstrainTableObj
 	 *	@return	The GelConstrain-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelConstrainObj readGelConstrain( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelConstrainObj readGelConstrain( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelConstrain-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelConstrainTableObj
 	 *	@return	The GelConstrain-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelConstrainObj readGelConstrain( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelConstrainObj readGelConstrain( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelConstrainObj readCachedGelConstrain( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelConstrainObj readCachedGelConstrain( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelConstrain( ICFGenKbGelConstrainObj obj );
+	public void reallyDeepDisposeGelConstrain( IYCFGenKbGelConstrainObj obj );
 
-	void deepDisposeGelConstrain( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelConstrain( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelConstrainObj lockGelConstrain( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelConstrainObj lockGelConstrain( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelConstrain-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelConstrainObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelConstrainObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readAllGelConstrain();
+	List<IYCFGenKbGelConstrainObj> readAllGelConstrain();
 
 	/**
 	 *	Return a sorted map of all the GelConstrain-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelConstrainObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelConstrainObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readAllGelConstrain( boolean forceRead );
+	List<IYCFGenKbGelConstrainObj> readAllGelConstrain( boolean forceRead );
 
-	List<ICFGenKbGelConstrainObj> readCachedAllGelConstrain();
+	List<IYCFGenKbGelConstrainObj> readCachedAllGelConstrain();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelConstrainTableObj
 	 *
 	 *	@param	argGelInstId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelConstrainObj readGelConstrainByPIdx( long TenantId,
+	IYCFGenKbGelConstrainObj readGelConstrainByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelConstrainTableObj
 	 *
 	 *	@param	argGelInstId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelConstrainObj readGelConstrainByPIdx( long TenantId,
+	IYCFGenKbGelConstrainObj readGelConstrainByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readGelConstrainByTenantIdx( long TenantId );
+	List<IYCFGenKbGelConstrainObj> readGelConstrainByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readGelConstrainByTenantIdx( long TenantId,
+	List<IYCFGenKbGelConstrainObj> readGelConstrainByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readGelConstrainByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelConstrainObj> readGelConstrainByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readGelConstrainByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelConstrainObj> readGelConstrainByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelConstrainTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readGelConstrainByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelConstrainObj> readGelConstrainByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
@@ -229,16 +229,16 @@ public interface ICFGenKbGelConstrainTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readGelConstrainByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelConstrainObj> readGelConstrainByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
@@ -246,15 +246,15 @@ public interface ICFGenKbGelConstrainTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readGelConstrainByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelConstrainObj> readGelConstrainByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelConstrainObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelConstrain key attribute of the instance generating the id.
 	 *
@@ -262,28 +262,28 @@ public interface ICFGenKbGelConstrainTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelConstrain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelConstrainObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelConstrainObj> readGelConstrainByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelConstrainObj> readGelConstrainByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId,
 		boolean forceRead );
 
-	ICFGenKbGelConstrainObj readCachedGelConstrainByPIdx( long TenantId,
+	IYCFGenKbGelConstrainObj readCachedGelConstrainByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelConstrainObj> readCachedGelConstrainByTenantIdx( long TenantId );
+	List<IYCFGenKbGelConstrainObj> readCachedGelConstrainByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelConstrainObj> readCachedGelConstrainByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelConstrainObj> readCachedGelConstrainByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelConstrainObj> readCachedGelConstrainByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelConstrainObj> readCachedGelConstrainByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
-	List<ICFGenKbGelConstrainObj> readCachedGelConstrainByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelConstrainObj> readCachedGelConstrainByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
@@ -307,12 +307,12 @@ public interface ICFGenKbGelConstrainTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelConstrainObj updateGelConstrain( ICFGenKbGelConstrainObj Obj );
+	IYCFGenKbGelConstrainObj updateGelConstrain( IYCFGenKbGelConstrainObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelConstrain( ICFGenKbGelConstrainObj Obj );
+	void deleteGelConstrain( IYCFGenKbGelConstrainObj Obj );
 
 	/**
 	 *	Internal use only.

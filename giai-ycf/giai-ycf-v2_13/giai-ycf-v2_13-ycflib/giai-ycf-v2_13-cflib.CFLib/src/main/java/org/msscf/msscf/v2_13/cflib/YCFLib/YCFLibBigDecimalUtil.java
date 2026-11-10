@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,13 +21,13 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.Format;
 
-public class CFLibBigDecimalUtil {
+public class YCFLibBigDecimalUtil {
 
 	public final static int MAX_DIGITS = 31;
 	public final static int MAX_PRECISION = 30;
@@ -40,14 +40,14 @@ public class CFLibBigDecimalUtil {
 		final String S_ProcName = "getNumberFormat";
 
 		if( ( fieldOrClassName == null ) || ( fieldOrClassName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( CFLibBigDecimalUtil.class,
+			throw new YCFLibNullArgumentException( YCFLibBigDecimalUtil.class,
 				S_ProcName,
 				1,
 				"fieldOrClassName" );
 		}
 
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -55,7 +55,7 @@ public class CFLibBigDecimalUtil {
 				1 );
 		}
 		else if( argDigits > MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -64,7 +64,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -72,7 +72,7 @@ public class CFLibBigDecimalUtil {
 				0 );
 		}
 		else if( argPrecis > MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -81,7 +81,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis >= argDigits ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -111,14 +111,14 @@ public class CFLibBigDecimalUtil {
 		final String S_ProcName = "getAbsoluteMinValue";
 
 		if( ( fieldOrClassName == null ) || ( fieldOrClassName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( CFLibBigDecimalUtil.class,
+			throw new YCFLibNullArgumentException( YCFLibBigDecimalUtil.class,
 				S_ProcName,
 				1,
 				"fieldOrClassName" );
 		}
 
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -126,7 +126,7 @@ public class CFLibBigDecimalUtil {
 				1 );
 		}
 		else if( argDigits > MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -135,7 +135,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -143,7 +143,7 @@ public class CFLibBigDecimalUtil {
 				0 );
 		}
 		else if( argPrecis > MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -152,7 +152,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis >= argDigits ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -179,14 +179,14 @@ public class CFLibBigDecimalUtil {
 		final String S_ProcName = "getAbsoluteMaxValue";
 
 		if( ( fieldOrClassName == null ) || ( fieldOrClassName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( CFLibBigDecimalUtil.class,
+			throw new YCFLibNullArgumentException( YCFLibBigDecimalUtil.class,
 				S_ProcName,
 				1,
 				"fieldOrClassName" );
 		}
 
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -194,7 +194,7 @@ public class CFLibBigDecimalUtil {
 				1 );
 		}
 		else if( argDigits > MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -203,7 +203,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -211,7 +211,7 @@ public class CFLibBigDecimalUtil {
 				0 );
 		}
 		else if( argPrecis > MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -220,7 +220,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis >= argDigits ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -247,21 +247,21 @@ public class CFLibBigDecimalUtil {
 		final String S_ProcName = "coerce";
 
 		if( ( fieldOrClassName == null ) || ( fieldOrClassName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( CFLibBigDecimalUtil.class,
+			throw new YCFLibNullArgumentException( YCFLibBigDecimalUtil.class,
 				S_ProcName,
 				1,
 				"fieldOrClassName" );
 		}
 
 		if( value == null ) {
-			throw new CFLibNullArgumentException( fieldOrClassName,
+			throw new YCFLibNullArgumentException( fieldOrClassName,
 				S_ProcName,
 				4,
 				"value" );
 		}
 		
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -269,7 +269,7 @@ public class CFLibBigDecimalUtil {
 				1 );
 		}
 		else if( argDigits > MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -278,7 +278,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -286,7 +286,7 @@ public class CFLibBigDecimalUtil {
 				0 );
 		}
 		else if( argPrecis > MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -295,7 +295,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis >= argDigits ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -305,7 +305,7 @@ public class CFLibBigDecimalUtil {
 
 		BigDecimal minValue = getAbsoluteMinValue( fieldOrClassName, argDigits, argPrecis );
 		if( value.compareTo( minValue ) < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				4,
 				"value",
@@ -315,7 +315,7 @@ public class CFLibBigDecimalUtil {
 		
 		BigDecimal maxValue = getAbsoluteMaxValue( fieldOrClassName, argDigits, argPrecis );
 		if( value.compareTo( maxValue ) > 0 ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				4,
 				"value",
@@ -334,7 +334,7 @@ public class CFLibBigDecimalUtil {
 		final String S_ProcName = "parse";
 
 		if( ( fieldOrClassName == null ) || ( fieldOrClassName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( CFLibBigDecimalUtil.class,
+			throw new YCFLibNullArgumentException( YCFLibBigDecimalUtil.class,
 				S_ProcName,
 				1,
 				"fieldOrClassName" );
@@ -345,7 +345,7 @@ public class CFLibBigDecimalUtil {
 		}
 		
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -353,7 +353,7 @@ public class CFLibBigDecimalUtil {
 				1 );
 		}
 		else if( argDigits > MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -362,7 +362,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -370,7 +370,7 @@ public class CFLibBigDecimalUtil {
 				0 );
 		}
 		else if( argPrecis > MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -379,7 +379,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis >= argDigits ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -392,7 +392,7 @@ public class CFLibBigDecimalUtil {
 		BigDecimal maxValue = getAbsoluteMaxValue( fieldOrClassName, argDigits, argPrecis );
 
 		if( rawValue.compareTo( minValue ) < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				4,
 				"value",
@@ -401,7 +401,7 @@ public class CFLibBigDecimalUtil {
 		}
 		
 		if( rawValue.compareTo( maxValue ) > 0 ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				4,
 				"value",
@@ -420,21 +420,21 @@ public class CFLibBigDecimalUtil {
 		final String S_ProcName = "format";
 
 		if( ( fieldOrClassName == null ) || ( fieldOrClassName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( CFLibBigDecimalUtil.class,
+			throw new YCFLibNullArgumentException( YCFLibBigDecimalUtil.class,
 				S_ProcName,
 				1,
 				"fieldOrClassName" );
 		}
 
 		if( value == null ) {
-			throw new CFLibNullArgumentException( fieldOrClassName,
+			throw new YCFLibNullArgumentException( fieldOrClassName,
 				S_ProcName,
 				4,
 				"value" );
 		}
 		
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -442,7 +442,7 @@ public class CFLibBigDecimalUtil {
 				1 );
 		}
 		else if( argDigits > MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				2,
 				"argDigits",
@@ -451,7 +451,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -459,7 +459,7 @@ public class CFLibBigDecimalUtil {
 				0 );
 		}
 		else if( argPrecis > MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -468,7 +468,7 @@ public class CFLibBigDecimalUtil {
 		}
 
 		if( argPrecis >= argDigits ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				3,
 				"argPrecis",
@@ -478,7 +478,7 @@ public class CFLibBigDecimalUtil {
 
 		BigDecimal minValue = getAbsoluteMinValue( fieldOrClassName, argDigits, argPrecis );
 		if( value.compareTo( minValue ) < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldOrClassName,
+			throw new YCFLibArgumentUnderflowException( fieldOrClassName,
 				S_ProcName,
 				4,
 				"value",
@@ -488,7 +488,7 @@ public class CFLibBigDecimalUtil {
 		
 		BigDecimal maxValue = getAbsoluteMaxValue( fieldOrClassName, argDigits, argPrecis );
 		if( value.compareTo( maxValue ) > 0 ) {
-			throw new CFLibArgumentOverflowException( fieldOrClassName,
+			throw new YCFLibArgumentOverflowException( fieldOrClassName,
 				S_ProcName,
 				4,
 				"value",

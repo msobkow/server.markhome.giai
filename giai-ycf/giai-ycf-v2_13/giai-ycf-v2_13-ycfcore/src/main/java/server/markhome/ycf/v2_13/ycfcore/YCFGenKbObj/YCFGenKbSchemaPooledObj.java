@@ -1,11 +1,11 @@
-// Description: Java 11 Schema Pooled Object implementation for CFGenKb.
+// Description: Java 11 Schema Pooled Object implementation for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,12 +27,12 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /**
  *	A pooled schema object does not disconnect the backing
@@ -40,10 +40,10 @@ import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
  *	comes from a connection pool that is reused across requests,
  *	rather than being owned by the SchemaPooledObj.
  */
-public class CFGenKbSchemaPooledObj
-	extends CFGenKbSchemaObj
+public class YCFGenKbSchemaPooledObj
+	extends YCFGenKbSchemaObj
 {
-	public CFGenKbSchemaPooledObj() {
+	public YCFGenKbSchemaPooledObj() {
 		super();
 	}
 
@@ -58,7 +58,7 @@ public class CFGenKbSchemaPooledObj
 
 	public void disconnect( boolean doCommit ) {
 		final String S_ProcName = "disconnect";
-		throw new CFLibUsageException( getClass(),
+		throw new YCFLibUsageException( getClass(),
 			S_ProcName,
 			"Schema objects over pooled storage cannot be explicitly disconnected" );
 	}
@@ -79,10 +79,10 @@ public class CFGenKbSchemaPooledObj
 			}
 			UUID secSessionId = authorization.getSecSessionId();
 			if( secSessionId != null ) {
-				ICFGenKbSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
+				IYCFGenKbSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
 				if( secSession != null ) {
 					if( secSession.getOptionalFinish() == null ) {
-						ICFGenKbSecSessionEditObj editSecSession = secSession.beginEdit();
+						IYCFGenKbSecSessionEditObj editSecSession = secSession.beginEdit();
 						editSecSession.setOptionalFinish( Calendar.getInstance() );
 						editSecSession.update();
 						editSecSession = null;

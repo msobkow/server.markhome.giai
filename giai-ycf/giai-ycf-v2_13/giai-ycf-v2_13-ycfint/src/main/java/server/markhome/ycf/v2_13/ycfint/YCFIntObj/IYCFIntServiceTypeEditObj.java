@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFInt ServiceType.
+// Description: Java 11 Instance Edit Object interface for YCFInt ServiceType.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,21 +26,21 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntServiceTypeEditObj
-	extends ICFIntServiceTypeObj,
-		ICFSecServiceTypeEditObj
+public interface IYCFIntServiceTypeEditObj
+	extends IYCFIntServiceTypeObj,
+		IYCFSecServiceTypeEditObj
 {
 	/*
 	 *	create() may return a different instance than the
@@ -51,10 +51,10 @@ public interface ICFIntServiceTypeEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFSecServiceTypeObj create();
+	IYCFSecServiceTypeObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFSecServiceTypeEditObj update();
+	YCFSecServiceTypeEditObj update();
 }

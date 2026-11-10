@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecForm buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSecFormBuff
+public class YCFGenKbSecFormBuff
 {
 	public final static String CLASS_CODE = "a906";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -48,26 +48,26 @@ public class CFGenKbSecFormBuff
 	public final static String S_INIT_UPDATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
 	public final static UUID INIT_UPDATEDBY = UUID.fromString( S_INIT_UPDATEDBY );
 	public static final long CLUSTERID_INIT_VALUE = 0L;
-	public static final int SECFORMID_INIT_VALUE = 0;
+	public static final int SEYCFORMID_INIT_VALUE = 0;
 	public static final int SECAPPID_INIT_VALUE = 0;
 	public static final String JEESERVLETMAPNAME_INIT_VALUE = new String( "" );
 	public static final long CLUSTERID_MIN_VALUE = 0L;
-	public static final int SECFORMID_MIN_VALUE = 0;
+	public static final int SEYCFORMID_MIN_VALUE = 0;
 	public static final int SECAPPID_MIN_VALUE = 0;
-	protected UUID createdByUserId = CFGenKbSecFormBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFGenKbSecFormBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFGenKbSecFormBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFGenKbSecFormBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected long requiredClusterId;
 	protected int requiredSecFormId;
 	protected int requiredSecAppId;
 	protected String requiredJEEServletMapName;
 	protected int requiredRevision;
-	public CFGenKbSecFormBuff() {
-		requiredClusterId = CFGenKbSecFormBuff.CLUSTERID_INIT_VALUE;
-		requiredSecFormId = CFGenKbSecFormBuff.SECFORMID_INIT_VALUE;
-		requiredSecAppId = CFGenKbSecFormBuff.SECAPPID_INIT_VALUE;
-		requiredJEEServletMapName = new String( CFGenKbSecFormBuff.JEESERVLETMAPNAME_INIT_VALUE );
+	public YCFGenKbSecFormBuff() {
+		requiredClusterId = YCFGenKbSecFormBuff.CLUSTERID_INIT_VALUE;
+		requiredSecFormId = YCFGenKbSecFormBuff.SEYCFORMID_INIT_VALUE;
+		requiredSecAppId = YCFGenKbSecFormBuff.SECAPPID_INIT_VALUE;
+		requiredJEEServletMapName = new String( YCFGenKbSecFormBuff.JEESERVLETMAPNAME_INIT_VALUE );
 	}
 
 	public String getClassCode() {
@@ -110,13 +110,13 @@ public class CFGenKbSecFormBuff
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFGenKbSecFormBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecFormBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFGenKbSecFormBuff.CLUSTERID_MIN_VALUE );
+				YCFGenKbSecFormBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -126,13 +126,13 @@ public class CFGenKbSecFormBuff
 	}
 
 	public void setRequiredSecFormId( int value ) {
-		if( value < CFGenKbSecFormBuff.SECFORMID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecFormBuff.SEYCFORMID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecFormId",
 				1,
 				"value",
 				value,
-				CFGenKbSecFormBuff.SECFORMID_MIN_VALUE );
+				YCFGenKbSecFormBuff.SEYCFORMID_MIN_VALUE );
 		}
 		requiredSecFormId = value;
 	}
@@ -142,13 +142,13 @@ public class CFGenKbSecFormBuff
 	}
 
 	public void setRequiredSecAppId( int value ) {
-		if( value < CFGenKbSecFormBuff.SECAPPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecFormBuff.SECAPPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecAppId",
 				1,
 				"value",
 				value,
-				CFGenKbSecFormBuff.SECAPPID_MIN_VALUE );
+				YCFGenKbSecFormBuff.SECAPPID_MIN_VALUE );
 		}
 		requiredSecAppId = value;
 	}
@@ -159,13 +159,13 @@ public class CFGenKbSecFormBuff
 
 	public void setRequiredJEEServletMapName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredJEEServletMapName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredJEEServletMapName",
 				1,
 				"value.length()",
@@ -187,8 +187,8 @@ public class CFGenKbSecFormBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecFormBuff ) {
-			CFGenKbSecFormBuff rhs = (CFGenKbSecFormBuff)obj;
+		else if( obj instanceof YCFGenKbSecFormBuff ) {
+			YCFGenKbSecFormBuff rhs = (YCFGenKbSecFormBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -215,8 +215,8 @@ public class CFGenKbSecFormBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecFormPKey ) {
-			CFGenKbSecFormPKey rhs = (CFGenKbSecFormPKey)obj;
+		else if( obj instanceof YCFGenKbSecFormPKey ) {
+			YCFGenKbSecFormPKey rhs = (YCFGenKbSecFormPKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -225,15 +225,15 @@ public class CFGenKbSecFormBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecFormByClusterIdxKey ) {
-			CFGenKbSecFormByClusterIdxKey rhs = (CFGenKbSecFormByClusterIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecFormByClusterIdxKey ) {
+			YCFGenKbSecFormByClusterIdxKey rhs = (YCFGenKbSecFormByClusterIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecFormBySecAppIdxKey ) {
-			CFGenKbSecFormBySecAppIdxKey rhs = (CFGenKbSecFormBySecAppIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecFormBySecAppIdxKey ) {
+			YCFGenKbSecFormBySecAppIdxKey rhs = (YCFGenKbSecFormBySecAppIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -242,8 +242,8 @@ public class CFGenKbSecFormBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecFormByUJEEServletIdxKey ) {
-			CFGenKbSecFormByUJEEServletIdxKey rhs = (CFGenKbSecFormByUJEEServletIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecFormByUJEEServletIdxKey ) {
+			YCFGenKbSecFormByUJEEServletIdxKey rhs = (YCFGenKbSecFormByUJEEServletIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -280,8 +280,8 @@ public class CFGenKbSecFormBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbSecFormBuff ) {
-			CFGenKbSecFormBuff rhs = (CFGenKbSecFormBuff)obj;
+		else if( obj instanceof YCFGenKbSecFormBuff ) {
+			YCFGenKbSecFormBuff rhs = (YCFGenKbSecFormBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -330,8 +330,8 @@ public class CFGenKbSecFormBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecFormPKey ) {
-			CFGenKbSecFormPKey rhs = (CFGenKbSecFormPKey)obj;
+		else if( obj instanceof YCFGenKbSecFormPKey ) {
+			YCFGenKbSecFormPKey rhs = (YCFGenKbSecFormPKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -346,8 +346,8 @@ public class CFGenKbSecFormBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecFormByClusterIdxKey ) {
-			CFGenKbSecFormByClusterIdxKey rhs = (CFGenKbSecFormByClusterIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecFormByClusterIdxKey ) {
+			YCFGenKbSecFormByClusterIdxKey rhs = (YCFGenKbSecFormByClusterIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -356,8 +356,8 @@ public class CFGenKbSecFormBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecFormBySecAppIdxKey ) {
-			CFGenKbSecFormBySecAppIdxKey rhs = (CFGenKbSecFormBySecAppIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecFormBySecAppIdxKey ) {
+			YCFGenKbSecFormBySecAppIdxKey rhs = (YCFGenKbSecFormBySecAppIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -372,8 +372,8 @@ public class CFGenKbSecFormBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecFormByUJEEServletIdxKey ) {
-			CFGenKbSecFormByUJEEServletIdxKey rhs = (CFGenKbSecFormByUJEEServletIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecFormByUJEEServletIdxKey ) {
+			YCFGenKbSecFormByUJEEServletIdxKey rhs = (YCFGenKbSecFormByUJEEServletIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -395,7 +395,7 @@ public class CFGenKbSecFormBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -403,11 +403,11 @@ public class CFGenKbSecFormBuff
 		}
 	}
 
-	public void set( CFGenKbSecFormBuff src ) {
+	public void set( YCFGenKbSecFormBuff src ) {
 		setSecFormBuff( src );
 	}
 
-	public void setSecFormBuff( CFGenKbSecFormBuff src ) {
+	public void setSecFormBuff( YCFGenKbSecFormBuff src ) {
 		setRequiredClusterId( src.getRequiredClusterId() );
 		setRequiredSecFormId( src.getRequiredSecFormId() );
 		setCreatedByUserId( src.getCreatedByUserId() );

@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -29,25 +29,25 @@ import java.net.*;
 import java.security.cert.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGenBindObj
-extends CFGenKbGenBindObj
+public class MssYCFGenBindObj
+extends YCFGenKbGenBindObj
 {
-	public MssCFGenBindObj()
+	public MssYCFGenBindObj()
 	{
 		super();
 	}
 
-	public MssCFGenBindObj( MssCFEngine engine )
+	public MssYCFGenBindObj( MssYCFEngine engine )
 	{
 		super( engine );
 	}
 
-	public MssCFGenBindObj(
-		MssCFEngine engine,
+	public MssYCFGenBindObj(
+		MssYCFEngine engine,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -56,7 +56,7 @@ extends CFGenKbGenBindObj
 		super( engine );
 
 		requiredLookupToolSet = schema.getToolSetTableObj().readToolSetByNameIdx(toolset);
-		CFGenKbGenItemBuff genItemBuff = getGenItemBuff();
+		YCFGenKbGenItemBuff genItemBuff = getGenItemBuff();
 
 		genItemBuff.setRequiredToolSetId( requiredLookupToolSet.getRequiredId() );
 
@@ -85,13 +85,13 @@ extends CFGenKbGenBindObj
 		genItemBuff.setRequiredName( itemName );
 	}
 
-	public String expandBody(MssCFGenContext genContext)
+	public String expandBody(MssYCFGenContext genContext)
 	{
-		final String S_ProcName = "MssCFGenBindObj.expandBody() ";
+		final String S_ProcName = "MssYCFGenBindObj.expandBody() ";
 		throw new RuntimeException( S_ProcName + "Not implemented" );
 	}
 
-	public Object getValueObject(MssCFGenContext genContext)
+	public Object getValueObject(MssYCFGenContext genContext)
 	{
 		Object obj = expandBody( genContext );
 		return( obj );

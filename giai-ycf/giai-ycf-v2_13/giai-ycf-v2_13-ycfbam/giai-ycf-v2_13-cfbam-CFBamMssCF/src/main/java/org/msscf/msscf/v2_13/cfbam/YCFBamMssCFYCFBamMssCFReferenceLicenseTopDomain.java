@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Reference for License Relationship TopDomain.
+// Description: Java 11 MssYCF Reference for License Relationship TopDomain.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,33 +27,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.sql.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /**
- *	CFBamMssCFReferenceLicenseTopDomain binds License.TopDomain
- *	as an instance of MssCFGenReferenceObj.
+ *	YCFBamMssYCFReferenceLicenseTopDomain binds License.TopDomain
+ *	as an instance of MssYCFGenReferenceObj.
  */
-public class CFBamMssCFReferenceLicenseTopDomain
-	extends MssCFGenReferenceObj
+public class YCFBamMssYCFReferenceLicenseTopDomain
+	extends MssYCFGenReferenceObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFReferenceLicenseTopDomain() {
+	public YCFBamMssYCFReferenceLicenseTopDomain() {
 		super();
 	}
 
-	public CFBamMssCFReferenceLicenseTopDomain( MssCFEngine argEngine ) {
+	public YCFBamMssYCFReferenceLicenseTopDomain( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
@@ -62,35 +62,35 @@ public class CFBamMssCFReferenceLicenseTopDomain
 			"TopDomain" );
 	}
 
-	public ICFLibAnyObj dereference( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFReferenceLicenseTopDomain.dereference() ";
+	public IYCFLibAnyObj dereference( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFReferenceLicenseTopDomain.dereference() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext.getGenDef()" );
 		}
 
-		ICFBamTopDomainObj obj;
+		IYCFBamTopDomainObj obj;
 
-		if( genDef instanceof ICFBamLicenseObj ) {
-			obj = (ICFBamTopDomainObj)((ICFBamLicenseObj)genDef).getRequiredContainerTopDomain();
+		if( genDef instanceof IYCFBamLicenseObj ) {
+			obj = (IYCFBamTopDomainObj)((IYCFBamLicenseObj)genDef).getRequiredContainerTopDomain();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamLicenseObj" );
+				"IYCFBamLicenseObj" );
 		}
 
 		return( obj );

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,17 +21,17 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
-public class CFTextField
+public class YCFTextField
 extends TextField
 {
-	public CFTextField() {
+	public YCFTextField() {
 		super();
 		setAlignment( Pos.CENTER_LEFT );
 		setMinHeight( 25 );

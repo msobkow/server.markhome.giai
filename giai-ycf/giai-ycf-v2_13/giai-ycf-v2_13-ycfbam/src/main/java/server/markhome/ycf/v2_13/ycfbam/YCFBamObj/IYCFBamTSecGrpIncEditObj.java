@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFBam TSecGrpInc.
+// Description: Java 11 Instance Edit Object interface for YCFBam TSecGrpInc.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,24 +26,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamTSecGrpIncEditObj
-	extends ICFBamTSecGrpIncObj,
-		ICFSecTSecGrpIncEditObj,
-		ICFIntTSecGrpIncEditObj
+public interface IYCFBamTSecGrpIncEditObj
+	extends IYCFBamTSecGrpIncObj,
+		IYCFSecTSecGrpIncEditObj,
+		IYCFIntTSecGrpIncEditObj
 {
 	/*
 	 *	create() may return a different instance than the
@@ -54,52 +54,52 @@ public interface ICFBamTSecGrpIncEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFSecTSecGrpIncObj create();
+	IYCFSecTSecGrpIncObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFSecTSecGrpIncEditObj update();
+	YCFSecTSecGrpIncEditObj update();
 
 	/**
-	 *	Get the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Set the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFSecTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFSecTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredOwnerTenant( ICFSecTenantObj value );
+	void setRequiredOwnerTenant( IYCFSecTenantObj value );
 
 	/**
-	 *	Get the ICFSecTSecGroupObj instance referenced by the Group key.
+	 *	Get the IYCFSecTSecGroupObj instance referenced by the Group key.
 	 *
-	 *	@return	The ICFSecTSecGroupObj instance referenced by the Group key.
+	 *	@return	The IYCFSecTSecGroupObj instance referenced by the Group key.
 	 */
-	ICFSecTSecGroupObj getRequiredContainerGroup();
+	IYCFSecTSecGroupObj getRequiredContainerGroup();
 
 	/**
-	 *	Set the ICFSecTSecGroupObj instance referenced by the Group key.
+	 *	Set the IYCFSecTSecGroupObj instance referenced by the Group key.
 	 *
-	 *	@param	value	the ICFSecTSecGroupObj instance to be referenced by the Group key.
+	 *	@param	value	the IYCFSecTSecGroupObj instance to be referenced by the Group key.
 	 */
-	void setRequiredContainerGroup( ICFSecTSecGroupObj value );
+	void setRequiredContainerGroup( IYCFSecTSecGroupObj value );
 
 	/**
-	 *	Get the ICFSecTSecGroupObj instance referenced by the SubGroup key.
+	 *	Get the IYCFSecTSecGroupObj instance referenced by the SubGroup key.
 	 *
-	 *	@return	The ICFSecTSecGroupObj instance referenced by the SubGroup key.
+	 *	@return	The IYCFSecTSecGroupObj instance referenced by the SubGroup key.
 	 */
-	ICFSecTSecGroupObj getRequiredParentSubGroup();
+	IYCFSecTSecGroupObj getRequiredParentSubGroup();
 
 	/**
-	 *	Set the ICFSecTSecGroupObj instance referenced by the SubGroup key.
+	 *	Set the IYCFSecTSecGroupObj instance referenced by the SubGroup key.
 	 *
-	 *	@param	value	the ICFSecTSecGroupObj instance to be referenced by the SubGroup key.
+	 *	@param	value	the IYCFSecTSecGroupObj instance to be referenced by the SubGroup key.
 	 */
-	void setRequiredParentSubGroup( ICFSecTSecGroupObj value );
+	void setRequiredParentSubGroup( IYCFSecTSecGroupObj value );
 }

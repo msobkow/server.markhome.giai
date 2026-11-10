@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelBuiltin.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelBuiltinTable database interface for GelBuiltin
+ *	YCFGenKbGelBuiltinTable database interface for GelBuiltin
  */
-public interface ICFGenKbGelBuiltinTable
+public interface IYCFGenKbGelBuiltinTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelBuiltin( CFGenKbAuthorization Authorization,
-		CFGenKbGelBuiltinBuff Buff );
+	void createGelBuiltin( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelBuiltinBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelBuiltin( CFGenKbAuthorization Authorization,
-		CFGenKbGelBuiltinBuff Buff );
+	void updateGelBuiltin( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelBuiltinBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelBuiltin( CFGenKbAuthorization Authorization,
-		CFGenKbGelBuiltinBuff Buff );
+	void deleteGelBuiltin( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelBuiltinBuff Buff );
 	/**
 	 *	Delete the GelBuiltin instance identified by the primary key attributes.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	argGelInstId	The GelBuiltin key attribute of the instance generating the id.
 	 */
-	void deleteGelBuiltinByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelBuiltinByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelBuiltinByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelBuiltinByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelBuiltin instances identified by the key TenantIdx.
 	 *
@@ -111,7 +111,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	argTenantId	The GelBuiltin key attribute of the instance generating the id.
 	 */
-	void deleteGelBuiltinByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelBuiltinByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -121,8 +121,8 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelBuiltinByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelBuiltinByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelBuiltin instances identified by the key GelCacheIdx.
 	 *
@@ -132,7 +132,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	argGelCacheId	The GelBuiltin key attribute of the instance generating the id.
 	 */
-	void deleteGelBuiltinByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelBuiltinByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -143,8 +143,8 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelBuiltinByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelBuiltinByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelBuiltin instances identified by the key ChainIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelBuiltin key attribute of the instance generating the id.
 	 */
-	void deleteGelBuiltinByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelBuiltinByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -168,8 +168,8 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelBuiltinByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelBuiltinByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -182,8 +182,8 @@ public interface ICFGenKbGelBuiltinTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelBuiltinBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelBuiltinBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelBuiltin buffer instance by primary key.
@@ -195,8 +195,8 @@ public interface ICFGenKbGelBuiltinTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelBuiltinBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelBuiltinBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelBuiltin instances.
@@ -205,7 +205,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelBuiltinBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelBuiltinBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelBuiltin buffer instance identified by the unique key PIdx.
@@ -221,7 +221,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelBuiltinBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBuiltinBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -235,7 +235,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelBuiltinBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBuiltinBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -249,7 +249,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelBuiltinBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBuiltinBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -266,7 +266,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelBuiltinBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBuiltinBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -281,10 +281,10 @@ public interface ICFGenKbGelBuiltinTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBuiltinBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelBuiltinBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelBuiltin buffer instance identified by the primary key.
@@ -296,10 +296,10 @@ public interface ICFGenKbGelBuiltinTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBuiltinBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelBuiltinBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelBuiltin buffer instances.
@@ -308,7 +308,7 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@return All the specific GelBuiltin instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelBuiltinBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelBuiltinBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelBuiltin buffer instance identified by the unique key PIdx.
@@ -324,9 +324,9 @@ public interface ICFGenKbGelBuiltinTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBuiltinBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBuiltinBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -340,9 +340,9 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBuiltinBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBuiltinBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -356,9 +356,9 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBuiltinBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBuiltinBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -375,9 +375,9 @@ public interface ICFGenKbGelBuiltinTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelBuiltinBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelBuiltinBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -385,7 +385,7 @@ public interface ICFGenKbGelBuiltinTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

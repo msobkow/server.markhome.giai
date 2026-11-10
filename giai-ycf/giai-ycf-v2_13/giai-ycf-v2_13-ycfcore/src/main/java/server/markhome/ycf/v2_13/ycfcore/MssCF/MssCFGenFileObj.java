@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -30,30 +30,30 @@ import java.security.cert.*;
 import java.text.*;
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGenFileObj
-extends CFGenKbGenFileObj
+public class MssYCFGenFileObj
+extends YCFGenKbGenFileObj
 {
-	public String evaluateProjectDirName( MssCFGenContext genContext, ICFLibAnyObj genDef ) {
+	public String evaluateProjectDirName( MssYCFGenContext genContext, IYCFLibAnyObj genDef ) {
 		return( "overload_me_please" );
 	}
 
-	public MssCFGenFileObj() {
+	public MssYCFGenFileObj() {
 		super();
 	}
 
-	public MssCFGenFileObj(MssCFEngine engine) {
+	public MssYCFGenFileObj(MssYCFEngine engine) {
 		super( engine );
 	}
 
-	public String getBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "MssCFGenFileObj.getBody() ";
-		ICFGenKbGelInstructionObj bodyBin = CFGenKbGenFileObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
+	public String getBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "MssYCFGenFileObj.getBody() ";
+		IYCFGenKbGelInstructionObj bodyBin = YCFGenKbGenFileObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
 		if( bodyBin == null ) {
 			throw new RuntimeException( S_ProcName + "Could not resolve compiled Body GEL executable" );
 		}
@@ -61,52 +61,52 @@ extends CFGenKbGenFileObj
 		return( body );
 	}
 
-	public String getSrcBundle( MssCFGenContext genContext ) {
-		ICFGenKbGelInstructionObj sourceBundleBin = CFGenKbGenFileObj.getSrcBundleBin(genContext.getGenEngine().getGelCompiler(), this);
+	public String getSrcBundle( MssYCFGenContext genContext ) {
+		IYCFGenKbGelInstructionObj sourceBundleBin = YCFGenKbGenFileObj.getSrcBundleBin(genContext.getGenEngine().getGelCompiler(), this);
 		String sourceBundle = sourceBundleBin.expand( genContext );
 		return( sourceBundle );
 	}
 
-	public String getModuleName( MssCFGenContext genContext ) {
-		ICFGenKbGelInstructionObj moduleNameBin = CFGenKbGenFileObj.getModuleNameBin(genContext.getGenEngine().getGelCompiler(), this);
+	public String getModuleName( MssYCFGenContext genContext ) {
+		IYCFGenKbGelInstructionObj moduleNameBin = YCFGenKbGenFileObj.getModuleNameBin(genContext.getGenEngine().getGelCompiler(), this);
 		String moduleName = moduleNameBin.expand( genContext );
 		return( moduleName );
 	}
 
-	public String getBasePackage( MssCFGenContext genContext ) {
-		ICFGenKbGelInstructionObj basePackageBin = CFGenKbGenFileObj.getBasePackageBin(genContext.getGenEngine().getGelCompiler(), this);
+	public String getBasePackage( MssYCFGenContext genContext ) {
+		IYCFGenKbGelInstructionObj basePackageBin = YCFGenKbGenFileObj.getBasePackageBin(genContext.getGenEngine().getGelCompiler(), this);
 		String basePackage = basePackageBin.expand( genContext );
 		return( basePackage );
 	}
 
-	public String getSubPackage( MssCFGenContext genContext ) {
-		ICFGenKbGelInstructionObj subPackageBin = CFGenKbGenFileObj.getSubPackageBin(genContext.getGenEngine().getGelCompiler(), this);
+	public String getSubPackage( MssYCFGenContext genContext ) {
+		IYCFGenKbGelInstructionObj subPackageBin = YCFGenKbGenFileObj.getSubPackageBin(genContext.getGenEngine().getGelCompiler(), this);
 		String subPackage = subPackageBin.expand( genContext );
 		return( subPackage );
 	}
 
-	public String getExpansionClassName( MssCFGenContext genContext ) {
-		ICFGenKbGelInstructionObj expansionClassNameBin = CFGenKbGenFileObj.getExpClassBin(genContext.getGenEngine().getGelCompiler(), this);
+	public String getExpansionClassName( MssYCFGenContext genContext ) {
+		IYCFGenKbGelInstructionObj expansionClassNameBin = YCFGenKbGenFileObj.getExpClassBin(genContext.getGenEngine().getGelCompiler(), this);
 		String expansionClassName = expansionClassNameBin.expand( genContext );
 		return( expansionClassName );
 	}
 
-	public String getExpansionKeyName( MssCFGenContext genContext ) {
-		ICFGenKbGelInstructionObj expansionKeyNameBin = CFGenKbGenFileObj.getExpKeyNameBin(genContext.getGenEngine().getGelCompiler(), this);
+	public String getExpansionKeyName( MssYCFGenContext genContext ) {
+		IYCFGenKbGelInstructionObj expansionKeyNameBin = YCFGenKbGenFileObj.getExpKeyNameBin(genContext.getGenEngine().getGelCompiler(), this);
 		String expansionKeyName = expansionKeyNameBin.expand( genContext );
 		return( expansionKeyName );
 	}
 
-	public String getExpansionFileName( MssCFGenContext genContext ) {
-		ICFGenKbGelInstructionObj expansionFileNameBin = CFGenKbGenFileObj.getExpFileNameBin(genContext.getGenEngine().getGelCompiler(), this);
+	public String getExpansionFileName( MssYCFGenContext genContext ) {
+		IYCFGenKbGelInstructionObj expansionFileNameBin = YCFGenKbGenFileObj.getExpFileNameBin(genContext.getGenEngine().getGelCompiler(), this);
 		String expansionFileName = expansionFileNameBin.expand( genContext );
 		return( expansionFileName );
 	}
 
-	public String expandBody(MssCFGenContext genContext)
+	public String expandBody(MssYCFGenContext genContext)
 	{
 		Boolean needFile = false;
-		final String S_ProcName = "MssCFGenFile.expandBody() ";
+		final String S_ProcName = "MssYCFGenFile.expandBody() ";
 		final String S_Empty = "";
 		final String S_True = "true";
 		final String S_False = "false";
@@ -177,7 +177,7 @@ extends CFGenKbGenFileObj
 
 		String buildString = genContext.getGeneratingBuild();
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if (genDef == null) {
 			throw new RuntimeException(S_ProcName + "genContext.GenDef returned null");
 		}
@@ -255,7 +255,7 @@ extends CFGenKbGenFileObj
 		}
 
 		// Make sure we have a valid compile before opening the file at all
-		ICFGenKbGelInstructionObj bodyBin = CFGenKbGenFileObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
+		IYCFGenKbGelInstructionObj bodyBin = YCFGenKbGenFileObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
 
 		try {
 			genContext.openSourceFile(this,
@@ -271,7 +271,7 @@ extends CFGenKbGenFileObj
 		}
 		catch (Exception e) {
 			System.out.append(S_ProcName + "Could not open " + fileKey + " file for generation: " + e.getMessage() + "\n" );
-			CFLib.beep();
+			YCFLib.beep();
 			return (null);
 		}
 
@@ -306,7 +306,7 @@ extends CFGenKbGenFileObj
 						+ "\" -- Stack trace follows\n" );
 
 			}
-			CFLib.beep();
+			YCFLib.beep();
 	    	e.printStackTrace( /*_Log.getPrintStream()*/ );
 		}
 
@@ -321,7 +321,7 @@ extends CFGenKbGenFileObj
 				System.out.append(S_ProcName + "Error writing to " + fileKey + " file \""
 					+ baseGenDir + dirSep + srcFileName
 					+ "\" -- " + e.getMessage() + "\n" );
-				CFLib.beep();
+				YCFLib.beep();
 			}
 		}
 
@@ -333,7 +333,7 @@ extends CFGenKbGenFileObj
 			System.out.append(S_ProcName + "Error closing " + fileKey + " file \""
 				+ baseGenDir + dirSep + srcFileName
 				+ "\" -- " + e.getMessage() + "\n" );
-			CFLib.beep();
+			YCFLib.beep();
 		}
 
 		return (ret);

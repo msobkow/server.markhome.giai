@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecAppTableObj
+public interface IYCFSecSecAppTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecSecAppTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecSecAppObj newInstance();
+	IYCFSecSecAppObj newInstance();
 
 	/**
 	 *	Instantiate a new SecApp edition of the specified SecApp instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecSecAppEditObj newEditInstance( ICFSecSecAppObj orig );
+	IYCFSecSecAppEditObj newEditInstance( IYCFSecSecAppObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecAppObj realiseSecApp( ICFSecSecAppObj Obj );
+	IYCFSecSecAppObj realiseSecApp( IYCFSecSecAppObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecAppObj createSecApp( ICFSecSecAppObj Obj );
+	IYCFSecSecAppObj createSecApp( IYCFSecSecAppObj Obj );
 
 	/**
 	 *	Read a SecApp-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecSecAppTableObj
 	 *	@return	The SecApp-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecAppObj readSecApp( CFSecSecAppPKey pkey );
+	IYCFSecSecAppObj readSecApp( YCFSecSecAppPKey pkey );
 
 	/**
 	 *	Read a SecApp-derived instance by it's primary key.
@@ -90,128 +90,128 @@ public interface ICFSecSecAppTableObj
 	 *	@return	The SecApp-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecAppObj readSecApp( CFSecSecAppPKey pkey,
+	IYCFSecSecAppObj readSecApp( YCFSecSecAppPKey pkey,
 		boolean forceRead );
 
-	ICFSecSecAppObj readCachedSecApp( CFSecSecAppPKey pkey );
+	IYCFSecSecAppObj readCachedSecApp( YCFSecSecAppPKey pkey );
 
-	public void reallyDeepDisposeSecApp( ICFSecSecAppObj obj );
+	public void reallyDeepDisposeSecApp( IYCFSecSecAppObj obj );
 
-	void deepDisposeSecApp( CFSecSecAppPKey pkey );
+	void deepDisposeSecApp( YCFSecSecAppPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecAppObj lockSecApp( CFSecSecAppPKey pkey );
+	IYCFSecSecAppObj lockSecApp( YCFSecSecAppPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SecApp-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecAppObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecAppObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecAppObj> readAllSecApp();
+	List<IYCFSecSecAppObj> readAllSecApp();
 
 	/**
 	 *	Return a sorted map of all the SecApp-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecAppObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecAppObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecAppObj> readAllSecApp( boolean forceRead );
+	List<IYCFSecSecAppObj> readAllSecApp( boolean forceRead );
 
-	List<ICFSecSecAppObj> readCachedAllSecApp();
+	List<IYCFSecSecAppObj> readCachedAllSecApp();
 
 	/**
 	 *	Return a sorted map of a page of the SecApp-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecAppObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecAppObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecAppObj> pageAllSecApp(Long priorClusterId,
+	List<IYCFSecSecAppObj> pageAllSecApp(Long priorClusterId,
 		Integer priorSecAppId );
 
 	/**
-	 *	Get the CFSecSecAppObj instance for the primary key attributes.
+	 *	Get the YCFSecSecAppObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecApp key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecAppId	The SecApp key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecAppObj cached instance for the primary key, or
+	 *	@return	YCFSecSecAppObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecAppObj readSecAppByIdIdx( long ClusterId,
+	IYCFSecSecAppObj readSecAppByIdIdx( long ClusterId,
 		int SecAppId );
 
 	/**
-	 *	Get the CFSecSecAppObj instance for the primary key attributes.
+	 *	Get the YCFSecSecAppObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecApp key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecAppId	The SecApp key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecAppObj refreshed instance for the primary key, or
+	 *	@return	YCFSecSecAppObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecAppObj readSecAppByIdIdx( long ClusterId,
+	IYCFSecSecAppObj readSecAppByIdIdx( long ClusterId,
 		int SecAppId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSecAppObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecSecAppObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecApp key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecAppObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecSecAppObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecAppObj> readSecAppByClusterIdx( long ClusterId );
+	List<IYCFSecSecAppObj> readSecAppByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFSecSecAppObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecSecAppObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecApp key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecAppObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecSecAppObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecAppObj> readSecAppByClusterIdx( long ClusterId,
+	List<IYCFSecSecAppObj> readSecAppByClusterIdx( long ClusterId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecSecAppObj instance for the unique UJEEMountIdx key.
+	 *	Get the YCFSecSecAppObj instance for the unique UJEEMountIdx key.
 	 *
 	 *	@param	argClusterId	The SecApp key attribute of the instance generating the id.
 	 *
 	 *	@param	argJEEMountName	The SecApp key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecAppObj cached instance for the unique UJEEMountIdx key, or
+	 *	@return	YCFSecSecAppObj cached instance for the unique UJEEMountIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecAppObj readSecAppByUJEEMountIdx(long ClusterId,
+	IYCFSecSecAppObj readSecAppByUJEEMountIdx(long ClusterId,
 		String JEEMountName );
 
 	/**
-	 *	Get the CFSecSecAppObj instance for the unique UJEEMountIdx key.
+	 *	Get the YCFSecSecAppObj instance for the unique UJEEMountIdx key.
 	 *
 	 *	@param	argClusterId	The SecApp key attribute of the instance generating the id.
 	 *
 	 *	@param	argJEEMountName	The SecApp key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecAppObj refreshed instance for the unique UJEEMountIdx key, or
+	 *	@return	YCFSecSecAppObj refreshed instance for the unique UJEEMountIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecAppObj readSecAppByUJEEMountIdx(long ClusterId,
+	IYCFSecSecAppObj readSecAppByUJEEMountIdx(long ClusterId,
 		String JEEMountName,
 		boolean forceRead );
 
-	ICFSecSecAppObj readCachedSecAppByIdIdx( long ClusterId,
+	IYCFSecSecAppObj readCachedSecAppByIdIdx( long ClusterId,
 		int SecAppId );
 
-	List<ICFSecSecAppObj> readCachedSecAppByClusterIdx( long ClusterId );
+	List<IYCFSecSecAppObj> readCachedSecAppByClusterIdx( long ClusterId );
 
-	ICFSecSecAppObj readCachedSecAppByUJEEMountIdx( long ClusterId,
+	IYCFSecSecAppObj readCachedSecAppByUJEEMountIdx( long ClusterId,
 		String JEEMountName );
 
 	void deepDisposeSecAppByIdIdx( long ClusterId,
@@ -231,19 +231,19 @@ public interface ICFSecSecAppTableObj
 	 *	@return	A List of SecApp-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFSecSecAppObj> pageSecAppByClusterIdx( long ClusterId,
+	List<IYCFSecSecAppObj> pageSecAppByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Integer priorSecAppId );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecAppObj updateSecApp( ICFSecSecAppObj Obj );
+	IYCFSecSecAppObj updateSecApp( IYCFSecSecAppObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSecApp( ICFSecSecAppObj Obj );
+	void deleteSecApp( IYCFSecSecAppObj Obj );
 
 	/**
 	 *	Internal use only.

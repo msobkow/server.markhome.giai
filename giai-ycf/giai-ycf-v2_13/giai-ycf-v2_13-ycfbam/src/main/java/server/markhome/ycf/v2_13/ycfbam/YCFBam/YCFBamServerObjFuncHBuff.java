@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a ServerObjFunc history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamServerObjFuncHBuff
-	extends CFBamServerMethodHBuff
+public class YCFBamServerObjFuncHBuff
+	extends YCFBamServerMethodHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -76,14 +76,14 @@ public class CFBamServerObjFuncHBuff
 
 	protected Long optionalRetTenantId;
 	protected Long optionalRetTableId;
-	public CFBamServerObjFuncHBuff() {
+	public YCFBamServerObjFuncHBuff() {
 		super();
 		optionalRetTenantId = null;
 		optionalRetTableId = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamServerObjFuncBuff.CLASS_CODE );
+		return( YCFBamServerObjFuncBuff.CLASS_CODE );
 	}
 
 	public Long getOptionalRetTenantId() {
@@ -94,13 +94,13 @@ public class CFBamServerObjFuncHBuff
 		if( value == null ) {
 			optionalRetTenantId = null;
 		}
-		else if( value < CFBamServerObjFuncBuff.RETTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamServerObjFuncBuff.RETTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRetTenantId",
 				1,
 				"value",
 				value,
-				CFBamServerObjFuncBuff.RETTENANTID_MIN_VALUE );
+				YCFBamServerObjFuncBuff.RETTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalRetTenantId = value;
@@ -115,13 +115,13 @@ public class CFBamServerObjFuncHBuff
 		if( value == null ) {
 			optionalRetTableId = null;
 		}
-		else if( value < CFBamServerObjFuncBuff.RETTABLEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamServerObjFuncBuff.RETTABLEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRetTableId",
 				1,
 				"value",
 				value,
-				CFBamServerObjFuncBuff.RETTABLEID_MIN_VALUE );
+				YCFBamServerObjFuncBuff.RETTABLEID_MIN_VALUE );
 		}
 		else {
 			optionalRetTableId = value;
@@ -132,8 +132,8 @@ public class CFBamServerObjFuncHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamServerObjFuncHBuff ) {
-			CFBamServerObjFuncHBuff rhs = (CFBamServerObjFuncHBuff)obj;
+		else if( obj instanceof YCFBamServerObjFuncHBuff ) {
+			YCFBamServerObjFuncHBuff rhs = (YCFBamServerObjFuncHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -169,8 +169,8 @@ public class CFBamServerObjFuncHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamServerObjFuncBuff ) {
-			CFBamServerObjFuncBuff rhs = (CFBamServerObjFuncBuff)obj;
+		else if( obj instanceof YCFBamServerObjFuncBuff ) {
+			YCFBamServerObjFuncBuff rhs = (YCFBamServerObjFuncBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -206,8 +206,8 @@ public class CFBamServerObjFuncHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamServerObjFuncByRetTblIdxKey ) {
-			CFBamServerObjFuncByRetTblIdxKey rhs = (CFBamServerObjFuncByRetTblIdxKey)obj;
+		else if( obj instanceof YCFBamServerObjFuncByRetTblIdxKey ) {
+			YCFBamServerObjFuncByRetTblIdxKey rhs = (YCFBamServerObjFuncByRetTblIdxKey)obj;
 			if( getOptionalRetTenantId() != null ) {
 				if( rhs.getOptionalRetTenantId() != null ) {
 					if( ! getOptionalRetTenantId().equals( rhs.getOptionalRetTenantId() ) ) {
@@ -254,16 +254,16 @@ public class CFBamServerObjFuncHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamServerObjFuncBuff ) {
-			CFBamServerObjFuncBuff rhs = (CFBamServerObjFuncBuff)obj;
+		else if( obj instanceof YCFBamServerObjFuncBuff ) {
+			YCFBamServerObjFuncBuff rhs = (YCFBamServerObjFuncBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamServerObjFuncByRetTblIdxKey ) {
-			CFBamServerObjFuncByRetTblIdxKey rhs = (CFBamServerObjFuncByRetTblIdxKey)obj;
+		else if( obj instanceof YCFBamServerObjFuncByRetTblIdxKey ) {
+			YCFBamServerObjFuncByRetTblIdxKey rhs = (YCFBamServerObjFuncByRetTblIdxKey)obj;
 
 			if( getOptionalRetTenantId() != null ) {
 				Long lhsRetTenantId = getOptionalRetTenantId();
@@ -302,8 +302,8 @@ public class CFBamServerObjFuncHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamServerObjFuncHBuff ) {
-			CFBamServerObjFuncHBuff rhs = (CFBamServerObjFuncHBuff)obj;
+		else if( obj instanceof YCFBamServerObjFuncHBuff ) {
+			YCFBamServerObjFuncHBuff rhs = (YCFBamServerObjFuncHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -602,39 +602,39 @@ public class CFBamServerObjFuncHBuff
 		}
 	}
 
-	public void set( CFBamScopeBuff src ) {
-		if( src instanceof CFBamServerObjFuncBuff ) {
-			setServerObjFuncBuff( (CFBamServerObjFuncBuff)src );
+	public void set( YCFBamScopeBuff src ) {
+		if( src instanceof YCFBamServerObjFuncBuff ) {
+			setServerObjFuncBuff( (YCFBamServerObjFuncBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamServerObjFuncBuff" );
+				"YCFBamServerObjFuncBuff" );
 		}
 	}
 
-	public void setServerObjFuncBuff( CFBamServerObjFuncBuff src ) {
+	public void setServerObjFuncBuff( YCFBamServerObjFuncBuff src ) {
 		super.setServerMethodBuff( src );
 		setOptionalRetTenantId( src.getOptionalRetTenantId() );
 		setOptionalRetTableId( src.getOptionalRetTableId() );
 	}
 
-	public void set( CFBamScopeHBuff src ) {
-		if( src instanceof CFBamServerObjFuncHBuff ) {
-			setServerObjFuncBuff( (CFBamServerObjFuncHBuff)src );
+	public void set( YCFBamScopeHBuff src ) {
+		if( src instanceof YCFBamServerObjFuncHBuff ) {
+			setServerObjFuncBuff( (YCFBamServerObjFuncHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamServerObjFuncHBuff" );
+				"YCFBamServerObjFuncHBuff" );
 		}
 	}
 
-	public void setServerObjFuncBuff( CFBamServerObjFuncHBuff src ) {
+	public void setServerObjFuncBuff( YCFBamServerObjFuncHBuff src ) {
 		super.setServerMethodBuff( src );
 		setOptionalRetTenantId( src.getOptionalRetTenantId() );
 		setOptionalRetTableId( src.getOptionalRetTableId() );

@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,51 +26,51 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamServiceTypeTableObj
-	implements ICFBamServiceTypeTableObj
+public class YCFBamServiceTypeTableObj
+	implements IYCFBamServiceTypeTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFSecServiceTypePKey, ICFSecServiceTypeObj> members;
-	private Map<CFSecServiceTypePKey, ICFSecServiceTypeObj> allServiceType;
-	private Map< CFSecServiceTypeByUDescrIdxKey,
-		ICFSecServiceTypeObj > indexByUDescrIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFSecServiceTypePKey, IYCFSecServiceTypeObj> members;
+	private Map<YCFSecServiceTypePKey, IYCFSecServiceTypeObj> allServiceType;
+	private Map< YCFSecServiceTypeByUDescrIdxKey,
+		IYCFSecServiceTypeObj > indexByUDescrIdx;
 	public static String TABLE_NAME = "ServiceType";
 	public static String TABLE_DBNAME = "svctype";
 
-	public CFBamServiceTypeTableObj() {
+	public YCFBamServiceTypeTableObj() {
 		schema = null;
-		members = new HashMap<CFSecServiceTypePKey, ICFSecServiceTypeObj>();
+		members = new HashMap<YCFSecServiceTypePKey, IYCFSecServiceTypeObj>();
 		allServiceType = null;
 		indexByUDescrIdx = null;
 	}
 
-	public CFBamServiceTypeTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFSecServiceTypePKey, ICFSecServiceTypeObj>();
+	public YCFBamServiceTypeTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFSecServiceTypePKey, IYCFSecServiceTypeObj>();
 		allServiceType = null;
 		indexByUDescrIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -89,9 +89,9 @@ public class CFBamServiceTypeTableObj
 	public void minimizeMemory() {
 		allServiceType = null;
 		indexByUDescrIdx = null;
-		List<ICFSecServiceTypeObj> toForget = new LinkedList<ICFSecServiceTypeObj>();
-		ICFSecServiceTypeObj cur = null;
-		Iterator<ICFSecServiceTypeObj> iter = members.values().iterator();
+		List<IYCFSecServiceTypeObj> toForget = new LinkedList<IYCFSecServiceTypeObj>();
+		IYCFSecServiceTypeObj cur = null;
+		Iterator<IYCFSecServiceTypeObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -109,10 +109,10 @@ public class CFBamServiceTypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamServiceTypeObj.
+	 *	YCFBamServiceTypeObj.
 	 */
-	public ICFSecServiceTypeObj newInstance() {
-		ICFSecServiceTypeObj inst = new CFBamServiceTypeObj( schema );
+	public IYCFSecServiceTypeObj newInstance() {
+		IYCFSecServiceTypeObj inst = new YCFBamServiceTypeObj( schema );
 		return( inst );
 	}
 
@@ -123,19 +123,19 @@ public class CFBamServiceTypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamServiceTypeObj.
+	 *	YCFBamServiceTypeObj.
 	 */
-	public ICFSecServiceTypeEditObj newEditInstance( ICFSecServiceTypeObj orig ) {
-		ICFSecServiceTypeEditObj edit = new CFBamServiceTypeEditObj( orig );
+	public IYCFSecServiceTypeEditObj newEditInstance( IYCFSecServiceTypeObj orig ) {
+		IYCFSecServiceTypeEditObj edit = new YCFBamServiceTypeEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecServiceTypeObj realiseServiceType( ICFSecServiceTypeObj Obj ) {
-		ICFSecServiceTypeObj obj = Obj;
-		CFSecServiceTypePKey pkey = obj.getPKey();
-		ICFSecServiceTypeObj keepObj = null;
+	public IYCFSecServiceTypeObj realiseServiceType( IYCFSecServiceTypeObj Obj ) {
+		IYCFSecServiceTypeObj obj = Obj;
+		YCFSecServiceTypePKey pkey = obj.getPKey();
+		IYCFSecServiceTypeObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecServiceTypeObj existingObj = members.get( pkey );
+			IYCFSecServiceTypeObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -146,8 +146,8 @@ public class CFBamServiceTypeTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByUDescrIdx != null ) {
-				CFSecServiceTypeByUDescrIdxKey keyUDescrIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
+				YCFSecServiceTypeByUDescrIdxKey keyUDescrIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
 				keyUDescrIdx.setRequiredDescription( keepObj.getRequiredDescription() );
 				indexByUDescrIdx.remove( keyUDescrIdx );
 			}
@@ -156,8 +156,8 @@ public class CFBamServiceTypeTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByUDescrIdx != null ) {
-				CFSecServiceTypeByUDescrIdxKey keyUDescrIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
+				YCFSecServiceTypeByUDescrIdxKey keyUDescrIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
 				keyUDescrIdx.setRequiredDescription( keepObj.getRequiredDescription() );
 				indexByUDescrIdx.put( keyUDescrIdx, keepObj );
 			}
@@ -177,8 +177,8 @@ public class CFBamServiceTypeTableObj
 			}
 
 			if( indexByUDescrIdx != null ) {
-				CFSecServiceTypeByUDescrIdxKey keyUDescrIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
+				YCFSecServiceTypeByUDescrIdxKey keyUDescrIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
 				keyUDescrIdx.setRequiredDescription( keepObj.getRequiredDescription() );
 				indexByUDescrIdx.put( keyUDescrIdx, keepObj );
 			}
@@ -187,10 +187,10 @@ public class CFBamServiceTypeTableObj
 		return( keepObj );
 	}
 
-	public ICFSecServiceTypeObj createServiceType( ICFSecServiceTypeObj Obj ) {
-		ICFSecServiceTypeObj obj = Obj;
-		CFSecServiceTypeBuff buff = obj.getServiceTypeBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableServiceType().createServiceType(
+	public IYCFSecServiceTypeObj createServiceType( IYCFSecServiceTypeObj Obj ) {
+		IYCFSecServiceTypeObj obj = Obj;
+		YCFSecServiceTypeBuff buff = obj.getServiceTypeBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableServiceType().createServiceType(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -199,50 +199,50 @@ public class CFBamServiceTypeTableObj
 		return( obj );
 	}
 
-	public ICFSecServiceTypeObj readServiceType( CFSecServiceTypePKey pkey ) {
+	public IYCFSecServiceTypeObj readServiceType( YCFSecServiceTypePKey pkey ) {
 		return( readServiceType( pkey, false ) );
 	}
 
-	public ICFSecServiceTypeObj readServiceType( CFSecServiceTypePKey pkey, boolean forceRead ) {
-		ICFSecServiceTypeObj obj = null;
+	public IYCFSecServiceTypeObj readServiceType( YCFSecServiceTypePKey pkey, boolean forceRead ) {
+		IYCFSecServiceTypeObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecServiceTypeBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableServiceType().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecServiceTypeBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableServiceType().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredServiceTypeId() );
 			if( readBuff != null ) {
 				obj = schema.getServiceTypeTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecServiceTypeObj)obj.realise();
+				obj = (IYCFSecServiceTypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecServiceTypeObj readCachedServiceType( CFSecServiceTypePKey pkey ) {
-		ICFSecServiceTypeObj obj = null;
+	public IYCFSecServiceTypeObj readCachedServiceType( YCFSecServiceTypePKey pkey ) {
+		IYCFSecServiceTypeObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeServiceType( ICFSecServiceTypeObj obj )
+	public void reallyDeepDisposeServiceType( IYCFSecServiceTypeObj obj )
 	{
-		final String S_ProcName = "CFBamServiceTypeTableObj.reallyDeepDisposeServiceType() ";
+		final String S_ProcName = "YCFBamServiceTypeTableObj.reallyDeepDisposeServiceType() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecServiceTypePKey pkey = obj.getPKey();
-		ICFSecServiceTypeObj existing = readCachedServiceType( pkey );
+		YCFSecServiceTypePKey pkey = obj.getPKey();
+		IYCFSecServiceTypeObj existing = readCachedServiceType( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecServiceTypeByUDescrIdxKey keyUDescrIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
+		YCFSecServiceTypeByUDescrIdxKey keyUDescrIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
 		keyUDescrIdx.setRequiredDescription( existing.getRequiredDescription() );
 
 
@@ -254,57 +254,57 @@ public class CFBamServiceTypeTableObj
 
 
 	}
-	public void deepDisposeServiceType( CFSecServiceTypePKey pkey ) {
-		ICFSecServiceTypeObj obj = readCachedServiceType( pkey );
+	public void deepDisposeServiceType( YCFSecServiceTypePKey pkey ) {
+		IYCFSecServiceTypeObj obj = readCachedServiceType( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecServiceTypeObj lockServiceType( CFSecServiceTypePKey pkey ) {
-		ICFSecServiceTypeObj locked = null;
-		CFSecServiceTypeBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableServiceType().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecServiceTypeObj lockServiceType( YCFSecServiceTypePKey pkey ) {
+		IYCFSecServiceTypeObj locked = null;
+		YCFSecServiceTypeBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableServiceType().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getServiceTypeTableObj().newInstance();
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecServiceTypeObj)locked.realise();
+			locked = (IYCFSecServiceTypeObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockServiceType", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockServiceType", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecServiceTypeObj> readAllServiceType() {
+	public List<IYCFSecServiceTypeObj> readAllServiceType() {
 		return( readAllServiceType( false ) );
 	}
 
-	public List<ICFSecServiceTypeObj> readAllServiceType( boolean forceRead ) {
+	public List<IYCFSecServiceTypeObj> readAllServiceType( boolean forceRead ) {
 		final String S_ProcName = "readAllServiceType";
 		if( ( allServiceType == null ) || forceRead ) {
-			Map<CFSecServiceTypePKey, ICFSecServiceTypeObj> map = new HashMap<CFSecServiceTypePKey,ICFSecServiceTypeObj>();
+			Map<YCFSecServiceTypePKey, IYCFSecServiceTypeObj> map = new HashMap<YCFSecServiceTypePKey,IYCFSecServiceTypeObj>();
 			allServiceType = map;
-			CFSecServiceTypeBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableServiceType().readAllDerived( schema.getAuthorization() );
-			CFSecServiceTypeBuff buff;
-			ICFSecServiceTypeObj obj;
+			YCFSecServiceTypeBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableServiceType().readAllDerived( schema.getAuthorization() );
+			YCFSecServiceTypeBuff buff;
+			IYCFSecServiceTypeObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey() );
 				obj.setBuff( buff );
-				ICFSecServiceTypeObj realised = (ICFSecServiceTypeObj)obj.realise();
+				IYCFSecServiceTypeObj realised = (IYCFSecServiceTypeObj)obj.realise();
 			}
 		}
 		int len = allServiceType.size();
-		ICFSecServiceTypeObj arr[] = new ICFSecServiceTypeObj[len];
-		Iterator<ICFSecServiceTypeObj> valIter = allServiceType.values().iterator();
+		IYCFSecServiceTypeObj arr[] = new IYCFSecServiceTypeObj[len];
+		Iterator<IYCFSecServiceTypeObj> valIter = allServiceType.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -312,20 +312,20 @@ public class CFBamServiceTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecServiceTypeObj> arrayList = new ArrayList<ICFSecServiceTypeObj>(len);
+		ArrayList<IYCFSecServiceTypeObj> arrayList = new ArrayList<IYCFSecServiceTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecServiceTypeObj> cmp = new Comparator<ICFSecServiceTypeObj>() {
-			public int compare( ICFSecServiceTypeObj lhs, ICFSecServiceTypeObj rhs ) {
+		Comparator<IYCFSecServiceTypeObj> cmp = new Comparator<IYCFSecServiceTypeObj>() {
+			public int compare( IYCFSecServiceTypeObj lhs, IYCFSecServiceTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -338,31 +338,31 @@ public class CFBamServiceTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServiceTypePKey lhsPKey = lhs.getPKey();
-					CFSecServiceTypePKey rhsPKey = rhs.getPKey();
+					YCFSecServiceTypePKey lhsPKey = lhs.getPKey();
+					YCFSecServiceTypePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecServiceTypeObj> sortedList = arrayList;
+		List<IYCFSecServiceTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecServiceTypeObj> readCachedAllServiceType() {
+	public List<IYCFSecServiceTypeObj> readCachedAllServiceType() {
 		final String S_ProcName = "readCachedAllServiceType";
-		ArrayList<ICFSecServiceTypeObj> arrayList = new ArrayList<ICFSecServiceTypeObj>();
+		ArrayList<IYCFSecServiceTypeObj> arrayList = new ArrayList<IYCFSecServiceTypeObj>();
 		if( allServiceType != null ) {
 			int len = allServiceType.size();
-			ICFSecServiceTypeObj arr[] = new ICFSecServiceTypeObj[len];
-			Iterator<ICFSecServiceTypeObj> valIter = allServiceType.values().iterator();
+			IYCFSecServiceTypeObj arr[] = new IYCFSecServiceTypeObj[len];
+			Iterator<IYCFSecServiceTypeObj> valIter = allServiceType.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -370,7 +370,7 @@ public class CFBamServiceTypeTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -381,8 +381,8 @@ public class CFBamServiceTypeTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecServiceTypeObj> cmp = new Comparator<ICFSecServiceTypeObj>() {
-			public int compare( ICFSecServiceTypeObj lhs, ICFSecServiceTypeObj rhs ) {
+		Comparator<IYCFSecServiceTypeObj> cmp = new Comparator<IYCFSecServiceTypeObj>() {
+			public int compare( IYCFSecServiceTypeObj lhs, IYCFSecServiceTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -395,8 +395,8 @@ public class CFBamServiceTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServiceTypePKey lhsPKey = lhs.getPKey();
-					CFSecServiceTypePKey rhsPKey = rhs.getPKey();
+					YCFSecServiceTypePKey lhsPKey = lhs.getPKey();
+					YCFSecServiceTypePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -406,71 +406,71 @@ public class CFBamServiceTypeTableObj
 		return( arrayList );
 	}
 
-	public ICFSecServiceTypeObj readServiceTypeByIdIdx( int ServiceTypeId )
+	public IYCFSecServiceTypeObj readServiceTypeByIdIdx( int ServiceTypeId )
 	{
 		return( readServiceTypeByIdIdx( ServiceTypeId,
 			false ) );
 	}
 
-	public ICFSecServiceTypeObj readServiceTypeByIdIdx( int ServiceTypeId, boolean forceRead )
+	public IYCFSecServiceTypeObj readServiceTypeByIdIdx( int ServiceTypeId, boolean forceRead )
 	{
-		CFSecServiceTypePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey();
+		YCFSecServiceTypePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey();
 		pkey.setRequiredServiceTypeId( ServiceTypeId );
-		ICFSecServiceTypeObj obj = readServiceType( pkey, forceRead );
+		IYCFSecServiceTypeObj obj = readServiceType( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFSecServiceTypeObj readServiceTypeByUDescrIdx( String Description )
+	public IYCFSecServiceTypeObj readServiceTypeByUDescrIdx( String Description )
 	{
 		return( readServiceTypeByUDescrIdx( Description,
 			false ) );
 	}
 
-	public ICFSecServiceTypeObj readServiceTypeByUDescrIdx( String Description, boolean forceRead )
+	public IYCFSecServiceTypeObj readServiceTypeByUDescrIdx( String Description, boolean forceRead )
 	{
 		if( indexByUDescrIdx == null ) {
-			indexByUDescrIdx = new HashMap< CFSecServiceTypeByUDescrIdxKey,
-				ICFSecServiceTypeObj >();
+			indexByUDescrIdx = new HashMap< YCFSecServiceTypeByUDescrIdxKey,
+				IYCFSecServiceTypeObj >();
 		}
-		CFSecServiceTypeByUDescrIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
+		YCFSecServiceTypeByUDescrIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
 		key.setRequiredDescription( Description );
-		ICFSecServiceTypeObj obj = null;
+		IYCFSecServiceTypeObj obj = null;
 		if( ( ! forceRead ) && indexByUDescrIdx.containsKey( key ) ) {
 			obj = indexByUDescrIdx.get( key );
 		}
 		else {
-			CFSecServiceTypeBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableServiceType().readDerivedByUDescrIdx( schema.getAuthorization(),
+			YCFSecServiceTypeBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableServiceType().readDerivedByUDescrIdx( schema.getAuthorization(),
 				Description );
 			if( buff != null ) {
 				obj = schema.getServiceTypeTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecServiceTypeObj)obj.realise();
+				obj = (IYCFSecServiceTypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecServiceTypeObj readCachedServiceTypeByIdIdx( int ServiceTypeId )
+	public IYCFSecServiceTypeObj readCachedServiceTypeByIdIdx( int ServiceTypeId )
 	{
-		ICFSecServiceTypeObj obj = null;
-		CFSecServiceTypePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey();
+		IYCFSecServiceTypeObj obj = null;
+		YCFSecServiceTypePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey();
 		pkey.setRequiredServiceTypeId( ServiceTypeId );
 		obj = readCachedServiceType( pkey );
 		return( obj );
 	}
 
-	public ICFSecServiceTypeObj readCachedServiceTypeByUDescrIdx( String Description )
+	public IYCFSecServiceTypeObj readCachedServiceTypeByUDescrIdx( String Description )
 	{
-		ICFSecServiceTypeObj obj = null;
-		CFSecServiceTypeByUDescrIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
+		IYCFSecServiceTypeObj obj = null;
+		YCFSecServiceTypeByUDescrIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
 		key.setRequiredDescription( Description );
 		if( indexByUDescrIdx != null ) {
 			if( indexByUDescrIdx.containsKey( key ) ) {
 				obj = indexByUDescrIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecServiceTypeObj> valIter = members.values().iterator();
+				Iterator<IYCFSecServiceTypeObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -482,7 +482,7 @@ public class CFBamServiceTypeTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecServiceTypeObj> valIter = members.values().iterator();
+			Iterator<IYCFSecServiceTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -497,7 +497,7 @@ public class CFBamServiceTypeTableObj
 
 	public void deepDisposeServiceTypeByIdIdx( int ServiceTypeId )
 	{
-		ICFSecServiceTypeObj obj = readCachedServiceTypeByIdIdx( ServiceTypeId );
+		IYCFSecServiceTypeObj obj = readCachedServiceTypeByIdIdx( ServiceTypeId );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -505,38 +505,38 @@ public class CFBamServiceTypeTableObj
 
 	public void deepDisposeServiceTypeByUDescrIdx( String Description )
 	{
-		ICFSecServiceTypeObj obj = readCachedServiceTypeByUDescrIdx( Description );
+		IYCFSecServiceTypeObj obj = readCachedServiceTypeByUDescrIdx( Description );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecServiceTypeObj updateServiceType( ICFSecServiceTypeObj Obj ) {
-		ICFSecServiceTypeObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableServiceType().updateServiceType( schema.getAuthorization(),
+	public IYCFSecServiceTypeObj updateServiceType( IYCFSecServiceTypeObj Obj ) {
+		IYCFSecServiceTypeObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableServiceType().updateServiceType( schema.getAuthorization(),
 			Obj.getServiceTypeBuff() );
-		obj = (ICFSecServiceTypeObj)Obj.realise();
+		obj = (IYCFSecServiceTypeObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteServiceType( ICFSecServiceTypeObj Obj ) {
-		ICFSecServiceTypeObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableServiceType().deleteServiceType( schema.getAuthorization(),
+	public void deleteServiceType( IYCFSecServiceTypeObj Obj ) {
+		IYCFSecServiceTypeObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableServiceType().deleteServiceType( schema.getAuthorization(),
 			obj.getServiceTypeBuff() );
 		Obj.forget();
 	}
 
 	public void deleteServiceTypeByIdIdx( int ServiceTypeId )
 	{
-		CFSecServiceTypePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey();
+		YCFSecServiceTypePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newPKey();
 		pkey.setRequiredServiceTypeId( ServiceTypeId );
-		ICFSecServiceTypeObj obj = readServiceType( pkey );
+		IYCFSecServiceTypeObj obj = readServiceType( pkey );
 		if( obj != null ) {
-			ICFSecServiceTypeEditObj editObj = (ICFSecServiceTypeEditObj)obj.getEdit();
+			IYCFSecServiceTypeEditObj editObj = (IYCFSecServiceTypeEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecServiceTypeEditObj)obj.beginEdit();
+				editObj = (IYCFSecServiceTypeEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -561,20 +561,20 @@ public class CFBamServiceTypeTableObj
 	public void deleteServiceTypeByUDescrIdx( String Description )
 	{
 		if( indexByUDescrIdx == null ) {
-			indexByUDescrIdx = new HashMap< CFSecServiceTypeByUDescrIdxKey,
-				ICFSecServiceTypeObj >();
+			indexByUDescrIdx = new HashMap< YCFSecServiceTypeByUDescrIdxKey,
+				IYCFSecServiceTypeObj >();
 		}
-		CFSecServiceTypeByUDescrIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
+		YCFSecServiceTypeByUDescrIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryServiceType().newUDescrIdxKey();
 		key.setRequiredDescription( Description );
-		ICFSecServiceTypeObj obj = null;
+		IYCFSecServiceTypeObj obj = null;
 		if( indexByUDescrIdx.containsKey( key ) ) {
 			obj = indexByUDescrIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableServiceType().deleteServiceTypeByUDescrIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableServiceType().deleteServiceTypeByUDescrIdx( schema.getAuthorization(),
 				Description );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableServiceType().deleteServiceTypeByUDescrIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableServiceType().deleteServiceTypeByUDescrIdx( schema.getAuthorization(),
 				Description );
 		}
 		deepDisposeServiceTypeByUDescrIdx( Description );

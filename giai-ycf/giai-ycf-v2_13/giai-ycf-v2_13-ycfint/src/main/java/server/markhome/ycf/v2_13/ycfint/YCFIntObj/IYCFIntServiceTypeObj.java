@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFInt ServiceType.
+// Description: Java 11 Object interface for YCFInt ServiceType.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,29 +26,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntServiceTypeObj
-	extends ICFSecServiceTypeObj
+public interface IYCFIntServiceTypeObj
+	extends IYCFSecServiceTypeObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -60,9 +60,9 @@ public interface ICFIntServiceTypeObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -73,9 +73,9 @@ public interface ICFIntServiceTypeObj
 	/**
 	 *	Realise this instance of a ServiceType.
 	 *
-	 *	@return	CFSecServiceTypeObj instance which should be subsequently referenced.
+	 *	@return	YCFSecServiceTypeObj instance which should be subsequently referenced.
 	 */
-	ICFSecServiceTypeObj realise();
+	IYCFSecServiceTypeObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -87,83 +87,83 @@ public interface ICFIntServiceTypeObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecServiceTypeObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecServiceTypeObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecServiceTypeObj read();
+	IYCFSecServiceTypeObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecServiceTypeObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecServiceTypeObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecServiceTypeObj read( boolean forceRead );
+	IYCFSecServiceTypeObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this ServiceType instance.
 	 *
-	 *	@return	The newly locked ICFSecServiceTypeEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecServiceTypeEditObj edition of this instance.
 	 */
-	ICFSecServiceTypeEditObj beginEdit();
+	IYCFSecServiceTypeEditObj beginEdit();
 
 	/**
 	 *	End this edition of this ServiceType instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this ServiceType instance.
 	 *
-	 *	@return	The ICFSecServiceTypeEditObj edition of this instance.
+	 *	@return	The IYCFSecServiceTypeEditObj edition of this instance.
 	 */
-	ICFSecServiceTypeEditObj getEdit();
+	IYCFSecServiceTypeEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this ServiceType instance as a ICFSecServiceTypeEditObj.
+	 *	Get the current edition of this ServiceType instance as a IYCFSecServiceTypeEditObj.
 	 *
-	 *	@return	The ICFSecServiceTypeEditObj edition of this instance.
+	 *	@return	The IYCFSecServiceTypeEditObj edition of this instance.
 	 */
-	ICFSecServiceTypeEditObj getEditAsServiceType();
+	IYCFSecServiceTypeEditObj getEditAsServiceType();
 
 	/**
-	 *	Get the ICFSecServiceTypeTableObj table cache which manages this instance.
+	 *	Get the IYCFSecServiceTypeTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecServiceTypeTableObj table cache which manages this instance.
+	 *	@return	IYCFSecServiceTypeTableObj table cache which manages this instance.
 	 */
-	ICFSecServiceTypeTableObj getServiceTypeTable();
+	IYCFSecServiceTypeTableObj getServiceTypeTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecServiceTypeBuff instance which currently backs this instance.
+	 *	Get the YCFSecServiceTypeBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecServiceTypeBuff instance which currently backs this object.
+	 *	@return	YCFSecServiceTypeBuff instance which currently backs this object.
 	 */
-	CFSecServiceTypeBuff getBuff();
+	YCFSecServiceTypeBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecServiceTypeBuff value );
+	void setBuff( YCFSecServiceTypeBuff value );
 
 	/**
-	 *	Get the CFSecServiceTypeBuff instance which currently backs this instance.
+	 *	Get the YCFSecServiceTypeBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecServiceTypeBuff instance which currently backs this object.
+	 *	@return	YCFSecServiceTypeBuff instance which currently backs this object.
 	 */
-	CFSecServiceTypeBuff getServiceTypeBuff();
+	YCFSecServiceTypeBuff getServiceTypeBuff();
 
 	/**
 	 *	Is this a new instance?
@@ -197,18 +197,18 @@ public interface ICFIntServiceTypeObj
 	String getRequiredDescription();
 
 	/**
-	 *	Get the array of optional ICFSecServiceObj array of instances referenced by the Deployed key.
+	 *	Get the array of optional IYCFSecServiceObj array of instances referenced by the Deployed key.
 	 *
-	 *	@return	The optional ICFSecServiceObj[] array of instances referenced by the Deployed key.
+	 *	@return	The optional IYCFSecServiceObj[] array of instances referenced by the Deployed key.
 	 */
-	List<ICFSecServiceObj> getOptionalChildrenDeployed();
+	List<IYCFSecServiceObj> getOptionalChildrenDeployed();
 
 	/**
-	 *	Get the array of optional ICFSecServiceObj array of instances referenced by the Deployed key.
+	 *	Get the array of optional IYCFSecServiceObj array of instances referenced by the Deployed key.
 	 *
-	 *	@return	The optional ICFSecServiceObj[] array of instances referenced by the Deployed key.
+	 *	@return	The optional IYCFSecServiceObj[] array of instances referenced by the Deployed key.
 	 */
-	List<ICFSecServiceObj> getOptionalChildrenDeployed( boolean forceRead );
+	List<IYCFSecServiceObj> getOptionalChildrenDeployed( boolean forceRead );
 
 	/**
 	 *	Internal use only.

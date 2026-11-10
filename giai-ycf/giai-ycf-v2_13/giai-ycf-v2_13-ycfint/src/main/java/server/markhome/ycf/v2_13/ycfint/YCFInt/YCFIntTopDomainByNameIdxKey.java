@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a TopDomain by NameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,21 +36,21 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntTopDomainByNameIdxKey
+public class YCFIntTopDomainByNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected long requiredTldId;
 	protected String requiredName;
-	public CFIntTopDomainByNameIdxKey() {
-		requiredTenantId = CFIntTopDomainBuff.TENANTID_INIT_VALUE;
-		requiredTldId = CFIntTopDomainBuff.TLDID_INIT_VALUE;
-		requiredName = new String( CFIntTopDomainBuff.NAME_INIT_VALUE );
+	public YCFIntTopDomainByNameIdxKey() {
+		requiredTenantId = YCFIntTopDomainBuff.TENANTID_INIT_VALUE;
+		requiredTldId = YCFIntTopDomainBuff.TLDID_INIT_VALUE;
+		requiredName = new String( YCFIntTopDomainBuff.NAME_INIT_VALUE );
 	}
 
 	public long getRequiredTenantId() {
@@ -58,13 +58,13 @@ public class CFIntTopDomainByNameIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntTopDomainBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopDomainBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntTopDomainBuff.TENANTID_MIN_VALUE );
+				YCFIntTopDomainBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -74,13 +74,13 @@ public class CFIntTopDomainByNameIdxKey
 	}
 
 	public void setRequiredTldId( long value ) {
-		if( value < CFIntTopDomainBuff.TLDID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopDomainBuff.TLDID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTldId",
 				1,
 				"value",
 				value,
-				CFIntTopDomainBuff.TLDID_MIN_VALUE );
+				YCFIntTopDomainBuff.TLDID_MIN_VALUE );
 		}
 		requiredTldId = value;
 	}
@@ -91,13 +91,13 @@ public class CFIntTopDomainByNameIdxKey
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -111,8 +111,8 @@ public class CFIntTopDomainByNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntTopDomainByNameIdxKey ) {
-			CFIntTopDomainByNameIdxKey rhs = (CFIntTopDomainByNameIdxKey)obj;
+		else if( obj instanceof YCFIntTopDomainByNameIdxKey ) {
+			YCFIntTopDomainByNameIdxKey rhs = (YCFIntTopDomainByNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -124,8 +124,8 @@ public class CFIntTopDomainByNameIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopDomainBuff ) {
-			CFIntTopDomainBuff rhs = (CFIntTopDomainBuff)obj;
+		else if( obj instanceof YCFIntTopDomainBuff ) {
+			YCFIntTopDomainBuff rhs = (YCFIntTopDomainBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -156,8 +156,8 @@ public class CFIntTopDomainByNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFIntTopDomainByNameIdxKey ) {
-			CFIntTopDomainByNameIdxKey rhs = (CFIntTopDomainByNameIdxKey)obj;
+		else if( obj instanceof YCFIntTopDomainByNameIdxKey ) {
+			YCFIntTopDomainByNameIdxKey rhs = (YCFIntTopDomainByNameIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -178,8 +178,8 @@ public class CFIntTopDomainByNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTopDomainBuff ) {
-			CFIntTopDomainBuff rhs = (CFIntTopDomainBuff)obj;
+		else if( obj instanceof YCFIntTopDomainBuff ) {
+			YCFIntTopDomainBuff rhs = (YCFIntTopDomainBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -201,7 +201,7 @@ public class CFIntTopDomainByNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -210,10 +210,10 @@ public class CFIntTopDomainByNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFIntTopDomainByNameIdx"
+		String ret = "<YCFIntTopDomainByNameIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredTldId=" + "\"" + Long.toString( getRequiredTldId() ) + "\""
-			+ " RequiredName=" + "\"" + CFIntSchema.xmlEncodeString( getRequiredName() ) + "\""
+			+ " RequiredName=" + "\"" + YCFIntSchema.xmlEncodeString( getRequiredName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

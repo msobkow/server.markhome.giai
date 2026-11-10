@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for EnumType.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamEnumTypeTable database interface for EnumType
+ *	YCFBamEnumTypeTable database interface for EnumType
  */
-public interface ICFBamEnumTypeTable
+public interface IYCFBamEnumTypeTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createEnumType( CFSecAuthorization Authorization,
-		CFBamEnumTypeBuff Buff );
+	void createEnumType( YCFSecAuthorization Authorization,
+		YCFBamEnumTypeBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateEnumType( CFSecAuthorization Authorization,
-		CFBamEnumTypeBuff Buff );
+	void updateEnumType( YCFSecAuthorization Authorization,
+		YCFBamEnumTypeBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteEnumType( CFSecAuthorization Authorization,
-		CFBamEnumTypeBuff Buff );
+	void deleteEnumType( YCFSecAuthorization Authorization,
+		YCFBamEnumTypeBuff Buff );
 	/**
 	 *	Delete the EnumType instances identified by the key SchemaIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argSchemaDefId	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeBySchemaIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId );
 
@@ -121,8 +121,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamEnumTypeBySchemaIdxKey argKey );
+	void deleteEnumTypeBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamEnumTypeBySchemaIdxKey argKey );
 	/**
 	 *	Delete the EnumType instance identified by the primary key attributes.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argId	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByIdIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -143,8 +143,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteEnumTypeByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteEnumTypeByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key UNameIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argName	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByUNameIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -168,8 +168,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteEnumTypeByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key ValTentIdx.
 	 *
@@ -177,7 +177,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argTenantId	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByValTentIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -187,8 +187,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteEnumTypeByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key ScopeIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argScopeId	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByScopeIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -209,8 +209,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteEnumTypeByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key DefSchemaIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argDefSchemaId	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -231,8 +231,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteEnumTypeByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key PrevIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argPrevId	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByPrevIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -253,8 +253,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteEnumTypeByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key NextIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argNextId	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByNextIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -275,8 +275,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteEnumTypeByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key ContPrevIdx.
 	 *
@@ -288,7 +288,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argPrevId	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -300,8 +300,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteEnumTypeByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key ContNextIdx.
 	 *
@@ -313,7 +313,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argNextId	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByContNextIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -325,8 +325,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteEnumTypeByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key CodeVisIdx.
 	 *
@@ -334,8 +334,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argCodeVis	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteEnumTypeByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the EnumType instances identified by the key CodeVisIdx.
@@ -344,8 +344,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteEnumTypeByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the EnumType instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -357,10 +357,10 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argCodeVis	The EnumType key attribute of the instance generating the id.
 	 */
-	void deleteEnumTypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteEnumTypeByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the EnumType instances identified by the key ScopeCodeVisIdx.
@@ -369,8 +369,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteEnumTypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteEnumTypeByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -383,8 +383,8 @@ public interface ICFBamEnumTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamEnumTypeBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamEnumTypeBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived EnumType buffer instance by primary key.
@@ -396,8 +396,8 @@ public interface ICFBamEnumTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamEnumTypeBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamEnumTypeBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all EnumType instances.
@@ -406,7 +406,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamEnumTypeBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived EnumType buffer instance identified by the unique key IdIdx.
@@ -420,7 +420,7 @@ public interface ICFBamEnumTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamEnumTypeBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -438,7 +438,7 @@ public interface ICFBamEnumTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamEnumTypeBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -452,7 +452,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -466,7 +466,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -481,7 +481,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -496,7 +496,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -511,7 +511,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -528,7 +528,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -546,7 +546,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -560,8 +560,8 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamEnumTypeBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived EnumType buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -576,10 +576,10 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived EnumType buffer instances identified by the duplicate key SchemaIdx.
@@ -592,7 +592,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamEnumTypeBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -606,10 +606,10 @@ public interface ICFBamEnumTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamEnumTypeBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific EnumType buffer instance identified by the primary key.
@@ -621,10 +621,10 @@ public interface ICFBamEnumTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamEnumTypeBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific EnumType buffer instances.
@@ -633,7 +633,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return All the specific EnumType instances in the database accessible for the Authorization.
 	 */
-	CFBamEnumTypeBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamEnumTypeBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific EnumType buffer instance identified by the unique key IdIdx.
@@ -647,9 +647,9 @@ public interface ICFBamEnumTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -667,9 +667,9 @@ public interface ICFBamEnumTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -683,9 +683,9 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -699,9 +699,9 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -716,9 +716,9 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -733,9 +733,9 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -750,9 +750,9 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -769,9 +769,9 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -789,9 +789,9 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -805,10 +805,10 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamEnumTypeBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific EnumType buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -823,12 +823,12 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific EnumType buffer instances identified by the duplicate key SchemaIdx.
@@ -841,9 +841,9 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamEnumTypeBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -852,7 +852,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamEnumTypeBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -862,7 +862,7 @@ public interface ICFBamEnumTypeTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamEnumTypeBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamEnumTypeBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -870,7 +870,7 @@ public interface ICFBamEnumTypeTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

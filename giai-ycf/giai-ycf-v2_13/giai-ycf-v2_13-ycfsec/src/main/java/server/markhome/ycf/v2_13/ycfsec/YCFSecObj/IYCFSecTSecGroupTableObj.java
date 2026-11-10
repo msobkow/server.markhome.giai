@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecTSecGroupTableObj
+public interface IYCFSecTSecGroupTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecTSecGroupTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecTSecGroupObj newInstance();
+	IYCFSecTSecGroupObj newInstance();
 
 	/**
 	 *	Instantiate a new TSecGroup edition of the specified TSecGroup instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecTSecGroupEditObj newEditInstance( ICFSecTSecGroupObj orig );
+	IYCFSecTSecGroupEditObj newEditInstance( IYCFSecTSecGroupObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecTSecGroupObj realiseTSecGroup( ICFSecTSecGroupObj Obj );
+	IYCFSecTSecGroupObj realiseTSecGroup( IYCFSecTSecGroupObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecTSecGroupObj createTSecGroup( ICFSecTSecGroupObj Obj );
+	IYCFSecTSecGroupObj createTSecGroup( IYCFSecTSecGroupObj Obj );
 
 	/**
 	 *	Read a TSecGroup-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecTSecGroupTableObj
 	 *	@return	The TSecGroup-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecTSecGroupObj readTSecGroup( CFSecTSecGroupPKey pkey );
+	IYCFSecTSecGroupObj readTSecGroup( YCFSecTSecGroupPKey pkey );
 
 	/**
 	 *	Read a TSecGroup-derived instance by it's primary key.
@@ -90,149 +90,149 @@ public interface ICFSecTSecGroupTableObj
 	 *	@return	The TSecGroup-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecTSecGroupObj readTSecGroup( CFSecTSecGroupPKey pkey,
+	IYCFSecTSecGroupObj readTSecGroup( YCFSecTSecGroupPKey pkey,
 		boolean forceRead );
 
-	ICFSecTSecGroupObj readCachedTSecGroup( CFSecTSecGroupPKey pkey );
+	IYCFSecTSecGroupObj readCachedTSecGroup( YCFSecTSecGroupPKey pkey );
 
-	public void reallyDeepDisposeTSecGroup( ICFSecTSecGroupObj obj );
+	public void reallyDeepDisposeTSecGroup( IYCFSecTSecGroupObj obj );
 
-	void deepDisposeTSecGroup( CFSecTSecGroupPKey pkey );
+	void deepDisposeTSecGroup( YCFSecTSecGroupPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecTSecGroupObj lockTSecGroup( CFSecTSecGroupPKey pkey );
+	IYCFSecTSecGroupObj lockTSecGroup( YCFSecTSecGroupPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the TSecGroup-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecTSecGroupObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecTSecGroupObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecTSecGroupObj> readAllTSecGroup();
+	List<IYCFSecTSecGroupObj> readAllTSecGroup();
 
 	/**
 	 *	Return a sorted map of all the TSecGroup-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecTSecGroupObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecTSecGroupObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecTSecGroupObj> readAllTSecGroup( boolean forceRead );
+	List<IYCFSecTSecGroupObj> readAllTSecGroup( boolean forceRead );
 
-	List<ICFSecTSecGroupObj> readCachedAllTSecGroup();
+	List<IYCFSecTSecGroupObj> readCachedAllTSecGroup();
 
 	/**
-	 *	Get the CFSecTSecGroupObj instance for the primary key attributes.
+	 *	Get the YCFSecTSecGroupObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TSecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argTSecGroupId	The TSecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecTSecGroupObj cached instance for the primary key, or
+	 *	@return	YCFSecTSecGroupObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecTSecGroupObj readTSecGroupByIdIdx( long TenantId,
+	IYCFSecTSecGroupObj readTSecGroupByIdIdx( long TenantId,
 		int TSecGroupId );
 
 	/**
-	 *	Get the CFSecTSecGroupObj instance for the primary key attributes.
+	 *	Get the YCFSecTSecGroupObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TSecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argTSecGroupId	The TSecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecTSecGroupObj refreshed instance for the primary key, or
+	 *	@return	YCFSecTSecGroupObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecTSecGroupObj readTSecGroupByIdIdx( long TenantId,
+	IYCFSecTSecGroupObj readTSecGroupByIdIdx( long TenantId,
 		int TSecGroupId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecTSecGroupObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFSecTSecGroupObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The TSecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecTSecGroupObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFSecTSecGroupObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecTSecGroupObj> readTSecGroupByTenantIdx( long TenantId );
+	List<IYCFSecTSecGroupObj> readTSecGroupByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFSecTSecGroupObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFSecTSecGroupObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The TSecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecTSecGroupObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFSecTSecGroupObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecTSecGroupObj> readTSecGroupByTenantIdx( long TenantId,
+	List<IYCFSecTSecGroupObj> readTSecGroupByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecTSecGroupObj instances sorted by their primary keys for the duplicate TenantVisIdx key.
+	 *	Get the map of YCFSecTSecGroupObj instances sorted by their primary keys for the duplicate TenantVisIdx key.
 	 *
 	 *	@param	argTenantId	The TSecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argIsVisible	The TSecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecTSecGroupObj cached instances sorted by their primary keys for the duplicate TenantVisIdx key,
+	 *	@return	List of YCFSecTSecGroupObj cached instances sorted by their primary keys for the duplicate TenantVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecTSecGroupObj> readTSecGroupByTenantVisIdx( long TenantId,
+	List<IYCFSecTSecGroupObj> readTSecGroupByTenantVisIdx( long TenantId,
 		boolean IsVisible );
 
 	/**
-	 *	Get the map of CFSecTSecGroupObj instances sorted by their primary keys for the duplicate TenantVisIdx key.
+	 *	Get the map of YCFSecTSecGroupObj instances sorted by their primary keys for the duplicate TenantVisIdx key.
 	 *
 	 *	@param	argTenantId	The TSecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argIsVisible	The TSecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecTSecGroupObj cached instances sorted by their primary keys for the duplicate TenantVisIdx key,
+	 *	@return	List of YCFSecTSecGroupObj cached instances sorted by their primary keys for the duplicate TenantVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecTSecGroupObj> readTSecGroupByTenantVisIdx( long TenantId,
+	List<IYCFSecTSecGroupObj> readTSecGroupByTenantVisIdx( long TenantId,
 		boolean IsVisible,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecTSecGroupObj instance for the unique UNameIdx key.
+	 *	Get the YCFSecTSecGroupObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The TSecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The TSecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecTSecGroupObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFSecTSecGroupObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecTSecGroupObj readTSecGroupByUNameIdx(long TenantId,
+	IYCFSecTSecGroupObj readTSecGroupByUNameIdx(long TenantId,
 		String Name );
 
 	/**
-	 *	Get the CFSecTSecGroupObj instance for the unique UNameIdx key.
+	 *	Get the YCFSecTSecGroupObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The TSecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The TSecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecTSecGroupObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFSecTSecGroupObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecTSecGroupObj readTSecGroupByUNameIdx(long TenantId,
+	IYCFSecTSecGroupObj readTSecGroupByUNameIdx(long TenantId,
 		String Name,
 		boolean forceRead );
 
-	ICFSecTSecGroupObj readCachedTSecGroupByIdIdx( long TenantId,
+	IYCFSecTSecGroupObj readCachedTSecGroupByIdIdx( long TenantId,
 		int TSecGroupId );
 
-	List<ICFSecTSecGroupObj> readCachedTSecGroupByTenantIdx( long TenantId );
+	List<IYCFSecTSecGroupObj> readCachedTSecGroupByTenantIdx( long TenantId );
 
-	List<ICFSecTSecGroupObj> readCachedTSecGroupByTenantVisIdx( long TenantId,
+	List<IYCFSecTSecGroupObj> readCachedTSecGroupByTenantVisIdx( long TenantId,
 		boolean IsVisible );
 
-	ICFSecTSecGroupObj readCachedTSecGroupByUNameIdx( long TenantId,
+	IYCFSecTSecGroupObj readCachedTSecGroupByUNameIdx( long TenantId,
 		String Name );
 
 	void deepDisposeTSecGroupByIdIdx( long TenantId,
@@ -249,12 +249,12 @@ public interface ICFSecTSecGroupTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecTSecGroupObj updateTSecGroup( ICFSecTSecGroupObj Obj );
+	IYCFSecTSecGroupObj updateTSecGroup( IYCFSecTSecGroupObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteTSecGroup( ICFSecTSecGroupObj Obj );
+	void deleteTSecGroup( IYCFSecTSecGroupObj Obj );
 
 	/**
 	 *	Internal use only.

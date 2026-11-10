@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for SecUser.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,67 +35,67 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 	/*
-	 *	CFBamSecUserFactory implementation for SecUser
+	 *	YCFBamSecUserFactory implementation for SecUser
 	 */
-public class CFBamSecUserDefaultFactory
-	extends CFSecSecUserDefaultFactory
-	implements ICFBamSecUserFactory
+public class YCFBamSecUserDefaultFactory
+	extends YCFSecSecUserDefaultFactory
+	implements IYCFBamSecUserFactory
 {
-	public CFBamSecUserDefaultFactory() {
+	public YCFBamSecUserDefaultFactory() {
 		super();
 	}
 
-	public CFSecSecUserPKey newPKey() {
-		CFSecSecUserPKey pkey =
-			new CFSecSecUserPKey();
+	public YCFSecSecUserPKey newPKey() {
+		YCFSecSecUserPKey pkey =
+			new YCFSecSecUserPKey();
 		return( pkey );
 	}
 
-	public CFSecSecUserHPKey newHPKey() {
-		CFSecSecUserHPKey hpkey =
-			new CFSecSecUserHPKey();
+	public YCFSecSecUserHPKey newHPKey() {
+		YCFSecSecUserHPKey hpkey =
+			new YCFSecSecUserHPKey();
 		return( hpkey );
 	}
 
-	public CFSecSecUserByULoginIdxKey newULoginIdxKey() {
-		CFSecSecUserByULoginIdxKey key =
-			new CFSecSecUserByULoginIdxKey();
+	public YCFSecSecUserByULoginIdxKey newULoginIdxKey() {
+		YCFSecSecUserByULoginIdxKey key =
+			new YCFSecSecUserByULoginIdxKey();
 		return( key );
 	}
 
-	public CFSecSecUserByEMConfIdxKey newEMConfIdxKey() {
-		CFSecSecUserByEMConfIdxKey key =
-			new CFSecSecUserByEMConfIdxKey();
+	public YCFSecSecUserByEMConfIdxKey newEMConfIdxKey() {
+		YCFSecSecUserByEMConfIdxKey key =
+			new YCFSecSecUserByEMConfIdxKey();
 		return( key );
 	}
 
-	public CFSecSecUserByPwdResetIdxKey newPwdResetIdxKey() {
-		CFSecSecUserByPwdResetIdxKey key =
-			new CFSecSecUserByPwdResetIdxKey();
+	public YCFSecSecUserByPwdResetIdxKey newPwdResetIdxKey() {
+		YCFSecSecUserByPwdResetIdxKey key =
+			new YCFSecSecUserByPwdResetIdxKey();
 		return( key );
 	}
 
-	public CFSecSecUserByDefDevIdxKey newDefDevIdxKey() {
-		CFSecSecUserByDefDevIdxKey key =
-			new CFSecSecUserByDefDevIdxKey();
+	public YCFSecSecUserByDefDevIdxKey newDefDevIdxKey() {
+		YCFSecSecUserByDefDevIdxKey key =
+			new YCFSecSecUserByDefDevIdxKey();
 		return( key );
 	}
 
-	public CFSecSecUserBuff newBuff() {
-		CFSecSecUserBuff buff =
-			new CFSecSecUserBuff();
+	public YCFSecSecUserBuff newBuff() {
+		YCFSecSecUserBuff buff =
+			new YCFSecSecUserBuff();
 		return( buff );
 	}
 
-	public CFSecSecUserHBuff newHBuff() {
-		CFSecSecUserHBuff hbuff =
-			new CFSecSecUserHBuff();
+	public YCFSecSecUserHBuff newHBuff() {
+		YCFSecSecUserHBuff hbuff =
+			new YCFSecSecUserHBuff();
 		return( hbuff );
 	}
 }

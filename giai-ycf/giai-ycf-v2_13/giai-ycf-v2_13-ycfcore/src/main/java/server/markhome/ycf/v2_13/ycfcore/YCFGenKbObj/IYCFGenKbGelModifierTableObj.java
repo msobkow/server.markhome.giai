@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelModifierTableObj
+public interface IYCFGenKbGelModifierTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelModifierTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelModifierObj newInstance();
+	IYCFGenKbGelModifierObj newInstance();
 
 	/**
 	 *	Instantiate a new GelModifier edition of the specified GelModifier instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelModifierEditObj newEditInstance( ICFGenKbGelModifierObj orig );
+	IYCFGenKbGelModifierEditObj newEditInstance( IYCFGenKbGelModifierObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelModifierObj realiseGelModifier( ICFGenKbGelModifierObj Obj );
+	IYCFGenKbGelModifierObj realiseGelModifier( IYCFGenKbGelModifierObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelModifierObj createGelModifier( ICFGenKbGelModifierObj Obj );
+	IYCFGenKbGelModifierObj createGelModifier( IYCFGenKbGelModifierObj Obj );
 
 	/**
 	 *	Read a GelModifier-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelModifierTableObj
 	 *	@return	The GelModifier-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelModifierObj readGelModifier( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelModifierObj readGelModifier( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelModifier-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelModifierTableObj
 	 *	@return	The GelModifier-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelModifierObj readGelModifier( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelModifierObj readGelModifier( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelModifierObj readCachedGelModifier( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelModifierObj readCachedGelModifier( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelModifier( ICFGenKbGelModifierObj obj );
+	public void reallyDeepDisposeGelModifier( IYCFGenKbGelModifierObj obj );
 
-	void deepDisposeGelModifier( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelModifier( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelModifierObj lockGelModifier( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelModifierObj lockGelModifier( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelModifier-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelModifierObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelModifierObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readAllGelModifier();
+	List<IYCFGenKbGelModifierObj> readAllGelModifier();
 
 	/**
 	 *	Return a sorted map of all the GelModifier-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelModifierObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelModifierObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readAllGelModifier( boolean forceRead );
+	List<IYCFGenKbGelModifierObj> readAllGelModifier( boolean forceRead );
 
-	List<ICFGenKbGelModifierObj> readCachedAllGelModifier();
+	List<IYCFGenKbGelModifierObj> readCachedAllGelModifier();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelModifierTableObj
 	 *
 	 *	@param	argGelInstId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelModifierObj readGelModifierByPIdx( long TenantId,
+	IYCFGenKbGelModifierObj readGelModifierByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelModifierTableObj
 	 *
 	 *	@param	argGelInstId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelModifierObj readGelModifierByPIdx( long TenantId,
+	IYCFGenKbGelModifierObj readGelModifierByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readGelModifierByTenantIdx( long TenantId );
+	List<IYCFGenKbGelModifierObj> readGelModifierByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelModifierObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelModifierObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readGelModifierByTenantIdx( long TenantId,
+	List<IYCFGenKbGelModifierObj> readGelModifierByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readGelModifierByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelModifierObj> readGelModifierByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelModifierObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelModifierObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readGelModifierByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelModifierObj> readGelModifierByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelModifierTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readGelModifierByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelModifierObj> readGelModifierByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelModifierObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelModifierObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
@@ -229,16 +229,16 @@ public interface ICFGenKbGelModifierTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readGelModifierByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelModifierObj> readGelModifierByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelModifierObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelModifierObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
@@ -246,15 +246,15 @@ public interface ICFGenKbGelModifierTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readGelModifierByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelModifierObj> readGelModifierByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelModifierObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelModifierObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelModifier key attribute of the instance generating the id.
 	 *
@@ -262,28 +262,28 @@ public interface ICFGenKbGelModifierTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelModifier key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelModifierObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelModifierObj> readGelModifierByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelModifierObj> readGelModifierByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId,
 		boolean forceRead );
 
-	ICFGenKbGelModifierObj readCachedGelModifierByPIdx( long TenantId,
+	IYCFGenKbGelModifierObj readCachedGelModifierByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelModifierObj> readCachedGelModifierByTenantIdx( long TenantId );
+	List<IYCFGenKbGelModifierObj> readCachedGelModifierByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelModifierObj> readCachedGelModifierByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelModifierObj> readCachedGelModifierByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelModifierObj> readCachedGelModifierByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelModifierObj> readCachedGelModifierByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
-	List<ICFGenKbGelModifierObj> readCachedGelModifierByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelModifierObj> readCachedGelModifierByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
@@ -307,12 +307,12 @@ public interface ICFGenKbGelModifierTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelModifierObj updateGelModifier( ICFGenKbGelModifierObj Obj );
+	IYCFGenKbGelModifierObj updateGelModifier( IYCFGenKbGelModifierObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelModifier( ICFGenKbGelModifierObj Obj );
+	void deleteGelModifier( IYCFGenKbGelModifierObj Obj );
 
 	/**
 	 *	Internal use only.

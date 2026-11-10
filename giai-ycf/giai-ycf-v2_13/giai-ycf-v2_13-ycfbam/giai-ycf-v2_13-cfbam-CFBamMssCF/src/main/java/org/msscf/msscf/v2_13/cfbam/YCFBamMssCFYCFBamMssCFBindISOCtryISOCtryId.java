@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Binding for ISOCtry Column ISOCtryId.
+// Description: Java 11 MssYCF Binding for ISOCtry Column ISOCtryId.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,88 +27,88 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.math.*;
 import java.sql.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 import org.apache.commons.codec.binary.Base64;
 
 /**
- *	CFBamMssCFBindISOCtryISOCtryId binds ISOCtry.ISOCtryId
- *	as an instance of MssCFGenBindObj.
+ *	YCFBamMssYCFBindISOCtryISOCtryId binds ISOCtry.ISOCtryId
+ *	as an instance of MssYCFGenBindObj.
  */
-public class CFBamMssCFBindISOCtryISOCtryId
-	extends MssCFGenBindObj
+public class YCFBamMssYCFBindISOCtryISOCtryId
+	extends MssYCFGenBindObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFBindISOCtryISOCtryId() {
+	public YCFBamMssYCFBindISOCtryISOCtryId() {
 		super();
 	}
 
-	public CFBamMssCFBindISOCtryISOCtryId( MssCFEngine argEngine ) {
+	public YCFBamMssYCFBindISOCtryISOCtryId( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
 			"ISOCtry",
 			"ISOCtryId" );
 	}
-	public Object getValueObject( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindISOCtryISOCtryId.getValueObject() ";
+	public Object getValueObject( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindISOCtryISOCtryId.getValueObject() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
 		}
 
 		short iSOCtryId;
-		if( genDef instanceof ICFBamISOCtryObj ) {
-			iSOCtryId = ((ICFBamISOCtryObj)genDef).getRequiredISOCtryId();
+		if( genDef instanceof IYCFBamISOCtryObj ) {
+			iSOCtryId = ((IYCFBamISOCtryObj)genDef).getRequiredISOCtryId();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamISOCtryObj" );
+				"IYCFBamISOCtryObj" );
 		}
 
 		return( iSOCtryId );
 	}
 
-	public String expandBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindISOCtryISOCtryId.expandBody() ";
+	public String expandBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindISOCtryISOCtryId.expandBody() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
@@ -116,16 +116,16 @@ public class CFBamMssCFBindISOCtryISOCtryId
 
 		String ret;
 
-		if( genDef instanceof ICFBamISOCtryObj ) {
-			short iSOCtryId = ((ICFBamISOCtryObj)genDef).getRequiredISOCtryId();
+		if( genDef instanceof IYCFBamISOCtryObj ) {
+			short iSOCtryId = ((IYCFBamISOCtryObj)genDef).getRequiredISOCtryId();
 			ret = Short.toString( iSOCtryId );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamISOCtryObj" );
+				"IYCFBamISOCtryObj" );
 		}
 
 		return( ret );

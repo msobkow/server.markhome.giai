@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGenFileTableObj
+public interface IYCFGenKbGenFileTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGenFileObj newInstance();
+	IYCFGenKbGenFileObj newInstance();
 
 	/**
 	 *	Instantiate a new GenFile edition of the specified GenFile instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGenFileEditObj newEditInstance( ICFGenKbGenFileObj orig );
+	IYCFGenKbGenFileEditObj newEditInstance( IYCFGenKbGenFileObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGenFileObj realiseGenFile( ICFGenKbGenFileObj Obj );
+	IYCFGenKbGenFileObj realiseGenFile( IYCFGenKbGenFileObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGenFileObj createGenFile( ICFGenKbGenFileObj Obj );
+	IYCFGenKbGenFileObj createGenFile( IYCFGenKbGenFileObj Obj );
 
 	/**
 	 *	Read a GenFile-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGenFileTableObj
 	 *	@return	The GenFile-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGenFileObj readGenFile( CFGenKbGenItemPKey pkey );
+	IYCFGenKbGenFileObj readGenFile( YCFGenKbGenItemPKey pkey );
 
 	/**
 	 *	Read a GenFile-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGenFileTableObj
 	 *	@return	The GenFile-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGenFileObj readGenFile( CFGenKbGenItemPKey pkey,
+	IYCFGenKbGenFileObj readGenFile( YCFGenKbGenItemPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGenFileObj readCachedGenFile( CFGenKbGenItemPKey pkey );
+	IYCFGenKbGenFileObj readCachedGenFile( YCFGenKbGenItemPKey pkey );
 
-	public void reallyDeepDisposeGenFile( ICFGenKbGenFileObj obj );
+	public void reallyDeepDisposeGenFile( IYCFGenKbGenFileObj obj );
 
-	void deepDisposeGenFile( CFGenKbGenItemPKey pkey );
+	void deepDisposeGenFile( YCFGenKbGenItemPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGenFileObj lockGenFile( CFGenKbGenItemPKey pkey );
+	IYCFGenKbGenFileObj lockGenFile( YCFGenKbGenItemPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GenFile-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGenFileObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGenFileObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readAllGenFile();
+	List<IYCFGenKbGenFileObj> readAllGenFile();
 
 	/**
 	 *	Return a sorted map of all the GenFile-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGenFileObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGenFileObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readAllGenFile( boolean forceRead );
+	List<IYCFGenKbGenFileObj> readAllGenFile( boolean forceRead );
 
-	List<ICFGenKbGenFileObj> readCachedAllGenFile();
+	List<IYCFGenKbGenFileObj> readCachedAllGenFile();
 
 	/**
-	 *	Get the CFGenKbGenItemObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGenItemObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argItemId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGenItemObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGenItemObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGenFileObj readGenFileByItemIdIdx( long TenantId,
+	IYCFGenKbGenFileObj readGenFileByItemIdIdx( long TenantId,
 		long CartridgeId,
 		long ItemId );
 
 	/**
-	 *	Get the CFGenKbGenItemObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGenItemObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -148,148 +148,148 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argItemId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGenItemObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGenItemObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGenFileObj readGenFileByItemIdIdx( long TenantId,
+	IYCFGenKbGenFileObj readGenFileByItemIdIdx( long TenantId,
 		long CartridgeId,
 		long ItemId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByTenantIdx( long TenantId );
+	List<IYCFGenKbGenFileObj> readGenFileByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByTenantIdx( long TenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate CartIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate CartIdx key.
 	 *
 	 *	@param	argTenantId	The GenFile key attribute of the instance generating the id.
 	 *
 	 *	@param	argCartridgeId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate CartIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate CartIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByCartIdx( long TenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByCartIdx( long TenantId,
 		long CartridgeId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate CartIdx key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate CartIdx key.
 	 *
 	 *	@param	argTenantId	The GenFile key attribute of the instance generating the id.
 	 *
 	 *	@param	argCartridgeId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate CartIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate CartIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByCartIdx( long TenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByCartIdx( long TenantId,
 		long CartridgeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate RuleTypeIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate RuleTypeIdx key.
 	 *
 	 *	@param	argRuleTypeId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate RuleTypeIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate RuleTypeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByRuleTypeIdx( short RuleTypeId );
+	List<IYCFGenKbGenFileObj> readGenFileByRuleTypeIdx( short RuleTypeId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate RuleTypeIdx key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate RuleTypeIdx key.
 	 *
 	 *	@param	argRuleTypeId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate RuleTypeIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate RuleTypeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByRuleTypeIdx( short RuleTypeId,
+	List<IYCFGenKbGenFileObj> readGenFileByRuleTypeIdx( short RuleTypeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate ToolSetIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate ToolSetIdx key.
 	 *
 	 *	@param	argToolSetId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ToolSetIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ToolSetIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByToolSetIdx( short ToolSetId );
+	List<IYCFGenKbGenFileObj> readGenFileByToolSetIdx( short ToolSetId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate ToolSetIdx key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate ToolSetIdx key.
 	 *
 	 *	@param	argToolSetId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ToolSetIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ToolSetIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByToolSetIdx( short ToolSetId,
+	List<IYCFGenKbGenFileObj> readGenFileByToolSetIdx( short ToolSetId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argScopeDefId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByScopeIdx( Short ScopeDefId );
+	List<IYCFGenKbGenFileObj> readGenFileByScopeIdx( Short ScopeDefId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argScopeDefId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByScopeIdx( Short ScopeDefId,
+	List<IYCFGenKbGenFileObj> readGenFileByScopeIdx( Short ScopeDefId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate GenDefIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate GenDefIdx key.
 	 *
 	 *	@param	argGenDefId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate GenDefIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate GenDefIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByGenDefIdx( short GenDefId );
+	List<IYCFGenKbGenFileObj> readGenFileByGenDefIdx( short GenDefId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate GenDefIdx key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate GenDefIdx key.
 	 *
 	 *	@param	argGenDefId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate GenDefIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate GenDefIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByGenDefIdx( short GenDefId,
+	List<IYCFGenKbGenFileObj> readGenFileByGenDefIdx( short GenDefId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbGenItemObj instance for the unique AltIdx key.
+	 *	Get the YCFGenKbGenItemObj instance for the unique AltIdx key.
 	 *
 	 *	@param	argName	The GenFile key attribute of the instance generating the id.
 	 *
@@ -299,16 +299,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argGenDefId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGenItemObj cached instance for the unique AltIdx key, or
+	 *	@return	YCFGenKbGenItemObj cached instance for the unique AltIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGenFileObj readGenFileByAltIdx( String Name,
+	IYCFGenKbGenFileObj readGenFileByAltIdx( String Name,
 		short ToolSetId,
 		Short ScopeDefId,
 		short GenDefId );
 
 	/**
-	 *	Get the CFGenKbGenItemObj instance for the unique AltIdx key.
+	 *	Get the YCFGenKbGenItemObj instance for the unique AltIdx key.
 	 *
 	 *	@param	argName	The GenFile key attribute of the instance generating the id.
 	 *
@@ -318,17 +318,17 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argGenDefId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGenItemObj refreshed instance for the unique AltIdx key, or
+	 *	@return	YCFGenKbGenItemObj refreshed instance for the unique AltIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGenFileObj readGenFileByAltIdx( String Name,
+	IYCFGenKbGenFileObj readGenFileByAltIdx( String Name,
 		short ToolSetId,
 		Short ScopeDefId,
 		short GenDefId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate GelExecIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate GelExecIdx key.
 	 *
 	 *	@param	argGelExecutableTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -336,15 +336,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argGelExecutableId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate GelExecIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate GelExecIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByGelExecIdx( Long GelExecutableTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByGelExecIdx( Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate GelExecIdx key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate GelExecIdx key.
 	 *
 	 *	@param	argGelExecutableTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -352,16 +352,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argGelExecutableId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate GelExecIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate GelExecIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByGelExecIdx( Long GelExecutableTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByGelExecIdx( Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate ProbeIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate ProbeIdx key.
 	 *
 	 *	@param	argProbeTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -369,15 +369,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argProbeGenItemId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ProbeIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ProbeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByProbeIdx( Long ProbeTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByProbeIdx( Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate ProbeIdx key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate ProbeIdx key.
 	 *
 	 *	@param	argProbeTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -385,16 +385,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argProbeGenItemId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ProbeIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate ProbeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByProbeIdx( Long ProbeTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByProbeIdx( Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenRuleObj instances sorted by their primary keys for the duplicate BodyIdx key.
+	 *	Get the map of YCFGenKbGenRuleObj instances sorted by their primary keys for the duplicate BodyIdx key.
 	 *
 	 *	@param	argBodyTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -402,15 +402,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argBodyGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate BodyIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate BodyIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByBodyIdx( Long BodyTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByBodyIdx( Long BodyTenantId,
 		Long BodyGelCacheId,
 		Long BodyGelId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate BodyIdx key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate BodyIdx key.
 	 *
 	 *	@param	argBodyTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -418,16 +418,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argBodyGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate BodyIdx key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate BodyIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByBodyIdx( Long BodyTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByBodyIdx( Long BodyTenantId,
 		Long BodyGelCacheId,
 		Long BodyGelId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XSrcBundle key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XSrcBundle key.
 	 *
 	 *	@param	argSourceBundleTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -435,15 +435,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argSourceBundleGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XSrcBundle key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XSrcBundle key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXSrcBundle( Long SourceBundleTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXSrcBundle( Long SourceBundleTenantId,
 		Long SourceBundleGelCacheId,
 		Long SourceBundleGelId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XSrcBundle key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XSrcBundle key.
 	 *
 	 *	@param	argSourceBundleTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -451,16 +451,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argSourceBundleGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XSrcBundle key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XSrcBundle key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXSrcBundle( Long SourceBundleTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXSrcBundle( Long SourceBundleTenantId,
 		Long SourceBundleGelCacheId,
 		Long SourceBundleGelId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XModName key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XModName key.
 	 *
 	 *	@param	argModuleNameTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -468,15 +468,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argModuleNameGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XModName key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XModName key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXModName( Long ModuleNameTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXModName( Long ModuleNameTenantId,
 		Long ModuleNameGelCacheId,
 		Long ModuleNameGelId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XModName key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XModName key.
 	 *
 	 *	@param	argModuleNameTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -484,16 +484,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argModuleNameGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XModName key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XModName key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXModName( Long ModuleNameTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXModName( Long ModuleNameTenantId,
 		Long ModuleNameGelCacheId,
 		Long ModuleNameGelId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XBasePkg key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XBasePkg key.
 	 *
 	 *	@param	argBasePackageTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -501,15 +501,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argBasePackageGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XBasePkg key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XBasePkg key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXBasePkg( Long BasePackageTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXBasePkg( Long BasePackageTenantId,
 		Long BasePackageGelCacheId,
 		Long BasePackageGelId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XBasePkg key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XBasePkg key.
 	 *
 	 *	@param	argBasePackageTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -517,16 +517,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argBasePackageGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XBasePkg key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XBasePkg key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXBasePkg( Long BasePackageTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXBasePkg( Long BasePackageTenantId,
 		Long BasePackageGelCacheId,
 		Long BasePackageGelId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XSubPkg key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XSubPkg key.
 	 *
 	 *	@param	argSubPackageTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -534,15 +534,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argSubPackageGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XSubPkg key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XSubPkg key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXSubPkg( Long SubPackageTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXSubPkg( Long SubPackageTenantId,
 		Long SubPackageGelCacheId,
 		Long SubPackageGelId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XSubPkg key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XSubPkg key.
 	 *
 	 *	@param	argSubPackageTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -550,16 +550,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argSubPackageGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XSubPkg key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XSubPkg key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXSubPkg( Long SubPackageTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXSubPkg( Long SubPackageTenantId,
 		Long SubPackageGelCacheId,
 		Long SubPackageGelId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpClsName key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpClsName key.
 	 *
 	 *	@param	argExpansionClassNameTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -567,15 +567,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argExpansionClassNameGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpClsName key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpClsName key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXExpClsName( Long ExpansionClassNameTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXExpClsName( Long ExpansionClassNameTenantId,
 		Long ExpansionClassNameGelCacheId,
 		Long ExpansionClassNameGelId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpClsName key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpClsName key.
 	 *
 	 *	@param	argExpansionClassNameTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -583,16 +583,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argExpansionClassNameGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpClsName key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpClsName key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXExpClsName( Long ExpansionClassNameTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXExpClsName( Long ExpansionClassNameTenantId,
 		Long ExpansionClassNameGelCacheId,
 		Long ExpansionClassNameGelId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpKeyName key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpKeyName key.
 	 *
 	 *	@param	argExpansionKeyNameTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -600,15 +600,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argExpansionKeyNameGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpKeyName key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpKeyName key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXExpKeyName( Long ExpansionKeyNameTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXExpKeyName( Long ExpansionKeyNameTenantId,
 		Long ExpansionKeyNameGelCacheId,
 		Long ExpansionKeyNameGelId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpKeyName key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpKeyName key.
 	 *
 	 *	@param	argExpansionKeyNameTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -616,16 +616,16 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argExpansionKeyNameGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpKeyName key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpKeyName key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXExpKeyName( Long ExpansionKeyNameTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXExpKeyName( Long ExpansionKeyNameTenantId,
 		Long ExpansionKeyNameGelCacheId,
 		Long ExpansionKeyNameGelId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpFileName key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpFileName key.
 	 *
 	 *	@param	argExpansionFileNameTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -633,15 +633,15 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argExpansionFileNameGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpFileName key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpFileName key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXExpFileName( Long ExpansionFileNameTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXExpFileName( Long ExpansionFileNameTenantId,
 		Long ExpansionFileNameGelCacheId,
 		Long ExpansionFileNameGelId );
 
 	/**
-	 *	Get the map of CFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpFileName key.
+	 *	Get the map of YCFGenKbGenFileObj instances sorted by their primary keys for the duplicate XExpFileName key.
 	 *
 	 *	@param	argExpansionFileNameTenantId	The GenFile key attribute of the instance generating the id.
 	 *
@@ -649,73 +649,73 @@ public interface ICFGenKbGenFileTableObj
 	 *
 	 *	@param	argExpansionFileNameGelId	The GenFile key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpFileName key,
+	 *	@return	List of YCFGenKbGenFileObj cached instances sorted by their primary keys for the duplicate XExpFileName key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenFileObj> readGenFileByXExpFileName( Long ExpansionFileNameTenantId,
+	List<IYCFGenKbGenFileObj> readGenFileByXExpFileName( Long ExpansionFileNameTenantId,
 		Long ExpansionFileNameGelCacheId,
 		Long ExpansionFileNameGelId,
 		boolean forceRead );
 
-	ICFGenKbGenFileObj readCachedGenFileByItemIdIdx( long TenantId,
+	IYCFGenKbGenFileObj readCachedGenFileByItemIdIdx( long TenantId,
 		long CartridgeId,
 		long ItemId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByTenantIdx( long TenantId );
+	List<IYCFGenKbGenFileObj> readCachedGenFileByTenantIdx( long TenantId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByCartIdx( long TenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByCartIdx( long TenantId,
 		long CartridgeId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByRuleTypeIdx( short RuleTypeId );
+	List<IYCFGenKbGenFileObj> readCachedGenFileByRuleTypeIdx( short RuleTypeId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByToolSetIdx( short ToolSetId );
+	List<IYCFGenKbGenFileObj> readCachedGenFileByToolSetIdx( short ToolSetId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByScopeIdx( Short ScopeDefId );
+	List<IYCFGenKbGenFileObj> readCachedGenFileByScopeIdx( Short ScopeDefId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByGenDefIdx( short GenDefId );
+	List<IYCFGenKbGenFileObj> readCachedGenFileByGenDefIdx( short GenDefId );
 
-	ICFGenKbGenFileObj readCachedGenFileByAltIdx( String Name,
+	IYCFGenKbGenFileObj readCachedGenFileByAltIdx( String Name,
 		short ToolSetId,
 		Short ScopeDefId,
 		short GenDefId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByGelExecIdx( Long GelExecutableTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByGelExecIdx( Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByProbeIdx( Long ProbeTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByProbeIdx( Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByBodyIdx( Long BodyTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByBodyIdx( Long BodyTenantId,
 		Long BodyGelCacheId,
 		Long BodyGelId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByXSrcBundle( Long SourceBundleTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByXSrcBundle( Long SourceBundleTenantId,
 		Long SourceBundleGelCacheId,
 		Long SourceBundleGelId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByXModName( Long ModuleNameTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByXModName( Long ModuleNameTenantId,
 		Long ModuleNameGelCacheId,
 		Long ModuleNameGelId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByXBasePkg( Long BasePackageTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByXBasePkg( Long BasePackageTenantId,
 		Long BasePackageGelCacheId,
 		Long BasePackageGelId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByXSubPkg( Long SubPackageTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByXSubPkg( Long SubPackageTenantId,
 		Long SubPackageGelCacheId,
 		Long SubPackageGelId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByXExpClsName( Long ExpansionClassNameTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByXExpClsName( Long ExpansionClassNameTenantId,
 		Long ExpansionClassNameGelCacheId,
 		Long ExpansionClassNameGelId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByXExpKeyName( Long ExpansionKeyNameTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByXExpKeyName( Long ExpansionKeyNameTenantId,
 		Long ExpansionKeyNameGelCacheId,
 		Long ExpansionKeyNameGelId );
 
-	List<ICFGenKbGenFileObj> readCachedGenFileByXExpFileName( Long ExpansionFileNameTenantId,
+	List<IYCFGenKbGenFileObj> readCachedGenFileByXExpFileName( Long ExpansionFileNameTenantId,
 		Long ExpansionFileNameGelCacheId,
 		Long ExpansionFileNameGelId );
 
@@ -784,12 +784,12 @@ public interface ICFGenKbGenFileTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGenFileObj updateGenFile( ICFGenKbGenFileObj Obj );
+	IYCFGenKbGenFileObj updateGenFile( IYCFGenKbGenFileObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGenFile( ICFGenKbGenFileObj Obj );
+	void deleteGenFile( IYCFGenKbGenFileObj Obj );
 
 	/**
 	 *	Internal use only.

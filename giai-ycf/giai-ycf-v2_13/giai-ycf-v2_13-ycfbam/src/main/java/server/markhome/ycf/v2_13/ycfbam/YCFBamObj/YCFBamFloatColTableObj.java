@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,54 +45,54 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamFloatColTableObj
-	implements ICFBamFloatColTableObj
+public class YCFBamFloatColTableObj
+	implements IYCFBamFloatColTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFBamValuePKey, ICFBamFloatColObj> members;
-	private Map<CFBamValuePKey, ICFBamFloatColObj> allFloatCol;
-	private Map< CFBamValueByUNameIdxKey,
-		ICFBamFloatColObj > indexByUNameIdx;
-	private Map< CFBamValueByValTentIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByValTentIdx;
-	private Map< CFBamValueByScopeIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByScopeIdx;
-	private Map< CFBamValueByDefSchemaIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByDefSchemaIdx;
-	private Map< CFBamValueByPrevIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByPrevIdx;
-	private Map< CFBamValueByNextIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByNextIdx;
-	private Map< CFBamValueByContPrevIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByContPrevIdx;
-	private Map< CFBamValueByContNextIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByContNextIdx;
-	private Map< CFBamValueByCodeVisIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByCodeVisIdx;
-	private Map< CFBamValueByScopeCodeVisIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByScopeCodeVisIdx;
-	private Map< CFBamFloatColByTableIdxKey,
-		Map<CFBamValuePKey, ICFBamFloatColObj > > indexByTableIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFBamValuePKey, IYCFBamFloatColObj> members;
+	private Map<YCFBamValuePKey, IYCFBamFloatColObj> allFloatCol;
+	private Map< YCFBamValueByUNameIdxKey,
+		IYCFBamFloatColObj > indexByUNameIdx;
+	private Map< YCFBamValueByValTentIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByValTentIdx;
+	private Map< YCFBamValueByScopeIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByScopeIdx;
+	private Map< YCFBamValueByDefSchemaIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByDefSchemaIdx;
+	private Map< YCFBamValueByPrevIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByPrevIdx;
+	private Map< YCFBamValueByNextIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByNextIdx;
+	private Map< YCFBamValueByContPrevIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByContPrevIdx;
+	private Map< YCFBamValueByContNextIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByContNextIdx;
+	private Map< YCFBamValueByCodeVisIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByCodeVisIdx;
+	private Map< YCFBamValueByScopeCodeVisIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByScopeCodeVisIdx;
+	private Map< YCFBamFloatColByTableIdxKey,
+		Map<YCFBamValuePKey, IYCFBamFloatColObj > > indexByTableIdx;
 	public static String TABLE_NAME = "FloatCol";
 	public static String TABLE_DBNAME = "fltcol";
 
-	public CFBamFloatColTableObj() {
+	public YCFBamFloatColTableObj() {
 		schema = null;
-		members = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
+		members = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
 		allFloatCol = null;
 		indexByUNameIdx = null;
 		indexByValTentIdx = null;
@@ -107,9 +107,9 @@ public class CFBamFloatColTableObj
 		indexByTableIdx = null;
 	}
 
-	public CFBamFloatColTableObj( ICFBamSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
+	public YCFBamFloatColTableObj( IYCFBamSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
 		allFloatCol = null;
 		indexByUNameIdx = null;
 		indexByValTentIdx = null;
@@ -124,12 +124,12 @@ public class CFBamFloatColTableObj
 		indexByTableIdx = null;
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFBamSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFBamSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -141,7 +141,7 @@ public class CFBamFloatColTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamSchemaDefObj.class );
+		return( IYCFBamSchemaDefObj.class );
 	}
 
 
@@ -158,9 +158,9 @@ public class CFBamFloatColTableObj
 		indexByCodeVisIdx = null;
 		indexByScopeCodeVisIdx = null;
 		indexByTableIdx = null;
-		List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
-		ICFBamFloatColObj cur = null;
-		Iterator<ICFBamFloatColObj> iter = members.values().iterator();
+		List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
+		IYCFBamFloatColObj cur = null;
+		Iterator<IYCFBamFloatColObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -178,10 +178,10 @@ public class CFBamFloatColTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamFloatColObj.
+	 *	YCFBamFloatColObj.
 	 */
-	public ICFBamFloatColObj newInstance() {
-		ICFBamFloatColObj inst = new CFBamFloatColObj( schema );
+	public IYCFBamFloatColObj newInstance() {
+		IYCFBamFloatColObj inst = new YCFBamFloatColObj( schema );
 		return( inst );
 	}
 
@@ -192,19 +192,19 @@ public class CFBamFloatColTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamFloatColObj.
+	 *	YCFBamFloatColObj.
 	 */
-	public ICFBamFloatColEditObj newEditInstance( ICFBamFloatColObj orig ) {
-		ICFBamFloatColEditObj edit = new CFBamFloatColEditObj( orig );
+	public IYCFBamFloatColEditObj newEditInstance( IYCFBamFloatColObj orig ) {
+		IYCFBamFloatColEditObj edit = new YCFBamFloatColEditObj( orig );
 		return( edit );
 	}
 
-	public ICFBamFloatColObj realiseFloatCol( ICFBamFloatColObj Obj ) {
-		ICFBamFloatColObj obj = Obj;
-		CFBamValuePKey pkey = obj.getPKey();
-		ICFBamFloatColObj keepObj = null;
+	public IYCFBamFloatColObj realiseFloatCol( IYCFBamFloatColObj Obj ) {
+		IYCFBamFloatColObj obj = Obj;
+		YCFBamValuePKey pkey = obj.getPKey();
+		IYCFBamFloatColObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFBamFloatColObj existingObj = members.get( pkey );
+			IYCFBamFloatColObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -215,8 +215,8 @@ public class CFBamFloatColTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByUNameIdx != null ) {
-				CFBamValueByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+				YCFBamValueByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -224,111 +224,111 @@ public class CFBamFloatColTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamValueByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+				YCFBamValueByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					indexByValTentIdx.remove( keyValTentIdx );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamValueByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+				YCFBamValueByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					indexByScopeIdx.remove( keyScopeIdx );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+				YCFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					indexByDefSchemaIdx.remove( keyDefSchemaIdx );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamValueByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+				YCFBamValueByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					indexByPrevIdx.remove( keyPrevIdx );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamValueByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+				YCFBamValueByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					indexByNextIdx.remove( keyNextIdx );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamValueByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+				YCFBamValueByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					indexByContPrevIdx.remove( keyContPrevIdx );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamValueByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+				YCFBamValueByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					indexByContNextIdx.remove( keyContNextIdx );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				YCFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					indexByCodeVisIdx.remove( keyCodeVisIdx );
 				}
 			}
 
 			if( indexByScopeCodeVisIdx != null ) {
-				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				YCFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
 				if( mapScopeCodeVisIdx != null ) {
 					indexByScopeCodeVisIdx.remove( keyScopeCodeVisIdx );
 				}
 			}
 
 			if( indexByTableIdx != null ) {
-				CFBamFloatColByTableIdxKey keyTableIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
+				YCFBamFloatColByTableIdxKey keyTableIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
 				keyTableIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyTableIdx.setRequiredTableId( keepObj.getRequiredTableId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapTableIdx = indexByTableIdx.get( keyTableIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapTableIdx = indexByTableIdx.get( keyTableIdx );
 				if( mapTableIdx != null ) {
 					mapTableIdx.remove( keepObj.getPKey() );
 					if( mapTableIdx.size() <= 0 ) {
@@ -339,13 +339,13 @@ public class CFBamFloatColTableObj
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
-			keepObj = (ICFBamFloatColObj)schema.getFloatDefTableObj().realiseFloatDef( Obj );
+			keepObj = (IYCFBamFloatColObj)schema.getFloatDefTableObj().realiseFloatDef( Obj );
 
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByUNameIdx != null ) {
-				CFBamValueByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+				YCFBamValueByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -353,111 +353,111 @@ public class CFBamFloatColTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamValueByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+				YCFBamValueByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					mapValTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamValueByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+				YCFBamValueByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					mapScopeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+				YCFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamValueByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+				YCFBamValueByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamValueByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+				YCFBamValueByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamValueByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+				YCFBamValueByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					mapContPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamValueByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+				YCFBamValueByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				YCFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeCodeVisIdx != null ) {
-				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				YCFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
 				if( mapScopeCodeVisIdx != null ) {
 					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByTableIdx != null ) {
-				CFBamFloatColByTableIdxKey keyTableIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
+				YCFBamFloatColByTableIdxKey keyTableIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
 				keyTableIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyTableIdx.setRequiredTableId( keepObj.getRequiredTableId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapTableIdx = indexByTableIdx.get( keyTableIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapTableIdx = indexByTableIdx.get( keyTableIdx );
 				if( mapTableIdx != null ) {
 					mapTableIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -469,7 +469,7 @@ public class CFBamFloatColTableObj
 		}
 		else {
 			keepObj = obj;
-			keepObj = (ICFBamFloatColObj)schema.getFloatDefTableObj().realiseFloatDef( keepObj );
+			keepObj = (IYCFBamFloatColObj)schema.getFloatDefTableObj().realiseFloatDef( keepObj );
 
 			// Attach new object to PKey, all, alternate, and duplicate indexes
 			members.put( keepObj.getPKey(), keepObj );
@@ -478,8 +478,8 @@ public class CFBamFloatColTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamValueByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+				YCFBamValueByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -487,111 +487,111 @@ public class CFBamFloatColTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamValueByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+				YCFBamValueByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					mapValTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamValueByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+				YCFBamValueByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					mapScopeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+				YCFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamValueByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+				YCFBamValueByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamValueByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+				YCFBamValueByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamValueByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+				YCFBamValueByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					mapContPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamValueByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+				YCFBamValueByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				YCFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeCodeVisIdx != null ) {
-				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				YCFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
 				if( mapScopeCodeVisIdx != null ) {
 					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByTableIdx != null ) {
-				CFBamFloatColByTableIdxKey keyTableIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
+				YCFBamFloatColByTableIdxKey keyTableIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
 				keyTableIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyTableIdx.setRequiredTableId( keepObj.getRequiredTableId() );
-				Map<CFBamValuePKey, ICFBamFloatColObj > mapTableIdx = indexByTableIdx.get( keyTableIdx );
+				Map<YCFBamValuePKey, IYCFBamFloatColObj > mapTableIdx = indexByTableIdx.get( keyTableIdx );
 				if( mapTableIdx != null ) {
 					mapTableIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -601,17 +601,17 @@ public class CFBamFloatColTableObj
 		return( keepObj );
 	}
 
-	public ICFBamFloatColObj createFloatCol( ICFBamFloatColObj Obj ) {
-		ICFBamFloatColObj obj = Obj;
-		CFBamFloatColBuff buff = obj.getFloatColBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().createFloatCol(
+	public IYCFBamFloatColObj createFloatCol( IYCFBamFloatColObj Obj ) {
+		IYCFBamFloatColObj obj = Obj;
+		YCFBamFloatColBuff buff = obj.getFloatColBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().createFloatCol(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		if( obj.getPKey().getClassCode().equals( "a874" ) ) {
-			obj = (ICFBamFloatColObj)(obj.realise());
+			obj = (IYCFBamFloatColObj)(obj.realise());
 		}
-		ICFBamValueObj prev = obj.getOptionalLookupPrev();
+		IYCFBamValueObj prev = obj.getOptionalLookupPrev();
 		if( prev != null ) {
 			prev.read( true );
 		}
@@ -619,51 +619,51 @@ public class CFBamFloatColTableObj
 		return( obj );
 	}
 
-	public ICFBamFloatColObj readFloatCol( CFBamValuePKey pkey ) {
+	public IYCFBamFloatColObj readFloatCol( YCFBamValuePKey pkey ) {
 		return( readFloatCol( pkey, false ) );
 	}
 
-	public ICFBamFloatColObj readFloatCol( CFBamValuePKey pkey, boolean forceRead ) {
-		ICFBamFloatColObj obj = null;
+	public IYCFBamFloatColObj readFloatCol( YCFBamValuePKey pkey, boolean forceRead ) {
+		IYCFBamFloatColObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFBamFloatColBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFBamFloatColBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( readBuff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( readBuff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFBamFloatColObj)obj.realise();
+				obj = (IYCFBamFloatColObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamFloatColObj readCachedFloatCol( CFBamValuePKey pkey ) {
-		ICFBamFloatColObj obj = null;
+	public IYCFBamFloatColObj readCachedFloatCol( YCFBamValuePKey pkey ) {
+		IYCFBamFloatColObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeFloatCol( ICFBamFloatColObj obj )
+	public void reallyDeepDisposeFloatCol( IYCFBamFloatColObj obj )
 	{
-		final String S_ProcName = "CFBamFloatColTableObj.reallyDeepDisposeFloatCol() ";
+		final String S_ProcName = "YCFBamFloatColTableObj.reallyDeepDisposeFloatCol() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFBamValuePKey pkey = obj.getPKey();
-		ICFBamFloatColObj existing = readCachedFloatCol( pkey );
+		YCFBamValuePKey pkey = obj.getPKey();
+		IYCFBamFloatColObj existing = readCachedFloatCol( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFBamFloatColByTableIdxKey keyTableIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
+		YCFBamFloatColByTableIdxKey keyTableIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
 		keyTableIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
@@ -685,57 +685,57 @@ public class CFBamFloatColTableObj
 
 		schema.getFloatDefTableObj().reallyDeepDisposeFloatDef( obj );
 	}
-	public void deepDisposeFloatCol( CFBamValuePKey pkey ) {
-		ICFBamFloatColObj obj = readCachedFloatCol( pkey );
+	public void deepDisposeFloatCol( YCFBamValuePKey pkey ) {
+		IYCFBamFloatColObj obj = readCachedFloatCol( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFBamFloatColObj lockFloatCol( CFBamValuePKey pkey ) {
-		ICFBamFloatColObj locked = null;
-		CFBamFloatColBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFBamFloatColObj lockFloatCol( YCFBamValuePKey pkey ) {
+		IYCFBamFloatColObj locked = null;
+		YCFBamFloatColBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
-				locked = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( lockBuff.getClassCode() );
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				locked = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( lockBuff.getClassCode() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFBamFloatColObj)locked.realise();
+			locked = (IYCFBamFloatColObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockFloatCol", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockFloatCol", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFBamFloatColObj> readAllFloatCol() {
+	public List<IYCFBamFloatColObj> readAllFloatCol() {
 		return( readAllFloatCol( false ) );
 	}
 
-	public List<ICFBamFloatColObj> readAllFloatCol( boolean forceRead ) {
+	public List<IYCFBamFloatColObj> readAllFloatCol( boolean forceRead ) {
 		final String S_ProcName = "readAllFloatCol";
 		if( ( allFloatCol == null ) || forceRead ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> map = new HashMap<CFBamValuePKey,ICFBamFloatColObj>();
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> map = new HashMap<YCFBamValuePKey,IYCFBamFloatColObj>();
 			allFloatCol = map;
-			CFBamFloatColBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().readAllDerived( schema.getAuthorization() );
-			CFBamFloatColBuff buff;
-			ICFBamFloatColObj obj;
+			YCFBamFloatColBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().readAllDerived( schema.getAuthorization() );
+			YCFBamFloatColBuff buff;
+			IYCFBamFloatColObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 			}
 		}
 		int len = allFloatCol.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = allFloatCol.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = allFloatCol.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -743,20 +743,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -769,31 +769,31 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedAllFloatCol() {
+	public List<IYCFBamFloatColObj> readCachedAllFloatCol() {
 		final String S_ProcName = "readCachedAllFloatCol";
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( allFloatCol != null ) {
 			int len = allFloatCol.size();
-			ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-			Iterator<ICFBamFloatColObj> valIter = allFloatCol.values().iterator();
+			IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+			Iterator<IYCFBamFloatColObj> valIter = allFloatCol.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -801,7 +801,7 @@ public class CFBamFloatColTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -812,8 +812,8 @@ public class CFBamFloatColTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -826,8 +826,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -837,7 +837,7 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public ICFBamFloatColObj readFloatColByIdIdx( long TenantId,
+	public IYCFBamFloatColObj readFloatColByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readFloatColByIdIdx( TenantId,
@@ -845,17 +845,17 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public ICFBamFloatColObj readFloatColByIdIdx( long TenantId,
+	public IYCFBamFloatColObj readFloatColByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFBamValuePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
+		YCFBamValuePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamFloatColObj obj = readFloatCol( pkey, forceRead );
+		IYCFBamFloatColObj obj = readFloatCol( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFBamFloatColObj readFloatColByUNameIdx( long TenantId,
+	public IYCFBamFloatColObj readFloatColByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name )
 	{
@@ -865,82 +865,82 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public ICFBamFloatColObj readFloatColByUNameIdx( long TenantId,
+	public IYCFBamFloatColObj readFloatColByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamValueByUNameIdxKey,
-				ICFBamFloatColObj >();
+			indexByUNameIdx = new HashMap< YCFBamValueByUNameIdxKey,
+				IYCFBamFloatColObj >();
 		}
-		CFBamValueByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+		YCFBamValueByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
-		ICFBamFloatColObj obj = null;
+		IYCFBamFloatColObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFBamValueBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFBamValueBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
 			if( buff != null ) {
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFBamFloatColObj)obj.realise();
+				obj = (IYCFBamFloatColObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByValTentIdx( long TenantId )
+	public List<IYCFBamFloatColObj> readFloatColByValTentIdx( long TenantId )
 	{
 		return( readFloatColByValTentIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByValTentIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByValTentIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByValTentIdx";
-		CFBamValueByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+		YCFBamValueByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByValTentIdx == null ) {
-			indexByValTentIdx = new HashMap< CFBamValueByValTentIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByValTentIdx = new HashMap< YCFBamValueByValTentIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByValTentIdx.containsKey( key ) ) {
 			dict = indexByValTentIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByValTentIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByValTentIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByValTentIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -948,20 +948,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -974,19 +974,19 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByScopeIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByScopeIdx( long TenantId,
 		long ScopeId )
 	{
 		return( readFloatColByScopeIdx( TenantId,
@@ -994,48 +994,48 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByScopeIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByScopeIdx";
-		CFBamValueByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+		YCFBamValueByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByScopeIdx == null ) {
-			indexByScopeIdx = new HashMap< CFBamValueByScopeIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByScopeIdx = new HashMap< YCFBamValueByScopeIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByScopeIdx.containsKey( key ) ) {
 			dict = indexByScopeIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByScopeIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1043,20 +1043,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1069,19 +1069,19 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamFloatColObj> readFloatColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		return( readFloatColByDefSchemaIdx( DefSchemaTenantId,
@@ -1089,48 +1089,48 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamFloatColObj> readFloatColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByDefSchemaIdx";
-		CFBamValueByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+		YCFBamValueByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamValueByDefSchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamValueByDefSchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByDefSchemaIdx.containsKey( key ) ) {
 			dict = indexByDefSchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByDefSchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDefSchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1138,20 +1138,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1164,19 +1164,19 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamFloatColObj> readFloatColByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		return( readFloatColByPrevIdx( PrevTenantId,
@@ -1184,48 +1184,48 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamFloatColObj> readFloatColByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByPrevIdx";
-		CFBamValueByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+		YCFBamValueByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamValueByPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByPrevIdx = new HashMap< YCFBamValueByPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByPrevIdx.containsKey( key ) ) {
 			dict = indexByPrevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByPrevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByPrevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1233,20 +1233,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1259,19 +1259,19 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByNextIdx( Long NextTenantId,
+	public List<IYCFBamFloatColObj> readFloatColByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		return( readFloatColByNextIdx( NextTenantId,
@@ -1279,48 +1279,48 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByNextIdx( Long NextTenantId,
+	public List<IYCFBamFloatColObj> readFloatColByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByNextIdx";
-		CFBamValueByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+		YCFBamValueByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamValueByNextIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByNextIdx = new HashMap< YCFBamValueByNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByNextIdx.containsKey( key ) ) {
 			dict = indexByNextIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByNextIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByNextIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1328,20 +1328,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1354,19 +1354,19 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByContPrevIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId )
 	{
@@ -1376,51 +1376,51 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByContPrevIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByContPrevIdx";
-		CFBamValueByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+		YCFBamValueByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByContPrevIdx == null ) {
-			indexByContPrevIdx = new HashMap< CFBamValueByContPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByContPrevIdx = new HashMap< YCFBamValueByContPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByContPrevIdx.containsKey( key ) ) {
 			dict = indexByContPrevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContPrevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				PrevId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByContPrevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1428,20 +1428,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1454,19 +1454,19 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByContNextIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId )
 	{
@@ -1476,51 +1476,51 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByContNextIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByContNextIdx";
-		CFBamValueByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+		YCFBamValueByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByContNextIdx == null ) {
-			indexByContNextIdx = new HashMap< CFBamValueByContNextIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByContNextIdx = new HashMap< YCFBamValueByContNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByContNextIdx.containsKey( key ) ) {
 			dict = indexByContNextIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContNextIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				NextId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByContNextIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1528,20 +1528,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1554,63 +1554,63 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public List<IYCFBamFloatColObj> readFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		return( readFloatColByCodeVisIdx( CodeVis,
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	public List<IYCFBamFloatColObj> readFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByCodeVisIdx";
-		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		YCFBamValueByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByCodeVisIdx == null ) {
-			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByCodeVisIdx = new HashMap< YCFBamValueByCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByCodeVisIdx.containsKey( key ) ) {
 			dict = indexByCodeVisIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByCodeVisIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByCodeVisIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1618,20 +1618,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1644,21 +1644,21 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByScopeCodeVisIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		return( readFloatColByScopeCodeVisIdx( TenantId,
 			ScopeId,
@@ -1666,51 +1666,51 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByScopeCodeVisIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByScopeCodeVisIdx";
-		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		YCFBamValueByScopeCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredCodeVis( CodeVis );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByScopeCodeVisIdx == null ) {
-			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByScopeCodeVisIdx = new HashMap< YCFBamValueByScopeCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByScopeCodeVisIdx.containsKey( key ) ) {
 			dict = indexByScopeCodeVisIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeCodeVisIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				CodeVis );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByScopeCodeVisIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1718,20 +1718,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1744,19 +1744,19 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByTableIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByTableIdx( long TenantId,
 		long TableId )
 	{
 		return( readFloatColByTableIdx( TenantId,
@@ -1764,48 +1764,48 @@ public class CFBamFloatColTableObj
 			false ) );
 	}
 
-	public List<ICFBamFloatColObj> readFloatColByTableIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readFloatColByTableIdx( long TenantId,
 		long TableId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readFloatColByTableIdx";
-		CFBamFloatColByTableIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
+		YCFBamFloatColByTableIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
-		Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+		Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 		if( indexByTableIdx == null ) {
-			indexByTableIdx = new HashMap< CFBamFloatColByTableIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByTableIdx = new HashMap< YCFBamFloatColByTableIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( ( ! forceRead ) && indexByTableIdx.containsKey( key ) ) {
 			dict = indexByTableIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamFloatColObj>();
-			ICFBamFloatColObj obj;
-			CFBamFloatColBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().readDerivedByTableIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamFloatColObj>();
+			IYCFBamFloatColObj obj;
+			YCFBamFloatColBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().readDerivedByTableIdx( schema.getAuthorization(),
 				TenantId,
 				TableId );
-			CFBamFloatColBuff buff;
+			YCFBamFloatColBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamFloatColObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamFloatColObj realised = (ICFBamFloatColObj)obj.realise();
+				IYCFBamFloatColObj realised = (IYCFBamFloatColObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTableIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-		Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+		IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+		Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1813,20 +1813,20 @@ public class CFBamFloatColTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>(len);
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1839,35 +1839,35 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamFloatColObj> sortedList = arrayList;
+		List<IYCFBamFloatColObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamFloatColObj readCachedFloatColByIdIdx( long TenantId,
+	public IYCFBamFloatColObj readCachedFloatColByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamFloatColObj obj = null;
-		CFBamValuePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
+		IYCFBamFloatColObj obj = null;
+		YCFBamValuePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedFloatCol( pkey );
 		return( obj );
 	}
 
-	public ICFBamFloatColObj readCachedFloatColByUNameIdx( long TenantId,
+	public IYCFBamFloatColObj readCachedFloatColByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name )
 	{
-		ICFBamFloatColObj obj = null;
-		CFBamValueByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+		IYCFBamFloatColObj obj = null;
+		YCFBamValueByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
@@ -1876,7 +1876,7 @@ public class CFBamFloatColTableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+				Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1888,7 +1888,7 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1901,25 +1901,25 @@ public class CFBamFloatColTableObj
 		return( obj );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByValTentIdx( long TenantId )
+	public List<IYCFBamFloatColObj> readCachedFloatColByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedFloatColByValTentIdx";
-		CFBamValueByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+		YCFBamValueByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByValTentIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByValTentIdx.containsKey( key ) ) {
 				dict = indexByValTentIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1927,7 +1927,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1940,8 +1940,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1951,8 +1951,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1965,8 +1965,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1976,27 +1976,27 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByScopeIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readCachedFloatColByScopeIdx( long TenantId,
 		long ScopeId )
 	{
 		final String S_ProcName = "readCachedFloatColByScopeIdx";
-		CFBamValueByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+		YCFBamValueByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByScopeIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByScopeIdx.containsKey( key ) ) {
 				dict = indexByScopeIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2004,7 +2004,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2017,8 +2017,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2028,8 +2028,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2042,8 +2042,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2053,27 +2053,27 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamFloatColObj> readCachedFloatColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "readCachedFloatColByDefSchemaIdx";
-		CFBamValueByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+		YCFBamValueByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByDefSchemaIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByDefSchemaIdx.containsKey( key ) ) {
 				dict = indexByDefSchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2081,7 +2081,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2094,8 +2094,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2105,8 +2105,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2119,8 +2119,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2130,27 +2130,27 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamFloatColObj> readCachedFloatColByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		final String S_ProcName = "readCachedFloatColByPrevIdx";
-		CFBamValueByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+		YCFBamValueByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByPrevIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByPrevIdx.containsKey( key ) ) {
 				dict = indexByPrevIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2158,7 +2158,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2171,8 +2171,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2182,8 +2182,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2196,8 +2196,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2207,27 +2207,27 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByNextIdx( Long NextTenantId,
+	public List<IYCFBamFloatColObj> readCachedFloatColByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		final String S_ProcName = "readCachedFloatColByNextIdx";
-		CFBamValueByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+		YCFBamValueByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByNextIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByNextIdx.containsKey( key ) ) {
 				dict = indexByNextIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2235,7 +2235,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2248,8 +2248,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2259,8 +2259,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2273,8 +2273,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2284,29 +2284,29 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByContPrevIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readCachedFloatColByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId )
 	{
 		final String S_ProcName = "readCachedFloatColByContPrevIdx";
-		CFBamValueByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+		YCFBamValueByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByContPrevIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByContPrevIdx.containsKey( key ) ) {
 				dict = indexByContPrevIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2314,7 +2314,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2327,8 +2327,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2338,8 +2338,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2352,8 +2352,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2363,29 +2363,29 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByContNextIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readCachedFloatColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId )
 	{
 		final String S_ProcName = "readCachedFloatColByContNextIdx";
-		CFBamValueByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+		YCFBamValueByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByContNextIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByContNextIdx.containsKey( key ) ) {
 				dict = indexByContNextIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2393,7 +2393,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2406,8 +2406,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2417,8 +2417,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2431,8 +2431,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2442,25 +2442,25 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public List<IYCFBamFloatColObj> readCachedFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "readCachedFloatColByCodeVisIdx";
-		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		YCFBamValueByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByCodeVisIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByCodeVisIdx.containsKey( key ) ) {
 				dict = indexByCodeVisIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2468,7 +2468,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2481,8 +2481,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2492,8 +2492,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2506,8 +2506,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2517,29 +2517,29 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByScopeCodeVisIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readCachedFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "readCachedFloatColByScopeCodeVisIdx";
-		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		YCFBamValueByScopeCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredCodeVis( CodeVis );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByScopeCodeVisIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByScopeCodeVisIdx.containsKey( key ) ) {
 				dict = indexByScopeCodeVisIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2547,7 +2547,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2560,8 +2560,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2571,8 +2571,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2585,8 +2585,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2596,27 +2596,27 @@ public class CFBamFloatColTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamFloatColObj> readCachedFloatColByTableIdx( long TenantId,
+	public List<IYCFBamFloatColObj> readCachedFloatColByTableIdx( long TenantId,
 		long TableId )
 	{
 		final String S_ProcName = "readCachedFloatColByTableIdx";
-		CFBamFloatColByTableIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
+		YCFBamFloatColByTableIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
-		ArrayList<ICFBamFloatColObj> arrayList = new ArrayList<ICFBamFloatColObj>();
+		ArrayList<IYCFBamFloatColObj> arrayList = new ArrayList<IYCFBamFloatColObj>();
 		if( indexByTableIdx != null ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict;
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict;
 			if( indexByTableIdx.containsKey( key ) ) {
 				dict = indexByTableIdx.get( key );
 				int len = dict.size();
-				ICFBamFloatColObj arr[] = new ICFBamFloatColObj[len];
-				Iterator<ICFBamFloatColObj> valIter = dict.values().iterator();
+				IYCFBamFloatColObj arr[] = new IYCFBamFloatColObj[len];
+				Iterator<IYCFBamFloatColObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2624,7 +2624,7 @@ public class CFBamFloatColTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2637,8 +2637,8 @@ public class CFBamFloatColTableObj
 			}
 		}
 		else {
-			ICFBamFloatColObj obj;
-			Iterator<ICFBamFloatColObj> valIter = members.values().iterator();
+			IYCFBamFloatColObj obj;
+			Iterator<IYCFBamFloatColObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2648,8 +2648,8 @@ public class CFBamFloatColTableObj
 				}
 			}
 		}
-		Comparator<ICFBamFloatColObj> cmp = new Comparator<ICFBamFloatColObj>() {
-			public int compare( ICFBamFloatColObj lhs, ICFBamFloatColObj rhs ) {
+		Comparator<IYCFBamFloatColObj> cmp = new Comparator<IYCFBamFloatColObj>() {
+			public int compare( IYCFBamFloatColObj lhs, IYCFBamFloatColObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2662,8 +2662,8 @@ public class CFBamFloatColTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2676,7 +2676,7 @@ public class CFBamFloatColTableObj
 	public void deepDisposeFloatColByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamFloatColObj obj = readCachedFloatColByIdIdx( TenantId,
+		IYCFBamFloatColObj obj = readCachedFloatColByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -2687,7 +2687,7 @@ public class CFBamFloatColTableObj
 		long ScopeId,
 		String Name )
 	{
-		ICFBamFloatColObj obj = readCachedFloatColByUNameIdx( TenantId,
+		IYCFBamFloatColObj obj = readCachedFloatColByUNameIdx( TenantId,
 				ScopeId,
 				Name );
 		if( obj != null ) {
@@ -2698,10 +2698,10 @@ public class CFBamFloatColTableObj
 	public void deepDisposeFloatColByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeFloatColByValTentIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByValTentIdx( TenantId );
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByValTentIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2715,11 +2715,11 @@ public class CFBamFloatColTableObj
 		long ScopeId )
 	{
 		final String S_ProcName = "deepDisposeFloatColByScopeIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByScopeIdx( TenantId,
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByScopeIdx( TenantId,
 				ScopeId );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2733,11 +2733,11 @@ public class CFBamFloatColTableObj
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "deepDisposeFloatColByDefSchemaIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByDefSchemaIdx( DefSchemaTenantId,
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByDefSchemaIdx( DefSchemaTenantId,
 				DefSchemaId );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2751,11 +2751,11 @@ public class CFBamFloatColTableObj
 		Long PrevId )
 	{
 		final String S_ProcName = "deepDisposeFloatColByPrevIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByPrevIdx( PrevTenantId,
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByPrevIdx( PrevTenantId,
 				PrevId );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2769,11 +2769,11 @@ public class CFBamFloatColTableObj
 		Long NextId )
 	{
 		final String S_ProcName = "deepDisposeFloatColByNextIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByNextIdx( NextTenantId,
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByNextIdx( NextTenantId,
 				NextId );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2788,12 +2788,12 @@ public class CFBamFloatColTableObj
 		Long PrevId )
 	{
 		final String S_ProcName = "deepDisposeFloatColByContPrevIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByContPrevIdx( TenantId,
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByContPrevIdx( TenantId,
 				ScopeId,
 				PrevId );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2808,12 +2808,12 @@ public class CFBamFloatColTableObj
 		Long NextId )
 	{
 		final String S_ProcName = "deepDisposeFloatColByContNextIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByContNextIdx( TenantId,
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByContNextIdx( TenantId,
 				ScopeId,
 				NextId );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2823,13 +2823,13 @@ public class CFBamFloatColTableObj
 		}
 	}
 
-	public void deepDisposeFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public void deepDisposeFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "deepDisposeFloatColByCodeVisIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByCodeVisIdx( CodeVis );
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByCodeVisIdx( CodeVis );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2841,15 +2841,15 @@ public class CFBamFloatColTableObj
 
 	public void deepDisposeFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "deepDisposeFloatColByScopeCodeVisIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByScopeCodeVisIdx( TenantId,
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByScopeCodeVisIdx( TenantId,
 				ScopeId,
 				CodeVis );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2863,11 +2863,11 @@ public class CFBamFloatColTableObj
 		long TableId )
 	{
 		final String S_ProcName = "deepDisposeFloatColByTableIdx";
-		ICFBamFloatColObj obj;
-		List<ICFBamFloatColObj> arrayList = readCachedFloatColByTableIdx( TenantId,
+		IYCFBamFloatColObj obj;
+		List<IYCFBamFloatColObj> arrayList = readCachedFloatColByTableIdx( TenantId,
 				TableId );
 		if( arrayList != null )  {
-			Iterator<ICFBamFloatColObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamFloatColObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2877,22 +2877,22 @@ public class CFBamFloatColTableObj
 		}
 	}
 
-	public ICFBamFloatColObj updateFloatCol( ICFBamFloatColObj Obj ) {
-		ICFBamFloatColObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().updateFloatCol( schema.getAuthorization(),
+	public IYCFBamFloatColObj updateFloatCol( IYCFBamFloatColObj Obj ) {
+		IYCFBamFloatColObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().updateFloatCol( schema.getAuthorization(),
 			Obj.getFloatColBuff() );
 		if( Obj.getClassCode().equals( "a874" ) ) {
-			obj = (ICFBamFloatColObj)Obj.realise();
+			obj = (IYCFBamFloatColObj)Obj.realise();
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteFloatCol( ICFBamFloatColObj Obj ) {
-		ICFBamFloatColObj obj = Obj;
-		ICFBamValueObj prev = obj.getOptionalLookupPrev();
-		ICFBamValueObj next = obj.getOptionalLookupNext();
-		((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatCol( schema.getAuthorization(),
+	public void deleteFloatCol( IYCFBamFloatColObj Obj ) {
+		IYCFBamFloatColObj obj = Obj;
+		IYCFBamValueObj prev = obj.getOptionalLookupPrev();
+		IYCFBamValueObj next = obj.getOptionalLookupNext();
+		((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatCol( schema.getAuthorization(),
 			obj.getFloatColBuff() );
 		Obj.forget();
 		if( prev != null ) {
@@ -2906,15 +2906,15 @@ public class CFBamFloatColTableObj
 	public void deleteFloatColByIdIdx( long TenantId,
 		long Id )
 	{
-		CFBamValuePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
+		YCFBamValuePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamFloatColObj obj = readFloatCol( pkey );
+		IYCFBamFloatColObj obj = readFloatCol( pkey );
 		if( obj != null ) {
-			ICFBamFloatColEditObj editObj = (ICFBamFloatColEditObj)obj.getEdit();
+			IYCFBamFloatColEditObj editObj = (IYCFBamFloatColEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFBamFloatColEditObj)obj.beginEdit();
+				editObj = (IYCFBamFloatColEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -2942,24 +2942,24 @@ public class CFBamFloatColTableObj
 		String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamValueByUNameIdxKey,
-				ICFBamFloatColObj >();
+			indexByUNameIdx = new HashMap< YCFBamValueByUNameIdxKey,
+				IYCFBamFloatColObj >();
 		}
-		CFBamValueByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+		YCFBamValueByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
-		ICFBamFloatColObj obj = null;
+		IYCFBamFloatColObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
@@ -2971,19 +2971,19 @@ public class CFBamFloatColTableObj
 
 	public void deleteFloatColByValTentIdx( long TenantId )
 	{
-		CFBamValueByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+		YCFBamValueByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByValTentIdx == null ) {
-			indexByValTentIdx = new HashMap< CFBamValueByValTentIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByValTentIdx = new HashMap< YCFBamValueByValTentIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByValTentIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByValTentIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByValTentIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByValTentIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByValTentIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2996,7 +2996,7 @@ public class CFBamFloatColTableObj
 			indexByValTentIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByValTentIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByValTentIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeFloatColByValTentIdx( TenantId );
@@ -3005,21 +3005,21 @@ public class CFBamFloatColTableObj
 	public void deleteFloatColByScopeIdx( long TenantId,
 		long ScopeId )
 	{
-		CFBamValueByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+		YCFBamValueByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		if( indexByScopeIdx == null ) {
-			indexByScopeIdx = new HashMap< CFBamValueByScopeIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByScopeIdx = new HashMap< YCFBamValueByScopeIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByScopeIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByScopeIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByScopeIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByScopeIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3032,7 +3032,7 @@ public class CFBamFloatColTableObj
 			indexByScopeIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByScopeIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
 		}
@@ -3043,21 +3043,21 @@ public class CFBamFloatColTableObj
 	public void deleteFloatColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		CFBamValueByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+		YCFBamValueByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamValueByDefSchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamValueByDefSchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByDefSchemaIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByDefSchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByDefSchemaIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByDefSchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3070,7 +3070,7 @@ public class CFBamFloatColTableObj
 			indexByDefSchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByDefSchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
 		}
@@ -3081,21 +3081,21 @@ public class CFBamFloatColTableObj
 	public void deleteFloatColByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
-		CFBamValueByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+		YCFBamValueByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamValueByPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByPrevIdx = new HashMap< YCFBamValueByPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByPrevIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByPrevIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByPrevIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByPrevIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3108,7 +3108,7 @@ public class CFBamFloatColTableObj
 			indexByPrevIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByPrevIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
 		}
@@ -3119,21 +3119,21 @@ public class CFBamFloatColTableObj
 	public void deleteFloatColByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
-		CFBamValueByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+		YCFBamValueByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamValueByNextIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByNextIdx = new HashMap< YCFBamValueByNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByNextIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByNextIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByNextIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByNextIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3146,7 +3146,7 @@ public class CFBamFloatColTableObj
 			indexByNextIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByNextIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
 		}
@@ -3158,23 +3158,23 @@ public class CFBamFloatColTableObj
 		long ScopeId,
 		Long PrevId )
 	{
-		CFBamValueByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+		YCFBamValueByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
 		if( indexByContPrevIdx == null ) {
-			indexByContPrevIdx = new HashMap< CFBamValueByContPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByContPrevIdx = new HashMap< YCFBamValueByContPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByContPrevIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByContPrevIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByContPrevIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByContPrevIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				PrevId );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3187,7 +3187,7 @@ public class CFBamFloatColTableObj
 			indexByContPrevIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByContPrevIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				PrevId );
@@ -3201,23 +3201,23 @@ public class CFBamFloatColTableObj
 		long ScopeId,
 		Long NextId )
 	{
-		CFBamValueByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+		YCFBamValueByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
 		if( indexByContNextIdx == null ) {
-			indexByContNextIdx = new HashMap< CFBamValueByContNextIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByContNextIdx = new HashMap< YCFBamValueByContNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByContNextIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByContNextIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByContNextIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByContNextIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				NextId );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3230,7 +3230,7 @@ public class CFBamFloatColTableObj
 			indexByContNextIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByContNextIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				NextId );
@@ -3240,21 +3240,21 @@ public class CFBamFloatColTableObj
 				NextId );
 	}
 
-	public void deleteFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public void deleteFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		YCFBamValueByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
 		if( indexByCodeVisIdx == null ) {
-			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByCodeVisIdx = new HashMap< YCFBamValueByCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByCodeVisIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByCodeVisIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByCodeVisIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByCodeVisIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3267,7 +3267,7 @@ public class CFBamFloatColTableObj
 			indexByCodeVisIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByCodeVisIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
 		}
 		deepDisposeFloatColByCodeVisIdx( CodeVis );
@@ -3275,25 +3275,25 @@ public class CFBamFloatColTableObj
 
 	public void deleteFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		YCFBamValueByScopeCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredCodeVis( CodeVis );
 		if( indexByScopeCodeVisIdx == null ) {
-			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByScopeCodeVisIdx = new HashMap< YCFBamValueByScopeCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByScopeCodeVisIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByScopeCodeVisIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByScopeCodeVisIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByScopeCodeVisIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByScopeCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				CodeVis );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3306,7 +3306,7 @@ public class CFBamFloatColTableObj
 			indexByScopeCodeVisIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByScopeCodeVisIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByScopeCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				CodeVis );
@@ -3319,21 +3319,21 @@ public class CFBamFloatColTableObj
 	public void deleteFloatColByTableIdx( long TenantId,
 		long TableId )
 	{
-		CFBamFloatColByTableIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
+		YCFBamFloatColByTableIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryFloatCol().newTableIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		if( indexByTableIdx == null ) {
-			indexByTableIdx = new HashMap< CFBamFloatColByTableIdxKey,
-				Map< CFBamValuePKey, ICFBamFloatColObj > >();
+			indexByTableIdx = new HashMap< YCFBamFloatColByTableIdxKey,
+				Map< YCFBamValuePKey, IYCFBamFloatColObj > >();
 		}
 		if( indexByTableIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamFloatColObj> dict = indexByTableIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByTableIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamFloatColObj> dict = indexByTableIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByTableIdx( schema.getAuthorization(),
 				TenantId,
 				TableId );
-			Iterator<ICFBamFloatColObj> iter = dict.values().iterator();
-			ICFBamFloatColObj obj;
-			List<ICFBamFloatColObj> toForget = new LinkedList<ICFBamFloatColObj>();
+			Iterator<IYCFBamFloatColObj> iter = dict.values().iterator();
+			IYCFBamFloatColObj obj;
+			List<IYCFBamFloatColObj> toForget = new LinkedList<IYCFBamFloatColObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3346,7 +3346,7 @@ public class CFBamFloatColTableObj
 			indexByTableIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByTableIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().deleteFloatColByTableIdx( schema.getAuthorization(),
 				TenantId,
 				TableId );
 		}
@@ -3355,61 +3355,61 @@ public class CFBamFloatColTableObj
 	}
 
 	/**
-	 *	Move the CFBamFloatColObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamFloatColObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamFloatColObj refreshed cache instance.
+	 *	@return	YCFBamFloatColObj refreshed cache instance.
 	 */
-	public ICFBamFloatColObj moveUpFloatCol( ICFBamFloatColObj Obj ) {
-		ICFBamFloatColObj obj = null;
+	public IYCFBamFloatColObj moveUpFloatCol( IYCFBamFloatColObj Obj ) {
+		IYCFBamFloatColObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveUpFloatCol",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamFloatColBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().moveBuffUp( schema.getAuthorization(),
+		YCFBamFloatColBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().moveBuffUp( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getFloatColTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamFloatColObj)obj.realise();
-			ICFBamValueObj prev = obj.getOptionalLookupPrev( true );
-			ICFBamValueObj next = obj.getOptionalLookupNext( true );
+			obj = (IYCFBamFloatColObj)obj.realise();
+			IYCFBamValueObj prev = obj.getOptionalLookupPrev( true );
+			IYCFBamValueObj next = obj.getOptionalLookupNext( true );
 			if( next != null ) {
-				ICFBamValueObj gnext = next.getOptionalLookupNext( true );
+				IYCFBamValueObj gnext = next.getOptionalLookupNext( true );
 			}
 		}
 		return( obj );
 	}
 
 	/**
-	 *	Move the CFBamFloatColObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamFloatColObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamFloatColObj refreshed cache instance.
+	 *	@return	YCFBamFloatColObj refreshed cache instance.
 	 */
-	public ICFBamFloatColObj moveDownFloatCol( ICFBamFloatColObj Obj ) {
-		ICFBamFloatColObj obj = null;
+	public IYCFBamFloatColObj moveDownFloatCol( IYCFBamFloatColObj Obj ) {
+		IYCFBamFloatColObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveDownFloatCol",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamFloatColBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableFloatCol().moveBuffDown( schema.getAuthorization(),
+		YCFBamFloatColBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableFloatCol().moveBuffDown( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getFloatColTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamFloatColObj)obj.realise();
-			ICFBamValueObj prev = obj.getOptionalLookupPrev( true );
+			obj = (IYCFBamFloatColObj)obj.realise();
+			IYCFBamValueObj prev = obj.getOptionalLookupPrev( true );
 			if( prev != null ) {
-				ICFBamValueObj gprev = prev.getOptionalLookupPrev( true );
+				IYCFBamValueObj gprev = prev.getOptionalLookupPrev( true );
 			}
-			ICFBamValueObj next = obj.getOptionalLookupNext( true );
+			IYCFBamValueObj next = obj.getOptionalLookupNext( true );
 		}
 		return( obj );
 	}

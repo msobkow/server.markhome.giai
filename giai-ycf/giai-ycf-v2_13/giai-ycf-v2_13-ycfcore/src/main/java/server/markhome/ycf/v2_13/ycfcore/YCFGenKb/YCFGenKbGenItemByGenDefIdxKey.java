@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenItem by GenDefIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenItemByGenDefIdxKey
+public class YCFGenKbGenItemByGenDefIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected short requiredGenDefId;
-	public CFGenKbGenItemByGenDefIdxKey() {
-		requiredGenDefId = CFGenKbGenItemBuff.GENDEFID_INIT_VALUE;
+	public YCFGenKbGenItemByGenDefIdxKey() {
+		requiredGenDefId = YCFGenKbGenItemBuff.GENDEFID_INIT_VALUE;
 	}
 
 	public short getRequiredGenDefId() {
@@ -54,21 +54,21 @@ public class CFGenKbGenItemByGenDefIdxKey
 	}
 
 	public void setRequiredGenDefId( short value ) {
-		if( value < CFGenKbGenItemBuff.GENDEFID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGenItemBuff.GENDEFID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGenDefId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.GENDEFID_MIN_VALUE );
+				YCFGenKbGenItemBuff.GENDEFID_MIN_VALUE );
 		}
-		if( value > CFGenKbGenItemBuff.GENDEFID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbGenItemBuff.GENDEFID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredGenDefId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.GENDEFID_MAX_VALUE );
+				YCFGenKbGenItemBuff.GENDEFID_MAX_VALUE );
 		}
 		requiredGenDefId = value;
 	}
@@ -77,15 +77,15 @@ public class CFGenKbGenItemByGenDefIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenItemByGenDefIdxKey ) {
-			CFGenKbGenItemByGenDefIdxKey rhs = (CFGenKbGenItemByGenDefIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByGenDefIdxKey ) {
+			YCFGenKbGenItemByGenDefIdxKey rhs = (YCFGenKbGenItemByGenDefIdxKey)obj;
 			if( getRequiredGenDefId() != rhs.getRequiredGenDefId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getRequiredGenDefId() != rhs.getRequiredGenDefId() ) {
 				return( false );
 			}
@@ -106,8 +106,8 @@ public class CFGenKbGenItemByGenDefIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenItemByGenDefIdxKey ) {
-			CFGenKbGenItemByGenDefIdxKey rhs = (CFGenKbGenItemByGenDefIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByGenDefIdxKey ) {
+			YCFGenKbGenItemByGenDefIdxKey rhs = (YCFGenKbGenItemByGenDefIdxKey)obj;
 			if( getRequiredGenDefId() < rhs.getRequiredGenDefId() ) {
 				return( -1 );
 			}
@@ -116,8 +116,8 @@ public class CFGenKbGenItemByGenDefIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getRequiredGenDefId() < rhs.getRequiredGenDefId() ) {
 				return( -1 );
 			}
@@ -127,7 +127,7 @@ public class CFGenKbGenItemByGenDefIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -136,7 +136,7 @@ public class CFGenKbGenItemByGenDefIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenItemByGenDefIdx"
+		String ret = "<YCFGenKbGenItemByGenDefIdx"
 			+ " RequiredGenDefId=" + "\"" + Short.toString( getRequiredGenDefId() ) + "\""
 			+ "/>";
 		return( ret );

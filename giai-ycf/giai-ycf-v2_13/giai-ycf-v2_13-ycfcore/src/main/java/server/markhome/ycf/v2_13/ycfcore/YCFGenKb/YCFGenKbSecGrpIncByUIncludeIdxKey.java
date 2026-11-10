@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecGrpInc by UIncludeIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,20 +37,20 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSecGrpIncByUIncludeIdxKey
+public class YCFGenKbSecGrpIncByUIncludeIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredClusterId;
 	protected int requiredSecGroupId;
 	protected int requiredIncludeGroupId;
-	public CFGenKbSecGrpIncByUIncludeIdxKey() {
-		requiredClusterId = CFGenKbSecGrpIncBuff.CLUSTERID_INIT_VALUE;
-		requiredSecGroupId = CFGenKbSecGrpIncBuff.SECGROUPID_INIT_VALUE;
-		requiredIncludeGroupId = CFGenKbSecGrpIncBuff.INCLUDEGROUPID_INIT_VALUE;
+	public YCFGenKbSecGrpIncByUIncludeIdxKey() {
+		requiredClusterId = YCFGenKbSecGrpIncBuff.CLUSTERID_INIT_VALUE;
+		requiredSecGroupId = YCFGenKbSecGrpIncBuff.SECGROUPID_INIT_VALUE;
+		requiredIncludeGroupId = YCFGenKbSecGrpIncBuff.INCLUDEGROUPID_INIT_VALUE;
 	}
 
 	public long getRequiredClusterId() {
@@ -58,13 +58,13 @@ public class CFGenKbSecGrpIncByUIncludeIdxKey
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFGenKbSecGrpIncBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecGrpIncBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFGenKbSecGrpIncBuff.CLUSTERID_MIN_VALUE );
+				YCFGenKbSecGrpIncBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -74,13 +74,13 @@ public class CFGenKbSecGrpIncByUIncludeIdxKey
 	}
 
 	public void setRequiredSecGroupId( int value ) {
-		if( value < CFGenKbSecGrpIncBuff.SECGROUPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecGrpIncBuff.SECGROUPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecGroupId",
 				1,
 				"value",
 				value,
-				CFGenKbSecGrpIncBuff.SECGROUPID_MIN_VALUE );
+				YCFGenKbSecGrpIncBuff.SECGROUPID_MIN_VALUE );
 		}
 		requiredSecGroupId = value;
 	}
@@ -90,13 +90,13 @@ public class CFGenKbSecGrpIncByUIncludeIdxKey
 	}
 
 	public void setRequiredIncludeGroupId( int value ) {
-		if( value < CFGenKbSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredIncludeGroupId",
 				1,
 				"value",
 				value,
-				CFGenKbSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE );
+				YCFGenKbSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE );
 		}
 		requiredIncludeGroupId = value;
 	}
@@ -105,8 +105,8 @@ public class CFGenKbSecGrpIncByUIncludeIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecGrpIncByUIncludeIdxKey ) {
-			CFGenKbSecGrpIncByUIncludeIdxKey rhs = (CFGenKbSecGrpIncByUIncludeIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecGrpIncByUIncludeIdxKey ) {
+			YCFGenKbSecGrpIncByUIncludeIdxKey rhs = (YCFGenKbSecGrpIncByUIncludeIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -118,8 +118,8 @@ public class CFGenKbSecGrpIncByUIncludeIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecGrpIncBuff ) {
-			CFGenKbSecGrpIncBuff rhs = (CFGenKbSecGrpIncBuff)obj;
+		else if( obj instanceof YCFGenKbSecGrpIncBuff ) {
+			YCFGenKbSecGrpIncBuff rhs = (YCFGenKbSecGrpIncBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -148,8 +148,8 @@ public class CFGenKbSecGrpIncByUIncludeIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbSecGrpIncByUIncludeIdxKey ) {
-			CFGenKbSecGrpIncByUIncludeIdxKey rhs = (CFGenKbSecGrpIncByUIncludeIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecGrpIncByUIncludeIdxKey ) {
+			YCFGenKbSecGrpIncByUIncludeIdxKey rhs = (YCFGenKbSecGrpIncByUIncludeIdxKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -170,8 +170,8 @@ public class CFGenKbSecGrpIncByUIncludeIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecGrpIncBuff ) {
-			CFGenKbSecGrpIncBuff rhs = (CFGenKbSecGrpIncBuff)obj;
+		else if( obj instanceof YCFGenKbSecGrpIncBuff ) {
+			YCFGenKbSecGrpIncBuff rhs = (YCFGenKbSecGrpIncBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -193,7 +193,7 @@ public class CFGenKbSecGrpIncByUIncludeIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -202,7 +202,7 @@ public class CFGenKbSecGrpIncByUIncludeIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbSecGrpIncByUIncludeIdx"
+		String ret = "<YCFGenKbSecGrpIncByUIncludeIdx"
 			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
 			+ " RequiredSecGroupId=" + "\"" + Integer.toString( getRequiredSecGroupId() ) + "\""
 			+ " RequiredIncludeGroupId=" + "\"" + Integer.toString( getRequiredIncludeGroupId() ) + "\""

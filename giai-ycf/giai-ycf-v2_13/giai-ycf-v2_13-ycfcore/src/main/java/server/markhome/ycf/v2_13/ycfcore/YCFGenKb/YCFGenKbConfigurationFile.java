@@ -1,11 +1,11 @@
-// Description: Java 11 configuration file for a CFGenKb schema.
+// Description: Java 11 configuration file for a YCFGenKb schema.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.io.*;
 import java.lang.reflect.*;
@@ -36,10 +36,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbConfigurationFile
+public class YCFGenKbConfigurationFile
 {
 	protected String fileName = null;
 	protected Properties props = new Properties();
@@ -51,7 +51,7 @@ public class CFGenKbConfigurationFile
 	protected String dbDatabase = null;	protected String dbUserName = null;
 	protected String dbPassword = null;
 
-	public CFGenKbConfigurationFile() {
+	public YCFGenKbConfigurationFile() {
 	}
 	public String getFileName() {
 		return( fileName );
@@ -91,7 +91,7 @@ public class CFGenKbConfigurationFile
 			doSave = true;
 		}
 		catch( IOException e ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				"load",
 				"IOException " + e.getMessage(),
 				e );
@@ -104,11 +104,11 @@ public class CFGenKbConfigurationFile
 	public void save() {
 		try {
 			FileWriter writer = new FileWriter( fileName );
-			props.store( writer, "CFGenKbConfigurationFile" );
+			props.store( writer, "YCFGenKbConfigurationFile" );
 			writer.close();
 		}
 		catch( IOException e ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				"save",
 				"IOException " + e.getMessage(),
 				e );

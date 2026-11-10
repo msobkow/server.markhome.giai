@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a URLProtocol history primary key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,26 +36,26 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFIntURLProtocolHPKey History Primary Key for URLProtocol
+ *	YCFIntURLProtocolHPKey History Primary Key for URLProtocol
 
  *		requiredURLProtocolId	Required object attribute URLProtocolId. */
-public class CFIntURLProtocolHPKey
-	extends CFIntHPKey
+public class YCFIntURLProtocolHPKey
+	extends YCFIntHPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected int requiredURLProtocolId;
-	public CFIntURLProtocolHPKey()
+	public YCFIntURLProtocolHPKey()
 	{
 		super();
-		requiredURLProtocolId = CFIntURLProtocolBuff.URLPROTOCOLID_INIT_VALUE;
+		requiredURLProtocolId = YCFIntURLProtocolBuff.URLPROTOCOLID_INIT_VALUE;
 	}
 
 	public int getRequiredURLProtocolId() {
@@ -63,13 +63,13 @@ public class CFIntURLProtocolHPKey
 	}
 
 	public void setRequiredURLProtocolId( int value ) {
-		if( value < CFIntURLProtocolBuff.URLPROTOCOLID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntURLProtocolBuff.URLPROTOCOLID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredURLProtocolId",
 				1,
 				"value",
 				value,
-				CFIntURLProtocolBuff.URLPROTOCOLID_MIN_VALUE );
+				YCFIntURLProtocolBuff.URLPROTOCOLID_MIN_VALUE );
 		}
 		requiredURLProtocolId = value;
 	}
@@ -78,8 +78,8 @@ public class CFIntURLProtocolHPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntURLProtocolHPKey ) {
-			CFIntURLProtocolHPKey rhs = (CFIntURLProtocolHPKey)obj;
+		else if( obj instanceof YCFIntURLProtocolHPKey ) {
+			YCFIntURLProtocolHPKey rhs = (YCFIntURLProtocolHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -140,8 +140,8 @@ public class CFIntURLProtocolHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -199,15 +199,15 @@ public class CFIntURLProtocolHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolPKey ) {
-			CFIntURLProtocolPKey rhs = (CFIntURLProtocolPKey)obj;
+		else if( obj instanceof YCFIntURLProtocolPKey ) {
+			YCFIntURLProtocolPKey rhs = (YCFIntURLProtocolPKey)obj;
 			if( getRequiredURLProtocolId() != rhs.getRequiredURLProtocolId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolHBuff ) {
-			CFIntURLProtocolHBuff rhs = (CFIntURLProtocolHBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolHBuff ) {
+			YCFIntURLProtocolHBuff rhs = (YCFIntURLProtocolHBuff)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -271,8 +271,8 @@ public class CFIntURLProtocolHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolBuff ) {
-			CFIntURLProtocolBuff rhs = (CFIntURLProtocolBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolBuff ) {
+			YCFIntURLProtocolBuff rhs = (YCFIntURLProtocolBuff)obj;
 			if( getRequiredURLProtocolId() != rhs.getRequiredURLProtocolId() ) {
 				return( false );
 			}
@@ -293,8 +293,8 @@ public class CFIntURLProtocolHPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntURLProtocolHBuff ) {
-			CFIntURLProtocolHBuff rhs = (CFIntURLProtocolHBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolHBuff ) {
+			YCFIntURLProtocolHBuff rhs = (YCFIntURLProtocolHBuff)obj;
 			int retval = 0;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
@@ -370,8 +370,8 @@ public class CFIntURLProtocolHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolHPKey ) {
-			CFIntURLProtocolHPKey rhs = (CFIntURLProtocolHPKey)obj;
+		else if( obj instanceof YCFIntURLProtocolHPKey ) {
+			YCFIntURLProtocolHPKey rhs = (YCFIntURLProtocolHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -446,8 +446,8 @@ public class CFIntURLProtocolHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -516,8 +516,8 @@ public class CFIntURLProtocolHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolPKey ) {
-			CFIntURLProtocolPKey rhs = (CFIntURLProtocolPKey)obj;
+		else if( obj instanceof YCFIntURLProtocolPKey ) {
+			YCFIntURLProtocolPKey rhs = (YCFIntURLProtocolPKey)obj;
 			if( getRequiredURLProtocolId() < rhs.getRequiredURLProtocolId() ) {
 				return( -1 );
 			}
@@ -526,8 +526,8 @@ public class CFIntURLProtocolHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolBuff ) {
-			CFIntURLProtocolBuff rhs = (CFIntURLProtocolBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolBuff ) {
+			YCFIntURLProtocolBuff rhs = (YCFIntURLProtocolBuff)obj;
 			if( getRequiredURLProtocolId() < rhs.getRequiredURLProtocolId() ) {
 				return( -1 );
 			}
@@ -537,16 +537,16 @@ public class CFIntURLProtocolHPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFIntURLProtocolHPKey, CFIntURLProtocolPKey, CFIntURLProtocolBuff" );
+				"YCFIntURLProtocolHPKey, YCFIntURLProtocolPKey, YCFIntURLProtocolBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFIntURLProtocolHPKey"
+		String ret = "<YCFIntURLProtocolHPKey"
 			+ " RequiredURLProtocolId=" + "\"" + Integer.toString( getRequiredURLProtocolId() ) + "\""
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
 			+ "/>";

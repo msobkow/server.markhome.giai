@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb SysCluster.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb SysCluster.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSysClusterEditObj
-	extends ICFGenKbSysClusterObj
+public interface IYCFGenKbSysClusterEditObj
+	extends IYCFGenKbSysClusterObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbSysClusterObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbSysClusterObj.
 	 */
-	ICFGenKbSysClusterObj getOrig();
+	IYCFGenKbSysClusterObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbSysClusterObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbSysClusterObj.
 	 */
-	ICFGenKbSysClusterObj getOrigAsSysCluster();
+	IYCFGenKbSysClusterObj getOrigAsSysCluster();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbSysClusterEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbSysClusterObj create();
+	IYCFGenKbSysClusterObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbSysClusterEditObj update();
+	YCFGenKbSysClusterEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbSysClusterEditObj deleteInstance();
+	YCFGenKbSysClusterEditObj deleteInstance();
 
 	/**
 	 *	Get the required int attribute SingletonId.
@@ -90,16 +90,16 @@ public interface ICFGenKbSysClusterEditObj
 	void setRequiredSingletonId( int value );
 
 	/**
-	 *	Get the ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster();
+	IYCFGenKbClusterObj getRequiredContainerCluster();
 
 	/**
-	 *	Set the ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Set the IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@param	value	the ICFGenKbClusterObj instance to be referenced by the Cluster key.
+	 *	@param	value	the IYCFGenKbClusterObj instance to be referenced by the Cluster key.
 	 */
-	void setRequiredContainerCluster( ICFGenKbClusterObj value );
+	void setRequiredContainerCluster( IYCFGenKbClusterObj value );
 }

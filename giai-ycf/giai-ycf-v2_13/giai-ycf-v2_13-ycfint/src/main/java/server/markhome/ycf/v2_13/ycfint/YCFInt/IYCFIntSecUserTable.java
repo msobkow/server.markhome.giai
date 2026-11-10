@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for SecUser.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,17 +35,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSecUserTable database interface for SecUser
+ *	YCFIntSecUserTable database interface for SecUser
  */
-public interface ICFIntSecUserTable
-extends ICFSecSecUserTable
+public interface IYCFIntSecUserTable
+extends IYCFSecSecUserTable
 {
 
 	/**
@@ -56,8 +56,8 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecUser( CFSecAuthorization Authorization,
-		CFSecSecUserBuff Buff );
+	void createSecUser( YCFSecAuthorization Authorization,
+		YCFSecSecUserBuff Buff );
 
 
 	/**
@@ -68,8 +68,8 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecUser( CFSecAuthorization Authorization,
-		CFSecSecUserBuff Buff );
+	void updateSecUser( YCFSecAuthorization Authorization,
+		YCFSecSecUserBuff Buff );
 
 
 	/**
@@ -79,8 +79,8 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecUser( CFSecAuthorization Authorization,
-		CFSecSecUserBuff Buff );
+	void deleteSecUser( YCFSecAuthorization Authorization,
+		YCFSecSecUserBuff Buff );
 	/**
 	 *	Delete the SecUser instance identified by the primary key attributes.
 	 *
@@ -88,7 +88,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argSecUserId	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByIdIdx( CFSecAuthorization Authorization,
+	void deleteSecUserByIdIdx( YCFSecAuthorization Authorization,
 		UUID argSecUserId );
 
 	/**
@@ -98,8 +98,8 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecUserByIdIdx( CFSecAuthorization Authorization,
-		CFSecSecUserPKey argKey );
+	void deleteSecUserByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecSecUserPKey argKey );
 	/**
 	 *	Delete the SecUser instances identified by the key ULoginIdx.
 	 *
@@ -107,7 +107,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argLoginId	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByULoginIdx( CFSecAuthorization Authorization,
+	void deleteSecUserByULoginIdx( YCFSecAuthorization Authorization,
 		String argLoginId );
 
 	/**
@@ -117,8 +117,8 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecUserByULoginIdx( CFSecAuthorization Authorization,
-		CFSecSecUserByULoginIdxKey argKey );
+	void deleteSecUserByULoginIdx( YCFSecAuthorization Authorization,
+		YCFSecSecUserByULoginIdxKey argKey );
 	/**
 	 *	Delete the SecUser instances identified by the key EMConfIdx.
 	 *
@@ -126,7 +126,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argEMailConfirmUuid	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByEMConfIdx( CFSecAuthorization Authorization,
+	void deleteSecUserByEMConfIdx( YCFSecAuthorization Authorization,
 		UUID argEMailConfirmUuid );
 
 	/**
@@ -136,8 +136,8 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecUserByEMConfIdx( CFSecAuthorization Authorization,
-		CFSecSecUserByEMConfIdxKey argKey );
+	void deleteSecUserByEMConfIdx( YCFSecAuthorization Authorization,
+		YCFSecSecUserByEMConfIdxKey argKey );
 	/**
 	 *	Delete the SecUser instances identified by the key PwdResetIdx.
 	 *
@@ -145,7 +145,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argPasswordResetUuid	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByPwdResetIdx( CFSecAuthorization Authorization,
+	void deleteSecUserByPwdResetIdx( YCFSecAuthorization Authorization,
 		UUID argPasswordResetUuid );
 
 	/**
@@ -155,8 +155,8 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecUserByPwdResetIdx( CFSecAuthorization Authorization,
-		CFSecSecUserByPwdResetIdxKey argKey );
+	void deleteSecUserByPwdResetIdx( YCFSecAuthorization Authorization,
+		YCFSecSecUserByPwdResetIdxKey argKey );
 	/**
 	 *	Delete the SecUser instances identified by the key DefDevIdx.
 	 *
@@ -166,7 +166,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argDfltDevName	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByDefDevIdx( CFSecAuthorization Authorization,
+	void deleteSecUserByDefDevIdx( YCFSecAuthorization Authorization,
 		UUID argDfltDevUserId,
 		String argDfltDevName );
 
@@ -177,8 +177,8 @@ extends ICFSecSecUserTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecUserByDefDevIdx( CFSecAuthorization Authorization,
-		CFSecSecUserByDefDevIdxKey argKey );
+	void deleteSecUserByDefDevIdx( YCFSecAuthorization Authorization,
+		YCFSecSecUserByDefDevIdxKey argKey );
 
 
 	/**
@@ -191,8 +191,8 @@ extends ICFSecSecUserTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecUserBuff readDerived( CFSecAuthorization Authorization,
-		CFSecSecUserPKey PKey );
+	YCFSecSecUserBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecSecUserPKey PKey );
 
 	/**
 	 *	Lock the derived SecUser buffer instance by primary key.
@@ -204,8 +204,8 @@ extends ICFSecSecUserTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecUserBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecSecUserPKey PKey );
+	YCFSecSecUserBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecSecUserPKey PKey );
 
 	/**
 	 *	Read all SecUser instances.
@@ -214,7 +214,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecSecUserBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecSecUserBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecUser buffer instance identified by the unique key IdIdx.
@@ -226,7 +226,7 @@ extends ICFSecSecUserTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecUserBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -239,7 +239,7 @@ extends ICFSecSecUserTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecUserBuff readDerivedByULoginIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff readDerivedByULoginIdx( YCFSecAuthorization Authorization,
 		String LoginId );
 
 	/**
@@ -251,7 +251,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecUserBuff[] readDerivedByEMConfIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] readDerivedByEMConfIdx( YCFSecAuthorization Authorization,
 		UUID EMailConfirmUuid );
 
 	/**
@@ -263,7 +263,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecUserBuff[] readDerivedByPwdResetIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] readDerivedByPwdResetIdx( YCFSecAuthorization Authorization,
 		UUID PasswordResetUuid );
 
 	/**
@@ -277,7 +277,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecUserBuff[] readDerivedByDefDevIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] readDerivedByDefDevIdx( YCFSecAuthorization Authorization,
 		UUID DfltDevUserId,
 		String DfltDevName );
 
@@ -291,10 +291,10 @@ extends ICFSecSecUserTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff readBuff( CFSecAuthorization Authorization,
-		CFSecSecUserPKey PKey );
+	YCFSecSecUserBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecSecUserPKey PKey );
 
 	/**
 	 *	Lock the specific SecUser buffer instance identified by the primary key.
@@ -306,10 +306,10 @@ extends ICFSecSecUserTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecSecUserPKey PKey );
+	YCFSecSecUserBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecSecUserPKey PKey );
 
 	/**
 	 *	Read all the specific SecUser buffer instances.
@@ -318,7 +318,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return All the specific SecUser instances in the database accessible for the Authorization.
 	 */
-	CFSecSecUserBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecSecUserBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific SecUser buffer instances.
@@ -327,7 +327,7 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return All the specific SecUser instances in the database accessible for the Authorization.
 	 */
-	CFSecSecUserBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		UUID priorSecUserId );
 
 	/**
@@ -340,9 +340,9 @@ extends ICFSecSecUserTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -355,9 +355,9 @@ extends ICFSecSecUserTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff readBuffByULoginIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff readBuffByULoginIdx( YCFSecAuthorization Authorization,
 		String LoginId );
 
 	/**
@@ -369,9 +369,9 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff[] readBuffByEMConfIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] readBuffByEMConfIdx( YCFSecAuthorization Authorization,
 		UUID EMailConfirmUuid );
 
 	/**
@@ -383,9 +383,9 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff[] readBuffByPwdResetIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] readBuffByPwdResetIdx( YCFSecAuthorization Authorization,
 		UUID PasswordResetUuid );
 
 	/**
@@ -399,9 +399,9 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff[] readBuffByDefDevIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] readBuffByDefDevIdx( YCFSecAuthorization Authorization,
 		UUID DfltDevUserId,
 		String DfltDevName );
 
@@ -414,9 +414,9 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff[] pageBuffByEMConfIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] pageBuffByEMConfIdx( YCFSecAuthorization Authorization,
 		UUID EMailConfirmUuid,
 		UUID priorSecUserId );
 
@@ -429,9 +429,9 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff[] pageBuffByPwdResetIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] pageBuffByPwdResetIdx( YCFSecAuthorization Authorization,
 		UUID PasswordResetUuid,
 		UUID priorSecUserId );
 
@@ -446,9 +446,9 @@ extends ICFSecSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecUserBuff[] pageBuffByDefDevIdx( CFSecAuthorization Authorization,
+	YCFSecSecUserBuff[] pageBuffByDefDevIdx( YCFSecAuthorization Authorization,
 		UUID DfltDevUserId,
 		String DfltDevName,
 		UUID priorSecUserId );
@@ -456,7 +456,7 @@ extends ICFSecSecUserTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

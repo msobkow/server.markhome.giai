@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,7 +20,7 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,7 +30,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbConfig;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -41,9 +41,9 @@ import org.springframework.core.env.ConfigurableEnvironment;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {
-    "org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb",   // for secdb services
-    "org.msscf.msscf.v2_13.cflib.CFLib.DbTest.appdb",   // for appdb services
-    "org.msscf.msscf.v2_13.cflib.CFLib.DbTest.spring"   // if you have service beans here
+    "org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb",   // for secdb services
+    "org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.appdb",   // for appdb services
+    "org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.spring"   // if you have service beans here
 })
 @EnableAutoConfiguration(exclude = {
     org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration.class,

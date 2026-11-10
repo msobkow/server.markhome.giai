@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFInt.
+// Description: Java 11 Table Object interface for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,22 +26,22 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntMinorVersionTableObj
+public interface IYCFIntMinorVersionTableObj
 {
-	ICFIntSchemaObj getSchema();
-	void setSchema( ICFIntSchemaObj value );
+	IYCFIntSchemaObj getSchema();
+	void setSchema( IYCFIntSchemaObj value );
 
 	void minimizeMemory();
 
@@ -55,24 +55,24 @@ public interface ICFIntMinorVersionTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFIntMinorVersionObj newInstance();
+	IYCFIntMinorVersionObj newInstance();
 
 	/**
 	 *	Instantiate a new MinorVersion edition of the specified MinorVersion instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFIntMinorVersionEditObj newEditInstance( ICFIntMinorVersionObj orig );
+	IYCFIntMinorVersionEditObj newEditInstance( IYCFIntMinorVersionObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMinorVersionObj realiseMinorVersion( ICFIntMinorVersionObj Obj );
+	IYCFIntMinorVersionObj realiseMinorVersion( IYCFIntMinorVersionObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMinorVersionObj createMinorVersion( ICFIntMinorVersionObj Obj );
+	IYCFIntMinorVersionObj createMinorVersion( IYCFIntMinorVersionObj Obj );
 
 	/**
 	 *	Read a MinorVersion-derived instance by it's primary key.
@@ -82,7 +82,7 @@ public interface ICFIntMinorVersionTableObj
 	 *	@return	The MinorVersion-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntMinorVersionObj readMinorVersion( CFIntMinorVersionPKey pkey );
+	IYCFIntMinorVersionObj readMinorVersion( YCFIntMinorVersionPKey pkey );
 
 	/**
 	 *	Read a MinorVersion-derived instance by it's primary key.
@@ -92,115 +92,115 @@ public interface ICFIntMinorVersionTableObj
 	 *	@return	The MinorVersion-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntMinorVersionObj readMinorVersion( CFIntMinorVersionPKey pkey,
+	IYCFIntMinorVersionObj readMinorVersion( YCFIntMinorVersionPKey pkey,
 		boolean forceRead );
 
-	ICFIntMinorVersionObj readCachedMinorVersion( CFIntMinorVersionPKey pkey );
+	IYCFIntMinorVersionObj readCachedMinorVersion( YCFIntMinorVersionPKey pkey );
 
-	public void reallyDeepDisposeMinorVersion( ICFIntMinorVersionObj obj );
+	public void reallyDeepDisposeMinorVersion( IYCFIntMinorVersionObj obj );
 
-	void deepDisposeMinorVersion( CFIntMinorVersionPKey pkey );
+	void deepDisposeMinorVersion( YCFIntMinorVersionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMinorVersionObj lockMinorVersion( CFIntMinorVersionPKey pkey );
+	IYCFIntMinorVersionObj lockMinorVersion( YCFIntMinorVersionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the MinorVersion-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntMinorVersionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntMinorVersionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntMinorVersionObj> readAllMinorVersion();
+	List<IYCFIntMinorVersionObj> readAllMinorVersion();
 
 	/**
 	 *	Return a sorted map of all the MinorVersion-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntMinorVersionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntMinorVersionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntMinorVersionObj> readAllMinorVersion( boolean forceRead );
+	List<IYCFIntMinorVersionObj> readAllMinorVersion( boolean forceRead );
 
-	List<ICFIntMinorVersionObj> readCachedAllMinorVersion();
+	List<IYCFIntMinorVersionObj> readCachedAllMinorVersion();
 
 	/**
-	 *	Get the CFIntMinorVersionObj instance for the primary key attributes.
+	 *	Get the YCFIntMinorVersionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The MinorVersion key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The MinorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMinorVersionObj cached instance for the primary key, or
+	 *	@return	YCFIntMinorVersionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMinorVersionObj readMinorVersionByIdIdx( long TenantId,
+	IYCFIntMinorVersionObj readMinorVersionByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFIntMinorVersionObj instance for the primary key attributes.
+	 *	Get the YCFIntMinorVersionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The MinorVersion key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The MinorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMinorVersionObj refreshed instance for the primary key, or
+	 *	@return	YCFIntMinorVersionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMinorVersionObj readMinorVersionByIdIdx( long TenantId,
+	IYCFIntMinorVersionObj readMinorVersionByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntMinorVersionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntMinorVersionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The MinorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntMinorVersionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntMinorVersionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntMinorVersionObj> readMinorVersionByTenantIdx( long TenantId );
+	List<IYCFIntMinorVersionObj> readMinorVersionByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFIntMinorVersionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntMinorVersionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The MinorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntMinorVersionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntMinorVersionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntMinorVersionObj> readMinorVersionByTenantIdx( long TenantId,
+	List<IYCFIntMinorVersionObj> readMinorVersionByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntMinorVersionObj instances sorted by their primary keys for the duplicate MajorVerIdx key.
+	 *	Get the map of YCFIntMinorVersionObj instances sorted by their primary keys for the duplicate MajorVerIdx key.
 	 *
 	 *	@param	argTenantId	The MinorVersion key attribute of the instance generating the id.
 	 *
 	 *	@param	argMajorVersionId	The MinorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntMinorVersionObj cached instances sorted by their primary keys for the duplicate MajorVerIdx key,
+	 *	@return	List of YCFIntMinorVersionObj cached instances sorted by their primary keys for the duplicate MajorVerIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntMinorVersionObj> readMinorVersionByMajorVerIdx( long TenantId,
+	List<IYCFIntMinorVersionObj> readMinorVersionByMajorVerIdx( long TenantId,
 		long MajorVersionId );
 
 	/**
-	 *	Get the map of CFIntMinorVersionObj instances sorted by their primary keys for the duplicate MajorVerIdx key.
+	 *	Get the map of YCFIntMinorVersionObj instances sorted by their primary keys for the duplicate MajorVerIdx key.
 	 *
 	 *	@param	argTenantId	The MinorVersion key attribute of the instance generating the id.
 	 *
 	 *	@param	argMajorVersionId	The MinorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntMinorVersionObj cached instances sorted by their primary keys for the duplicate MajorVerIdx key,
+	 *	@return	List of YCFIntMinorVersionObj cached instances sorted by their primary keys for the duplicate MajorVerIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntMinorVersionObj> readMinorVersionByMajorVerIdx( long TenantId,
+	List<IYCFIntMinorVersionObj> readMinorVersionByMajorVerIdx( long TenantId,
 		long MajorVersionId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFIntMinorVersionObj instance for the unique NameIdx key.
+	 *	Get the YCFIntMinorVersionObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The MinorVersion key attribute of the instance generating the id.
 	 *
@@ -208,15 +208,15 @@ public interface ICFIntMinorVersionTableObj
 	 *
 	 *	@param	argName	The MinorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMinorVersionObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFIntMinorVersionObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMinorVersionObj readMinorVersionByNameIdx(long TenantId,
+	IYCFIntMinorVersionObj readMinorVersionByNameIdx(long TenantId,
 		long MajorVersionId,
 		String Name );
 
 	/**
-	 *	Get the CFIntMinorVersionObj instance for the unique NameIdx key.
+	 *	Get the YCFIntMinorVersionObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The MinorVersion key attribute of the instance generating the id.
 	 *
@@ -224,23 +224,23 @@ public interface ICFIntMinorVersionTableObj
 	 *
 	 *	@param	argName	The MinorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMinorVersionObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFIntMinorVersionObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMinorVersionObj readMinorVersionByNameIdx(long TenantId,
+	IYCFIntMinorVersionObj readMinorVersionByNameIdx(long TenantId,
 		long MajorVersionId,
 		String Name,
 		boolean forceRead );
 
-	ICFIntMinorVersionObj readCachedMinorVersionByIdIdx( long TenantId,
+	IYCFIntMinorVersionObj readCachedMinorVersionByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFIntMinorVersionObj> readCachedMinorVersionByTenantIdx( long TenantId );
+	List<IYCFIntMinorVersionObj> readCachedMinorVersionByTenantIdx( long TenantId );
 
-	List<ICFIntMinorVersionObj> readCachedMinorVersionByMajorVerIdx( long TenantId,
+	List<IYCFIntMinorVersionObj> readCachedMinorVersionByMajorVerIdx( long TenantId,
 		long MajorVersionId );
 
-	ICFIntMinorVersionObj readCachedMinorVersionByNameIdx( long TenantId,
+	IYCFIntMinorVersionObj readCachedMinorVersionByNameIdx( long TenantId,
 		long MajorVersionId,
 		String Name );
 
@@ -259,12 +259,12 @@ public interface ICFIntMinorVersionTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMinorVersionObj updateMinorVersion( ICFIntMinorVersionObj Obj );
+	IYCFIntMinorVersionObj updateMinorVersion( IYCFIntMinorVersionObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteMinorVersion( ICFIntMinorVersionObj Obj );
+	void deleteMinorVersion( IYCFIntMinorVersionObj Obj );
 
 	/**
 	 *	Internal use only.

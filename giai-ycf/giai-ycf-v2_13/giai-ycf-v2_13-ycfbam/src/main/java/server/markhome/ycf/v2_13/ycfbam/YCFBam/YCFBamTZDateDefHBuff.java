@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a TZDateDef history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamTZDateDefHBuff
-	extends CFBamAtomHBuff
+public class YCFBamTZDateDefHBuff
+	extends YCFBamAtomHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -71,13 +71,13 @@ public class CFBamTZDateDefHBuff
 	public static final long ID_MIN_VALUE = 0L;
 
 	protected String optionalDummy;
-	public CFBamTZDateDefHBuff() {
+	public YCFBamTZDateDefHBuff() {
 		super();
 		optionalDummy = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamTZDateDefBuff.CLASS_CODE );
+		return( YCFBamTZDateDefBuff.CLASS_CODE );
 	}
 
 	public String getOptionalDummy() {
@@ -89,7 +89,7 @@ public class CFBamTZDateDefHBuff
 			optionalDummy = null;
 		}
 		else if( value.length() > 4 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDummy",
 				1,
 				"value.length()",
@@ -105,8 +105,8 @@ public class CFBamTZDateDefHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamTZDateDefHBuff ) {
-			CFBamTZDateDefHBuff rhs = (CFBamTZDateDefHBuff)obj;
+		else if( obj instanceof YCFBamTZDateDefHBuff ) {
+			YCFBamTZDateDefHBuff rhs = (YCFBamTZDateDefHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -130,8 +130,8 @@ public class CFBamTZDateDefHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTZDateDefBuff ) {
-			CFBamTZDateDefBuff rhs = (CFBamTZDateDefBuff)obj;
+		else if( obj instanceof YCFBamTZDateDefBuff ) {
+			YCFBamTZDateDefBuff rhs = (YCFBamTZDateDefBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -172,16 +172,16 @@ public class CFBamTZDateDefHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamTZDateDefBuff ) {
-			CFBamTZDateDefBuff rhs = (CFBamTZDateDefBuff)obj;
+		else if( obj instanceof YCFBamTZDateDefBuff ) {
+			YCFBamTZDateDefBuff rhs = (YCFBamTZDateDefBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamTZDateDefHBuff ) {
-			CFBamTZDateDefHBuff rhs = (CFBamTZDateDefHBuff)obj;
+		else if( obj instanceof YCFBamTZDateDefHBuff ) {
+			YCFBamTZDateDefHBuff rhs = (YCFBamTZDateDefHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -554,38 +554,38 @@ public class CFBamTZDateDefHBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamTZDateDefBuff ) {
-			setTZDateDefBuff( (CFBamTZDateDefBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamTZDateDefBuff ) {
+			setTZDateDefBuff( (YCFBamTZDateDefBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamTZDateDefBuff" );
+				"YCFBamTZDateDefBuff" );
 		}
 	}
 
-	public void setTZDateDefBuff( CFBamTZDateDefBuff src ) {
+	public void setTZDateDefBuff( YCFBamTZDateDefBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalDummy( src.getOptionalDummy() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamTZDateDefHBuff ) {
-			setTZDateDefBuff( (CFBamTZDateDefHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamTZDateDefHBuff ) {
+			setTZDateDefBuff( (YCFBamTZDateDefHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamTZDateDefHBuff" );
+				"YCFBamTZDateDefHBuff" );
 		}
 	}
 
-	public void setTZDateDefBuff( CFBamTZDateDefHBuff src ) {
+	public void setTZDateDefBuff( YCFBamTZDateDefHBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalDummy( src.getOptionalDummy() );
 	}

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a RuleCart buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbRuleCartBuff
+public class YCFGenKbRuleCartBuff
 {
 	public final static String CLASS_CODE = "a925";
 	public static final long TENANTID_INIT_VALUE = 0L;
@@ -54,10 +54,10 @@ public class CFGenKbRuleCartBuff
 	protected String optionalDescr;
 	protected String optionalRevisionString;
 	protected int requiredRevision;
-	public CFGenKbRuleCartBuff() {
-		requiredTenantId = CFGenKbRuleCartBuff.TENANTID_INIT_VALUE;
-		requiredId = CFGenKbRuleCartBuff.ID_INIT_VALUE;
-		requiredName = new String( CFGenKbRuleCartBuff.NAME_INIT_VALUE );
+	public YCFGenKbRuleCartBuff() {
+		requiredTenantId = YCFGenKbRuleCartBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFGenKbRuleCartBuff.ID_INIT_VALUE;
+		requiredName = new String( YCFGenKbRuleCartBuff.NAME_INIT_VALUE );
 		optionalDescr = null;
 		optionalRevisionString = null;
 	}
@@ -71,13 +71,13 @@ public class CFGenKbRuleCartBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbRuleCartBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbRuleCartBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbRuleCartBuff.TENANTID_MIN_VALUE );
+				YCFGenKbRuleCartBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -87,13 +87,13 @@ public class CFGenKbRuleCartBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFGenKbRuleCartBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbRuleCartBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbRuleCartBuff.ID_MIN_VALUE );
+				YCFGenKbRuleCartBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -104,13 +104,13 @@ public class CFGenKbRuleCartBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -129,7 +129,7 @@ public class CFGenKbRuleCartBuff
 			optionalDescr = null;
 		}
 		else if( value.length() > 255 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescr",
 				1,
 				"value.length()",
@@ -150,7 +150,7 @@ public class CFGenKbRuleCartBuff
 			optionalRevisionString = null;
 		}
 		else if( value.length() > 255 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalRevisionString",
 				1,
 				"value.length()",
@@ -174,8 +174,8 @@ public class CFGenKbRuleCartBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbRuleCartBuff ) {
-			CFGenKbRuleCartBuff rhs = (CFGenKbRuleCartBuff)obj;
+		else if( obj instanceof YCFGenKbRuleCartBuff ) {
+			YCFGenKbRuleCartBuff rhs = (YCFGenKbRuleCartBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -211,8 +211,8 @@ public class CFGenKbRuleCartBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbRuleCartPKey ) {
-			CFGenKbRuleCartPKey rhs = (CFGenKbRuleCartPKey)obj;
+		else if( obj instanceof YCFGenKbRuleCartPKey ) {
+			YCFGenKbRuleCartPKey rhs = (YCFGenKbRuleCartPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -221,15 +221,15 @@ public class CFGenKbRuleCartBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbRuleCartByTenantIdxKey ) {
-			CFGenKbRuleCartByTenantIdxKey rhs = (CFGenKbRuleCartByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleCartByTenantIdxKey ) {
+			YCFGenKbRuleCartByTenantIdxKey rhs = (YCFGenKbRuleCartByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbRuleCartByNameIdxKey ) {
-			CFGenKbRuleCartByNameIdxKey rhs = (CFGenKbRuleCartByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleCartByNameIdxKey ) {
+			YCFGenKbRuleCartByNameIdxKey rhs = (YCFGenKbRuleCartByNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -264,8 +264,8 @@ public class CFGenKbRuleCartBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbRuleCartBuff ) {
-			CFGenKbRuleCartBuff rhs = (CFGenKbRuleCartBuff)obj;
+		else if( obj instanceof YCFGenKbRuleCartBuff ) {
+			YCFGenKbRuleCartBuff rhs = (YCFGenKbRuleCartBuff)obj;
 			int retval = 0;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -319,8 +319,8 @@ public class CFGenKbRuleCartBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbRuleCartPKey ) {
-			CFGenKbRuleCartPKey rhs = (CFGenKbRuleCartPKey)obj;
+		else if( obj instanceof YCFGenKbRuleCartPKey ) {
+			YCFGenKbRuleCartPKey rhs = (YCFGenKbRuleCartPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -335,8 +335,8 @@ public class CFGenKbRuleCartBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbRuleCartByTenantIdxKey ) {
-			CFGenKbRuleCartByTenantIdxKey rhs = (CFGenKbRuleCartByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleCartByTenantIdxKey ) {
+			YCFGenKbRuleCartByTenantIdxKey rhs = (YCFGenKbRuleCartByTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -345,8 +345,8 @@ public class CFGenKbRuleCartBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbRuleCartByNameIdxKey ) {
-			CFGenKbRuleCartByNameIdxKey rhs = (CFGenKbRuleCartByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleCartByNameIdxKey ) {
+			YCFGenKbRuleCartByNameIdxKey rhs = (YCFGenKbRuleCartByNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -362,7 +362,7 @@ public class CFGenKbRuleCartBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -370,11 +370,11 @@ public class CFGenKbRuleCartBuff
 		}
 	}
 
-	public void set( CFGenKbRuleCartBuff src ) {
+	public void set( YCFGenKbRuleCartBuff src ) {
 		setRuleCartBuff( src );
 	}
 
-	public void setRuleCartBuff( CFGenKbRuleCartBuff src ) {
+	public void setRuleCartBuff( YCFGenKbRuleCartBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredName( src.getRequiredName() );

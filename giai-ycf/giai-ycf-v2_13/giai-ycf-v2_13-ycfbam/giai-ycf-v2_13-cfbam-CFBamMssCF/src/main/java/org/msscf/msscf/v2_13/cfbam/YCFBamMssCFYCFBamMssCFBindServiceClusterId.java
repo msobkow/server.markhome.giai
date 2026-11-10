@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Binding for Service Column ClusterId.
+// Description: Java 11 MssYCF Binding for Service Column ClusterId.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,88 +27,88 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.math.*;
 import java.sql.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 import org.apache.commons.codec.binary.Base64;
 
 /**
- *	CFBamMssCFBindServiceClusterId binds Service.ClusterId
- *	as an instance of MssCFGenBindObj.
+ *	YCFBamMssYCFBindServiceClusterId binds Service.ClusterId
+ *	as an instance of MssYCFGenBindObj.
  */
-public class CFBamMssCFBindServiceClusterId
-	extends MssCFGenBindObj
+public class YCFBamMssYCFBindServiceClusterId
+	extends MssYCFGenBindObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFBindServiceClusterId() {
+	public YCFBamMssYCFBindServiceClusterId() {
 		super();
 	}
 
-	public CFBamMssCFBindServiceClusterId( MssCFEngine argEngine ) {
+	public YCFBamMssYCFBindServiceClusterId( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
 			"Service",
 			"ClusterId" );
 	}
-	public Object getValueObject( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindServiceClusterId.getValueObject() ";
+	public Object getValueObject( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindServiceClusterId.getValueObject() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
 		}
 
 		long clusterId;
-		if( genDef instanceof ICFBamServiceObj ) {
-			clusterId = ((ICFBamServiceObj)genDef).getRequiredClusterId();
+		if( genDef instanceof IYCFBamServiceObj ) {
+			clusterId = ((IYCFBamServiceObj)genDef).getRequiredClusterId();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamServiceObj" );
+				"IYCFBamServiceObj" );
 		}
 
 		return( clusterId );
 	}
 
-	public String expandBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindServiceClusterId.expandBody() ";
+	public String expandBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindServiceClusterId.expandBody() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
@@ -116,16 +116,16 @@ public class CFBamMssCFBindServiceClusterId
 
 		String ret;
 
-		if( genDef instanceof ICFBamServiceObj ) {
-			long clusterId = ((ICFBamServiceObj)genDef).getRequiredClusterId();
+		if( genDef instanceof IYCFBamServiceObj ) {
+			long clusterId = ((IYCFBamServiceObj)genDef).getRequiredClusterId();
 			ret = Long.toString( clusterId );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamServiceObj" );
+				"IYCFBamServiceObj" );
 		}
 
 		return( ret );

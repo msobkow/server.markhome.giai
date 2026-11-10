@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for SecApp
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,19 +35,19 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSaxLoaderSecAppParse XML SAX Element Handler implementation
+ *	YCFSecSaxLoaderSecAppParse XML SAX Element Handler implementation
  *	for SecApp.
  */
-public class CFSecSaxLoaderSecApp
-	extends CFLibXmlCoreElementHandler
+public class YCFSecSaxLoaderSecApp
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFSecSaxLoaderSecApp( CFSecSaxLoader saxLoader ) {
+	public YCFSecSaxLoaderSecApp( YCFSecSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -59,14 +59,14 @@ public class CFSecSaxLoaderSecApp
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFSecSecAppObj origBuff = null;
-		ICFSecSecAppEditObj editBuff = null;
+		IYCFSecSecAppObj origBuff = null;
+		IYCFSecSecAppEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// SecApp Attributes
 		String attrJEEMountName = null;
 		// SecApp References
-		ICFSecClusterObj refCluster = null;
+		IYCFSecClusterObj refCluster = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -75,25 +75,25 @@ public class CFSecSaxLoaderSecApp
 		try {
 			assert qName.equals( "SecApp" );
 
-			CFSecSaxLoader saxLoader = (CFSecSaxLoader)getParser();
+			YCFSecSaxLoader saxLoader = (YCFSecSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFSecSecAppObj)schemaObj.getSecAppTableObj().newInstance();
-			editBuff = (ICFSecSecAppEditObj)origBuff.beginEdit();
+			origBuff = (IYCFSecSecAppObj)schemaObj.getSecAppTableObj().newInstance();
+			editBuff = (IYCFSecSecAppEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -101,7 +101,7 @@ public class CFSecSaxLoaderSecApp
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -110,7 +110,7 @@ public class CFSecSaxLoaderSecApp
 				}
 				else if( attrLocalName.equals( "JEEMountName" ) ) {
 					if( attrJEEMountName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -121,7 +121,7 @@ public class CFSecSaxLoaderSecApp
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -130,14 +130,14 @@ public class CFSecSaxLoaderSecApp
 
 			// Ensure that required attributes have values
 			if( attrJEEMountName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"JEEMountName" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "JEEMountName", attrJEEMountName );
 
@@ -156,7 +156,7 @@ public class CFSecSaxLoaderSecApp
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -168,26 +168,26 @@ public class CFSecSaxLoaderSecApp
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFSecClusterObj ) {
-				refCluster = (ICFSecClusterObj) scopeObj;
+			else if( scopeObj instanceof IYCFSecClusterObj ) {
+				refCluster = (IYCFSecClusterObj) scopeObj;
 				editBuff.setRequiredContainerCluster( refCluster );
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFSecClusterObj" );
+					"IYCFSecClusterObj" );
 			}
 
-			CFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecAppLoaderBehaviour();
-			ICFSecSecAppEditObj editSecApp = null;
-			ICFSecSecAppObj origSecApp = (ICFSecSecAppObj)schemaObj.getSecAppTableObj().readSecAppByUJEEMountIdx( refCluster.getRequiredId(),
+			YCFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecAppLoaderBehaviour();
+			IYCFSecSecAppEditObj editSecApp = null;
+			IYCFSecSecAppObj origSecApp = (IYCFSecSecAppObj)schemaObj.getSecAppTableObj().readSecAppByUJEEMountIdx( refCluster.getRequiredId(),
 			editBuff.getRequiredJEEMountName() );
 			if( origSecApp == null ) {
 				editSecApp = editBuff;
@@ -197,11 +197,11 @@ public class CFSecSaxLoaderSecApp
 					case Insert:
 						break;
 					case Update:
-						editSecApp = (ICFSecSecAppEditObj)origSecApp.beginEdit();
+						editSecApp = (IYCFSecSecAppEditObj)origSecApp.beginEdit();
 						editSecApp.setRequiredJEEMountName( editBuff.getRequiredJEEMountName() );
 						break;
 					case Replace:
-						editSecApp = (ICFSecSecAppEditObj)origSecApp.beginEdit();
+						editSecApp = (IYCFSecSecAppEditObj)origSecApp.beginEdit();
 						editSecApp.deleteInstance();
 						editSecApp = null;
 						origSecApp = null;
@@ -215,7 +215,7 @@ public class CFSecSaxLoaderSecApp
 					editSecApp.update();
 				}
 				else {
-					origSecApp = (ICFSecSecAppObj)editSecApp.create();
+					origSecApp = (IYCFSecSecAppObj)editSecApp.create();
 				}
 				editSecApp = null;
 			}

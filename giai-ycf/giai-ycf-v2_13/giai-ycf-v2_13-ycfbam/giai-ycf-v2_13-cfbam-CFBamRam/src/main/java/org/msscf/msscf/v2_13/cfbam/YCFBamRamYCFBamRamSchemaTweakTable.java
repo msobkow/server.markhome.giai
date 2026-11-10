@@ -2,17 +2,17 @@
 // Description: Java 11 in-memory RAM DbIO implementation for SchemaTweak.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,64 +46,64 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamSchemaTweakTable in-memory RAM DbIO implementation
+ *	YCFBamRamSchemaTweakTable in-memory RAM DbIO implementation
  *	for SchemaTweak.
  */
-public class CFBamRamSchemaTweakTable
-	implements ICFBamSchemaTweakTable
+public class YCFBamRamSchemaTweakTable
+	implements IYCFBamSchemaTweakTable
 {
-	private ICFBamSchema schema;
-	private Map< CFBamTweakPKey,
-				CFBamSchemaTweakBuff > dictByPKey
-		= new HashMap< CFBamTweakPKey,
-				CFBamSchemaTweakBuff >();
-	private Map< CFBamSchemaTweakBySchemaIdxKey,
-				Map< CFBamTweakPKey,
-					CFBamSchemaTweakBuff >> dictBySchemaIdx
-		= new HashMap< CFBamSchemaTweakBySchemaIdxKey,
-				Map< CFBamTweakPKey,
-					CFBamSchemaTweakBuff >>();
+	private IYCFBamSchema schema;
+	private Map< YCFBamTweakPKey,
+				YCFBamSchemaTweakBuff > dictByPKey
+		= new HashMap< YCFBamTweakPKey,
+				YCFBamSchemaTweakBuff >();
+	private Map< YCFBamSchemaTweakBySchemaIdxKey,
+				Map< YCFBamTweakPKey,
+					YCFBamSchemaTweakBuff >> dictBySchemaIdx
+		= new HashMap< YCFBamSchemaTweakBySchemaIdxKey,
+				Map< YCFBamTweakPKey,
+					YCFBamSchemaTweakBuff >>();
 
-	public CFBamRamSchemaTweakTable( ICFBamSchema argSchema ) {
+	public YCFBamRamSchemaTweakTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createSchemaTweak( CFSecAuthorization Authorization,
-		CFBamSchemaTweakBuff Buff )
+	public void createSchemaTweak( YCFSecAuthorization Authorization,
+		YCFBamSchemaTweakBuff Buff )
 	{
 		final String S_ProcName = "createSchemaTweak";
 		schema.getTableTweak().createTweak( Authorization,
 			Buff );
-		CFBamTweakPKey pkey = schema.getFactoryTweak().newPKey();
+		YCFBamTweakPKey pkey = schema.getFactoryTweak().newPKey();
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamSchemaTweakBySchemaIdxKey keySchemaIdx = schema.getFactorySchemaTweak().newSchemaIdxKey();
+		YCFBamSchemaTweakBySchemaIdxKey keySchemaIdx = schema.getFactorySchemaTweak().newSchemaIdxKey();
 		keySchemaIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		// Validate foreign keys
@@ -117,7 +117,7 @@ public class CFBamRamSchemaTweakTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Superclass",
 						"SuperClass",
@@ -136,7 +136,7 @@ public class CFBamRamSchemaTweakTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredSchemaDefId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"Schema",
@@ -150,26 +150,26 @@ public class CFBamRamSchemaTweakTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFBamTweakPKey, CFBamSchemaTweakBuff > subdictSchemaIdx;
+		Map< YCFBamTweakPKey, YCFBamSchemaTweakBuff > subdictSchemaIdx;
 		if( dictBySchemaIdx.containsKey( keySchemaIdx ) ) {
 			subdictSchemaIdx = dictBySchemaIdx.get( keySchemaIdx );
 		}
 		else {
-			subdictSchemaIdx = new HashMap< CFBamTweakPKey, CFBamSchemaTweakBuff >();
+			subdictSchemaIdx = new HashMap< YCFBamTweakPKey, YCFBamSchemaTweakBuff >();
 			dictBySchemaIdx.put( keySchemaIdx, subdictSchemaIdx );
 		}
 		subdictSchemaIdx.put( pkey, Buff );
 
 	}
 
-	public CFBamSchemaTweakBuff readDerived( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey )
+	public YCFBamSchemaTweakBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamSchemaTweak.readDerived";
-		CFBamTweakPKey key = schema.getFactoryTweak().newPKey();
+		final String S_ProcName = "YCFBamRamSchemaTweak.readDerived";
+		YCFBamTweakPKey key = schema.getFactoryTweak().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamSchemaTweakBuff buff;
+		YCFBamSchemaTweakBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -179,14 +179,14 @@ public class CFBamRamSchemaTweakTable
 		return( buff );
 	}
 
-	public CFBamSchemaTweakBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey )
+	public YCFBamSchemaTweakBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamSchemaTweak.readDerived";
-		CFBamTweakPKey key = schema.getFactoryTweak().newPKey();
+		final String S_ProcName = "YCFBamRamSchemaTweak.readDerived";
+		YCFBamTweakPKey key = schema.getFactoryTweak().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamSchemaTweakBuff buff;
+		YCFBamSchemaTweakBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -196,10 +196,10 @@ public class CFBamRamSchemaTweakTable
 		return( buff );
 	}
 
-	public CFBamSchemaTweakBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamSchemaTweak.readAllDerived";
-		CFBamSchemaTweakBuff[] retList = new CFBamSchemaTweakBuff[ dictByPKey.values().size() ];
-		Iterator< CFBamSchemaTweakBuff > iter = dictByPKey.values().iterator();
+	public YCFBamSchemaTweakBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamSchemaTweak.readAllDerived";
+		YCFBamSchemaTweakBuff[] retList = new YCFBamSchemaTweakBuff[ dictByPKey.values().size() ];
+		Iterator< YCFBamSchemaTweakBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -207,36 +207,36 @@ public class CFBamRamSchemaTweakTable
 		return( retList );
 	}
 
-	public CFBamSchemaTweakBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamTweak.readDerivedByUNameIdx";
-		CFBamTweakBuff buff = schema.getTableTweak().readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readDerivedByUNameIdx";
+		YCFBamTweakBuff buff = schema.getTableTweak().readDerivedByUNameIdx( Authorization,
 			TenantId,
 			ScopeId,
 			Name );
 		if( buff == null ) {
 			return( null );
 		}
-		else if( buff instanceof CFBamSchemaTweakBuff ) {
-			return( (CFBamSchemaTweakBuff)buff );
+		else if( buff instanceof YCFBamSchemaTweakBuff ) {
+			return( (YCFBamSchemaTweakBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaTweakBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff readDerivedByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamTweak.readDerivedByUDefIdx";
-		CFBamTweakBuff buff = schema.getTableTweak().readDerivedByUDefIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readDerivedByUDefIdx";
+		YCFBamTweakBuff buff = schema.getTableTweak().readDerivedByUDefIdx( Authorization,
 			TenantId,
 			ScopeId,
 			DefSchemaTenantId,
@@ -245,123 +245,123 @@ public class CFBamRamSchemaTweakTable
 		if( buff == null ) {
 			return( null );
 		}
-		else if( buff instanceof CFBamSchemaTweakBuff ) {
-			return( (CFBamSchemaTweakBuff)buff );
+		else if( buff instanceof YCFBamSchemaTweakBuff ) {
+			return( (YCFBamSchemaTweakBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaTweakBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamTweak.readDerivedByValTentIdx";
-		CFBamTweakBuff buffList[] = schema.getTableTweak().readDerivedByValTentIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readDerivedByValTentIdx";
+		YCFBamTweakBuff buffList[] = schema.getTableTweak().readDerivedByValTentIdx( Authorization,
 			TenantId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamTweakBuff buff;
-			ArrayList<CFBamSchemaTweakBuff> filteredList = new ArrayList<CFBamSchemaTweakBuff>();
+			YCFBamTweakBuff buff;
+			ArrayList<YCFBamSchemaTweakBuff> filteredList = new ArrayList<YCFBamSchemaTweakBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamSchemaTweakBuff ) ) {
-					filteredList.add( (CFBamSchemaTweakBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamSchemaTweakBuff ) ) {
+					filteredList.add( (YCFBamSchemaTweakBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamSchemaTweakBuff[0] ) );
+			return( filteredList.toArray( new YCFBamSchemaTweakBuff[0] ) );
 		}
 	}
 
-	public CFBamSchemaTweakBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId )
 	{
-		final String S_ProcName = "CFBamRamTweak.readDerivedByScopeIdx";
-		CFBamTweakBuff buffList[] = schema.getTableTweak().readDerivedByScopeIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readDerivedByScopeIdx";
+		YCFBamTweakBuff buffList[] = schema.getTableTweak().readDerivedByScopeIdx( Authorization,
 			TenantId,
 			ScopeId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamTweakBuff buff;
-			ArrayList<CFBamSchemaTweakBuff> filteredList = new ArrayList<CFBamSchemaTweakBuff>();
+			YCFBamTweakBuff buff;
+			ArrayList<YCFBamSchemaTweakBuff> filteredList = new ArrayList<YCFBamSchemaTweakBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamSchemaTweakBuff ) ) {
-					filteredList.add( (CFBamSchemaTweakBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamSchemaTweakBuff ) ) {
+					filteredList.add( (YCFBamSchemaTweakBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamSchemaTweakBuff[0] ) );
+			return( filteredList.toArray( new YCFBamSchemaTweakBuff[0] ) );
 		}
 	}
 
-	public CFBamSchemaTweakBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamTweak.readDerivedByDefSchemaIdx";
-		CFBamTweakBuff buffList[] = schema.getTableTweak().readDerivedByDefSchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readDerivedByDefSchemaIdx";
+		YCFBamTweakBuff buffList[] = schema.getTableTweak().readDerivedByDefSchemaIdx( Authorization,
 			DefSchemaTenantId,
 			DefSchemaId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamTweakBuff buff;
-			ArrayList<CFBamSchemaTweakBuff> filteredList = new ArrayList<CFBamSchemaTweakBuff>();
+			YCFBamTweakBuff buff;
+			ArrayList<YCFBamSchemaTweakBuff> filteredList = new ArrayList<YCFBamSchemaTweakBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamSchemaTweakBuff ) ) {
-					filteredList.add( (CFBamSchemaTweakBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamSchemaTweakBuff ) ) {
+					filteredList.add( (YCFBamSchemaTweakBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamSchemaTweakBuff[0] ) );
+			return( filteredList.toArray( new YCFBamSchemaTweakBuff[0] ) );
 		}
 	}
 
-	public CFBamSchemaTweakBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId )
 	{
-		final String S_ProcName = "CFBamRamSchemaTweak.readDerivedBySchemaIdx";
-		CFBamSchemaTweakBySchemaIdxKey key = schema.getFactorySchemaTweak().newSchemaIdxKey();
+		final String S_ProcName = "YCFBamRamSchemaTweak.readDerivedBySchemaIdx";
+		YCFBamSchemaTweakBySchemaIdxKey key = schema.getFactorySchemaTweak().newSchemaIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSchemaDefId( SchemaDefId );
 
-		CFBamSchemaTweakBuff[] recArray;
+		YCFBamSchemaTweakBuff[] recArray;
 		if( dictBySchemaIdx.containsKey( key ) ) {
-			Map< CFBamTweakPKey, CFBamSchemaTweakBuff > subdictSchemaIdx
+			Map< YCFBamTweakPKey, YCFBamSchemaTweakBuff > subdictSchemaIdx
 				= dictBySchemaIdx.get( key );
-			recArray = new CFBamSchemaTweakBuff[ subdictSchemaIdx.size() ];
-			Iterator< CFBamSchemaTweakBuff > iter = subdictSchemaIdx.values().iterator();
+			recArray = new YCFBamSchemaTweakBuff[ subdictSchemaIdx.size() ];
+			Iterator< YCFBamSchemaTweakBuff > iter = subdictSchemaIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamTweakPKey, CFBamSchemaTweakBuff > subdictSchemaIdx
-				= new HashMap< CFBamTweakPKey, CFBamSchemaTweakBuff >();
+			Map< YCFBamTweakPKey, YCFBamSchemaTweakBuff > subdictSchemaIdx
+				= new HashMap< YCFBamTweakPKey, YCFBamSchemaTweakBuff >();
 			dictBySchemaIdx.put( key, subdictSchemaIdx );
-			recArray = new CFBamSchemaTweakBuff[0];
+			recArray = new YCFBamSchemaTweakBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamSchemaTweakBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamTweak.readDerivedByIdIdx() ";
-		CFBamTweakPKey key = schema.getFactoryTweak().newPKey();
+		final String S_ProcName = "YCFBamRamTweak.readDerivedByIdIdx() ";
+		YCFBamTweakPKey key = schema.getFactoryTweak().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFBamSchemaTweakBuff buff;
+		YCFBamSchemaTweakBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -371,171 +371,171 @@ public class CFBamRamSchemaTweakTable
 		return( buff );
 	}
 
-	public CFBamSchemaTweakBuff readBuff( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey )
+	public YCFBamSchemaTweakBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamSchemaTweak.readBuff";
-		CFBamSchemaTweakBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamSchemaTweak.readBuff";
+		YCFBamSchemaTweakBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a80a" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamSchemaTweakBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey )
+	public YCFBamSchemaTweakBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFBamSchemaTweakBuff buff = readDerived( Authorization, PKey );
+		YCFBamSchemaTweakBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a80a" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamSchemaTweakBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFBamSchemaTweakBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamSchemaTweak.readAllBuff";
-		CFBamSchemaTweakBuff buff;
-		ArrayList<CFBamSchemaTweakBuff> filteredList = new ArrayList<CFBamSchemaTweakBuff>();
-		CFBamSchemaTweakBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamSchemaTweak.readAllBuff";
+		YCFBamSchemaTweakBuff buff;
+		ArrayList<YCFBamSchemaTweakBuff> filteredList = new ArrayList<YCFBamSchemaTweakBuff>();
+		YCFBamSchemaTweakBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80a" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaTweakBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaTweakBuff[0] ) );
 	}
 
-	public CFBamSchemaTweakBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamTweak.readBuffByIdIdx() ";
-		CFBamSchemaTweakBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readBuffByIdIdx() ";
+		YCFBamSchemaTweakBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
-			return( (CFBamSchemaTweakBuff)buff );
+			return( (YCFBamSchemaTweakBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaTweakBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamTweak.readBuffByUNameIdx() ";
-		CFBamSchemaTweakBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readBuffByUNameIdx() ";
+		YCFBamSchemaTweakBuff buff = readDerivedByUNameIdx( Authorization,
 			TenantId,
 			ScopeId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
-			return( (CFBamSchemaTweakBuff)buff );
+			return( (YCFBamSchemaTweakBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaTweakBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff readBuffByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamTweak.readBuffByUDefIdx() ";
-		CFBamSchemaTweakBuff buff = readDerivedByUDefIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readBuffByUDefIdx() ";
+		YCFBamSchemaTweakBuff buff = readDerivedByUDefIdx( Authorization,
 			TenantId,
 			ScopeId,
 			DefSchemaTenantId,
 			DefSchemaId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
-			return( (CFBamSchemaTweakBuff)buff );
+			return( (YCFBamSchemaTweakBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaTweakBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamTweak.readBuffByValTentIdx() ";
-		CFBamSchemaTweakBuff buff;
-		ArrayList<CFBamSchemaTweakBuff> filteredList = new ArrayList<CFBamSchemaTweakBuff>();
-		CFBamSchemaTweakBuff[] buffList = readDerivedByValTentIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readBuffByValTentIdx() ";
+		YCFBamSchemaTweakBuff buff;
+		ArrayList<YCFBamSchemaTweakBuff> filteredList = new ArrayList<YCFBamSchemaTweakBuff>();
+		YCFBamSchemaTweakBuff[] buffList = readDerivedByValTentIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
-				filteredList.add( (CFBamSchemaTweakBuff)buff );
+				filteredList.add( (YCFBamSchemaTweakBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaTweakBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaTweakBuff[0] ) );
 	}
 
-	public CFBamSchemaTweakBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId )
 	{
-		final String S_ProcName = "CFBamRamTweak.readBuffByScopeIdx() ";
-		CFBamSchemaTweakBuff buff;
-		ArrayList<CFBamSchemaTweakBuff> filteredList = new ArrayList<CFBamSchemaTweakBuff>();
-		CFBamSchemaTweakBuff[] buffList = readDerivedByScopeIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readBuffByScopeIdx() ";
+		YCFBamSchemaTweakBuff buff;
+		ArrayList<YCFBamSchemaTweakBuff> filteredList = new ArrayList<YCFBamSchemaTweakBuff>();
+		YCFBamSchemaTweakBuff[] buffList = readDerivedByScopeIdx( Authorization,
 			TenantId,
 			ScopeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
-				filteredList.add( (CFBamSchemaTweakBuff)buff );
+				filteredList.add( (YCFBamSchemaTweakBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaTweakBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaTweakBuff[0] ) );
 	}
 
-	public CFBamSchemaTweakBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamTweak.readBuffByDefSchemaIdx() ";
-		CFBamSchemaTweakBuff buff;
-		ArrayList<CFBamSchemaTweakBuff> filteredList = new ArrayList<CFBamSchemaTweakBuff>();
-		CFBamSchemaTweakBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTweak.readBuffByDefSchemaIdx() ";
+		YCFBamSchemaTweakBuff buff;
+		ArrayList<YCFBamSchemaTweakBuff> filteredList = new ArrayList<YCFBamSchemaTweakBuff>();
+		YCFBamSchemaTweakBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
 			DefSchemaTenantId,
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a808" ) ) {
-				filteredList.add( (CFBamSchemaTweakBuff)buff );
+				filteredList.add( (YCFBamSchemaTweakBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaTweakBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaTweakBuff[0] ) );
 	}
 
-	public CFBamSchemaTweakBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId )
 	{
-		final String S_ProcName = "CFBamRamSchemaTweak.readBuffBySchemaIdx() ";
-		CFBamSchemaTweakBuff buff;
-		ArrayList<CFBamSchemaTweakBuff> filteredList = new ArrayList<CFBamSchemaTweakBuff>();
-		CFBamSchemaTweakBuff[] buffList = readDerivedBySchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamSchemaTweak.readBuffBySchemaIdx() ";
+		YCFBamSchemaTweakBuff buff;
+		ArrayList<YCFBamSchemaTweakBuff> filteredList = new ArrayList<YCFBamSchemaTweakBuff>();
+		YCFBamSchemaTweakBuff[] buffList = readDerivedBySchemaIdx( Authorization,
 			TenantId,
 			SchemaDefId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a80a" ) ) {
-				filteredList.add( (CFBamSchemaTweakBuff)buff );
+				filteredList.add( (YCFBamSchemaTweakBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaTweakBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaTweakBuff[0] ) );
 	}
 
 	/**
@@ -549,39 +549,39 @@ public class CFBamRamSchemaTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamSchemaTweakBuff[] pageBuffBySchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaTweakBuff[] pageBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffBySchemaIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateSchemaTweak( CFSecAuthorization Authorization,
-		CFBamSchemaTweakBuff Buff )
+	public void updateSchemaTweak( YCFSecAuthorization Authorization,
+		YCFBamSchemaTweakBuff Buff )
 	{
 		schema.getTableTweak().updateTweak( Authorization,
 			Buff );
-		CFBamTweakPKey pkey = schema.getFactoryTweak().newPKey();
+		YCFBamTweakPKey pkey = schema.getFactoryTweak().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamSchemaTweakBuff existing = dictByPKey.get( pkey );
+		YCFBamSchemaTweakBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateSchemaTweak",
 				"Existing record not found",
 				"SchemaTweak",
 				pkey );
 		}
-		CFBamSchemaTweakBySchemaIdxKey existingKeySchemaIdx = schema.getFactorySchemaTweak().newSchemaIdxKey();
+		YCFBamSchemaTweakBySchemaIdxKey existingKeySchemaIdx = schema.getFactorySchemaTweak().newSchemaIdxKey();
 		existingKeySchemaIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
-		CFBamSchemaTweakBySchemaIdxKey newKeySchemaIdx = schema.getFactorySchemaTweak().newSchemaIdxKey();
+		YCFBamSchemaTweakBySchemaIdxKey newKeySchemaIdx = schema.getFactorySchemaTweak().newSchemaIdxKey();
 		newKeySchemaIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
@@ -597,7 +597,7 @@ public class CFBamRamSchemaTweakTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSchemaTweak",
 						"Superclass",
 						"SuperClass",
@@ -615,7 +615,7 @@ public class CFBamRamSchemaTweakTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredSchemaDefId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSchemaTweak",
 						"Container",
 						"Schema",
@@ -627,7 +627,7 @@ public class CFBamRamSchemaTweakTable
 
 		// Update is valid
 
-		Map< CFBamTweakPKey, CFBamSchemaTweakBuff > subdict;
+		Map< YCFBamTweakPKey, YCFBamSchemaTweakBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -640,39 +640,39 @@ public class CFBamRamSchemaTweakTable
 			subdict = dictBySchemaIdx.get( newKeySchemaIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamTweakPKey, CFBamSchemaTweakBuff >();
+			subdict = new HashMap< YCFBamTweakPKey, YCFBamSchemaTweakBuff >();
 			dictBySchemaIdx.put( newKeySchemaIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteSchemaTweak( CFSecAuthorization Authorization,
-		CFBamSchemaTweakBuff Buff )
+	public void deleteSchemaTweak( YCFSecAuthorization Authorization,
+		YCFBamSchemaTweakBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamSchemaTweakTable.deleteSchemaTweak() ";
+		final String S_ProcName = "YCFBamRamSchemaTweakTable.deleteSchemaTweak() ";
 		String classCode;
-		CFBamTweakPKey pkey = schema.getFactoryTweak().newPKey();
+		YCFBamTweakPKey pkey = schema.getFactoryTweak().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamSchemaTweakBuff existing = dictByPKey.get( pkey );
+		YCFBamSchemaTweakBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteSchemaTweak",
 				pkey );
 		}
-		CFBamSchemaTweakBySchemaIdxKey keySchemaIdx = schema.getFactorySchemaTweak().newSchemaIdxKey();
+		YCFBamSchemaTweakBySchemaIdxKey keySchemaIdx = schema.getFactorySchemaTweak().newSchemaIdxKey();
 		keySchemaIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFBamTweakPKey, CFBamSchemaTweakBuff > subdict;
+		Map< YCFBamTweakPKey, YCFBamSchemaTweakBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -682,35 +682,35 @@ public class CFBamRamSchemaTweakTable
 		schema.getTableTweak().deleteTweak( Authorization,
 			Buff );
 	}
-	public void deleteSchemaTweakBySchemaIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaTweakBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId )
 	{
-		CFBamSchemaTweakBySchemaIdxKey key = schema.getFactorySchemaTweak().newSchemaIdxKey();
+		YCFBamSchemaTweakBySchemaIdxKey key = schema.getFactorySchemaTweak().newSchemaIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredSchemaDefId( argSchemaDefId );
 		deleteSchemaTweakBySchemaIdx( Authorization, key );
 	}
 
-	public void deleteSchemaTweakBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamSchemaTweakBySchemaIdxKey argKey )
+	public void deleteSchemaTweakBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaTweakBySchemaIdxKey argKey )
 	{
-		CFBamSchemaTweakBuff cur;
+		YCFBamSchemaTweakBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaTweakBuff> matchSet = new LinkedList<CFBamSchemaTweakBuff>();
-		Iterator<CFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaTweakBuff> matchSet = new LinkedList<YCFBamSchemaTweakBuff>();
+		Iterator<YCFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaTweak().readDerivedByIdIdx( Authorization,
@@ -720,18 +720,18 @@ public class CFBamRamSchemaTweakTable
 		}
 	}
 
-	public void deleteSchemaTweakByIdIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaTweakByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFBamTweakPKey key = schema.getFactoryTweak().newPKey();
+		YCFBamTweakPKey key = schema.getFactoryTweak().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deleteSchemaTweakByIdIdx( Authorization, key );
 	}
 
-	public void deleteSchemaTweakByIdIdx( CFSecAuthorization Authorization,
-		CFBamTweakPKey argKey )
+	public void deleteSchemaTweakByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -739,16 +739,16 @@ public class CFBamRamSchemaTweakTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFBamSchemaTweakBuff cur;
-		LinkedList<CFBamSchemaTweakBuff> matchSet = new LinkedList<CFBamSchemaTweakBuff>();
-		Iterator<CFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
+		YCFBamSchemaTweakBuff cur;
+		LinkedList<YCFBamSchemaTweakBuff> matchSet = new LinkedList<YCFBamSchemaTweakBuff>();
+		Iterator<YCFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaTweak().readDerivedByIdIdx( Authorization,
@@ -758,22 +758,22 @@ public class CFBamRamSchemaTweakTable
 		}
 	}
 
-	public void deleteSchemaTweakByUNameIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaTweakByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName )
 	{
-		CFBamTweakByUNameIdxKey key = schema.getFactoryTweak().newUNameIdxKey();
+		YCFBamTweakByUNameIdxKey key = schema.getFactoryTweak().newUNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredScopeId( argScopeId );
 		key.setRequiredName( argName );
 		deleteSchemaTweakByUNameIdx( Authorization, key );
 	}
 
-	public void deleteSchemaTweakByUNameIdx( CFSecAuthorization Authorization,
-		CFBamTweakByUNameIdxKey argKey )
+	public void deleteSchemaTweakByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByUNameIdxKey argKey )
 	{
-		CFBamSchemaTweakBuff cur;
+		YCFBamSchemaTweakBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -781,15 +781,15 @@ public class CFBamRamSchemaTweakTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaTweakBuff> matchSet = new LinkedList<CFBamSchemaTweakBuff>();
-		Iterator<CFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaTweakBuff> matchSet = new LinkedList<YCFBamSchemaTweakBuff>();
+		Iterator<YCFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaTweak().readDerivedByIdIdx( Authorization,
@@ -799,14 +799,14 @@ public class CFBamRamSchemaTweakTable
 		}
 	}
 
-	public void deleteSchemaTweakByUDefIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaTweakByUDefIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId,
 		String argName )
 	{
-		CFBamTweakByUDefIdxKey key = schema.getFactoryTweak().newUDefIdxKey();
+		YCFBamTweakByUDefIdxKey key = schema.getFactoryTweak().newUDefIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredScopeId( argScopeId );
 		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
@@ -815,10 +815,10 @@ public class CFBamRamSchemaTweakTable
 		deleteSchemaTweakByUDefIdx( Authorization, key );
 	}
 
-	public void deleteSchemaTweakByUDefIdx( CFSecAuthorization Authorization,
-		CFBamTweakByUDefIdxKey argKey )
+	public void deleteSchemaTweakByUDefIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByUDefIdxKey argKey )
 	{
-		CFBamSchemaTweakBuff cur;
+		YCFBamSchemaTweakBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -832,15 +832,15 @@ public class CFBamRamSchemaTweakTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaTweakBuff> matchSet = new LinkedList<CFBamSchemaTweakBuff>();
-		Iterator<CFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaTweakBuff> matchSet = new LinkedList<YCFBamSchemaTweakBuff>();
+		Iterator<YCFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaTweak().readDerivedByIdIdx( Authorization,
@@ -850,32 +850,32 @@ public class CFBamRamSchemaTweakTable
 		}
 	}
 
-	public void deleteSchemaTweakByValTentIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaTweakByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFBamTweakByValTentIdxKey key = schema.getFactoryTweak().newValTentIdxKey();
+		YCFBamTweakByValTentIdxKey key = schema.getFactoryTweak().newValTentIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteSchemaTweakByValTentIdx( Authorization, key );
 	}
 
-	public void deleteSchemaTweakByValTentIdx( CFSecAuthorization Authorization,
-		CFBamTweakByValTentIdxKey argKey )
+	public void deleteSchemaTweakByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByValTentIdxKey argKey )
 	{
-		CFBamSchemaTweakBuff cur;
+		YCFBamSchemaTweakBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaTweakBuff> matchSet = new LinkedList<CFBamSchemaTweakBuff>();
-		Iterator<CFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaTweakBuff> matchSet = new LinkedList<YCFBamSchemaTweakBuff>();
+		Iterator<YCFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaTweak().readDerivedByIdIdx( Authorization,
@@ -885,35 +885,35 @@ public class CFBamRamSchemaTweakTable
 		}
 	}
 
-	public void deleteSchemaTweakByScopeIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaTweakByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId )
 	{
-		CFBamTweakByScopeIdxKey key = schema.getFactoryTweak().newScopeIdxKey();
+		YCFBamTweakByScopeIdxKey key = schema.getFactoryTweak().newScopeIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredScopeId( argScopeId );
 		deleteSchemaTweakByScopeIdx( Authorization, key );
 	}
 
-	public void deleteSchemaTweakByScopeIdx( CFSecAuthorization Authorization,
-		CFBamTweakByScopeIdxKey argKey )
+	public void deleteSchemaTweakByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByScopeIdxKey argKey )
 	{
-		CFBamSchemaTweakBuff cur;
+		YCFBamSchemaTweakBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaTweakBuff> matchSet = new LinkedList<CFBamSchemaTweakBuff>();
-		Iterator<CFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaTweakBuff> matchSet = new LinkedList<YCFBamSchemaTweakBuff>();
+		Iterator<YCFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaTweak().readDerivedByIdIdx( Authorization,
@@ -923,20 +923,20 @@ public class CFBamRamSchemaTweakTable
 		}
 	}
 
-	public void deleteSchemaTweakByDefSchemaIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaTweakByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId )
 	{
-		CFBamTweakByDefSchemaIdxKey key = schema.getFactoryTweak().newDefSchemaIdxKey();
+		YCFBamTweakByDefSchemaIdxKey key = schema.getFactoryTweak().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteSchemaTweakByDefSchemaIdx( Authorization, key );
 	}
 
-	public void deleteSchemaTweakByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamTweakByDefSchemaIdxKey argKey )
+	public void deleteSchemaTweakByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByDefSchemaIdxKey argKey )
 	{
-		CFBamSchemaTweakBuff cur;
+		YCFBamSchemaTweakBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalDefSchemaTenantId() != null ) {
 			anyNotNull = true;
@@ -947,15 +947,15 @@ public class CFBamRamSchemaTweakTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaTweakBuff> matchSet = new LinkedList<CFBamSchemaTweakBuff>();
-		Iterator<CFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaTweakBuff> matchSet = new LinkedList<YCFBamSchemaTweakBuff>();
+		Iterator<YCFBamSchemaTweakBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaTweakBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaTweak().readDerivedByIdIdx( Authorization,

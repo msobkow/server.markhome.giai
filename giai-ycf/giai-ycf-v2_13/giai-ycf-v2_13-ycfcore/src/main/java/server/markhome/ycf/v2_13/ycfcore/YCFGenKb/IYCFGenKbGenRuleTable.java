@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GenRule.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGenRuleTable database interface for GenRule
+ *	YCFGenKbGenRuleTable database interface for GenRule
  */
-public interface ICFGenKbGenRuleTable
+public interface IYCFGenKbGenRuleTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGenRule( CFGenKbAuthorization Authorization,
-		CFGenKbGenRuleBuff Buff );
+	void createGenRule( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenRuleBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGenRule( CFGenKbAuthorization Authorization,
-		CFGenKbGenRuleBuff Buff );
+	void updateGenRule( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenRuleBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGenRule( CFGenKbAuthorization Authorization,
-		CFGenKbGenRuleBuff Buff );
+	void deleteGenRule( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenRuleBuff Buff );
 	/**
 	 *	Delete the GenRule instances identified by the key BodyIdx.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argBodyGelId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByBodyIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByBodyIdx( YCFGenKbAuthorization Authorization,
 		Long argBodyTenantId,
 		Long argBodyGelCacheId,
 		Long argBodyGelId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByBodyIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenRuleByBodyIdxKey argKey );
+	void deleteGenRuleByBodyIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenRuleByBodyIdxKey argKey );
 	/**
 	 *	Delete the GenRule instance identified by the primary key attributes.
 	 *
@@ -115,7 +115,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argItemId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByItemIdIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argCartridgeId,
 		long argItemId );
@@ -127,8 +127,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGenRuleByItemIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey argKey );
+	void deleteGenRuleByItemIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey argKey );
 	/**
 	 *	Delete the GenRule instances identified by the key TenantIdx.
 	 *
@@ -136,7 +136,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argTenantId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -146,8 +146,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByTenantIdxKey argKey );
+	void deleteGenRuleByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByTenantIdxKey argKey );
 	/**
 	 *	Delete the GenRule instances identified by the key CartIdx.
 	 *
@@ -157,7 +157,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argCartridgeId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByCartIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByCartIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argCartridgeId );
 
@@ -168,8 +168,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByCartIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByCartIdxKey argKey );
+	void deleteGenRuleByCartIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByCartIdxKey argKey );
 	/**
 	 *	Delete the GenRule instances identified by the key RuleTypeIdx.
 	 *
@@ -177,7 +177,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argRuleTypeId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short argRuleTypeId );
 
 	/**
@@ -187,8 +187,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByRuleTypeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByRuleTypeIdxKey argKey );
+	void deleteGenRuleByRuleTypeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByRuleTypeIdxKey argKey );
 	/**
 	 *	Delete the GenRule instances identified by the key ToolSetIdx.
 	 *
@@ -196,7 +196,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argToolSetId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByToolSetIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short argToolSetId );
 
 	/**
@@ -206,8 +206,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByToolSetIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByToolSetIdxKey argKey );
+	void deleteGenRuleByToolSetIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByToolSetIdxKey argKey );
 	/**
 	 *	Delete the GenRule instances identified by the key ScopeIdx.
 	 *
@@ -215,7 +215,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argScopeDefId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByScopeIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short argScopeDefId );
 
 	/**
@@ -225,8 +225,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByScopeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByScopeIdxKey argKey );
+	void deleteGenRuleByScopeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByScopeIdxKey argKey );
 	/**
 	 *	Delete the GenRule instances identified by the key GenDefIdx.
 	 *
@@ -234,7 +234,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argGenDefId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByGenDefIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short argGenDefId );
 
 	/**
@@ -244,8 +244,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByGenDefIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByGenDefIdxKey argKey );
+	void deleteGenRuleByGenDefIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByGenDefIdxKey argKey );
 	/**
 	 *	Delete the GenRule instances identified by the key AltIdx.
 	 *
@@ -259,7 +259,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argGenDefId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByAltIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByAltIdx( YCFGenKbAuthorization Authorization,
 		String argName,
 		short argToolSetId,
 		Short argScopeDefId,
@@ -272,8 +272,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByAltIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByAltIdxKey argKey );
+	void deleteGenRuleByAltIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByAltIdxKey argKey );
 	/**
 	 *	Delete the GenRule instances identified by the key GelExecIdx.
 	 *
@@ -285,7 +285,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argGelExecutableId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByGelExecIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long argGelExecutableTenantId,
 		Long argGelExecutableGelCacheId,
 		Long argGelExecutableId );
@@ -297,8 +297,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByGelExecIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByGelExecIdxKey argKey );
+	void deleteGenRuleByGelExecIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByGelExecIdxKey argKey );
 	/**
 	 *	Delete the GenRule instances identified by the key ProbeIdx.
 	 *
@@ -310,7 +310,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argProbeGenItemId	The GenRule key attribute of the instance generating the id.
 	 */
-	void deleteGenRuleByProbeIdx( CFGenKbAuthorization Authorization,
+	void deleteGenRuleByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long argProbeTenantId,
 		Long argProbeCartridgeId,
 		Long argProbeGenItemId );
@@ -322,8 +322,8 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenRuleByProbeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByProbeIdxKey argKey );
+	void deleteGenRuleByProbeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByProbeIdxKey argKey );
 
 
 	/**
@@ -336,8 +336,8 @@ public interface ICFGenKbGenRuleTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenRuleBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenRuleBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Lock the derived GenRule buffer instance by primary key.
@@ -349,8 +349,8 @@ public interface ICFGenKbGenRuleTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenRuleBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenRuleBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Read all GenRule instances.
@@ -359,7 +359,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGenRuleBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GenRule buffer instance identified by the unique key ItemIdIdx.
@@ -375,7 +375,7 @@ public interface ICFGenKbGenRuleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenRuleBuff readDerivedByItemIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff readDerivedByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId,
 		long ItemId );
@@ -389,7 +389,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -403,7 +403,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readDerivedByCartIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readDerivedByCartIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId );
 
@@ -416,7 +416,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readDerivedByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readDerivedByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short RuleTypeId );
 
 	/**
@@ -428,7 +428,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readDerivedByToolSetIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readDerivedByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short ToolSetId );
 
 	/**
@@ -440,7 +440,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readDerivedByScopeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readDerivedByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short ScopeDefId );
 
 	/**
@@ -452,7 +452,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readDerivedByGenDefIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readDerivedByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short GenDefId );
 
 	/**
@@ -471,7 +471,7 @@ public interface ICFGenKbGenRuleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenRuleBuff readDerivedByAltIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff readDerivedByAltIdx( YCFGenKbAuthorization Authorization,
 		String Name,
 		short ToolSetId,
 		Short ScopeDefId,
@@ -490,7 +490,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readDerivedByGelExecIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readDerivedByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
@@ -508,7 +508,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readDerivedByProbeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readDerivedByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
@@ -526,7 +526,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenRuleBuff[] readDerivedByBodyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readDerivedByBodyIdx( YCFGenKbAuthorization Authorization,
 		Long BodyTenantId,
 		Long BodyGelCacheId,
 		Long BodyGelId );
@@ -541,10 +541,10 @@ public interface ICFGenKbGenRuleTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenRuleBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Lock the specific GenRule buffer instance identified by the primary key.
@@ -556,10 +556,10 @@ public interface ICFGenKbGenRuleTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenRuleBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Read all the specific GenRule buffer instances.
@@ -568,7 +568,7 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return All the specific GenRule instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGenRuleBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGenRuleBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GenRule buffer instance identified by the unique key ItemIdIdx.
@@ -584,9 +584,9 @@ public interface ICFGenKbGenRuleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff readBuffByItemIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff readBuffByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId,
 		long ItemId );
@@ -600,9 +600,9 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -616,9 +616,9 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff[] readBuffByCartIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readBuffByCartIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId );
 
@@ -631,9 +631,9 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff[] readBuffByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readBuffByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short RuleTypeId );
 
 	/**
@@ -645,9 +645,9 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff[] readBuffByToolSetIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readBuffByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short ToolSetId );
 
 	/**
@@ -659,9 +659,9 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff[] readBuffByScopeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readBuffByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short ScopeDefId );
 
 	/**
@@ -673,9 +673,9 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff[] readBuffByGenDefIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readBuffByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short GenDefId );
 
 	/**
@@ -694,9 +694,9 @@ public interface ICFGenKbGenRuleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff readBuffByAltIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff readBuffByAltIdx( YCFGenKbAuthorization Authorization,
 		String Name,
 		short ToolSetId,
 		Short ScopeDefId,
@@ -715,9 +715,9 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff[] readBuffByGelExecIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readBuffByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
@@ -735,9 +735,9 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff[] readBuffByProbeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readBuffByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
@@ -755,9 +755,9 @@ public interface ICFGenKbGenRuleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenRuleBuff[] readBuffByBodyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenRuleBuff[] readBuffByBodyIdx( YCFGenKbAuthorization Authorization,
 		Long BodyTenantId,
 		Long BodyGelCacheId,
 		Long BodyGelId );
@@ -765,7 +765,7 @@ public interface ICFGenKbGenRuleTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

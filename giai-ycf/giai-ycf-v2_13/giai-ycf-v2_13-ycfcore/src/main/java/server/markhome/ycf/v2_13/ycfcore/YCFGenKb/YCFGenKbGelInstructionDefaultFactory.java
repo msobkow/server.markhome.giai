@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for GelInstruction.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,45 +36,45 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbGelInstructionFactory implementation for GelInstruction
+	 *	YCFGenKbGelInstructionFactory implementation for GelInstruction
 	 */
-public class CFGenKbGelInstructionDefaultFactory
-	implements ICFGenKbGelInstructionFactory
+public class YCFGenKbGelInstructionDefaultFactory
+	implements IYCFGenKbGelInstructionFactory
 {
-	public CFGenKbGelInstructionDefaultFactory() {
+	public YCFGenKbGelInstructionDefaultFactory() {
 	}
 
-	public CFGenKbGelInstructionPKey newPKey() {
-		CFGenKbGelInstructionPKey pkey =
-			new CFGenKbGelInstructionPKey();
+	public YCFGenKbGelInstructionPKey newPKey() {
+		YCFGenKbGelInstructionPKey pkey =
+			new YCFGenKbGelInstructionPKey();
 		return( pkey );
 	}
 
-	public CFGenKbGelInstructionByTenantIdxKey newTenantIdxKey() {
-		CFGenKbGelInstructionByTenantIdxKey key =
-			new CFGenKbGelInstructionByTenantIdxKey();
+	public YCFGenKbGelInstructionByTenantIdxKey newTenantIdxKey() {
+		YCFGenKbGelInstructionByTenantIdxKey key =
+			new YCFGenKbGelInstructionByTenantIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelInstructionByGelCacheIdxKey newGelCacheIdxKey() {
-		CFGenKbGelInstructionByGelCacheIdxKey key =
-			new CFGenKbGelInstructionByGelCacheIdxKey();
+	public YCFGenKbGelInstructionByGelCacheIdxKey newGelCacheIdxKey() {
+		YCFGenKbGelInstructionByGelCacheIdxKey key =
+			new YCFGenKbGelInstructionByGelCacheIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelInstructionByChainIdxKey newChainIdxKey() {
-		CFGenKbGelInstructionByChainIdxKey key =
-			new CFGenKbGelInstructionByChainIdxKey();
+	public YCFGenKbGelInstructionByChainIdxKey newChainIdxKey() {
+		YCFGenKbGelInstructionByChainIdxKey key =
+			new YCFGenKbGelInstructionByChainIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelInstructionBuff newBuff() {
-		CFGenKbGelInstructionBuff buff =
-			new CFGenKbGelInstructionBuff();
+	public YCFGenKbGelInstructionBuff newBuff() {
+		YCFGenKbGelInstructionBuff buff =
+			new YCFGenKbGelInstructionBuff();
 		return( buff );
 	}
 }

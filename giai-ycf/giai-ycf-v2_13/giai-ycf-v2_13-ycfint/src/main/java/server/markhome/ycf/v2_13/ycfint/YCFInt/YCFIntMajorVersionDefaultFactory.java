@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for MajorVersion.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,58 +35,58 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntMajorVersionFactory implementation for MajorVersion
+	 *	YCFIntMajorVersionFactory implementation for MajorVersion
 	 */
-public class CFIntMajorVersionDefaultFactory
-	implements ICFIntMajorVersionFactory
+public class YCFIntMajorVersionDefaultFactory
+	implements IYCFIntMajorVersionFactory
 {
-	public CFIntMajorVersionDefaultFactory() {
+	public YCFIntMajorVersionDefaultFactory() {
 	}
 
-	public CFIntMajorVersionPKey newPKey() {
-		CFIntMajorVersionPKey pkey =
-			new CFIntMajorVersionPKey();
+	public YCFIntMajorVersionPKey newPKey() {
+		YCFIntMajorVersionPKey pkey =
+			new YCFIntMajorVersionPKey();
 		return( pkey );
 	}
 
-	public CFIntMajorVersionHPKey newHPKey() {
-		CFIntMajorVersionHPKey hpkey =
-			new CFIntMajorVersionHPKey();
+	public YCFIntMajorVersionHPKey newHPKey() {
+		YCFIntMajorVersionHPKey hpkey =
+			new YCFIntMajorVersionHPKey();
 		return( hpkey );
 	}
 
-	public CFIntMajorVersionByTenantIdxKey newTenantIdxKey() {
-		CFIntMajorVersionByTenantIdxKey key =
-			new CFIntMajorVersionByTenantIdxKey();
+	public YCFIntMajorVersionByTenantIdxKey newTenantIdxKey() {
+		YCFIntMajorVersionByTenantIdxKey key =
+			new YCFIntMajorVersionByTenantIdxKey();
 		return( key );
 	}
 
-	public CFIntMajorVersionBySubProjectIdxKey newSubProjectIdxKey() {
-		CFIntMajorVersionBySubProjectIdxKey key =
-			new CFIntMajorVersionBySubProjectIdxKey();
+	public YCFIntMajorVersionBySubProjectIdxKey newSubProjectIdxKey() {
+		YCFIntMajorVersionBySubProjectIdxKey key =
+			new YCFIntMajorVersionBySubProjectIdxKey();
 		return( key );
 	}
 
-	public CFIntMajorVersionByNameIdxKey newNameIdxKey() {
-		CFIntMajorVersionByNameIdxKey key =
-			new CFIntMajorVersionByNameIdxKey();
+	public YCFIntMajorVersionByNameIdxKey newNameIdxKey() {
+		YCFIntMajorVersionByNameIdxKey key =
+			new YCFIntMajorVersionByNameIdxKey();
 		return( key );
 	}
 
-	public CFIntMajorVersionBuff newBuff() {
-		CFIntMajorVersionBuff buff =
-			new CFIntMajorVersionBuff();
+	public YCFIntMajorVersionBuff newBuff() {
+		YCFIntMajorVersionBuff buff =
+			new YCFIntMajorVersionBuff();
 		return( buff );
 	}
 
-	public CFIntMajorVersionHBuff newHBuff() {
-		CFIntMajorVersionHBuff hbuff =
-			new CFIntMajorVersionHBuff();
+	public YCFIntMajorVersionHBuff newHBuff() {
+		YCFIntMajorVersionHBuff hbuff =
+			new YCFIntMajorVersionHBuff();
 		return( hbuff );
 	}
 }

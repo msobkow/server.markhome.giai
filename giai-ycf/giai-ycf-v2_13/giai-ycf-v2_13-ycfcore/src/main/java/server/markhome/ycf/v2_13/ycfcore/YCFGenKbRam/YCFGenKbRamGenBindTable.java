@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for GenBind.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,43 +28,43 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamGenBindTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamGenBindTable in-memory RAM DbIO implementation
  *	for GenBind.
  */
-public class CFGenKbRamGenBindTable
-	implements ICFGenKbGenBindTable
+public class YCFGenKbRamGenBindTable
+	implements IYCFGenKbGenBindTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbGenItemPKey,
-				CFGenKbGenBindBuff > dictByPKey
-		= new HashMap< CFGenKbGenItemPKey,
-				CFGenKbGenBindBuff >();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbGenItemPKey,
+				YCFGenKbGenBindBuff > dictByPKey
+		= new HashMap< YCFGenKbGenItemPKey,
+				YCFGenKbGenBindBuff >();
 
-	public CFGenKbRamGenBindTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamGenBindTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createGenBind( CFGenKbAuthorization Authorization,
-		CFGenKbGenBindBuff Buff )
+	public void createGenBind( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenBindBuff Buff )
 	{
 		final String S_ProcName = "createGenBind";
 		schema.getTableGenItem().createGenItem( Authorization,
 			Buff );
-		CFGenKbGenItemPKey pkey = schema.getFactoryGenItem().newPKey();
+		YCFGenKbGenItemPKey pkey = schema.getFactoryGenItem().newPKey();
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredCartridgeId( Buff.getRequiredCartridgeId() );
@@ -72,7 +72,7 @@ public class CFGenKbRamGenBindTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		// Validate foreign keys
@@ -88,7 +88,7 @@ public class CFGenKbRamGenBindTable
 						Buff.getRequiredCartridgeId(),
 						Buff.getRequiredItemId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Superclass",
 						"SuperClass",
@@ -104,15 +104,15 @@ public class CFGenKbRamGenBindTable
 
 	}
 
-	public CFGenKbGenBindBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey )
+	public YCFGenKbGenBindBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGenBind.readDerived";
-		CFGenKbGenItemPKey key = schema.getFactoryGenItem().newPKey();
+		final String S_ProcName = "YCFGenKbRamGenBind.readDerived";
+		YCFGenKbGenItemPKey key = schema.getFactoryGenItem().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredCartridgeId( PKey.getRequiredCartridgeId() );
 		key.setRequiredItemId( PKey.getRequiredItemId() );
-		CFGenKbGenBindBuff buff;
+		YCFGenKbGenBindBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -122,15 +122,15 @@ public class CFGenKbRamGenBindTable
 		return( buff );
 	}
 
-	public CFGenKbGenBindBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey )
+	public YCFGenKbGenBindBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGenBind.readDerived";
-		CFGenKbGenItemPKey key = schema.getFactoryGenItem().newPKey();
+		final String S_ProcName = "YCFGenKbRamGenBind.readDerived";
+		YCFGenKbGenItemPKey key = schema.getFactoryGenItem().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredCartridgeId( PKey.getRequiredCartridgeId() );
 		key.setRequiredItemId( PKey.getRequiredItemId() );
-		CFGenKbGenBindBuff buff;
+		YCFGenKbGenBindBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -140,10 +140,10 @@ public class CFGenKbRamGenBindTable
 		return( buff );
 	}
 
-	public CFGenKbGenBindBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamGenBind.readAllDerived";
-		CFGenKbGenBindBuff[] retList = new CFGenKbGenBindBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbGenBindBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbGenBindBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamGenBind.readAllDerived";
+		YCFGenKbGenBindBuff[] retList = new YCFGenKbGenBindBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbGenBindBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -151,148 +151,148 @@ public class CFGenKbRamGenBindTable
 		return( retList );
 	}
 
-	public CFGenKbGenBindBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByTenantIdx";
-		CFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByTenantIdx";
+		YCFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByTenantIdx( Authorization,
 			TenantId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGenItemBuff buff;
-			ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
+			YCFGenKbGenItemBuff buff;
+			ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGenBindBuff ) ) {
-					filteredList.add( (CFGenKbGenBindBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGenBindBuff ) ) {
+					filteredList.add( (YCFGenKbGenBindBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGenBindBuff[] readDerivedByCartIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readDerivedByCartIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByCartIdx";
-		CFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByCartIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByCartIdx";
+		YCFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByCartIdx( Authorization,
 			TenantId,
 			CartridgeId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGenItemBuff buff;
-			ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
+			YCFGenKbGenItemBuff buff;
+			ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGenBindBuff ) ) {
-					filteredList.add( (CFGenKbGenBindBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGenBindBuff ) ) {
+					filteredList.add( (YCFGenKbGenBindBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGenBindBuff[] readDerivedByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readDerivedByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short RuleTypeId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByRuleTypeIdx";
-		CFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByRuleTypeIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByRuleTypeIdx";
+		YCFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByRuleTypeIdx( Authorization,
 			RuleTypeId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGenItemBuff buff;
-			ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
+			YCFGenKbGenItemBuff buff;
+			ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGenBindBuff ) ) {
-					filteredList.add( (CFGenKbGenBindBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGenBindBuff ) ) {
+					filteredList.add( (YCFGenKbGenBindBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGenBindBuff[] readDerivedByToolSetIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readDerivedByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short ToolSetId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByToolSetIdx";
-		CFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByToolSetIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByToolSetIdx";
+		YCFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByToolSetIdx( Authorization,
 			ToolSetId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGenItemBuff buff;
-			ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
+			YCFGenKbGenItemBuff buff;
+			ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGenBindBuff ) ) {
-					filteredList.add( (CFGenKbGenBindBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGenBindBuff ) ) {
+					filteredList.add( (YCFGenKbGenBindBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGenBindBuff[] readDerivedByScopeIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readDerivedByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short ScopeDefId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByScopeIdx";
-		CFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByScopeIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByScopeIdx";
+		YCFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByScopeIdx( Authorization,
 			ScopeDefId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGenItemBuff buff;
-			ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
+			YCFGenKbGenItemBuff buff;
+			ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGenBindBuff ) ) {
-					filteredList.add( (CFGenKbGenBindBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGenBindBuff ) ) {
+					filteredList.add( (YCFGenKbGenBindBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGenBindBuff[] readDerivedByGenDefIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readDerivedByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short GenDefId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByGenDefIdx";
-		CFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByGenDefIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByGenDefIdx";
+		YCFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByGenDefIdx( Authorization,
 			GenDefId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFGenKbGenItemBuff buff;
-			ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
+			YCFGenKbGenItemBuff buff;
+			ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGenBindBuff ) ) {
-					filteredList.add( (CFGenKbGenBindBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGenBindBuff ) ) {
+					filteredList.add( (YCFGenKbGenBindBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGenBindBuff readDerivedByAltIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff readDerivedByAltIdx( YCFGenKbAuthorization Authorization,
 		String Name,
 		short ToolSetId,
 		Short ScopeDefId,
 		short GenDefId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByAltIdx";
-		CFGenKbGenItemBuff buff = schema.getTableGenItem().readDerivedByAltIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByAltIdx";
+		YCFGenKbGenItemBuff buff = schema.getTableGenItem().readDerivedByAltIdx( Authorization,
 			Name,
 			ToolSetId,
 			ScopeDefId,
@@ -300,21 +300,21 @@ public class CFGenKbRamGenBindTable
 		if( buff == null ) {
 			return( null );
 		}
-		else if( buff instanceof CFGenKbGenBindBuff ) {
-			return( (CFGenKbGenBindBuff)buff );
+		else if( buff instanceof YCFGenKbGenBindBuff ) {
+			return( (YCFGenKbGenBindBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbGenBindBuff[] readDerivedByGelExecIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readDerivedByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByGelExecIdx";
-		CFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByGelExecIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByGelExecIdx";
+		YCFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByGelExecIdx( Authorization,
 			GelExecutableTenantId,
 			GelExecutableGelCacheId,
 			GelExecutableId );
@@ -322,25 +322,25 @@ public class CFGenKbRamGenBindTable
 			return( null );
 		}
 		else {
-			CFGenKbGenItemBuff buff;
-			ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
+			YCFGenKbGenItemBuff buff;
+			ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGenBindBuff ) ) {
-					filteredList.add( (CFGenKbGenBindBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGenBindBuff ) ) {
+					filteredList.add( (YCFGenKbGenBindBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGenBindBuff[] readDerivedByProbeIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readDerivedByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByProbeIdx";
-		CFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByProbeIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByProbeIdx";
+		YCFGenKbGenItemBuff buffList[] = schema.getTableGenItem().readDerivedByProbeIdx( Authorization,
 			ProbeTenantId,
 			ProbeCartridgeId,
 			ProbeGenItemId );
@@ -348,30 +348,30 @@ public class CFGenKbRamGenBindTable
 			return( null );
 		}
 		else {
-			CFGenKbGenItemBuff buff;
-			ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
+			YCFGenKbGenItemBuff buff;
+			ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFGenKbGenBindBuff ) ) {
-					filteredList.add( (CFGenKbGenBindBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFGenKbGenBindBuff ) ) {
+					filteredList.add( (YCFGenKbGenBindBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+			return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 		}
 	}
 
-	public CFGenKbGenBindBuff readDerivedByItemIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff readDerivedByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId,
 		long ItemId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readDerivedByItemIdIdx() ";
-		CFGenKbGenItemPKey key = schema.getFactoryGenItem().newPKey();
+		final String S_ProcName = "YCFGenKbRamGenItem.readDerivedByItemIdIdx() ";
+		YCFGenKbGenItemPKey key = schema.getFactoryGenItem().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredCartridgeId( CartridgeId );
 		key.setRequiredItemId( ItemId );
 
-		CFGenKbGenBindBuff buff;
+		YCFGenKbGenBindBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -381,239 +381,239 @@ public class CFGenKbRamGenBindTable
 		return( buff );
 	}
 
-	public CFGenKbGenBindBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey )
+	public YCFGenKbGenBindBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamGenBind.readBuff";
-		CFGenKbGenBindBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamGenBind.readBuff";
+		YCFGenKbGenBindBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a931" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbGenBindBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey )
+	public YCFGenKbGenBindBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbGenBindBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbGenBindBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a931" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbGenBindBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbGenBindBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamGenBind.readAllBuff";
-		CFGenKbGenBindBuff buff;
-		ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
-		CFGenKbGenBindBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamGenBind.readAllBuff";
+		YCFGenKbGenBindBuff buff;
+		ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
+		YCFGenKbGenBindBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a931" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 	}
 
-	public CFGenKbGenBindBuff readBuffByItemIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff readBuffByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId,
 		long ItemId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByItemIdIdx() ";
-		CFGenKbGenBindBuff buff = readDerivedByItemIdIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByItemIdIdx() ";
+		YCFGenKbGenBindBuff buff = readDerivedByItemIdIdx( Authorization,
 			TenantId,
 			CartridgeId,
 			ItemId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-			return( (CFGenKbGenBindBuff)buff );
+			return( (YCFGenKbGenBindBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbGenBindBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByTenantIdx() ";
-		CFGenKbGenBindBuff buff;
-		ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
-		CFGenKbGenBindBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByTenantIdx() ";
+		YCFGenKbGenBindBuff buff;
+		ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
+		YCFGenKbGenBindBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-				filteredList.add( (CFGenKbGenBindBuff)buff );
+				filteredList.add( (YCFGenKbGenBindBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 	}
 
-	public CFGenKbGenBindBuff[] readBuffByCartIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readBuffByCartIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByCartIdx() ";
-		CFGenKbGenBindBuff buff;
-		ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
-		CFGenKbGenBindBuff[] buffList = readDerivedByCartIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByCartIdx() ";
+		YCFGenKbGenBindBuff buff;
+		ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
+		YCFGenKbGenBindBuff[] buffList = readDerivedByCartIdx( Authorization,
 			TenantId,
 			CartridgeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-				filteredList.add( (CFGenKbGenBindBuff)buff );
+				filteredList.add( (YCFGenKbGenBindBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 	}
 
-	public CFGenKbGenBindBuff[] readBuffByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readBuffByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short RuleTypeId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByRuleTypeIdx() ";
-		CFGenKbGenBindBuff buff;
-		ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
-		CFGenKbGenBindBuff[] buffList = readDerivedByRuleTypeIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByRuleTypeIdx() ";
+		YCFGenKbGenBindBuff buff;
+		ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
+		YCFGenKbGenBindBuff[] buffList = readDerivedByRuleTypeIdx( Authorization,
 			RuleTypeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-				filteredList.add( (CFGenKbGenBindBuff)buff );
+				filteredList.add( (YCFGenKbGenBindBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 	}
 
-	public CFGenKbGenBindBuff[] readBuffByToolSetIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readBuffByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short ToolSetId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByToolSetIdx() ";
-		CFGenKbGenBindBuff buff;
-		ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
-		CFGenKbGenBindBuff[] buffList = readDerivedByToolSetIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByToolSetIdx() ";
+		YCFGenKbGenBindBuff buff;
+		ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
+		YCFGenKbGenBindBuff[] buffList = readDerivedByToolSetIdx( Authorization,
 			ToolSetId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-				filteredList.add( (CFGenKbGenBindBuff)buff );
+				filteredList.add( (YCFGenKbGenBindBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 	}
 
-	public CFGenKbGenBindBuff[] readBuffByScopeIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readBuffByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short ScopeDefId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByScopeIdx() ";
-		CFGenKbGenBindBuff buff;
-		ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
-		CFGenKbGenBindBuff[] buffList = readDerivedByScopeIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByScopeIdx() ";
+		YCFGenKbGenBindBuff buff;
+		ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
+		YCFGenKbGenBindBuff[] buffList = readDerivedByScopeIdx( Authorization,
 			ScopeDefId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-				filteredList.add( (CFGenKbGenBindBuff)buff );
+				filteredList.add( (YCFGenKbGenBindBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 	}
 
-	public CFGenKbGenBindBuff[] readBuffByGenDefIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readBuffByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short GenDefId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByGenDefIdx() ";
-		CFGenKbGenBindBuff buff;
-		ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
-		CFGenKbGenBindBuff[] buffList = readDerivedByGenDefIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByGenDefIdx() ";
+		YCFGenKbGenBindBuff buff;
+		ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
+		YCFGenKbGenBindBuff[] buffList = readDerivedByGenDefIdx( Authorization,
 			GenDefId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-				filteredList.add( (CFGenKbGenBindBuff)buff );
+				filteredList.add( (YCFGenKbGenBindBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 	}
 
-	public CFGenKbGenBindBuff readBuffByAltIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff readBuffByAltIdx( YCFGenKbAuthorization Authorization,
 		String Name,
 		short ToolSetId,
 		Short ScopeDefId,
 		short GenDefId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByAltIdx() ";
-		CFGenKbGenBindBuff buff = readDerivedByAltIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByAltIdx() ";
+		YCFGenKbGenBindBuff buff = readDerivedByAltIdx( Authorization,
 			Name,
 			ToolSetId,
 			ScopeDefId,
 			GenDefId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-			return( (CFGenKbGenBindBuff)buff );
+			return( (YCFGenKbGenBindBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbGenBindBuff[] readBuffByGelExecIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readBuffByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByGelExecIdx() ";
-		CFGenKbGenBindBuff buff;
-		ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
-		CFGenKbGenBindBuff[] buffList = readDerivedByGelExecIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByGelExecIdx() ";
+		YCFGenKbGenBindBuff buff;
+		ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
+		YCFGenKbGenBindBuff[] buffList = readDerivedByGelExecIdx( Authorization,
 			GelExecutableTenantId,
 			GelExecutableGelCacheId,
 			GelExecutableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-				filteredList.add( (CFGenKbGenBindBuff)buff );
+				filteredList.add( (YCFGenKbGenBindBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 	}
 
-	public CFGenKbGenBindBuff[] readBuffByProbeIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbGenBindBuff[] readBuffByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId )
 	{
-		final String S_ProcName = "CFGenKbRamGenItem.readBuffByProbeIdx() ";
-		CFGenKbGenBindBuff buff;
-		ArrayList<CFGenKbGenBindBuff> filteredList = new ArrayList<CFGenKbGenBindBuff>();
-		CFGenKbGenBindBuff[] buffList = readDerivedByProbeIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamGenItem.readBuffByProbeIdx() ";
+		YCFGenKbGenBindBuff buff;
+		ArrayList<YCFGenKbGenBindBuff> filteredList = new ArrayList<YCFGenKbGenBindBuff>();
+		YCFGenKbGenBindBuff[] buffList = readDerivedByProbeIdx( Authorization,
 			ProbeTenantId,
 			ProbeCartridgeId,
 			ProbeGenItemId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a920" ) ) {
-				filteredList.add( (CFGenKbGenBindBuff)buff );
+				filteredList.add( (YCFGenKbGenBindBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbGenBindBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbGenBindBuff[0] ) );
 	}
 
-	public void updateGenBind( CFGenKbAuthorization Authorization,
-		CFGenKbGenBindBuff Buff )
+	public void updateGenBind( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenBindBuff Buff )
 	{
 		schema.getTableGenItem().updateGenItem( Authorization,
 			Buff );
-		CFGenKbGenItemPKey pkey = schema.getFactoryGenItem().newPKey();
+		YCFGenKbGenItemPKey pkey = schema.getFactoryGenItem().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredCartridgeId( Buff.getRequiredCartridgeId() );
 		pkey.setRequiredItemId( Buff.getRequiredItemId() );
-		CFGenKbGenBindBuff existing = dictByPKey.get( pkey );
+		YCFGenKbGenBindBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateGenBind",
 				"Existing record not found",
 				"GenBind",
@@ -632,7 +632,7 @@ public class CFGenKbRamGenBindTable
 						Buff.getRequiredCartridgeId(),
 						Buff.getRequiredItemId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateGenBind",
 						"Superclass",
 						"SuperClass",
@@ -644,29 +644,29 @@ public class CFGenKbRamGenBindTable
 
 		// Update is valid
 
-		Map< CFGenKbGenItemPKey, CFGenKbGenBindBuff > subdict;
+		Map< YCFGenKbGenItemPKey, YCFGenKbGenBindBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
 
 	}
 
-	public void deleteGenBind( CFGenKbAuthorization Authorization,
-		CFGenKbGenBindBuff Buff )
+	public void deleteGenBind( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenBindBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamGenBindTable.deleteGenBind() ";
+		final String S_ProcName = "YCFGenKbRamGenBindTable.deleteGenBind() ";
 		String classCode;
-		CFGenKbGenItemPKey pkey = schema.getFactoryGenItem().newPKey();
+		YCFGenKbGenItemPKey pkey = schema.getFactoryGenItem().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredCartridgeId( Buff.getRequiredCartridgeId() );
 		pkey.setRequiredItemId( Buff.getRequiredItemId() );
-		CFGenKbGenBindBuff existing = dictByPKey.get( pkey );
+		YCFGenKbGenBindBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteGenBind",
 				pkey );
 		}
@@ -683,27 +683,27 @@ public class CFGenKbRamGenBindTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbGenItemPKey, CFGenKbGenBindBuff > subdict;
+		Map< YCFGenKbGenItemPKey, YCFGenKbGenBindBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
 		schema.getTableGenItem().deleteGenItem( Authorization,
 			Buff );
 	}
-	public void deleteGenBindByItemIdIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argCartridgeId,
 		long argItemId )
 	{
-		CFGenKbGenItemPKey key = schema.getFactoryGenItem().newPKey();
+		YCFGenKbGenItemPKey key = schema.getFactoryGenItem().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredCartridgeId( argCartridgeId );
 		key.setRequiredItemId( argItemId );
 		deleteGenBindByItemIdIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByItemIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey argKey )
+	public void deleteGenBindByItemIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -712,16 +712,16 @@ public class CFGenKbRamGenBindTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbGenBindBuff cur;
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		YCFGenKbGenBindBuff cur;
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,
@@ -732,32 +732,32 @@ public class CFGenKbRamGenBindTable
 		}
 	}
 
-	public void deleteGenBindByTenantIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId )
 	{
-		CFGenKbGenItemByTenantIdxKey key = schema.getFactoryGenItem().newTenantIdxKey();
+		YCFGenKbGenItemByTenantIdxKey key = schema.getFactoryGenItem().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteGenBindByTenantIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByTenantIdxKey argKey )
+	public void deleteGenBindByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByTenantIdxKey argKey )
 	{
-		CFGenKbGenBindBuff cur;
+		YCFGenKbGenBindBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,
@@ -768,35 +768,35 @@ public class CFGenKbRamGenBindTable
 		}
 	}
 
-	public void deleteGenBindByCartIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByCartIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argCartridgeId )
 	{
-		CFGenKbGenItemByCartIdxKey key = schema.getFactoryGenItem().newCartIdxKey();
+		YCFGenKbGenItemByCartIdxKey key = schema.getFactoryGenItem().newCartIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredCartridgeId( argCartridgeId );
 		deleteGenBindByCartIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByCartIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByCartIdxKey argKey )
+	public void deleteGenBindByCartIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByCartIdxKey argKey )
 	{
-		CFGenKbGenBindBuff cur;
+		YCFGenKbGenBindBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,
@@ -807,32 +807,32 @@ public class CFGenKbRamGenBindTable
 		}
 	}
 
-	public void deleteGenBindByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short argRuleTypeId )
 	{
-		CFGenKbGenItemByRuleTypeIdxKey key = schema.getFactoryGenItem().newRuleTypeIdxKey();
+		YCFGenKbGenItemByRuleTypeIdxKey key = schema.getFactoryGenItem().newRuleTypeIdxKey();
 		key.setRequiredRuleTypeId( argRuleTypeId );
 		deleteGenBindByRuleTypeIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByRuleTypeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByRuleTypeIdxKey argKey )
+	public void deleteGenBindByRuleTypeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByRuleTypeIdxKey argKey )
 	{
-		CFGenKbGenBindBuff cur;
+		YCFGenKbGenBindBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,
@@ -843,32 +843,32 @@ public class CFGenKbRamGenBindTable
 		}
 	}
 
-	public void deleteGenBindByToolSetIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short argToolSetId )
 	{
-		CFGenKbGenItemByToolSetIdxKey key = schema.getFactoryGenItem().newToolSetIdxKey();
+		YCFGenKbGenItemByToolSetIdxKey key = schema.getFactoryGenItem().newToolSetIdxKey();
 		key.setRequiredToolSetId( argToolSetId );
 		deleteGenBindByToolSetIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByToolSetIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByToolSetIdxKey argKey )
+	public void deleteGenBindByToolSetIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByToolSetIdxKey argKey )
 	{
-		CFGenKbGenBindBuff cur;
+		YCFGenKbGenBindBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,
@@ -879,18 +879,18 @@ public class CFGenKbRamGenBindTable
 		}
 	}
 
-	public void deleteGenBindByScopeIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short argScopeDefId )
 	{
-		CFGenKbGenItemByScopeIdxKey key = schema.getFactoryGenItem().newScopeIdxKey();
+		YCFGenKbGenItemByScopeIdxKey key = schema.getFactoryGenItem().newScopeIdxKey();
 		key.setOptionalScopeDefId( argScopeDefId );
 		deleteGenBindByScopeIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByScopeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByScopeIdxKey argKey )
+	public void deleteGenBindByScopeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByScopeIdxKey argKey )
 	{
-		CFGenKbGenBindBuff cur;
+		YCFGenKbGenBindBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalScopeDefId() != null ) {
 			anyNotNull = true;
@@ -898,15 +898,15 @@ public class CFGenKbRamGenBindTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,
@@ -917,32 +917,32 @@ public class CFGenKbRamGenBindTable
 		}
 	}
 
-	public void deleteGenBindByGenDefIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short argGenDefId )
 	{
-		CFGenKbGenItemByGenDefIdxKey key = schema.getFactoryGenItem().newGenDefIdxKey();
+		YCFGenKbGenItemByGenDefIdxKey key = schema.getFactoryGenItem().newGenDefIdxKey();
 		key.setRequiredGenDefId( argGenDefId );
 		deleteGenBindByGenDefIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByGenDefIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByGenDefIdxKey argKey )
+	public void deleteGenBindByGenDefIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByGenDefIdxKey argKey )
 	{
-		CFGenKbGenBindBuff cur;
+		YCFGenKbGenBindBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,
@@ -953,13 +953,13 @@ public class CFGenKbRamGenBindTable
 		}
 	}
 
-	public void deleteGenBindByAltIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByAltIdx( YCFGenKbAuthorization Authorization,
 		String argName,
 		short argToolSetId,
 		Short argScopeDefId,
 		short argGenDefId )
 	{
-		CFGenKbGenItemByAltIdxKey key = schema.getFactoryGenItem().newAltIdxKey();
+		YCFGenKbGenItemByAltIdxKey key = schema.getFactoryGenItem().newAltIdxKey();
 		key.setRequiredName( argName );
 		key.setRequiredToolSetId( argToolSetId );
 		key.setOptionalScopeDefId( argScopeDefId );
@@ -967,10 +967,10 @@ public class CFGenKbRamGenBindTable
 		deleteGenBindByAltIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByAltIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByAltIdxKey argKey )
+	public void deleteGenBindByAltIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByAltIdxKey argKey )
 	{
-		CFGenKbGenBindBuff cur;
+		YCFGenKbGenBindBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -981,15 +981,15 @@ public class CFGenKbRamGenBindTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,
@@ -1000,22 +1000,22 @@ public class CFGenKbRamGenBindTable
 		}
 	}
 
-	public void deleteGenBindByGelExecIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long argGelExecutableTenantId,
 		Long argGelExecutableGelCacheId,
 		Long argGelExecutableId )
 	{
-		CFGenKbGenItemByGelExecIdxKey key = schema.getFactoryGenItem().newGelExecIdxKey();
+		YCFGenKbGenItemByGelExecIdxKey key = schema.getFactoryGenItem().newGelExecIdxKey();
 		key.setOptionalGelExecutableTenantId( argGelExecutableTenantId );
 		key.setOptionalGelExecutableGelCacheId( argGelExecutableGelCacheId );
 		key.setOptionalGelExecutableId( argGelExecutableId );
 		deleteGenBindByGelExecIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByGelExecIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByGelExecIdxKey argKey )
+	public void deleteGenBindByGelExecIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByGelExecIdxKey argKey )
 	{
-		CFGenKbGenBindBuff cur;
+		YCFGenKbGenBindBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalGelExecutableTenantId() != null ) {
 			anyNotNull = true;
@@ -1029,15 +1029,15 @@ public class CFGenKbRamGenBindTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,
@@ -1048,22 +1048,22 @@ public class CFGenKbRamGenBindTable
 		}
 	}
 
-	public void deleteGenBindByProbeIdx( CFGenKbAuthorization Authorization,
+	public void deleteGenBindByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long argProbeTenantId,
 		Long argProbeCartridgeId,
 		Long argProbeGenItemId )
 	{
-		CFGenKbGenItemByProbeIdxKey key = schema.getFactoryGenItem().newProbeIdxKey();
+		YCFGenKbGenItemByProbeIdxKey key = schema.getFactoryGenItem().newProbeIdxKey();
 		key.setOptionalProbeTenantId( argProbeTenantId );
 		key.setOptionalProbeCartridgeId( argProbeCartridgeId );
 		key.setOptionalProbeGenItemId( argProbeGenItemId );
 		deleteGenBindByProbeIdx( Authorization, key );
 	}
 
-	public void deleteGenBindByProbeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByProbeIdxKey argKey )
+	public void deleteGenBindByProbeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByProbeIdxKey argKey )
 	{
-		CFGenKbGenBindBuff cur;
+		YCFGenKbGenBindBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalProbeTenantId() != null ) {
 			anyNotNull = true;
@@ -1077,15 +1077,15 @@ public class CFGenKbRamGenBindTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbGenBindBuff> matchSet = new LinkedList<CFGenKbGenBindBuff>();
-		Iterator<CFGenKbGenBindBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbGenBindBuff> matchSet = new LinkedList<YCFGenKbGenBindBuff>();
+		Iterator<YCFGenKbGenBindBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbGenBindBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbGenBindBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableGenBind().readDerivedByItemIdIdx( Authorization,

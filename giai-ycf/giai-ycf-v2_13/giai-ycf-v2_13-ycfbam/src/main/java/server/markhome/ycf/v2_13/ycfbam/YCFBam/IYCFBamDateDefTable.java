@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for DateDef.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamDateDefTable database interface for DateDef
+ *	YCFBamDateDefTable database interface for DateDef
  */
-public interface ICFBamDateDefTable
+public interface IYCFBamDateDefTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createDateDef( CFSecAuthorization Authorization,
-		CFBamDateDefBuff Buff );
+	void createDateDef( YCFSecAuthorization Authorization,
+		YCFBamDateDefBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateDateDef( CFSecAuthorization Authorization,
-		CFBamDateDefBuff Buff );
+	void updateDateDef( YCFSecAuthorization Authorization,
+		YCFBamDateDefBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteDateDef( CFSecAuthorization Authorization,
-		CFBamDateDefBuff Buff );
+	void deleteDateDef( YCFSecAuthorization Authorization,
+		YCFBamDateDefBuff Buff );
 	/**
 	 *	Delete the DateDef instance identified by the primary key attributes.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argId	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByIdIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -121,8 +121,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteDateDefByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteDateDefByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key UNameIdx.
 	 *
@@ -134,7 +134,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argName	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByUNameIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -146,8 +146,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteDateDefByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key ValTentIdx.
 	 *
@@ -155,7 +155,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argTenantId	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByValTentIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -165,8 +165,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteDateDefByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key ScopeIdx.
 	 *
@@ -176,7 +176,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argScopeId	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByScopeIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -187,8 +187,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteDateDefByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key DefSchemaIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argDefSchemaId	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -209,8 +209,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteDateDefByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key PrevIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argPrevId	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByPrevIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -231,8 +231,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteDateDefByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key NextIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argNextId	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByNextIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -253,8 +253,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteDateDefByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key ContPrevIdx.
 	 *
@@ -266,7 +266,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argPrevId	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -278,8 +278,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteDateDefByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key ContNextIdx.
 	 *
@@ -291,7 +291,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argNextId	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByContNextIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -303,8 +303,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteDateDefByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key CodeVisIdx.
 	 *
@@ -312,8 +312,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argCodeVis	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteDateDefByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the DateDef instances identified by the key CodeVisIdx.
@@ -322,8 +322,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteDateDefByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the DateDef instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -335,10 +335,10 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argCodeVis	The DateDef key attribute of the instance generating the id.
 	 */
-	void deleteDateDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteDateDefByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the DateDef instances identified by the key ScopeCodeVisIdx.
@@ -347,8 +347,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDateDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteDateDefByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -361,8 +361,8 @@ public interface ICFBamDateDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDateDefBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDateDefBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived DateDef buffer instance by primary key.
@@ -374,8 +374,8 @@ public interface ICFBamDateDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDateDefBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDateDefBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all DateDef instances.
@@ -384,7 +384,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamDateDefBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived DateDef buffer instance identified by the unique key IdIdx.
@@ -398,7 +398,7 @@ public interface ICFBamDateDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDateDefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -416,7 +416,7 @@ public interface ICFBamDateDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDateDefBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -430,7 +430,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -444,7 +444,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -459,7 +459,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -474,7 +474,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -489,7 +489,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -506,7 +506,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -524,7 +524,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -538,8 +538,8 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamDateDefBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived DateDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -554,10 +554,10 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDateDefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read the specific DateDef buffer instance identified by the primary key.
@@ -569,10 +569,10 @@ public interface ICFBamDateDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDateDefBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific DateDef buffer instance identified by the primary key.
@@ -584,10 +584,10 @@ public interface ICFBamDateDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDateDefBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific DateDef buffer instances.
@@ -596,7 +596,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return All the specific DateDef instances in the database accessible for the Authorization.
 	 */
-	CFBamDateDefBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamDateDefBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific DateDef buffer instance identified by the unique key IdIdx.
@@ -610,9 +610,9 @@ public interface ICFBamDateDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -630,9 +630,9 @@ public interface ICFBamDateDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -646,9 +646,9 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -662,9 +662,9 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -679,9 +679,9 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -696,9 +696,9 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -713,9 +713,9 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -732,9 +732,9 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -752,9 +752,9 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -768,10 +768,10 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamDateDefBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific DateDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -786,19 +786,19 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDateDefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the specified buffer up in the chain (i.e. to the previous position.)
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamDateDefBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -808,7 +808,7 @@ public interface ICFBamDateDefTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamDateDefBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamDateDefBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -816,7 +816,7 @@ public interface ICFBamDateDefTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

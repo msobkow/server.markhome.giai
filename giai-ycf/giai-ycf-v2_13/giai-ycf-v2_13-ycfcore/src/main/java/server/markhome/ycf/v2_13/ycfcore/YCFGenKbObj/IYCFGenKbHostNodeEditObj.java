@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb HostNode.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb HostNode.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbHostNodeEditObj
-	extends ICFGenKbHostNodeObj
+public interface IYCFGenKbHostNodeEditObj
+	extends IYCFGenKbHostNodeObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbHostNodeObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbHostNodeObj.
 	 */
-	ICFGenKbHostNodeObj getOrig();
+	IYCFGenKbHostNodeObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbHostNodeObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbHostNodeObj.
 	 */
-	ICFGenKbHostNodeObj getOrigAsHostNode();
+	IYCFGenKbHostNodeObj getOrigAsHostNode();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbHostNodeEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbHostNodeObj create();
+	IYCFGenKbHostNodeObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbHostNodeEditObj update();
+	YCFGenKbHostNodeEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbHostNodeEditObj deleteInstance();
+	YCFGenKbHostNodeEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute Description.
@@ -104,25 +104,25 @@ public interface ICFGenKbHostNodeEditObj
 	void setRequiredHostName( String value );
 
 	/**
-	 *	Get the ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster();
+	IYCFGenKbClusterObj getRequiredContainerCluster();
 
 	/**
-	 *	Set the ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Set the IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@param	value	the ICFGenKbClusterObj instance to be referenced by the Cluster key.
+	 *	@param	value	the IYCFGenKbClusterObj instance to be referenced by the Cluster key.
 	 */
-	void setRequiredContainerCluster( ICFGenKbClusterObj value );
+	void setRequiredContainerCluster( IYCFGenKbClusterObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFGenKbSecUserObj value );
+	void setCreatedBy( IYCFGenKbSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -134,9 +134,9 @@ public interface ICFGenKbHostNodeEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFGenKbSecUserObj value );
+	void setUpdatedBy( IYCFGenKbSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

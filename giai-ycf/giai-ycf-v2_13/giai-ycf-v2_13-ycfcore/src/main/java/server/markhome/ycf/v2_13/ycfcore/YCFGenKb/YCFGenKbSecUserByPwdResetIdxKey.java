@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecUser by PwdResetIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,15 +37,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSecUserByPwdResetIdxKey
+public class YCFGenKbSecUserByPwdResetIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected UUID optionalPasswordResetUuid;
-	public CFGenKbSecUserByPwdResetIdxKey() {
+	public YCFGenKbSecUserByPwdResetIdxKey() {
 		optionalPasswordResetUuid = null;
 	}
 
@@ -66,8 +66,8 @@ public class CFGenKbSecUserByPwdResetIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecUserByPwdResetIdxKey ) {
-			CFGenKbSecUserByPwdResetIdxKey rhs = (CFGenKbSecUserByPwdResetIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecUserByPwdResetIdxKey ) {
+			YCFGenKbSecUserByPwdResetIdxKey rhs = (YCFGenKbSecUserByPwdResetIdxKey)obj;
 			if( getOptionalPasswordResetUuid() != null ) {
 				if( rhs.getOptionalPasswordResetUuid() != null ) {
 					if( ! getOptionalPasswordResetUuid().equals( rhs.getOptionalPasswordResetUuid() ) ) {
@@ -82,8 +82,8 @@ public class CFGenKbSecUserByPwdResetIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecUserBuff ) {
-			CFGenKbSecUserBuff rhs = (CFGenKbSecUserBuff)obj;
+		else if( obj instanceof YCFGenKbSecUserBuff ) {
+			YCFGenKbSecUserBuff rhs = (YCFGenKbSecUserBuff)obj;
 			if( getOptionalPasswordResetUuid() != null ) {
 				if( rhs.getOptionalPasswordResetUuid() != null ) {
 					if( ! getOptionalPasswordResetUuid().equals( rhs.getOptionalPasswordResetUuid() ) ) {
@@ -115,8 +115,8 @@ public class CFGenKbSecUserByPwdResetIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbSecUserByPwdResetIdxKey ) {
-			CFGenKbSecUserByPwdResetIdxKey rhs = (CFGenKbSecUserByPwdResetIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecUserByPwdResetIdxKey ) {
+			YCFGenKbSecUserByPwdResetIdxKey rhs = (YCFGenKbSecUserByPwdResetIdxKey)obj;
 			if( getOptionalPasswordResetUuid() != null ) {
 				if( rhs.getOptionalPasswordResetUuid() != null ) {
 					int cmp = getOptionalPasswordResetUuid().compareTo( rhs.getOptionalPasswordResetUuid() );
@@ -135,8 +135,8 @@ public class CFGenKbSecUserByPwdResetIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecUserBuff ) {
-			CFGenKbSecUserBuff rhs = (CFGenKbSecUserBuff)obj;
+		else if( obj instanceof YCFGenKbSecUserBuff ) {
+			YCFGenKbSecUserBuff rhs = (YCFGenKbSecUserBuff)obj;
 			if( getOptionalPasswordResetUuid() != null ) {
 				if( rhs.getOptionalPasswordResetUuid() != null ) {
 					int cmp = getOptionalPasswordResetUuid().compareTo( rhs.getOptionalPasswordResetUuid() );
@@ -156,7 +156,7 @@ public class CFGenKbSecUserByPwdResetIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -165,7 +165,7 @@ public class CFGenKbSecUserByPwdResetIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbSecUserByPwdResetIdx"
+		String ret = "<YCFGenKbSecUserByPwdResetIdx"
 			+ " OptionalPasswordResetUuid=" + ( ( getOptionalPasswordResetUuid() == null ) ? "null" : "\"" + getOptionalPasswordResetUuid().toString() + "\"" )
 			+ "/>";
 		return( ret );

@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFInt MimeType.
+// Description: Java 11 Object interface for YCFInt MimeType.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,29 +26,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntMimeTypeObj
-	extends ICFLibAnyObj
+public interface IYCFIntMimeTypeObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -60,9 +60,9 @@ public interface ICFIntMimeTypeObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -73,9 +73,9 @@ public interface ICFIntMimeTypeObj
 	/**
 	 *	Realise this instance of a MimeType.
 	 *
-	 *	@return	CFIntMimeTypeObj instance which should be subsequently referenced.
+	 *	@return	YCFIntMimeTypeObj instance which should be subsequently referenced.
 	 */
-	ICFIntMimeTypeObj realise();
+	IYCFIntMimeTypeObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -87,99 +87,99 @@ public interface ICFIntMimeTypeObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntMimeTypeObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntMimeTypeObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntMimeTypeObj read();
+	IYCFIntMimeTypeObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntMimeTypeObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntMimeTypeObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntMimeTypeObj read( boolean forceRead );
+	IYCFIntMimeTypeObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this MimeType instance.
 	 *
-	 *	@return	The newly locked ICFIntMimeTypeEditObj edition of this instance.
+	 *	@return	The newly locked IYCFIntMimeTypeEditObj edition of this instance.
 	 */
-	ICFIntMimeTypeEditObj beginEdit();
+	IYCFIntMimeTypeEditObj beginEdit();
 
 	/**
 	 *	End this edition of this MimeType instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this MimeType instance.
 	 *
-	 *	@return	The ICFIntMimeTypeEditObj edition of this instance.
+	 *	@return	The IYCFIntMimeTypeEditObj edition of this instance.
 	 */
-	ICFIntMimeTypeEditObj getEdit();
+	IYCFIntMimeTypeEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this MimeType instance as a ICFIntMimeTypeEditObj.
+	 *	Get the current edition of this MimeType instance as a IYCFIntMimeTypeEditObj.
 	 *
-	 *	@return	The ICFIntMimeTypeEditObj edition of this instance.
+	 *	@return	The IYCFIntMimeTypeEditObj edition of this instance.
 	 */
-	ICFIntMimeTypeEditObj getEditAsMimeType();
+	IYCFIntMimeTypeEditObj getEditAsMimeType();
 
 	/**
-	 *	Get the ICFIntMimeTypeTableObj table cache which manages this instance.
+	 *	Get the IYCFIntMimeTypeTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFIntMimeTypeTableObj table cache which manages this instance.
+	 *	@return	IYCFIntMimeTypeTableObj table cache which manages this instance.
 	 */
-	ICFIntMimeTypeTableObj getMimeTypeTable();
+	IYCFIntMimeTypeTableObj getMimeTypeTable();
 
 	/**
-	 *	Get the ICFIntSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFIntSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFIntSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFIntSchemaObj schema cache which manages this instance.
 	 */
-	ICFIntSchemaObj getSchema();
+	IYCFIntSchemaObj getSchema();
 
 	/**
-	 *	Get the CFIntMimeTypeBuff instance which currently backs this instance.
+	 *	Get the YCFIntMimeTypeBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntMimeTypeBuff instance which currently backs this object.
+	 *	@return	YCFIntMimeTypeBuff instance which currently backs this object.
 	 */
-	CFIntMimeTypeBuff getBuff();
+	YCFIntMimeTypeBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFIntMimeTypeBuff value );
+	void setBuff( YCFIntMimeTypeBuff value );
 
 	/**
-	 *	Get the CFIntMimeTypeBuff instance which currently backs this instance.
+	 *	Get the YCFIntMimeTypeBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntMimeTypeBuff instance which currently backs this object.
+	 *	@return	YCFIntMimeTypeBuff instance which currently backs this object.
 	 */
-	CFIntMimeTypeBuff getMimeTypeBuff();
+	YCFIntMimeTypeBuff getMimeTypeBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFIntMimeTypePKey primary key for this instance.
+	 *	@return	YCFIntMimeTypePKey primary key for this instance.
 	 */
-	CFIntMimeTypePKey getPKey();
+	YCFIntMimeTypePKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFIntMimeTypePKey primary key value for this instance.
+	 *	@param YCFIntMimeTypePKey primary key value for this instance.
 	 */
-	void setPKey( CFIntMimeTypePKey value );
+	void setPKey( YCFIntMimeTypePKey value );
 
 	/**
 	 *	Is this a new instance?

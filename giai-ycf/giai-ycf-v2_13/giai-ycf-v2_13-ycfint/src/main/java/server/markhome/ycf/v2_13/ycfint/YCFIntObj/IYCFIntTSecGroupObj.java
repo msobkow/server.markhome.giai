@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFInt TSecGroup.
+// Description: Java 11 Object interface for YCFInt TSecGroup.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,29 +26,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntTSecGroupObj
-	extends ICFSecTSecGroupObj
+public interface IYCFIntTSecGroupObj
+	extends IYCFSecTSecGroupObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -60,9 +60,9 @@ public interface ICFIntTSecGroupObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -73,9 +73,9 @@ public interface ICFIntTSecGroupObj
 	/**
 	 *	Realise this instance of a TSecGroup.
 	 *
-	 *	@return	CFSecTSecGroupObj instance which should be subsequently referenced.
+	 *	@return	YCFSecTSecGroupObj instance which should be subsequently referenced.
 	 */
-	ICFSecTSecGroupObj realise();
+	IYCFSecTSecGroupObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -87,83 +87,83 @@ public interface ICFIntTSecGroupObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecTSecGroupObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecTSecGroupObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecTSecGroupObj read();
+	IYCFSecTSecGroupObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecTSecGroupObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecTSecGroupObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecTSecGroupObj read( boolean forceRead );
+	IYCFSecTSecGroupObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this TSecGroup instance.
 	 *
-	 *	@return	The newly locked ICFSecTSecGroupEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecTSecGroupEditObj edition of this instance.
 	 */
-	ICFSecTSecGroupEditObj beginEdit();
+	IYCFSecTSecGroupEditObj beginEdit();
 
 	/**
 	 *	End this edition of this TSecGroup instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this TSecGroup instance.
 	 *
-	 *	@return	The ICFSecTSecGroupEditObj edition of this instance.
+	 *	@return	The IYCFSecTSecGroupEditObj edition of this instance.
 	 */
-	ICFSecTSecGroupEditObj getEdit();
+	IYCFSecTSecGroupEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this TSecGroup instance as a ICFSecTSecGroupEditObj.
+	 *	Get the current edition of this TSecGroup instance as a IYCFSecTSecGroupEditObj.
 	 *
-	 *	@return	The ICFSecTSecGroupEditObj edition of this instance.
+	 *	@return	The IYCFSecTSecGroupEditObj edition of this instance.
 	 */
-	ICFSecTSecGroupEditObj getEditAsTSecGroup();
+	IYCFSecTSecGroupEditObj getEditAsTSecGroup();
 
 	/**
-	 *	Get the ICFSecTSecGroupTableObj table cache which manages this instance.
+	 *	Get the IYCFSecTSecGroupTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecTSecGroupTableObj table cache which manages this instance.
+	 *	@return	IYCFSecTSecGroupTableObj table cache which manages this instance.
 	 */
-	ICFSecTSecGroupTableObj getTSecGroupTable();
+	IYCFSecTSecGroupTableObj getTSecGroupTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecTSecGroupBuff instance which currently backs this instance.
+	 *	Get the YCFSecTSecGroupBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecTSecGroupBuff instance which currently backs this object.
+	 *	@return	YCFSecTSecGroupBuff instance which currently backs this object.
 	 */
-	CFSecTSecGroupBuff getBuff();
+	YCFSecTSecGroupBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecTSecGroupBuff value );
+	void setBuff( YCFSecTSecGroupBuff value );
 
 	/**
-	 *	Get the CFSecTSecGroupBuff instance which currently backs this instance.
+	 *	Get the YCFSecTSecGroupBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecTSecGroupBuff instance which currently backs this object.
+	 *	@return	YCFSecTSecGroupBuff instance which currently backs this object.
 	 */
-	CFSecTSecGroupBuff getTSecGroupBuff();
+	YCFSecTSecGroupBuff getTSecGroupBuff();
 
 	/**
 	 *	Is this a new instance?
@@ -211,60 +211,60 @@ public interface ICFIntTSecGroupObj
 	boolean getRequiredIsVisible();
 
 	/**
-	 *	Get the required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFIntTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFIntTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredContainerTenant();
+	IYCFSecTenantObj getRequiredContainerTenant();
 
 	/**
-	 *	Get the required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredContainerTenant( boolean forceRead );
+	IYCFSecTenantObj getRequiredContainerTenant( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecTSecGrpIncObj array of instances referenced by the Include key.
+	 *	Get the array of optional IYCFSecTSecGrpIncObj array of instances referenced by the Include key.
 	 *
-	 *	@return	The optional ICFSecTSecGrpIncObj[] array of instances referenced by the Include key.
+	 *	@return	The optional IYCFSecTSecGrpIncObj[] array of instances referenced by the Include key.
 	 */
-	List<ICFSecTSecGrpIncObj> getOptionalComponentsInclude();
+	List<IYCFSecTSecGrpIncObj> getOptionalComponentsInclude();
 
 	/**
-	 *	Get the array of optional ICFSecTSecGrpIncObj array of instances referenced by the Include key.
+	 *	Get the array of optional IYCFSecTSecGrpIncObj array of instances referenced by the Include key.
 	 *
-	 *	@return	The optional ICFSecTSecGrpIncObj[] array of instances referenced by the Include key.
+	 *	@return	The optional IYCFSecTSecGrpIncObj[] array of instances referenced by the Include key.
 	 */
-	List<ICFSecTSecGrpIncObj> getOptionalComponentsInclude( boolean forceRead );
+	List<IYCFSecTSecGrpIncObj> getOptionalComponentsInclude( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecTSecGrpMembObj array of instances referenced by the Member key.
+	 *	Get the array of optional IYCFSecTSecGrpMembObj array of instances referenced by the Member key.
 	 *
-	 *	@return	The optional ICFSecTSecGrpMembObj[] array of instances referenced by the Member key.
+	 *	@return	The optional IYCFSecTSecGrpMembObj[] array of instances referenced by the Member key.
 	 */
-	List<ICFSecTSecGrpMembObj> getOptionalComponentsMember();
+	List<IYCFSecTSecGrpMembObj> getOptionalComponentsMember();
 
 	/**
-	 *	Get the array of optional ICFSecTSecGrpMembObj array of instances referenced by the Member key.
+	 *	Get the array of optional IYCFSecTSecGrpMembObj array of instances referenced by the Member key.
 	 *
-	 *	@return	The optional ICFSecTSecGrpMembObj[] array of instances referenced by the Member key.
+	 *	@return	The optional IYCFSecTSecGrpMembObj[] array of instances referenced by the Member key.
 	 */
-	List<ICFSecTSecGrpMembObj> getOptionalComponentsMember( boolean forceRead );
+	List<IYCFSecTSecGrpMembObj> getOptionalComponentsMember( boolean forceRead );
 
 	/**
-	 *	Get the array of required ICFSecTSecGrpIncObj array of instances referenced by the IncByGroup key.
+	 *	Get the array of required IYCFSecTSecGrpIncObj array of instances referenced by the IncByGroup key.
 	 *
-	 *	@return	The required ICFSecTSecGrpIncObj[] array of instances referenced by the IncByGroup key.
+	 *	@return	The required IYCFSecTSecGrpIncObj[] array of instances referenced by the IncByGroup key.
 	 */
-	List<ICFSecTSecGrpIncObj> getRequiredChildrenIncByGroup();
+	List<IYCFSecTSecGrpIncObj> getRequiredChildrenIncByGroup();
 
 	/**
-	 *	Get the array of required ICFSecTSecGrpIncObj array of instances referenced by the IncByGroup key.
+	 *	Get the array of required IYCFSecTSecGrpIncObj array of instances referenced by the IncByGroup key.
 	 *
-	 *	@return	The required ICFSecTSecGrpIncObj[] array of instances referenced by the IncByGroup key.
+	 *	@return	The required IYCFSecTSecGrpIncObj[] array of instances referenced by the IncByGroup key.
 	 */
-	List<ICFSecTSecGrpIncObj> getRequiredChildrenIncByGroup( boolean forceRead );
+	List<IYCFSecTSecGrpIncObj> getRequiredChildrenIncByGroup( boolean forceRead );
 
 	/**
 	 *	Internal use only.

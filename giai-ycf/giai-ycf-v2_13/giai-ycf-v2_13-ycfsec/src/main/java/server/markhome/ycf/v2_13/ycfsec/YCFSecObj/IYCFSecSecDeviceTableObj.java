@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecDeviceTableObj
+public interface IYCFSecSecDeviceTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecSecDeviceTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecSecDeviceObj newInstance();
+	IYCFSecSecDeviceObj newInstance();
 
 	/**
 	 *	Instantiate a new SecDevice edition of the specified SecDevice instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecSecDeviceEditObj newEditInstance( ICFSecSecDeviceObj orig );
+	IYCFSecSecDeviceEditObj newEditInstance( IYCFSecSecDeviceObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecDeviceObj realiseSecDevice( ICFSecSecDeviceObj Obj );
+	IYCFSecSecDeviceObj realiseSecDevice( IYCFSecSecDeviceObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecDeviceObj createSecDevice( ICFSecSecDeviceObj Obj );
+	IYCFSecSecDeviceObj createSecDevice( IYCFSecSecDeviceObj Obj );
 
 	/**
 	 *	Read a SecDevice-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecSecDeviceTableObj
 	 *	@return	The SecDevice-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecDeviceObj readSecDevice( CFSecSecDevicePKey pkey );
+	IYCFSecSecDeviceObj readSecDevice( YCFSecSecDevicePKey pkey );
 
 	/**
 	 *	Read a SecDevice-derived instance by it's primary key.
@@ -90,129 +90,129 @@ public interface ICFSecSecDeviceTableObj
 	 *	@return	The SecDevice-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecDeviceObj readSecDevice( CFSecSecDevicePKey pkey,
+	IYCFSecSecDeviceObj readSecDevice( YCFSecSecDevicePKey pkey,
 		boolean forceRead );
 
-	ICFSecSecDeviceObj readCachedSecDevice( CFSecSecDevicePKey pkey );
+	IYCFSecSecDeviceObj readCachedSecDevice( YCFSecSecDevicePKey pkey );
 
-	public void reallyDeepDisposeSecDevice( ICFSecSecDeviceObj obj );
+	public void reallyDeepDisposeSecDevice( IYCFSecSecDeviceObj obj );
 
-	void deepDisposeSecDevice( CFSecSecDevicePKey pkey );
+	void deepDisposeSecDevice( YCFSecSecDevicePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecDeviceObj lockSecDevice( CFSecSecDevicePKey pkey );
+	IYCFSecSecDeviceObj lockSecDevice( YCFSecSecDevicePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SecDevice-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecDeviceObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecDeviceObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecDeviceObj> readAllSecDevice();
+	List<IYCFSecSecDeviceObj> readAllSecDevice();
 
 	/**
 	 *	Return a sorted map of all the SecDevice-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecDeviceObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecDeviceObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecDeviceObj> readAllSecDevice( boolean forceRead );
+	List<IYCFSecSecDeviceObj> readAllSecDevice( boolean forceRead );
 
-	List<ICFSecSecDeviceObj> readCachedAllSecDevice();
+	List<IYCFSecSecDeviceObj> readCachedAllSecDevice();
 
 	/**
 	 *	Return a sorted map of a page of the SecDevice-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecDeviceObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecDeviceObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecDeviceObj> pageAllSecDevice(UUID priorSecUserId,
+	List<IYCFSecSecDeviceObj> pageAllSecDevice(UUID priorSecUserId,
 		String priorDevName );
 
 	/**
-	 *	Get the CFSecSecDeviceObj instance for the primary key attributes.
+	 *	Get the YCFSecSecDeviceObj instance for the primary key attributes.
 	 *
 	 *	@param	argSecUserId	The SecDevice key attribute of the instance generating the id.
 	 *
 	 *	@param	argDevName	The SecDevice key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecDeviceObj cached instance for the primary key, or
+	 *	@return	YCFSecSecDeviceObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecDeviceObj readSecDeviceByIdIdx( UUID SecUserId,
+	IYCFSecSecDeviceObj readSecDeviceByIdIdx( UUID SecUserId,
 		String DevName );
 
 	/**
-	 *	Get the CFSecSecDeviceObj instance for the primary key attributes.
+	 *	Get the YCFSecSecDeviceObj instance for the primary key attributes.
 	 *
 	 *	@param	argSecUserId	The SecDevice key attribute of the instance generating the id.
 	 *
 	 *	@param	argDevName	The SecDevice key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecDeviceObj refreshed instance for the primary key, or
+	 *	@return	YCFSecSecDeviceObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecDeviceObj readSecDeviceByIdIdx( UUID SecUserId,
+	IYCFSecSecDeviceObj readSecDeviceByIdIdx( UUID SecUserId,
 		String DevName,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecSecDeviceObj instance for the unique NameIdx key.
+	 *	Get the YCFSecSecDeviceObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argSecUserId	The SecDevice key attribute of the instance generating the id.
 	 *
 	 *	@param	argDevName	The SecDevice key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecDeviceObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFSecSecDeviceObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecDeviceObj readSecDeviceByNameIdx(UUID SecUserId,
+	IYCFSecSecDeviceObj readSecDeviceByNameIdx(UUID SecUserId,
 		String DevName );
 
 	/**
-	 *	Get the CFSecSecDeviceObj instance for the unique NameIdx key.
+	 *	Get the YCFSecSecDeviceObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argSecUserId	The SecDevice key attribute of the instance generating the id.
 	 *
 	 *	@param	argDevName	The SecDevice key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecDeviceObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFSecSecDeviceObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecDeviceObj readSecDeviceByNameIdx(UUID SecUserId,
+	IYCFSecSecDeviceObj readSecDeviceByNameIdx(UUID SecUserId,
 		String DevName,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSecDeviceObj instances sorted by their primary keys for the duplicate UserIdx key.
+	 *	Get the map of YCFSecSecDeviceObj instances sorted by their primary keys for the duplicate UserIdx key.
 	 *
 	 *	@param	argSecUserId	The SecDevice key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecDeviceObj cached instances sorted by their primary keys for the duplicate UserIdx key,
+	 *	@return	List of YCFSecSecDeviceObj cached instances sorted by their primary keys for the duplicate UserIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecDeviceObj> readSecDeviceByUserIdx( UUID SecUserId );
+	List<IYCFSecSecDeviceObj> readSecDeviceByUserIdx( UUID SecUserId );
 
 	/**
-	 *	Get the map of CFSecSecDeviceObj instances sorted by their primary keys for the duplicate UserIdx key.
+	 *	Get the map of YCFSecSecDeviceObj instances sorted by their primary keys for the duplicate UserIdx key.
 	 *
 	 *	@param	argSecUserId	The SecDevice key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecDeviceObj cached instances sorted by their primary keys for the duplicate UserIdx key,
+	 *	@return	List of YCFSecSecDeviceObj cached instances sorted by their primary keys for the duplicate UserIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecDeviceObj> readSecDeviceByUserIdx( UUID SecUserId,
+	List<IYCFSecSecDeviceObj> readSecDeviceByUserIdx( UUID SecUserId,
 		boolean forceRead );
 
-	ICFSecSecDeviceObj readCachedSecDeviceByIdIdx( UUID SecUserId,
+	IYCFSecSecDeviceObj readCachedSecDeviceByIdIdx( UUID SecUserId,
 		String DevName );
 
-	ICFSecSecDeviceObj readCachedSecDeviceByNameIdx( UUID SecUserId,
+	IYCFSecSecDeviceObj readCachedSecDeviceByNameIdx( UUID SecUserId,
 		String DevName );
 
-	List<ICFSecSecDeviceObj> readCachedSecDeviceByUserIdx( UUID SecUserId );
+	List<IYCFSecSecDeviceObj> readCachedSecDeviceByUserIdx( UUID SecUserId );
 
 	void deepDisposeSecDeviceByIdIdx( UUID SecUserId,
 		String DevName );
@@ -231,19 +231,19 @@ public interface ICFSecSecDeviceTableObj
 	 *	@return	A List of SecDevice-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFSecSecDeviceObj> pageSecDeviceByUserIdx( UUID SecUserId,
+	List<IYCFSecSecDeviceObj> pageSecDeviceByUserIdx( UUID SecUserId,
 		UUID priorSecUserId,
 		String priorDevName );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecDeviceObj updateSecDevice( ICFSecSecDeviceObj Obj );
+	IYCFSecSecDeviceObj updateSecDevice( IYCFSecSecDeviceObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSecDevice( ICFSecSecDeviceObj Obj );
+	void deleteSecDevice( IYCFSecSecDeviceObj Obj );
 
 	/**
 	 *	Internal use only.

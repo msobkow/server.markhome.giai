@@ -1,15 +1,15 @@
-// Description: Java 11 base object instance implementation for CFSec Tenant.
+// Description: Java 11 base object instance implementation for YCFSec Tenant.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,35 +26,35 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecTenantObj
-	implements ICFSecTenantObj
+public class YCFSecTenantObj
+	implements IYCFSecTenantObj
 {
 	public final static String CLASS_CODE = "a015";
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
 	protected boolean isNew;
-	protected ICFSecTenantEditObj edit;
-	protected ICFSecSchemaObj schema;
-	protected CFSecTenantPKey pKey;
-	protected CFSecTenantBuff buff;
-	protected ICFSecClusterObj requiredContainerCluster;
+	protected IYCFSecTenantEditObj edit;
+	protected IYCFSecSchemaObj schema;
+	protected YCFSecTenantPKey pKey;
+	protected YCFSecTenantBuff buff;
+	protected IYCFSecClusterObj requiredContainerCluster;
 
-	public CFSecTenantObj() {
+	public YCFSecTenantObj() {
 		isNew = true;
 		requiredContainerCluster = null;
 	}
 
-	public CFSecTenantObj( ICFSecSchemaObj argSchema ) {
+	public YCFSecTenantObj( IYCFSecSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -69,13 +69,13 @@ public class CFSecTenantObj
 		return( "Tenant" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
@@ -85,14 +85,14 @@ public class CFSecTenantObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFSecClusterObj ) {
+				if( container instanceof IYCFSecClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFSecTenantObj ) {
+				else if( container instanceof IYCFSecTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -103,10 +103,10 @@ public class CFSecTenantObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFSecClusterObj ) {
+				if( container instanceof IYCFSecClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFSecTenantObj ) {
+				else if( container instanceof IYCFSecTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -115,20 +115,20 @@ public class CFSecTenantObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -139,7 +139,7 @@ public class CFSecTenantObj
 			remainingName = null;
 		}
 		if( subObj == null ) {
-			subObj = ((ICFSecSchemaObj)getSchema()).getTSecGroupTableObj().readTSecGroupByUNameIdx( getRequiredId(),
+			subObj = ((IYCFSecSchemaObj)getSchema()).getTSecGroupTableObj().readTSecGroupByUNameIdx( getRequiredId(),
 				nextName, false );
 		}
 		if( remainingName == null ) {
@@ -156,13 +156,13 @@ public class CFSecTenantObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -176,13 +176,13 @@ public class CFSecTenantObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -194,46 +194,46 @@ public class CFSecTenantObj
 		return( fullName );
 	}
 
-	public ICFSecTenantObj realise() {
-		ICFSecTenantObj retobj = ((ICFSecSchemaObj)schema).getTenantTableObj().realiseTenant(
-			(ICFSecTenantObj)this );
-		return( (ICFSecTenantObj)retobj );
+	public IYCFSecTenantObj realise() {
+		IYCFSecTenantObj retobj = ((IYCFSecSchemaObj)schema).getTenantTableObj().realiseTenant(
+			(IYCFSecTenantObj)this );
+		return( (IYCFSecTenantObj)retobj );
 	}
 
 	public void forget() {
-		((ICFSecSchemaObj)schema).getTenantTableObj().reallyDeepDisposeTenant( (ICFSecTenantObj)this );
+		((IYCFSecSchemaObj)schema).getTenantTableObj().reallyDeepDisposeTenant( (IYCFSecTenantObj)this );
 	}
 
-	public ICFSecTenantObj read() {
-		ICFSecTenantObj retobj = ((ICFSecSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredId(), false );
-		return( (ICFSecTenantObj)retobj );
+	public IYCFSecTenantObj read() {
+		IYCFSecTenantObj retobj = ((IYCFSecSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredId(), false );
+		return( (IYCFSecTenantObj)retobj );
 	}
 
-	public ICFSecTenantObj read( boolean forceRead ) {
-		ICFSecTenantObj retobj = ((ICFSecSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredId(), forceRead );
-		return( (ICFSecTenantObj)retobj );
+	public IYCFSecTenantObj read( boolean forceRead ) {
+		IYCFSecTenantObj retobj = ((IYCFSecSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredId(), forceRead );
+		return( (IYCFSecTenantObj)retobj );
 	}
 
-	public ICFSecTenantTableObj getTenantTable() {
-		return( ((ICFSecSchemaObj)schema).getTenantTableObj() );
+	public IYCFSecTenantTableObj getTenantTable() {
+		return( ((IYCFSecSchemaObj)schema).getTenantTableObj() );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
+	public void setSchema( IYCFSecSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFSecTenantBuff getBuff() {
+	public YCFSecTenantBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFSecSchema)schema.getBackingStore()).getFactoryTenant().newBuff();
+				buff = ((IYCFSecSchema)schema.getBackingStore()).getFactoryTenant().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFSecSchema)schema.getBackingStore()).getTableTenant().readDerivedByIdIdx( ((ICFSecSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFSecSchema)schema.getBackingStore()).getTableTenant().readDerivedByIdIdx( ((IYCFSecSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredId() );
 				if( buff != null ) {
 					copyBuffToPKey();
@@ -243,31 +243,31 @@ public class CFSecTenantObj
 		return( buff );
 	}
 
-	public void setBuff( CFSecTenantBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFSecTenantBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFSecTenantBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFSecTenantBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFSecTenantBuff" );
+				"YCFSecTenantBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
 		requiredContainerCluster = null;
 	}
 
-	public CFSecTenantBuff getTenantBuff() {
-		return( (CFSecTenantBuff)getBuff() );
+	public YCFSecTenantBuff getTenantBuff() {
+		return( (YCFSecTenantBuff)getBuff() );
 	}
 
-	public CFSecTenantPKey getPKey() {
+	public YCFSecTenantPKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFSecSchema)schema.getBackingStore()).getFactoryTenant().newPKey();
+			pKey = ((IYCFSecSchema)schema.getBackingStore()).getFactoryTenant().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFSecTenantPKey value ) {
+	public void setPKey( YCFSecTenantPKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -282,37 +282,37 @@ public class CFSecTenantObj
 		isNew = value;
 	}
 
-	public ICFSecTenantEditObj beginEdit() {
+	public IYCFSecTenantEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFSecTenantObj lockobj;
+		IYCFSecTenantObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFSecTenantObj)this;
+			lockobj = (IYCFSecTenantObj)this;
 		}
 		else {
-			lockobj = ((ICFSecSchemaObj)schema).getTenantTableObj().lockTenant( getPKey() );
+			lockobj = ((IYCFSecSchemaObj)schema).getTenantTableObj().lockTenant( getPKey() );
 		}
-		edit = ((ICFSecSchemaObj)schema).getTenantTableObj().newEditInstance( lockobj );
-		return( (ICFSecTenantEditObj)edit );
+		edit = ((IYCFSecSchemaObj)schema).getTenantTableObj().newEditInstance( lockobj );
+		return( (IYCFSecTenantEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFSecTenantEditObj getEdit() {
+	public IYCFSecTenantEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFSecTenantEditObj getEditAsTenant() {
-		return( (ICFSecTenantEditObj)edit );
+	public IYCFSecTenantEditObj getEditAsTenant() {
+		return( (IYCFSecTenantEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFSecTenantBuff buff = getBuff();
-			createdBy = ((ICFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFSecTenantBuff buff = getBuff();
+			createdBy = ((IYCFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -321,10 +321,10 @@ public class CFSecTenantObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFSecTenantBuff buff = getBuff();
-			updatedBy = ((ICFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFSecTenantBuff buff = getBuff();
+			updatedBy = ((IYCFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -345,30 +345,30 @@ public class CFSecTenantObj
 		return( getTenantBuff().getRequiredTenantName() );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster() {
+	public IYCFSecClusterObj getRequiredContainerCluster() {
 		return( getRequiredContainerCluster( false ) );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
+	public IYCFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
 		if( ( requiredContainerCluster == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerCluster = ((ICFSecSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getTenantBuff().getRequiredClusterId(), forceRead );
+				requiredContainerCluster = ((IYCFSecSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getTenantBuff().getRequiredClusterId(), forceRead );
 			}
 		}
 		return( requiredContainerCluster );
 	}
 
-	public List<ICFSecTSecGroupObj> getOptionalComponentsTSecGroup() {
-		List<ICFSecTSecGroupObj> retval;
-		retval = ((ICFSecSchemaObj)schema).getTSecGroupTableObj().readTSecGroupByTenantIdx( getPKey().getRequiredId(),
+	public List<IYCFSecTSecGroupObj> getOptionalComponentsTSecGroup() {
+		List<IYCFSecTSecGroupObj> retval;
+		retval = ((IYCFSecSchemaObj)schema).getTSecGroupTableObj().readTSecGroupByTenantIdx( getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFSecTSecGroupObj> getOptionalComponentsTSecGroup( boolean forceRead ) {
-		List<ICFSecTSecGroupObj> retval;
-		retval = ((ICFSecSchemaObj)schema).getTSecGroupTableObj().readTSecGroupByTenantIdx( getPKey().getRequiredId(),
+	public List<IYCFSecTSecGroupObj> getOptionalComponentsTSecGroup( boolean forceRead ) {
+		List<IYCFSecTSecGroupObj> retval;
+		retval = ((IYCFSecSchemaObj)schema).getTSecGroupTableObj().readTSecGroupByTenantIdx( getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}

@@ -1,11 +1,11 @@
-// Description: Java 11 implementation of an in-memory RAM CFGenKb schema.
+// Description: Java 11 implementation of an in-memory RAM YCFGenKb schema.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,21 +27,21 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.lang.reflect.*;
 import java.net.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class CFGenKbRamSchema
-	extends CFGenKbSchema
-	implements ICFGenKbSchema
+public class YCFGenKbRamSchema
+	extends YCFGenKbSchema
+	implements IYCFGenKbSchema
 {
 		protected short nextDefClassIdGenValue = 1;
 		protected short nextRuleTypeIdGenValue = 1;
@@ -51,57 +51,57 @@ public class CFGenKbRamSchema
 		protected long nextTenantIdGenValue = 1;
 
 
-	public CFGenKbRamSchema() {
+	public YCFGenKbRamSchema() {
 		super();
-		tableCluster = new CFGenKbRamClusterTable( this );
-		tableDefClass = new CFGenKbRamDefClassTable( this );
-		tableGelBoilerplate = new CFGenKbRamGelBoilerplateTable( this );
-		tableGelBuiltin = new CFGenKbRamGelBuiltinTable( this );
-		tableGelCache = new CFGenKbRamGelCacheTable( this );
-		tableGelCall = new CFGenKbRamGelCallTable( this );
-		tableGelConstrain = new CFGenKbRamGelConstrainTable( this );
-		tableGelCounter = new CFGenKbRamGelCounterTable( this );
-		tableGelError = new CFGenKbRamGelErrorTable( this );
-		tableGelExecutable = new CFGenKbRamGelExecutableTable( this );
-		tableGelExpansion = new CFGenKbRamGelExpansionTable( this );
-		tableGelInstruction = new CFGenKbRamGelInstructionTable( this );
-		tableGelIterator = new CFGenKbRamGelIteratorTable( this );
-		tableGelModifier = new CFGenKbRamGelModifierTable( this );
-		tableGelPop = new CFGenKbRamGelPopTable( this );
-		tableGelPushContext = new CFGenKbRamGelPushContextTable( this );
-		tableGelPopContext = new CFGenKbRamGelPopContextTable( this );
-		tableGelPrefixLine = new CFGenKbRamGelPrefixLineTable( this );
-		tableGelReference = new CFGenKbRamGelReferenceTable( this );
-		tableGelSequence = new CFGenKbRamGelSequenceTable( this );
-		tableGelSpread = new CFGenKbRamGelSpreadTable( this );
-		tableGelSwitch = new CFGenKbRamGelSwitchTable( this );
-		tableGelSwitchLimb = new CFGenKbRamGelSwitchLimbTable( this );
-		tableGenBind = new CFGenKbRamGenBindTable( this );
-		tableGenFile = new CFGenKbRamGenFileTable( this );
-		tableGenItem = new CFGenKbRamGenItemTable( this );
-		tableGenIterator = new CFGenKbRamGenIteratorTable( this );
-		tableGenReference = new CFGenKbRamGenReferenceTable( this );
-		tableGenRule = new CFGenKbRamGenRuleTable( this );
-		tableGenTrunc = new CFGenKbRamGenTruncTable( this );
-		tableHostNode = new CFGenKbRamHostNodeTable( this );
-		tableRuleCart = new CFGenKbRamRuleCartTable( this );
-		tableRuleType = new CFGenKbRamRuleTypeTable( this );
-		tableSecApp = new CFGenKbRamSecAppTable( this );
-		tableSecDevice = new CFGenKbRamSecDeviceTable( this );
-		tableSecForm = new CFGenKbRamSecFormTable( this );
-		tableSecGroup = new CFGenKbRamSecGroupTable( this );
-		tableSecGroupForm = new CFGenKbRamSecGroupFormTable( this );
-		tableSecGrpInc = new CFGenKbRamSecGrpIncTable( this );
-		tableSecGrpMemb = new CFGenKbRamSecGrpMembTable( this );
-		tableSecSession = new CFGenKbRamSecSessionTable( this );
-		tableSecUser = new CFGenKbRamSecUserTable( this );
-		tableSysCluster = new CFGenKbRamSysClusterTable( this );
-		tableTSecGroup = new CFGenKbRamTSecGroupTable( this );
-		tableTSecGrpInc = new CFGenKbRamTSecGrpIncTable( this );
-		tableTSecGrpMemb = new CFGenKbRamTSecGrpMembTable( this );
-		tableTenant = new CFGenKbRamTenantTable( this );
-		tableTool = new CFGenKbRamToolTable( this );
-		tableToolSet = new CFGenKbRamToolSetTable( this );
+		tableCluster = new YCFGenKbRamClusterTable( this );
+		tableDefClass = new YCFGenKbRamDefClassTable( this );
+		tableGelBoilerplate = new YCFGenKbRamGelBoilerplateTable( this );
+		tableGelBuiltin = new YCFGenKbRamGelBuiltinTable( this );
+		tableGelCache = new YCFGenKbRamGelCacheTable( this );
+		tableGelCall = new YCFGenKbRamGelCallTable( this );
+		tableGelConstrain = new YCFGenKbRamGelConstrainTable( this );
+		tableGelCounter = new YCFGenKbRamGelCounterTable( this );
+		tableGelError = new YCFGenKbRamGelErrorTable( this );
+		tableGelExecutable = new YCFGenKbRamGelExecutableTable( this );
+		tableGelExpansion = new YCFGenKbRamGelExpansionTable( this );
+		tableGelInstruction = new YCFGenKbRamGelInstructionTable( this );
+		tableGelIterator = new YCFGenKbRamGelIteratorTable( this );
+		tableGelModifier = new YCFGenKbRamGelModifierTable( this );
+		tableGelPop = new YCFGenKbRamGelPopTable( this );
+		tableGelPushContext = new YCFGenKbRamGelPushContextTable( this );
+		tableGelPopContext = new YCFGenKbRamGelPopContextTable( this );
+		tableGelPrefixLine = new YCFGenKbRamGelPrefixLineTable( this );
+		tableGelReference = new YCFGenKbRamGelReferenceTable( this );
+		tableGelSequence = new YCFGenKbRamGelSequenceTable( this );
+		tableGelSpread = new YCFGenKbRamGelSpreadTable( this );
+		tableGelSwitch = new YCFGenKbRamGelSwitchTable( this );
+		tableGelSwitchLimb = new YCFGenKbRamGelSwitchLimbTable( this );
+		tableGenBind = new YCFGenKbRamGenBindTable( this );
+		tableGenFile = new YCFGenKbRamGenFileTable( this );
+		tableGenItem = new YCFGenKbRamGenItemTable( this );
+		tableGenIterator = new YCFGenKbRamGenIteratorTable( this );
+		tableGenReference = new YCFGenKbRamGenReferenceTable( this );
+		tableGenRule = new YCFGenKbRamGenRuleTable( this );
+		tableGenTrunc = new YCFGenKbRamGenTruncTable( this );
+		tableHostNode = new YCFGenKbRamHostNodeTable( this );
+		tableRuleCart = new YCFGenKbRamRuleCartTable( this );
+		tableRuleType = new YCFGenKbRamRuleTypeTable( this );
+		tableSecApp = new YCFGenKbRamSecAppTable( this );
+		tableSecDevice = new YCFGenKbRamSecDeviceTable( this );
+		tableSecForm = new YCFGenKbRamSecFormTable( this );
+		tableSecGroup = new YCFGenKbRamSecGroupTable( this );
+		tableSecGroupForm = new YCFGenKbRamSecGroupFormTable( this );
+		tableSecGrpInc = new YCFGenKbRamSecGrpIncTable( this );
+		tableSecGrpMemb = new YCFGenKbRamSecGrpMembTable( this );
+		tableSecSession = new YCFGenKbRamSecSessionTable( this );
+		tableSecUser = new YCFGenKbRamSecUserTable( this );
+		tableSysCluster = new YCFGenKbRamSysClusterTable( this );
+		tableTSecGroup = new YCFGenKbRamTSecGroupTable( this );
+		tableTSecGrpInc = new YCFGenKbRamTSecGrpIncTable( this );
+		tableTSecGrpMemb = new YCFGenKbRamTSecGrpMembTable( this );
+		tableTenant = new YCFGenKbRamTenantTable( this );
+		tableTool = new YCFGenKbRamToolTable( this );
+		tableToolSet = new YCFGenKbRamToolSetTable( this );
 	}
 
 	protected boolean sessConnected = false;
@@ -124,19 +124,19 @@ public class CFGenKbRamSchema
 	public boolean connect( String username, String password ) {
 		final String S_ProcName = "connect";
 		if( ( username == null ) || ( username.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"username" );
 		}
 		if( password == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"password" );
 		}
 		if( ! username.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only 'system' is authorized to use a RAM database" );
 		}
@@ -153,41 +153,41 @@ public class CFGenKbRamSchema
 	public boolean connect( String loginId, String password, String clusterName, String tenantName ) {
 		final String S_ProcName = "connect";
 		if( ( loginId == null ) || ( loginId.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"loginId" );
 		}
 		if( password == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"password" );
 		}
 		if( clusterName == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				3,
 				"clusterName" );
 		}
 		if( tenantName == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				4,
 				"tenantName" );
 		}
 		if( ! loginId.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only 'system' is authorized to use a RAM database" );
 		}
 		if( ! clusterName.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only the 'system' Cluster is authorized to use a RAM database" );
 		}
 		if( ! tenantName.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only the 'system' Tenant is authorized to use a RAM database" );
 		}
@@ -230,8 +230,8 @@ public class CFGenKbRamSchema
 		tranOpen = false;
 	}
 
-	public ICFGenKbSchema newSchema() {
-		throw new CFLibMustOverrideException( getClass(), "newSchema" );
+	public IYCFGenKbSchema newSchema() {
+		throw new YCFLibMustOverrideException( getClass(), "newSchema" );
 	}
 
 	public short nextDefClassIdGen() {

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.Tip;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.Tip;
 
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
@@ -41,13 +41,13 @@ import javax.crypto.NoSuchPaddingException;
 
 import org.apache.commons.codec.binary.Base64;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
-public class CFTipServerInfo {
+public class YCFTipServerInfo {
 
 	// Constructors
 
-	public CFTipServerInfo() {
+	public YCFTipServerInfo() {
 	}
 
 	// Server Information
@@ -77,13 +77,13 @@ public class CFTipServerInfo {
 		void setSchemaName( String value ) {
 			final String S_ProcName = "setSchemaName";
 			if( ( value == null ) || ( value.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					1,
 					"value" );
 			}
 			if( value.length() > SCHEMA_L_NAME ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					1,
 					"value.length()",
@@ -100,13 +100,13 @@ public class CFTipServerInfo {
 		void setSchemaDescr( String value ) {
 			final String S_ProcName = "setSchemaDescr";
 			if( ( value == null ) || ( value.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					1,
 					"value" );
 			}
 			if( value.length() > SCHEMA_L_DESCR ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					1,
 					"value.length()",
@@ -131,13 +131,13 @@ public class CFTipServerInfo {
 	public void setClusterURL( String value ) {
 		final String S_ProcName = "setClusterURL";
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"value" );
 		}
 		if( value.length() > CLUSTER_L_URL ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"value.length()",
@@ -154,13 +154,13 @@ public class CFTipServerInfo {
 	public void setClusterDescr( String value ) {
 		final String S_ProcName = "setClusterDescr";
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"value" );
 		}
 		if( value.length() > CLUSTER_L_DESCR ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"value.length()",
@@ -177,13 +177,13 @@ public class CFTipServerInfo {
 	public void setSchemaName( String value ) {
 		final String S_ProcName = "setSchemaName";
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"value" );
 		}
 		if( value.length() > SCHEMA_L_NAME ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"value.length()",
@@ -200,13 +200,13 @@ public class CFTipServerInfo {
 	public void setSchemaDescr( String value ) {
 		final String S_ProcName = "setSchemaDescr";
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"value" );
 		}
 		if( value.length() > SCHEMA_L_DESCR ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"value.length()",
@@ -250,7 +250,7 @@ public class CFTipServerInfo {
 			| NoSuchPaddingException
 			| InvalidKeySpecException e )
 		{
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Caught " + e.getClass().getName() + " -- " + e.getMessage(),
 				e );
@@ -286,14 +286,14 @@ public class CFTipServerInfo {
 		final String S_ProcName = "encryptWithServerPublicKey";
 		
 		if( serverPublicKey == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Server public key must be set first" );
 		}
 
 		Cipher cipher = Cipher.getInstance( "RSA/ECB/PKCS1Padding" );
 		if( cipher == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"cipher" );
@@ -316,14 +316,14 @@ public class CFTipServerInfo {
 		final String S_ProcName = "decryptWithServerPublicKey";
 
 		if( serverPublicKey == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Server key must be initialized by setEncodedServerPublicKey()" );
 		}
 
 		Cipher cipher = Cipher.getInstance( "RSA/ECB/PKCS1Padding" );
 		if( cipher == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"cipher" );
@@ -344,13 +344,13 @@ public class CFTipServerInfo {
 	{
 		final String S_ProcName = "setServerKeys";
 		if( publicKey == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"publicKey" );
 		}
 		if( privateKey == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"privateKey" );
@@ -392,7 +392,7 @@ public class CFTipServerInfo {
 		final String S_ProcName = "getEncodedServerPublicKey";
 
 		if( serverPublicKey == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"serverPublicKey" );
@@ -413,14 +413,14 @@ public class CFTipServerInfo {
 		final String S_ProcName = "decryptWithServerPrivateKey";
 		
 		if( serverPrivateKey == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Server keys must be initialized by initServerKeys() or setServerKeys()" );
 		}
 
 		Cipher cipher = Cipher.getInstance( "RSA/ECB/PKCS1Padding" );
 		if( cipher == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"cipher" );

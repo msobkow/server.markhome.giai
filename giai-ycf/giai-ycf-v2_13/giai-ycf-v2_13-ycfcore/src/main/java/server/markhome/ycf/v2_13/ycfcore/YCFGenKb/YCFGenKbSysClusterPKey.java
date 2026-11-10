@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SysCluster primary key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,22 +37,22 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFGenKbSysClusterPKey Primary Key for SysCluster
+ *	YCFGenKbSysClusterPKey Primary Key for SysCluster
 
  *		requiredSingletonId	Required object attribute SingletonId. */
-public class CFGenKbSysClusterPKey
+public class YCFGenKbSysClusterPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected int requiredSingletonId;
-	public CFGenKbSysClusterPKey() {
-		requiredSingletonId = CFGenKbSysClusterBuff.SINGLETONID_INIT_VALUE;
+	public YCFGenKbSysClusterPKey() {
+		requiredSingletonId = YCFGenKbSysClusterBuff.SINGLETONID_INIT_VALUE;
 	}
 
 	public int getRequiredSingletonId() {
@@ -60,21 +60,21 @@ public class CFGenKbSysClusterPKey
 	}
 
 	public void setRequiredSingletonId( int value ) {
-		if( value < CFGenKbSysClusterBuff.SINGLETONID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSysClusterBuff.SINGLETONID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSingletonId",
 				1,
 				"value",
 				value,
-				CFGenKbSysClusterBuff.SINGLETONID_MIN_VALUE );
+				YCFGenKbSysClusterBuff.SINGLETONID_MIN_VALUE );
 		}
-		if( value > CFGenKbSysClusterBuff.SINGLETONID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbSysClusterBuff.SINGLETONID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredSingletonId",
 				1,
 				"value",
 				value,
-				CFGenKbSysClusterBuff.SINGLETONID_MAX_VALUE );
+				YCFGenKbSysClusterBuff.SINGLETONID_MAX_VALUE );
 		}
 		requiredSingletonId = value;
 	}
@@ -83,15 +83,15 @@ public class CFGenKbSysClusterPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSysClusterPKey ) {
-			CFGenKbSysClusterPKey rhs = (CFGenKbSysClusterPKey)obj;
+		else if( obj instanceof YCFGenKbSysClusterPKey ) {
+			YCFGenKbSysClusterPKey rhs = (YCFGenKbSysClusterPKey)obj;
 			if( getRequiredSingletonId() != rhs.getRequiredSingletonId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSysClusterBuff ) {
-			CFGenKbSysClusterBuff rhs = (CFGenKbSysClusterBuff)obj;
+		else if( obj instanceof YCFGenKbSysClusterBuff ) {
+			YCFGenKbSysClusterBuff rhs = (YCFGenKbSysClusterBuff)obj;
 			if( getRequiredSingletonId() != rhs.getRequiredSingletonId() ) {
 				return( false );
 			}
@@ -112,8 +112,8 @@ public class CFGenKbSysClusterPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbSysClusterPKey ) {
-			CFGenKbSysClusterPKey rhs = (CFGenKbSysClusterPKey)obj;
+		else if( obj instanceof YCFGenKbSysClusterPKey ) {
+			YCFGenKbSysClusterPKey rhs = (YCFGenKbSysClusterPKey)obj;
 			if( getRequiredSingletonId() < rhs.getRequiredSingletonId() ) {
 				return( -1 );
 			}
@@ -122,8 +122,8 @@ public class CFGenKbSysClusterPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSysClusterBuff ) {
-			CFGenKbSysClusterBuff rhs = (CFGenKbSysClusterBuff)obj;
+		else if( obj instanceof YCFGenKbSysClusterBuff ) {
+			YCFGenKbSysClusterBuff rhs = (YCFGenKbSysClusterBuff)obj;
 			if( getRequiredSingletonId() < rhs.getRequiredSingletonId() ) {
 				return( -1 );
 			}
@@ -133,16 +133,16 @@ public class CFGenKbSysClusterPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFGenKbSysClusterPKey, CFGenKbSysClusterBuff" );
+				"YCFGenKbSysClusterPKey, YCFGenKbSysClusterBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbSysClusterPKey"
+		String ret = "<YCFGenKbSysClusterPKey"
 			+ " RequiredSingletonId=" + "\"" + Integer.toString( getRequiredSingletonId() ) + "\""
 			+ "/>";
 		return( ret );

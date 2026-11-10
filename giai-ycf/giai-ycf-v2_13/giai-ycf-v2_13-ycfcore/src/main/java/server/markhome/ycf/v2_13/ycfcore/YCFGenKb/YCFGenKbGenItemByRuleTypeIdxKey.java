@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenItem by RuleTypeIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenItemByRuleTypeIdxKey
+public class YCFGenKbGenItemByRuleTypeIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected short requiredRuleTypeId;
-	public CFGenKbGenItemByRuleTypeIdxKey() {
-		requiredRuleTypeId = CFGenKbGenItemBuff.RULETYPEID_INIT_VALUE;
+	public YCFGenKbGenItemByRuleTypeIdxKey() {
+		requiredRuleTypeId = YCFGenKbGenItemBuff.RULETYPEID_INIT_VALUE;
 	}
 
 	public short getRequiredRuleTypeId() {
@@ -54,21 +54,21 @@ public class CFGenKbGenItemByRuleTypeIdxKey
 	}
 
 	public void setRequiredRuleTypeId( short value ) {
-		if( value < CFGenKbGenItemBuff.RULETYPEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGenItemBuff.RULETYPEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredRuleTypeId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.RULETYPEID_MIN_VALUE );
+				YCFGenKbGenItemBuff.RULETYPEID_MIN_VALUE );
 		}
-		if( value > CFGenKbGenItemBuff.RULETYPEID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbGenItemBuff.RULETYPEID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredRuleTypeId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.RULETYPEID_MAX_VALUE );
+				YCFGenKbGenItemBuff.RULETYPEID_MAX_VALUE );
 		}
 		requiredRuleTypeId = value;
 	}
@@ -77,15 +77,15 @@ public class CFGenKbGenItemByRuleTypeIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenItemByRuleTypeIdxKey ) {
-			CFGenKbGenItemByRuleTypeIdxKey rhs = (CFGenKbGenItemByRuleTypeIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByRuleTypeIdxKey ) {
+			YCFGenKbGenItemByRuleTypeIdxKey rhs = (YCFGenKbGenItemByRuleTypeIdxKey)obj;
 			if( getRequiredRuleTypeId() != rhs.getRequiredRuleTypeId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getRequiredRuleTypeId() != rhs.getRequiredRuleTypeId() ) {
 				return( false );
 			}
@@ -106,8 +106,8 @@ public class CFGenKbGenItemByRuleTypeIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenItemByRuleTypeIdxKey ) {
-			CFGenKbGenItemByRuleTypeIdxKey rhs = (CFGenKbGenItemByRuleTypeIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByRuleTypeIdxKey ) {
+			YCFGenKbGenItemByRuleTypeIdxKey rhs = (YCFGenKbGenItemByRuleTypeIdxKey)obj;
 			if( getRequiredRuleTypeId() < rhs.getRequiredRuleTypeId() ) {
 				return( -1 );
 			}
@@ -116,8 +116,8 @@ public class CFGenKbGenItemByRuleTypeIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getRequiredRuleTypeId() < rhs.getRequiredRuleTypeId() ) {
 				return( -1 );
 			}
@@ -127,7 +127,7 @@ public class CFGenKbGenItemByRuleTypeIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -136,7 +136,7 @@ public class CFGenKbGenItemByRuleTypeIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenItemByRuleTypeIdx"
+		String ret = "<YCFGenKbGenItemByRuleTypeIdx"
 			+ " RequiredRuleTypeId=" + "\"" + Short.toString( getRequiredRuleTypeId() ) + "\""
 			+ "/>";
 		return( ret );

@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for Service.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,17 +35,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntServiceTable database interface for Service
+ *	YCFIntServiceTable database interface for Service
  */
-public interface ICFIntServiceTable
-extends ICFSecServiceTable
+public interface IYCFIntServiceTable
+extends IYCFSecServiceTable
 {
 
 	/**
@@ -56,8 +56,8 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createService( CFSecAuthorization Authorization,
-		CFSecServiceBuff Buff );
+	void createService( YCFSecAuthorization Authorization,
+		YCFSecServiceBuff Buff );
 
 
 	/**
@@ -68,8 +68,8 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateService( CFSecAuthorization Authorization,
-		CFSecServiceBuff Buff );
+	void updateService( YCFSecAuthorization Authorization,
+		YCFSecServiceBuff Buff );
 
 
 	/**
@@ -79,8 +79,8 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteService( CFSecAuthorization Authorization,
-		CFSecServiceBuff Buff );
+	void deleteService( YCFSecAuthorization Authorization,
+		YCFSecServiceBuff Buff );
 	/**
 	 *	Delete the Service instance identified by the primary key attributes.
 	 *
@@ -90,7 +90,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argServiceId	The Service key attribute of the instance generating the id.
 	 */
-	void deleteServiceByIdIdx( CFSecAuthorization Authorization,
+	void deleteServiceByIdIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argServiceId );
 
@@ -101,8 +101,8 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteServiceByIdIdx( CFSecAuthorization Authorization,
-		CFSecServicePKey argKey );
+	void deleteServiceByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecServicePKey argKey );
 	/**
 	 *	Delete the Service instances identified by the key ClusterIdx.
 	 *
@@ -110,7 +110,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argClusterId	The Service key attribute of the instance generating the id.
 	 */
-	void deleteServiceByClusterIdx( CFSecAuthorization Authorization,
+	void deleteServiceByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -120,8 +120,8 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServiceByClusterIdx( CFSecAuthorization Authorization,
-		CFSecServiceByClusterIdxKey argKey );
+	void deleteServiceByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByClusterIdxKey argKey );
 	/**
 	 *	Delete the Service instances identified by the key HostIdx.
 	 *
@@ -131,7 +131,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argHostNodeId	The Service key attribute of the instance generating the id.
 	 */
-	void deleteServiceByHostIdx( CFSecAuthorization Authorization,
+	void deleteServiceByHostIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argHostNodeId );
 
@@ -142,8 +142,8 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServiceByHostIdx( CFSecAuthorization Authorization,
-		CFSecServiceByHostIdxKey argKey );
+	void deleteServiceByHostIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByHostIdxKey argKey );
 	/**
 	 *	Delete the Service instances identified by the key TypeIdx.
 	 *
@@ -151,7 +151,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argServiceTypeId	The Service key attribute of the instance generating the id.
 	 */
-	void deleteServiceByTypeIdx( CFSecAuthorization Authorization,
+	void deleteServiceByTypeIdx( YCFSecAuthorization Authorization,
 		int argServiceTypeId );
 
 	/**
@@ -161,8 +161,8 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServiceByTypeIdx( CFSecAuthorization Authorization,
-		CFSecServiceByTypeIdxKey argKey );
+	void deleteServiceByTypeIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByTypeIdxKey argKey );
 	/**
 	 *	Delete the Service instances identified by the key UTypeIdx.
 	 *
@@ -174,7 +174,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argServiceTypeId	The Service key attribute of the instance generating the id.
 	 */
-	void deleteServiceByUTypeIdx( CFSecAuthorization Authorization,
+	void deleteServiceByUTypeIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argHostNodeId,
 		int argServiceTypeId );
@@ -186,8 +186,8 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServiceByUTypeIdx( CFSecAuthorization Authorization,
-		CFSecServiceByUTypeIdxKey argKey );
+	void deleteServiceByUTypeIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByUTypeIdxKey argKey );
 	/**
 	 *	Delete the Service instances identified by the key UHostPortIdx.
 	 *
@@ -199,7 +199,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argHostPort	The Service key attribute of the instance generating the id.
 	 */
-	void deleteServiceByUHostPortIdx( CFSecAuthorization Authorization,
+	void deleteServiceByUHostPortIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argHostNodeId,
 		short argHostPort );
@@ -211,8 +211,8 @@ extends ICFSecServiceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServiceByUHostPortIdx( CFSecAuthorization Authorization,
-		CFSecServiceByUHostPortIdxKey argKey );
+	void deleteServiceByUHostPortIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByUHostPortIdxKey argKey );
 
 
 	/**
@@ -225,8 +225,8 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecServiceBuff readDerived( CFSecAuthorization Authorization,
-		CFSecServicePKey PKey );
+	YCFSecServiceBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecServicePKey PKey );
 
 	/**
 	 *	Lock the derived Service buffer instance by primary key.
@@ -238,8 +238,8 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecServiceBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecServicePKey PKey );
+	YCFSecServiceBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecServicePKey PKey );
 
 	/**
 	 *	Read all Service instances.
@@ -248,7 +248,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecServiceBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecServiceBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived Service buffer instance identified by the unique key IdIdx.
@@ -262,7 +262,7 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecServiceBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long ServiceId );
 
@@ -275,7 +275,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecServiceBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -289,7 +289,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecServiceBuff[] readDerivedByHostIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] readDerivedByHostIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId );
 
@@ -302,7 +302,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecServiceBuff[] readDerivedByTypeIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] readDerivedByTypeIdx( YCFSecAuthorization Authorization,
 		int ServiceTypeId );
 
 	/**
@@ -319,7 +319,7 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecServiceBuff readDerivedByUTypeIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff readDerivedByUTypeIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		int ServiceTypeId );
@@ -338,7 +338,7 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecServiceBuff readDerivedByUHostPortIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff readDerivedByUHostPortIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		short HostPort );
@@ -353,10 +353,10 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff readBuff( CFSecAuthorization Authorization,
-		CFSecServicePKey PKey );
+	YCFSecServiceBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecServicePKey PKey );
 
 	/**
 	 *	Lock the specific Service buffer instance identified by the primary key.
@@ -368,10 +368,10 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecServicePKey PKey );
+	YCFSecServiceBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecServicePKey PKey );
 
 	/**
 	 *	Read all the specific Service buffer instances.
@@ -380,7 +380,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@return All the specific Service instances in the database accessible for the Authorization.
 	 */
-	CFSecServiceBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecServiceBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific Service buffer instances.
@@ -389,7 +389,7 @@ extends ICFSecServiceTable
 	 *
 	 *	@return All the specific Service instances in the database accessible for the Authorization.
 	 */
-	CFSecServiceBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		Long priorClusterId,
 		Long priorServiceId );
 
@@ -405,9 +405,9 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long ServiceId );
 
@@ -420,9 +420,9 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -436,9 +436,9 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff[] readBuffByHostIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] readBuffByHostIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId );
 
@@ -451,9 +451,9 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff[] readBuffByTypeIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] readBuffByTypeIdx( YCFSecAuthorization Authorization,
 		int ServiceTypeId );
 
 	/**
@@ -470,9 +470,9 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff readBuffByUTypeIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff readBuffByUTypeIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		int ServiceTypeId );
@@ -491,9 +491,9 @@ extends ICFSecServiceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff readBuffByUHostPortIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff readBuffByUHostPortIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		short HostPort );
@@ -507,9 +507,9 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff[] pageBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] pageBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Long priorServiceId );
@@ -525,9 +525,9 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff[] pageBuffByHostIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] pageBuffByHostIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		Long priorClusterId,
@@ -542,9 +542,9 @@ extends ICFSecServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceBuff[] pageBuffByTypeIdx( CFSecAuthorization Authorization,
+	YCFSecServiceBuff[] pageBuffByTypeIdx( YCFSecAuthorization Authorization,
 		int ServiceTypeId,
 		Long priorClusterId,
 		Long priorServiceId );
@@ -552,7 +552,7 @@ extends ICFSecServiceTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

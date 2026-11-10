@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelSwitchLimb primary key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,18 +37,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFGenKbGelSwitchLimbPKey Primary Key for GelSwitchLimb
+ *	YCFGenKbGelSwitchLimbPKey Primary Key for GelSwitchLimb
 
  *		requiredTenantId	Required object attribute TenantId.
  *		requiredGelCacheId	Required object attribute GelCacheId.
  *		requiredGelInstId	Required object attribute GelInstId.
  *		requiredLimbName	Required object attribute LimbName. */
-public class CFGenKbGelSwitchLimbPKey
+public class YCFGenKbGelSwitchLimbPKey
 	implements Comparable<Object>,
 		Serializable
 {
@@ -57,11 +57,11 @@ public class CFGenKbGelSwitchLimbPKey
 	protected long requiredGelCacheId;
 	protected long requiredGelInstId;
 	protected String requiredLimbName;
-	public CFGenKbGelSwitchLimbPKey() {
-		requiredTenantId = CFGenKbGelSwitchLimbBuff.TENANTID_INIT_VALUE;
-		requiredGelCacheId = CFGenKbGelSwitchLimbBuff.GELCACHEID_INIT_VALUE;
-		requiredGelInstId = CFGenKbGelSwitchLimbBuff.GELINSTID_INIT_VALUE;
-		requiredLimbName = new String( CFGenKbGelSwitchLimbBuff.LIMBNAME_INIT_VALUE );
+	public YCFGenKbGelSwitchLimbPKey() {
+		requiredTenantId = YCFGenKbGelSwitchLimbBuff.TENANTID_INIT_VALUE;
+		requiredGelCacheId = YCFGenKbGelSwitchLimbBuff.GELCACHEID_INIT_VALUE;
+		requiredGelInstId = YCFGenKbGelSwitchLimbBuff.GELINSTID_INIT_VALUE;
+		requiredLimbName = new String( YCFGenKbGelSwitchLimbBuff.LIMBNAME_INIT_VALUE );
 	}
 
 	public long getRequiredTenantId() {
@@ -69,13 +69,13 @@ public class CFGenKbGelSwitchLimbPKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbGelSwitchLimbBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelSwitchLimbBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelSwitchLimbBuff.TENANTID_MIN_VALUE );
+				YCFGenKbGelSwitchLimbBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -85,13 +85,13 @@ public class CFGenKbGelSwitchLimbPKey
 	}
 
 	public void setRequiredGelCacheId( long value ) {
-		if( value < CFGenKbGelSwitchLimbBuff.GELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelSwitchLimbBuff.GELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelSwitchLimbBuff.GELCACHEID_MIN_VALUE );
+				YCFGenKbGelSwitchLimbBuff.GELCACHEID_MIN_VALUE );
 		}
 		requiredGelCacheId = value;
 	}
@@ -101,13 +101,13 @@ public class CFGenKbGelSwitchLimbPKey
 	}
 
 	public void setRequiredGelInstId( long value ) {
-		if( value < CFGenKbGelSwitchLimbBuff.GELINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelSwitchLimbBuff.GELINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGelInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelSwitchLimbBuff.GELINSTID_MIN_VALUE );
+				YCFGenKbGelSwitchLimbBuff.GELINSTID_MIN_VALUE );
 		}
 		requiredGelInstId = value;
 	}
@@ -118,13 +118,13 @@ public class CFGenKbGelSwitchLimbPKey
 
 	public void setRequiredLimbName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredLimbName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredLimbName",
 				1,
 				"value.length()",
@@ -138,8 +138,8 @@ public class CFGenKbGelSwitchLimbPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelSwitchLimbPKey ) {
-			CFGenKbGelSwitchLimbPKey rhs = (CFGenKbGelSwitchLimbPKey)obj;
+		else if( obj instanceof YCFGenKbGelSwitchLimbPKey ) {
+			YCFGenKbGelSwitchLimbPKey rhs = (YCFGenKbGelSwitchLimbPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -154,8 +154,8 @@ public class CFGenKbGelSwitchLimbPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSwitchLimbBuff ) {
-			CFGenKbGelSwitchLimbBuff rhs = (CFGenKbGelSwitchLimbBuff)obj;
+		else if( obj instanceof YCFGenKbGelSwitchLimbBuff ) {
+			YCFGenKbGelSwitchLimbBuff rhs = (YCFGenKbGelSwitchLimbBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -190,8 +190,8 @@ public class CFGenKbGelSwitchLimbPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelSwitchLimbPKey ) {
-			CFGenKbGelSwitchLimbPKey rhs = (CFGenKbGelSwitchLimbPKey)obj;
+		else if( obj instanceof YCFGenKbGelSwitchLimbPKey ) {
+			YCFGenKbGelSwitchLimbPKey rhs = (YCFGenKbGelSwitchLimbPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -218,8 +218,8 @@ public class CFGenKbGelSwitchLimbPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSwitchLimbBuff ) {
-			CFGenKbGelSwitchLimbBuff rhs = (CFGenKbGelSwitchLimbBuff)obj;
+		else if( obj instanceof YCFGenKbGelSwitchLimbBuff ) {
+			YCFGenKbGelSwitchLimbBuff rhs = (YCFGenKbGelSwitchLimbBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -247,20 +247,20 @@ public class CFGenKbGelSwitchLimbPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFGenKbGelSwitchLimbPKey, CFGenKbGelSwitchLimbBuff" );
+				"YCFGenKbGelSwitchLimbPKey, YCFGenKbGelSwitchLimbBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelSwitchLimbPKey"
+		String ret = "<YCFGenKbGelSwitchLimbPKey"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredGelCacheId=" + "\"" + Long.toString( getRequiredGelCacheId() ) + "\""
 			+ " RequiredGelInstId=" + "\"" + Long.toString( getRequiredGelInstId() ) + "\""
-			+ " RequiredLimbName=" + "\"" + CFGenKbSchema.xmlEncodeString( getRequiredLimbName() ) + "\""
+			+ " RequiredLimbName=" + "\"" + YCFGenKbSchema.xmlEncodeString( getRequiredLimbName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

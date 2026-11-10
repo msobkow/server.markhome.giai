@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for MinorVersion.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,74 +27,74 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamMinorVersionTable in-memory RAM DbIO implementation
+ *	YCFBamRamMinorVersionTable in-memory RAM DbIO implementation
  *	for MinorVersion.
  */
-public class CFBamRamMinorVersionTable
-	implements ICFBamMinorVersionTable
+public class YCFBamRamMinorVersionTable
+	implements IYCFBamMinorVersionTable
 {
-	private ICFBamSchema schema;
-	private Map< CFIntMinorVersionPKey,
-				CFIntMinorVersionBuff > dictByPKey
-		= new HashMap< CFIntMinorVersionPKey,
-				CFIntMinorVersionBuff >();
-	private Map< CFIntMinorVersionByTenantIdxKey,
-				Map< CFIntMinorVersionPKey,
-					CFIntMinorVersionBuff >> dictByTenantIdx
-		= new HashMap< CFIntMinorVersionByTenantIdxKey,
-				Map< CFIntMinorVersionPKey,
-					CFIntMinorVersionBuff >>();
-	private Map< CFIntMinorVersionByMajorVerIdxKey,
-				Map< CFIntMinorVersionPKey,
-					CFIntMinorVersionBuff >> dictByMajorVerIdx
-		= new HashMap< CFIntMinorVersionByMajorVerIdxKey,
-				Map< CFIntMinorVersionPKey,
-					CFIntMinorVersionBuff >>();
-	private Map< CFIntMinorVersionByNameIdxKey,
-			CFIntMinorVersionBuff > dictByNameIdx
-		= new HashMap< CFIntMinorVersionByNameIdxKey,
-			CFIntMinorVersionBuff >();
+	private IYCFBamSchema schema;
+	private Map< YCFIntMinorVersionPKey,
+				YCFIntMinorVersionBuff > dictByPKey
+		= new HashMap< YCFIntMinorVersionPKey,
+				YCFIntMinorVersionBuff >();
+	private Map< YCFIntMinorVersionByTenantIdxKey,
+				Map< YCFIntMinorVersionPKey,
+					YCFIntMinorVersionBuff >> dictByTenantIdx
+		= new HashMap< YCFIntMinorVersionByTenantIdxKey,
+				Map< YCFIntMinorVersionPKey,
+					YCFIntMinorVersionBuff >>();
+	private Map< YCFIntMinorVersionByMajorVerIdxKey,
+				Map< YCFIntMinorVersionPKey,
+					YCFIntMinorVersionBuff >> dictByMajorVerIdx
+		= new HashMap< YCFIntMinorVersionByMajorVerIdxKey,
+				Map< YCFIntMinorVersionPKey,
+					YCFIntMinorVersionBuff >>();
+	private Map< YCFIntMinorVersionByNameIdxKey,
+			YCFIntMinorVersionBuff > dictByNameIdx
+		= new HashMap< YCFIntMinorVersionByNameIdxKey,
+			YCFIntMinorVersionBuff >();
 
-	public CFBamRamMinorVersionTable( ICFBamSchema argSchema ) {
+	public YCFBamRamMinorVersionTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createMinorVersion( CFSecAuthorization Authorization,
-		CFIntMinorVersionBuff Buff )
+	public void createMinorVersion( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionBuff Buff )
 	{
 		final String S_ProcName = "createMinorVersion";
-		CFIntMinorVersionPKey pkey = schema.getFactoryMinorVersion().newPKey();
+		YCFIntMinorVersionPKey pkey = schema.getFactoryMinorVersion().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
-		pkey.setRequiredId( ((CFBamRamTenantTable)schema.getTableTenant()).nextMinorVersionIdGen( Authorization,
+		pkey.setRequiredId( ((YCFBamRamTenantTable)schema.getTableTenant()).nextMinorVersionIdGen( Authorization,
 			Buff.getRequiredTenantId() ) );
 		Buff.setRequiredTenantId( pkey.getRequiredTenantId() );
 		Buff.setRequiredId( pkey.getRequiredId() );
-		CFIntMinorVersionByTenantIdxKey keyTenantIdx = schema.getFactoryMinorVersion().newTenantIdxKey();
+		YCFIntMinorVersionByTenantIdxKey keyTenantIdx = schema.getFactoryMinorVersion().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntMinorVersionByMajorVerIdxKey keyMajorVerIdx = schema.getFactoryMinorVersion().newMajorVerIdxKey();
+		YCFIntMinorVersionByMajorVerIdxKey keyMajorVerIdx = schema.getFactoryMinorVersion().newMajorVerIdxKey();
 		keyMajorVerIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyMajorVerIdx.setRequiredMajorVersionId( Buff.getRequiredMajorVersionId() );
 
-		CFIntMinorVersionByNameIdxKey keyNameIdx = schema.getFactoryMinorVersion().newNameIdxKey();
+		YCFIntMinorVersionByNameIdxKey keyNameIdx = schema.getFactoryMinorVersion().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyNameIdx.setRequiredMajorVersionId( Buff.getRequiredMajorVersionId() );
 		keyNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -102,11 +102,11 @@ public class CFBamRamMinorVersionTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByNameIdx.containsKey( keyNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"MinorVersionNameIdx",
 				keyNameIdx );
@@ -121,7 +121,7 @@ public class CFBamRamMinorVersionTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Owner",
 						"Tenant",
@@ -140,7 +140,7 @@ public class CFBamRamMinorVersionTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredMajorVersionId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"ParentMajorVersion",
@@ -154,22 +154,22 @@ public class CFBamRamMinorVersionTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFIntMinorVersionPKey, CFIntMinorVersionBuff > subdictTenantIdx;
+		Map< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff > subdictTenantIdx;
 		if( dictByTenantIdx.containsKey( keyTenantIdx ) ) {
 			subdictTenantIdx = dictByTenantIdx.get( keyTenantIdx );
 		}
 		else {
-			subdictTenantIdx = new HashMap< CFIntMinorVersionPKey, CFIntMinorVersionBuff >();
+			subdictTenantIdx = new HashMap< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff >();
 			dictByTenantIdx.put( keyTenantIdx, subdictTenantIdx );
 		}
 		subdictTenantIdx.put( pkey, Buff );
 
-		Map< CFIntMinorVersionPKey, CFIntMinorVersionBuff > subdictMajorVerIdx;
+		Map< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff > subdictMajorVerIdx;
 		if( dictByMajorVerIdx.containsKey( keyMajorVerIdx ) ) {
 			subdictMajorVerIdx = dictByMajorVerIdx.get( keyMajorVerIdx );
 		}
 		else {
-			subdictMajorVerIdx = new HashMap< CFIntMinorVersionPKey, CFIntMinorVersionBuff >();
+			subdictMajorVerIdx = new HashMap< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff >();
 			dictByMajorVerIdx.put( keyMajorVerIdx, subdictMajorVerIdx );
 		}
 		subdictMajorVerIdx.put( pkey, Buff );
@@ -178,14 +178,14 @@ public class CFBamRamMinorVersionTable
 
 	}
 
-	public CFIntMinorVersionBuff readDerived( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey PKey )
+	public YCFIntMinorVersionBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readDerived";
-		CFIntMinorVersionPKey key = schema.getFactoryMinorVersion().newPKey();
+		final String S_ProcName = "YCFBamRamMinorVersion.readDerived";
+		YCFIntMinorVersionPKey key = schema.getFactoryMinorVersion().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFIntMinorVersionBuff buff;
+		YCFIntMinorVersionBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -195,14 +195,14 @@ public class CFBamRamMinorVersionTable
 		return( buff );
 	}
 
-	public CFIntMinorVersionBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey PKey )
+	public YCFIntMinorVersionBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readDerived";
-		CFIntMinorVersionPKey key = schema.getFactoryMinorVersion().newPKey();
+		final String S_ProcName = "YCFBamRamMinorVersion.readDerived";
+		YCFIntMinorVersionPKey key = schema.getFactoryMinorVersion().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFIntMinorVersionBuff buff;
+		YCFIntMinorVersionBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -212,10 +212,10 @@ public class CFBamRamMinorVersionTable
 		return( buff );
 	}
 
-	public CFIntMinorVersionBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamMinorVersion.readAllDerived";
-		CFIntMinorVersionBuff[] retList = new CFIntMinorVersionBuff[ dictByPKey.values().size() ];
-		Iterator< CFIntMinorVersionBuff > iter = dictByPKey.values().iterator();
+	public YCFIntMinorVersionBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamMinorVersion.readAllDerived";
+		YCFIntMinorVersionBuff[] retList = new YCFIntMinorVersionBuff[ dictByPKey.values().size() ];
+		Iterator< YCFIntMinorVersionBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -223,74 +223,74 @@ public class CFBamRamMinorVersionTable
 		return( retList );
 	}
 
-	public CFIntMinorVersionBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	public YCFIntMinorVersionBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readDerivedByTenantIdx";
-		CFIntMinorVersionByTenantIdxKey key = schema.getFactoryMinorVersion().newTenantIdxKey();
+		final String S_ProcName = "YCFBamRamMinorVersion.readDerivedByTenantIdx";
+		YCFIntMinorVersionByTenantIdxKey key = schema.getFactoryMinorVersion().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 
-		CFIntMinorVersionBuff[] recArray;
+		YCFIntMinorVersionBuff[] recArray;
 		if( dictByTenantIdx.containsKey( key ) ) {
-			Map< CFIntMinorVersionPKey, CFIntMinorVersionBuff > subdictTenantIdx
+			Map< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff > subdictTenantIdx
 				= dictByTenantIdx.get( key );
-			recArray = new CFIntMinorVersionBuff[ subdictTenantIdx.size() ];
-			Iterator< CFIntMinorVersionBuff > iter = subdictTenantIdx.values().iterator();
+			recArray = new YCFIntMinorVersionBuff[ subdictTenantIdx.size() ];
+			Iterator< YCFIntMinorVersionBuff > iter = subdictTenantIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFIntMinorVersionPKey, CFIntMinorVersionBuff > subdictTenantIdx
-				= new HashMap< CFIntMinorVersionPKey, CFIntMinorVersionBuff >();
+			Map< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff > subdictTenantIdx
+				= new HashMap< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff >();
 			dictByTenantIdx.put( key, subdictTenantIdx );
-			recArray = new CFIntMinorVersionBuff[0];
+			recArray = new YCFIntMinorVersionBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFIntMinorVersionBuff[] readDerivedByMajorVerIdx( CFSecAuthorization Authorization,
+	public YCFIntMinorVersionBuff[] readDerivedByMajorVerIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MajorVersionId )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readDerivedByMajorVerIdx";
-		CFIntMinorVersionByMajorVerIdxKey key = schema.getFactoryMinorVersion().newMajorVerIdxKey();
+		final String S_ProcName = "YCFBamRamMinorVersion.readDerivedByMajorVerIdx";
+		YCFIntMinorVersionByMajorVerIdxKey key = schema.getFactoryMinorVersion().newMajorVerIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredMajorVersionId( MajorVersionId );
 
-		CFIntMinorVersionBuff[] recArray;
+		YCFIntMinorVersionBuff[] recArray;
 		if( dictByMajorVerIdx.containsKey( key ) ) {
-			Map< CFIntMinorVersionPKey, CFIntMinorVersionBuff > subdictMajorVerIdx
+			Map< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff > subdictMajorVerIdx
 				= dictByMajorVerIdx.get( key );
-			recArray = new CFIntMinorVersionBuff[ subdictMajorVerIdx.size() ];
-			Iterator< CFIntMinorVersionBuff > iter = subdictMajorVerIdx.values().iterator();
+			recArray = new YCFIntMinorVersionBuff[ subdictMajorVerIdx.size() ];
+			Iterator< YCFIntMinorVersionBuff > iter = subdictMajorVerIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFIntMinorVersionPKey, CFIntMinorVersionBuff > subdictMajorVerIdx
-				= new HashMap< CFIntMinorVersionPKey, CFIntMinorVersionBuff >();
+			Map< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff > subdictMajorVerIdx
+				= new HashMap< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff >();
 			dictByMajorVerIdx.put( key, subdictMajorVerIdx );
-			recArray = new CFIntMinorVersionBuff[0];
+			recArray = new YCFIntMinorVersionBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFIntMinorVersionBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	public YCFIntMinorVersionBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MajorVersionId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readDerivedByNameIdx";
-		CFIntMinorVersionByNameIdxKey key = schema.getFactoryMinorVersion().newNameIdxKey();
+		final String S_ProcName = "YCFBamRamMinorVersion.readDerivedByNameIdx";
+		YCFIntMinorVersionByNameIdxKey key = schema.getFactoryMinorVersion().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredMajorVersionId( MajorVersionId );
 		key.setRequiredName( Name );
 
-		CFIntMinorVersionBuff buff;
+		YCFIntMinorVersionBuff buff;
 		if( dictByNameIdx.containsKey( key ) ) {
 			buff = dictByNameIdx.get( key );
 		}
@@ -300,16 +300,16 @@ public class CFBamRamMinorVersionTable
 		return( buff );
 	}
 
-	public CFIntMinorVersionBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntMinorVersionBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readDerivedByIdIdx() ";
-		CFIntMinorVersionPKey key = schema.getFactoryMinorVersion().newPKey();
+		final String S_ProcName = "YCFBamRamMinorVersion.readDerivedByIdIdx() ";
+		YCFIntMinorVersionPKey key = schema.getFactoryMinorVersion().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFIntMinorVersionBuff buff;
+		YCFIntMinorVersionBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -319,153 +319,153 @@ public class CFBamRamMinorVersionTable
 		return( buff );
 	}
 
-	public CFIntMinorVersionBuff readBuff( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey PKey )
+	public YCFIntMinorVersionBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readBuff";
-		CFIntMinorVersionBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamMinorVersion.readBuff";
+		YCFIntMinorVersionBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a104" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntMinorVersionBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey PKey )
+	public YCFIntMinorVersionBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFIntMinorVersionBuff buff = readDerived( Authorization, PKey );
+		YCFIntMinorVersionBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a104" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntMinorVersionBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFIntMinorVersionBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readAllBuff";
-		CFIntMinorVersionBuff buff;
-		ArrayList<CFIntMinorVersionBuff> filteredList = new ArrayList<CFIntMinorVersionBuff>();
-		CFIntMinorVersionBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamMinorVersion.readAllBuff";
+		YCFIntMinorVersionBuff buff;
+		ArrayList<YCFIntMinorVersionBuff> filteredList = new ArrayList<YCFIntMinorVersionBuff>();
+		YCFIntMinorVersionBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a104" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntMinorVersionBuff[0] ) );
+		return( filteredList.toArray( new YCFIntMinorVersionBuff[0] ) );
 	}
 
-	public CFIntMinorVersionBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntMinorVersionBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readBuffByIdIdx() ";
-		CFIntMinorVersionBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamMinorVersion.readBuffByIdIdx() ";
+		YCFIntMinorVersionBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a104" ) ) {
-			return( (CFIntMinorVersionBuff)buff );
+			return( (YCFIntMinorVersionBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFIntMinorVersionBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	public YCFIntMinorVersionBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readBuffByTenantIdx() ";
-		CFIntMinorVersionBuff buff;
-		ArrayList<CFIntMinorVersionBuff> filteredList = new ArrayList<CFIntMinorVersionBuff>();
-		CFIntMinorVersionBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamMinorVersion.readBuffByTenantIdx() ";
+		YCFIntMinorVersionBuff buff;
+		ArrayList<YCFIntMinorVersionBuff> filteredList = new ArrayList<YCFIntMinorVersionBuff>();
+		YCFIntMinorVersionBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a104" ) ) {
-				filteredList.add( (CFIntMinorVersionBuff)buff );
+				filteredList.add( (YCFIntMinorVersionBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntMinorVersionBuff[0] ) );
+		return( filteredList.toArray( new YCFIntMinorVersionBuff[0] ) );
 	}
 
-	public CFIntMinorVersionBuff[] readBuffByMajorVerIdx( CFSecAuthorization Authorization,
+	public YCFIntMinorVersionBuff[] readBuffByMajorVerIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MajorVersionId )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readBuffByMajorVerIdx() ";
-		CFIntMinorVersionBuff buff;
-		ArrayList<CFIntMinorVersionBuff> filteredList = new ArrayList<CFIntMinorVersionBuff>();
-		CFIntMinorVersionBuff[] buffList = readDerivedByMajorVerIdx( Authorization,
+		final String S_ProcName = "YCFBamRamMinorVersion.readBuffByMajorVerIdx() ";
+		YCFIntMinorVersionBuff buff;
+		ArrayList<YCFIntMinorVersionBuff> filteredList = new ArrayList<YCFIntMinorVersionBuff>();
+		YCFIntMinorVersionBuff[] buffList = readDerivedByMajorVerIdx( Authorization,
 			TenantId,
 			MajorVersionId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a104" ) ) {
-				filteredList.add( (CFIntMinorVersionBuff)buff );
+				filteredList.add( (YCFIntMinorVersionBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntMinorVersionBuff[0] ) );
+		return( filteredList.toArray( new YCFIntMinorVersionBuff[0] ) );
 	}
 
-	public CFIntMinorVersionBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	public YCFIntMinorVersionBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MajorVersionId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamMinorVersion.readBuffByNameIdx() ";
-		CFIntMinorVersionBuff buff = readDerivedByNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamMinorVersion.readBuffByNameIdx() ";
+		YCFIntMinorVersionBuff buff = readDerivedByNameIdx( Authorization,
 			TenantId,
 			MajorVersionId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a104" ) ) {
-			return( (CFIntMinorVersionBuff)buff );
+			return( (YCFIntMinorVersionBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public void updateMinorVersion( CFSecAuthorization Authorization,
-		CFIntMinorVersionBuff Buff )
+	public void updateMinorVersion( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionBuff Buff )
 	{
-		CFIntMinorVersionPKey pkey = schema.getFactoryMinorVersion().newPKey();
+		YCFIntMinorVersionPKey pkey = schema.getFactoryMinorVersion().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFIntMinorVersionBuff existing = dictByPKey.get( pkey );
+		YCFIntMinorVersionBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateMinorVersion",
 				"Existing record not found",
 				"MinorVersion",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateMinorVersion",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntMinorVersionByTenantIdxKey existingKeyTenantIdx = schema.getFactoryMinorVersion().newTenantIdxKey();
+		YCFIntMinorVersionByTenantIdxKey existingKeyTenantIdx = schema.getFactoryMinorVersion().newTenantIdxKey();
 		existingKeyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntMinorVersionByTenantIdxKey newKeyTenantIdx = schema.getFactoryMinorVersion().newTenantIdxKey();
+		YCFIntMinorVersionByTenantIdxKey newKeyTenantIdx = schema.getFactoryMinorVersion().newTenantIdxKey();
 		newKeyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntMinorVersionByMajorVerIdxKey existingKeyMajorVerIdx = schema.getFactoryMinorVersion().newMajorVerIdxKey();
+		YCFIntMinorVersionByMajorVerIdxKey existingKeyMajorVerIdx = schema.getFactoryMinorVersion().newMajorVerIdxKey();
 		existingKeyMajorVerIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyMajorVerIdx.setRequiredMajorVersionId( existing.getRequiredMajorVersionId() );
 
-		CFIntMinorVersionByMajorVerIdxKey newKeyMajorVerIdx = schema.getFactoryMinorVersion().newMajorVerIdxKey();
+		YCFIntMinorVersionByMajorVerIdxKey newKeyMajorVerIdx = schema.getFactoryMinorVersion().newMajorVerIdxKey();
 		newKeyMajorVerIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyMajorVerIdx.setRequiredMajorVersionId( Buff.getRequiredMajorVersionId() );
 
-		CFIntMinorVersionByNameIdxKey existingKeyNameIdx = schema.getFactoryMinorVersion().newNameIdxKey();
+		YCFIntMinorVersionByNameIdxKey existingKeyNameIdx = schema.getFactoryMinorVersion().newNameIdxKey();
 		existingKeyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyNameIdx.setRequiredMajorVersionId( existing.getRequiredMajorVersionId() );
 		existingKeyNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntMinorVersionByNameIdxKey newKeyNameIdx = schema.getFactoryMinorVersion().newNameIdxKey();
+		YCFIntMinorVersionByNameIdxKey newKeyNameIdx = schema.getFactoryMinorVersion().newNameIdxKey();
 		newKeyNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyNameIdx.setRequiredMajorVersionId( Buff.getRequiredMajorVersionId() );
 		newKeyNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -474,7 +474,7 @@ public class CFBamRamMinorVersionTable
 
 		if( ! existingKeyNameIdx.equals( newKeyNameIdx ) ) {
 			if( dictByNameIdx.containsKey( newKeyNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateMinorVersion",
 					"MinorVersionNameIdx",
 					newKeyNameIdx );
@@ -490,7 +490,7 @@ public class CFBamRamMinorVersionTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateMinorVersion",
 						"Owner",
 						"Tenant",
@@ -508,7 +508,7 @@ public class CFBamRamMinorVersionTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredMajorVersionId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateMinorVersion",
 						"Container",
 						"ParentMajorVersion",
@@ -520,7 +520,7 @@ public class CFBamRamMinorVersionTable
 
 		// Update is valid
 
-		Map< CFIntMinorVersionPKey, CFIntMinorVersionBuff > subdict;
+		Map< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -533,7 +533,7 @@ public class CFBamRamMinorVersionTable
 			subdict = dictByTenantIdx.get( newKeyTenantIdx );
 		}
 		else {
-			subdict = new HashMap< CFIntMinorVersionPKey, CFIntMinorVersionBuff >();
+			subdict = new HashMap< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff >();
 			dictByTenantIdx.put( newKeyTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -546,7 +546,7 @@ public class CFBamRamMinorVersionTable
 			subdict = dictByMajorVerIdx.get( newKeyMajorVerIdx );
 		}
 		else {
-			subdict = new HashMap< CFIntMinorVersionPKey, CFIntMinorVersionBuff >();
+			subdict = new HashMap< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff >();
 			dictByMajorVerIdx.put( newKeyMajorVerIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -556,35 +556,35 @@ public class CFBamRamMinorVersionTable
 
 	}
 
-	public void deleteMinorVersion( CFSecAuthorization Authorization,
-		CFIntMinorVersionBuff Buff )
+	public void deleteMinorVersion( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamMinorVersionTable.deleteMinorVersion() ";
+		final String S_ProcName = "YCFBamRamMinorVersionTable.deleteMinorVersion() ";
 		String classCode;
-		CFIntMinorVersionPKey pkey = schema.getFactoryMinorVersion().newPKey();
+		YCFIntMinorVersionPKey pkey = schema.getFactoryMinorVersion().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFIntMinorVersionBuff existing = dictByPKey.get( pkey );
+		YCFIntMinorVersionBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteMinorVersion",
 				pkey );
 		}
 					schema.getTableSchemaDef().deleteSchemaDefByMinorVersionIdx( Authorization,
 						existing.getRequiredTenantId(),
 						existing.getRequiredId() );
-		CFIntMinorVersionByTenantIdxKey keyTenantIdx = schema.getFactoryMinorVersion().newTenantIdxKey();
+		YCFIntMinorVersionByTenantIdxKey keyTenantIdx = schema.getFactoryMinorVersion().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntMinorVersionByMajorVerIdxKey keyMajorVerIdx = schema.getFactoryMinorVersion().newMajorVerIdxKey();
+		YCFIntMinorVersionByMajorVerIdxKey keyMajorVerIdx = schema.getFactoryMinorVersion().newMajorVerIdxKey();
 		keyMajorVerIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyMajorVerIdx.setRequiredMajorVersionId( existing.getRequiredMajorVersionId() );
 
-		CFIntMinorVersionByNameIdxKey keyNameIdx = schema.getFactoryMinorVersion().newNameIdxKey();
+		YCFIntMinorVersionByNameIdxKey keyNameIdx = schema.getFactoryMinorVersion().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyNameIdx.setRequiredMajorVersionId( existing.getRequiredMajorVersionId() );
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
@@ -592,7 +592,7 @@ public class CFBamRamMinorVersionTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFIntMinorVersionPKey, CFIntMinorVersionBuff > subdict;
+		Map< YCFIntMinorVersionPKey, YCFIntMinorVersionBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -605,18 +605,18 @@ public class CFBamRamMinorVersionTable
 		dictByNameIdx.remove( keyNameIdx );
 
 	}
-	public void deleteMinorVersionByIdIdx( CFSecAuthorization Authorization,
+	public void deleteMinorVersionByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFIntMinorVersionPKey key = schema.getFactoryMinorVersion().newPKey();
+		YCFIntMinorVersionPKey key = schema.getFactoryMinorVersion().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deleteMinorVersionByIdIdx( Authorization, key );
 	}
 
-	public void deleteMinorVersionByIdIdx( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey argKey )
+	public void deleteMinorVersionByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -624,16 +624,16 @@ public class CFBamRamMinorVersionTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFIntMinorVersionBuff cur;
-		LinkedList<CFIntMinorVersionBuff> matchSet = new LinkedList<CFIntMinorVersionBuff>();
-		Iterator<CFIntMinorVersionBuff> values = dictByPKey.values().iterator();
+		YCFIntMinorVersionBuff cur;
+		LinkedList<YCFIntMinorVersionBuff> matchSet = new LinkedList<YCFIntMinorVersionBuff>();
+		Iterator<YCFIntMinorVersionBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMinorVersionBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMinorVersionBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMinorVersion().readDerivedByIdIdx( Authorization,
@@ -643,32 +643,32 @@ public class CFBamRamMinorVersionTable
 		}
 	}
 
-	public void deleteMinorVersionByTenantIdx( CFSecAuthorization Authorization,
+	public void deleteMinorVersionByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFIntMinorVersionByTenantIdxKey key = schema.getFactoryMinorVersion().newTenantIdxKey();
+		YCFIntMinorVersionByTenantIdxKey key = schema.getFactoryMinorVersion().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteMinorVersionByTenantIdx( Authorization, key );
 	}
 
-	public void deleteMinorVersionByTenantIdx( CFSecAuthorization Authorization,
-		CFIntMinorVersionByTenantIdxKey argKey )
+	public void deleteMinorVersionByTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionByTenantIdxKey argKey )
 	{
-		CFIntMinorVersionBuff cur;
+		YCFIntMinorVersionBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntMinorVersionBuff> matchSet = new LinkedList<CFIntMinorVersionBuff>();
-		Iterator<CFIntMinorVersionBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntMinorVersionBuff> matchSet = new LinkedList<YCFIntMinorVersionBuff>();
+		Iterator<YCFIntMinorVersionBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMinorVersionBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMinorVersionBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMinorVersion().readDerivedByIdIdx( Authorization,
@@ -678,35 +678,35 @@ public class CFBamRamMinorVersionTable
 		}
 	}
 
-	public void deleteMinorVersionByMajorVerIdx( CFSecAuthorization Authorization,
+	public void deleteMinorVersionByMajorVerIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argMajorVersionId )
 	{
-		CFIntMinorVersionByMajorVerIdxKey key = schema.getFactoryMinorVersion().newMajorVerIdxKey();
+		YCFIntMinorVersionByMajorVerIdxKey key = schema.getFactoryMinorVersion().newMajorVerIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredMajorVersionId( argMajorVersionId );
 		deleteMinorVersionByMajorVerIdx( Authorization, key );
 	}
 
-	public void deleteMinorVersionByMajorVerIdx( CFSecAuthorization Authorization,
-		CFIntMinorVersionByMajorVerIdxKey argKey )
+	public void deleteMinorVersionByMajorVerIdx( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionByMajorVerIdxKey argKey )
 	{
-		CFIntMinorVersionBuff cur;
+		YCFIntMinorVersionBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntMinorVersionBuff> matchSet = new LinkedList<CFIntMinorVersionBuff>();
-		Iterator<CFIntMinorVersionBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntMinorVersionBuff> matchSet = new LinkedList<YCFIntMinorVersionBuff>();
+		Iterator<YCFIntMinorVersionBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMinorVersionBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMinorVersionBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMinorVersion().readDerivedByIdIdx( Authorization,
@@ -716,22 +716,22 @@ public class CFBamRamMinorVersionTable
 		}
 	}
 
-	public void deleteMinorVersionByNameIdx( CFSecAuthorization Authorization,
+	public void deleteMinorVersionByNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argMajorVersionId,
 		String argName )
 	{
-		CFIntMinorVersionByNameIdxKey key = schema.getFactoryMinorVersion().newNameIdxKey();
+		YCFIntMinorVersionByNameIdxKey key = schema.getFactoryMinorVersion().newNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredMajorVersionId( argMajorVersionId );
 		key.setRequiredName( argName );
 		deleteMinorVersionByNameIdx( Authorization, key );
 	}
 
-	public void deleteMinorVersionByNameIdx( CFSecAuthorization Authorization,
-		CFIntMinorVersionByNameIdxKey argKey )
+	public void deleteMinorVersionByNameIdx( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionByNameIdxKey argKey )
 	{
-		CFIntMinorVersionBuff cur;
+		YCFIntMinorVersionBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -739,15 +739,15 @@ public class CFBamRamMinorVersionTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntMinorVersionBuff> matchSet = new LinkedList<CFIntMinorVersionBuff>();
-		Iterator<CFIntMinorVersionBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntMinorVersionBuff> matchSet = new LinkedList<YCFIntMinorVersionBuff>();
+		Iterator<YCFIntMinorVersionBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMinorVersionBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMinorVersionBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMinorVersion().readDerivedByIdIdx( Authorization,

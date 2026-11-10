@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a MimeType buffer object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,11 +36,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntMimeTypeBuff
+public class YCFIntMimeTypeBuff
 {
 	public final static String CLASS_CODE = "a103";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -51,17 +51,17 @@ public class CFIntMimeTypeBuff
 	public static final String NAME_INIT_VALUE = new String( "" );
 	public static final String FILETYPES_INIT_VALUE = new String( "" );
 	public static final int MIMETYPEID_MIN_VALUE = 0;
-	protected UUID createdByUserId = CFIntMimeTypeBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFIntMimeTypeBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFIntMimeTypeBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFIntMimeTypeBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected int requiredMimeTypeId;
 	protected String requiredName;
 	protected String optionalFileTypes;
 	protected int requiredRevision;
-	public CFIntMimeTypeBuff() {
-		requiredMimeTypeId = CFIntMimeTypeBuff.MIMETYPEID_INIT_VALUE;
-		requiredName = new String( CFIntMimeTypeBuff.NAME_INIT_VALUE );
+	public YCFIntMimeTypeBuff() {
+		requiredMimeTypeId = YCFIntMimeTypeBuff.MIMETYPEID_INIT_VALUE;
+		requiredName = new String( YCFIntMimeTypeBuff.NAME_INIT_VALUE );
 		optionalFileTypes = null;
 	}
 
@@ -105,13 +105,13 @@ public class CFIntMimeTypeBuff
 	}
 
 	public void setRequiredMimeTypeId( int value ) {
-		if( value < CFIntMimeTypeBuff.MIMETYPEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntMimeTypeBuff.MIMETYPEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredMimeTypeId",
 				1,
 				"value",
 				value,
-				CFIntMimeTypeBuff.MIMETYPEID_MIN_VALUE );
+				YCFIntMimeTypeBuff.MIMETYPEID_MIN_VALUE );
 		}
 		requiredMimeTypeId = value;
 	}
@@ -122,13 +122,13 @@ public class CFIntMimeTypeBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -147,7 +147,7 @@ public class CFIntMimeTypeBuff
 			optionalFileTypes = null;
 		}
 		else if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalFileTypes",
 				1,
 				"value.length()",
@@ -171,8 +171,8 @@ public class CFIntMimeTypeBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntMimeTypeBuff ) {
-			CFIntMimeTypeBuff rhs = (CFIntMimeTypeBuff)obj;
+		else if( obj instanceof YCFIntMimeTypeBuff ) {
+			YCFIntMimeTypeBuff rhs = (YCFIntMimeTypeBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -205,15 +205,15 @@ public class CFIntMimeTypeBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMimeTypePKey ) {
-			CFIntMimeTypePKey rhs = (CFIntMimeTypePKey)obj;
+		else if( obj instanceof YCFIntMimeTypePKey ) {
+			YCFIntMimeTypePKey rhs = (YCFIntMimeTypePKey)obj;
 			if( getRequiredMimeTypeId() != rhs.getRequiredMimeTypeId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMimeTypeHBuff ) {
-			CFIntMimeTypeHBuff rhs = (CFIntMimeTypeHBuff)obj;
+		else if( obj instanceof YCFIntMimeTypeHBuff ) {
+			YCFIntMimeTypeHBuff rhs = (YCFIntMimeTypeHBuff)obj;
 			if( getRequiredMimeTypeId() != rhs.getRequiredMimeTypeId() ) {
 				return( false );
 			}
@@ -234,15 +234,15 @@ public class CFIntMimeTypeBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMimeTypeHPKey ) {
-			CFIntMimeTypeHPKey rhs = (CFIntMimeTypeHPKey)obj;
+		else if( obj instanceof YCFIntMimeTypeHPKey ) {
+			YCFIntMimeTypeHPKey rhs = (YCFIntMimeTypeHPKey)obj;
 			if( getRequiredMimeTypeId() != rhs.getRequiredMimeTypeId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMimeTypeByUNameIdxKey ) {
-			CFIntMimeTypeByUNameIdxKey rhs = (CFIntMimeTypeByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntMimeTypeByUNameIdxKey ) {
+			YCFIntMimeTypeByUNameIdxKey rhs = (YCFIntMimeTypeByUNameIdxKey)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
@@ -274,8 +274,8 @@ public class CFIntMimeTypeBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntMimeTypeBuff ) {
-			CFIntMimeTypeBuff rhs = (CFIntMimeTypeBuff)obj;
+		else if( obj instanceof YCFIntMimeTypeBuff ) {
+			YCFIntMimeTypeBuff rhs = (YCFIntMimeTypeBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -328,8 +328,8 @@ public class CFIntMimeTypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMimeTypePKey ) {
-			CFIntMimeTypePKey rhs = (CFIntMimeTypePKey)obj;
+		else if( obj instanceof YCFIntMimeTypePKey ) {
+			YCFIntMimeTypePKey rhs = (YCFIntMimeTypePKey)obj;
 			if( getRequiredMimeTypeId() < rhs.getRequiredMimeTypeId() ) {
 				return( -1 );
 			}
@@ -338,8 +338,8 @@ public class CFIntMimeTypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMimeTypeHPKey ) {
-			CFIntMimeTypeHPKey rhs = (CFIntMimeTypeHPKey)obj;
+		else if( obj instanceof YCFIntMimeTypeHPKey ) {
+			YCFIntMimeTypeHPKey rhs = (YCFIntMimeTypeHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -358,8 +358,8 @@ public class CFIntMimeTypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMimeTypeHBuff ) {
-			CFIntMimeTypeHBuff rhs = (CFIntMimeTypeHBuff)obj;
+		else if( obj instanceof YCFIntMimeTypeHBuff ) {
+			YCFIntMimeTypeHBuff rhs = (YCFIntMimeTypeHBuff)obj;
 			int retval = 0;
 			if( getRequiredMimeTypeId() < rhs.getRequiredMimeTypeId() ) {
 				return( -1 );
@@ -391,8 +391,8 @@ public class CFIntMimeTypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMimeTypeByUNameIdxKey ) {
-			CFIntMimeTypeByUNameIdxKey rhs = (CFIntMimeTypeByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntMimeTypeByUNameIdxKey ) {
+			YCFIntMimeTypeByUNameIdxKey rhs = (YCFIntMimeTypeByUNameIdxKey)obj;
 
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
@@ -402,7 +402,7 @@ public class CFIntMimeTypeBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -410,11 +410,11 @@ public class CFIntMimeTypeBuff
 		}
 	}
 
-	public void set( CFIntMimeTypeBuff src ) {
+	public void set( YCFIntMimeTypeBuff src ) {
 		setMimeTypeBuff( src );
 	}
 
-	public void setMimeTypeBuff( CFIntMimeTypeBuff src ) {
+	public void setMimeTypeBuff( YCFIntMimeTypeBuff src ) {
 		setRequiredMimeTypeId( src.getRequiredMimeTypeId() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -425,11 +425,11 @@ public class CFIntMimeTypeBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFIntMimeTypeHBuff src ) {
+	public void set( YCFIntMimeTypeHBuff src ) {
 		setMimeTypeBuff( src );
 	}
 
-	public void setMimeTypeBuff( CFIntMimeTypeHBuff src ) {
+	public void setMimeTypeBuff( YCFIntMimeTypeHBuff src ) {
 		setRequiredMimeTypeId( src.getRequiredMimeTypeId() );
 		setRequiredName( src.getRequiredName() );
 		setOptionalFileTypes( src.getOptionalFileTypes() );

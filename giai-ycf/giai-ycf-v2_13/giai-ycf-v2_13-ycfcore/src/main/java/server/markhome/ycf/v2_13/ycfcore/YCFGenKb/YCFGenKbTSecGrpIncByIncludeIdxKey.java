@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a TSecGrpInc by IncludeIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,18 +37,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbTSecGrpIncByIncludeIdxKey
+public class YCFGenKbTSecGrpIncByIncludeIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected int requiredIncludeGroupId;
-	public CFGenKbTSecGrpIncByIncludeIdxKey() {
-		requiredTenantId = CFGenKbTSecGrpIncBuff.TENANTID_INIT_VALUE;
-		requiredIncludeGroupId = CFGenKbTSecGrpIncBuff.INCLUDEGROUPID_INIT_VALUE;
+	public YCFGenKbTSecGrpIncByIncludeIdxKey() {
+		requiredTenantId = YCFGenKbTSecGrpIncBuff.TENANTID_INIT_VALUE;
+		requiredIncludeGroupId = YCFGenKbTSecGrpIncBuff.INCLUDEGROUPID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -56,13 +56,13 @@ public class CFGenKbTSecGrpIncByIncludeIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbTSecGrpIncBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbTSecGrpIncBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbTSecGrpIncBuff.TENANTID_MIN_VALUE );
+				YCFGenKbTSecGrpIncBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -72,13 +72,13 @@ public class CFGenKbTSecGrpIncByIncludeIdxKey
 	}
 
 	public void setRequiredIncludeGroupId( int value ) {
-		if( value < CFGenKbTSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbTSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredIncludeGroupId",
 				1,
 				"value",
 				value,
-				CFGenKbTSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE );
+				YCFGenKbTSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE );
 		}
 		requiredIncludeGroupId = value;
 	}
@@ -87,8 +87,8 @@ public class CFGenKbTSecGrpIncByIncludeIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByIncludeIdxKey ) {
-			CFGenKbTSecGrpIncByIncludeIdxKey rhs = (CFGenKbTSecGrpIncByIncludeIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByIncludeIdxKey ) {
+			YCFGenKbTSecGrpIncByIncludeIdxKey rhs = (YCFGenKbTSecGrpIncByIncludeIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -97,8 +97,8 @@ public class CFGenKbTSecGrpIncByIncludeIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncBuff ) {
-			CFGenKbTSecGrpIncBuff rhs = (CFGenKbTSecGrpIncBuff)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncBuff ) {
+			YCFGenKbTSecGrpIncBuff rhs = (YCFGenKbTSecGrpIncBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -123,8 +123,8 @@ public class CFGenKbTSecGrpIncByIncludeIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByIncludeIdxKey ) {
-			CFGenKbTSecGrpIncByIncludeIdxKey rhs = (CFGenKbTSecGrpIncByIncludeIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByIncludeIdxKey ) {
+			YCFGenKbTSecGrpIncByIncludeIdxKey rhs = (YCFGenKbTSecGrpIncByIncludeIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -139,8 +139,8 @@ public class CFGenKbTSecGrpIncByIncludeIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncBuff ) {
-			CFGenKbTSecGrpIncBuff rhs = (CFGenKbTSecGrpIncBuff)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncBuff ) {
+			YCFGenKbTSecGrpIncBuff rhs = (YCFGenKbTSecGrpIncBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -156,7 +156,7 @@ public class CFGenKbTSecGrpIncByIncludeIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -165,7 +165,7 @@ public class CFGenKbTSecGrpIncByIncludeIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbTSecGrpIncByIncludeIdx"
+		String ret = "<YCFGenKbTSecGrpIncByIncludeIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredIncludeGroupId=" + "\"" + Integer.toString( getRequiredIncludeGroupId() ) + "\""
 			+ "/>";

@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb SecSession.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb SecSession.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecSessionEditObj
-	extends ICFGenKbSecSessionObj
+public interface IYCFGenKbSecSessionEditObj
+	extends IYCFGenKbSecSessionObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbSecSessionObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbSecSessionObj.
 	 */
-	ICFGenKbSecSessionObj getOrig();
+	IYCFGenKbSecSessionObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbSecSessionObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbSecSessionObj.
 	 */
-	ICFGenKbSecSessionObj getOrigAsSecSession();
+	IYCFGenKbSecSessionObj getOrigAsSecSession();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbSecSessionEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbSecSessionObj create();
+	IYCFGenKbSecSessionObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbSecSessionEditObj update();
+	YCFGenKbSecSessionEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbSecSessionEditObj deleteInstance();
+	YCFGenKbSecSessionEditObj deleteInstance();
 
 	/**
 	 *	Get the optional String attribute SecDevName.
@@ -118,30 +118,30 @@ public interface ICFGenKbSecSessionEditObj
 	void setOptionalFinish( Calendar value );
 
 	/**
-	 *	Get the ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	Get the IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	@return	The IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFGenKbSecUserObj getRequiredContainerSecUser();
+	IYCFGenKbSecUserObj getRequiredContainerSecUser();
 
 	/**
-	 *	Set the ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	Set the IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@param	value	the ICFGenKbSecUserObj instance to be referenced by the SecUser key.
+	 *	@param	value	the IYCFGenKbSecUserObj instance to be referenced by the SecUser key.
 	 */
-	void setRequiredContainerSecUser( ICFGenKbSecUserObj value );
+	void setRequiredContainerSecUser( IYCFGenKbSecUserObj value );
 
 	/**
-	 *	Get the ICFGenKbSecUserObj instance referenced by the SecProxy key.
+	 *	Get the IYCFGenKbSecUserObj instance referenced by the SecProxy key.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance referenced by the SecProxy key.
+	 *	@return	The IYCFGenKbSecUserObj instance referenced by the SecProxy key.
 	 */
-	ICFGenKbSecUserObj getRequiredParentSecProxy();
+	IYCFGenKbSecUserObj getRequiredParentSecProxy();
 
 	/**
-	 *	Set the ICFGenKbSecUserObj instance referenced by the SecProxy key.
+	 *	Set the IYCFGenKbSecUserObj instance referenced by the SecProxy key.
 	 *
-	 *	@param	value	the ICFGenKbSecUserObj instance to be referenced by the SecProxy key.
+	 *	@param	value	the IYCFGenKbSecUserObj instance to be referenced by the SecProxy key.
 	 */
-	void setRequiredParentSecProxy( ICFGenKbSecUserObj value );
+	void setRequiredParentSecProxy( IYCFGenKbSecUserObj value );
 }

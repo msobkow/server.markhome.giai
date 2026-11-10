@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbRuleTypeTableObj
+public interface IYCFGenKbRuleTypeTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbRuleTypeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbRuleTypeObj newInstance();
+	IYCFGenKbRuleTypeObj newInstance();
 
 	/**
 	 *	Instantiate a new RuleType edition of the specified RuleType instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbRuleTypeEditObj newEditInstance( ICFGenKbRuleTypeObj orig );
+	IYCFGenKbRuleTypeEditObj newEditInstance( IYCFGenKbRuleTypeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbRuleTypeObj realiseRuleType( ICFGenKbRuleTypeObj Obj );
+	IYCFGenKbRuleTypeObj realiseRuleType( IYCFGenKbRuleTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbRuleTypeObj createRuleType( ICFGenKbRuleTypeObj Obj );
+	IYCFGenKbRuleTypeObj createRuleType( IYCFGenKbRuleTypeObj Obj );
 
 	/**
 	 *	Read a RuleType-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbRuleTypeTableObj
 	 *	@return	The RuleType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbRuleTypeObj readRuleType( CFGenKbRuleTypePKey pkey );
+	IYCFGenKbRuleTypeObj readRuleType( YCFGenKbRuleTypePKey pkey );
 
 	/**
 	 *	Read a RuleType-derived instance by it's primary key.
@@ -91,83 +91,83 @@ public interface ICFGenKbRuleTypeTableObj
 	 *	@return	The RuleType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbRuleTypeObj readRuleType( CFGenKbRuleTypePKey pkey,
+	IYCFGenKbRuleTypeObj readRuleType( YCFGenKbRuleTypePKey pkey,
 		boolean forceRead );
 
-	ICFGenKbRuleTypeObj readCachedRuleType( CFGenKbRuleTypePKey pkey );
+	IYCFGenKbRuleTypeObj readCachedRuleType( YCFGenKbRuleTypePKey pkey );
 
-	public void reallyDeepDisposeRuleType( ICFGenKbRuleTypeObj obj );
+	public void reallyDeepDisposeRuleType( IYCFGenKbRuleTypeObj obj );
 
-	void deepDisposeRuleType( CFGenKbRuleTypePKey pkey );
+	void deepDisposeRuleType( YCFGenKbRuleTypePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbRuleTypeObj lockRuleType( CFGenKbRuleTypePKey pkey );
+	IYCFGenKbRuleTypeObj lockRuleType( YCFGenKbRuleTypePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the RuleType-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbRuleTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbRuleTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbRuleTypeObj> readAllRuleType();
+	List<IYCFGenKbRuleTypeObj> readAllRuleType();
 
 	/**
 	 *	Return a sorted map of all the RuleType-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbRuleTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbRuleTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbRuleTypeObj> readAllRuleType( boolean forceRead );
+	List<IYCFGenKbRuleTypeObj> readAllRuleType( boolean forceRead );
 
-	List<ICFGenKbRuleTypeObj> readCachedAllRuleType();
+	List<IYCFGenKbRuleTypeObj> readCachedAllRuleType();
 
 	/**
-	 *	Get the CFGenKbRuleTypeObj instance for the primary key attributes.
+	 *	Get the YCFGenKbRuleTypeObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The RuleType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbRuleTypeObj cached instance for the primary key, or
+	 *	@return	YCFGenKbRuleTypeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbRuleTypeObj readRuleTypeByIdIdx( short Id );
+	IYCFGenKbRuleTypeObj readRuleTypeByIdIdx( short Id );
 
 	/**
-	 *	Get the CFGenKbRuleTypeObj instance for the primary key attributes.
+	 *	Get the YCFGenKbRuleTypeObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The RuleType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbRuleTypeObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbRuleTypeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbRuleTypeObj readRuleTypeByIdIdx( short Id,
+	IYCFGenKbRuleTypeObj readRuleTypeByIdIdx( short Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbRuleTypeObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbRuleTypeObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The RuleType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbRuleTypeObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbRuleTypeObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbRuleTypeObj readRuleTypeByNameIdx(String Name );
+	IYCFGenKbRuleTypeObj readRuleTypeByNameIdx(String Name );
 
 	/**
-	 *	Get the CFGenKbRuleTypeObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbRuleTypeObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The RuleType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbRuleTypeObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbRuleTypeObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbRuleTypeObj readRuleTypeByNameIdx(String Name,
+	IYCFGenKbRuleTypeObj readRuleTypeByNameIdx(String Name,
 		boolean forceRead );
 
-	ICFGenKbRuleTypeObj readCachedRuleTypeByIdIdx( short Id );
+	IYCFGenKbRuleTypeObj readCachedRuleTypeByIdIdx( short Id );
 
-	ICFGenKbRuleTypeObj readCachedRuleTypeByNameIdx( String Name );
+	IYCFGenKbRuleTypeObj readCachedRuleTypeByNameIdx( String Name );
 
 	void deepDisposeRuleTypeByIdIdx( short Id );
 
@@ -176,12 +176,12 @@ public interface ICFGenKbRuleTypeTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbRuleTypeObj updateRuleType( ICFGenKbRuleTypeObj Obj );
+	IYCFGenKbRuleTypeObj updateRuleType( IYCFGenKbRuleTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteRuleType( ICFGenKbRuleTypeObj Obj );
+	void deleteRuleType( IYCFGenKbRuleTypeObj Obj );
 
 	/**
 	 *	Internal use only.

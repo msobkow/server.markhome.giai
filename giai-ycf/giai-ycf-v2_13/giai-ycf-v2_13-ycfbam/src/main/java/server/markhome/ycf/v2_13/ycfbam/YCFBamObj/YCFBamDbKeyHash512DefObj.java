@@ -1,17 +1,17 @@
-// Description: Java 11 base object instance implementation for CFBam DbKeyHash512Def.
+// Description: Java 11 base object instance implementation for YCFBam DbKeyHash512Def.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,31 +45,31 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamDbKeyHash512DefObj
-	extends CFBamAtomObj
-	implements ICFBamDbKeyHash512DefObj
+public class YCFBamDbKeyHash512DefObj
+	extends YCFBamAtomObj
+	implements IYCFBamDbKeyHash512DefObj
 {
 	public final static String CLASS_CODE = "a84f";
 
-	public CFBamDbKeyHash512DefObj() {
+	public YCFBamDbKeyHash512DefObj() {
 		super();
 	}
 
-	public CFBamDbKeyHash512DefObj( ICFBamSchemaObj argSchema ) {
+	public YCFBamDbKeyHash512DefObj( IYCFBamSchemaObj argSchema ) {
 		super( argSchema );
 	}
 
@@ -81,11 +81,11 @@ public class CFBamDbKeyHash512DefObj
 		return( "DbKeyHash512Def" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -95,14 +95,14 @@ public class CFBamDbKeyHash512DefObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -113,10 +113,10 @@ public class CFBamDbKeyHash512DefObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -125,11 +125,11 @@ public class CFBamDbKeyHash512DefObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -153,16 +153,16 @@ public class CFBamDbKeyHash512DefObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -174,50 +174,50 @@ public class CFBamDbKeyHash512DefObj
 		return( qualName );
 	}
 
-	public ICFBamValueObj realise() {
-		ICFBamDbKeyHash512DefObj retobj = ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().realiseDbKeyHash512Def(
-			(ICFBamDbKeyHash512DefObj)this );
-		return( (ICFBamValueObj)retobj );
+	public IYCFBamValueObj realise() {
+		IYCFBamDbKeyHash512DefObj retobj = ((IYCFBamSchemaObj)schema).getDbKeyHash512DefTableObj().realiseDbKeyHash512Def(
+			(IYCFBamDbKeyHash512DefObj)this );
+		return( (IYCFBamValueObj)retobj );
 	}
 
 	public void forget() {
-		((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().reallyDeepDisposeDbKeyHash512Def( (ICFBamDbKeyHash512DefObj)this );
+		((IYCFBamSchemaObj)schema).getDbKeyHash512DefTableObj().reallyDeepDisposeDbKeyHash512Def( (IYCFBamDbKeyHash512DefObj)this );
 	}
 
-	public ICFBamValueObj read() {
-		ICFBamDbKeyHash512DefObj retobj = ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().readDbKeyHash512DefByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFBamValueObj read() {
+		IYCFBamDbKeyHash512DefObj retobj = ((IYCFBamSchemaObj)schema).getDbKeyHash512DefTableObj().readDbKeyHash512DefByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), false );
-		return( (ICFBamValueObj)retobj );
+		return( (IYCFBamValueObj)retobj );
 	}
 
-	public ICFBamValueObj read( boolean forceRead ) {
-		ICFBamDbKeyHash512DefObj retobj = ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().readDbKeyHash512DefByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFBamValueObj read( boolean forceRead ) {
+		IYCFBamDbKeyHash512DefObj retobj = ((IYCFBamSchemaObj)schema).getDbKeyHash512DefTableObj().readDbKeyHash512DefByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), forceRead );
-		return( (ICFBamValueObj)retobj );
+		return( (IYCFBamValueObj)retobj );
 	}
 
-	public ICFBamValueObj moveUp() {
-		ICFBamDbKeyHash512DefObj retobj = ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().moveUpDbKeyHash512Def( this );
-		return( (ICFBamValueObj)retobj );
+	public IYCFBamValueObj moveUp() {
+		IYCFBamDbKeyHash512DefObj retobj = ((IYCFBamSchemaObj)schema).getDbKeyHash512DefTableObj().moveUpDbKeyHash512Def( this );
+		return( (IYCFBamValueObj)retobj );
 	}
 
-	public ICFBamValueObj moveDown() {
-		ICFBamDbKeyHash512DefObj retobj = ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().moveDownDbKeyHash512Def( this );
-		return( (ICFBamValueObj)retobj );
+	public IYCFBamValueObj moveDown() {
+		IYCFBamDbKeyHash512DefObj retobj = ((IYCFBamSchemaObj)schema).getDbKeyHash512DefTableObj().moveDownDbKeyHash512Def( this );
+		return( (IYCFBamValueObj)retobj );
 	}
 
-	public ICFBamDbKeyHash512DefTableObj getDbKeyHash512DefTable() {
-		return( ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj() );
+	public IYCFBamDbKeyHash512DefTableObj getDbKeyHash512DefTable() {
+		return( ((IYCFBamSchemaObj)schema).getDbKeyHash512DefTableObj() );
 	}
 
-	public CFBamValueBuff getBuff() {
+	public YCFBamValueBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFBamSchema)schema.getBackingStore()).getFactoryDbKeyHash512Def().newBuff();
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getFactoryDbKeyHash512Def().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFBamSchema)schema.getBackingStore()).getTableDbKeyHash512Def().readDerivedByIdIdx( ((ICFBamSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getTableDbKeyHash512Def().readDerivedByIdIdx( ((IYCFBamSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredId() );
 				if( buff != null ) {
@@ -228,13 +228,13 @@ public class CFBamDbKeyHash512DefObj
 		return( buff );
 	}
 
-	public void setBuff( CFBamValueBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFBamDbKeyHash512DefBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFBamValueBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFBamDbKeyHash512DefBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFBamDbKeyHash512DefBuff" );
+				"YCFBamDbKeyHash512DefBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -245,33 +245,33 @@ public class CFBamDbKeyHash512DefObj
 		optionalLookupNext = null;
 	}
 
-	public CFBamDbKeyHash512DefBuff getDbKeyHash512DefBuff() {
-		return( (CFBamDbKeyHash512DefBuff)getBuff() );
+	public YCFBamDbKeyHash512DefBuff getDbKeyHash512DefBuff() {
+		return( (YCFBamDbKeyHash512DefBuff)getBuff() );
 	}
 
-	public ICFBamValueEditObj beginEdit() {
+	public IYCFBamValueEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFBamDbKeyHash512DefObj lockobj;
+		IYCFBamDbKeyHash512DefObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFBamDbKeyHash512DefObj)this;
+			lockobj = (IYCFBamDbKeyHash512DefObj)this;
 		}
 		else {
-			lockobj = ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().lockDbKeyHash512Def( getPKey() );
+			lockobj = ((IYCFBamSchemaObj)schema).getDbKeyHash512DefTableObj().lockDbKeyHash512Def( getPKey() );
 		}
-		edit = ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().newEditInstance( lockobj );
-		return( (ICFBamValueEditObj)edit );
+		edit = ((IYCFBamSchemaObj)schema).getDbKeyHash512DefTableObj().newEditInstance( lockobj );
+		return( (IYCFBamValueEditObj)edit );
 	}
 
-	public ICFBamDbKeyHash512DefEditObj getEditAsDbKeyHash512Def() {
-		return( (ICFBamDbKeyHash512DefEditObj)edit );
+	public IYCFBamDbKeyHash512DefEditObj getEditAsDbKeyHash512Def() {
+		return( (IYCFBamDbKeyHash512DefEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFBamValueBuff buff = getBuff();
-			createdBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFBamValueBuff buff = getBuff();
+			createdBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -280,10 +280,10 @@ public class CFBamDbKeyHash512DefObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFBamValueBuff buff = getBuff();
-			updatedBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFBamValueBuff buff = getBuff();
+			updatedBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}

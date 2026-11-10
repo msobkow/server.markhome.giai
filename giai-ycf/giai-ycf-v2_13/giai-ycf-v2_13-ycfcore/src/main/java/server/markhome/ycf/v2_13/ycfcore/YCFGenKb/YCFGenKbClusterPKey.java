@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a Cluster primary key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,22 +37,22 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFGenKbClusterPKey Primary Key for Cluster
+ *	YCFGenKbClusterPKey Primary Key for Cluster
 
  *		requiredId	Required object attribute Id. */
-public class CFGenKbClusterPKey
+public class YCFGenKbClusterPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected long requiredId;
-	public CFGenKbClusterPKey() {
-		requiredId = CFGenKbClusterBuff.ID_INIT_VALUE;
+	public YCFGenKbClusterPKey() {
+		requiredId = YCFGenKbClusterBuff.ID_INIT_VALUE;
 	}
 
 	public long getRequiredId() {
@@ -60,13 +60,13 @@ public class CFGenKbClusterPKey
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFGenKbClusterBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbClusterBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbClusterBuff.ID_MIN_VALUE );
+				YCFGenKbClusterBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -75,15 +75,15 @@ public class CFGenKbClusterPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbClusterPKey ) {
-			CFGenKbClusterPKey rhs = (CFGenKbClusterPKey)obj;
+		else if( obj instanceof YCFGenKbClusterPKey ) {
+			YCFGenKbClusterPKey rhs = (YCFGenKbClusterPKey)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbClusterBuff ) {
-			CFGenKbClusterBuff rhs = (CFGenKbClusterBuff)obj;
+		else if( obj instanceof YCFGenKbClusterBuff ) {
+			YCFGenKbClusterBuff rhs = (YCFGenKbClusterBuff)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -104,8 +104,8 @@ public class CFGenKbClusterPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbClusterPKey ) {
-			CFGenKbClusterPKey rhs = (CFGenKbClusterPKey)obj;
+		else if( obj instanceof YCFGenKbClusterPKey ) {
+			YCFGenKbClusterPKey rhs = (YCFGenKbClusterPKey)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -114,8 +114,8 @@ public class CFGenKbClusterPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbClusterBuff ) {
-			CFGenKbClusterBuff rhs = (CFGenKbClusterBuff)obj;
+		else if( obj instanceof YCFGenKbClusterBuff ) {
+			YCFGenKbClusterBuff rhs = (YCFGenKbClusterBuff)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -125,16 +125,16 @@ public class CFGenKbClusterPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFGenKbClusterPKey, CFGenKbClusterBuff" );
+				"YCFGenKbClusterPKey, YCFGenKbClusterBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbClusterPKey"
+		String ret = "<YCFGenKbClusterPKey"
 			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
 			+ "/>";
 		return( ret );

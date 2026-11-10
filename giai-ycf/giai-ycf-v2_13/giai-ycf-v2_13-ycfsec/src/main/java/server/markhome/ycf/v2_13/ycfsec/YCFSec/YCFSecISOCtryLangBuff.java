@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ISOCtryLang buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,10 +36,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecISOCtryLangBuff
+public class YCFSecISOCtryLangBuff
 {
 	public final static String CLASS_CODE = "a006";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -50,16 +50,16 @@ public class CFSecISOCtryLangBuff
 	public static final short ISOLANGID_INIT_VALUE = (short)0;
 	public static final short ISOCTRYID_MIN_VALUE = (short)0;
 	public static final short ISOLANGID_MIN_VALUE = (short)0;
-	protected UUID createdByUserId = CFSecISOCtryLangBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFSecISOCtryLangBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFSecISOCtryLangBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFSecISOCtryLangBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected short requiredISOCtryId;
 	protected short requiredISOLangId;
 	protected int requiredRevision;
-	public CFSecISOCtryLangBuff() {
-		requiredISOCtryId = CFSecISOCtryLangBuff.ISOCTRYID_INIT_VALUE;
-		requiredISOLangId = CFSecISOCtryLangBuff.ISOLANGID_INIT_VALUE;
+	public YCFSecISOCtryLangBuff() {
+		requiredISOCtryId = YCFSecISOCtryLangBuff.ISOCTRYID_INIT_VALUE;
+		requiredISOLangId = YCFSecISOCtryLangBuff.ISOLANGID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -102,13 +102,13 @@ public class CFSecISOCtryLangBuff
 	}
 
 	public void setRequiredISOCtryId( short value ) {
-		if( value < CFSecISOCtryLangBuff.ISOCTRYID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecISOCtryLangBuff.ISOCTRYID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
 				1,
 				"value",
 				value,
-				CFSecISOCtryLangBuff.ISOCTRYID_MIN_VALUE );
+				YCFSecISOCtryLangBuff.ISOCTRYID_MIN_VALUE );
 		}
 		requiredISOCtryId = value;
 	}
@@ -118,13 +118,13 @@ public class CFSecISOCtryLangBuff
 	}
 
 	public void setRequiredISOLangId( short value ) {
-		if( value < CFSecISOCtryLangBuff.ISOLANGID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecISOCtryLangBuff.ISOLANGID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOLangId",
 				1,
 				"value",
 				value,
-				CFSecISOCtryLangBuff.ISOLANGID_MIN_VALUE );
+				YCFSecISOCtryLangBuff.ISOLANGID_MIN_VALUE );
 		}
 		requiredISOLangId = value;
 	}
@@ -141,8 +141,8 @@ public class CFSecISOCtryLangBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecISOCtryLangBuff ) {
-			CFSecISOCtryLangBuff rhs = (CFSecISOCtryLangBuff)obj;
+		else if( obj instanceof YCFSecISOCtryLangBuff ) {
+			YCFSecISOCtryLangBuff rhs = (YCFSecISOCtryLangBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -163,8 +163,8 @@ public class CFSecISOCtryLangBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryLangPKey ) {
-			CFSecISOCtryLangPKey rhs = (CFSecISOCtryLangPKey)obj;
+		else if( obj instanceof YCFSecISOCtryLangPKey ) {
+			YCFSecISOCtryLangPKey rhs = (YCFSecISOCtryLangPKey)obj;
 			if( getRequiredISOCtryId() != rhs.getRequiredISOCtryId() ) {
 				return( false );
 			}
@@ -173,8 +173,8 @@ public class CFSecISOCtryLangBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryLangHBuff ) {
-			CFSecISOCtryLangHBuff rhs = (CFSecISOCtryLangHBuff)obj;
+		else if( obj instanceof YCFSecISOCtryLangHBuff ) {
+			YCFSecISOCtryLangHBuff rhs = (YCFSecISOCtryLangHBuff)obj;
 			if( getRequiredISOCtryId() != rhs.getRequiredISOCtryId() ) {
 				return( false );
 			}
@@ -183,8 +183,8 @@ public class CFSecISOCtryLangBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryLangHPKey ) {
-			CFSecISOCtryLangHPKey rhs = (CFSecISOCtryLangHPKey)obj;
+		else if( obj instanceof YCFSecISOCtryLangHPKey ) {
+			YCFSecISOCtryLangHPKey rhs = (YCFSecISOCtryLangHPKey)obj;
 			if( getRequiredISOCtryId() != rhs.getRequiredISOCtryId() ) {
 				return( false );
 			}
@@ -193,15 +193,15 @@ public class CFSecISOCtryLangBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryLangByCtryIdxKey ) {
-			CFSecISOCtryLangByCtryIdxKey rhs = (CFSecISOCtryLangByCtryIdxKey)obj;
+		else if( obj instanceof YCFSecISOCtryLangByCtryIdxKey ) {
+			YCFSecISOCtryLangByCtryIdxKey rhs = (YCFSecISOCtryLangByCtryIdxKey)obj;
 			if( getRequiredISOCtryId() != rhs.getRequiredISOCtryId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryLangByLangIdxKey ) {
-			CFSecISOCtryLangByLangIdxKey rhs = (CFSecISOCtryLangByLangIdxKey)obj;
+		else if( obj instanceof YCFSecISOCtryLangByLangIdxKey ) {
+			YCFSecISOCtryLangByLangIdxKey rhs = (YCFSecISOCtryLangByLangIdxKey)obj;
 			if( getRequiredISOLangId() != rhs.getRequiredISOLangId() ) {
 				return( false );
 			}
@@ -228,8 +228,8 @@ public class CFSecISOCtryLangBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecISOCtryLangBuff ) {
-			CFSecISOCtryLangBuff rhs = (CFSecISOCtryLangBuff)obj;
+		else if( obj instanceof YCFSecISOCtryLangBuff ) {
+			YCFSecISOCtryLangBuff rhs = (YCFSecISOCtryLangBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -266,8 +266,8 @@ public class CFSecISOCtryLangBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryLangPKey ) {
-			CFSecISOCtryLangPKey rhs = (CFSecISOCtryLangPKey)obj;
+		else if( obj instanceof YCFSecISOCtryLangPKey ) {
+			YCFSecISOCtryLangPKey rhs = (YCFSecISOCtryLangPKey)obj;
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
 			}
@@ -282,8 +282,8 @@ public class CFSecISOCtryLangBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryLangHPKey ) {
-			CFSecISOCtryLangHPKey rhs = (CFSecISOCtryLangHPKey)obj;
+		else if( obj instanceof YCFSecISOCtryLangHPKey ) {
+			YCFSecISOCtryLangHPKey rhs = (YCFSecISOCtryLangHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -308,8 +308,8 @@ public class CFSecISOCtryLangBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryLangHBuff ) {
-			CFSecISOCtryLangHBuff rhs = (CFSecISOCtryLangHBuff)obj;
+		else if( obj instanceof YCFSecISOCtryLangHBuff ) {
+			YCFSecISOCtryLangHBuff rhs = (YCFSecISOCtryLangHBuff)obj;
 			int retval = 0;
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
@@ -325,8 +325,8 @@ public class CFSecISOCtryLangBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryLangByCtryIdxKey ) {
-			CFSecISOCtryLangByCtryIdxKey rhs = (CFSecISOCtryLangByCtryIdxKey)obj;
+		else if( obj instanceof YCFSecISOCtryLangByCtryIdxKey ) {
+			YCFSecISOCtryLangByCtryIdxKey rhs = (YCFSecISOCtryLangByCtryIdxKey)obj;
 
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
@@ -335,8 +335,8 @@ public class CFSecISOCtryLangBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryLangByLangIdxKey ) {
-			CFSecISOCtryLangByLangIdxKey rhs = (CFSecISOCtryLangByLangIdxKey)obj;
+		else if( obj instanceof YCFSecISOCtryLangByLangIdxKey ) {
+			YCFSecISOCtryLangByLangIdxKey rhs = (YCFSecISOCtryLangByLangIdxKey)obj;
 
 			if( getRequiredISOLangId() < rhs.getRequiredISOLangId() ) {
 				return( -1 );
@@ -346,7 +346,7 @@ public class CFSecISOCtryLangBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -354,11 +354,11 @@ public class CFSecISOCtryLangBuff
 		}
 	}
 
-	public void set( CFSecISOCtryLangBuff src ) {
+	public void set( YCFSecISOCtryLangBuff src ) {
 		setISOCtryLangBuff( src );
 	}
 
-	public void setISOCtryLangBuff( CFSecISOCtryLangBuff src ) {
+	public void setISOCtryLangBuff( YCFSecISOCtryLangBuff src ) {
 		setRequiredISOCtryId( src.getRequiredISOCtryId() );
 		setRequiredISOLangId( src.getRequiredISOLangId() );
 		setCreatedByUserId( src.getCreatedByUserId() );
@@ -368,11 +368,11 @@ public class CFSecISOCtryLangBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecISOCtryLangHBuff src ) {
+	public void set( YCFSecISOCtryLangHBuff src ) {
 		setISOCtryLangBuff( src );
 	}
 
-	public void setISOCtryLangBuff( CFSecISOCtryLangHBuff src ) {
+	public void setISOCtryLangBuff( YCFSecISOCtryLangHBuff src ) {
 		setRequiredISOCtryId( src.getRequiredISOCtryId() );
 		setRequiredISOLangId( src.getRequiredISOLangId() );
 	}

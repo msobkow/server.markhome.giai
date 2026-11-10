@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb GelPrefixLine.
+// Description: Java 11 edit object instance implementation for YCFGenKb GelPrefixLine.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,41 +27,41 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGelPrefixLineEditObj
-	extends CFGenKbGelInstructionEditObj
+public class YCFGenKbGelPrefixLineEditObj
+	extends YCFGenKbGelInstructionEditObj
 
-	implements ICFGenKbGelPrefixLineEditObj
+	implements IYCFGenKbGelPrefixLineEditObj
 {
-	protected ICFGenKbGelInstructionObj optionalLookupRemainder;
+	protected IYCFGenKbGelInstructionObj optionalLookupRemainder;
 
-	public CFGenKbGelPrefixLineEditObj( ICFGenKbGelPrefixLineObj argOrig ) {
+	public YCFGenKbGelPrefixLineEditObj( IYCFGenKbGelPrefixLineObj argOrig ) {
 		super( argOrig );
 		optionalLookupRemainder = null;
 	}
 
 	public String getClassCode() {
-		return( CFGenKbGelPrefixLineObj.CLASS_CODE );
+		return( YCFGenKbGelPrefixLineObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "GelPrefixLine" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -72,14 +72,14 @@ public class CFGenKbGelPrefixLineEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -90,10 +90,10 @@ public class CFGenKbGelPrefixLineEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -102,11 +102,11 @@ public class CFGenKbGelPrefixLineEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -130,13 +130,13 @@ public class CFGenKbGelPrefixLineEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -148,9 +148,9 @@ public class CFGenKbGelPrefixLineEditObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
+	public IYCFGenKbGelInstructionObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbGelPrefixLineObj retobj = getSchema().getGelPrefixLineTableObj().realiseGelPrefixLine( (ICFGenKbGelPrefixLineObj)this );
+		IYCFGenKbGelPrefixLineObj retobj = getSchema().getGelPrefixLineTableObj().realiseGelPrefixLine( (IYCFGenKbGelPrefixLineObj)this );
 		return( retobj );
 	}
 
@@ -158,57 +158,57 @@ public class CFGenKbGelPrefixLineEditObj
 		getOrigAsGelPrefixLine().forget();
 	}
 
-	public ICFGenKbGelInstructionObj create() {
+	public IYCFGenKbGelInstructionObj create() {
 		copyBuffToOrig();
-		ICFGenKbGelPrefixLineObj retobj = ((ICFGenKbSchemaObj)getOrigAsGelPrefixLine().getSchema()).getGelPrefixLineTableObj().createGelPrefixLine( getOrigAsGelPrefixLine() );
+		IYCFGenKbGelPrefixLineObj retobj = ((IYCFGenKbSchemaObj)getOrigAsGelPrefixLine().getSchema()).getGelPrefixLineTableObj().createGelPrefixLine( getOrigAsGelPrefixLine() );
 		if( retobj == getOrigAsGelPrefixLine() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbGelInstructionEditObj update() {
-		getSchema().getGelPrefixLineTableObj().updateGelPrefixLine( (ICFGenKbGelPrefixLineObj)this );
+	public YCFGenKbGelInstructionEditObj update() {
+		getSchema().getGelPrefixLineTableObj().updateGelPrefixLine( (IYCFGenKbGelPrefixLineObj)this );
 		return( null );
 	}
 
-	public CFGenKbGelInstructionEditObj deleteInstance() {
+	public YCFGenKbGelInstructionEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getGelPrefixLineTableObj().deleteGelPrefixLine( getOrigAsGelPrefixLine() );
 		return( null );
 	}
 
-	public ICFGenKbGelPrefixLineTableObj getGelPrefixLineTable() {
+	public IYCFGenKbGelPrefixLineTableObj getGelPrefixLineTable() {
 		return( orig.getSchema().getGelPrefixLineTableObj() );
 	}
 
-	public ICFGenKbGelPrefixLineEditObj getEditAsGelPrefixLine() {
-		return( (ICFGenKbGelPrefixLineEditObj)this );
+	public IYCFGenKbGelPrefixLineEditObj getEditAsGelPrefixLine() {
+		return( (IYCFGenKbGelPrefixLineEditObj)this );
 	}
 
-	public ICFGenKbGelPrefixLineObj getOrigAsGelPrefixLine() {
-		return( (ICFGenKbGelPrefixLineObj)orig );
+	public IYCFGenKbGelPrefixLineObj getOrigAsGelPrefixLine() {
+		return( (IYCFGenKbGelPrefixLineObj)orig );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsGelPrefixLine().getSchema().getBackingStore()).getFactoryGelPrefixLine().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsGelPrefixLine().getSchema().getBackingStore()).getFactoryGelPrefixLine().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			optionalLookupRemainder = null;
 		}
 	}
 
-	public CFGenKbGelPrefixLineBuff getGelPrefixLineBuff() {
-		return( (CFGenKbGelPrefixLineBuff)getBuff() );
+	public YCFGenKbGelPrefixLineBuff getGelPrefixLineBuff() {
+		return( (YCFGenKbGelPrefixLineBuff)getBuff() );
 	}
 
 	public String getRequiredPrefixName() {
@@ -233,11 +233,11 @@ public class CFGenKbGelPrefixLineEditObj
 		return( getGelPrefixLineBuff().getOptionalRemainderInstId() );
 	}
 
-	public ICFGenKbGelInstructionObj getOptionalLookupRemainder() {
+	public IYCFGenKbGelInstructionObj getOptionalLookupRemainder() {
 		return( getOptionalLookupRemainder( false ) );
 	}
 
-	public ICFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead ) {
+	public IYCFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead ) {
 		if( forceRead || ( optionalLookupRemainder == null ) ) {
 			boolean anyMissing = false;
 			if( getGelPrefixLineBuff().getOptionalRemainderTenantId() == null ) {
@@ -247,7 +247,7 @@ public class CFGenKbGelPrefixLineEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFGenKbGelInstructionObj obj = ((ICFGenKbSchemaObj)getOrigAsGelPrefixLine().getSchema()).getGelInstructionTableObj().readGelInstructionByPIdx( getGelPrefixLineBuff().getOptionalRemainderTenantId(),
+				IYCFGenKbGelInstructionObj obj = ((IYCFGenKbSchemaObj)getOrigAsGelPrefixLine().getSchema()).getGelInstructionTableObj().readGelInstructionByPIdx( getGelPrefixLineBuff().getOptionalRemainderTenantId(),
 					getGelPrefixLineBuff().getRequiredRemainderGelCacheId(),
 					getGelPrefixLineBuff().getOptionalRemainderInstId() );
 				optionalLookupRemainder = obj;
@@ -256,7 +256,7 @@ public class CFGenKbGelPrefixLineEditObj
 		return( optionalLookupRemainder );
 	}
 
-	public void setOptionalLookupRemainder( ICFGenKbGelInstructionObj value ) {
+	public void setOptionalLookupRemainder( IYCFGenKbGelInstructionObj value ) {
 			if( buff == null ) {
 				getGelPrefixLineBuff();
 			}
@@ -273,14 +273,14 @@ public class CFGenKbGelPrefixLineEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbGelPrefixLineBuff origBuff = getOrigAsGelPrefixLine().getGelPrefixLineBuff();
-		CFGenKbGelPrefixLineBuff myBuff = getGelPrefixLineBuff();
+		YCFGenKbGelPrefixLineBuff origBuff = getOrigAsGelPrefixLine().getGelPrefixLineBuff();
+		YCFGenKbGelPrefixLineBuff myBuff = getGelPrefixLineBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbGelPrefixLineBuff origBuff = getOrigAsGelPrefixLine().getGelPrefixLineBuff();
-		CFGenKbGelPrefixLineBuff myBuff = getGelPrefixLineBuff();
+		YCFGenKbGelPrefixLineBuff origBuff = getOrigAsGelPrefixLine().getGelPrefixLineBuff();
+		YCFGenKbGelPrefixLineBuff myBuff = getGelPrefixLineBuff();
 		myBuff.set( origBuff );
 	}
 }

@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for TopDomain.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,16 +35,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntTopDomainTable database interface for TopDomain
+ *	YCFIntTopDomainTable database interface for TopDomain
  */
-public interface ICFIntTopDomainTable
+public interface IYCFIntTopDomainTable
 {
 
 	/**
@@ -55,8 +55,8 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createTopDomain( CFSecAuthorization Authorization,
-		CFIntTopDomainBuff Buff );
+	void createTopDomain( YCFSecAuthorization Authorization,
+		YCFIntTopDomainBuff Buff );
 
 
 	/**
@@ -67,8 +67,8 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateTopDomain( CFSecAuthorization Authorization,
-		CFIntTopDomainBuff Buff );
+	void updateTopDomain( YCFSecAuthorization Authorization,
+		YCFIntTopDomainBuff Buff );
 
 
 	/**
@@ -78,8 +78,8 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteTopDomain( CFSecAuthorization Authorization,
-		CFIntTopDomainBuff Buff );
+	void deleteTopDomain( YCFSecAuthorization Authorization,
+		YCFIntTopDomainBuff Buff );
 	/**
 	 *	Delete the TopDomain instance identified by the primary key attributes.
 	 *
@@ -89,7 +89,7 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	argId	The TopDomain key attribute of the instance generating the id.
 	 */
-	void deleteTopDomainByIdIdx( CFSecAuthorization Authorization,
+	void deleteTopDomainByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -100,8 +100,8 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteTopDomainByIdIdx( CFSecAuthorization Authorization,
-		CFIntTopDomainPKey argKey );
+	void deleteTopDomainByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntTopDomainPKey argKey );
 	/**
 	 *	Delete the TopDomain instances identified by the key TenantIdx.
 	 *
@@ -109,7 +109,7 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	argTenantId	The TopDomain key attribute of the instance generating the id.
 	 */
-	void deleteTopDomainByTenantIdx( CFSecAuthorization Authorization,
+	void deleteTopDomainByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -119,8 +119,8 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTopDomainByTenantIdx( CFSecAuthorization Authorization,
-		CFIntTopDomainByTenantIdxKey argKey );
+	void deleteTopDomainByTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntTopDomainByTenantIdxKey argKey );
 	/**
 	 *	Delete the TopDomain instances identified by the key TldIdx.
 	 *
@@ -130,7 +130,7 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	argTldId	The TopDomain key attribute of the instance generating the id.
 	 */
-	void deleteTopDomainByTldIdx( CFSecAuthorization Authorization,
+	void deleteTopDomainByTldIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTldId );
 
@@ -141,8 +141,8 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTopDomainByTldIdx( CFSecAuthorization Authorization,
-		CFIntTopDomainByTldIdxKey argKey );
+	void deleteTopDomainByTldIdx( YCFSecAuthorization Authorization,
+		YCFIntTopDomainByTldIdxKey argKey );
 	/**
 	 *	Delete the TopDomain instances identified by the key NameIdx.
 	 *
@@ -154,7 +154,7 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	argName	The TopDomain key attribute of the instance generating the id.
 	 */
-	void deleteTopDomainByNameIdx( CFSecAuthorization Authorization,
+	void deleteTopDomainByNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTldId,
 		String argName );
@@ -166,8 +166,8 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTopDomainByNameIdx( CFSecAuthorization Authorization,
-		CFIntTopDomainByNameIdxKey argKey );
+	void deleteTopDomainByNameIdx( YCFSecAuthorization Authorization,
+		YCFIntTopDomainByNameIdxKey argKey );
 
 
 	/**
@@ -180,8 +180,8 @@ public interface ICFIntTopDomainTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTopDomainBuff readDerived( CFSecAuthorization Authorization,
-		CFIntTopDomainPKey PKey );
+	YCFIntTopDomainBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntTopDomainPKey PKey );
 
 	/**
 	 *	Lock the derived TopDomain buffer instance by primary key.
@@ -193,8 +193,8 @@ public interface ICFIntTopDomainTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTopDomainBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntTopDomainPKey PKey );
+	YCFIntTopDomainBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntTopDomainPKey PKey );
 
 	/**
 	 *	Read all TopDomain instances.
@@ -203,7 +203,7 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFIntTopDomainBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFIntTopDomainBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived TopDomain buffer instance identified by the unique key IdIdx.
@@ -217,7 +217,7 @@ public interface ICFIntTopDomainTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTopDomainBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFIntTopDomainBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -230,7 +230,7 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntTopDomainBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntTopDomainBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -244,7 +244,7 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntTopDomainBuff[] readDerivedByTldIdx( CFSecAuthorization Authorization,
+	YCFIntTopDomainBuff[] readDerivedByTldIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TldId );
 
@@ -262,7 +262,7 @@ public interface ICFIntTopDomainTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTopDomainBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	YCFIntTopDomainBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TldId,
 		String Name );
@@ -277,10 +277,10 @@ public interface ICFIntTopDomainTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopDomainBuff readBuff( CFSecAuthorization Authorization,
-		CFIntTopDomainPKey PKey );
+	YCFIntTopDomainBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntTopDomainPKey PKey );
 
 	/**
 	 *	Lock the specific TopDomain buffer instance identified by the primary key.
@@ -292,10 +292,10 @@ public interface ICFIntTopDomainTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopDomainBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntTopDomainPKey PKey );
+	YCFIntTopDomainBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntTopDomainPKey PKey );
 
 	/**
 	 *	Read all the specific TopDomain buffer instances.
@@ -304,7 +304,7 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@return All the specific TopDomain instances in the database accessible for the Authorization.
 	 */
-	CFIntTopDomainBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFIntTopDomainBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific TopDomain buffer instance identified by the unique key IdIdx.
@@ -318,9 +318,9 @@ public interface ICFIntTopDomainTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopDomainBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFIntTopDomainBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -333,9 +333,9 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopDomainBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntTopDomainBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -349,9 +349,9 @@ public interface ICFIntTopDomainTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopDomainBuff[] readBuffByTldIdx( CFSecAuthorization Authorization,
+	YCFIntTopDomainBuff[] readBuffByTldIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TldId );
 
@@ -369,9 +369,9 @@ public interface ICFIntTopDomainTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopDomainBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	YCFIntTopDomainBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TldId,
 		String Name );
@@ -379,7 +379,7 @@ public interface ICFIntTopDomainTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

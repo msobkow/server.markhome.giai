@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenBind buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenBindBuff
-	extends CFGenKbGenItemBuff
+public class YCFGenKbGenBindBuff
+	extends YCFGenKbGenItemBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -53,7 +53,7 @@ public class CFGenKbGenBindBuff
 	public static final long CARTRIDGEID_MIN_VALUE = 0L;
 	public static final long ITEMID_MIN_VALUE = 0L;
 	public static final long ITEMID_MAX_VALUE = 2147483647L;
-	public CFGenKbGenBindBuff() {
+	public YCFGenKbGenBindBuff() {
 		super();
 	}
 
@@ -65,8 +65,8 @@ public class CFGenKbGenBindBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenBindBuff ) {
-			CFGenKbGenBindBuff rhs = (CFGenKbGenBindBuff)obj;
+		else if( obj instanceof YCFGenKbGenBindBuff ) {
+			YCFGenKbGenBindBuff rhs = (YCFGenKbGenBindBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -78,8 +78,8 @@ public class CFGenKbGenBindBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemPKey ) {
-			CFGenKbGenItemPKey rhs = (CFGenKbGenItemPKey)obj;
+		else if( obj instanceof YCFGenKbGenItemPKey ) {
+			YCFGenKbGenItemPKey rhs = (YCFGenKbGenItemPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -106,16 +106,16 @@ public class CFGenKbGenBindBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGenBindBuff ) {
-			CFGenKbGenBindBuff rhs = (CFGenKbGenBindBuff)obj;
+		else if( obj instanceof YCFGenKbGenBindBuff ) {
+			YCFGenKbGenBindBuff rhs = (YCFGenKbGenBindBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemPKey ) {
-			CFGenKbGenItemPKey rhs = (CFGenKbGenItemPKey)obj;
+		else if( obj instanceof YCFGenKbGenItemPKey ) {
+			YCFGenKbGenItemPKey rhs = (YCFGenKbGenItemPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -142,20 +142,20 @@ public class CFGenKbGenBindBuff
 		}
 	}
 
-	public void set( CFGenKbGenItemBuff src ) {
-		if( src instanceof CFGenKbGenBindBuff ) {
-			setGenBindBuff( (CFGenKbGenBindBuff)src );
+	public void set( YCFGenKbGenItemBuff src ) {
+		if( src instanceof YCFGenKbGenBindBuff ) {
+			setGenBindBuff( (YCFGenKbGenBindBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGenBindBuff" );
+				"YCFGenKbGenBindBuff" );
 		}
 	}
 
-	public void setGenBindBuff( CFGenKbGenBindBuff src ) {
+	public void setGenBindBuff( YCFGenKbGenBindBuff src ) {
 		super.setGenItemBuff( src );
 	}
 }

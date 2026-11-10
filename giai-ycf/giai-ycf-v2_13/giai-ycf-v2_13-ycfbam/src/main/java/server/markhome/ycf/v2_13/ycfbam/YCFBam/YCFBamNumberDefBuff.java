@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a NumberDef buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamNumberDefBuff
-	extends CFBamAtomBuff
+public class YCFBamNumberDefBuff
+	extends YCFBamAtomBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -70,9 +70,9 @@ public class CFBamNumberDefBuff
 	public static final long ID_INIT_VALUE = 0L;
 	public static final short DIGITS_INIT_VALUE = (short)16;
 	public static final short PRECIS_INIT_VALUE = (short)0;
-	public static final BigDecimal INITVALUE_INIT_VALUE = CFLibBigDecimalUtil.parse( "CFBam.NumberDef.InitValue", 31, 5, "0" );
-	public static final BigDecimal MINVALUE_INIT_VALUE = CFLibBigDecimalUtil.parse( "CFBam.NumberDef.MinValue", 31, 5, "0" );
-	public static final BigDecimal MAXVALUE_INIT_VALUE = CFLibBigDecimalUtil.parse( "CFBam.NumberDef.MaxValue", 31, 5, "0" );
+	public static final BigDecimal INITVALUE_INIT_VALUE = YCFLibBigDecimalUtil.parse( "YCFBam.NumberDef.InitValue", 31, 5, "0" );
+	public static final BigDecimal MINVALUE_INIT_VALUE = YCFLibBigDecimalUtil.parse( "YCFBam.NumberDef.MinValue", 31, 5, "0" );
+	public static final BigDecimal MAXVALUE_INIT_VALUE = YCFLibBigDecimalUtil.parse( "YCFBam.NumberDef.MaxValue", 31, 5, "0" );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
 	public static final short DIGITS_MIN_VALUE = (short)1;
@@ -84,10 +84,10 @@ public class CFBamNumberDefBuff
 	protected BigDecimal optionalInitValue;
 	protected BigDecimal optionalMinValue;
 	protected BigDecimal optionalMaxValue;
-	public CFBamNumberDefBuff() {
+	public YCFBamNumberDefBuff() {
 		super();
-		requiredDigits = CFBamNumberDefBuff.DIGITS_INIT_VALUE;
-		requiredPrecis = CFBamNumberDefBuff.PRECIS_INIT_VALUE;
+		requiredDigits = YCFBamNumberDefBuff.DIGITS_INIT_VALUE;
+		requiredPrecis = YCFBamNumberDefBuff.PRECIS_INIT_VALUE;
 		optionalInitValue = null;
 		optionalMinValue = null;
 		optionalMaxValue = null;
@@ -102,21 +102,21 @@ public class CFBamNumberDefBuff
 	}
 
 	public void setRequiredDigits( short value ) {
-		if( value < CFBamNumberDefBuff.DIGITS_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamNumberDefBuff.DIGITS_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredDigits",
 				1,
 				"value",
 				value,
-				CFBamNumberDefBuff.DIGITS_MIN_VALUE );
+				YCFBamNumberDefBuff.DIGITS_MIN_VALUE );
 		}
-		if( value > CFBamNumberDefBuff.DIGITS_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFBamNumberDefBuff.DIGITS_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDigits",
 				1,
 				"value",
 				value,
-				CFBamNumberDefBuff.DIGITS_MAX_VALUE );
+				YCFBamNumberDefBuff.DIGITS_MAX_VALUE );
 		}
 		requiredDigits = value;
 	}
@@ -126,21 +126,21 @@ public class CFBamNumberDefBuff
 	}
 
 	public void setRequiredPrecis( short value ) {
-		if( value < CFBamNumberDefBuff.PRECIS_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamNumberDefBuff.PRECIS_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredPrecis",
 				1,
 				"value",
 				value,
-				CFBamNumberDefBuff.PRECIS_MIN_VALUE );
+				YCFBamNumberDefBuff.PRECIS_MIN_VALUE );
 		}
-		if( value > CFBamNumberDefBuff.PRECIS_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFBamNumberDefBuff.PRECIS_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredPrecis",
 				1,
 				"value",
 				value,
-				CFBamNumberDefBuff.PRECIS_MAX_VALUE );
+				YCFBamNumberDefBuff.PRECIS_MAX_VALUE );
 		}
 		requiredPrecis = value;
 	}
@@ -154,7 +154,7 @@ public class CFBamNumberDefBuff
 			optionalInitValue = null;
 		}
 		else {
-			optionalInitValue = CFLibBigDecimalUtil.coerce( getClass().getName() + ".InitValue", 31, 5, value );
+			optionalInitValue = YCFLibBigDecimalUtil.coerce( getClass().getName() + ".InitValue", 31, 5, value );
 		}
 	}
 
@@ -167,7 +167,7 @@ public class CFBamNumberDefBuff
 			optionalMinValue = null;
 		}
 		else {
-			optionalMinValue = CFLibBigDecimalUtil.coerce( getClass().getName() + ".MinValue", 31, 5, value );
+			optionalMinValue = YCFLibBigDecimalUtil.coerce( getClass().getName() + ".MinValue", 31, 5, value );
 		}
 	}
 
@@ -180,7 +180,7 @@ public class CFBamNumberDefBuff
 			optionalMaxValue = null;
 		}
 		else {
-			optionalMaxValue = CFLibBigDecimalUtil.coerce( getClass().getName() + ".MaxValue", 31, 5, value );
+			optionalMaxValue = YCFLibBigDecimalUtil.coerce( getClass().getName() + ".MaxValue", 31, 5, value );
 		}
 	}
 
@@ -188,8 +188,8 @@ public class CFBamNumberDefBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamNumberDefBuff ) {
-			CFBamNumberDefBuff rhs = (CFBamNumberDefBuff)obj;
+		else if( obj instanceof YCFBamNumberDefBuff ) {
+			YCFBamNumberDefBuff rhs = (YCFBamNumberDefBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -240,8 +240,8 @@ public class CFBamNumberDefBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValuePKey ) {
-			CFBamValuePKey rhs = (CFBamValuePKey)obj;
+		else if( obj instanceof YCFBamValuePKey ) {
+			YCFBamValuePKey rhs = (YCFBamValuePKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -250,8 +250,8 @@ public class CFBamNumberDefBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamNumberDefHBuff ) {
-			CFBamNumberDefHBuff rhs = (CFBamNumberDefHBuff)obj;
+		else if( obj instanceof YCFBamNumberDefHBuff ) {
+			YCFBamNumberDefHBuff rhs = (YCFBamNumberDefHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -302,8 +302,8 @@ public class CFBamNumberDefBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueHPKey ) {
-			CFBamValueHPKey rhs = (CFBamValueHPKey)obj;
+		else if( obj instanceof YCFBamValueHPKey ) {
+			YCFBamValueHPKey rhs = (YCFBamValueHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -338,8 +338,8 @@ public class CFBamNumberDefBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamNumberDefBuff ) {
-			CFBamNumberDefBuff rhs = (CFBamNumberDefBuff)obj;
+		else if( obj instanceof YCFBamNumberDefBuff ) {
+			YCFBamNumberDefBuff rhs = (YCFBamNumberDefBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -406,8 +406,8 @@ public class CFBamNumberDefBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamValuePKey ) {
-			CFBamValuePKey rhs = (CFBamValuePKey)obj;
+		else if( obj instanceof YCFBamValuePKey ) {
+			YCFBamValuePKey rhs = (YCFBamValuePKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -422,8 +422,8 @@ public class CFBamNumberDefBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamValueHPKey ) {
-			CFBamValueHPKey rhs = (CFBamValueHPKey)obj;
+		else if( obj instanceof YCFBamValueHPKey ) {
+			YCFBamValueHPKey rhs = (YCFBamValueHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -448,8 +448,8 @@ public class CFBamNumberDefBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamNumberDefHBuff ) {
-			CFBamNumberDefHBuff rhs = (CFBamNumberDefHBuff)obj;
+		else if( obj instanceof YCFBamNumberDefHBuff ) {
+			YCFBamNumberDefHBuff rhs = (YCFBamNumberDefHBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -522,20 +522,20 @@ public class CFBamNumberDefBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamNumberDefBuff ) {
-			setNumberDefBuff( (CFBamNumberDefBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamNumberDefBuff ) {
+			setNumberDefBuff( (YCFBamNumberDefBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamNumberDefBuff" );
+				"YCFBamNumberDefBuff" );
 		}
 	}
 
-	public void setNumberDefBuff( CFBamNumberDefBuff src ) {
+	public void setNumberDefBuff( YCFBamNumberDefBuff src ) {
 		super.setAtomBuff( src );
 		setRequiredDigits( src.getRequiredDigits() );
 		setRequiredPrecis( src.getRequiredPrecis() );
@@ -544,20 +544,20 @@ public class CFBamNumberDefBuff
 		setOptionalMaxValue( src.getOptionalMaxValue() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamNumberDefHBuff ) {
-			setNumberDefBuff( (CFBamNumberDefHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamNumberDefHBuff ) {
+			setNumberDefBuff( (YCFBamNumberDefHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamNumberDefHBuff" );
+				"YCFBamNumberDefHBuff" );
 		}
 	}
 
-	public void setNumberDefBuff( CFBamNumberDefHBuff src ) {
+	public void setNumberDefBuff( YCFBamNumberDefHBuff src ) {
 		super.setAtomBuff( src );
 		setRequiredDigits( src.getRequiredDigits() );
 		setRequiredPrecis( src.getRequiredPrecis() );

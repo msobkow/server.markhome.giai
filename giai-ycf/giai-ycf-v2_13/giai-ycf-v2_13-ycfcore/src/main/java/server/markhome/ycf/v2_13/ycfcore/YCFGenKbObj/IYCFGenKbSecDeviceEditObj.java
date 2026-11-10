@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb SecDevice.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb SecDevice.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecDeviceEditObj
-	extends ICFGenKbSecDeviceObj
+public interface IYCFGenKbSecDeviceEditObj
+	extends IYCFGenKbSecDeviceObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbSecDeviceObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbSecDeviceObj.
 	 */
-	ICFGenKbSecDeviceObj getOrig();
+	IYCFGenKbSecDeviceObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbSecDeviceObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbSecDeviceObj.
 	 */
-	ICFGenKbSecDeviceObj getOrigAsSecDevice();
+	IYCFGenKbSecDeviceObj getOrigAsSecDevice();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbSecDeviceEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbSecDeviceObj create();
+	IYCFGenKbSecDeviceObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbSecDeviceEditObj update();
+	YCFGenKbSecDeviceEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbSecDeviceEditObj deleteInstance();
+	YCFGenKbSecDeviceEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute DevName.
@@ -104,25 +104,25 @@ public interface ICFGenKbSecDeviceEditObj
 	void setOptionalPubKey( String value );
 
 	/**
-	 *	Get the ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	Get the IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	@return	The IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFGenKbSecUserObj getRequiredContainerSecUser();
+	IYCFGenKbSecUserObj getRequiredContainerSecUser();
 
 	/**
-	 *	Set the ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	Set the IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@param	value	the ICFGenKbSecUserObj instance to be referenced by the SecUser key.
+	 *	@param	value	the IYCFGenKbSecUserObj instance to be referenced by the SecUser key.
 	 */
-	void setRequiredContainerSecUser( ICFGenKbSecUserObj value );
+	void setRequiredContainerSecUser( IYCFGenKbSecUserObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFGenKbSecUserObj value );
+	void setCreatedBy( IYCFGenKbSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -134,9 +134,9 @@ public interface ICFGenKbSecDeviceEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFGenKbSecUserObj value );
+	void setUpdatedBy( IYCFGenKbSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb GelConstrain.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb GelConstrain.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,26 +27,26 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelConstrainEditObj
-	extends ICFGenKbGelConstrainObj,
-		ICFGenKbGelInstructionEditObj
+public interface IYCFGenKbGelConstrainEditObj
+	extends IYCFGenKbGelConstrainObj,
+		IYCFGenKbGelInstructionEditObj
 {
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbGelConstrainObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbGelConstrainObj.
 	 */
-	ICFGenKbGelConstrainObj getOrigAsGelConstrain();
+	IYCFGenKbGelConstrainObj getOrigAsGelConstrain();
 
 	/**
 	 *	Get the optional Long attribute HardConstraint.
@@ -77,16 +77,16 @@ public interface ICFGenKbGelConstrainEditObj
 	void setOptionalConstrainingName( String value );
 
 	/**
-	 *	Get the ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	Get the IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 *
-	 *	@return	The ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	@return	The IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 */
-	ICFGenKbGelInstructionObj getOptionalLookupRemainder();
+	IYCFGenKbGelInstructionObj getOptionalLookupRemainder();
 
 	/**
-	 *	Set the ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	Set the IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 *
-	 *	@param	value	the ICFGenKbGelInstructionObj instance to be referenced by the Remainder key.
+	 *	@param	value	the IYCFGenKbGelInstructionObj instance to be referenced by the Remainder key.
 	 */
-	void setOptionalLookupRemainder( ICFGenKbGelInstructionObj value );
+	void setOptionalLookupRemainder( IYCFGenKbGelInstructionObj value );
 }

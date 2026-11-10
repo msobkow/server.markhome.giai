@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for GelCall.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,51 +36,51 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbGelCallFactory implementation for GelCall
+	 *	YCFGenKbGelCallFactory implementation for GelCall
 	 */
-public class CFGenKbGelCallDefaultFactory
-	implements ICFGenKbGelCallFactory
+public class YCFGenKbGelCallDefaultFactory
+	implements IYCFGenKbGelCallFactory
 {
-	public CFGenKbGelCallDefaultFactory() {
+	public YCFGenKbGelCallDefaultFactory() {
 	}
 
-	public CFGenKbGelCallByCacheIdxKey newCacheIdxKey() {
-		CFGenKbGelCallByCacheIdxKey key =
-			new CFGenKbGelCallByCacheIdxKey();
+	public YCFGenKbGelCallByCacheIdxKey newCacheIdxKey() {
+		YCFGenKbGelCallByCacheIdxKey key =
+			new YCFGenKbGelCallByCacheIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelCallBySeqIdxKey newSeqIdxKey() {
-		CFGenKbGelCallBySeqIdxKey key =
-			new CFGenKbGelCallBySeqIdxKey();
+	public YCFGenKbGelCallBySeqIdxKey newSeqIdxKey() {
+		YCFGenKbGelCallBySeqIdxKey key =
+			new YCFGenKbGelCallBySeqIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelCallByCallInstIdxKey newCallInstIdxKey() {
-		CFGenKbGelCallByCallInstIdxKey key =
-			new CFGenKbGelCallByCallInstIdxKey();
+	public YCFGenKbGelCallByCallInstIdxKey newCallInstIdxKey() {
+		YCFGenKbGelCallByCallInstIdxKey key =
+			new YCFGenKbGelCallByCallInstIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelCallByPrevInstIdxKey newPrevInstIdxKey() {
-		CFGenKbGelCallByPrevInstIdxKey key =
-			new CFGenKbGelCallByPrevInstIdxKey();
+	public YCFGenKbGelCallByPrevInstIdxKey newPrevInstIdxKey() {
+		YCFGenKbGelCallByPrevInstIdxKey key =
+			new YCFGenKbGelCallByPrevInstIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelCallByNextInstIdxKey newNextInstIdxKey() {
-		CFGenKbGelCallByNextInstIdxKey key =
-			new CFGenKbGelCallByNextInstIdxKey();
+	public YCFGenKbGelCallByNextInstIdxKey newNextInstIdxKey() {
+		YCFGenKbGelCallByNextInstIdxKey key =
+			new YCFGenKbGelCallByNextInstIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelCallBuff newBuff() {
-		CFGenKbGelCallBuff buff =
-			new CFGenKbGelCallBuff();
+	public YCFGenKbGelCallBuff newBuff() {
+		YCFGenKbGelCallBuff buff =
+			new YCFGenKbGelCallBuff();
 		return( buff );
 	}
 }

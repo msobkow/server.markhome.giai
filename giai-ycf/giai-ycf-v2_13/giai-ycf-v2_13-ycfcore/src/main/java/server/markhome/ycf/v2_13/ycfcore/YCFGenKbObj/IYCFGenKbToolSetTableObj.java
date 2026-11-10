@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbToolSetTableObj
+public interface IYCFGenKbToolSetTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbToolSetTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbToolSetObj newInstance();
+	IYCFGenKbToolSetObj newInstance();
 
 	/**
 	 *	Instantiate a new ToolSet edition of the specified ToolSet instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbToolSetEditObj newEditInstance( ICFGenKbToolSetObj orig );
+	IYCFGenKbToolSetEditObj newEditInstance( IYCFGenKbToolSetObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbToolSetObj realiseToolSet( ICFGenKbToolSetObj Obj );
+	IYCFGenKbToolSetObj realiseToolSet( IYCFGenKbToolSetObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbToolSetObj createToolSet( ICFGenKbToolSetObj Obj );
+	IYCFGenKbToolSetObj createToolSet( IYCFGenKbToolSetObj Obj );
 
 	/**
 	 *	Read a ToolSet-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbToolSetTableObj
 	 *	@return	The ToolSet-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbToolSetObj readToolSet( CFGenKbToolSetPKey pkey );
+	IYCFGenKbToolSetObj readToolSet( YCFGenKbToolSetPKey pkey );
 
 	/**
 	 *	Read a ToolSet-derived instance by it's primary key.
@@ -91,267 +91,267 @@ public interface ICFGenKbToolSetTableObj
 	 *	@return	The ToolSet-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbToolSetObj readToolSet( CFGenKbToolSetPKey pkey,
+	IYCFGenKbToolSetObj readToolSet( YCFGenKbToolSetPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbToolSetObj readCachedToolSet( CFGenKbToolSetPKey pkey );
+	IYCFGenKbToolSetObj readCachedToolSet( YCFGenKbToolSetPKey pkey );
 
-	public void reallyDeepDisposeToolSet( ICFGenKbToolSetObj obj );
+	public void reallyDeepDisposeToolSet( IYCFGenKbToolSetObj obj );
 
-	void deepDisposeToolSet( CFGenKbToolSetPKey pkey );
+	void deepDisposeToolSet( YCFGenKbToolSetPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbToolSetObj lockToolSet( CFGenKbToolSetPKey pkey );
+	IYCFGenKbToolSetObj lockToolSet( YCFGenKbToolSetPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ToolSet-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbToolSetObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbToolSetObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readAllToolSet();
+	List<IYCFGenKbToolSetObj> readAllToolSet();
 
 	/**
 	 *	Return a sorted map of all the ToolSet-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbToolSetObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbToolSetObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readAllToolSet( boolean forceRead );
+	List<IYCFGenKbToolSetObj> readAllToolSet( boolean forceRead );
 
-	List<ICFGenKbToolSetObj> readCachedAllToolSet();
+	List<IYCFGenKbToolSetObj> readCachedAllToolSet();
 
 	/**
-	 *	Get the CFGenKbToolSetObj instance for the primary key attributes.
+	 *	Get the YCFGenKbToolSetObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbToolSetObj cached instance for the primary key, or
+	 *	@return	YCFGenKbToolSetObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbToolSetObj readToolSetByIdIdx( short Id );
+	IYCFGenKbToolSetObj readToolSetByIdIdx( short Id );
 
 	/**
-	 *	Get the CFGenKbToolSetObj instance for the primary key attributes.
+	 *	Get the YCFGenKbToolSetObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbToolSetObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbToolSetObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbToolSetObj readToolSetByIdIdx( short Id,
+	IYCFGenKbToolSetObj readToolSetByIdIdx( short Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbToolSetObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbToolSetObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbToolSetObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbToolSetObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbToolSetObj readToolSetByNameIdx(String Name );
+	IYCFGenKbToolSetObj readToolSetByNameIdx(String Name );
 
 	/**
-	 *	Get the CFGenKbToolSetObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbToolSetObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbToolSetObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbToolSetObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbToolSetObj readToolSetByNameIdx(String Name,
+	IYCFGenKbToolSetObj readToolSetByNameIdx(String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool0Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool0Idx key.
 	 *
 	 *	@param	argToolId0	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool0Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool0Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool0Idx( short ToolId0 );
+	List<IYCFGenKbToolSetObj> readToolSetByTool0Idx( short ToolId0 );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool0Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool0Idx key.
 	 *
 	 *	@param	argToolId0	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool0Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool0Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool0Idx( short ToolId0,
+	List<IYCFGenKbToolSetObj> readToolSetByTool0Idx( short ToolId0,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool1Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool1Idx key.
 	 *
 	 *	@param	argToolId1	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool1Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool1Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool1Idx( Short ToolId1 );
+	List<IYCFGenKbToolSetObj> readToolSetByTool1Idx( Short ToolId1 );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool1Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool1Idx key.
 	 *
 	 *	@param	argToolId1	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool1Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool1Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool1Idx( Short ToolId1,
+	List<IYCFGenKbToolSetObj> readToolSetByTool1Idx( Short ToolId1,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool2Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool2Idx key.
 	 *
 	 *	@param	argToolId2	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool2Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool2Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool2Idx( Short ToolId2 );
+	List<IYCFGenKbToolSetObj> readToolSetByTool2Idx( Short ToolId2 );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool2Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool2Idx key.
 	 *
 	 *	@param	argToolId2	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool2Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool2Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool2Idx( Short ToolId2,
+	List<IYCFGenKbToolSetObj> readToolSetByTool2Idx( Short ToolId2,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool3Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool3Idx key.
 	 *
 	 *	@param	argToolId3	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool3Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool3Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool3Idx( Short ToolId3 );
+	List<IYCFGenKbToolSetObj> readToolSetByTool3Idx( Short ToolId3 );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool3Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool3Idx key.
 	 *
 	 *	@param	argToolId3	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool3Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool3Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool3Idx( Short ToolId3,
+	List<IYCFGenKbToolSetObj> readToolSetByTool3Idx( Short ToolId3,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool4Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool4Idx key.
 	 *
 	 *	@param	argToolId4	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool4Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool4Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool4Idx( Short ToolId4 );
+	List<IYCFGenKbToolSetObj> readToolSetByTool4Idx( Short ToolId4 );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool4Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool4Idx key.
 	 *
 	 *	@param	argToolId4	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool4Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool4Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool4Idx( Short ToolId4,
+	List<IYCFGenKbToolSetObj> readToolSetByTool4Idx( Short ToolId4,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool5Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool5Idx key.
 	 *
 	 *	@param	argToolId5	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool5Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool5Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool5Idx( Short ToolId5 );
+	List<IYCFGenKbToolSetObj> readToolSetByTool5Idx( Short ToolId5 );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool5Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool5Idx key.
 	 *
 	 *	@param	argToolId5	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool5Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool5Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool5Idx( Short ToolId5,
+	List<IYCFGenKbToolSetObj> readToolSetByTool5Idx( Short ToolId5,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool6Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool6Idx key.
 	 *
 	 *	@param	argToolId6	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool6Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool6Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool6Idx( Short ToolId6 );
+	List<IYCFGenKbToolSetObj> readToolSetByTool6Idx( Short ToolId6 );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool6Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool6Idx key.
 	 *
 	 *	@param	argToolId6	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool6Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool6Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool6Idx( Short ToolId6,
+	List<IYCFGenKbToolSetObj> readToolSetByTool6Idx( Short ToolId6,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool7Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool7Idx key.
 	 *
 	 *	@param	argToolId7	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool7Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool7Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool7Idx( Short ToolId7 );
+	List<IYCFGenKbToolSetObj> readToolSetByTool7Idx( Short ToolId7 );
 
 	/**
-	 *	Get the map of CFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool7Idx key.
+	 *	Get the map of YCFGenKbToolSetObj instances sorted by their primary keys for the duplicate Tool7Idx key.
 	 *
 	 *	@param	argToolId7	The ToolSet key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool7Idx key,
+	 *	@return	List of YCFGenKbToolSetObj cached instances sorted by their primary keys for the duplicate Tool7Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolSetObj> readToolSetByTool7Idx( Short ToolId7,
+	List<IYCFGenKbToolSetObj> readToolSetByTool7Idx( Short ToolId7,
 		boolean forceRead );
 
-	ICFGenKbToolSetObj readCachedToolSetByIdIdx( short Id );
+	IYCFGenKbToolSetObj readCachedToolSetByIdIdx( short Id );
 
-	ICFGenKbToolSetObj readCachedToolSetByNameIdx( String Name );
+	IYCFGenKbToolSetObj readCachedToolSetByNameIdx( String Name );
 
-	List<ICFGenKbToolSetObj> readCachedToolSetByTool0Idx( short ToolId0 );
+	List<IYCFGenKbToolSetObj> readCachedToolSetByTool0Idx( short ToolId0 );
 
-	List<ICFGenKbToolSetObj> readCachedToolSetByTool1Idx( Short ToolId1 );
+	List<IYCFGenKbToolSetObj> readCachedToolSetByTool1Idx( Short ToolId1 );
 
-	List<ICFGenKbToolSetObj> readCachedToolSetByTool2Idx( Short ToolId2 );
+	List<IYCFGenKbToolSetObj> readCachedToolSetByTool2Idx( Short ToolId2 );
 
-	List<ICFGenKbToolSetObj> readCachedToolSetByTool3Idx( Short ToolId3 );
+	List<IYCFGenKbToolSetObj> readCachedToolSetByTool3Idx( Short ToolId3 );
 
-	List<ICFGenKbToolSetObj> readCachedToolSetByTool4Idx( Short ToolId4 );
+	List<IYCFGenKbToolSetObj> readCachedToolSetByTool4Idx( Short ToolId4 );
 
-	List<ICFGenKbToolSetObj> readCachedToolSetByTool5Idx( Short ToolId5 );
+	List<IYCFGenKbToolSetObj> readCachedToolSetByTool5Idx( Short ToolId5 );
 
-	List<ICFGenKbToolSetObj> readCachedToolSetByTool6Idx( Short ToolId6 );
+	List<IYCFGenKbToolSetObj> readCachedToolSetByTool6Idx( Short ToolId6 );
 
-	List<ICFGenKbToolSetObj> readCachedToolSetByTool7Idx( Short ToolId7 );
+	List<IYCFGenKbToolSetObj> readCachedToolSetByTool7Idx( Short ToolId7 );
 
 	void deepDisposeToolSetByIdIdx( short Id );
 
@@ -376,12 +376,12 @@ public interface ICFGenKbToolSetTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbToolSetObj updateToolSet( ICFGenKbToolSetObj Obj );
+	IYCFGenKbToolSetObj updateToolSet( IYCFGenKbToolSetObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteToolSet( ICFGenKbToolSetObj Obj );
+	void deleteToolSet( IYCFGenKbToolSetObj Obj );
 
 	/**
 	 *	Internal use only.

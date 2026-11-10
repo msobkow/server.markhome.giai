@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object implementation for CFGenKb.
+// Description: Java 11 Table Object implementation for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,36 +27,36 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGelPrefixLineTableObj
-	implements ICFGenKbGelPrefixLineTableObj
+public class YCFGenKbGelPrefixLineTableObj
+	implements IYCFGenKbGelPrefixLineTableObj
 {
-	protected ICFGenKbSchemaObj schema;
-	private Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> members;
-	private Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> allGelPrefixLine;
-	private Map< CFGenKbGelInstructionByTenantIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > > indexByTenantIdx;
-	private Map< CFGenKbGelInstructionByGelCacheIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > > indexByGelCacheIdx;
-	private Map< CFGenKbGelInstructionByChainIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > > indexByChainIdx;
-	private Map< CFGenKbGelPrefixLineByRemainderIdxKey,
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > > indexByRemainderIdx;
+	protected IYCFGenKbSchemaObj schema;
+	private Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> members;
+	private Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> allGelPrefixLine;
+	private Map< YCFGenKbGelInstructionByTenantIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > > indexByTenantIdx;
+	private Map< YCFGenKbGelInstructionByGelCacheIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > > indexByGelCacheIdx;
+	private Map< YCFGenKbGelInstructionByChainIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > > indexByChainIdx;
+	private Map< YCFGenKbGelPrefixLineByRemainderIdxKey,
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > > indexByRemainderIdx;
 	public static String TABLE_NAME = "GelPrefixLine";
 	public static String TABLE_DBNAME = "gelprefix";
 
-	public CFGenKbGelPrefixLineTableObj() {
+	public YCFGenKbGelPrefixLineTableObj() {
 		schema = null;
-		members = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj>();
+		members = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj>();
 		allGelPrefixLine = null;
 		indexByTenantIdx = null;
 		indexByGelCacheIdx = null;
@@ -64,9 +64,9 @@ public class CFGenKbGelPrefixLineTableObj
 		indexByRemainderIdx = null;
 	}
 
-	public CFGenKbGelPrefixLineTableObj( ICFGenKbSchemaObj argSchema ) {
-		schema = (ICFGenKbSchemaObj)argSchema;
-		members = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj>();
+	public YCFGenKbGelPrefixLineTableObj( IYCFGenKbSchemaObj argSchema ) {
+		schema = (IYCFGenKbSchemaObj)argSchema;
+		members = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj>();
 		allGelPrefixLine = null;
 		indexByTenantIdx = null;
 		indexByGelCacheIdx = null;
@@ -74,12 +74,12 @@ public class CFGenKbGelPrefixLineTableObj
 		indexByRemainderIdx = null;
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
-		schema = (ICFGenKbSchemaObj)value;
+	public void setSchema( IYCFGenKbSchemaObj value ) {
+		schema = (IYCFGenKbSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -101,9 +101,9 @@ public class CFGenKbGelPrefixLineTableObj
 		indexByGelCacheIdx = null;
 		indexByChainIdx = null;
 		indexByRemainderIdx = null;
-		List<ICFGenKbGelPrefixLineObj> toForget = new LinkedList<ICFGenKbGelPrefixLineObj>();
-		ICFGenKbGelPrefixLineObj cur = null;
-		Iterator<ICFGenKbGelPrefixLineObj> iter = members.values().iterator();
+		List<IYCFGenKbGelPrefixLineObj> toForget = new LinkedList<IYCFGenKbGelPrefixLineObj>();
+		IYCFGenKbGelPrefixLineObj cur = null;
+		Iterator<IYCFGenKbGelPrefixLineObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -121,10 +121,10 @@ public class CFGenKbGelPrefixLineTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbGelPrefixLineObj.
+	 *	YCFGenKbGelPrefixLineObj.
 	 */
-	public ICFGenKbGelPrefixLineObj newInstance() {
-		ICFGenKbGelPrefixLineObj inst = new CFGenKbGelPrefixLineObj( schema );
+	public IYCFGenKbGelPrefixLineObj newInstance() {
+		IYCFGenKbGelPrefixLineObj inst = new YCFGenKbGelPrefixLineObj( schema );
 		return( inst );
 	}
 
@@ -135,19 +135,19 @@ public class CFGenKbGelPrefixLineTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbGelPrefixLineObj.
+	 *	YCFGenKbGelPrefixLineObj.
 	 */
-	public ICFGenKbGelPrefixLineEditObj newEditInstance( ICFGenKbGelPrefixLineObj orig ) {
-		ICFGenKbGelPrefixLineEditObj edit = new CFGenKbGelPrefixLineEditObj( orig );
+	public IYCFGenKbGelPrefixLineEditObj newEditInstance( IYCFGenKbGelPrefixLineObj orig ) {
+		IYCFGenKbGelPrefixLineEditObj edit = new YCFGenKbGelPrefixLineEditObj( orig );
 		return( edit );
 	}
 
-	public ICFGenKbGelPrefixLineObj realiseGelPrefixLine( ICFGenKbGelPrefixLineObj Obj ) {
-		ICFGenKbGelPrefixLineObj obj = Obj;
-		CFGenKbGelInstructionPKey pkey = obj.getPKey();
-		ICFGenKbGelPrefixLineObj keepObj = null;
+	public IYCFGenKbGelPrefixLineObj realiseGelPrefixLine( IYCFGenKbGelPrefixLineObj Obj ) {
+		IYCFGenKbGelPrefixLineObj obj = Obj;
+		YCFGenKbGelInstructionPKey pkey = obj.getPKey();
+		IYCFGenKbGelPrefixLineObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFGenKbGelPrefixLineObj existingObj = members.get( pkey );
+			IYCFGenKbGelPrefixLineObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -158,45 +158,45 @@ public class CFGenKbGelPrefixLineTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByTenantIdx != null ) {
-				CFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+				YCFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					indexByTenantIdx.remove( keyTenantIdx );
 				}
 			}
 
 			if( indexByGelCacheIdx != null ) {
-				CFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+				YCFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 				keyGelCacheIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyGelCacheIdx.setRequiredGelCacheId( keepObj.getRequiredGelCacheId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
 				if( mapGelCacheIdx != null ) {
 					indexByGelCacheIdx.remove( keyGelCacheIdx );
 				}
 			}
 
 			if( indexByChainIdx != null ) {
-				CFGenKbGelInstructionByChainIdxKey keyChainIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+				YCFGenKbGelInstructionByChainIdxKey keyChainIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 				keyChainIdx.setOptionalChainInstTenantId( keepObj.getOptionalChainInstTenantId() );
 				keyChainIdx.setOptionalChainInstGelCacheId( keepObj.getOptionalChainInstGelCacheId() );
 				keyChainIdx.setOptionalChainInstGelInstId( keepObj.getOptionalChainInstGelInstId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
 				if( mapChainIdx != null ) {
 					indexByChainIdx.remove( keyChainIdx );
 				}
 			}
 
 			if( indexByRemainderIdx != null ) {
-				CFGenKbGelPrefixLineByRemainderIdxKey keyRemainderIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
+				YCFGenKbGelPrefixLineByRemainderIdxKey keyRemainderIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
 				keyRemainderIdx.setOptionalRemainderTenantId( keepObj.getOptionalRemainderTenantId() );
 				keyRemainderIdx.setRequiredRemainderGelCacheId( keepObj.getRequiredRemainderGelCacheId() );
 				keyRemainderIdx.setOptionalRemainderInstId( keepObj.getOptionalRemainderInstId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapRemainderIdx = indexByRemainderIdx.get( keyRemainderIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapRemainderIdx = indexByRemainderIdx.get( keyRemainderIdx );
 				if( mapRemainderIdx != null ) {
 					mapRemainderIdx.remove( keepObj.getPKey() );
 					if( mapRemainderIdx.size() <= 0 ) {
@@ -207,50 +207,50 @@ public class CFGenKbGelPrefixLineTableObj
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
-			keepObj = (ICFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().realiseGelInstruction( Obj );
+			keepObj = (IYCFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().realiseGelInstruction( Obj );
 
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByTenantIdx != null ) {
-				CFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+				YCFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByGelCacheIdx != null ) {
-				CFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+				YCFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 				keyGelCacheIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyGelCacheIdx.setRequiredGelCacheId( keepObj.getRequiredGelCacheId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
 				if( mapGelCacheIdx != null ) {
 					mapGelCacheIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByChainIdx != null ) {
-				CFGenKbGelInstructionByChainIdxKey keyChainIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+				YCFGenKbGelInstructionByChainIdxKey keyChainIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 				keyChainIdx.setOptionalChainInstTenantId( keepObj.getOptionalChainInstTenantId() );
 				keyChainIdx.setOptionalChainInstGelCacheId( keepObj.getOptionalChainInstGelCacheId() );
 				keyChainIdx.setOptionalChainInstGelInstId( keepObj.getOptionalChainInstGelInstId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
 				if( mapChainIdx != null ) {
 					mapChainIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByRemainderIdx != null ) {
-				CFGenKbGelPrefixLineByRemainderIdxKey keyRemainderIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
+				YCFGenKbGelPrefixLineByRemainderIdxKey keyRemainderIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
 				keyRemainderIdx.setOptionalRemainderTenantId( keepObj.getOptionalRemainderTenantId() );
 				keyRemainderIdx.setRequiredRemainderGelCacheId( keepObj.getRequiredRemainderGelCacheId() );
 				keyRemainderIdx.setOptionalRemainderInstId( keepObj.getOptionalRemainderInstId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapRemainderIdx = indexByRemainderIdx.get( keyRemainderIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapRemainderIdx = indexByRemainderIdx.get( keyRemainderIdx );
 				if( mapRemainderIdx != null ) {
 					mapRemainderIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -262,7 +262,7 @@ public class CFGenKbGelPrefixLineTableObj
 		}
 		else {
 			keepObj = obj;
-			keepObj = (ICFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().realiseGelInstruction( keepObj );
+			keepObj = (IYCFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().realiseGelInstruction( keepObj );
 
 			// Attach new object to PKey, all, alternate, and duplicate indexes
 			members.put( keepObj.getPKey(), keepObj );
@@ -271,45 +271,45 @@ public class CFGenKbGelPrefixLineTableObj
 			}
 
 			if( indexByTenantIdx != null ) {
-				CFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+				YCFGenKbGelInstructionByTenantIdxKey keyTenantIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByGelCacheIdx != null ) {
-				CFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+				YCFGenKbGelInstructionByGelCacheIdxKey keyGelCacheIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 				keyGelCacheIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyGelCacheIdx.setRequiredGelCacheId( keepObj.getRequiredGelCacheId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapGelCacheIdx = indexByGelCacheIdx.get( keyGelCacheIdx );
 				if( mapGelCacheIdx != null ) {
 					mapGelCacheIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByChainIdx != null ) {
-				CFGenKbGelInstructionByChainIdxKey keyChainIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+				YCFGenKbGelInstructionByChainIdxKey keyChainIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 				keyChainIdx.setOptionalChainInstTenantId( keepObj.getOptionalChainInstTenantId() );
 				keyChainIdx.setOptionalChainInstGelCacheId( keepObj.getOptionalChainInstGelCacheId() );
 				keyChainIdx.setOptionalChainInstGelInstId( keepObj.getOptionalChainInstGelInstId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapChainIdx = indexByChainIdx.get( keyChainIdx );
 				if( mapChainIdx != null ) {
 					mapChainIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByRemainderIdx != null ) {
-				CFGenKbGelPrefixLineByRemainderIdxKey keyRemainderIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
+				YCFGenKbGelPrefixLineByRemainderIdxKey keyRemainderIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
 				keyRemainderIdx.setOptionalRemainderTenantId( keepObj.getOptionalRemainderTenantId() );
 				keyRemainderIdx.setRequiredRemainderGelCacheId( keepObj.getRequiredRemainderGelCacheId() );
 				keyRemainderIdx.setOptionalRemainderInstId( keepObj.getOptionalRemainderInstId() );
-				Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > mapRemainderIdx = indexByRemainderIdx.get( keyRemainderIdx );
+				Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > mapRemainderIdx = indexByRemainderIdx.get( keyRemainderIdx );
 				if( mapRemainderIdx != null ) {
 					mapRemainderIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -319,66 +319,66 @@ public class CFGenKbGelPrefixLineTableObj
 		return( keepObj );
 	}
 
-	public ICFGenKbGelPrefixLineObj createGelPrefixLine( ICFGenKbGelPrefixLineObj Obj ) {
-		ICFGenKbGelPrefixLineObj obj = Obj;
-		CFGenKbGelPrefixLineBuff buff = obj.getGelPrefixLineBuff();
-		((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().createGelPrefixLine(
+	public IYCFGenKbGelPrefixLineObj createGelPrefixLine( IYCFGenKbGelPrefixLineObj Obj ) {
+		IYCFGenKbGelPrefixLineObj obj = Obj;
+		YCFGenKbGelPrefixLineBuff buff = obj.getGelPrefixLineBuff();
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().createGelPrefixLine(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		if( obj.getPKey().getClassCode().equals( "a91a" ) ) {
-			obj = (ICFGenKbGelPrefixLineObj)(obj.realise());
+			obj = (IYCFGenKbGelPrefixLineObj)(obj.realise());
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public ICFGenKbGelPrefixLineObj readGelPrefixLine( CFGenKbGelInstructionPKey pkey ) {
+	public IYCFGenKbGelPrefixLineObj readGelPrefixLine( YCFGenKbGelInstructionPKey pkey ) {
 		return( readGelPrefixLine( pkey, false ) );
 	}
 
-	public ICFGenKbGelPrefixLineObj readGelPrefixLine( CFGenKbGelInstructionPKey pkey, boolean forceRead ) {
-		ICFGenKbGelPrefixLineObj obj = null;
+	public IYCFGenKbGelPrefixLineObj readGelPrefixLine( YCFGenKbGelInstructionPKey pkey, boolean forceRead ) {
+		IYCFGenKbGelPrefixLineObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFGenKbGelPrefixLineBuff readBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().readDerivedByPIdx( schema.getAuthorization(),
+			YCFGenKbGelPrefixLineBuff readBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().readDerivedByPIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredGelCacheId(),
 				pkey.getRequiredGelInstId() );
 			if( readBuff != null ) {
-				obj = (ICFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( readBuff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( readBuff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFGenKbGelPrefixLineObj)obj.realise();
+				obj = (IYCFGenKbGelPrefixLineObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbGelPrefixLineObj readCachedGelPrefixLine( CFGenKbGelInstructionPKey pkey ) {
-		ICFGenKbGelPrefixLineObj obj = null;
+	public IYCFGenKbGelPrefixLineObj readCachedGelPrefixLine( YCFGenKbGelInstructionPKey pkey ) {
+		IYCFGenKbGelPrefixLineObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeGelPrefixLine( ICFGenKbGelPrefixLineObj obj )
+	public void reallyDeepDisposeGelPrefixLine( IYCFGenKbGelPrefixLineObj obj )
 	{
-		final String S_ProcName = "CFGenKbGelPrefixLineTableObj.reallyDeepDisposeGelPrefixLine() ";
+		final String S_ProcName = "YCFGenKbGelPrefixLineTableObj.reallyDeepDisposeGelPrefixLine() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFGenKbGelInstructionPKey pkey = obj.getPKey();
-		ICFGenKbGelPrefixLineObj existing = readCachedGelPrefixLine( pkey );
+		YCFGenKbGelInstructionPKey pkey = obj.getPKey();
+		IYCFGenKbGelPrefixLineObj existing = readCachedGelPrefixLine( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFGenKbGelPrefixLineByRemainderIdxKey keyRemainderIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
+		YCFGenKbGelPrefixLineByRemainderIdxKey keyRemainderIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
 		keyRemainderIdx.setOptionalRemainderTenantId( existing.getOptionalRemainderTenantId() );
 		keyRemainderIdx.setRequiredRemainderGelCacheId( existing.getRequiredRemainderGelCacheId() );
 		keyRemainderIdx.setOptionalRemainderInstId( existing.getOptionalRemainderInstId() );
@@ -400,57 +400,57 @@ public class CFGenKbGelPrefixLineTableObj
 
 		schema.getGelInstructionTableObj().reallyDeepDisposeGelInstruction( obj );
 	}
-	public void deepDisposeGelPrefixLine( CFGenKbGelInstructionPKey pkey ) {
-		ICFGenKbGelPrefixLineObj obj = readCachedGelPrefixLine( pkey );
+	public void deepDisposeGelPrefixLine( YCFGenKbGelInstructionPKey pkey ) {
+		IYCFGenKbGelPrefixLineObj obj = readCachedGelPrefixLine( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFGenKbGelPrefixLineObj lockGelPrefixLine( CFGenKbGelInstructionPKey pkey ) {
-		ICFGenKbGelPrefixLineObj locked = null;
-		CFGenKbGelPrefixLineBuff lockBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFGenKbGelPrefixLineObj lockGelPrefixLine( YCFGenKbGelInstructionPKey pkey ) {
+		IYCFGenKbGelPrefixLineObj locked = null;
+		YCFGenKbGelPrefixLineBuff lockBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
-				locked = (ICFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( lockBuff.getClassCode() );
-			locked.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				locked = (IYCFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( lockBuff.getClassCode() );
+			locked.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFGenKbGelPrefixLineObj)locked.realise();
+			locked = (IYCFGenKbGelPrefixLineObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockGelPrefixLine", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockGelPrefixLine", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readAllGelPrefixLine() {
+	public List<IYCFGenKbGelPrefixLineObj> readAllGelPrefixLine() {
 		return( readAllGelPrefixLine( false ) );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readAllGelPrefixLine( boolean forceRead ) {
+	public List<IYCFGenKbGelPrefixLineObj> readAllGelPrefixLine( boolean forceRead ) {
 		final String S_ProcName = "readAllGelPrefixLine";
 		if( ( allGelPrefixLine == null ) || forceRead ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> map = new HashMap<CFGenKbGelInstructionPKey,ICFGenKbGelPrefixLineObj>();
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> map = new HashMap<YCFGenKbGelInstructionPKey,IYCFGenKbGelPrefixLineObj>();
 			allGelPrefixLine = map;
-			CFGenKbGelPrefixLineBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().readAllDerived( schema.getAuthorization() );
-			CFGenKbGelPrefixLineBuff buff;
-			ICFGenKbGelPrefixLineObj obj;
+			YCFGenKbGelPrefixLineBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().readAllDerived( schema.getAuthorization() );
+			YCFGenKbGelPrefixLineBuff buff;
+			IYCFGenKbGelPrefixLineObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelPrefixLineObj realised = (ICFGenKbGelPrefixLineObj)obj.realise();
+				IYCFGenKbGelPrefixLineObj realised = (IYCFGenKbGelPrefixLineObj)obj.realise();
 			}
 		}
 		int len = allGelPrefixLine.size();
-		ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-		Iterator<ICFGenKbGelPrefixLineObj> valIter = allGelPrefixLine.values().iterator();
+		IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+		Iterator<IYCFGenKbGelPrefixLineObj> valIter = allGelPrefixLine.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -458,20 +458,20 @@ public class CFGenKbGelPrefixLineTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>(len);
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -484,31 +484,31 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelPrefixLineObj> sortedList = arrayList;
+		List<IYCFGenKbGelPrefixLineObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readCachedAllGelPrefixLine() {
+	public List<IYCFGenKbGelPrefixLineObj> readCachedAllGelPrefixLine() {
 		final String S_ProcName = "readCachedAllGelPrefixLine";
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>();
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>();
 		if( allGelPrefixLine != null ) {
 			int len = allGelPrefixLine.size();
-			ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-			Iterator<ICFGenKbGelPrefixLineObj> valIter = allGelPrefixLine.values().iterator();
+			IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+			Iterator<IYCFGenKbGelPrefixLineObj> valIter = allGelPrefixLine.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -516,7 +516,7 @@ public class CFGenKbGelPrefixLineTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -527,8 +527,8 @@ public class CFGenKbGelPrefixLineTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -541,8 +541,8 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -552,7 +552,7 @@ public class CFGenKbGelPrefixLineTableObj
 		return( arrayList );
 	}
 
-	public ICFGenKbGelPrefixLineObj readGelPrefixLineByPIdx( long TenantId,
+	public IYCFGenKbGelPrefixLineObj readGelPrefixLineByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
@@ -562,63 +562,63 @@ public class CFGenKbGelPrefixLineTableObj
 			false ) );
 	}
 
-	public ICFGenKbGelPrefixLineObj readGelPrefixLineByPIdx( long TenantId,
+	public IYCFGenKbGelPrefixLineObj readGelPrefixLineByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId, boolean forceRead )
 	{
-		CFGenKbGelInstructionPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredGelCacheId( GelCacheId );
 		pkey.setRequiredGelInstId( GelInstId );
-		ICFGenKbGelPrefixLineObj obj = readGelPrefixLine( pkey, forceRead );
+		IYCFGenKbGelPrefixLineObj obj = readGelPrefixLine( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByTenantIdx( long TenantId )
+	public List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByTenantIdx( long TenantId )
 	{
 		return( readGelPrefixLineByTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByTenantIdx( long TenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelPrefixLineByTenantIdx";
-		CFGenKbGelInstructionByTenantIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+		YCFGenKbGelInstructionByTenantIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict;
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFGenKbGelInstructionByTenantIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > >();
+			indexByTenantIdx = new HashMap< YCFGenKbGelInstructionByTenantIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > >();
 		}
 		if( ( ! forceRead ) && indexByTenantIdx.containsKey( key ) ) {
 			dict = indexByTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj>();
-			ICFGenKbGelInstructionObj obj;
-			CFGenKbGelInstructionBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj>();
+			IYCFGenKbGelInstructionObj obj;
+			YCFGenKbGelInstructionBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFGenKbGelInstructionBuff buff;
+			YCFGenKbGelInstructionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelPrefixLineObj realised = (ICFGenKbGelPrefixLineObj)obj.realise();
+				IYCFGenKbGelPrefixLineObj realised = (IYCFGenKbGelPrefixLineObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-		Iterator<ICFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
+		IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+		Iterator<IYCFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -626,20 +626,20 @@ public class CFGenKbGelPrefixLineTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>(len);
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -652,19 +652,19 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelPrefixLineObj> sortedList = arrayList;
+		List<IYCFGenKbGelPrefixLineObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByGelCacheIdx( long TenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByGelCacheIdx( long TenantId,
 		long GelCacheId )
 	{
 		return( readGelPrefixLineByGelCacheIdx( TenantId,
@@ -672,48 +672,48 @@ public class CFGenKbGelPrefixLineTableObj
 			false ) );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByGelCacheIdx( long TenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelPrefixLineByGelCacheIdx";
-		CFGenKbGelInstructionByGelCacheIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+		YCFGenKbGelInstructionByGelCacheIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict;
 		if( indexByGelCacheIdx == null ) {
-			indexByGelCacheIdx = new HashMap< CFGenKbGelInstructionByGelCacheIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > >();
+			indexByGelCacheIdx = new HashMap< YCFGenKbGelInstructionByGelCacheIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > >();
 		}
 		if( ( ! forceRead ) && indexByGelCacheIdx.containsKey( key ) ) {
 			dict = indexByGelCacheIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj>();
-			ICFGenKbGelInstructionObj obj;
-			CFGenKbGelInstructionBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByGelCacheIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj>();
+			IYCFGenKbGelInstructionObj obj;
+			YCFGenKbGelInstructionBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByGelCacheIdx( schema.getAuthorization(),
 				TenantId,
 				GelCacheId );
-			CFGenKbGelInstructionBuff buff;
+			YCFGenKbGelInstructionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelPrefixLineObj realised = (ICFGenKbGelPrefixLineObj)obj.realise();
+				IYCFGenKbGelPrefixLineObj realised = (IYCFGenKbGelPrefixLineObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByGelCacheIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-		Iterator<ICFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
+		IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+		Iterator<IYCFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -721,20 +721,20 @@ public class CFGenKbGelPrefixLineTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>(len);
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -747,19 +747,19 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelPrefixLineObj> sortedList = arrayList;
+		List<IYCFGenKbGelPrefixLineObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByChainIdx( Long ChainInstTenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
@@ -769,51 +769,51 @@ public class CFGenKbGelPrefixLineTableObj
 			false ) );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByChainIdx( Long ChainInstTenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelPrefixLineByChainIdx";
-		CFGenKbGelInstructionByChainIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+		YCFGenKbGelInstructionByChainIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 		key.setOptionalChainInstTenantId( ChainInstTenantId );
 		key.setOptionalChainInstGelCacheId( ChainInstGelCacheId );
 		key.setOptionalChainInstGelInstId( ChainInstGelInstId );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict;
 		if( indexByChainIdx == null ) {
-			indexByChainIdx = new HashMap< CFGenKbGelInstructionByChainIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > >();
+			indexByChainIdx = new HashMap< YCFGenKbGelInstructionByChainIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > >();
 		}
 		if( ( ! forceRead ) && indexByChainIdx.containsKey( key ) ) {
 			dict = indexByChainIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj>();
-			ICFGenKbGelInstructionObj obj;
-			CFGenKbGelInstructionBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByChainIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj>();
+			IYCFGenKbGelInstructionObj obj;
+			YCFGenKbGelInstructionBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelInstruction().readDerivedByChainIdx( schema.getAuthorization(),
 				ChainInstTenantId,
 				ChainInstGelCacheId,
 				ChainInstGelInstId );
-			CFGenKbGelInstructionBuff buff;
+			YCFGenKbGelInstructionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelPrefixLineObj realised = (ICFGenKbGelPrefixLineObj)obj.realise();
+				IYCFGenKbGelPrefixLineObj realised = (IYCFGenKbGelPrefixLineObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByChainIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-		Iterator<ICFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
+		IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+		Iterator<IYCFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -821,20 +821,20 @@ public class CFGenKbGelPrefixLineTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>(len);
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -847,19 +847,19 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelPrefixLineObj> sortedList = arrayList;
+		List<IYCFGenKbGelPrefixLineObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByRemainderIdx( Long RemainderTenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId )
 	{
@@ -869,51 +869,51 @@ public class CFGenKbGelPrefixLineTableObj
 			false ) );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByRemainderIdx( Long RemainderTenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readGelPrefixLineByRemainderIdx";
-		CFGenKbGelPrefixLineByRemainderIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
+		YCFGenKbGelPrefixLineByRemainderIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
 		key.setOptionalRemainderTenantId( RemainderTenantId );
 		key.setRequiredRemainderGelCacheId( RemainderGelCacheId );
 		key.setOptionalRemainderInstId( RemainderInstId );
-		Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict;
+		Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict;
 		if( indexByRemainderIdx == null ) {
-			indexByRemainderIdx = new HashMap< CFGenKbGelPrefixLineByRemainderIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > >();
+			indexByRemainderIdx = new HashMap< YCFGenKbGelPrefixLineByRemainderIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > >();
 		}
 		if( ( ! forceRead ) && indexByRemainderIdx.containsKey( key ) ) {
 			dict = indexByRemainderIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj>();
-			ICFGenKbGelPrefixLineObj obj;
-			CFGenKbGelPrefixLineBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().readDerivedByRemainderIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj>();
+			IYCFGenKbGelPrefixLineObj obj;
+			YCFGenKbGelPrefixLineBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().readDerivedByRemainderIdx( schema.getAuthorization(),
 				RemainderTenantId,
 				RemainderGelCacheId,
 				RemainderInstId );
-			CFGenKbGelPrefixLineBuff buff;
+			YCFGenKbGelPrefixLineBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
+				obj = (IYCFGenKbGelPrefixLineObj)schema.getGelInstructionTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbGelPrefixLineObj realised = (ICFGenKbGelPrefixLineObj)obj.realise();
+				IYCFGenKbGelPrefixLineObj realised = (IYCFGenKbGelPrefixLineObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByRemainderIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-		Iterator<ICFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
+		IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+		Iterator<IYCFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -921,20 +921,20 @@ public class CFGenKbGelPrefixLineTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>(len);
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -947,24 +947,24 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbGelPrefixLineObj> sortedList = arrayList;
+		List<IYCFGenKbGelPrefixLineObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFGenKbGelPrefixLineObj readCachedGelPrefixLineByPIdx( long TenantId,
+	public IYCFGenKbGelPrefixLineObj readCachedGelPrefixLineByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId )
 	{
-		ICFGenKbGelPrefixLineObj obj = null;
-		CFGenKbGelInstructionPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
+		IYCFGenKbGelPrefixLineObj obj = null;
+		YCFGenKbGelInstructionPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredGelCacheId( GelCacheId );
 		pkey.setRequiredGelInstId( GelInstId );
@@ -972,25 +972,25 @@ public class CFGenKbGelPrefixLineTableObj
 		return( obj );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readCachedGelPrefixLineByTenantIdx( long TenantId )
+	public List<IYCFGenKbGelPrefixLineObj> readCachedGelPrefixLineByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedGelPrefixLineByTenantIdx";
-		CFGenKbGelInstructionByTenantIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+		YCFGenKbGelInstructionByTenantIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>();
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>();
 		if( indexByTenantIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict;
 			if( indexByTenantIdx.containsKey( key ) ) {
 				dict = indexByTenantIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-				Iterator<ICFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
+				IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+				Iterator<IYCFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -998,7 +998,7 @@ public class CFGenKbGelPrefixLineTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1011,8 +1011,8 @@ public class CFGenKbGelPrefixLineTableObj
 			}
 		}
 		else {
-			ICFGenKbGelPrefixLineObj obj;
-			Iterator<ICFGenKbGelPrefixLineObj> valIter = members.values().iterator();
+			IYCFGenKbGelPrefixLineObj obj;
+			Iterator<IYCFGenKbGelPrefixLineObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1022,8 +1022,8 @@ public class CFGenKbGelPrefixLineTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1036,8 +1036,8 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1047,27 +1047,27 @@ public class CFGenKbGelPrefixLineTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readCachedGelPrefixLineByGelCacheIdx( long TenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readCachedGelPrefixLineByGelCacheIdx( long TenantId,
 		long GelCacheId )
 	{
 		final String S_ProcName = "readCachedGelPrefixLineByGelCacheIdx";
-		CFGenKbGelInstructionByGelCacheIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+		YCFGenKbGelInstructionByGelCacheIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>();
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>();
 		if( indexByGelCacheIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict;
 			if( indexByGelCacheIdx.containsKey( key ) ) {
 				dict = indexByGelCacheIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-				Iterator<ICFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
+				IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+				Iterator<IYCFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1075,7 +1075,7 @@ public class CFGenKbGelPrefixLineTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1088,8 +1088,8 @@ public class CFGenKbGelPrefixLineTableObj
 			}
 		}
 		else {
-			ICFGenKbGelPrefixLineObj obj;
-			Iterator<ICFGenKbGelPrefixLineObj> valIter = members.values().iterator();
+			IYCFGenKbGelPrefixLineObj obj;
+			Iterator<IYCFGenKbGelPrefixLineObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1099,8 +1099,8 @@ public class CFGenKbGelPrefixLineTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1113,8 +1113,8 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1124,29 +1124,29 @@ public class CFGenKbGelPrefixLineTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readCachedGelPrefixLineByChainIdx( Long ChainInstTenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readCachedGelPrefixLineByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
 		final String S_ProcName = "readCachedGelPrefixLineByChainIdx";
-		CFGenKbGelInstructionByChainIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+		YCFGenKbGelInstructionByChainIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 		key.setOptionalChainInstTenantId( ChainInstTenantId );
 		key.setOptionalChainInstGelCacheId( ChainInstGelCacheId );
 		key.setOptionalChainInstGelInstId( ChainInstGelInstId );
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>();
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>();
 		if( indexByChainIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict;
 			if( indexByChainIdx.containsKey( key ) ) {
 				dict = indexByChainIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-				Iterator<ICFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
+				IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+				Iterator<IYCFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1154,7 +1154,7 @@ public class CFGenKbGelPrefixLineTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1167,8 +1167,8 @@ public class CFGenKbGelPrefixLineTableObj
 			}
 		}
 		else {
-			ICFGenKbGelPrefixLineObj obj;
-			Iterator<ICFGenKbGelPrefixLineObj> valIter = members.values().iterator();
+			IYCFGenKbGelPrefixLineObj obj;
+			Iterator<IYCFGenKbGelPrefixLineObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1178,8 +1178,8 @@ public class CFGenKbGelPrefixLineTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1192,8 +1192,8 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1203,29 +1203,29 @@ public class CFGenKbGelPrefixLineTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbGelPrefixLineObj> readCachedGelPrefixLineByRemainderIdx( Long RemainderTenantId,
+	public List<IYCFGenKbGelPrefixLineObj> readCachedGelPrefixLineByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId )
 	{
 		final String S_ProcName = "readCachedGelPrefixLineByRemainderIdx";
-		CFGenKbGelPrefixLineByRemainderIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
+		YCFGenKbGelPrefixLineByRemainderIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
 		key.setOptionalRemainderTenantId( RemainderTenantId );
 		key.setRequiredRemainderGelCacheId( RemainderGelCacheId );
 		key.setOptionalRemainderInstId( RemainderInstId );
-		ArrayList<ICFGenKbGelPrefixLineObj> arrayList = new ArrayList<ICFGenKbGelPrefixLineObj>();
+		ArrayList<IYCFGenKbGelPrefixLineObj> arrayList = new ArrayList<IYCFGenKbGelPrefixLineObj>();
 		if( indexByRemainderIdx != null ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict;
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict;
 			if( indexByRemainderIdx.containsKey( key ) ) {
 				dict = indexByRemainderIdx.get( key );
 				int len = dict.size();
-				ICFGenKbGelPrefixLineObj arr[] = new ICFGenKbGelPrefixLineObj[len];
-				Iterator<ICFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
+				IYCFGenKbGelPrefixLineObj arr[] = new IYCFGenKbGelPrefixLineObj[len];
+				Iterator<IYCFGenKbGelPrefixLineObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1233,7 +1233,7 @@ public class CFGenKbGelPrefixLineTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1246,8 +1246,8 @@ public class CFGenKbGelPrefixLineTableObj
 			}
 		}
 		else {
-			ICFGenKbGelPrefixLineObj obj;
-			Iterator<ICFGenKbGelPrefixLineObj> valIter = members.values().iterator();
+			IYCFGenKbGelPrefixLineObj obj;
+			Iterator<IYCFGenKbGelPrefixLineObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1257,8 +1257,8 @@ public class CFGenKbGelPrefixLineTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbGelPrefixLineObj> cmp = new Comparator<ICFGenKbGelPrefixLineObj>() {
-			public int compare( ICFGenKbGelPrefixLineObj lhs, ICFGenKbGelPrefixLineObj rhs ) {
+		Comparator<IYCFGenKbGelPrefixLineObj> cmp = new Comparator<IYCFGenKbGelPrefixLineObj>() {
+			public int compare( IYCFGenKbGelPrefixLineObj lhs, IYCFGenKbGelPrefixLineObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1271,8 +1271,8 @@ public class CFGenKbGelPrefixLineTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
-					CFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
+					YCFGenKbGelInstructionPKey lhsPKey = lhs.getPKey();
+					YCFGenKbGelInstructionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1286,7 +1286,7 @@ public class CFGenKbGelPrefixLineTableObj
 		long GelCacheId,
 		long GelInstId )
 	{
-		ICFGenKbGelPrefixLineObj obj = readCachedGelPrefixLineByPIdx( TenantId,
+		IYCFGenKbGelPrefixLineObj obj = readCachedGelPrefixLineByPIdx( TenantId,
 				GelCacheId,
 				GelInstId );
 		if( obj != null ) {
@@ -1297,10 +1297,10 @@ public class CFGenKbGelPrefixLineTableObj
 	public void deepDisposeGelPrefixLineByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeGelPrefixLineByTenantIdx";
-		ICFGenKbGelPrefixLineObj obj;
-		List<ICFGenKbGelPrefixLineObj> arrayList = readCachedGelPrefixLineByTenantIdx( TenantId );
+		IYCFGenKbGelPrefixLineObj obj;
+		List<IYCFGenKbGelPrefixLineObj> arrayList = readCachedGelPrefixLineByTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelPrefixLineObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelPrefixLineObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1314,11 +1314,11 @@ public class CFGenKbGelPrefixLineTableObj
 		long GelCacheId )
 	{
 		final String S_ProcName = "deepDisposeGelPrefixLineByGelCacheIdx";
-		ICFGenKbGelPrefixLineObj obj;
-		List<ICFGenKbGelPrefixLineObj> arrayList = readCachedGelPrefixLineByGelCacheIdx( TenantId,
+		IYCFGenKbGelPrefixLineObj obj;
+		List<IYCFGenKbGelPrefixLineObj> arrayList = readCachedGelPrefixLineByGelCacheIdx( TenantId,
 				GelCacheId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelPrefixLineObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelPrefixLineObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1333,12 +1333,12 @@ public class CFGenKbGelPrefixLineTableObj
 		Long ChainInstGelInstId )
 	{
 		final String S_ProcName = "deepDisposeGelPrefixLineByChainIdx";
-		ICFGenKbGelPrefixLineObj obj;
-		List<ICFGenKbGelPrefixLineObj> arrayList = readCachedGelPrefixLineByChainIdx( ChainInstTenantId,
+		IYCFGenKbGelPrefixLineObj obj;
+		List<IYCFGenKbGelPrefixLineObj> arrayList = readCachedGelPrefixLineByChainIdx( ChainInstTenantId,
 				ChainInstGelCacheId,
 				ChainInstGelInstId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelPrefixLineObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelPrefixLineObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1353,12 +1353,12 @@ public class CFGenKbGelPrefixLineTableObj
 		Long RemainderInstId )
 	{
 		final String S_ProcName = "deepDisposeGelPrefixLineByRemainderIdx";
-		ICFGenKbGelPrefixLineObj obj;
-		List<ICFGenKbGelPrefixLineObj> arrayList = readCachedGelPrefixLineByRemainderIdx( RemainderTenantId,
+		IYCFGenKbGelPrefixLineObj obj;
+		List<IYCFGenKbGelPrefixLineObj> arrayList = readCachedGelPrefixLineByRemainderIdx( RemainderTenantId,
 				RemainderGelCacheId,
 				RemainderInstId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbGelPrefixLineObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbGelPrefixLineObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1368,20 +1368,20 @@ public class CFGenKbGelPrefixLineTableObj
 		}
 	}
 
-	public ICFGenKbGelPrefixLineObj updateGelPrefixLine( ICFGenKbGelPrefixLineObj Obj ) {
-		ICFGenKbGelPrefixLineObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().updateGelPrefixLine( schema.getAuthorization(),
+	public IYCFGenKbGelPrefixLineObj updateGelPrefixLine( IYCFGenKbGelPrefixLineObj Obj ) {
+		IYCFGenKbGelPrefixLineObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().updateGelPrefixLine( schema.getAuthorization(),
 			Obj.getGelPrefixLineBuff() );
 		if( Obj.getClassCode().equals( "a91a" ) ) {
-			obj = (ICFGenKbGelPrefixLineObj)Obj.realise();
+			obj = (IYCFGenKbGelPrefixLineObj)Obj.realise();
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteGelPrefixLine( ICFGenKbGelPrefixLineObj Obj ) {
-		ICFGenKbGelPrefixLineObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLine( schema.getAuthorization(),
+	public void deleteGelPrefixLine( IYCFGenKbGelPrefixLineObj Obj ) {
+		IYCFGenKbGelPrefixLineObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLine( schema.getAuthorization(),
 			obj.getGelPrefixLineBuff() );
 		Obj.forget();
 	}
@@ -1390,16 +1390,16 @@ public class CFGenKbGelPrefixLineTableObj
 		long GelCacheId,
 		long GelInstId )
 	{
-		CFGenKbGelInstructionPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
+		YCFGenKbGelInstructionPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredGelCacheId( GelCacheId );
 		pkey.setRequiredGelInstId( GelInstId );
-		ICFGenKbGelPrefixLineObj obj = readGelPrefixLine( pkey );
+		IYCFGenKbGelPrefixLineObj obj = readGelPrefixLine( pkey );
 		if( obj != null ) {
-			ICFGenKbGelPrefixLineEditObj editObj = (ICFGenKbGelPrefixLineEditObj)obj.getEdit();
+			IYCFGenKbGelPrefixLineEditObj editObj = (IYCFGenKbGelPrefixLineEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFGenKbGelPrefixLineEditObj)obj.beginEdit();
+				editObj = (IYCFGenKbGelPrefixLineEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1425,19 +1425,19 @@ public class CFGenKbGelPrefixLineTableObj
 
 	public void deleteGelPrefixLineByTenantIdx( long TenantId )
 	{
-		CFGenKbGelInstructionByTenantIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
+		YCFGenKbGelInstructionByTenantIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFGenKbGelInstructionByTenantIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > >();
+			indexByTenantIdx = new HashMap< YCFGenKbGelInstructionByTenantIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > >();
 		}
 		if( indexByTenantIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict = indexByTenantIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByTenantIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict = indexByTenantIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFGenKbGelPrefixLineObj> iter = dict.values().iterator();
-			ICFGenKbGelPrefixLineObj obj;
-			List<ICFGenKbGelPrefixLineObj> toForget = new LinkedList<ICFGenKbGelPrefixLineObj>();
+			Iterator<IYCFGenKbGelPrefixLineObj> iter = dict.values().iterator();
+			IYCFGenKbGelPrefixLineObj obj;
+			List<IYCFGenKbGelPrefixLineObj> toForget = new LinkedList<IYCFGenKbGelPrefixLineObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1450,7 +1450,7 @@ public class CFGenKbGelPrefixLineTableObj
 			indexByTenantIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByTenantIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeGelPrefixLineByTenantIdx( TenantId );
@@ -1459,21 +1459,21 @@ public class CFGenKbGelPrefixLineTableObj
 	public void deleteGelPrefixLineByGelCacheIdx( long TenantId,
 		long GelCacheId )
 	{
-		CFGenKbGelInstructionByGelCacheIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
+		YCFGenKbGelInstructionByGelCacheIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newGelCacheIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredGelCacheId( GelCacheId );
 		if( indexByGelCacheIdx == null ) {
-			indexByGelCacheIdx = new HashMap< CFGenKbGelInstructionByGelCacheIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > >();
+			indexByGelCacheIdx = new HashMap< YCFGenKbGelInstructionByGelCacheIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > >();
 		}
 		if( indexByGelCacheIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict = indexByGelCacheIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByGelCacheIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict = indexByGelCacheIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByGelCacheIdx( schema.getAuthorization(),
 				TenantId,
 				GelCacheId );
-			Iterator<ICFGenKbGelPrefixLineObj> iter = dict.values().iterator();
-			ICFGenKbGelPrefixLineObj obj;
-			List<ICFGenKbGelPrefixLineObj> toForget = new LinkedList<ICFGenKbGelPrefixLineObj>();
+			Iterator<IYCFGenKbGelPrefixLineObj> iter = dict.values().iterator();
+			IYCFGenKbGelPrefixLineObj obj;
+			List<IYCFGenKbGelPrefixLineObj> toForget = new LinkedList<IYCFGenKbGelPrefixLineObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1486,7 +1486,7 @@ public class CFGenKbGelPrefixLineTableObj
 			indexByGelCacheIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByGelCacheIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByGelCacheIdx( schema.getAuthorization(),
 				TenantId,
 				GelCacheId );
 		}
@@ -1498,23 +1498,23 @@ public class CFGenKbGelPrefixLineTableObj
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId )
 	{
-		CFGenKbGelInstructionByChainIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
+		YCFGenKbGelInstructionByChainIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelInstruction().newChainIdxKey();
 		key.setOptionalChainInstTenantId( ChainInstTenantId );
 		key.setOptionalChainInstGelCacheId( ChainInstGelCacheId );
 		key.setOptionalChainInstGelInstId( ChainInstGelInstId );
 		if( indexByChainIdx == null ) {
-			indexByChainIdx = new HashMap< CFGenKbGelInstructionByChainIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > >();
+			indexByChainIdx = new HashMap< YCFGenKbGelInstructionByChainIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > >();
 		}
 		if( indexByChainIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict = indexByChainIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByChainIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict = indexByChainIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByChainIdx( schema.getAuthorization(),
 				ChainInstTenantId,
 				ChainInstGelCacheId,
 				ChainInstGelInstId );
-			Iterator<ICFGenKbGelPrefixLineObj> iter = dict.values().iterator();
-			ICFGenKbGelPrefixLineObj obj;
-			List<ICFGenKbGelPrefixLineObj> toForget = new LinkedList<ICFGenKbGelPrefixLineObj>();
+			Iterator<IYCFGenKbGelPrefixLineObj> iter = dict.values().iterator();
+			IYCFGenKbGelPrefixLineObj obj;
+			List<IYCFGenKbGelPrefixLineObj> toForget = new LinkedList<IYCFGenKbGelPrefixLineObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1527,7 +1527,7 @@ public class CFGenKbGelPrefixLineTableObj
 			indexByChainIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByChainIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByChainIdx( schema.getAuthorization(),
 				ChainInstTenantId,
 				ChainInstGelCacheId,
 				ChainInstGelInstId );
@@ -1541,23 +1541,23 @@ public class CFGenKbGelPrefixLineTableObj
 		long RemainderGelCacheId,
 		Long RemainderInstId )
 	{
-		CFGenKbGelPrefixLineByRemainderIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
+		YCFGenKbGelPrefixLineByRemainderIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelPrefixLine().newRemainderIdxKey();
 		key.setOptionalRemainderTenantId( RemainderTenantId );
 		key.setRequiredRemainderGelCacheId( RemainderGelCacheId );
 		key.setOptionalRemainderInstId( RemainderInstId );
 		if( indexByRemainderIdx == null ) {
-			indexByRemainderIdx = new HashMap< CFGenKbGelPrefixLineByRemainderIdxKey,
-				Map< CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj > >();
+			indexByRemainderIdx = new HashMap< YCFGenKbGelPrefixLineByRemainderIdxKey,
+				Map< YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj > >();
 		}
 		if( indexByRemainderIdx.containsKey( key ) ) {
-			Map<CFGenKbGelInstructionPKey, ICFGenKbGelPrefixLineObj> dict = indexByRemainderIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByRemainderIdx( schema.getAuthorization(),
+			Map<YCFGenKbGelInstructionPKey, IYCFGenKbGelPrefixLineObj> dict = indexByRemainderIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByRemainderIdx( schema.getAuthorization(),
 				RemainderTenantId,
 				RemainderGelCacheId,
 				RemainderInstId );
-			Iterator<ICFGenKbGelPrefixLineObj> iter = dict.values().iterator();
-			ICFGenKbGelPrefixLineObj obj;
-			List<ICFGenKbGelPrefixLineObj> toForget = new LinkedList<ICFGenKbGelPrefixLineObj>();
+			Iterator<IYCFGenKbGelPrefixLineObj> iter = dict.values().iterator();
+			IYCFGenKbGelPrefixLineObj obj;
+			List<IYCFGenKbGelPrefixLineObj> toForget = new LinkedList<IYCFGenKbGelPrefixLineObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1570,7 +1570,7 @@ public class CFGenKbGelPrefixLineTableObj
 			indexByRemainderIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByRemainderIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPrefixLine().deleteGelPrefixLineByRemainderIdx( schema.getAuthorization(),
 				RemainderTenantId,
 				RemainderGelCacheId,
 				RemainderInstId );

@@ -2,17 +2,17 @@
 // Description: Java 11 XML SAX Element Handler for ServerObjFunc
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -54,23 +54,23 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSaxLoaderServerObjFuncParse XML SAX Element Handler implementation
+ *	YCFBamSaxLoaderServerObjFuncParse XML SAX Element Handler implementation
  *	for ServerObjFunc.
  */
-public class CFBamSaxLoaderServerObjFunc
-	extends CFLibXmlCoreElementHandler
+public class YCFBamSaxLoaderServerObjFunc
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamSaxLoaderServerObjFunc( CFBamSaxLoader saxLoader ) {
+	public YCFBamSaxLoaderServerObjFunc( YCFBamSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -82,13 +82,13 @@ public class CFBamSaxLoaderServerObjFunc
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFBamServerObjFuncObj origBuff = null;
-		ICFBamServerObjFuncEditObj editBuff = null;
+		IYCFBamServerObjFuncObj origBuff = null;
+		IYCFBamServerObjFuncEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// Scope Attributes
 		// Scope References
-		ICFBamTenantObj refTenant = null;
+		IYCFBamTenantObj refTenant = null;
 		// ServerMethod Attributes
 		String attrName = null;
 		String attrShortName = null;
@@ -104,12 +104,12 @@ public class CFBamSaxLoaderServerObjFunc
 		String attrCsMethodBody = null;
 		String attrDefSchema = null;
 		// ServerMethod References
-		ICFBamSchemaDefObj refDefSchema = null;
-		ICFBamTableObj refForTable = null;
+		IYCFBamSchemaDefObj refDefSchema = null;
+		IYCFBamTableObj refForTable = null;
 		// ServerObjFunc Attributes
 		String attrRetTable = null;
 		// ServerObjFunc References
-		ICFBamTableObj refRetTable = null;
+		IYCFBamTableObj refRetTable = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -118,25 +118,25 @@ public class CFBamSaxLoaderServerObjFunc
 		try {
 			assert qName.equals( "ServerObjFunc" );
 
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFBamServerObjFuncObj)schemaObj.getServerObjFuncTableObj().newInstance();
-			editBuff = (ICFBamServerObjFuncEditObj)origBuff.beginEdit();
+			origBuff = (IYCFBamServerObjFuncObj)schemaObj.getServerObjFuncTableObj().newInstance();
+			editBuff = (IYCFBamServerObjFuncEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -144,7 +144,7 @@ public class CFBamSaxLoaderServerObjFunc
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -153,7 +153,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -162,7 +162,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "ShortName" ) ) {
 					if( attrShortName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -171,7 +171,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "Label" ) ) {
 					if( attrLabel != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -180,7 +180,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "ShortDescription" ) ) {
 					if( attrShortDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -189,7 +189,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -198,7 +198,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "Suffix" ) ) {
 					if( attrSuffix != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -207,7 +207,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "IsInstanceMethod" ) ) {
 					if( attrIsInstanceMethod != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -216,7 +216,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "IsServerOnly" ) ) {
 					if( attrIsServerOnly != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -225,7 +225,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "CodeVis" ) ) {
 					if( attrCodeVis != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -234,7 +234,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "JMethodBody" ) ) {
 					if( attrJMethodBody != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -243,7 +243,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "CppMethodBody" ) ) {
 					if( attrCppMethodBody != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -252,7 +252,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "CsMethodBody" ) ) {
 					if( attrCsMethodBody != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -261,7 +261,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "DefSchema" ) ) {
 					if( attrDefSchema != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -270,7 +270,7 @@ public class CFBamSaxLoaderServerObjFunc
 				}
 				else if( attrLocalName.equals( "RetTable" ) ) {
 					if( attrRetTable != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -281,7 +281,7 @@ public class CFBamSaxLoaderServerObjFunc
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -290,50 +290,50 @@ public class CFBamSaxLoaderServerObjFunc
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 			if( ( attrIsInstanceMethod == null ) || ( attrIsInstanceMethod.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"IsInstanceMethod" );
 			}
 			if( ( attrIsServerOnly == null ) || ( attrIsServerOnly.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"IsServerOnly" );
 			}
 			if( ( attrCodeVis == null ) || ( attrCodeVis.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"CodeVis" );
 			}
 			if( attrJMethodBody == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"JMethodBody" );
 			}
 			if( attrCppMethodBody == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"CppMethodBody" );
 			}
 			if( attrCsMethodBody == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"CsMethodBody" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "ShortName", attrShortName );
@@ -386,7 +386,7 @@ public class CFBamSaxLoaderServerObjFunc
 				natIsInstanceMethod = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected IsInstanceMethod value, must be one of true, false, yes, no, 1, or 0, not \"" + attrIsInstanceMethod + "\"" );
 			}
@@ -400,13 +400,13 @@ public class CFBamSaxLoaderServerObjFunc
 				natIsServerOnly = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected IsServerOnly value, must be one of true, false, yes, no, 1, or 0, not \"" + attrIsServerOnly + "\"" );
 			}
 			editBuff.setRequiredIsServerOnly( natIsServerOnly );
 
-			ICFBamSchema.CodeVisibilityEnum natCodeVis = CFBamSchema.parseCodeVisibilityEnum( attrCodeVis );
+			IYCFBamSchema.CodeVisibilityEnum natCodeVis = YCFBamSchema.parseCodeVisibilityEnum( attrCodeVis );
 			editBuff.setRequiredCodeVis( natCodeVis );
 
 			String natJMethodBody = attrJMethodBody;
@@ -420,7 +420,7 @@ public class CFBamSaxLoaderServerObjFunc
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -432,33 +432,33 @@ public class CFBamSaxLoaderServerObjFunc
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamTableObj ) {
-				refForTable = (ICFBamTableObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamTableObj ) {
+				refForTable = (IYCFBamTableObj) scopeObj;
 				editBuff.setRequiredContainerForTable( refForTable );
-				refTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamTableObj" );
+					"IYCFBamTableObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
@@ -467,10 +467,10 @@ public class CFBamSaxLoaderServerObjFunc
 
 			// Lookup refDefSchema by qualified name
 			if( ( attrDefSchema != null ) && ( attrDefSchema.length() > 0 ) ) {
-				refDefSchema = (ICFBamSchemaDefObj)(editBuff.getNamedObject( schemaObj.getSchemaDefTableObj().getObjQualifyingClass(),
+				refDefSchema = (IYCFBamSchemaDefObj)(editBuff.getNamedObject( schemaObj.getSchemaDefTableObj().getObjQualifyingClass(),
 					attrDefSchema ) );
 				if( refDefSchema == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve DefSchema reference qualified name \"" + attrDefSchema + "\" to table SchemaDef" );
@@ -483,10 +483,10 @@ public class CFBamSaxLoaderServerObjFunc
 
 			// Lookup refRetTable by qualified name
 			if( ( attrRetTable != null ) && ( attrRetTable.length() > 0 ) ) {
-				refRetTable = (ICFBamTableObj)(editBuff.getNamedObject( schemaObj.getTableTableObj().getObjQualifyingClass(),
+				refRetTable = (IYCFBamTableObj)(editBuff.getNamedObject( schemaObj.getTableTableObj().getObjQualifyingClass(),
 					attrRetTable ) );
 				if( refRetTable == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve RetTable reference qualified name \"" + attrRetTable + "\" to table Table" );
@@ -497,9 +497,9 @@ public class CFBamSaxLoaderServerObjFunc
 			}
 			editBuff.setOptionalLookupRetTable( refRetTable );
 
-			CFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getServerObjFuncLoaderBehaviour();
-			ICFBamServerObjFuncEditObj editServerObjFunc = null;
-			ICFBamServerObjFuncObj origServerObjFunc = (ICFBamServerObjFuncObj)schemaObj.getServerObjFuncTableObj().readServerObjFuncByUNameIdx( refForTable.getRequiredTenantId(),
+			YCFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getServerObjFuncLoaderBehaviour();
+			IYCFBamServerObjFuncEditObj editServerObjFunc = null;
+			IYCFBamServerObjFuncObj origServerObjFunc = (IYCFBamServerObjFuncObj)schemaObj.getServerObjFuncTableObj().readServerObjFuncByUNameIdx( refForTable.getRequiredTenantId(),
 			refForTable.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origServerObjFunc == null ) {
@@ -510,7 +510,7 @@ public class CFBamSaxLoaderServerObjFunc
 					case Insert:
 						break;
 					case Update:
-						editServerObjFunc = (ICFBamServerObjFuncEditObj)origServerObjFunc.beginEdit();
+						editServerObjFunc = (IYCFBamServerObjFuncEditObj)origServerObjFunc.beginEdit();
 						editServerObjFunc.setRequiredName( editBuff.getRequiredName() );
 						editServerObjFunc.setOptionalShortName( editBuff.getOptionalShortName() );
 						editServerObjFunc.setOptionalLabel( editBuff.getOptionalLabel() );
@@ -527,7 +527,7 @@ public class CFBamSaxLoaderServerObjFunc
 						editServerObjFunc.setOptionalLookupRetTable( editBuff.getOptionalLookupRetTable() );
 						break;
 					case Replace:
-						editServerObjFunc = (ICFBamServerObjFuncEditObj)origServerObjFunc.beginEdit();
+						editServerObjFunc = (IYCFBamServerObjFuncEditObj)origServerObjFunc.beginEdit();
 						editServerObjFunc.deleteInstance();
 						editServerObjFunc = null;
 						origServerObjFunc = null;
@@ -541,7 +541,7 @@ public class CFBamSaxLoaderServerObjFunc
 					editServerObjFunc.update();
 				}
 				else {
-					origServerObjFunc = (ICFBamServerObjFuncObj)editServerObjFunc.create();
+					origServerObjFunc = (IYCFBamServerObjFuncObj)editServerObjFunc.create();
 				}
 				editServerObjFunc = null;
 			}

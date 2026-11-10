@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,17 +21,17 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
-public class CFLibNullArgumentException extends CFLibArgumentException {
+public class YCFLibNullArgumentException extends YCFLibArgumentException {
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		String msg )
 	{
 		super( msg );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -39,7 +39,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 		super( throwingClass, methName, msg );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		Class throwingClass,
 		String methName,
 		String msg,
@@ -48,7 +48,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 		super( throwingClass, methName, msg, th );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -58,7 +58,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 		super( throwingClass, methName, argNo, argName, msg );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -69,7 +69,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 		super( throwingClass, methName, argNo, argName, msg, th );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -79,7 +79,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 			"is null" );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -91,14 +91,14 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		String fieldName,
 		String msg )
 	{
 		super( fieldName, msg );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		String fieldName,
 		String methName,
 		String msg )
@@ -106,7 +106,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 		super( fieldName, methName, msg );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		String fieldName,
 		String methName,
 		String msg,
@@ -115,7 +115,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 		super( fieldName, methName, msg, th );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -125,7 +125,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 		super( fieldName, methName, argNo, argName, msg );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -136,7 +136,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 		super( fieldName, methName, argNo, argName, msg, th );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -146,7 +146,7 @@ public class CFLibNullArgumentException extends CFLibArgumentException {
 			"is null" );
 	}
 
-	public CFLibNullArgumentException(
+	public YCFLibNullArgumentException(
 		String fieldName,
 		String methName,
 		int argNo,

@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamTZTimestampTypeTableObj
+public interface IYCFBamTZTimestampTypeTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamTZTimestampTypeObj newInstance();
+	IYCFBamTZTimestampTypeObj newInstance();
 
 	/**
 	 *	Instantiate a new TZTimestampType edition of the specified TZTimestampType instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamTZTimestampTypeEditObj newEditInstance( ICFBamTZTimestampTypeObj orig );
+	IYCFBamTZTimestampTypeEditObj newEditInstance( IYCFBamTZTimestampTypeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamTZTimestampTypeObj realiseTZTimestampType( ICFBamTZTimestampTypeObj Obj );
+	IYCFBamTZTimestampTypeObj realiseTZTimestampType( IYCFBamTZTimestampTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamTZTimestampTypeObj createTZTimestampType( ICFBamTZTimestampTypeObj Obj );
+	IYCFBamTZTimestampTypeObj createTZTimestampType( IYCFBamTZTimestampTypeObj Obj );
 
 	/**
 	 *	Read a TZTimestampType-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *	@return	The TZTimestampType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamTZTimestampTypeObj readTZTimestampType( CFBamValuePKey pkey );
+	IYCFBamTZTimestampTypeObj readTZTimestampType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a TZTimestampType-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *	@return	The TZTimestampType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamTZTimestampTypeObj readTZTimestampType( CFBamValuePKey pkey,
+	IYCFBamTZTimestampTypeObj readTZTimestampType( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamTZTimestampTypeObj readCachedTZTimestampType( CFBamValuePKey pkey );
+	IYCFBamTZTimestampTypeObj readCachedTZTimestampType( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeTZTimestampType( ICFBamTZTimestampTypeObj obj );
+	public void reallyDeepDisposeTZTimestampType( IYCFBamTZTimestampTypeObj obj );
 
-	void deepDisposeTZTimestampType( CFBamValuePKey pkey );
+	void deepDisposeTZTimestampType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamTZTimestampTypeObj lockTZTimestampType( CFBamValuePKey pkey );
+	IYCFBamTZTimestampTypeObj lockTZTimestampType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the TZTimestampType-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamTZTimestampTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamTZTimestampTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readAllTZTimestampType();
+	List<IYCFBamTZTimestampTypeObj> readAllTZTimestampType();
 
 	/**
 	 *	Return a sorted map of all the TZTimestampType-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamTZTimestampTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamTZTimestampTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readAllTZTimestampType( boolean forceRead );
+	List<IYCFBamTZTimestampTypeObj> readAllTZTimestampType( boolean forceRead );
 
-	List<ICFBamTZTimestampTypeObj> readCachedAllTZTimestampType();
+	List<IYCFBamTZTimestampTypeObj> readCachedAllTZTimestampType();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamTZTimestampTypeObj readTZTimestampTypeByIdIdx( long TenantId,
+	IYCFBamTZTimestampTypeObj readTZTimestampTypeByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamTZTimestampTypeObj readTZTimestampTypeByIdIdx( long TenantId,
+	IYCFBamTZTimestampTypeObj readTZTimestampTypeByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@param	argName	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamTZTimestampTypeObj readTZTimestampTypeByUNameIdx( long TenantId,
+	IYCFBamTZTimestampTypeObj readTZTimestampTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@param	argName	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamTZTimestampTypeObj readTZTimestampTypeByUNameIdx( long TenantId,
+	IYCFBamTZTimestampTypeObj readTZTimestampTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByValTentIdx( long TenantId );
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByValTentIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByScopeIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByScopeIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@param	argPrevId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByContPrevIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@param	argPrevId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByContPrevIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@param	argNextId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByContNextIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@param	argNextId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByContNextIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@param	argCodeVis	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
@@ -446,77 +446,77 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@param	argCodeVis	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeBySchemaIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	/**
-	 *	Get the map of CFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamTZTimestampTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The TZTimestampType key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The TZTimestampType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamTZTimestampTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZTimestampTypeObj> readTZTimestampTypeBySchemaIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readTZTimestampTypeBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead );
 
-	ICFBamTZTimestampTypeObj readCachedTZTimestampTypeByIdIdx( long TenantId,
+	IYCFBamTZTimestampTypeObj readCachedTZTimestampTypeByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamTZTimestampTypeObj readCachedTZTimestampTypeByUNameIdx( long TenantId,
+	IYCFBamTZTimestampTypeObj readCachedTZTimestampTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeByValTentIdx( long TenantId );
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeByValTentIdx( long TenantId );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeByScopeIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeByContPrevIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeByContNextIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamTZTimestampTypeObj> readCachedTZTimestampTypeBySchemaIdx( long TenantId,
+	List<IYCFBamTZTimestampTypeObj> readCachedTZTimestampTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	void deepDisposeTZTimestampTypeByIdIdx( long TenantId,
@@ -548,11 +548,11 @@ public interface ICFBamTZTimestampTypeTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeTZTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeTZTimestampTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeTZTimestampTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeTZTimestampTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -560,12 +560,12 @@ public interface ICFBamTZTimestampTypeTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamTZTimestampTypeObj updateTZTimestampType( ICFBamTZTimestampTypeObj Obj );
+	IYCFBamTZTimestampTypeObj updateTZTimestampType( IYCFBamTZTimestampTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteTZTimestampType( ICFBamTZTimestampTypeObj Obj );
+	void deleteTZTimestampType( IYCFBamTZTimestampTypeObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -668,7 +668,7 @@ public interface ICFBamTZTimestampTypeTableObj
 	 *
 	 *	@param	argCodeVis	The TZTimestampType key attribute of the instance generating the id.
 	 */
-	void deleteTZTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteTZTimestampTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -681,7 +681,7 @@ public interface ICFBamTZTimestampTypeTableObj
 	 */
 	void deleteTZTimestampTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -694,16 +694,16 @@ public interface ICFBamTZTimestampTypeTableObj
 		long SchemaDefId );
 
 	/**
-	 *	Move the CFBamTZTimestampTypeObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamTZTimestampTypeObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamTZTimestampTypeObj refreshed cache instance.
+	 *	@return	YCFBamTZTimestampTypeObj refreshed cache instance.
 	 */
-	ICFBamTZTimestampTypeObj moveUpTZTimestampType( ICFBamTZTimestampTypeObj Obj );
+	IYCFBamTZTimestampTypeObj moveUpTZTimestampType( IYCFBamTZTimestampTypeObj Obj );
 
 	/**
-	 *	Move the CFBamTZTimestampTypeObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamTZTimestampTypeObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamTZTimestampTypeObj refreshed cache instance.
+	 *	@return	YCFBamTZTimestampTypeObj refreshed cache instance.
 	 */
-	ICFBamTZTimestampTypeObj moveDownTZTimestampType( ICFBamTZTimestampTypeObj Obj );
+	IYCFBamTZTimestampTypeObj moveDownTZTimestampType( IYCFBamTZTimestampTypeObj Obj );
 }

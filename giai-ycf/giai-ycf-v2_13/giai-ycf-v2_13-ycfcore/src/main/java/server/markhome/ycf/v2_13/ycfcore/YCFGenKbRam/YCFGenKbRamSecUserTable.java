@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for SecUser.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,86 +28,86 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamSecUserTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamSecUserTable in-memory RAM DbIO implementation
  *	for SecUser.
  */
-public class CFGenKbRamSecUserTable
-	implements ICFGenKbSecUserTable
+public class YCFGenKbRamSecUserTable
+	implements IYCFGenKbSecUserTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbSecUserPKey,
-				CFGenKbSecUserBuff > dictByPKey
-		= new HashMap< CFGenKbSecUserPKey,
-				CFGenKbSecUserBuff >();
-	private Map< CFGenKbSecUserByULoginIdxKey,
-			CFGenKbSecUserBuff > dictByULoginIdx
-		= new HashMap< CFGenKbSecUserByULoginIdxKey,
-			CFGenKbSecUserBuff >();
-	private Map< CFGenKbSecUserByEMConfIdxKey,
-				Map< CFGenKbSecUserPKey,
-					CFGenKbSecUserBuff >> dictByEMConfIdx
-		= new HashMap< CFGenKbSecUserByEMConfIdxKey,
-				Map< CFGenKbSecUserPKey,
-					CFGenKbSecUserBuff >>();
-	private Map< CFGenKbSecUserByPwdResetIdxKey,
-				Map< CFGenKbSecUserPKey,
-					CFGenKbSecUserBuff >> dictByPwdResetIdx
-		= new HashMap< CFGenKbSecUserByPwdResetIdxKey,
-				Map< CFGenKbSecUserPKey,
-					CFGenKbSecUserBuff >>();
-	private Map< CFGenKbSecUserByDefDevIdxKey,
-				Map< CFGenKbSecUserPKey,
-					CFGenKbSecUserBuff >> dictByDefDevIdx
-		= new HashMap< CFGenKbSecUserByDefDevIdxKey,
-				Map< CFGenKbSecUserPKey,
-					CFGenKbSecUserBuff >>();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbSecUserPKey,
+				YCFGenKbSecUserBuff > dictByPKey
+		= new HashMap< YCFGenKbSecUserPKey,
+				YCFGenKbSecUserBuff >();
+	private Map< YCFGenKbSecUserByULoginIdxKey,
+			YCFGenKbSecUserBuff > dictByULoginIdx
+		= new HashMap< YCFGenKbSecUserByULoginIdxKey,
+			YCFGenKbSecUserBuff >();
+	private Map< YCFGenKbSecUserByEMConfIdxKey,
+				Map< YCFGenKbSecUserPKey,
+					YCFGenKbSecUserBuff >> dictByEMConfIdx
+		= new HashMap< YCFGenKbSecUserByEMConfIdxKey,
+				Map< YCFGenKbSecUserPKey,
+					YCFGenKbSecUserBuff >>();
+	private Map< YCFGenKbSecUserByPwdResetIdxKey,
+				Map< YCFGenKbSecUserPKey,
+					YCFGenKbSecUserBuff >> dictByPwdResetIdx
+		= new HashMap< YCFGenKbSecUserByPwdResetIdxKey,
+				Map< YCFGenKbSecUserPKey,
+					YCFGenKbSecUserBuff >>();
+	private Map< YCFGenKbSecUserByDefDevIdxKey,
+				Map< YCFGenKbSecUserPKey,
+					YCFGenKbSecUserBuff >> dictByDefDevIdx
+		= new HashMap< YCFGenKbSecUserByDefDevIdxKey,
+				Map< YCFGenKbSecUserPKey,
+					YCFGenKbSecUserBuff >>();
 
-	public CFGenKbRamSecUserTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamSecUserTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createSecUser( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserBuff Buff )
+	public void createSecUser( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserBuff Buff )
 	{
 		final String S_ProcName = "createSecUser";
-		CFGenKbSecUserPKey pkey = schema.getFactorySecUser().newPKey();
+		YCFGenKbSecUserPKey pkey = schema.getFactorySecUser().newPKey();
 		pkey.setRequiredSecUserId( schema.nextSecUserIdGen() );
 		Buff.setRequiredSecUserId( pkey.getRequiredSecUserId() );
-		CFGenKbSecUserByULoginIdxKey keyULoginIdx = schema.getFactorySecUser().newULoginIdxKey();
+		YCFGenKbSecUserByULoginIdxKey keyULoginIdx = schema.getFactorySecUser().newULoginIdxKey();
 		keyULoginIdx.setRequiredLoginId( Buff.getRequiredLoginId() );
 
-		CFGenKbSecUserByEMConfIdxKey keyEMConfIdx = schema.getFactorySecUser().newEMConfIdxKey();
+		YCFGenKbSecUserByEMConfIdxKey keyEMConfIdx = schema.getFactorySecUser().newEMConfIdxKey();
 		keyEMConfIdx.setOptionalEMailConfirmUuid( Buff.getOptionalEMailConfirmUuid() );
 
-		CFGenKbSecUserByPwdResetIdxKey keyPwdResetIdx = schema.getFactorySecUser().newPwdResetIdxKey();
+		YCFGenKbSecUserByPwdResetIdxKey keyPwdResetIdx = schema.getFactorySecUser().newPwdResetIdxKey();
 		keyPwdResetIdx.setOptionalPasswordResetUuid( Buff.getOptionalPasswordResetUuid() );
 
-		CFGenKbSecUserByDefDevIdxKey keyDefDevIdx = schema.getFactorySecUser().newDefDevIdxKey();
+		YCFGenKbSecUserByDefDevIdxKey keyDefDevIdx = schema.getFactorySecUser().newDefDevIdxKey();
 		keyDefDevIdx.setOptionalDfltDevUserId( Buff.getOptionalDfltDevUserId() );
 		keyDefDevIdx.setOptionalDfltDevName( Buff.getOptionalDfltDevName() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByULoginIdx.containsKey( keyULoginIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"SecUserLoginIdx",
 				keyULoginIdx );
@@ -121,45 +121,45 @@ public class CFGenKbRamSecUserTable
 
 		dictByULoginIdx.put( keyULoginIdx, Buff );
 
-		Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdictEMConfIdx;
+		Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdictEMConfIdx;
 		if( dictByEMConfIdx.containsKey( keyEMConfIdx ) ) {
 			subdictEMConfIdx = dictByEMConfIdx.get( keyEMConfIdx );
 		}
 		else {
-			subdictEMConfIdx = new HashMap< CFGenKbSecUserPKey, CFGenKbSecUserBuff >();
+			subdictEMConfIdx = new HashMap< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff >();
 			dictByEMConfIdx.put( keyEMConfIdx, subdictEMConfIdx );
 		}
 		subdictEMConfIdx.put( pkey, Buff );
 
-		Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdictPwdResetIdx;
+		Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdictPwdResetIdx;
 		if( dictByPwdResetIdx.containsKey( keyPwdResetIdx ) ) {
 			subdictPwdResetIdx = dictByPwdResetIdx.get( keyPwdResetIdx );
 		}
 		else {
-			subdictPwdResetIdx = new HashMap< CFGenKbSecUserPKey, CFGenKbSecUserBuff >();
+			subdictPwdResetIdx = new HashMap< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff >();
 			dictByPwdResetIdx.put( keyPwdResetIdx, subdictPwdResetIdx );
 		}
 		subdictPwdResetIdx.put( pkey, Buff );
 
-		Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdictDefDevIdx;
+		Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdictDefDevIdx;
 		if( dictByDefDevIdx.containsKey( keyDefDevIdx ) ) {
 			subdictDefDevIdx = dictByDefDevIdx.get( keyDefDevIdx );
 		}
 		else {
-			subdictDefDevIdx = new HashMap< CFGenKbSecUserPKey, CFGenKbSecUserBuff >();
+			subdictDefDevIdx = new HashMap< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff >();
 			dictByDefDevIdx.put( keyDefDevIdx, subdictDefDevIdx );
 		}
 		subdictDefDevIdx.put( pkey, Buff );
 
 	}
 
-	public CFGenKbSecUserBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey PKey )
+	public YCFGenKbSecUserBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readDerived";
-		CFGenKbSecUserPKey key = schema.getFactorySecUser().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecUser.readDerived";
+		YCFGenKbSecUserPKey key = schema.getFactorySecUser().newPKey();
 		key.setRequiredSecUserId( PKey.getRequiredSecUserId() );
-		CFGenKbSecUserBuff buff;
+		YCFGenKbSecUserBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -169,13 +169,13 @@ public class CFGenKbRamSecUserTable
 		return( buff );
 	}
 
-	public CFGenKbSecUserBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey PKey )
+	public YCFGenKbSecUserBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readDerived";
-		CFGenKbSecUserPKey key = schema.getFactorySecUser().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecUser.readDerived";
+		YCFGenKbSecUserPKey key = schema.getFactorySecUser().newPKey();
 		key.setRequiredSecUserId( PKey.getRequiredSecUserId() );
-		CFGenKbSecUserBuff buff;
+		YCFGenKbSecUserBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -185,10 +185,10 @@ public class CFGenKbRamSecUserTable
 		return( buff );
 	}
 
-	public CFGenKbSecUserBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamSecUser.readAllDerived";
-		CFGenKbSecUserBuff[] retList = new CFGenKbSecUserBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbSecUserBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbSecUserBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamSecUser.readAllDerived";
+		YCFGenKbSecUserBuff[] retList = new YCFGenKbSecUserBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbSecUserBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -196,14 +196,14 @@ public class CFGenKbRamSecUserTable
 		return( retList );
 	}
 
-	public CFGenKbSecUserBuff readDerivedByULoginIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff readDerivedByULoginIdx( YCFGenKbAuthorization Authorization,
 		String LoginId )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readDerivedByULoginIdx";
-		CFGenKbSecUserByULoginIdxKey key = schema.getFactorySecUser().newULoginIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecUser.readDerivedByULoginIdx";
+		YCFGenKbSecUserByULoginIdxKey key = schema.getFactorySecUser().newULoginIdxKey();
 		key.setRequiredLoginId( LoginId );
 
-		CFGenKbSecUserBuff buff;
+		YCFGenKbSecUserBuff buff;
 		if( dictByULoginIdx.containsKey( key ) ) {
 			buff = dictByULoginIdx.get( key );
 		}
@@ -213,97 +213,97 @@ public class CFGenKbRamSecUserTable
 		return( buff );
 	}
 
-	public CFGenKbSecUserBuff[] readDerivedByEMConfIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] readDerivedByEMConfIdx( YCFGenKbAuthorization Authorization,
 		UUID EMailConfirmUuid )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readDerivedByEMConfIdx";
-		CFGenKbSecUserByEMConfIdxKey key = schema.getFactorySecUser().newEMConfIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecUser.readDerivedByEMConfIdx";
+		YCFGenKbSecUserByEMConfIdxKey key = schema.getFactorySecUser().newEMConfIdxKey();
 		key.setOptionalEMailConfirmUuid( EMailConfirmUuid );
 
-		CFGenKbSecUserBuff[] recArray;
+		YCFGenKbSecUserBuff[] recArray;
 		if( dictByEMConfIdx.containsKey( key ) ) {
-			Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdictEMConfIdx
+			Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdictEMConfIdx
 				= dictByEMConfIdx.get( key );
-			recArray = new CFGenKbSecUserBuff[ subdictEMConfIdx.size() ];
-			Iterator< CFGenKbSecUserBuff > iter = subdictEMConfIdx.values().iterator();
+			recArray = new YCFGenKbSecUserBuff[ subdictEMConfIdx.size() ];
+			Iterator< YCFGenKbSecUserBuff > iter = subdictEMConfIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdictEMConfIdx
-				= new HashMap< CFGenKbSecUserPKey, CFGenKbSecUserBuff >();
+			Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdictEMConfIdx
+				= new HashMap< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff >();
 			dictByEMConfIdx.put( key, subdictEMConfIdx );
-			recArray = new CFGenKbSecUserBuff[0];
+			recArray = new YCFGenKbSecUserBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSecUserBuff[] readDerivedByPwdResetIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] readDerivedByPwdResetIdx( YCFGenKbAuthorization Authorization,
 		UUID PasswordResetUuid )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readDerivedByPwdResetIdx";
-		CFGenKbSecUserByPwdResetIdxKey key = schema.getFactorySecUser().newPwdResetIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecUser.readDerivedByPwdResetIdx";
+		YCFGenKbSecUserByPwdResetIdxKey key = schema.getFactorySecUser().newPwdResetIdxKey();
 		key.setOptionalPasswordResetUuid( PasswordResetUuid );
 
-		CFGenKbSecUserBuff[] recArray;
+		YCFGenKbSecUserBuff[] recArray;
 		if( dictByPwdResetIdx.containsKey( key ) ) {
-			Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdictPwdResetIdx
+			Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdictPwdResetIdx
 				= dictByPwdResetIdx.get( key );
-			recArray = new CFGenKbSecUserBuff[ subdictPwdResetIdx.size() ];
-			Iterator< CFGenKbSecUserBuff > iter = subdictPwdResetIdx.values().iterator();
+			recArray = new YCFGenKbSecUserBuff[ subdictPwdResetIdx.size() ];
+			Iterator< YCFGenKbSecUserBuff > iter = subdictPwdResetIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdictPwdResetIdx
-				= new HashMap< CFGenKbSecUserPKey, CFGenKbSecUserBuff >();
+			Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdictPwdResetIdx
+				= new HashMap< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff >();
 			dictByPwdResetIdx.put( key, subdictPwdResetIdx );
-			recArray = new CFGenKbSecUserBuff[0];
+			recArray = new YCFGenKbSecUserBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSecUserBuff[] readDerivedByDefDevIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] readDerivedByDefDevIdx( YCFGenKbAuthorization Authorization,
 		UUID DfltDevUserId,
 		String DfltDevName )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readDerivedByDefDevIdx";
-		CFGenKbSecUserByDefDevIdxKey key = schema.getFactorySecUser().newDefDevIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecUser.readDerivedByDefDevIdx";
+		YCFGenKbSecUserByDefDevIdxKey key = schema.getFactorySecUser().newDefDevIdxKey();
 		key.setOptionalDfltDevUserId( DfltDevUserId );
 		key.setOptionalDfltDevName( DfltDevName );
 
-		CFGenKbSecUserBuff[] recArray;
+		YCFGenKbSecUserBuff[] recArray;
 		if( dictByDefDevIdx.containsKey( key ) ) {
-			Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdictDefDevIdx
+			Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdictDefDevIdx
 				= dictByDefDevIdx.get( key );
-			recArray = new CFGenKbSecUserBuff[ subdictDefDevIdx.size() ];
-			Iterator< CFGenKbSecUserBuff > iter = subdictDefDevIdx.values().iterator();
+			recArray = new YCFGenKbSecUserBuff[ subdictDefDevIdx.size() ];
+			Iterator< YCFGenKbSecUserBuff > iter = subdictDefDevIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdictDefDevIdx
-				= new HashMap< CFGenKbSecUserPKey, CFGenKbSecUserBuff >();
+			Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdictDefDevIdx
+				= new HashMap< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff >();
 			dictByDefDevIdx.put( key, subdictDefDevIdx );
-			recArray = new CFGenKbSecUserBuff[0];
+			recArray = new YCFGenKbSecUserBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSecUserBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readDerivedByIdIdx() ";
-		CFGenKbSecUserPKey key = schema.getFactorySecUser().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecUser.readDerivedByIdIdx() ";
+		YCFGenKbSecUserPKey key = schema.getFactorySecUser().newPKey();
 		key.setRequiredSecUserId( SecUserId );
 
-		CFGenKbSecUserBuff buff;
+		YCFGenKbSecUserBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -313,41 +313,41 @@ public class CFGenKbRamSecUserTable
 		return( buff );
 	}
 
-	public CFGenKbSecUserBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey PKey )
+	public YCFGenKbSecUserBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readBuff";
-		CFGenKbSecUserBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamSecUser.readBuff";
+		YCFGenKbSecUserBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a90e" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSecUserBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey PKey )
+	public YCFGenKbSecUserBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbSecUserBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbSecUserBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a90e" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSecUserBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbSecUserBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readAllBuff";
-		CFGenKbSecUserBuff buff;
-		ArrayList<CFGenKbSecUserBuff> filteredList = new ArrayList<CFGenKbSecUserBuff>();
-		CFGenKbSecUserBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamSecUser.readAllBuff";
+		YCFGenKbSecUserBuff buff;
+		ArrayList<YCFGenKbSecUserBuff> filteredList = new ArrayList<YCFGenKbSecUserBuff>();
+		YCFGenKbSecUserBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90e" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecUserBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecUserBuff[0] ) );
 	}
 
 	/**
@@ -357,92 +357,92 @@ public class CFGenKbRamSecUserTable
 	 *
 	 *	@return All the specific SecUser instances in the database accessible for the Authorization.
 	 */
-	public CFGenKbSecUserBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		UUID priorSecUserId )
 	{
 		final String S_ProcName = "pageAllBuff";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public CFGenKbSecUserBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readBuffByIdIdx() ";
-		CFGenKbSecUserBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecUser.readBuffByIdIdx() ";
+		YCFGenKbSecUserBuff buff = readDerivedByIdIdx( Authorization,
 			SecUserId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a90e" ) ) {
-			return( (CFGenKbSecUserBuff)buff );
+			return( (YCFGenKbSecUserBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbSecUserBuff readBuffByULoginIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff readBuffByULoginIdx( YCFGenKbAuthorization Authorization,
 		String LoginId )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readBuffByULoginIdx() ";
-		CFGenKbSecUserBuff buff = readDerivedByULoginIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecUser.readBuffByULoginIdx() ";
+		YCFGenKbSecUserBuff buff = readDerivedByULoginIdx( Authorization,
 			LoginId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a90e" ) ) {
-			return( (CFGenKbSecUserBuff)buff );
+			return( (YCFGenKbSecUserBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbSecUserBuff[] readBuffByEMConfIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] readBuffByEMConfIdx( YCFGenKbAuthorization Authorization,
 		UUID EMailConfirmUuid )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readBuffByEMConfIdx() ";
-		CFGenKbSecUserBuff buff;
-		ArrayList<CFGenKbSecUserBuff> filteredList = new ArrayList<CFGenKbSecUserBuff>();
-		CFGenKbSecUserBuff[] buffList = readDerivedByEMConfIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecUser.readBuffByEMConfIdx() ";
+		YCFGenKbSecUserBuff buff;
+		ArrayList<YCFGenKbSecUserBuff> filteredList = new ArrayList<YCFGenKbSecUserBuff>();
+		YCFGenKbSecUserBuff[] buffList = readDerivedByEMConfIdx( Authorization,
 			EMailConfirmUuid );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90e" ) ) {
-				filteredList.add( (CFGenKbSecUserBuff)buff );
+				filteredList.add( (YCFGenKbSecUserBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecUserBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecUserBuff[0] ) );
 	}
 
-	public CFGenKbSecUserBuff[] readBuffByPwdResetIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] readBuffByPwdResetIdx( YCFGenKbAuthorization Authorization,
 		UUID PasswordResetUuid )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readBuffByPwdResetIdx() ";
-		CFGenKbSecUserBuff buff;
-		ArrayList<CFGenKbSecUserBuff> filteredList = new ArrayList<CFGenKbSecUserBuff>();
-		CFGenKbSecUserBuff[] buffList = readDerivedByPwdResetIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecUser.readBuffByPwdResetIdx() ";
+		YCFGenKbSecUserBuff buff;
+		ArrayList<YCFGenKbSecUserBuff> filteredList = new ArrayList<YCFGenKbSecUserBuff>();
+		YCFGenKbSecUserBuff[] buffList = readDerivedByPwdResetIdx( Authorization,
 			PasswordResetUuid );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90e" ) ) {
-				filteredList.add( (CFGenKbSecUserBuff)buff );
+				filteredList.add( (YCFGenKbSecUserBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecUserBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecUserBuff[0] ) );
 	}
 
-	public CFGenKbSecUserBuff[] readBuffByDefDevIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] readBuffByDefDevIdx( YCFGenKbAuthorization Authorization,
 		UUID DfltDevUserId,
 		String DfltDevName )
 	{
-		final String S_ProcName = "CFGenKbRamSecUser.readBuffByDefDevIdx() ";
-		CFGenKbSecUserBuff buff;
-		ArrayList<CFGenKbSecUserBuff> filteredList = new ArrayList<CFGenKbSecUserBuff>();
-		CFGenKbSecUserBuff[] buffList = readDerivedByDefDevIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecUser.readBuffByDefDevIdx() ";
+		YCFGenKbSecUserBuff buff;
+		ArrayList<YCFGenKbSecUserBuff> filteredList = new ArrayList<YCFGenKbSecUserBuff>();
+		YCFGenKbSecUserBuff[] buffList = readDerivedByDefDevIdx( Authorization,
 			DfltDevUserId,
 			DfltDevName );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90e" ) ) {
-				filteredList.add( (CFGenKbSecUserBuff)buff );
+				filteredList.add( (YCFGenKbSecUserBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecUserBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecUserBuff[0] ) );
 	}
 
 	/**
@@ -454,14 +454,14 @@ public class CFGenKbRamSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbSecUserBuff[] pageBuffByEMConfIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] pageBuffByEMConfIdx( YCFGenKbAuthorization Authorization,
 		UUID EMailConfirmUuid,
 		UUID priorSecUserId )
 	{
 		final String S_ProcName = "pageBuffByEMConfIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -473,14 +473,14 @@ public class CFGenKbRamSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbSecUserBuff[] pageBuffByPwdResetIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] pageBuffByPwdResetIdx( YCFGenKbAuthorization Authorization,
 		UUID PasswordResetUuid,
 		UUID priorSecUserId )
 	{
 		final String S_ProcName = "pageBuffByPwdResetIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -494,59 +494,59 @@ public class CFGenKbRamSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbSecUserBuff[] pageBuffByDefDevIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecUserBuff[] pageBuffByDefDevIdx( YCFGenKbAuthorization Authorization,
 		UUID DfltDevUserId,
 		String DfltDevName,
 		UUID priorSecUserId )
 	{
 		final String S_ProcName = "pageBuffByDefDevIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateSecUser( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserBuff Buff )
+	public void updateSecUser( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserBuff Buff )
 	{
-		CFGenKbSecUserPKey pkey = schema.getFactorySecUser().newPKey();
+		YCFGenKbSecUserPKey pkey = schema.getFactorySecUser().newPKey();
 		pkey.setRequiredSecUserId( Buff.getRequiredSecUserId() );
-		CFGenKbSecUserBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSecUserBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateSecUser",
 				"Existing record not found",
 				"SecUser",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateSecUser",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFGenKbSecUserByULoginIdxKey existingKeyULoginIdx = schema.getFactorySecUser().newULoginIdxKey();
+		YCFGenKbSecUserByULoginIdxKey existingKeyULoginIdx = schema.getFactorySecUser().newULoginIdxKey();
 		existingKeyULoginIdx.setRequiredLoginId( existing.getRequiredLoginId() );
 
-		CFGenKbSecUserByULoginIdxKey newKeyULoginIdx = schema.getFactorySecUser().newULoginIdxKey();
+		YCFGenKbSecUserByULoginIdxKey newKeyULoginIdx = schema.getFactorySecUser().newULoginIdxKey();
 		newKeyULoginIdx.setRequiredLoginId( Buff.getRequiredLoginId() );
 
-		CFGenKbSecUserByEMConfIdxKey existingKeyEMConfIdx = schema.getFactorySecUser().newEMConfIdxKey();
+		YCFGenKbSecUserByEMConfIdxKey existingKeyEMConfIdx = schema.getFactorySecUser().newEMConfIdxKey();
 		existingKeyEMConfIdx.setOptionalEMailConfirmUuid( existing.getOptionalEMailConfirmUuid() );
 
-		CFGenKbSecUserByEMConfIdxKey newKeyEMConfIdx = schema.getFactorySecUser().newEMConfIdxKey();
+		YCFGenKbSecUserByEMConfIdxKey newKeyEMConfIdx = schema.getFactorySecUser().newEMConfIdxKey();
 		newKeyEMConfIdx.setOptionalEMailConfirmUuid( Buff.getOptionalEMailConfirmUuid() );
 
-		CFGenKbSecUserByPwdResetIdxKey existingKeyPwdResetIdx = schema.getFactorySecUser().newPwdResetIdxKey();
+		YCFGenKbSecUserByPwdResetIdxKey existingKeyPwdResetIdx = schema.getFactorySecUser().newPwdResetIdxKey();
 		existingKeyPwdResetIdx.setOptionalPasswordResetUuid( existing.getOptionalPasswordResetUuid() );
 
-		CFGenKbSecUserByPwdResetIdxKey newKeyPwdResetIdx = schema.getFactorySecUser().newPwdResetIdxKey();
+		YCFGenKbSecUserByPwdResetIdxKey newKeyPwdResetIdx = schema.getFactorySecUser().newPwdResetIdxKey();
 		newKeyPwdResetIdx.setOptionalPasswordResetUuid( Buff.getOptionalPasswordResetUuid() );
 
-		CFGenKbSecUserByDefDevIdxKey existingKeyDefDevIdx = schema.getFactorySecUser().newDefDevIdxKey();
+		YCFGenKbSecUserByDefDevIdxKey existingKeyDefDevIdx = schema.getFactorySecUser().newDefDevIdxKey();
 		existingKeyDefDevIdx.setOptionalDfltDevUserId( existing.getOptionalDfltDevUserId() );
 		existingKeyDefDevIdx.setOptionalDfltDevName( existing.getOptionalDfltDevName() );
 
-		CFGenKbSecUserByDefDevIdxKey newKeyDefDevIdx = schema.getFactorySecUser().newDefDevIdxKey();
+		YCFGenKbSecUserByDefDevIdxKey newKeyDefDevIdx = schema.getFactorySecUser().newDefDevIdxKey();
 		newKeyDefDevIdx.setOptionalDfltDevUserId( Buff.getOptionalDfltDevUserId() );
 		newKeyDefDevIdx.setOptionalDfltDevName( Buff.getOptionalDfltDevName() );
 
@@ -554,7 +554,7 @@ public class CFGenKbRamSecUserTable
 
 		if( ! existingKeyULoginIdx.equals( newKeyULoginIdx ) ) {
 			if( dictByULoginIdx.containsKey( newKeyULoginIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateSecUser",
 					"SecUserLoginIdx",
 					newKeyULoginIdx );
@@ -565,7 +565,7 @@ public class CFGenKbRamSecUserTable
 
 		// Update is valid
 
-		Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdict;
+		Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -581,7 +581,7 @@ public class CFGenKbRamSecUserTable
 			subdict = dictByEMConfIdx.get( newKeyEMConfIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSecUserPKey, CFGenKbSecUserBuff >();
+			subdict = new HashMap< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff >();
 			dictByEMConfIdx.put( newKeyEMConfIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -594,7 +594,7 @@ public class CFGenKbRamSecUserTable
 			subdict = dictByPwdResetIdx.get( newKeyPwdResetIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSecUserPKey, CFGenKbSecUserBuff >();
+			subdict = new HashMap< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff >();
 			dictByPwdResetIdx.put( newKeyPwdResetIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -607,32 +607,32 @@ public class CFGenKbRamSecUserTable
 			subdict = dictByDefDevIdx.get( newKeyDefDevIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSecUserPKey, CFGenKbSecUserBuff >();
+			subdict = new HashMap< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff >();
 			dictByDefDevIdx.put( newKeyDefDevIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteSecUser( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserBuff Buff )
+	public void deleteSecUser( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamSecUserTable.deleteSecUser() ";
+		final String S_ProcName = "YCFGenKbRamSecUserTable.deleteSecUser() ";
 		String classCode;
-		CFGenKbSecUserPKey pkey = schema.getFactorySecUser().newPKey();
+		YCFGenKbSecUserPKey pkey = schema.getFactorySecUser().newPKey();
 		pkey.setRequiredSecUserId( Buff.getRequiredSecUserId() );
-		CFGenKbSecUserBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSecUserBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteSecUser",
 				pkey );
 		}
 					{
-						CFGenKbSecUserBuff editBuff = schema.getTableSecUser().readDerivedByIdIdx( Authorization,
+						YCFGenKbSecUserBuff editBuff = schema.getTableSecUser().readDerivedByIdIdx( Authorization,
 						existing.getRequiredSecUserId() );
 						editBuff.setOptionalDfltDevUserId( null );
 						editBuff.setOptionalDfltDevName( null );
@@ -641,12 +641,12 @@ public class CFGenKbRamSecUserTable
 							schema.getTableSecUser().updateSecUser( Authorization, editBuff );
 						}
 						else {
-							new CFLibUnsupportedClassException( getClass(),
+							new YCFLibUnsupportedClassException( getClass(),
 								S_ProcName,
 								"Unrecognized ClassCode \"" + classCode + "\"" );
 						}
 					}
-		CFGenKbSecUserBuff editSubobj = schema.getTableSecUser().readDerivedByIdIdx( Authorization,
+		YCFGenKbSecUserBuff editSubobj = schema.getTableSecUser().readDerivedByIdIdx( Authorization,
 			existing.getRequiredSecUserId() );
 			editSubobj.setOptionalDfltDevUserId( null );
 			editSubobj.setOptionalDfltDevName( null );
@@ -655,7 +655,7 @@ public class CFGenKbRamSecUserTable
 			schema.getTableSecUser().updateSecUser( Authorization, editSubobj );
 		}
 		else {
-			new CFLibUnsupportedClassException( getClass(),
+			new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"Unrecognized ClassCode \"" + classCode + "\"" );
 		}
@@ -670,23 +670,23 @@ public class CFGenKbRamSecUserTable
 						existing.getRequiredSecUserId() );
 					schema.getTableSecDevice().deleteSecDeviceByUserIdx( Authorization,
 						existing.getRequiredSecUserId() );
-		CFGenKbSecUserByULoginIdxKey keyULoginIdx = schema.getFactorySecUser().newULoginIdxKey();
+		YCFGenKbSecUserByULoginIdxKey keyULoginIdx = schema.getFactorySecUser().newULoginIdxKey();
 		keyULoginIdx.setRequiredLoginId( existing.getRequiredLoginId() );
 
-		CFGenKbSecUserByEMConfIdxKey keyEMConfIdx = schema.getFactorySecUser().newEMConfIdxKey();
+		YCFGenKbSecUserByEMConfIdxKey keyEMConfIdx = schema.getFactorySecUser().newEMConfIdxKey();
 		keyEMConfIdx.setOptionalEMailConfirmUuid( existing.getOptionalEMailConfirmUuid() );
 
-		CFGenKbSecUserByPwdResetIdxKey keyPwdResetIdx = schema.getFactorySecUser().newPwdResetIdxKey();
+		YCFGenKbSecUserByPwdResetIdxKey keyPwdResetIdx = schema.getFactorySecUser().newPwdResetIdxKey();
 		keyPwdResetIdx.setOptionalPasswordResetUuid( existing.getOptionalPasswordResetUuid() );
 
-		CFGenKbSecUserByDefDevIdxKey keyDefDevIdx = schema.getFactorySecUser().newDefDevIdxKey();
+		YCFGenKbSecUserByDefDevIdxKey keyDefDevIdx = schema.getFactorySecUser().newDefDevIdxKey();
 		keyDefDevIdx.setOptionalDfltDevUserId( existing.getOptionalDfltDevUserId() );
 		keyDefDevIdx.setOptionalDfltDevName( existing.getOptionalDfltDevName() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbSecUserPKey, CFGenKbSecUserBuff > subdict;
+		Map< YCFGenKbSecUserPKey, YCFGenKbSecUserBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -702,32 +702,32 @@ public class CFGenKbRamSecUserTable
 		subdict.remove( pkey );
 
 	}
-	public void deleteSecUserByIdIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecUserByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecUserId )
 	{
-		CFGenKbSecUserPKey key = schema.getFactorySecUser().newPKey();
+		YCFGenKbSecUserPKey key = schema.getFactorySecUser().newPKey();
 		key.setRequiredSecUserId( argSecUserId );
 		deleteSecUserByIdIdx( Authorization, key );
 	}
 
-	public void deleteSecUserByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey argKey )
+	public void deleteSecUserByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbSecUserBuff cur;
-		LinkedList<CFGenKbSecUserBuff> matchSet = new LinkedList<CFGenKbSecUserBuff>();
-		Iterator<CFGenKbSecUserBuff> values = dictByPKey.values().iterator();
+		YCFGenKbSecUserBuff cur;
+		LinkedList<YCFGenKbSecUserBuff> matchSet = new LinkedList<YCFGenKbSecUserBuff>();
+		Iterator<YCFGenKbSecUserBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecUserBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecUserBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecUser().readDerivedByIdIdx( Authorization,
@@ -736,32 +736,32 @@ public class CFGenKbRamSecUserTable
 		}
 	}
 
-	public void deleteSecUserByULoginIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecUserByULoginIdx( YCFGenKbAuthorization Authorization,
 		String argLoginId )
 	{
-		CFGenKbSecUserByULoginIdxKey key = schema.getFactorySecUser().newULoginIdxKey();
+		YCFGenKbSecUserByULoginIdxKey key = schema.getFactorySecUser().newULoginIdxKey();
 		key.setRequiredLoginId( argLoginId );
 		deleteSecUserByULoginIdx( Authorization, key );
 	}
 
-	public void deleteSecUserByULoginIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserByULoginIdxKey argKey )
+	public void deleteSecUserByULoginIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserByULoginIdxKey argKey )
 	{
-		CFGenKbSecUserBuff cur;
+		YCFGenKbSecUserBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecUserBuff> matchSet = new LinkedList<CFGenKbSecUserBuff>();
-		Iterator<CFGenKbSecUserBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecUserBuff> matchSet = new LinkedList<YCFGenKbSecUserBuff>();
+		Iterator<YCFGenKbSecUserBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecUserBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecUserBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecUser().readDerivedByIdIdx( Authorization,
@@ -770,18 +770,18 @@ public class CFGenKbRamSecUserTable
 		}
 	}
 
-	public void deleteSecUserByEMConfIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecUserByEMConfIdx( YCFGenKbAuthorization Authorization,
 		UUID argEMailConfirmUuid )
 	{
-		CFGenKbSecUserByEMConfIdxKey key = schema.getFactorySecUser().newEMConfIdxKey();
+		YCFGenKbSecUserByEMConfIdxKey key = schema.getFactorySecUser().newEMConfIdxKey();
 		key.setOptionalEMailConfirmUuid( argEMailConfirmUuid );
 		deleteSecUserByEMConfIdx( Authorization, key );
 	}
 
-	public void deleteSecUserByEMConfIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserByEMConfIdxKey argKey )
+	public void deleteSecUserByEMConfIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserByEMConfIdxKey argKey )
 	{
-		CFGenKbSecUserBuff cur;
+		YCFGenKbSecUserBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalEMailConfirmUuid() != null ) {
 			anyNotNull = true;
@@ -789,15 +789,15 @@ public class CFGenKbRamSecUserTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecUserBuff> matchSet = new LinkedList<CFGenKbSecUserBuff>();
-		Iterator<CFGenKbSecUserBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecUserBuff> matchSet = new LinkedList<YCFGenKbSecUserBuff>();
+		Iterator<YCFGenKbSecUserBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecUserBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecUserBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecUser().readDerivedByIdIdx( Authorization,
@@ -806,18 +806,18 @@ public class CFGenKbRamSecUserTable
 		}
 	}
 
-	public void deleteSecUserByPwdResetIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecUserByPwdResetIdx( YCFGenKbAuthorization Authorization,
 		UUID argPasswordResetUuid )
 	{
-		CFGenKbSecUserByPwdResetIdxKey key = schema.getFactorySecUser().newPwdResetIdxKey();
+		YCFGenKbSecUserByPwdResetIdxKey key = schema.getFactorySecUser().newPwdResetIdxKey();
 		key.setOptionalPasswordResetUuid( argPasswordResetUuid );
 		deleteSecUserByPwdResetIdx( Authorization, key );
 	}
 
-	public void deleteSecUserByPwdResetIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserByPwdResetIdxKey argKey )
+	public void deleteSecUserByPwdResetIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserByPwdResetIdxKey argKey )
 	{
-		CFGenKbSecUserBuff cur;
+		YCFGenKbSecUserBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalPasswordResetUuid() != null ) {
 			anyNotNull = true;
@@ -825,15 +825,15 @@ public class CFGenKbRamSecUserTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecUserBuff> matchSet = new LinkedList<CFGenKbSecUserBuff>();
-		Iterator<CFGenKbSecUserBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecUserBuff> matchSet = new LinkedList<YCFGenKbSecUserBuff>();
+		Iterator<YCFGenKbSecUserBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecUserBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecUserBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecUser().readDerivedByIdIdx( Authorization,
@@ -842,20 +842,20 @@ public class CFGenKbRamSecUserTable
 		}
 	}
 
-	public void deleteSecUserByDefDevIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecUserByDefDevIdx( YCFGenKbAuthorization Authorization,
 		UUID argDfltDevUserId,
 		String argDfltDevName )
 	{
-		CFGenKbSecUserByDefDevIdxKey key = schema.getFactorySecUser().newDefDevIdxKey();
+		YCFGenKbSecUserByDefDevIdxKey key = schema.getFactorySecUser().newDefDevIdxKey();
 		key.setOptionalDfltDevUserId( argDfltDevUserId );
 		key.setOptionalDfltDevName( argDfltDevName );
 		deleteSecUserByDefDevIdx( Authorization, key );
 	}
 
-	public void deleteSecUserByDefDevIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserByDefDevIdxKey argKey )
+	public void deleteSecUserByDefDevIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserByDefDevIdxKey argKey )
 	{
-		CFGenKbSecUserBuff cur;
+		YCFGenKbSecUserBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalDfltDevUserId() != null ) {
 			anyNotNull = true;
@@ -866,15 +866,15 @@ public class CFGenKbRamSecUserTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecUserBuff> matchSet = new LinkedList<CFGenKbSecUserBuff>();
-		Iterator<CFGenKbSecUserBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecUserBuff> matchSet = new LinkedList<YCFGenKbSecUserBuff>();
+		Iterator<YCFGenKbSecUserBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecUserBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecUserBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecUser().readDerivedByIdIdx( Authorization,

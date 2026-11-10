@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelSwitchLimbTableObj
+public interface IYCFGenKbGelSwitchLimbTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelSwitchLimbTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelSwitchLimbObj newInstance();
+	IYCFGenKbGelSwitchLimbObj newInstance();
 
 	/**
 	 *	Instantiate a new GelSwitchLimb edition of the specified GelSwitchLimb instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelSwitchLimbEditObj newEditInstance( ICFGenKbGelSwitchLimbObj orig );
+	IYCFGenKbGelSwitchLimbEditObj newEditInstance( IYCFGenKbGelSwitchLimbObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelSwitchLimbObj realiseGelSwitchLimb( ICFGenKbGelSwitchLimbObj Obj );
+	IYCFGenKbGelSwitchLimbObj realiseGelSwitchLimb( IYCFGenKbGelSwitchLimbObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelSwitchLimbObj createGelSwitchLimb( ICFGenKbGelSwitchLimbObj Obj );
+	IYCFGenKbGelSwitchLimbObj createGelSwitchLimb( IYCFGenKbGelSwitchLimbObj Obj );
 
 	/**
 	 *	Read a GelSwitchLimb-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelSwitchLimbTableObj
 	 *	@return	The GelSwitchLimb-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelSwitchLimbObj readGelSwitchLimb( CFGenKbGelSwitchLimbPKey pkey );
+	IYCFGenKbGelSwitchLimbObj readGelSwitchLimb( YCFGenKbGelSwitchLimbPKey pkey );
 
 	/**
 	 *	Read a GelSwitchLimb-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelSwitchLimbTableObj
 	 *	@return	The GelSwitchLimb-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelSwitchLimbObj readGelSwitchLimb( CFGenKbGelSwitchLimbPKey pkey,
+	IYCFGenKbGelSwitchLimbObj readGelSwitchLimb( YCFGenKbGelSwitchLimbPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelSwitchLimbObj readCachedGelSwitchLimb( CFGenKbGelSwitchLimbPKey pkey );
+	IYCFGenKbGelSwitchLimbObj readCachedGelSwitchLimb( YCFGenKbGelSwitchLimbPKey pkey );
 
-	public void reallyDeepDisposeGelSwitchLimb( ICFGenKbGelSwitchLimbObj obj );
+	public void reallyDeepDisposeGelSwitchLimb( IYCFGenKbGelSwitchLimbObj obj );
 
-	void deepDisposeGelSwitchLimb( CFGenKbGelSwitchLimbPKey pkey );
+	void deepDisposeGelSwitchLimb( YCFGenKbGelSwitchLimbPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelSwitchLimbObj lockGelSwitchLimb( CFGenKbGelSwitchLimbPKey pkey );
+	IYCFGenKbGelSwitchLimbObj lockGelSwitchLimb( YCFGenKbGelSwitchLimbPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelSwitchLimb-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelSwitchLimbObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelSwitchLimbObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelSwitchLimbObj> readAllGelSwitchLimb();
+	List<IYCFGenKbGelSwitchLimbObj> readAllGelSwitchLimb();
 
 	/**
 	 *	Return a sorted map of all the GelSwitchLimb-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelSwitchLimbObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelSwitchLimbObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelSwitchLimbObj> readAllGelSwitchLimb( boolean forceRead );
+	List<IYCFGenKbGelSwitchLimbObj> readAllGelSwitchLimb( boolean forceRead );
 
-	List<ICFGenKbGelSwitchLimbObj> readCachedAllGelSwitchLimb();
+	List<IYCFGenKbGelSwitchLimbObj> readCachedAllGelSwitchLimb();
 
 	/**
-	 *	Get the CFGenKbGelSwitchLimbObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelSwitchLimbObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
@@ -134,16 +134,16 @@ public interface ICFGenKbGelSwitchLimbTableObj
 	 *
 	 *	@param	argLimbName	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelSwitchLimbObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelSwitchLimbObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelSwitchLimbObj readGelSwitchLimbByPIdx( long TenantId,
+	IYCFGenKbGelSwitchLimbObj readGelSwitchLimbByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		String LimbName );
 
 	/**
-	 *	Get the CFGenKbGelSwitchLimbObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelSwitchLimbObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
@@ -153,38 +153,38 @@ public interface ICFGenKbGelSwitchLimbTableObj
 	 *
 	 *	@param	argLimbName	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelSwitchLimbObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelSwitchLimbObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelSwitchLimbObj readGelSwitchLimbByPIdx( long TenantId,
+	IYCFGenKbGelSwitchLimbObj readGelSwitchLimbByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		String LimbName,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelSwitchLimbObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelSwitchLimbObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelSwitchLimbObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelSwitchLimbObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelSwitchLimbObj> readGelSwitchLimbByTenantIdx( long TenantId );
+	List<IYCFGenKbGelSwitchLimbObj> readGelSwitchLimbByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelSwitchLimbObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelSwitchLimbObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelSwitchLimbObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelSwitchLimbObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelSwitchLimbObj> readGelSwitchLimbByTenantIdx( long TenantId,
+	List<IYCFGenKbGelSwitchLimbObj> readGelSwitchLimbByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelSwitchLimbObj instances sorted by their primary keys for the duplicate SwitchIdx key.
+	 *	Get the map of YCFGenKbGelSwitchLimbObj instances sorted by their primary keys for the duplicate SwitchIdx key.
 	 *
 	 *	@param	argTenantId	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
@@ -192,15 +192,15 @@ public interface ICFGenKbGelSwitchLimbTableObj
 	 *
 	 *	@param	argGelInstId	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelSwitchLimbObj cached instances sorted by their primary keys for the duplicate SwitchIdx key,
+	 *	@return	List of YCFGenKbGelSwitchLimbObj cached instances sorted by their primary keys for the duplicate SwitchIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelSwitchLimbObj> readGelSwitchLimbBySwitchIdx( long TenantId,
+	List<IYCFGenKbGelSwitchLimbObj> readGelSwitchLimbBySwitchIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelSwitchLimbObj instances sorted by their primary keys for the duplicate SwitchIdx key.
+	 *	Get the map of YCFGenKbGelSwitchLimbObj instances sorted by their primary keys for the duplicate SwitchIdx key.
 	 *
 	 *	@param	argTenantId	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
@@ -208,22 +208,22 @@ public interface ICFGenKbGelSwitchLimbTableObj
 	 *
 	 *	@param	argGelInstId	The GelSwitchLimb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelSwitchLimbObj cached instances sorted by their primary keys for the duplicate SwitchIdx key,
+	 *	@return	List of YCFGenKbGelSwitchLimbObj cached instances sorted by their primary keys for the duplicate SwitchIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelSwitchLimbObj> readGelSwitchLimbBySwitchIdx( long TenantId,
+	List<IYCFGenKbGelSwitchLimbObj> readGelSwitchLimbBySwitchIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
-	ICFGenKbGelSwitchLimbObj readCachedGelSwitchLimbByPIdx( long TenantId,
+	IYCFGenKbGelSwitchLimbObj readCachedGelSwitchLimbByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		String LimbName );
 
-	List<ICFGenKbGelSwitchLimbObj> readCachedGelSwitchLimbByTenantIdx( long TenantId );
+	List<IYCFGenKbGelSwitchLimbObj> readCachedGelSwitchLimbByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelSwitchLimbObj> readCachedGelSwitchLimbBySwitchIdx( long TenantId,
+	List<IYCFGenKbGelSwitchLimbObj> readCachedGelSwitchLimbBySwitchIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
@@ -241,12 +241,12 @@ public interface ICFGenKbGelSwitchLimbTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelSwitchLimbObj updateGelSwitchLimb( ICFGenKbGelSwitchLimbObj Obj );
+	IYCFGenKbGelSwitchLimbObj updateGelSwitchLimb( IYCFGenKbGelSwitchLimbObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelSwitchLimb( ICFGenKbGelSwitchLimbObj Obj );
+	void deleteGelSwitchLimb( IYCFGenKbGelSwitchLimbObj Obj );
 
 	/**
 	 *	Internal use only.

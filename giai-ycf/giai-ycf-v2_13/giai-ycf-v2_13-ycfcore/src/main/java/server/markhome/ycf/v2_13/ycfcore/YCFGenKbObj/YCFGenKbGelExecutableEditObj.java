@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb GelExecutable.
+// Description: Java 11 edit object instance implementation for YCFGenKb GelExecutable.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,39 +27,39 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGelExecutableEditObj
-	extends CFGenKbGelSequenceEditObj
+public class YCFGenKbGelExecutableEditObj
+	extends YCFGenKbGelSequenceEditObj
 
-	implements ICFGenKbGelExecutableEditObj
+	implements IYCFGenKbGelExecutableEditObj
 {
 
-	public CFGenKbGelExecutableEditObj( ICFGenKbGelExecutableObj argOrig ) {
+	public YCFGenKbGelExecutableEditObj( IYCFGenKbGelExecutableObj argOrig ) {
 		super( argOrig );
 	}
 
 	public String getClassCode() {
-		return( CFGenKbGelExecutableObj.CLASS_CODE );
+		return( YCFGenKbGelExecutableObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "GelExecutable" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -70,14 +70,14 @@ public class CFGenKbGelExecutableEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -88,10 +88,10 @@ public class CFGenKbGelExecutableEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -100,11 +100,11 @@ public class CFGenKbGelExecutableEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -128,13 +128,13 @@ public class CFGenKbGelExecutableEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -146,9 +146,9 @@ public class CFGenKbGelExecutableEditObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
+	public IYCFGenKbGelInstructionObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbGelExecutableObj retobj = getSchema().getGelExecutableTableObj().realiseGelExecutable( (ICFGenKbGelExecutableObj)this );
+		IYCFGenKbGelExecutableObj retobj = getSchema().getGelExecutableTableObj().realiseGelExecutable( (IYCFGenKbGelExecutableObj)this );
 		return( retobj );
 	}
 
@@ -156,56 +156,56 @@ public class CFGenKbGelExecutableEditObj
 		getOrigAsGelExecutable().forget();
 	}
 
-	public ICFGenKbGelInstructionObj create() {
+	public IYCFGenKbGelInstructionObj create() {
 		copyBuffToOrig();
-		ICFGenKbGelExecutableObj retobj = ((ICFGenKbSchemaObj)getOrigAsGelExecutable().getSchema()).getGelExecutableTableObj().createGelExecutable( getOrigAsGelExecutable() );
+		IYCFGenKbGelExecutableObj retobj = ((IYCFGenKbSchemaObj)getOrigAsGelExecutable().getSchema()).getGelExecutableTableObj().createGelExecutable( getOrigAsGelExecutable() );
 		if( retobj == getOrigAsGelExecutable() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbGelInstructionEditObj update() {
-		getSchema().getGelExecutableTableObj().updateGelExecutable( (ICFGenKbGelExecutableObj)this );
+	public YCFGenKbGelInstructionEditObj update() {
+		getSchema().getGelExecutableTableObj().updateGelExecutable( (IYCFGenKbGelExecutableObj)this );
 		return( null );
 	}
 
-	public CFGenKbGelInstructionEditObj deleteInstance() {
+	public YCFGenKbGelInstructionEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getGelExecutableTableObj().deleteGelExecutable( getOrigAsGelExecutable() );
 		return( null );
 	}
 
-	public ICFGenKbGelExecutableTableObj getGelExecutableTable() {
+	public IYCFGenKbGelExecutableTableObj getGelExecutableTable() {
 		return( orig.getSchema().getGelExecutableTableObj() );
 	}
 
-	public ICFGenKbGelExecutableEditObj getEditAsGelExecutable() {
-		return( (ICFGenKbGelExecutableEditObj)this );
+	public IYCFGenKbGelExecutableEditObj getEditAsGelExecutable() {
+		return( (IYCFGenKbGelExecutableEditObj)this );
 	}
 
-	public ICFGenKbGelExecutableObj getOrigAsGelExecutable() {
-		return( (ICFGenKbGelExecutableObj)orig );
+	public IYCFGenKbGelExecutableObj getOrigAsGelExecutable() {
+		return( (IYCFGenKbGelExecutableObj)orig );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsGelExecutable().getSchema().getBackingStore()).getFactoryGelExecutable().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsGelExecutable().getSchema().getBackingStore()).getFactoryGelExecutable().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 		}
 	}
 
-	public CFGenKbGelExecutableBuff getGelExecutableBuff() {
-		return( (CFGenKbGelExecutableBuff)getBuff() );
+	public YCFGenKbGelExecutableBuff getGelExecutableBuff() {
+		return( (YCFGenKbGelExecutableBuff)getBuff() );
 	}
 
 	public long getRequiredGenItemId() {
@@ -219,14 +219,14 @@ public class CFGenKbGelExecutableEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbGelExecutableBuff origBuff = getOrigAsGelExecutable().getGelExecutableBuff();
-		CFGenKbGelExecutableBuff myBuff = getGelExecutableBuff();
+		YCFGenKbGelExecutableBuff origBuff = getOrigAsGelExecutable().getGelExecutableBuff();
+		YCFGenKbGelExecutableBuff myBuff = getGelExecutableBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbGelExecutableBuff origBuff = getOrigAsGelExecutable().getGelExecutableBuff();
-		CFGenKbGelExecutableBuff myBuff = getGelExecutableBuff();
+		YCFGenKbGelExecutableBuff origBuff = getOrigAsGelExecutable().getGelExecutableBuff();
+		YCFGenKbGelExecutableBuff myBuff = getGelExecutableBuff();
 		myBuff.set( origBuff );
 	}
 }

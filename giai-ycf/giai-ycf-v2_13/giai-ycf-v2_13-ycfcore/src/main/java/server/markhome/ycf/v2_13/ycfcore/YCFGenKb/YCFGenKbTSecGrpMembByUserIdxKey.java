@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a TSecGrpMemb by UserIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbTSecGrpMembByUserIdxKey
+public class YCFGenKbTSecGrpMembByUserIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected UUID requiredSecUserId;
-	public CFGenKbTSecGrpMembByUserIdxKey() {
-		requiredSecUserId = UUID.fromString( CFGenKbTSecGrpMembBuff.SECUSERID_INIT_VALUE.toString() );
+	public YCFGenKbTSecGrpMembByUserIdxKey() {
+		requiredSecUserId = UUID.fromString( YCFGenKbTSecGrpMembBuff.SECUSERID_INIT_VALUE.toString() );
 	}
 
 	public UUID getRequiredSecUserId() {
@@ -55,7 +55,7 @@ public class CFGenKbTSecGrpMembByUserIdxKey
 
 	public void setRequiredSecUserId( UUID value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
 				1,
 				"value" );
@@ -67,15 +67,15 @@ public class CFGenKbTSecGrpMembByUserIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbTSecGrpMembByUserIdxKey ) {
-			CFGenKbTSecGrpMembByUserIdxKey rhs = (CFGenKbTSecGrpMembByUserIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpMembByUserIdxKey ) {
+			YCFGenKbTSecGrpMembByUserIdxKey rhs = (YCFGenKbTSecGrpMembByUserIdxKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTSecGrpMembBuff ) {
-			CFGenKbTSecGrpMembBuff rhs = (CFGenKbTSecGrpMembBuff)obj;
+		else if( obj instanceof YCFGenKbTSecGrpMembBuff ) {
+			YCFGenKbTSecGrpMembBuff rhs = (YCFGenKbTSecGrpMembBuff)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -96,8 +96,8 @@ public class CFGenKbTSecGrpMembByUserIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpMembByUserIdxKey ) {
-			CFGenKbTSecGrpMembByUserIdxKey rhs = (CFGenKbTSecGrpMembByUserIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpMembByUserIdxKey ) {
+			YCFGenKbTSecGrpMembByUserIdxKey rhs = (YCFGenKbTSecGrpMembByUserIdxKey)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -106,8 +106,8 @@ public class CFGenKbTSecGrpMembByUserIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpMembBuff ) {
-			CFGenKbTSecGrpMembBuff rhs = (CFGenKbTSecGrpMembBuff)obj;
+		else if( obj instanceof YCFGenKbTSecGrpMembBuff ) {
+			YCFGenKbTSecGrpMembBuff rhs = (YCFGenKbTSecGrpMembBuff)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -117,7 +117,7 @@ public class CFGenKbTSecGrpMembByUserIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -126,7 +126,7 @@ public class CFGenKbTSecGrpMembByUserIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbTSecGrpMembByUserIdx"
+		String ret = "<YCFGenKbTSecGrpMembByUserIdx"
 			+ " RequiredSecUserId=" + "\"" + getRequiredSecUserId().toString() + "\""
 			+ "/>";
 		return( ret );

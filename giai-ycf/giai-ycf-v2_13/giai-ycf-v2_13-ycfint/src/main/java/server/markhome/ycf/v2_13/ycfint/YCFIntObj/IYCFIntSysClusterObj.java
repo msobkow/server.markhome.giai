@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFInt SysCluster.
+// Description: Java 11 Object interface for YCFInt SysCluster.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,29 +26,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntSysClusterObj
-	extends ICFSecSysClusterObj
+public interface IYCFIntSysClusterObj
+	extends IYCFSecSysClusterObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a SysCluster.
 	 *
-	 *	@return	CFSecSysClusterObj instance which should be subsequently referenced.
+	 *	@return	YCFSecSysClusterObj instance which should be subsequently referenced.
 	 */
-	ICFSecSysClusterObj realise();
+	IYCFSecSysClusterObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -60,83 +60,83 @@ public interface ICFIntSysClusterObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSysClusterObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSysClusterObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSysClusterObj read();
+	IYCFSecSysClusterObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSysClusterObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSysClusterObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSysClusterObj read( boolean forceRead );
+	IYCFSecSysClusterObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SysCluster instance.
 	 *
-	 *	@return	The newly locked ICFSecSysClusterEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecSysClusterEditObj edition of this instance.
 	 */
-	ICFSecSysClusterEditObj beginEdit();
+	IYCFSecSysClusterEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SysCluster instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SysCluster instance.
 	 *
-	 *	@return	The ICFSecSysClusterEditObj edition of this instance.
+	 *	@return	The IYCFSecSysClusterEditObj edition of this instance.
 	 */
-	ICFSecSysClusterEditObj getEdit();
+	IYCFSecSysClusterEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SysCluster instance as a ICFSecSysClusterEditObj.
+	 *	Get the current edition of this SysCluster instance as a IYCFSecSysClusterEditObj.
 	 *
-	 *	@return	The ICFSecSysClusterEditObj edition of this instance.
+	 *	@return	The IYCFSecSysClusterEditObj edition of this instance.
 	 */
-	ICFSecSysClusterEditObj getEditAsSysCluster();
+	IYCFSecSysClusterEditObj getEditAsSysCluster();
 
 	/**
-	 *	Get the ICFSecSysClusterTableObj table cache which manages this instance.
+	 *	Get the IYCFSecSysClusterTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecSysClusterTableObj table cache which manages this instance.
+	 *	@return	IYCFSecSysClusterTableObj table cache which manages this instance.
 	 */
-	ICFSecSysClusterTableObj getSysClusterTable();
+	IYCFSecSysClusterTableObj getSysClusterTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecSysClusterBuff instance which currently backs this instance.
+	 *	Get the YCFSecSysClusterBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSysClusterBuff instance which currently backs this object.
+	 *	@return	YCFSecSysClusterBuff instance which currently backs this object.
 	 */
-	CFSecSysClusterBuff getBuff();
+	YCFSecSysClusterBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecSysClusterBuff value );
+	void setBuff( YCFSecSysClusterBuff value );
 
 	/**
-	 *	Get the CFSecSysClusterBuff instance which currently backs this instance.
+	 *	Get the YCFSecSysClusterBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSysClusterBuff instance which currently backs this object.
+	 *	@return	YCFSecSysClusterBuff instance which currently backs this object.
 	 */
-	CFSecSysClusterBuff getSysClusterBuff();
+	YCFSecSysClusterBuff getSysClusterBuff();
 
 	/**
 	 *	Is this a new instance?
@@ -170,18 +170,18 @@ public interface ICFIntSysClusterObj
 	long getRequiredClusterId();
 
 	/**
-	 *	Get the required ICFIntClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFIntClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFIntClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFIntClusterObj instance referenced by the Cluster key.
 	 */
-	ICFSecClusterObj getRequiredContainerCluster();
+	IYCFSecClusterObj getRequiredContainerCluster();
 
 	/**
-	 *	Get the required ICFSecClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFSecClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFSecClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFSecClusterObj instance referenced by the Cluster key.
 	 */
-	ICFSecClusterObj getRequiredContainerCluster( boolean forceRead );
+	IYCFSecClusterObj getRequiredContainerCluster( boolean forceRead );
 
 	/**
 	 *	Internal use only.

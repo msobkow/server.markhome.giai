@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,18 +21,18 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.io.*;
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.ICFLibMessageLog;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.IYCFLibMessageLog;
 
 /**
  *	Implement the OmfMessageLogInterface over a Log4J Logger.
  */
-public class MssCFMessageLogWrapper
-implements ICFLibMessageLog {
+public class MssYCFMessageLogWrapper
+implements IYCFLibMessageLog {
 
 	private StringBuffer backlog = new StringBuffer();
 
@@ -49,7 +49,7 @@ implements ICFLibMessageLog {
 	/**
 	 *	Default constructor.
 	 */
-	public MssCFMessageLogWrapper() {
+	public MssYCFMessageLogWrapper() {
 		indent = 0;
 	}
 

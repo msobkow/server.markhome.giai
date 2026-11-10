@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFInt.
+// Description: Java 11 Table Object implementation for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,53 +26,53 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntTenantTableObj
-	implements ICFIntTenantTableObj
+public class YCFIntTenantTableObj
+	implements IYCFIntTenantTableObj
 {
-	protected ICFIntSchemaObj schema;
-	private Map<CFSecTenantPKey, ICFSecTenantObj> members;
-	private Map<CFSecTenantPKey, ICFSecTenantObj> allTenant;
-	private Map< CFSecTenantByClusterIdxKey,
-		Map<CFSecTenantPKey, ICFSecTenantObj > > indexByClusterIdx;
-	private Map< CFSecTenantByUNameIdxKey,
-		ICFSecTenantObj > indexByUNameIdx;
+	protected IYCFIntSchemaObj schema;
+	private Map<YCFSecTenantPKey, IYCFSecTenantObj> members;
+	private Map<YCFSecTenantPKey, IYCFSecTenantObj> allTenant;
+	private Map< YCFSecTenantByClusterIdxKey,
+		Map<YCFSecTenantPKey, IYCFSecTenantObj > > indexByClusterIdx;
+	private Map< YCFSecTenantByUNameIdxKey,
+		IYCFSecTenantObj > indexByUNameIdx;
 	public static String TABLE_NAME = "Tenant";
 	public static String TABLE_DBNAME = "tenant";
 
-	public CFIntTenantTableObj() {
+	public YCFIntTenantTableObj() {
 		schema = null;
-		members = new HashMap<CFSecTenantPKey, ICFSecTenantObj>();
+		members = new HashMap<YCFSecTenantPKey, IYCFSecTenantObj>();
 		allTenant = null;
 		indexByClusterIdx = null;
 		indexByUNameIdx = null;
 	}
 
-	public CFIntTenantTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFIntSchemaObj)argSchema;
-		members = new HashMap<CFSecTenantPKey, ICFSecTenantObj>();
+	public YCFIntTenantTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFIntSchemaObj)argSchema;
+		members = new HashMap<YCFSecTenantPKey, IYCFSecTenantObj>();
 		allTenant = null;
 		indexByClusterIdx = null;
 		indexByUNameIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFIntSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFIntSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -92,9 +92,9 @@ public class CFIntTenantTableObj
 		allTenant = null;
 		indexByClusterIdx = null;
 		indexByUNameIdx = null;
-		List<ICFSecTenantObj> toForget = new LinkedList<ICFSecTenantObj>();
-		ICFSecTenantObj cur = null;
-		Iterator<ICFSecTenantObj> iter = members.values().iterator();
+		List<IYCFSecTenantObj> toForget = new LinkedList<IYCFSecTenantObj>();
+		IYCFSecTenantObj cur = null;
+		Iterator<IYCFSecTenantObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -112,10 +112,10 @@ public class CFIntTenantTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntTenantObj.
+	 *	YCFIntTenantObj.
 	 */
-	public ICFSecTenantObj newInstance() {
-		ICFSecTenantObj inst = new CFIntTenantObj( schema );
+	public IYCFSecTenantObj newInstance() {
+		IYCFSecTenantObj inst = new YCFIntTenantObj( schema );
 		return( inst );
 	}
 
@@ -126,19 +126,19 @@ public class CFIntTenantTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntTenantObj.
+	 *	YCFIntTenantObj.
 	 */
-	public ICFSecTenantEditObj newEditInstance( ICFSecTenantObj orig ) {
-		ICFSecTenantEditObj edit = new CFIntTenantEditObj( orig );
+	public IYCFSecTenantEditObj newEditInstance( IYCFSecTenantObj orig ) {
+		IYCFSecTenantEditObj edit = new YCFIntTenantEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecTenantObj realiseTenant( ICFSecTenantObj Obj ) {
-		ICFSecTenantObj obj = Obj;
-		CFSecTenantPKey pkey = obj.getPKey();
-		ICFSecTenantObj keepObj = null;
+	public IYCFSecTenantObj realiseTenant( IYCFSecTenantObj Obj ) {
+		IYCFSecTenantObj obj = Obj;
+		YCFSecTenantPKey pkey = obj.getPKey();
+		IYCFSecTenantObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecTenantObj existingObj = members.get( pkey );
+			IYCFSecTenantObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -149,10 +149,10 @@ public class CFIntTenantTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByClusterIdx != null ) {
-				CFSecTenantByClusterIdxKey keyClusterIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
+				YCFSecTenantByClusterIdxKey keyClusterIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecTenantPKey, ICFSecTenantObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecTenantPKey, IYCFSecTenantObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.remove( keepObj.getPKey() );
 					if( mapClusterIdx.size() <= 0 ) {
@@ -162,8 +162,8 @@ public class CFIntTenantTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFSecTenantByUNameIdxKey keyUNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
+				YCFSecTenantByUNameIdxKey keyUNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
 				keyUNameIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUNameIdx.setRequiredTenantName( keepObj.getRequiredTenantName() );
 				indexByUNameIdx.remove( keyUNameIdx );
@@ -173,18 +173,18 @@ public class CFIntTenantTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByClusterIdx != null ) {
-				CFSecTenantByClusterIdxKey keyClusterIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
+				YCFSecTenantByClusterIdxKey keyClusterIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecTenantPKey, ICFSecTenantObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecTenantPKey, IYCFSecTenantObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFSecTenantByUNameIdxKey keyUNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
+				YCFSecTenantByUNameIdxKey keyUNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
 				keyUNameIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUNameIdx.setRequiredTenantName( keepObj.getRequiredTenantName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
@@ -205,18 +205,18 @@ public class CFIntTenantTableObj
 			}
 
 			if( indexByClusterIdx != null ) {
-				CFSecTenantByClusterIdxKey keyClusterIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
+				YCFSecTenantByClusterIdxKey keyClusterIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecTenantPKey, ICFSecTenantObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecTenantPKey, IYCFSecTenantObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFSecTenantByUNameIdxKey keyUNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
+				YCFSecTenantByUNameIdxKey keyUNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
 				keyUNameIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUNameIdx.setRequiredTenantName( keepObj.getRequiredTenantName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
@@ -226,10 +226,10 @@ public class CFIntTenantTableObj
 		return( keepObj );
 	}
 
-	public ICFSecTenantObj createTenant( ICFSecTenantObj Obj ) {
-		ICFSecTenantObj obj = Obj;
-		CFSecTenantBuff buff = obj.getTenantBuff();
-		((ICFIntSchema)schema.getBackingStore()).getTableTenant().createTenant(
+	public IYCFSecTenantObj createTenant( IYCFSecTenantObj Obj ) {
+		IYCFSecTenantObj obj = Obj;
+		YCFSecTenantBuff buff = obj.getTenantBuff();
+		((IYCFIntSchema)schema.getBackingStore()).getTableTenant().createTenant(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -238,61 +238,61 @@ public class CFIntTenantTableObj
 		return( obj );
 	}
 
-	public ICFSecTenantObj readTenant( CFSecTenantPKey pkey ) {
+	public IYCFSecTenantObj readTenant( YCFSecTenantPKey pkey ) {
 		return( readTenant( pkey, false ) );
 	}
 
-	public ICFSecTenantObj readTenant( CFSecTenantPKey pkey, boolean forceRead ) {
-		ICFSecTenantObj obj = null;
+	public IYCFSecTenantObj readTenant( YCFSecTenantPKey pkey, boolean forceRead ) {
+		IYCFSecTenantObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecTenantBuff readBuff = ((ICFIntSchema)schema.getBackingStore()).getTableTenant().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecTenantBuff readBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableTenant().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getTenantTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecTenantObj)obj.realise();
+				obj = (IYCFSecTenantObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecTenantObj readCachedTenant( CFSecTenantPKey pkey ) {
-		ICFSecTenantObj obj = null;
+	public IYCFSecTenantObj readCachedTenant( YCFSecTenantPKey pkey ) {
+		IYCFSecTenantObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeTenant( ICFSecTenantObj obj )
+	public void reallyDeepDisposeTenant( IYCFSecTenantObj obj )
 	{
-		final String S_ProcName = "CFIntTenantTableObj.reallyDeepDisposeTenant() ";
+		final String S_ProcName = "YCFIntTenantTableObj.reallyDeepDisposeTenant() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecTenantPKey pkey = obj.getPKey();
-		ICFSecTenantObj existing = readCachedTenant( pkey );
+		YCFSecTenantPKey pkey = obj.getPKey();
+		IYCFSecTenantObj existing = readCachedTenant( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecTenantByClusterIdxKey keyClusterIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey keyClusterIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecTenantByUNameIdxKey keyUNameIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
+		YCFSecTenantByUNameIdxKey keyUNameIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
 		keyUNameIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUNameIdx.setRequiredTenantName( existing.getRequiredTenantName() );
 
 
 					schema.getTldTableObj().deepDisposeTldByTenantIdx( existing.getRequiredId() );
-		ICFSecTSecGroupObj objDelIncludedByGroup;
-		List<ICFSecTSecGroupObj> arrDelIncludedByGroup = schema.getTSecGroupTableObj().readCachedTSecGroupByTenantIdx( existing.getRequiredId() );
-		Iterator<ICFSecTSecGroupObj> iterDelIncludedByGroup = arrDelIncludedByGroup.iterator();
+		IYCFSecTSecGroupObj objDelIncludedByGroup;
+		List<IYCFSecTSecGroupObj> arrDelIncludedByGroup = schema.getTSecGroupTableObj().readCachedTSecGroupByTenantIdx( existing.getRequiredId() );
+		Iterator<IYCFSecTSecGroupObj> iterDelIncludedByGroup = arrDelIncludedByGroup.iterator();
 		while( iterDelIncludedByGroup.hasNext() ) {
 			objDelIncludedByGroup = iterDelIncludedByGroup.next();
 			if( objDelIncludedByGroup != null ) {
@@ -300,9 +300,9 @@ public class CFIntTenantTableObj
 							objDelIncludedByGroup.getRequiredTSecGroupId() );
 			}
 		}
-		ICFSecTSecGroupObj objDelGrpMembs;
-		List<ICFSecTSecGroupObj> arrDelGrpMembs = schema.getTSecGroupTableObj().readCachedTSecGroupByTenantIdx( existing.getRequiredId() );
-		Iterator<ICFSecTSecGroupObj> iterDelGrpMembs = arrDelGrpMembs.iterator();
+		IYCFSecTSecGroupObj objDelGrpMembs;
+		List<IYCFSecTSecGroupObj> arrDelGrpMembs = schema.getTSecGroupTableObj().readCachedTSecGroupByTenantIdx( existing.getRequiredId() );
+		Iterator<IYCFSecTSecGroupObj> iterDelGrpMembs = arrDelGrpMembs.iterator();
 		while( iterDelGrpMembs.hasNext() ) {
 			objDelGrpMembs = iterDelGrpMembs.next();
 			if( objDelGrpMembs != null ) {
@@ -310,9 +310,9 @@ public class CFIntTenantTableObj
 							objDelGrpMembs.getRequiredTSecGroupId() );
 			}
 		}
-		ICFSecTSecGroupObj objDelGrpIncs;
-		List<ICFSecTSecGroupObj> arrDelGrpIncs = schema.getTSecGroupTableObj().readCachedTSecGroupByTenantIdx( existing.getRequiredId() );
-		Iterator<ICFSecTSecGroupObj> iterDelGrpIncs = arrDelGrpIncs.iterator();
+		IYCFSecTSecGroupObj objDelGrpIncs;
+		List<IYCFSecTSecGroupObj> arrDelGrpIncs = schema.getTSecGroupTableObj().readCachedTSecGroupByTenantIdx( existing.getRequiredId() );
+		Iterator<IYCFSecTSecGroupObj> iterDelGrpIncs = arrDelGrpIncs.iterator();
 		while( iterDelGrpIncs.hasNext() ) {
 			objDelGrpIncs = iterDelGrpIncs.next();
 			if( objDelGrpIncs != null ) {
@@ -337,57 +337,57 @@ public class CFIntTenantTableObj
 
 
 	}
-	public void deepDisposeTenant( CFSecTenantPKey pkey ) {
-		ICFSecTenantObj obj = readCachedTenant( pkey );
+	public void deepDisposeTenant( YCFSecTenantPKey pkey ) {
+		IYCFSecTenantObj obj = readCachedTenant( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecTenantObj lockTenant( CFSecTenantPKey pkey ) {
-		ICFSecTenantObj locked = null;
-		CFSecTenantBuff lockBuff = ((ICFIntSchema)schema.getBackingStore()).getTableTenant().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecTenantObj lockTenant( YCFSecTenantPKey pkey ) {
+		IYCFSecTenantObj locked = null;
+		YCFSecTenantBuff lockBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableTenant().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getTenantTableObj().newInstance();
-			locked.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
+			locked.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecTenantObj)locked.realise();
+			locked = (IYCFSecTenantObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockTenant", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockTenant", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecTenantObj> readAllTenant() {
+	public List<IYCFSecTenantObj> readAllTenant() {
 		return( readAllTenant( false ) );
 	}
 
-	public List<ICFSecTenantObj> readAllTenant( boolean forceRead ) {
+	public List<IYCFSecTenantObj> readAllTenant( boolean forceRead ) {
 		final String S_ProcName = "readAllTenant";
 		if( ( allTenant == null ) || forceRead ) {
-			Map<CFSecTenantPKey, ICFSecTenantObj> map = new HashMap<CFSecTenantPKey,ICFSecTenantObj>();
+			Map<YCFSecTenantPKey, IYCFSecTenantObj> map = new HashMap<YCFSecTenantPKey,IYCFSecTenantObj>();
 			allTenant = map;
-			CFSecTenantBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableTenant().readAllDerived( schema.getAuthorization() );
-			CFSecTenantBuff buff;
-			ICFSecTenantObj obj;
+			YCFSecTenantBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableTenant().readAllDerived( schema.getAuthorization() );
+			YCFSecTenantBuff buff;
+			IYCFSecTenantObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
 				obj.setBuff( buff );
-				ICFSecTenantObj realised = (ICFSecTenantObj)obj.realise();
+				IYCFSecTenantObj realised = (IYCFSecTenantObj)obj.realise();
 			}
 		}
 		int len = allTenant.size();
-		ICFSecTenantObj arr[] = new ICFSecTenantObj[len];
-		Iterator<ICFSecTenantObj> valIter = allTenant.values().iterator();
+		IYCFSecTenantObj arr[] = new IYCFSecTenantObj[len];
+		Iterator<IYCFSecTenantObj> valIter = allTenant.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -395,20 +395,20 @@ public class CFIntTenantTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecTenantObj> arrayList = new ArrayList<ICFSecTenantObj>(len);
+		ArrayList<IYCFSecTenantObj> arrayList = new ArrayList<IYCFSecTenantObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecTenantObj> cmp = new Comparator<ICFSecTenantObj>() {
-			public int compare( ICFSecTenantObj lhs, ICFSecTenantObj rhs ) {
+		Comparator<IYCFSecTenantObj> cmp = new Comparator<IYCFSecTenantObj>() {
+			public int compare( IYCFSecTenantObj lhs, IYCFSecTenantObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -421,31 +421,31 @@ public class CFIntTenantTableObj
 					return( 1 );
 				}
 				else {
-					CFSecTenantPKey lhsPKey = lhs.getPKey();
-					CFSecTenantPKey rhsPKey = rhs.getPKey();
+					YCFSecTenantPKey lhsPKey = lhs.getPKey();
+					YCFSecTenantPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecTenantObj> sortedList = arrayList;
+		List<IYCFSecTenantObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecTenantObj> readCachedAllTenant() {
+	public List<IYCFSecTenantObj> readCachedAllTenant() {
 		final String S_ProcName = "readCachedAllTenant";
-		ArrayList<ICFSecTenantObj> arrayList = new ArrayList<ICFSecTenantObj>();
+		ArrayList<IYCFSecTenantObj> arrayList = new ArrayList<IYCFSecTenantObj>();
 		if( allTenant != null ) {
 			int len = allTenant.size();
-			ICFSecTenantObj arr[] = new ICFSecTenantObj[len];
-			Iterator<ICFSecTenantObj> valIter = allTenant.values().iterator();
+			IYCFSecTenantObj arr[] = new IYCFSecTenantObj[len];
+			Iterator<IYCFSecTenantObj> valIter = allTenant.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -453,7 +453,7 @@ public class CFIntTenantTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -464,8 +464,8 @@ public class CFIntTenantTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecTenantObj> cmp = new Comparator<ICFSecTenantObj>() {
-			public int compare( ICFSecTenantObj lhs, ICFSecTenantObj rhs ) {
+		Comparator<IYCFSecTenantObj> cmp = new Comparator<IYCFSecTenantObj>() {
+			public int compare( IYCFSecTenantObj lhs, IYCFSecTenantObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -478,8 +478,8 @@ public class CFIntTenantTableObj
 					return( 1 );
 				}
 				else {
-					CFSecTenantPKey lhsPKey = lhs.getPKey();
-					CFSecTenantPKey rhsPKey = rhs.getPKey();
+					YCFSecTenantPKey lhsPKey = lhs.getPKey();
+					YCFSecTenantPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -492,89 +492,89 @@ public class CFIntTenantTableObj
 	/**
 	 *	Return a sorted map of a page of the Tenant-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecTenantObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecTenantObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	public List<ICFSecTenantObj> pageAllTenant(Long priorId )
+	public List<IYCFSecTenantObj> pageAllTenant(Long priorId )
 	{
 		final String S_ProcName = "pageAllTenant";
-		Map<CFSecTenantPKey, ICFSecTenantObj> map = new HashMap<CFSecTenantPKey,ICFSecTenantObj>();
-		CFSecTenantBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableTenant().pageAllBuff( schema.getAuthorization(),
+		Map<YCFSecTenantPKey, IYCFSecTenantObj> map = new HashMap<YCFSecTenantPKey,IYCFSecTenantObj>();
+		YCFSecTenantBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableTenant().pageAllBuff( schema.getAuthorization(),
 			priorId );
-		CFSecTenantBuff buff;
-		ICFSecTenantObj obj;
-		ICFSecTenantObj realised;
-		ArrayList<ICFSecTenantObj> arrayList = new ArrayList<ICFSecTenantObj>( buffList.length );
+		YCFSecTenantBuff buff;
+		IYCFSecTenantObj obj;
+		IYCFSecTenantObj realised;
+		ArrayList<IYCFSecTenantObj> arrayList = new ArrayList<IYCFSecTenantObj>( buffList.length );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = newInstance();
-			obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
+			obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
 			obj.setBuff( buff );
-			realised = (ICFSecTenantObj)obj.realise();
+			realised = (IYCFSecTenantObj)obj.realise();
 			arrayList.add( realised );
 		}
 		return( arrayList );
 	}
 
-	public ICFSecTenantObj readTenantByIdIdx( long Id )
+	public IYCFSecTenantObj readTenantByIdIdx( long Id )
 	{
 		return( readTenantByIdIdx( Id,
 			false ) );
 	}
 
-	public ICFSecTenantObj readTenantByIdIdx( long Id, boolean forceRead )
+	public IYCFSecTenantObj readTenantByIdIdx( long Id, boolean forceRead )
 	{
-		CFSecTenantPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey();
+		YCFSecTenantPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey();
 		pkey.setRequiredId( Id );
-		ICFSecTenantObj obj = readTenant( pkey, forceRead );
+		IYCFSecTenantObj obj = readTenant( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFSecTenantObj> readTenantByClusterIdx( long ClusterId )
+	public List<IYCFSecTenantObj> readTenantByClusterIdx( long ClusterId )
 	{
 		return( readTenantByClusterIdx( ClusterId,
 			false ) );
 	}
 
-	public List<ICFSecTenantObj> readTenantByClusterIdx( long ClusterId,
+	public List<IYCFSecTenantObj> readTenantByClusterIdx( long ClusterId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTenantByClusterIdx";
-		CFSecTenantByClusterIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		Map<CFSecTenantPKey, ICFSecTenantObj> dict;
+		Map<YCFSecTenantPKey, IYCFSecTenantObj> dict;
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecTenantByClusterIdxKey,
-				Map< CFSecTenantPKey, ICFSecTenantObj > >();
+			indexByClusterIdx = new HashMap< YCFSecTenantByClusterIdxKey,
+				Map< YCFSecTenantPKey, IYCFSecTenantObj > >();
 		}
 		if( ( ! forceRead ) && indexByClusterIdx.containsKey( key ) ) {
 			dict = indexByClusterIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecTenantPKey, ICFSecTenantObj>();
-			ICFSecTenantObj obj;
-			CFSecTenantBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableTenant().readDerivedByClusterIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecTenantPKey, IYCFSecTenantObj>();
+			IYCFSecTenantObj obj;
+			YCFSecTenantBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableTenant().readDerivedByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			CFSecTenantBuff buff;
+			YCFSecTenantBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getTenantTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
 				obj.setBuff( buff );
-				ICFSecTenantObj realised = (ICFSecTenantObj)obj.realise();
+				IYCFSecTenantObj realised = (IYCFSecTenantObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClusterIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecTenantObj arr[] = new ICFSecTenantObj[len];
-		Iterator<ICFSecTenantObj> valIter = dict.values().iterator();
+		IYCFSecTenantObj arr[] = new IYCFSecTenantObj[len];
+		Iterator<IYCFSecTenantObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -582,20 +582,20 @@ public class CFIntTenantTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecTenantObj> arrayList = new ArrayList<ICFSecTenantObj>(len);
+		ArrayList<IYCFSecTenantObj> arrayList = new ArrayList<IYCFSecTenantObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecTenantObj> cmp = new Comparator<ICFSecTenantObj>() {
-			public int compare( ICFSecTenantObj lhs, ICFSecTenantObj rhs ) {
+		Comparator<IYCFSecTenantObj> cmp = new Comparator<IYCFSecTenantObj>() {
+			public int compare( IYCFSecTenantObj lhs, IYCFSecTenantObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -608,19 +608,19 @@ public class CFIntTenantTableObj
 					return( 1 );
 				}
 				else {
-					CFSecTenantPKey lhsPKey = lhs.getPKey();
-					CFSecTenantPKey rhsPKey = rhs.getPKey();
+					YCFSecTenantPKey lhsPKey = lhs.getPKey();
+					YCFSecTenantPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecTenantObj> sortedList = arrayList;
+		List<IYCFSecTenantObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecTenantObj readTenantByUNameIdx( long ClusterId,
+	public IYCFSecTenantObj readTenantByUNameIdx( long ClusterId,
 		String TenantName )
 	{
 		return( readTenantByUNameIdx( ClusterId,
@@ -628,62 +628,62 @@ public class CFIntTenantTableObj
 			false ) );
 	}
 
-	public ICFSecTenantObj readTenantByUNameIdx( long ClusterId,
+	public IYCFSecTenantObj readTenantByUNameIdx( long ClusterId,
 		String TenantName, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFSecTenantByUNameIdxKey,
-				ICFSecTenantObj >();
+			indexByUNameIdx = new HashMap< YCFSecTenantByUNameIdxKey,
+				IYCFSecTenantObj >();
 		}
-		CFSecTenantByUNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
+		YCFSecTenantByUNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredTenantName( TenantName );
-		ICFSecTenantObj obj = null;
+		IYCFSecTenantObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFSecTenantBuff buff = ((ICFIntSchema)schema.getBackingStore()).getTableTenant().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFSecTenantBuff buff = ((IYCFIntSchema)schema.getBackingStore()).getTableTenant().readDerivedByUNameIdx( schema.getAuthorization(),
 				ClusterId,
 				TenantName );
 			if( buff != null ) {
 				obj = schema.getTenantTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecTenantObj)obj.realise();
+				obj = (IYCFSecTenantObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecTenantObj readCachedTenantByIdIdx( long Id )
+	public IYCFSecTenantObj readCachedTenantByIdIdx( long Id )
 	{
-		ICFSecTenantObj obj = null;
-		CFSecTenantPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey();
+		IYCFSecTenantObj obj = null;
+		YCFSecTenantPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey();
 		pkey.setRequiredId( Id );
 		obj = readCachedTenant( pkey );
 		return( obj );
 	}
 
-	public List<ICFSecTenantObj> readCachedTenantByClusterIdx( long ClusterId )
+	public List<IYCFSecTenantObj> readCachedTenantByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "readCachedTenantByClusterIdx";
-		CFSecTenantByClusterIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		ArrayList<ICFSecTenantObj> arrayList = new ArrayList<ICFSecTenantObj>();
+		ArrayList<IYCFSecTenantObj> arrayList = new ArrayList<IYCFSecTenantObj>();
 		if( indexByClusterIdx != null ) {
-			Map<CFSecTenantPKey, ICFSecTenantObj> dict;
+			Map<YCFSecTenantPKey, IYCFSecTenantObj> dict;
 			if( indexByClusterIdx.containsKey( key ) ) {
 				dict = indexByClusterIdx.get( key );
 				int len = dict.size();
-				ICFSecTenantObj arr[] = new ICFSecTenantObj[len];
-				Iterator<ICFSecTenantObj> valIter = dict.values().iterator();
+				IYCFSecTenantObj arr[] = new IYCFSecTenantObj[len];
+				Iterator<IYCFSecTenantObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -691,7 +691,7 @@ public class CFIntTenantTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -704,8 +704,8 @@ public class CFIntTenantTableObj
 			}
 		}
 		else {
-			ICFSecTenantObj obj;
-			Iterator<ICFSecTenantObj> valIter = members.values().iterator();
+			IYCFSecTenantObj obj;
+			Iterator<IYCFSecTenantObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -715,8 +715,8 @@ public class CFIntTenantTableObj
 				}
 			}
 		}
-		Comparator<ICFSecTenantObj> cmp = new Comparator<ICFSecTenantObj>() {
-			public int compare( ICFSecTenantObj lhs, ICFSecTenantObj rhs ) {
+		Comparator<IYCFSecTenantObj> cmp = new Comparator<IYCFSecTenantObj>() {
+			public int compare( IYCFSecTenantObj lhs, IYCFSecTenantObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -729,8 +729,8 @@ public class CFIntTenantTableObj
 					return( 1 );
 				}
 				else {
-					CFSecTenantPKey lhsPKey = lhs.getPKey();
-					CFSecTenantPKey rhsPKey = rhs.getPKey();
+					YCFSecTenantPKey lhsPKey = lhs.getPKey();
+					YCFSecTenantPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -740,11 +740,11 @@ public class CFIntTenantTableObj
 		return( arrayList );
 	}
 
-	public ICFSecTenantObj readCachedTenantByUNameIdx( long ClusterId,
+	public IYCFSecTenantObj readCachedTenantByUNameIdx( long ClusterId,
 		String TenantName )
 	{
-		ICFSecTenantObj obj = null;
-		CFSecTenantByUNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
+		IYCFSecTenantObj obj = null;
+		YCFSecTenantByUNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredTenantName( TenantName );
 		if( indexByUNameIdx != null ) {
@@ -752,7 +752,7 @@ public class CFIntTenantTableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecTenantObj> valIter = members.values().iterator();
+				Iterator<IYCFSecTenantObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -764,7 +764,7 @@ public class CFIntTenantTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecTenantObj> valIter = members.values().iterator();
+			Iterator<IYCFSecTenantObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -779,7 +779,7 @@ public class CFIntTenantTableObj
 
 	public void deepDisposeTenantByIdIdx( long Id )
 	{
-		ICFSecTenantObj obj = readCachedTenantByIdIdx( Id );
+		IYCFSecTenantObj obj = readCachedTenantByIdIdx( Id );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -788,10 +788,10 @@ public class CFIntTenantTableObj
 	public void deepDisposeTenantByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "deepDisposeTenantByClusterIdx";
-		ICFSecTenantObj obj;
-		List<ICFSecTenantObj> arrayList = readCachedTenantByClusterIdx( ClusterId );
+		IYCFSecTenantObj obj;
+		List<IYCFSecTenantObj> arrayList = readCachedTenantByClusterIdx( ClusterId );
 		if( arrayList != null )  {
-			Iterator<ICFSecTenantObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecTenantObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -804,7 +804,7 @@ public class CFIntTenantTableObj
 	public void deepDisposeTenantByUNameIdx( long ClusterId,
 		String TenantName )
 	{
-		ICFSecTenantObj obj = readCachedTenantByUNameIdx( ClusterId,
+		IYCFSecTenantObj obj = readCachedTenantByUNameIdx( ClusterId,
 				TenantName );
 		if( obj != null ) {
 			obj.forget();
@@ -820,55 +820,55 @@ public class CFIntTenantTableObj
 	 *	@return	A List of Tenant-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecTenantObj> pageTenantByClusterIdx( long ClusterId,
+	public List<IYCFSecTenantObj> pageTenantByClusterIdx( long ClusterId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageTenantByClusterIdx";
-		CFSecTenantByClusterIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		List<ICFSecTenantObj> retList = new LinkedList<ICFSecTenantObj>();
-		ICFSecTenantObj obj;
-		CFSecTenantBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableTenant().pageBuffByClusterIdx( schema.getAuthorization(),
+		List<IYCFSecTenantObj> retList = new LinkedList<IYCFSecTenantObj>();
+		IYCFSecTenantObj obj;
+		YCFSecTenantBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableTenant().pageBuffByClusterIdx( schema.getAuthorization(),
 				ClusterId,
 			priorId );
-		CFSecTenantBuff buff;
+		YCFSecTenantBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getTenantTableObj().newInstance();
-			obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
+			obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey() );
 			obj.setBuff( buff );
-			ICFSecTenantObj realised = (ICFSecTenantObj)obj.realise();
+			IYCFSecTenantObj realised = (IYCFSecTenantObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
 	}
 
-	public ICFSecTenantObj updateTenant( ICFSecTenantObj Obj ) {
-		ICFSecTenantObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableTenant().updateTenant( schema.getAuthorization(),
+	public IYCFSecTenantObj updateTenant( IYCFSecTenantObj Obj ) {
+		IYCFSecTenantObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableTenant().updateTenant( schema.getAuthorization(),
 			Obj.getTenantBuff() );
-		obj = (ICFSecTenantObj)Obj.realise();
+		obj = (IYCFSecTenantObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteTenant( ICFSecTenantObj Obj ) {
-		ICFSecTenantObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenant( schema.getAuthorization(),
+	public void deleteTenant( IYCFSecTenantObj Obj ) {
+		IYCFSecTenantObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenant( schema.getAuthorization(),
 			obj.getTenantBuff() );
 		Obj.forget();
 	}
 
 	public void deleteTenantByIdIdx( long Id )
 	{
-		CFSecTenantPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey();
+		YCFSecTenantPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newPKey();
 		pkey.setRequiredId( Id );
-		ICFSecTenantObj obj = readTenant( pkey );
+		IYCFSecTenantObj obj = readTenant( pkey );
 		if( obj != null ) {
-			ICFSecTenantEditObj editObj = (ICFSecTenantEditObj)obj.getEdit();
+			IYCFSecTenantEditObj editObj = (IYCFSecTenantEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecTenantEditObj)obj.beginEdit();
+				editObj = (IYCFSecTenantEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -892,19 +892,19 @@ public class CFIntTenantTableObj
 
 	public void deleteTenantByClusterIdx( long ClusterId )
 	{
-		CFSecTenantByClusterIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecTenantByClusterIdxKey,
-				Map< CFSecTenantPKey, ICFSecTenantObj > >();
+			indexByClusterIdx = new HashMap< YCFSecTenantByClusterIdxKey,
+				Map< YCFSecTenantPKey, IYCFSecTenantObj > >();
 		}
 		if( indexByClusterIdx.containsKey( key ) ) {
-			Map<CFSecTenantPKey, ICFSecTenantObj> dict = indexByClusterIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenantByClusterIdx( schema.getAuthorization(),
+			Map<YCFSecTenantPKey, IYCFSecTenantObj> dict = indexByClusterIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenantByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			Iterator<ICFSecTenantObj> iter = dict.values().iterator();
-			ICFSecTenantObj obj;
-			List<ICFSecTenantObj> toForget = new LinkedList<ICFSecTenantObj>();
+			Iterator<IYCFSecTenantObj> iter = dict.values().iterator();
+			IYCFSecTenantObj obj;
+			List<IYCFSecTenantObj> toForget = new LinkedList<IYCFSecTenantObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -917,7 +917,7 @@ public class CFIntTenantTableObj
 			indexByClusterIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenantByClusterIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenantByClusterIdx( schema.getAuthorization(),
 				ClusterId );
 		}
 		deepDisposeTenantByClusterIdx( ClusterId );
@@ -927,22 +927,22 @@ public class CFIntTenantTableObj
 		String TenantName )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFSecTenantByUNameIdxKey,
-				ICFSecTenantObj >();
+			indexByUNameIdx = new HashMap< YCFSecTenantByUNameIdxKey,
+				IYCFSecTenantObj >();
 		}
-		CFSecTenantByUNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
+		YCFSecTenantByUNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTenant().newUNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredTenantName( TenantName );
-		ICFSecTenantObj obj = null;
+		IYCFSecTenantObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenantByUNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenantByUNameIdx( schema.getAuthorization(),
 				ClusterId,
 				TenantName );
 			obj.forget();
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenantByUNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTenant().deleteTenantByUNameIdx( schema.getAuthorization(),
 				ClusterId,
 				TenantName );
 		}
@@ -950,15 +950,15 @@ public class CFIntTenantTableObj
 				TenantName );
 	}
 
-	public ICFSecTenantObj getSystemTenant() {
+	public IYCFSecTenantObj getSystemTenant() {
 		boolean transactionStarted = schema.beginTransaction();
-		ICFSecTenantObj tenantObj;
+		IYCFSecTenantObj tenantObj;
 		try {
-			ICFSecClusterObj clusterObj = schema.getClusterTableObj().getSystemCluster();
+			IYCFSecClusterObj clusterObj = schema.getClusterTableObj().getSystemCluster();
 			tenantObj = readTenantByUNameIdx( clusterObj.getRequiredId(), "system" );
 			if( tenantObj == null ) {
 				tenantObj = newInstance();
-				ICFSecTenantEditObj tenantEdit = tenantObj.beginEdit();
+				IYCFSecTenantEditObj tenantEdit = tenantObj.beginEdit();
 				tenantEdit.setRequiredContainerCluster( clusterObj );
 				tenantEdit.setRequiredTenantName( "system" );
 				tenantObj = tenantEdit.create();

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,11 +21,11 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.dbutil;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil;
 
 import java.util.*;
 
-public class CFLibDbUtil {
+public class YCFLibDbUtil {
 
 	public final static TimeZone tzUTC = TimeZone.getTimeZone( "GMT+0000" );
 	public final static Calendar localCalendar = new GregorianCalendar();

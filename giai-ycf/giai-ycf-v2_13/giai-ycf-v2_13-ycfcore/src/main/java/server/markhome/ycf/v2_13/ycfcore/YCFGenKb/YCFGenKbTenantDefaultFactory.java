@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for Tenant.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,39 +36,39 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbTenantFactory implementation for Tenant
+	 *	YCFGenKbTenantFactory implementation for Tenant
 	 */
-public class CFGenKbTenantDefaultFactory
-	implements ICFGenKbTenantFactory
+public class YCFGenKbTenantDefaultFactory
+	implements IYCFGenKbTenantFactory
 {
-	public CFGenKbTenantDefaultFactory() {
+	public YCFGenKbTenantDefaultFactory() {
 	}
 
-	public CFGenKbTenantPKey newPKey() {
-		CFGenKbTenantPKey pkey =
-			new CFGenKbTenantPKey();
+	public YCFGenKbTenantPKey newPKey() {
+		YCFGenKbTenantPKey pkey =
+			new YCFGenKbTenantPKey();
 		return( pkey );
 	}
 
-	public CFGenKbTenantByClusterIdxKey newClusterIdxKey() {
-		CFGenKbTenantByClusterIdxKey key =
-			new CFGenKbTenantByClusterIdxKey();
+	public YCFGenKbTenantByClusterIdxKey newClusterIdxKey() {
+		YCFGenKbTenantByClusterIdxKey key =
+			new YCFGenKbTenantByClusterIdxKey();
 		return( key );
 	}
 
-	public CFGenKbTenantByUNameIdxKey newUNameIdxKey() {
-		CFGenKbTenantByUNameIdxKey key =
-			new CFGenKbTenantByUNameIdxKey();
+	public YCFGenKbTenantByUNameIdxKey newUNameIdxKey() {
+		YCFGenKbTenantByUNameIdxKey key =
+			new YCFGenKbTenantByUNameIdxKey();
 		return( key );
 	}
 
-	public CFGenKbTenantBuff newBuff() {
-		CFGenKbTenantBuff buff =
-			new CFGenKbTenantBuff();
+	public YCFGenKbTenantBuff newBuff() {
+		YCFGenKbTenantBuff buff =
+			new YCFGenKbTenantBuff();
 		return( buff );
 	}
 }

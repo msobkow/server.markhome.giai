@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamTZDateDefTableObj
+public interface IYCFBamTZDateDefTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamTZDateDefObj newInstance();
+	IYCFBamTZDateDefObj newInstance();
 
 	/**
 	 *	Instantiate a new TZDateDef edition of the specified TZDateDef instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamTZDateDefEditObj newEditInstance( ICFBamTZDateDefObj orig );
+	IYCFBamTZDateDefEditObj newEditInstance( IYCFBamTZDateDefObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamTZDateDefObj realiseTZDateDef( ICFBamTZDateDefObj Obj );
+	IYCFBamTZDateDefObj realiseTZDateDef( IYCFBamTZDateDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamTZDateDefObj createTZDateDef( ICFBamTZDateDefObj Obj );
+	IYCFBamTZDateDefObj createTZDateDef( IYCFBamTZDateDefObj Obj );
 
 	/**
 	 *	Read a TZDateDef-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamTZDateDefTableObj
 	 *	@return	The TZDateDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamTZDateDefObj readTZDateDef( CFBamValuePKey pkey );
+	IYCFBamTZDateDefObj readTZDateDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a TZDateDef-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamTZDateDefTableObj
 	 *	@return	The TZDateDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamTZDateDefObj readTZDateDef( CFBamValuePKey pkey,
+	IYCFBamTZDateDefObj readTZDateDef( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamTZDateDefObj readCachedTZDateDef( CFBamValuePKey pkey );
+	IYCFBamTZDateDefObj readCachedTZDateDef( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeTZDateDef( ICFBamTZDateDefObj obj );
+	public void reallyDeepDisposeTZDateDef( IYCFBamTZDateDefObj obj );
 
-	void deepDisposeTZDateDef( CFBamValuePKey pkey );
+	void deepDisposeTZDateDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamTZDateDefObj lockTZDateDef( CFBamValuePKey pkey );
+	IYCFBamTZDateDefObj lockTZDateDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the TZDateDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamTZDateDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamTZDateDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readAllTZDateDef();
+	List<IYCFBamTZDateDefObj> readAllTZDateDef();
 
 	/**
 	 *	Return a sorted map of all the TZDateDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamTZDateDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamTZDateDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readAllTZDateDef( boolean forceRead );
+	List<IYCFBamTZDateDefObj> readAllTZDateDef( boolean forceRead );
 
-	List<ICFBamTZDateDefObj> readCachedAllTZDateDef();
+	List<IYCFBamTZDateDefObj> readCachedAllTZDateDef();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamTZDateDefObj readTZDateDefByIdIdx( long TenantId,
+	IYCFBamTZDateDefObj readTZDateDefByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamTZDateDefObj readTZDateDefByIdIdx( long TenantId,
+	IYCFBamTZDateDefObj readTZDateDefByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@param	argName	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamTZDateDefObj readTZDateDefByUNameIdx( long TenantId,
+	IYCFBamTZDateDefObj readTZDateDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@param	argName	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamTZDateDefObj readTZDateDefByUNameIdx( long TenantId,
+	IYCFBamTZDateDefObj readTZDateDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByValTentIdx( long TenantId );
+	List<IYCFBamTZDateDefObj> readTZDateDefByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamTZDateDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByValTentIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByScopeIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamTZDateDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByScopeIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamTZDateDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamTZDateDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByNextIdx( Long NextTenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamTZDateDefObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByNextIdx( Long NextTenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@param	argPrevId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByContPrevIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamTZDateDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@param	argPrevId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByContPrevIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@param	argNextId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByContNextIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamTZDateDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@param	argNextId	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByContNextIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamTZDateDefObj> readTZDateDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamTZDateDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamTZDateDefObj> readTZDateDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamTZDateDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
 	 *
@@ -446,48 +446,48 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamTZDateDefObj> readTZDateDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readTZDateDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
-	ICFBamTZDateDefObj readCachedTZDateDefByIdIdx( long TenantId,
+	IYCFBamTZDateDefObj readCachedTZDateDefByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamTZDateDefObj readCachedTZDateDefByUNameIdx( long TenantId,
+	IYCFBamTZDateDefObj readCachedTZDateDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamTZDateDefObj> readCachedTZDateDefByValTentIdx( long TenantId );
+	List<IYCFBamTZDateDefObj> readCachedTZDateDefByValTentIdx( long TenantId );
 
-	List<ICFBamTZDateDefObj> readCachedTZDateDefByScopeIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readCachedTZDateDefByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamTZDateDefObj> readCachedTZDateDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamTZDateDefObj> readCachedTZDateDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamTZDateDefObj> readCachedTZDateDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamTZDateDefObj> readCachedTZDateDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamTZDateDefObj> readCachedTZDateDefByNextIdx( Long NextTenantId,
+	List<IYCFBamTZDateDefObj> readCachedTZDateDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamTZDateDefObj> readCachedTZDateDefByContPrevIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readCachedTZDateDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamTZDateDefObj> readCachedTZDateDefByContNextIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readCachedTZDateDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamTZDateDefObj> readCachedTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamTZDateDefObj> readCachedTZDateDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamTZDateDefObj> readCachedTZDateDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamTZDateDefObj> readCachedTZDateDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeTZDateDefByIdIdx( long TenantId,
 		long Id );
@@ -518,21 +518,21 @@ public interface ICFBamTZDateDefTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeTZDateDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeTZDateDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamTZDateDefObj updateTZDateDef( ICFBamTZDateDefObj Obj );
+	IYCFBamTZDateDefObj updateTZDateDef( IYCFBamTZDateDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteTZDateDef( ICFBamTZDateDefObj Obj );
+	void deleteTZDateDef( IYCFBamTZDateDefObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -635,7 +635,7 @@ public interface ICFBamTZDateDefTableObj
 	 *
 	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
 	 */
-	void deleteTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteTZDateDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -648,19 +648,19 @@ public interface ICFBamTZDateDefTableObj
 	 */
 	void deleteTZDateDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Move the CFBamTZDateDefObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamTZDateDefObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamTZDateDefObj refreshed cache instance.
+	 *	@return	YCFBamTZDateDefObj refreshed cache instance.
 	 */
-	ICFBamTZDateDefObj moveUpTZDateDef( ICFBamTZDateDefObj Obj );
+	IYCFBamTZDateDefObj moveUpTZDateDef( IYCFBamTZDateDefObj Obj );
 
 	/**
-	 *	Move the CFBamTZDateDefObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamTZDateDefObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamTZDateDefObj refreshed cache instance.
+	 *	@return	YCFBamTZDateDefObj refreshed cache instance.
 	 */
-	ICFBamTZDateDefObj moveDownTZDateDef( ICFBamTZDateDefObj Obj );
+	IYCFBamTZDateDefObj moveDownTZDateDef( IYCFBamTZDateDefObj Obj );
 }

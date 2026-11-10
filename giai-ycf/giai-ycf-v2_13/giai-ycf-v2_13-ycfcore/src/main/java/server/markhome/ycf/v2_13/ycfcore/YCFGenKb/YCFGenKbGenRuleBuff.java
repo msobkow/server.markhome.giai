@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenRule buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenRuleBuff
-	extends CFGenKbGenItemBuff
+public class YCFGenKbGenRuleBuff
+	extends YCFGenKbGenItemBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -66,10 +66,10 @@ public class CFGenKbGenRuleBuff
 	protected Long optionalBodyTenantId;
 	protected Long optionalBodyGelCacheId;
 	protected Long optionalBodyGelId;
-	public CFGenKbGenRuleBuff() {
+	public YCFGenKbGenRuleBuff() {
 		super();
-		requiredDefinedNear = new String( CFGenKbGenRuleBuff.DEFINEDNEAR_INIT_VALUE );
-		requiredBody = new String( CFGenKbGenRuleBuff.BODY_INIT_VALUE );
+		requiredDefinedNear = new String( YCFGenKbGenRuleBuff.DEFINEDNEAR_INIT_VALUE );
+		requiredBody = new String( YCFGenKbGenRuleBuff.BODY_INIT_VALUE );
 		optionalBodyTenantId = null;
 		optionalBodyGelCacheId = null;
 		optionalBodyGelId = null;
@@ -85,13 +85,13 @@ public class CFGenKbGenRuleBuff
 
 	public void setRequiredDefinedNear( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredDefinedNear",
 				1,
 				"value" );
 		}
 		if( value.length() > 2000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDefinedNear",
 				1,
 				"value.length()",
@@ -107,13 +107,13 @@ public class CFGenKbGenRuleBuff
 
 	public void setRequiredBody( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredBody",
 				1,
 				"value" );
 		}
 		if( value.length() > 999999 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredBody",
 				1,
 				"value.length()",
@@ -131,13 +131,13 @@ public class CFGenKbGenRuleBuff
 		if( value == null ) {
 			optionalBodyTenantId = null;
 		}
-		else if( value < CFGenKbGenRuleBuff.BODYTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenRuleBuff.BODYTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBodyTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenRuleBuff.BODYTENANTID_MIN_VALUE );
+				YCFGenKbGenRuleBuff.BODYTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalBodyTenantId = value;
@@ -152,13 +152,13 @@ public class CFGenKbGenRuleBuff
 		if( value == null ) {
 			optionalBodyGelCacheId = null;
 		}
-		else if( value < CFGenKbGenRuleBuff.BODYGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenRuleBuff.BODYGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBodyGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenRuleBuff.BODYGELCACHEID_MIN_VALUE );
+				YCFGenKbGenRuleBuff.BODYGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalBodyGelCacheId = value;
@@ -173,13 +173,13 @@ public class CFGenKbGenRuleBuff
 		if( value == null ) {
 			optionalBodyGelId = null;
 		}
-		else if( value < CFGenKbGenRuleBuff.BODYGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenRuleBuff.BODYGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBodyGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenRuleBuff.BODYGELID_MIN_VALUE );
+				YCFGenKbGenRuleBuff.BODYGELID_MIN_VALUE );
 		}
 		else {
 			optionalBodyGelId = value;
@@ -190,8 +190,8 @@ public class CFGenKbGenRuleBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenRuleBuff ) {
-			CFGenKbGenRuleBuff rhs = (CFGenKbGenRuleBuff)obj;
+		else if( obj instanceof YCFGenKbGenRuleBuff ) {
+			YCFGenKbGenRuleBuff rhs = (YCFGenKbGenRuleBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -245,8 +245,8 @@ public class CFGenKbGenRuleBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemPKey ) {
-			CFGenKbGenItemPKey rhs = (CFGenKbGenItemPKey)obj;
+		else if( obj instanceof YCFGenKbGenItemPKey ) {
+			YCFGenKbGenItemPKey rhs = (YCFGenKbGenItemPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -258,8 +258,8 @@ public class CFGenKbGenRuleBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenRuleByBodyIdxKey ) {
-			CFGenKbGenRuleByBodyIdxKey rhs = (CFGenKbGenRuleByBodyIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenRuleByBodyIdxKey ) {
+			YCFGenKbGenRuleByBodyIdxKey rhs = (YCFGenKbGenRuleByBodyIdxKey)obj;
 			if( getOptionalBodyTenantId() != null ) {
 				if( rhs.getOptionalBodyTenantId() != null ) {
 					if( ! getOptionalBodyTenantId().equals( rhs.getOptionalBodyTenantId() ) ) {
@@ -328,8 +328,8 @@ public class CFGenKbGenRuleBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGenRuleBuff ) {
-			CFGenKbGenRuleBuff rhs = (CFGenKbGenRuleBuff)obj;
+		else if( obj instanceof YCFGenKbGenRuleBuff ) {
+			YCFGenKbGenRuleBuff rhs = (YCFGenKbGenRuleBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -402,8 +402,8 @@ public class CFGenKbGenRuleBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemPKey ) {
-			CFGenKbGenItemPKey rhs = (CFGenKbGenItemPKey)obj;
+		else if( obj instanceof YCFGenKbGenItemPKey ) {
+			YCFGenKbGenItemPKey rhs = (YCFGenKbGenItemPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -424,8 +424,8 @@ public class CFGenKbGenRuleBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenRuleByBodyIdxKey ) {
-			CFGenKbGenRuleByBodyIdxKey rhs = (CFGenKbGenRuleByBodyIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenRuleByBodyIdxKey ) {
+			YCFGenKbGenRuleByBodyIdxKey rhs = (YCFGenKbGenRuleByBodyIdxKey)obj;
 
 			if( getOptionalBodyTenantId() != null ) {
 				Long lhsBodyTenantId = getOptionalBodyTenantId();
@@ -488,20 +488,20 @@ public class CFGenKbGenRuleBuff
 		}
 	}
 
-	public void set( CFGenKbGenItemBuff src ) {
-		if( src instanceof CFGenKbGenRuleBuff ) {
-			setGenRuleBuff( (CFGenKbGenRuleBuff)src );
+	public void set( YCFGenKbGenItemBuff src ) {
+		if( src instanceof YCFGenKbGenRuleBuff ) {
+			setGenRuleBuff( (YCFGenKbGenRuleBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGenRuleBuff" );
+				"YCFGenKbGenRuleBuff" );
 		}
 	}
 
-	public void setGenRuleBuff( CFGenKbGenRuleBuff src ) {
+	public void setGenRuleBuff( YCFGenKbGenRuleBuff src ) {
 		super.setGenItemBuff( src );
 		setRequiredDefinedNear( src.getRequiredDefinedNear() );
 		setRequiredBody( src.getRequiredBody() );

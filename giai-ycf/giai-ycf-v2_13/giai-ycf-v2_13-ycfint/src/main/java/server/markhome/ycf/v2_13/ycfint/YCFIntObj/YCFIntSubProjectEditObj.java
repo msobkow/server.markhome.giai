@@ -1,15 +1,15 @@
-// Description: Java 11 edit object instance implementation for CFInt SubProject.
+// Description: Java 11 edit object instance implementation for YCFInt SubProject.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,41 +26,41 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntSubProjectEditObj
-	implements ICFIntSubProjectEditObj
+public class YCFIntSubProjectEditObj
+	implements IYCFIntSubProjectEditObj
 {
-	protected ICFIntSubProjectObj orig;
-	protected CFIntSubProjectBuff buff;
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
-	protected ICFSecTenantObj requiredOwnerTenant;
-	protected ICFIntTopProjectObj requiredContainerParentTPrj;
+	protected IYCFIntSubProjectObj orig;
+	protected YCFIntSubProjectBuff buff;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
+	protected IYCFSecTenantObj requiredOwnerTenant;
+	protected IYCFIntTopProjectObj requiredContainerParentTPrj;
 
-	public CFIntSubProjectEditObj( ICFIntSubProjectObj argOrig ) {
+	public YCFIntSubProjectEditObj( IYCFIntSubProjectObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFIntSubProjectBuff origBuff = orig.getBuff();
+		YCFIntSubProjectBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredOwnerTenant = null;
 		requiredContainerParentTPrj = null;
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFIntSubProjectBuff buff = getBuff();
-			createdBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFIntSubProjectBuff buff = getBuff();
+			createdBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -69,10 +69,10 @@ public class CFIntSubProjectEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFIntSubProjectBuff buff = getBuff();
-			updatedBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFIntSubProjectBuff buff = getBuff();
+			updatedBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -81,7 +81,7 @@ public class CFIntSubProjectEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFSecSecUserObj value ) {
+	public void setCreatedBy( IYCFSecSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -92,7 +92,7 @@ public class CFIntSubProjectEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFSecSecUserObj value ) {
+	public void setUpdatedBy( IYCFSecSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -104,20 +104,20 @@ public class CFIntSubProjectEditObj
 	}
 
 	public String getClassCode() {
-		return( CFIntSubProjectObj.CLASS_CODE );
+		return( YCFIntSubProjectObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "SubProject" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFIntTopProjectObj scope = getRequiredContainerParentTPrj();
+	public IYCFLibAnyObj getScope() {
+		IYCFIntTopProjectObj scope = getRequiredContainerParentTPrj();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFIntTopProjectObj scope = getRequiredContainerParentTPrj();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFIntTopProjectObj scope = getRequiredContainerParentTPrj();
 		return( scope );
 	}
 
@@ -127,14 +127,14 @@ public class CFIntSubProjectEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -145,10 +145,10 @@ public class CFIntSubProjectEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -157,20 +157,20 @@ public class CFIntSubProjectEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -181,7 +181,7 @@ public class CFIntSubProjectEditObj
 			remainingName = null;
 		}
 		if( subObj == null ) {
-			subObj = ((ICFIntSchemaObj)getSchema()).getMajorVersionTableObj().readMajorVersionByNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFIntSchemaObj)getSchema()).getMajorVersionTableObj().readMajorVersionByNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
@@ -199,16 +199,16 @@ public class CFIntSubProjectEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFIntTenantObj ) {
+			else if( container instanceof IYCFIntTenantObj ) {
 				container = null;
 			}
 			else {
@@ -222,13 +222,13 @@ public class CFIntSubProjectEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -240,9 +240,9 @@ public class CFIntSubProjectEditObj
 		return( fullName );
 	}
 
-	public ICFIntSubProjectObj realise() {
+	public IYCFIntSubProjectObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFIntSubProjectObj retobj = getSchema().getSubProjectTableObj().realiseSubProject( (ICFIntSubProjectObj)this );
+		IYCFIntSubProjectObj retobj = getSchema().getSubProjectTableObj().realiseSubProject( (IYCFIntSubProjectObj)this );
 		return( retobj );
 	}
 
@@ -250,10 +250,10 @@ public class CFIntSubProjectEditObj
 		getOrigAsSubProject().forget();
 	}
 
-	public ICFIntSubProjectObj read() {
-		ICFIntSubProjectObj retval = getOrigAsSubProject().read();
+	public IYCFIntSubProjectObj read() {
+		IYCFIntSubProjectObj retval = getOrigAsSubProject().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -261,10 +261,10 @@ public class CFIntSubProjectEditObj
 		return( retval );
 	}
 
-	public ICFIntSubProjectObj read( boolean forceRead ) {
-		ICFIntSubProjectObj retval = getOrigAsSubProject().read( forceRead );
+	public IYCFIntSubProjectObj read( boolean forceRead ) {
+		IYCFIntSubProjectObj retval = getOrigAsSubProject().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -272,69 +272,69 @@ public class CFIntSubProjectEditObj
 		return( retval );
 	}
 
-	public ICFIntSubProjectObj create() {
+	public IYCFIntSubProjectObj create() {
 		copyBuffToOrig();
-		ICFIntSubProjectObj retobj = ((ICFIntSchemaObj)getOrigAsSubProject().getSchema()).getSubProjectTableObj().createSubProject( getOrigAsSubProject() );
+		IYCFIntSubProjectObj retobj = ((IYCFIntSchemaObj)getOrigAsSubProject().getSchema()).getSubProjectTableObj().createSubProject( getOrigAsSubProject() );
 		if( retobj == getOrigAsSubProject() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFIntSubProjectEditObj update() {
-		getSchema().getSubProjectTableObj().updateSubProject( (ICFIntSubProjectObj)this );
+	public YCFIntSubProjectEditObj update() {
+		getSchema().getSubProjectTableObj().updateSubProject( (IYCFIntSubProjectObj)this );
 		return( null );
 	}
 
-	public CFIntSubProjectEditObj deleteInstance() {
+	public YCFIntSubProjectEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getSubProjectTableObj().deleteSubProject( getOrigAsSubProject() );
 		return( null );
 	}
 
-	public ICFIntSubProjectTableObj getSubProjectTable() {
+	public IYCFIntSubProjectTableObj getSubProjectTable() {
 		return( orig.getSchema().getSubProjectTableObj() );
 	}
 
-	public ICFIntSubProjectEditObj getEdit() {
-		return( (ICFIntSubProjectEditObj)this );
+	public IYCFIntSubProjectEditObj getEdit() {
+		return( (IYCFIntSubProjectEditObj)this );
 	}
 
-	public ICFIntSubProjectEditObj getEditAsSubProject() {
-		return( (ICFIntSubProjectEditObj)this );
+	public IYCFIntSubProjectEditObj getEditAsSubProject() {
+		return( (IYCFIntSubProjectEditObj)this );
 	}
 
-	public ICFIntSubProjectEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFIntSubProjectEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFIntSubProjectObj getOrig() {
+	public IYCFIntSubProjectObj getOrig() {
 		return( orig );
 	}
 
-	public ICFIntSubProjectObj getOrigAsSubProject() {
-		return( (ICFIntSubProjectObj)orig );
+	public IYCFIntSubProjectObj getOrigAsSubProject() {
+		return( (IYCFIntSubProjectObj)orig );
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFIntSubProjectBuff getBuff() {
+	public YCFIntSubProjectBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFIntSchema)getOrigAsSubProject().getSchema().getBackingStore()).getFactorySubProject().newBuff();
+			buff = ((IYCFIntSchema)getOrigAsSubProject().getSchema().getBackingStore()).getFactorySubProject().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFIntSubProjectBuff value ) {
+	public void setBuff( YCFIntSubProjectBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredOwnerTenant = null;
@@ -342,15 +342,15 @@ public class CFIntSubProjectEditObj
 		}
 	}
 
-	public CFIntSubProjectBuff getSubProjectBuff() {
-		return( (CFIntSubProjectBuff)getBuff() );
+	public YCFIntSubProjectBuff getSubProjectBuff() {
+		return( (YCFIntSubProjectBuff)getBuff() );
 	}
 
-	public CFIntSubProjectPKey getPKey() {
+	public YCFIntSubProjectPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFIntSubProjectPKey value ) {
+	public void setPKey( YCFIntSubProjectPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -395,22 +395,22 @@ public class CFIntSubProjectEditObj
 		}
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant() {
+	public IYCFSecTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( forceRead || ( requiredOwnerTenant == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFSecTenantObj obj = ((ICFIntSchemaObj)getOrigAsSubProject().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
+				IYCFSecTenantObj obj = ((IYCFIntSchemaObj)getOrigAsSubProject().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
 				requiredOwnerTenant = obj;
 			}
 		}
 		return( requiredOwnerTenant );
 	}
 
-	public void setRequiredOwnerTenant( ICFSecTenantObj value ) {
+	public void setRequiredOwnerTenant( IYCFSecTenantObj value ) {
 			if( buff == null ) {
 				getSubProjectBuff();
 			}
@@ -421,15 +421,15 @@ public class CFIntSubProjectEditObj
 			requiredOwnerTenant = value;
 	}
 
-	public ICFIntTopProjectObj getRequiredContainerParentTPrj() {
+	public IYCFIntTopProjectObj getRequiredContainerParentTPrj() {
 		return( getRequiredContainerParentTPrj( false ) );
 	}
 
-	public ICFIntTopProjectObj getRequiredContainerParentTPrj( boolean forceRead ) {
+	public IYCFIntTopProjectObj getRequiredContainerParentTPrj( boolean forceRead ) {
 		if( forceRead || ( requiredContainerParentTPrj == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFIntTopProjectObj obj = ((ICFIntSchemaObj)getOrigAsSubProject().getSchema()).getTopProjectTableObj().readTopProjectByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFIntTopProjectObj obj = ((IYCFIntSchemaObj)getOrigAsSubProject().getSchema()).getTopProjectTableObj().readTopProjectByIdIdx( getPKey().getRequiredTenantId(),
 					getSubProjectBuff().getRequiredTopProjectId() );
 				requiredContainerParentTPrj = obj;
 				if( obj != null ) {
@@ -442,7 +442,7 @@ public class CFIntSubProjectEditObj
 		return( requiredContainerParentTPrj );
 	}
 
-	public void setRequiredContainerParentTPrj( ICFIntTopProjectObj value ) {
+	public void setRequiredContainerParentTPrj( IYCFIntTopProjectObj value ) {
 			if( buff == null ) {
 				getSubProjectBuff();
 			}
@@ -454,17 +454,17 @@ public class CFIntSubProjectEditObj
 			requiredContainerParentTPrj = value;
 	}
 
-	public List<ICFIntMajorVersionObj> getOptionalComponentsMajorVer() {
-		List<ICFIntMajorVersionObj> retval;
-		retval = ((ICFIntSchemaObj)getOrigAsSubProject().getSchema()).getMajorVersionTableObj().readMajorVersionBySubProjectIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFIntMajorVersionObj> getOptionalComponentsMajorVer() {
+		List<IYCFIntMajorVersionObj> retval;
+		retval = ((IYCFIntSchemaObj)getOrigAsSubProject().getSchema()).getMajorVersionTableObj().readMajorVersionBySubProjectIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFIntMajorVersionObj> getOptionalComponentsMajorVer( boolean forceRead ) {
-		List<ICFIntMajorVersionObj> retval;
-		retval = ((ICFIntSchemaObj)getOrigAsSubProject().getSchema()).getMajorVersionTableObj().readMajorVersionBySubProjectIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFIntMajorVersionObj> getOptionalComponentsMajorVer( boolean forceRead ) {
+		List<IYCFIntMajorVersionObj> retval;
+		retval = ((IYCFIntSchemaObj)getOrigAsSubProject().getSchema()).getMajorVersionTableObj().readMajorVersionBySubProjectIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
@@ -481,14 +481,14 @@ public class CFIntSubProjectEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFIntSubProjectBuff origBuff = getOrigAsSubProject().getSubProjectBuff();
-		CFIntSubProjectBuff myBuff = getSubProjectBuff();
+		YCFIntSubProjectBuff origBuff = getOrigAsSubProject().getSubProjectBuff();
+		YCFIntSubProjectBuff myBuff = getSubProjectBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFIntSubProjectBuff origBuff = getOrigAsSubProject().getSubProjectBuff();
-		CFIntSubProjectBuff myBuff = getSubProjectBuff();
+		YCFIntSubProjectBuff origBuff = getOrigAsSubProject().getSubProjectBuff();
+		YCFIntSubProjectBuff myBuff = getSubProjectBuff();
 		myBuff.set( origBuff );
 	}
 }

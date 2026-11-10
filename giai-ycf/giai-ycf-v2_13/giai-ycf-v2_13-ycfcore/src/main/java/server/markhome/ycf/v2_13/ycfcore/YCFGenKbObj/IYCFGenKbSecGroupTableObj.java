@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecGroupTableObj
+public interface IYCFGenKbSecGroupTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbSecGroupTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbSecGroupObj newInstance();
+	IYCFGenKbSecGroupObj newInstance();
 
 	/**
 	 *	Instantiate a new SecGroup edition of the specified SecGroup instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbSecGroupEditObj newEditInstance( ICFGenKbSecGroupObj orig );
+	IYCFGenKbSecGroupEditObj newEditInstance( IYCFGenKbSecGroupObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecGroupObj realiseSecGroup( ICFGenKbSecGroupObj Obj );
+	IYCFGenKbSecGroupObj realiseSecGroup( IYCFGenKbSecGroupObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecGroupObj createSecGroup( ICFGenKbSecGroupObj Obj );
+	IYCFGenKbSecGroupObj createSecGroup( IYCFGenKbSecGroupObj Obj );
 
 	/**
 	 *	Read a SecGroup-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbSecGroupTableObj
 	 *	@return	The SecGroup-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbSecGroupObj readSecGroup( CFGenKbSecGroupPKey pkey );
+	IYCFGenKbSecGroupObj readSecGroup( YCFGenKbSecGroupPKey pkey );
 
 	/**
 	 *	Read a SecGroup-derived instance by it's primary key.
@@ -91,149 +91,149 @@ public interface ICFGenKbSecGroupTableObj
 	 *	@return	The SecGroup-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbSecGroupObj readSecGroup( CFGenKbSecGroupPKey pkey,
+	IYCFGenKbSecGroupObj readSecGroup( YCFGenKbSecGroupPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbSecGroupObj readCachedSecGroup( CFGenKbSecGroupPKey pkey );
+	IYCFGenKbSecGroupObj readCachedSecGroup( YCFGenKbSecGroupPKey pkey );
 
-	public void reallyDeepDisposeSecGroup( ICFGenKbSecGroupObj obj );
+	public void reallyDeepDisposeSecGroup( IYCFGenKbSecGroupObj obj );
 
-	void deepDisposeSecGroup( CFGenKbSecGroupPKey pkey );
+	void deepDisposeSecGroup( YCFGenKbSecGroupPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecGroupObj lockSecGroup( CFGenKbSecGroupPKey pkey );
+	IYCFGenKbSecGroupObj lockSecGroup( YCFGenKbSecGroupPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SecGroup-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSecGroupObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSecGroupObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSecGroupObj> readAllSecGroup();
+	List<IYCFGenKbSecGroupObj> readAllSecGroup();
 
 	/**
 	 *	Return a sorted map of all the SecGroup-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSecGroupObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSecGroupObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSecGroupObj> readAllSecGroup( boolean forceRead );
+	List<IYCFGenKbSecGroupObj> readAllSecGroup( boolean forceRead );
 
-	List<ICFGenKbSecGroupObj> readCachedAllSecGroup();
+	List<IYCFGenKbSecGroupObj> readCachedAllSecGroup();
 
 	/**
-	 *	Get the CFGenKbSecGroupObj instance for the primary key attributes.
+	 *	Get the YCFGenKbSecGroupObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecGroupId	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecGroupObj cached instance for the primary key, or
+	 *	@return	YCFGenKbSecGroupObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecGroupObj readSecGroupByIdIdx( long ClusterId,
+	IYCFGenKbSecGroupObj readSecGroupByIdIdx( long ClusterId,
 		int SecGroupId );
 
 	/**
-	 *	Get the CFGenKbSecGroupObj instance for the primary key attributes.
+	 *	Get the YCFGenKbSecGroupObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecGroupId	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecGroupObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbSecGroupObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecGroupObj readSecGroupByIdIdx( long ClusterId,
+	IYCFGenKbSecGroupObj readSecGroupByIdIdx( long ClusterId,
 		int SecGroupId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSecGroupObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbSecGroupObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGroupObj> readSecGroupByClusterIdx( long ClusterId );
+	List<IYCFGenKbSecGroupObj> readSecGroupByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFGenKbSecGroupObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbSecGroupObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGroupObj> readSecGroupByClusterIdx( long ClusterId,
+	List<IYCFGenKbSecGroupObj> readSecGroupByClusterIdx( long ClusterId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSecGroupObj instances sorted by their primary keys for the duplicate ClusterVisIdx key.
+	 *	Get the map of YCFGenKbSecGroupObj instances sorted by their primary keys for the duplicate ClusterVisIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argIsVisible	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterVisIdx key,
+	 *	@return	List of YCFGenKbSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
+	List<IYCFGenKbSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible );
 
 	/**
-	 *	Get the map of CFGenKbSecGroupObj instances sorted by their primary keys for the duplicate ClusterVisIdx key.
+	 *	Get the map of YCFGenKbSecGroupObj instances sorted by their primary keys for the duplicate ClusterVisIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argIsVisible	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterVisIdx key,
+	 *	@return	List of YCFGenKbSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
+	List<IYCFGenKbSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbSecGroupObj instance for the unique UNameIdx key.
+	 *	Get the YCFGenKbSecGroupObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecGroupObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFGenKbSecGroupObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecGroupObj readSecGroupByUNameIdx(long ClusterId,
+	IYCFGenKbSecGroupObj readSecGroupByUNameIdx(long ClusterId,
 		String Name );
 
 	/**
-	 *	Get the CFGenKbSecGroupObj instance for the unique UNameIdx key.
+	 *	Get the YCFGenKbSecGroupObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecGroupObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFGenKbSecGroupObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecGroupObj readSecGroupByUNameIdx(long ClusterId,
+	IYCFGenKbSecGroupObj readSecGroupByUNameIdx(long ClusterId,
 		String Name,
 		boolean forceRead );
 
-	ICFGenKbSecGroupObj readCachedSecGroupByIdIdx( long ClusterId,
+	IYCFGenKbSecGroupObj readCachedSecGroupByIdIdx( long ClusterId,
 		int SecGroupId );
 
-	List<ICFGenKbSecGroupObj> readCachedSecGroupByClusterIdx( long ClusterId );
+	List<IYCFGenKbSecGroupObj> readCachedSecGroupByClusterIdx( long ClusterId );
 
-	List<ICFGenKbSecGroupObj> readCachedSecGroupByClusterVisIdx( long ClusterId,
+	List<IYCFGenKbSecGroupObj> readCachedSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible );
 
-	ICFGenKbSecGroupObj readCachedSecGroupByUNameIdx( long ClusterId,
+	IYCFGenKbSecGroupObj readCachedSecGroupByUNameIdx( long ClusterId,
 		String Name );
 
 	void deepDisposeSecGroupByIdIdx( long ClusterId,
@@ -250,12 +250,12 @@ public interface ICFGenKbSecGroupTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecGroupObj updateSecGroup( ICFGenKbSecGroupObj Obj );
+	IYCFGenKbSecGroupObj updateSecGroup( IYCFGenKbSecGroupObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSecGroup( ICFGenKbSecGroupObj Obj );
+	void deleteSecGroup( IYCFGenKbSecGroupObj Obj );
 
 	/**
 	 *	Internal use only.

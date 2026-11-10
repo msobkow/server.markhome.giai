@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -29,20 +29,20 @@ import java.net.*;
 import java.security.cert.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGenSwitchLimb
+public class MssYCFGenSwitchLimb
 {
 	protected String _KeyName;
 	protected String _MacroName;
 
-	public MssCFGenSwitchLimb(
+	public MssYCFGenSwitchLimb(
 		String				keyName,
 		String				macroName )
 	{
-		final String S_ProcName = "MssCFGenSwitchLimb.MssCFGenSwitchLimb() ";
+		final String S_ProcName = "MssYCFGenSwitchLimb.MssYCFGenSwitchLimb() ";
 		if( ( keyName == null ) || ( keyName.length() == 0 ) )
 		{
 			throw new RuntimeException( S_ProcName + "keyName is null or empty" );
@@ -57,9 +57,9 @@ public class MssCFGenSwitchLimb
 
 	public int compareTo( Object obj )
 	{
-		final String S_ProcName = "MssCFGenSwitchLimb.compareTo() ";
-		if( obj instanceof MssCFGenSwitchLimb ) {
-			MssCFGenSwitchLimb	rhs = (MssCFGenSwitchLimb)obj;
+		final String S_ProcName = "MssYCFGenSwitchLimb.compareTo() ";
+		if( obj instanceof MssYCFGenSwitchLimb ) {
+			MssYCFGenSwitchLimb	rhs = (MssYCFGenSwitchLimb)obj;
 			if( _KeyName == null ) {
 				if( rhs._KeyName == null ) {
 					return( 0 );
@@ -95,7 +95,7 @@ public class MssCFGenSwitchLimb
 		}
 		else
 		{
-			throw new RuntimeException( S_ProcName + "obj must be an MssCFGenSwitchLimb or String");
+			throw new RuntimeException( S_ProcName + "obj must be an MssYCFGenSwitchLimb or String");
 		}
 	}
 

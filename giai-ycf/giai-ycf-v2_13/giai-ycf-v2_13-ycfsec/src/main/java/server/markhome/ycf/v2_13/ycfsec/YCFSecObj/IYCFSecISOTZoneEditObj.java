@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFSec ISOTZone.
+// Description: Java 11 Instance Edit Object interface for YCFSec ISOTZone.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,32 +26,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOTZoneEditObj
-	extends ICFSecISOTZoneObj
+public interface IYCFSecISOTZoneEditObj
+	extends IYCFSecISOTZoneObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFSecISOTZoneObj.
+	 *	@return The original, non-modifiable instance as a base IYCFSecISOTZoneObj.
 	 */
-	ICFSecISOTZoneObj getOrig();
+	IYCFSecISOTZoneObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFSecISOTZoneObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFSecISOTZoneObj.
 	 */
-	ICFSecISOTZoneObj getOrigAsISOTZone();
+	IYCFSecISOTZoneObj getOrigAsISOTZone();
 
 	/*
 	 *	create() may return a different instance than the
@@ -62,17 +62,17 @@ public interface ICFSecISOTZoneEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFSecISOTZoneObj create();
+	IYCFSecISOTZoneObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFSecISOTZoneEditObj update();
+	YCFSecISOTZoneEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFSecISOTZoneEditObj deleteInstance();
+	YCFSecISOTZoneEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute Iso8601.
@@ -161,9 +161,9 @@ public interface ICFSecISOTZoneEditObj
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFSecSecUserObj value );
+	void setCreatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -175,9 +175,9 @@ public interface ICFSecISOTZoneEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFSecSecUserObj value );
+	void setUpdatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

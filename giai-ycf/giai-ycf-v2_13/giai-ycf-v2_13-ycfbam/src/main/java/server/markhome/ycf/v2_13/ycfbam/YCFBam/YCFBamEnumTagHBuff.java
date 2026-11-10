@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a EnumTag history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,14 +55,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamEnumTagHBuff
+public class YCFBamEnumTagHBuff
 
-	extends CFBamHPKey	implements Comparable<Object>,
+	extends YCFBamHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final long TENANTID_INIT_VALUE = 0L;
@@ -99,15 +99,15 @@ public class CFBamEnumTagHBuff
 	protected Long optionalPrevId;
 	protected Long optionalNextTenantId;
 	protected Long optionalNextId;
-	public CFBamEnumTagHBuff() {
+	public YCFBamEnumTagHBuff() {
 		super();
-		requiredTenantId = CFBamEnumTagBuff.TENANTID_INIT_VALUE;
-		requiredId = CFBamEnumTagBuff.ID_INIT_VALUE;
+		requiredTenantId = YCFBamEnumTagBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFBamEnumTagBuff.ID_INIT_VALUE;
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
-		requiredEnumId = CFBamEnumTagBuff.ENUMID_INIT_VALUE;
+		requiredEnumId = YCFBamEnumTagBuff.ENUMID_INIT_VALUE;
 		optionalEnumCode = null;
-		requiredName = new String( CFBamEnumTagBuff.NAME_INIT_VALUE );
+		requiredName = new String( YCFBamEnumTagBuff.NAME_INIT_VALUE );
 		optionalPrevTenantId = null;
 		optionalPrevId = null;
 		optionalNextTenantId = null;
@@ -115,7 +115,7 @@ public class CFBamEnumTagHBuff
 	}
 
 	public String getClassCode() {
-		return( CFBamEnumTagBuff.CLASS_CODE );
+		return( YCFBamEnumTagBuff.CLASS_CODE );
 	}
 
 	public long getRequiredTenantId() {
@@ -123,13 +123,13 @@ public class CFBamEnumTagHBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFBamEnumTagBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamEnumTagBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.TENANTID_MIN_VALUE );
+				YCFBamEnumTagBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -139,13 +139,13 @@ public class CFBamEnumTagHBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFBamEnumTagBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamEnumTagBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.ID_MIN_VALUE );
+				YCFBamEnumTagBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -158,13 +158,13 @@ public class CFBamEnumTagHBuff
 		if( value == null ) {
 			optionalDefSchemaTenantId = null;
 		}
-		else if( value < CFBamEnumTagBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamEnumTagBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaTenantId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.DEFSCHEMATENANTID_MIN_VALUE );
+				YCFBamEnumTagBuff.DEFSCHEMATENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaTenantId = value;
@@ -179,13 +179,13 @@ public class CFBamEnumTagHBuff
 		if( value == null ) {
 			optionalDefSchemaId = null;
 		}
-		else if( value < CFBamEnumTagBuff.DEFSCHEMAID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamEnumTagBuff.DEFSCHEMAID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.DEFSCHEMAID_MIN_VALUE );
+				YCFBamEnumTagBuff.DEFSCHEMAID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaId = value;
@@ -197,13 +197,13 @@ public class CFBamEnumTagHBuff
 	}
 
 	public void setRequiredEnumId( long value ) {
-		if( value < CFBamEnumTagBuff.ENUMID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamEnumTagBuff.ENUMID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredEnumId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.ENUMID_MIN_VALUE );
+				YCFBamEnumTagBuff.ENUMID_MIN_VALUE );
 		}
 		requiredEnumId = value;
 	}
@@ -216,21 +216,21 @@ public class CFBamEnumTagHBuff
 		if( value == null ) {
 			optionalEnumCode = null;
 		}
-		else if( value < CFBamEnumTagBuff.ENUMCODE_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamEnumTagBuff.ENUMCODE_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalEnumCode",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.ENUMCODE_MIN_VALUE );
+				YCFBamEnumTagBuff.ENUMCODE_MIN_VALUE );
 		}
-		else if( value > CFBamEnumTagBuff.ENUMCODE_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFBamEnumTagBuff.ENUMCODE_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalEnumCode",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.ENUMCODE_MAX_VALUE );
+				YCFBamEnumTagBuff.ENUMCODE_MAX_VALUE );
 		}
 		else {
 			optionalEnumCode = value;
@@ -243,13 +243,13 @@ public class CFBamEnumTagHBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -267,13 +267,13 @@ public class CFBamEnumTagHBuff
 		if( value == null ) {
 			optionalPrevTenantId = null;
 		}
-		else if( value < CFBamEnumTagBuff.PREVTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamEnumTagBuff.PREVTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrevTenantId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.PREVTENANTID_MIN_VALUE );
+				YCFBamEnumTagBuff.PREVTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalPrevTenantId = value;
@@ -288,13 +288,13 @@ public class CFBamEnumTagHBuff
 		if( value == null ) {
 			optionalPrevId = null;
 		}
-		else if( value < CFBamEnumTagBuff.PREVID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamEnumTagBuff.PREVID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrevId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.PREVID_MIN_VALUE );
+				YCFBamEnumTagBuff.PREVID_MIN_VALUE );
 		}
 		else {
 			optionalPrevId = value;
@@ -309,13 +309,13 @@ public class CFBamEnumTagHBuff
 		if( value == null ) {
 			optionalNextTenantId = null;
 		}
-		else if( value < CFBamEnumTagBuff.NEXTTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamEnumTagBuff.NEXTTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNextTenantId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.NEXTTENANTID_MIN_VALUE );
+				YCFBamEnumTagBuff.NEXTTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalNextTenantId = value;
@@ -330,13 +330,13 @@ public class CFBamEnumTagHBuff
 		if( value == null ) {
 			optionalNextId = null;
 		}
-		else if( value < CFBamEnumTagBuff.NEXTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamEnumTagBuff.NEXTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNextId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.NEXTID_MIN_VALUE );
+				YCFBamEnumTagBuff.NEXTID_MIN_VALUE );
 		}
 		else {
 			optionalNextId = value;
@@ -347,8 +347,8 @@ public class CFBamEnumTagHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamEnumTagHBuff ) {
-			CFBamEnumTagHBuff rhs = (CFBamEnumTagHBuff)obj;
+		else if( obj instanceof YCFBamEnumTagHBuff ) {
+			YCFBamEnumTagHBuff rhs = (YCFBamEnumTagHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -450,8 +450,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagBuff ) {
-			CFBamEnumTagBuff rhs = (CFBamEnumTagBuff)obj;
+		else if( obj instanceof YCFBamEnumTagBuff ) {
+			YCFBamEnumTagBuff rhs = (YCFBamEnumTagBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -553,15 +553,15 @@ public class CFBamEnumTagHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagByEnumTagTenantIdxKey ) {
-			CFBamEnumTagByEnumTagTenantIdxKey rhs = (CFBamEnumTagByEnumTagTenantIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByEnumTagTenantIdxKey ) {
+			YCFBamEnumTagByEnumTagTenantIdxKey rhs = (YCFBamEnumTagByEnumTagTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagByEnumIdxKey ) {
-			CFBamEnumTagByEnumIdxKey rhs = (CFBamEnumTagByEnumIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByEnumIdxKey ) {
+			YCFBamEnumTagByEnumIdxKey rhs = (YCFBamEnumTagByEnumIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -570,8 +570,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagByDefSchemaIdxKey ) {
-			CFBamEnumTagByDefSchemaIdxKey rhs = (CFBamEnumTagByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByDefSchemaIdxKey ) {
+			YCFBamEnumTagByDefSchemaIdxKey rhs = (YCFBamEnumTagByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
 				if( rhs.getOptionalDefSchemaTenantId() != null ) {
 					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
@@ -598,8 +598,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagByEnumNameIdxKey ) {
-			CFBamEnumTagByEnumNameIdxKey rhs = (CFBamEnumTagByEnumNameIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByEnumNameIdxKey ) {
+			YCFBamEnumTagByEnumNameIdxKey rhs = (YCFBamEnumTagByEnumNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -611,8 +611,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagByPrevIdxKey ) {
-			CFBamEnumTagByPrevIdxKey rhs = (CFBamEnumTagByPrevIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByPrevIdxKey ) {
+			YCFBamEnumTagByPrevIdxKey rhs = (YCFBamEnumTagByPrevIdxKey)obj;
 			if( getOptionalPrevTenantId() != null ) {
 				if( rhs.getOptionalPrevTenantId() != null ) {
 					if( ! getOptionalPrevTenantId().equals( rhs.getOptionalPrevTenantId() ) ) {
@@ -639,8 +639,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagByNextIdxKey ) {
-			CFBamEnumTagByNextIdxKey rhs = (CFBamEnumTagByNextIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByNextIdxKey ) {
+			YCFBamEnumTagByNextIdxKey rhs = (YCFBamEnumTagByNextIdxKey)obj;
 			if( getOptionalNextTenantId() != null ) {
 				if( rhs.getOptionalNextTenantId() != null ) {
 					if( ! getOptionalNextTenantId().equals( rhs.getOptionalNextTenantId() ) ) {
@@ -667,8 +667,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagHPKey ) {
-			CFBamEnumTagHPKey rhs = (CFBamEnumTagHPKey)obj;
+		else if( obj instanceof YCFBamEnumTagHPKey ) {
+			YCFBamEnumTagHPKey rhs = (YCFBamEnumTagHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -732,8 +732,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamHPKey ) {
-			CFBamHPKey rhs = (CFBamHPKey)obj;
+		else if( obj instanceof YCFBamHPKey ) {
+			YCFBamHPKey rhs = (YCFBamHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -791,8 +791,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagPKey ) {
-			CFBamEnumTagPKey rhs = (CFBamEnumTagPKey)obj;
+		else if( obj instanceof YCFBamEnumTagPKey ) {
+			YCFBamEnumTagPKey rhs = (YCFBamEnumTagPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -845,16 +845,16 @@ public class CFBamEnumTagHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamEnumTagBuff ) {
-			CFBamEnumTagBuff rhs = (CFBamEnumTagBuff)obj;
+		else if( obj instanceof YCFBamEnumTagBuff ) {
+			YCFBamEnumTagBuff rhs = (YCFBamEnumTagBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagByEnumTagTenantIdxKey ) {
-			CFBamEnumTagByEnumTagTenantIdxKey rhs = (CFBamEnumTagByEnumTagTenantIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByEnumTagTenantIdxKey ) {
+			YCFBamEnumTagByEnumTagTenantIdxKey rhs = (YCFBamEnumTagByEnumTagTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -863,8 +863,8 @@ public class CFBamEnumTagHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagByEnumIdxKey ) {
-			CFBamEnumTagByEnumIdxKey rhs = (CFBamEnumTagByEnumIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByEnumIdxKey ) {
+			YCFBamEnumTagByEnumIdxKey rhs = (YCFBamEnumTagByEnumIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -879,8 +879,8 @@ public class CFBamEnumTagHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagByDefSchemaIdxKey ) {
-			CFBamEnumTagByDefSchemaIdxKey rhs = (CFBamEnumTagByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByDefSchemaIdxKey ) {
+			YCFBamEnumTagByDefSchemaIdxKey rhs = (YCFBamEnumTagByDefSchemaIdxKey)obj;
 
 			if( getOptionalDefSchemaTenantId() != null ) {
 				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
@@ -919,8 +919,8 @@ public class CFBamEnumTagHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagByEnumNameIdxKey ) {
-			CFBamEnumTagByEnumNameIdxKey rhs = (CFBamEnumTagByEnumNameIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByEnumNameIdxKey ) {
+			YCFBamEnumTagByEnumNameIdxKey rhs = (YCFBamEnumTagByEnumNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -941,8 +941,8 @@ public class CFBamEnumTagHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagByPrevIdxKey ) {
-			CFBamEnumTagByPrevIdxKey rhs = (CFBamEnumTagByPrevIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByPrevIdxKey ) {
+			YCFBamEnumTagByPrevIdxKey rhs = (YCFBamEnumTagByPrevIdxKey)obj;
 
 			if( getOptionalPrevTenantId() != null ) {
 				Long lhsPrevTenantId = getOptionalPrevTenantId();
@@ -981,8 +981,8 @@ public class CFBamEnumTagHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagByNextIdxKey ) {
-			CFBamEnumTagByNextIdxKey rhs = (CFBamEnumTagByNextIdxKey)obj;
+		else if( obj instanceof YCFBamEnumTagByNextIdxKey ) {
+			YCFBamEnumTagByNextIdxKey rhs = (YCFBamEnumTagByNextIdxKey)obj;
 
 			if( getOptionalNextTenantId() != null ) {
 				Long lhsNextTenantId = getOptionalNextTenantId();
@@ -1021,8 +1021,8 @@ public class CFBamEnumTagHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagHBuff ) {
-			CFBamEnumTagHBuff rhs = (CFBamEnumTagHBuff)obj;
+		else if( obj instanceof YCFBamEnumTagHBuff ) {
+			YCFBamEnumTagHBuff rhs = (YCFBamEnumTagHBuff)obj;
 
 			int retval = 0;
 			{
@@ -1309,8 +1309,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagHPKey ) {
-			CFBamEnumTagHPKey rhs = (CFBamEnumTagHPKey)obj;
+		else if( obj instanceof YCFBamEnumTagHPKey ) {
+			YCFBamEnumTagHPKey rhs = (YCFBamEnumTagHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -1391,8 +1391,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagPKey ) {
-			CFBamEnumTagPKey rhs = (CFBamEnumTagPKey)obj;
+		else if( obj instanceof YCFBamEnumTagPKey ) {
+			YCFBamEnumTagPKey rhs = (YCFBamEnumTagPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -1407,8 +1407,8 @@ public class CFBamEnumTagHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamHPKey ) {
-			CFBamHPKey rhs = (CFBamHPKey)obj;
+		else if( obj instanceof YCFBamHPKey ) {
+			YCFBamHPKey rhs = (YCFBamHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -1426,11 +1426,11 @@ public class CFBamEnumTagHBuff
 		}
 	}
 
-	public void set( CFBamEnumTagBuff src ) {
+	public void set( YCFBamEnumTagBuff src ) {
 		setEnumTagBuff( src );
 	}
 
-	public void setEnumTagBuff( CFBamEnumTagBuff src ) {
+	public void setEnumTagBuff( YCFBamEnumTagBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
@@ -1445,11 +1445,11 @@ public class CFBamEnumTagHBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFBamEnumTagHBuff src ) {
+	public void set( YCFBamEnumTagHBuff src ) {
 		setEnumTagBuff( src );
 	}
 
-	public void setEnumTagBuff( CFBamEnumTagHBuff src ) {
+	public void setEnumTagBuff( YCFBamEnumTagHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );

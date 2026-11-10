@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for URLProtocol.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,52 +35,52 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntURLProtocolFactory implementation for URLProtocol
+	 *	YCFIntURLProtocolFactory implementation for URLProtocol
 	 */
-public class CFIntURLProtocolDefaultFactory
-	implements ICFIntURLProtocolFactory
+public class YCFIntURLProtocolDefaultFactory
+	implements IYCFIntURLProtocolFactory
 {
-	public CFIntURLProtocolDefaultFactory() {
+	public YCFIntURLProtocolDefaultFactory() {
 	}
 
-	public CFIntURLProtocolPKey newPKey() {
-		CFIntURLProtocolPKey pkey =
-			new CFIntURLProtocolPKey();
+	public YCFIntURLProtocolPKey newPKey() {
+		YCFIntURLProtocolPKey pkey =
+			new YCFIntURLProtocolPKey();
 		return( pkey );
 	}
 
-	public CFIntURLProtocolHPKey newHPKey() {
-		CFIntURLProtocolHPKey hpkey =
-			new CFIntURLProtocolHPKey();
+	public YCFIntURLProtocolHPKey newHPKey() {
+		YCFIntURLProtocolHPKey hpkey =
+			new YCFIntURLProtocolHPKey();
 		return( hpkey );
 	}
 
-	public CFIntURLProtocolByUNameIdxKey newUNameIdxKey() {
-		CFIntURLProtocolByUNameIdxKey key =
-			new CFIntURLProtocolByUNameIdxKey();
+	public YCFIntURLProtocolByUNameIdxKey newUNameIdxKey() {
+		YCFIntURLProtocolByUNameIdxKey key =
+			new YCFIntURLProtocolByUNameIdxKey();
 		return( key );
 	}
 
-	public CFIntURLProtocolByIsSecureIdxKey newIsSecureIdxKey() {
-		CFIntURLProtocolByIsSecureIdxKey key =
-			new CFIntURLProtocolByIsSecureIdxKey();
+	public YCFIntURLProtocolByIsSecureIdxKey newIsSecureIdxKey() {
+		YCFIntURLProtocolByIsSecureIdxKey key =
+			new YCFIntURLProtocolByIsSecureIdxKey();
 		return( key );
 	}
 
-	public CFIntURLProtocolBuff newBuff() {
-		CFIntURLProtocolBuff buff =
-			new CFIntURLProtocolBuff();
+	public YCFIntURLProtocolBuff newBuff() {
+		YCFIntURLProtocolBuff buff =
+			new YCFIntURLProtocolBuff();
 		return( buff );
 	}
 
-	public CFIntURLProtocolHBuff newHBuff() {
-		CFIntURLProtocolHBuff hbuff =
-			new CFIntURLProtocolHBuff();
+	public YCFIntURLProtocolHBuff newHBuff() {
+		YCFIntURLProtocolHBuff hbuff =
+			new YCFIntURLProtocolHBuff();
 		return( hbuff );
 	}
 }

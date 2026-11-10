@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelIteratorTableObj
+public interface IYCFGenKbGelIteratorTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelIteratorTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelIteratorObj newInstance();
+	IYCFGenKbGelIteratorObj newInstance();
 
 	/**
 	 *	Instantiate a new GelIterator edition of the specified GelIterator instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelIteratorEditObj newEditInstance( ICFGenKbGelIteratorObj orig );
+	IYCFGenKbGelIteratorEditObj newEditInstance( IYCFGenKbGelIteratorObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelIteratorObj realiseGelIterator( ICFGenKbGelIteratorObj Obj );
+	IYCFGenKbGelIteratorObj realiseGelIterator( IYCFGenKbGelIteratorObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelIteratorObj createGelIterator( ICFGenKbGelIteratorObj Obj );
+	IYCFGenKbGelIteratorObj createGelIterator( IYCFGenKbGelIteratorObj Obj );
 
 	/**
 	 *	Read a GelIterator-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelIteratorTableObj
 	 *	@return	The GelIterator-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelIteratorObj readGelIterator( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelIteratorObj readGelIterator( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelIterator-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelIteratorTableObj
 	 *	@return	The GelIterator-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelIteratorObj readGelIterator( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelIteratorObj readGelIterator( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelIteratorObj readCachedGelIterator( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelIteratorObj readCachedGelIterator( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelIterator( ICFGenKbGelIteratorObj obj );
+	public void reallyDeepDisposeGelIterator( IYCFGenKbGelIteratorObj obj );
 
-	void deepDisposeGelIterator( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelIterator( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelIteratorObj lockGelIterator( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelIteratorObj lockGelIterator( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelIterator-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelIteratorObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelIteratorObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readAllGelIterator();
+	List<IYCFGenKbGelIteratorObj> readAllGelIterator();
 
 	/**
 	 *	Return a sorted map of all the GelIterator-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelIteratorObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelIteratorObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readAllGelIterator( boolean forceRead );
+	List<IYCFGenKbGelIteratorObj> readAllGelIterator( boolean forceRead );
 
-	List<ICFGenKbGelIteratorObj> readCachedAllGelIterator();
+	List<IYCFGenKbGelIteratorObj> readCachedAllGelIterator();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelIterator key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelIteratorTableObj
 	 *
 	 *	@param	argGelInstId	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelIteratorObj readGelIteratorByPIdx( long TenantId,
+	IYCFGenKbGelIteratorObj readGelIteratorByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelIterator key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelIteratorTableObj
 	 *
 	 *	@param	argGelInstId	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelIteratorObj readGelIteratorByPIdx( long TenantId,
+	IYCFGenKbGelIteratorObj readGelIteratorByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByTenantIdx( long TenantId );
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByTenantIdx( long TenantId,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelIterator key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelIterator key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelIterator key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelIteratorTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelIterator key attribute of the instance generating the id.
 	 *
@@ -229,164 +229,164 @@ public interface ICFGenKbGelIteratorTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate BeforeIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate BeforeIdx key.
 	 *
 	 *	@param	argExpandBefore	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate BeforeIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate BeforeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByBeforeIdx( String ExpandBefore );
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByBeforeIdx( String ExpandBefore );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate BeforeIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate BeforeIdx key.
 	 *
 	 *	@param	argExpandBefore	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate BeforeIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate BeforeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByBeforeIdx( String ExpandBefore,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByBeforeIdx( String ExpandBefore,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate FirstIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate FirstIdx key.
 	 *
 	 *	@param	argExpandFirst	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate FirstIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate FirstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByFirstIdx( String ExpandFirst );
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByFirstIdx( String ExpandFirst );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate FirstIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate FirstIdx key.
 	 *
 	 *	@param	argExpandFirst	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate FirstIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate FirstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByFirstIdx( String ExpandFirst,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByFirstIdx( String ExpandFirst,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate EachIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate EachIdx key.
 	 *
 	 *	@param	argExpandEach	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate EachIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate EachIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByEachIdx( String ExpandEach );
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByEachIdx( String ExpandEach );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate EachIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate EachIdx key.
 	 *
 	 *	@param	argExpandEach	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate EachIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate EachIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByEachIdx( String ExpandEach,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByEachIdx( String ExpandEach,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate LastIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate LastIdx key.
 	 *
 	 *	@param	argExpandLast	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate LastIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate LastIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByLastIdx( String ExpandLast );
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByLastIdx( String ExpandLast );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate LastIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate LastIdx key.
 	 *
 	 *	@param	argExpandLast	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate LastIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate LastIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByLastIdx( String ExpandLast,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByLastIdx( String ExpandLast,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate LoneIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate LoneIdx key.
 	 *
 	 *	@param	argExpandLone	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate LoneIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate LoneIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByLoneIdx( String ExpandLone );
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByLoneIdx( String ExpandLone );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate LoneIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate LoneIdx key.
 	 *
 	 *	@param	argExpandLone	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate LoneIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate LoneIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByLoneIdx( String ExpandLone,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByLoneIdx( String ExpandLone,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate EmptyIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate EmptyIdx key.
 	 *
 	 *	@param	argExpandEmpty	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate EmptyIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate EmptyIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByEmptyIdx( String ExpandEmpty );
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByEmptyIdx( String ExpandEmpty );
 
 	/**
-	 *	Get the map of CFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate EmptyIdx key.
+	 *	Get the map of YCFGenKbGelIteratorObj instances sorted by their primary keys for the duplicate EmptyIdx key.
 	 *
 	 *	@param	argExpandEmpty	The GelIterator key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate EmptyIdx key,
+	 *	@return	List of YCFGenKbGelIteratorObj cached instances sorted by their primary keys for the duplicate EmptyIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelIteratorObj> readGelIteratorByEmptyIdx( String ExpandEmpty,
+	List<IYCFGenKbGelIteratorObj> readGelIteratorByEmptyIdx( String ExpandEmpty,
 		boolean forceRead );
 
-	ICFGenKbGelIteratorObj readCachedGelIteratorByPIdx( long TenantId,
+	IYCFGenKbGelIteratorObj readCachedGelIteratorByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelIteratorObj> readCachedGelIteratorByTenantIdx( long TenantId );
+	List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelIteratorObj> readCachedGelIteratorByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelIteratorObj> readCachedGelIteratorByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
-	List<ICFGenKbGelIteratorObj> readCachedGelIteratorByBeforeIdx( String ExpandBefore );
+	List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByBeforeIdx( String ExpandBefore );
 
-	List<ICFGenKbGelIteratorObj> readCachedGelIteratorByFirstIdx( String ExpandFirst );
+	List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByFirstIdx( String ExpandFirst );
 
-	List<ICFGenKbGelIteratorObj> readCachedGelIteratorByEachIdx( String ExpandEach );
+	List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByEachIdx( String ExpandEach );
 
-	List<ICFGenKbGelIteratorObj> readCachedGelIteratorByLastIdx( String ExpandLast );
+	List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByLastIdx( String ExpandLast );
 
-	List<ICFGenKbGelIteratorObj> readCachedGelIteratorByLoneIdx( String ExpandLone );
+	List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByLoneIdx( String ExpandLone );
 
-	List<ICFGenKbGelIteratorObj> readCachedGelIteratorByEmptyIdx( String ExpandEmpty );
+	List<IYCFGenKbGelIteratorObj> readCachedGelIteratorByEmptyIdx( String ExpandEmpty );
 
 	void deepDisposeGelIteratorByPIdx( long TenantId,
 		long GelCacheId,
@@ -416,12 +416,12 @@ public interface ICFGenKbGelIteratorTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelIteratorObj updateGelIterator( ICFGenKbGelIteratorObj Obj );
+	IYCFGenKbGelIteratorObj updateGelIterator( IYCFGenKbGelIteratorObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelIterator( ICFGenKbGelIteratorObj Obj );
+	void deleteGelIterator( IYCFGenKbGelIteratorObj Obj );
 
 	/**
 	 *	Internal use only.

@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for HostNode.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbHostNodeTable database interface for HostNode
+ *	YCFGenKbHostNodeTable database interface for HostNode
  */
-public interface ICFGenKbHostNodeTable
+public interface IYCFGenKbHostNodeTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createHostNode( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeBuff Buff );
+	void createHostNode( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateHostNode( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeBuff Buff );
+	void updateHostNode( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteHostNode( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeBuff Buff );
+	void deleteHostNode( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeBuff Buff );
 	/**
 	 *	Delete the HostNode instance identified by the primary key attributes.
 	 *
@@ -88,7 +88,7 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	argHostNodeId	The HostNode key attribute of the instance generating the id.
 	 */
-	void deleteHostNodeByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteHostNodeByIdIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		long argHostNodeId );
 
@@ -99,8 +99,8 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteHostNodeByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey argKey );
+	void deleteHostNodeByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey argKey );
 	/**
 	 *	Delete the HostNode instances identified by the key ClusterIdx.
 	 *
@@ -108,7 +108,7 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 */
-	void deleteHostNodeByClusterIdx( CFGenKbAuthorization Authorization,
+	void deleteHostNodeByClusterIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -118,8 +118,8 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteHostNodeByClusterIdx( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeByClusterIdxKey argKey );
+	void deleteHostNodeByClusterIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeByClusterIdxKey argKey );
 	/**
 	 *	Delete the HostNode instances identified by the key UDescrIdx.
 	 *
@@ -129,7 +129,7 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	argDescription	The HostNode key attribute of the instance generating the id.
 	 */
-	void deleteHostNodeByUDescrIdx( CFGenKbAuthorization Authorization,
+	void deleteHostNodeByUDescrIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		String argDescription );
 
@@ -140,8 +140,8 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteHostNodeByUDescrIdx( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeByUDescrIdxKey argKey );
+	void deleteHostNodeByUDescrIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeByUDescrIdxKey argKey );
 	/**
 	 *	Delete the HostNode instances identified by the key HostNameIdx.
 	 *
@@ -151,7 +151,7 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	argHostName	The HostNode key attribute of the instance generating the id.
 	 */
-	void deleteHostNodeByHostNameIdx( CFGenKbAuthorization Authorization,
+	void deleteHostNodeByHostNameIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		String argHostName );
 
@@ -162,8 +162,8 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteHostNodeByHostNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeByHostNameIdxKey argKey );
+	void deleteHostNodeByHostNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeByHostNameIdxKey argKey );
 
 
 	/**
@@ -176,8 +176,8 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbHostNodeBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey PKey );
+	YCFGenKbHostNodeBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey PKey );
 
 	/**
 	 *	Lock the derived HostNode buffer instance by primary key.
@@ -189,8 +189,8 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbHostNodeBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey PKey );
+	YCFGenKbHostNodeBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey PKey );
 
 	/**
 	 *	Read all HostNode instances.
@@ -199,7 +199,7 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbHostNodeBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbHostNodeBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived HostNode buffer instance identified by the unique key IdIdx.
@@ -213,7 +213,7 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbHostNodeBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId );
 
@@ -226,7 +226,7 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbHostNodeBuff[] readDerivedByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff[] readDerivedByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -241,7 +241,7 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbHostNodeBuff readDerivedByUDescrIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff readDerivedByUDescrIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String Description );
 
@@ -257,7 +257,7 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbHostNodeBuff readDerivedByHostNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff readDerivedByHostNameIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String HostName );
 
@@ -271,10 +271,10 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbHostNodeBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey PKey );
+	YCFGenKbHostNodeBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey PKey );
 
 	/**
 	 *	Lock the specific HostNode buffer instance identified by the primary key.
@@ -286,10 +286,10 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbHostNodeBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey PKey );
+	YCFGenKbHostNodeBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey PKey );
 
 	/**
 	 *	Read all the specific HostNode buffer instances.
@@ -298,7 +298,7 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@return All the specific HostNode instances in the database accessible for the Authorization.
 	 */
-	CFGenKbHostNodeBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbHostNodeBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific HostNode buffer instances.
@@ -307,7 +307,7 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@return All the specific HostNode instances in the database accessible for the Authorization.
 	 */
-	CFGenKbHostNodeBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		Long priorClusterId,
 		Long priorHostNodeId );
 
@@ -323,9 +323,9 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbHostNodeBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId );
 
@@ -338,9 +338,9 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbHostNodeBuff[] readBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff[] readBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -355,9 +355,9 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbHostNodeBuff readBuffByUDescrIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff readBuffByUDescrIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String Description );
 
@@ -373,9 +373,9 @@ public interface ICFGenKbHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbHostNodeBuff readBuffByHostNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff readBuffByHostNameIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String HostName );
 
@@ -388,9 +388,9 @@ public interface ICFGenKbHostNodeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbHostNodeBuff[] pageBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbHostNodeBuff[] pageBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Long priorHostNodeId );
@@ -398,7 +398,7 @@ public interface ICFGenKbHostNodeTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

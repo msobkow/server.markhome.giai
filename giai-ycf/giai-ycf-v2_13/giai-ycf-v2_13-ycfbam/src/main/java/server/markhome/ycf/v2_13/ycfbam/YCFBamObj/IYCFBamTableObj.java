@@ -1,17 +1,17 @@
-// Description: Java 11 Object interface for CFBam Table.
+// Description: Java 11 Object interface for YCFBam Table.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,47 +45,47 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamTableObj
-	extends ICFBamScopeObj
+public interface IYCFBamTableObj
+	extends IYCFBamScopeObj
 {
 	/**
-	 *	Get the current edition of this Table instance as a ICFBamTableEditObj.
+	 *	Get the current edition of this Table instance as a IYCFBamTableEditObj.
 	 *
-	 *	@return	The ICFBamTableEditObj edition of this instance.
+	 *	@return	The IYCFBamTableEditObj edition of this instance.
 	 */
-	ICFBamTableEditObj getEditAsTable();
+	IYCFBamTableEditObj getEditAsTable();
 
 	/**
-	 *	Get the ICFBamTableTableObj table cache which manages this instance.
+	 *	Get the IYCFBamTableTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFBamTableTableObj table cache which manages this instance.
+	 *	@return	IYCFBamTableTableObj table cache which manages this instance.
 	 */
-	ICFBamTableTableObj getTableTable();
+	IYCFBamTableTableObj getTableTable();
 
 	/**
-	 *	Get the CFBamTableBuff instance which currently backs this instance.
+	 *	Get the YCFBamTableBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFBamTableBuff instance which currently backs this object.
+	 *	@return	YCFBamTableBuff instance which currently backs this object.
 	 */
-	CFBamTableBuff getTableBuff();
+	YCFBamTableBuff getTableBuff();
 
 	/**
 	 *	Get the required long attribute SchemaDefId.
@@ -256,25 +256,25 @@ public interface ICFBamTableObj
 	boolean getRequiredIsServerOnly();
 
 	/**
-	 *	Get the required ICFBamSchema.LoaderBehaviourEnum attribute LoaderBehaviour.
+	 *	Get the required IYCFBamSchema.LoaderBehaviourEnum attribute LoaderBehaviour.
 	 *
-	 *	@return	The required ICFBamSchema.LoaderBehaviourEnum attribute LoaderBehaviour.
+	 *	@return	The required IYCFBamSchema.LoaderBehaviourEnum attribute LoaderBehaviour.
 	 */
-	ICFBamSchema.LoaderBehaviourEnum getRequiredLoaderBehaviour();
+	IYCFBamSchema.LoaderBehaviourEnum getRequiredLoaderBehaviour();
 
 	/**
-	 *	Get the required ICFBamSchema.SecScopeEnum attribute SecScope.
+	 *	Get the required IYCFBamSchema.SecScopeEnum attribute SecScope.
 	 *
-	 *	@return	The required ICFBamSchema.SecScopeEnum attribute SecScope.
+	 *	@return	The required IYCFBamSchema.SecScopeEnum attribute SecScope.
 	 */
-	ICFBamSchema.SecScopeEnum getRequiredSecScope();
+	IYCFBamSchema.SecScopeEnum getRequiredSecScope();
 
 	/**
-	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *	Get the required IYCFBamSchema.CodeVisibilityEnum attribute CodeVis.
 	 *
-	 *	@return	The required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *	@return	The required IYCFBamSchema.CodeVisibilityEnum attribute CodeVis.
 	 */
-	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+	IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
 
 	/**
 	 *	Get the optional String attribute JObjMembers.
@@ -1537,273 +1537,273 @@ public interface ICFBamTableObj
 	String getOptionalCsXMsgClientTableBody();
 
 	/**
-	 *	Get the required ICFBamSchemaDefObj instance referenced by the SchemaDef key.
+	 *	Get the required IYCFBamSchemaDefObj instance referenced by the SchemaDef key.
 	 *
-	 *	@return	The required ICFBamSchemaDefObj instance referenced by the SchemaDef key.
+	 *	@return	The required IYCFBamSchemaDefObj instance referenced by the SchemaDef key.
 	 */
-	ICFBamSchemaDefObj getRequiredContainerSchemaDef();
+	IYCFBamSchemaDefObj getRequiredContainerSchemaDef();
 
 	/**
-	 *	Get the required ICFBamSchemaDefObj instance referenced by the SchemaDef key.
+	 *	Get the required IYCFBamSchemaDefObj instance referenced by the SchemaDef key.
 	 *
-	 *	@return	The required ICFBamSchemaDefObj instance referenced by the SchemaDef key.
+	 *	@return	The required IYCFBamSchemaDefObj instance referenced by the SchemaDef key.
 	 */
-	ICFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead );
+	IYCFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Get the optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@return	The optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	@return	The optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupDefSchema();
+	IYCFBamSchemaDefObj getOptionalLookupDefSchema();
 
 	/**
-	 *	Get the optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Get the optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@return	The optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	@return	The optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead );
+	IYCFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamRelationObj array of instances referenced by the Relation key.
+	 *	Get the array of optional IYCFBamRelationObj array of instances referenced by the Relation key.
 	 *
-	 *	@return	The optional ICFBamRelationObj[] array of instances referenced by the Relation key.
+	 *	@return	The optional IYCFBamRelationObj[] array of instances referenced by the Relation key.
 	 */
-	List<ICFBamRelationObj> getOptionalComponentsRelation();
+	List<IYCFBamRelationObj> getOptionalComponentsRelation();
 
 	/**
-	 *	Get the array of optional ICFBamRelationObj array of instances referenced by the Relation key.
+	 *	Get the array of optional IYCFBamRelationObj array of instances referenced by the Relation key.
 	 *
-	 *	@return	The optional ICFBamRelationObj[] array of instances referenced by the Relation key.
+	 *	@return	The optional IYCFBamRelationObj[] array of instances referenced by the Relation key.
 	 */
-	List<ICFBamRelationObj> getOptionalComponentsRelation( boolean forceRead );
+	List<IYCFBamRelationObj> getOptionalComponentsRelation( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamIndexObj instance referenced by the LookupIndex key.
+	 *	Get the optional IYCFBamIndexObj instance referenced by the LookupIndex key.
 	 *
-	 *	@return	The optional ICFBamIndexObj instance referenced by the LookupIndex key.
+	 *	@return	The optional IYCFBamIndexObj instance referenced by the LookupIndex key.
 	 */
-	ICFBamIndexObj getOptionalLookupLookupIndex();
+	IYCFBamIndexObj getOptionalLookupLookupIndex();
 
 	/**
-	 *	Get the optional ICFBamIndexObj instance referenced by the LookupIndex key.
+	 *	Get the optional IYCFBamIndexObj instance referenced by the LookupIndex key.
 	 *
-	 *	@return	The optional ICFBamIndexObj instance referenced by the LookupIndex key.
+	 *	@return	The optional IYCFBamIndexObj instance referenced by the LookupIndex key.
 	 */
-	ICFBamIndexObj getOptionalLookupLookupIndex( boolean forceRead );
+	IYCFBamIndexObj getOptionalLookupLookupIndex( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamIndexObj instance referenced by the AltIndex key.
+	 *	Get the optional IYCFBamIndexObj instance referenced by the AltIndex key.
 	 *
-	 *	@return	The optional ICFBamIndexObj instance referenced by the AltIndex key.
+	 *	@return	The optional IYCFBamIndexObj instance referenced by the AltIndex key.
 	 */
-	ICFBamIndexObj getOptionalLookupAltIndex();
+	IYCFBamIndexObj getOptionalLookupAltIndex();
 
 	/**
-	 *	Get the optional ICFBamIndexObj instance referenced by the AltIndex key.
+	 *	Get the optional IYCFBamIndexObj instance referenced by the AltIndex key.
 	 *
-	 *	@return	The optional ICFBamIndexObj instance referenced by the AltIndex key.
+	 *	@return	The optional IYCFBamIndexObj instance referenced by the AltIndex key.
 	 */
-	ICFBamIndexObj getOptionalLookupAltIndex( boolean forceRead );
+	IYCFBamIndexObj getOptionalLookupAltIndex( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamTableObj instance referenced by the QualTable key.
+	 *	Get the optional IYCFBamTableObj instance referenced by the QualTable key.
 	 *
-	 *	@return	The optional ICFBamTableObj instance referenced by the QualTable key.
+	 *	@return	The optional IYCFBamTableObj instance referenced by the QualTable key.
 	 */
-	ICFBamTableObj getOptionalLookupQualTable();
+	IYCFBamTableObj getOptionalLookupQualTable();
 
 	/**
-	 *	Get the optional ICFBamTableObj instance referenced by the QualTable key.
+	 *	Get the optional IYCFBamTableObj instance referenced by the QualTable key.
 	 *
-	 *	@return	The optional ICFBamTableObj instance referenced by the QualTable key.
+	 *	@return	The optional IYCFBamTableObj instance referenced by the QualTable key.
 	 */
-	ICFBamTableObj getOptionalLookupQualTable( boolean forceRead );
+	IYCFBamTableObj getOptionalLookupQualTable( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamIndexObj array of instances referenced by the Index key.
+	 *	Get the array of optional IYCFBamIndexObj array of instances referenced by the Index key.
 	 *
-	 *	@return	The optional ICFBamIndexObj[] array of instances referenced by the Index key.
+	 *	@return	The optional IYCFBamIndexObj[] array of instances referenced by the Index key.
 	 */
-	List<ICFBamIndexObj> getOptionalComponentsIndex();
+	List<IYCFBamIndexObj> getOptionalComponentsIndex();
 
 	/**
-	 *	Get the array of optional ICFBamIndexObj array of instances referenced by the Index key.
+	 *	Get the array of optional IYCFBamIndexObj array of instances referenced by the Index key.
 	 *
-	 *	@return	The optional ICFBamIndexObj[] array of instances referenced by the Index key.
+	 *	@return	The optional IYCFBamIndexObj[] array of instances referenced by the Index key.
 	 */
-	List<ICFBamIndexObj> getOptionalComponentsIndex( boolean forceRead );
+	List<IYCFBamIndexObj> getOptionalComponentsIndex( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamIndexObj instance referenced by the PrimaryIndex key.
+	 *	Get the optional IYCFBamIndexObj instance referenced by the PrimaryIndex key.
 	 *
-	 *	@return	The optional ICFBamIndexObj instance referenced by the PrimaryIndex key.
+	 *	@return	The optional IYCFBamIndexObj instance referenced by the PrimaryIndex key.
 	 */
-	ICFBamIndexObj getOptionalLookupPrimaryIndex();
+	IYCFBamIndexObj getOptionalLookupPrimaryIndex();
 
 	/**
-	 *	Get the optional ICFBamIndexObj instance referenced by the PrimaryIndex key.
+	 *	Get the optional IYCFBamIndexObj instance referenced by the PrimaryIndex key.
 	 *
-	 *	@return	The optional ICFBamIndexObj instance referenced by the PrimaryIndex key.
+	 *	@return	The optional IYCFBamIndexObj instance referenced by the PrimaryIndex key.
 	 */
-	ICFBamIndexObj getOptionalLookupPrimaryIndex( boolean forceRead );
+	IYCFBamIndexObj getOptionalLookupPrimaryIndex( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamValueObj array of instances referenced by the Columns key.
+	 *	Get the array of optional IYCFBamValueObj array of instances referenced by the Columns key.
 	 *
-	 *	@return	The optional ICFBamValueObj[] array of instances referenced by the Columns key.
+	 *	@return	The optional IYCFBamValueObj[] array of instances referenced by the Columns key.
 	 */
-	List<ICFBamValueObj> getOptionalComponentsColumns();
+	List<IYCFBamValueObj> getOptionalComponentsColumns();
 
 	/**
-	 *	Get the array of optional ICFBamValueObj array of instances referenced by the Columns key.
+	 *	Get the array of optional IYCFBamValueObj array of instances referenced by the Columns key.
 	 *
-	 *	@return	The optional ICFBamValueObj[] array of instances referenced by the Columns key.
+	 *	@return	The optional IYCFBamValueObj[] array of instances referenced by the Columns key.
 	 */
-	List<ICFBamValueObj> getOptionalComponentsColumns( boolean forceRead );
+	List<IYCFBamValueObj> getOptionalComponentsColumns( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamRelationObj array of instances referenced by the ReverseRelations key.
+	 *	Get the array of optional IYCFBamRelationObj array of instances referenced by the ReverseRelations key.
 	 *
-	 *	@return	The optional ICFBamRelationObj[] array of instances referenced by the ReverseRelations key.
+	 *	@return	The optional IYCFBamRelationObj[] array of instances referenced by the ReverseRelations key.
 	 */
-	List<ICFBamRelationObj> getOptionalChildrenReverseRelations();
+	List<IYCFBamRelationObj> getOptionalChildrenReverseRelations();
 
 	/**
-	 *	Get the array of optional ICFBamRelationObj array of instances referenced by the ReverseRelations key.
+	 *	Get the array of optional IYCFBamRelationObj array of instances referenced by the ReverseRelations key.
 	 *
-	 *	@return	The optional ICFBamRelationObj[] array of instances referenced by the ReverseRelations key.
+	 *	@return	The optional IYCFBamRelationObj[] array of instances referenced by the ReverseRelations key.
 	 */
-	List<ICFBamRelationObj> getOptionalChildrenReverseRelations( boolean forceRead );
+	List<IYCFBamRelationObj> getOptionalChildrenReverseRelations( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamChainObj array of instances referenced by the Chains key.
+	 *	Get the array of optional IYCFBamChainObj array of instances referenced by the Chains key.
 	 *
-	 *	@return	The optional ICFBamChainObj[] array of instances referenced by the Chains key.
+	 *	@return	The optional IYCFBamChainObj[] array of instances referenced by the Chains key.
 	 */
-	List<ICFBamChainObj> getOptionalComponentsChains();
+	List<IYCFBamChainObj> getOptionalComponentsChains();
 
 	/**
-	 *	Get the array of optional ICFBamChainObj array of instances referenced by the Chains key.
+	 *	Get the array of optional IYCFBamChainObj array of instances referenced by the Chains key.
 	 *
-	 *	@return	The optional ICFBamChainObj[] array of instances referenced by the Chains key.
+	 *	@return	The optional IYCFBamChainObj[] array of instances referenced by the Chains key.
 	 */
-	List<ICFBamChainObj> getOptionalComponentsChains( boolean forceRead );
+	List<IYCFBamChainObj> getOptionalComponentsChains( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamDelTopDepObj array of instances referenced by the DelDep key.
+	 *	Get the array of optional IYCFBamDelTopDepObj array of instances referenced by the DelDep key.
 	 *
-	 *	@return	The optional ICFBamDelTopDepObj[] array of instances referenced by the DelDep key.
+	 *	@return	The optional IYCFBamDelTopDepObj[] array of instances referenced by the DelDep key.
 	 */
-	List<ICFBamDelTopDepObj> getOptionalComponentsDelDep();
+	List<IYCFBamDelTopDepObj> getOptionalComponentsDelDep();
 
 	/**
-	 *	Get the array of optional ICFBamDelTopDepObj array of instances referenced by the DelDep key.
+	 *	Get the array of optional IYCFBamDelTopDepObj array of instances referenced by the DelDep key.
 	 *
-	 *	@return	The optional ICFBamDelTopDepObj[] array of instances referenced by the DelDep key.
+	 *	@return	The optional IYCFBamDelTopDepObj[] array of instances referenced by the DelDep key.
 	 */
-	List<ICFBamDelTopDepObj> getOptionalComponentsDelDep( boolean forceRead );
+	List<IYCFBamDelTopDepObj> getOptionalComponentsDelDep( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamClearTopDepObj array of instances referenced by the ClearDep key.
+	 *	Get the array of optional IYCFBamClearTopDepObj array of instances referenced by the ClearDep key.
 	 *
-	 *	@return	The optional ICFBamClearTopDepObj[] array of instances referenced by the ClearDep key.
+	 *	@return	The optional IYCFBamClearTopDepObj[] array of instances referenced by the ClearDep key.
 	 */
-	List<ICFBamClearTopDepObj> getOptionalComponentsClearDep();
+	List<IYCFBamClearTopDepObj> getOptionalComponentsClearDep();
 
 	/**
-	 *	Get the array of optional ICFBamClearTopDepObj array of instances referenced by the ClearDep key.
+	 *	Get the array of optional IYCFBamClearTopDepObj array of instances referenced by the ClearDep key.
 	 *
-	 *	@return	The optional ICFBamClearTopDepObj[] array of instances referenced by the ClearDep key.
+	 *	@return	The optional IYCFBamClearTopDepObj[] array of instances referenced by the ClearDep key.
 	 */
-	List<ICFBamClearTopDepObj> getOptionalComponentsClearDep( boolean forceRead );
+	List<IYCFBamClearTopDepObj> getOptionalComponentsClearDep( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamId16GenObj array of instances referenced by the DispId16Gen key.
+	 *	Get the array of optional IYCFBamId16GenObj array of instances referenced by the DispId16Gen key.
 	 *
-	 *	@return	The optional ICFBamId16GenObj[] array of instances referenced by the DispId16Gen key.
+	 *	@return	The optional IYCFBamId16GenObj[] array of instances referenced by the DispId16Gen key.
 	 */
-	List<ICFBamId16GenObj> getOptionalChildrenDispId16Gen();
+	List<IYCFBamId16GenObj> getOptionalChildrenDispId16Gen();
 
 	/**
-	 *	Get the array of optional ICFBamId16GenObj array of instances referenced by the DispId16Gen key.
+	 *	Get the array of optional IYCFBamId16GenObj array of instances referenced by the DispId16Gen key.
 	 *
-	 *	@return	The optional ICFBamId16GenObj[] array of instances referenced by the DispId16Gen key.
+	 *	@return	The optional IYCFBamId16GenObj[] array of instances referenced by the DispId16Gen key.
 	 */
-	List<ICFBamId16GenObj> getOptionalChildrenDispId16Gen( boolean forceRead );
+	List<IYCFBamId16GenObj> getOptionalChildrenDispId16Gen( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamId32GenObj array of instances referenced by the DispId32Gen key.
+	 *	Get the array of optional IYCFBamId32GenObj array of instances referenced by the DispId32Gen key.
 	 *
-	 *	@return	The optional ICFBamId32GenObj[] array of instances referenced by the DispId32Gen key.
+	 *	@return	The optional IYCFBamId32GenObj[] array of instances referenced by the DispId32Gen key.
 	 */
-	List<ICFBamId32GenObj> getOptionalChildrenDispId32Gen();
+	List<IYCFBamId32GenObj> getOptionalChildrenDispId32Gen();
 
 	/**
-	 *	Get the array of optional ICFBamId32GenObj array of instances referenced by the DispId32Gen key.
+	 *	Get the array of optional IYCFBamId32GenObj array of instances referenced by the DispId32Gen key.
 	 *
-	 *	@return	The optional ICFBamId32GenObj[] array of instances referenced by the DispId32Gen key.
+	 *	@return	The optional IYCFBamId32GenObj[] array of instances referenced by the DispId32Gen key.
 	 */
-	List<ICFBamId32GenObj> getOptionalChildrenDispId32Gen( boolean forceRead );
+	List<IYCFBamId32GenObj> getOptionalChildrenDispId32Gen( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamId64GenObj array of instances referenced by the DispId64Gen key.
+	 *	Get the array of optional IYCFBamId64GenObj array of instances referenced by the DispId64Gen key.
 	 *
-	 *	@return	The optional ICFBamId64GenObj[] array of instances referenced by the DispId64Gen key.
+	 *	@return	The optional IYCFBamId64GenObj[] array of instances referenced by the DispId64Gen key.
 	 */
-	List<ICFBamId64GenObj> getOptionalChildrenDispId64Gen();
+	List<IYCFBamId64GenObj> getOptionalChildrenDispId64Gen();
 
 	/**
-	 *	Get the array of optional ICFBamId64GenObj array of instances referenced by the DispId64Gen key.
+	 *	Get the array of optional IYCFBamId64GenObj array of instances referenced by the DispId64Gen key.
 	 *
-	 *	@return	The optional ICFBamId64GenObj[] array of instances referenced by the DispId64Gen key.
+	 *	@return	The optional IYCFBamId64GenObj[] array of instances referenced by the DispId64Gen key.
 	 */
-	List<ICFBamId64GenObj> getOptionalChildrenDispId64Gen( boolean forceRead );
+	List<IYCFBamId64GenObj> getOptionalChildrenDispId64Gen( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamServerMethodObj array of instances referenced by the ServerMethods key.
+	 *	Get the array of optional IYCFBamServerMethodObj array of instances referenced by the ServerMethods key.
 	 *
-	 *	@return	The optional ICFBamServerMethodObj[] array of instances referenced by the ServerMethods key.
+	 *	@return	The optional IYCFBamServerMethodObj[] array of instances referenced by the ServerMethods key.
 	 */
-	List<ICFBamServerMethodObj> getOptionalComponentsServerMethods();
+	List<IYCFBamServerMethodObj> getOptionalComponentsServerMethods();
 
 	/**
-	 *	Get the array of optional ICFBamServerMethodObj array of instances referenced by the ServerMethods key.
+	 *	Get the array of optional IYCFBamServerMethodObj array of instances referenced by the ServerMethods key.
 	 *
-	 *	@return	The optional ICFBamServerMethodObj[] array of instances referenced by the ServerMethods key.
+	 *	@return	The optional IYCFBamServerMethodObj[] array of instances referenced by the ServerMethods key.
 	 */
-	List<ICFBamServerMethodObj> getOptionalComponentsServerMethods( boolean forceRead );
+	List<IYCFBamServerMethodObj> getOptionalComponentsServerMethods( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamTweakObj array of instances referenced by the Tweaks key.
+	 *	Get the array of optional IYCFBamTweakObj array of instances referenced by the Tweaks key.
 	 *
-	 *	@return	The optional ICFBamTweakObj[] array of instances referenced by the Tweaks key.
+	 *	@return	The optional IYCFBamTweakObj[] array of instances referenced by the Tweaks key.
 	 */
-	List<ICFBamTweakObj> getOptionalComponentsTweaks();
+	List<IYCFBamTweakObj> getOptionalComponentsTweaks();
 
 	/**
-	 *	Get the array of optional ICFBamTweakObj array of instances referenced by the Tweaks key.
+	 *	Get the array of optional IYCFBamTweakObj array of instances referenced by the Tweaks key.
 	 *
-	 *	@return	The optional ICFBamTweakObj[] array of instances referenced by the Tweaks key.
+	 *	@return	The optional IYCFBamTweakObj[] array of instances referenced by the Tweaks key.
 	 */
-	List<ICFBamTweakObj> getOptionalComponentsTweaks( boolean forceRead );
+	List<IYCFBamTweakObj> getOptionalComponentsTweaks( boolean forceRead );
 
-	List<ICFBamRelationObj> getOnlyOwnerRelations();
-	List<ICFBamRelationObj> getContainerOwnerRelations();
-	ICFBamRelationObj getContainerRelation();
-	ICFBamRelationObj getInheritedContainerRelation();
-	ICFBamRelationObj getOwnerRelation();
-	ICFBamRelationObj getInheritedOwnerRelation();
-	List<ICFBamRelationObj> getOwnerLookupRelations();
-	List<ICFBamRelationObj> getOwnerContainerNamedLookupChainRelations();
-	List<ICFBamAtomObj> getChildrenAtoms();
-	ICFBamRelationObj getSuperClassRelation();
-	List<ICFBamRelationObj> getSubClassRelations();
-	ICFBamIndexObj getPrimaryKeyIndex();
-	List<ICFBamRelationObj> getFactoryOwnerRelations();
-	List<ICFBamIndexObj> getInheritedIndexes();
-	List<ICFBamIndexObj> getChildrenIndexes();
-	List<ICFBamRelationObj> getInheritedRelations();
-	List<ICFBamRelationObj> getChildrenRelations();
+	List<IYCFBamRelationObj> getOnlyOwnerRelations();
+	List<IYCFBamRelationObj> getContainerOwnerRelations();
+	IYCFBamRelationObj getContainerRelation();
+	IYCFBamRelationObj getInheritedContainerRelation();
+	IYCFBamRelationObj getOwnerRelation();
+	IYCFBamRelationObj getInheritedOwnerRelation();
+	List<IYCFBamRelationObj> getOwnerLookupRelations();
+	List<IYCFBamRelationObj> getOwnerContainerNamedLookupChainRelations();
+	List<IYCFBamAtomObj> getChildrenAtoms();
+	IYCFBamRelationObj getSuperClassRelation();
+	List<IYCFBamRelationObj> getSubClassRelations();
+	IYCFBamIndexObj getPrimaryKeyIndex();
+	List<IYCFBamRelationObj> getFactoryOwnerRelations();
+	List<IYCFBamIndexObj> getInheritedIndexes();
+	List<IYCFBamIndexObj> getChildrenIndexes();
+	List<IYCFBamRelationObj> getInheritedRelations();
+	List<IYCFBamRelationObj> getChildrenRelations();
 
 }

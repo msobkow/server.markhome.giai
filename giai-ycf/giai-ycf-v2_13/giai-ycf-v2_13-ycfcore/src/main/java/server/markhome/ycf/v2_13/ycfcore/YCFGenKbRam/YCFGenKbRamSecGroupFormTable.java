@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for SecGroupForm.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,90 +28,90 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamSecGroupFormTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamSecGroupFormTable in-memory RAM DbIO implementation
  *	for SecGroupForm.
  */
-public class CFGenKbRamSecGroupFormTable
-	implements ICFGenKbSecGroupFormTable
+public class YCFGenKbRamSecGroupFormTable
+	implements IYCFGenKbSecGroupFormTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbSecGroupFormPKey,
-				CFGenKbSecGroupFormBuff > dictByPKey
-		= new HashMap< CFGenKbSecGroupFormPKey,
-				CFGenKbSecGroupFormBuff >();
-	private Map< CFGenKbSecGroupFormByClusterIdxKey,
-				Map< CFGenKbSecGroupFormPKey,
-					CFGenKbSecGroupFormBuff >> dictByClusterIdx
-		= new HashMap< CFGenKbSecGroupFormByClusterIdxKey,
-				Map< CFGenKbSecGroupFormPKey,
-					CFGenKbSecGroupFormBuff >>();
-	private Map< CFGenKbSecGroupFormByGroupIdxKey,
-				Map< CFGenKbSecGroupFormPKey,
-					CFGenKbSecGroupFormBuff >> dictByGroupIdx
-		= new HashMap< CFGenKbSecGroupFormByGroupIdxKey,
-				Map< CFGenKbSecGroupFormPKey,
-					CFGenKbSecGroupFormBuff >>();
-	private Map< CFGenKbSecGroupFormByAppIdxKey,
-				Map< CFGenKbSecGroupFormPKey,
-					CFGenKbSecGroupFormBuff >> dictByAppIdx
-		= new HashMap< CFGenKbSecGroupFormByAppIdxKey,
-				Map< CFGenKbSecGroupFormPKey,
-					CFGenKbSecGroupFormBuff >>();
-	private Map< CFGenKbSecGroupFormByFormIdxKey,
-				Map< CFGenKbSecGroupFormPKey,
-					CFGenKbSecGroupFormBuff >> dictByFormIdx
-		= new HashMap< CFGenKbSecGroupFormByFormIdxKey,
-				Map< CFGenKbSecGroupFormPKey,
-					CFGenKbSecGroupFormBuff >>();
-	private Map< CFGenKbSecGroupFormByUFormIdxKey,
-			CFGenKbSecGroupFormBuff > dictByUFormIdx
-		= new HashMap< CFGenKbSecGroupFormByUFormIdxKey,
-			CFGenKbSecGroupFormBuff >();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbSecGroupFormPKey,
+				YCFGenKbSecGroupFormBuff > dictByPKey
+		= new HashMap< YCFGenKbSecGroupFormPKey,
+				YCFGenKbSecGroupFormBuff >();
+	private Map< YCFGenKbSecGroupFormByClusterIdxKey,
+				Map< YCFGenKbSecGroupFormPKey,
+					YCFGenKbSecGroupFormBuff >> dictByClusterIdx
+		= new HashMap< YCFGenKbSecGroupFormByClusterIdxKey,
+				Map< YCFGenKbSecGroupFormPKey,
+					YCFGenKbSecGroupFormBuff >>();
+	private Map< YCFGenKbSecGroupFormByGroupIdxKey,
+				Map< YCFGenKbSecGroupFormPKey,
+					YCFGenKbSecGroupFormBuff >> dictByGroupIdx
+		= new HashMap< YCFGenKbSecGroupFormByGroupIdxKey,
+				Map< YCFGenKbSecGroupFormPKey,
+					YCFGenKbSecGroupFormBuff >>();
+	private Map< YCFGenKbSecGroupFormByAppIdxKey,
+				Map< YCFGenKbSecGroupFormPKey,
+					YCFGenKbSecGroupFormBuff >> dictByAppIdx
+		= new HashMap< YCFGenKbSecGroupFormByAppIdxKey,
+				Map< YCFGenKbSecGroupFormPKey,
+					YCFGenKbSecGroupFormBuff >>();
+	private Map< YCFGenKbSecGroupFormByFormIdxKey,
+				Map< YCFGenKbSecGroupFormPKey,
+					YCFGenKbSecGroupFormBuff >> dictByFormIdx
+		= new HashMap< YCFGenKbSecGroupFormByFormIdxKey,
+				Map< YCFGenKbSecGroupFormPKey,
+					YCFGenKbSecGroupFormBuff >>();
+	private Map< YCFGenKbSecGroupFormByUFormIdxKey,
+			YCFGenKbSecGroupFormBuff > dictByUFormIdx
+		= new HashMap< YCFGenKbSecGroupFormByUFormIdxKey,
+			YCFGenKbSecGroupFormBuff >();
 
-	public CFGenKbRamSecGroupFormTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamSecGroupFormTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createSecGroupForm( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormBuff Buff )
+	public void createSecGroupForm( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormBuff Buff )
 	{
 		final String S_ProcName = "createSecGroupForm";
-		CFGenKbSecGroupFormPKey pkey = schema.getFactorySecGroupForm().newPKey();
+		YCFGenKbSecGroupFormPKey pkey = schema.getFactorySecGroupForm().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
-		pkey.setRequiredSecGroupFormId( ((CFGenKbRamClusterTable)schema.getTableCluster()).nextSecGroupFormIdGen( Authorization,
+		pkey.setRequiredSecGroupFormId( ((YCFGenKbRamClusterTable)schema.getTableCluster()).nextSecGroupFormIdGen( Authorization,
 			Buff.getRequiredClusterId() ) );
 		Buff.setRequiredClusterId( pkey.getRequiredClusterId() );
 		Buff.setRequiredSecGroupFormId( pkey.getRequiredSecGroupFormId() );
-		CFGenKbSecGroupFormByClusterIdxKey keyClusterIdx = schema.getFactorySecGroupForm().newClusterIdxKey();
+		YCFGenKbSecGroupFormByClusterIdxKey keyClusterIdx = schema.getFactorySecGroupForm().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFGenKbSecGroupFormByGroupIdxKey keyGroupIdx = schema.getFactorySecGroupForm().newGroupIdxKey();
+		YCFGenKbSecGroupFormByGroupIdxKey keyGroupIdx = schema.getFactorySecGroupForm().newGroupIdxKey();
 		keyGroupIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyGroupIdx.setRequiredSecGroupId( Buff.getRequiredSecGroupId() );
 
-		CFGenKbSecGroupFormByAppIdxKey keyAppIdx = schema.getFactorySecGroupForm().newAppIdxKey();
+		YCFGenKbSecGroupFormByAppIdxKey keyAppIdx = schema.getFactorySecGroupForm().newAppIdxKey();
 		keyAppIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyAppIdx.setRequiredSecAppId( Buff.getRequiredSecAppId() );
 
-		CFGenKbSecGroupFormByFormIdxKey keyFormIdx = schema.getFactorySecGroupForm().newFormIdxKey();
+		YCFGenKbSecGroupFormByFormIdxKey keyFormIdx = schema.getFactorySecGroupForm().newFormIdxKey();
 		keyFormIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyFormIdx.setRequiredSecFormId( Buff.getRequiredSecFormId() );
 
-		CFGenKbSecGroupFormByUFormIdxKey keyUFormIdx = schema.getFactorySecGroupForm().newUFormIdxKey();
+		YCFGenKbSecGroupFormByUFormIdxKey keyUFormIdx = schema.getFactorySecGroupForm().newUFormIdxKey();
 		keyUFormIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyUFormIdx.setRequiredSecGroupId( Buff.getRequiredSecGroupId() );
 		keyUFormIdx.setRequiredSecFormId( Buff.getRequiredSecFormId() );
@@ -119,11 +119,11 @@ public class CFGenKbRamSecGroupFormTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUFormIdx.containsKey( keyUFormIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"SecGroupFormUFormIdx",
 				keyUFormIdx );
@@ -138,7 +138,7 @@ public class CFGenKbRamSecGroupFormTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Owner",
 						"SecGroupFormCluster",
@@ -157,7 +157,7 @@ public class CFGenKbRamSecGroupFormTable
 						Buff.getRequiredClusterId(),
 						Buff.getRequiredSecGroupId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"SecGroupFormGroup",
@@ -171,42 +171,42 @@ public class CFGenKbRamSecGroupFormTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictClusterIdx;
+		Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictClusterIdx;
 		if( dictByClusterIdx.containsKey( keyClusterIdx ) ) {
 			subdictClusterIdx = dictByClusterIdx.get( keyClusterIdx );
 		}
 		else {
-			subdictClusterIdx = new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			subdictClusterIdx = new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByClusterIdx.put( keyClusterIdx, subdictClusterIdx );
 		}
 		subdictClusterIdx.put( pkey, Buff );
 
-		Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictGroupIdx;
+		Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictGroupIdx;
 		if( dictByGroupIdx.containsKey( keyGroupIdx ) ) {
 			subdictGroupIdx = dictByGroupIdx.get( keyGroupIdx );
 		}
 		else {
-			subdictGroupIdx = new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			subdictGroupIdx = new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByGroupIdx.put( keyGroupIdx, subdictGroupIdx );
 		}
 		subdictGroupIdx.put( pkey, Buff );
 
-		Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictAppIdx;
+		Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictAppIdx;
 		if( dictByAppIdx.containsKey( keyAppIdx ) ) {
 			subdictAppIdx = dictByAppIdx.get( keyAppIdx );
 		}
 		else {
-			subdictAppIdx = new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			subdictAppIdx = new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByAppIdx.put( keyAppIdx, subdictAppIdx );
 		}
 		subdictAppIdx.put( pkey, Buff );
 
-		Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictFormIdx;
+		Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictFormIdx;
 		if( dictByFormIdx.containsKey( keyFormIdx ) ) {
 			subdictFormIdx = dictByFormIdx.get( keyFormIdx );
 		}
 		else {
-			subdictFormIdx = new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			subdictFormIdx = new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByFormIdx.put( keyFormIdx, subdictFormIdx );
 		}
 		subdictFormIdx.put( pkey, Buff );
@@ -215,14 +215,14 @@ public class CFGenKbRamSecGroupFormTable
 
 	}
 
-	public CFGenKbSecGroupFormBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey PKey )
+	public YCFGenKbSecGroupFormBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readDerived";
-		CFGenKbSecGroupFormPKey key = schema.getFactorySecGroupForm().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readDerived";
+		YCFGenKbSecGroupFormPKey key = schema.getFactorySecGroupForm().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredSecGroupFormId( PKey.getRequiredSecGroupFormId() );
-		CFGenKbSecGroupFormBuff buff;
+		YCFGenKbSecGroupFormBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -232,14 +232,14 @@ public class CFGenKbRamSecGroupFormTable
 		return( buff );
 	}
 
-	public CFGenKbSecGroupFormBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey PKey )
+	public YCFGenKbSecGroupFormBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readDerived";
-		CFGenKbSecGroupFormPKey key = schema.getFactorySecGroupForm().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readDerived";
+		YCFGenKbSecGroupFormPKey key = schema.getFactorySecGroupForm().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredSecGroupFormId( PKey.getRequiredSecGroupFormId() );
-		CFGenKbSecGroupFormBuff buff;
+		YCFGenKbSecGroupFormBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -249,10 +249,10 @@ public class CFGenKbRamSecGroupFormTable
 		return( buff );
 	}
 
-	public CFGenKbSecGroupFormBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readAllDerived";
-		CFGenKbSecGroupFormBuff[] retList = new CFGenKbSecGroupFormBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbSecGroupFormBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbSecGroupFormBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readAllDerived";
+		YCFGenKbSecGroupFormBuff[] retList = new YCFGenKbSecGroupFormBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbSecGroupFormBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -260,132 +260,132 @@ public class CFGenKbRamSecGroupFormTable
 		return( retList );
 	}
 
-	public CFGenKbSecGroupFormBuff[] readDerivedByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] readDerivedByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readDerivedByClusterIdx";
-		CFGenKbSecGroupFormByClusterIdxKey key = schema.getFactorySecGroupForm().newClusterIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readDerivedByClusterIdx";
+		YCFGenKbSecGroupFormByClusterIdxKey key = schema.getFactorySecGroupForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 
-		CFGenKbSecGroupFormBuff[] recArray;
+		YCFGenKbSecGroupFormBuff[] recArray;
 		if( dictByClusterIdx.containsKey( key ) ) {
-			Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictClusterIdx
+			Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictClusterIdx
 				= dictByClusterIdx.get( key );
-			recArray = new CFGenKbSecGroupFormBuff[ subdictClusterIdx.size() ];
-			Iterator< CFGenKbSecGroupFormBuff > iter = subdictClusterIdx.values().iterator();
+			recArray = new YCFGenKbSecGroupFormBuff[ subdictClusterIdx.size() ];
+			Iterator< YCFGenKbSecGroupFormBuff > iter = subdictClusterIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictClusterIdx
-				= new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictClusterIdx
+				= new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByClusterIdx.put( key, subdictClusterIdx );
-			recArray = new CFGenKbSecGroupFormBuff[0];
+			recArray = new YCFGenKbSecGroupFormBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSecGroupFormBuff[] readDerivedByGroupIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] readDerivedByGroupIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readDerivedByGroupIdx";
-		CFGenKbSecGroupFormByGroupIdxKey key = schema.getFactorySecGroupForm().newGroupIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readDerivedByGroupIdx";
+		YCFGenKbSecGroupFormByGroupIdxKey key = schema.getFactorySecGroupForm().newGroupIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 
-		CFGenKbSecGroupFormBuff[] recArray;
+		YCFGenKbSecGroupFormBuff[] recArray;
 		if( dictByGroupIdx.containsKey( key ) ) {
-			Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictGroupIdx
+			Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictGroupIdx
 				= dictByGroupIdx.get( key );
-			recArray = new CFGenKbSecGroupFormBuff[ subdictGroupIdx.size() ];
-			Iterator< CFGenKbSecGroupFormBuff > iter = subdictGroupIdx.values().iterator();
+			recArray = new YCFGenKbSecGroupFormBuff[ subdictGroupIdx.size() ];
+			Iterator< YCFGenKbSecGroupFormBuff > iter = subdictGroupIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictGroupIdx
-				= new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictGroupIdx
+				= new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByGroupIdx.put( key, subdictGroupIdx );
-			recArray = new CFGenKbSecGroupFormBuff[0];
+			recArray = new YCFGenKbSecGroupFormBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSecGroupFormBuff[] readDerivedByAppIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] readDerivedByAppIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readDerivedByAppIdx";
-		CFGenKbSecGroupFormByAppIdxKey key = schema.getFactorySecGroupForm().newAppIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readDerivedByAppIdx";
+		YCFGenKbSecGroupFormByAppIdxKey key = schema.getFactorySecGroupForm().newAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
 
-		CFGenKbSecGroupFormBuff[] recArray;
+		YCFGenKbSecGroupFormBuff[] recArray;
 		if( dictByAppIdx.containsKey( key ) ) {
-			Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictAppIdx
+			Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictAppIdx
 				= dictByAppIdx.get( key );
-			recArray = new CFGenKbSecGroupFormBuff[ subdictAppIdx.size() ];
-			Iterator< CFGenKbSecGroupFormBuff > iter = subdictAppIdx.values().iterator();
+			recArray = new YCFGenKbSecGroupFormBuff[ subdictAppIdx.size() ];
+			Iterator< YCFGenKbSecGroupFormBuff > iter = subdictAppIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictAppIdx
-				= new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictAppIdx
+				= new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByAppIdx.put( key, subdictAppIdx );
-			recArray = new CFGenKbSecGroupFormBuff[0];
+			recArray = new YCFGenKbSecGroupFormBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSecGroupFormBuff[] readDerivedByFormIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] readDerivedByFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecFormId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readDerivedByFormIdx";
-		CFGenKbSecGroupFormByFormIdxKey key = schema.getFactorySecGroupForm().newFormIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readDerivedByFormIdx";
+		YCFGenKbSecGroupFormByFormIdxKey key = schema.getFactorySecGroupForm().newFormIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecFormId( SecFormId );
 
-		CFGenKbSecGroupFormBuff[] recArray;
+		YCFGenKbSecGroupFormBuff[] recArray;
 		if( dictByFormIdx.containsKey( key ) ) {
-			Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictFormIdx
+			Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictFormIdx
 				= dictByFormIdx.get( key );
-			recArray = new CFGenKbSecGroupFormBuff[ subdictFormIdx.size() ];
-			Iterator< CFGenKbSecGroupFormBuff > iter = subdictFormIdx.values().iterator();
+			recArray = new YCFGenKbSecGroupFormBuff[ subdictFormIdx.size() ];
+			Iterator< YCFGenKbSecGroupFormBuff > iter = subdictFormIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdictFormIdx
-				= new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdictFormIdx
+				= new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByFormIdx.put( key, subdictFormIdx );
-			recArray = new CFGenKbSecGroupFormBuff[0];
+			recArray = new YCFGenKbSecGroupFormBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSecGroupFormBuff readDerivedByUFormIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff readDerivedByUFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		int SecFormId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readDerivedByUFormIdx";
-		CFGenKbSecGroupFormByUFormIdxKey key = schema.getFactorySecGroupForm().newUFormIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readDerivedByUFormIdx";
+		YCFGenKbSecGroupFormByUFormIdxKey key = schema.getFactorySecGroupForm().newUFormIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 		key.setRequiredSecFormId( SecFormId );
 
-		CFGenKbSecGroupFormBuff buff;
+		YCFGenKbSecGroupFormBuff buff;
 		if( dictByUFormIdx.containsKey( key ) ) {
 			buff = dictByUFormIdx.get( key );
 		}
@@ -395,16 +395,16 @@ public class CFGenKbRamSecGroupFormTable
 		return( buff );
 	}
 
-	public CFGenKbSecGroupFormBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		long SecGroupFormId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readDerivedByIdIdx() ";
-		CFGenKbSecGroupFormPKey key = schema.getFactorySecGroupForm().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readDerivedByIdIdx() ";
+		YCFGenKbSecGroupFormPKey key = schema.getFactorySecGroupForm().newPKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupFormId( SecGroupFormId );
 
-		CFGenKbSecGroupFormBuff buff;
+		YCFGenKbSecGroupFormBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -414,41 +414,41 @@ public class CFGenKbRamSecGroupFormTable
 		return( buff );
 	}
 
-	public CFGenKbSecGroupFormBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey PKey )
+	public YCFGenKbSecGroupFormBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readBuff";
-		CFGenKbSecGroupFormBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readBuff";
+		YCFGenKbSecGroupFormBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a90a" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSecGroupFormBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey PKey )
+	public YCFGenKbSecGroupFormBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbSecGroupFormBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbSecGroupFormBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a90a" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSecGroupFormBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbSecGroupFormBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readAllBuff";
-		CFGenKbSecGroupFormBuff buff;
-		ArrayList<CFGenKbSecGroupFormBuff> filteredList = new ArrayList<CFGenKbSecGroupFormBuff>();
-		CFGenKbSecGroupFormBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readAllBuff";
+		YCFGenKbSecGroupFormBuff buff;
+		ArrayList<YCFGenKbSecGroupFormBuff> filteredList = new ArrayList<YCFGenKbSecGroupFormBuff>();
+		YCFGenKbSecGroupFormBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90a" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecGroupFormBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecGroupFormBuff[0] ) );
 	}
 
 	/**
@@ -458,116 +458,116 @@ public class CFGenKbRamSecGroupFormTable
 	 *
 	 *	@return All the specific SecGroupForm instances in the database accessible for the Authorization.
 	 */
-	public CFGenKbSecGroupFormBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageAllBuff";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public CFGenKbSecGroupFormBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		long SecGroupFormId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readBuffByIdIdx() ";
-		CFGenKbSecGroupFormBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readBuffByIdIdx() ";
+		YCFGenKbSecGroupFormBuff buff = readDerivedByIdIdx( Authorization,
 			ClusterId,
 			SecGroupFormId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a90a" ) ) {
-			return( (CFGenKbSecGroupFormBuff)buff );
+			return( (YCFGenKbSecGroupFormBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbSecGroupFormBuff[] readBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] readBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readBuffByClusterIdx() ";
-		CFGenKbSecGroupFormBuff buff;
-		ArrayList<CFGenKbSecGroupFormBuff> filteredList = new ArrayList<CFGenKbSecGroupFormBuff>();
-		CFGenKbSecGroupFormBuff[] buffList = readDerivedByClusterIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readBuffByClusterIdx() ";
+		YCFGenKbSecGroupFormBuff buff;
+		ArrayList<YCFGenKbSecGroupFormBuff> filteredList = new ArrayList<YCFGenKbSecGroupFormBuff>();
+		YCFGenKbSecGroupFormBuff[] buffList = readDerivedByClusterIdx( Authorization,
 			ClusterId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90a" ) ) {
-				filteredList.add( (CFGenKbSecGroupFormBuff)buff );
+				filteredList.add( (YCFGenKbSecGroupFormBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecGroupFormBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecGroupFormBuff[0] ) );
 	}
 
-	public CFGenKbSecGroupFormBuff[] readBuffByGroupIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] readBuffByGroupIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readBuffByGroupIdx() ";
-		CFGenKbSecGroupFormBuff buff;
-		ArrayList<CFGenKbSecGroupFormBuff> filteredList = new ArrayList<CFGenKbSecGroupFormBuff>();
-		CFGenKbSecGroupFormBuff[] buffList = readDerivedByGroupIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readBuffByGroupIdx() ";
+		YCFGenKbSecGroupFormBuff buff;
+		ArrayList<YCFGenKbSecGroupFormBuff> filteredList = new ArrayList<YCFGenKbSecGroupFormBuff>();
+		YCFGenKbSecGroupFormBuff[] buffList = readDerivedByGroupIdx( Authorization,
 			ClusterId,
 			SecGroupId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90a" ) ) {
-				filteredList.add( (CFGenKbSecGroupFormBuff)buff );
+				filteredList.add( (YCFGenKbSecGroupFormBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecGroupFormBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecGroupFormBuff[0] ) );
 	}
 
-	public CFGenKbSecGroupFormBuff[] readBuffByAppIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] readBuffByAppIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readBuffByAppIdx() ";
-		CFGenKbSecGroupFormBuff buff;
-		ArrayList<CFGenKbSecGroupFormBuff> filteredList = new ArrayList<CFGenKbSecGroupFormBuff>();
-		CFGenKbSecGroupFormBuff[] buffList = readDerivedByAppIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readBuffByAppIdx() ";
+		YCFGenKbSecGroupFormBuff buff;
+		ArrayList<YCFGenKbSecGroupFormBuff> filteredList = new ArrayList<YCFGenKbSecGroupFormBuff>();
+		YCFGenKbSecGroupFormBuff[] buffList = readDerivedByAppIdx( Authorization,
 			ClusterId,
 			SecAppId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90a" ) ) {
-				filteredList.add( (CFGenKbSecGroupFormBuff)buff );
+				filteredList.add( (YCFGenKbSecGroupFormBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecGroupFormBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecGroupFormBuff[0] ) );
 	}
 
-	public CFGenKbSecGroupFormBuff[] readBuffByFormIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] readBuffByFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecFormId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readBuffByFormIdx() ";
-		CFGenKbSecGroupFormBuff buff;
-		ArrayList<CFGenKbSecGroupFormBuff> filteredList = new ArrayList<CFGenKbSecGroupFormBuff>();
-		CFGenKbSecGroupFormBuff[] buffList = readDerivedByFormIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readBuffByFormIdx() ";
+		YCFGenKbSecGroupFormBuff buff;
+		ArrayList<YCFGenKbSecGroupFormBuff> filteredList = new ArrayList<YCFGenKbSecGroupFormBuff>();
+		YCFGenKbSecGroupFormBuff[] buffList = readDerivedByFormIdx( Authorization,
 			ClusterId,
 			SecFormId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90a" ) ) {
-				filteredList.add( (CFGenKbSecGroupFormBuff)buff );
+				filteredList.add( (YCFGenKbSecGroupFormBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecGroupFormBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecGroupFormBuff[0] ) );
 	}
 
-	public CFGenKbSecGroupFormBuff readBuffByUFormIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff readBuffByUFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		int SecFormId )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupForm.readBuffByUFormIdx() ";
-		CFGenKbSecGroupFormBuff buff = readDerivedByUFormIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecGroupForm.readBuffByUFormIdx() ";
+		YCFGenKbSecGroupFormBuff buff = readDerivedByUFormIdx( Authorization,
 			ClusterId,
 			SecGroupId,
 			SecFormId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a90a" ) ) {
-			return( (CFGenKbSecGroupFormBuff)buff );
+			return( (YCFGenKbSecGroupFormBuff)buff );
 		}
 		else {
 			return( null );
@@ -583,15 +583,15 @@ public class CFGenKbRamSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbSecGroupFormBuff[] pageBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] pageBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageBuffByClusterIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -605,16 +605,16 @@ public class CFGenKbRamSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbSecGroupFormBuff[] pageBuffByGroupIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] pageBuffByGroupIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageBuffByGroupIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -628,16 +628,16 @@ public class CFGenKbRamSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbSecGroupFormBuff[] pageBuffByAppIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] pageBuffByAppIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId,
 		Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageBuffByAppIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -651,74 +651,74 @@ public class CFGenKbRamSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbSecGroupFormBuff[] pageBuffByFormIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecGroupFormBuff[] pageBuffByFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecFormId,
 		Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageBuffByFormIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateSecGroupForm( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormBuff Buff )
+	public void updateSecGroupForm( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormBuff Buff )
 	{
-		CFGenKbSecGroupFormPKey pkey = schema.getFactorySecGroupForm().newPKey();
+		YCFGenKbSecGroupFormPKey pkey = schema.getFactorySecGroupForm().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredSecGroupFormId( Buff.getRequiredSecGroupFormId() );
-		CFGenKbSecGroupFormBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSecGroupFormBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateSecGroupForm",
 				"Existing record not found",
 				"SecGroupForm",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateSecGroupForm",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFGenKbSecGroupFormByClusterIdxKey existingKeyClusterIdx = schema.getFactorySecGroupForm().newClusterIdxKey();
+		YCFGenKbSecGroupFormByClusterIdxKey existingKeyClusterIdx = schema.getFactorySecGroupForm().newClusterIdxKey();
 		existingKeyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFGenKbSecGroupFormByClusterIdxKey newKeyClusterIdx = schema.getFactorySecGroupForm().newClusterIdxKey();
+		YCFGenKbSecGroupFormByClusterIdxKey newKeyClusterIdx = schema.getFactorySecGroupForm().newClusterIdxKey();
 		newKeyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFGenKbSecGroupFormByGroupIdxKey existingKeyGroupIdx = schema.getFactorySecGroupForm().newGroupIdxKey();
+		YCFGenKbSecGroupFormByGroupIdxKey existingKeyGroupIdx = schema.getFactorySecGroupForm().newGroupIdxKey();
 		existingKeyGroupIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyGroupIdx.setRequiredSecGroupId( existing.getRequiredSecGroupId() );
 
-		CFGenKbSecGroupFormByGroupIdxKey newKeyGroupIdx = schema.getFactorySecGroupForm().newGroupIdxKey();
+		YCFGenKbSecGroupFormByGroupIdxKey newKeyGroupIdx = schema.getFactorySecGroupForm().newGroupIdxKey();
 		newKeyGroupIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyGroupIdx.setRequiredSecGroupId( Buff.getRequiredSecGroupId() );
 
-		CFGenKbSecGroupFormByAppIdxKey existingKeyAppIdx = schema.getFactorySecGroupForm().newAppIdxKey();
+		YCFGenKbSecGroupFormByAppIdxKey existingKeyAppIdx = schema.getFactorySecGroupForm().newAppIdxKey();
 		existingKeyAppIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyAppIdx.setRequiredSecAppId( existing.getRequiredSecAppId() );
 
-		CFGenKbSecGroupFormByAppIdxKey newKeyAppIdx = schema.getFactorySecGroupForm().newAppIdxKey();
+		YCFGenKbSecGroupFormByAppIdxKey newKeyAppIdx = schema.getFactorySecGroupForm().newAppIdxKey();
 		newKeyAppIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyAppIdx.setRequiredSecAppId( Buff.getRequiredSecAppId() );
 
-		CFGenKbSecGroupFormByFormIdxKey existingKeyFormIdx = schema.getFactorySecGroupForm().newFormIdxKey();
+		YCFGenKbSecGroupFormByFormIdxKey existingKeyFormIdx = schema.getFactorySecGroupForm().newFormIdxKey();
 		existingKeyFormIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyFormIdx.setRequiredSecFormId( existing.getRequiredSecFormId() );
 
-		CFGenKbSecGroupFormByFormIdxKey newKeyFormIdx = schema.getFactorySecGroupForm().newFormIdxKey();
+		YCFGenKbSecGroupFormByFormIdxKey newKeyFormIdx = schema.getFactorySecGroupForm().newFormIdxKey();
 		newKeyFormIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyFormIdx.setRequiredSecFormId( Buff.getRequiredSecFormId() );
 
-		CFGenKbSecGroupFormByUFormIdxKey existingKeyUFormIdx = schema.getFactorySecGroupForm().newUFormIdxKey();
+		YCFGenKbSecGroupFormByUFormIdxKey existingKeyUFormIdx = schema.getFactorySecGroupForm().newUFormIdxKey();
 		existingKeyUFormIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyUFormIdx.setRequiredSecGroupId( existing.getRequiredSecGroupId() );
 		existingKeyUFormIdx.setRequiredSecFormId( existing.getRequiredSecFormId() );
 
-		CFGenKbSecGroupFormByUFormIdxKey newKeyUFormIdx = schema.getFactorySecGroupForm().newUFormIdxKey();
+		YCFGenKbSecGroupFormByUFormIdxKey newKeyUFormIdx = schema.getFactorySecGroupForm().newUFormIdxKey();
 		newKeyUFormIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyUFormIdx.setRequiredSecGroupId( Buff.getRequiredSecGroupId() );
 		newKeyUFormIdx.setRequiredSecFormId( Buff.getRequiredSecFormId() );
@@ -727,7 +727,7 @@ public class CFGenKbRamSecGroupFormTable
 
 		if( ! existingKeyUFormIdx.equals( newKeyUFormIdx ) ) {
 			if( dictByUFormIdx.containsKey( newKeyUFormIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateSecGroupForm",
 					"SecGroupFormUFormIdx",
 					newKeyUFormIdx );
@@ -743,7 +743,7 @@ public class CFGenKbRamSecGroupFormTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSecGroupForm",
 						"Owner",
 						"SecGroupFormCluster",
@@ -761,7 +761,7 @@ public class CFGenKbRamSecGroupFormTable
 						Buff.getRequiredClusterId(),
 						Buff.getRequiredSecGroupId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSecGroupForm",
 						"Container",
 						"SecGroupFormGroup",
@@ -773,7 +773,7 @@ public class CFGenKbRamSecGroupFormTable
 
 		// Update is valid
 
-		Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdict;
+		Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -786,7 +786,7 @@ public class CFGenKbRamSecGroupFormTable
 			subdict = dictByClusterIdx.get( newKeyClusterIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			subdict = new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByClusterIdx.put( newKeyClusterIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -799,7 +799,7 @@ public class CFGenKbRamSecGroupFormTable
 			subdict = dictByGroupIdx.get( newKeyGroupIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			subdict = new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByGroupIdx.put( newKeyGroupIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -812,7 +812,7 @@ public class CFGenKbRamSecGroupFormTable
 			subdict = dictByAppIdx.get( newKeyAppIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			subdict = new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByAppIdx.put( newKeyAppIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -825,7 +825,7 @@ public class CFGenKbRamSecGroupFormTable
 			subdict = dictByFormIdx.get( newKeyFormIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff >();
+			subdict = new HashMap< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff >();
 			dictByFormIdx.put( newKeyFormIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -835,40 +835,40 @@ public class CFGenKbRamSecGroupFormTable
 
 	}
 
-	public void deleteSecGroupForm( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormBuff Buff )
+	public void deleteSecGroupForm( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamSecGroupFormTable.deleteSecGroupForm() ";
+		final String S_ProcName = "YCFGenKbRamSecGroupFormTable.deleteSecGroupForm() ";
 		String classCode;
-		CFGenKbSecGroupFormPKey pkey = schema.getFactorySecGroupForm().newPKey();
+		YCFGenKbSecGroupFormPKey pkey = schema.getFactorySecGroupForm().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredSecGroupFormId( Buff.getRequiredSecGroupFormId() );
-		CFGenKbSecGroupFormBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSecGroupFormBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteSecGroupForm",
 				pkey );
 		}
-		CFGenKbSecGroupFormByClusterIdxKey keyClusterIdx = schema.getFactorySecGroupForm().newClusterIdxKey();
+		YCFGenKbSecGroupFormByClusterIdxKey keyClusterIdx = schema.getFactorySecGroupForm().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFGenKbSecGroupFormByGroupIdxKey keyGroupIdx = schema.getFactorySecGroupForm().newGroupIdxKey();
+		YCFGenKbSecGroupFormByGroupIdxKey keyGroupIdx = schema.getFactorySecGroupForm().newGroupIdxKey();
 		keyGroupIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyGroupIdx.setRequiredSecGroupId( existing.getRequiredSecGroupId() );
 
-		CFGenKbSecGroupFormByAppIdxKey keyAppIdx = schema.getFactorySecGroupForm().newAppIdxKey();
+		YCFGenKbSecGroupFormByAppIdxKey keyAppIdx = schema.getFactorySecGroupForm().newAppIdxKey();
 		keyAppIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyAppIdx.setRequiredSecAppId( existing.getRequiredSecAppId() );
 
-		CFGenKbSecGroupFormByFormIdxKey keyFormIdx = schema.getFactorySecGroupForm().newFormIdxKey();
+		YCFGenKbSecGroupFormByFormIdxKey keyFormIdx = schema.getFactorySecGroupForm().newFormIdxKey();
 		keyFormIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyFormIdx.setRequiredSecFormId( existing.getRequiredSecFormId() );
 
-		CFGenKbSecGroupFormByUFormIdxKey keyUFormIdx = schema.getFactorySecGroupForm().newUFormIdxKey();
+		YCFGenKbSecGroupFormByUFormIdxKey keyUFormIdx = schema.getFactorySecGroupForm().newUFormIdxKey();
 		keyUFormIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUFormIdx.setRequiredSecGroupId( existing.getRequiredSecGroupId() );
 		keyUFormIdx.setRequiredSecFormId( existing.getRequiredSecFormId() );
@@ -876,7 +876,7 @@ public class CFGenKbRamSecGroupFormTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff > subdict;
+		Map< YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -895,18 +895,18 @@ public class CFGenKbRamSecGroupFormTable
 		dictByUFormIdx.remove( keyUFormIdx );
 
 	}
-	public void deleteSecGroupFormByIdIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecGroupFormByIdIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		long argSecGroupFormId )
 	{
-		CFGenKbSecGroupFormPKey key = schema.getFactorySecGroupForm().newPKey();
+		YCFGenKbSecGroupFormPKey key = schema.getFactorySecGroupForm().newPKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredSecGroupFormId( argSecGroupFormId );
 		deleteSecGroupFormByIdIdx( Authorization, key );
 	}
 
-	public void deleteSecGroupFormByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey argKey )
+	public void deleteSecGroupFormByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -914,16 +914,16 @@ public class CFGenKbRamSecGroupFormTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbSecGroupFormBuff cur;
-		LinkedList<CFGenKbSecGroupFormBuff> matchSet = new LinkedList<CFGenKbSecGroupFormBuff>();
-		Iterator<CFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
+		YCFGenKbSecGroupFormBuff cur;
+		LinkedList<YCFGenKbSecGroupFormBuff> matchSet = new LinkedList<YCFGenKbSecGroupFormBuff>();
+		Iterator<YCFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecGroupForm().readDerivedByIdIdx( Authorization,
@@ -933,32 +933,32 @@ public class CFGenKbRamSecGroupFormTable
 		}
 	}
 
-	public void deleteSecGroupFormByClusterIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecGroupFormByClusterIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId )
 	{
-		CFGenKbSecGroupFormByClusterIdxKey key = schema.getFactorySecGroupForm().newClusterIdxKey();
+		YCFGenKbSecGroupFormByClusterIdxKey key = schema.getFactorySecGroupForm().newClusterIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		deleteSecGroupFormByClusterIdx( Authorization, key );
 	}
 
-	public void deleteSecGroupFormByClusterIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByClusterIdxKey argKey )
+	public void deleteSecGroupFormByClusterIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByClusterIdxKey argKey )
 	{
-		CFGenKbSecGroupFormBuff cur;
+		YCFGenKbSecGroupFormBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecGroupFormBuff> matchSet = new LinkedList<CFGenKbSecGroupFormBuff>();
-		Iterator<CFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecGroupFormBuff> matchSet = new LinkedList<YCFGenKbSecGroupFormBuff>();
+		Iterator<YCFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecGroupForm().readDerivedByIdIdx( Authorization,
@@ -968,35 +968,35 @@ public class CFGenKbRamSecGroupFormTable
 		}
 	}
 
-	public void deleteSecGroupFormByGroupIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecGroupFormByGroupIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId )
 	{
-		CFGenKbSecGroupFormByGroupIdxKey key = schema.getFactorySecGroupForm().newGroupIdxKey();
+		YCFGenKbSecGroupFormByGroupIdxKey key = schema.getFactorySecGroupForm().newGroupIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredSecGroupId( argSecGroupId );
 		deleteSecGroupFormByGroupIdx( Authorization, key );
 	}
 
-	public void deleteSecGroupFormByGroupIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByGroupIdxKey argKey )
+	public void deleteSecGroupFormByGroupIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByGroupIdxKey argKey )
 	{
-		CFGenKbSecGroupFormBuff cur;
+		YCFGenKbSecGroupFormBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecGroupFormBuff> matchSet = new LinkedList<CFGenKbSecGroupFormBuff>();
-		Iterator<CFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecGroupFormBuff> matchSet = new LinkedList<YCFGenKbSecGroupFormBuff>();
+		Iterator<YCFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecGroupForm().readDerivedByIdIdx( Authorization,
@@ -1006,35 +1006,35 @@ public class CFGenKbRamSecGroupFormTable
 		}
 	}
 
-	public void deleteSecGroupFormByAppIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecGroupFormByAppIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecAppId )
 	{
-		CFGenKbSecGroupFormByAppIdxKey key = schema.getFactorySecGroupForm().newAppIdxKey();
+		YCFGenKbSecGroupFormByAppIdxKey key = schema.getFactorySecGroupForm().newAppIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredSecAppId( argSecAppId );
 		deleteSecGroupFormByAppIdx( Authorization, key );
 	}
 
-	public void deleteSecGroupFormByAppIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByAppIdxKey argKey )
+	public void deleteSecGroupFormByAppIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByAppIdxKey argKey )
 	{
-		CFGenKbSecGroupFormBuff cur;
+		YCFGenKbSecGroupFormBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecGroupFormBuff> matchSet = new LinkedList<CFGenKbSecGroupFormBuff>();
-		Iterator<CFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecGroupFormBuff> matchSet = new LinkedList<YCFGenKbSecGroupFormBuff>();
+		Iterator<YCFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecGroupForm().readDerivedByIdIdx( Authorization,
@@ -1044,35 +1044,35 @@ public class CFGenKbRamSecGroupFormTable
 		}
 	}
 
-	public void deleteSecGroupFormByFormIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecGroupFormByFormIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecFormId )
 	{
-		CFGenKbSecGroupFormByFormIdxKey key = schema.getFactorySecGroupForm().newFormIdxKey();
+		YCFGenKbSecGroupFormByFormIdxKey key = schema.getFactorySecGroupForm().newFormIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredSecFormId( argSecFormId );
 		deleteSecGroupFormByFormIdx( Authorization, key );
 	}
 
-	public void deleteSecGroupFormByFormIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByFormIdxKey argKey )
+	public void deleteSecGroupFormByFormIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByFormIdxKey argKey )
 	{
-		CFGenKbSecGroupFormBuff cur;
+		YCFGenKbSecGroupFormBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecGroupFormBuff> matchSet = new LinkedList<CFGenKbSecGroupFormBuff>();
-		Iterator<CFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecGroupFormBuff> matchSet = new LinkedList<YCFGenKbSecGroupFormBuff>();
+		Iterator<YCFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecGroupForm().readDerivedByIdIdx( Authorization,
@@ -1082,22 +1082,22 @@ public class CFGenKbRamSecGroupFormTable
 		}
 	}
 
-	public void deleteSecGroupFormByUFormIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecGroupFormByUFormIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId,
 		int argSecFormId )
 	{
-		CFGenKbSecGroupFormByUFormIdxKey key = schema.getFactorySecGroupForm().newUFormIdxKey();
+		YCFGenKbSecGroupFormByUFormIdxKey key = schema.getFactorySecGroupForm().newUFormIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredSecGroupId( argSecGroupId );
 		key.setRequiredSecFormId( argSecFormId );
 		deleteSecGroupFormByUFormIdx( Authorization, key );
 	}
 
-	public void deleteSecGroupFormByUFormIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByUFormIdxKey argKey )
+	public void deleteSecGroupFormByUFormIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByUFormIdxKey argKey )
 	{
-		CFGenKbSecGroupFormBuff cur;
+		YCFGenKbSecGroupFormBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -1105,15 +1105,15 @@ public class CFGenKbRamSecGroupFormTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecGroupFormBuff> matchSet = new LinkedList<CFGenKbSecGroupFormBuff>();
-		Iterator<CFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecGroupFormBuff> matchSet = new LinkedList<YCFGenKbSecGroupFormBuff>();
+		Iterator<YCFGenKbSecGroupFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecGroupFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecGroupForm().readDerivedByIdIdx( Authorization,

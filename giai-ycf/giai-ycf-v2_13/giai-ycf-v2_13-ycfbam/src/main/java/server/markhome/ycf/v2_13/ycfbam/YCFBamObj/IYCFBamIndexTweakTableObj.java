@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamIndexTweakTableObj
+public interface IYCFBamIndexTweakTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamIndexTweakTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamIndexTweakObj newInstance();
+	IYCFBamIndexTweakObj newInstance();
 
 	/**
 	 *	Instantiate a new IndexTweak edition of the specified IndexTweak instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamIndexTweakEditObj newEditInstance( ICFBamIndexTweakObj orig );
+	IYCFBamIndexTweakEditObj newEditInstance( IYCFBamIndexTweakObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamIndexTweakObj realiseIndexTweak( ICFBamIndexTweakObj Obj );
+	IYCFBamIndexTweakObj realiseIndexTweak( IYCFBamIndexTweakObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamIndexTweakObj createIndexTweak( ICFBamIndexTweakObj Obj );
+	IYCFBamIndexTweakObj createIndexTweak( IYCFBamIndexTweakObj Obj );
 
 	/**
 	 *	Read a IndexTweak-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamIndexTweakTableObj
 	 *	@return	The IndexTweak-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamIndexTweakObj readIndexTweak( CFBamTweakPKey pkey );
+	IYCFBamIndexTweakObj readIndexTweak( YCFBamTweakPKey pkey );
 
 	/**
 	 *	Read a IndexTweak-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamIndexTweakTableObj
 	 *	@return	The IndexTweak-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamIndexTweakObj readIndexTweak( CFBamTweakPKey pkey,
+	IYCFBamIndexTweakObj readIndexTweak( YCFBamTweakPKey pkey,
 		boolean forceRead );
 
-	ICFBamIndexTweakObj readCachedIndexTweak( CFBamTweakPKey pkey );
+	IYCFBamIndexTweakObj readCachedIndexTweak( YCFBamTweakPKey pkey );
 
-	public void reallyDeepDisposeIndexTweak( ICFBamIndexTweakObj obj );
+	public void reallyDeepDisposeIndexTweak( IYCFBamIndexTweakObj obj );
 
-	void deepDisposeIndexTweak( CFBamTweakPKey pkey );
+	void deepDisposeIndexTweak( YCFBamTweakPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamIndexTweakObj lockIndexTweak( CFBamTweakPKey pkey );
+	IYCFBamIndexTweakObj lockIndexTweak( YCFBamTweakPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the IndexTweak-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamIndexTweakObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamIndexTweakObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readAllIndexTweak();
+	List<IYCFBamIndexTweakObj> readAllIndexTweak();
 
 	/**
 	 *	Return a sorted map of all the IndexTweak-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamIndexTweakObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamIndexTweakObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readAllIndexTweak( boolean forceRead );
+	List<IYCFBamIndexTweakObj> readAllIndexTweak( boolean forceRead );
 
-	List<ICFBamIndexTweakObj> readCachedAllIndexTweak();
+	List<IYCFBamIndexTweakObj> readCachedAllIndexTweak();
 
 	/**
-	 *	Get the CFBamTweakObj instance for the primary key attributes.
+	 *	Get the YCFBamTweakObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamTweakObj cached instance for the primary key, or
+	 *	@return	YCFBamTweakObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamIndexTweakObj readIndexTweakByIdIdx( long TenantId,
+	IYCFBamIndexTweakObj readIndexTweakByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamTweakObj instance for the primary key attributes.
+	 *	Get the YCFBamTweakObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamTweakObj refreshed instance for the primary key, or
+	 *	@return	YCFBamTweakObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamIndexTweakObj readIndexTweakByIdIdx( long TenantId,
+	IYCFBamIndexTweakObj readIndexTweakByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamTweakObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamTweakObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamIndexTweakTableObj
 	 *
 	 *	@param	argName	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamTweakObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamTweakObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamIndexTweakObj readIndexTweakByUNameIdx( long TenantId,
+	IYCFBamIndexTweakObj readIndexTweakByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamTweakObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamTweakObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
@@ -197,16 +197,16 @@ public interface ICFBamIndexTweakTableObj
 	 *
 	 *	@param	argName	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamTweakObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamTweakObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamIndexTweakObj readIndexTweakByUNameIdx( long TenantId,
+	IYCFBamIndexTweakObj readIndexTweakByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamTweakObj instance for the unique UDefIdx key.
+	 *	Get the YCFBamTweakObj instance for the unique UDefIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
@@ -218,17 +218,17 @@ public interface ICFBamIndexTweakTableObj
 	 *
 	 *	@param	argName	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamTweakObj cached instance for the unique UDefIdx key, or
+	 *	@return	YCFBamTweakObj cached instance for the unique UDefIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamIndexTweakObj readIndexTweakByUDefIdx( long TenantId,
+	IYCFBamIndexTweakObj readIndexTweakByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name );
 
 	/**
-	 *	Get the CFBamTweakObj instance for the unique UDefIdx key.
+	 *	Get the YCFBamTweakObj instance for the unique UDefIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
@@ -240,10 +240,10 @@ public interface ICFBamIndexTweakTableObj
 	 *
 	 *	@param	argName	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamTweakObj refreshed instance for the unique UDefIdx key, or
+	 *	@return	YCFBamTweakObj refreshed instance for the unique UDefIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamIndexTweakObj readIndexTweakByUDefIdx( long TenantId,
+	IYCFBamIndexTweakObj readIndexTweakByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
@@ -251,129 +251,129 @@ public interface ICFBamIndexTweakTableObj
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamTweakObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamTweakObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readIndexTweakByValTentIdx( long TenantId );
+	List<IYCFBamIndexTweakObj> readIndexTweakByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamIndexTweakObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamIndexTweakObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readIndexTweakByValTentIdx( long TenantId,
+	List<IYCFBamIndexTweakObj> readIndexTweakByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamTweakObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamTweakObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readIndexTweakByScopeIdx( long TenantId,
+	List<IYCFBamIndexTweakObj> readIndexTweakByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamIndexTweakObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamIndexTweakObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readIndexTweakByScopeIdx( long TenantId,
+	List<IYCFBamIndexTweakObj> readIndexTweakByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamTweakObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamTweakObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readIndexTweakByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamIndexTweakObj> readIndexTweakByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamIndexTweakObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamIndexTweakObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readIndexTweakByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamIndexTweakObj> readIndexTweakByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamIndexTweakObj instances sorted by their primary keys for the duplicate IndexIdx key.
+	 *	Get the map of YCFBamIndexTweakObj instances sorted by their primary keys for the duplicate IndexIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
 	 *	@param	argIndexId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate IndexIdx key,
+	 *	@return	List of YCFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate IndexIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readIndexTweakByIndexIdx( long TenantId,
+	List<IYCFBamIndexTweakObj> readIndexTweakByIndexIdx( long TenantId,
 		long IndexId );
 
 	/**
-	 *	Get the map of CFBamIndexTweakObj instances sorted by their primary keys for the duplicate IndexIdx key.
+	 *	Get the map of YCFBamIndexTweakObj instances sorted by their primary keys for the duplicate IndexIdx key.
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 *
 	 *	@param	argIndexId	The IndexTweak key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate IndexIdx key,
+	 *	@return	List of YCFBamIndexTweakObj cached instances sorted by their primary keys for the duplicate IndexIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamIndexTweakObj> readIndexTweakByIndexIdx( long TenantId,
+	List<IYCFBamIndexTweakObj> readIndexTweakByIndexIdx( long TenantId,
 		long IndexId,
 		boolean forceRead );
 
-	ICFBamIndexTweakObj readCachedIndexTweakByIdIdx( long TenantId,
+	IYCFBamIndexTweakObj readCachedIndexTweakByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamIndexTweakObj readCachedIndexTweakByUNameIdx( long TenantId,
+	IYCFBamIndexTweakObj readCachedIndexTweakByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	ICFBamIndexTweakObj readCachedIndexTweakByUDefIdx( long TenantId,
+	IYCFBamIndexTweakObj readCachedIndexTweakByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name );
 
-	List<ICFBamIndexTweakObj> readCachedIndexTweakByValTentIdx( long TenantId );
+	List<IYCFBamIndexTweakObj> readCachedIndexTweakByValTentIdx( long TenantId );
 
-	List<ICFBamIndexTweakObj> readCachedIndexTweakByScopeIdx( long TenantId,
+	List<IYCFBamIndexTweakObj> readCachedIndexTweakByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamIndexTweakObj> readCachedIndexTweakByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamIndexTweakObj> readCachedIndexTweakByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamIndexTweakObj> readCachedIndexTweakByIndexIdx( long TenantId,
+	List<IYCFBamIndexTweakObj> readCachedIndexTweakByIndexIdx( long TenantId,
 		long IndexId );
 
 	void deepDisposeIndexTweakByIdIdx( long TenantId,
@@ -403,12 +403,12 @@ public interface ICFBamIndexTweakTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamIndexTweakObj updateIndexTweak( ICFBamIndexTweakObj Obj );
+	IYCFBamIndexTweakObj updateIndexTweak( IYCFBamIndexTweakObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteIndexTweak( ICFBamIndexTweakObj Obj );
+	void deleteIndexTweak( IYCFBamIndexTweakObj Obj );
 
 	/**
 	 *	Internal use only.

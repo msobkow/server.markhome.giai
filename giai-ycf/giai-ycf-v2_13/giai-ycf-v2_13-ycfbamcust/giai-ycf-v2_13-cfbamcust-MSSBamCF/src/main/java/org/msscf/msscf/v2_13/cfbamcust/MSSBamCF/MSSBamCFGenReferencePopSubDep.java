@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,44 +23,44 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
 import java.util.Iterator;
 import java.util.SortedMap;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
-public class MSSBamCFGenReferencePopSubDep
-	extends MssCFGenReferenceObj
+public class MSSBamYCFGenReferencePopSubDep
+	extends MssYCFGenReferenceObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public MSSBamCFGenReferencePopSubDep() {
+	public MSSBamYCFGenReferencePopSubDep() {
 		super();
 	}
 
-	public MSSBamCFGenReferencePopSubDep(
-		MSSBamCFEngine argSchema,
+	public MSSBamYCFGenReferencePopSubDep(
+		MSSBamYCFEngine argSchema,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -69,12 +69,12 @@ public class MSSBamCFGenReferencePopSubDep
 		super(argSchema, toolset, scopeDefClassName, genDefClassName, itemName, "Chain");
 	}
 
-	public ICFLibAnyObj dereference( MssCFGenContext genContext) {
-		ICFLibAnyObj genDef;
+	public IYCFLibAnyObj dereference( MssYCFGenContext genContext) {
+		IYCFLibAnyObj genDef;
 		final String S_ProcName = "expandBody";
 
 		if (genContext == null) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
@@ -82,43 +82,43 @@ public class MSSBamCFGenReferencePopSubDep
 
 		genDef = genContext.getGenDef();
 		if (genDef == null) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"genContext.GenDef" );
 		}
 
-		ICFLibAnyObj ret = null;
-		if( genDef instanceof ICFBamPopTopDepObj ) {
-			ICFBamPopTopDepObj topDep = (ICFBamPopTopDepObj)genDef;
-			Iterator<ICFBamPopSubDep1Obj> iter = topDep.getOptionalComponentsPopDep().iterator();
+		IYCFLibAnyObj ret = null;
+		if( genDef instanceof IYCFBamPopTopDepObj ) {
+			IYCFBamPopTopDepObj topDep = (IYCFBamPopTopDepObj)genDef;
+			Iterator<IYCFBamPopSubDep1Obj> iter = topDep.getOptionalComponentsPopDep().iterator();
 			if( iter.hasNext() ) {
 				ret = iter.next();
 			}
 		}
-		else if( genDef instanceof ICFBamPopSubDep1Obj ) {
-			ICFBamPopSubDep1Obj subDep = (ICFBamPopSubDep1Obj)genDef;
-			Iterator<ICFBamPopSubDep2Obj> iter = subDep.getOptionalComponentsPopDep().iterator();
+		else if( genDef instanceof IYCFBamPopSubDep1Obj ) {
+			IYCFBamPopSubDep1Obj subDep = (IYCFBamPopSubDep1Obj)genDef;
+			Iterator<IYCFBamPopSubDep2Obj> iter = subDep.getOptionalComponentsPopDep().iterator();
 			if( iter.hasNext() ) {
 				ret = iter.next();
 			}
 		}
-		else if( genDef instanceof ICFBamPopSubDep2Obj ) {
-			ICFBamPopSubDep2Obj subDep = (ICFBamPopSubDep2Obj)genDef;
-			Iterator<ICFBamPopSubDep3Obj> iter = subDep.getOptionalComponentsPopDep().iterator();
+		else if( genDef instanceof IYCFBamPopSubDep2Obj ) {
+			IYCFBamPopSubDep2Obj subDep = (IYCFBamPopSubDep2Obj)genDef;
+			Iterator<IYCFBamPopSubDep3Obj> iter = subDep.getOptionalComponentsPopDep().iterator();
 			if( iter.hasNext() ) {
 				ret = iter.next();
 			}
 		}
-		else if( genDef instanceof ICFBamPopSubDep3Obj ) {
+		else if( genDef instanceof IYCFBamPopSubDep3Obj ) {
 			ret = null;
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.GenDef",
 				genDef,
-				"ICFBamPopTopDepObj, ICFBamPopSubDep1Obj, ICFBamPopSubDep2Obj, ICFBamPopSubDep3Obj" );
+				"IYCFBamPopTopDepObj, IYCFBamPopSubDep1Obj, IYCFBamPopSubDep2Obj, IYCFBamPopSubDep3Obj" );
 		}
 
 		return (ret);

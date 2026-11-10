@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.xml;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml;
 
 import java.text.StringCharacterIterator;
 
@@ -29,15 +29,15 @@ import java.text.StringCharacterIterator;
  *	The XmlCoreIso8859Encoder converts native strings and characters
  *	to HTML/XML escaped text.
  */
-public class CFLibXmlCoreIso8859Encoder {
+public class YCFLibXmlCoreIso8859Encoder {
 
 	protected char		ch;
 	protected byte		len;
 	protected String	map;
 
-	protected static	CFLibXmlCoreIso8859Encoder[]	ToXml = null;
+	protected static	YCFLibXmlCoreIso8859Encoder[]	ToXml = null;
 
-	CFLibXmlCoreIso8859Encoder() {
+	YCFLibXmlCoreIso8859Encoder() {
 		ch = '\000';
 		len = 0;
 		map = null;
@@ -324,10 +324,10 @@ public class CFLibXmlCoreIso8859Encoder {
 		int		idx;
 		char	ca[] = new char[1];
 
-		ToXml = new CFLibXmlCoreIso8859Encoder[256];
+		ToXml = new YCFLibXmlCoreIso8859Encoder[256];
 
 		for( idx = 0x00; idx <= 0xFF; idx++ ) {
-			ToXml[idx] = new CFLibXmlCoreIso8859Encoder();
+			ToXml[idx] = new YCFLibXmlCoreIso8859Encoder();
 			ToXml[idx].ch = (char)idx;
 			ToXml[idx].len = 0;
 			ToXml[idx].map = null;

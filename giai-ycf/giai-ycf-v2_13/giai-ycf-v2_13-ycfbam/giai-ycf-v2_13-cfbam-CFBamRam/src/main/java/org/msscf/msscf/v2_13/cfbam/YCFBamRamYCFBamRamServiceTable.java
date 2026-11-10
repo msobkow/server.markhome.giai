@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for Service.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,92 +27,92 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamServiceTable in-memory RAM DbIO implementation
+ *	YCFBamRamServiceTable in-memory RAM DbIO implementation
  *	for Service.
  */
-public class CFBamRamServiceTable
-	implements ICFBamServiceTable
+public class YCFBamRamServiceTable
+	implements IYCFBamServiceTable
 {
-	private ICFBamSchema schema;
-	private Map< CFSecServicePKey,
-				CFSecServiceBuff > dictByPKey
-		= new HashMap< CFSecServicePKey,
-				CFSecServiceBuff >();
-	private Map< CFSecServiceByClusterIdxKey,
-				Map< CFSecServicePKey,
-					CFSecServiceBuff >> dictByClusterIdx
-		= new HashMap< CFSecServiceByClusterIdxKey,
-				Map< CFSecServicePKey,
-					CFSecServiceBuff >>();
-	private Map< CFSecServiceByHostIdxKey,
-				Map< CFSecServicePKey,
-					CFSecServiceBuff >> dictByHostIdx
-		= new HashMap< CFSecServiceByHostIdxKey,
-				Map< CFSecServicePKey,
-					CFSecServiceBuff >>();
-	private Map< CFSecServiceByTypeIdxKey,
-				Map< CFSecServicePKey,
-					CFSecServiceBuff >> dictByTypeIdx
-		= new HashMap< CFSecServiceByTypeIdxKey,
-				Map< CFSecServicePKey,
-					CFSecServiceBuff >>();
-	private Map< CFSecServiceByUTypeIdxKey,
-			CFSecServiceBuff > dictByUTypeIdx
-		= new HashMap< CFSecServiceByUTypeIdxKey,
-			CFSecServiceBuff >();
-	private Map< CFSecServiceByUHostPortIdxKey,
-			CFSecServiceBuff > dictByUHostPortIdx
-		= new HashMap< CFSecServiceByUHostPortIdxKey,
-			CFSecServiceBuff >();
+	private IYCFBamSchema schema;
+	private Map< YCFSecServicePKey,
+				YCFSecServiceBuff > dictByPKey
+		= new HashMap< YCFSecServicePKey,
+				YCFSecServiceBuff >();
+	private Map< YCFSecServiceByClusterIdxKey,
+				Map< YCFSecServicePKey,
+					YCFSecServiceBuff >> dictByClusterIdx
+		= new HashMap< YCFSecServiceByClusterIdxKey,
+				Map< YCFSecServicePKey,
+					YCFSecServiceBuff >>();
+	private Map< YCFSecServiceByHostIdxKey,
+				Map< YCFSecServicePKey,
+					YCFSecServiceBuff >> dictByHostIdx
+		= new HashMap< YCFSecServiceByHostIdxKey,
+				Map< YCFSecServicePKey,
+					YCFSecServiceBuff >>();
+	private Map< YCFSecServiceByTypeIdxKey,
+				Map< YCFSecServicePKey,
+					YCFSecServiceBuff >> dictByTypeIdx
+		= new HashMap< YCFSecServiceByTypeIdxKey,
+				Map< YCFSecServicePKey,
+					YCFSecServiceBuff >>();
+	private Map< YCFSecServiceByUTypeIdxKey,
+			YCFSecServiceBuff > dictByUTypeIdx
+		= new HashMap< YCFSecServiceByUTypeIdxKey,
+			YCFSecServiceBuff >();
+	private Map< YCFSecServiceByUHostPortIdxKey,
+			YCFSecServiceBuff > dictByUHostPortIdx
+		= new HashMap< YCFSecServiceByUHostPortIdxKey,
+			YCFSecServiceBuff >();
 
-	public CFBamRamServiceTable( ICFBamSchema argSchema ) {
+	public YCFBamRamServiceTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createService( CFSecAuthorization Authorization,
-		CFSecServiceBuff Buff )
+	public void createService( YCFSecAuthorization Authorization,
+		YCFSecServiceBuff Buff )
 	{
 		final String S_ProcName = "createService";
-		CFSecServicePKey pkey = schema.getFactoryService().newPKey();
+		YCFSecServicePKey pkey = schema.getFactoryService().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
-		pkey.setRequiredServiceId( ((CFBamRamClusterTable)schema.getTableCluster()).nextServiceIdGen( Authorization,
+		pkey.setRequiredServiceId( ((YCFBamRamClusterTable)schema.getTableCluster()).nextServiceIdGen( Authorization,
 			Buff.getRequiredClusterId() ) );
 		Buff.setRequiredClusterId( pkey.getRequiredClusterId() );
 		Buff.setRequiredServiceId( pkey.getRequiredServiceId() );
-		CFSecServiceByClusterIdxKey keyClusterIdx = schema.getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey keyClusterIdx = schema.getFactoryService().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFSecServiceByHostIdxKey keyHostIdx = schema.getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey keyHostIdx = schema.getFactoryService().newHostIdxKey();
 		keyHostIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyHostIdx.setRequiredHostNodeId( Buff.getRequiredHostNodeId() );
 
-		CFSecServiceByTypeIdxKey keyTypeIdx = schema.getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey keyTypeIdx = schema.getFactoryService().newTypeIdxKey();
 		keyTypeIdx.setRequiredServiceTypeId( Buff.getRequiredServiceTypeId() );
 
-		CFSecServiceByUTypeIdxKey keyUTypeIdx = schema.getFactoryService().newUTypeIdxKey();
+		YCFSecServiceByUTypeIdxKey keyUTypeIdx = schema.getFactoryService().newUTypeIdxKey();
 		keyUTypeIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyUTypeIdx.setRequiredHostNodeId( Buff.getRequiredHostNodeId() );
 		keyUTypeIdx.setRequiredServiceTypeId( Buff.getRequiredServiceTypeId() );
 
-		CFSecServiceByUHostPortIdxKey keyUHostPortIdx = schema.getFactoryService().newUHostPortIdxKey();
+		YCFSecServiceByUHostPortIdxKey keyUHostPortIdx = schema.getFactoryService().newUHostPortIdxKey();
 		keyUHostPortIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyUHostPortIdx.setRequiredHostNodeId( Buff.getRequiredHostNodeId() );
 		keyUHostPortIdx.setRequiredHostPort( Buff.getRequiredHostPort() );
@@ -120,18 +120,18 @@ public class CFBamRamServiceTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUTypeIdx.containsKey( keyUTypeIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"ServiceUTypeIdx",
 				keyUTypeIdx );
 		}
 
 		if( dictByUHostPortIdx.containsKey( keyUHostPortIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"ServiceUHostPort",
 				keyUHostPortIdx );
@@ -146,7 +146,7 @@ public class CFBamRamServiceTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Owner",
 						"ServiceCluster",
@@ -160,32 +160,32 @@ public class CFBamRamServiceTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFSecServicePKey, CFSecServiceBuff > subdictClusterIdx;
+		Map< YCFSecServicePKey, YCFSecServiceBuff > subdictClusterIdx;
 		if( dictByClusterIdx.containsKey( keyClusterIdx ) ) {
 			subdictClusterIdx = dictByClusterIdx.get( keyClusterIdx );
 		}
 		else {
-			subdictClusterIdx = new HashMap< CFSecServicePKey, CFSecServiceBuff >();
+			subdictClusterIdx = new HashMap< YCFSecServicePKey, YCFSecServiceBuff >();
 			dictByClusterIdx.put( keyClusterIdx, subdictClusterIdx );
 		}
 		subdictClusterIdx.put( pkey, Buff );
 
-		Map< CFSecServicePKey, CFSecServiceBuff > subdictHostIdx;
+		Map< YCFSecServicePKey, YCFSecServiceBuff > subdictHostIdx;
 		if( dictByHostIdx.containsKey( keyHostIdx ) ) {
 			subdictHostIdx = dictByHostIdx.get( keyHostIdx );
 		}
 		else {
-			subdictHostIdx = new HashMap< CFSecServicePKey, CFSecServiceBuff >();
+			subdictHostIdx = new HashMap< YCFSecServicePKey, YCFSecServiceBuff >();
 			dictByHostIdx.put( keyHostIdx, subdictHostIdx );
 		}
 		subdictHostIdx.put( pkey, Buff );
 
-		Map< CFSecServicePKey, CFSecServiceBuff > subdictTypeIdx;
+		Map< YCFSecServicePKey, YCFSecServiceBuff > subdictTypeIdx;
 		if( dictByTypeIdx.containsKey( keyTypeIdx ) ) {
 			subdictTypeIdx = dictByTypeIdx.get( keyTypeIdx );
 		}
 		else {
-			subdictTypeIdx = new HashMap< CFSecServicePKey, CFSecServiceBuff >();
+			subdictTypeIdx = new HashMap< YCFSecServicePKey, YCFSecServiceBuff >();
 			dictByTypeIdx.put( keyTypeIdx, subdictTypeIdx );
 		}
 		subdictTypeIdx.put( pkey, Buff );
@@ -196,14 +196,14 @@ public class CFBamRamServiceTable
 
 	}
 
-	public CFSecServiceBuff readDerived( CFSecAuthorization Authorization,
-		CFSecServicePKey PKey )
+	public YCFSecServiceBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecServicePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamService.readDerived";
-		CFSecServicePKey key = schema.getFactoryService().newPKey();
+		final String S_ProcName = "YCFBamRamService.readDerived";
+		YCFSecServicePKey key = schema.getFactoryService().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredServiceId( PKey.getRequiredServiceId() );
-		CFSecServiceBuff buff;
+		YCFSecServiceBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -213,14 +213,14 @@ public class CFBamRamServiceTable
 		return( buff );
 	}
 
-	public CFSecServiceBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecServicePKey PKey )
+	public YCFSecServiceBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecServicePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamService.readDerived";
-		CFSecServicePKey key = schema.getFactoryService().newPKey();
+		final String S_ProcName = "YCFBamRamService.readDerived";
+		YCFSecServicePKey key = schema.getFactoryService().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredServiceId( PKey.getRequiredServiceId() );
-		CFSecServiceBuff buff;
+		YCFSecServiceBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -230,10 +230,10 @@ public class CFBamRamServiceTable
 		return( buff );
 	}
 
-	public CFSecServiceBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamService.readAllDerived";
-		CFSecServiceBuff[] retList = new CFSecServiceBuff[ dictByPKey.values().size() ];
-		Iterator< CFSecServiceBuff > iter = dictByPKey.values().iterator();
+	public YCFSecServiceBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamService.readAllDerived";
+		YCFSecServiceBuff[] retList = new YCFSecServiceBuff[ dictByPKey.values().size() ];
+		Iterator< YCFSecServiceBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -241,101 +241,101 @@ public class CFBamRamServiceTable
 		return( retList );
 	}
 
-	public CFSecServiceBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFBamRamService.readDerivedByClusterIdx";
-		CFSecServiceByClusterIdxKey key = schema.getFactoryService().newClusterIdxKey();
+		final String S_ProcName = "YCFBamRamService.readDerivedByClusterIdx";
+		YCFSecServiceByClusterIdxKey key = schema.getFactoryService().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 
-		CFSecServiceBuff[] recArray;
+		YCFSecServiceBuff[] recArray;
 		if( dictByClusterIdx.containsKey( key ) ) {
-			Map< CFSecServicePKey, CFSecServiceBuff > subdictClusterIdx
+			Map< YCFSecServicePKey, YCFSecServiceBuff > subdictClusterIdx
 				= dictByClusterIdx.get( key );
-			recArray = new CFSecServiceBuff[ subdictClusterIdx.size() ];
-			Iterator< CFSecServiceBuff > iter = subdictClusterIdx.values().iterator();
+			recArray = new YCFSecServiceBuff[ subdictClusterIdx.size() ];
+			Iterator< YCFSecServiceBuff > iter = subdictClusterIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecServicePKey, CFSecServiceBuff > subdictClusterIdx
-				= new HashMap< CFSecServicePKey, CFSecServiceBuff >();
+			Map< YCFSecServicePKey, YCFSecServiceBuff > subdictClusterIdx
+				= new HashMap< YCFSecServicePKey, YCFSecServiceBuff >();
 			dictByClusterIdx.put( key, subdictClusterIdx );
-			recArray = new CFSecServiceBuff[0];
+			recArray = new YCFSecServiceBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecServiceBuff[] readDerivedByHostIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] readDerivedByHostIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId )
 	{
-		final String S_ProcName = "CFBamRamService.readDerivedByHostIdx";
-		CFSecServiceByHostIdxKey key = schema.getFactoryService().newHostIdxKey();
+		final String S_ProcName = "YCFBamRamService.readDerivedByHostIdx";
+		YCFSecServiceByHostIdxKey key = schema.getFactoryService().newHostIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 
-		CFSecServiceBuff[] recArray;
+		YCFSecServiceBuff[] recArray;
 		if( dictByHostIdx.containsKey( key ) ) {
-			Map< CFSecServicePKey, CFSecServiceBuff > subdictHostIdx
+			Map< YCFSecServicePKey, YCFSecServiceBuff > subdictHostIdx
 				= dictByHostIdx.get( key );
-			recArray = new CFSecServiceBuff[ subdictHostIdx.size() ];
-			Iterator< CFSecServiceBuff > iter = subdictHostIdx.values().iterator();
+			recArray = new YCFSecServiceBuff[ subdictHostIdx.size() ];
+			Iterator< YCFSecServiceBuff > iter = subdictHostIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecServicePKey, CFSecServiceBuff > subdictHostIdx
-				= new HashMap< CFSecServicePKey, CFSecServiceBuff >();
+			Map< YCFSecServicePKey, YCFSecServiceBuff > subdictHostIdx
+				= new HashMap< YCFSecServicePKey, YCFSecServiceBuff >();
 			dictByHostIdx.put( key, subdictHostIdx );
-			recArray = new CFSecServiceBuff[0];
+			recArray = new YCFSecServiceBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecServiceBuff[] readDerivedByTypeIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] readDerivedByTypeIdx( YCFSecAuthorization Authorization,
 		int ServiceTypeId )
 	{
-		final String S_ProcName = "CFBamRamService.readDerivedByTypeIdx";
-		CFSecServiceByTypeIdxKey key = schema.getFactoryService().newTypeIdxKey();
+		final String S_ProcName = "YCFBamRamService.readDerivedByTypeIdx";
+		YCFSecServiceByTypeIdxKey key = schema.getFactoryService().newTypeIdxKey();
 		key.setRequiredServiceTypeId( ServiceTypeId );
 
-		CFSecServiceBuff[] recArray;
+		YCFSecServiceBuff[] recArray;
 		if( dictByTypeIdx.containsKey( key ) ) {
-			Map< CFSecServicePKey, CFSecServiceBuff > subdictTypeIdx
+			Map< YCFSecServicePKey, YCFSecServiceBuff > subdictTypeIdx
 				= dictByTypeIdx.get( key );
-			recArray = new CFSecServiceBuff[ subdictTypeIdx.size() ];
-			Iterator< CFSecServiceBuff > iter = subdictTypeIdx.values().iterator();
+			recArray = new YCFSecServiceBuff[ subdictTypeIdx.size() ];
+			Iterator< YCFSecServiceBuff > iter = subdictTypeIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecServicePKey, CFSecServiceBuff > subdictTypeIdx
-				= new HashMap< CFSecServicePKey, CFSecServiceBuff >();
+			Map< YCFSecServicePKey, YCFSecServiceBuff > subdictTypeIdx
+				= new HashMap< YCFSecServicePKey, YCFSecServiceBuff >();
 			dictByTypeIdx.put( key, subdictTypeIdx );
-			recArray = new CFSecServiceBuff[0];
+			recArray = new YCFSecServiceBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecServiceBuff readDerivedByUTypeIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff readDerivedByUTypeIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		int ServiceTypeId )
 	{
-		final String S_ProcName = "CFBamRamService.readDerivedByUTypeIdx";
-		CFSecServiceByUTypeIdxKey key = schema.getFactoryService().newUTypeIdxKey();
+		final String S_ProcName = "YCFBamRamService.readDerivedByUTypeIdx";
+		YCFSecServiceByUTypeIdxKey key = schema.getFactoryService().newUTypeIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 		key.setRequiredServiceTypeId( ServiceTypeId );
 
-		CFSecServiceBuff buff;
+		YCFSecServiceBuff buff;
 		if( dictByUTypeIdx.containsKey( key ) ) {
 			buff = dictByUTypeIdx.get( key );
 		}
@@ -345,18 +345,18 @@ public class CFBamRamServiceTable
 		return( buff );
 	}
 
-	public CFSecServiceBuff readDerivedByUHostPortIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff readDerivedByUHostPortIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		short HostPort )
 	{
-		final String S_ProcName = "CFBamRamService.readDerivedByUHostPortIdx";
-		CFSecServiceByUHostPortIdxKey key = schema.getFactoryService().newUHostPortIdxKey();
+		final String S_ProcName = "YCFBamRamService.readDerivedByUHostPortIdx";
+		YCFSecServiceByUHostPortIdxKey key = schema.getFactoryService().newUHostPortIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 		key.setRequiredHostPort( HostPort );
 
-		CFSecServiceBuff buff;
+		YCFSecServiceBuff buff;
 		if( dictByUHostPortIdx.containsKey( key ) ) {
 			buff = dictByUHostPortIdx.get( key );
 		}
@@ -366,16 +366,16 @@ public class CFBamRamServiceTable
 		return( buff );
 	}
 
-	public CFSecServiceBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long ServiceId )
 	{
-		final String S_ProcName = "CFBamRamService.readDerivedByIdIdx() ";
-		CFSecServicePKey key = schema.getFactoryService().newPKey();
+		final String S_ProcName = "YCFBamRamService.readDerivedByIdIdx() ";
+		YCFSecServicePKey key = schema.getFactoryService().newPKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredServiceId( ServiceId );
 
-		CFSecServiceBuff buff;
+		YCFSecServiceBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -385,41 +385,41 @@ public class CFBamRamServiceTable
 		return( buff );
 	}
 
-	public CFSecServiceBuff readBuff( CFSecAuthorization Authorization,
-		CFSecServicePKey PKey )
+	public YCFSecServiceBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecServicePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamService.readBuff";
-		CFSecServiceBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamService.readBuff";
+		YCFSecServiceBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a012" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecServiceBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecServicePKey PKey )
+	public YCFSecServiceBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecServicePKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFSecServiceBuff buff = readDerived( Authorization, PKey );
+		YCFSecServiceBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a012" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecServiceBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFSecServiceBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamService.readAllBuff";
-		CFSecServiceBuff buff;
-		ArrayList<CFSecServiceBuff> filteredList = new ArrayList<CFSecServiceBuff>();
-		CFSecServiceBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamService.readAllBuff";
+		YCFSecServiceBuff buff;
+		ArrayList<YCFSecServiceBuff> filteredList = new ArrayList<YCFSecServiceBuff>();
+		YCFSecServiceBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a012" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecServiceBuff[0] ) );
+		return( filteredList.toArray( new YCFSecServiceBuff[0] ) );
 	}
 
 	/**
@@ -429,113 +429,113 @@ public class CFBamRamServiceTable
 	 *
 	 *	@return All the specific Service instances in the database accessible for the Authorization.
 	 */
-	public CFSecServiceBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		Long priorClusterId,
 		Long priorServiceId )
 	{
 		final String S_ProcName = "pageAllBuff";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public CFSecServiceBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long ServiceId )
 	{
-		final String S_ProcName = "CFBamRamService.readBuffByIdIdx() ";
-		CFSecServiceBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamService.readBuffByIdIdx() ";
+		YCFSecServiceBuff buff = readDerivedByIdIdx( Authorization,
 			ClusterId,
 			ServiceId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a012" ) ) {
-			return( (CFSecServiceBuff)buff );
+			return( (YCFSecServiceBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecServiceBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFBamRamService.readBuffByClusterIdx() ";
-		CFSecServiceBuff buff;
-		ArrayList<CFSecServiceBuff> filteredList = new ArrayList<CFSecServiceBuff>();
-		CFSecServiceBuff[] buffList = readDerivedByClusterIdx( Authorization,
+		final String S_ProcName = "YCFBamRamService.readBuffByClusterIdx() ";
+		YCFSecServiceBuff buff;
+		ArrayList<YCFSecServiceBuff> filteredList = new ArrayList<YCFSecServiceBuff>();
+		YCFSecServiceBuff[] buffList = readDerivedByClusterIdx( Authorization,
 			ClusterId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a012" ) ) {
-				filteredList.add( (CFSecServiceBuff)buff );
+				filteredList.add( (YCFSecServiceBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecServiceBuff[0] ) );
+		return( filteredList.toArray( new YCFSecServiceBuff[0] ) );
 	}
 
-	public CFSecServiceBuff[] readBuffByHostIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] readBuffByHostIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId )
 	{
-		final String S_ProcName = "CFBamRamService.readBuffByHostIdx() ";
-		CFSecServiceBuff buff;
-		ArrayList<CFSecServiceBuff> filteredList = new ArrayList<CFSecServiceBuff>();
-		CFSecServiceBuff[] buffList = readDerivedByHostIdx( Authorization,
+		final String S_ProcName = "YCFBamRamService.readBuffByHostIdx() ";
+		YCFSecServiceBuff buff;
+		ArrayList<YCFSecServiceBuff> filteredList = new ArrayList<YCFSecServiceBuff>();
+		YCFSecServiceBuff[] buffList = readDerivedByHostIdx( Authorization,
 			ClusterId,
 			HostNodeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a012" ) ) {
-				filteredList.add( (CFSecServiceBuff)buff );
+				filteredList.add( (YCFSecServiceBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecServiceBuff[0] ) );
+		return( filteredList.toArray( new YCFSecServiceBuff[0] ) );
 	}
 
-	public CFSecServiceBuff[] readBuffByTypeIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] readBuffByTypeIdx( YCFSecAuthorization Authorization,
 		int ServiceTypeId )
 	{
-		final String S_ProcName = "CFBamRamService.readBuffByTypeIdx() ";
-		CFSecServiceBuff buff;
-		ArrayList<CFSecServiceBuff> filteredList = new ArrayList<CFSecServiceBuff>();
-		CFSecServiceBuff[] buffList = readDerivedByTypeIdx( Authorization,
+		final String S_ProcName = "YCFBamRamService.readBuffByTypeIdx() ";
+		YCFSecServiceBuff buff;
+		ArrayList<YCFSecServiceBuff> filteredList = new ArrayList<YCFSecServiceBuff>();
+		YCFSecServiceBuff[] buffList = readDerivedByTypeIdx( Authorization,
 			ServiceTypeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a012" ) ) {
-				filteredList.add( (CFSecServiceBuff)buff );
+				filteredList.add( (YCFSecServiceBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecServiceBuff[0] ) );
+		return( filteredList.toArray( new YCFSecServiceBuff[0] ) );
 	}
 
-	public CFSecServiceBuff readBuffByUTypeIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff readBuffByUTypeIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		int ServiceTypeId )
 	{
-		final String S_ProcName = "CFBamRamService.readBuffByUTypeIdx() ";
-		CFSecServiceBuff buff = readDerivedByUTypeIdx( Authorization,
+		final String S_ProcName = "YCFBamRamService.readBuffByUTypeIdx() ";
+		YCFSecServiceBuff buff = readDerivedByUTypeIdx( Authorization,
 			ClusterId,
 			HostNodeId,
 			ServiceTypeId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a012" ) ) {
-			return( (CFSecServiceBuff)buff );
+			return( (YCFSecServiceBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecServiceBuff readBuffByUHostPortIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff readBuffByUHostPortIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		short HostPort )
 	{
-		final String S_ProcName = "CFBamRamService.readBuffByUHostPortIdx() ";
-		CFSecServiceBuff buff = readDerivedByUHostPortIdx( Authorization,
+		final String S_ProcName = "YCFBamRamService.readBuffByUHostPortIdx() ";
+		YCFSecServiceBuff buff = readDerivedByUHostPortIdx( Authorization,
 			ClusterId,
 			HostNodeId,
 			HostPort );
 		if( ( buff != null ) && buff.getClassCode().equals( "a012" ) ) {
-			return( (CFSecServiceBuff)buff );
+			return( (YCFSecServiceBuff)buff );
 		}
 		else {
 			return( null );
@@ -551,15 +551,15 @@ public class CFBamRamServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFSecServiceBuff[] pageBuffByClusterIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] pageBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Long priorServiceId )
 	{
 		final String S_ProcName = "pageBuffByClusterIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -573,16 +573,16 @@ public class CFBamRamServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFSecServiceBuff[] pageBuffByHostIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] pageBuffByHostIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId,
 		Long priorClusterId,
 		Long priorServiceId )
 	{
 		final String S_ProcName = "pageBuffByHostIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -594,73 +594,73 @@ public class CFBamRamServiceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFSecServiceBuff[] pageBuffByTypeIdx( CFSecAuthorization Authorization,
+	public YCFSecServiceBuff[] pageBuffByTypeIdx( YCFSecAuthorization Authorization,
 		int ServiceTypeId,
 		Long priorClusterId,
 		Long priorServiceId )
 	{
 		final String S_ProcName = "pageBuffByTypeIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateService( CFSecAuthorization Authorization,
-		CFSecServiceBuff Buff )
+	public void updateService( YCFSecAuthorization Authorization,
+		YCFSecServiceBuff Buff )
 	{
-		CFSecServicePKey pkey = schema.getFactoryService().newPKey();
+		YCFSecServicePKey pkey = schema.getFactoryService().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredServiceId( Buff.getRequiredServiceId() );
-		CFSecServiceBuff existing = dictByPKey.get( pkey );
+		YCFSecServiceBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateService",
 				"Existing record not found",
 				"Service",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateService",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFSecServiceByClusterIdxKey existingKeyClusterIdx = schema.getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey existingKeyClusterIdx = schema.getFactoryService().newClusterIdxKey();
 		existingKeyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecServiceByClusterIdxKey newKeyClusterIdx = schema.getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey newKeyClusterIdx = schema.getFactoryService().newClusterIdxKey();
 		newKeyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFSecServiceByHostIdxKey existingKeyHostIdx = schema.getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey existingKeyHostIdx = schema.getFactoryService().newHostIdxKey();
 		existingKeyHostIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyHostIdx.setRequiredHostNodeId( existing.getRequiredHostNodeId() );
 
-		CFSecServiceByHostIdxKey newKeyHostIdx = schema.getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey newKeyHostIdx = schema.getFactoryService().newHostIdxKey();
 		newKeyHostIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyHostIdx.setRequiredHostNodeId( Buff.getRequiredHostNodeId() );
 
-		CFSecServiceByTypeIdxKey existingKeyTypeIdx = schema.getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey existingKeyTypeIdx = schema.getFactoryService().newTypeIdxKey();
 		existingKeyTypeIdx.setRequiredServiceTypeId( existing.getRequiredServiceTypeId() );
 
-		CFSecServiceByTypeIdxKey newKeyTypeIdx = schema.getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey newKeyTypeIdx = schema.getFactoryService().newTypeIdxKey();
 		newKeyTypeIdx.setRequiredServiceTypeId( Buff.getRequiredServiceTypeId() );
 
-		CFSecServiceByUTypeIdxKey existingKeyUTypeIdx = schema.getFactoryService().newUTypeIdxKey();
+		YCFSecServiceByUTypeIdxKey existingKeyUTypeIdx = schema.getFactoryService().newUTypeIdxKey();
 		existingKeyUTypeIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyUTypeIdx.setRequiredHostNodeId( existing.getRequiredHostNodeId() );
 		existingKeyUTypeIdx.setRequiredServiceTypeId( existing.getRequiredServiceTypeId() );
 
-		CFSecServiceByUTypeIdxKey newKeyUTypeIdx = schema.getFactoryService().newUTypeIdxKey();
+		YCFSecServiceByUTypeIdxKey newKeyUTypeIdx = schema.getFactoryService().newUTypeIdxKey();
 		newKeyUTypeIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyUTypeIdx.setRequiredHostNodeId( Buff.getRequiredHostNodeId() );
 		newKeyUTypeIdx.setRequiredServiceTypeId( Buff.getRequiredServiceTypeId() );
 
-		CFSecServiceByUHostPortIdxKey existingKeyUHostPortIdx = schema.getFactoryService().newUHostPortIdxKey();
+		YCFSecServiceByUHostPortIdxKey existingKeyUHostPortIdx = schema.getFactoryService().newUHostPortIdxKey();
 		existingKeyUHostPortIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyUHostPortIdx.setRequiredHostNodeId( existing.getRequiredHostNodeId() );
 		existingKeyUHostPortIdx.setRequiredHostPort( existing.getRequiredHostPort() );
 
-		CFSecServiceByUHostPortIdxKey newKeyUHostPortIdx = schema.getFactoryService().newUHostPortIdxKey();
+		YCFSecServiceByUHostPortIdxKey newKeyUHostPortIdx = schema.getFactoryService().newUHostPortIdxKey();
 		newKeyUHostPortIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyUHostPortIdx.setRequiredHostNodeId( Buff.getRequiredHostNodeId() );
 		newKeyUHostPortIdx.setRequiredHostPort( Buff.getRequiredHostPort() );
@@ -669,7 +669,7 @@ public class CFBamRamServiceTable
 
 		if( ! existingKeyUTypeIdx.equals( newKeyUTypeIdx ) ) {
 			if( dictByUTypeIdx.containsKey( newKeyUTypeIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateService",
 					"ServiceUTypeIdx",
 					newKeyUTypeIdx );
@@ -678,7 +678,7 @@ public class CFBamRamServiceTable
 
 		if( ! existingKeyUHostPortIdx.equals( newKeyUHostPortIdx ) ) {
 			if( dictByUHostPortIdx.containsKey( newKeyUHostPortIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateService",
 					"ServiceUHostPort",
 					newKeyUHostPortIdx );
@@ -694,7 +694,7 @@ public class CFBamRamServiceTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateService",
 						"Owner",
 						"ServiceCluster",
@@ -706,7 +706,7 @@ public class CFBamRamServiceTable
 
 		// Update is valid
 
-		Map< CFSecServicePKey, CFSecServiceBuff > subdict;
+		Map< YCFSecServicePKey, YCFSecServiceBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -719,7 +719,7 @@ public class CFBamRamServiceTable
 			subdict = dictByClusterIdx.get( newKeyClusterIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecServicePKey, CFSecServiceBuff >();
+			subdict = new HashMap< YCFSecServicePKey, YCFSecServiceBuff >();
 			dictByClusterIdx.put( newKeyClusterIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -732,7 +732,7 @@ public class CFBamRamServiceTable
 			subdict = dictByHostIdx.get( newKeyHostIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecServicePKey, CFSecServiceBuff >();
+			subdict = new HashMap< YCFSecServicePKey, YCFSecServiceBuff >();
 			dictByHostIdx.put( newKeyHostIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -745,7 +745,7 @@ public class CFBamRamServiceTable
 			subdict = dictByTypeIdx.get( newKeyTypeIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecServicePKey, CFSecServiceBuff >();
+			subdict = new HashMap< YCFSecServicePKey, YCFSecServiceBuff >();
 			dictByTypeIdx.put( newKeyTypeIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -758,40 +758,40 @@ public class CFBamRamServiceTable
 
 	}
 
-	public void deleteService( CFSecAuthorization Authorization,
-		CFSecServiceBuff Buff )
+	public void deleteService( YCFSecAuthorization Authorization,
+		YCFSecServiceBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamServiceTable.deleteService() ";
+		final String S_ProcName = "YCFBamRamServiceTable.deleteService() ";
 		String classCode;
-		CFSecServicePKey pkey = schema.getFactoryService().newPKey();
+		YCFSecServicePKey pkey = schema.getFactoryService().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredServiceId( Buff.getRequiredServiceId() );
-		CFSecServiceBuff existing = dictByPKey.get( pkey );
+		YCFSecServiceBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteService",
 				pkey );
 		}
-		CFSecServiceByClusterIdxKey keyClusterIdx = schema.getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey keyClusterIdx = schema.getFactoryService().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecServiceByHostIdxKey keyHostIdx = schema.getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey keyHostIdx = schema.getFactoryService().newHostIdxKey();
 		keyHostIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyHostIdx.setRequiredHostNodeId( existing.getRequiredHostNodeId() );
 
-		CFSecServiceByTypeIdxKey keyTypeIdx = schema.getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey keyTypeIdx = schema.getFactoryService().newTypeIdxKey();
 		keyTypeIdx.setRequiredServiceTypeId( existing.getRequiredServiceTypeId() );
 
-		CFSecServiceByUTypeIdxKey keyUTypeIdx = schema.getFactoryService().newUTypeIdxKey();
+		YCFSecServiceByUTypeIdxKey keyUTypeIdx = schema.getFactoryService().newUTypeIdxKey();
 		keyUTypeIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUTypeIdx.setRequiredHostNodeId( existing.getRequiredHostNodeId() );
 		keyUTypeIdx.setRequiredServiceTypeId( existing.getRequiredServiceTypeId() );
 
-		CFSecServiceByUHostPortIdxKey keyUHostPortIdx = schema.getFactoryService().newUHostPortIdxKey();
+		YCFSecServiceByUHostPortIdxKey keyUHostPortIdx = schema.getFactoryService().newUHostPortIdxKey();
 		keyUHostPortIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUHostPortIdx.setRequiredHostNodeId( existing.getRequiredHostNodeId() );
 		keyUHostPortIdx.setRequiredHostPort( existing.getRequiredHostPort() );
@@ -799,7 +799,7 @@ public class CFBamRamServiceTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFSecServicePKey, CFSecServiceBuff > subdict;
+		Map< YCFSecServicePKey, YCFSecServiceBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -817,18 +817,18 @@ public class CFBamRamServiceTable
 		dictByUHostPortIdx.remove( keyUHostPortIdx );
 
 	}
-	public void deleteServiceByIdIdx( CFSecAuthorization Authorization,
+	public void deleteServiceByIdIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argServiceId )
 	{
-		CFSecServicePKey key = schema.getFactoryService().newPKey();
+		YCFSecServicePKey key = schema.getFactoryService().newPKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredServiceId( argServiceId );
 		deleteServiceByIdIdx( Authorization, key );
 	}
 
-	public void deleteServiceByIdIdx( CFSecAuthorization Authorization,
-		CFSecServicePKey argKey )
+	public void deleteServiceByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecServicePKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -836,16 +836,16 @@ public class CFBamRamServiceTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFSecServiceBuff cur;
-		LinkedList<CFSecServiceBuff> matchSet = new LinkedList<CFSecServiceBuff>();
-		Iterator<CFSecServiceBuff> values = dictByPKey.values().iterator();
+		YCFSecServiceBuff cur;
+		LinkedList<YCFSecServiceBuff> matchSet = new LinkedList<YCFSecServiceBuff>();
+		Iterator<YCFSecServiceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecServiceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecServiceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableService().readDerivedByIdIdx( Authorization,
@@ -855,32 +855,32 @@ public class CFBamRamServiceTable
 		}
 	}
 
-	public void deleteServiceByClusterIdx( CFSecAuthorization Authorization,
+	public void deleteServiceByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId )
 	{
-		CFSecServiceByClusterIdxKey key = schema.getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey key = schema.getFactoryService().newClusterIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		deleteServiceByClusterIdx( Authorization, key );
 	}
 
-	public void deleteServiceByClusterIdx( CFSecAuthorization Authorization,
-		CFSecServiceByClusterIdxKey argKey )
+	public void deleteServiceByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByClusterIdxKey argKey )
 	{
-		CFSecServiceBuff cur;
+		YCFSecServiceBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecServiceBuff> matchSet = new LinkedList<CFSecServiceBuff>();
-		Iterator<CFSecServiceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecServiceBuff> matchSet = new LinkedList<YCFSecServiceBuff>();
+		Iterator<YCFSecServiceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecServiceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecServiceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableService().readDerivedByIdIdx( Authorization,
@@ -890,35 +890,35 @@ public class CFBamRamServiceTable
 		}
 	}
 
-	public void deleteServiceByHostIdx( CFSecAuthorization Authorization,
+	public void deleteServiceByHostIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argHostNodeId )
 	{
-		CFSecServiceByHostIdxKey key = schema.getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey key = schema.getFactoryService().newHostIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredHostNodeId( argHostNodeId );
 		deleteServiceByHostIdx( Authorization, key );
 	}
 
-	public void deleteServiceByHostIdx( CFSecAuthorization Authorization,
-		CFSecServiceByHostIdxKey argKey )
+	public void deleteServiceByHostIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByHostIdxKey argKey )
 	{
-		CFSecServiceBuff cur;
+		YCFSecServiceBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecServiceBuff> matchSet = new LinkedList<CFSecServiceBuff>();
-		Iterator<CFSecServiceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecServiceBuff> matchSet = new LinkedList<YCFSecServiceBuff>();
+		Iterator<YCFSecServiceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecServiceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecServiceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableService().readDerivedByIdIdx( Authorization,
@@ -928,32 +928,32 @@ public class CFBamRamServiceTable
 		}
 	}
 
-	public void deleteServiceByTypeIdx( CFSecAuthorization Authorization,
+	public void deleteServiceByTypeIdx( YCFSecAuthorization Authorization,
 		int argServiceTypeId )
 	{
-		CFSecServiceByTypeIdxKey key = schema.getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey key = schema.getFactoryService().newTypeIdxKey();
 		key.setRequiredServiceTypeId( argServiceTypeId );
 		deleteServiceByTypeIdx( Authorization, key );
 	}
 
-	public void deleteServiceByTypeIdx( CFSecAuthorization Authorization,
-		CFSecServiceByTypeIdxKey argKey )
+	public void deleteServiceByTypeIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByTypeIdxKey argKey )
 	{
-		CFSecServiceBuff cur;
+		YCFSecServiceBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecServiceBuff> matchSet = new LinkedList<CFSecServiceBuff>();
-		Iterator<CFSecServiceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecServiceBuff> matchSet = new LinkedList<YCFSecServiceBuff>();
+		Iterator<YCFSecServiceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecServiceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecServiceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableService().readDerivedByIdIdx( Authorization,
@@ -963,22 +963,22 @@ public class CFBamRamServiceTable
 		}
 	}
 
-	public void deleteServiceByUTypeIdx( CFSecAuthorization Authorization,
+	public void deleteServiceByUTypeIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argHostNodeId,
 		int argServiceTypeId )
 	{
-		CFSecServiceByUTypeIdxKey key = schema.getFactoryService().newUTypeIdxKey();
+		YCFSecServiceByUTypeIdxKey key = schema.getFactoryService().newUTypeIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredHostNodeId( argHostNodeId );
 		key.setRequiredServiceTypeId( argServiceTypeId );
 		deleteServiceByUTypeIdx( Authorization, key );
 	}
 
-	public void deleteServiceByUTypeIdx( CFSecAuthorization Authorization,
-		CFSecServiceByUTypeIdxKey argKey )
+	public void deleteServiceByUTypeIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByUTypeIdxKey argKey )
 	{
-		CFSecServiceBuff cur;
+		YCFSecServiceBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -986,15 +986,15 @@ public class CFBamRamServiceTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecServiceBuff> matchSet = new LinkedList<CFSecServiceBuff>();
-		Iterator<CFSecServiceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecServiceBuff> matchSet = new LinkedList<YCFSecServiceBuff>();
+		Iterator<YCFSecServiceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecServiceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecServiceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableService().readDerivedByIdIdx( Authorization,
@@ -1004,22 +1004,22 @@ public class CFBamRamServiceTable
 		}
 	}
 
-	public void deleteServiceByUHostPortIdx( CFSecAuthorization Authorization,
+	public void deleteServiceByUHostPortIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argHostNodeId,
 		short argHostPort )
 	{
-		CFSecServiceByUHostPortIdxKey key = schema.getFactoryService().newUHostPortIdxKey();
+		YCFSecServiceByUHostPortIdxKey key = schema.getFactoryService().newUHostPortIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredHostNodeId( argHostNodeId );
 		key.setRequiredHostPort( argHostPort );
 		deleteServiceByUHostPortIdx( Authorization, key );
 	}
 
-	public void deleteServiceByUHostPortIdx( CFSecAuthorization Authorization,
-		CFSecServiceByUHostPortIdxKey argKey )
+	public void deleteServiceByUHostPortIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceByUHostPortIdxKey argKey )
 	{
-		CFSecServiceBuff cur;
+		YCFSecServiceBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -1027,15 +1027,15 @@ public class CFBamRamServiceTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecServiceBuff> matchSet = new LinkedList<CFSecServiceBuff>();
-		Iterator<CFSecServiceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecServiceBuff> matchSet = new LinkedList<YCFSecServiceBuff>();
+		Iterator<YCFSecServiceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecServiceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecServiceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableService().readDerivedByIdIdx( Authorization,

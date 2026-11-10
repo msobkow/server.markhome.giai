@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for ISOTZone.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,13 +35,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 /*
- *	CFSecISOTZoneFactory interface for ISOTZone
+ *	YCFSecISOTZoneFactory interface for ISOTZone
  */
-public interface ICFSecISOTZoneFactory
+public interface IYCFSecISOTZoneFactory
 {
 
 	/**
@@ -49,48 +49,48 @@ public interface ICFSecISOTZoneFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOTZonePKey newPKey();
+	YCFSecISOTZonePKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for ISOTZone instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOTZoneHPKey newHPKey();
+	YCFSecISOTZoneHPKey newHPKey();
 
 	/**
 	 *	Allocate a OffsetIdx key over ISOTZone instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOTZoneByOffsetIdxKey newOffsetIdxKey();
+	YCFSecISOTZoneByOffsetIdxKey newOffsetIdxKey();
 
 	/**
 	 *	Allocate a UTZNameIdx key over ISOTZone instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOTZoneByUTZNameIdxKey newUTZNameIdxKey();
+	YCFSecISOTZoneByUTZNameIdxKey newUTZNameIdxKey();
 
 	/**
 	 *	Allocate a Iso8601Idx key over ISOTZone instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOTZoneByIso8601IdxKey newIso8601IdxKey();
+	YCFSecISOTZoneByIso8601IdxKey newIso8601IdxKey();
 
 	/**
 	 *	Allocate a ISOTZone instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOTZoneBuff newBuff();
+	YCFSecISOTZoneBuff newBuff();
 
 	/**
 	 *	Allocate a ISOTZone history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOTZoneHBuff newHBuff();
+	YCFSecISOTZoneHBuff newHBuff();
 
 }

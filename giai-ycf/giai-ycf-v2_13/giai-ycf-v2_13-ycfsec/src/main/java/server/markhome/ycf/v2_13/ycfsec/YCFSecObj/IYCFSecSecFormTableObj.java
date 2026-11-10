@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecFormTableObj
+public interface IYCFSecSecFormTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecSecFormTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecSecFormObj newInstance();
+	IYCFSecSecFormObj newInstance();
 
 	/**
 	 *	Instantiate a new SecForm edition of the specified SecForm instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecSecFormEditObj newEditInstance( ICFSecSecFormObj orig );
+	IYCFSecSecFormEditObj newEditInstance( IYCFSecSecFormObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecFormObj realiseSecForm( ICFSecSecFormObj Obj );
+	IYCFSecSecFormObj realiseSecForm( IYCFSecSecFormObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecFormObj createSecForm( ICFSecSecFormObj Obj );
+	IYCFSecSecFormObj createSecForm( IYCFSecSecFormObj Obj );
 
 	/**
 	 *	Read a SecForm-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecSecFormTableObj
 	 *	@return	The SecForm-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecFormObj readSecForm( CFSecSecFormPKey pkey );
+	IYCFSecSecFormObj readSecForm( YCFSecSecFormPKey pkey );
 
 	/**
 	 *	Read a SecForm-derived instance by it's primary key.
@@ -90,124 +90,124 @@ public interface ICFSecSecFormTableObj
 	 *	@return	The SecForm-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecFormObj readSecForm( CFSecSecFormPKey pkey,
+	IYCFSecSecFormObj readSecForm( YCFSecSecFormPKey pkey,
 		boolean forceRead );
 
-	ICFSecSecFormObj readCachedSecForm( CFSecSecFormPKey pkey );
+	IYCFSecSecFormObj readCachedSecForm( YCFSecSecFormPKey pkey );
 
-	public void reallyDeepDisposeSecForm( ICFSecSecFormObj obj );
+	public void reallyDeepDisposeSecForm( IYCFSecSecFormObj obj );
 
-	void deepDisposeSecForm( CFSecSecFormPKey pkey );
+	void deepDisposeSecForm( YCFSecSecFormPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecFormObj lockSecForm( CFSecSecFormPKey pkey );
+	IYCFSecSecFormObj lockSecForm( YCFSecSecFormPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SecForm-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecFormObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecFormObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecFormObj> readAllSecForm();
+	List<IYCFSecSecFormObj> readAllSecForm();
 
 	/**
 	 *	Return a sorted map of all the SecForm-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecFormObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecFormObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecFormObj> readAllSecForm( boolean forceRead );
+	List<IYCFSecSecFormObj> readAllSecForm( boolean forceRead );
 
-	List<ICFSecSecFormObj> readCachedAllSecForm();
+	List<IYCFSecSecFormObj> readCachedAllSecForm();
 
 	/**
 	 *	Return a sorted map of a page of the SecForm-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecFormObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecFormObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecFormObj> pageAllSecForm(Long priorClusterId,
+	List<IYCFSecSecFormObj> pageAllSecForm(Long priorClusterId,
 		Integer priorSecFormId );
 
 	/**
-	 *	Get the CFSecSecFormObj instance for the primary key attributes.
+	 *	Get the YCFSecSecFormObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecForm key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecFormId	The SecForm key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecFormObj cached instance for the primary key, or
+	 *	@return	YCFSecSecFormObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecFormObj readSecFormByIdIdx( long ClusterId,
+	IYCFSecSecFormObj readSecFormByIdIdx( long ClusterId,
 		int SecFormId );
 
 	/**
-	 *	Get the CFSecSecFormObj instance for the primary key attributes.
+	 *	Get the YCFSecSecFormObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecForm key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecFormId	The SecForm key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecFormObj refreshed instance for the primary key, or
+	 *	@return	YCFSecSecFormObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecFormObj readSecFormByIdIdx( long ClusterId,
+	IYCFSecSecFormObj readSecFormByIdIdx( long ClusterId,
 		int SecFormId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSecFormObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecSecFormObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecForm key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecFormObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecSecFormObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecFormObj> readSecFormByClusterIdx( long ClusterId );
+	List<IYCFSecSecFormObj> readSecFormByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFSecSecFormObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecSecFormObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecForm key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecFormObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecSecFormObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecFormObj> readSecFormByClusterIdx( long ClusterId,
+	List<IYCFSecSecFormObj> readSecFormByClusterIdx( long ClusterId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSecFormObj instances sorted by their primary keys for the duplicate SecAppIdx key.
+	 *	Get the map of YCFSecSecFormObj instances sorted by their primary keys for the duplicate SecAppIdx key.
 	 *
 	 *	@param	argClusterId	The SecForm key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecAppId	The SecForm key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecFormObj cached instances sorted by their primary keys for the duplicate SecAppIdx key,
+	 *	@return	List of YCFSecSecFormObj cached instances sorted by their primary keys for the duplicate SecAppIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecFormObj> readSecFormBySecAppIdx( long ClusterId,
+	List<IYCFSecSecFormObj> readSecFormBySecAppIdx( long ClusterId,
 		int SecAppId );
 
 	/**
-	 *	Get the map of CFSecSecFormObj instances sorted by their primary keys for the duplicate SecAppIdx key.
+	 *	Get the map of YCFSecSecFormObj instances sorted by their primary keys for the duplicate SecAppIdx key.
 	 *
 	 *	@param	argClusterId	The SecForm key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecAppId	The SecForm key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecFormObj cached instances sorted by their primary keys for the duplicate SecAppIdx key,
+	 *	@return	List of YCFSecSecFormObj cached instances sorted by their primary keys for the duplicate SecAppIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecFormObj> readSecFormBySecAppIdx( long ClusterId,
+	List<IYCFSecSecFormObj> readSecFormBySecAppIdx( long ClusterId,
 		int SecAppId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecSecFormObj instance for the unique UJEEServletIdx key.
+	 *	Get the YCFSecSecFormObj instance for the unique UJEEServletIdx key.
 	 *
 	 *	@param	argClusterId	The SecForm key attribute of the instance generating the id.
 	 *
@@ -215,15 +215,15 @@ public interface ICFSecSecFormTableObj
 	 *
 	 *	@param	argJEEServletMapName	The SecForm key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecFormObj cached instance for the unique UJEEServletIdx key, or
+	 *	@return	YCFSecSecFormObj cached instance for the unique UJEEServletIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecFormObj readSecFormByUJEEServletIdx(long ClusterId,
+	IYCFSecSecFormObj readSecFormByUJEEServletIdx(long ClusterId,
 		int SecAppId,
 		String JEEServletMapName );
 
 	/**
-	 *	Get the CFSecSecFormObj instance for the unique UJEEServletIdx key.
+	 *	Get the YCFSecSecFormObj instance for the unique UJEEServletIdx key.
 	 *
 	 *	@param	argClusterId	The SecForm key attribute of the instance generating the id.
 	 *
@@ -231,23 +231,23 @@ public interface ICFSecSecFormTableObj
 	 *
 	 *	@param	argJEEServletMapName	The SecForm key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecFormObj refreshed instance for the unique UJEEServletIdx key, or
+	 *	@return	YCFSecSecFormObj refreshed instance for the unique UJEEServletIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecFormObj readSecFormByUJEEServletIdx(long ClusterId,
+	IYCFSecSecFormObj readSecFormByUJEEServletIdx(long ClusterId,
 		int SecAppId,
 		String JEEServletMapName,
 		boolean forceRead );
 
-	ICFSecSecFormObj readCachedSecFormByIdIdx( long ClusterId,
+	IYCFSecSecFormObj readCachedSecFormByIdIdx( long ClusterId,
 		int SecFormId );
 
-	List<ICFSecSecFormObj> readCachedSecFormByClusterIdx( long ClusterId );
+	List<IYCFSecSecFormObj> readCachedSecFormByClusterIdx( long ClusterId );
 
-	List<ICFSecSecFormObj> readCachedSecFormBySecAppIdx( long ClusterId,
+	List<IYCFSecSecFormObj> readCachedSecFormBySecAppIdx( long ClusterId,
 		int SecAppId );
 
-	ICFSecSecFormObj readCachedSecFormByUJEEServletIdx( long ClusterId,
+	IYCFSecSecFormObj readCachedSecFormByUJEEServletIdx( long ClusterId,
 		int SecAppId,
 		String JEEServletMapName );
 
@@ -272,7 +272,7 @@ public interface ICFSecSecFormTableObj
 	 *	@return	A List of SecForm-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFSecSecFormObj> pageSecFormByClusterIdx( long ClusterId,
+	List<IYCFSecSecFormObj> pageSecFormByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Integer priorSecFormId );
 
@@ -287,7 +287,7 @@ public interface ICFSecSecFormTableObj
 	 *	@return	A List of SecForm-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFSecSecFormObj> pageSecFormBySecAppIdx( long ClusterId,
+	List<IYCFSecSecFormObj> pageSecFormBySecAppIdx( long ClusterId,
 		int SecAppId,
 		Long priorClusterId,
 		Integer priorSecFormId );
@@ -295,12 +295,12 @@ public interface ICFSecSecFormTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecFormObj updateSecForm( ICFSecSecFormObj Obj );
+	IYCFSecSecFormObj updateSecForm( IYCFSecSecFormObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSecForm( ICFSecSecFormObj Obj );
+	void deleteSecForm( IYCFSecSecFormObj Obj );
 
 	/**
 	 *	Internal use only.

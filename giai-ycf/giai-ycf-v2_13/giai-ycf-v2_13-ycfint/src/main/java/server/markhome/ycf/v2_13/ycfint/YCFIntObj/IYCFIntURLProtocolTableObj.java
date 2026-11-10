@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFInt.
+// Description: Java 11 Table Object interface for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,22 +26,22 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntURLProtocolTableObj
+public interface IYCFIntURLProtocolTableObj
 {
-	ICFIntSchemaObj getSchema();
-	void setSchema( ICFIntSchemaObj value );
+	IYCFIntSchemaObj getSchema();
+	void setSchema( IYCFIntSchemaObj value );
 
 	void minimizeMemory();
 
@@ -55,24 +55,24 @@ public interface ICFIntURLProtocolTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFIntURLProtocolObj newInstance();
+	IYCFIntURLProtocolObj newInstance();
 
 	/**
 	 *	Instantiate a new URLProtocol edition of the specified URLProtocol instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFIntURLProtocolEditObj newEditInstance( ICFIntURLProtocolObj orig );
+	IYCFIntURLProtocolEditObj newEditInstance( IYCFIntURLProtocolObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntURLProtocolObj realiseURLProtocol( ICFIntURLProtocolObj Obj );
+	IYCFIntURLProtocolObj realiseURLProtocol( IYCFIntURLProtocolObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntURLProtocolObj createURLProtocol( ICFIntURLProtocolObj Obj );
+	IYCFIntURLProtocolObj createURLProtocol( IYCFIntURLProtocolObj Obj );
 
 	/**
 	 *	Read a URLProtocol-derived instance by it's primary key.
@@ -82,7 +82,7 @@ public interface ICFIntURLProtocolTableObj
 	 *	@return	The URLProtocol-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntURLProtocolObj readURLProtocol( CFIntURLProtocolPKey pkey );
+	IYCFIntURLProtocolObj readURLProtocol( YCFIntURLProtocolPKey pkey );
 
 	/**
 	 *	Read a URLProtocol-derived instance by it's primary key.
@@ -92,106 +92,106 @@ public interface ICFIntURLProtocolTableObj
 	 *	@return	The URLProtocol-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntURLProtocolObj readURLProtocol( CFIntURLProtocolPKey pkey,
+	IYCFIntURLProtocolObj readURLProtocol( YCFIntURLProtocolPKey pkey,
 		boolean forceRead );
 
-	ICFIntURLProtocolObj readCachedURLProtocol( CFIntURLProtocolPKey pkey );
+	IYCFIntURLProtocolObj readCachedURLProtocol( YCFIntURLProtocolPKey pkey );
 
-	public void reallyDeepDisposeURLProtocol( ICFIntURLProtocolObj obj );
+	public void reallyDeepDisposeURLProtocol( IYCFIntURLProtocolObj obj );
 
-	void deepDisposeURLProtocol( CFIntURLProtocolPKey pkey );
+	void deepDisposeURLProtocol( YCFIntURLProtocolPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntURLProtocolObj lockURLProtocol( CFIntURLProtocolPKey pkey );
+	IYCFIntURLProtocolObj lockURLProtocol( YCFIntURLProtocolPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the URLProtocol-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntURLProtocolObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntURLProtocolObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntURLProtocolObj> readAllURLProtocol();
+	List<IYCFIntURLProtocolObj> readAllURLProtocol();
 
 	/**
 	 *	Return a sorted map of all the URLProtocol-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntURLProtocolObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntURLProtocolObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntURLProtocolObj> readAllURLProtocol( boolean forceRead );
+	List<IYCFIntURLProtocolObj> readAllURLProtocol( boolean forceRead );
 
-	List<ICFIntURLProtocolObj> readCachedAllURLProtocol();
+	List<IYCFIntURLProtocolObj> readCachedAllURLProtocol();
 
 	/**
-	 *	Get the CFIntURLProtocolObj instance for the primary key attributes.
+	 *	Get the YCFIntURLProtocolObj instance for the primary key attributes.
 	 *
 	 *	@param	argURLProtocolId	The URLProtocol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntURLProtocolObj cached instance for the primary key, or
+	 *	@return	YCFIntURLProtocolObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntURLProtocolObj readURLProtocolByIdIdx( int URLProtocolId );
+	IYCFIntURLProtocolObj readURLProtocolByIdIdx( int URLProtocolId );
 
 	/**
-	 *	Get the CFIntURLProtocolObj instance for the primary key attributes.
+	 *	Get the YCFIntURLProtocolObj instance for the primary key attributes.
 	 *
 	 *	@param	argURLProtocolId	The URLProtocol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntURLProtocolObj refreshed instance for the primary key, or
+	 *	@return	YCFIntURLProtocolObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntURLProtocolObj readURLProtocolByIdIdx( int URLProtocolId,
+	IYCFIntURLProtocolObj readURLProtocolByIdIdx( int URLProtocolId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFIntURLProtocolObj instance for the unique UNameIdx key.
+	 *	Get the YCFIntURLProtocolObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argName	The URLProtocol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntURLProtocolObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFIntURLProtocolObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntURLProtocolObj readURLProtocolByUNameIdx(String Name );
+	IYCFIntURLProtocolObj readURLProtocolByUNameIdx(String Name );
 
 	/**
-	 *	Get the CFIntURLProtocolObj instance for the unique UNameIdx key.
+	 *	Get the YCFIntURLProtocolObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argName	The URLProtocol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntURLProtocolObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFIntURLProtocolObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntURLProtocolObj readURLProtocolByUNameIdx(String Name,
+	IYCFIntURLProtocolObj readURLProtocolByUNameIdx(String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntURLProtocolObj instances sorted by their primary keys for the duplicate IsSecureIdx key.
+	 *	Get the map of YCFIntURLProtocolObj instances sorted by their primary keys for the duplicate IsSecureIdx key.
 	 *
 	 *	@param	argIsSecure	The URLProtocol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntURLProtocolObj cached instances sorted by their primary keys for the duplicate IsSecureIdx key,
+	 *	@return	List of YCFIntURLProtocolObj cached instances sorted by their primary keys for the duplicate IsSecureIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntURLProtocolObj> readURLProtocolByIsSecureIdx( boolean IsSecure );
+	List<IYCFIntURLProtocolObj> readURLProtocolByIsSecureIdx( boolean IsSecure );
 
 	/**
-	 *	Get the map of CFIntURLProtocolObj instances sorted by their primary keys for the duplicate IsSecureIdx key.
+	 *	Get the map of YCFIntURLProtocolObj instances sorted by their primary keys for the duplicate IsSecureIdx key.
 	 *
 	 *	@param	argIsSecure	The URLProtocol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntURLProtocolObj cached instances sorted by their primary keys for the duplicate IsSecureIdx key,
+	 *	@return	List of YCFIntURLProtocolObj cached instances sorted by their primary keys for the duplicate IsSecureIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntURLProtocolObj> readURLProtocolByIsSecureIdx( boolean IsSecure,
+	List<IYCFIntURLProtocolObj> readURLProtocolByIsSecureIdx( boolean IsSecure,
 		boolean forceRead );
 
-	ICFIntURLProtocolObj readCachedURLProtocolByIdIdx( int URLProtocolId );
+	IYCFIntURLProtocolObj readCachedURLProtocolByIdIdx( int URLProtocolId );
 
-	ICFIntURLProtocolObj readCachedURLProtocolByUNameIdx( String Name );
+	IYCFIntURLProtocolObj readCachedURLProtocolByUNameIdx( String Name );
 
-	List<ICFIntURLProtocolObj> readCachedURLProtocolByIsSecureIdx( boolean IsSecure );
+	List<IYCFIntURLProtocolObj> readCachedURLProtocolByIsSecureIdx( boolean IsSecure );
 
 	void deepDisposeURLProtocolByIdIdx( int URLProtocolId );
 
@@ -202,12 +202,12 @@ public interface ICFIntURLProtocolTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntURLProtocolObj updateURLProtocol( ICFIntURLProtocolObj Obj );
+	IYCFIntURLProtocolObj updateURLProtocol( IYCFIntURLProtocolObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteURLProtocol( ICFIntURLProtocolObj Obj );
+	void deleteURLProtocol( IYCFIntURLProtocolObj Obj );
 
 	/**
 	 *	Internal use only.

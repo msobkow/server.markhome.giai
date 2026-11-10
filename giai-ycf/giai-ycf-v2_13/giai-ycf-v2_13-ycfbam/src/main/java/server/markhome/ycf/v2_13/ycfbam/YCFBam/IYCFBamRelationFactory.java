@@ -2,17 +2,17 @@
 // Description: Java 11 Factory interface for Relation.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,15 +54,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 /*
- *	CFBamRelationFactory interface for Relation
+ *	YCFBamRelationFactory interface for Relation
  */
-public interface ICFBamRelationFactory
+public interface IYCFBamRelationFactory
 {
 
 	/**
@@ -70,83 +70,83 @@ public interface ICFBamRelationFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByUNameIdxKey newUNameIdxKey();
+	YCFBamRelationByUNameIdxKey newUNameIdxKey();
 
 	/**
 	 *	Allocate a RelnTenantIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByRelnTenantIdxKey newRelnTenantIdxKey();
+	YCFBamRelationByRelnTenantIdxKey newRelnTenantIdxKey();
 
 	/**
 	 *	Allocate a RelTableIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByRelTableIdxKey newRelTableIdxKey();
+	YCFBamRelationByRelTableIdxKey newRelTableIdxKey();
 
 	/**
 	 *	Allocate a CodeVisIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByCodeVisIdxKey newCodeVisIdxKey();
+	YCFBamRelationByCodeVisIdxKey newCodeVisIdxKey();
 
 	/**
 	 *	Allocate a TableCodeVisIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByTableCodeVisIdxKey newTableCodeVisIdxKey();
+	YCFBamRelationByTableCodeVisIdxKey newTableCodeVisIdxKey();
 
 	/**
 	 *	Allocate a DefSchemaIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByDefSchemaIdxKey newDefSchemaIdxKey();
+	YCFBamRelationByDefSchemaIdxKey newDefSchemaIdxKey();
 
 	/**
 	 *	Allocate a FromKeyIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByFromKeyIdxKey newFromKeyIdxKey();
+	YCFBamRelationByFromKeyIdxKey newFromKeyIdxKey();
 
 	/**
 	 *	Allocate a ToTblIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByToTblIdxKey newToTblIdxKey();
+	YCFBamRelationByToTblIdxKey newToTblIdxKey();
 
 	/**
 	 *	Allocate a ToKeyIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByToKeyIdxKey newToKeyIdxKey();
+	YCFBamRelationByToKeyIdxKey newToKeyIdxKey();
 
 	/**
 	 *	Allocate a NarrowedIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationByNarrowedIdxKey newNarrowedIdxKey();
+	YCFBamRelationByNarrowedIdxKey newNarrowedIdxKey();
 
 	/**
 	 *	Allocate a Relation instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationBuff newBuff();
+	YCFBamRelationBuff newBuff();
 
 	/**
 	 *	Allocate a Relation history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamRelationHBuff newHBuff();
+	YCFBamRelationHBuff newHBuff();
 
 }

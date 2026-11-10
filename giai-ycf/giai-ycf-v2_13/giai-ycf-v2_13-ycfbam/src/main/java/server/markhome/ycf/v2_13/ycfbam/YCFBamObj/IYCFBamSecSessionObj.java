@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFBam SecSession.
+// Description: Java 11 Object interface for YCFBam SecSession.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,32 +26,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamSecSessionObj
-	extends ICFSecSecSessionObj,
-		ICFIntSecSessionObj
+public interface IYCFBamSecSessionObj
+	extends IYCFSecSecSessionObj,
+		IYCFIntSecSessionObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a SecSession.
 	 *
-	 *	@return	CFSecSecSessionObj instance which should be subsequently referenced.
+	 *	@return	YCFSecSecSessionObj instance which should be subsequently referenced.
 	 */
-	ICFSecSecSessionObj realise();
+	IYCFSecSecSessionObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -63,83 +63,83 @@ public interface ICFBamSecSessionObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSecSessionObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSecSessionObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSecSessionObj read();
+	IYCFSecSecSessionObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSecSessionObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSecSessionObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSecSessionObj read( boolean forceRead );
+	IYCFSecSecSessionObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SecSession instance.
 	 *
-	 *	@return	The newly locked ICFSecSecSessionEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecSecSessionEditObj edition of this instance.
 	 */
-	ICFSecSecSessionEditObj beginEdit();
+	IYCFSecSecSessionEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SecSession instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SecSession instance.
 	 *
-	 *	@return	The ICFSecSecSessionEditObj edition of this instance.
+	 *	@return	The IYCFSecSecSessionEditObj edition of this instance.
 	 */
-	ICFSecSecSessionEditObj getEdit();
+	IYCFSecSecSessionEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SecSession instance as a ICFSecSecSessionEditObj.
+	 *	Get the current edition of this SecSession instance as a IYCFSecSecSessionEditObj.
 	 *
-	 *	@return	The ICFSecSecSessionEditObj edition of this instance.
+	 *	@return	The IYCFSecSecSessionEditObj edition of this instance.
 	 */
-	ICFSecSecSessionEditObj getEditAsSecSession();
+	IYCFSecSecSessionEditObj getEditAsSecSession();
 
 	/**
-	 *	Get the ICFSecSecSessionTableObj table cache which manages this instance.
+	 *	Get the IYCFSecSecSessionTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecSecSessionTableObj table cache which manages this instance.
+	 *	@return	IYCFSecSecSessionTableObj table cache which manages this instance.
 	 */
-	ICFSecSecSessionTableObj getSecSessionTable();
+	IYCFSecSecSessionTableObj getSecSessionTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecSecSessionBuff instance which currently backs this instance.
+	 *	Get the YCFSecSecSessionBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSecSessionBuff instance which currently backs this object.
+	 *	@return	YCFSecSecSessionBuff instance which currently backs this object.
 	 */
-	CFSecSecSessionBuff getBuff();
+	YCFSecSecSessionBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecSecSessionBuff value );
+	void setBuff( YCFSecSecSessionBuff value );
 
 	/**
-	 *	Get the CFSecSecSessionBuff instance which currently backs this instance.
+	 *	Get the YCFSecSecSessionBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSecSessionBuff instance which currently backs this object.
+	 *	@return	YCFSecSecSessionBuff instance which currently backs this object.
 	 */
-	CFSecSecSessionBuff getSecSessionBuff();
+	YCFSecSecSessionBuff getSecSessionBuff();
 
 	/**
 	 *	Is this a new instance?
@@ -201,32 +201,32 @@ public interface ICFBamSecSessionObj
 	UUID getOptionalSecProxyId();
 
 	/**
-	 *	Get the required ICFBamSecUserObj instance referenced by the SecUser key.
+	 *	Get the required IYCFBamSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The required ICFBamSecUserObj instance referenced by the SecUser key.
+	 *	@return	The required IYCFBamSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFSecSecUserObj getRequiredContainerSecUser();
+	IYCFSecSecUserObj getRequiredContainerSecUser();
 
 	/**
-	 *	Get the required ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	Get the required IYCFSecSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The required ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	@return	The required IYCFSecSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFSecSecUserObj getRequiredContainerSecUser( boolean forceRead );
+	IYCFSecSecUserObj getRequiredContainerSecUser( boolean forceRead );
 
 	/**
-	 *	Get the required ICFBamSecUserObj instance referenced by the SecProxy key.
+	 *	Get the required IYCFBamSecUserObj instance referenced by the SecProxy key.
 	 *
-	 *	@return	The required ICFBamSecUserObj instance referenced by the SecProxy key.
+	 *	@return	The required IYCFBamSecUserObj instance referenced by the SecProxy key.
 	 */
-	ICFSecSecUserObj getRequiredParentSecProxy();
+	IYCFSecSecUserObj getRequiredParentSecProxy();
 
 	/**
-	 *	Get the required ICFSecSecUserObj instance referenced by the SecProxy key.
+	 *	Get the required IYCFSecSecUserObj instance referenced by the SecProxy key.
 	 *
-	 *	@return	The required ICFSecSecUserObj instance referenced by the SecProxy key.
+	 *	@return	The required IYCFSecSecUserObj instance referenced by the SecProxy key.
 	 */
-	ICFSecSecUserObj getRequiredParentSecProxy( boolean forceRead );
+	IYCFSecSecUserObj getRequiredParentSecProxy( boolean forceRead );
 
 	/**
 	 *	Internal use only.

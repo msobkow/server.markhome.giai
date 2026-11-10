@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for ISOTZone.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,14 +35,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecISOTZoneTable database interface for ISOTZone
+ *	YCFSecISOTZoneTable database interface for ISOTZone
  */
-public interface ICFSecISOTZoneTable
+public interface IYCFSecISOTZoneTable
 {
 
 	/**
@@ -53,8 +53,8 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createISOTZone( CFSecAuthorization Authorization,
-		CFSecISOTZoneBuff Buff );
+	void createISOTZone( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneBuff Buff );
 
 
 	/**
@@ -65,8 +65,8 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateISOTZone( CFSecAuthorization Authorization,
-		CFSecISOTZoneBuff Buff );
+	void updateISOTZone( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneBuff Buff );
 
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteISOTZone( CFSecAuthorization Authorization,
-		CFSecISOTZoneBuff Buff );
+	void deleteISOTZone( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneBuff Buff );
 	/**
 	 *	Delete the ISOTZone instance identified by the primary key attributes.
 	 *
@@ -85,7 +85,7 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	argISOTZoneId	The ISOTZone key attribute of the instance generating the id.
 	 */
-	void deleteISOTZoneByIdIdx( CFSecAuthorization Authorization,
+	void deleteISOTZoneByIdIdx( YCFSecAuthorization Authorization,
 		short argISOTZoneId );
 
 	/**
@@ -95,8 +95,8 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteISOTZoneByIdIdx( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey argKey );
+	void deleteISOTZoneByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey argKey );
 	/**
 	 *	Delete the ISOTZone instances identified by the key OffsetIdx.
 	 *
@@ -106,7 +106,7 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	argTZMinOffset	The ISOTZone key attribute of the instance generating the id.
 	 */
-	void deleteISOTZoneByOffsetIdx( CFSecAuthorization Authorization,
+	void deleteISOTZoneByOffsetIdx( YCFSecAuthorization Authorization,
 		short argTZHourOffset,
 		short argTZMinOffset );
 
@@ -117,8 +117,8 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteISOTZoneByOffsetIdx( CFSecAuthorization Authorization,
-		CFSecISOTZoneByOffsetIdxKey argKey );
+	void deleteISOTZoneByOffsetIdx( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneByOffsetIdxKey argKey );
 	/**
 	 *	Delete the ISOTZone instances identified by the key UTZNameIdx.
 	 *
@@ -126,7 +126,7 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	argTZName	The ISOTZone key attribute of the instance generating the id.
 	 */
-	void deleteISOTZoneByUTZNameIdx( CFSecAuthorization Authorization,
+	void deleteISOTZoneByUTZNameIdx( YCFSecAuthorization Authorization,
 		String argTZName );
 
 	/**
@@ -136,8 +136,8 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteISOTZoneByUTZNameIdx( CFSecAuthorization Authorization,
-		CFSecISOTZoneByUTZNameIdxKey argKey );
+	void deleteISOTZoneByUTZNameIdx( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneByUTZNameIdxKey argKey );
 	/**
 	 *	Delete the ISOTZone instances identified by the key Iso8601Idx.
 	 *
@@ -145,7 +145,7 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	argIso8601	The ISOTZone key attribute of the instance generating the id.
 	 */
-	void deleteISOTZoneByIso8601Idx( CFSecAuthorization Authorization,
+	void deleteISOTZoneByIso8601Idx( YCFSecAuthorization Authorization,
 		String argIso8601 );
 
 	/**
@@ -155,8 +155,8 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteISOTZoneByIso8601Idx( CFSecAuthorization Authorization,
-		CFSecISOTZoneByIso8601IdxKey argKey );
+	void deleteISOTZoneByIso8601Idx( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneByIso8601IdxKey argKey );
 
 
 	/**
@@ -169,8 +169,8 @@ public interface ICFSecISOTZoneTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOTZoneBuff readDerived( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey PKey );
+	YCFSecISOTZoneBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey PKey );
 
 	/**
 	 *	Lock the derived ISOTZone buffer instance by primary key.
@@ -182,8 +182,8 @@ public interface ICFSecISOTZoneTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOTZoneBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey PKey );
+	YCFSecISOTZoneBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey PKey );
 
 	/**
 	 *	Read all ISOTZone instances.
@@ -192,7 +192,7 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecISOTZoneBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecISOTZoneBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived ISOTZone buffer instance identified by the unique key IdIdx.
@@ -204,7 +204,7 @@ public interface ICFSecISOTZoneTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOTZoneBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecISOTZoneBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		short ISOTZoneId );
 
 	/**
@@ -218,7 +218,7 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecISOTZoneBuff[] readDerivedByOffsetIdx( CFSecAuthorization Authorization,
+	YCFSecISOTZoneBuff[] readDerivedByOffsetIdx( YCFSecAuthorization Authorization,
 		short TZHourOffset,
 		short TZMinOffset );
 
@@ -232,7 +232,7 @@ public interface ICFSecISOTZoneTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOTZoneBuff readDerivedByUTZNameIdx( CFSecAuthorization Authorization,
+	YCFSecISOTZoneBuff readDerivedByUTZNameIdx( YCFSecAuthorization Authorization,
 		String TZName );
 
 	/**
@@ -244,7 +244,7 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecISOTZoneBuff[] readDerivedByIso8601Idx( CFSecAuthorization Authorization,
+	YCFSecISOTZoneBuff[] readDerivedByIso8601Idx( YCFSecAuthorization Authorization,
 		String Iso8601 );
 
 	/**
@@ -257,10 +257,10 @@ public interface ICFSecISOTZoneTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOTZoneBuff readBuff( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey PKey );
+	YCFSecISOTZoneBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey PKey );
 
 	/**
 	 *	Lock the specific ISOTZone buffer instance identified by the primary key.
@@ -272,10 +272,10 @@ public interface ICFSecISOTZoneTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOTZoneBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey PKey );
+	YCFSecISOTZoneBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey PKey );
 
 	/**
 	 *	Read all the specific ISOTZone buffer instances.
@@ -284,7 +284,7 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@return All the specific ISOTZone instances in the database accessible for the Authorization.
 	 */
-	CFSecISOTZoneBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecISOTZoneBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific ISOTZone buffer instance identified by the unique key IdIdx.
@@ -296,9 +296,9 @@ public interface ICFSecISOTZoneTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOTZoneBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecISOTZoneBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		short ISOTZoneId );
 
 	/**
@@ -312,9 +312,9 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOTZoneBuff[] readBuffByOffsetIdx( CFSecAuthorization Authorization,
+	YCFSecISOTZoneBuff[] readBuffByOffsetIdx( YCFSecAuthorization Authorization,
 		short TZHourOffset,
 		short TZMinOffset );
 
@@ -328,9 +328,9 @@ public interface ICFSecISOTZoneTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOTZoneBuff readBuffByUTZNameIdx( CFSecAuthorization Authorization,
+	YCFSecISOTZoneBuff readBuffByUTZNameIdx( YCFSecAuthorization Authorization,
 		String TZName );
 
 	/**
@@ -342,15 +342,15 @@ public interface ICFSecISOTZoneTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOTZoneBuff[] readBuffByIso8601Idx( CFSecAuthorization Authorization,
+	YCFSecISOTZoneBuff[] readBuffByIso8601Idx( YCFSecAuthorization Authorization,
 		String Iso8601 );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

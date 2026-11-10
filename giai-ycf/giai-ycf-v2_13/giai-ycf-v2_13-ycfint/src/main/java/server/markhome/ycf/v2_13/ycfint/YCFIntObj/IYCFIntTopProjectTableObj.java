@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFInt.
+// Description: Java 11 Table Object interface for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,22 +26,22 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntTopProjectTableObj
+public interface IYCFIntTopProjectTableObj
 {
-	ICFIntSchemaObj getSchema();
-	void setSchema( ICFIntSchemaObj value );
+	IYCFIntSchemaObj getSchema();
+	void setSchema( IYCFIntSchemaObj value );
 
 	void minimizeMemory();
 
@@ -55,24 +55,24 @@ public interface ICFIntTopProjectTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFIntTopProjectObj newInstance();
+	IYCFIntTopProjectObj newInstance();
 
 	/**
 	 *	Instantiate a new TopProject edition of the specified TopProject instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFIntTopProjectEditObj newEditInstance( ICFIntTopProjectObj orig );
+	IYCFIntTopProjectEditObj newEditInstance( IYCFIntTopProjectObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTopProjectObj realiseTopProject( ICFIntTopProjectObj Obj );
+	IYCFIntTopProjectObj realiseTopProject( IYCFIntTopProjectObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTopProjectObj createTopProject( ICFIntTopProjectObj Obj );
+	IYCFIntTopProjectObj createTopProject( IYCFIntTopProjectObj Obj );
 
 	/**
 	 *	Read a TopProject-derived instance by it's primary key.
@@ -82,7 +82,7 @@ public interface ICFIntTopProjectTableObj
 	 *	@return	The TopProject-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntTopProjectObj readTopProject( CFIntTopProjectPKey pkey );
+	IYCFIntTopProjectObj readTopProject( YCFIntTopProjectPKey pkey );
 
 	/**
 	 *	Read a TopProject-derived instance by it's primary key.
@@ -92,115 +92,115 @@ public interface ICFIntTopProjectTableObj
 	 *	@return	The TopProject-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntTopProjectObj readTopProject( CFIntTopProjectPKey pkey,
+	IYCFIntTopProjectObj readTopProject( YCFIntTopProjectPKey pkey,
 		boolean forceRead );
 
-	ICFIntTopProjectObj readCachedTopProject( CFIntTopProjectPKey pkey );
+	IYCFIntTopProjectObj readCachedTopProject( YCFIntTopProjectPKey pkey );
 
-	public void reallyDeepDisposeTopProject( ICFIntTopProjectObj obj );
+	public void reallyDeepDisposeTopProject( IYCFIntTopProjectObj obj );
 
-	void deepDisposeTopProject( CFIntTopProjectPKey pkey );
+	void deepDisposeTopProject( YCFIntTopProjectPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTopProjectObj lockTopProject( CFIntTopProjectPKey pkey );
+	IYCFIntTopProjectObj lockTopProject( YCFIntTopProjectPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the TopProject-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntTopProjectObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntTopProjectObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntTopProjectObj> readAllTopProject();
+	List<IYCFIntTopProjectObj> readAllTopProject();
 
 	/**
 	 *	Return a sorted map of all the TopProject-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntTopProjectObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntTopProjectObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntTopProjectObj> readAllTopProject( boolean forceRead );
+	List<IYCFIntTopProjectObj> readAllTopProject( boolean forceRead );
 
-	List<ICFIntTopProjectObj> readCachedAllTopProject();
+	List<IYCFIntTopProjectObj> readCachedAllTopProject();
 
 	/**
-	 *	Get the CFIntTopProjectObj instance for the primary key attributes.
+	 *	Get the YCFIntTopProjectObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TopProject key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The TopProject key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTopProjectObj cached instance for the primary key, or
+	 *	@return	YCFIntTopProjectObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTopProjectObj readTopProjectByIdIdx( long TenantId,
+	IYCFIntTopProjectObj readTopProjectByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFIntTopProjectObj instance for the primary key attributes.
+	 *	Get the YCFIntTopProjectObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TopProject key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The TopProject key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTopProjectObj refreshed instance for the primary key, or
+	 *	@return	YCFIntTopProjectObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTopProjectObj readTopProjectByIdIdx( long TenantId,
+	IYCFIntTopProjectObj readTopProjectByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntTopProjectObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntTopProjectObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The TopProject key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTopProjectObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntTopProjectObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTopProjectObj> readTopProjectByTenantIdx( long TenantId );
+	List<IYCFIntTopProjectObj> readTopProjectByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFIntTopProjectObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntTopProjectObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The TopProject key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTopProjectObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntTopProjectObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTopProjectObj> readTopProjectByTenantIdx( long TenantId,
+	List<IYCFIntTopProjectObj> readTopProjectByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntTopProjectObj instances sorted by their primary keys for the duplicate TopDomainIdx key.
+	 *	Get the map of YCFIntTopProjectObj instances sorted by their primary keys for the duplicate TopDomainIdx key.
 	 *
 	 *	@param	argTenantId	The TopProject key attribute of the instance generating the id.
 	 *
 	 *	@param	argTopDomainId	The TopProject key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTopProjectObj cached instances sorted by their primary keys for the duplicate TopDomainIdx key,
+	 *	@return	List of YCFIntTopProjectObj cached instances sorted by their primary keys for the duplicate TopDomainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTopProjectObj> readTopProjectByTopDomainIdx( long TenantId,
+	List<IYCFIntTopProjectObj> readTopProjectByTopDomainIdx( long TenantId,
 		long TopDomainId );
 
 	/**
-	 *	Get the map of CFIntTopProjectObj instances sorted by their primary keys for the duplicate TopDomainIdx key.
+	 *	Get the map of YCFIntTopProjectObj instances sorted by their primary keys for the duplicate TopDomainIdx key.
 	 *
 	 *	@param	argTenantId	The TopProject key attribute of the instance generating the id.
 	 *
 	 *	@param	argTopDomainId	The TopProject key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTopProjectObj cached instances sorted by their primary keys for the duplicate TopDomainIdx key,
+	 *	@return	List of YCFIntTopProjectObj cached instances sorted by their primary keys for the duplicate TopDomainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTopProjectObj> readTopProjectByTopDomainIdx( long TenantId,
+	List<IYCFIntTopProjectObj> readTopProjectByTopDomainIdx( long TenantId,
 		long TopDomainId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFIntTopProjectObj instance for the unique NameIdx key.
+	 *	Get the YCFIntTopProjectObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The TopProject key attribute of the instance generating the id.
 	 *
@@ -208,15 +208,15 @@ public interface ICFIntTopProjectTableObj
 	 *
 	 *	@param	argName	The TopProject key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTopProjectObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFIntTopProjectObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTopProjectObj readTopProjectByNameIdx(long TenantId,
+	IYCFIntTopProjectObj readTopProjectByNameIdx(long TenantId,
 		long TopDomainId,
 		String Name );
 
 	/**
-	 *	Get the CFIntTopProjectObj instance for the unique NameIdx key.
+	 *	Get the YCFIntTopProjectObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The TopProject key attribute of the instance generating the id.
 	 *
@@ -224,23 +224,23 @@ public interface ICFIntTopProjectTableObj
 	 *
 	 *	@param	argName	The TopProject key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTopProjectObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFIntTopProjectObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTopProjectObj readTopProjectByNameIdx(long TenantId,
+	IYCFIntTopProjectObj readTopProjectByNameIdx(long TenantId,
 		long TopDomainId,
 		String Name,
 		boolean forceRead );
 
-	ICFIntTopProjectObj readCachedTopProjectByIdIdx( long TenantId,
+	IYCFIntTopProjectObj readCachedTopProjectByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFIntTopProjectObj> readCachedTopProjectByTenantIdx( long TenantId );
+	List<IYCFIntTopProjectObj> readCachedTopProjectByTenantIdx( long TenantId );
 
-	List<ICFIntTopProjectObj> readCachedTopProjectByTopDomainIdx( long TenantId,
+	List<IYCFIntTopProjectObj> readCachedTopProjectByTopDomainIdx( long TenantId,
 		long TopDomainId );
 
-	ICFIntTopProjectObj readCachedTopProjectByNameIdx( long TenantId,
+	IYCFIntTopProjectObj readCachedTopProjectByNameIdx( long TenantId,
 		long TopDomainId,
 		String Name );
 
@@ -259,12 +259,12 @@ public interface ICFIntTopProjectTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTopProjectObj updateTopProject( ICFIntTopProjectObj Obj );
+	IYCFIntTopProjectObj updateTopProject( IYCFIntTopProjectObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteTopProject( ICFIntTopProjectObj Obj );
+	void deleteTopProject( IYCFIntTopProjectObj Obj );
 
 	/**
 	 *	Internal use only.

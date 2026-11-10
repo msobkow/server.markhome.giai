@@ -1,15 +1,15 @@
-// Description: Java 11 base object instance implementation for CFSec SecGroupForm.
+// Description: Java 11 base object instance implementation for YCFSec SecGroupForm.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,33 +26,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecSecGroupFormObj
-	implements ICFSecSecGroupFormObj
+public class YCFSecSecGroupFormObj
+	implements IYCFSecSecGroupFormObj
 {
 	public final static String CLASS_CODE = "a00d";
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
 	protected boolean isNew;
-	protected ICFSecSecGroupFormEditObj edit;
-	protected ICFSecSchemaObj schema;
-	protected CFSecSecGroupFormPKey pKey;
-	protected CFSecSecGroupFormBuff buff;
-	protected ICFSecClusterObj requiredOwnerCluster;
-	protected ICFSecSecGroupObj requiredContainerGroup;
-	protected ICFSecSecAppObj requiredParentApp;
-	protected ICFSecSecFormObj requiredParentForm;
+	protected IYCFSecSecGroupFormEditObj edit;
+	protected IYCFSecSchemaObj schema;
+	protected YCFSecSecGroupFormPKey pKey;
+	protected YCFSecSecGroupFormBuff buff;
+	protected IYCFSecClusterObj requiredOwnerCluster;
+	protected IYCFSecSecGroupObj requiredContainerGroup;
+	protected IYCFSecSecAppObj requiredParentApp;
+	protected IYCFSecSecFormObj requiredParentForm;
 
-	public CFSecSecGroupFormObj() {
+	public YCFSecSecGroupFormObj() {
 		isNew = true;
 		requiredOwnerCluster = null;
 		requiredContainerGroup = null;
@@ -60,7 +60,7 @@ public class CFSecSecGroupFormObj
 		requiredParentForm = null;
 	}
 
-	public CFSecSecGroupFormObj( ICFSecSchemaObj argSchema ) {
+	public YCFSecSecGroupFormObj( IYCFSecSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -78,13 +78,13 @@ public class CFSecSecGroupFormObj
 		return( "SecGroupForm" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFSecSecGroupObj scope = getRequiredContainerGroup();
+	public IYCFLibAnyObj getScope() {
+		IYCFSecSecGroupObj scope = getRequiredContainerGroup();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFSecSecGroupObj scope = getRequiredContainerGroup();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFSecSecGroupObj scope = getRequiredContainerGroup();
 		return( scope );
 	}
 
@@ -95,14 +95,14 @@ public class CFSecSecGroupFormObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFSecClusterObj ) {
+				if( container instanceof IYCFSecClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFSecTenantObj ) {
+				else if( container instanceof IYCFSecTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -113,10 +113,10 @@ public class CFSecSecGroupFormObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFSecClusterObj ) {
+				if( container instanceof IYCFSecClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFSecTenantObj ) {
+				else if( container instanceof IYCFSecTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -125,20 +125,20 @@ public class CFSecSecGroupFormObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -162,13 +162,13 @@ public class CFSecSecGroupFormObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -182,13 +182,13 @@ public class CFSecSecGroupFormObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -200,48 +200,48 @@ public class CFSecSecGroupFormObj
 		return( fullName );
 	}
 
-	public ICFSecSecGroupFormObj realise() {
-		ICFSecSecGroupFormObj retobj = ((ICFSecSchemaObj)schema).getSecGroupFormTableObj().realiseSecGroupForm(
-			(ICFSecSecGroupFormObj)this );
-		return( (ICFSecSecGroupFormObj)retobj );
+	public IYCFSecSecGroupFormObj realise() {
+		IYCFSecSecGroupFormObj retobj = ((IYCFSecSchemaObj)schema).getSecGroupFormTableObj().realiseSecGroupForm(
+			(IYCFSecSecGroupFormObj)this );
+		return( (IYCFSecSecGroupFormObj)retobj );
 	}
 
 	public void forget() {
-		((ICFSecSchemaObj)schema).getSecGroupFormTableObj().reallyDeepDisposeSecGroupForm( (ICFSecSecGroupFormObj)this );
+		((IYCFSecSchemaObj)schema).getSecGroupFormTableObj().reallyDeepDisposeSecGroupForm( (IYCFSecSecGroupFormObj)this );
 	}
 
-	public ICFSecSecGroupFormObj read() {
-		ICFSecSecGroupFormObj retobj = ((ICFSecSchemaObj)schema).getSecGroupFormTableObj().readSecGroupFormByIdIdx( getPKey().getRequiredClusterId(),
+	public IYCFSecSecGroupFormObj read() {
+		IYCFSecSecGroupFormObj retobj = ((IYCFSecSchemaObj)schema).getSecGroupFormTableObj().readSecGroupFormByIdIdx( getPKey().getRequiredClusterId(),
 			getPKey().getRequiredSecGroupFormId(), false );
-		return( (ICFSecSecGroupFormObj)retobj );
+		return( (IYCFSecSecGroupFormObj)retobj );
 	}
 
-	public ICFSecSecGroupFormObj read( boolean forceRead ) {
-		ICFSecSecGroupFormObj retobj = ((ICFSecSchemaObj)schema).getSecGroupFormTableObj().readSecGroupFormByIdIdx( getPKey().getRequiredClusterId(),
+	public IYCFSecSecGroupFormObj read( boolean forceRead ) {
+		IYCFSecSecGroupFormObj retobj = ((IYCFSecSchemaObj)schema).getSecGroupFormTableObj().readSecGroupFormByIdIdx( getPKey().getRequiredClusterId(),
 			getPKey().getRequiredSecGroupFormId(), forceRead );
-		return( (ICFSecSecGroupFormObj)retobj );
+		return( (IYCFSecSecGroupFormObj)retobj );
 	}
 
-	public ICFSecSecGroupFormTableObj getSecGroupFormTable() {
-		return( ((ICFSecSchemaObj)schema).getSecGroupFormTableObj() );
+	public IYCFSecSecGroupFormTableObj getSecGroupFormTable() {
+		return( ((IYCFSecSchemaObj)schema).getSecGroupFormTableObj() );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
+	public void setSchema( IYCFSecSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFSecSecGroupFormBuff getBuff() {
+	public YCFSecSecGroupFormBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newBuff();
+				buff = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByIdIdx( ((ICFSecSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByIdIdx( ((IYCFSecSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredClusterId(),
 						getPKey().getRequiredSecGroupFormId() );
 				if( buff != null ) {
@@ -252,13 +252,13 @@ public class CFSecSecGroupFormObj
 		return( buff );
 	}
 
-	public void setBuff( CFSecSecGroupFormBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFSecSecGroupFormBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFSecSecGroupFormBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFSecSecGroupFormBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFSecSecGroupFormBuff" );
+				"YCFSecSecGroupFormBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -268,18 +268,18 @@ public class CFSecSecGroupFormObj
 		requiredParentForm = null;
 	}
 
-	public CFSecSecGroupFormBuff getSecGroupFormBuff() {
-		return( (CFSecSecGroupFormBuff)getBuff() );
+	public YCFSecSecGroupFormBuff getSecGroupFormBuff() {
+		return( (YCFSecSecGroupFormBuff)getBuff() );
 	}
 
-	public CFSecSecGroupFormPKey getPKey() {
+	public YCFSecSecGroupFormPKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey();
+			pKey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFSecSecGroupFormPKey value ) {
+	public void setPKey( YCFSecSecGroupFormPKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -294,37 +294,37 @@ public class CFSecSecGroupFormObj
 		isNew = value;
 	}
 
-	public ICFSecSecGroupFormEditObj beginEdit() {
+	public IYCFSecSecGroupFormEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFSecSecGroupFormObj lockobj;
+		IYCFSecSecGroupFormObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFSecSecGroupFormObj)this;
+			lockobj = (IYCFSecSecGroupFormObj)this;
 		}
 		else {
-			lockobj = ((ICFSecSchemaObj)schema).getSecGroupFormTableObj().lockSecGroupForm( getPKey() );
+			lockobj = ((IYCFSecSchemaObj)schema).getSecGroupFormTableObj().lockSecGroupForm( getPKey() );
 		}
-		edit = ((ICFSecSchemaObj)schema).getSecGroupFormTableObj().newEditInstance( lockobj );
-		return( (ICFSecSecGroupFormEditObj)edit );
+		edit = ((IYCFSecSchemaObj)schema).getSecGroupFormTableObj().newEditInstance( lockobj );
+		return( (IYCFSecSecGroupFormEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFSecSecGroupFormEditObj getEdit() {
+	public IYCFSecSecGroupFormEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFSecSecGroupFormEditObj getEditAsSecGroupForm() {
-		return( (ICFSecSecGroupFormEditObj)edit );
+	public IYCFSecSecGroupFormEditObj getEditAsSecGroupForm() {
+		return( (IYCFSecSecGroupFormEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFSecSecGroupFormBuff buff = getBuff();
-			createdBy = ((ICFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFSecSecGroupFormBuff buff = getBuff();
+			createdBy = ((IYCFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -333,10 +333,10 @@ public class CFSecSecGroupFormObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFSecSecGroupFormBuff buff = getBuff();
-			updatedBy = ((ICFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFSecSecGroupFormBuff buff = getBuff();
+			updatedBy = ((IYCFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -365,59 +365,59 @@ public class CFSecSecGroupFormObj
 		return( getSecGroupFormBuff().getRequiredSecFormId() );
 	}
 
-	public ICFSecClusterObj getRequiredOwnerCluster() {
+	public IYCFSecClusterObj getRequiredOwnerCluster() {
 		return( getRequiredOwnerCluster( false ) );
 	}
 
-	public ICFSecClusterObj getRequiredOwnerCluster( boolean forceRead ) {
+	public IYCFSecClusterObj getRequiredOwnerCluster( boolean forceRead ) {
 		if( ( requiredOwnerCluster == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredOwnerCluster = ((ICFSecSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getPKey().getRequiredClusterId(), forceRead );
+				requiredOwnerCluster = ((IYCFSecSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getPKey().getRequiredClusterId(), forceRead );
 			}
 		}
 		return( requiredOwnerCluster );
 	}
 
-	public ICFSecSecGroupObj getRequiredContainerGroup() {
+	public IYCFSecSecGroupObj getRequiredContainerGroup() {
 		return( getRequiredContainerGroup( false ) );
 	}
 
-	public ICFSecSecGroupObj getRequiredContainerGroup( boolean forceRead ) {
+	public IYCFSecSecGroupObj getRequiredContainerGroup( boolean forceRead ) {
 		if( ( requiredContainerGroup == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerGroup = ((ICFSecSchemaObj)schema).getSecGroupTableObj().readSecGroupByIdIdx( getPKey().getRequiredClusterId(),
+				requiredContainerGroup = ((IYCFSecSchemaObj)schema).getSecGroupTableObj().readSecGroupByIdIdx( getPKey().getRequiredClusterId(),
 					getSecGroupFormBuff().getRequiredSecGroupId(), forceRead );
 			}
 		}
 		return( requiredContainerGroup );
 	}
 
-	public ICFSecSecAppObj getRequiredParentApp() {
+	public IYCFSecSecAppObj getRequiredParentApp() {
 		return( getRequiredParentApp( false ) );
 	}
 
-	public ICFSecSecAppObj getRequiredParentApp( boolean forceRead ) {
+	public IYCFSecSecAppObj getRequiredParentApp( boolean forceRead ) {
 		if( ( requiredParentApp == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredParentApp = ((ICFSecSchemaObj)schema).getSecAppTableObj().readSecAppByIdIdx( getPKey().getRequiredClusterId(),
+				requiredParentApp = ((IYCFSecSchemaObj)schema).getSecAppTableObj().readSecAppByIdIdx( getPKey().getRequiredClusterId(),
 					getSecGroupFormBuff().getRequiredSecAppId(), forceRead );
 			}
 		}
 		return( requiredParentApp );
 	}
 
-	public ICFSecSecFormObj getRequiredParentForm() {
+	public IYCFSecSecFormObj getRequiredParentForm() {
 		return( getRequiredParentForm( false ) );
 	}
 
-	public ICFSecSecFormObj getRequiredParentForm( boolean forceRead ) {
+	public IYCFSecSecFormObj getRequiredParentForm( boolean forceRead ) {
 		if( ( requiredParentForm == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredParentForm = ((ICFSecSchemaObj)schema).getSecFormTableObj().readSecFormByIdIdx( getPKey().getRequiredClusterId(),
+				requiredParentForm = ((IYCFSecSchemaObj)schema).getSecFormTableObj().readSecFormByIdIdx( getPKey().getRequiredClusterId(),
 					getSecGroupFormBuff().getRequiredSecFormId(), forceRead );
 			}
 		}

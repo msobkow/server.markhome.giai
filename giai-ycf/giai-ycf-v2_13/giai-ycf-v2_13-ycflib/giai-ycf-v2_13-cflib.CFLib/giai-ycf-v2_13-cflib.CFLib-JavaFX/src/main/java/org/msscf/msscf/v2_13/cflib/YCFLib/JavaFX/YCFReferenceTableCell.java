@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,13 +21,13 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import javafx.scene.control.TableCell;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
-public class CFReferenceTableCell<T,R>
+public class YCFReferenceTableCell<T,R>
 extends TableCell<T,R>
 {
 	@Override protected void updateItem( R item, boolean empty ) {
@@ -37,7 +37,7 @@ extends TableCell<T,R>
 			setStyle( "" );
 		}
 		else {
-			String cellText = ((ICFLibAnyObj)item).getObjQualifiedName();
+			String cellText = ((IYCFLibAnyObj)item).getObjQualifiedName();
 			if( cellText == null ) {
 				cellText = "";
 			}

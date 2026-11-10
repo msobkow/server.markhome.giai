@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for DbKeyHash224Type.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamDbKeyHash224TypeTable database interface for DbKeyHash224Type
+ *	YCFBamDbKeyHash224TypeTable database interface for DbKeyHash224Type
  */
-public interface ICFBamDbKeyHash224TypeTable
+public interface IYCFBamDbKeyHash224TypeTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createDbKeyHash224Type( CFSecAuthorization Authorization,
-		CFBamDbKeyHash224TypeBuff Buff );
+	void createDbKeyHash224Type( YCFSecAuthorization Authorization,
+		YCFBamDbKeyHash224TypeBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateDbKeyHash224Type( CFSecAuthorization Authorization,
-		CFBamDbKeyHash224TypeBuff Buff );
+	void updateDbKeyHash224Type( YCFSecAuthorization Authorization,
+		YCFBamDbKeyHash224TypeBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteDbKeyHash224Type( CFSecAuthorization Authorization,
-		CFBamDbKeyHash224TypeBuff Buff );
+	void deleteDbKeyHash224Type( YCFSecAuthorization Authorization,
+		YCFBamDbKeyHash224TypeBuff Buff );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key SchemaIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argSchemaDefId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeBySchemaIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId );
 
@@ -121,8 +121,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamDbKeyHash224TypeBySchemaIdxKey argKey );
+	void deleteDbKeyHash224TypeBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamDbKeyHash224TypeBySchemaIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instance identified by the primary key attributes.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByIdIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -143,8 +143,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteDbKeyHash224TypeByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key UNameIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argName	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByUNameIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -168,8 +168,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteDbKeyHash224TypeByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key ValTentIdx.
 	 *
@@ -177,7 +177,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByValTentIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -187,8 +187,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteDbKeyHash224TypeByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key ScopeIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argScopeId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByScopeIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -209,8 +209,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteDbKeyHash224TypeByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key DefSchemaIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argDefSchemaId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -231,8 +231,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteDbKeyHash224TypeByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key PrevIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argPrevId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByPrevIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -253,8 +253,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteDbKeyHash224TypeByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key NextIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argNextId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByNextIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -275,8 +275,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteDbKeyHash224TypeByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key ContPrevIdx.
 	 *
@@ -288,7 +288,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argPrevId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -300,8 +300,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteDbKeyHash224TypeByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key ContNextIdx.
 	 *
@@ -313,7 +313,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argNextId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByContNextIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -325,8 +325,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteDbKeyHash224TypeByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key CodeVisIdx.
 	 *
@@ -334,8 +334,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argCodeVis	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteDbKeyHash224TypeByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key CodeVisIdx.
@@ -344,8 +344,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteDbKeyHash224TypeByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -357,10 +357,10 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argCodeVis	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash224TypeByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the DbKeyHash224Type instances identified by the key ScopeCodeVisIdx.
@@ -369,8 +369,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash224TypeByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteDbKeyHash224TypeByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -383,8 +383,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDbKeyHash224TypeBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDbKeyHash224TypeBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived DbKeyHash224Type buffer instance by primary key.
@@ -396,8 +396,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDbKeyHash224TypeBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDbKeyHash224TypeBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all DbKeyHash224Type instances.
@@ -406,7 +406,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamDbKeyHash224TypeBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived DbKeyHash224Type buffer instance identified by the unique key IdIdx.
@@ -420,7 +420,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDbKeyHash224TypeBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -438,7 +438,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDbKeyHash224TypeBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -452,7 +452,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -466,7 +466,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -481,7 +481,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -496,7 +496,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -511,7 +511,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -528,7 +528,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -546,7 +546,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -560,8 +560,8 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamDbKeyHash224TypeBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived DbKeyHash224Type buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -576,10 +576,10 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived DbKeyHash224Type buffer instances identified by the duplicate key SchemaIdx.
@@ -592,7 +592,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -606,10 +606,10 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDbKeyHash224TypeBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific DbKeyHash224Type buffer instance identified by the primary key.
@@ -621,10 +621,10 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDbKeyHash224TypeBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific DbKeyHash224Type buffer instances.
@@ -633,7 +633,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return All the specific DbKeyHash224Type instances in the database accessible for the Authorization.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamDbKeyHash224TypeBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific DbKeyHash224Type buffer instance identified by the unique key IdIdx.
@@ -647,9 +647,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -667,9 +667,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -683,9 +683,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -699,9 +699,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -716,9 +716,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -733,9 +733,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -750,9 +750,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -769,9 +769,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -789,9 +789,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -805,10 +805,10 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamDbKeyHash224TypeBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific DbKeyHash224Type buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -823,12 +823,12 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific DbKeyHash224Type buffer instances identified by the duplicate key SchemaIdx.
@@ -841,9 +841,9 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash224TypeBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -852,7 +852,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamDbKeyHash224TypeBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -862,7 +862,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamDbKeyHash224TypeBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash224TypeBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -870,7 +870,7 @@ public interface ICFBamDbKeyHash224TypeTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

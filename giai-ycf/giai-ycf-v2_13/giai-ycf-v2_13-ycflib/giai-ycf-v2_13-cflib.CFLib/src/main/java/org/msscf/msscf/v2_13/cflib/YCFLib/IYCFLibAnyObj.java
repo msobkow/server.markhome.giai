@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,15 +21,15 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
-public interface ICFLibAnyObj {
+public interface IYCFLibAnyObj {
 	public String getGenDefName();
-	public ICFLibAnyObj getObjScope();
+	public IYCFLibAnyObj getObjScope();
 	public String getObjName();
 	public String getObjQualifiedName();
 	public String getObjFullName();
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName );
-	public ICFLibAnyObj getNamedObject( String objName );
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName );
+	public IYCFLibAnyObj getNamedObject( String objName );
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass );
 }

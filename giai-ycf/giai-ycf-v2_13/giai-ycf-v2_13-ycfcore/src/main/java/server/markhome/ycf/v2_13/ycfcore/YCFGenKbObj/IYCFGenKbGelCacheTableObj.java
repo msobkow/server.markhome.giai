@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelCacheTableObj
+public interface IYCFGenKbGelCacheTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelCacheTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelCacheObj newInstance();
+	IYCFGenKbGelCacheObj newInstance();
 
 	/**
 	 *	Instantiate a new GelCache edition of the specified GelCache instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelCacheEditObj newEditInstance( ICFGenKbGelCacheObj orig );
+	IYCFGenKbGelCacheEditObj newEditInstance( IYCFGenKbGelCacheObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCacheObj realiseGelCache( ICFGenKbGelCacheObj Obj );
+	IYCFGenKbGelCacheObj realiseGelCache( IYCFGenKbGelCacheObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCacheObj createGelCache( ICFGenKbGelCacheObj Obj );
+	IYCFGenKbGelCacheObj createGelCache( IYCFGenKbGelCacheObj Obj );
 
 	/**
 	 *	Read a GelCache-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelCacheTableObj
 	 *	@return	The GelCache-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelCacheObj readGelCache( CFGenKbGelCachePKey pkey );
+	IYCFGenKbGelCacheObj readGelCache( YCFGenKbGelCachePKey pkey );
 
 	/**
 	 *	Read a GelCache-derived instance by it's primary key.
@@ -91,119 +91,119 @@ public interface ICFGenKbGelCacheTableObj
 	 *	@return	The GelCache-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelCacheObj readGelCache( CFGenKbGelCachePKey pkey,
+	IYCFGenKbGelCacheObj readGelCache( YCFGenKbGelCachePKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelCacheObj readCachedGelCache( CFGenKbGelCachePKey pkey );
+	IYCFGenKbGelCacheObj readCachedGelCache( YCFGenKbGelCachePKey pkey );
 
-	public void reallyDeepDisposeGelCache( ICFGenKbGelCacheObj obj );
+	public void reallyDeepDisposeGelCache( IYCFGenKbGelCacheObj obj );
 
-	void deepDisposeGelCache( CFGenKbGelCachePKey pkey );
+	void deepDisposeGelCache( YCFGenKbGelCachePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCacheObj lockGelCache( CFGenKbGelCachePKey pkey );
+	IYCFGenKbGelCacheObj lockGelCache( YCFGenKbGelCachePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelCache-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelCacheObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelCacheObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelCacheObj> readAllGelCache();
+	List<IYCFGenKbGelCacheObj> readAllGelCache();
 
 	/**
 	 *	Return a sorted map of all the GelCache-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelCacheObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelCacheObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelCacheObj> readAllGelCache( boolean forceRead );
+	List<IYCFGenKbGelCacheObj> readAllGelCache( boolean forceRead );
 
-	List<ICFGenKbGelCacheObj> readCachedAllGelCache();
+	List<IYCFGenKbGelCacheObj> readCachedAllGelCache();
 
 	/**
-	 *	Get the CFGenKbGelCacheObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelCacheObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelCache key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelCache key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelCacheObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelCacheObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelCacheObj readGelCacheByIdIdx( long TenantId,
+	IYCFGenKbGelCacheObj readGelCacheByIdIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the CFGenKbGelCacheObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelCacheObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelCache key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelCache key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelCacheObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelCacheObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelCacheObj readGelCacheByIdIdx( long TenantId,
+	IYCFGenKbGelCacheObj readGelCacheByIdIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelCacheObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelCacheObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelCache key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCacheObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelCacheObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCacheObj> readGelCacheByTenantIdx( long TenantId );
+	List<IYCFGenKbGelCacheObj> readGelCacheByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelCacheObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelCacheObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelCache key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCacheObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelCacheObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCacheObj> readGelCacheByTenantIdx( long TenantId,
+	List<IYCFGenKbGelCacheObj> readGelCacheByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbGelCacheObj instance for the unique AltIdx key.
+	 *	Get the YCFGenKbGelCacheObj instance for the unique AltIdx key.
 	 *
 	 *	@param	argTenantId	The GelCache key attribute of the instance generating the id.
 	 *
 	 *	@param	argCacheName	The GelCache key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelCacheObj cached instance for the unique AltIdx key, or
+	 *	@return	YCFGenKbGelCacheObj cached instance for the unique AltIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelCacheObj readGelCacheByAltIdx(long TenantId,
+	IYCFGenKbGelCacheObj readGelCacheByAltIdx(long TenantId,
 		String CacheName );
 
 	/**
-	 *	Get the CFGenKbGelCacheObj instance for the unique AltIdx key.
+	 *	Get the YCFGenKbGelCacheObj instance for the unique AltIdx key.
 	 *
 	 *	@param	argTenantId	The GelCache key attribute of the instance generating the id.
 	 *
 	 *	@param	argCacheName	The GelCache key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelCacheObj refreshed instance for the unique AltIdx key, or
+	 *	@return	YCFGenKbGelCacheObj refreshed instance for the unique AltIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelCacheObj readGelCacheByAltIdx(long TenantId,
+	IYCFGenKbGelCacheObj readGelCacheByAltIdx(long TenantId,
 		String CacheName,
 		boolean forceRead );
 
-	ICFGenKbGelCacheObj readCachedGelCacheByIdIdx( long TenantId,
+	IYCFGenKbGelCacheObj readCachedGelCacheByIdIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelCacheObj> readCachedGelCacheByTenantIdx( long TenantId );
+	List<IYCFGenKbGelCacheObj> readCachedGelCacheByTenantIdx( long TenantId );
 
-	ICFGenKbGelCacheObj readCachedGelCacheByAltIdx( long TenantId,
+	IYCFGenKbGelCacheObj readCachedGelCacheByAltIdx( long TenantId,
 		String CacheName );
 
 	void deepDisposeGelCacheByIdIdx( long TenantId,
@@ -217,12 +217,12 @@ public interface ICFGenKbGelCacheTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCacheObj updateGelCache( ICFGenKbGelCacheObj Obj );
+	IYCFGenKbGelCacheObj updateGelCache( IYCFGenKbGelCacheObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelCache( ICFGenKbGelCacheObj Obj );
+	void deleteGelCache( IYCFGenKbGelCacheObj Obj );
 
 	/**
 	 *	Internal use only.

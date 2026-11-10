@@ -1,5 +1,5 @@
 /*
- *	Mark's Code Fractal 2.13 CFKBase - Code Fractal Knowledge Base
+ *	Mark's Code Fractal 2.13 YCFKBase - Code Fractal Knowledge Base
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *
@@ -25,10 +25,10 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfkbase;
+package org.mssycf.mssycf.v2_13.ycfkbase;
 
-public class CFKBase {
-	public final static String LinkName = "CFKBase";
+public class YCFKBase {
+	public final static String LinkName = "YCFKBase";
 	public final static String LinkVersion = "3.0";
 
 	public static String getLinkName() {

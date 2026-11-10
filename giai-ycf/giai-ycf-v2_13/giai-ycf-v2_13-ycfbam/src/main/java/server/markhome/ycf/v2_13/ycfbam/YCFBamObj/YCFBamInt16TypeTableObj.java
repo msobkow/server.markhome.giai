@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,54 +45,54 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamInt16TypeTableObj
-	implements ICFBamInt16TypeTableObj
+public class YCFBamInt16TypeTableObj
+	implements IYCFBamInt16TypeTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFBamValuePKey, ICFBamInt16TypeObj> members;
-	private Map<CFBamValuePKey, ICFBamInt16TypeObj> allInt16Type;
-	private Map< CFBamValueByUNameIdxKey,
-		ICFBamInt16TypeObj > indexByUNameIdx;
-	private Map< CFBamValueByValTentIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByValTentIdx;
-	private Map< CFBamValueByScopeIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByScopeIdx;
-	private Map< CFBamValueByDefSchemaIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByDefSchemaIdx;
-	private Map< CFBamValueByPrevIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByPrevIdx;
-	private Map< CFBamValueByNextIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByNextIdx;
-	private Map< CFBamValueByContPrevIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByContPrevIdx;
-	private Map< CFBamValueByContNextIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByContNextIdx;
-	private Map< CFBamValueByCodeVisIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByCodeVisIdx;
-	private Map< CFBamValueByScopeCodeVisIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByScopeCodeVisIdx;
-	private Map< CFBamInt16TypeBySchemaIdxKey,
-		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexBySchemaIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFBamValuePKey, IYCFBamInt16TypeObj> members;
+	private Map<YCFBamValuePKey, IYCFBamInt16TypeObj> allInt16Type;
+	private Map< YCFBamValueByUNameIdxKey,
+		IYCFBamInt16TypeObj > indexByUNameIdx;
+	private Map< YCFBamValueByValTentIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexByValTentIdx;
+	private Map< YCFBamValueByScopeIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexByScopeIdx;
+	private Map< YCFBamValueByDefSchemaIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexByDefSchemaIdx;
+	private Map< YCFBamValueByPrevIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexByPrevIdx;
+	private Map< YCFBamValueByNextIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexByNextIdx;
+	private Map< YCFBamValueByContPrevIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexByContPrevIdx;
+	private Map< YCFBamValueByContNextIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexByContNextIdx;
+	private Map< YCFBamValueByCodeVisIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexByCodeVisIdx;
+	private Map< YCFBamValueByScopeCodeVisIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexByScopeCodeVisIdx;
+	private Map< YCFBamInt16TypeBySchemaIdxKey,
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj > > indexBySchemaIdx;
 	public static String TABLE_NAME = "Int16Type";
 	public static String TABLE_DBNAME = "int16typ";
 
-	public CFBamInt16TypeTableObj() {
+	public YCFBamInt16TypeTableObj() {
 		schema = null;
-		members = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
+		members = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
 		allInt16Type = null;
 		indexByUNameIdx = null;
 		indexByValTentIdx = null;
@@ -107,9 +107,9 @@ public class CFBamInt16TypeTableObj
 		indexBySchemaIdx = null;
 	}
 
-	public CFBamInt16TypeTableObj( ICFBamSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
+	public YCFBamInt16TypeTableObj( IYCFBamSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
 		allInt16Type = null;
 		indexByUNameIdx = null;
 		indexByValTentIdx = null;
@@ -124,12 +124,12 @@ public class CFBamInt16TypeTableObj
 		indexBySchemaIdx = null;
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFBamSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFBamSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -141,7 +141,7 @@ public class CFBamInt16TypeTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamSchemaDefObj.class );
+		return( IYCFBamSchemaDefObj.class );
 	}
 
 
@@ -158,9 +158,9 @@ public class CFBamInt16TypeTableObj
 		indexByCodeVisIdx = null;
 		indexByScopeCodeVisIdx = null;
 		indexBySchemaIdx = null;
-		List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
-		ICFBamInt16TypeObj cur = null;
-		Iterator<ICFBamInt16TypeObj> iter = members.values().iterator();
+		List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
+		IYCFBamInt16TypeObj cur = null;
+		Iterator<IYCFBamInt16TypeObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -178,10 +178,10 @@ public class CFBamInt16TypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamInt16TypeObj.
+	 *	YCFBamInt16TypeObj.
 	 */
-	public ICFBamInt16TypeObj newInstance() {
-		ICFBamInt16TypeObj inst = new CFBamInt16TypeObj( schema );
+	public IYCFBamInt16TypeObj newInstance() {
+		IYCFBamInt16TypeObj inst = new YCFBamInt16TypeObj( schema );
 		return( inst );
 	}
 
@@ -192,19 +192,19 @@ public class CFBamInt16TypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamInt16TypeObj.
+	 *	YCFBamInt16TypeObj.
 	 */
-	public ICFBamInt16TypeEditObj newEditInstance( ICFBamInt16TypeObj orig ) {
-		ICFBamInt16TypeEditObj edit = new CFBamInt16TypeEditObj( orig );
+	public IYCFBamInt16TypeEditObj newEditInstance( IYCFBamInt16TypeObj orig ) {
+		IYCFBamInt16TypeEditObj edit = new YCFBamInt16TypeEditObj( orig );
 		return( edit );
 	}
 
-	public ICFBamInt16TypeObj realiseInt16Type( ICFBamInt16TypeObj Obj ) {
-		ICFBamInt16TypeObj obj = Obj;
-		CFBamValuePKey pkey = obj.getPKey();
-		ICFBamInt16TypeObj keepObj = null;
+	public IYCFBamInt16TypeObj realiseInt16Type( IYCFBamInt16TypeObj Obj ) {
+		IYCFBamInt16TypeObj obj = Obj;
+		YCFBamValuePKey pkey = obj.getPKey();
+		IYCFBamInt16TypeObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFBamInt16TypeObj existingObj = members.get( pkey );
+			IYCFBamInt16TypeObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -215,8 +215,8 @@ public class CFBamInt16TypeTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByUNameIdx != null ) {
-				CFBamValueByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+				YCFBamValueByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -224,111 +224,111 @@ public class CFBamInt16TypeTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamValueByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+				YCFBamValueByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					indexByValTentIdx.remove( keyValTentIdx );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamValueByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+				YCFBamValueByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					indexByScopeIdx.remove( keyScopeIdx );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+				YCFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					indexByDefSchemaIdx.remove( keyDefSchemaIdx );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamValueByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+				YCFBamValueByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					indexByPrevIdx.remove( keyPrevIdx );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamValueByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+				YCFBamValueByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					indexByNextIdx.remove( keyNextIdx );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamValueByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+				YCFBamValueByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					indexByContPrevIdx.remove( keyContPrevIdx );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamValueByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+				YCFBamValueByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					indexByContNextIdx.remove( keyContNextIdx );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				YCFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					indexByCodeVisIdx.remove( keyCodeVisIdx );
 				}
 			}
 
 			if( indexByScopeCodeVisIdx != null ) {
-				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				YCFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
 				if( mapScopeCodeVisIdx != null ) {
 					indexByScopeCodeVisIdx.remove( keyScopeCodeVisIdx );
 				}
 			}
 
 			if( indexBySchemaIdx != null ) {
-				CFBamInt16TypeBySchemaIdxKey keySchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
+				YCFBamInt16TypeBySchemaIdxKey keySchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
 				keySchemaIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keySchemaIdx.setRequiredSchemaDefId( keepObj.getRequiredSchemaDefId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
 				if( mapSchemaIdx != null ) {
 					mapSchemaIdx.remove( keepObj.getPKey() );
 					if( mapSchemaIdx.size() <= 0 ) {
@@ -339,13 +339,13 @@ public class CFBamInt16TypeTableObj
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
-			keepObj = (ICFBamInt16TypeObj)schema.getInt16DefTableObj().realiseInt16Def( Obj );
+			keepObj = (IYCFBamInt16TypeObj)schema.getInt16DefTableObj().realiseInt16Def( Obj );
 
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByUNameIdx != null ) {
-				CFBamValueByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+				YCFBamValueByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -353,111 +353,111 @@ public class CFBamInt16TypeTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamValueByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+				YCFBamValueByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					mapValTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamValueByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+				YCFBamValueByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					mapScopeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+				YCFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamValueByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+				YCFBamValueByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamValueByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+				YCFBamValueByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamValueByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+				YCFBamValueByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					mapContPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamValueByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+				YCFBamValueByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				YCFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeCodeVisIdx != null ) {
-				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				YCFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
 				if( mapScopeCodeVisIdx != null ) {
 					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySchemaIdx != null ) {
-				CFBamInt16TypeBySchemaIdxKey keySchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
+				YCFBamInt16TypeBySchemaIdxKey keySchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
 				keySchemaIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keySchemaIdx.setRequiredSchemaDefId( keepObj.getRequiredSchemaDefId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
 				if( mapSchemaIdx != null ) {
 					mapSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -469,7 +469,7 @@ public class CFBamInt16TypeTableObj
 		}
 		else {
 			keepObj = obj;
-			keepObj = (ICFBamInt16TypeObj)schema.getInt16DefTableObj().realiseInt16Def( keepObj );
+			keepObj = (IYCFBamInt16TypeObj)schema.getInt16DefTableObj().realiseInt16Def( keepObj );
 
 			// Attach new object to PKey, all, alternate, and duplicate indexes
 			members.put( keepObj.getPKey(), keepObj );
@@ -478,8 +478,8 @@ public class CFBamInt16TypeTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamValueByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+				YCFBamValueByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -487,111 +487,111 @@ public class CFBamInt16TypeTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamValueByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+				YCFBamValueByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					mapValTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamValueByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+				YCFBamValueByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					mapScopeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+				YCFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamValueByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+				YCFBamValueByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamValueByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+				YCFBamValueByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamValueByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+				YCFBamValueByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					mapContPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamValueByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+				YCFBamValueByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				YCFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeCodeVisIdx != null ) {
-				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				YCFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
 				if( mapScopeCodeVisIdx != null ) {
 					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySchemaIdx != null ) {
-				CFBamInt16TypeBySchemaIdxKey keySchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
+				YCFBamInt16TypeBySchemaIdxKey keySchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
 				keySchemaIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keySchemaIdx.setRequiredSchemaDefId( keepObj.getRequiredSchemaDefId() );
-				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamInt16TypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
 				if( mapSchemaIdx != null ) {
 					mapSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -601,17 +601,17 @@ public class CFBamInt16TypeTableObj
 		return( keepObj );
 	}
 
-	public ICFBamInt16TypeObj createInt16Type( ICFBamInt16TypeObj Obj ) {
-		ICFBamInt16TypeObj obj = Obj;
-		CFBamInt16TypeBuff buff = obj.getInt16TypeBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().createInt16Type(
+	public IYCFBamInt16TypeObj createInt16Type( IYCFBamInt16TypeObj Obj ) {
+		IYCFBamInt16TypeObj obj = Obj;
+		YCFBamInt16TypeBuff buff = obj.getInt16TypeBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().createInt16Type(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		if( obj.getPKey().getClassCode().equals( "a827" ) ) {
-			obj = (ICFBamInt16TypeObj)(obj.realise());
+			obj = (IYCFBamInt16TypeObj)(obj.realise());
 		}
-		ICFBamValueObj prev = obj.getOptionalLookupPrev();
+		IYCFBamValueObj prev = obj.getOptionalLookupPrev();
 		if( prev != null ) {
 			prev.read( true );
 		}
@@ -619,51 +619,51 @@ public class CFBamInt16TypeTableObj
 		return( obj );
 	}
 
-	public ICFBamInt16TypeObj readInt16Type( CFBamValuePKey pkey ) {
+	public IYCFBamInt16TypeObj readInt16Type( YCFBamValuePKey pkey ) {
 		return( readInt16Type( pkey, false ) );
 	}
 
-	public ICFBamInt16TypeObj readInt16Type( CFBamValuePKey pkey, boolean forceRead ) {
-		ICFBamInt16TypeObj obj = null;
+	public IYCFBamInt16TypeObj readInt16Type( YCFBamValuePKey pkey, boolean forceRead ) {
+		IYCFBamInt16TypeObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFBamInt16TypeBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFBamInt16TypeBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( readBuff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( readBuff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFBamInt16TypeObj)obj.realise();
+				obj = (IYCFBamInt16TypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamInt16TypeObj readCachedInt16Type( CFBamValuePKey pkey ) {
-		ICFBamInt16TypeObj obj = null;
+	public IYCFBamInt16TypeObj readCachedInt16Type( YCFBamValuePKey pkey ) {
+		IYCFBamInt16TypeObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeInt16Type( ICFBamInt16TypeObj obj )
+	public void reallyDeepDisposeInt16Type( IYCFBamInt16TypeObj obj )
 	{
-		final String S_ProcName = "CFBamInt16TypeTableObj.reallyDeepDisposeInt16Type() ";
+		final String S_ProcName = "YCFBamInt16TypeTableObj.reallyDeepDisposeInt16Type() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFBamValuePKey pkey = obj.getPKey();
-		ICFBamInt16TypeObj existing = readCachedInt16Type( pkey );
+		YCFBamValuePKey pkey = obj.getPKey();
+		IYCFBamInt16TypeObj existing = readCachedInt16Type( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFBamInt16TypeBySchemaIdxKey keySchemaIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
+		YCFBamInt16TypeBySchemaIdxKey keySchemaIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
 		keySchemaIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
@@ -685,57 +685,57 @@ public class CFBamInt16TypeTableObj
 
 		schema.getInt16DefTableObj().reallyDeepDisposeInt16Def( obj );
 	}
-	public void deepDisposeInt16Type( CFBamValuePKey pkey ) {
-		ICFBamInt16TypeObj obj = readCachedInt16Type( pkey );
+	public void deepDisposeInt16Type( YCFBamValuePKey pkey ) {
+		IYCFBamInt16TypeObj obj = readCachedInt16Type( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFBamInt16TypeObj lockInt16Type( CFBamValuePKey pkey ) {
-		ICFBamInt16TypeObj locked = null;
-		CFBamInt16TypeBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFBamInt16TypeObj lockInt16Type( YCFBamValuePKey pkey ) {
+		IYCFBamInt16TypeObj locked = null;
+		YCFBamInt16TypeBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
-				locked = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( lockBuff.getClassCode() );
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				locked = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( lockBuff.getClassCode() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFBamInt16TypeObj)locked.realise();
+			locked = (IYCFBamInt16TypeObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockInt16Type", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockInt16Type", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFBamInt16TypeObj> readAllInt16Type() {
+	public List<IYCFBamInt16TypeObj> readAllInt16Type() {
 		return( readAllInt16Type( false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readAllInt16Type( boolean forceRead ) {
+	public List<IYCFBamInt16TypeObj> readAllInt16Type( boolean forceRead ) {
 		final String S_ProcName = "readAllInt16Type";
 		if( ( allInt16Type == null ) || forceRead ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> map = new HashMap<CFBamValuePKey,ICFBamInt16TypeObj>();
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> map = new HashMap<YCFBamValuePKey,IYCFBamInt16TypeObj>();
 			allInt16Type = map;
-			CFBamInt16TypeBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().readAllDerived( schema.getAuthorization() );
-			CFBamInt16TypeBuff buff;
-			ICFBamInt16TypeObj obj;
+			YCFBamInt16TypeBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().readAllDerived( schema.getAuthorization() );
+			YCFBamInt16TypeBuff buff;
+			IYCFBamInt16TypeObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 			}
 		}
 		int len = allInt16Type.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = allInt16Type.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = allInt16Type.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -743,20 +743,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -769,31 +769,31 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedAllInt16Type() {
+	public List<IYCFBamInt16TypeObj> readCachedAllInt16Type() {
 		final String S_ProcName = "readCachedAllInt16Type";
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( allInt16Type != null ) {
 			int len = allInt16Type.size();
-			ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-			Iterator<ICFBamInt16TypeObj> valIter = allInt16Type.values().iterator();
+			IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+			Iterator<IYCFBamInt16TypeObj> valIter = allInt16Type.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -801,7 +801,7 @@ public class CFBamInt16TypeTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -812,8 +812,8 @@ public class CFBamInt16TypeTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -826,8 +826,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -837,7 +837,7 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public ICFBamInt16TypeObj readInt16TypeByIdIdx( long TenantId,
+	public IYCFBamInt16TypeObj readInt16TypeByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readInt16TypeByIdIdx( TenantId,
@@ -845,17 +845,17 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public ICFBamInt16TypeObj readInt16TypeByIdIdx( long TenantId,
+	public IYCFBamInt16TypeObj readInt16TypeByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFBamValuePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
+		YCFBamValuePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamInt16TypeObj obj = readInt16Type( pkey, forceRead );
+		IYCFBamInt16TypeObj obj = readInt16Type( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFBamInt16TypeObj readInt16TypeByUNameIdx( long TenantId,
+	public IYCFBamInt16TypeObj readInt16TypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name )
 	{
@@ -865,82 +865,82 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public ICFBamInt16TypeObj readInt16TypeByUNameIdx( long TenantId,
+	public IYCFBamInt16TypeObj readInt16TypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamValueByUNameIdxKey,
-				ICFBamInt16TypeObj >();
+			indexByUNameIdx = new HashMap< YCFBamValueByUNameIdxKey,
+				IYCFBamInt16TypeObj >();
 		}
-		CFBamValueByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+		YCFBamValueByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
-		ICFBamInt16TypeObj obj = null;
+		IYCFBamInt16TypeObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFBamValueBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFBamValueBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
 			if( buff != null ) {
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFBamInt16TypeObj)obj.realise();
+				obj = (IYCFBamInt16TypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByValTentIdx( long TenantId )
+	public List<IYCFBamInt16TypeObj> readInt16TypeByValTentIdx( long TenantId )
 	{
 		return( readInt16TypeByValTentIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByValTentIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByValTentIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeByValTentIdx";
-		CFBamValueByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+		YCFBamValueByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexByValTentIdx == null ) {
-			indexByValTentIdx = new HashMap< CFBamValueByValTentIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByValTentIdx = new HashMap< YCFBamValueByValTentIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByValTentIdx.containsKey( key ) ) {
 			dict = indexByValTentIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByValTentIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByValTentIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByValTentIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -948,20 +948,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -974,19 +974,19 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByScopeIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByScopeIdx( long TenantId,
 		long ScopeId )
 	{
 		return( readInt16TypeByScopeIdx( TenantId,
@@ -994,48 +994,48 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByScopeIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeByScopeIdx";
-		CFBamValueByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+		YCFBamValueByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexByScopeIdx == null ) {
-			indexByScopeIdx = new HashMap< CFBamValueByScopeIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByScopeIdx = new HashMap< YCFBamValueByScopeIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByScopeIdx.containsKey( key ) ) {
 			dict = indexByScopeIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByScopeIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1043,20 +1043,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1069,19 +1069,19 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		return( readInt16TypeByDefSchemaIdx( DefSchemaTenantId,
@@ -1089,48 +1089,48 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeByDefSchemaIdx";
-		CFBamValueByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+		YCFBamValueByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamValueByDefSchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamValueByDefSchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByDefSchemaIdx.containsKey( key ) ) {
 			dict = indexByDefSchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByDefSchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDefSchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1138,20 +1138,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1164,19 +1164,19 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		return( readInt16TypeByPrevIdx( PrevTenantId,
@@ -1184,48 +1184,48 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeByPrevIdx";
-		CFBamValueByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+		YCFBamValueByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamValueByPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByPrevIdx = new HashMap< YCFBamValueByPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByPrevIdx.containsKey( key ) ) {
 			dict = indexByPrevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByPrevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByPrevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1233,20 +1233,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1259,19 +1259,19 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByNextIdx( Long NextTenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		return( readInt16TypeByNextIdx( NextTenantId,
@@ -1279,48 +1279,48 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByNextIdx( Long NextTenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeByNextIdx";
-		CFBamValueByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+		YCFBamValueByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamValueByNextIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByNextIdx = new HashMap< YCFBamValueByNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByNextIdx.containsKey( key ) ) {
 			dict = indexByNextIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByNextIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByNextIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1328,20 +1328,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1354,19 +1354,19 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByContPrevIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId )
 	{
@@ -1376,51 +1376,51 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByContPrevIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeByContPrevIdx";
-		CFBamValueByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+		YCFBamValueByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexByContPrevIdx == null ) {
-			indexByContPrevIdx = new HashMap< CFBamValueByContPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByContPrevIdx = new HashMap< YCFBamValueByContPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByContPrevIdx.containsKey( key ) ) {
 			dict = indexByContPrevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContPrevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				PrevId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByContPrevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1428,20 +1428,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1454,19 +1454,19 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByContNextIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId )
 	{
@@ -1476,51 +1476,51 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByContNextIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeByContNextIdx";
-		CFBamValueByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+		YCFBamValueByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexByContNextIdx == null ) {
-			indexByContNextIdx = new HashMap< CFBamValueByContNextIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByContNextIdx = new HashMap< YCFBamValueByContNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByContNextIdx.containsKey( key ) ) {
 			dict = indexByContNextIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContNextIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				NextId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByContNextIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1528,20 +1528,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1554,63 +1554,63 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public List<IYCFBamInt16TypeObj> readInt16TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		return( readInt16TypeByCodeVisIdx( CodeVis,
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeByCodeVisIdx";
-		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		YCFBamValueByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexByCodeVisIdx == null ) {
-			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByCodeVisIdx = new HashMap< YCFBamValueByCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByCodeVisIdx.containsKey( key ) ) {
 			dict = indexByCodeVisIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByCodeVisIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByCodeVisIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1618,20 +1618,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1644,21 +1644,21 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByScopeCodeVisIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		return( readInt16TypeByScopeCodeVisIdx( TenantId,
 			ScopeId,
@@ -1666,51 +1666,51 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeByScopeCodeVisIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeByScopeCodeVisIdx";
-		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		YCFBamValueByScopeCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredCodeVis( CodeVis );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexByScopeCodeVisIdx == null ) {
-			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByScopeCodeVisIdx = new HashMap< YCFBamValueByScopeCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByScopeCodeVisIdx.containsKey( key ) ) {
 			dict = indexByScopeCodeVisIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeCodeVisIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				CodeVis );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByScopeCodeVisIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1718,20 +1718,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1744,19 +1744,19 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeBySchemaIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
 		return( readInt16TypeBySchemaIdx( TenantId,
@@ -1764,48 +1764,48 @@ public class CFBamInt16TypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamInt16TypeObj> readInt16TypeBySchemaIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readInt16TypeBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readInt16TypeBySchemaIdx";
-		CFBamInt16TypeBySchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
+		YCFBamInt16TypeBySchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSchemaDefId( SchemaDefId );
-		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 		if( indexBySchemaIdx == null ) {
-			indexBySchemaIdx = new HashMap< CFBamInt16TypeBySchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexBySchemaIdx = new HashMap< YCFBamInt16TypeBySchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( ( ! forceRead ) && indexBySchemaIdx.containsKey( key ) ) {
 			dict = indexBySchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
-			ICFBamInt16TypeObj obj;
-			CFBamInt16TypeBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().readDerivedBySchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamInt16TypeObj>();
+			IYCFBamInt16TypeObj obj;
+			YCFBamInt16TypeBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().readDerivedBySchemaIdx( schema.getAuthorization(),
 				TenantId,
 				SchemaDefId );
-			CFBamInt16TypeBuff buff;
+			YCFBamInt16TypeBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				IYCFBamInt16TypeObj realised = (IYCFBamInt16TypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexBySchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+		Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1813,20 +1813,20 @@ public class CFBamInt16TypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1839,35 +1839,35 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		List<IYCFBamInt16TypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamInt16TypeObj readCachedInt16TypeByIdIdx( long TenantId,
+	public IYCFBamInt16TypeObj readCachedInt16TypeByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamInt16TypeObj obj = null;
-		CFBamValuePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
+		IYCFBamInt16TypeObj obj = null;
+		YCFBamValuePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedInt16Type( pkey );
 		return( obj );
 	}
 
-	public ICFBamInt16TypeObj readCachedInt16TypeByUNameIdx( long TenantId,
+	public IYCFBamInt16TypeObj readCachedInt16TypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name )
 	{
-		ICFBamInt16TypeObj obj = null;
-		CFBamValueByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+		IYCFBamInt16TypeObj obj = null;
+		YCFBamValueByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
@@ -1876,7 +1876,7 @@ public class CFBamInt16TypeTableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+				Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1888,7 +1888,7 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1901,25 +1901,25 @@ public class CFBamInt16TypeTableObj
 		return( obj );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeByValTentIdx( long TenantId )
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedInt16TypeByValTentIdx";
-		CFBamValueByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+		YCFBamValueByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexByValTentIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexByValTentIdx.containsKey( key ) ) {
 				dict = indexByValTentIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1927,7 +1927,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1940,8 +1940,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1951,8 +1951,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1965,8 +1965,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1976,27 +1976,27 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeByScopeIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeByScopeIdx( long TenantId,
 		long ScopeId )
 	{
 		final String S_ProcName = "readCachedInt16TypeByScopeIdx";
-		CFBamValueByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+		YCFBamValueByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexByScopeIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexByScopeIdx.containsKey( key ) ) {
 				dict = indexByScopeIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2004,7 +2004,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2017,8 +2017,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2028,8 +2028,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2042,8 +2042,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2053,27 +2053,27 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "readCachedInt16TypeByDefSchemaIdx";
-		CFBamValueByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+		YCFBamValueByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexByDefSchemaIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexByDefSchemaIdx.containsKey( key ) ) {
 				dict = indexByDefSchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2081,7 +2081,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2094,8 +2094,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2105,8 +2105,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2119,8 +2119,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2130,27 +2130,27 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		final String S_ProcName = "readCachedInt16TypeByPrevIdx";
-		CFBamValueByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+		YCFBamValueByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexByPrevIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexByPrevIdx.containsKey( key ) ) {
 				dict = indexByPrevIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2158,7 +2158,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2171,8 +2171,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2182,8 +2182,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2196,8 +2196,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2207,27 +2207,27 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeByNextIdx( Long NextTenantId,
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		final String S_ProcName = "readCachedInt16TypeByNextIdx";
-		CFBamValueByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+		YCFBamValueByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexByNextIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexByNextIdx.containsKey( key ) ) {
 				dict = indexByNextIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2235,7 +2235,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2248,8 +2248,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2259,8 +2259,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2273,8 +2273,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2284,29 +2284,29 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeByContPrevIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId )
 	{
 		final String S_ProcName = "readCachedInt16TypeByContPrevIdx";
-		CFBamValueByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+		YCFBamValueByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexByContPrevIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexByContPrevIdx.containsKey( key ) ) {
 				dict = indexByContPrevIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2314,7 +2314,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2327,8 +2327,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2338,8 +2338,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2352,8 +2352,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2363,29 +2363,29 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeByContNextIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId )
 	{
 		final String S_ProcName = "readCachedInt16TypeByContNextIdx";
-		CFBamValueByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+		YCFBamValueByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexByContNextIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexByContNextIdx.containsKey( key ) ) {
 				dict = indexByContNextIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2393,7 +2393,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2406,8 +2406,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2417,8 +2417,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2431,8 +2431,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2442,25 +2442,25 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "readCachedInt16TypeByCodeVisIdx";
-		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		YCFBamValueByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexByCodeVisIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexByCodeVisIdx.containsKey( key ) ) {
 				dict = indexByCodeVisIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2468,7 +2468,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2481,8 +2481,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2492,8 +2492,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2506,8 +2506,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2517,29 +2517,29 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeByScopeCodeVisIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "readCachedInt16TypeByScopeCodeVisIdx";
-		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		YCFBamValueByScopeCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredCodeVis( CodeVis );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexByScopeCodeVisIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexByScopeCodeVisIdx.containsKey( key ) ) {
 				dict = indexByScopeCodeVisIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2547,7 +2547,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2560,8 +2560,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2571,8 +2571,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2585,8 +2585,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2596,27 +2596,27 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamInt16TypeObj> readCachedInt16TypeBySchemaIdx( long TenantId,
+	public List<IYCFBamInt16TypeObj> readCachedInt16TypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
 		final String S_ProcName = "readCachedInt16TypeBySchemaIdx";
-		CFBamInt16TypeBySchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
+		YCFBamInt16TypeBySchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSchemaDefId( SchemaDefId );
-		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		ArrayList<IYCFBamInt16TypeObj> arrayList = new ArrayList<IYCFBamInt16TypeObj>();
 		if( indexBySchemaIdx != null ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict;
 			if( indexBySchemaIdx.containsKey( key ) ) {
 				dict = indexBySchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
-				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				IYCFBamInt16TypeObj arr[] = new IYCFBamInt16TypeObj[len];
+				Iterator<IYCFBamInt16TypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2624,7 +2624,7 @@ public class CFBamInt16TypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2637,8 +2637,8 @@ public class CFBamInt16TypeTableObj
 			}
 		}
 		else {
-			ICFBamInt16TypeObj obj;
-			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			Iterator<IYCFBamInt16TypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2648,8 +2648,8 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
-			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+		Comparator<IYCFBamInt16TypeObj> cmp = new Comparator<IYCFBamInt16TypeObj>() {
+			public int compare( IYCFBamInt16TypeObj lhs, IYCFBamInt16TypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2662,8 +2662,8 @@ public class CFBamInt16TypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2676,7 +2676,7 @@ public class CFBamInt16TypeTableObj
 	public void deepDisposeInt16TypeByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamInt16TypeObj obj = readCachedInt16TypeByIdIdx( TenantId,
+		IYCFBamInt16TypeObj obj = readCachedInt16TypeByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -2687,7 +2687,7 @@ public class CFBamInt16TypeTableObj
 		long ScopeId,
 		String Name )
 	{
-		ICFBamInt16TypeObj obj = readCachedInt16TypeByUNameIdx( TenantId,
+		IYCFBamInt16TypeObj obj = readCachedInt16TypeByUNameIdx( TenantId,
 				ScopeId,
 				Name );
 		if( obj != null ) {
@@ -2698,10 +2698,10 @@ public class CFBamInt16TypeTableObj
 	public void deepDisposeInt16TypeByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeByValTentIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByValTentIdx( TenantId );
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeByValTentIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2715,11 +2715,11 @@ public class CFBamInt16TypeTableObj
 		long ScopeId )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeByScopeIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByScopeIdx( TenantId,
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeByScopeIdx( TenantId,
 				ScopeId );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2733,11 +2733,11 @@ public class CFBamInt16TypeTableObj
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeByDefSchemaIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByDefSchemaIdx( DefSchemaTenantId,
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeByDefSchemaIdx( DefSchemaTenantId,
 				DefSchemaId );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2751,11 +2751,11 @@ public class CFBamInt16TypeTableObj
 		Long PrevId )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeByPrevIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByPrevIdx( PrevTenantId,
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeByPrevIdx( PrevTenantId,
 				PrevId );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2769,11 +2769,11 @@ public class CFBamInt16TypeTableObj
 		Long NextId )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeByNextIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByNextIdx( NextTenantId,
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeByNextIdx( NextTenantId,
 				NextId );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2788,12 +2788,12 @@ public class CFBamInt16TypeTableObj
 		Long PrevId )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeByContPrevIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByContPrevIdx( TenantId,
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeByContPrevIdx( TenantId,
 				ScopeId,
 				PrevId );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2808,12 +2808,12 @@ public class CFBamInt16TypeTableObj
 		Long NextId )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeByContNextIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByContNextIdx( TenantId,
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeByContNextIdx( TenantId,
 				ScopeId,
 				NextId );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2823,13 +2823,13 @@ public class CFBamInt16TypeTableObj
 		}
 	}
 
-	public void deepDisposeInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public void deepDisposeInt16TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeByCodeVisIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByCodeVisIdx( CodeVis );
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeByCodeVisIdx( CodeVis );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2841,15 +2841,15 @@ public class CFBamInt16TypeTableObj
 
 	public void deepDisposeInt16TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeByScopeCodeVisIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByScopeCodeVisIdx( TenantId,
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeByScopeCodeVisIdx( TenantId,
 				ScopeId,
 				CodeVis );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2863,11 +2863,11 @@ public class CFBamInt16TypeTableObj
 		long SchemaDefId )
 	{
 		final String S_ProcName = "deepDisposeInt16TypeBySchemaIdx";
-		ICFBamInt16TypeObj obj;
-		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeBySchemaIdx( TenantId,
+		IYCFBamInt16TypeObj obj;
+		List<IYCFBamInt16TypeObj> arrayList = readCachedInt16TypeBySchemaIdx( TenantId,
 				SchemaDefId );
 		if( arrayList != null )  {
-			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2877,22 +2877,22 @@ public class CFBamInt16TypeTableObj
 		}
 	}
 
-	public ICFBamInt16TypeObj updateInt16Type( ICFBamInt16TypeObj Obj ) {
-		ICFBamInt16TypeObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().updateInt16Type( schema.getAuthorization(),
+	public IYCFBamInt16TypeObj updateInt16Type( IYCFBamInt16TypeObj Obj ) {
+		IYCFBamInt16TypeObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().updateInt16Type( schema.getAuthorization(),
 			Obj.getInt16TypeBuff() );
 		if( Obj.getClassCode().equals( "a827" ) ) {
-			obj = (ICFBamInt16TypeObj)Obj.realise();
+			obj = (IYCFBamInt16TypeObj)Obj.realise();
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteInt16Type( ICFBamInt16TypeObj Obj ) {
-		ICFBamInt16TypeObj obj = Obj;
-		ICFBamValueObj prev = obj.getOptionalLookupPrev();
-		ICFBamValueObj next = obj.getOptionalLookupNext();
-		((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16Type( schema.getAuthorization(),
+	public void deleteInt16Type( IYCFBamInt16TypeObj Obj ) {
+		IYCFBamInt16TypeObj obj = Obj;
+		IYCFBamValueObj prev = obj.getOptionalLookupPrev();
+		IYCFBamValueObj next = obj.getOptionalLookupNext();
+		((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16Type( schema.getAuthorization(),
 			obj.getInt16TypeBuff() );
 		Obj.forget();
 		if( prev != null ) {
@@ -2906,15 +2906,15 @@ public class CFBamInt16TypeTableObj
 	public void deleteInt16TypeByIdIdx( long TenantId,
 		long Id )
 	{
-		CFBamValuePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
+		YCFBamValuePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamInt16TypeObj obj = readInt16Type( pkey );
+		IYCFBamInt16TypeObj obj = readInt16Type( pkey );
 		if( obj != null ) {
-			ICFBamInt16TypeEditObj editObj = (ICFBamInt16TypeEditObj)obj.getEdit();
+			IYCFBamInt16TypeEditObj editObj = (IYCFBamInt16TypeEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFBamInt16TypeEditObj)obj.beginEdit();
+				editObj = (IYCFBamInt16TypeEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -2942,24 +2942,24 @@ public class CFBamInt16TypeTableObj
 		String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamValueByUNameIdxKey,
-				ICFBamInt16TypeObj >();
+			indexByUNameIdx = new HashMap< YCFBamValueByUNameIdxKey,
+				IYCFBamInt16TypeObj >();
 		}
-		CFBamValueByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+		YCFBamValueByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
-		ICFBamInt16TypeObj obj = null;
+		IYCFBamInt16TypeObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
@@ -2971,19 +2971,19 @@ public class CFBamInt16TypeTableObj
 
 	public void deleteInt16TypeByValTentIdx( long TenantId )
 	{
-		CFBamValueByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+		YCFBamValueByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByValTentIdx == null ) {
-			indexByValTentIdx = new HashMap< CFBamValueByValTentIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByValTentIdx = new HashMap< YCFBamValueByValTentIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexByValTentIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByValTentIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByValTentIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexByValTentIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByValTentIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2996,7 +2996,7 @@ public class CFBamInt16TypeTableObj
 			indexByValTentIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByValTentIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByValTentIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeInt16TypeByValTentIdx( TenantId );
@@ -3005,21 +3005,21 @@ public class CFBamInt16TypeTableObj
 	public void deleteInt16TypeByScopeIdx( long TenantId,
 		long ScopeId )
 	{
-		CFBamValueByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+		YCFBamValueByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		if( indexByScopeIdx == null ) {
-			indexByScopeIdx = new HashMap< CFBamValueByScopeIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByScopeIdx = new HashMap< YCFBamValueByScopeIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexByScopeIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByScopeIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexByScopeIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3032,7 +3032,7 @@ public class CFBamInt16TypeTableObj
 			indexByScopeIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
 		}
@@ -3043,21 +3043,21 @@ public class CFBamInt16TypeTableObj
 	public void deleteInt16TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		CFBamValueByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+		YCFBamValueByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamValueByDefSchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamValueByDefSchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexByDefSchemaIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByDefSchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByDefSchemaIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexByDefSchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3070,7 +3070,7 @@ public class CFBamInt16TypeTableObj
 			indexByDefSchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByDefSchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
 		}
@@ -3081,21 +3081,21 @@ public class CFBamInt16TypeTableObj
 	public void deleteInt16TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
-		CFBamValueByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+		YCFBamValueByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamValueByPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByPrevIdx = new HashMap< YCFBamValueByPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexByPrevIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByPrevIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByPrevIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexByPrevIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3108,7 +3108,7 @@ public class CFBamInt16TypeTableObj
 			indexByPrevIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByPrevIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
 		}
@@ -3119,21 +3119,21 @@ public class CFBamInt16TypeTableObj
 	public void deleteInt16TypeByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
-		CFBamValueByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+		YCFBamValueByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamValueByNextIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByNextIdx = new HashMap< YCFBamValueByNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexByNextIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByNextIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByNextIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexByNextIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3146,7 +3146,7 @@ public class CFBamInt16TypeTableObj
 			indexByNextIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByNextIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
 		}
@@ -3158,23 +3158,23 @@ public class CFBamInt16TypeTableObj
 		long ScopeId,
 		Long PrevId )
 	{
-		CFBamValueByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+		YCFBamValueByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
 		if( indexByContPrevIdx == null ) {
-			indexByContPrevIdx = new HashMap< CFBamValueByContPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByContPrevIdx = new HashMap< YCFBamValueByContPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexByContPrevIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByContPrevIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByContPrevIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexByContPrevIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				PrevId );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3187,7 +3187,7 @@ public class CFBamInt16TypeTableObj
 			indexByContPrevIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByContPrevIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				PrevId );
@@ -3201,23 +3201,23 @@ public class CFBamInt16TypeTableObj
 		long ScopeId,
 		Long NextId )
 	{
-		CFBamValueByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+		YCFBamValueByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
 		if( indexByContNextIdx == null ) {
-			indexByContNextIdx = new HashMap< CFBamValueByContNextIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByContNextIdx = new HashMap< YCFBamValueByContNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexByContNextIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByContNextIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByContNextIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexByContNextIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				NextId );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3230,7 +3230,7 @@ public class CFBamInt16TypeTableObj
 			indexByContNextIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByContNextIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				NextId );
@@ -3240,21 +3240,21 @@ public class CFBamInt16TypeTableObj
 				NextId );
 	}
 
-	public void deleteInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public void deleteInt16TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		YCFBamValueByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
 		if( indexByCodeVisIdx == null ) {
-			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByCodeVisIdx = new HashMap< YCFBamValueByCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexByCodeVisIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByCodeVisIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByCodeVisIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexByCodeVisIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3267,7 +3267,7 @@ public class CFBamInt16TypeTableObj
 			indexByCodeVisIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByCodeVisIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
 		}
 		deepDisposeInt16TypeByCodeVisIdx( CodeVis );
@@ -3275,25 +3275,25 @@ public class CFBamInt16TypeTableObj
 
 	public void deleteInt16TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		YCFBamValueByScopeCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredCodeVis( CodeVis );
 		if( indexByScopeCodeVisIdx == null ) {
-			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexByScopeCodeVisIdx = new HashMap< YCFBamValueByScopeCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexByScopeCodeVisIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByScopeCodeVisIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeCodeVisIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexByScopeCodeVisIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				CodeVis );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3306,7 +3306,7 @@ public class CFBamInt16TypeTableObj
 			indexByScopeCodeVisIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeCodeVisIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				CodeVis );
@@ -3319,21 +3319,21 @@ public class CFBamInt16TypeTableObj
 	public void deleteInt16TypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
-		CFBamInt16TypeBySchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
+		YCFBamInt16TypeBySchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSchemaDefId( SchemaDefId );
 		if( indexBySchemaIdx == null ) {
-			indexBySchemaIdx = new HashMap< CFBamInt16TypeBySchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+			indexBySchemaIdx = new HashMap< YCFBamInt16TypeBySchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamInt16TypeObj > >();
 		}
 		if( indexBySchemaIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexBySchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeBySchemaIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamInt16TypeObj> dict = indexBySchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeBySchemaIdx( schema.getAuthorization(),
 				TenantId,
 				SchemaDefId );
-			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
-			ICFBamInt16TypeObj obj;
-			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			Iterator<IYCFBamInt16TypeObj> iter = dict.values().iterator();
+			IYCFBamInt16TypeObj obj;
+			List<IYCFBamInt16TypeObj> toForget = new LinkedList<IYCFBamInt16TypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3346,7 +3346,7 @@ public class CFBamInt16TypeTableObj
 			indexBySchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeBySchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeBySchemaIdx( schema.getAuthorization(),
 				TenantId,
 				SchemaDefId );
 		}
@@ -3355,61 +3355,61 @@ public class CFBamInt16TypeTableObj
 	}
 
 	/**
-	 *	Move the CFBamInt16TypeObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamInt16TypeObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamInt16TypeObj refreshed cache instance.
+	 *	@return	YCFBamInt16TypeObj refreshed cache instance.
 	 */
-	public ICFBamInt16TypeObj moveUpInt16Type( ICFBamInt16TypeObj Obj ) {
-		ICFBamInt16TypeObj obj = null;
+	public IYCFBamInt16TypeObj moveUpInt16Type( IYCFBamInt16TypeObj Obj ) {
+		IYCFBamInt16TypeObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveUpInt16Type",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamInt16TypeBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().moveBuffUp( schema.getAuthorization(),
+		YCFBamInt16TypeBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().moveBuffUp( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getInt16TypeTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamInt16TypeObj)obj.realise();
-			ICFBamValueObj prev = obj.getOptionalLookupPrev( true );
-			ICFBamValueObj next = obj.getOptionalLookupNext( true );
+			obj = (IYCFBamInt16TypeObj)obj.realise();
+			IYCFBamValueObj prev = obj.getOptionalLookupPrev( true );
+			IYCFBamValueObj next = obj.getOptionalLookupNext( true );
 			if( next != null ) {
-				ICFBamValueObj gnext = next.getOptionalLookupNext( true );
+				IYCFBamValueObj gnext = next.getOptionalLookupNext( true );
 			}
 		}
 		return( obj );
 	}
 
 	/**
-	 *	Move the CFBamInt16TypeObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamInt16TypeObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamInt16TypeObj refreshed cache instance.
+	 *	@return	YCFBamInt16TypeObj refreshed cache instance.
 	 */
-	public ICFBamInt16TypeObj moveDownInt16Type( ICFBamInt16TypeObj Obj ) {
-		ICFBamInt16TypeObj obj = null;
+	public IYCFBamInt16TypeObj moveDownInt16Type( IYCFBamInt16TypeObj Obj ) {
+		IYCFBamInt16TypeObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveDownInt16Type",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamInt16TypeBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().moveBuffDown( schema.getAuthorization(),
+		YCFBamInt16TypeBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableInt16Type().moveBuffDown( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getInt16TypeTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamInt16TypeObj)obj.realise();
-			ICFBamValueObj prev = obj.getOptionalLookupPrev( true );
+			obj = (IYCFBamInt16TypeObj)obj.realise();
+			IYCFBamValueObj prev = obj.getOptionalLookupPrev( true );
 			if( prev != null ) {
-				ICFBamValueObj gprev = prev.getOptionalLookupPrev( true );
+				IYCFBamValueObj gprev = prev.getOptionalLookupPrev( true );
 			}
-			ICFBamValueObj next = obj.getOptionalLookupNext( true );
+			IYCFBamValueObj next = obj.getOptionalLookupNext( true );
 		}
 		return( obj );
 	}

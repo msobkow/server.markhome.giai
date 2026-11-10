@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for SysCluster.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,20 +35,20 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSysClusterTable database interface for SysCluster
+ *	YCFBamSysClusterTable database interface for SysCluster
  */
-public interface ICFBamSysClusterTable
-extends ICFSecSysClusterTable,
-	ICFIntSysClusterTable
+public interface IYCFBamSysClusterTable
+extends IYCFSecSysClusterTable,
+	IYCFIntSysClusterTable
 {
 
 	/**
@@ -59,8 +59,8 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSysCluster( CFSecAuthorization Authorization,
-		CFSecSysClusterBuff Buff );
+	void createSysCluster( YCFSecAuthorization Authorization,
+		YCFSecSysClusterBuff Buff );
 
 
 	/**
@@ -71,8 +71,8 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSysCluster( CFSecAuthorization Authorization,
-		CFSecSysClusterBuff Buff );
+	void updateSysCluster( YCFSecAuthorization Authorization,
+		YCFSecSysClusterBuff Buff );
 
 
 	/**
@@ -82,8 +82,8 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSysCluster( CFSecAuthorization Authorization,
-		CFSecSysClusterBuff Buff );
+	void deleteSysCluster( YCFSecAuthorization Authorization,
+		YCFSecSysClusterBuff Buff );
 	/**
 	 *	Delete the SysCluster instance identified by the primary key attributes.
 	 *
@@ -91,7 +91,7 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@param	argSingletonId	The SysCluster key attribute of the instance generating the id.
 	 */
-	void deleteSysClusterByIdIdx( CFSecAuthorization Authorization,
+	void deleteSysClusterByIdIdx( YCFSecAuthorization Authorization,
 		int argSingletonId );
 
 	/**
@@ -101,8 +101,8 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSysClusterByIdIdx( CFSecAuthorization Authorization,
-		CFSecSysClusterPKey argKey );
+	void deleteSysClusterByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecSysClusterPKey argKey );
 	/**
 	 *	Delete the SysCluster instances identified by the key ClusterIdx.
 	 *
@@ -110,7 +110,7 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@param	argClusterId	The SysCluster key attribute of the instance generating the id.
 	 */
-	void deleteSysClusterByClusterIdx( CFSecAuthorization Authorization,
+	void deleteSysClusterByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -120,8 +120,8 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSysClusterByClusterIdx( CFSecAuthorization Authorization,
-		CFSecSysClusterByClusterIdxKey argKey );
+	void deleteSysClusterByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecSysClusterByClusterIdxKey argKey );
 
 
 	/**
@@ -134,8 +134,8 @@ extends ICFSecSysClusterTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSysClusterBuff readDerived( CFSecAuthorization Authorization,
-		CFSecSysClusterPKey PKey );
+	YCFSecSysClusterBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecSysClusterPKey PKey );
 
 	/**
 	 *	Lock the derived SysCluster buffer instance by primary key.
@@ -147,8 +147,8 @@ extends ICFSecSysClusterTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSysClusterBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecSysClusterPKey PKey );
+	YCFSecSysClusterBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecSysClusterPKey PKey );
 
 	/**
 	 *	Read all SysCluster instances.
@@ -157,7 +157,7 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecSysClusterBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecSysClusterBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SysCluster buffer instance identified by the unique key IdIdx.
@@ -169,7 +169,7 @@ extends ICFSecSysClusterTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSysClusterBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSysClusterBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		int SingletonId );
 
 	/**
@@ -181,7 +181,7 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSysClusterBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSysClusterBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -194,10 +194,10 @@ extends ICFSecSysClusterTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSysClusterBuff readBuff( CFSecAuthorization Authorization,
-		CFSecSysClusterPKey PKey );
+	YCFSecSysClusterBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecSysClusterPKey PKey );
 
 	/**
 	 *	Lock the specific SysCluster buffer instance identified by the primary key.
@@ -209,10 +209,10 @@ extends ICFSecSysClusterTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSysClusterBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecSysClusterPKey PKey );
+	YCFSecSysClusterBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecSysClusterPKey PKey );
 
 	/**
 	 *	Read all the specific SysCluster buffer instances.
@@ -221,7 +221,7 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@return All the specific SysCluster instances in the database accessible for the Authorization.
 	 */
-	CFSecSysClusterBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecSysClusterBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific SysCluster buffer instance identified by the unique key IdIdx.
@@ -233,9 +233,9 @@ extends ICFSecSysClusterTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSysClusterBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSysClusterBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		int SingletonId );
 
 	/**
@@ -247,15 +247,15 @@ extends ICFSecSysClusterTable,
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSysClusterBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSysClusterBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

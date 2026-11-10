@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecClusterTableObj
+public interface IYCFSecClusterTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecClusterTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecClusterObj newInstance();
+	IYCFSecClusterObj newInstance();
 
 	/**
 	 *	Instantiate a new Cluster edition of the specified Cluster instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecClusterEditObj newEditInstance( ICFSecClusterObj orig );
+	IYCFSecClusterEditObj newEditInstance( IYCFSecClusterObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecClusterObj realiseCluster( ICFSecClusterObj Obj );
+	IYCFSecClusterObj realiseCluster( IYCFSecClusterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecClusterObj createCluster( ICFSecClusterObj Obj );
+	IYCFSecClusterObj createCluster( IYCFSecClusterObj Obj );
 
 	/**
 	 *	Read a Cluster-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecClusterTableObj
 	 *	@return	The Cluster-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecClusterObj readCluster( CFSecClusterPKey pkey );
+	IYCFSecClusterObj readCluster( YCFSecClusterPKey pkey );
 
 	/**
 	 *	Read a Cluster-derived instance by it's primary key.
@@ -90,114 +90,114 @@ public interface ICFSecClusterTableObj
 	 *	@return	The Cluster-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecClusterObj readCluster( CFSecClusterPKey pkey,
+	IYCFSecClusterObj readCluster( YCFSecClusterPKey pkey,
 		boolean forceRead );
 
-	ICFSecClusterObj readCachedCluster( CFSecClusterPKey pkey );
+	IYCFSecClusterObj readCachedCluster( YCFSecClusterPKey pkey );
 
-	public void reallyDeepDisposeCluster( ICFSecClusterObj obj );
+	public void reallyDeepDisposeCluster( IYCFSecClusterObj obj );
 
-	void deepDisposeCluster( CFSecClusterPKey pkey );
+	void deepDisposeCluster( YCFSecClusterPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecClusterObj lockCluster( CFSecClusterPKey pkey );
+	IYCFSecClusterObj lockCluster( YCFSecClusterPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the Cluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecClusterObj> readAllCluster();
+	List<IYCFSecClusterObj> readAllCluster();
 
 	/**
 	 *	Return a sorted map of all the Cluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecClusterObj> readAllCluster( boolean forceRead );
+	List<IYCFSecClusterObj> readAllCluster( boolean forceRead );
 
-	List<ICFSecClusterObj> readCachedAllCluster();
+	List<IYCFSecClusterObj> readCachedAllCluster();
 
 	/**
 	 *	Return a sorted map of a page of the Cluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecClusterObj> pageAllCluster(Long priorId );
+	List<IYCFSecClusterObj> pageAllCluster(Long priorId );
 
 	/**
-	 *	Get the CFSecClusterObj instance for the primary key attributes.
+	 *	Get the YCFSecClusterObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecClusterObj cached instance for the primary key, or
+	 *	@return	YCFSecClusterObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecClusterObj readClusterByIdIdx( long Id );
+	IYCFSecClusterObj readClusterByIdIdx( long Id );
 
 	/**
-	 *	Get the CFSecClusterObj instance for the primary key attributes.
+	 *	Get the YCFSecClusterObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecClusterObj refreshed instance for the primary key, or
+	 *	@return	YCFSecClusterObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecClusterObj readClusterByIdIdx( long Id,
+	IYCFSecClusterObj readClusterByIdIdx( long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecClusterObj instance for the unique UDomNameIdx key.
+	 *	Get the YCFSecClusterObj instance for the unique UDomNameIdx key.
 	 *
 	 *	@param	argFullDomName	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecClusterObj cached instance for the unique UDomNameIdx key, or
+	 *	@return	YCFSecClusterObj cached instance for the unique UDomNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecClusterObj readClusterByUDomNameIdx(String FullDomName );
+	IYCFSecClusterObj readClusterByUDomNameIdx(String FullDomName );
 
 	/**
-	 *	Get the CFSecClusterObj instance for the unique UDomNameIdx key.
+	 *	Get the YCFSecClusterObj instance for the unique UDomNameIdx key.
 	 *
 	 *	@param	argFullDomName	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecClusterObj refreshed instance for the unique UDomNameIdx key, or
+	 *	@return	YCFSecClusterObj refreshed instance for the unique UDomNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecClusterObj readClusterByUDomNameIdx(String FullDomName,
+	IYCFSecClusterObj readClusterByUDomNameIdx(String FullDomName,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecClusterObj instance for the unique UDescrIdx key.
+	 *	Get the YCFSecClusterObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argDescription	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecClusterObj cached instance for the unique UDescrIdx key, or
+	 *	@return	YCFSecClusterObj cached instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecClusterObj readClusterByUDescrIdx(String Description );
+	IYCFSecClusterObj readClusterByUDescrIdx(String Description );
 
 	/**
-	 *	Get the CFSecClusterObj instance for the unique UDescrIdx key.
+	 *	Get the YCFSecClusterObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argDescription	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecClusterObj refreshed instance for the unique UDescrIdx key, or
+	 *	@return	YCFSecClusterObj refreshed instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecClusterObj readClusterByUDescrIdx(String Description,
+	IYCFSecClusterObj readClusterByUDescrIdx(String Description,
 		boolean forceRead );
 
-	ICFSecClusterObj readCachedClusterByIdIdx( long Id );
+	IYCFSecClusterObj readCachedClusterByIdIdx( long Id );
 
-	ICFSecClusterObj readCachedClusterByUDomNameIdx( String FullDomName );
+	IYCFSecClusterObj readCachedClusterByUDomNameIdx( String FullDomName );
 
-	ICFSecClusterObj readCachedClusterByUDescrIdx( String Description );
+	IYCFSecClusterObj readCachedClusterByUDescrIdx( String Description );
 
 	void deepDisposeClusterByIdIdx( long Id );
 
@@ -208,12 +208,12 @@ public interface ICFSecClusterTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecClusterObj updateCluster( ICFSecClusterObj Obj );
+	IYCFSecClusterObj updateCluster( IYCFSecClusterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteCluster( ICFSecClusterObj Obj );
+	void deleteCluster( IYCFSecClusterObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -236,5 +236,5 @@ public interface ICFSecClusterTableObj
 	 */
 	void deleteClusterByUDescrIdx(String Description );
 
-	ICFSecClusterObj getSystemCluster();
+	IYCFSecClusterObj getSystemCluster();
 }

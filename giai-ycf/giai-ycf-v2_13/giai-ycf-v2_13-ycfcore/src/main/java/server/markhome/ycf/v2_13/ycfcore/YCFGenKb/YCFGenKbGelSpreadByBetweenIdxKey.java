@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelSpread by BetweenIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,15 +37,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelSpreadByBetweenIdxKey
+public class YCFGenKbGelSpreadByBetweenIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String optionalExpandBetween;
-	public CFGenKbGelSpreadByBetweenIdxKey() {
+	public YCFGenKbGelSpreadByBetweenIdxKey() {
 		optionalExpandBetween = null;
 	}
 
@@ -58,7 +58,7 @@ public class CFGenKbGelSpreadByBetweenIdxKey
 			optionalExpandBetween = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpandBetween",
 				1,
 				"value.length()",
@@ -74,8 +74,8 @@ public class CFGenKbGelSpreadByBetweenIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByBetweenIdxKey ) {
-			CFGenKbGelSpreadByBetweenIdxKey rhs = (CFGenKbGelSpreadByBetweenIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByBetweenIdxKey ) {
+			YCFGenKbGelSpreadByBetweenIdxKey rhs = (YCFGenKbGelSpreadByBetweenIdxKey)obj;
 			if( getOptionalExpandBetween() != null ) {
 				if( rhs.getOptionalExpandBetween() != null ) {
 					if( ! getOptionalExpandBetween().equals( rhs.getOptionalExpandBetween() ) ) {
@@ -90,8 +90,8 @@ public class CFGenKbGelSpreadByBetweenIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSpreadBuff ) {
-			CFGenKbGelSpreadBuff rhs = (CFGenKbGelSpreadBuff)obj;
+		else if( obj instanceof YCFGenKbGelSpreadBuff ) {
+			YCFGenKbGelSpreadBuff rhs = (YCFGenKbGelSpreadBuff)obj;
 			if( getOptionalExpandBetween() != null ) {
 				if( rhs.getOptionalExpandBetween() != null ) {
 					if( ! getOptionalExpandBetween().equals( rhs.getOptionalExpandBetween() ) ) {
@@ -123,8 +123,8 @@ public class CFGenKbGelSpreadByBetweenIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByBetweenIdxKey ) {
-			CFGenKbGelSpreadByBetweenIdxKey rhs = (CFGenKbGelSpreadByBetweenIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByBetweenIdxKey ) {
+			YCFGenKbGelSpreadByBetweenIdxKey rhs = (YCFGenKbGelSpreadByBetweenIdxKey)obj;
 			if( getOptionalExpandBetween() != null ) {
 				if( rhs.getOptionalExpandBetween() != null ) {
 					int cmp = getOptionalExpandBetween().compareTo( rhs.getOptionalExpandBetween() );
@@ -143,8 +143,8 @@ public class CFGenKbGelSpreadByBetweenIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadBuff ) {
-			CFGenKbGelSpreadBuff rhs = (CFGenKbGelSpreadBuff)obj;
+		else if( obj instanceof YCFGenKbGelSpreadBuff ) {
+			YCFGenKbGelSpreadBuff rhs = (YCFGenKbGelSpreadBuff)obj;
 			if( getOptionalExpandBetween() != null ) {
 				if( rhs.getOptionalExpandBetween() != null ) {
 					int cmp = getOptionalExpandBetween().compareTo( rhs.getOptionalExpandBetween() );
@@ -164,7 +164,7 @@ public class CFGenKbGelSpreadByBetweenIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -173,8 +173,8 @@ public class CFGenKbGelSpreadByBetweenIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelSpreadByBetweenIdx"
-			+ " OptionalExpandBetween=" + ( ( getOptionalExpandBetween() == null ) ? "null" : "\"" + CFGenKbSchema.xmlEncodeString( getOptionalExpandBetween() ) + "\"" )
+		String ret = "<YCFGenKbGelSpreadByBetweenIdx"
+			+ " OptionalExpandBetween=" + ( ( getOptionalExpandBetween() == null ) ? "null" : "\"" + YCFGenKbSchema.xmlEncodeString( getOptionalExpandBetween() ) + "\"" )
 			+ "/>";
 		return( ret );
 	}

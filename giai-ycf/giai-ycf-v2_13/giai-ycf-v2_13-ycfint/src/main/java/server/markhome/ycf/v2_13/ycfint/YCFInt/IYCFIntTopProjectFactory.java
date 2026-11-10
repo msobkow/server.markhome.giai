@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for TopProject.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,14 +35,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 /*
- *	CFIntTopProjectFactory interface for TopProject
+ *	YCFIntTopProjectFactory interface for TopProject
  */
-public interface ICFIntTopProjectFactory
+public interface IYCFIntTopProjectFactory
 {
 
 	/**
@@ -50,48 +50,48 @@ public interface ICFIntTopProjectFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntTopProjectPKey newPKey();
+	YCFIntTopProjectPKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for TopProject instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntTopProjectHPKey newHPKey();
+	YCFIntTopProjectHPKey newHPKey();
 
 	/**
 	 *	Allocate a TenantIdx key over TopProject instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntTopProjectByTenantIdxKey newTenantIdxKey();
+	YCFIntTopProjectByTenantIdxKey newTenantIdxKey();
 
 	/**
 	 *	Allocate a TopDomainIdx key over TopProject instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntTopProjectByTopDomainIdxKey newTopDomainIdxKey();
+	YCFIntTopProjectByTopDomainIdxKey newTopDomainIdxKey();
 
 	/**
 	 *	Allocate a NameIdx key over TopProject instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntTopProjectByNameIdxKey newNameIdxKey();
+	YCFIntTopProjectByNameIdxKey newNameIdxKey();
 
 	/**
 	 *	Allocate a TopProject instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntTopProjectBuff newBuff();
+	YCFIntTopProjectBuff newBuff();
 
 	/**
 	 *	Allocate a TopProject history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntTopProjectHBuff newHBuff();
+	YCFIntTopProjectHBuff newHBuff();
 
 }

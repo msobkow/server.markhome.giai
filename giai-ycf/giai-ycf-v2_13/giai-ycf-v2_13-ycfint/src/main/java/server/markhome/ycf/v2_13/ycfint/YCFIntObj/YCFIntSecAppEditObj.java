@@ -1,15 +1,15 @@
-// Description: Java 11 edit object instance implementation for CFInt SecApp.
+// Description: Java 11 edit object instance implementation for YCFInt SecApp.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,39 +26,39 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntSecAppEditObj
-	implements ICFIntSecAppEditObj
+public class YCFIntSecAppEditObj
+	implements IYCFIntSecAppEditObj
 {
-	protected ICFSecSecAppObj orig;
-	protected CFSecSecAppBuff buff;
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
-	protected ICFSecClusterObj requiredContainerCluster;
+	protected IYCFSecSecAppObj orig;
+	protected YCFSecSecAppBuff buff;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
+	protected IYCFSecClusterObj requiredContainerCluster;
 
-	public CFIntSecAppEditObj( ICFSecSecAppObj argOrig ) {
+	public YCFIntSecAppEditObj( IYCFSecSecAppObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFSecSecAppBuff origBuff = orig.getBuff();
+		YCFSecSecAppBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredContainerCluster = null;
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFSecSecAppBuff buff = getBuff();
-			createdBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFSecSecAppBuff buff = getBuff();
+			createdBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -67,10 +67,10 @@ public class CFIntSecAppEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFSecSecAppBuff buff = getBuff();
-			updatedBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFSecSecAppBuff buff = getBuff();
+			updatedBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -79,7 +79,7 @@ public class CFIntSecAppEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFSecSecUserObj value ) {
+	public void setCreatedBy( IYCFSecSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -90,7 +90,7 @@ public class CFIntSecAppEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFSecSecUserObj value ) {
+	public void setUpdatedBy( IYCFSecSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -102,20 +102,20 @@ public class CFIntSecAppEditObj
 	}
 
 	public String getClassCode() {
-		return( CFIntSecAppObj.CLASS_CODE );
+		return( YCFIntSecAppObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "SecApp" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
@@ -125,14 +125,14 @@ public class CFIntSecAppEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -143,10 +143,10 @@ public class CFIntSecAppEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -155,20 +155,20 @@ public class CFIntSecAppEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -179,7 +179,7 @@ public class CFIntSecAppEditObj
 			remainingName = null;
 		}
 		if( subObj == null ) {
-			subObj = ((ICFIntSchemaObj)getSchema()).getSecFormTableObj().readSecFormByUJEEServletIdx( getRequiredClusterId(),
+			subObj = ((IYCFIntSchemaObj)getSchema()).getSecFormTableObj().readSecFormByUJEEServletIdx( getRequiredClusterId(),
 				getRequiredSecAppId(),
 				nextName, false );
 		}
@@ -197,13 +197,13 @@ public class CFIntSecAppEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -217,13 +217,13 @@ public class CFIntSecAppEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -235,9 +235,9 @@ public class CFIntSecAppEditObj
 		return( fullName );
 	}
 
-	public ICFSecSecAppObj realise() {
+	public IYCFSecSecAppObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFSecSecAppObj retobj = getSchema().getSecAppTableObj().realiseSecApp( (ICFIntSecAppObj)this );
+		IYCFSecSecAppObj retobj = getSchema().getSecAppTableObj().realiseSecApp( (IYCFIntSecAppObj)this );
 		return( retobj );
 	}
 
@@ -245,10 +245,10 @@ public class CFIntSecAppEditObj
 		getOrigAsSecApp().forget();
 	}
 
-	public ICFSecSecAppObj read() {
-		ICFSecSecAppObj retval = getOrigAsSecApp().read();
+	public IYCFSecSecAppObj read() {
+		IYCFSecSecAppObj retval = getOrigAsSecApp().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -256,10 +256,10 @@ public class CFIntSecAppEditObj
 		return( retval );
 	}
 
-	public ICFSecSecAppObj read( boolean forceRead ) {
-		ICFSecSecAppObj retval = getOrigAsSecApp().read( forceRead );
+	public IYCFSecSecAppObj read( boolean forceRead ) {
+		IYCFSecSecAppObj retval = getOrigAsSecApp().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -267,84 +267,84 @@ public class CFIntSecAppEditObj
 		return( retval );
 	}
 
-	public ICFSecSecAppObj create() {
+	public IYCFSecSecAppObj create() {
 		copyBuffToOrig();
-		ICFSecSecAppObj retobj = ((ICFIntSchemaObj)getOrigAsSecApp().getSchema()).getSecAppTableObj().createSecApp( getOrigAsSecApp() );
+		IYCFSecSecAppObj retobj = ((IYCFIntSchemaObj)getOrigAsSecApp().getSchema()).getSecAppTableObj().createSecApp( getOrigAsSecApp() );
 		if( retobj == getOrigAsSecApp() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFSecSecAppEditObj update() {
-		getSchema().getSecAppTableObj().updateSecApp( (ICFSecSecAppObj)this );
+	public YCFSecSecAppEditObj update() {
+		getSchema().getSecAppTableObj().updateSecApp( (IYCFSecSecAppObj)this );
 		return( null );
 	}
 
-	public CFSecSecAppEditObj deleteInstance() {
+	public YCFSecSecAppEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getSecAppTableObj().deleteSecApp( getOrigAsSecApp() );
 		return( null );
 	}
 
-	public ICFSecSecAppTableObj getSecAppTable() {
+	public IYCFSecSecAppTableObj getSecAppTable() {
 		return( orig.getSchema().getSecAppTableObj() );
 	}
 
-	public ICFSecSecAppEditObj getEdit() {
-		return( (ICFSecSecAppEditObj)this );
+	public IYCFSecSecAppEditObj getEdit() {
+		return( (IYCFSecSecAppEditObj)this );
 	}
 
-	public ICFSecSecAppEditObj getEditAsSecApp() {
-		return( (ICFSecSecAppEditObj)this );
+	public IYCFSecSecAppEditObj getEditAsSecApp() {
+		return( (IYCFSecSecAppEditObj)this );
 	}
 
-	public ICFSecSecAppEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFSecSecAppEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFSecSecAppObj getOrig() {
+	public IYCFSecSecAppObj getOrig() {
 		return( orig );
 	}
 
-	public ICFSecSecAppObj getOrigAsSecApp() {
-		return( (ICFSecSecAppObj)orig );
+	public IYCFSecSecAppObj getOrigAsSecApp() {
+		return( (IYCFSecSecAppObj)orig );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFSecSecAppBuff getBuff() {
+	public YCFSecSecAppBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFIntSchema)getOrigAsSecApp().getSchema().getBackingStore()).getFactorySecApp().newBuff();
+			buff = ((IYCFIntSchema)getOrigAsSecApp().getSchema().getBackingStore()).getFactorySecApp().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFSecSecAppBuff value ) {
+	public void setBuff( YCFSecSecAppBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredContainerCluster = null;
 		}
 	}
 
-	public CFSecSecAppBuff getSecAppBuff() {
-		return( (CFSecSecAppBuff)getBuff() );
+	public YCFSecSecAppBuff getSecAppBuff() {
+		return( (YCFSecSecAppBuff)getBuff() );
 	}
 
-	public CFSecSecAppPKey getPKey() {
+	public YCFSecSecAppPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFSecSecAppPKey value ) {
+	public void setPKey( YCFSecSecAppPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -375,15 +375,15 @@ public class CFIntSecAppEditObj
 		}
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster() {
+	public IYCFSecClusterObj getRequiredContainerCluster() {
 		return( getRequiredContainerCluster( false ) );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
+	public IYCFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
 		if( forceRead || ( requiredContainerCluster == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFSecClusterObj obj = ((ICFIntSchemaObj)getOrigAsSecApp().getSchema()).getClusterTableObj().readClusterByIdIdx( getPKey().getRequiredClusterId() );
+				IYCFSecClusterObj obj = ((IYCFIntSchemaObj)getOrigAsSecApp().getSchema()).getClusterTableObj().readClusterByIdIdx( getPKey().getRequiredClusterId() );
 				requiredContainerCluster = obj;
 				if( obj != null ) {
 					getSecAppBuff().setRequiredClusterId( obj.getRequiredId() );
@@ -394,7 +394,7 @@ public class CFIntSecAppEditObj
 		return( requiredContainerCluster );
 	}
 
-	public void setRequiredContainerCluster( ICFSecClusterObj value ) {
+	public void setRequiredContainerCluster( IYCFSecClusterObj value ) {
 			if( buff == null ) {
 				getSecAppBuff();
 			}
@@ -405,17 +405,17 @@ public class CFIntSecAppEditObj
 			requiredContainerCluster = value;
 	}
 
-	public List<ICFSecSecFormObj> getOptionalComponentsForm() {
-		List<ICFSecSecFormObj> retval;
-		retval = ((ICFIntSchemaObj)getOrigAsSecApp().getSchema()).getSecFormTableObj().readSecFormBySecAppIdx( getPKey().getRequiredClusterId(),
+	public List<IYCFSecSecFormObj> getOptionalComponentsForm() {
+		List<IYCFSecSecFormObj> retval;
+		retval = ((IYCFIntSchemaObj)getOrigAsSecApp().getSchema()).getSecFormTableObj().readSecFormBySecAppIdx( getPKey().getRequiredClusterId(),
 					getPKey().getRequiredSecAppId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFSecSecFormObj> getOptionalComponentsForm( boolean forceRead ) {
-		List<ICFSecSecFormObj> retval;
-		retval = ((ICFIntSchemaObj)getOrigAsSecApp().getSchema()).getSecFormTableObj().readSecFormBySecAppIdx( getPKey().getRequiredClusterId(),
+	public List<IYCFSecSecFormObj> getOptionalComponentsForm( boolean forceRead ) {
+		List<IYCFSecSecFormObj> retval;
+		retval = ((IYCFIntSchemaObj)getOrigAsSecApp().getSchema()).getSecFormTableObj().readSecFormBySecAppIdx( getPKey().getRequiredClusterId(),
 					getPKey().getRequiredSecAppId(),
 			forceRead );
 		return( retval );
@@ -432,14 +432,14 @@ public class CFIntSecAppEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFSecSecAppBuff origBuff = getOrigAsSecApp().getSecAppBuff();
-		CFSecSecAppBuff myBuff = getSecAppBuff();
+		YCFSecSecAppBuff origBuff = getOrigAsSecApp().getSecAppBuff();
+		YCFSecSecAppBuff myBuff = getSecAppBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFSecSecAppBuff origBuff = getOrigAsSecApp().getSecAppBuff();
-		CFSecSecAppBuff myBuff = getSecAppBuff();
+		YCFSecSecAppBuff origBuff = getOrigAsSecApp().getSecAppBuff();
+		YCFSecSecAppBuff myBuff = getSecAppBuff();
 		myBuff.set( origBuff );
 	}
 }

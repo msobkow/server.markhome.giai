@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,20 +21,20 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
 import java.util.Calendar;
 import java.math.*;
 
-public class CFLibArgumentRangeException extends CFLibArgumentException {
+public class YCFLibArgumentRangeException extends YCFLibArgumentException {
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String msg )
 	{
 		super( msg );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -42,7 +42,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 		super( throwingClass, methName, msg );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		String msg,
@@ -51,7 +51,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 		super( throwingClass, methName, msg, th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -61,7 +61,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 		super( throwingClass, methName, argNo, argName, msg );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -72,7 +72,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 		super( throwingClass, methName, argNo, argName, msg, th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -88,7 +88,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Short.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -106,7 +106,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -122,7 +122,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Integer.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -140,7 +140,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -156,7 +156,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Long.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -174,7 +174,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -190,7 +190,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Float.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -208,7 +208,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -224,7 +224,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Double.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -242,7 +242,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -258,7 +258,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -276,7 +276,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -292,7 +292,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -310,7 +310,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -326,7 +326,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -344,14 +344,14 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String msg )
 	{
 		super( fieldName, msg );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		String msg )
@@ -359,7 +359,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 		super( fieldName, methName, msg );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		String msg,
@@ -368,7 +368,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 		super( fieldName, methName, msg, th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -378,7 +378,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 		super( fieldName, methName, argNo, argName, msg );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -389,7 +389,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 		super( fieldName, methName, argNo, argName, msg, th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -405,7 +405,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Short.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -423,7 +423,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -439,7 +439,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Integer.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -457,7 +457,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -473,7 +473,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Long.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -491,7 +491,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -507,7 +507,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Float.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -525,7 +525,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -541,7 +541,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ Double.toString( maxValue ) );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -559,7 +559,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -575,7 +575,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -593,7 +593,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -609,7 +609,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -627,7 +627,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -643,7 +643,7 @@ public class CFLibArgumentRangeException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentRangeException(
+	public YCFLibArgumentRangeException(
 		String fieldName,
 		String methName,
 		int argNo,

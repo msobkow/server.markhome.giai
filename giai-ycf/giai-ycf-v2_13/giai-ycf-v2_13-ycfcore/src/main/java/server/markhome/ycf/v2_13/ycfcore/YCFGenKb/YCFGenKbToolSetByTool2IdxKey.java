@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a ToolSet by Tool2Idx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,15 +37,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbToolSetByTool2IdxKey
+public class YCFGenKbToolSetByTool2IdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Short optionalToolId2;
-	public CFGenKbToolSetByTool2IdxKey() {
+	public YCFGenKbToolSetByTool2IdxKey() {
 		optionalToolId2 = null;
 	}
 
@@ -57,21 +57,21 @@ public class CFGenKbToolSetByTool2IdxKey
 		if( value == null ) {
 			optionalToolId2 = null;
 		}
-		else if( value < CFGenKbToolSetBuff.TOOLID2_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbToolSetBuff.TOOLID2_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalToolId2",
 				1,
 				"value",
 				value,
-				CFGenKbToolSetBuff.TOOLID2_MIN_VALUE );
+				YCFGenKbToolSetBuff.TOOLID2_MIN_VALUE );
 		}
-		else if( value > CFGenKbToolSetBuff.TOOLID2_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFGenKbToolSetBuff.TOOLID2_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalToolId2",
 				1,
 				"value",
 				value,
-				CFGenKbToolSetBuff.TOOLID2_MAX_VALUE );
+				YCFGenKbToolSetBuff.TOOLID2_MAX_VALUE );
 		}
 		else {
 			optionalToolId2 = value;
@@ -82,8 +82,8 @@ public class CFGenKbToolSetByTool2IdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbToolSetByTool2IdxKey ) {
-			CFGenKbToolSetByTool2IdxKey rhs = (CFGenKbToolSetByTool2IdxKey)obj;
+		else if( obj instanceof YCFGenKbToolSetByTool2IdxKey ) {
+			YCFGenKbToolSetByTool2IdxKey rhs = (YCFGenKbToolSetByTool2IdxKey)obj;
 			if( getOptionalToolId2() != null ) {
 				if( rhs.getOptionalToolId2() != null ) {
 					if( ! getOptionalToolId2().equals( rhs.getOptionalToolId2() ) ) {
@@ -98,8 +98,8 @@ public class CFGenKbToolSetByTool2IdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbToolSetBuff ) {
-			CFGenKbToolSetBuff rhs = (CFGenKbToolSetBuff)obj;
+		else if( obj instanceof YCFGenKbToolSetBuff ) {
+			YCFGenKbToolSetBuff rhs = (YCFGenKbToolSetBuff)obj;
 			if( getOptionalToolId2() != null ) {
 				if( rhs.getOptionalToolId2() != null ) {
 					if( ! getOptionalToolId2().equals( rhs.getOptionalToolId2() ) ) {
@@ -134,8 +134,8 @@ public class CFGenKbToolSetByTool2IdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbToolSetByTool2IdxKey ) {
-			CFGenKbToolSetByTool2IdxKey rhs = (CFGenKbToolSetByTool2IdxKey)obj;
+		else if( obj instanceof YCFGenKbToolSetByTool2IdxKey ) {
+			YCFGenKbToolSetByTool2IdxKey rhs = (YCFGenKbToolSetByTool2IdxKey)obj;
 			if( getOptionalToolId2() != null ) {
 				Short lhsToolId2 = getOptionalToolId2();
 				if( rhs.getOptionalToolId2() != null ) {
@@ -156,8 +156,8 @@ public class CFGenKbToolSetByTool2IdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbToolSetBuff ) {
-			CFGenKbToolSetBuff rhs = (CFGenKbToolSetBuff)obj;
+		else if( obj instanceof YCFGenKbToolSetBuff ) {
+			YCFGenKbToolSetBuff rhs = (YCFGenKbToolSetBuff)obj;
 			if( getOptionalToolId2() != null ) {
 				Short lhsToolId2 = getOptionalToolId2();
 				if( rhs.getOptionalToolId2() != null ) {
@@ -179,7 +179,7 @@ public class CFGenKbToolSetByTool2IdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -188,7 +188,7 @@ public class CFGenKbToolSetByTool2IdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbToolSetByTool2Idx"
+		String ret = "<YCFGenKbToolSetByTool2Idx"
 			+ " OptionalToolId2=" + ( ( getOptionalToolId2() == null ) ? "null" : "\"" + getOptionalToolId2().toString() + "\"" )
 			+ "/>";
 		return( ret );

@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for ISOCtry.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,55 +35,55 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 	/*
-	 *	CFBamISOCtryFactory implementation for ISOCtry
+	 *	YCFBamISOCtryFactory implementation for ISOCtry
 	 */
-public class CFBamISOCtryDefaultFactory
-	extends CFSecISOCtryDefaultFactory
-	implements ICFBamISOCtryFactory
+public class YCFBamISOCtryDefaultFactory
+	extends YCFSecISOCtryDefaultFactory
+	implements IYCFBamISOCtryFactory
 {
-	public CFBamISOCtryDefaultFactory() {
+	public YCFBamISOCtryDefaultFactory() {
 		super();
 	}
 
-	public CFSecISOCtryPKey newPKey() {
-		CFSecISOCtryPKey pkey =
-			new CFSecISOCtryPKey();
+	public YCFSecISOCtryPKey newPKey() {
+		YCFSecISOCtryPKey pkey =
+			new YCFSecISOCtryPKey();
 		return( pkey );
 	}
 
-	public CFSecISOCtryHPKey newHPKey() {
-		CFSecISOCtryHPKey hpkey =
-			new CFSecISOCtryHPKey();
+	public YCFSecISOCtryHPKey newHPKey() {
+		YCFSecISOCtryHPKey hpkey =
+			new YCFSecISOCtryHPKey();
 		return( hpkey );
 	}
 
-	public CFSecISOCtryByISOCodeIdxKey newISOCodeIdxKey() {
-		CFSecISOCtryByISOCodeIdxKey key =
-			new CFSecISOCtryByISOCodeIdxKey();
+	public YCFSecISOCtryByISOCodeIdxKey newISOCodeIdxKey() {
+		YCFSecISOCtryByISOCodeIdxKey key =
+			new YCFSecISOCtryByISOCodeIdxKey();
 		return( key );
 	}
 
-	public CFSecISOCtryByNameIdxKey newNameIdxKey() {
-		CFSecISOCtryByNameIdxKey key =
-			new CFSecISOCtryByNameIdxKey();
+	public YCFSecISOCtryByNameIdxKey newNameIdxKey() {
+		YCFSecISOCtryByNameIdxKey key =
+			new YCFSecISOCtryByNameIdxKey();
 		return( key );
 	}
 
-	public CFSecISOCtryBuff newBuff() {
-		CFSecISOCtryBuff buff =
-			new CFSecISOCtryBuff();
+	public YCFSecISOCtryBuff newBuff() {
+		YCFSecISOCtryBuff buff =
+			new YCFSecISOCtryBuff();
 		return( buff );
 	}
 
-	public CFSecISOCtryHBuff newHBuff() {
-		CFSecISOCtryHBuff hbuff =
-			new CFSecISOCtryHBuff();
+	public YCFSecISOCtryHBuff newHBuff() {
+		YCFSecISOCtryHBuff hbuff =
+			new YCFSecISOCtryHBuff();
 		return( hbuff );
 	}
 }

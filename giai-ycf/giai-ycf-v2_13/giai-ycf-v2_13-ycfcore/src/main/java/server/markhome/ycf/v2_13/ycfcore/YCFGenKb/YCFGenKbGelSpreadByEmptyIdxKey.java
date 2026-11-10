@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelSpread by EmptyIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,15 +37,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelSpreadByEmptyIdxKey
+public class YCFGenKbGelSpreadByEmptyIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String optionalExpandEmpty;
-	public CFGenKbGelSpreadByEmptyIdxKey() {
+	public YCFGenKbGelSpreadByEmptyIdxKey() {
 		optionalExpandEmpty = null;
 	}
 
@@ -58,7 +58,7 @@ public class CFGenKbGelSpreadByEmptyIdxKey
 			optionalExpandEmpty = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpandEmpty",
 				1,
 				"value.length()",
@@ -74,8 +74,8 @@ public class CFGenKbGelSpreadByEmptyIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByEmptyIdxKey ) {
-			CFGenKbGelSpreadByEmptyIdxKey rhs = (CFGenKbGelSpreadByEmptyIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByEmptyIdxKey ) {
+			YCFGenKbGelSpreadByEmptyIdxKey rhs = (YCFGenKbGelSpreadByEmptyIdxKey)obj;
 			if( getOptionalExpandEmpty() != null ) {
 				if( rhs.getOptionalExpandEmpty() != null ) {
 					if( ! getOptionalExpandEmpty().equals( rhs.getOptionalExpandEmpty() ) ) {
@@ -90,8 +90,8 @@ public class CFGenKbGelSpreadByEmptyIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSpreadBuff ) {
-			CFGenKbGelSpreadBuff rhs = (CFGenKbGelSpreadBuff)obj;
+		else if( obj instanceof YCFGenKbGelSpreadBuff ) {
+			YCFGenKbGelSpreadBuff rhs = (YCFGenKbGelSpreadBuff)obj;
 			if( getOptionalExpandEmpty() != null ) {
 				if( rhs.getOptionalExpandEmpty() != null ) {
 					if( ! getOptionalExpandEmpty().equals( rhs.getOptionalExpandEmpty() ) ) {
@@ -123,8 +123,8 @@ public class CFGenKbGelSpreadByEmptyIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByEmptyIdxKey ) {
-			CFGenKbGelSpreadByEmptyIdxKey rhs = (CFGenKbGelSpreadByEmptyIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByEmptyIdxKey ) {
+			YCFGenKbGelSpreadByEmptyIdxKey rhs = (YCFGenKbGelSpreadByEmptyIdxKey)obj;
 			if( getOptionalExpandEmpty() != null ) {
 				if( rhs.getOptionalExpandEmpty() != null ) {
 					int cmp = getOptionalExpandEmpty().compareTo( rhs.getOptionalExpandEmpty() );
@@ -143,8 +143,8 @@ public class CFGenKbGelSpreadByEmptyIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadBuff ) {
-			CFGenKbGelSpreadBuff rhs = (CFGenKbGelSpreadBuff)obj;
+		else if( obj instanceof YCFGenKbGelSpreadBuff ) {
+			YCFGenKbGelSpreadBuff rhs = (YCFGenKbGelSpreadBuff)obj;
 			if( getOptionalExpandEmpty() != null ) {
 				if( rhs.getOptionalExpandEmpty() != null ) {
 					int cmp = getOptionalExpandEmpty().compareTo( rhs.getOptionalExpandEmpty() );
@@ -164,7 +164,7 @@ public class CFGenKbGelSpreadByEmptyIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -173,8 +173,8 @@ public class CFGenKbGelSpreadByEmptyIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelSpreadByEmptyIdx"
-			+ " OptionalExpandEmpty=" + ( ( getOptionalExpandEmpty() == null ) ? "null" : "\"" + CFGenKbSchema.xmlEncodeString( getOptionalExpandEmpty() ) + "\"" )
+		String ret = "<YCFGenKbGelSpreadByEmptyIdx"
+			+ " OptionalExpandEmpty=" + ( ( getOptionalExpandEmpty() == null ) ? "null" : "\"" + YCFGenKbSchema.xmlEncodeString( getOptionalExpandEmpty() ) + "\"" )
 			+ "/>";
 		return( ret );
 	}

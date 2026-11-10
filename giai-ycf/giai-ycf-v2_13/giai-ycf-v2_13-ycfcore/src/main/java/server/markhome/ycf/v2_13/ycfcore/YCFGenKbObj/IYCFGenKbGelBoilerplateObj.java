@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelBoilerplate.
+// Description: Java 11 Object interface for YCFGenKb GelBoilerplate.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,44 +27,44 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGelBoilerplateObj
-	extends ICFGenKbGelInstructionObj
+public interface IYCFGenKbGelBoilerplateObj
+	extends IYCFGenKbGelInstructionObj
 {
 	/**
-	 *	Get the current edition of this GelBoilerplate instance as a ICFGenKbGelBoilerplateEditObj.
+	 *	Get the current edition of this GelBoilerplate instance as a IYCFGenKbGelBoilerplateEditObj.
 	 *
-	 *	@return	The ICFGenKbGelBoilerplateEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelBoilerplateEditObj edition of this instance.
 	 */
-	ICFGenKbGelBoilerplateEditObj getEditAsGelBoilerplate();
+	IYCFGenKbGelBoilerplateEditObj getEditAsGelBoilerplate();
 
 	/**
-	 *	Get the ICFGenKbGelBoilerplateTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelBoilerplateTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelBoilerplateTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelBoilerplateTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelBoilerplateTableObj getGelBoilerplateTable();
+	IYCFGenKbGelBoilerplateTableObj getGelBoilerplateTable();
 
 	/**
-	 *	Get the CFGenKbGelBoilerplateBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelBoilerplateBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelBoilerplateBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelBoilerplateBuff instance which currently backs this object.
 	 */
-	CFGenKbGelBoilerplateBuff getGelBoilerplateBuff();
+	YCFGenKbGelBoilerplateBuff getGelBoilerplateBuff();
 
 }

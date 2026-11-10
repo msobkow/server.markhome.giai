@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a ServerMethod history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamServerMethodHBuff
-	extends CFBamScopeHBuff
+public class YCFBamServerMethodHBuff
+	extends YCFBamScopeHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -73,7 +73,7 @@ public class CFBamServerMethodHBuff
 	public static final String NAME_INIT_VALUE = new String( "" );
 	public final static boolean ISINSTANCEMETHOD_INIT_VALUE = true;
 	public final static boolean ISSERVERONLY_INIT_VALUE = false;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = CFBamSchema.ordinalToCodeVisibilityEnum( 0 );
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = YCFBamSchema.ordinalToCodeVisibilityEnum( 0 );
 	public static final String JMETHODBODY_INIT_VALUE = new String( "" );
 	public static final String CPPMETHODBODY_INIT_VALUE = new String( "" );
 	public static final String CSMETHODBODY_INIT_VALUE = new String( "" );
@@ -82,8 +82,8 @@ public class CFBamServerMethodHBuff
 	public static final long ID_MIN_VALUE = 0L;
 	public static final long DEFSCHEMATENANTID_MIN_VALUE = 0L;
 	public static final long DEFSCHEMAID_MIN_VALUE = 0L;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = ICFBamSchema.CodeVisibilityEnum.Public;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = ICFBamSchema.CodeVisibilityEnum.Private;
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = IYCFBamSchema.CodeVisibilityEnum.Public;
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = IYCFBamSchema.CodeVisibilityEnum.Private;
 
 	protected long requiredTableId;
 	protected Long optionalDefSchemaTenantId;
@@ -96,31 +96,31 @@ public class CFBamServerMethodHBuff
 	protected String optionalSuffix;
 	protected boolean requiredIsInstanceMethod;
 	protected boolean requiredIsServerOnly;
-	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
+	protected IYCFBamSchema.CodeVisibilityEnum requiredCodeVis;
 	protected String requiredJMethodBody;
 	protected String requiredCppMethodBody;
 	protected String requiredCsMethodBody;
-	public CFBamServerMethodHBuff() {
+	public YCFBamServerMethodHBuff() {
 		super();
-		requiredTableId = CFBamServerMethodBuff.TABLEID_INIT_VALUE;
+		requiredTableId = YCFBamServerMethodBuff.TABLEID_INIT_VALUE;
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
-		requiredName = new String( CFBamServerMethodBuff.NAME_INIT_VALUE );
+		requiredName = new String( YCFBamServerMethodBuff.NAME_INIT_VALUE );
 		optionalShortName = null;
 		optionalLabel = null;
 		optionalShortDescription = null;
 		optionalDescription = null;
 		optionalSuffix = null;
-		requiredIsInstanceMethod = CFBamServerMethodBuff.ISINSTANCEMETHOD_INIT_VALUE;
-		requiredIsServerOnly = CFBamServerMethodBuff.ISSERVERONLY_INIT_VALUE;
-		requiredCodeVis = CFBamServerMethodBuff.CODEVIS_INIT_VALUE;
-		requiredJMethodBody = new String( CFBamServerMethodBuff.JMETHODBODY_INIT_VALUE );
-		requiredCppMethodBody = new String( CFBamServerMethodBuff.CPPMETHODBODY_INIT_VALUE );
-		requiredCsMethodBody = new String( CFBamServerMethodBuff.CSMETHODBODY_INIT_VALUE );
+		requiredIsInstanceMethod = YCFBamServerMethodBuff.ISINSTANCEMETHOD_INIT_VALUE;
+		requiredIsServerOnly = YCFBamServerMethodBuff.ISSERVERONLY_INIT_VALUE;
+		requiredCodeVis = YCFBamServerMethodBuff.CODEVIS_INIT_VALUE;
+		requiredJMethodBody = new String( YCFBamServerMethodBuff.JMETHODBODY_INIT_VALUE );
+		requiredCppMethodBody = new String( YCFBamServerMethodBuff.CPPMETHODBODY_INIT_VALUE );
+		requiredCsMethodBody = new String( YCFBamServerMethodBuff.CSMETHODBODY_INIT_VALUE );
 	}
 
 	public String getClassCode() {
-		return( CFBamServerMethodBuff.CLASS_CODE );
+		return( YCFBamServerMethodBuff.CLASS_CODE );
 	}
 
 	public long getRequiredTableId() {
@@ -128,13 +128,13 @@ public class CFBamServerMethodHBuff
 	}
 
 	public void setRequiredTableId( long value ) {
-		if( value < CFBamServerMethodBuff.TABLEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamServerMethodBuff.TABLEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTableId",
 				1,
 				"value",
 				value,
-				CFBamServerMethodBuff.TABLEID_MIN_VALUE );
+				YCFBamServerMethodBuff.TABLEID_MIN_VALUE );
 		}
 		requiredTableId = value;
 	}
@@ -147,13 +147,13 @@ public class CFBamServerMethodHBuff
 		if( value == null ) {
 			optionalDefSchemaTenantId = null;
 		}
-		else if( value < CFBamServerMethodBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamServerMethodBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaTenantId",
 				1,
 				"value",
 				value,
-				CFBamServerMethodBuff.DEFSCHEMATENANTID_MIN_VALUE );
+				YCFBamServerMethodBuff.DEFSCHEMATENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaTenantId = value;
@@ -168,13 +168,13 @@ public class CFBamServerMethodHBuff
 		if( value == null ) {
 			optionalDefSchemaId = null;
 		}
-		else if( value < CFBamServerMethodBuff.DEFSCHEMAID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamServerMethodBuff.DEFSCHEMAID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaId",
 				1,
 				"value",
 				value,
-				CFBamServerMethodBuff.DEFSCHEMAID_MIN_VALUE );
+				YCFBamServerMethodBuff.DEFSCHEMAID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaId = value;
@@ -187,13 +187,13 @@ public class CFBamServerMethodHBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -212,7 +212,7 @@ public class CFBamServerMethodHBuff
 			optionalShortName = null;
 		}
 		else if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortName",
 				1,
 				"value.length()",
@@ -233,7 +233,7 @@ public class CFBamServerMethodHBuff
 			optionalLabel = null;
 		}
 		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalLabel",
 				1,
 				"value.length()",
@@ -254,7 +254,7 @@ public class CFBamServerMethodHBuff
 			optionalShortDescription = null;
 		}
 		else if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortDescription",
 				1,
 				"value.length()",
@@ -275,7 +275,7 @@ public class CFBamServerMethodHBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1023 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -296,7 +296,7 @@ public class CFBamServerMethodHBuff
 			optionalSuffix = null;
 		}
 		else if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalSuffix",
 				1,
 				"value.length()",
@@ -324,13 +324,13 @@ public class CFBamServerMethodHBuff
 		requiredIsServerOnly = value;
 	}
 
-	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+	public IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
 		return( requiredCodeVis );
 	}
 
-	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+	public void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredCodeVis",
 				1,
 				"value" );
@@ -344,13 +344,13 @@ public class CFBamServerMethodHBuff
 
 	public void setRequiredJMethodBody( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredJMethodBody",
 				1,
 				"value" );
 		}
 		if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredJMethodBody",
 				1,
 				"value.length()",
@@ -366,13 +366,13 @@ public class CFBamServerMethodHBuff
 
 	public void setRequiredCppMethodBody( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredCppMethodBody",
 				1,
 				"value" );
 		}
 		if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredCppMethodBody",
 				1,
 				"value.length()",
@@ -388,13 +388,13 @@ public class CFBamServerMethodHBuff
 
 	public void setRequiredCsMethodBody( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredCsMethodBody",
 				1,
 				"value" );
 		}
 		if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredCsMethodBody",
 				1,
 				"value.length()",
@@ -408,8 +408,8 @@ public class CFBamServerMethodHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamServerMethodHBuff ) {
-			CFBamServerMethodHBuff rhs = (CFBamServerMethodHBuff)obj;
+		else if( obj instanceof YCFBamServerMethodHBuff ) {
+			YCFBamServerMethodHBuff rhs = (YCFBamServerMethodHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -529,8 +529,8 @@ public class CFBamServerMethodHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamServerMethodBuff ) {
-			CFBamServerMethodBuff rhs = (CFBamServerMethodBuff)obj;
+		else if( obj instanceof YCFBamServerMethodBuff ) {
+			YCFBamServerMethodBuff rhs = (YCFBamServerMethodBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -650,8 +650,8 @@ public class CFBamServerMethodHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamServerMethodByUNameIdxKey ) {
-			CFBamServerMethodByUNameIdxKey rhs = (CFBamServerMethodByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByUNameIdxKey ) {
+			YCFBamServerMethodByUNameIdxKey rhs = (YCFBamServerMethodByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -663,8 +663,8 @@ public class CFBamServerMethodHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamServerMethodByMethTableIdxKey ) {
-			CFBamServerMethodByMethTableIdxKey rhs = (CFBamServerMethodByMethTableIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByMethTableIdxKey ) {
+			YCFBamServerMethodByMethTableIdxKey rhs = (YCFBamServerMethodByMethTableIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -673,8 +673,8 @@ public class CFBamServerMethodHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamServerMethodByMethTableVisIdxKey ) {
-			CFBamServerMethodByMethTableVisIdxKey rhs = (CFBamServerMethodByMethTableVisIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByMethTableVisIdxKey ) {
+			YCFBamServerMethodByMethTableVisIdxKey rhs = (YCFBamServerMethodByMethTableVisIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -686,15 +686,15 @@ public class CFBamServerMethodHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamServerMethodByMethCodeVisIdxKey ) {
-			CFBamServerMethodByMethCodeVisIdxKey rhs = (CFBamServerMethodByMethCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByMethCodeVisIdxKey ) {
+			YCFBamServerMethodByMethCodeVisIdxKey rhs = (YCFBamServerMethodByMethCodeVisIdxKey)obj;
 			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamServerMethodByDefSchemaIdxKey ) {
-			CFBamServerMethodByDefSchemaIdxKey rhs = (CFBamServerMethodByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByDefSchemaIdxKey ) {
+			YCFBamServerMethodByDefSchemaIdxKey rhs = (YCFBamServerMethodByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
 				if( rhs.getOptionalDefSchemaTenantId() != null ) {
 					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
@@ -782,16 +782,16 @@ public class CFBamServerMethodHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamServerMethodBuff ) {
-			CFBamServerMethodBuff rhs = (CFBamServerMethodBuff)obj;
+		else if( obj instanceof YCFBamServerMethodBuff ) {
+			YCFBamServerMethodBuff rhs = (YCFBamServerMethodBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamServerMethodByUNameIdxKey ) {
-			CFBamServerMethodByUNameIdxKey rhs = (CFBamServerMethodByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByUNameIdxKey ) {
+			YCFBamServerMethodByUNameIdxKey rhs = (YCFBamServerMethodByUNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -812,8 +812,8 @@ public class CFBamServerMethodHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamServerMethodByMethTableIdxKey ) {
-			CFBamServerMethodByMethTableIdxKey rhs = (CFBamServerMethodByMethTableIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByMethTableIdxKey ) {
+			YCFBamServerMethodByMethTableIdxKey rhs = (YCFBamServerMethodByMethTableIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -828,8 +828,8 @@ public class CFBamServerMethodHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamServerMethodByMethTableVisIdxKey ) {
-			CFBamServerMethodByMethTableVisIdxKey rhs = (CFBamServerMethodByMethTableVisIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByMethTableVisIdxKey ) {
+			YCFBamServerMethodByMethTableVisIdxKey rhs = (YCFBamServerMethodByMethTableVisIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -850,8 +850,8 @@ public class CFBamServerMethodHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamServerMethodByMethCodeVisIdxKey ) {
-			CFBamServerMethodByMethCodeVisIdxKey rhs = (CFBamServerMethodByMethCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByMethCodeVisIdxKey ) {
+			YCFBamServerMethodByMethCodeVisIdxKey rhs = (YCFBamServerMethodByMethCodeVisIdxKey)obj;
 
 			{
 				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
@@ -860,8 +860,8 @@ public class CFBamServerMethodHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamServerMethodByDefSchemaIdxKey ) {
-			CFBamServerMethodByDefSchemaIdxKey rhs = (CFBamServerMethodByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByDefSchemaIdxKey ) {
+			YCFBamServerMethodByDefSchemaIdxKey rhs = (YCFBamServerMethodByDefSchemaIdxKey)obj;
 
 			if( getOptionalDefSchemaTenantId() != null ) {
 				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
@@ -900,8 +900,8 @@ public class CFBamServerMethodHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamServerMethodHBuff ) {
-			CFBamServerMethodHBuff rhs = (CFBamServerMethodHBuff)obj;
+		else if( obj instanceof YCFBamServerMethodHBuff ) {
+			YCFBamServerMethodHBuff rhs = (YCFBamServerMethodHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -1164,20 +1164,20 @@ public class CFBamServerMethodHBuff
 		}
 	}
 
-	public void set( CFBamScopeBuff src ) {
-		if( src instanceof CFBamServerMethodBuff ) {
-			setServerMethodBuff( (CFBamServerMethodBuff)src );
+	public void set( YCFBamScopeBuff src ) {
+		if( src instanceof YCFBamServerMethodBuff ) {
+			setServerMethodBuff( (YCFBamServerMethodBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamServerMethodBuff" );
+				"YCFBamServerMethodBuff" );
 		}
 	}
 
-	public void setServerMethodBuff( CFBamServerMethodBuff src ) {
+	public void setServerMethodBuff( YCFBamServerMethodBuff src ) {
 		super.setScopeBuff( src );
 		setRequiredTableId( src.getRequiredTableId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
@@ -1196,20 +1196,20 @@ public class CFBamServerMethodHBuff
 		setRequiredCsMethodBody( src.getRequiredCsMethodBody() );
 	}
 
-	public void set( CFBamScopeHBuff src ) {
-		if( src instanceof CFBamServerMethodHBuff ) {
-			setServerMethodBuff( (CFBamServerMethodHBuff)src );
+	public void set( YCFBamScopeHBuff src ) {
+		if( src instanceof YCFBamServerMethodHBuff ) {
+			setServerMethodBuff( (YCFBamServerMethodHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamServerMethodHBuff" );
+				"YCFBamServerMethodHBuff" );
 		}
 	}
 
-	public void setServerMethodBuff( CFBamServerMethodHBuff src ) {
+	public void setServerMethodBuff( YCFBamServerMethodHBuff src ) {
 		super.setScopeBuff( src );
 		setRequiredTableId( src.getRequiredTableId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );

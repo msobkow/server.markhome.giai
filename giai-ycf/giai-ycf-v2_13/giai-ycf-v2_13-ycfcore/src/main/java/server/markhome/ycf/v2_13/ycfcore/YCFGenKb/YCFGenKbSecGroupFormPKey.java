@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecGroupForm primary key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,25 +37,25 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFGenKbSecGroupFormPKey Primary Key for SecGroupForm
+ *	YCFGenKbSecGroupFormPKey Primary Key for SecGroupForm
 
  *		requiredClusterId	Required object attribute ClusterId.
  *		requiredSecGroupFormId	Required object attribute SecGroupFormId. */
-public class CFGenKbSecGroupFormPKey
+public class YCFGenKbSecGroupFormPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected long requiredClusterId;
 	protected long requiredSecGroupFormId;
-	public CFGenKbSecGroupFormPKey() {
-		requiredClusterId = CFGenKbSecGroupFormBuff.CLUSTERID_INIT_VALUE;
-		requiredSecGroupFormId = CFGenKbSecGroupFormBuff.SECGROUPFORMID_INIT_VALUE;
+	public YCFGenKbSecGroupFormPKey() {
+		requiredClusterId = YCFGenKbSecGroupFormBuff.CLUSTERID_INIT_VALUE;
+		requiredSecGroupFormId = YCFGenKbSecGroupFormBuff.SECGROUPFORMID_INIT_VALUE;
 	}
 
 	public long getRequiredClusterId() {
@@ -63,13 +63,13 @@ public class CFGenKbSecGroupFormPKey
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFGenKbSecGroupFormBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecGroupFormBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFGenKbSecGroupFormBuff.CLUSTERID_MIN_VALUE );
+				YCFGenKbSecGroupFormBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -79,13 +79,13 @@ public class CFGenKbSecGroupFormPKey
 	}
 
 	public void setRequiredSecGroupFormId( long value ) {
-		if( value < CFGenKbSecGroupFormBuff.SECGROUPFORMID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecGroupFormBuff.SECGROUPFORMID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecGroupFormId",
 				1,
 				"value",
 				value,
-				CFGenKbSecGroupFormBuff.SECGROUPFORMID_MIN_VALUE );
+				YCFGenKbSecGroupFormBuff.SECGROUPFORMID_MIN_VALUE );
 		}
 		requiredSecGroupFormId = value;
 	}
@@ -94,8 +94,8 @@ public class CFGenKbSecGroupFormPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecGroupFormPKey ) {
-			CFGenKbSecGroupFormPKey rhs = (CFGenKbSecGroupFormPKey)obj;
+		else if( obj instanceof YCFGenKbSecGroupFormPKey ) {
+			YCFGenKbSecGroupFormPKey rhs = (YCFGenKbSecGroupFormPKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -104,8 +104,8 @@ public class CFGenKbSecGroupFormPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecGroupFormBuff ) {
-			CFGenKbSecGroupFormBuff rhs = (CFGenKbSecGroupFormBuff)obj;
+		else if( obj instanceof YCFGenKbSecGroupFormBuff ) {
+			YCFGenKbSecGroupFormBuff rhs = (YCFGenKbSecGroupFormBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -130,8 +130,8 @@ public class CFGenKbSecGroupFormPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbSecGroupFormPKey ) {
-			CFGenKbSecGroupFormPKey rhs = (CFGenKbSecGroupFormPKey)obj;
+		else if( obj instanceof YCFGenKbSecGroupFormPKey ) {
+			YCFGenKbSecGroupFormPKey rhs = (YCFGenKbSecGroupFormPKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -146,8 +146,8 @@ public class CFGenKbSecGroupFormPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecGroupFormBuff ) {
-			CFGenKbSecGroupFormBuff rhs = (CFGenKbSecGroupFormBuff)obj;
+		else if( obj instanceof YCFGenKbSecGroupFormBuff ) {
+			YCFGenKbSecGroupFormBuff rhs = (YCFGenKbSecGroupFormBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -163,16 +163,16 @@ public class CFGenKbSecGroupFormPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFGenKbSecGroupFormPKey, CFGenKbSecGroupFormBuff" );
+				"YCFGenKbSecGroupFormPKey, YCFGenKbSecGroupFormBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbSecGroupFormPKey"
+		String ret = "<YCFGenKbSecGroupFormPKey"
 			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
 			+ " RequiredSecGroupFormId=" + "\"" + Long.toString( getRequiredSecGroupFormId() ) + "\""
 			+ "/>";

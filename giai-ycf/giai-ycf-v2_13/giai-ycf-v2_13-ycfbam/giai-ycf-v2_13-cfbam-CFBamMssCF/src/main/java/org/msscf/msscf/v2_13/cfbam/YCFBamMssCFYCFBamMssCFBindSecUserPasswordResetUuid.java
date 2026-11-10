@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Binding for SecUser Column PasswordResetUuid.
+// Description: Java 11 MssYCF Binding for SecUser Column PasswordResetUuid.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,88 +27,88 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.math.*;
 import java.sql.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 import org.apache.commons.codec.binary.Base64;
 
 /**
- *	CFBamMssCFBindSecUserPasswordResetUuid binds SecUser.PasswordResetUuid
- *	as an instance of MssCFGenBindObj.
+ *	YCFBamMssYCFBindSecUserPasswordResetUuid binds SecUser.PasswordResetUuid
+ *	as an instance of MssYCFGenBindObj.
  */
-public class CFBamMssCFBindSecUserPasswordResetUuid
-	extends MssCFGenBindObj
+public class YCFBamMssYCFBindSecUserPasswordResetUuid
+	extends MssYCFGenBindObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFBindSecUserPasswordResetUuid() {
+	public YCFBamMssYCFBindSecUserPasswordResetUuid() {
 		super();
 	}
 
-	public CFBamMssCFBindSecUserPasswordResetUuid( MssCFEngine argEngine ) {
+	public YCFBamMssYCFBindSecUserPasswordResetUuid( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
 			"SecUser",
 			"PasswordResetUuid" );
 	}
-	public Object getValueObject( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindSecUserPasswordResetUuid.getValueObject() ";
+	public Object getValueObject( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindSecUserPasswordResetUuid.getValueObject() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
 		}
 
 		UUID passwordResetUuid;
-		if( genDef instanceof ICFBamSecUserObj ) {
-			passwordResetUuid = ((ICFBamSecUserObj)genDef).getOptionalPasswordResetUuid();
+		if( genDef instanceof IYCFBamSecUserObj ) {
+			passwordResetUuid = ((IYCFBamSecUserObj)genDef).getOptionalPasswordResetUuid();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamSecUserObj" );
+				"IYCFBamSecUserObj" );
 		}
 
 		return( passwordResetUuid );
 	}
 
-	public String expandBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindSecUserPasswordResetUuid.expandBody() ";
+	public String expandBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindSecUserPasswordResetUuid.expandBody() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
@@ -116,8 +116,8 @@ public class CFBamMssCFBindSecUserPasswordResetUuid
 
 		String ret;
 
-		if( genDef instanceof ICFBamSecUserObj ) {
-			UUID passwordResetUuid = ((ICFBamSecUserObj)genDef).getOptionalPasswordResetUuid();
+		if( genDef instanceof IYCFBamSecUserObj ) {
+			UUID passwordResetUuid = ((IYCFBamSecUserObj)genDef).getOptionalPasswordResetUuid();
 			if( passwordResetUuid == null ) {
 				ret = null;
 			}
@@ -126,11 +126,11 @@ public class CFBamMssCFBindSecUserPasswordResetUuid
 			}
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamSecUserObj" );
+				"IYCFBamSecUserObj" );
 		}
 
 		return( ret );

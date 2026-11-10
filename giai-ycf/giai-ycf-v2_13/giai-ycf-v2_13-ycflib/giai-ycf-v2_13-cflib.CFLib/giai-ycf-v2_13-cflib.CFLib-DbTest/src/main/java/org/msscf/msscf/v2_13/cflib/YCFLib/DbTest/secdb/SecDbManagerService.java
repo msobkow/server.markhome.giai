@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,12 +20,12 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash256;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash256;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Example;
@@ -53,7 +53,7 @@ public class SecDbManagerService {
     private SecDbManagerRepository secDbManagerRepository;
 
     @Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "secTransactionManager")
-    public SecDbUser find(CFLibDbKeyHash256 pid) {
+    public SecDbUser find(YCFLibDbKeyHash256 pid) {
         return secDbManagerRepository.findById(pid).orElse(null);
     }
 
@@ -116,11 +116,11 @@ public class SecDbManagerService {
         if (data == null) {
             return null;
         }
-        CFLibDbKeyHash256 originalPid = data.getPid();
+        YCFLibDbKeyHash256 originalPid = data.getPid();
         boolean generatedPid = false;
         try {
             if (data.getPid() == null) {
-                data.setPid(new CFLibDbKeyHash256(0));
+                data.setPid(new YCFLibDbKeyHash256(0));
                 generatedPid = true;
             }
             LocalDateTime now = LocalDateTime.now();

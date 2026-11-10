@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -47,8 +47,8 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 /**
  *	A RuleCartridgeParser is a JAXP 1.3 Validating XML parser
@@ -57,18 +57,18 @@ import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
  *
  *	@see	http://generator.msobkow.com/xsd/genkb-1.0.6-cartridge.
  */
-public abstract class MssCFSaxParser extends CFLibXmlCoreSaxParser implements ContentHandler {
+public abstract class MssYCFSaxParser extends YCFLibXmlCoreSaxParser implements ContentHandler {
 
-	protected MssCFEngine cfEngine;
+	protected MssYCFEngine ycfEngine;
 
-	public MssCFEngine getEngine()
+	public MssYCFEngine getEngine()
 	{
-		return( cfEngine );
+		return( ycfEngine );
 	}
 
-	public void setEngine( MssCFEngine value )
+	public void setEngine( MssYCFEngine value )
 	{
-		cfEngine = value;
+		ycfEngine = value;
 	}
 
 	/**
@@ -80,12 +80,12 @@ public abstract class MssCFSaxParser extends CFLibXmlCoreSaxParser implements Co
 	/**
 	 *	The source URI for locating schemas
 	 */
-	public final static String	BASE_SCHEMA_URI = "http://gitlab.markhome.server:8088/msscf/2.0.13/xsd/";
+	public final static String	BASE_SCHEMA_URI = "http://gitlab.markhome.server:8088/mssycf/2.0.13/xsd/";
 
 	/**
 	 *	The source URI for locating schemas on the internet
 	 */
-	public final static String	BASE_SCHEMA_HTTPS_URI = "http://gitlab.markhome.server:8088/msscf/2.0.13/xsd/";
+	public final static String	BASE_SCHEMA_HTTPS_URI = "http://gitlab.markhome.server:8088/mssycf/2.0.13/xsd/";
 
 	/**
 	 *	The source URI for locating schemas
@@ -94,19 +94,19 @@ public abstract class MssCFSaxParser extends CFLibXmlCoreSaxParser implements Co
 
 //	Constructors
 
-	public MssCFSaxParser() {
+	public MssYCFSaxParser() {
 		super();
-		cfEngine = null;
+		ycfEngine = null;
 	}
 
-	public MssCFSaxParser( MssCFEngine engine ) {
+	public MssYCFSaxParser( MssYCFEngine engine ) {
 		super();
-		cfEngine = engine;
+		ycfEngine = engine;
 	}
 
-	public MssCFSaxParser( MssCFEngine engine, ICFLibMessageLog log ) {
+	public MssYCFSaxParser( MssYCFEngine engine, IYCFLibMessageLog log ) {
 		super( log );
-		cfEngine = engine;
+		ycfEngine = engine;
 	}
 
 //	Methods

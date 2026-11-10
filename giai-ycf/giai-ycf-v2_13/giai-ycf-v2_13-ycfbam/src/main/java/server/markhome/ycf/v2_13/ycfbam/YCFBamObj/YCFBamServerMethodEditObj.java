@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam ServerMethod.
+// Description: Java 11 edit object instance implementation for YCFBam ServerMethod.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,49 +45,49 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamServerMethodEditObj
-	extends CFBamScopeEditObj
+public class YCFBamServerMethodEditObj
+	extends YCFBamScopeEditObj
 
-	implements ICFBamServerMethodEditObj
+	implements IYCFBamServerMethodEditObj
 {
-	protected ICFBamSchemaDefObj optionalLookupDefSchema;
-	protected ICFBamTableObj requiredContainerForTable;
+	protected IYCFBamSchemaDefObj optionalLookupDefSchema;
+	protected IYCFBamTableObj requiredContainerForTable;
 
-	public CFBamServerMethodEditObj( ICFBamServerMethodObj argOrig ) {
+	public YCFBamServerMethodEditObj( IYCFBamServerMethodObj argOrig ) {
 		super( argOrig );
 		optionalLookupDefSchema = null;
 		requiredContainerForTable = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamServerMethodObj.CLASS_CODE );
+		return( YCFBamServerMethodObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "ServerMethod" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamTableObj scope = getRequiredContainerForTable();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamTableObj scope = getRequiredContainerForTable();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamTableObj scope = getRequiredContainerForTable();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamTableObj scope = getRequiredContainerForTable();
 		return( scope );
 	}
 
@@ -97,14 +97,14 @@ public class CFBamServerMethodEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -115,10 +115,10 @@ public class CFBamServerMethodEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -127,11 +127,11 @@ public class CFBamServerMethodEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -155,16 +155,16 @@ public class CFBamServerMethodEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -176,9 +176,9 @@ public class CFBamServerMethodEditObj
 		return( qualName );
 	}
 
-	public ICFBamScopeObj realise() {
+	public IYCFBamScopeObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamServerMethodObj retobj = getSchema().getServerMethodTableObj().realiseServerMethod( (ICFBamServerMethodObj)this );
+		IYCFBamServerMethodObj retobj = getSchema().getServerMethodTableObj().realiseServerMethod( (IYCFBamServerMethodObj)this );
 		return( retobj );
 	}
 
@@ -186,49 +186,49 @@ public class CFBamServerMethodEditObj
 		getOrigAsServerMethod().forget();
 	}
 
-	public ICFBamScopeObj create() {
+	public IYCFBamScopeObj create() {
 		copyBuffToOrig();
-		ICFBamServerMethodObj retobj = ((ICFBamSchemaObj)getOrigAsServerMethod().getSchema()).getServerMethodTableObj().createServerMethod( getOrigAsServerMethod() );
+		IYCFBamServerMethodObj retobj = ((IYCFBamSchemaObj)getOrigAsServerMethod().getSchema()).getServerMethodTableObj().createServerMethod( getOrigAsServerMethod() );
 		if( retobj == getOrigAsServerMethod() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamScopeEditObj update() {
-		getSchema().getServerMethodTableObj().updateServerMethod( (ICFBamServerMethodObj)this );
+	public YCFBamScopeEditObj update() {
+		getSchema().getServerMethodTableObj().updateServerMethod( (IYCFBamServerMethodObj)this );
 		return( null );
 	}
 
-	public CFBamScopeEditObj deleteInstance() {
+	public YCFBamScopeEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getServerMethodTableObj().deleteServerMethod( getOrigAsServerMethod() );
 		return( null );
 	}
 
-	public ICFBamServerMethodTableObj getServerMethodTable() {
+	public IYCFBamServerMethodTableObj getServerMethodTable() {
 		return( orig.getSchema().getServerMethodTableObj() );
 	}
 
-	public ICFBamServerMethodEditObj getEditAsServerMethod() {
-		return( (ICFBamServerMethodEditObj)this );
+	public IYCFBamServerMethodEditObj getEditAsServerMethod() {
+		return( (IYCFBamServerMethodEditObj)this );
 	}
 
-	public ICFBamServerMethodObj getOrigAsServerMethod() {
-		return( (ICFBamServerMethodObj)orig );
+	public IYCFBamServerMethodObj getOrigAsServerMethod() {
+		return( (IYCFBamServerMethodObj)orig );
 	}
 
-	public CFBamScopeBuff getBuff() {
+	public YCFBamScopeBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsServerMethod().getSchema().getBackingStore()).getFactoryServerMethod().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsServerMethod().getSchema().getBackingStore()).getFactoryServerMethod().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamScopeBuff value ) {
+	public void setBuff( YCFBamScopeBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			optionalLookupDefSchema = null;
@@ -236,8 +236,8 @@ public class CFBamServerMethodEditObj
 		}
 	}
 
-	public CFBamServerMethodBuff getServerMethodBuff() {
-		return( (CFBamServerMethodBuff)getBuff() );
+	public YCFBamServerMethodBuff getServerMethodBuff() {
+		return( (YCFBamServerMethodBuff)getBuff() );
 	}
 
 	public long getRequiredTableId() {
@@ -332,11 +332,11 @@ public class CFBamServerMethodEditObj
 		}
 	}
 
-	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+	public IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
 		return( getServerMethodBuff().getRequiredCodeVis() );
 	}
 
-	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+	public void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value ) {
 		if( getServerMethodBuff().getRequiredCodeVis() != value ) {
 			getServerMethodBuff().setRequiredCodeVis( value );
 		}
@@ -372,11 +372,11 @@ public class CFBamServerMethodEditObj
 		}
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema() {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema() {
 		return( getOptionalLookupDefSchema( false ) );
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
 		if( forceRead || ( optionalLookupDefSchema == null ) ) {
 			boolean anyMissing = false;
 			if( getServerMethodBuff().getOptionalDefSchemaTenantId() == null ) {
@@ -386,7 +386,7 @@ public class CFBamServerMethodEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamSchemaDefObj obj = ((ICFBamSchemaObj)getOrigAsServerMethod().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getServerMethodBuff().getOptionalDefSchemaTenantId(),
+				IYCFBamSchemaDefObj obj = ((IYCFBamSchemaObj)getOrigAsServerMethod().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getServerMethodBuff().getOptionalDefSchemaTenantId(),
 					getServerMethodBuff().getOptionalDefSchemaId() );
 				optionalLookupDefSchema = obj;
 			}
@@ -394,7 +394,7 @@ public class CFBamServerMethodEditObj
 		return( optionalLookupDefSchema );
 	}
 
-	public void setOptionalLookupDefSchema( ICFBamSchemaDefObj value ) {
+	public void setOptionalLookupDefSchema( IYCFBamSchemaDefObj value ) {
 			if( buff == null ) {
 				getServerMethodBuff();
 			}
@@ -409,15 +409,15 @@ public class CFBamServerMethodEditObj
 			optionalLookupDefSchema = value;
 	}
 
-	public ICFBamTableObj getRequiredContainerForTable() {
+	public IYCFBamTableObj getRequiredContainerForTable() {
 		return( getRequiredContainerForTable( false ) );
 	}
 
-	public ICFBamTableObj getRequiredContainerForTable( boolean forceRead ) {
+	public IYCFBamTableObj getRequiredContainerForTable( boolean forceRead ) {
 		if( forceRead || ( requiredContainerForTable == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsServerMethod().getSchema()).getTableTableObj().readTableByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFBamTableObj obj = ((IYCFBamSchemaObj)getOrigAsServerMethod().getSchema()).getTableTableObj().readTableByIdIdx( getPKey().getRequiredTenantId(),
 					getServerMethodBuff().getRequiredTableId() );
 				requiredContainerForTable = obj;
 				if( obj != null ) {
@@ -430,7 +430,7 @@ public class CFBamServerMethodEditObj
 		return( requiredContainerForTable );
 	}
 
-	public void setRequiredContainerForTable( ICFBamTableObj value ) {
+	public void setRequiredContainerForTable( IYCFBamTableObj value ) {
 			if( buff == null ) {
 				getServerMethodBuff();
 			}
@@ -442,31 +442,31 @@ public class CFBamServerMethodEditObj
 			requiredContainerForTable = value;
 	}
 
-	public List<ICFBamParamObj> getOptionalComponentsParams() {
-		List<ICFBamParamObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsServerMethod().getSchema()).getParamTableObj().readParamByServerMethodIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamParamObj> getOptionalComponentsParams() {
+		List<IYCFBamParamObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsServerMethod().getSchema()).getParamTableObj().readParamByServerMethodIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamParamObj> getOptionalComponentsParams( boolean forceRead ) {
-		List<ICFBamParamObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsServerMethod().getSchema()).getParamTableObj().readParamByServerMethodIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamParamObj> getOptionalComponentsParams( boolean forceRead ) {
+		List<IYCFBamParamObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsServerMethod().getSchema()).getParamTableObj().readParamByServerMethodIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
 	public void copyBuffToOrig() {
-		CFBamServerMethodBuff origBuff = getOrigAsServerMethod().getServerMethodBuff();
-		CFBamServerMethodBuff myBuff = getServerMethodBuff();
+		YCFBamServerMethodBuff origBuff = getOrigAsServerMethod().getServerMethodBuff();
+		YCFBamServerMethodBuff myBuff = getServerMethodBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamServerMethodBuff origBuff = getOrigAsServerMethod().getServerMethodBuff();
-		CFBamServerMethodBuff myBuff = getServerMethodBuff();
+		YCFBamServerMethodBuff origBuff = getOrigAsServerMethod().getServerMethodBuff();
+		YCFBamServerMethodBuff myBuff = getServerMethodBuff();
 		myBuff.set( origBuff );
 	}
 }

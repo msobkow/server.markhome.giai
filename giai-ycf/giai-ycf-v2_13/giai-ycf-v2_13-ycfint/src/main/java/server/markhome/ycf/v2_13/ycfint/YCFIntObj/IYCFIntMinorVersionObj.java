@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFInt MinorVersion.
+// Description: Java 11 Object interface for YCFInt MinorVersion.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,29 +26,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntMinorVersionObj
-	extends ICFLibAnyObj
+public interface IYCFIntMinorVersionObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -60,9 +60,9 @@ public interface ICFIntMinorVersionObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -73,9 +73,9 @@ public interface ICFIntMinorVersionObj
 	/**
 	 *	Realise this instance of a MinorVersion.
 	 *
-	 *	@return	CFIntMinorVersionObj instance which should be subsequently referenced.
+	 *	@return	YCFIntMinorVersionObj instance which should be subsequently referenced.
 	 */
-	ICFIntMinorVersionObj realise();
+	IYCFIntMinorVersionObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -87,99 +87,99 @@ public interface ICFIntMinorVersionObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntMinorVersionObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntMinorVersionObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntMinorVersionObj read();
+	IYCFIntMinorVersionObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntMinorVersionObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntMinorVersionObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntMinorVersionObj read( boolean forceRead );
+	IYCFIntMinorVersionObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this MinorVersion instance.
 	 *
-	 *	@return	The newly locked ICFIntMinorVersionEditObj edition of this instance.
+	 *	@return	The newly locked IYCFIntMinorVersionEditObj edition of this instance.
 	 */
-	ICFIntMinorVersionEditObj beginEdit();
+	IYCFIntMinorVersionEditObj beginEdit();
 
 	/**
 	 *	End this edition of this MinorVersion instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this MinorVersion instance.
 	 *
-	 *	@return	The ICFIntMinorVersionEditObj edition of this instance.
+	 *	@return	The IYCFIntMinorVersionEditObj edition of this instance.
 	 */
-	ICFIntMinorVersionEditObj getEdit();
+	IYCFIntMinorVersionEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this MinorVersion instance as a ICFIntMinorVersionEditObj.
+	 *	Get the current edition of this MinorVersion instance as a IYCFIntMinorVersionEditObj.
 	 *
-	 *	@return	The ICFIntMinorVersionEditObj edition of this instance.
+	 *	@return	The IYCFIntMinorVersionEditObj edition of this instance.
 	 */
-	ICFIntMinorVersionEditObj getEditAsMinorVersion();
+	IYCFIntMinorVersionEditObj getEditAsMinorVersion();
 
 	/**
-	 *	Get the ICFIntMinorVersionTableObj table cache which manages this instance.
+	 *	Get the IYCFIntMinorVersionTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFIntMinorVersionTableObj table cache which manages this instance.
+	 *	@return	IYCFIntMinorVersionTableObj table cache which manages this instance.
 	 */
-	ICFIntMinorVersionTableObj getMinorVersionTable();
+	IYCFIntMinorVersionTableObj getMinorVersionTable();
 
 	/**
-	 *	Get the ICFIntSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFIntSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFIntSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFIntSchemaObj schema cache which manages this instance.
 	 */
-	ICFIntSchemaObj getSchema();
+	IYCFIntSchemaObj getSchema();
 
 	/**
-	 *	Get the CFIntMinorVersionBuff instance which currently backs this instance.
+	 *	Get the YCFIntMinorVersionBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntMinorVersionBuff instance which currently backs this object.
+	 *	@return	YCFIntMinorVersionBuff instance which currently backs this object.
 	 */
-	CFIntMinorVersionBuff getBuff();
+	YCFIntMinorVersionBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFIntMinorVersionBuff value );
+	void setBuff( YCFIntMinorVersionBuff value );
 
 	/**
-	 *	Get the CFIntMinorVersionBuff instance which currently backs this instance.
+	 *	Get the YCFIntMinorVersionBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntMinorVersionBuff instance which currently backs this object.
+	 *	@return	YCFIntMinorVersionBuff instance which currently backs this object.
 	 */
-	CFIntMinorVersionBuff getMinorVersionBuff();
+	YCFIntMinorVersionBuff getMinorVersionBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFIntMinorVersionPKey primary key for this instance.
+	 *	@return	YCFIntMinorVersionPKey primary key for this instance.
 	 */
-	CFIntMinorVersionPKey getPKey();
+	YCFIntMinorVersionPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFIntMinorVersionPKey primary key value for this instance.
+	 *	@param YCFIntMinorVersionPKey primary key value for this instance.
 	 */
-	void setPKey( CFIntMinorVersionPKey value );
+	void setPKey( YCFIntMinorVersionPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -234,32 +234,32 @@ public interface ICFIntMinorVersionObj
 	String getOptionalDescription();
 
 	/**
-	 *	Get the required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFIntTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFIntTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
-	 *	Get the required ICFIntMajorVersionObj instance referenced by the ParentMajVer key.
+	 *	Get the required IYCFIntMajorVersionObj instance referenced by the ParentMajVer key.
 	 *
-	 *	@return	The required ICFIntMajorVersionObj instance referenced by the ParentMajVer key.
+	 *	@return	The required IYCFIntMajorVersionObj instance referenced by the ParentMajVer key.
 	 */
-	ICFIntMajorVersionObj getRequiredContainerParentMajVer();
+	IYCFIntMajorVersionObj getRequiredContainerParentMajVer();
 
 	/**
-	 *	Get the required ICFIntMajorVersionObj instance referenced by the ParentMajVer key.
+	 *	Get the required IYCFIntMajorVersionObj instance referenced by the ParentMajVer key.
 	 *
-	 *	@return	The required ICFIntMajorVersionObj instance referenced by the ParentMajVer key.
+	 *	@return	The required IYCFIntMajorVersionObj instance referenced by the ParentMajVer key.
 	 */
-	ICFIntMajorVersionObj getRequiredContainerParentMajVer( boolean forceRead );
+	IYCFIntMajorVersionObj getRequiredContainerParentMajVer( boolean forceRead );
 
 	/**
 	 *	Internal use only.

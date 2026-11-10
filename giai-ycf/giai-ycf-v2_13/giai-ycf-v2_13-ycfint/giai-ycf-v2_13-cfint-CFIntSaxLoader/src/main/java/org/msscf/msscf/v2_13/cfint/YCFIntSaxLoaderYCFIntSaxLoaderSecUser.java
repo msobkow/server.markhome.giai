@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for SecUser
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,21 +35,21 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSaxLoaderSecUserParse XML SAX Element Handler implementation
+ *	YCFIntSaxLoaderSecUserParse XML SAX Element Handler implementation
  *	for SecUser.
  */
-public class CFIntSaxLoaderSecUser
-	extends CFLibXmlCoreElementHandler
+public class YCFIntSaxLoaderSecUser
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFIntSaxLoaderSecUser( CFIntSaxLoader saxLoader ) {
+	public YCFIntSaxLoaderSecUser( YCFIntSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -61,8 +61,8 @@ public class CFIntSaxLoaderSecUser
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFIntSecUserObj origBuff = null;
-		ICFIntSecUserEditObj editBuff = null;
+		IYCFIntSecUserObj origBuff = null;
+		IYCFIntSecUserEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// SecUser Attributes
@@ -73,7 +73,7 @@ public class CFIntSaxLoaderSecUser
 		String attrPasswordResetUuid = null;
 		String attrDefDev = null;
 		// SecUser References
-		ICFIntSecDeviceObj refDefDev = null;
+		IYCFIntSecDeviceObj refDefDev = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -82,25 +82,25 @@ public class CFIntSaxLoaderSecUser
 		try {
 			assert qName.equals( "SecUser" );
 
-			CFIntSaxLoader saxLoader = (CFIntSaxLoader)getParser();
+			YCFIntSaxLoader saxLoader = (YCFIntSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFIntSecUserObj)schemaObj.getSecUserTableObj().newInstance();
-			editBuff = (ICFIntSecUserEditObj)origBuff.beginEdit();
+			origBuff = (IYCFIntSecUserObj)schemaObj.getSecUserTableObj().newInstance();
+			editBuff = (IYCFIntSecUserEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -108,7 +108,7 @@ public class CFIntSaxLoaderSecUser
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -117,7 +117,7 @@ public class CFIntSaxLoaderSecUser
 				}
 				else if( attrLocalName.equals( "LoginId" ) ) {
 					if( attrLoginId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -126,7 +126,7 @@ public class CFIntSaxLoaderSecUser
 				}
 				else if( attrLocalName.equals( "EMailAddress" ) ) {
 					if( attrEMailAddress != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -135,7 +135,7 @@ public class CFIntSaxLoaderSecUser
 				}
 				else if( attrLocalName.equals( "EMailConfirmUuid" ) ) {
 					if( attrEMailConfirmUuid != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -144,7 +144,7 @@ public class CFIntSaxLoaderSecUser
 				}
 				else if( attrLocalName.equals( "PasswordHash" ) ) {
 					if( attrPasswordHash != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -153,7 +153,7 @@ public class CFIntSaxLoaderSecUser
 				}
 				else if( attrLocalName.equals( "PasswordResetUuid" ) ) {
 					if( attrPasswordResetUuid != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -162,7 +162,7 @@ public class CFIntSaxLoaderSecUser
 				}
 				else if( attrLocalName.equals( "DefDev" ) ) {
 					if( attrDefDev != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -173,7 +173,7 @@ public class CFIntSaxLoaderSecUser
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -182,26 +182,26 @@ public class CFIntSaxLoaderSecUser
 
 			// Ensure that required attributes have values
 			if( attrLoginId == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"LoginId" );
 			}
 			if( attrEMailAddress == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"EMailAddress" );
 			}
 			if( attrPasswordHash == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"PasswordHash" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "LoginId", attrLoginId );
 			curContext.putNamedValue( "EMailAddress", attrEMailAddress );
@@ -249,7 +249,7 @@ public class CFIntSaxLoaderSecUser
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -260,10 +260,10 @@ public class CFIntSaxLoaderSecUser
 
 			// Lookup refDefDev by key name value attr
 			if( ( attrDefDev != null ) && ( attrDefDev.length() > 0 ) ) {
-				refDefDev = (ICFIntSecDeviceObj)schemaObj.getSecDeviceTableObj().readSecDeviceByNameIdx( editBuff.getOptionalDfltDevUserId(),
+				refDefDev = (IYCFIntSecDeviceObj)schemaObj.getSecDeviceTableObj().readSecDeviceByNameIdx( editBuff.getOptionalDfltDevUserId(),
 				attrDefDev );
 				if( refDefDev == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve DefDev reference named \"" + attrDefDev + "\" to table SecDevice" );
@@ -274,9 +274,9 @@ public class CFIntSaxLoaderSecUser
 			}
 			editBuff.setOptionalLookupDefDev( refDefDev );
 
-			CFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecUserLoaderBehaviour();
-			ICFIntSecUserEditObj editSecUser = null;
-			ICFIntSecUserObj origSecUser = (ICFIntSecUserObj)schemaObj.getSecUserTableObj().readSecUserByULoginIdx( editBuff.getRequiredLoginId() );
+			YCFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecUserLoaderBehaviour();
+			IYCFIntSecUserEditObj editSecUser = null;
+			IYCFIntSecUserObj origSecUser = (IYCFIntSecUserObj)schemaObj.getSecUserTableObj().readSecUserByULoginIdx( editBuff.getRequiredLoginId() );
 			if( origSecUser == null ) {
 				editSecUser = editBuff;
 			}
@@ -285,7 +285,7 @@ public class CFIntSaxLoaderSecUser
 					case Insert:
 						break;
 					case Update:
-						editSecUser = (ICFIntSecUserEditObj)origSecUser.beginEdit();
+						editSecUser = (IYCFIntSecUserEditObj)origSecUser.beginEdit();
 						editSecUser.setRequiredLoginId( editBuff.getRequiredLoginId() );
 						editSecUser.setRequiredEMailAddress( editBuff.getRequiredEMailAddress() );
 						editSecUser.setOptionalEMailConfirmUuid( editBuff.getOptionalEMailConfirmUuid() );
@@ -294,7 +294,7 @@ public class CFIntSaxLoaderSecUser
 						editSecUser.setOptionalLookupDefDev( editBuff.getOptionalLookupDefDev() );
 						break;
 					case Replace:
-						editSecUser = (ICFIntSecUserEditObj)origSecUser.beginEdit();
+						editSecUser = (IYCFIntSecUserEditObj)origSecUser.beginEdit();
 						editSecUser.deleteInstance();
 						editSecUser = null;
 						origSecUser = null;
@@ -308,7 +308,7 @@ public class CFIntSaxLoaderSecUser
 					editSecUser.update();
 				}
 				else {
-					origSecUser = (ICFIntSecUserObj)editSecUser.create();
+					origSecUser = (IYCFIntSecUserObj)editSecUser.create();
 				}
 				editSecUser = null;
 			}

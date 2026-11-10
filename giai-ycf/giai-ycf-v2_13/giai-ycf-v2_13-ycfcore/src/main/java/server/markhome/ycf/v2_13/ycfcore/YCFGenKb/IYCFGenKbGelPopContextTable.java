@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelPopContext.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelPopContextTable database interface for GelPopContext
+ *	YCFGenKbGelPopContextTable database interface for GelPopContext
  */
-public interface ICFGenKbGelPopContextTable
+public interface IYCFGenKbGelPopContextTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelPopContext( CFGenKbAuthorization Authorization,
-		CFGenKbGelPopContextBuff Buff );
+	void createGelPopContext( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPopContextBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelPopContext( CFGenKbAuthorization Authorization,
-		CFGenKbGelPopContextBuff Buff );
+	void updateGelPopContext( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPopContextBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelPopContext( CFGenKbAuthorization Authorization,
-		CFGenKbGelPopContextBuff Buff );
+	void deleteGelPopContext( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPopContextBuff Buff );
 	/**
 	 *	Delete the GelPopContext instances identified by the key RemainderIdx.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argRemainderInstId	The GelPopContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPopContextByRemainderIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPopContextByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long argRemainderTenantId,
 		long argRemainderGelCacheId,
 		Long argRemainderInstId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPopContextByRemainderIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelPopContextByRemainderIdxKey argKey );
+	void deleteGelPopContextByRemainderIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelPopContextByRemainderIdxKey argKey );
 	/**
 	 *	Delete the GelPopContext instance identified by the primary key attributes.
 	 *
@@ -115,7 +115,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argGelInstId	The GelPopContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPopContextByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPopContextByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -127,8 +127,8 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelPopContextByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelPopContextByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelPopContext instances identified by the key TenantIdx.
 	 *
@@ -136,7 +136,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argTenantId	The GelPopContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPopContextByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPopContextByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -146,8 +146,8 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPopContextByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelPopContextByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelPopContext instances identified by the key GelCacheIdx.
 	 *
@@ -157,7 +157,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argGelCacheId	The GelPopContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPopContextByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPopContextByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -168,8 +168,8 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPopContextByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelPopContextByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelPopContext instances identified by the key ChainIdx.
 	 *
@@ -181,7 +181,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelPopContext key attribute of the instance generating the id.
 	 */
-	void deleteGelPopContextByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelPopContextByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -193,8 +193,8 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelPopContextByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelPopContextByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -207,8 +207,8 @@ public interface ICFGenKbGelPopContextTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelPopContextBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPopContextBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelPopContext buffer instance by primary key.
@@ -220,8 +220,8 @@ public interface ICFGenKbGelPopContextTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelPopContextBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPopContextBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelPopContext instances.
@@ -230,7 +230,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPopContextBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelPopContextBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelPopContext buffer instance identified by the unique key PIdx.
@@ -246,7 +246,7 @@ public interface ICFGenKbGelPopContextTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelPopContextBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -260,7 +260,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPopContextBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -274,7 +274,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPopContextBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -291,7 +291,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPopContextBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -309,7 +309,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelPopContextBuff[] readDerivedByRemainderIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff[] readDerivedByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
@@ -324,10 +324,10 @@ public interface ICFGenKbGelPopContextTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPopContextBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPopContextBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelPopContext buffer instance identified by the primary key.
@@ -339,10 +339,10 @@ public interface ICFGenKbGelPopContextTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPopContextBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelPopContextBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelPopContext buffer instances.
@@ -351,7 +351,7 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return All the specific GelPopContext instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelPopContextBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelPopContextBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelPopContext buffer instance identified by the unique key PIdx.
@@ -367,9 +367,9 @@ public interface ICFGenKbGelPopContextTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPopContextBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -383,9 +383,9 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPopContextBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -399,9 +399,9 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPopContextBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -418,9 +418,9 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPopContextBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -438,9 +438,9 @@ public interface ICFGenKbGelPopContextTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelPopContextBuff[] readBuffByRemainderIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelPopContextBuff[] readBuffByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
@@ -448,7 +448,7 @@ public interface ICFGenKbGelPopContextTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

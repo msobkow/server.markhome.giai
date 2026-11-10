@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFInt License.
+// Description: Java 11 Object interface for YCFInt License.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,29 +26,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntLicenseObj
-	extends ICFLibAnyObj
+public interface IYCFIntLicenseObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a License.
 	 *
-	 *	@return	CFIntLicenseObj instance which should be subsequently referenced.
+	 *	@return	YCFIntLicenseObj instance which should be subsequently referenced.
 	 */
-	ICFIntLicenseObj realise();
+	IYCFIntLicenseObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -60,99 +60,99 @@ public interface ICFIntLicenseObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntLicenseObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntLicenseObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntLicenseObj read();
+	IYCFIntLicenseObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntLicenseObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntLicenseObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntLicenseObj read( boolean forceRead );
+	IYCFIntLicenseObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this License instance.
 	 *
-	 *	@return	The newly locked ICFIntLicenseEditObj edition of this instance.
+	 *	@return	The newly locked IYCFIntLicenseEditObj edition of this instance.
 	 */
-	ICFIntLicenseEditObj beginEdit();
+	IYCFIntLicenseEditObj beginEdit();
 
 	/**
 	 *	End this edition of this License instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this License instance.
 	 *
-	 *	@return	The ICFIntLicenseEditObj edition of this instance.
+	 *	@return	The IYCFIntLicenseEditObj edition of this instance.
 	 */
-	ICFIntLicenseEditObj getEdit();
+	IYCFIntLicenseEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this License instance as a ICFIntLicenseEditObj.
+	 *	Get the current edition of this License instance as a IYCFIntLicenseEditObj.
 	 *
-	 *	@return	The ICFIntLicenseEditObj edition of this instance.
+	 *	@return	The IYCFIntLicenseEditObj edition of this instance.
 	 */
-	ICFIntLicenseEditObj getEditAsLicense();
+	IYCFIntLicenseEditObj getEditAsLicense();
 
 	/**
-	 *	Get the ICFIntLicenseTableObj table cache which manages this instance.
+	 *	Get the IYCFIntLicenseTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFIntLicenseTableObj table cache which manages this instance.
+	 *	@return	IYCFIntLicenseTableObj table cache which manages this instance.
 	 */
-	ICFIntLicenseTableObj getLicenseTable();
+	IYCFIntLicenseTableObj getLicenseTable();
 
 	/**
-	 *	Get the ICFIntSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFIntSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFIntSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFIntSchemaObj schema cache which manages this instance.
 	 */
-	ICFIntSchemaObj getSchema();
+	IYCFIntSchemaObj getSchema();
 
 	/**
-	 *	Get the CFIntLicenseBuff instance which currently backs this instance.
+	 *	Get the YCFIntLicenseBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntLicenseBuff instance which currently backs this object.
+	 *	@return	YCFIntLicenseBuff instance which currently backs this object.
 	 */
-	CFIntLicenseBuff getBuff();
+	YCFIntLicenseBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFIntLicenseBuff value );
+	void setBuff( YCFIntLicenseBuff value );
 
 	/**
-	 *	Get the CFIntLicenseBuff instance which currently backs this instance.
+	 *	Get the YCFIntLicenseBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntLicenseBuff instance which currently backs this object.
+	 *	@return	YCFIntLicenseBuff instance which currently backs this object.
 	 */
-	CFIntLicenseBuff getLicenseBuff();
+	YCFIntLicenseBuff getLicenseBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFIntLicensePKey primary key for this instance.
+	 *	@return	YCFIntLicensePKey primary key for this instance.
 	 */
-	CFIntLicensePKey getPKey();
+	YCFIntLicensePKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFIntLicensePKey primary key value for this instance.
+	 *	@param YCFIntLicensePKey primary key value for this instance.
 	 */
-	void setPKey( CFIntLicensePKey value );
+	void setPKey( YCFIntLicensePKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -221,32 +221,32 @@ public interface ICFIntLicenseObj
 	String getOptionalFullText();
 
 	/**
-	 *	Get the required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFIntTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFIntTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
-	 *	Get the required ICFIntTopDomainObj instance referenced by the TopDomain key.
+	 *	Get the required IYCFIntTopDomainObj instance referenced by the TopDomain key.
 	 *
-	 *	@return	The required ICFIntTopDomainObj instance referenced by the TopDomain key.
+	 *	@return	The required IYCFIntTopDomainObj instance referenced by the TopDomain key.
 	 */
-	ICFIntTopDomainObj getRequiredContainerTopDomain();
+	IYCFIntTopDomainObj getRequiredContainerTopDomain();
 
 	/**
-	 *	Get the required ICFIntTopDomainObj instance referenced by the TopDomain key.
+	 *	Get the required IYCFIntTopDomainObj instance referenced by the TopDomain key.
 	 *
-	 *	@return	The required ICFIntTopDomainObj instance referenced by the TopDomain key.
+	 *	@return	The required IYCFIntTopDomainObj instance referenced by the TopDomain key.
 	 */
-	ICFIntTopDomainObj getRequiredContainerTopDomain( boolean forceRead );
+	IYCFIntTopDomainObj getRequiredContainerTopDomain( boolean forceRead );
 
 	/**
 	 *	Internal use only.

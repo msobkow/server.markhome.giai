@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFSec SecForm.
+// Description: Java 11 Instance Edit Object interface for YCFSec SecForm.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,32 +26,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecFormEditObj
-	extends ICFSecSecFormObj
+public interface IYCFSecSecFormEditObj
+	extends IYCFSecSecFormObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFSecSecFormObj.
+	 *	@return The original, non-modifiable instance as a base IYCFSecSecFormObj.
 	 */
-	ICFSecSecFormObj getOrig();
+	IYCFSecSecFormObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFSecSecFormObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFSecSecFormObj.
 	 */
-	ICFSecSecFormObj getOrigAsSecForm();
+	IYCFSecSecFormObj getOrigAsSecForm();
 
 	/*
 	 *	create() may return a different instance than the
@@ -62,17 +62,17 @@ public interface ICFSecSecFormEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFSecSecFormObj create();
+	IYCFSecSecFormObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFSecSecFormEditObj update();
+	YCFSecSecFormEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFSecSecFormEditObj deleteInstance();
+	YCFSecSecFormEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute JEEServletMapName.
@@ -89,39 +89,39 @@ public interface ICFSecSecFormEditObj
 	void setRequiredJEEServletMapName( String value );
 
 	/**
-	 *	Get the ICFSecClusterObj instance referenced by the Cluster key.
+	 *	Get the IYCFSecClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The ICFSecClusterObj instance referenced by the Cluster key.
+	 *	@return	The IYCFSecClusterObj instance referenced by the Cluster key.
 	 */
-	ICFSecClusterObj getRequiredOwnerCluster();
+	IYCFSecClusterObj getRequiredOwnerCluster();
 
 	/**
-	 *	Set the ICFSecClusterObj instance referenced by the Cluster key.
+	 *	Set the IYCFSecClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@param	value	the ICFSecClusterObj instance to be referenced by the Cluster key.
+	 *	@param	value	the IYCFSecClusterObj instance to be referenced by the Cluster key.
 	 */
-	void setRequiredOwnerCluster( ICFSecClusterObj value );
+	void setRequiredOwnerCluster( IYCFSecClusterObj value );
 
 	/**
-	 *	Get the ICFSecSecAppObj instance referenced by the Application key.
+	 *	Get the IYCFSecSecAppObj instance referenced by the Application key.
 	 *
-	 *	@return	The ICFSecSecAppObj instance referenced by the Application key.
+	 *	@return	The IYCFSecSecAppObj instance referenced by the Application key.
 	 */
-	ICFSecSecAppObj getRequiredContainerApplication();
+	IYCFSecSecAppObj getRequiredContainerApplication();
 
 	/**
-	 *	Set the ICFSecSecAppObj instance referenced by the Application key.
+	 *	Set the IYCFSecSecAppObj instance referenced by the Application key.
 	 *
-	 *	@param	value	the ICFSecSecAppObj instance to be referenced by the Application key.
+	 *	@param	value	the IYCFSecSecAppObj instance to be referenced by the Application key.
 	 */
-	void setRequiredContainerApplication( ICFSecSecAppObj value );
+	void setRequiredContainerApplication( IYCFSecSecAppObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFSecSecUserObj value );
+	void setCreatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -133,9 +133,9 @@ public interface ICFSecSecFormEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFSecSecUserObj value );
+	void setUpdatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam EnumTag.
+// Description: Java 11 edit object instance implementation for YCFBam EnumTag.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,37 +45,37 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamEnumTagEditObj
-	implements ICFBamEnumTagEditObj
+public class YCFBamEnumTagEditObj
+	implements IYCFBamEnumTagEditObj
 {
-	protected ICFBamEnumTagObj orig;
-	protected CFBamEnumTagBuff buff;
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
-	protected ICFSecTenantObj requiredOwnerTenant;
-	protected ICFBamEnumDefObj requiredContainerEnumDef;
-	protected ICFBamSchemaDefObj optionalLookupDefSchema;
-	protected ICFBamEnumTagObj optionalLookupPrev;
-	protected ICFBamEnumTagObj optionalLookupNext;
+	protected IYCFBamEnumTagObj orig;
+	protected YCFBamEnumTagBuff buff;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
+	protected IYCFSecTenantObj requiredOwnerTenant;
+	protected IYCFBamEnumDefObj requiredContainerEnumDef;
+	protected IYCFBamSchemaDefObj optionalLookupDefSchema;
+	protected IYCFBamEnumTagObj optionalLookupPrev;
+	protected IYCFBamEnumTagObj optionalLookupNext;
 
-	public CFBamEnumTagEditObj( ICFBamEnumTagObj argOrig ) {
+	public YCFBamEnumTagEditObj( IYCFBamEnumTagObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFBamEnumTagBuff origBuff = orig.getBuff();
+		YCFBamEnumTagBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredOwnerTenant = null;
 		requiredContainerEnumDef = null;
@@ -84,10 +84,10 @@ public class CFBamEnumTagEditObj
 		optionalLookupNext = null;
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFBamEnumTagBuff buff = getBuff();
-			createdBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFBamEnumTagBuff buff = getBuff();
+			createdBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -96,10 +96,10 @@ public class CFBamEnumTagEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFBamEnumTagBuff buff = getBuff();
-			updatedBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFBamEnumTagBuff buff = getBuff();
+			updatedBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -108,7 +108,7 @@ public class CFBamEnumTagEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFSecSecUserObj value ) {
+	public void setCreatedBy( IYCFSecSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -119,7 +119,7 @@ public class CFBamEnumTagEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFSecSecUserObj value ) {
+	public void setUpdatedBy( IYCFSecSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -131,20 +131,20 @@ public class CFBamEnumTagEditObj
 	}
 
 	public String getClassCode() {
-		return( CFBamEnumTagObj.CLASS_CODE );
+		return( YCFBamEnumTagObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "EnumTag" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamEnumDefObj scope = getRequiredContainerEnumDef();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamEnumDefObj scope = getRequiredContainerEnumDef();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamEnumDefObj scope = getRequiredContainerEnumDef();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamEnumDefObj scope = getRequiredContainerEnumDef();
 		return( scope );
 	}
 
@@ -154,14 +154,14 @@ public class CFBamEnumTagEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -172,10 +172,10 @@ public class CFBamEnumTagEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -184,20 +184,20 @@ public class CFBamEnumTagEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -221,16 +221,16 @@ public class CFBamEnumTagEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -244,13 +244,13 @@ public class CFBamEnumTagEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -262,9 +262,9 @@ public class CFBamEnumTagEditObj
 		return( fullName );
 	}
 
-	public ICFBamEnumTagObj realise() {
+	public IYCFBamEnumTagObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamEnumTagObj retobj = getSchema().getEnumTagTableObj().realiseEnumTag( (ICFBamEnumTagObj)this );
+		IYCFBamEnumTagObj retobj = getSchema().getEnumTagTableObj().realiseEnumTag( (IYCFBamEnumTagObj)this );
 		return( retobj );
 	}
 
@@ -272,10 +272,10 @@ public class CFBamEnumTagEditObj
 		getOrigAsEnumTag().forget();
 	}
 
-	public ICFBamEnumTagObj read() {
-		ICFBamEnumTagObj retval = getOrigAsEnumTag().read();
+	public IYCFBamEnumTagObj read() {
+		IYCFBamEnumTagObj retval = getOrigAsEnumTag().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -283,10 +283,10 @@ public class CFBamEnumTagEditObj
 		return( retval );
 	}
 
-	public ICFBamEnumTagObj read( boolean forceRead ) {
-		ICFBamEnumTagObj retval = getOrigAsEnumTag().read( forceRead );
+	public IYCFBamEnumTagObj read( boolean forceRead ) {
+		IYCFBamEnumTagObj retval = getOrigAsEnumTag().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -294,81 +294,81 @@ public class CFBamEnumTagEditObj
 		return( retval );
 	}
 
-	public ICFBamEnumTagObj moveUp() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamEnumTagObj moveUp() {
+		throw new YCFLibUsageException( getClass(),
 			"moveUp",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamEnumTagObj moveDown() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamEnumTagObj moveDown() {
+		throw new YCFLibUsageException( getClass(),
 			"moveDown",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamEnumTagObj create() {
+	public IYCFBamEnumTagObj create() {
 		copyBuffToOrig();
-		ICFBamEnumTagObj retobj = ((ICFBamSchemaObj)getOrigAsEnumTag().getSchema()).getEnumTagTableObj().createEnumTag( getOrigAsEnumTag() );
+		IYCFBamEnumTagObj retobj = ((IYCFBamSchemaObj)getOrigAsEnumTag().getSchema()).getEnumTagTableObj().createEnumTag( getOrigAsEnumTag() );
 		if( retobj == getOrigAsEnumTag() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamEnumTagEditObj update() {
-		getSchema().getEnumTagTableObj().updateEnumTag( (ICFBamEnumTagObj)this );
+	public YCFBamEnumTagEditObj update() {
+		getSchema().getEnumTagTableObj().updateEnumTag( (IYCFBamEnumTagObj)this );
 		return( null );
 	}
 
-	public CFBamEnumTagEditObj deleteInstance() {
+	public YCFBamEnumTagEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getEnumTagTableObj().deleteEnumTag( getOrigAsEnumTag() );
 		return( null );
 	}
 
-	public ICFBamEnumTagTableObj getEnumTagTable() {
+	public IYCFBamEnumTagTableObj getEnumTagTable() {
 		return( orig.getSchema().getEnumTagTableObj() );
 	}
 
-	public ICFBamEnumTagEditObj getEdit() {
-		return( (ICFBamEnumTagEditObj)this );
+	public IYCFBamEnumTagEditObj getEdit() {
+		return( (IYCFBamEnumTagEditObj)this );
 	}
 
-	public ICFBamEnumTagEditObj getEditAsEnumTag() {
-		return( (ICFBamEnumTagEditObj)this );
+	public IYCFBamEnumTagEditObj getEditAsEnumTag() {
+		return( (IYCFBamEnumTagEditObj)this );
 	}
 
-	public ICFBamEnumTagEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFBamEnumTagEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFBamEnumTagObj getOrig() {
+	public IYCFBamEnumTagObj getOrig() {
 		return( orig );
 	}
 
-	public ICFBamEnumTagObj getOrigAsEnumTag() {
-		return( (ICFBamEnumTagObj)orig );
+	public IYCFBamEnumTagObj getOrigAsEnumTag() {
+		return( (IYCFBamEnumTagObj)orig );
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFBamEnumTagBuff getBuff() {
+	public YCFBamEnumTagBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsEnumTag().getSchema().getBackingStore()).getFactoryEnumTag().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsEnumTag().getSchema().getBackingStore()).getFactoryEnumTag().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamEnumTagBuff value ) {
+	public void setBuff( YCFBamEnumTagBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredOwnerTenant = null;
@@ -379,15 +379,15 @@ public class CFBamEnumTagEditObj
 		}
 	}
 
-	public CFBamEnumTagBuff getEnumTagBuff() {
-		return( (CFBamEnumTagBuff)getBuff() );
+	public YCFBamEnumTagBuff getEnumTagBuff() {
+		return( (YCFBamEnumTagBuff)getBuff() );
 	}
 
-	public CFBamEnumTagPKey getPKey() {
+	public YCFBamEnumTagPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFBamEnumTagPKey value ) {
+	public void setPKey( YCFBamEnumTagPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -456,22 +456,22 @@ public class CFBamEnumTagEditObj
 		return( getEnumTagBuff().getOptionalNextId() );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant() {
+	public IYCFSecTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( forceRead || ( requiredOwnerTenant == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFSecTenantObj obj = ((ICFBamSchemaObj)getOrigAsEnumTag().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
+				IYCFSecTenantObj obj = ((IYCFBamSchemaObj)getOrigAsEnumTag().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
 				requiredOwnerTenant = obj;
 			}
 		}
 		return( requiredOwnerTenant );
 	}
 
-	public void setRequiredOwnerTenant( ICFSecTenantObj value ) {
+	public void setRequiredOwnerTenant( IYCFSecTenantObj value ) {
 			if( buff == null ) {
 				getEnumTagBuff();
 			}
@@ -482,15 +482,15 @@ public class CFBamEnumTagEditObj
 			requiredOwnerTenant = value;
 	}
 
-	public ICFBamEnumDefObj getRequiredContainerEnumDef() {
+	public IYCFBamEnumDefObj getRequiredContainerEnumDef() {
 		return( getRequiredContainerEnumDef( false ) );
 	}
 
-	public ICFBamEnumDefObj getRequiredContainerEnumDef( boolean forceRead ) {
+	public IYCFBamEnumDefObj getRequiredContainerEnumDef( boolean forceRead ) {
 		if( forceRead || ( requiredContainerEnumDef == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamEnumDefObj obj = ((ICFBamSchemaObj)getOrigAsEnumTag().getSchema()).getEnumDefTableObj().readEnumDefByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFBamEnumDefObj obj = ((IYCFBamSchemaObj)getOrigAsEnumTag().getSchema()).getEnumDefTableObj().readEnumDefByIdIdx( getPKey().getRequiredTenantId(),
 					getEnumTagBuff().getRequiredEnumId() );
 				requiredContainerEnumDef = obj;
 				if( obj != null ) {
@@ -503,7 +503,7 @@ public class CFBamEnumTagEditObj
 		return( requiredContainerEnumDef );
 	}
 
-	public void setRequiredContainerEnumDef( ICFBamEnumDefObj value ) {
+	public void setRequiredContainerEnumDef( IYCFBamEnumDefObj value ) {
 			if( buff == null ) {
 				getEnumTagBuff();
 			}
@@ -515,11 +515,11 @@ public class CFBamEnumTagEditObj
 			requiredContainerEnumDef = value;
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema() {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema() {
 		return( getOptionalLookupDefSchema( false ) );
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
 		if( forceRead || ( optionalLookupDefSchema == null ) ) {
 			boolean anyMissing = false;
 			if( getEnumTagBuff().getOptionalDefSchemaTenantId() == null ) {
@@ -529,7 +529,7 @@ public class CFBamEnumTagEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamSchemaDefObj obj = ((ICFBamSchemaObj)getOrigAsEnumTag().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getEnumTagBuff().getOptionalDefSchemaTenantId(),
+				IYCFBamSchemaDefObj obj = ((IYCFBamSchemaObj)getOrigAsEnumTag().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getEnumTagBuff().getOptionalDefSchemaTenantId(),
 					getEnumTagBuff().getOptionalDefSchemaId() );
 				optionalLookupDefSchema = obj;
 			}
@@ -537,7 +537,7 @@ public class CFBamEnumTagEditObj
 		return( optionalLookupDefSchema );
 	}
 
-	public void setOptionalLookupDefSchema( ICFBamSchemaDefObj value ) {
+	public void setOptionalLookupDefSchema( IYCFBamSchemaDefObj value ) {
 			if( buff == null ) {
 				getEnumTagBuff();
 			}
@@ -552,11 +552,11 @@ public class CFBamEnumTagEditObj
 			optionalLookupDefSchema = value;
 	}
 
-	public ICFBamEnumTagObj getOptionalLookupPrev() {
+	public IYCFBamEnumTagObj getOptionalLookupPrev() {
 		return( getOptionalLookupPrev( false ) );
 	}
 
-	public ICFBamEnumTagObj getOptionalLookupPrev( boolean forceRead ) {
+	public IYCFBamEnumTagObj getOptionalLookupPrev( boolean forceRead ) {
 		if( forceRead || ( optionalLookupPrev == null ) ) {
 			boolean anyMissing = false;
 			if( getEnumTagBuff().getOptionalPrevTenantId() == null ) {
@@ -566,7 +566,7 @@ public class CFBamEnumTagEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamEnumTagObj obj = ((ICFBamSchemaObj)getOrigAsEnumTag().getSchema()).getEnumTagTableObj().readEnumTagByIdIdx( getEnumTagBuff().getOptionalPrevTenantId(),
+				IYCFBamEnumTagObj obj = ((IYCFBamSchemaObj)getOrigAsEnumTag().getSchema()).getEnumTagTableObj().readEnumTagByIdIdx( getEnumTagBuff().getOptionalPrevTenantId(),
 					getEnumTagBuff().getOptionalPrevId() );
 				optionalLookupPrev = obj;
 			}
@@ -574,7 +574,7 @@ public class CFBamEnumTagEditObj
 		return( optionalLookupPrev );
 	}
 
-	public void setOptionalLookupPrev( ICFBamEnumTagObj value ) {
+	public void setOptionalLookupPrev( IYCFBamEnumTagObj value ) {
 			if( buff == null ) {
 				getEnumTagBuff();
 			}
@@ -589,11 +589,11 @@ public class CFBamEnumTagEditObj
 			optionalLookupPrev = value;
 	}
 
-	public ICFBamEnumTagObj getOptionalLookupNext() {
+	public IYCFBamEnumTagObj getOptionalLookupNext() {
 		return( getOptionalLookupNext( false ) );
 	}
 
-	public ICFBamEnumTagObj getOptionalLookupNext( boolean forceRead ) {
+	public IYCFBamEnumTagObj getOptionalLookupNext( boolean forceRead ) {
 		if( forceRead || ( optionalLookupNext == null ) ) {
 			boolean anyMissing = false;
 			if( getEnumTagBuff().getOptionalNextTenantId() == null ) {
@@ -603,7 +603,7 @@ public class CFBamEnumTagEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamEnumTagObj obj = ((ICFBamSchemaObj)getOrigAsEnumTag().getSchema()).getEnumTagTableObj().readEnumTagByIdIdx( getEnumTagBuff().getOptionalNextTenantId(),
+				IYCFBamEnumTagObj obj = ((IYCFBamSchemaObj)getOrigAsEnumTag().getSchema()).getEnumTagTableObj().readEnumTagByIdIdx( getEnumTagBuff().getOptionalNextTenantId(),
 					getEnumTagBuff().getOptionalNextId() );
 				optionalLookupNext = obj;
 			}
@@ -611,7 +611,7 @@ public class CFBamEnumTagEditObj
 		return( optionalLookupNext );
 	}
 
-	public void setOptionalLookupNext( ICFBamEnumTagObj value ) {
+	public void setOptionalLookupNext( IYCFBamEnumTagObj value ) {
 			if( buff == null ) {
 				getEnumTagBuff();
 			}
@@ -637,14 +637,14 @@ public class CFBamEnumTagEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamEnumTagBuff origBuff = getOrigAsEnumTag().getEnumTagBuff();
-		CFBamEnumTagBuff myBuff = getEnumTagBuff();
+		YCFBamEnumTagBuff origBuff = getOrigAsEnumTag().getEnumTagBuff();
+		YCFBamEnumTagBuff myBuff = getEnumTagBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamEnumTagBuff origBuff = getOrigAsEnumTag().getEnumTagBuff();
-		CFBamEnumTagBuff myBuff = getEnumTagBuff();
+		YCFBamEnumTagBuff origBuff = getOrigAsEnumTag().getEnumTagBuff();
+		YCFBamEnumTagBuff myBuff = getEnumTagBuff();
 		myBuff.set( origBuff );
 	}
 }

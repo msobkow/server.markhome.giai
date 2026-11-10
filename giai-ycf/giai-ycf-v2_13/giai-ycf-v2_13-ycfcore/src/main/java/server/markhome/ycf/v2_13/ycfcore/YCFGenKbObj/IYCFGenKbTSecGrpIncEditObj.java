@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb TSecGrpInc.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb TSecGrpInc.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbTSecGrpIncEditObj
-	extends ICFGenKbTSecGrpIncObj
+public interface IYCFGenKbTSecGrpIncEditObj
+	extends IYCFGenKbTSecGrpIncObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbTSecGrpIncObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbTSecGrpIncObj.
 	 */
-	ICFGenKbTSecGrpIncObj getOrig();
+	IYCFGenKbTSecGrpIncObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbTSecGrpIncObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbTSecGrpIncObj.
 	 */
-	ICFGenKbTSecGrpIncObj getOrigAsTSecGrpInc();
+	IYCFGenKbTSecGrpIncObj getOrigAsTSecGrpInc();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,66 +63,66 @@ public interface ICFGenKbTSecGrpIncEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbTSecGrpIncObj create();
+	IYCFGenKbTSecGrpIncObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbTSecGrpIncEditObj update();
+	YCFGenKbTSecGrpIncEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbTSecGrpIncEditObj deleteInstance();
+	YCFGenKbTSecGrpIncEditObj deleteInstance();
 
 	/**
-	 *	Get the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant();
+	IYCFGenKbTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Set the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFGenKbTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFGenKbTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredOwnerTenant( ICFGenKbTenantObj value );
+	void setRequiredOwnerTenant( IYCFGenKbTenantObj value );
 
 	/**
-	 *	Get the ICFGenKbTSecGroupObj instance referenced by the Group key.
+	 *	Get the IYCFGenKbTSecGroupObj instance referenced by the Group key.
 	 *
-	 *	@return	The ICFGenKbTSecGroupObj instance referenced by the Group key.
+	 *	@return	The IYCFGenKbTSecGroupObj instance referenced by the Group key.
 	 */
-	ICFGenKbTSecGroupObj getRequiredContainerGroup();
+	IYCFGenKbTSecGroupObj getRequiredContainerGroup();
 
 	/**
-	 *	Set the ICFGenKbTSecGroupObj instance referenced by the Group key.
+	 *	Set the IYCFGenKbTSecGroupObj instance referenced by the Group key.
 	 *
-	 *	@param	value	the ICFGenKbTSecGroupObj instance to be referenced by the Group key.
+	 *	@param	value	the IYCFGenKbTSecGroupObj instance to be referenced by the Group key.
 	 */
-	void setRequiredContainerGroup( ICFGenKbTSecGroupObj value );
+	void setRequiredContainerGroup( IYCFGenKbTSecGroupObj value );
 
 	/**
-	 *	Get the ICFGenKbTSecGroupObj instance referenced by the SubGroup key.
+	 *	Get the IYCFGenKbTSecGroupObj instance referenced by the SubGroup key.
 	 *
-	 *	@return	The ICFGenKbTSecGroupObj instance referenced by the SubGroup key.
+	 *	@return	The IYCFGenKbTSecGroupObj instance referenced by the SubGroup key.
 	 */
-	ICFGenKbTSecGroupObj getRequiredParentSubGroup();
+	IYCFGenKbTSecGroupObj getRequiredParentSubGroup();
 
 	/**
-	 *	Set the ICFGenKbTSecGroupObj instance referenced by the SubGroup key.
+	 *	Set the IYCFGenKbTSecGroupObj instance referenced by the SubGroup key.
 	 *
-	 *	@param	value	the ICFGenKbTSecGroupObj instance to be referenced by the SubGroup key.
+	 *	@param	value	the IYCFGenKbTSecGroupObj instance to be referenced by the SubGroup key.
 	 */
-	void setRequiredParentSubGroup( ICFGenKbTSecGroupObj value );
+	void setRequiredParentSubGroup( IYCFGenKbTSecGroupObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFGenKbSecUserObj value );
+	void setCreatedBy( IYCFGenKbSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -134,9 +134,9 @@ public interface ICFGenKbTSecGrpIncEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFGenKbSecUserObj value );
+	void setUpdatedBy( IYCFGenKbSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

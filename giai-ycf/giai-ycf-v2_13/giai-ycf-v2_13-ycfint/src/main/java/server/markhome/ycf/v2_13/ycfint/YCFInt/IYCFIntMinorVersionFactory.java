@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for MinorVersion.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,14 +35,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 /*
- *	CFIntMinorVersionFactory interface for MinorVersion
+ *	YCFIntMinorVersionFactory interface for MinorVersion
  */
-public interface ICFIntMinorVersionFactory
+public interface IYCFIntMinorVersionFactory
 {
 
 	/**
@@ -50,48 +50,48 @@ public interface ICFIntMinorVersionFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMinorVersionPKey newPKey();
+	YCFIntMinorVersionPKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for MinorVersion instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMinorVersionHPKey newHPKey();
+	YCFIntMinorVersionHPKey newHPKey();
 
 	/**
 	 *	Allocate a TenantIdx key over MinorVersion instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMinorVersionByTenantIdxKey newTenantIdxKey();
+	YCFIntMinorVersionByTenantIdxKey newTenantIdxKey();
 
 	/**
 	 *	Allocate a MajorVerIdx key over MinorVersion instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMinorVersionByMajorVerIdxKey newMajorVerIdxKey();
+	YCFIntMinorVersionByMajorVerIdxKey newMajorVerIdxKey();
 
 	/**
 	 *	Allocate a NameIdx key over MinorVersion instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMinorVersionByNameIdxKey newNameIdxKey();
+	YCFIntMinorVersionByNameIdxKey newNameIdxKey();
 
 	/**
 	 *	Allocate a MinorVersion instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMinorVersionBuff newBuff();
+	YCFIntMinorVersionBuff newBuff();
 
 	/**
 	 *	Allocate a MinorVersion history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMinorVersionHBuff newHBuff();
+	YCFIntMinorVersionHBuff newHBuff();
 
 }

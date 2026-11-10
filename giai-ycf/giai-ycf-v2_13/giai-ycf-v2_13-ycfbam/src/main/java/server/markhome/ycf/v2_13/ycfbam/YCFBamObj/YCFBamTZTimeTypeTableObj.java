@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,54 +45,54 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamTZTimeTypeTableObj
-	implements ICFBamTZTimeTypeTableObj
+public class YCFBamTZTimeTypeTableObj
+	implements IYCFBamTZTimeTypeTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFBamValuePKey, ICFBamTZTimeTypeObj> members;
-	private Map<CFBamValuePKey, ICFBamTZTimeTypeObj> allTZTimeType;
-	private Map< CFBamValueByUNameIdxKey,
-		ICFBamTZTimeTypeObj > indexByUNameIdx;
-	private Map< CFBamValueByValTentIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexByValTentIdx;
-	private Map< CFBamValueByScopeIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexByScopeIdx;
-	private Map< CFBamValueByDefSchemaIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexByDefSchemaIdx;
-	private Map< CFBamValueByPrevIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexByPrevIdx;
-	private Map< CFBamValueByNextIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexByNextIdx;
-	private Map< CFBamValueByContPrevIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexByContPrevIdx;
-	private Map< CFBamValueByContNextIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexByContNextIdx;
-	private Map< CFBamValueByCodeVisIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexByCodeVisIdx;
-	private Map< CFBamValueByScopeCodeVisIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexByScopeCodeVisIdx;
-	private Map< CFBamTZTimeTypeBySchemaIdxKey,
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj > > indexBySchemaIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> members;
+	private Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> allTZTimeType;
+	private Map< YCFBamValueByUNameIdxKey,
+		IYCFBamTZTimeTypeObj > indexByUNameIdx;
+	private Map< YCFBamValueByValTentIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexByValTentIdx;
+	private Map< YCFBamValueByScopeIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexByScopeIdx;
+	private Map< YCFBamValueByDefSchemaIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexByDefSchemaIdx;
+	private Map< YCFBamValueByPrevIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexByPrevIdx;
+	private Map< YCFBamValueByNextIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexByNextIdx;
+	private Map< YCFBamValueByContPrevIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexByContPrevIdx;
+	private Map< YCFBamValueByContNextIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexByContNextIdx;
+	private Map< YCFBamValueByCodeVisIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexByCodeVisIdx;
+	private Map< YCFBamValueByScopeCodeVisIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexByScopeCodeVisIdx;
+	private Map< YCFBamTZTimeTypeBySchemaIdxKey,
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > > indexBySchemaIdx;
 	public static String TABLE_NAME = "TZTimeType";
 	public static String TABLE_DBNAME = "tmztyp";
 
-	public CFBamTZTimeTypeTableObj() {
+	public YCFBamTZTimeTypeTableObj() {
 		schema = null;
-		members = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
+		members = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
 		allTZTimeType = null;
 		indexByUNameIdx = null;
 		indexByValTentIdx = null;
@@ -107,9 +107,9 @@ public class CFBamTZTimeTypeTableObj
 		indexBySchemaIdx = null;
 	}
 
-	public CFBamTZTimeTypeTableObj( ICFBamSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
+	public YCFBamTZTimeTypeTableObj( IYCFBamSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
 		allTZTimeType = null;
 		indexByUNameIdx = null;
 		indexByValTentIdx = null;
@@ -124,12 +124,12 @@ public class CFBamTZTimeTypeTableObj
 		indexBySchemaIdx = null;
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFBamSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFBamSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -141,7 +141,7 @@ public class CFBamTZTimeTypeTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamSchemaDefObj.class );
+		return( IYCFBamSchemaDefObj.class );
 	}
 
 
@@ -158,9 +158,9 @@ public class CFBamTZTimeTypeTableObj
 		indexByCodeVisIdx = null;
 		indexByScopeCodeVisIdx = null;
 		indexBySchemaIdx = null;
-		List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
-		ICFBamTZTimeTypeObj cur = null;
-		Iterator<ICFBamTZTimeTypeObj> iter = members.values().iterator();
+		List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
+		IYCFBamTZTimeTypeObj cur = null;
+		Iterator<IYCFBamTZTimeTypeObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -178,10 +178,10 @@ public class CFBamTZTimeTypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamTZTimeTypeObj.
+	 *	YCFBamTZTimeTypeObj.
 	 */
-	public ICFBamTZTimeTypeObj newInstance() {
-		ICFBamTZTimeTypeObj inst = new CFBamTZTimeTypeObj( schema );
+	public IYCFBamTZTimeTypeObj newInstance() {
+		IYCFBamTZTimeTypeObj inst = new YCFBamTZTimeTypeObj( schema );
 		return( inst );
 	}
 
@@ -192,19 +192,19 @@ public class CFBamTZTimeTypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamTZTimeTypeObj.
+	 *	YCFBamTZTimeTypeObj.
 	 */
-	public ICFBamTZTimeTypeEditObj newEditInstance( ICFBamTZTimeTypeObj orig ) {
-		ICFBamTZTimeTypeEditObj edit = new CFBamTZTimeTypeEditObj( orig );
+	public IYCFBamTZTimeTypeEditObj newEditInstance( IYCFBamTZTimeTypeObj orig ) {
+		IYCFBamTZTimeTypeEditObj edit = new YCFBamTZTimeTypeEditObj( orig );
 		return( edit );
 	}
 
-	public ICFBamTZTimeTypeObj realiseTZTimeType( ICFBamTZTimeTypeObj Obj ) {
-		ICFBamTZTimeTypeObj obj = Obj;
-		CFBamValuePKey pkey = obj.getPKey();
-		ICFBamTZTimeTypeObj keepObj = null;
+	public IYCFBamTZTimeTypeObj realiseTZTimeType( IYCFBamTZTimeTypeObj Obj ) {
+		IYCFBamTZTimeTypeObj obj = Obj;
+		YCFBamValuePKey pkey = obj.getPKey();
+		IYCFBamTZTimeTypeObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFBamTZTimeTypeObj existingObj = members.get( pkey );
+			IYCFBamTZTimeTypeObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -215,8 +215,8 @@ public class CFBamTZTimeTypeTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByUNameIdx != null ) {
-				CFBamValueByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+				YCFBamValueByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -224,111 +224,111 @@ public class CFBamTZTimeTypeTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamValueByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+				YCFBamValueByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					indexByValTentIdx.remove( keyValTentIdx );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamValueByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+				YCFBamValueByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					indexByScopeIdx.remove( keyScopeIdx );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+				YCFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					indexByDefSchemaIdx.remove( keyDefSchemaIdx );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamValueByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+				YCFBamValueByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					indexByPrevIdx.remove( keyPrevIdx );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamValueByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+				YCFBamValueByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					indexByNextIdx.remove( keyNextIdx );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamValueByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+				YCFBamValueByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					indexByContPrevIdx.remove( keyContPrevIdx );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamValueByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+				YCFBamValueByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					indexByContNextIdx.remove( keyContNextIdx );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				YCFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					indexByCodeVisIdx.remove( keyCodeVisIdx );
 				}
 			}
 
 			if( indexByScopeCodeVisIdx != null ) {
-				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				YCFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
 				if( mapScopeCodeVisIdx != null ) {
 					indexByScopeCodeVisIdx.remove( keyScopeCodeVisIdx );
 				}
 			}
 
 			if( indexBySchemaIdx != null ) {
-				CFBamTZTimeTypeBySchemaIdxKey keySchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
+				YCFBamTZTimeTypeBySchemaIdxKey keySchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
 				keySchemaIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keySchemaIdx.setRequiredSchemaDefId( keepObj.getRequiredSchemaDefId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
 				if( mapSchemaIdx != null ) {
 					mapSchemaIdx.remove( keepObj.getPKey() );
 					if( mapSchemaIdx.size() <= 0 ) {
@@ -339,13 +339,13 @@ public class CFBamTZTimeTypeTableObj
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
-			keepObj = (ICFBamTZTimeTypeObj)schema.getTZTimeDefTableObj().realiseTZTimeDef( Obj );
+			keepObj = (IYCFBamTZTimeTypeObj)schema.getTZTimeDefTableObj().realiseTZTimeDef( Obj );
 
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByUNameIdx != null ) {
-				CFBamValueByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+				YCFBamValueByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -353,111 +353,111 @@ public class CFBamTZTimeTypeTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamValueByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+				YCFBamValueByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					mapValTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamValueByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+				YCFBamValueByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					mapScopeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+				YCFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamValueByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+				YCFBamValueByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamValueByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+				YCFBamValueByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamValueByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+				YCFBamValueByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					mapContPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamValueByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+				YCFBamValueByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				YCFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeCodeVisIdx != null ) {
-				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				YCFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
 				if( mapScopeCodeVisIdx != null ) {
 					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySchemaIdx != null ) {
-				CFBamTZTimeTypeBySchemaIdxKey keySchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
+				YCFBamTZTimeTypeBySchemaIdxKey keySchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
 				keySchemaIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keySchemaIdx.setRequiredSchemaDefId( keepObj.getRequiredSchemaDefId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
 				if( mapSchemaIdx != null ) {
 					mapSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -469,7 +469,7 @@ public class CFBamTZTimeTypeTableObj
 		}
 		else {
 			keepObj = obj;
-			keepObj = (ICFBamTZTimeTypeObj)schema.getTZTimeDefTableObj().realiseTZTimeDef( keepObj );
+			keepObj = (IYCFBamTZTimeTypeObj)schema.getTZTimeDefTableObj().realiseTZTimeDef( keepObj );
 
 			// Attach new object to PKey, all, alternate, and duplicate indexes
 			members.put( keepObj.getPKey(), keepObj );
@@ -478,8 +478,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamValueByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+				YCFBamValueByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -487,111 +487,111 @@ public class CFBamTZTimeTypeTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamValueByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+				YCFBamValueByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					mapValTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamValueByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+				YCFBamValueByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					mapScopeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+				YCFBamValueByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamValueByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+				YCFBamValueByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamValueByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+				YCFBamValueByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamValueByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+				YCFBamValueByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					mapContPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamValueByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+				YCFBamValueByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByCodeVisIdx != null ) {
-				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				YCFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
 				if( mapCodeVisIdx != null ) {
 					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeCodeVisIdx != null ) {
-				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				YCFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
 				if( mapScopeCodeVisIdx != null ) {
 					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySchemaIdx != null ) {
-				CFBamTZTimeTypeBySchemaIdxKey keySchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
+				YCFBamTZTimeTypeBySchemaIdxKey keySchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
 				keySchemaIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keySchemaIdx.setRequiredSchemaDefId( keepObj.getRequiredSchemaDefId() );
-				Map<CFBamValuePKey, ICFBamTZTimeTypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
+				Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
 				if( mapSchemaIdx != null ) {
 					mapSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -601,17 +601,17 @@ public class CFBamTZTimeTypeTableObj
 		return( keepObj );
 	}
 
-	public ICFBamTZTimeTypeObj createTZTimeType( ICFBamTZTimeTypeObj Obj ) {
-		ICFBamTZTimeTypeObj obj = Obj;
-		CFBamTZTimeTypeBuff buff = obj.getTZTimeTypeBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().createTZTimeType(
+	public IYCFBamTZTimeTypeObj createTZTimeType( IYCFBamTZTimeTypeObj Obj ) {
+		IYCFBamTZTimeTypeObj obj = Obj;
+		YCFBamTZTimeTypeBuff buff = obj.getTZTimeTypeBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().createTZTimeType(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		if( obj.getPKey().getClassCode().equals( "a858" ) ) {
-			obj = (ICFBamTZTimeTypeObj)(obj.realise());
+			obj = (IYCFBamTZTimeTypeObj)(obj.realise());
 		}
-		ICFBamValueObj prev = obj.getOptionalLookupPrev();
+		IYCFBamValueObj prev = obj.getOptionalLookupPrev();
 		if( prev != null ) {
 			prev.read( true );
 		}
@@ -619,51 +619,51 @@ public class CFBamTZTimeTypeTableObj
 		return( obj );
 	}
 
-	public ICFBamTZTimeTypeObj readTZTimeType( CFBamValuePKey pkey ) {
+	public IYCFBamTZTimeTypeObj readTZTimeType( YCFBamValuePKey pkey ) {
 		return( readTZTimeType( pkey, false ) );
 	}
 
-	public ICFBamTZTimeTypeObj readTZTimeType( CFBamValuePKey pkey, boolean forceRead ) {
-		ICFBamTZTimeTypeObj obj = null;
+	public IYCFBamTZTimeTypeObj readTZTimeType( YCFBamValuePKey pkey, boolean forceRead ) {
+		IYCFBamTZTimeTypeObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFBamTZTimeTypeBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFBamTZTimeTypeBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( readBuff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( readBuff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFBamTZTimeTypeObj)obj.realise();
+				obj = (IYCFBamTZTimeTypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamTZTimeTypeObj readCachedTZTimeType( CFBamValuePKey pkey ) {
-		ICFBamTZTimeTypeObj obj = null;
+	public IYCFBamTZTimeTypeObj readCachedTZTimeType( YCFBamValuePKey pkey ) {
+		IYCFBamTZTimeTypeObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeTZTimeType( ICFBamTZTimeTypeObj obj )
+	public void reallyDeepDisposeTZTimeType( IYCFBamTZTimeTypeObj obj )
 	{
-		final String S_ProcName = "CFBamTZTimeTypeTableObj.reallyDeepDisposeTZTimeType() ";
+		final String S_ProcName = "YCFBamTZTimeTypeTableObj.reallyDeepDisposeTZTimeType() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFBamValuePKey pkey = obj.getPKey();
-		ICFBamTZTimeTypeObj existing = readCachedTZTimeType( pkey );
+		YCFBamValuePKey pkey = obj.getPKey();
+		IYCFBamTZTimeTypeObj existing = readCachedTZTimeType( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFBamTZTimeTypeBySchemaIdxKey keySchemaIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
+		YCFBamTZTimeTypeBySchemaIdxKey keySchemaIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
 		keySchemaIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
@@ -685,57 +685,57 @@ public class CFBamTZTimeTypeTableObj
 
 		schema.getTZTimeDefTableObj().reallyDeepDisposeTZTimeDef( obj );
 	}
-	public void deepDisposeTZTimeType( CFBamValuePKey pkey ) {
-		ICFBamTZTimeTypeObj obj = readCachedTZTimeType( pkey );
+	public void deepDisposeTZTimeType( YCFBamValuePKey pkey ) {
+		IYCFBamTZTimeTypeObj obj = readCachedTZTimeType( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFBamTZTimeTypeObj lockTZTimeType( CFBamValuePKey pkey ) {
-		ICFBamTZTimeTypeObj locked = null;
-		CFBamTZTimeTypeBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFBamTZTimeTypeObj lockTZTimeType( YCFBamValuePKey pkey ) {
+		IYCFBamTZTimeTypeObj locked = null;
+		YCFBamTZTimeTypeBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
-				locked = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( lockBuff.getClassCode() );
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				locked = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( lockBuff.getClassCode() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFBamTZTimeTypeObj)locked.realise();
+			locked = (IYCFBamTZTimeTypeObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockTZTimeType", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockTZTimeType", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readAllTZTimeType() {
+	public List<IYCFBamTZTimeTypeObj> readAllTZTimeType() {
 		return( readAllTZTimeType( false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readAllTZTimeType( boolean forceRead ) {
+	public List<IYCFBamTZTimeTypeObj> readAllTZTimeType( boolean forceRead ) {
 		final String S_ProcName = "readAllTZTimeType";
 		if( ( allTZTimeType == null ) || forceRead ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> map = new HashMap<CFBamValuePKey,ICFBamTZTimeTypeObj>();
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> map = new HashMap<YCFBamValuePKey,IYCFBamTZTimeTypeObj>();
 			allTZTimeType = map;
-			CFBamTZTimeTypeBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().readAllDerived( schema.getAuthorization() );
-			CFBamTZTimeTypeBuff buff;
-			ICFBamTZTimeTypeObj obj;
+			YCFBamTZTimeTypeBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().readAllDerived( schema.getAuthorization() );
+			YCFBamTZTimeTypeBuff buff;
+			IYCFBamTZTimeTypeObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 			}
 		}
 		int len = allTZTimeType.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = allTZTimeType.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = allTZTimeType.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -743,20 +743,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -769,31 +769,31 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedAllTZTimeType() {
+	public List<IYCFBamTZTimeTypeObj> readCachedAllTZTimeType() {
 		final String S_ProcName = "readCachedAllTZTimeType";
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( allTZTimeType != null ) {
 			int len = allTZTimeType.size();
-			ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-			Iterator<ICFBamTZTimeTypeObj> valIter = allTZTimeType.values().iterator();
+			IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+			Iterator<IYCFBamTZTimeTypeObj> valIter = allTZTimeType.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -801,7 +801,7 @@ public class CFBamTZTimeTypeTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -812,8 +812,8 @@ public class CFBamTZTimeTypeTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -826,8 +826,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -837,7 +837,7 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public ICFBamTZTimeTypeObj readTZTimeTypeByIdIdx( long TenantId,
+	public IYCFBamTZTimeTypeObj readTZTimeTypeByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readTZTimeTypeByIdIdx( TenantId,
@@ -845,17 +845,17 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public ICFBamTZTimeTypeObj readTZTimeTypeByIdIdx( long TenantId,
+	public IYCFBamTZTimeTypeObj readTZTimeTypeByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFBamValuePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
+		YCFBamValuePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamTZTimeTypeObj obj = readTZTimeType( pkey, forceRead );
+		IYCFBamTZTimeTypeObj obj = readTZTimeType( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFBamTZTimeTypeObj readTZTimeTypeByUNameIdx( long TenantId,
+	public IYCFBamTZTimeTypeObj readTZTimeTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name )
 	{
@@ -865,82 +865,82 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public ICFBamTZTimeTypeObj readTZTimeTypeByUNameIdx( long TenantId,
+	public IYCFBamTZTimeTypeObj readTZTimeTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamValueByUNameIdxKey,
-				ICFBamTZTimeTypeObj >();
+			indexByUNameIdx = new HashMap< YCFBamValueByUNameIdxKey,
+				IYCFBamTZTimeTypeObj >();
 		}
-		CFBamValueByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+		YCFBamValueByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
-		ICFBamTZTimeTypeObj obj = null;
+		IYCFBamTZTimeTypeObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFBamValueBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFBamValueBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
 			if( buff != null ) {
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFBamTZTimeTypeObj)obj.realise();
+				obj = (IYCFBamTZTimeTypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByValTentIdx( long TenantId )
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByValTentIdx( long TenantId )
 	{
 		return( readTZTimeTypeByValTentIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByValTentIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByValTentIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeByValTentIdx";
-		CFBamValueByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+		YCFBamValueByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexByValTentIdx == null ) {
-			indexByValTentIdx = new HashMap< CFBamValueByValTentIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByValTentIdx = new HashMap< YCFBamValueByValTentIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByValTentIdx.containsKey( key ) ) {
 			dict = indexByValTentIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByValTentIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByValTentIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByValTentIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -948,20 +948,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -974,19 +974,19 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByScopeIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByScopeIdx( long TenantId,
 		long ScopeId )
 	{
 		return( readTZTimeTypeByScopeIdx( TenantId,
@@ -994,48 +994,48 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByScopeIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeByScopeIdx";
-		CFBamValueByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+		YCFBamValueByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexByScopeIdx == null ) {
-			indexByScopeIdx = new HashMap< CFBamValueByScopeIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByScopeIdx = new HashMap< YCFBamValueByScopeIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByScopeIdx.containsKey( key ) ) {
 			dict = indexByScopeIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByScopeIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1043,20 +1043,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1069,19 +1069,19 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		return( readTZTimeTypeByDefSchemaIdx( DefSchemaTenantId,
@@ -1089,48 +1089,48 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeByDefSchemaIdx";
-		CFBamValueByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+		YCFBamValueByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamValueByDefSchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamValueByDefSchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByDefSchemaIdx.containsKey( key ) ) {
 			dict = indexByDefSchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByDefSchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDefSchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1138,20 +1138,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1164,19 +1164,19 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		return( readTZTimeTypeByPrevIdx( PrevTenantId,
@@ -1184,48 +1184,48 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeByPrevIdx";
-		CFBamValueByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+		YCFBamValueByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamValueByPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByPrevIdx = new HashMap< YCFBamValueByPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByPrevIdx.containsKey( key ) ) {
 			dict = indexByPrevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByPrevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByPrevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1233,20 +1233,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1259,19 +1259,19 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByNextIdx( Long NextTenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		return( readTZTimeTypeByNextIdx( NextTenantId,
@@ -1279,48 +1279,48 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByNextIdx( Long NextTenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeByNextIdx";
-		CFBamValueByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+		YCFBamValueByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamValueByNextIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByNextIdx = new HashMap< YCFBamValueByNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByNextIdx.containsKey( key ) ) {
 			dict = indexByNextIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByNextIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByNextIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1328,20 +1328,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1354,19 +1354,19 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByContPrevIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId )
 	{
@@ -1376,51 +1376,51 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByContPrevIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeByContPrevIdx";
-		CFBamValueByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+		YCFBamValueByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexByContPrevIdx == null ) {
-			indexByContPrevIdx = new HashMap< CFBamValueByContPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByContPrevIdx = new HashMap< YCFBamValueByContPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByContPrevIdx.containsKey( key ) ) {
 			dict = indexByContPrevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContPrevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				PrevId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByContPrevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1428,20 +1428,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1454,19 +1454,19 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByContNextIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId )
 	{
@@ -1476,51 +1476,51 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByContNextIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeByContNextIdx";
-		CFBamValueByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+		YCFBamValueByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexByContNextIdx == null ) {
-			indexByContNextIdx = new HashMap< CFBamValueByContNextIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByContNextIdx = new HashMap< YCFBamValueByContNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByContNextIdx.containsKey( key ) ) {
 			dict = indexByContNextIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContNextIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				NextId );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByContNextIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1528,20 +1528,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1554,63 +1554,63 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		return( readTZTimeTypeByCodeVisIdx( CodeVis,
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeByCodeVisIdx";
-		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		YCFBamValueByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexByCodeVisIdx == null ) {
-			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByCodeVisIdx = new HashMap< YCFBamValueByCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByCodeVisIdx.containsKey( key ) ) {
 			dict = indexByCodeVisIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByCodeVisIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByCodeVisIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1618,20 +1618,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1644,21 +1644,21 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByScopeCodeVisIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		return( readTZTimeTypeByScopeCodeVisIdx( TenantId,
 			ScopeId,
@@ -1666,51 +1666,51 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeByScopeCodeVisIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeByScopeCodeVisIdx";
-		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		YCFBamValueByScopeCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredCodeVis( CodeVis );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexByScopeCodeVisIdx == null ) {
-			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByScopeCodeVisIdx = new HashMap< YCFBamValueByScopeCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexByScopeCodeVisIdx.containsKey( key ) ) {
 			dict = indexByScopeCodeVisIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamValueObj obj;
-			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeCodeVisIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamValueObj obj;
+			YCFBamValueBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				CodeVis );
-			CFBamValueBuff buff;
+			YCFBamValueBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByScopeCodeVisIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1718,20 +1718,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1744,19 +1744,19 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeBySchemaIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
 		return( readTZTimeTypeBySchemaIdx( TenantId,
@@ -1764,48 +1764,48 @@ public class CFBamTZTimeTypeTableObj
 			false ) );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readTZTimeTypeBySchemaIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readTZTimeTypeBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTZTimeTypeBySchemaIdx";
-		CFBamTZTimeTypeBySchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
+		YCFBamTZTimeTypeBySchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSchemaDefId( SchemaDefId );
-		Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+		Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 		if( indexBySchemaIdx == null ) {
-			indexBySchemaIdx = new HashMap< CFBamTZTimeTypeBySchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexBySchemaIdx = new HashMap< YCFBamTZTimeTypeBySchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( ( ! forceRead ) && indexBySchemaIdx.containsKey( key ) ) {
 			dict = indexBySchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamValuePKey, ICFBamTZTimeTypeObj>();
-			ICFBamTZTimeTypeObj obj;
-			CFBamTZTimeTypeBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().readDerivedBySchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamValuePKey, IYCFBamTZTimeTypeObj>();
+			IYCFBamTZTimeTypeObj obj;
+			YCFBamTZTimeTypeBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().readDerivedBySchemaIdx( schema.getAuthorization(),
 				TenantId,
 				SchemaDefId );
-			CFBamTZTimeTypeBuff buff;
+			YCFBamTZTimeTypeBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj = (IYCFBamTZTimeTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 				obj.setBuff( buff );
-				ICFBamTZTimeTypeObj realised = (ICFBamTZTimeTypeObj)obj.realise();
+				IYCFBamTZTimeTypeObj realised = (IYCFBamTZTimeTypeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexBySchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-		Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+		IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+		Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1813,20 +1813,20 @@ public class CFBamTZTimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>(len);
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1839,35 +1839,35 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamTZTimeTypeObj> sortedList = arrayList;
+		List<IYCFBamTZTimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamTZTimeTypeObj readCachedTZTimeTypeByIdIdx( long TenantId,
+	public IYCFBamTZTimeTypeObj readCachedTZTimeTypeByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamTZTimeTypeObj obj = null;
-		CFBamValuePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
+		IYCFBamTZTimeTypeObj obj = null;
+		YCFBamValuePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedTZTimeType( pkey );
 		return( obj );
 	}
 
-	public ICFBamTZTimeTypeObj readCachedTZTimeTypeByUNameIdx( long TenantId,
+	public IYCFBamTZTimeTypeObj readCachedTZTimeTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name )
 	{
-		ICFBamTZTimeTypeObj obj = null;
-		CFBamValueByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+		IYCFBamTZTimeTypeObj obj = null;
+		YCFBamValueByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
@@ -1876,7 +1876,7 @@ public class CFBamTZTimeTypeTableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+				Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1888,7 +1888,7 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1901,25 +1901,25 @@ public class CFBamTZTimeTypeTableObj
 		return( obj );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeByValTentIdx( long TenantId )
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeByValTentIdx";
-		CFBamValueByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+		YCFBamValueByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexByValTentIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexByValTentIdx.containsKey( key ) ) {
 				dict = indexByValTentIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1927,7 +1927,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1940,8 +1940,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1951,8 +1951,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1965,8 +1965,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1976,27 +1976,27 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeByScopeIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeByScopeIdx( long TenantId,
 		long ScopeId )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeByScopeIdx";
-		CFBamValueByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+		YCFBamValueByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexByScopeIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexByScopeIdx.containsKey( key ) ) {
 				dict = indexByScopeIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2004,7 +2004,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2017,8 +2017,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2028,8 +2028,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2042,8 +2042,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2053,27 +2053,27 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeByDefSchemaIdx";
-		CFBamValueByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+		YCFBamValueByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexByDefSchemaIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexByDefSchemaIdx.containsKey( key ) ) {
 				dict = indexByDefSchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2081,7 +2081,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2094,8 +2094,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2105,8 +2105,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2119,8 +2119,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2130,27 +2130,27 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeByPrevIdx";
-		CFBamValueByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+		YCFBamValueByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexByPrevIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexByPrevIdx.containsKey( key ) ) {
 				dict = indexByPrevIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2158,7 +2158,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2171,8 +2171,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2182,8 +2182,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2196,8 +2196,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2207,27 +2207,27 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeByNextIdx( Long NextTenantId,
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeByNextIdx";
-		CFBamValueByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+		YCFBamValueByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexByNextIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexByNextIdx.containsKey( key ) ) {
 				dict = indexByNextIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2235,7 +2235,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2248,8 +2248,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2259,8 +2259,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2273,8 +2273,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2284,29 +2284,29 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeByContPrevIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeByContPrevIdx";
-		CFBamValueByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+		YCFBamValueByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexByContPrevIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexByContPrevIdx.containsKey( key ) ) {
 				dict = indexByContPrevIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2314,7 +2314,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2327,8 +2327,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2338,8 +2338,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2352,8 +2352,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2363,29 +2363,29 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeByContNextIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeByContNextIdx";
-		CFBamValueByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+		YCFBamValueByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexByContNextIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexByContNextIdx.containsKey( key ) ) {
 				dict = indexByContNextIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2393,7 +2393,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2406,8 +2406,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2417,8 +2417,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2431,8 +2431,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2442,25 +2442,25 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeByCodeVisIdx";
-		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		YCFBamValueByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexByCodeVisIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexByCodeVisIdx.containsKey( key ) ) {
 				dict = indexByCodeVisIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2468,7 +2468,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2481,8 +2481,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2492,8 +2492,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2506,8 +2506,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2517,29 +2517,29 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeByScopeCodeVisIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeByScopeCodeVisIdx";
-		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		YCFBamValueByScopeCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredCodeVis( CodeVis );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexByScopeCodeVisIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexByScopeCodeVisIdx.containsKey( key ) ) {
 				dict = indexByScopeCodeVisIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2547,7 +2547,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2560,8 +2560,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2571,8 +2571,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2585,8 +2585,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2596,27 +2596,27 @@ public class CFBamTZTimeTypeTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamTZTimeTypeObj> readCachedTZTimeTypeBySchemaIdx( long TenantId,
+	public List<IYCFBamTZTimeTypeObj> readCachedTZTimeTypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
 		final String S_ProcName = "readCachedTZTimeTypeBySchemaIdx";
-		CFBamTZTimeTypeBySchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
+		YCFBamTZTimeTypeBySchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSchemaDefId( SchemaDefId );
-		ArrayList<ICFBamTZTimeTypeObj> arrayList = new ArrayList<ICFBamTZTimeTypeObj>();
+		ArrayList<IYCFBamTZTimeTypeObj> arrayList = new ArrayList<IYCFBamTZTimeTypeObj>();
 		if( indexBySchemaIdx != null ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict;
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict;
 			if( indexBySchemaIdx.containsKey( key ) ) {
 				dict = indexBySchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamTZTimeTypeObj arr[] = new ICFBamTZTimeTypeObj[len];
-				Iterator<ICFBamTZTimeTypeObj> valIter = dict.values().iterator();
+				IYCFBamTZTimeTypeObj arr[] = new IYCFBamTZTimeTypeObj[len];
+				Iterator<IYCFBamTZTimeTypeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2624,7 +2624,7 @@ public class CFBamTZTimeTypeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2637,8 +2637,8 @@ public class CFBamTZTimeTypeTableObj
 			}
 		}
 		else {
-			ICFBamTZTimeTypeObj obj;
-			Iterator<ICFBamTZTimeTypeObj> valIter = members.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			Iterator<IYCFBamTZTimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2648,8 +2648,8 @@ public class CFBamTZTimeTypeTableObj
 				}
 			}
 		}
-		Comparator<ICFBamTZTimeTypeObj> cmp = new Comparator<ICFBamTZTimeTypeObj>() {
-			public int compare( ICFBamTZTimeTypeObj lhs, ICFBamTZTimeTypeObj rhs ) {
+		Comparator<IYCFBamTZTimeTypeObj> cmp = new Comparator<IYCFBamTZTimeTypeObj>() {
+			public int compare( IYCFBamTZTimeTypeObj lhs, IYCFBamTZTimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2662,8 +2662,8 @@ public class CFBamTZTimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFBamValuePKey lhsPKey = lhs.getPKey();
-					CFBamValuePKey rhsPKey = rhs.getPKey();
+					YCFBamValuePKey lhsPKey = lhs.getPKey();
+					YCFBamValuePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2676,7 +2676,7 @@ public class CFBamTZTimeTypeTableObj
 	public void deepDisposeTZTimeTypeByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamTZTimeTypeObj obj = readCachedTZTimeTypeByIdIdx( TenantId,
+		IYCFBamTZTimeTypeObj obj = readCachedTZTimeTypeByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -2687,7 +2687,7 @@ public class CFBamTZTimeTypeTableObj
 		long ScopeId,
 		String Name )
 	{
-		ICFBamTZTimeTypeObj obj = readCachedTZTimeTypeByUNameIdx( TenantId,
+		IYCFBamTZTimeTypeObj obj = readCachedTZTimeTypeByUNameIdx( TenantId,
 				ScopeId,
 				Name );
 		if( obj != null ) {
@@ -2698,10 +2698,10 @@ public class CFBamTZTimeTypeTableObj
 	public void deepDisposeTZTimeTypeByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeByValTentIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByValTentIdx( TenantId );
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByValTentIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2715,11 +2715,11 @@ public class CFBamTZTimeTypeTableObj
 		long ScopeId )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeByScopeIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByScopeIdx( TenantId,
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByScopeIdx( TenantId,
 				ScopeId );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2733,11 +2733,11 @@ public class CFBamTZTimeTypeTableObj
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeByDefSchemaIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByDefSchemaIdx( DefSchemaTenantId,
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByDefSchemaIdx( DefSchemaTenantId,
 				DefSchemaId );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2751,11 +2751,11 @@ public class CFBamTZTimeTypeTableObj
 		Long PrevId )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeByPrevIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByPrevIdx( PrevTenantId,
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByPrevIdx( PrevTenantId,
 				PrevId );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2769,11 +2769,11 @@ public class CFBamTZTimeTypeTableObj
 		Long NextId )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeByNextIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByNextIdx( NextTenantId,
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByNextIdx( NextTenantId,
 				NextId );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2788,12 +2788,12 @@ public class CFBamTZTimeTypeTableObj
 		Long PrevId )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeByContPrevIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByContPrevIdx( TenantId,
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByContPrevIdx( TenantId,
 				ScopeId,
 				PrevId );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2808,12 +2808,12 @@ public class CFBamTZTimeTypeTableObj
 		Long NextId )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeByContNextIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByContNextIdx( TenantId,
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByContNextIdx( TenantId,
 				ScopeId,
 				NextId );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2823,13 +2823,13 @@ public class CFBamTZTimeTypeTableObj
 		}
 	}
 
-	public void deepDisposeTZTimeTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public void deepDisposeTZTimeTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeByCodeVisIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByCodeVisIdx( CodeVis );
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByCodeVisIdx( CodeVis );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2841,15 +2841,15 @@ public class CFBamTZTimeTypeTableObj
 
 	public void deepDisposeTZTimeTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeByScopeCodeVisIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByScopeCodeVisIdx( TenantId,
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeByScopeCodeVisIdx( TenantId,
 				ScopeId,
 				CodeVis );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2863,11 +2863,11 @@ public class CFBamTZTimeTypeTableObj
 		long SchemaDefId )
 	{
 		final String S_ProcName = "deepDisposeTZTimeTypeBySchemaIdx";
-		ICFBamTZTimeTypeObj obj;
-		List<ICFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeBySchemaIdx( TenantId,
+		IYCFBamTZTimeTypeObj obj;
+		List<IYCFBamTZTimeTypeObj> arrayList = readCachedTZTimeTypeBySchemaIdx( TenantId,
 				SchemaDefId );
 		if( arrayList != null )  {
-			Iterator<ICFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamTZTimeTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2877,22 +2877,22 @@ public class CFBamTZTimeTypeTableObj
 		}
 	}
 
-	public ICFBamTZTimeTypeObj updateTZTimeType( ICFBamTZTimeTypeObj Obj ) {
-		ICFBamTZTimeTypeObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().updateTZTimeType( schema.getAuthorization(),
+	public IYCFBamTZTimeTypeObj updateTZTimeType( IYCFBamTZTimeTypeObj Obj ) {
+		IYCFBamTZTimeTypeObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().updateTZTimeType( schema.getAuthorization(),
 			Obj.getTZTimeTypeBuff() );
 		if( Obj.getClassCode().equals( "a858" ) ) {
-			obj = (ICFBamTZTimeTypeObj)Obj.realise();
+			obj = (IYCFBamTZTimeTypeObj)Obj.realise();
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteTZTimeType( ICFBamTZTimeTypeObj Obj ) {
-		ICFBamTZTimeTypeObj obj = Obj;
-		ICFBamValueObj prev = obj.getOptionalLookupPrev();
-		ICFBamValueObj next = obj.getOptionalLookupNext();
-		((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeType( schema.getAuthorization(),
+	public void deleteTZTimeType( IYCFBamTZTimeTypeObj Obj ) {
+		IYCFBamTZTimeTypeObj obj = Obj;
+		IYCFBamValueObj prev = obj.getOptionalLookupPrev();
+		IYCFBamValueObj next = obj.getOptionalLookupNext();
+		((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeType( schema.getAuthorization(),
 			obj.getTZTimeTypeBuff() );
 		Obj.forget();
 		if( prev != null ) {
@@ -2906,15 +2906,15 @@ public class CFBamTZTimeTypeTableObj
 	public void deleteTZTimeTypeByIdIdx( long TenantId,
 		long Id )
 	{
-		CFBamValuePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
+		YCFBamValuePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamTZTimeTypeObj obj = readTZTimeType( pkey );
+		IYCFBamTZTimeTypeObj obj = readTZTimeType( pkey );
 		if( obj != null ) {
-			ICFBamTZTimeTypeEditObj editObj = (ICFBamTZTimeTypeEditObj)obj.getEdit();
+			IYCFBamTZTimeTypeEditObj editObj = (IYCFBamTZTimeTypeEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFBamTZTimeTypeEditObj)obj.beginEdit();
+				editObj = (IYCFBamTZTimeTypeEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -2942,24 +2942,24 @@ public class CFBamTZTimeTypeTableObj
 		String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamValueByUNameIdxKey,
-				ICFBamTZTimeTypeObj >();
+			indexByUNameIdx = new HashMap< YCFBamValueByUNameIdxKey,
+				IYCFBamTZTimeTypeObj >();
 		}
-		CFBamValueByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
+		YCFBamValueByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
-		ICFBamTZTimeTypeObj obj = null;
+		IYCFBamTZTimeTypeObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
@@ -2971,19 +2971,19 @@ public class CFBamTZTimeTypeTableObj
 
 	public void deleteTZTimeTypeByValTentIdx( long TenantId )
 	{
-		CFBamValueByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
+		YCFBamValueByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByValTentIdx == null ) {
-			indexByValTentIdx = new HashMap< CFBamValueByValTentIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByValTentIdx = new HashMap< YCFBamValueByValTentIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexByValTentIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexByValTentIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByValTentIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexByValTentIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByValTentIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2996,7 +2996,7 @@ public class CFBamTZTimeTypeTableObj
 			indexByValTentIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByValTentIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByValTentIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeTZTimeTypeByValTentIdx( TenantId );
@@ -3005,21 +3005,21 @@ public class CFBamTZTimeTypeTableObj
 	public void deleteTZTimeTypeByScopeIdx( long TenantId,
 		long ScopeId )
 	{
-		CFBamValueByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
+		YCFBamValueByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		if( indexByScopeIdx == null ) {
-			indexByScopeIdx = new HashMap< CFBamValueByScopeIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByScopeIdx = new HashMap< YCFBamValueByScopeIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexByScopeIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexByScopeIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByScopeIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexByScopeIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3032,7 +3032,7 @@ public class CFBamTZTimeTypeTableObj
 			indexByScopeIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByScopeIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
 		}
@@ -3043,21 +3043,21 @@ public class CFBamTZTimeTypeTableObj
 	public void deleteTZTimeTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		CFBamValueByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
+		YCFBamValueByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamValueByDefSchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamValueByDefSchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexByDefSchemaIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexByDefSchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByDefSchemaIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexByDefSchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3070,7 +3070,7 @@ public class CFBamTZTimeTypeTableObj
 			indexByDefSchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByDefSchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
 		}
@@ -3081,21 +3081,21 @@ public class CFBamTZTimeTypeTableObj
 	public void deleteTZTimeTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
-		CFBamValueByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
+		YCFBamValueByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamValueByPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByPrevIdx = new HashMap< YCFBamValueByPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexByPrevIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexByPrevIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByPrevIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexByPrevIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3108,7 +3108,7 @@ public class CFBamTZTimeTypeTableObj
 			indexByPrevIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByPrevIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
 		}
@@ -3119,21 +3119,21 @@ public class CFBamTZTimeTypeTableObj
 	public void deleteTZTimeTypeByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
-		CFBamValueByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
+		YCFBamValueByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamValueByNextIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByNextIdx = new HashMap< YCFBamValueByNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexByNextIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexByNextIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByNextIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexByNextIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3146,7 +3146,7 @@ public class CFBamTZTimeTypeTableObj
 			indexByNextIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByNextIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
 		}
@@ -3158,23 +3158,23 @@ public class CFBamTZTimeTypeTableObj
 		long ScopeId,
 		Long PrevId )
 	{
-		CFBamValueByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
+		YCFBamValueByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalPrevId( PrevId );
 		if( indexByContPrevIdx == null ) {
-			indexByContPrevIdx = new HashMap< CFBamValueByContPrevIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByContPrevIdx = new HashMap< YCFBamValueByContPrevIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexByContPrevIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexByContPrevIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByContPrevIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexByContPrevIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				PrevId );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3187,7 +3187,7 @@ public class CFBamTZTimeTypeTableObj
 			indexByContPrevIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByContPrevIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				PrevId );
@@ -3201,23 +3201,23 @@ public class CFBamTZTimeTypeTableObj
 		long ScopeId,
 		Long NextId )
 	{
-		CFBamValueByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
+		YCFBamValueByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalNextId( NextId );
 		if( indexByContNextIdx == null ) {
-			indexByContNextIdx = new HashMap< CFBamValueByContNextIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByContNextIdx = new HashMap< YCFBamValueByContNextIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexByContNextIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexByContNextIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByContNextIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexByContNextIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				NextId );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3230,7 +3230,7 @@ public class CFBamTZTimeTypeTableObj
 			indexByContNextIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByContNextIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				NextId );
@@ -3240,21 +3240,21 @@ public class CFBamTZTimeTypeTableObj
 				NextId );
 	}
 
-	public void deleteTZTimeTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public void deleteTZTimeTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		YCFBamValueByCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
 		if( indexByCodeVisIdx == null ) {
-			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByCodeVisIdx = new HashMap< YCFBamValueByCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexByCodeVisIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexByCodeVisIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByCodeVisIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexByCodeVisIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3267,7 +3267,7 @@ public class CFBamTZTimeTypeTableObj
 			indexByCodeVisIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByCodeVisIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByCodeVisIdx( schema.getAuthorization(),
 				CodeVis );
 		}
 		deepDisposeTZTimeTypeByCodeVisIdx( CodeVis );
@@ -3275,25 +3275,25 @@ public class CFBamTZTimeTypeTableObj
 
 	public void deleteTZTimeTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		YCFBamValueByScopeCodeVisIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredCodeVis( CodeVis );
 		if( indexByScopeCodeVisIdx == null ) {
-			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexByScopeCodeVisIdx = new HashMap< YCFBamValueByScopeCodeVisIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexByScopeCodeVisIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexByScopeCodeVisIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByScopeCodeVisIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexByScopeCodeVisIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByScopeCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				CodeVis );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3306,7 +3306,7 @@ public class CFBamTZTimeTypeTableObj
 			indexByScopeCodeVisIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByScopeCodeVisIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeByScopeCodeVisIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				CodeVis );
@@ -3319,21 +3319,21 @@ public class CFBamTZTimeTypeTableObj
 	public void deleteTZTimeTypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
-		CFBamTZTimeTypeBySchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
+		YCFBamTZTimeTypeBySchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryTZTimeType().newSchemaIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSchemaDefId( SchemaDefId );
 		if( indexBySchemaIdx == null ) {
-			indexBySchemaIdx = new HashMap< CFBamTZTimeTypeBySchemaIdxKey,
-				Map< CFBamValuePKey, ICFBamTZTimeTypeObj > >();
+			indexBySchemaIdx = new HashMap< YCFBamTZTimeTypeBySchemaIdxKey,
+				Map< YCFBamValuePKey, IYCFBamTZTimeTypeObj > >();
 		}
 		if( indexBySchemaIdx.containsKey( key ) ) {
-			Map<CFBamValuePKey, ICFBamTZTimeTypeObj> dict = indexBySchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeBySchemaIdx( schema.getAuthorization(),
+			Map<YCFBamValuePKey, IYCFBamTZTimeTypeObj> dict = indexBySchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeBySchemaIdx( schema.getAuthorization(),
 				TenantId,
 				SchemaDefId );
-			Iterator<ICFBamTZTimeTypeObj> iter = dict.values().iterator();
-			ICFBamTZTimeTypeObj obj;
-			List<ICFBamTZTimeTypeObj> toForget = new LinkedList<ICFBamTZTimeTypeObj>();
+			Iterator<IYCFBamTZTimeTypeObj> iter = dict.values().iterator();
+			IYCFBamTZTimeTypeObj obj;
+			List<IYCFBamTZTimeTypeObj> toForget = new LinkedList<IYCFBamTZTimeTypeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -3346,7 +3346,7 @@ public class CFBamTZTimeTypeTableObj
 			indexBySchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeBySchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().deleteTZTimeTypeBySchemaIdx( schema.getAuthorization(),
 				TenantId,
 				SchemaDefId );
 		}
@@ -3355,61 +3355,61 @@ public class CFBamTZTimeTypeTableObj
 	}
 
 	/**
-	 *	Move the CFBamTZTimeTypeObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamTZTimeTypeObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamTZTimeTypeObj refreshed cache instance.
+	 *	@return	YCFBamTZTimeTypeObj refreshed cache instance.
 	 */
-	public ICFBamTZTimeTypeObj moveUpTZTimeType( ICFBamTZTimeTypeObj Obj ) {
-		ICFBamTZTimeTypeObj obj = null;
+	public IYCFBamTZTimeTypeObj moveUpTZTimeType( IYCFBamTZTimeTypeObj Obj ) {
+		IYCFBamTZTimeTypeObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveUpTZTimeType",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamTZTimeTypeBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().moveBuffUp( schema.getAuthorization(),
+		YCFBamTZTimeTypeBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().moveBuffUp( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getTZTimeTypeTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamTZTimeTypeObj)obj.realise();
-			ICFBamValueObj prev = obj.getOptionalLookupPrev( true );
-			ICFBamValueObj next = obj.getOptionalLookupNext( true );
+			obj = (IYCFBamTZTimeTypeObj)obj.realise();
+			IYCFBamValueObj prev = obj.getOptionalLookupPrev( true );
+			IYCFBamValueObj next = obj.getOptionalLookupNext( true );
 			if( next != null ) {
-				ICFBamValueObj gnext = next.getOptionalLookupNext( true );
+				IYCFBamValueObj gnext = next.getOptionalLookupNext( true );
 			}
 		}
 		return( obj );
 	}
 
 	/**
-	 *	Move the CFBamTZTimeTypeObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamTZTimeTypeObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamTZTimeTypeObj refreshed cache instance.
+	 *	@return	YCFBamTZTimeTypeObj refreshed cache instance.
 	 */
-	public ICFBamTZTimeTypeObj moveDownTZTimeType( ICFBamTZTimeTypeObj Obj ) {
-		ICFBamTZTimeTypeObj obj = null;
+	public IYCFBamTZTimeTypeObj moveDownTZTimeType( IYCFBamTZTimeTypeObj Obj ) {
+		IYCFBamTZTimeTypeObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveDownTZTimeType",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamTZTimeTypeBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableTZTimeType().moveBuffDown( schema.getAuthorization(),
+		YCFBamTZTimeTypeBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableTZTimeType().moveBuffDown( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getTZTimeTypeTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamTZTimeTypeObj)obj.realise();
-			ICFBamValueObj prev = obj.getOptionalLookupPrev( true );
+			obj = (IYCFBamTZTimeTypeObj)obj.realise();
+			IYCFBamValueObj prev = obj.getOptionalLookupPrev( true );
 			if( prev != null ) {
-				ICFBamValueObj gprev = prev.getOptionalLookupPrev( true );
+				IYCFBamValueObj gprev = prev.getOptionalLookupPrev( true );
 			}
-			ICFBamValueObj next = obj.getOptionalLookupNext( true );
+			IYCFBamValueObj next = obj.getOptionalLookupNext( true );
 		}
 		return( obj );
 	}

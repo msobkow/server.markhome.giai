@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamDoubleDefTableObj
+public interface IYCFBamDoubleDefTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamDoubleDefObj newInstance();
+	IYCFBamDoubleDefObj newInstance();
 
 	/**
 	 *	Instantiate a new DoubleDef edition of the specified DoubleDef instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamDoubleDefEditObj newEditInstance( ICFBamDoubleDefObj orig );
+	IYCFBamDoubleDefEditObj newEditInstance( IYCFBamDoubleDefObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDoubleDefObj realiseDoubleDef( ICFBamDoubleDefObj Obj );
+	IYCFBamDoubleDefObj realiseDoubleDef( IYCFBamDoubleDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDoubleDefObj createDoubleDef( ICFBamDoubleDefObj Obj );
+	IYCFBamDoubleDefObj createDoubleDef( IYCFBamDoubleDefObj Obj );
 
 	/**
 	 *	Read a DoubleDef-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamDoubleDefTableObj
 	 *	@return	The DoubleDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDoubleDefObj readDoubleDef( CFBamValuePKey pkey );
+	IYCFBamDoubleDefObj readDoubleDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a DoubleDef-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamDoubleDefTableObj
 	 *	@return	The DoubleDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDoubleDefObj readDoubleDef( CFBamValuePKey pkey,
+	IYCFBamDoubleDefObj readDoubleDef( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamDoubleDefObj readCachedDoubleDef( CFBamValuePKey pkey );
+	IYCFBamDoubleDefObj readCachedDoubleDef( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeDoubleDef( ICFBamDoubleDefObj obj );
+	public void reallyDeepDisposeDoubleDef( IYCFBamDoubleDefObj obj );
 
-	void deepDisposeDoubleDef( CFBamValuePKey pkey );
+	void deepDisposeDoubleDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDoubleDefObj lockDoubleDef( CFBamValuePKey pkey );
+	IYCFBamDoubleDefObj lockDoubleDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the DoubleDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDoubleDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDoubleDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readAllDoubleDef();
+	List<IYCFBamDoubleDefObj> readAllDoubleDef();
 
 	/**
 	 *	Return a sorted map of all the DoubleDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDoubleDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDoubleDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readAllDoubleDef( boolean forceRead );
+	List<IYCFBamDoubleDefObj> readAllDoubleDef( boolean forceRead );
 
-	List<ICFBamDoubleDefObj> readCachedAllDoubleDef();
+	List<IYCFBamDoubleDefObj> readCachedAllDoubleDef();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDoubleDefObj readDoubleDefByIdIdx( long TenantId,
+	IYCFBamDoubleDefObj readDoubleDefByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDoubleDefObj readDoubleDefByIdIdx( long TenantId,
+	IYCFBamDoubleDefObj readDoubleDefByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@param	argName	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDoubleDefObj readDoubleDefByUNameIdx( long TenantId,
+	IYCFBamDoubleDefObj readDoubleDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@param	argName	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDoubleDefObj readDoubleDefByUNameIdx( long TenantId,
+	IYCFBamDoubleDefObj readDoubleDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByValTentIdx( long TenantId );
+	List<IYCFBamDoubleDefObj> readDoubleDefByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamDoubleDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByValTentIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByScopeIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamDoubleDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByScopeIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamDoubleDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamDoubleDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByNextIdx( Long NextTenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamDoubleDefObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByNextIdx( Long NextTenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@param	argPrevId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByContPrevIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamDoubleDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@param	argPrevId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByContPrevIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@param	argNextId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByContNextIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamDoubleDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@param	argNextId	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByContNextIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamDoubleDefObj> readDoubleDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamDoubleDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamDoubleDefObj> readDoubleDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamDoubleDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
 	 *
@@ -446,48 +446,48 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleDefObj> readDoubleDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readDoubleDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
-	ICFBamDoubleDefObj readCachedDoubleDefByIdIdx( long TenantId,
+	IYCFBamDoubleDefObj readCachedDoubleDefByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamDoubleDefObj readCachedDoubleDefByUNameIdx( long TenantId,
+	IYCFBamDoubleDefObj readCachedDoubleDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamDoubleDefObj> readCachedDoubleDefByValTentIdx( long TenantId );
+	List<IYCFBamDoubleDefObj> readCachedDoubleDefByValTentIdx( long TenantId );
 
-	List<ICFBamDoubleDefObj> readCachedDoubleDefByScopeIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readCachedDoubleDefByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamDoubleDefObj> readCachedDoubleDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDoubleDefObj> readCachedDoubleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamDoubleDefObj> readCachedDoubleDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDoubleDefObj> readCachedDoubleDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamDoubleDefObj> readCachedDoubleDefByNextIdx( Long NextTenantId,
+	List<IYCFBamDoubleDefObj> readCachedDoubleDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamDoubleDefObj> readCachedDoubleDefByContPrevIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readCachedDoubleDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamDoubleDefObj> readCachedDoubleDefByContNextIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readCachedDoubleDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamDoubleDefObj> readCachedDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamDoubleDefObj> readCachedDoubleDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamDoubleDefObj> readCachedDoubleDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDoubleDefObj> readCachedDoubleDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDoubleDefByIdIdx( long TenantId,
 		long Id );
@@ -518,21 +518,21 @@ public interface ICFBamDoubleDefTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeDoubleDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDoubleDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDoubleDefObj updateDoubleDef( ICFBamDoubleDefObj Obj );
+	IYCFBamDoubleDefObj updateDoubleDef( IYCFBamDoubleDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteDoubleDef( ICFBamDoubleDefObj Obj );
+	void deleteDoubleDef( IYCFBamDoubleDefObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -635,7 +635,7 @@ public interface ICFBamDoubleDefTableObj
 	 *
 	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
 	 */
-	void deleteDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteDoubleDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -648,19 +648,19 @@ public interface ICFBamDoubleDefTableObj
 	 */
 	void deleteDoubleDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Move the CFBamDoubleDefObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamDoubleDefObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamDoubleDefObj refreshed cache instance.
+	 *	@return	YCFBamDoubleDefObj refreshed cache instance.
 	 */
-	ICFBamDoubleDefObj moveUpDoubleDef( ICFBamDoubleDefObj Obj );
+	IYCFBamDoubleDefObj moveUpDoubleDef( IYCFBamDoubleDefObj Obj );
 
 	/**
-	 *	Move the CFBamDoubleDefObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamDoubleDefObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamDoubleDefObj refreshed cache instance.
+	 *	@return	YCFBamDoubleDefObj refreshed cache instance.
 	 */
-	ICFBamDoubleDefObj moveDownDoubleDef( ICFBamDoubleDefObj Obj );
+	IYCFBamDoubleDefObj moveDownDoubleDef( IYCFBamDoubleDefObj Obj );
 }

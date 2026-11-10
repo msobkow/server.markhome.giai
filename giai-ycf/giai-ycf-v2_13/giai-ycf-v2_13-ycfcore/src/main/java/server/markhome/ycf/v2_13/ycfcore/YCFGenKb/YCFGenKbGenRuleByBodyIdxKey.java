@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenRule by BodyIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenRuleByBodyIdxKey
+public class YCFGenKbGenRuleByBodyIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalBodyTenantId;
 	protected Long optionalBodyGelCacheId;
 	protected Long optionalBodyGelId;
-	public CFGenKbGenRuleByBodyIdxKey() {
+	public YCFGenKbGenRuleByBodyIdxKey() {
 		optionalBodyTenantId = null;
 		optionalBodyGelCacheId = null;
 		optionalBodyGelId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGenRuleByBodyIdxKey
 		if( value == null ) {
 			optionalBodyTenantId = null;
 		}
-		else if( value < CFGenKbGenRuleBuff.BODYTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenRuleBuff.BODYTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBodyTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenRuleBuff.BODYTENANTID_MIN_VALUE );
+				YCFGenKbGenRuleBuff.BODYTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalBodyTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGenRuleByBodyIdxKey
 		if( value == null ) {
 			optionalBodyGelCacheId = null;
 		}
-		else if( value < CFGenKbGenRuleBuff.BODYGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenRuleBuff.BODYGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBodyGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenRuleBuff.BODYGELCACHEID_MIN_VALUE );
+				YCFGenKbGenRuleBuff.BODYGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalBodyGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGenRuleByBodyIdxKey
 		if( value == null ) {
 			optionalBodyGelId = null;
 		}
-		else if( value < CFGenKbGenRuleBuff.BODYGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenRuleBuff.BODYGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBodyGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenRuleBuff.BODYGELID_MIN_VALUE );
+				YCFGenKbGenRuleBuff.BODYGELID_MIN_VALUE );
 		}
 		else {
 			optionalBodyGelId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGenRuleByBodyIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenRuleByBodyIdxKey ) {
-			CFGenKbGenRuleByBodyIdxKey rhs = (CFGenKbGenRuleByBodyIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenRuleByBodyIdxKey ) {
+			YCFGenKbGenRuleByBodyIdxKey rhs = (YCFGenKbGenRuleByBodyIdxKey)obj;
 			if( getOptionalBodyTenantId() != null ) {
 				if( rhs.getOptionalBodyTenantId() != null ) {
 					if( ! getOptionalBodyTenantId().equals( rhs.getOptionalBodyTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGenRuleByBodyIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenRuleBuff ) {
-			CFGenKbGenRuleBuff rhs = (CFGenKbGenRuleBuff)obj;
+		else if( obj instanceof YCFGenKbGenRuleBuff ) {
+			YCFGenKbGenRuleBuff rhs = (YCFGenKbGenRuleBuff)obj;
 			if( getOptionalBodyTenantId() != null ) {
 				if( rhs.getOptionalBodyTenantId() != null ) {
 					if( ! getOptionalBodyTenantId().equals( rhs.getOptionalBodyTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGenRuleByBodyIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenRuleByBodyIdxKey ) {
-			CFGenKbGenRuleByBodyIdxKey rhs = (CFGenKbGenRuleByBodyIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenRuleByBodyIdxKey ) {
+			YCFGenKbGenRuleByBodyIdxKey rhs = (YCFGenKbGenRuleByBodyIdxKey)obj;
 			if( getOptionalBodyTenantId() != null ) {
 				Long lhsBodyTenantId = getOptionalBodyTenantId();
 				if( rhs.getOptionalBodyTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGenRuleByBodyIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenRuleBuff ) {
-			CFGenKbGenRuleBuff rhs = (CFGenKbGenRuleBuff)obj;
+		else if( obj instanceof YCFGenKbGenRuleBuff ) {
+			YCFGenKbGenRuleBuff rhs = (YCFGenKbGenRuleBuff)obj;
 			if( getOptionalBodyTenantId() != null ) {
 				Long lhsBodyTenantId = getOptionalBodyTenantId();
 				if( rhs.getOptionalBodyTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGenRuleByBodyIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGenRuleByBodyIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenRuleByBodyIdx"
+		String ret = "<YCFGenKbGenRuleByBodyIdx"
 			+ " OptionalBodyTenantId=" + ( ( getOptionalBodyTenantId() == null ) ? "null" : "\"" + getOptionalBodyTenantId().toString() + "\"" )
 			+ " OptionalBodyGelCacheId=" + ( ( getOptionalBodyGelCacheId() == null ) ? "null" : "\"" + getOptionalBodyGelCacheId().toString() + "\"" )
 			+ " OptionalBodyGelId=" + ( ( getOptionalBodyGelId() == null ) ? "null" : "\"" + getOptionalBodyGelId().toString() + "\"" )

@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for BlobCol.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamBlobColTable database interface for BlobCol
+ *	YCFBamBlobColTable database interface for BlobCol
  */
-public interface ICFBamBlobColTable
+public interface IYCFBamBlobColTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createBlobCol( CFSecAuthorization Authorization,
-		CFBamBlobColBuff Buff );
+	void createBlobCol( YCFSecAuthorization Authorization,
+		YCFBamBlobColBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateBlobCol( CFSecAuthorization Authorization,
-		CFBamBlobColBuff Buff );
+	void updateBlobCol( YCFSecAuthorization Authorization,
+		YCFBamBlobColBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteBlobCol( CFSecAuthorization Authorization,
-		CFBamBlobColBuff Buff );
+	void deleteBlobCol( YCFSecAuthorization Authorization,
+		YCFBamBlobColBuff Buff );
 	/**
 	 *	Delete the BlobCol instances identified by the key TableIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argTableId	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByTableIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByTableIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId );
 
@@ -121,8 +121,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByTableIdx( CFSecAuthorization Authorization,
-		CFBamBlobColByTableIdxKey argKey );
+	void deleteBlobColByTableIdx( YCFSecAuthorization Authorization,
+		YCFBamBlobColByTableIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instance identified by the primary key attributes.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argId	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByIdIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -143,8 +143,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteBlobColByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteBlobColByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key UNameIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argName	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByUNameIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -168,8 +168,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteBlobColByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key ValTentIdx.
 	 *
@@ -177,7 +177,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argTenantId	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByValTentIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -187,8 +187,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteBlobColByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key ScopeIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argScopeId	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByScopeIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -209,8 +209,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteBlobColByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key DefSchemaIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argDefSchemaId	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -231,8 +231,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteBlobColByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key PrevIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argPrevId	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByPrevIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -253,8 +253,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteBlobColByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key NextIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argNextId	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByNextIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -275,8 +275,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteBlobColByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key ContPrevIdx.
 	 *
@@ -288,7 +288,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argPrevId	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -300,8 +300,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteBlobColByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key ContNextIdx.
 	 *
@@ -313,7 +313,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argNextId	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByContNextIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -325,8 +325,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteBlobColByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key CodeVisIdx.
 	 *
@@ -334,8 +334,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argCodeVis	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteBlobColByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the BlobCol instances identified by the key CodeVisIdx.
@@ -344,8 +344,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteBlobColByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the BlobCol instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -357,10 +357,10 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argCodeVis	The BlobCol key attribute of the instance generating the id.
 	 */
-	void deleteBlobColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteBlobColByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the BlobCol instances identified by the key ScopeCodeVisIdx.
@@ -369,8 +369,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteBlobColByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteBlobColByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -383,8 +383,8 @@ public interface ICFBamBlobColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamBlobColBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamBlobColBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived BlobCol buffer instance by primary key.
@@ -396,8 +396,8 @@ public interface ICFBamBlobColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamBlobColBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamBlobColBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all BlobCol instances.
@@ -406,7 +406,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamBlobColBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived BlobCol buffer instance identified by the unique key IdIdx.
@@ -420,7 +420,7 @@ public interface ICFBamBlobColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamBlobColBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -438,7 +438,7 @@ public interface ICFBamBlobColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamBlobColBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -452,7 +452,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -466,7 +466,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -481,7 +481,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -496,7 +496,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -511,7 +511,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -528,7 +528,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -546,7 +546,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -560,8 +560,8 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamBlobColBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived BlobCol buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -576,10 +576,10 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived BlobCol buffer instances identified by the duplicate key TableIdx.
@@ -592,7 +592,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamBlobColBuff[] readDerivedByTableIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readDerivedByTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -606,10 +606,10 @@ public interface ICFBamBlobColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamBlobColBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific BlobCol buffer instance identified by the primary key.
@@ -621,10 +621,10 @@ public interface ICFBamBlobColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamBlobColBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific BlobCol buffer instances.
@@ -633,7 +633,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return All the specific BlobCol instances in the database accessible for the Authorization.
 	 */
-	CFBamBlobColBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamBlobColBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific BlobCol buffer instance identified by the unique key IdIdx.
@@ -647,9 +647,9 @@ public interface ICFBamBlobColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -667,9 +667,9 @@ public interface ICFBamBlobColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -683,9 +683,9 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -699,9 +699,9 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -716,9 +716,9 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -733,9 +733,9 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -750,9 +750,9 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -769,9 +769,9 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -789,9 +789,9 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -805,10 +805,10 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamBlobColBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific BlobCol buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -823,12 +823,12 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific BlobCol buffer instances identified by the duplicate key TableIdx.
@@ -841,9 +841,9 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamBlobColBuff[] readBuffByTableIdx( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff[] readBuffByTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -852,7 +852,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamBlobColBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -862,7 +862,7 @@ public interface ICFBamBlobColTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamBlobColBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamBlobColBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -870,7 +870,7 @@ public interface ICFBamBlobColTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

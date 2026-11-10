@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a MajorVersion by SubProjectIdx index key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,19 +36,19 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntMajorVersionBySubProjectIdxKey
+public class YCFIntMajorVersionBySubProjectIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected long requiredSubProjectId;
-	public CFIntMajorVersionBySubProjectIdxKey() {
-		requiredTenantId = CFIntMajorVersionBuff.TENANTID_INIT_VALUE;
-		requiredSubProjectId = CFIntMajorVersionBuff.SUBPROJECTID_INIT_VALUE;
+	public YCFIntMajorVersionBySubProjectIdxKey() {
+		requiredTenantId = YCFIntMajorVersionBuff.TENANTID_INIT_VALUE;
+		requiredSubProjectId = YCFIntMajorVersionBuff.SUBPROJECTID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -56,13 +56,13 @@ public class CFIntMajorVersionBySubProjectIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntMajorVersionBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntMajorVersionBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntMajorVersionBuff.TENANTID_MIN_VALUE );
+				YCFIntMajorVersionBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -72,13 +72,13 @@ public class CFIntMajorVersionBySubProjectIdxKey
 	}
 
 	public void setRequiredSubProjectId( long value ) {
-		if( value < CFIntMajorVersionBuff.SUBPROJECTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntMajorVersionBuff.SUBPROJECTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSubProjectId",
 				1,
 				"value",
 				value,
-				CFIntMajorVersionBuff.SUBPROJECTID_MIN_VALUE );
+				YCFIntMajorVersionBuff.SUBPROJECTID_MIN_VALUE );
 		}
 		requiredSubProjectId = value;
 	}
@@ -87,8 +87,8 @@ public class CFIntMajorVersionBySubProjectIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntMajorVersionBySubProjectIdxKey ) {
-			CFIntMajorVersionBySubProjectIdxKey rhs = (CFIntMajorVersionBySubProjectIdxKey)obj;
+		else if( obj instanceof YCFIntMajorVersionBySubProjectIdxKey ) {
+			YCFIntMajorVersionBySubProjectIdxKey rhs = (YCFIntMajorVersionBySubProjectIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -97,8 +97,8 @@ public class CFIntMajorVersionBySubProjectIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionBuff ) {
-			CFIntMajorVersionBuff rhs = (CFIntMajorVersionBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionBuff ) {
+			YCFIntMajorVersionBuff rhs = (YCFIntMajorVersionBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -123,8 +123,8 @@ public class CFIntMajorVersionBySubProjectIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFIntMajorVersionBySubProjectIdxKey ) {
-			CFIntMajorVersionBySubProjectIdxKey rhs = (CFIntMajorVersionBySubProjectIdxKey)obj;
+		else if( obj instanceof YCFIntMajorVersionBySubProjectIdxKey ) {
+			YCFIntMajorVersionBySubProjectIdxKey rhs = (YCFIntMajorVersionBySubProjectIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -139,8 +139,8 @@ public class CFIntMajorVersionBySubProjectIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionBuff ) {
-			CFIntMajorVersionBuff rhs = (CFIntMajorVersionBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionBuff ) {
+			YCFIntMajorVersionBuff rhs = (YCFIntMajorVersionBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -156,7 +156,7 @@ public class CFIntMajorVersionBySubProjectIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -165,7 +165,7 @@ public class CFIntMajorVersionBySubProjectIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFIntMajorVersionBySubProjectIdx"
+		String ret = "<YCFIntMajorVersionBySubProjectIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredSubProjectId=" + "\"" + Long.toString( getRequiredSubProjectId() ) + "\""
 			+ "/>";

@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a Table buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamTableBuff
-	extends CFBamScopeBuff
+public class YCFBamTableBuff
+	extends YCFBamScopeBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -87,9 +87,9 @@ public class CFBamTableBuff
 	public final static boolean HASAUDITCOLUMNS_INIT_VALUE = false;
 	public final static boolean ISMUTABLE_INIT_VALUE = false;
 	public final static boolean ISSERVERONLY_INIT_VALUE = false;
-	public static final ICFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_INIT_VALUE = CFBamSchema.ordinalToLoaderBehaviourEnum( 0 );
-	public static final ICFBamSchema.SecScopeEnum SECSCOPE_INIT_VALUE = CFBamSchema.ordinalToSecScopeEnum( 0 );
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = CFBamSchema.ordinalToCodeVisibilityEnum( 0 );
+	public static final IYCFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_INIT_VALUE = YCFBamSchema.ordinalToLoaderBehaviourEnum( 0 );
+	public static final IYCFBamSchema.SecScopeEnum SECSCOPE_INIT_VALUE = YCFBamSchema.ordinalToSecScopeEnum( 0 );
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = YCFBamSchema.ordinalToCodeVisibilityEnum( 0 );
 	public static final String JOBJMEMBERS_INIT_VALUE = new String( "" );
 	public static final String JOBJINTERFACE_INIT_VALUE = new String( "" );
 	public static final String JOBJIMPORT_INIT_VALUE = new String( "" );
@@ -283,12 +283,12 @@ public class CFBamTableBuff
 	public static final long ALTINDEXID_MIN_VALUE = 0L;
 	public static final long QUALIFYINGTENANTID_MIN_VALUE = 0L;
 	public static final long QUALIFYINGTABLEID_MIN_VALUE = 0L;
-	public static final ICFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_MIN_VALUE = ICFBamSchema.LoaderBehaviourEnum.Insert;
-	public static final ICFBamSchema.SecScopeEnum SECSCOPE_MIN_VALUE = ICFBamSchema.SecScopeEnum.None;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = ICFBamSchema.CodeVisibilityEnum.Public;
-	public static final ICFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_MAX_VALUE = ICFBamSchema.LoaderBehaviourEnum.Replace;
-	public static final ICFBamSchema.SecScopeEnum SECSCOPE_MAX_VALUE = ICFBamSchema.SecScopeEnum.TenantGroup;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = ICFBamSchema.CodeVisibilityEnum.Private;
+	public static final IYCFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_MIN_VALUE = IYCFBamSchema.LoaderBehaviourEnum.Insert;
+	public static final IYCFBamSchema.SecScopeEnum SECSCOPE_MIN_VALUE = IYCFBamSchema.SecScopeEnum.None;
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = IYCFBamSchema.CodeVisibilityEnum.Public;
+	public static final IYCFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_MAX_VALUE = IYCFBamSchema.LoaderBehaviourEnum.Replace;
+	public static final IYCFBamSchema.SecScopeEnum SECSCOPE_MAX_VALUE = IYCFBamSchema.SecScopeEnum.TenantGroup;
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = IYCFBamSchema.CodeVisibilityEnum.Private;
 	protected long requiredSchemaDefId;
 	protected Long optionalDefSchemaTenantId;
 	protected Long optionalDefSchemaId;
@@ -313,9 +313,9 @@ public class CFBamTableBuff
 	protected boolean requiredHasAuditColumns;
 	protected boolean requiredIsMutable;
 	protected boolean requiredIsServerOnly;
-	protected ICFBamSchema.LoaderBehaviourEnum requiredLoaderBehaviour;
-	protected ICFBamSchema.SecScopeEnum requiredSecScope;
-	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
+	protected IYCFBamSchema.LoaderBehaviourEnum requiredLoaderBehaviour;
+	protected IYCFBamSchema.SecScopeEnum requiredSecScope;
+	protected IYCFBamSchema.CodeVisibilityEnum requiredCodeVis;
 	protected String optionalJObjMembers;
 	protected String optionalJObjInterface;
 	protected String optionalJObjImport;
@@ -496,35 +496,35 @@ public class CFBamTableBuff
 	protected String optionalCsXMsgRqstTableBody;
 	protected String optionalCsXMsgRspnTableBody;
 	protected String optionalCsXMsgClientTableBody;
-	public CFBamTableBuff() {
+	public YCFBamTableBuff() {
 		super();
-		requiredSchemaDefId = CFBamTableBuff.SCHEMADEFID_INIT_VALUE;
+		requiredSchemaDefId = YCFBamTableBuff.SCHEMADEFID_INIT_VALUE;
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
-		requiredName = new String( CFBamTableBuff.NAME_INIT_VALUE );
+		requiredName = new String( YCFBamTableBuff.NAME_INIT_VALUE );
 		optionalDbName = null;
 		optionalShortName = null;
 		optionalLabel = null;
 		optionalShortDescription = null;
 		optionalDescription = null;
-		requiredPageData = CFBamTableBuff.PAGEDATA_INIT_VALUE;
+		requiredPageData = YCFBamTableBuff.PAGEDATA_INIT_VALUE;
 		optionalPrimaryIndexTenantId = null;
 		optionalPrimaryIndexId = null;
-		requiredTableClassCode = new String( CFBamTableBuff.TABLECLASSCODE_INIT_VALUE );
+		requiredTableClassCode = new String( YCFBamTableBuff.TABLECLASSCODE_INIT_VALUE );
 		optionalLookupIndexTenantId = null;
 		optionalLookupIndexId = null;
 		optionalAltIndexTenantId = null;
 		optionalAltIndexId = null;
 		optionalQualifyingTenantId = null;
 		optionalQualifyingTableId = null;
-		requiredIsInstantiable = CFBamTableBuff.ISINSTANTIABLE_INIT_VALUE;
-		requiredHasHistory = CFBamTableBuff.HASHISTORY_INIT_VALUE;
-		requiredHasAuditColumns = CFBamTableBuff.HASAUDITCOLUMNS_INIT_VALUE;
-		requiredIsMutable = CFBamTableBuff.ISMUTABLE_INIT_VALUE;
-		requiredIsServerOnly = CFBamTableBuff.ISSERVERONLY_INIT_VALUE;
-		requiredLoaderBehaviour = CFBamTableBuff.LOADERBEHAVIOUR_INIT_VALUE;
-		requiredSecScope = CFBamTableBuff.SECSCOPE_INIT_VALUE;
-		requiredCodeVis = CFBamTableBuff.CODEVIS_INIT_VALUE;
+		requiredIsInstantiable = YCFBamTableBuff.ISINSTANTIABLE_INIT_VALUE;
+		requiredHasHistory = YCFBamTableBuff.HASHISTORY_INIT_VALUE;
+		requiredHasAuditColumns = YCFBamTableBuff.HASAUDITCOLUMNS_INIT_VALUE;
+		requiredIsMutable = YCFBamTableBuff.ISMUTABLE_INIT_VALUE;
+		requiredIsServerOnly = YCFBamTableBuff.ISSERVERONLY_INIT_VALUE;
+		requiredLoaderBehaviour = YCFBamTableBuff.LOADERBEHAVIOUR_INIT_VALUE;
+		requiredSecScope = YCFBamTableBuff.SECSCOPE_INIT_VALUE;
+		requiredCodeVis = YCFBamTableBuff.CODEVIS_INIT_VALUE;
 		optionalJObjMembers = null;
 		optionalJObjInterface = null;
 		optionalJObjImport = null;
@@ -716,13 +716,13 @@ public class CFBamTableBuff
 	}
 
 	public void setRequiredSchemaDefId( long value ) {
-		if( value < CFBamTableBuff.SCHEMADEFID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamTableBuff.SCHEMADEFID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSchemaDefId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.SCHEMADEFID_MIN_VALUE );
+				YCFBamTableBuff.SCHEMADEFID_MIN_VALUE );
 		}
 		requiredSchemaDefId = value;
 	}
@@ -735,13 +735,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalDefSchemaTenantId = null;
 		}
-		else if( value < CFBamTableBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaTenantId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.DEFSCHEMATENANTID_MIN_VALUE );
+				YCFBamTableBuff.DEFSCHEMATENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaTenantId = value;
@@ -756,13 +756,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalDefSchemaId = null;
 		}
-		else if( value < CFBamTableBuff.DEFSCHEMAID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.DEFSCHEMAID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.DEFSCHEMAID_MIN_VALUE );
+				YCFBamTableBuff.DEFSCHEMAID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaId = value;
@@ -775,13 +775,13 @@ public class CFBamTableBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -800,7 +800,7 @@ public class CFBamTableBuff
 			optionalDbName = null;
 		}
 		else if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDbName",
 				1,
 				"value.length()",
@@ -821,7 +821,7 @@ public class CFBamTableBuff
 			optionalShortName = null;
 		}
 		else if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortName",
 				1,
 				"value.length()",
@@ -842,7 +842,7 @@ public class CFBamTableBuff
 			optionalLabel = null;
 		}
 		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalLabel",
 				1,
 				"value.length()",
@@ -863,7 +863,7 @@ public class CFBamTableBuff
 			optionalShortDescription = null;
 		}
 		else if( value.length() > 50 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortDescription",
 				1,
 				"value.length()",
@@ -884,7 +884,7 @@ public class CFBamTableBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 100 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -912,13 +912,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalPrimaryIndexTenantId = null;
 		}
-		else if( value < CFBamTableBuff.PRIMARYINDEXTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.PRIMARYINDEXTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrimaryIndexTenantId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.PRIMARYINDEXTENANTID_MIN_VALUE );
+				YCFBamTableBuff.PRIMARYINDEXTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalPrimaryIndexTenantId = value;
@@ -933,13 +933,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalPrimaryIndexId = null;
 		}
-		else if( value < CFBamTableBuff.PRIMARYINDEXID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.PRIMARYINDEXID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrimaryIndexId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.PRIMARYINDEXID_MIN_VALUE );
+				YCFBamTableBuff.PRIMARYINDEXID_MIN_VALUE );
 		}
 		else {
 			optionalPrimaryIndexId = value;
@@ -952,13 +952,13 @@ public class CFBamTableBuff
 
 	public void setRequiredTableClassCode( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredTableClassCode",
 				1,
 				"value" );
 		}
 		if( value.length() > 4 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredTableClassCode",
 				1,
 				"value.length()",
@@ -976,13 +976,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalLookupIndexTenantId = null;
 		}
-		else if( value < CFBamTableBuff.LOOKUPINDEXTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.LOOKUPINDEXTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalLookupIndexTenantId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.LOOKUPINDEXTENANTID_MIN_VALUE );
+				YCFBamTableBuff.LOOKUPINDEXTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalLookupIndexTenantId = value;
@@ -997,13 +997,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalLookupIndexId = null;
 		}
-		else if( value < CFBamTableBuff.LOOKUPINDEXID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.LOOKUPINDEXID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalLookupIndexId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.LOOKUPINDEXID_MIN_VALUE );
+				YCFBamTableBuff.LOOKUPINDEXID_MIN_VALUE );
 		}
 		else {
 			optionalLookupIndexId = value;
@@ -1018,13 +1018,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalAltIndexTenantId = null;
 		}
-		else if( value < CFBamTableBuff.ALTINDEXTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.ALTINDEXTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalAltIndexTenantId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.ALTINDEXTENANTID_MIN_VALUE );
+				YCFBamTableBuff.ALTINDEXTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalAltIndexTenantId = value;
@@ -1039,13 +1039,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalAltIndexId = null;
 		}
-		else if( value < CFBamTableBuff.ALTINDEXID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.ALTINDEXID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalAltIndexId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.ALTINDEXID_MIN_VALUE );
+				YCFBamTableBuff.ALTINDEXID_MIN_VALUE );
 		}
 		else {
 			optionalAltIndexId = value;
@@ -1060,13 +1060,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalQualifyingTenantId = null;
 		}
-		else if( value < CFBamTableBuff.QUALIFYINGTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.QUALIFYINGTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalQualifyingTenantId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.QUALIFYINGTENANTID_MIN_VALUE );
+				YCFBamTableBuff.QUALIFYINGTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalQualifyingTenantId = value;
@@ -1081,13 +1081,13 @@ public class CFBamTableBuff
 		if( value == null ) {
 			optionalQualifyingTableId = null;
 		}
-		else if( value < CFBamTableBuff.QUALIFYINGTABLEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamTableBuff.QUALIFYINGTABLEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalQualifyingTableId",
 				1,
 				"value",
 				value,
-				CFBamTableBuff.QUALIFYINGTABLEID_MIN_VALUE );
+				YCFBamTableBuff.QUALIFYINGTABLEID_MIN_VALUE );
 		}
 		else {
 			optionalQualifyingTableId = value;
@@ -1134,13 +1134,13 @@ public class CFBamTableBuff
 		requiredIsServerOnly = value;
 	}
 
-	public ICFBamSchema.LoaderBehaviourEnum getRequiredLoaderBehaviour() {
+	public IYCFBamSchema.LoaderBehaviourEnum getRequiredLoaderBehaviour() {
 		return( requiredLoaderBehaviour );
 	}
 
-	public void setRequiredLoaderBehaviour( ICFBamSchema.LoaderBehaviourEnum value ) {
+	public void setRequiredLoaderBehaviour( IYCFBamSchema.LoaderBehaviourEnum value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredLoaderBehaviour",
 				1,
 				"value" );
@@ -1148,13 +1148,13 @@ public class CFBamTableBuff
 		requiredLoaderBehaviour = value;
 	}
 
-	public ICFBamSchema.SecScopeEnum getRequiredSecScope() {
+	public IYCFBamSchema.SecScopeEnum getRequiredSecScope() {
 		return( requiredSecScope );
 	}
 
-	public void setRequiredSecScope( ICFBamSchema.SecScopeEnum value ) {
+	public void setRequiredSecScope( IYCFBamSchema.SecScopeEnum value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecScope",
 				1,
 				"value" );
@@ -1162,13 +1162,13 @@ public class CFBamTableBuff
 		requiredSecScope = value;
 	}
 
-	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+	public IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
 		return( requiredCodeVis );
 	}
 
-	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+	public void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredCodeVis",
 				1,
 				"value" );
@@ -1185,7 +1185,7 @@ public class CFBamTableBuff
 			optionalJObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJObjMembers",
 				1,
 				"value.length()",
@@ -1206,7 +1206,7 @@ public class CFBamTableBuff
 			optionalJObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJObjInterface",
 				1,
 				"value.length()",
@@ -1227,7 +1227,7 @@ public class CFBamTableBuff
 			optionalJObjImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJObjImport",
 				1,
 				"value.length()",
@@ -1248,7 +1248,7 @@ public class CFBamTableBuff
 			optionalJObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJObjImplementation",
 				1,
 				"value.length()",
@@ -1269,7 +1269,7 @@ public class CFBamTableBuff
 			optionalJEditObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJEditObjMembers",
 				1,
 				"value.length()",
@@ -1290,7 +1290,7 @@ public class CFBamTableBuff
 			optionalJEditObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJEditObjInterface",
 				1,
 				"value.length()",
@@ -1311,7 +1311,7 @@ public class CFBamTableBuff
 			optionalJEditObjImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJEditObjImport",
 				1,
 				"value.length()",
@@ -1332,7 +1332,7 @@ public class CFBamTableBuff
 			optionalJEditObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJEditObjImplementation",
 				1,
 				"value.length()",
@@ -1353,7 +1353,7 @@ public class CFBamTableBuff
 			optionalJTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJTableImport",
 				1,
 				"value.length()",
@@ -1374,7 +1374,7 @@ public class CFBamTableBuff
 			optionalJTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJTableMembers",
 				1,
 				"value.length()",
@@ -1395,7 +1395,7 @@ public class CFBamTableBuff
 			optionalJTableInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJTableInterface",
 				1,
 				"value.length()",
@@ -1416,7 +1416,7 @@ public class CFBamTableBuff
 			optionalJTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJTableImplementation",
 				1,
 				"value.length()",
@@ -1437,7 +1437,7 @@ public class CFBamTableBuff
 			optionalJTableObjImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJTableObjImport",
 				1,
 				"value.length()",
@@ -1458,7 +1458,7 @@ public class CFBamTableBuff
 			optionalJTableObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJTableObjMembers",
 				1,
 				"value.length()",
@@ -1479,7 +1479,7 @@ public class CFBamTableBuff
 			optionalJTableObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJTableObjInterface",
 				1,
 				"value.length()",
@@ -1500,7 +1500,7 @@ public class CFBamTableBuff
 			optionalJTableObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJTableObjImplementation",
 				1,
 				"value.length()",
@@ -1521,7 +1521,7 @@ public class CFBamTableBuff
 			optionalJDb2LUWTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJDb2LUWTableImport",
 				1,
 				"value.length()",
@@ -1542,7 +1542,7 @@ public class CFBamTableBuff
 			optionalJDb2LUWTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJDb2LUWTableMembers",
 				1,
 				"value.length()",
@@ -1563,7 +1563,7 @@ public class CFBamTableBuff
 			optionalJDb2LUWTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJDb2LUWTableImplementation",
 				1,
 				"value.length()",
@@ -1584,7 +1584,7 @@ public class CFBamTableBuff
 			optionalJMSSqlTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJMSSqlTableImport",
 				1,
 				"value.length()",
@@ -1605,7 +1605,7 @@ public class CFBamTableBuff
 			optionalJMSSqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJMSSqlTableMembers",
 				1,
 				"value.length()",
@@ -1626,7 +1626,7 @@ public class CFBamTableBuff
 			optionalJMSSqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJMSSqlTableImplementation",
 				1,
 				"value.length()",
@@ -1647,7 +1647,7 @@ public class CFBamTableBuff
 			optionalJMySqlTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJMySqlTableImport",
 				1,
 				"value.length()",
@@ -1668,7 +1668,7 @@ public class CFBamTableBuff
 			optionalJMySqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJMySqlTableMembers",
 				1,
 				"value.length()",
@@ -1689,7 +1689,7 @@ public class CFBamTableBuff
 			optionalJMySqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJMySqlTableImplementation",
 				1,
 				"value.length()",
@@ -1710,7 +1710,7 @@ public class CFBamTableBuff
 			optionalJOracleTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJOracleTableImport",
 				1,
 				"value.length()",
@@ -1731,7 +1731,7 @@ public class CFBamTableBuff
 			optionalJOracleTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJOracleTableMembers",
 				1,
 				"value.length()",
@@ -1752,7 +1752,7 @@ public class CFBamTableBuff
 			optionalJOracleTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJOracleTableImplementation",
 				1,
 				"value.length()",
@@ -1773,7 +1773,7 @@ public class CFBamTableBuff
 			optionalJPgSqlTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJPgSqlTableImport",
 				1,
 				"value.length()",
@@ -1794,7 +1794,7 @@ public class CFBamTableBuff
 			optionalJPgSqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJPgSqlTableMembers",
 				1,
 				"value.length()",
@@ -1815,7 +1815,7 @@ public class CFBamTableBuff
 			optionalJPgSqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJPgSqlTableImplementation",
 				1,
 				"value.length()",
@@ -1836,7 +1836,7 @@ public class CFBamTableBuff
 			optionalJRamTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJRamTableImport",
 				1,
 				"value.length()",
@@ -1857,7 +1857,7 @@ public class CFBamTableBuff
 			optionalJRamTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJRamTableMembers",
 				1,
 				"value.length()",
@@ -1878,7 +1878,7 @@ public class CFBamTableBuff
 			optionalJRamTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJRamTableImplementation",
 				1,
 				"value.length()",
@@ -1899,7 +1899,7 @@ public class CFBamTableBuff
 			optionalJSaxLoaderImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJSaxLoaderImport",
 				1,
 				"value.length()",
@@ -1920,7 +1920,7 @@ public class CFBamTableBuff
 			optionalJSaxLoaderStartElement = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJSaxLoaderStartElement",
 				1,
 				"value.length()",
@@ -1941,7 +1941,7 @@ public class CFBamTableBuff
 			optionalJSaxLoaderEndElement = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJSaxLoaderEndElement",
 				1,
 				"value.length()",
@@ -1962,7 +1962,7 @@ public class CFBamTableBuff
 			optionalJXMsgTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJXMsgTableImport",
 				1,
 				"value.length()",
@@ -1983,7 +1983,7 @@ public class CFBamTableBuff
 			optionalJXMsgTableFormatters = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJXMsgTableFormatters",
 				1,
 				"value.length()",
@@ -2004,7 +2004,7 @@ public class CFBamTableBuff
 			optionalJXMsgRqstTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJXMsgRqstTableImport",
 				1,
 				"value.length()",
@@ -2025,7 +2025,7 @@ public class CFBamTableBuff
 			optionalJXMsgRspnTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJXMsgRspnTableImport",
 				1,
 				"value.length()",
@@ -2046,7 +2046,7 @@ public class CFBamTableBuff
 			optionalJXMsgClientTableImport = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJXMsgClientTableImport",
 				1,
 				"value.length()",
@@ -2067,7 +2067,7 @@ public class CFBamTableBuff
 			optionalJXMsgRqstTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJXMsgRqstTableBody",
 				1,
 				"value.length()",
@@ -2088,7 +2088,7 @@ public class CFBamTableBuff
 			optionalJXMsgRspnTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJXMsgRspnTableBody",
 				1,
 				"value.length()",
@@ -2109,7 +2109,7 @@ public class CFBamTableBuff
 			optionalJXMsgClientTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalJXMsgClientTableBody",
 				1,
 				"value.length()",
@@ -2130,7 +2130,7 @@ public class CFBamTableBuff
 			optionalCppObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppObjMembers",
 				1,
 				"value.length()",
@@ -2151,7 +2151,7 @@ public class CFBamTableBuff
 			optionalCppObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppObjInterface",
 				1,
 				"value.length()",
@@ -2172,7 +2172,7 @@ public class CFBamTableBuff
 			optionalCppObjInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppObjInclude",
 				1,
 				"value.length()",
@@ -2193,7 +2193,7 @@ public class CFBamTableBuff
 			optionalCppObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppObjImplementation",
 				1,
 				"value.length()",
@@ -2214,7 +2214,7 @@ public class CFBamTableBuff
 			optionalCppEditObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppEditObjMembers",
 				1,
 				"value.length()",
@@ -2235,7 +2235,7 @@ public class CFBamTableBuff
 			optionalCppEditObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppEditObjInterface",
 				1,
 				"value.length()",
@@ -2256,7 +2256,7 @@ public class CFBamTableBuff
 			optionalCppEditObjInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppEditObjInclude",
 				1,
 				"value.length()",
@@ -2277,7 +2277,7 @@ public class CFBamTableBuff
 			optionalCppEditObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppEditObjImplementation",
 				1,
 				"value.length()",
@@ -2298,7 +2298,7 @@ public class CFBamTableBuff
 			optionalCppTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppTableInclude",
 				1,
 				"value.length()",
@@ -2319,7 +2319,7 @@ public class CFBamTableBuff
 			optionalCppTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppTableMembers",
 				1,
 				"value.length()",
@@ -2340,7 +2340,7 @@ public class CFBamTableBuff
 			optionalCppTableInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppTableInterface",
 				1,
 				"value.length()",
@@ -2361,7 +2361,7 @@ public class CFBamTableBuff
 			optionalCppTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppTableImplementation",
 				1,
 				"value.length()",
@@ -2382,7 +2382,7 @@ public class CFBamTableBuff
 			optionalCppTableObjInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppTableObjInclude",
 				1,
 				"value.length()",
@@ -2403,7 +2403,7 @@ public class CFBamTableBuff
 			optionalCppTableObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppTableObjMembers",
 				1,
 				"value.length()",
@@ -2424,7 +2424,7 @@ public class CFBamTableBuff
 			optionalCppTableObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppTableObjInterface",
 				1,
 				"value.length()",
@@ -2445,7 +2445,7 @@ public class CFBamTableBuff
 			optionalCppTableObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppTableObjImplementation",
 				1,
 				"value.length()",
@@ -2466,7 +2466,7 @@ public class CFBamTableBuff
 			optionalCppDb2LUWTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppDb2LUWTableInclude",
 				1,
 				"value.length()",
@@ -2487,7 +2487,7 @@ public class CFBamTableBuff
 			optionalCppDb2LUWTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppDb2LUWTableMembers",
 				1,
 				"value.length()",
@@ -2508,7 +2508,7 @@ public class CFBamTableBuff
 			optionalCppDb2LUWTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppDb2LUWTableImplementation",
 				1,
 				"value.length()",
@@ -2529,7 +2529,7 @@ public class CFBamTableBuff
 			optionalCppMSSqlTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppMSSqlTableInclude",
 				1,
 				"value.length()",
@@ -2550,7 +2550,7 @@ public class CFBamTableBuff
 			optionalCppMSSqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppMSSqlTableMembers",
 				1,
 				"value.length()",
@@ -2571,7 +2571,7 @@ public class CFBamTableBuff
 			optionalCppMSSqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppMSSqlTableImplementation",
 				1,
 				"value.length()",
@@ -2592,7 +2592,7 @@ public class CFBamTableBuff
 			optionalCppMySqlTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppMySqlTableInclude",
 				1,
 				"value.length()",
@@ -2613,7 +2613,7 @@ public class CFBamTableBuff
 			optionalCppMySqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppMySqlTableMembers",
 				1,
 				"value.length()",
@@ -2634,7 +2634,7 @@ public class CFBamTableBuff
 			optionalCppMySqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppMySqlTableImplementation",
 				1,
 				"value.length()",
@@ -2655,7 +2655,7 @@ public class CFBamTableBuff
 			optionalCppOracleTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppOracleTableInclude",
 				1,
 				"value.length()",
@@ -2676,7 +2676,7 @@ public class CFBamTableBuff
 			optionalCppOracleTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppOracleTableMembers",
 				1,
 				"value.length()",
@@ -2697,7 +2697,7 @@ public class CFBamTableBuff
 			optionalCppOracleTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppOracleTableImplementation",
 				1,
 				"value.length()",
@@ -2718,7 +2718,7 @@ public class CFBamTableBuff
 			optionalCppPgSqlTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppPgSqlTableInclude",
 				1,
 				"value.length()",
@@ -2739,7 +2739,7 @@ public class CFBamTableBuff
 			optionalCppPgSqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppPgSqlTableMembers",
 				1,
 				"value.length()",
@@ -2760,7 +2760,7 @@ public class CFBamTableBuff
 			optionalCppPgSqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppPgSqlTableImplementation",
 				1,
 				"value.length()",
@@ -2781,7 +2781,7 @@ public class CFBamTableBuff
 			optionalCppRamTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppRamTableInclude",
 				1,
 				"value.length()",
@@ -2802,7 +2802,7 @@ public class CFBamTableBuff
 			optionalCppRamTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppRamTableMembers",
 				1,
 				"value.length()",
@@ -2823,7 +2823,7 @@ public class CFBamTableBuff
 			optionalCppRamTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppRamTableImplementation",
 				1,
 				"value.length()",
@@ -2844,7 +2844,7 @@ public class CFBamTableBuff
 			optionalCppSaxLoaderInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppSaxLoaderInclude",
 				1,
 				"value.length()",
@@ -2865,7 +2865,7 @@ public class CFBamTableBuff
 			optionalCppSaxLoaderStartElement = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppSaxLoaderStartElement",
 				1,
 				"value.length()",
@@ -2886,7 +2886,7 @@ public class CFBamTableBuff
 			optionalCppSaxLoaderEndElement = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppSaxLoaderEndElement",
 				1,
 				"value.length()",
@@ -2907,7 +2907,7 @@ public class CFBamTableBuff
 			optionalCppXMsgTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppXMsgTableInclude",
 				1,
 				"value.length()",
@@ -2928,7 +2928,7 @@ public class CFBamTableBuff
 			optionalCppXMsgTableFormatters = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppXMsgTableFormatters",
 				1,
 				"value.length()",
@@ -2949,7 +2949,7 @@ public class CFBamTableBuff
 			optionalCppXMsgRqstTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppXMsgRqstTableInclude",
 				1,
 				"value.length()",
@@ -2970,7 +2970,7 @@ public class CFBamTableBuff
 			optionalCppXMsgRspnTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppXMsgRspnTableInclude",
 				1,
 				"value.length()",
@@ -2991,7 +2991,7 @@ public class CFBamTableBuff
 			optionalCppXMsgClientTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppXMsgClientTableInclude",
 				1,
 				"value.length()",
@@ -3012,7 +3012,7 @@ public class CFBamTableBuff
 			optionalCppXMsgRqstTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppXMsgRqstTableBody",
 				1,
 				"value.length()",
@@ -3033,7 +3033,7 @@ public class CFBamTableBuff
 			optionalCppXMsgRspnTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppXMsgRspnTableBody",
 				1,
 				"value.length()",
@@ -3054,7 +3054,7 @@ public class CFBamTableBuff
 			optionalCppXMsgClientTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCppXMsgClientTableBody",
 				1,
 				"value.length()",
@@ -3075,7 +3075,7 @@ public class CFBamTableBuff
 			optionalHppObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppObjMembers",
 				1,
 				"value.length()",
@@ -3096,7 +3096,7 @@ public class CFBamTableBuff
 			optionalHppObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppObjInterface",
 				1,
 				"value.length()",
@@ -3117,7 +3117,7 @@ public class CFBamTableBuff
 			optionalHppObjInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppObjInclude",
 				1,
 				"value.length()",
@@ -3138,7 +3138,7 @@ public class CFBamTableBuff
 			optionalHppObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppObjImplementation",
 				1,
 				"value.length()",
@@ -3159,7 +3159,7 @@ public class CFBamTableBuff
 			optionalHppEditObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppEditObjMembers",
 				1,
 				"value.length()",
@@ -3180,7 +3180,7 @@ public class CFBamTableBuff
 			optionalHppEditObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppEditObjInterface",
 				1,
 				"value.length()",
@@ -3201,7 +3201,7 @@ public class CFBamTableBuff
 			optionalHppEditObjInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppEditObjInclude",
 				1,
 				"value.length()",
@@ -3222,7 +3222,7 @@ public class CFBamTableBuff
 			optionalHppEditObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppEditObjImplementation",
 				1,
 				"value.length()",
@@ -3243,7 +3243,7 @@ public class CFBamTableBuff
 			optionalHppTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppTableInclude",
 				1,
 				"value.length()",
@@ -3264,7 +3264,7 @@ public class CFBamTableBuff
 			optionalHppTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppTableMembers",
 				1,
 				"value.length()",
@@ -3285,7 +3285,7 @@ public class CFBamTableBuff
 			optionalHppTableInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppTableInterface",
 				1,
 				"value.length()",
@@ -3306,7 +3306,7 @@ public class CFBamTableBuff
 			optionalHppTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppTableImplementation",
 				1,
 				"value.length()",
@@ -3327,7 +3327,7 @@ public class CFBamTableBuff
 			optionalHppTableObjInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppTableObjInclude",
 				1,
 				"value.length()",
@@ -3348,7 +3348,7 @@ public class CFBamTableBuff
 			optionalHppTableObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppTableObjMembers",
 				1,
 				"value.length()",
@@ -3369,7 +3369,7 @@ public class CFBamTableBuff
 			optionalHppTableObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppTableObjInterface",
 				1,
 				"value.length()",
@@ -3390,7 +3390,7 @@ public class CFBamTableBuff
 			optionalHppTableObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppTableObjImplementation",
 				1,
 				"value.length()",
@@ -3411,7 +3411,7 @@ public class CFBamTableBuff
 			optionalHppDb2LUWTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppDb2LUWTableInclude",
 				1,
 				"value.length()",
@@ -3432,7 +3432,7 @@ public class CFBamTableBuff
 			optionalHppDb2LUWTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppDb2LUWTableMembers",
 				1,
 				"value.length()",
@@ -3453,7 +3453,7 @@ public class CFBamTableBuff
 			optionalHppDb2LUWTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppDb2LUWTableImplementation",
 				1,
 				"value.length()",
@@ -3474,7 +3474,7 @@ public class CFBamTableBuff
 			optionalHppMSSqlTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppMSSqlTableInclude",
 				1,
 				"value.length()",
@@ -3495,7 +3495,7 @@ public class CFBamTableBuff
 			optionalHppMSSqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppMSSqlTableMembers",
 				1,
 				"value.length()",
@@ -3516,7 +3516,7 @@ public class CFBamTableBuff
 			optionalHppMSSqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppMSSqlTableImplementation",
 				1,
 				"value.length()",
@@ -3537,7 +3537,7 @@ public class CFBamTableBuff
 			optionalHppMySqlTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppMySqlTableInclude",
 				1,
 				"value.length()",
@@ -3558,7 +3558,7 @@ public class CFBamTableBuff
 			optionalHppMySqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppMySqlTableMembers",
 				1,
 				"value.length()",
@@ -3579,7 +3579,7 @@ public class CFBamTableBuff
 			optionalHppMySqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppMySqlTableImplementation",
 				1,
 				"value.length()",
@@ -3600,7 +3600,7 @@ public class CFBamTableBuff
 			optionalHppOracleTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppOracleTableInclude",
 				1,
 				"value.length()",
@@ -3621,7 +3621,7 @@ public class CFBamTableBuff
 			optionalHppOracleTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppOracleTableMembers",
 				1,
 				"value.length()",
@@ -3642,7 +3642,7 @@ public class CFBamTableBuff
 			optionalHppOracleTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppOracleTableImplementation",
 				1,
 				"value.length()",
@@ -3663,7 +3663,7 @@ public class CFBamTableBuff
 			optionalHppPgSqlTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppPgSqlTableInclude",
 				1,
 				"value.length()",
@@ -3684,7 +3684,7 @@ public class CFBamTableBuff
 			optionalHppPgSqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppPgSqlTableMembers",
 				1,
 				"value.length()",
@@ -3705,7 +3705,7 @@ public class CFBamTableBuff
 			optionalHppPgSqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppPgSqlTableImplementation",
 				1,
 				"value.length()",
@@ -3726,7 +3726,7 @@ public class CFBamTableBuff
 			optionalHppRamTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppRamTableInclude",
 				1,
 				"value.length()",
@@ -3747,7 +3747,7 @@ public class CFBamTableBuff
 			optionalHppRamTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppRamTableMembers",
 				1,
 				"value.length()",
@@ -3768,7 +3768,7 @@ public class CFBamTableBuff
 			optionalHppRamTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppRamTableImplementation",
 				1,
 				"value.length()",
@@ -3789,7 +3789,7 @@ public class CFBamTableBuff
 			optionalHppSaxLoaderInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppSaxLoaderInclude",
 				1,
 				"value.length()",
@@ -3810,7 +3810,7 @@ public class CFBamTableBuff
 			optionalHppSaxLoaderStartElement = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppSaxLoaderStartElement",
 				1,
 				"value.length()",
@@ -3831,7 +3831,7 @@ public class CFBamTableBuff
 			optionalHppSaxLoaderEndElement = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppSaxLoaderEndElement",
 				1,
 				"value.length()",
@@ -3852,7 +3852,7 @@ public class CFBamTableBuff
 			optionalHppXMsgTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppXMsgTableInclude",
 				1,
 				"value.length()",
@@ -3873,7 +3873,7 @@ public class CFBamTableBuff
 			optionalHppXMsgTableFormatters = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppXMsgTableFormatters",
 				1,
 				"value.length()",
@@ -3894,7 +3894,7 @@ public class CFBamTableBuff
 			optionalHppXMsgRqstTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppXMsgRqstTableInclude",
 				1,
 				"value.length()",
@@ -3915,7 +3915,7 @@ public class CFBamTableBuff
 			optionalHppXMsgRspnTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppXMsgRspnTableInclude",
 				1,
 				"value.length()",
@@ -3936,7 +3936,7 @@ public class CFBamTableBuff
 			optionalHppXMsgClientTableInclude = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppXMsgClientTableInclude",
 				1,
 				"value.length()",
@@ -3957,7 +3957,7 @@ public class CFBamTableBuff
 			optionalHppXMsgRqstTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppXMsgRqstTableBody",
 				1,
 				"value.length()",
@@ -3978,7 +3978,7 @@ public class CFBamTableBuff
 			optionalHppXMsgRspnTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppXMsgRspnTableBody",
 				1,
 				"value.length()",
@@ -3999,7 +3999,7 @@ public class CFBamTableBuff
 			optionalHppXMsgClientTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalHppXMsgClientTableBody",
 				1,
 				"value.length()",
@@ -4020,7 +4020,7 @@ public class CFBamTableBuff
 			optionalCsObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsObjMembers",
 				1,
 				"value.length()",
@@ -4041,7 +4041,7 @@ public class CFBamTableBuff
 			optionalCsObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsObjInterface",
 				1,
 				"value.length()",
@@ -4062,7 +4062,7 @@ public class CFBamTableBuff
 			optionalCsObjUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsObjUsing",
 				1,
 				"value.length()",
@@ -4083,7 +4083,7 @@ public class CFBamTableBuff
 			optionalCsObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsObjImplementation",
 				1,
 				"value.length()",
@@ -4104,7 +4104,7 @@ public class CFBamTableBuff
 			optionalCsEditObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsEditObjMembers",
 				1,
 				"value.length()",
@@ -4125,7 +4125,7 @@ public class CFBamTableBuff
 			optionalCsEditObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsEditObjInterface",
 				1,
 				"value.length()",
@@ -4146,7 +4146,7 @@ public class CFBamTableBuff
 			optionalCsEditObjUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsEditObjUsing",
 				1,
 				"value.length()",
@@ -4167,7 +4167,7 @@ public class CFBamTableBuff
 			optionalCsEditObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsEditObjImplementation",
 				1,
 				"value.length()",
@@ -4188,7 +4188,7 @@ public class CFBamTableBuff
 			optionalCsTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsTableUsing",
 				1,
 				"value.length()",
@@ -4209,7 +4209,7 @@ public class CFBamTableBuff
 			optionalCsTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsTableMembers",
 				1,
 				"value.length()",
@@ -4230,7 +4230,7 @@ public class CFBamTableBuff
 			optionalCsTableInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsTableInterface",
 				1,
 				"value.length()",
@@ -4251,7 +4251,7 @@ public class CFBamTableBuff
 			optionalCsTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsTableImplementation",
 				1,
 				"value.length()",
@@ -4272,7 +4272,7 @@ public class CFBamTableBuff
 			optionalCsTableObjUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsTableObjUsing",
 				1,
 				"value.length()",
@@ -4293,7 +4293,7 @@ public class CFBamTableBuff
 			optionalCsTableObjMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsTableObjMembers",
 				1,
 				"value.length()",
@@ -4314,7 +4314,7 @@ public class CFBamTableBuff
 			optionalCsTableObjInterface = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsTableObjInterface",
 				1,
 				"value.length()",
@@ -4335,7 +4335,7 @@ public class CFBamTableBuff
 			optionalCsTableObjImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsTableObjImplementation",
 				1,
 				"value.length()",
@@ -4356,7 +4356,7 @@ public class CFBamTableBuff
 			optionalCsDb2LUWTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsDb2LUWTableUsing",
 				1,
 				"value.length()",
@@ -4377,7 +4377,7 @@ public class CFBamTableBuff
 			optionalCsDb2LUWTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsDb2LUWTableMembers",
 				1,
 				"value.length()",
@@ -4398,7 +4398,7 @@ public class CFBamTableBuff
 			optionalCsDb2LUWTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsDb2LUWTableImplementation",
 				1,
 				"value.length()",
@@ -4419,7 +4419,7 @@ public class CFBamTableBuff
 			optionalCsMSSqlTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsMSSqlTableUsing",
 				1,
 				"value.length()",
@@ -4440,7 +4440,7 @@ public class CFBamTableBuff
 			optionalCsMSSqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsMSSqlTableMembers",
 				1,
 				"value.length()",
@@ -4461,7 +4461,7 @@ public class CFBamTableBuff
 			optionalCsMSSqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsMSSqlTableImplementation",
 				1,
 				"value.length()",
@@ -4482,7 +4482,7 @@ public class CFBamTableBuff
 			optionalCsMySqlTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsMySqlTableUsing",
 				1,
 				"value.length()",
@@ -4503,7 +4503,7 @@ public class CFBamTableBuff
 			optionalCsMySqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsMySqlTableMembers",
 				1,
 				"value.length()",
@@ -4524,7 +4524,7 @@ public class CFBamTableBuff
 			optionalCsMySqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsMySqlTableImplementation",
 				1,
 				"value.length()",
@@ -4545,7 +4545,7 @@ public class CFBamTableBuff
 			optionalCsOracleTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsOracleTableUsing",
 				1,
 				"value.length()",
@@ -4566,7 +4566,7 @@ public class CFBamTableBuff
 			optionalCsOracleTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsOracleTableMembers",
 				1,
 				"value.length()",
@@ -4587,7 +4587,7 @@ public class CFBamTableBuff
 			optionalCsOracleTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsOracleTableImplementation",
 				1,
 				"value.length()",
@@ -4608,7 +4608,7 @@ public class CFBamTableBuff
 			optionalCsPgSqlTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsPgSqlTableUsing",
 				1,
 				"value.length()",
@@ -4629,7 +4629,7 @@ public class CFBamTableBuff
 			optionalCsPgSqlTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsPgSqlTableMembers",
 				1,
 				"value.length()",
@@ -4650,7 +4650,7 @@ public class CFBamTableBuff
 			optionalCsPgSqlTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsPgSqlTableImplementation",
 				1,
 				"value.length()",
@@ -4671,7 +4671,7 @@ public class CFBamTableBuff
 			optionalCsRamTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsRamTableUsing",
 				1,
 				"value.length()",
@@ -4692,7 +4692,7 @@ public class CFBamTableBuff
 			optionalCsRamTableMembers = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsRamTableMembers",
 				1,
 				"value.length()",
@@ -4713,7 +4713,7 @@ public class CFBamTableBuff
 			optionalCsRamTableImplementation = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsRamTableImplementation",
 				1,
 				"value.length()",
@@ -4734,7 +4734,7 @@ public class CFBamTableBuff
 			optionalCsSaxLoaderUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsSaxLoaderUsing",
 				1,
 				"value.length()",
@@ -4755,7 +4755,7 @@ public class CFBamTableBuff
 			optionalCsSaxLoaderStartElement = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsSaxLoaderStartElement",
 				1,
 				"value.length()",
@@ -4776,7 +4776,7 @@ public class CFBamTableBuff
 			optionalCsSaxLoaderEndElement = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsSaxLoaderEndElement",
 				1,
 				"value.length()",
@@ -4797,7 +4797,7 @@ public class CFBamTableBuff
 			optionalCsXMsgTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsXMsgTableUsing",
 				1,
 				"value.length()",
@@ -4818,7 +4818,7 @@ public class CFBamTableBuff
 			optionalCsXMsgTableFormatters = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsXMsgTableFormatters",
 				1,
 				"value.length()",
@@ -4839,7 +4839,7 @@ public class CFBamTableBuff
 			optionalCsXMsgRqstTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsXMsgRqstTableUsing",
 				1,
 				"value.length()",
@@ -4860,7 +4860,7 @@ public class CFBamTableBuff
 			optionalCsXMsgRspnTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsXMsgRspnTableUsing",
 				1,
 				"value.length()",
@@ -4881,7 +4881,7 @@ public class CFBamTableBuff
 			optionalCsXMsgClientTableUsing = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsXMsgClientTableUsing",
 				1,
 				"value.length()",
@@ -4902,7 +4902,7 @@ public class CFBamTableBuff
 			optionalCsXMsgRqstTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsXMsgRqstTableBody",
 				1,
 				"value.length()",
@@ -4923,7 +4923,7 @@ public class CFBamTableBuff
 			optionalCsXMsgRspnTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsXMsgRspnTableBody",
 				1,
 				"value.length()",
@@ -4944,7 +4944,7 @@ public class CFBamTableBuff
 			optionalCsXMsgClientTableBody = null;
 		}
 		else if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalCsXMsgClientTableBody",
 				1,
 				"value.length()",
@@ -4960,8 +4960,8 @@ public class CFBamTableBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamTableBuff ) {
-			CFBamTableBuff rhs = (CFBamTableBuff)obj;
+		else if( obj instanceof YCFBamTableBuff ) {
+			YCFBamTableBuff rhs = (YCFBamTableBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -7346,8 +7346,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamScopePKey ) {
-			CFBamScopePKey rhs = (CFBamScopePKey)obj;
+		else if( obj instanceof YCFBamScopePKey ) {
+			YCFBamScopePKey rhs = (YCFBamScopePKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -7356,8 +7356,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableHBuff ) {
-			CFBamTableHBuff rhs = (CFBamTableHBuff)obj;
+		else if( obj instanceof YCFBamTableHBuff ) {
+			YCFBamTableHBuff rhs = (YCFBamTableHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -9742,8 +9742,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamScopeHPKey ) {
-			CFBamScopeHPKey rhs = (CFBamScopeHPKey)obj;
+		else if( obj instanceof YCFBamScopeHPKey ) {
+			YCFBamScopeHPKey rhs = (YCFBamScopeHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -9752,8 +9752,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableBySchemaDefIdxKey ) {
-			CFBamTableBySchemaDefIdxKey rhs = (CFBamTableBySchemaDefIdxKey)obj;
+		else if( obj instanceof YCFBamTableBySchemaDefIdxKey ) {
+			YCFBamTableBySchemaDefIdxKey rhs = (YCFBamTableBySchemaDefIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -9762,15 +9762,15 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableByCodeVisIdxKey ) {
-			CFBamTableByCodeVisIdxKey rhs = (CFBamTableByCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamTableByCodeVisIdxKey ) {
+			YCFBamTableByCodeVisIdxKey rhs = (YCFBamTableByCodeVisIdxKey)obj;
 			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableBySchemaCodeVisIdxKey ) {
-			CFBamTableBySchemaCodeVisIdxKey rhs = (CFBamTableBySchemaCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamTableBySchemaCodeVisIdxKey ) {
+			YCFBamTableBySchemaCodeVisIdxKey rhs = (YCFBamTableBySchemaCodeVisIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -9782,8 +9782,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableByDefSchemaIdxKey ) {
-			CFBamTableByDefSchemaIdxKey rhs = (CFBamTableByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamTableByDefSchemaIdxKey ) {
+			YCFBamTableByDefSchemaIdxKey rhs = (YCFBamTableByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
 				if( rhs.getOptionalDefSchemaTenantId() != null ) {
 					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
@@ -9810,8 +9810,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableByUNameIdxKey ) {
-			CFBamTableByUNameIdxKey rhs = (CFBamTableByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamTableByUNameIdxKey ) {
+			YCFBamTableByUNameIdxKey rhs = (YCFBamTableByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -9823,8 +9823,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableBySchemaCdIdxKey ) {
-			CFBamTableBySchemaCdIdxKey rhs = (CFBamTableBySchemaCdIdxKey)obj;
+		else if( obj instanceof YCFBamTableBySchemaCdIdxKey ) {
+			YCFBamTableBySchemaCdIdxKey rhs = (YCFBamTableBySchemaCdIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -9836,8 +9836,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableByPrimaryIndexIdxKey ) {
-			CFBamTableByPrimaryIndexIdxKey rhs = (CFBamTableByPrimaryIndexIdxKey)obj;
+		else if( obj instanceof YCFBamTableByPrimaryIndexIdxKey ) {
+			YCFBamTableByPrimaryIndexIdxKey rhs = (YCFBamTableByPrimaryIndexIdxKey)obj;
 			if( getOptionalPrimaryIndexTenantId() != null ) {
 				if( rhs.getOptionalPrimaryIndexTenantId() != null ) {
 					if( ! getOptionalPrimaryIndexTenantId().equals( rhs.getOptionalPrimaryIndexTenantId() ) ) {
@@ -9864,8 +9864,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableByLookupIndexIdxKey ) {
-			CFBamTableByLookupIndexIdxKey rhs = (CFBamTableByLookupIndexIdxKey)obj;
+		else if( obj instanceof YCFBamTableByLookupIndexIdxKey ) {
+			YCFBamTableByLookupIndexIdxKey rhs = (YCFBamTableByLookupIndexIdxKey)obj;
 			if( getOptionalLookupIndexTenantId() != null ) {
 				if( rhs.getOptionalLookupIndexTenantId() != null ) {
 					if( ! getOptionalLookupIndexTenantId().equals( rhs.getOptionalLookupIndexTenantId() ) ) {
@@ -9892,8 +9892,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableByAltIndexIdxKey ) {
-			CFBamTableByAltIndexIdxKey rhs = (CFBamTableByAltIndexIdxKey)obj;
+		else if( obj instanceof YCFBamTableByAltIndexIdxKey ) {
+			YCFBamTableByAltIndexIdxKey rhs = (YCFBamTableByAltIndexIdxKey)obj;
 			if( getOptionalAltIndexTenantId() != null ) {
 				if( rhs.getOptionalAltIndexTenantId() != null ) {
 					if( ! getOptionalAltIndexTenantId().equals( rhs.getOptionalAltIndexTenantId() ) ) {
@@ -9920,8 +9920,8 @@ public class CFBamTableBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTableByQualTableIdxKey ) {
-			CFBamTableByQualTableIdxKey rhs = (CFBamTableByQualTableIdxKey)obj;
+		else if( obj instanceof YCFBamTableByQualTableIdxKey ) {
+			YCFBamTableByQualTableIdxKey rhs = (YCFBamTableByQualTableIdxKey)obj;
 			if( getOptionalQualifyingTenantId() != null ) {
 				if( rhs.getOptionalQualifyingTenantId() != null ) {
 					if( ! getOptionalQualifyingTenantId().equals( rhs.getOptionalQualifyingTenantId() ) ) {
@@ -10594,8 +10594,8 @@ public class CFBamTableBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamTableBuff ) {
-			CFBamTableBuff rhs = (CFBamTableBuff)obj;
+		else if( obj instanceof YCFBamTableBuff ) {
+			YCFBamTableBuff rhs = (YCFBamTableBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -13838,8 +13838,8 @@ public class CFBamTableBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamScopePKey ) {
-			CFBamScopePKey rhs = (CFBamScopePKey)obj;
+		else if( obj instanceof YCFBamScopePKey ) {
+			YCFBamScopePKey rhs = (YCFBamScopePKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -13854,8 +13854,8 @@ public class CFBamTableBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamScopeHPKey ) {
-			CFBamScopeHPKey rhs = (CFBamScopeHPKey)obj;
+		else if( obj instanceof YCFBamScopeHPKey ) {
+			YCFBamScopeHPKey rhs = (YCFBamScopeHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -13880,8 +13880,8 @@ public class CFBamTableBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamTableHBuff ) {
-			CFBamTableHBuff rhs = (CFBamTableHBuff)obj;
+		else if( obj instanceof YCFBamTableHBuff ) {
+			YCFBamTableHBuff rhs = (YCFBamTableHBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -17124,8 +17124,8 @@ public class CFBamTableBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamTableBySchemaDefIdxKey ) {
-			CFBamTableBySchemaDefIdxKey rhs = (CFBamTableBySchemaDefIdxKey)obj;
+		else if( obj instanceof YCFBamTableBySchemaDefIdxKey ) {
+			YCFBamTableBySchemaDefIdxKey rhs = (YCFBamTableBySchemaDefIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -17140,8 +17140,8 @@ public class CFBamTableBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTableByCodeVisIdxKey ) {
-			CFBamTableByCodeVisIdxKey rhs = (CFBamTableByCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamTableByCodeVisIdxKey ) {
+			YCFBamTableByCodeVisIdxKey rhs = (YCFBamTableByCodeVisIdxKey)obj;
 
 			{
 				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
@@ -17150,8 +17150,8 @@ public class CFBamTableBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTableBySchemaCodeVisIdxKey ) {
-			CFBamTableBySchemaCodeVisIdxKey rhs = (CFBamTableBySchemaCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamTableBySchemaCodeVisIdxKey ) {
+			YCFBamTableBySchemaCodeVisIdxKey rhs = (YCFBamTableBySchemaCodeVisIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -17172,8 +17172,8 @@ public class CFBamTableBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTableByDefSchemaIdxKey ) {
-			CFBamTableByDefSchemaIdxKey rhs = (CFBamTableByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamTableByDefSchemaIdxKey ) {
+			YCFBamTableByDefSchemaIdxKey rhs = (YCFBamTableByDefSchemaIdxKey)obj;
 
 			if( getOptionalDefSchemaTenantId() != null ) {
 				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
@@ -17212,8 +17212,8 @@ public class CFBamTableBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTableByUNameIdxKey ) {
-			CFBamTableByUNameIdxKey rhs = (CFBamTableByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamTableByUNameIdxKey ) {
+			YCFBamTableByUNameIdxKey rhs = (YCFBamTableByUNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -17234,8 +17234,8 @@ public class CFBamTableBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTableBySchemaCdIdxKey ) {
-			CFBamTableBySchemaCdIdxKey rhs = (CFBamTableBySchemaCdIdxKey)obj;
+		else if( obj instanceof YCFBamTableBySchemaCdIdxKey ) {
+			YCFBamTableBySchemaCdIdxKey rhs = (YCFBamTableBySchemaCdIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -17256,8 +17256,8 @@ public class CFBamTableBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTableByPrimaryIndexIdxKey ) {
-			CFBamTableByPrimaryIndexIdxKey rhs = (CFBamTableByPrimaryIndexIdxKey)obj;
+		else if( obj instanceof YCFBamTableByPrimaryIndexIdxKey ) {
+			YCFBamTableByPrimaryIndexIdxKey rhs = (YCFBamTableByPrimaryIndexIdxKey)obj;
 
 			if( getOptionalPrimaryIndexTenantId() != null ) {
 				Long lhsPrimaryIndexTenantId = getOptionalPrimaryIndexTenantId();
@@ -17296,8 +17296,8 @@ public class CFBamTableBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTableByLookupIndexIdxKey ) {
-			CFBamTableByLookupIndexIdxKey rhs = (CFBamTableByLookupIndexIdxKey)obj;
+		else if( obj instanceof YCFBamTableByLookupIndexIdxKey ) {
+			YCFBamTableByLookupIndexIdxKey rhs = (YCFBamTableByLookupIndexIdxKey)obj;
 
 			if( getOptionalLookupIndexTenantId() != null ) {
 				Long lhsLookupIndexTenantId = getOptionalLookupIndexTenantId();
@@ -17336,8 +17336,8 @@ public class CFBamTableBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTableByAltIndexIdxKey ) {
-			CFBamTableByAltIndexIdxKey rhs = (CFBamTableByAltIndexIdxKey)obj;
+		else if( obj instanceof YCFBamTableByAltIndexIdxKey ) {
+			YCFBamTableByAltIndexIdxKey rhs = (YCFBamTableByAltIndexIdxKey)obj;
 
 			if( getOptionalAltIndexTenantId() != null ) {
 				Long lhsAltIndexTenantId = getOptionalAltIndexTenantId();
@@ -17376,8 +17376,8 @@ public class CFBamTableBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamTableByQualTableIdxKey ) {
-			CFBamTableByQualTableIdxKey rhs = (CFBamTableByQualTableIdxKey)obj;
+		else if( obj instanceof YCFBamTableByQualTableIdxKey ) {
+			YCFBamTableByQualTableIdxKey rhs = (YCFBamTableByQualTableIdxKey)obj;
 
 			if( getOptionalQualifyingTenantId() != null ) {
 				Long lhsQualifyingTenantId = getOptionalQualifyingTenantId();
@@ -17422,20 +17422,20 @@ public class CFBamTableBuff
 		}
 	}
 
-	public void set( CFBamScopeBuff src ) {
-		if( src instanceof CFBamTableBuff ) {
-			setTableBuff( (CFBamTableBuff)src );
+	public void set( YCFBamScopeBuff src ) {
+		if( src instanceof YCFBamTableBuff ) {
+			setTableBuff( (YCFBamTableBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamTableBuff" );
+				"YCFBamTableBuff" );
 		}
 	}
 
-	public void setTableBuff( CFBamTableBuff src ) {
+	public void setTableBuff( YCFBamTableBuff src ) {
 		super.setScopeBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
@@ -17646,20 +17646,20 @@ public class CFBamTableBuff
 		setOptionalCsXMsgClientTableBody( src.getOptionalCsXMsgClientTableBody() );
 	}
 
-	public void set( CFBamScopeHBuff src ) {
-		if( src instanceof CFBamTableHBuff ) {
-			setTableBuff( (CFBamTableHBuff)src );
+	public void set( YCFBamScopeHBuff src ) {
+		if( src instanceof YCFBamTableHBuff ) {
+			setTableBuff( (YCFBamTableHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamTableHBuff" );
+				"YCFBamTableHBuff" );
 		}
 	}
 
-	public void setTableBuff( CFBamTableHBuff src ) {
+	public void setTableBuff( YCFBamTableHBuff src ) {
 		super.setScopeBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );

@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam ServerObjFunc.
+// Description: Java 11 edit object instance implementation for YCFBam ServerObjFunc.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,45 +45,45 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamServerObjFuncEditObj
-	extends CFBamServerMethodEditObj
+public class YCFBamServerObjFuncEditObj
+	extends YCFBamServerMethodEditObj
 
-	implements ICFBamServerObjFuncEditObj
+	implements IYCFBamServerObjFuncEditObj
 {
-	protected ICFBamTableObj optionalLookupRetTable;
+	protected IYCFBamTableObj optionalLookupRetTable;
 
-	public CFBamServerObjFuncEditObj( ICFBamServerObjFuncObj argOrig ) {
+	public YCFBamServerObjFuncEditObj( IYCFBamServerObjFuncObj argOrig ) {
 		super( argOrig );
 		optionalLookupRetTable = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamServerObjFuncObj.CLASS_CODE );
+		return( YCFBamServerObjFuncObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "ServerObjFunc" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -93,14 +93,14 @@ public class CFBamServerObjFuncEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -111,10 +111,10 @@ public class CFBamServerObjFuncEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -123,11 +123,11 @@ public class CFBamServerObjFuncEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -151,16 +151,16 @@ public class CFBamServerObjFuncEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -172,9 +172,9 @@ public class CFBamServerObjFuncEditObj
 		return( qualName );
 	}
 
-	public ICFBamScopeObj realise() {
+	public IYCFBamScopeObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamServerObjFuncObj retobj = getSchema().getServerObjFuncTableObj().realiseServerObjFunc( (ICFBamServerObjFuncObj)this );
+		IYCFBamServerObjFuncObj retobj = getSchema().getServerObjFuncTableObj().realiseServerObjFunc( (IYCFBamServerObjFuncObj)this );
 		return( retobj );
 	}
 
@@ -182,57 +182,57 @@ public class CFBamServerObjFuncEditObj
 		getOrigAsServerObjFunc().forget();
 	}
 
-	public ICFBamScopeObj create() {
+	public IYCFBamScopeObj create() {
 		copyBuffToOrig();
-		ICFBamServerObjFuncObj retobj = ((ICFBamSchemaObj)getOrigAsServerObjFunc().getSchema()).getServerObjFuncTableObj().createServerObjFunc( getOrigAsServerObjFunc() );
+		IYCFBamServerObjFuncObj retobj = ((IYCFBamSchemaObj)getOrigAsServerObjFunc().getSchema()).getServerObjFuncTableObj().createServerObjFunc( getOrigAsServerObjFunc() );
 		if( retobj == getOrigAsServerObjFunc() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamScopeEditObj update() {
-		getSchema().getServerObjFuncTableObj().updateServerObjFunc( (ICFBamServerObjFuncObj)this );
+	public YCFBamScopeEditObj update() {
+		getSchema().getServerObjFuncTableObj().updateServerObjFunc( (IYCFBamServerObjFuncObj)this );
 		return( null );
 	}
 
-	public CFBamScopeEditObj deleteInstance() {
+	public YCFBamScopeEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getServerObjFuncTableObj().deleteServerObjFunc( getOrigAsServerObjFunc() );
 		return( null );
 	}
 
-	public ICFBamServerObjFuncTableObj getServerObjFuncTable() {
+	public IYCFBamServerObjFuncTableObj getServerObjFuncTable() {
 		return( orig.getSchema().getServerObjFuncTableObj() );
 	}
 
-	public ICFBamServerObjFuncEditObj getEditAsServerObjFunc() {
-		return( (ICFBamServerObjFuncEditObj)this );
+	public IYCFBamServerObjFuncEditObj getEditAsServerObjFunc() {
+		return( (IYCFBamServerObjFuncEditObj)this );
 	}
 
-	public ICFBamServerObjFuncObj getOrigAsServerObjFunc() {
-		return( (ICFBamServerObjFuncObj)orig );
+	public IYCFBamServerObjFuncObj getOrigAsServerObjFunc() {
+		return( (IYCFBamServerObjFuncObj)orig );
 	}
 
-	public CFBamScopeBuff getBuff() {
+	public YCFBamScopeBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsServerObjFunc().getSchema().getBackingStore()).getFactoryServerObjFunc().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsServerObjFunc().getSchema().getBackingStore()).getFactoryServerObjFunc().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamScopeBuff value ) {
+	public void setBuff( YCFBamScopeBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			optionalLookupRetTable = null;
 		}
 	}
 
-	public CFBamServerObjFuncBuff getServerObjFuncBuff() {
-		return( (CFBamServerObjFuncBuff)getBuff() );
+	public YCFBamServerObjFuncBuff getServerObjFuncBuff() {
+		return( (YCFBamServerObjFuncBuff)getBuff() );
 	}
 
 	public Long getOptionalRetTenantId() {
@@ -243,11 +243,11 @@ public class CFBamServerObjFuncEditObj
 		return( getServerObjFuncBuff().getOptionalRetTableId() );
 	}
 
-	public ICFBamTableObj getOptionalLookupRetTable() {
+	public IYCFBamTableObj getOptionalLookupRetTable() {
 		return( getOptionalLookupRetTable( false ) );
 	}
 
-	public ICFBamTableObj getOptionalLookupRetTable( boolean forceRead ) {
+	public IYCFBamTableObj getOptionalLookupRetTable( boolean forceRead ) {
 		if( forceRead || ( optionalLookupRetTable == null ) ) {
 			boolean anyMissing = false;
 			if( getServerObjFuncBuff().getOptionalRetTenantId() == null ) {
@@ -257,7 +257,7 @@ public class CFBamServerObjFuncEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsServerObjFunc().getSchema()).getTableTableObj().readTableByIdIdx( getServerObjFuncBuff().getOptionalRetTenantId(),
+				IYCFBamTableObj obj = ((IYCFBamSchemaObj)getOrigAsServerObjFunc().getSchema()).getTableTableObj().readTableByIdIdx( getServerObjFuncBuff().getOptionalRetTenantId(),
 					getServerObjFuncBuff().getOptionalRetTableId() );
 				optionalLookupRetTable = obj;
 			}
@@ -265,7 +265,7 @@ public class CFBamServerObjFuncEditObj
 		return( optionalLookupRetTable );
 	}
 
-	public void setOptionalLookupRetTable( ICFBamTableObj value ) {
+	public void setOptionalLookupRetTable( IYCFBamTableObj value ) {
 			if( buff == null ) {
 				getServerObjFuncBuff();
 			}
@@ -281,14 +281,14 @@ public class CFBamServerObjFuncEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamServerObjFuncBuff origBuff = getOrigAsServerObjFunc().getServerObjFuncBuff();
-		CFBamServerObjFuncBuff myBuff = getServerObjFuncBuff();
+		YCFBamServerObjFuncBuff origBuff = getOrigAsServerObjFunc().getServerObjFuncBuff();
+		YCFBamServerObjFuncBuff myBuff = getServerObjFuncBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamServerObjFuncBuff origBuff = getOrigAsServerObjFunc().getServerObjFuncBuff();
-		CFBamServerObjFuncBuff myBuff = getServerObjFuncBuff();
+		YCFBamServerObjFuncBuff origBuff = getOrigAsServerObjFunc().getServerObjFuncBuff();
+		YCFBamServerObjFuncBuff myBuff = getServerObjFuncBuff();
 		myBuff.set( origBuff );
 	}
 }

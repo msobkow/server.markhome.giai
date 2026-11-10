@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for GelReference.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,27 +36,27 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbGelReferenceFactory implementation for GelReference
+	 *	YCFGenKbGelReferenceFactory implementation for GelReference
 	 */
-public class CFGenKbGelReferenceDefaultFactory
-	implements ICFGenKbGelReferenceFactory
+public class YCFGenKbGelReferenceDefaultFactory
+	implements IYCFGenKbGelReferenceFactory
 {
-	public CFGenKbGelReferenceDefaultFactory() {
+	public YCFGenKbGelReferenceDefaultFactory() {
 	}
 
-	public CFGenKbGelReferenceByRemainderIdxKey newRemainderIdxKey() {
-		CFGenKbGelReferenceByRemainderIdxKey key =
-			new CFGenKbGelReferenceByRemainderIdxKey();
+	public YCFGenKbGelReferenceByRemainderIdxKey newRemainderIdxKey() {
+		YCFGenKbGelReferenceByRemainderIdxKey key =
+			new YCFGenKbGelReferenceByRemainderIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelReferenceBuff newBuff() {
-		CFGenKbGelReferenceBuff buff =
-			new CFGenKbGelReferenceBuff();
+	public YCFGenKbGelReferenceBuff newBuff() {
+		YCFGenKbGelReferenceBuff buff =
+			new YCFGenKbGelReferenceBuff();
 		return( buff );
 	}
 }

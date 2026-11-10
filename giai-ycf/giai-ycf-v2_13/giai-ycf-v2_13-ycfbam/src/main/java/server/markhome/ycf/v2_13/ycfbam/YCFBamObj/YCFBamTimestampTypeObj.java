@@ -1,17 +1,17 @@
-// Description: Java 11 base object instance implementation for CFBam TimestampType.
+// Description: Java 11 base object instance implementation for YCFBam TimestampType.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,33 +45,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamTimestampTypeObj
-	extends CFBamTimestampDefObj
-	implements ICFBamTimestampTypeObj
+public class YCFBamTimestampTypeObj
+	extends YCFBamTimestampDefObj
+	implements IYCFBamTimestampTypeObj
 {
 	public final static String CLASS_CODE = "a861";
-	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
+	protected IYCFBamSchemaDefObj requiredContainerSchemaDef;
 
-	public CFBamTimestampTypeObj() {
+	public YCFBamTimestampTypeObj() {
 		super();
 		requiredContainerSchemaDef = null;
 	}
 
-	public CFBamTimestampTypeObj( ICFBamSchemaObj argSchema ) {
+	public YCFBamTimestampTypeObj( IYCFBamSchemaObj argSchema ) {
 		super( argSchema );
 		requiredContainerSchemaDef = null;
 	}
@@ -84,13 +84,13 @@ public class CFBamTimestampTypeObj
 		return( "TimestampType" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
 		return( scope );
 	}
 
@@ -100,14 +100,14 @@ public class CFBamTimestampTypeObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -118,10 +118,10 @@ public class CFBamTimestampTypeObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -130,11 +130,11 @@ public class CFBamTimestampTypeObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -158,16 +158,16 @@ public class CFBamTimestampTypeObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -179,50 +179,50 @@ public class CFBamTimestampTypeObj
 		return( qualName );
 	}
 
-	public ICFBamValueObj realise() {
-		ICFBamTimestampTypeObj retobj = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().realiseTimestampType(
-			(ICFBamTimestampTypeObj)this );
-		return( (ICFBamValueObj)retobj );
+	public IYCFBamValueObj realise() {
+		IYCFBamTimestampTypeObj retobj = ((IYCFBamSchemaObj)schema).getTimestampTypeTableObj().realiseTimestampType(
+			(IYCFBamTimestampTypeObj)this );
+		return( (IYCFBamValueObj)retobj );
 	}
 
 	public void forget() {
-		((ICFBamSchemaObj)schema).getTimestampTypeTableObj().reallyDeepDisposeTimestampType( (ICFBamTimestampTypeObj)this );
+		((IYCFBamSchemaObj)schema).getTimestampTypeTableObj().reallyDeepDisposeTimestampType( (IYCFBamTimestampTypeObj)this );
 	}
 
-	public ICFBamValueObj read() {
-		ICFBamTimestampTypeObj retobj = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().readTimestampTypeByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFBamValueObj read() {
+		IYCFBamTimestampTypeObj retobj = ((IYCFBamSchemaObj)schema).getTimestampTypeTableObj().readTimestampTypeByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), false );
-		return( (ICFBamValueObj)retobj );
+		return( (IYCFBamValueObj)retobj );
 	}
 
-	public ICFBamValueObj read( boolean forceRead ) {
-		ICFBamTimestampTypeObj retobj = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().readTimestampTypeByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFBamValueObj read( boolean forceRead ) {
+		IYCFBamTimestampTypeObj retobj = ((IYCFBamSchemaObj)schema).getTimestampTypeTableObj().readTimestampTypeByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), forceRead );
-		return( (ICFBamValueObj)retobj );
+		return( (IYCFBamValueObj)retobj );
 	}
 
-	public ICFBamValueObj moveUp() {
-		ICFBamTimestampTypeObj retobj = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().moveUpTimestampType( this );
-		return( (ICFBamValueObj)retobj );
+	public IYCFBamValueObj moveUp() {
+		IYCFBamTimestampTypeObj retobj = ((IYCFBamSchemaObj)schema).getTimestampTypeTableObj().moveUpTimestampType( this );
+		return( (IYCFBamValueObj)retobj );
 	}
 
-	public ICFBamValueObj moveDown() {
-		ICFBamTimestampTypeObj retobj = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().moveDownTimestampType( this );
-		return( (ICFBamValueObj)retobj );
+	public IYCFBamValueObj moveDown() {
+		IYCFBamTimestampTypeObj retobj = ((IYCFBamSchemaObj)schema).getTimestampTypeTableObj().moveDownTimestampType( this );
+		return( (IYCFBamValueObj)retobj );
 	}
 
-	public ICFBamTimestampTypeTableObj getTimestampTypeTable() {
-		return( ((ICFBamSchemaObj)schema).getTimestampTypeTableObj() );
+	public IYCFBamTimestampTypeTableObj getTimestampTypeTable() {
+		return( ((IYCFBamSchemaObj)schema).getTimestampTypeTableObj() );
 	}
 
-	public CFBamValueBuff getBuff() {
+	public YCFBamValueBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFBamSchema)schema.getBackingStore()).getFactoryTimestampType().newBuff();
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getFactoryTimestampType().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFBamSchema)schema.getBackingStore()).getTableTimestampType().readDerivedByIdIdx( ((ICFBamSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getTableTimestampType().readDerivedByIdIdx( ((IYCFBamSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredId() );
 				if( buff != null ) {
@@ -233,13 +233,13 @@ public class CFBamTimestampTypeObj
 		return( buff );
 	}
 
-	public void setBuff( CFBamValueBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFBamTimestampTypeBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFBamValueBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFBamTimestampTypeBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFBamTimestampTypeBuff" );
+				"YCFBamTimestampTypeBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -251,33 +251,33 @@ public class CFBamTimestampTypeObj
 		requiredContainerSchemaDef = null;
 	}
 
-	public CFBamTimestampTypeBuff getTimestampTypeBuff() {
-		return( (CFBamTimestampTypeBuff)getBuff() );
+	public YCFBamTimestampTypeBuff getTimestampTypeBuff() {
+		return( (YCFBamTimestampTypeBuff)getBuff() );
 	}
 
-	public ICFBamValueEditObj beginEdit() {
+	public IYCFBamValueEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFBamTimestampTypeObj lockobj;
+		IYCFBamTimestampTypeObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFBamTimestampTypeObj)this;
+			lockobj = (IYCFBamTimestampTypeObj)this;
 		}
 		else {
-			lockobj = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().lockTimestampType( getPKey() );
+			lockobj = ((IYCFBamSchemaObj)schema).getTimestampTypeTableObj().lockTimestampType( getPKey() );
 		}
-		edit = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().newEditInstance( lockobj );
-		return( (ICFBamValueEditObj)edit );
+		edit = ((IYCFBamSchemaObj)schema).getTimestampTypeTableObj().newEditInstance( lockobj );
+		return( (IYCFBamValueEditObj)edit );
 	}
 
-	public ICFBamTimestampTypeEditObj getEditAsTimestampType() {
-		return( (ICFBamTimestampTypeEditObj)edit );
+	public IYCFBamTimestampTypeEditObj getEditAsTimestampType() {
+		return( (IYCFBamTimestampTypeEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFBamValueBuff buff = getBuff();
-			createdBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFBamValueBuff buff = getBuff();
+			createdBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -286,10 +286,10 @@ public class CFBamTimestampTypeObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFBamValueBuff buff = getBuff();
-			updatedBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFBamValueBuff buff = getBuff();
+			updatedBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -302,15 +302,15 @@ public class CFBamTimestampTypeObj
 		return( getTimestampTypeBuff().getRequiredSchemaDefId() );
 	}
 
-	public ICFBamSchemaDefObj getRequiredContainerSchemaDef() {
+	public IYCFBamSchemaDefObj getRequiredContainerSchemaDef() {
 		return( getRequiredContainerSchemaDef( false ) );
 	}
 
-	public ICFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead ) {
+	public IYCFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead ) {
 		if( ( requiredContainerSchemaDef == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerSchemaDef = ((ICFBamSchemaObj)schema).getSchemaDefTableObj().readSchemaDefByIdIdx( getPKey().getRequiredTenantId(),
+				requiredContainerSchemaDef = ((IYCFBamSchemaObj)schema).getSchemaDefTableObj().readSchemaDefByIdIdx( getPKey().getRequiredTenantId(),
 					getTimestampTypeBuff().getRequiredSchemaDefId(), forceRead );
 			}
 		}

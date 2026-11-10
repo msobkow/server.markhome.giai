@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for SecForm.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,60 +35,60 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntSecFormFactory implementation for SecForm
+	 *	YCFIntSecFormFactory implementation for SecForm
 	 */
-public class CFIntSecFormDefaultFactory
-	extends CFSecSecFormDefaultFactory
-	implements ICFIntSecFormFactory
+public class YCFIntSecFormDefaultFactory
+	extends YCFSecSecFormDefaultFactory
+	implements IYCFIntSecFormFactory
 {
-	public CFIntSecFormDefaultFactory() {
+	public YCFIntSecFormDefaultFactory() {
 		super();
 	}
 
-	public CFSecSecFormPKey newPKey() {
-		CFSecSecFormPKey pkey =
-			new CFSecSecFormPKey();
+	public YCFSecSecFormPKey newPKey() {
+		YCFSecSecFormPKey pkey =
+			new YCFSecSecFormPKey();
 		return( pkey );
 	}
 
-	public CFSecSecFormHPKey newHPKey() {
-		CFSecSecFormHPKey hpkey =
-			new CFSecSecFormHPKey();
+	public YCFSecSecFormHPKey newHPKey() {
+		YCFSecSecFormHPKey hpkey =
+			new YCFSecSecFormHPKey();
 		return( hpkey );
 	}
 
-	public CFSecSecFormByClusterIdxKey newClusterIdxKey() {
-		CFSecSecFormByClusterIdxKey key =
-			new CFSecSecFormByClusterIdxKey();
+	public YCFSecSecFormByClusterIdxKey newClusterIdxKey() {
+		YCFSecSecFormByClusterIdxKey key =
+			new YCFSecSecFormByClusterIdxKey();
 		return( key );
 	}
 
-	public CFSecSecFormBySecAppIdxKey newSecAppIdxKey() {
-		CFSecSecFormBySecAppIdxKey key =
-			new CFSecSecFormBySecAppIdxKey();
+	public YCFSecSecFormBySecAppIdxKey newSecAppIdxKey() {
+		YCFSecSecFormBySecAppIdxKey key =
+			new YCFSecSecFormBySecAppIdxKey();
 		return( key );
 	}
 
-	public CFSecSecFormByUJEEServletIdxKey newUJEEServletIdxKey() {
-		CFSecSecFormByUJEEServletIdxKey key =
-			new CFSecSecFormByUJEEServletIdxKey();
+	public YCFSecSecFormByUJEEServletIdxKey newUJEEServletIdxKey() {
+		YCFSecSecFormByUJEEServletIdxKey key =
+			new YCFSecSecFormByUJEEServletIdxKey();
 		return( key );
 	}
 
-	public CFSecSecFormBuff newBuff() {
-		CFSecSecFormBuff buff =
-			new CFSecSecFormBuff();
+	public YCFSecSecFormBuff newBuff() {
+		YCFSecSecFormBuff buff =
+			new YCFSecSecFormBuff();
 		return( buff );
 	}
 
-	public CFSecSecFormHBuff newHBuff() {
-		CFSecSecFormHBuff hbuff =
-			new CFSecSecFormHBuff();
+	public YCFSecSecFormHBuff newHBuff() {
+		YCFSecSecFormHBuff hbuff =
+			new YCFSecSecFormHBuff();
 		return( hbuff );
 	}
 }

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelSwitch buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelSwitchBuff
-	extends CFGenKbGelInstructionBuff
+public class YCFGenKbGelSwitchBuff
+	extends YCFGenKbGelInstructionBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -60,12 +60,12 @@ public class CFGenKbGelSwitchBuff
 	protected String optionalNilExpansion;
 	protected String optionalEmptyExpansion;
 	protected String requiredDefaultExpansion;
-	public CFGenKbGelSwitchBuff() {
+	public YCFGenKbGelSwitchBuff() {
 		super();
-		requiredValueExpansion = new String( CFGenKbGelSwitchBuff.VALUEEXPANSION_INIT_VALUE );
+		requiredValueExpansion = new String( YCFGenKbGelSwitchBuff.VALUEEXPANSION_INIT_VALUE );
 		optionalNilExpansion = null;
 		optionalEmptyExpansion = null;
-		requiredDefaultExpansion = new String( CFGenKbGelSwitchBuff.DEFAULTEXPANSION_INIT_VALUE );
+		requiredDefaultExpansion = new String( YCFGenKbGelSwitchBuff.DEFAULTEXPANSION_INIT_VALUE );
 	}
 
 	public String getClassCode() {
@@ -78,13 +78,13 @@ public class CFGenKbGelSwitchBuff
 
 	public void setRequiredValueExpansion( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredValueExpansion",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredValueExpansion",
 				1,
 				"value.length()",
@@ -103,7 +103,7 @@ public class CFGenKbGelSwitchBuff
 			optionalNilExpansion = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalNilExpansion",
 				1,
 				"value.length()",
@@ -124,7 +124,7 @@ public class CFGenKbGelSwitchBuff
 			optionalEmptyExpansion = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalEmptyExpansion",
 				1,
 				"value.length()",
@@ -142,13 +142,13 @@ public class CFGenKbGelSwitchBuff
 
 	public void setRequiredDefaultExpansion( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredDefaultExpansion",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDefaultExpansion",
 				1,
 				"value.length()",
@@ -162,8 +162,8 @@ public class CFGenKbGelSwitchBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelSwitchBuff ) {
-			CFGenKbGelSwitchBuff rhs = (CFGenKbGelSwitchBuff)obj;
+		else if( obj instanceof YCFGenKbGelSwitchBuff ) {
+			YCFGenKbGelSwitchBuff rhs = (YCFGenKbGelSwitchBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -205,8 +205,8 @@ public class CFGenKbGelSwitchBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -245,8 +245,8 @@ public class CFGenKbGelSwitchBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelSwitchBuff ) {
-			CFGenKbGelSwitchBuff rhs = (CFGenKbGelSwitchBuff)obj;
+		else if( obj instanceof YCFGenKbGelSwitchBuff ) {
+			YCFGenKbGelSwitchBuff rhs = (YCFGenKbGelSwitchBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -297,8 +297,8 @@ public class CFGenKbGelSwitchBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -325,20 +325,20 @@ public class CFGenKbGelSwitchBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelSwitchBuff ) {
-			setGelSwitchBuff( (CFGenKbGelSwitchBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelSwitchBuff ) {
+			setGelSwitchBuff( (YCFGenKbGelSwitchBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelSwitchBuff" );
+				"YCFGenKbGelSwitchBuff" );
 		}
 	}
 
-	public void setGelSwitchBuff( CFGenKbGelSwitchBuff src ) {
+	public void setGelSwitchBuff( YCFGenKbGelSwitchBuff src ) {
 		super.setGelInstructionBuff( src );
 		setRequiredValueExpansion( src.getRequiredValueExpansion() );
 		setOptionalNilExpansion( src.getOptionalNilExpansion() );

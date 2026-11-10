@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for SecUser.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,51 +36,51 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbSecUserFactory implementation for SecUser
+	 *	YCFGenKbSecUserFactory implementation for SecUser
 	 */
-public class CFGenKbSecUserDefaultFactory
-	implements ICFGenKbSecUserFactory
+public class YCFGenKbSecUserDefaultFactory
+	implements IYCFGenKbSecUserFactory
 {
-	public CFGenKbSecUserDefaultFactory() {
+	public YCFGenKbSecUserDefaultFactory() {
 	}
 
-	public CFGenKbSecUserPKey newPKey() {
-		CFGenKbSecUserPKey pkey =
-			new CFGenKbSecUserPKey();
+	public YCFGenKbSecUserPKey newPKey() {
+		YCFGenKbSecUserPKey pkey =
+			new YCFGenKbSecUserPKey();
 		return( pkey );
 	}
 
-	public CFGenKbSecUserByULoginIdxKey newULoginIdxKey() {
-		CFGenKbSecUserByULoginIdxKey key =
-			new CFGenKbSecUserByULoginIdxKey();
+	public YCFGenKbSecUserByULoginIdxKey newULoginIdxKey() {
+		YCFGenKbSecUserByULoginIdxKey key =
+			new YCFGenKbSecUserByULoginIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecUserByEMConfIdxKey newEMConfIdxKey() {
-		CFGenKbSecUserByEMConfIdxKey key =
-			new CFGenKbSecUserByEMConfIdxKey();
+	public YCFGenKbSecUserByEMConfIdxKey newEMConfIdxKey() {
+		YCFGenKbSecUserByEMConfIdxKey key =
+			new YCFGenKbSecUserByEMConfIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecUserByPwdResetIdxKey newPwdResetIdxKey() {
-		CFGenKbSecUserByPwdResetIdxKey key =
-			new CFGenKbSecUserByPwdResetIdxKey();
+	public YCFGenKbSecUserByPwdResetIdxKey newPwdResetIdxKey() {
+		YCFGenKbSecUserByPwdResetIdxKey key =
+			new YCFGenKbSecUserByPwdResetIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecUserByDefDevIdxKey newDefDevIdxKey() {
-		CFGenKbSecUserByDefDevIdxKey key =
-			new CFGenKbSecUserByDefDevIdxKey();
+	public YCFGenKbSecUserByDefDevIdxKey newDefDevIdxKey() {
+		YCFGenKbSecUserByDefDevIdxKey key =
+			new YCFGenKbSecUserByDefDevIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecUserBuff newBuff() {
-		CFGenKbSecUserBuff buff =
-			new CFGenKbSecUserBuff();
+	public YCFGenKbSecUserBuff newBuff() {
+		YCFGenKbSecUserBuff buff =
+			new YCFGenKbSecUserBuff();
 		return( buff );
 	}
 }

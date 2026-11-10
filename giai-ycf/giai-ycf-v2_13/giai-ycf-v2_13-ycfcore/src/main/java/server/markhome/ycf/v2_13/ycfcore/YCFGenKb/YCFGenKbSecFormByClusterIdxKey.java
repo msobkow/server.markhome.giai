@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecForm by ClusterIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSecFormByClusterIdxKey
+public class YCFGenKbSecFormByClusterIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredClusterId;
-	public CFGenKbSecFormByClusterIdxKey() {
-		requiredClusterId = CFGenKbSecFormBuff.CLUSTERID_INIT_VALUE;
+	public YCFGenKbSecFormByClusterIdxKey() {
+		requiredClusterId = YCFGenKbSecFormBuff.CLUSTERID_INIT_VALUE;
 	}
 
 	public long getRequiredClusterId() {
@@ -54,13 +54,13 @@ public class CFGenKbSecFormByClusterIdxKey
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFGenKbSecFormBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecFormBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFGenKbSecFormBuff.CLUSTERID_MIN_VALUE );
+				YCFGenKbSecFormBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -69,15 +69,15 @@ public class CFGenKbSecFormByClusterIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecFormByClusterIdxKey ) {
-			CFGenKbSecFormByClusterIdxKey rhs = (CFGenKbSecFormByClusterIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecFormByClusterIdxKey ) {
+			YCFGenKbSecFormByClusterIdxKey rhs = (YCFGenKbSecFormByClusterIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecFormBuff ) {
-			CFGenKbSecFormBuff rhs = (CFGenKbSecFormBuff)obj;
+		else if( obj instanceof YCFGenKbSecFormBuff ) {
+			YCFGenKbSecFormBuff rhs = (YCFGenKbSecFormBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -98,8 +98,8 @@ public class CFGenKbSecFormByClusterIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbSecFormByClusterIdxKey ) {
-			CFGenKbSecFormByClusterIdxKey rhs = (CFGenKbSecFormByClusterIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecFormByClusterIdxKey ) {
+			YCFGenKbSecFormByClusterIdxKey rhs = (YCFGenKbSecFormByClusterIdxKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -108,8 +108,8 @@ public class CFGenKbSecFormByClusterIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecFormBuff ) {
-			CFGenKbSecFormBuff rhs = (CFGenKbSecFormBuff)obj;
+		else if( obj instanceof YCFGenKbSecFormBuff ) {
+			YCFGenKbSecFormBuff rhs = (YCFGenKbSecFormBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -119,7 +119,7 @@ public class CFGenKbSecFormByClusterIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -128,7 +128,7 @@ public class CFGenKbSecFormByClusterIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbSecFormByClusterIdx"
+		String ret = "<YCFGenKbSecFormByClusterIdx"
 			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
 			+ "/>";
 		return( ret );

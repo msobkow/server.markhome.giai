@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ISOLang by Code3Idx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,16 +36,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecISOLangByCode3IdxKey
+public class YCFSecISOLangByCode3IdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String requiredISO6392Code;
-	public CFSecISOLangByCode3IdxKey() {
-		requiredISO6392Code = new String( CFSecISOLangBuff.ISO6392CODE_INIT_VALUE );
+	public YCFSecISOLangByCode3IdxKey() {
+		requiredISO6392Code = new String( YCFSecISOLangBuff.ISO6392CODE_INIT_VALUE );
 	}
 
 	public String getRequiredISO6392Code() {
@@ -54,13 +54,13 @@ public class CFSecISOLangByCode3IdxKey
 
 	public void setRequiredISO6392Code( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredISO6392Code",
 				1,
 				"value" );
 		}
 		if( value.length() > 3 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredISO6392Code",
 				1,
 				"value.length()",
@@ -74,15 +74,15 @@ public class CFSecISOLangByCode3IdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecISOLangByCode3IdxKey ) {
-			CFSecISOLangByCode3IdxKey rhs = (CFSecISOLangByCode3IdxKey)obj;
+		else if( obj instanceof YCFSecISOLangByCode3IdxKey ) {
+			YCFSecISOLangByCode3IdxKey rhs = (YCFSecISOLangByCode3IdxKey)obj;
 			if( ! getRequiredISO6392Code().equals( rhs.getRequiredISO6392Code() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOLangBuff ) {
-			CFSecISOLangBuff rhs = (CFSecISOLangBuff)obj;
+		else if( obj instanceof YCFSecISOLangBuff ) {
+			YCFSecISOLangBuff rhs = (YCFSecISOLangBuff)obj;
 			if( ! getRequiredISO6392Code().equals( rhs.getRequiredISO6392Code() ) ) {
 				return( false );
 			}
@@ -105,8 +105,8 @@ public class CFSecISOLangByCode3IdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecISOLangByCode3IdxKey ) {
-			CFSecISOLangByCode3IdxKey rhs = (CFSecISOLangByCode3IdxKey)obj;
+		else if( obj instanceof YCFSecISOLangByCode3IdxKey ) {
+			YCFSecISOLangByCode3IdxKey rhs = (YCFSecISOLangByCode3IdxKey)obj;
 			{
 				int cmp = getRequiredISO6392Code().compareTo( rhs.getRequiredISO6392Code() );
 				if( cmp != 0 ) {
@@ -115,8 +115,8 @@ public class CFSecISOLangByCode3IdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOLangBuff ) {
-			CFSecISOLangBuff rhs = (CFSecISOLangBuff)obj;
+		else if( obj instanceof YCFSecISOLangBuff ) {
+			YCFSecISOLangBuff rhs = (YCFSecISOLangBuff)obj;
 			{
 				int cmp = getRequiredISO6392Code().compareTo( rhs.getRequiredISO6392Code() );
 				if( cmp != 0 ) {
@@ -126,7 +126,7 @@ public class CFSecISOLangByCode3IdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -135,8 +135,8 @@ public class CFSecISOLangByCode3IdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecISOLangByCode3Idx"
-			+ " RequiredISO6392Code=" + "\"" + CFSecSchema.xmlEncodeString( getRequiredISO6392Code() ) + "\""
+		String ret = "<YCFSecISOLangByCode3Idx"
+			+ " RequiredISO6392Code=" + "\"" + YCFSecSchema.xmlEncodeString( getRequiredISO6392Code() ) + "\""
 			+ "/>";
 		return( ret );
 	}

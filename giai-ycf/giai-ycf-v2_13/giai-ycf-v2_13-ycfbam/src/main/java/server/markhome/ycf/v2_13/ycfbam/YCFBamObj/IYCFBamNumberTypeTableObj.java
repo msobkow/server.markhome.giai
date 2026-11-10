@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamNumberTypeTableObj
+public interface IYCFBamNumberTypeTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamNumberTypeObj newInstance();
+	IYCFBamNumberTypeObj newInstance();
 
 	/**
 	 *	Instantiate a new NumberType edition of the specified NumberType instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamNumberTypeEditObj newEditInstance( ICFBamNumberTypeObj orig );
+	IYCFBamNumberTypeEditObj newEditInstance( IYCFBamNumberTypeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamNumberTypeObj realiseNumberType( ICFBamNumberTypeObj Obj );
+	IYCFBamNumberTypeObj realiseNumberType( IYCFBamNumberTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamNumberTypeObj createNumberType( ICFBamNumberTypeObj Obj );
+	IYCFBamNumberTypeObj createNumberType( IYCFBamNumberTypeObj Obj );
 
 	/**
 	 *	Read a NumberType-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamNumberTypeTableObj
 	 *	@return	The NumberType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamNumberTypeObj readNumberType( CFBamValuePKey pkey );
+	IYCFBamNumberTypeObj readNumberType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a NumberType-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamNumberTypeTableObj
 	 *	@return	The NumberType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamNumberTypeObj readNumberType( CFBamValuePKey pkey,
+	IYCFBamNumberTypeObj readNumberType( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamNumberTypeObj readCachedNumberType( CFBamValuePKey pkey );
+	IYCFBamNumberTypeObj readCachedNumberType( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeNumberType( ICFBamNumberTypeObj obj );
+	public void reallyDeepDisposeNumberType( IYCFBamNumberTypeObj obj );
 
-	void deepDisposeNumberType( CFBamValuePKey pkey );
+	void deepDisposeNumberType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamNumberTypeObj lockNumberType( CFBamValuePKey pkey );
+	IYCFBamNumberTypeObj lockNumberType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the NumberType-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamNumberTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamNumberTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readAllNumberType();
+	List<IYCFBamNumberTypeObj> readAllNumberType();
 
 	/**
 	 *	Return a sorted map of all the NumberType-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamNumberTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamNumberTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readAllNumberType( boolean forceRead );
+	List<IYCFBamNumberTypeObj> readAllNumberType( boolean forceRead );
 
-	List<ICFBamNumberTypeObj> readCachedAllNumberType();
+	List<IYCFBamNumberTypeObj> readCachedAllNumberType();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamNumberTypeObj readNumberTypeByIdIdx( long TenantId,
+	IYCFBamNumberTypeObj readNumberTypeByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamNumberTypeObj readNumberTypeByIdIdx( long TenantId,
+	IYCFBamNumberTypeObj readNumberTypeByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@param	argName	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamNumberTypeObj readNumberTypeByUNameIdx( long TenantId,
+	IYCFBamNumberTypeObj readNumberTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@param	argName	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamNumberTypeObj readNumberTypeByUNameIdx( long TenantId,
+	IYCFBamNumberTypeObj readNumberTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByValTentIdx( long TenantId );
+	List<IYCFBamNumberTypeObj> readNumberTypeByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByValTentIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByScopeIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByScopeIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@param	argPrevId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByContPrevIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@param	argPrevId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByContPrevIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@param	argNextId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByContNextIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@param	argNextId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByContNextIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamNumberTypeObj> readNumberTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamNumberTypeObj> readNumberTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@param	argCodeVis	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
@@ -446,77 +446,77 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@param	argCodeVis	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeBySchemaIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	/**
-	 *	Get the map of CFBamNumberTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamNumberTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The NumberType key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The NumberType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamNumberTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNumberTypeObj> readNumberTypeBySchemaIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readNumberTypeBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead );
 
-	ICFBamNumberTypeObj readCachedNumberTypeByIdIdx( long TenantId,
+	IYCFBamNumberTypeObj readCachedNumberTypeByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamNumberTypeObj readCachedNumberTypeByUNameIdx( long TenantId,
+	IYCFBamNumberTypeObj readCachedNumberTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeByValTentIdx( long TenantId );
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeByValTentIdx( long TenantId );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeByScopeIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeByContPrevIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeByContNextIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamNumberTypeObj> readCachedNumberTypeBySchemaIdx( long TenantId,
+	List<IYCFBamNumberTypeObj> readCachedNumberTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	void deepDisposeNumberTypeByIdIdx( long TenantId,
@@ -548,11 +548,11 @@ public interface ICFBamNumberTypeTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeNumberTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeNumberTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeNumberTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeNumberTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -560,12 +560,12 @@ public interface ICFBamNumberTypeTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamNumberTypeObj updateNumberType( ICFBamNumberTypeObj Obj );
+	IYCFBamNumberTypeObj updateNumberType( IYCFBamNumberTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteNumberType( ICFBamNumberTypeObj Obj );
+	void deleteNumberType( IYCFBamNumberTypeObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -668,7 +668,7 @@ public interface ICFBamNumberTypeTableObj
 	 *
 	 *	@param	argCodeVis	The NumberType key attribute of the instance generating the id.
 	 */
-	void deleteNumberTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteNumberTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -681,7 +681,7 @@ public interface ICFBamNumberTypeTableObj
 	 */
 	void deleteNumberTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -694,16 +694,16 @@ public interface ICFBamNumberTypeTableObj
 		long SchemaDefId );
 
 	/**
-	 *	Move the CFBamNumberTypeObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamNumberTypeObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamNumberTypeObj refreshed cache instance.
+	 *	@return	YCFBamNumberTypeObj refreshed cache instance.
 	 */
-	ICFBamNumberTypeObj moveUpNumberType( ICFBamNumberTypeObj Obj );
+	IYCFBamNumberTypeObj moveUpNumberType( IYCFBamNumberTypeObj Obj );
 
 	/**
-	 *	Move the CFBamNumberTypeObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamNumberTypeObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamNumberTypeObj refreshed cache instance.
+	 *	@return	YCFBamNumberTypeObj refreshed cache instance.
 	 */
-	ICFBamNumberTypeObj moveDownNumberType( ICFBamNumberTypeObj Obj );
+	IYCFBamNumberTypeObj moveDownNumberType( IYCFBamNumberTypeObj Obj );
 }

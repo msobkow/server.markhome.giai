@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelPrefixLine by RemainderIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,19 +37,19 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelPrefixLineByRemainderIdxKey
+public class YCFGenKbGelPrefixLineByRemainderIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalRemainderTenantId;
 	protected long requiredRemainderGelCacheId;
 	protected Long optionalRemainderInstId;
-	public CFGenKbGelPrefixLineByRemainderIdxKey() {
+	public YCFGenKbGelPrefixLineByRemainderIdxKey() {
 		optionalRemainderTenantId = null;
-		requiredRemainderGelCacheId = CFGenKbGelPrefixLineBuff.REMAINDERGELCACHEID_INIT_VALUE;
+		requiredRemainderGelCacheId = YCFGenKbGelPrefixLineBuff.REMAINDERGELCACHEID_INIT_VALUE;
 		optionalRemainderInstId = null;
 	}
 
@@ -61,13 +61,13 @@ public class CFGenKbGelPrefixLineByRemainderIdxKey
 		if( value == null ) {
 			optionalRemainderTenantId = null;
 		}
-		else if( value < CFGenKbGelPrefixLineBuff.REMAINDERTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelPrefixLineBuff.REMAINDERTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelPrefixLineBuff.REMAINDERTENANTID_MIN_VALUE );
+				YCFGenKbGelPrefixLineBuff.REMAINDERTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderTenantId = value;
@@ -79,13 +79,13 @@ public class CFGenKbGelPrefixLineByRemainderIdxKey
 	}
 
 	public void setRequiredRemainderGelCacheId( long value ) {
-		if( value < CFGenKbGelPrefixLineBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelPrefixLineBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredRemainderGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelPrefixLineBuff.REMAINDERGELCACHEID_MIN_VALUE );
+				YCFGenKbGelPrefixLineBuff.REMAINDERGELCACHEID_MIN_VALUE );
 		}
 		requiredRemainderGelCacheId = value;
 	}
@@ -98,13 +98,13 @@ public class CFGenKbGelPrefixLineByRemainderIdxKey
 		if( value == null ) {
 			optionalRemainderInstId = null;
 		}
-		else if( value < CFGenKbGelPrefixLineBuff.REMAINDERINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelPrefixLineBuff.REMAINDERINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelPrefixLineBuff.REMAINDERINSTID_MIN_VALUE );
+				YCFGenKbGelPrefixLineBuff.REMAINDERINSTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderInstId = value;
@@ -115,8 +115,8 @@ public class CFGenKbGelPrefixLineByRemainderIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelPrefixLineByRemainderIdxKey ) {
-			CFGenKbGelPrefixLineByRemainderIdxKey rhs = (CFGenKbGelPrefixLineByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelPrefixLineByRemainderIdxKey ) {
+			YCFGenKbGelPrefixLineByRemainderIdxKey rhs = (YCFGenKbGelPrefixLineByRemainderIdxKey)obj;
 			if( getOptionalRemainderTenantId() != null ) {
 				if( rhs.getOptionalRemainderTenantId() != null ) {
 					if( ! getOptionalRemainderTenantId().equals( rhs.getOptionalRemainderTenantId() ) ) {
@@ -146,8 +146,8 @@ public class CFGenKbGelPrefixLineByRemainderIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelPrefixLineBuff ) {
-			CFGenKbGelPrefixLineBuff rhs = (CFGenKbGelPrefixLineBuff)obj;
+		else if( obj instanceof YCFGenKbGelPrefixLineBuff ) {
+			YCFGenKbGelPrefixLineBuff rhs = (YCFGenKbGelPrefixLineBuff)obj;
 			if( getOptionalRemainderTenantId() != null ) {
 				if( rhs.getOptionalRemainderTenantId() != null ) {
 					if( ! getOptionalRemainderTenantId().equals( rhs.getOptionalRemainderTenantId() ) ) {
@@ -198,8 +198,8 @@ public class CFGenKbGelPrefixLineByRemainderIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelPrefixLineByRemainderIdxKey ) {
-			CFGenKbGelPrefixLineByRemainderIdxKey rhs = (CFGenKbGelPrefixLineByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelPrefixLineByRemainderIdxKey ) {
+			YCFGenKbGelPrefixLineByRemainderIdxKey rhs = (YCFGenKbGelPrefixLineByRemainderIdxKey)obj;
 			if( getOptionalRemainderTenantId() != null ) {
 				Long lhsRemainderTenantId = getOptionalRemainderTenantId();
 				if( rhs.getOptionalRemainderTenantId() != null ) {
@@ -244,8 +244,8 @@ public class CFGenKbGelPrefixLineByRemainderIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelPrefixLineBuff ) {
-			CFGenKbGelPrefixLineBuff rhs = (CFGenKbGelPrefixLineBuff)obj;
+		else if( obj instanceof YCFGenKbGelPrefixLineBuff ) {
+			YCFGenKbGelPrefixLineBuff rhs = (YCFGenKbGelPrefixLineBuff)obj;
 			if( getOptionalRemainderTenantId() != null ) {
 				Long lhsRemainderTenantId = getOptionalRemainderTenantId();
 				if( rhs.getOptionalRemainderTenantId() != null ) {
@@ -291,7 +291,7 @@ public class CFGenKbGelPrefixLineByRemainderIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -300,7 +300,7 @@ public class CFGenKbGelPrefixLineByRemainderIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelPrefixLineByRemainderIdx"
+		String ret = "<YCFGenKbGelPrefixLineByRemainderIdx"
 			+ " OptionalRemainderTenantId=" + ( ( getOptionalRemainderTenantId() == null ) ? "null" : "\"" + getOptionalRemainderTenantId().toString() + "\"" )
 			+ " RequiredRemainderGelCacheId=" + "\"" + Long.toString( getRequiredRemainderGelCacheId() ) + "\""
 			+ " OptionalRemainderInstId=" + ( ( getOptionalRemainderInstId() == null ) ? "null" : "\"" + getOptionalRemainderInstId().toString() + "\"" )

@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelPrefixLine.
+// Description: Java 11 Object interface for YCFGenKb GelPrefixLine.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,44 +27,44 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
 
-public interface ICFGenKbGelPrefixLineObj
-	extends ICFGenKbGelInstructionObj
+public interface IYCFGenKbGelPrefixLineObj
+	extends IYCFGenKbGelInstructionObj
 {
 	/**
-	 *	Get the current edition of this GelPrefixLine instance as a ICFGenKbGelPrefixLineEditObj.
+	 *	Get the current edition of this GelPrefixLine instance as a IYCFGenKbGelPrefixLineEditObj.
 	 *
-	 *	@return	The ICFGenKbGelPrefixLineEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelPrefixLineEditObj edition of this instance.
 	 */
-	ICFGenKbGelPrefixLineEditObj getEditAsGelPrefixLine();
+	IYCFGenKbGelPrefixLineEditObj getEditAsGelPrefixLine();
 
 	/**
-	 *	Get the ICFGenKbGelPrefixLineTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelPrefixLineTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelPrefixLineTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelPrefixLineTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelPrefixLineTableObj getGelPrefixLineTable();
+	IYCFGenKbGelPrefixLineTableObj getGelPrefixLineTable();
 
 	/**
-	 *	Get the CFGenKbGelPrefixLineBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelPrefixLineBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelPrefixLineBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelPrefixLineBuff instance which currently backs this object.
 	 */
-	CFGenKbGelPrefixLineBuff getGelPrefixLineBuff();
+	YCFGenKbGelPrefixLineBuff getGelPrefixLineBuff();
 
 	/**
 	 *	Get the required String attribute PrefixName.
@@ -95,17 +95,17 @@ public interface ICFGenKbGelPrefixLineObj
 	Long getOptionalRemainderInstId();
 
 	/**
-	 *	Get the optional ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	Get the optional IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 *
-	 *	@return	The optional ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	@return	The optional IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 */
-	ICFGenKbGelInstructionObj getOptionalLookupRemainder();
+	IYCFGenKbGelInstructionObj getOptionalLookupRemainder();
 
 	/**
-	 *	Get the optional ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	Get the optional IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 *
-	 *	@return	The optional ICFGenKbGelInstructionObj instance referenced by the Remainder key.
+	 *	@return	The optional IYCFGenKbGelInstructionObj instance referenced by the Remainder key.
 	 */
-	ICFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead );
+	IYCFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead );
 
 }

@@ -1,15 +1,15 @@
-// Description: Java 11 edit object instance implementation for CFInt MinorVersion.
+// Description: Java 11 edit object instance implementation for YCFInt MinorVersion.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,41 +26,41 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntMinorVersionEditObj
-	implements ICFIntMinorVersionEditObj
+public class YCFIntMinorVersionEditObj
+	implements IYCFIntMinorVersionEditObj
 {
-	protected ICFIntMinorVersionObj orig;
-	protected CFIntMinorVersionBuff buff;
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
-	protected ICFSecTenantObj requiredOwnerTenant;
-	protected ICFIntMajorVersionObj requiredContainerParentMajVer;
+	protected IYCFIntMinorVersionObj orig;
+	protected YCFIntMinorVersionBuff buff;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
+	protected IYCFSecTenantObj requiredOwnerTenant;
+	protected IYCFIntMajorVersionObj requiredContainerParentMajVer;
 
-	public CFIntMinorVersionEditObj( ICFIntMinorVersionObj argOrig ) {
+	public YCFIntMinorVersionEditObj( IYCFIntMinorVersionObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFIntMinorVersionBuff origBuff = orig.getBuff();
+		YCFIntMinorVersionBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredOwnerTenant = null;
 		requiredContainerParentMajVer = null;
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFIntMinorVersionBuff buff = getBuff();
-			createdBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFIntMinorVersionBuff buff = getBuff();
+			createdBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -69,10 +69,10 @@ public class CFIntMinorVersionEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFIntMinorVersionBuff buff = getBuff();
-			updatedBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFIntMinorVersionBuff buff = getBuff();
+			updatedBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -81,7 +81,7 @@ public class CFIntMinorVersionEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFSecSecUserObj value ) {
+	public void setCreatedBy( IYCFSecSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -92,7 +92,7 @@ public class CFIntMinorVersionEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFSecSecUserObj value ) {
+	public void setUpdatedBy( IYCFSecSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -104,20 +104,20 @@ public class CFIntMinorVersionEditObj
 	}
 
 	public String getClassCode() {
-		return( CFIntMinorVersionObj.CLASS_CODE );
+		return( YCFIntMinorVersionObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "MinorVersion" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFIntMajorVersionObj scope = getRequiredContainerParentMajVer();
+	public IYCFLibAnyObj getScope() {
+		IYCFIntMajorVersionObj scope = getRequiredContainerParentMajVer();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFIntMajorVersionObj scope = getRequiredContainerParentMajVer();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFIntMajorVersionObj scope = getRequiredContainerParentMajVer();
 		return( scope );
 	}
 
@@ -127,14 +127,14 @@ public class CFIntMinorVersionEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -145,10 +145,10 @@ public class CFIntMinorVersionEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -157,20 +157,20 @@ public class CFIntMinorVersionEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -194,16 +194,16 @@ public class CFIntMinorVersionEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFIntTenantObj ) {
+			else if( container instanceof IYCFIntTenantObj ) {
 				container = null;
 			}
 			else {
@@ -217,13 +217,13 @@ public class CFIntMinorVersionEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -235,9 +235,9 @@ public class CFIntMinorVersionEditObj
 		return( fullName );
 	}
 
-	public ICFIntMinorVersionObj realise() {
+	public IYCFIntMinorVersionObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFIntMinorVersionObj retobj = getSchema().getMinorVersionTableObj().realiseMinorVersion( (ICFIntMinorVersionObj)this );
+		IYCFIntMinorVersionObj retobj = getSchema().getMinorVersionTableObj().realiseMinorVersion( (IYCFIntMinorVersionObj)this );
 		return( retobj );
 	}
 
@@ -245,10 +245,10 @@ public class CFIntMinorVersionEditObj
 		getOrigAsMinorVersion().forget();
 	}
 
-	public ICFIntMinorVersionObj read() {
-		ICFIntMinorVersionObj retval = getOrigAsMinorVersion().read();
+	public IYCFIntMinorVersionObj read() {
+		IYCFIntMinorVersionObj retval = getOrigAsMinorVersion().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -256,10 +256,10 @@ public class CFIntMinorVersionEditObj
 		return( retval );
 	}
 
-	public ICFIntMinorVersionObj read( boolean forceRead ) {
-		ICFIntMinorVersionObj retval = getOrigAsMinorVersion().read( forceRead );
+	public IYCFIntMinorVersionObj read( boolean forceRead ) {
+		IYCFIntMinorVersionObj retval = getOrigAsMinorVersion().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -267,69 +267,69 @@ public class CFIntMinorVersionEditObj
 		return( retval );
 	}
 
-	public ICFIntMinorVersionObj create() {
+	public IYCFIntMinorVersionObj create() {
 		copyBuffToOrig();
-		ICFIntMinorVersionObj retobj = ((ICFIntSchemaObj)getOrigAsMinorVersion().getSchema()).getMinorVersionTableObj().createMinorVersion( getOrigAsMinorVersion() );
+		IYCFIntMinorVersionObj retobj = ((IYCFIntSchemaObj)getOrigAsMinorVersion().getSchema()).getMinorVersionTableObj().createMinorVersion( getOrigAsMinorVersion() );
 		if( retobj == getOrigAsMinorVersion() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFIntMinorVersionEditObj update() {
-		getSchema().getMinorVersionTableObj().updateMinorVersion( (ICFIntMinorVersionObj)this );
+	public YCFIntMinorVersionEditObj update() {
+		getSchema().getMinorVersionTableObj().updateMinorVersion( (IYCFIntMinorVersionObj)this );
 		return( null );
 	}
 
-	public CFIntMinorVersionEditObj deleteInstance() {
+	public YCFIntMinorVersionEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getMinorVersionTableObj().deleteMinorVersion( getOrigAsMinorVersion() );
 		return( null );
 	}
 
-	public ICFIntMinorVersionTableObj getMinorVersionTable() {
+	public IYCFIntMinorVersionTableObj getMinorVersionTable() {
 		return( orig.getSchema().getMinorVersionTableObj() );
 	}
 
-	public ICFIntMinorVersionEditObj getEdit() {
-		return( (ICFIntMinorVersionEditObj)this );
+	public IYCFIntMinorVersionEditObj getEdit() {
+		return( (IYCFIntMinorVersionEditObj)this );
 	}
 
-	public ICFIntMinorVersionEditObj getEditAsMinorVersion() {
-		return( (ICFIntMinorVersionEditObj)this );
+	public IYCFIntMinorVersionEditObj getEditAsMinorVersion() {
+		return( (IYCFIntMinorVersionEditObj)this );
 	}
 
-	public ICFIntMinorVersionEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFIntMinorVersionEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFIntMinorVersionObj getOrig() {
+	public IYCFIntMinorVersionObj getOrig() {
 		return( orig );
 	}
 
-	public ICFIntMinorVersionObj getOrigAsMinorVersion() {
-		return( (ICFIntMinorVersionObj)orig );
+	public IYCFIntMinorVersionObj getOrigAsMinorVersion() {
+		return( (IYCFIntMinorVersionObj)orig );
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFIntMinorVersionBuff getBuff() {
+	public YCFIntMinorVersionBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFIntSchema)getOrigAsMinorVersion().getSchema().getBackingStore()).getFactoryMinorVersion().newBuff();
+			buff = ((IYCFIntSchema)getOrigAsMinorVersion().getSchema().getBackingStore()).getFactoryMinorVersion().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFIntMinorVersionBuff value ) {
+	public void setBuff( YCFIntMinorVersionBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredOwnerTenant = null;
@@ -337,15 +337,15 @@ public class CFIntMinorVersionEditObj
 		}
 	}
 
-	public CFIntMinorVersionBuff getMinorVersionBuff() {
-		return( (CFIntMinorVersionBuff)getBuff() );
+	public YCFIntMinorVersionBuff getMinorVersionBuff() {
+		return( (YCFIntMinorVersionBuff)getBuff() );
 	}
 
-	public CFIntMinorVersionPKey getPKey() {
+	public YCFIntMinorVersionPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFIntMinorVersionPKey value ) {
+	public void setPKey( YCFIntMinorVersionPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -390,22 +390,22 @@ public class CFIntMinorVersionEditObj
 		}
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant() {
+	public IYCFSecTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( forceRead || ( requiredOwnerTenant == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFSecTenantObj obj = ((ICFIntSchemaObj)getOrigAsMinorVersion().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
+				IYCFSecTenantObj obj = ((IYCFIntSchemaObj)getOrigAsMinorVersion().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
 				requiredOwnerTenant = obj;
 			}
 		}
 		return( requiredOwnerTenant );
 	}
 
-	public void setRequiredOwnerTenant( ICFSecTenantObj value ) {
+	public void setRequiredOwnerTenant( IYCFSecTenantObj value ) {
 			if( buff == null ) {
 				getMinorVersionBuff();
 			}
@@ -416,15 +416,15 @@ public class CFIntMinorVersionEditObj
 			requiredOwnerTenant = value;
 	}
 
-	public ICFIntMajorVersionObj getRequiredContainerParentMajVer() {
+	public IYCFIntMajorVersionObj getRequiredContainerParentMajVer() {
 		return( getRequiredContainerParentMajVer( false ) );
 	}
 
-	public ICFIntMajorVersionObj getRequiredContainerParentMajVer( boolean forceRead ) {
+	public IYCFIntMajorVersionObj getRequiredContainerParentMajVer( boolean forceRead ) {
 		if( forceRead || ( requiredContainerParentMajVer == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFIntMajorVersionObj obj = ((ICFIntSchemaObj)getOrigAsMinorVersion().getSchema()).getMajorVersionTableObj().readMajorVersionByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFIntMajorVersionObj obj = ((IYCFIntSchemaObj)getOrigAsMinorVersion().getSchema()).getMajorVersionTableObj().readMajorVersionByIdIdx( getPKey().getRequiredTenantId(),
 					getMinorVersionBuff().getRequiredMajorVersionId() );
 				requiredContainerParentMajVer = obj;
 				if( obj != null ) {
@@ -437,7 +437,7 @@ public class CFIntMinorVersionEditObj
 		return( requiredContainerParentMajVer );
 	}
 
-	public void setRequiredContainerParentMajVer( ICFIntMajorVersionObj value ) {
+	public void setRequiredContainerParentMajVer( IYCFIntMajorVersionObj value ) {
 			if( buff == null ) {
 				getMinorVersionBuff();
 			}
@@ -460,14 +460,14 @@ public class CFIntMinorVersionEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFIntMinorVersionBuff origBuff = getOrigAsMinorVersion().getMinorVersionBuff();
-		CFIntMinorVersionBuff myBuff = getMinorVersionBuff();
+		YCFIntMinorVersionBuff origBuff = getOrigAsMinorVersion().getMinorVersionBuff();
+		YCFIntMinorVersionBuff myBuff = getMinorVersionBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFIntMinorVersionBuff origBuff = getOrigAsMinorVersion().getMinorVersionBuff();
-		CFIntMinorVersionBuff myBuff = getMinorVersionBuff();
+		YCFIntMinorVersionBuff origBuff = getOrigAsMinorVersion().getMinorVersionBuff();
+		YCFIntMinorVersionBuff myBuff = getMinorVersionBuff();
 		myBuff.set( origBuff );
 	}
 }

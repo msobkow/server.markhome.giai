@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelCall by PrevInstIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelCallByPrevInstIdxKey
+public class YCFGenKbGelCallByPrevInstIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalPrevInstTenantId;
 	protected Long optionalPrevInstGelCacheId;
 	protected Long optionalPrevInstGelInstId;
-	public CFGenKbGelCallByPrevInstIdxKey() {
+	public YCFGenKbGelCallByPrevInstIdxKey() {
 		optionalPrevInstTenantId = null;
 		optionalPrevInstGelCacheId = null;
 		optionalPrevInstGelInstId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGelCallByPrevInstIdxKey
 		if( value == null ) {
 			optionalPrevInstTenantId = null;
 		}
-		else if( value < CFGenKbGelCallBuff.PREVINSTTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelCallBuff.PREVINSTTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrevInstTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelCallBuff.PREVINSTTENANTID_MIN_VALUE );
+				YCFGenKbGelCallBuff.PREVINSTTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalPrevInstTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGelCallByPrevInstIdxKey
 		if( value == null ) {
 			optionalPrevInstGelCacheId = null;
 		}
-		else if( value < CFGenKbGelCallBuff.PREVINSTGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelCallBuff.PREVINSTGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrevInstGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelCallBuff.PREVINSTGELCACHEID_MIN_VALUE );
+				YCFGenKbGelCallBuff.PREVINSTGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalPrevInstGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGelCallByPrevInstIdxKey
 		if( value == null ) {
 			optionalPrevInstGelInstId = null;
 		}
-		else if( value < CFGenKbGelCallBuff.PREVINSTGELINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelCallBuff.PREVINSTGELINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrevInstGelInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelCallBuff.PREVINSTGELINSTID_MIN_VALUE );
+				YCFGenKbGelCallBuff.PREVINSTGELINSTID_MIN_VALUE );
 		}
 		else {
 			optionalPrevInstGelInstId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGelCallByPrevInstIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelCallByPrevInstIdxKey ) {
-			CFGenKbGelCallByPrevInstIdxKey rhs = (CFGenKbGelCallByPrevInstIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelCallByPrevInstIdxKey ) {
+			YCFGenKbGelCallByPrevInstIdxKey rhs = (YCFGenKbGelCallByPrevInstIdxKey)obj;
 			if( getOptionalPrevInstTenantId() != null ) {
 				if( rhs.getOptionalPrevInstTenantId() != null ) {
 					if( ! getOptionalPrevInstTenantId().equals( rhs.getOptionalPrevInstTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGelCallByPrevInstIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelCallBuff ) {
-			CFGenKbGelCallBuff rhs = (CFGenKbGelCallBuff)obj;
+		else if( obj instanceof YCFGenKbGelCallBuff ) {
+			YCFGenKbGelCallBuff rhs = (YCFGenKbGelCallBuff)obj;
 			if( getOptionalPrevInstTenantId() != null ) {
 				if( rhs.getOptionalPrevInstTenantId() != null ) {
 					if( ! getOptionalPrevInstTenantId().equals( rhs.getOptionalPrevInstTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGelCallByPrevInstIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelCallByPrevInstIdxKey ) {
-			CFGenKbGelCallByPrevInstIdxKey rhs = (CFGenKbGelCallByPrevInstIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelCallByPrevInstIdxKey ) {
+			YCFGenKbGelCallByPrevInstIdxKey rhs = (YCFGenKbGelCallByPrevInstIdxKey)obj;
 			if( getOptionalPrevInstTenantId() != null ) {
 				Long lhsPrevInstTenantId = getOptionalPrevInstTenantId();
 				if( rhs.getOptionalPrevInstTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGelCallByPrevInstIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelCallBuff ) {
-			CFGenKbGelCallBuff rhs = (CFGenKbGelCallBuff)obj;
+		else if( obj instanceof YCFGenKbGelCallBuff ) {
+			YCFGenKbGelCallBuff rhs = (YCFGenKbGelCallBuff)obj;
 			if( getOptionalPrevInstTenantId() != null ) {
 				Long lhsPrevInstTenantId = getOptionalPrevInstTenantId();
 				if( rhs.getOptionalPrevInstTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGelCallByPrevInstIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGelCallByPrevInstIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelCallByPrevInstIdx"
+		String ret = "<YCFGenKbGelCallByPrevInstIdx"
 			+ " OptionalPrevInstTenantId=" + ( ( getOptionalPrevInstTenantId() == null ) ? "null" : "\"" + getOptionalPrevInstTenantId().toString() + "\"" )
 			+ " OptionalPrevInstGelCacheId=" + ( ( getOptionalPrevInstGelCacheId() == null ) ? "null" : "\"" + getOptionalPrevInstGelCacheId().toString() + "\"" )
 			+ " OptionalPrevInstGelInstId=" + ( ( getOptionalPrevInstGelInstId() == null ) ? "null" : "\"" + getOptionalPrevInstGelInstId().toString() + "\"" )

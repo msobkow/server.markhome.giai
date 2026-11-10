@@ -2,17 +2,17 @@
 // Description: Java 11 in-memory RAM DbIO implementation for PopTopDep.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,65 +46,65 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamPopTopDepTable in-memory RAM DbIO implementation
+ *	YCFBamRamPopTopDepTable in-memory RAM DbIO implementation
  *	for PopTopDep.
  */
-public class CFBamRamPopTopDepTable
-	implements ICFBamPopTopDepTable
+public class YCFBamRamPopTopDepTable
+	implements IYCFBamPopTopDepTable
 {
-	private ICFBamSchema schema;
-	private Map< CFBamScopePKey,
-				CFBamPopTopDepBuff > dictByPKey
-		= new HashMap< CFBamScopePKey,
-				CFBamPopTopDepBuff >();
-	private Map< CFBamPopTopDepByContRelIdxKey,
-				Map< CFBamScopePKey,
-					CFBamPopTopDepBuff >> dictByContRelIdx
-		= new HashMap< CFBamPopTopDepByContRelIdxKey,
-				Map< CFBamScopePKey,
-					CFBamPopTopDepBuff >>();
-	private Map< CFBamPopTopDepByUNameIdxKey,
-			CFBamPopTopDepBuff > dictByUNameIdx
-		= new HashMap< CFBamPopTopDepByUNameIdxKey,
-			CFBamPopTopDepBuff >();
+	private IYCFBamSchema schema;
+	private Map< YCFBamScopePKey,
+				YCFBamPopTopDepBuff > dictByPKey
+		= new HashMap< YCFBamScopePKey,
+				YCFBamPopTopDepBuff >();
+	private Map< YCFBamPopTopDepByContRelIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamPopTopDepBuff >> dictByContRelIdx
+		= new HashMap< YCFBamPopTopDepByContRelIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamPopTopDepBuff >>();
+	private Map< YCFBamPopTopDepByUNameIdxKey,
+			YCFBamPopTopDepBuff > dictByUNameIdx
+		= new HashMap< YCFBamPopTopDepByUNameIdxKey,
+			YCFBamPopTopDepBuff >();
 
-	public CFBamRamPopTopDepTable( ICFBamSchema argSchema ) {
+	public YCFBamRamPopTopDepTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createPopTopDep( CFSecAuthorization Authorization,
-		CFBamPopTopDepBuff Buff )
+	public void createPopTopDep( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepBuff Buff )
 	{
 		final String S_ProcName = "createPopTopDep";
 		schema.getTablePopDep().createPopDep( Authorization,
 			Buff );
-		CFBamScopePKey pkey = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = schema.getFactoryScope().newPKey();
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamPopTopDepByContRelIdxKey keyContRelIdx = schema.getFactoryPopTopDep().newContRelIdxKey();
+		YCFBamPopTopDepByContRelIdxKey keyContRelIdx = schema.getFactoryPopTopDep().newContRelIdxKey();
 		keyContRelIdx.setRequiredContRelationTenantId( Buff.getRequiredContRelationTenantId() );
 		keyContRelIdx.setRequiredContRelationId( Buff.getRequiredContRelationId() );
 
-		CFBamPopTopDepByUNameIdxKey keyUNameIdx = schema.getFactoryPopTopDep().newUNameIdxKey();
+		YCFBamPopTopDepByUNameIdxKey keyUNameIdx = schema.getFactoryPopTopDep().newUNameIdxKey();
 		keyUNameIdx.setRequiredContRelationTenantId( Buff.getRequiredContRelationTenantId() );
 		keyUNameIdx.setRequiredContRelationId( Buff.getRequiredContRelationId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -112,11 +112,11 @@ public class CFBamRamPopTopDepTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUNameIdx.containsKey( keyUNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"PopTopDepUNameIdx",
 				keyUNameIdx );
@@ -133,7 +133,7 @@ public class CFBamRamPopTopDepTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Superclass",
 						"SuperClass",
@@ -152,7 +152,7 @@ public class CFBamRamPopTopDepTable
 						Buff.getRequiredContRelationTenantId(),
 						Buff.getRequiredContRelationId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"ContRelation",
@@ -166,12 +166,12 @@ public class CFBamRamPopTopDepTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamPopTopDepBuff > subdictContRelIdx;
+		Map< YCFBamScopePKey, YCFBamPopTopDepBuff > subdictContRelIdx;
 		if( dictByContRelIdx.containsKey( keyContRelIdx ) ) {
 			subdictContRelIdx = dictByContRelIdx.get( keyContRelIdx );
 		}
 		else {
-			subdictContRelIdx = new HashMap< CFBamScopePKey, CFBamPopTopDepBuff >();
+			subdictContRelIdx = new HashMap< YCFBamScopePKey, YCFBamPopTopDepBuff >();
 			dictByContRelIdx.put( keyContRelIdx, subdictContRelIdx );
 		}
 		subdictContRelIdx.put( pkey, Buff );
@@ -180,14 +180,14 @@ public class CFBamRamPopTopDepTable
 
 	}
 
-	public CFBamPopTopDepBuff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamPopTopDepBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamPopTopDep.readDerived";
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		final String S_ProcName = "YCFBamRamPopTopDep.readDerived";
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamPopTopDepBuff buff;
+		YCFBamPopTopDepBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -197,14 +197,14 @@ public class CFBamRamPopTopDepTable
 		return( buff );
 	}
 
-	public CFBamPopTopDepBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamPopTopDepBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamPopTopDep.readDerived";
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		final String S_ProcName = "YCFBamRamPopTopDep.readDerived";
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamPopTopDepBuff buff;
+		YCFBamPopTopDepBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -214,10 +214,10 @@ public class CFBamRamPopTopDepTable
 		return( buff );
 	}
 
-	public CFBamPopTopDepBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamPopTopDep.readAllDerived";
-		CFBamPopTopDepBuff[] retList = new CFBamPopTopDepBuff[ dictByPKey.values().size() ];
-		Iterator< CFBamPopTopDepBuff > iter = dictByPKey.values().iterator();
+	public YCFBamPopTopDepBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamPopTopDep.readAllDerived";
+		YCFBamPopTopDepBuff[] retList = new YCFBamPopTopDepBuff[ dictByPKey.values().size() ];
+		Iterator< YCFBamPopTopDepBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -225,117 +225,117 @@ public class CFBamRamPopTopDepTable
 		return( retList );
 	}
 
-	public CFBamPopTopDepBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamScope.readDerivedByTenantIdx";
-		CFBamScopeBuff buffList[] = schema.getTableScope().readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamScope.readDerivedByTenantIdx";
+		YCFBamScopeBuff buffList[] = schema.getTableScope().readDerivedByTenantIdx( Authorization,
 			TenantId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamScopeBuff buff;
-			ArrayList<CFBamPopTopDepBuff> filteredList = new ArrayList<CFBamPopTopDepBuff>();
+			YCFBamScopeBuff buff;
+			ArrayList<YCFBamPopTopDepBuff> filteredList = new ArrayList<YCFBamPopTopDepBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamPopTopDepBuff ) ) {
-					filteredList.add( (CFBamPopTopDepBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamPopTopDepBuff ) ) {
+					filteredList.add( (YCFBamPopTopDepBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamPopTopDepBuff[0] ) );
+			return( filteredList.toArray( new YCFBamPopTopDepBuff[0] ) );
 		}
 	}
 
-	public CFBamPopTopDepBuff[] readDerivedByRelationIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] readDerivedByRelationIdx( YCFSecAuthorization Authorization,
 		long RelationTenantId,
 		long RelationId )
 	{
-		final String S_ProcName = "CFBamRamPopDep.readDerivedByRelationIdx";
-		CFBamPopDepBuff buffList[] = schema.getTablePopDep().readDerivedByRelationIdx( Authorization,
+		final String S_ProcName = "YCFBamRamPopDep.readDerivedByRelationIdx";
+		YCFBamPopDepBuff buffList[] = schema.getTablePopDep().readDerivedByRelationIdx( Authorization,
 			RelationTenantId,
 			RelationId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamPopDepBuff buff;
-			ArrayList<CFBamPopTopDepBuff> filteredList = new ArrayList<CFBamPopTopDepBuff>();
+			YCFBamPopDepBuff buff;
+			ArrayList<YCFBamPopTopDepBuff> filteredList = new ArrayList<YCFBamPopTopDepBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamPopTopDepBuff ) ) {
-					filteredList.add( (CFBamPopTopDepBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamPopTopDepBuff ) ) {
+					filteredList.add( (YCFBamPopTopDepBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamPopTopDepBuff[0] ) );
+			return( filteredList.toArray( new YCFBamPopTopDepBuff[0] ) );
 		}
 	}
 
-	public CFBamPopTopDepBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamPopDep.readDerivedByDefSchemaIdx";
-		CFBamPopDepBuff buffList[] = schema.getTablePopDep().readDerivedByDefSchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamPopDep.readDerivedByDefSchemaIdx";
+		YCFBamPopDepBuff buffList[] = schema.getTablePopDep().readDerivedByDefSchemaIdx( Authorization,
 			DefSchemaTenantId,
 			DefSchemaId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamPopDepBuff buff;
-			ArrayList<CFBamPopTopDepBuff> filteredList = new ArrayList<CFBamPopTopDepBuff>();
+			YCFBamPopDepBuff buff;
+			ArrayList<YCFBamPopTopDepBuff> filteredList = new ArrayList<YCFBamPopTopDepBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamPopTopDepBuff ) ) {
-					filteredList.add( (CFBamPopTopDepBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamPopTopDepBuff ) ) {
+					filteredList.add( (YCFBamPopTopDepBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamPopTopDepBuff[0] ) );
+			return( filteredList.toArray( new YCFBamPopTopDepBuff[0] ) );
 		}
 	}
 
-	public CFBamPopTopDepBuff[] readDerivedByContRelIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] readDerivedByContRelIdx( YCFSecAuthorization Authorization,
 		long ContRelationTenantId,
 		long ContRelationId )
 	{
-		final String S_ProcName = "CFBamRamPopTopDep.readDerivedByContRelIdx";
-		CFBamPopTopDepByContRelIdxKey key = schema.getFactoryPopTopDep().newContRelIdxKey();
+		final String S_ProcName = "YCFBamRamPopTopDep.readDerivedByContRelIdx";
+		YCFBamPopTopDepByContRelIdxKey key = schema.getFactoryPopTopDep().newContRelIdxKey();
 		key.setRequiredContRelationTenantId( ContRelationTenantId );
 		key.setRequiredContRelationId( ContRelationId );
 
-		CFBamPopTopDepBuff[] recArray;
+		YCFBamPopTopDepBuff[] recArray;
 		if( dictByContRelIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamPopTopDepBuff > subdictContRelIdx
+			Map< YCFBamScopePKey, YCFBamPopTopDepBuff > subdictContRelIdx
 				= dictByContRelIdx.get( key );
-			recArray = new CFBamPopTopDepBuff[ subdictContRelIdx.size() ];
-			Iterator< CFBamPopTopDepBuff > iter = subdictContRelIdx.values().iterator();
+			recArray = new YCFBamPopTopDepBuff[ subdictContRelIdx.size() ];
+			Iterator< YCFBamPopTopDepBuff > iter = subdictContRelIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamPopTopDepBuff > subdictContRelIdx
-				= new HashMap< CFBamScopePKey, CFBamPopTopDepBuff >();
+			Map< YCFBamScopePKey, YCFBamPopTopDepBuff > subdictContRelIdx
+				= new HashMap< YCFBamScopePKey, YCFBamPopTopDepBuff >();
 			dictByContRelIdx.put( key, subdictContRelIdx );
-			recArray = new CFBamPopTopDepBuff[0];
+			recArray = new YCFBamPopTopDepBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamPopTopDepBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long ContRelationTenantId,
 		long ContRelationId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamPopTopDep.readDerivedByUNameIdx";
-		CFBamPopTopDepByUNameIdxKey key = schema.getFactoryPopTopDep().newUNameIdxKey();
+		final String S_ProcName = "YCFBamRamPopTopDep.readDerivedByUNameIdx";
+		YCFBamPopTopDepByUNameIdxKey key = schema.getFactoryPopTopDep().newUNameIdxKey();
 		key.setRequiredContRelationTenantId( ContRelationTenantId );
 		key.setRequiredContRelationId( ContRelationId );
 		key.setRequiredName( Name );
 
-		CFBamPopTopDepBuff buff;
+		YCFBamPopTopDepBuff buff;
 		if( dictByUNameIdx.containsKey( key ) ) {
 			buff = dictByUNameIdx.get( key );
 		}
@@ -345,16 +345,16 @@ public class CFBamRamPopTopDepTable
 		return( buff );
 	}
 
-	public CFBamPopTopDepBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamScope.readDerivedByIdIdx() ";
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		final String S_ProcName = "YCFBamRamScope.readDerivedByIdIdx() ";
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFBamPopTopDepBuff buff;
+		YCFBamPopTopDepBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -364,145 +364,145 @@ public class CFBamRamPopTopDepTable
 		return( buff );
 	}
 
-	public CFBamPopTopDepBuff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamPopTopDepBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamPopTopDep.readBuff";
-		CFBamPopTopDepBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamPopTopDep.readBuff";
+		YCFBamPopTopDepBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a837" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamPopTopDepBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamPopTopDepBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFBamPopTopDepBuff buff = readDerived( Authorization, PKey );
+		YCFBamPopTopDepBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a837" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamPopTopDepBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFBamPopTopDepBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamPopTopDep.readAllBuff";
-		CFBamPopTopDepBuff buff;
-		ArrayList<CFBamPopTopDepBuff> filteredList = new ArrayList<CFBamPopTopDepBuff>();
-		CFBamPopTopDepBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamPopTopDep.readAllBuff";
+		YCFBamPopTopDepBuff buff;
+		ArrayList<YCFBamPopTopDepBuff> filteredList = new ArrayList<YCFBamPopTopDepBuff>();
+		YCFBamPopTopDepBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a837" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamPopTopDepBuff[0] ) );
+		return( filteredList.toArray( new YCFBamPopTopDepBuff[0] ) );
 	}
 
-	public CFBamPopTopDepBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamScope.readBuffByIdIdx() ";
-		CFBamPopTopDepBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamScope.readBuffByIdIdx() ";
+		YCFBamPopTopDepBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a801" ) ) {
-			return( (CFBamPopTopDepBuff)buff );
+			return( (YCFBamPopTopDepBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamPopTopDepBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamScope.readBuffByTenantIdx() ";
-		CFBamPopTopDepBuff buff;
-		ArrayList<CFBamPopTopDepBuff> filteredList = new ArrayList<CFBamPopTopDepBuff>();
-		CFBamPopTopDepBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamScope.readBuffByTenantIdx() ";
+		YCFBamPopTopDepBuff buff;
+		ArrayList<YCFBamPopTopDepBuff> filteredList = new ArrayList<YCFBamPopTopDepBuff>();
+		YCFBamPopTopDepBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a801" ) ) {
-				filteredList.add( (CFBamPopTopDepBuff)buff );
+				filteredList.add( (YCFBamPopTopDepBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamPopTopDepBuff[0] ) );
+		return( filteredList.toArray( new YCFBamPopTopDepBuff[0] ) );
 	}
 
-	public CFBamPopTopDepBuff[] readBuffByRelationIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] readBuffByRelationIdx( YCFSecAuthorization Authorization,
 		long RelationTenantId,
 		long RelationId )
 	{
-		final String S_ProcName = "CFBamRamPopDep.readBuffByRelationIdx() ";
-		CFBamPopTopDepBuff buff;
-		ArrayList<CFBamPopTopDepBuff> filteredList = new ArrayList<CFBamPopTopDepBuff>();
-		CFBamPopTopDepBuff[] buffList = readDerivedByRelationIdx( Authorization,
+		final String S_ProcName = "YCFBamRamPopDep.readBuffByRelationIdx() ";
+		YCFBamPopTopDepBuff buff;
+		ArrayList<YCFBamPopTopDepBuff> filteredList = new ArrayList<YCFBamPopTopDepBuff>();
+		YCFBamPopTopDepBuff[] buffList = readDerivedByRelationIdx( Authorization,
 			RelationTenantId,
 			RelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a833" ) ) {
-				filteredList.add( (CFBamPopTopDepBuff)buff );
+				filteredList.add( (YCFBamPopTopDepBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamPopTopDepBuff[0] ) );
+		return( filteredList.toArray( new YCFBamPopTopDepBuff[0] ) );
 	}
 
-	public CFBamPopTopDepBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamPopDep.readBuffByDefSchemaIdx() ";
-		CFBamPopTopDepBuff buff;
-		ArrayList<CFBamPopTopDepBuff> filteredList = new ArrayList<CFBamPopTopDepBuff>();
-		CFBamPopTopDepBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamPopDep.readBuffByDefSchemaIdx() ";
+		YCFBamPopTopDepBuff buff;
+		ArrayList<YCFBamPopTopDepBuff> filteredList = new ArrayList<YCFBamPopTopDepBuff>();
+		YCFBamPopTopDepBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
 			DefSchemaTenantId,
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a833" ) ) {
-				filteredList.add( (CFBamPopTopDepBuff)buff );
+				filteredList.add( (YCFBamPopTopDepBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamPopTopDepBuff[0] ) );
+		return( filteredList.toArray( new YCFBamPopTopDepBuff[0] ) );
 	}
 
-	public CFBamPopTopDepBuff[] readBuffByContRelIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] readBuffByContRelIdx( YCFSecAuthorization Authorization,
 		long ContRelationTenantId,
 		long ContRelationId )
 	{
-		final String S_ProcName = "CFBamRamPopTopDep.readBuffByContRelIdx() ";
-		CFBamPopTopDepBuff buff;
-		ArrayList<CFBamPopTopDepBuff> filteredList = new ArrayList<CFBamPopTopDepBuff>();
-		CFBamPopTopDepBuff[] buffList = readDerivedByContRelIdx( Authorization,
+		final String S_ProcName = "YCFBamRamPopTopDep.readBuffByContRelIdx() ";
+		YCFBamPopTopDepBuff buff;
+		ArrayList<YCFBamPopTopDepBuff> filteredList = new ArrayList<YCFBamPopTopDepBuff>();
+		YCFBamPopTopDepBuff[] buffList = readDerivedByContRelIdx( Authorization,
 			ContRelationTenantId,
 			ContRelationId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a837" ) ) {
-				filteredList.add( (CFBamPopTopDepBuff)buff );
+				filteredList.add( (YCFBamPopTopDepBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamPopTopDepBuff[0] ) );
+		return( filteredList.toArray( new YCFBamPopTopDepBuff[0] ) );
 	}
 
-	public CFBamPopTopDepBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long ContRelationTenantId,
 		long ContRelationId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamPopTopDep.readBuffByUNameIdx() ";
-		CFBamPopTopDepBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamPopTopDep.readBuffByUNameIdx() ";
+		YCFBamPopTopDepBuff buff = readDerivedByUNameIdx( Authorization,
 			ContRelationTenantId,
 			ContRelationId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a837" ) ) {
-			return( (CFBamPopTopDepBuff)buff );
+			return( (YCFBamPopTopDepBuff)buff );
 		}
 		else {
 			return( null );
@@ -520,16 +520,16 @@ public class CFBamRamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamPopTopDepBuff[] pageBuffByRelationIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] pageBuffByRelationIdx( YCFSecAuthorization Authorization,
 		long RelationTenantId,
 		long RelationId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByRelationIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -543,16 +543,16 @@ public class CFBamRamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamPopTopDepBuff[] pageBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] pageBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByDefSchemaIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -566,48 +566,48 @@ public class CFBamRamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamPopTopDepBuff[] pageBuffByContRelIdx( CFSecAuthorization Authorization,
+	public YCFBamPopTopDepBuff[] pageBuffByContRelIdx( YCFSecAuthorization Authorization,
 		long ContRelationTenantId,
 		long ContRelationId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByContRelIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updatePopTopDep( CFSecAuthorization Authorization,
-		CFBamPopTopDepBuff Buff )
+	public void updatePopTopDep( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepBuff Buff )
 	{
 		schema.getTablePopDep().updatePopDep( Authorization,
 			Buff );
-		CFBamScopePKey pkey = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = schema.getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamPopTopDepBuff existing = dictByPKey.get( pkey );
+		YCFBamPopTopDepBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updatePopTopDep",
 				"Existing record not found",
 				"PopTopDep",
 				pkey );
 		}
-		CFBamPopTopDepByContRelIdxKey existingKeyContRelIdx = schema.getFactoryPopTopDep().newContRelIdxKey();
+		YCFBamPopTopDepByContRelIdxKey existingKeyContRelIdx = schema.getFactoryPopTopDep().newContRelIdxKey();
 		existingKeyContRelIdx.setRequiredContRelationTenantId( existing.getRequiredContRelationTenantId() );
 		existingKeyContRelIdx.setRequiredContRelationId( existing.getRequiredContRelationId() );
 
-		CFBamPopTopDepByContRelIdxKey newKeyContRelIdx = schema.getFactoryPopTopDep().newContRelIdxKey();
+		YCFBamPopTopDepByContRelIdxKey newKeyContRelIdx = schema.getFactoryPopTopDep().newContRelIdxKey();
 		newKeyContRelIdx.setRequiredContRelationTenantId( Buff.getRequiredContRelationTenantId() );
 		newKeyContRelIdx.setRequiredContRelationId( Buff.getRequiredContRelationId() );
 
-		CFBamPopTopDepByUNameIdxKey existingKeyUNameIdx = schema.getFactoryPopTopDep().newUNameIdxKey();
+		YCFBamPopTopDepByUNameIdxKey existingKeyUNameIdx = schema.getFactoryPopTopDep().newUNameIdxKey();
 		existingKeyUNameIdx.setRequiredContRelationTenantId( existing.getRequiredContRelationTenantId() );
 		existingKeyUNameIdx.setRequiredContRelationId( existing.getRequiredContRelationId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamPopTopDepByUNameIdxKey newKeyUNameIdx = schema.getFactoryPopTopDep().newUNameIdxKey();
+		YCFBamPopTopDepByUNameIdxKey newKeyUNameIdx = schema.getFactoryPopTopDep().newUNameIdxKey();
 		newKeyUNameIdx.setRequiredContRelationTenantId( Buff.getRequiredContRelationTenantId() );
 		newKeyUNameIdx.setRequiredContRelationId( Buff.getRequiredContRelationId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -616,7 +616,7 @@ public class CFBamRamPopTopDepTable
 
 		if( ! existingKeyUNameIdx.equals( newKeyUNameIdx ) ) {
 			if( dictByUNameIdx.containsKey( newKeyUNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updatePopTopDep",
 					"PopTopDepUNameIdx",
 					newKeyUNameIdx );
@@ -633,7 +633,7 @@ public class CFBamRamPopTopDepTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updatePopTopDep",
 						"Superclass",
 						"SuperClass",
@@ -651,7 +651,7 @@ public class CFBamRamPopTopDepTable
 						Buff.getRequiredContRelationTenantId(),
 						Buff.getRequiredContRelationId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updatePopTopDep",
 						"Container",
 						"ContRelation",
@@ -663,7 +663,7 @@ public class CFBamRamPopTopDepTable
 
 		// Update is valid
 
-		Map< CFBamScopePKey, CFBamPopTopDepBuff > subdict;
+		Map< YCFBamScopePKey, YCFBamPopTopDepBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -676,7 +676,7 @@ public class CFBamRamPopTopDepTable
 			subdict = dictByContRelIdx.get( newKeyContRelIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamPopTopDepBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamPopTopDepBuff >();
 			dictByContRelIdx.put( newKeyContRelIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -686,21 +686,21 @@ public class CFBamRamPopTopDepTable
 
 	}
 
-	public void deletePopTopDep( CFSecAuthorization Authorization,
-		CFBamPopTopDepBuff Buff )
+	public void deletePopTopDep( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamPopTopDepTable.deletePopTopDep() ";
+		final String S_ProcName = "YCFBamRamPopTopDepTable.deletePopTopDep() ";
 		String classCode;
-		CFBamScopePKey pkey = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = schema.getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamPopTopDepBuff existing = dictByPKey.get( pkey );
+		YCFBamPopTopDepBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deletePopTopDep",
 				pkey );
 		}
@@ -713,11 +713,11 @@ public class CFBamRamPopTopDepTable
 						existing.getRequiredTenantId(),
 						existing.getRequiredId() );
 		}
-		CFBamPopTopDepByContRelIdxKey keyContRelIdx = schema.getFactoryPopTopDep().newContRelIdxKey();
+		YCFBamPopTopDepByContRelIdxKey keyContRelIdx = schema.getFactoryPopTopDep().newContRelIdxKey();
 		keyContRelIdx.setRequiredContRelationTenantId( existing.getRequiredContRelationTenantId() );
 		keyContRelIdx.setRequiredContRelationId( existing.getRequiredContRelationId() );
 
-		CFBamPopTopDepByUNameIdxKey keyUNameIdx = schema.getFactoryPopTopDep().newUNameIdxKey();
+		YCFBamPopTopDepByUNameIdxKey keyUNameIdx = schema.getFactoryPopTopDep().newUNameIdxKey();
 		keyUNameIdx.setRequiredContRelationTenantId( existing.getRequiredContRelationTenantId() );
 		keyUNameIdx.setRequiredContRelationId( existing.getRequiredContRelationId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
@@ -725,7 +725,7 @@ public class CFBamRamPopTopDepTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFBamScopePKey, CFBamPopTopDepBuff > subdict;
+		Map< YCFBamScopePKey, YCFBamPopTopDepBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -737,35 +737,35 @@ public class CFBamRamPopTopDepTable
 		schema.getTablePopDep().deletePopDep( Authorization,
 			Buff );
 	}
-	public void deletePopTopDepByContRelIdx( CFSecAuthorization Authorization,
+	public void deletePopTopDepByContRelIdx( YCFSecAuthorization Authorization,
 		long argContRelationTenantId,
 		long argContRelationId )
 	{
-		CFBamPopTopDepByContRelIdxKey key = schema.getFactoryPopTopDep().newContRelIdxKey();
+		YCFBamPopTopDepByContRelIdxKey key = schema.getFactoryPopTopDep().newContRelIdxKey();
 		key.setRequiredContRelationTenantId( argContRelationTenantId );
 		key.setRequiredContRelationId( argContRelationId );
 		deletePopTopDepByContRelIdx( Authorization, key );
 	}
 
-	public void deletePopTopDepByContRelIdx( CFSecAuthorization Authorization,
-		CFBamPopTopDepByContRelIdxKey argKey )
+	public void deletePopTopDepByContRelIdx( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepByContRelIdxKey argKey )
 	{
-		CFBamPopTopDepBuff cur;
+		YCFBamPopTopDepBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamPopTopDepBuff> matchSet = new LinkedList<CFBamPopTopDepBuff>();
-		Iterator<CFBamPopTopDepBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamPopTopDepBuff> matchSet = new LinkedList<YCFBamPopTopDepBuff>();
+		Iterator<YCFBamPopTopDepBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamPopTopDepBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamPopTopDepBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTablePopTopDep().readDerivedByIdIdx( Authorization,
@@ -775,22 +775,22 @@ public class CFBamRamPopTopDepTable
 		}
 	}
 
-	public void deletePopTopDepByUNameIdx( CFSecAuthorization Authorization,
+	public void deletePopTopDepByUNameIdx( YCFSecAuthorization Authorization,
 		long argContRelationTenantId,
 		long argContRelationId,
 		String argName )
 	{
-		CFBamPopTopDepByUNameIdxKey key = schema.getFactoryPopTopDep().newUNameIdxKey();
+		YCFBamPopTopDepByUNameIdxKey key = schema.getFactoryPopTopDep().newUNameIdxKey();
 		key.setRequiredContRelationTenantId( argContRelationTenantId );
 		key.setRequiredContRelationId( argContRelationId );
 		key.setRequiredName( argName );
 		deletePopTopDepByUNameIdx( Authorization, key );
 	}
 
-	public void deletePopTopDepByUNameIdx( CFSecAuthorization Authorization,
-		CFBamPopTopDepByUNameIdxKey argKey )
+	public void deletePopTopDepByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepByUNameIdxKey argKey )
 	{
-		CFBamPopTopDepBuff cur;
+		YCFBamPopTopDepBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -798,15 +798,15 @@ public class CFBamRamPopTopDepTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamPopTopDepBuff> matchSet = new LinkedList<CFBamPopTopDepBuff>();
-		Iterator<CFBamPopTopDepBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamPopTopDepBuff> matchSet = new LinkedList<YCFBamPopTopDepBuff>();
+		Iterator<YCFBamPopTopDepBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamPopTopDepBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamPopTopDepBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTablePopTopDep().readDerivedByIdIdx( Authorization,
@@ -816,35 +816,35 @@ public class CFBamRamPopTopDepTable
 		}
 	}
 
-	public void deletePopTopDepByRelationIdx( CFSecAuthorization Authorization,
+	public void deletePopTopDepByRelationIdx( YCFSecAuthorization Authorization,
 		long argRelationTenantId,
 		long argRelationId )
 	{
-		CFBamPopDepByRelationIdxKey key = schema.getFactoryPopDep().newRelationIdxKey();
+		YCFBamPopDepByRelationIdxKey key = schema.getFactoryPopDep().newRelationIdxKey();
 		key.setRequiredRelationTenantId( argRelationTenantId );
 		key.setRequiredRelationId( argRelationId );
 		deletePopTopDepByRelationIdx( Authorization, key );
 	}
 
-	public void deletePopTopDepByRelationIdx( CFSecAuthorization Authorization,
-		CFBamPopDepByRelationIdxKey argKey )
+	public void deletePopTopDepByRelationIdx( YCFSecAuthorization Authorization,
+		YCFBamPopDepByRelationIdxKey argKey )
 	{
-		CFBamPopTopDepBuff cur;
+		YCFBamPopTopDepBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamPopTopDepBuff> matchSet = new LinkedList<CFBamPopTopDepBuff>();
-		Iterator<CFBamPopTopDepBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamPopTopDepBuff> matchSet = new LinkedList<YCFBamPopTopDepBuff>();
+		Iterator<YCFBamPopTopDepBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamPopTopDepBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamPopTopDepBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTablePopTopDep().readDerivedByIdIdx( Authorization,
@@ -854,20 +854,20 @@ public class CFBamRamPopTopDepTable
 		}
 	}
 
-	public void deletePopTopDepByDefSchemaIdx( CFSecAuthorization Authorization,
+	public void deletePopTopDepByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId )
 	{
-		CFBamPopDepByDefSchemaIdxKey key = schema.getFactoryPopDep().newDefSchemaIdxKey();
+		YCFBamPopDepByDefSchemaIdxKey key = schema.getFactoryPopDep().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deletePopTopDepByDefSchemaIdx( Authorization, key );
 	}
 
-	public void deletePopTopDepByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamPopDepByDefSchemaIdxKey argKey )
+	public void deletePopTopDepByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamPopDepByDefSchemaIdxKey argKey )
 	{
-		CFBamPopTopDepBuff cur;
+		YCFBamPopTopDepBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalDefSchemaTenantId() != null ) {
 			anyNotNull = true;
@@ -878,15 +878,15 @@ public class CFBamRamPopTopDepTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamPopTopDepBuff> matchSet = new LinkedList<CFBamPopTopDepBuff>();
-		Iterator<CFBamPopTopDepBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamPopTopDepBuff> matchSet = new LinkedList<YCFBamPopTopDepBuff>();
+		Iterator<YCFBamPopTopDepBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamPopTopDepBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamPopTopDepBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTablePopTopDep().readDerivedByIdIdx( Authorization,
@@ -896,18 +896,18 @@ public class CFBamRamPopTopDepTable
 		}
 	}
 
-	public void deletePopTopDepByIdIdx( CFSecAuthorization Authorization,
+	public void deletePopTopDepByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deletePopTopDepByIdIdx( Authorization, key );
 	}
 
-	public void deletePopTopDepByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey )
+	public void deletePopTopDepByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -915,16 +915,16 @@ public class CFBamRamPopTopDepTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFBamPopTopDepBuff cur;
-		LinkedList<CFBamPopTopDepBuff> matchSet = new LinkedList<CFBamPopTopDepBuff>();
-		Iterator<CFBamPopTopDepBuff> values = dictByPKey.values().iterator();
+		YCFBamPopTopDepBuff cur;
+		LinkedList<YCFBamPopTopDepBuff> matchSet = new LinkedList<YCFBamPopTopDepBuff>();
+		Iterator<YCFBamPopTopDepBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamPopTopDepBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamPopTopDepBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTablePopTopDep().readDerivedByIdIdx( Authorization,
@@ -934,32 +934,32 @@ public class CFBamRamPopTopDepTable
 		}
 	}
 
-	public void deletePopTopDepByTenantIdx( CFSecAuthorization Authorization,
+	public void deletePopTopDepByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFBamScopeByTenantIdxKey key = schema.getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = schema.getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deletePopTopDepByTenantIdx( Authorization, key );
 	}
 
-	public void deletePopTopDepByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey )
+	public void deletePopTopDepByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey )
 	{
-		CFBamPopTopDepBuff cur;
+		YCFBamPopTopDepBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamPopTopDepBuff> matchSet = new LinkedList<CFBamPopTopDepBuff>();
-		Iterator<CFBamPopTopDepBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamPopTopDepBuff> matchSet = new LinkedList<YCFBamPopTopDepBuff>();
+		Iterator<YCFBamPopTopDepBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamPopTopDepBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamPopTopDepBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTablePopTopDep().readDerivedByIdIdx( Authorization,

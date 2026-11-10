@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
 /**
  *	The performance of exception handling in a high-volume Java system cannot
@@ -30,15 +30,15 @@ package org.msscf.msscf.v2_13.cflib.CFLib;
  *	performance of the system under real life workloads, where users
  *	do input bad data.
  */
-public class CFLibRuntimeException extends RuntimeException {
+public class YCFLibRuntimeException extends RuntimeException {
 
-	public CFLibRuntimeException(
+	public YCFLibRuntimeException(
 		String msg )
 	{
 		super( msg );
 	}
 
-	public CFLibRuntimeException(
+	public YCFLibRuntimeException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -53,7 +53,7 @@ public class CFLibRuntimeException extends RuntimeException {
 						: "" ) );
 	}
 
-	public CFLibRuntimeException(
+	public YCFLibRuntimeException(
 		Class throwingClass,
 		String methName,
 		String msg,
@@ -70,7 +70,7 @@ public class CFLibRuntimeException extends RuntimeException {
 				th );
 	}
 
-	public CFLibRuntimeException(
+	public YCFLibRuntimeException(
 		String fieldName,
 		String msg )
 	{
@@ -80,7 +80,7 @@ public class CFLibRuntimeException extends RuntimeException {
 						: "" ) );
 	}
 
-	public CFLibRuntimeException(
+	public YCFLibRuntimeException(
 		String fieldName,
 		String methName,
 		String msg )
@@ -95,7 +95,7 @@ public class CFLibRuntimeException extends RuntimeException {
 						: "" ) );
 	}
 
-	public CFLibRuntimeException(
+	public YCFLibRuntimeException(
 		String fieldName,
 		String methName,
 		String msg,

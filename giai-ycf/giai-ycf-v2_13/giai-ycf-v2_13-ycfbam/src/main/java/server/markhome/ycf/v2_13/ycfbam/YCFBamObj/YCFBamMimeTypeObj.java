@@ -1,15 +1,15 @@
-// Description: Java 11 base object instance implementation for CFBam MimeType.
+// Description: Java 11 base object instance implementation for YCFBam MimeType.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,37 +26,37 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamMimeTypeObj
-	implements ICFBamMimeTypeObj
+public class YCFBamMimeTypeObj
+	implements IYCFBamMimeTypeObj
 {
 	public final static String CLASS_CODE = "a103";
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
 	protected boolean isNew;
-	protected ICFIntMimeTypeEditObj edit;
-	protected ICFIntSchemaObj schema;
-	protected CFIntMimeTypePKey pKey;
-	protected CFIntMimeTypeBuff buff;
+	protected IYCFIntMimeTypeEditObj edit;
+	protected IYCFIntSchemaObj schema;
+	protected YCFIntMimeTypePKey pKey;
+	protected YCFIntMimeTypeBuff buff;
 
-	public CFBamMimeTypeObj() {
+	public YCFBamMimeTypeObj() {
 		isNew = true;
 	}
 
-	public CFBamMimeTypeObj( ICFIntSchemaObj argSchema ) {
+	public YCFBamMimeTypeObj( IYCFIntSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -70,11 +70,11 @@ public class CFBamMimeTypeObj
 		return( "MimeType" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -84,14 +84,14 @@ public class CFBamMimeTypeObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -102,10 +102,10 @@ public class CFBamMimeTypeObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -114,20 +114,20 @@ public class CFBamMimeTypeObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -151,13 +151,13 @@ public class CFBamMimeTypeObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -171,13 +171,13 @@ public class CFBamMimeTypeObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -189,46 +189,46 @@ public class CFBamMimeTypeObj
 		return( fullName );
 	}
 
-	public ICFIntMimeTypeObj realise() {
-		ICFIntMimeTypeObj retobj = ((ICFBamSchemaObj)schema).getMimeTypeTableObj().realiseMimeType(
-			(ICFIntMimeTypeObj)this );
-		return( (ICFIntMimeTypeObj)retobj );
+	public IYCFIntMimeTypeObj realise() {
+		IYCFIntMimeTypeObj retobj = ((IYCFBamSchemaObj)schema).getMimeTypeTableObj().realiseMimeType(
+			(IYCFIntMimeTypeObj)this );
+		return( (IYCFIntMimeTypeObj)retobj );
 	}
 
 	public void forget() {
-		((ICFBamSchemaObj)schema).getMimeTypeTableObj().reallyDeepDisposeMimeType( (ICFIntMimeTypeObj)this );
+		((IYCFBamSchemaObj)schema).getMimeTypeTableObj().reallyDeepDisposeMimeType( (IYCFIntMimeTypeObj)this );
 	}
 
-	public ICFIntMimeTypeObj read() {
-		ICFIntMimeTypeObj retobj = ((ICFBamSchemaObj)schema).getMimeTypeTableObj().readMimeTypeByIdIdx( getPKey().getRequiredMimeTypeId(), false );
-		return( (ICFIntMimeTypeObj)retobj );
+	public IYCFIntMimeTypeObj read() {
+		IYCFIntMimeTypeObj retobj = ((IYCFBamSchemaObj)schema).getMimeTypeTableObj().readMimeTypeByIdIdx( getPKey().getRequiredMimeTypeId(), false );
+		return( (IYCFIntMimeTypeObj)retobj );
 	}
 
-	public ICFIntMimeTypeObj read( boolean forceRead ) {
-		ICFIntMimeTypeObj retobj = ((ICFBamSchemaObj)schema).getMimeTypeTableObj().readMimeTypeByIdIdx( getPKey().getRequiredMimeTypeId(), forceRead );
-		return( (ICFIntMimeTypeObj)retobj );
+	public IYCFIntMimeTypeObj read( boolean forceRead ) {
+		IYCFIntMimeTypeObj retobj = ((IYCFBamSchemaObj)schema).getMimeTypeTableObj().readMimeTypeByIdIdx( getPKey().getRequiredMimeTypeId(), forceRead );
+		return( (IYCFIntMimeTypeObj)retobj );
 	}
 
-	public ICFIntMimeTypeTableObj getMimeTypeTable() {
-		return( ((ICFBamSchemaObj)schema).getMimeTypeTableObj() );
+	public IYCFIntMimeTypeTableObj getMimeTypeTable() {
+		return( ((IYCFBamSchemaObj)schema).getMimeTypeTableObj() );
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
+	public void setSchema( IYCFIntSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFIntMimeTypeBuff getBuff() {
+	public YCFIntMimeTypeBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFBamSchema)schema.getBackingStore()).getFactoryMimeType().newBuff();
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getFactoryMimeType().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFBamSchema)schema.getBackingStore()).getTableMimeType().readDerivedByIdIdx( ((ICFBamSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getTableMimeType().readDerivedByIdIdx( ((IYCFBamSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredMimeTypeId() );
 				if( buff != null ) {
 					copyBuffToPKey();
@@ -238,30 +238,30 @@ public class CFBamMimeTypeObj
 		return( buff );
 	}
 
-	public void setBuff( CFIntMimeTypeBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFIntMimeTypeBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFIntMimeTypeBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFIntMimeTypeBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFIntMimeTypeBuff" );
+				"YCFIntMimeTypeBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
 	}
 
-	public CFIntMimeTypeBuff getMimeTypeBuff() {
-		return( (CFIntMimeTypeBuff)getBuff() );
+	public YCFIntMimeTypeBuff getMimeTypeBuff() {
+		return( (YCFIntMimeTypeBuff)getBuff() );
 	}
 
-	public CFIntMimeTypePKey getPKey() {
+	public YCFIntMimeTypePKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFBamSchema)schema.getBackingStore()).getFactoryMimeType().newPKey();
+			pKey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryMimeType().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFIntMimeTypePKey value ) {
+	public void setPKey( YCFIntMimeTypePKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -276,37 +276,37 @@ public class CFBamMimeTypeObj
 		isNew = value;
 	}
 
-	public ICFIntMimeTypeEditObj beginEdit() {
+	public IYCFIntMimeTypeEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFIntMimeTypeObj lockobj;
+		IYCFIntMimeTypeObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFIntMimeTypeObj)this;
+			lockobj = (IYCFIntMimeTypeObj)this;
 		}
 		else {
-			lockobj = ((ICFBamSchemaObj)schema).getMimeTypeTableObj().lockMimeType( getPKey() );
+			lockobj = ((IYCFBamSchemaObj)schema).getMimeTypeTableObj().lockMimeType( getPKey() );
 		}
-		edit = ((ICFBamSchemaObj)schema).getMimeTypeTableObj().newEditInstance( lockobj );
-		return( (ICFIntMimeTypeEditObj)edit );
+		edit = ((IYCFBamSchemaObj)schema).getMimeTypeTableObj().newEditInstance( lockobj );
+		return( (IYCFIntMimeTypeEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFIntMimeTypeEditObj getEdit() {
+	public IYCFIntMimeTypeEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFIntMimeTypeEditObj getEditAsMimeType() {
-		return( (ICFIntMimeTypeEditObj)edit );
+	public IYCFIntMimeTypeEditObj getEditAsMimeType() {
+		return( (IYCFIntMimeTypeEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFIntMimeTypeBuff buff = getBuff();
-			createdBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFIntMimeTypeBuff buff = getBuff();
+			createdBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -315,10 +315,10 @@ public class CFBamMimeTypeObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFIntMimeTypeBuff buff = getBuff();
-			updatedBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFIntMimeTypeBuff buff = getBuff();
+			updatedBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}

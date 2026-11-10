@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb GelCache.
+// Description: Java 11 edit object instance implementation for YCFGenKb GelCache.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,46 +27,46 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public class CFGenKbGelCacheEditObj
-	implements ICFGenKbGelCacheEditObj
+public class YCFGenKbGelCacheEditObj
+	implements IYCFGenKbGelCacheEditObj
 {
-	protected ICFGenKbGelCacheObj orig;
-	protected CFGenKbGelCacheBuff buff;
-	protected ICFGenKbTenantObj requiredOwnerTenant;
+	protected IYCFGenKbGelCacheObj orig;
+	protected YCFGenKbGelCacheBuff buff;
+	protected IYCFGenKbTenantObj requiredOwnerTenant;
 
-	public CFGenKbGelCacheEditObj( ICFGenKbGelCacheObj argOrig ) {
+	public YCFGenKbGelCacheEditObj( IYCFGenKbGelCacheObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFGenKbGelCacheBuff origBuff = orig.getBuff();
+		YCFGenKbGelCacheBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredOwnerTenant = null;
 	}
 
 	public String getClassCode() {
-		return( CFGenKbGelCacheObj.CLASS_CODE );
+		return( YCFGenKbGelCacheObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "GelCache" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -77,14 +77,14 @@ public class CFGenKbGelCacheEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -95,10 +95,10 @@ public class CFGenKbGelCacheEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -107,20 +107,20 @@ public class CFGenKbGelCacheEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -144,13 +144,13 @@ public class CFGenKbGelCacheEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -164,13 +164,13 @@ public class CFGenKbGelCacheEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -182,9 +182,9 @@ public class CFGenKbGelCacheEditObj
 		return( fullName );
 	}
 
-	public ICFGenKbGelCacheObj realise() {
+	public IYCFGenKbGelCacheObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbGelCacheObj retobj = getSchema().getGelCacheTableObj().realiseGelCache( (ICFGenKbGelCacheObj)this );
+		IYCFGenKbGelCacheObj retobj = getSchema().getGelCacheTableObj().realiseGelCache( (IYCFGenKbGelCacheObj)this );
 		return( retobj );
 	}
 
@@ -192,10 +192,10 @@ public class CFGenKbGelCacheEditObj
 		getOrigAsGelCache().forget();
 	}
 
-	public ICFGenKbGelCacheObj read() {
-		ICFGenKbGelCacheObj retval = getOrigAsGelCache().read();
+	public IYCFGenKbGelCacheObj read() {
+		IYCFGenKbGelCacheObj retval = getOrigAsGelCache().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -203,10 +203,10 @@ public class CFGenKbGelCacheEditObj
 		return( retval );
 	}
 
-	public ICFGenKbGelCacheObj read( boolean forceRead ) {
-		ICFGenKbGelCacheObj retval = getOrigAsGelCache().read( forceRead );
+	public IYCFGenKbGelCacheObj read( boolean forceRead ) {
+		IYCFGenKbGelCacheObj retval = getOrigAsGelCache().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -214,84 +214,84 @@ public class CFGenKbGelCacheEditObj
 		return( retval );
 	}
 
-	public ICFGenKbGelCacheObj create() {
+	public IYCFGenKbGelCacheObj create() {
 		copyBuffToOrig();
-		ICFGenKbGelCacheObj retobj = ((ICFGenKbSchemaObj)getOrigAsGelCache().getSchema()).getGelCacheTableObj().createGelCache( getOrigAsGelCache() );
+		IYCFGenKbGelCacheObj retobj = ((IYCFGenKbSchemaObj)getOrigAsGelCache().getSchema()).getGelCacheTableObj().createGelCache( getOrigAsGelCache() );
 		if( retobj == getOrigAsGelCache() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbGelCacheEditObj update() {
-		getSchema().getGelCacheTableObj().updateGelCache( (ICFGenKbGelCacheObj)this );
+	public YCFGenKbGelCacheEditObj update() {
+		getSchema().getGelCacheTableObj().updateGelCache( (IYCFGenKbGelCacheObj)this );
 		return( null );
 	}
 
-	public CFGenKbGelCacheEditObj deleteInstance() {
+	public YCFGenKbGelCacheEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getGelCacheTableObj().deleteGelCache( getOrigAsGelCache() );
 		return( null );
 	}
 
-	public ICFGenKbGelCacheTableObj getGelCacheTable() {
+	public IYCFGenKbGelCacheTableObj getGelCacheTable() {
 		return( orig.getSchema().getGelCacheTableObj() );
 	}
 
-	public ICFGenKbGelCacheEditObj getEdit() {
-		return( (ICFGenKbGelCacheEditObj)this );
+	public IYCFGenKbGelCacheEditObj getEdit() {
+		return( (IYCFGenKbGelCacheEditObj)this );
 	}
 
-	public ICFGenKbGelCacheEditObj getEditAsGelCache() {
-		return( (ICFGenKbGelCacheEditObj)this );
+	public IYCFGenKbGelCacheEditObj getEditAsGelCache() {
+		return( (IYCFGenKbGelCacheEditObj)this );
 	}
 
-	public ICFGenKbGelCacheEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFGenKbGelCacheEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFGenKbGelCacheObj getOrig() {
+	public IYCFGenKbGelCacheObj getOrig() {
 		return( orig );
 	}
 
-	public ICFGenKbGelCacheObj getOrigAsGelCache() {
-		return( (ICFGenKbGelCacheObj)orig );
+	public IYCFGenKbGelCacheObj getOrigAsGelCache() {
+		return( (IYCFGenKbGelCacheObj)orig );
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFGenKbGelCacheBuff getBuff() {
+	public YCFGenKbGelCacheBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsGelCache().getSchema().getBackingStore()).getFactoryGelCache().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsGelCache().getSchema().getBackingStore()).getFactoryGelCache().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelCacheBuff value ) {
+	public void setBuff( YCFGenKbGelCacheBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredOwnerTenant = null;
 		}
 	}
 
-	public CFGenKbGelCacheBuff getGelCacheBuff() {
-		return( (CFGenKbGelCacheBuff)getBuff() );
+	public YCFGenKbGelCacheBuff getGelCacheBuff() {
+		return( (YCFGenKbGelCacheBuff)getBuff() );
 	}
 
-	public CFGenKbGelCachePKey getPKey() {
+	public YCFGenKbGelCachePKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFGenKbGelCachePKey value ) {
+	public void setPKey( YCFGenKbGelCachePKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -322,22 +322,22 @@ public class CFGenKbGelCacheEditObj
 		}
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant() {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( forceRead || ( requiredOwnerTenant == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFGenKbTenantObj obj = ((ICFGenKbSchemaObj)getOrigAsGelCache().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
+				IYCFGenKbTenantObj obj = ((IYCFGenKbSchemaObj)getOrigAsGelCache().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
 				requiredOwnerTenant = obj;
 			}
 		}
 		return( requiredOwnerTenant );
 	}
 
-	public void setRequiredOwnerTenant( ICFGenKbTenantObj value ) {
+	public void setRequiredOwnerTenant( IYCFGenKbTenantObj value ) {
 			if( buff == null ) {
 				getGelCacheBuff();
 			}
@@ -359,30 +359,30 @@ public class CFGenKbGelCacheEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbGelCacheBuff origBuff = getOrigAsGelCache().getGelCacheBuff();
-		CFGenKbGelCacheBuff myBuff = getGelCacheBuff();
+		YCFGenKbGelCacheBuff origBuff = getOrigAsGelCache().getGelCacheBuff();
+		YCFGenKbGelCacheBuff myBuff = getGelCacheBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbGelCacheBuff origBuff = getOrigAsGelCache().getGelCacheBuff();
-		CFGenKbGelCacheBuff myBuff = getGelCacheBuff();
+		YCFGenKbGelCacheBuff origBuff = getOrigAsGelCache().getGelCacheBuff();
+		YCFGenKbGelCacheBuff myBuff = getGelCacheBuff();
 		myBuff.set( origBuff );
 	}
 
-	public ICFGenKbGelInstructionObj lookupMacro( String macroBody ) {
-		throw new CFLibUsageException( getClass(), "lookupMacro", "You are not allowed to manipulate macros while objects are being edited" );
+	public IYCFGenKbGelInstructionObj lookupMacro( String macroBody ) {
+		throw new YCFLibUsageException( getClass(), "lookupMacro", "You are not allowed to manipulate macros while objects are being edited" );
 	}
 
-	public ICFGenKbGelInstructionObj rememberMacro( String macroBody, ICFGenKbGelInstructionObj gel ) {
-		throw new CFLibUsageException( getClass(), "rememberMacro", "You are not allowed to manipulate macros while objects are being edited" );
+	public IYCFGenKbGelInstructionObj rememberMacro( String macroBody, IYCFGenKbGelInstructionObj gel ) {
+		throw new YCFLibUsageException( getClass(), "rememberMacro", "You are not allowed to manipulate macros while objects are being edited" );
 	}
 
-	public ICFGenKbGelExecutableObj lookupExecutable( String execName ) {
-		throw new CFLibUsageException( getClass(), "lookupExecutable", "You are not allowed to manipulate macros while objects are being edited" );
+	public IYCFGenKbGelExecutableObj lookupExecutable( String execName ) {
+		throw new YCFLibUsageException( getClass(), "lookupExecutable", "You are not allowed to manipulate macros while objects are being edited" );
 	}
 
-	public ICFGenKbGelExecutableObj rememberExecutable( String execName, ICFGenKbGelExecutableObj gel ) {
-		throw new CFLibUsageException( getClass(), "rememberExecutable", "You are not allowed to manipulate macros while objects are being edited" );
+	public IYCFGenKbGelExecutableObj rememberExecutable( String execName, IYCFGenKbGelExecutableObj gel ) {
+		throw new YCFLibUsageException( getClass(), "rememberExecutable", "You are not allowed to manipulate macros while objects are being edited" );
 	}
 }

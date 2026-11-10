@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,7 +20,7 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.appdb;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.appdb;
 import jakarta.persistence.*;
 
 import org.hibernate.annotations.UpdateTimestamp;
@@ -28,9 +28,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbUser;
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbUserService;
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash256;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbUser;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbUserService;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash256;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
@@ -54,14 +54,14 @@ public class AppDbAddress implements Comparable<Object> {
 
     @Id
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "pid", nullable = false, unique = true, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "pid", nullable = false, unique = true, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
-    private CFLibDbKeyHash256 pid;
+    private YCFLibDbKeyHash256 pid;
 
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "refuid", nullable = false, unique = false, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "refuid", nullable = false, unique = false, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
-    private CFLibDbKeyHash256 refUID;
+    private YCFLibDbKeyHash256 refUID;
 
     @Column(name = "addrname", nullable = false, unique = true, length = ADDR_NAME)
     private String addressName;
@@ -95,18 +95,18 @@ public class AppDbAddress implements Comparable<Object> {
     private java.time.LocalDateTime createdAt;
 
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "created_by", nullable = false, unique = false, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "created_by", nullable = false, unique = false, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
-    private CFLibDbKeyHash256 createdBy;
+    private YCFLibDbKeyHash256 createdBy;
 
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private java.time.LocalDateTime updatedAt;
 
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "updated_by", nullable = false, unique = false, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "updated_by", nullable = false, unique = false, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
-    private CFLibDbKeyHash256 updatedBy;
+    private YCFLibDbKeyHash256 updatedBy;
 
     @Transient
     @Autowired
@@ -114,7 +114,7 @@ public class AppDbAddress implements Comparable<Object> {
 
     public AppDbAddress() {}
 
-    public AppDbAddress(CFLibDbKeyHash256 pid) {
+    public AppDbAddress(YCFLibDbKeyHash256 pid) {
         this.pid = pid;
         this.refUID = null;
         this.addressName = "NameInSetOfAddresses";
@@ -132,7 +132,7 @@ public class AppDbAddress implements Comparable<Object> {
         this.updatedBy = null;
     }
 
-    public AppDbAddress(CFLibDbKeyHash256 pid, CFLibDbKeyHash256 refUID, String addressName) {
+    public AppDbAddress(YCFLibDbKeyHash256 pid, YCFLibDbKeyHash256 refUID, String addressName) {
         this.pid = pid;
         this.refUID = refUID;
         this.addressName = addressName;
@@ -150,7 +150,7 @@ public class AppDbAddress implements Comparable<Object> {
         this.updatedBy = null;
     }
 
-    public AppDbAddress(CFLibDbKeyHash256 pid, CFLibDbKeyHash256 refUID, String addressName, String addressContact, String addressApartment,
+    public AppDbAddress(YCFLibDbKeyHash256 pid, YCFLibDbKeyHash256 refUID, String addressName, String addressContact, String addressApartment,
         String addressStreet, String addressStreet2, String addressCity, String addressProvince, String addressCountry, String addressPostalCode) {
         this.pid = pid;
         this.refUID = refUID;
@@ -169,9 +169,9 @@ public class AppDbAddress implements Comparable<Object> {
         this.updatedBy = null;
     }
 
-    public AppDbAddress(CFLibDbKeyHash256 pid, CFLibDbKeyHash256 refUID, String addressName, String addressContact, String addressApartment,
+    public AppDbAddress(YCFLibDbKeyHash256 pid, YCFLibDbKeyHash256 refUID, String addressName, String addressContact, String addressApartment,
         String addressStreet, String addressStreet2, String addressCity, String addressProvince, String addressCountry, String addressPostalCode,
-        java.time.LocalDateTime createdAt, CFLibDbKeyHash256 createdBy, java.time.LocalDateTime updatedAt, CFLibDbKeyHash256 updatedBy) {
+        java.time.LocalDateTime createdAt, YCFLibDbKeyHash256 createdBy, java.time.LocalDateTime updatedAt, YCFLibDbKeyHash256 updatedBy) {
 
         this.pid = pid;
         this.refUID = refUID;
@@ -190,19 +190,19 @@ public class AppDbAddress implements Comparable<Object> {
         this.updatedBy = updatedBy;
     }
 
-    public CFLibDbKeyHash256 getPid() {
+    public YCFLibDbKeyHash256 getPid() {
         return pid;
     }
 
-    public void setPid(CFLibDbKeyHash256 pid) {
+    public void setPid(YCFLibDbKeyHash256 pid) {
         this.pid = pid;
     }
 
-    public CFLibDbKeyHash256 getRefUID() {
+    public YCFLibDbKeyHash256 getRefUID() {
         return refUID;
     }
 
-    public void setRefUID(CFLibDbKeyHash256 refUID) {
+    public void setRefUID(YCFLibDbKeyHash256 refUID) {
         if (refUID == null || refUID.isNull()) {
             throw new IllegalArgumentException("refUID cannot be null");
         }
@@ -365,11 +365,11 @@ public class AppDbAddress implements Comparable<Object> {
         this.createdAt = createdAt;
     }
 
-    public CFLibDbKeyHash256 getCreatedBy() {
+    public YCFLibDbKeyHash256 getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(CFLibDbKeyHash256 createdBy) {
+    public void setCreatedBy(YCFLibDbKeyHash256 createdBy) {
         this.createdBy = createdBy;
     }
 
@@ -381,11 +381,11 @@ public class AppDbAddress implements Comparable<Object> {
         this.updatedAt = updatedAt;
     }
 
-    public CFLibDbKeyHash256 getUpdatedBy() {
+    public YCFLibDbKeyHash256 getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(CFLibDbKeyHash256 updatedBy) {
+    public void setUpdatedBy(YCFLibDbKeyHash256 updatedBy) {
         this.updatedBy = updatedBy;
     }
 

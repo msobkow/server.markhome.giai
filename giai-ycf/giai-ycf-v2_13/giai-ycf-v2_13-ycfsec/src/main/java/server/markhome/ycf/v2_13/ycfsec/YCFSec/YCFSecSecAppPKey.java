@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SecApp primary key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,25 +36,25 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFSecSecAppPKey Primary Key for SecApp
+ *	YCFSecSecAppPKey Primary Key for SecApp
 
  *		requiredClusterId	Required object attribute ClusterId.
  *		requiredSecAppId	Required object attribute SecAppId. */
-public class CFSecSecAppPKey
+public class YCFSecSecAppPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected long requiredClusterId;
 	protected int requiredSecAppId;
-	public CFSecSecAppPKey() {
-		requiredClusterId = CFSecSecAppBuff.CLUSTERID_INIT_VALUE;
-		requiredSecAppId = CFSecSecAppBuff.SECAPPID_INIT_VALUE;
+	public YCFSecSecAppPKey() {
+		requiredClusterId = YCFSecSecAppBuff.CLUSTERID_INIT_VALUE;
+		requiredSecAppId = YCFSecSecAppBuff.SECAPPID_INIT_VALUE;
 	}
 
 	public long getRequiredClusterId() {
@@ -62,13 +62,13 @@ public class CFSecSecAppPKey
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFSecSecAppBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecAppBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFSecSecAppBuff.CLUSTERID_MIN_VALUE );
+				YCFSecSecAppBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -78,13 +78,13 @@ public class CFSecSecAppPKey
 	}
 
 	public void setRequiredSecAppId( int value ) {
-		if( value < CFSecSecAppBuff.SECAPPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecAppBuff.SECAPPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecAppId",
 				1,
 				"value",
 				value,
-				CFSecSecAppBuff.SECAPPID_MIN_VALUE );
+				YCFSecSecAppBuff.SECAPPID_MIN_VALUE );
 		}
 		requiredSecAppId = value;
 	}
@@ -93,8 +93,8 @@ public class CFSecSecAppPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSecAppHPKey ) {
-			CFSecSecAppHPKey rhs = (CFSecSecAppHPKey)obj;
+		else if( obj instanceof YCFSecSecAppHPKey ) {
+			YCFSecSecAppHPKey rhs = (YCFSecSecAppHPKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -103,8 +103,8 @@ public class CFSecSecAppPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecAppPKey ) {
-			CFSecSecAppPKey rhs = (CFSecSecAppPKey)obj;
+		else if( obj instanceof YCFSecSecAppPKey ) {
+			YCFSecSecAppPKey rhs = (YCFSecSecAppPKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -113,8 +113,8 @@ public class CFSecSecAppPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecAppHBuff ) {
-			CFSecSecAppHBuff rhs = (CFSecSecAppHBuff)obj;
+		else if( obj instanceof YCFSecSecAppHBuff ) {
+			YCFSecSecAppHBuff rhs = (YCFSecSecAppHBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -123,8 +123,8 @@ public class CFSecSecAppPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecAppBuff ) {
-			CFSecSecAppBuff rhs = (CFSecSecAppBuff)obj;
+		else if( obj instanceof YCFSecSecAppBuff ) {
+			YCFSecSecAppBuff rhs = (YCFSecSecAppBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -149,8 +149,8 @@ public class CFSecSecAppPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecSecAppHPKey ) {
-			CFSecSecAppHPKey rhs = (CFSecSecAppHPKey)obj;
+		else if( obj instanceof YCFSecSecAppHPKey ) {
+			YCFSecSecAppHPKey rhs = (YCFSecSecAppHPKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -165,8 +165,8 @@ public class CFSecSecAppPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecAppPKey ) {
-			CFSecSecAppPKey rhs = (CFSecSecAppPKey)obj;
+		else if( obj instanceof YCFSecSecAppPKey ) {
+			YCFSecSecAppPKey rhs = (YCFSecSecAppPKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -181,8 +181,8 @@ public class CFSecSecAppPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecAppBuff ) {
-			CFSecSecAppBuff rhs = (CFSecSecAppBuff)obj;
+		else if( obj instanceof YCFSecSecAppBuff ) {
+			YCFSecSecAppBuff rhs = (YCFSecSecAppBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -197,8 +197,8 @@ public class CFSecSecAppPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecAppHBuff ) {
-			CFSecSecAppHBuff rhs = (CFSecSecAppHBuff)obj;
+		else if( obj instanceof YCFSecSecAppHBuff ) {
+			YCFSecSecAppHBuff rhs = (YCFSecSecAppHBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -214,16 +214,16 @@ public class CFSecSecAppPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFSecSecAppPKey, CFSecSecAppBuff" );
+				"YCFSecSecAppPKey, YCFSecSecAppBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFSecSecAppPKey"
+		String ret = "<YCFSecSecAppPKey"
 			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
 			+ " RequiredSecAppId=" + "\"" + Integer.toString( getRequiredSecAppId() ) + "\""
 			+ "/>";

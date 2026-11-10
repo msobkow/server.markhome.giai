@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -49,8 +49,8 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  *	model instead of tolerating the resource load overhead of the default
  *	Java NLS string resource approach.
  */
-public class CFLib {
-	public final static String LinkName = "CFLib";
+public class YCFLib {
+	public final static String LinkName = "YCFLib";
 	public final static String LinkVersion = "2.13.42-alpha15-202611010900";
 
 	public final static TimeZone UTC_TIMEZONE = TimeZone.getTimeZone( "+0000" );
@@ -59,7 +59,7 @@ public class CFLib {
 		Clip clip = null;
 		// The audio is courtesy of a whole whack of articles from stackoverflow.com, each of which got me one line closer to working
 		try {
-			InputStream resource = CFLib.class.getResourceAsStream("/org.msscf.msscf.v2_13.cflib.CFLib/sounds/alert.wav");
+			InputStream resource = YCFLib.class.getResourceAsStream("/org.mssycf.mssycf.v2_13.ycflib.YCFLib/sounds/alert.wav");
 			if( resource != null ) {
 				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( new BufferedInputStream( resource ) );
 				DataLine.Info info = new DataLine.Info( Clip.class, audioInputStream.getFormat() );

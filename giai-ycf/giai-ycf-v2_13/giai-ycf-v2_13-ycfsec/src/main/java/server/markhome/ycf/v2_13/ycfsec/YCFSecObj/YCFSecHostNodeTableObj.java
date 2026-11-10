@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFSec.
+// Description: Java 11 Table Object implementation for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,55 +26,55 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecHostNodeTableObj
-	implements ICFSecHostNodeTableObj
+public class YCFSecHostNodeTableObj
+	implements IYCFSecHostNodeTableObj
 {
-	protected ICFSecSchemaObj schema;
-	private Map<CFSecHostNodePKey, ICFSecHostNodeObj> members;
-	private Map<CFSecHostNodePKey, ICFSecHostNodeObj> allHostNode;
-	private Map< CFSecHostNodeByClusterIdxKey,
-		Map<CFSecHostNodePKey, ICFSecHostNodeObj > > indexByClusterIdx;
-	private Map< CFSecHostNodeByUDescrIdxKey,
-		ICFSecHostNodeObj > indexByUDescrIdx;
-	private Map< CFSecHostNodeByHostNameIdxKey,
-		ICFSecHostNodeObj > indexByHostNameIdx;
+	protected IYCFSecSchemaObj schema;
+	private Map<YCFSecHostNodePKey, IYCFSecHostNodeObj> members;
+	private Map<YCFSecHostNodePKey, IYCFSecHostNodeObj> allHostNode;
+	private Map< YCFSecHostNodeByClusterIdxKey,
+		Map<YCFSecHostNodePKey, IYCFSecHostNodeObj > > indexByClusterIdx;
+	private Map< YCFSecHostNodeByUDescrIdxKey,
+		IYCFSecHostNodeObj > indexByUDescrIdx;
+	private Map< YCFSecHostNodeByHostNameIdxKey,
+		IYCFSecHostNodeObj > indexByHostNameIdx;
 	public static String TABLE_NAME = "HostNode";
 	public static String TABLE_DBNAME = "hostnode";
 
-	public CFSecHostNodeTableObj() {
+	public YCFSecHostNodeTableObj() {
 		schema = null;
-		members = new HashMap<CFSecHostNodePKey, ICFSecHostNodeObj>();
+		members = new HashMap<YCFSecHostNodePKey, IYCFSecHostNodeObj>();
 		allHostNode = null;
 		indexByClusterIdx = null;
 		indexByUDescrIdx = null;
 		indexByHostNameIdx = null;
 	}
 
-	public CFSecHostNodeTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFSecSchemaObj)argSchema;
-		members = new HashMap<CFSecHostNodePKey, ICFSecHostNodeObj>();
+	public YCFSecHostNodeTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFSecSchemaObj)argSchema;
+		members = new HashMap<YCFSecHostNodePKey, IYCFSecHostNodeObj>();
 		allHostNode = null;
 		indexByClusterIdx = null;
 		indexByUDescrIdx = null;
 		indexByHostNameIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFSecSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFSecSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -95,9 +95,9 @@ public class CFSecHostNodeTableObj
 		indexByClusterIdx = null;
 		indexByUDescrIdx = null;
 		indexByHostNameIdx = null;
-		List<ICFSecHostNodeObj> toForget = new LinkedList<ICFSecHostNodeObj>();
-		ICFSecHostNodeObj cur = null;
-		Iterator<ICFSecHostNodeObj> iter = members.values().iterator();
+		List<IYCFSecHostNodeObj> toForget = new LinkedList<IYCFSecHostNodeObj>();
+		IYCFSecHostNodeObj cur = null;
+		Iterator<IYCFSecHostNodeObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -115,10 +115,10 @@ public class CFSecHostNodeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecHostNodeObj.
+	 *	YCFSecHostNodeObj.
 	 */
-	public ICFSecHostNodeObj newInstance() {
-		ICFSecHostNodeObj inst = new CFSecHostNodeObj( schema );
+	public IYCFSecHostNodeObj newInstance() {
+		IYCFSecHostNodeObj inst = new YCFSecHostNodeObj( schema );
 		return( inst );
 	}
 
@@ -129,19 +129,19 @@ public class CFSecHostNodeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecHostNodeObj.
+	 *	YCFSecHostNodeObj.
 	 */
-	public ICFSecHostNodeEditObj newEditInstance( ICFSecHostNodeObj orig ) {
-		ICFSecHostNodeEditObj edit = new CFSecHostNodeEditObj( orig );
+	public IYCFSecHostNodeEditObj newEditInstance( IYCFSecHostNodeObj orig ) {
+		IYCFSecHostNodeEditObj edit = new YCFSecHostNodeEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecHostNodeObj realiseHostNode( ICFSecHostNodeObj Obj ) {
-		ICFSecHostNodeObj obj = Obj;
-		CFSecHostNodePKey pkey = obj.getPKey();
-		ICFSecHostNodeObj keepObj = null;
+	public IYCFSecHostNodeObj realiseHostNode( IYCFSecHostNodeObj Obj ) {
+		IYCFSecHostNodeObj obj = Obj;
+		YCFSecHostNodePKey pkey = obj.getPKey();
+		IYCFSecHostNodeObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecHostNodeObj existingObj = members.get( pkey );
+			IYCFSecHostNodeObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -152,10 +152,10 @@ public class CFSecHostNodeTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByClusterIdx != null ) {
-				CFSecHostNodeByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
+				YCFSecHostNodeByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecHostNodePKey, ICFSecHostNodeObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecHostNodePKey, IYCFSecHostNodeObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.remove( keepObj.getPKey() );
 					if( mapClusterIdx.size() <= 0 ) {
@@ -165,16 +165,16 @@ public class CFSecHostNodeTableObj
 			}
 
 			if( indexByUDescrIdx != null ) {
-				CFSecHostNodeByUDescrIdxKey keyUDescrIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
+				YCFSecHostNodeByUDescrIdxKey keyUDescrIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
 				keyUDescrIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUDescrIdx.setRequiredDescription( keepObj.getRequiredDescription() );
 				indexByUDescrIdx.remove( keyUDescrIdx );
 			}
 
 			if( indexByHostNameIdx != null ) {
-				CFSecHostNodeByHostNameIdxKey keyHostNameIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
+				YCFSecHostNodeByHostNameIdxKey keyHostNameIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
 				keyHostNameIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyHostNameIdx.setRequiredHostName( keepObj.getRequiredHostName() );
 				indexByHostNameIdx.remove( keyHostNameIdx );
@@ -184,26 +184,26 @@ public class CFSecHostNodeTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByClusterIdx != null ) {
-				CFSecHostNodeByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
+				YCFSecHostNodeByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecHostNodePKey, ICFSecHostNodeObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecHostNodePKey, IYCFSecHostNodeObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUDescrIdx != null ) {
-				CFSecHostNodeByUDescrIdxKey keyUDescrIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
+				YCFSecHostNodeByUDescrIdxKey keyUDescrIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
 				keyUDescrIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUDescrIdx.setRequiredDescription( keepObj.getRequiredDescription() );
 				indexByUDescrIdx.put( keyUDescrIdx, keepObj );
 			}
 
 			if( indexByHostNameIdx != null ) {
-				CFSecHostNodeByHostNameIdxKey keyHostNameIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
+				YCFSecHostNodeByHostNameIdxKey keyHostNameIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
 				keyHostNameIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyHostNameIdx.setRequiredHostName( keepObj.getRequiredHostName() );
 				indexByHostNameIdx.put( keyHostNameIdx, keepObj );
@@ -224,26 +224,26 @@ public class CFSecHostNodeTableObj
 			}
 
 			if( indexByClusterIdx != null ) {
-				CFSecHostNodeByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
+				YCFSecHostNodeByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecHostNodePKey, ICFSecHostNodeObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecHostNodePKey, IYCFSecHostNodeObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUDescrIdx != null ) {
-				CFSecHostNodeByUDescrIdxKey keyUDescrIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
+				YCFSecHostNodeByUDescrIdxKey keyUDescrIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
 				keyUDescrIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUDescrIdx.setRequiredDescription( keepObj.getRequiredDescription() );
 				indexByUDescrIdx.put( keyUDescrIdx, keepObj );
 			}
 
 			if( indexByHostNameIdx != null ) {
-				CFSecHostNodeByHostNameIdxKey keyHostNameIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
+				YCFSecHostNodeByHostNameIdxKey keyHostNameIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
 				keyHostNameIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyHostNameIdx.setRequiredHostName( keepObj.getRequiredHostName() );
 				indexByHostNameIdx.put( keyHostNameIdx, keepObj );
@@ -253,10 +253,10 @@ public class CFSecHostNodeTableObj
 		return( keepObj );
 	}
 
-	public ICFSecHostNodeObj createHostNode( ICFSecHostNodeObj Obj ) {
-		ICFSecHostNodeObj obj = Obj;
-		CFSecHostNodeBuff buff = obj.getHostNodeBuff();
-		((ICFSecSchema)schema.getBackingStore()).getTableHostNode().createHostNode(
+	public IYCFSecHostNodeObj createHostNode( IYCFSecHostNodeObj Obj ) {
+		IYCFSecHostNodeObj obj = Obj;
+		YCFSecHostNodeBuff buff = obj.getHostNodeBuff();
+		((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().createHostNode(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -265,58 +265,58 @@ public class CFSecHostNodeTableObj
 		return( obj );
 	}
 
-	public ICFSecHostNodeObj readHostNode( CFSecHostNodePKey pkey ) {
+	public IYCFSecHostNodeObj readHostNode( YCFSecHostNodePKey pkey ) {
 		return( readHostNode( pkey, false ) );
 	}
 
-	public ICFSecHostNodeObj readHostNode( CFSecHostNodePKey pkey, boolean forceRead ) {
-		ICFSecHostNodeObj obj = null;
+	public IYCFSecHostNodeObj readHostNode( YCFSecHostNodePKey pkey, boolean forceRead ) {
+		IYCFSecHostNodeObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecHostNodeBuff readBuff = ((ICFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecHostNodeBuff readBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredClusterId(),
 				pkey.getRequiredHostNodeId() );
 			if( readBuff != null ) {
 				obj = schema.getHostNodeTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecHostNodeObj)obj.realise();
+				obj = (IYCFSecHostNodeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecHostNodeObj readCachedHostNode( CFSecHostNodePKey pkey ) {
-		ICFSecHostNodeObj obj = null;
+	public IYCFSecHostNodeObj readCachedHostNode( YCFSecHostNodePKey pkey ) {
+		IYCFSecHostNodeObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeHostNode( ICFSecHostNodeObj obj )
+	public void reallyDeepDisposeHostNode( IYCFSecHostNodeObj obj )
 	{
-		final String S_ProcName = "CFSecHostNodeTableObj.reallyDeepDisposeHostNode() ";
+		final String S_ProcName = "YCFSecHostNodeTableObj.reallyDeepDisposeHostNode() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecHostNodePKey pkey = obj.getPKey();
-		ICFSecHostNodeObj existing = readCachedHostNode( pkey );
+		YCFSecHostNodePKey pkey = obj.getPKey();
+		IYCFSecHostNodeObj existing = readCachedHostNode( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecHostNodeByClusterIdxKey keyClusterIdx = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
+		YCFSecHostNodeByClusterIdxKey keyClusterIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecHostNodeByUDescrIdxKey keyUDescrIdx = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
+		YCFSecHostNodeByUDescrIdxKey keyUDescrIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
 		keyUDescrIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUDescrIdx.setRequiredDescription( existing.getRequiredDescription() );
 
-		CFSecHostNodeByHostNameIdxKey keyHostNameIdx = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
+		YCFSecHostNodeByHostNameIdxKey keyHostNameIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
 		keyHostNameIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyHostNameIdx.setRequiredHostName( existing.getRequiredHostName() );
 
@@ -343,57 +343,57 @@ public class CFSecHostNodeTableObj
 
 
 	}
-	public void deepDisposeHostNode( CFSecHostNodePKey pkey ) {
-		ICFSecHostNodeObj obj = readCachedHostNode( pkey );
+	public void deepDisposeHostNode( YCFSecHostNodePKey pkey ) {
+		IYCFSecHostNodeObj obj = readCachedHostNode( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecHostNodeObj lockHostNode( CFSecHostNodePKey pkey ) {
-		ICFSecHostNodeObj locked = null;
-		CFSecHostNodeBuff lockBuff = ((ICFSecSchema)schema.getBackingStore()).getTableHostNode().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecHostNodeObj lockHostNode( YCFSecHostNodePKey pkey ) {
+		IYCFSecHostNodeObj locked = null;
+		YCFSecHostNodeBuff lockBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getHostNodeTableObj().newInstance();
-			locked.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
+			locked.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecHostNodeObj)locked.realise();
+			locked = (IYCFSecHostNodeObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockHostNode", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockHostNode", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecHostNodeObj> readAllHostNode() {
+	public List<IYCFSecHostNodeObj> readAllHostNode() {
 		return( readAllHostNode( false ) );
 	}
 
-	public List<ICFSecHostNodeObj> readAllHostNode( boolean forceRead ) {
+	public List<IYCFSecHostNodeObj> readAllHostNode( boolean forceRead ) {
 		final String S_ProcName = "readAllHostNode";
 		if( ( allHostNode == null ) || forceRead ) {
-			Map<CFSecHostNodePKey, ICFSecHostNodeObj> map = new HashMap<CFSecHostNodePKey,ICFSecHostNodeObj>();
+			Map<YCFSecHostNodePKey, IYCFSecHostNodeObj> map = new HashMap<YCFSecHostNodePKey,IYCFSecHostNodeObj>();
 			allHostNode = map;
-			CFSecHostNodeBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableHostNode().readAllDerived( schema.getAuthorization() );
-			CFSecHostNodeBuff buff;
-			ICFSecHostNodeObj obj;
+			YCFSecHostNodeBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().readAllDerived( schema.getAuthorization() );
+			YCFSecHostNodeBuff buff;
+			IYCFSecHostNodeObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
 				obj.setBuff( buff );
-				ICFSecHostNodeObj realised = (ICFSecHostNodeObj)obj.realise();
+				IYCFSecHostNodeObj realised = (IYCFSecHostNodeObj)obj.realise();
 			}
 		}
 		int len = allHostNode.size();
-		ICFSecHostNodeObj arr[] = new ICFSecHostNodeObj[len];
-		Iterator<ICFSecHostNodeObj> valIter = allHostNode.values().iterator();
+		IYCFSecHostNodeObj arr[] = new IYCFSecHostNodeObj[len];
+		Iterator<IYCFSecHostNodeObj> valIter = allHostNode.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -401,20 +401,20 @@ public class CFSecHostNodeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecHostNodeObj> arrayList = new ArrayList<ICFSecHostNodeObj>(len);
+		ArrayList<IYCFSecHostNodeObj> arrayList = new ArrayList<IYCFSecHostNodeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecHostNodeObj> cmp = new Comparator<ICFSecHostNodeObj>() {
-			public int compare( ICFSecHostNodeObj lhs, ICFSecHostNodeObj rhs ) {
+		Comparator<IYCFSecHostNodeObj> cmp = new Comparator<IYCFSecHostNodeObj>() {
+			public int compare( IYCFSecHostNodeObj lhs, IYCFSecHostNodeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -427,31 +427,31 @@ public class CFSecHostNodeTableObj
 					return( 1 );
 				}
 				else {
-					CFSecHostNodePKey lhsPKey = lhs.getPKey();
-					CFSecHostNodePKey rhsPKey = rhs.getPKey();
+					YCFSecHostNodePKey lhsPKey = lhs.getPKey();
+					YCFSecHostNodePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecHostNodeObj> sortedList = arrayList;
+		List<IYCFSecHostNodeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecHostNodeObj> readCachedAllHostNode() {
+	public List<IYCFSecHostNodeObj> readCachedAllHostNode() {
 		final String S_ProcName = "readCachedAllHostNode";
-		ArrayList<ICFSecHostNodeObj> arrayList = new ArrayList<ICFSecHostNodeObj>();
+		ArrayList<IYCFSecHostNodeObj> arrayList = new ArrayList<IYCFSecHostNodeObj>();
 		if( allHostNode != null ) {
 			int len = allHostNode.size();
-			ICFSecHostNodeObj arr[] = new ICFSecHostNodeObj[len];
-			Iterator<ICFSecHostNodeObj> valIter = allHostNode.values().iterator();
+			IYCFSecHostNodeObj arr[] = new IYCFSecHostNodeObj[len];
+			Iterator<IYCFSecHostNodeObj> valIter = allHostNode.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -459,7 +459,7 @@ public class CFSecHostNodeTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -470,8 +470,8 @@ public class CFSecHostNodeTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecHostNodeObj> cmp = new Comparator<ICFSecHostNodeObj>() {
-			public int compare( ICFSecHostNodeObj lhs, ICFSecHostNodeObj rhs ) {
+		Comparator<IYCFSecHostNodeObj> cmp = new Comparator<IYCFSecHostNodeObj>() {
+			public int compare( IYCFSecHostNodeObj lhs, IYCFSecHostNodeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -484,8 +484,8 @@ public class CFSecHostNodeTableObj
 					return( 1 );
 				}
 				else {
-					CFSecHostNodePKey lhsPKey = lhs.getPKey();
-					CFSecHostNodePKey rhsPKey = rhs.getPKey();
+					YCFSecHostNodePKey lhsPKey = lhs.getPKey();
+					YCFSecHostNodePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -498,33 +498,33 @@ public class CFSecHostNodeTableObj
 	/**
 	 *	Return a sorted map of a page of the HostNode-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecHostNodeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecHostNodeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	public List<ICFSecHostNodeObj> pageAllHostNode(Long priorClusterId,
+	public List<IYCFSecHostNodeObj> pageAllHostNode(Long priorClusterId,
 		Long priorHostNodeId )
 	{
 		final String S_ProcName = "pageAllHostNode";
-		Map<CFSecHostNodePKey, ICFSecHostNodeObj> map = new HashMap<CFSecHostNodePKey,ICFSecHostNodeObj>();
-		CFSecHostNodeBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableHostNode().pageAllBuff( schema.getAuthorization(),
+		Map<YCFSecHostNodePKey, IYCFSecHostNodeObj> map = new HashMap<YCFSecHostNodePKey,IYCFSecHostNodeObj>();
+		YCFSecHostNodeBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().pageAllBuff( schema.getAuthorization(),
 			priorClusterId,
 			priorHostNodeId );
-		CFSecHostNodeBuff buff;
-		ICFSecHostNodeObj obj;
-		ICFSecHostNodeObj realised;
-		ArrayList<ICFSecHostNodeObj> arrayList = new ArrayList<ICFSecHostNodeObj>( buffList.length );
+		YCFSecHostNodeBuff buff;
+		IYCFSecHostNodeObj obj;
+		IYCFSecHostNodeObj realised;
+		ArrayList<IYCFSecHostNodeObj> arrayList = new ArrayList<IYCFSecHostNodeObj>( buffList.length );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
 			obj.setBuff( buff );
-			realised = (ICFSecHostNodeObj)obj.realise();
+			realised = (IYCFSecHostNodeObj)obj.realise();
 			arrayList.add( realised );
 		}
 		return( arrayList );
 	}
 
-	public ICFSecHostNodeObj readHostNodeByIdIdx( long ClusterId,
+	public IYCFSecHostNodeObj readHostNodeByIdIdx( long ClusterId,
 		long HostNodeId )
 	{
 		return( readHostNodeByIdIdx( ClusterId,
@@ -532,61 +532,61 @@ public class CFSecHostNodeTableObj
 			false ) );
 	}
 
-	public ICFSecHostNodeObj readHostNodeByIdIdx( long ClusterId,
+	public IYCFSecHostNodeObj readHostNodeByIdIdx( long ClusterId,
 		long HostNodeId, boolean forceRead )
 	{
-		CFSecHostNodePKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey();
+		YCFSecHostNodePKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredHostNodeId( HostNodeId );
-		ICFSecHostNodeObj obj = readHostNode( pkey, forceRead );
+		IYCFSecHostNodeObj obj = readHostNode( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFSecHostNodeObj> readHostNodeByClusterIdx( long ClusterId )
+	public List<IYCFSecHostNodeObj> readHostNodeByClusterIdx( long ClusterId )
 	{
 		return( readHostNodeByClusterIdx( ClusterId,
 			false ) );
 	}
 
-	public List<ICFSecHostNodeObj> readHostNodeByClusterIdx( long ClusterId,
+	public List<IYCFSecHostNodeObj> readHostNodeByClusterIdx( long ClusterId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readHostNodeByClusterIdx";
-		CFSecHostNodeByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
+		YCFSecHostNodeByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		Map<CFSecHostNodePKey, ICFSecHostNodeObj> dict;
+		Map<YCFSecHostNodePKey, IYCFSecHostNodeObj> dict;
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecHostNodeByClusterIdxKey,
-				Map< CFSecHostNodePKey, ICFSecHostNodeObj > >();
+			indexByClusterIdx = new HashMap< YCFSecHostNodeByClusterIdxKey,
+				Map< YCFSecHostNodePKey, IYCFSecHostNodeObj > >();
 		}
 		if( ( ! forceRead ) && indexByClusterIdx.containsKey( key ) ) {
 			dict = indexByClusterIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecHostNodePKey, ICFSecHostNodeObj>();
-			ICFSecHostNodeObj obj;
-			CFSecHostNodeBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByClusterIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecHostNodePKey, IYCFSecHostNodeObj>();
+			IYCFSecHostNodeObj obj;
+			YCFSecHostNodeBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			CFSecHostNodeBuff buff;
+			YCFSecHostNodeBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getHostNodeTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
 				obj.setBuff( buff );
-				ICFSecHostNodeObj realised = (ICFSecHostNodeObj)obj.realise();
+				IYCFSecHostNodeObj realised = (IYCFSecHostNodeObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClusterIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecHostNodeObj arr[] = new ICFSecHostNodeObj[len];
-		Iterator<ICFSecHostNodeObj> valIter = dict.values().iterator();
+		IYCFSecHostNodeObj arr[] = new IYCFSecHostNodeObj[len];
+		Iterator<IYCFSecHostNodeObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -594,20 +594,20 @@ public class CFSecHostNodeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecHostNodeObj> arrayList = new ArrayList<ICFSecHostNodeObj>(len);
+		ArrayList<IYCFSecHostNodeObj> arrayList = new ArrayList<IYCFSecHostNodeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecHostNodeObj> cmp = new Comparator<ICFSecHostNodeObj>() {
-			public int compare( ICFSecHostNodeObj lhs, ICFSecHostNodeObj rhs ) {
+		Comparator<IYCFSecHostNodeObj> cmp = new Comparator<IYCFSecHostNodeObj>() {
+			public int compare( IYCFSecHostNodeObj lhs, IYCFSecHostNodeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -620,19 +620,19 @@ public class CFSecHostNodeTableObj
 					return( 1 );
 				}
 				else {
-					CFSecHostNodePKey lhsPKey = lhs.getPKey();
-					CFSecHostNodePKey rhsPKey = rhs.getPKey();
+					YCFSecHostNodePKey lhsPKey = lhs.getPKey();
+					YCFSecHostNodePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecHostNodeObj> sortedList = arrayList;
+		List<IYCFSecHostNodeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecHostNodeObj readHostNodeByUDescrIdx( long ClusterId,
+	public IYCFSecHostNodeObj readHostNodeByUDescrIdx( long ClusterId,
 		String Description )
 	{
 		return( readHostNodeByUDescrIdx( ClusterId,
@@ -640,35 +640,35 @@ public class CFSecHostNodeTableObj
 			false ) );
 	}
 
-	public ICFSecHostNodeObj readHostNodeByUDescrIdx( long ClusterId,
+	public IYCFSecHostNodeObj readHostNodeByUDescrIdx( long ClusterId,
 		String Description, boolean forceRead )
 	{
 		if( indexByUDescrIdx == null ) {
-			indexByUDescrIdx = new HashMap< CFSecHostNodeByUDescrIdxKey,
-				ICFSecHostNodeObj >();
+			indexByUDescrIdx = new HashMap< YCFSecHostNodeByUDescrIdxKey,
+				IYCFSecHostNodeObj >();
 		}
-		CFSecHostNodeByUDescrIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
+		YCFSecHostNodeByUDescrIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredDescription( Description );
-		ICFSecHostNodeObj obj = null;
+		IYCFSecHostNodeObj obj = null;
 		if( ( ! forceRead ) && indexByUDescrIdx.containsKey( key ) ) {
 			obj = indexByUDescrIdx.get( key );
 		}
 		else {
-			CFSecHostNodeBuff buff = ((ICFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByUDescrIdx( schema.getAuthorization(),
+			YCFSecHostNodeBuff buff = ((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByUDescrIdx( schema.getAuthorization(),
 				ClusterId,
 				Description );
 			if( buff != null ) {
 				obj = schema.getHostNodeTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecHostNodeObj)obj.realise();
+				obj = (IYCFSecHostNodeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecHostNodeObj readHostNodeByHostNameIdx( long ClusterId,
+	public IYCFSecHostNodeObj readHostNodeByHostNameIdx( long ClusterId,
 		String HostName )
 	{
 		return( readHostNodeByHostNameIdx( ClusterId,
@@ -676,64 +676,64 @@ public class CFSecHostNodeTableObj
 			false ) );
 	}
 
-	public ICFSecHostNodeObj readHostNodeByHostNameIdx( long ClusterId,
+	public IYCFSecHostNodeObj readHostNodeByHostNameIdx( long ClusterId,
 		String HostName, boolean forceRead )
 	{
 		if( indexByHostNameIdx == null ) {
-			indexByHostNameIdx = new HashMap< CFSecHostNodeByHostNameIdxKey,
-				ICFSecHostNodeObj >();
+			indexByHostNameIdx = new HashMap< YCFSecHostNodeByHostNameIdxKey,
+				IYCFSecHostNodeObj >();
 		}
-		CFSecHostNodeByHostNameIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
+		YCFSecHostNodeByHostNameIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostName( HostName );
-		ICFSecHostNodeObj obj = null;
+		IYCFSecHostNodeObj obj = null;
 		if( ( ! forceRead ) && indexByHostNameIdx.containsKey( key ) ) {
 			obj = indexByHostNameIdx.get( key );
 		}
 		else {
-			CFSecHostNodeBuff buff = ((ICFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByHostNameIdx( schema.getAuthorization(),
+			YCFSecHostNodeBuff buff = ((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByHostNameIdx( schema.getAuthorization(),
 				ClusterId,
 				HostName );
 			if( buff != null ) {
 				obj = schema.getHostNodeTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecHostNodeObj)obj.realise();
+				obj = (IYCFSecHostNodeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecHostNodeObj readCachedHostNodeByIdIdx( long ClusterId,
+	public IYCFSecHostNodeObj readCachedHostNodeByIdIdx( long ClusterId,
 		long HostNodeId )
 	{
-		ICFSecHostNodeObj obj = null;
-		CFSecHostNodePKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey();
+		IYCFSecHostNodeObj obj = null;
+		YCFSecHostNodePKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredHostNodeId( HostNodeId );
 		obj = readCachedHostNode( pkey );
 		return( obj );
 	}
 
-	public List<ICFSecHostNodeObj> readCachedHostNodeByClusterIdx( long ClusterId )
+	public List<IYCFSecHostNodeObj> readCachedHostNodeByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "readCachedHostNodeByClusterIdx";
-		CFSecHostNodeByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
+		YCFSecHostNodeByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		ArrayList<ICFSecHostNodeObj> arrayList = new ArrayList<ICFSecHostNodeObj>();
+		ArrayList<IYCFSecHostNodeObj> arrayList = new ArrayList<IYCFSecHostNodeObj>();
 		if( indexByClusterIdx != null ) {
-			Map<CFSecHostNodePKey, ICFSecHostNodeObj> dict;
+			Map<YCFSecHostNodePKey, IYCFSecHostNodeObj> dict;
 			if( indexByClusterIdx.containsKey( key ) ) {
 				dict = indexByClusterIdx.get( key );
 				int len = dict.size();
-				ICFSecHostNodeObj arr[] = new ICFSecHostNodeObj[len];
-				Iterator<ICFSecHostNodeObj> valIter = dict.values().iterator();
+				IYCFSecHostNodeObj arr[] = new IYCFSecHostNodeObj[len];
+				Iterator<IYCFSecHostNodeObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -741,7 +741,7 @@ public class CFSecHostNodeTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -754,8 +754,8 @@ public class CFSecHostNodeTableObj
 			}
 		}
 		else {
-			ICFSecHostNodeObj obj;
-			Iterator<ICFSecHostNodeObj> valIter = members.values().iterator();
+			IYCFSecHostNodeObj obj;
+			Iterator<IYCFSecHostNodeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -765,8 +765,8 @@ public class CFSecHostNodeTableObj
 				}
 			}
 		}
-		Comparator<ICFSecHostNodeObj> cmp = new Comparator<ICFSecHostNodeObj>() {
-			public int compare( ICFSecHostNodeObj lhs, ICFSecHostNodeObj rhs ) {
+		Comparator<IYCFSecHostNodeObj> cmp = new Comparator<IYCFSecHostNodeObj>() {
+			public int compare( IYCFSecHostNodeObj lhs, IYCFSecHostNodeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -779,8 +779,8 @@ public class CFSecHostNodeTableObj
 					return( 1 );
 				}
 				else {
-					CFSecHostNodePKey lhsPKey = lhs.getPKey();
-					CFSecHostNodePKey rhsPKey = rhs.getPKey();
+					YCFSecHostNodePKey lhsPKey = lhs.getPKey();
+					YCFSecHostNodePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -790,11 +790,11 @@ public class CFSecHostNodeTableObj
 		return( arrayList );
 	}
 
-	public ICFSecHostNodeObj readCachedHostNodeByUDescrIdx( long ClusterId,
+	public IYCFSecHostNodeObj readCachedHostNodeByUDescrIdx( long ClusterId,
 		String Description )
 	{
-		ICFSecHostNodeObj obj = null;
-		CFSecHostNodeByUDescrIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
+		IYCFSecHostNodeObj obj = null;
+		YCFSecHostNodeByUDescrIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredDescription( Description );
 		if( indexByUDescrIdx != null ) {
@@ -802,7 +802,7 @@ public class CFSecHostNodeTableObj
 				obj = indexByUDescrIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecHostNodeObj> valIter = members.values().iterator();
+				Iterator<IYCFSecHostNodeObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -814,7 +814,7 @@ public class CFSecHostNodeTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecHostNodeObj> valIter = members.values().iterator();
+			Iterator<IYCFSecHostNodeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -827,11 +827,11 @@ public class CFSecHostNodeTableObj
 		return( obj );
 	}
 
-	public ICFSecHostNodeObj readCachedHostNodeByHostNameIdx( long ClusterId,
+	public IYCFSecHostNodeObj readCachedHostNodeByHostNameIdx( long ClusterId,
 		String HostName )
 	{
-		ICFSecHostNodeObj obj = null;
-		CFSecHostNodeByHostNameIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
+		IYCFSecHostNodeObj obj = null;
+		YCFSecHostNodeByHostNameIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostName( HostName );
 		if( indexByHostNameIdx != null ) {
@@ -839,7 +839,7 @@ public class CFSecHostNodeTableObj
 				obj = indexByHostNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecHostNodeObj> valIter = members.values().iterator();
+				Iterator<IYCFSecHostNodeObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -851,7 +851,7 @@ public class CFSecHostNodeTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecHostNodeObj> valIter = members.values().iterator();
+			Iterator<IYCFSecHostNodeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -867,7 +867,7 @@ public class CFSecHostNodeTableObj
 	public void deepDisposeHostNodeByIdIdx( long ClusterId,
 		long HostNodeId )
 	{
-		ICFSecHostNodeObj obj = readCachedHostNodeByIdIdx( ClusterId,
+		IYCFSecHostNodeObj obj = readCachedHostNodeByIdIdx( ClusterId,
 				HostNodeId );
 		if( obj != null ) {
 			obj.forget();
@@ -877,10 +877,10 @@ public class CFSecHostNodeTableObj
 	public void deepDisposeHostNodeByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "deepDisposeHostNodeByClusterIdx";
-		ICFSecHostNodeObj obj;
-		List<ICFSecHostNodeObj> arrayList = readCachedHostNodeByClusterIdx( ClusterId );
+		IYCFSecHostNodeObj obj;
+		List<IYCFSecHostNodeObj> arrayList = readCachedHostNodeByClusterIdx( ClusterId );
 		if( arrayList != null )  {
-			Iterator<ICFSecHostNodeObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecHostNodeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -893,7 +893,7 @@ public class CFSecHostNodeTableObj
 	public void deepDisposeHostNodeByUDescrIdx( long ClusterId,
 		String Description )
 	{
-		ICFSecHostNodeObj obj = readCachedHostNodeByUDescrIdx( ClusterId,
+		IYCFSecHostNodeObj obj = readCachedHostNodeByUDescrIdx( ClusterId,
 				Description );
 		if( obj != null ) {
 			obj.forget();
@@ -903,7 +903,7 @@ public class CFSecHostNodeTableObj
 	public void deepDisposeHostNodeByHostNameIdx( long ClusterId,
 		String HostName )
 	{
-		ICFSecHostNodeObj obj = readCachedHostNodeByHostNameIdx( ClusterId,
+		IYCFSecHostNodeObj obj = readCachedHostNodeByHostNameIdx( ClusterId,
 				HostName );
 		if( obj != null ) {
 			obj.forget();
@@ -919,43 +919,43 @@ public class CFSecHostNodeTableObj
 	 *	@return	A List of HostNode-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecHostNodeObj> pageHostNodeByClusterIdx( long ClusterId,
+	public List<IYCFSecHostNodeObj> pageHostNodeByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Long priorHostNodeId )
 	{
 		final String S_ProcName = "pageHostNodeByClusterIdx";
-		CFSecHostNodeByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
+		YCFSecHostNodeByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		List<ICFSecHostNodeObj> retList = new LinkedList<ICFSecHostNodeObj>();
-		ICFSecHostNodeObj obj;
-		CFSecHostNodeBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableHostNode().pageBuffByClusterIdx( schema.getAuthorization(),
+		List<IYCFSecHostNodeObj> retList = new LinkedList<IYCFSecHostNodeObj>();
+		IYCFSecHostNodeObj obj;
+		YCFSecHostNodeBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().pageBuffByClusterIdx( schema.getAuthorization(),
 				ClusterId,
 			priorClusterId,
 			priorHostNodeId );
-		CFSecHostNodeBuff buff;
+		YCFSecHostNodeBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getHostNodeTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey() );
 			obj.setBuff( buff );
-			ICFSecHostNodeObj realised = (ICFSecHostNodeObj)obj.realise();
+			IYCFSecHostNodeObj realised = (IYCFSecHostNodeObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
 	}
 
-	public ICFSecHostNodeObj updateHostNode( ICFSecHostNodeObj Obj ) {
-		ICFSecHostNodeObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableHostNode().updateHostNode( schema.getAuthorization(),
+	public IYCFSecHostNodeObj updateHostNode( IYCFSecHostNodeObj Obj ) {
+		IYCFSecHostNodeObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().updateHostNode( schema.getAuthorization(),
 			Obj.getHostNodeBuff() );
-		obj = (ICFSecHostNodeObj)Obj.realise();
+		obj = (IYCFSecHostNodeObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteHostNode( ICFSecHostNodeObj Obj ) {
-		ICFSecHostNodeObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNode( schema.getAuthorization(),
+	public void deleteHostNode( IYCFSecHostNodeObj Obj ) {
+		IYCFSecHostNodeObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNode( schema.getAuthorization(),
 			obj.getHostNodeBuff() );
 		Obj.forget();
 	}
@@ -963,15 +963,15 @@ public class CFSecHostNodeTableObj
 	public void deleteHostNodeByIdIdx( long ClusterId,
 		long HostNodeId )
 	{
-		CFSecHostNodePKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey();
+		YCFSecHostNodePKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredHostNodeId( HostNodeId );
-		ICFSecHostNodeObj obj = readHostNode( pkey );
+		IYCFSecHostNodeObj obj = readHostNode( pkey );
 		if( obj != null ) {
-			ICFSecHostNodeEditObj editObj = (ICFSecHostNodeEditObj)obj.getEdit();
+			IYCFSecHostNodeEditObj editObj = (IYCFSecHostNodeEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecHostNodeEditObj)obj.beginEdit();
+				editObj = (IYCFSecHostNodeEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -996,19 +996,19 @@ public class CFSecHostNodeTableObj
 
 	public void deleteHostNodeByClusterIdx( long ClusterId )
 	{
-		CFSecHostNodeByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
+		YCFSecHostNodeByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecHostNodeByClusterIdxKey,
-				Map< CFSecHostNodePKey, ICFSecHostNodeObj > >();
+			indexByClusterIdx = new HashMap< YCFSecHostNodeByClusterIdxKey,
+				Map< YCFSecHostNodePKey, IYCFSecHostNodeObj > >();
 		}
 		if( indexByClusterIdx.containsKey( key ) ) {
-			Map<CFSecHostNodePKey, ICFSecHostNodeObj> dict = indexByClusterIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByClusterIdx( schema.getAuthorization(),
+			Map<YCFSecHostNodePKey, IYCFSecHostNodeObj> dict = indexByClusterIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			Iterator<ICFSecHostNodeObj> iter = dict.values().iterator();
-			ICFSecHostNodeObj obj;
-			List<ICFSecHostNodeObj> toForget = new LinkedList<ICFSecHostNodeObj>();
+			Iterator<IYCFSecHostNodeObj> iter = dict.values().iterator();
+			IYCFSecHostNodeObj obj;
+			List<IYCFSecHostNodeObj> toForget = new LinkedList<IYCFSecHostNodeObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1021,7 +1021,7 @@ public class CFSecHostNodeTableObj
 			indexByClusterIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByClusterIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByClusterIdx( schema.getAuthorization(),
 				ClusterId );
 		}
 		deepDisposeHostNodeByClusterIdx( ClusterId );
@@ -1031,22 +1031,22 @@ public class CFSecHostNodeTableObj
 		String Description )
 	{
 		if( indexByUDescrIdx == null ) {
-			indexByUDescrIdx = new HashMap< CFSecHostNodeByUDescrIdxKey,
-				ICFSecHostNodeObj >();
+			indexByUDescrIdx = new HashMap< YCFSecHostNodeByUDescrIdxKey,
+				IYCFSecHostNodeObj >();
 		}
-		CFSecHostNodeByUDescrIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
+		YCFSecHostNodeByUDescrIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newUDescrIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredDescription( Description );
-		ICFSecHostNodeObj obj = null;
+		IYCFSecHostNodeObj obj = null;
 		if( indexByUDescrIdx.containsKey( key ) ) {
 			obj = indexByUDescrIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByUDescrIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByUDescrIdx( schema.getAuthorization(),
 				ClusterId,
 				Description );
 			obj.forget();
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByUDescrIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByUDescrIdx( schema.getAuthorization(),
 				ClusterId,
 				Description );
 		}
@@ -1058,22 +1058,22 @@ public class CFSecHostNodeTableObj
 		String HostName )
 	{
 		if( indexByHostNameIdx == null ) {
-			indexByHostNameIdx = new HashMap< CFSecHostNodeByHostNameIdxKey,
-				ICFSecHostNodeObj >();
+			indexByHostNameIdx = new HashMap< YCFSecHostNodeByHostNameIdxKey,
+				IYCFSecHostNodeObj >();
 		}
-		CFSecHostNodeByHostNameIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
+		YCFSecHostNodeByHostNameIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newHostNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostName( HostName );
-		ICFSecHostNodeObj obj = null;
+		IYCFSecHostNodeObj obj = null;
 		if( indexByHostNameIdx.containsKey( key ) ) {
 			obj = indexByHostNameIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByHostNameIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByHostNameIdx( schema.getAuthorization(),
 				ClusterId,
 				HostName );
 			obj.forget();
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByHostNameIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().deleteHostNodeByHostNameIdx( schema.getAuthorization(),
 				ClusterId,
 				HostName );
 		}

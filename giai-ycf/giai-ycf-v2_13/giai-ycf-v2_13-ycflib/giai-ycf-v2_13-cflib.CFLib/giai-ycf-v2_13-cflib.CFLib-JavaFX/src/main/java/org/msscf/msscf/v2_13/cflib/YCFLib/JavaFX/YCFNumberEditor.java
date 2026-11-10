@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,16 +21,16 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.math.*;
 import javafx.geometry.Pos;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFNumberEditor
-extends CFFormattedTextField
+public class YCFNumberEditor
+extends YCFFormattedTextField
 {
 	protected int digits;
 	protected int precis;
@@ -52,44 +52,44 @@ extends CFFormattedTextField
 		}
 	}
 
-	public CFNumberEditor( int argDigits, int argPrecis ) {
+	public YCFNumberEditor( int argDigits, int argPrecis ) {
 		super();
 		final String S_ProcName = "construct";
 		setAlignment( Pos.CENTER_RIGHT );
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldName,
+			throw new YCFLibArgumentUnderflowException( fieldName,
 					S_ProcName,
 					1,
 					"argDigits",
 					argDigits,
 					1 );
 		}
-		else if( argDigits > CFLibBigDecimalUtil.MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+		else if( argDigits > YCFLibBigDecimalUtil.MAX_DIGITS ) {
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				1,
 				"argDigits",
 				argDigits,
-				CFLibBigDecimalUtil.MAX_DIGITS );
+				YCFLibBigDecimalUtil.MAX_DIGITS );
 		}
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldName,
+			throw new YCFLibArgumentUnderflowException( fieldName,
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
 				0 );
 		}
-		else if( argPrecis > CFLibBigDecimalUtil.MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+		else if( argPrecis > YCFLibBigDecimalUtil.MAX_PRECISION ) {
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
-				CFLibBigDecimalUtil.MAX_PRECISION );
+				YCFLibBigDecimalUtil.MAX_PRECISION );
 		}
 		if( argPrecis >= argDigits ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				1,
 				"argPrecis",
@@ -119,20 +119,20 @@ extends CFFormattedTextField
 	public void setDigits( int argDigits ) {
 		final String S_ProcName = "setDigits";
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldName,
+			throw new YCFLibArgumentUnderflowException( fieldName,
 					S_ProcName,
 					1,
 					"argDigits",
 					argDigits,
 					1 );
 		}
-		else if( argDigits > CFLibBigDecimalUtil.MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+		else if( argDigits > YCFLibBigDecimalUtil.MAX_DIGITS ) {
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				1,
 				"argDigits",
 				argDigits,
-				CFLibBigDecimalUtil.MAX_DIGITS );
+				YCFLibBigDecimalUtil.MAX_DIGITS );
 		}
 		digits = argDigits;
 		minValue = null;
@@ -146,24 +146,24 @@ extends CFFormattedTextField
 	public void setPrecision( int argPrecis ) {
 		final String S_ProcName = "setPrecision";
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldName,
+			throw new YCFLibArgumentUnderflowException( fieldName,
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
 				0 );
 		}
-		else if( argPrecis > CFLibBigDecimalUtil.MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+		else if( argPrecis > YCFLibBigDecimalUtil.MAX_PRECISION ) {
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
-				CFLibBigDecimalUtil.MAX_PRECISION );
+				YCFLibBigDecimalUtil.MAX_PRECISION );
 		}
 
 		if( argPrecis >= digits ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				1,
 				"argPrecis",
@@ -179,39 +179,39 @@ extends CFFormattedTextField
 	public void setDigitsAndPrecision( int argDigits, int argPrecis ) {
 		final String S_ProcName = "setDigitsAndPrecision";
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldName,
+			throw new YCFLibArgumentUnderflowException( fieldName,
 					S_ProcName,
 					1,
 					"argDigits",
 					argDigits,
 					1 );
 		}
-		else if( argDigits > CFLibBigDecimalUtil.MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+		else if( argDigits > YCFLibBigDecimalUtil.MAX_DIGITS ) {
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				1,
 				"argDigits",
 				argDigits,
-				CFLibBigDecimalUtil.MAX_DIGITS );
+				YCFLibBigDecimalUtil.MAX_DIGITS );
 		}
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldName,
+			throw new YCFLibArgumentUnderflowException( fieldName,
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
 				0 );
 		}
-		else if( argPrecis > CFLibBigDecimalUtil.MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+		else if( argPrecis > YCFLibBigDecimalUtil.MAX_PRECISION ) {
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
-				CFLibBigDecimalUtil.MAX_PRECISION );
+				YCFLibBigDecimalUtil.MAX_PRECISION );
 		}
 		if( argPrecis >= argDigits ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				1,
 				"argPrecis",
@@ -222,14 +222,14 @@ extends CFFormattedTextField
 		precis = argPrecis;
 		
 		if( minValue != null ) {
-			BigDecimal newMinValue = CFLibBigDecimalUtil.getAbsoluteMinValue( getClass().getName(), argDigits, argPrecis );
+			BigDecimal newMinValue = YCFLibBigDecimalUtil.getAbsoluteMinValue( getClass().getName(), argDigits, argPrecis );
 			if( minValue.compareTo( newMinValue ) < 0 ) {
 				minValue = newMinValue;
 			}
 		}
 		
 		if( maxValue != null ) {
-			BigDecimal newMaxValue = CFLibBigDecimalUtil.getAbsoluteMaxValue( getClass().getName(), argDigits, argPrecis );
+			BigDecimal newMaxValue = YCFLibBigDecimalUtil.getAbsoluteMaxValue( getClass().getName(), argDigits, argPrecis );
 			if( maxValue.compareTo( newMaxValue ) > 0 ) {
 				maxValue = newMaxValue;
 			}
@@ -241,7 +241,7 @@ extends CFFormattedTextField
 
 	public BigDecimal getMinValue() {
 		if( minValue == null ) {
-			minValue = CFLibBigDecimalUtil.getAbsoluteMinValue( fieldName, digits, precis );
+			minValue = YCFLibBigDecimalUtil.getAbsoluteMinValue( fieldName, digits, precis );
 		}
 		return( minValue );
 	}
@@ -250,20 +250,20 @@ extends CFFormattedTextField
 		final String S_ProcName = "setMinValue";
 		
 		if( value == null ) {
-			throw new CFLibNullArgumentException( fieldName,
+			throw new YCFLibNullArgumentException( fieldName,
 				S_ProcName,
 				1,
 				"value" );
 		}
 		
-		BigDecimal coerced = CFLibBigDecimalUtil.coerce( fieldName, digits, precis, value );
+		BigDecimal coerced = YCFLibBigDecimalUtil.coerce( fieldName, digits, precis, value );
 
 		minValue = coerced;
 	}
 
 	public BigDecimal getMaxValue() {
 		if( maxValue == null ) {
-			minValue = CFLibBigDecimalUtil.getAbsoluteMaxValue( fieldName, digits, precis );
+			minValue = YCFLibBigDecimalUtil.getAbsoluteMaxValue( fieldName, digits, precis );
 		}
 		return( maxValue );
 	}
@@ -272,13 +272,13 @@ extends CFFormattedTextField
 		final String S_ProcName = "setMaxValue";
 		
 		if( value == null ) {
-			throw new CFLibNullArgumentException( fieldName,
+			throw new YCFLibNullArgumentException( fieldName,
 				S_ProcName,
 				1,
 				"value" );
 		}
 		
-		BigDecimal coerced = CFLibBigDecimalUtil.coerce( fieldName, digits, precis, value );
+		BigDecimal coerced = YCFLibBigDecimalUtil.coerce( fieldName, digits, precis, value );
 
 		maxValue = coerced;
 	}
@@ -288,7 +288,7 @@ extends CFFormattedTextField
 			setText( "" );
 		}
 		else {
-			String formatted = CFLibBigDecimalUtil.format( fieldName, digits, precis, value );
+			String formatted = YCFLibBigDecimalUtil.format( fieldName, digits, precis, value );
 			setText( formatted );
 		}
 	}
@@ -300,7 +300,7 @@ extends CFFormattedTextField
 			retval = null;
 		}
 		else {
-			retval = CFLibBigDecimalUtil.parse( fieldName, digits, precis, text );
+			retval = YCFLibBigDecimalUtil.parse( fieldName, digits, precis, text );
 		}
 		return( retval );
 	}

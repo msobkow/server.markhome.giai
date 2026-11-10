@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecGroupTableObj
+public interface IYCFSecSecGroupTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecSecGroupTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecSecGroupObj newInstance();
+	IYCFSecSecGroupObj newInstance();
 
 	/**
 	 *	Instantiate a new SecGroup edition of the specified SecGroup instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecSecGroupEditObj newEditInstance( ICFSecSecGroupObj orig );
+	IYCFSecSecGroupEditObj newEditInstance( IYCFSecSecGroupObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecGroupObj realiseSecGroup( ICFSecSecGroupObj Obj );
+	IYCFSecSecGroupObj realiseSecGroup( IYCFSecSecGroupObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecGroupObj createSecGroup( ICFSecSecGroupObj Obj );
+	IYCFSecSecGroupObj createSecGroup( IYCFSecSecGroupObj Obj );
 
 	/**
 	 *	Read a SecGroup-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecSecGroupTableObj
 	 *	@return	The SecGroup-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecGroupObj readSecGroup( CFSecSecGroupPKey pkey );
+	IYCFSecSecGroupObj readSecGroup( YCFSecSecGroupPKey pkey );
 
 	/**
 	 *	Read a SecGroup-derived instance by it's primary key.
@@ -90,149 +90,149 @@ public interface ICFSecSecGroupTableObj
 	 *	@return	The SecGroup-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecGroupObj readSecGroup( CFSecSecGroupPKey pkey,
+	IYCFSecSecGroupObj readSecGroup( YCFSecSecGroupPKey pkey,
 		boolean forceRead );
 
-	ICFSecSecGroupObj readCachedSecGroup( CFSecSecGroupPKey pkey );
+	IYCFSecSecGroupObj readCachedSecGroup( YCFSecSecGroupPKey pkey );
 
-	public void reallyDeepDisposeSecGroup( ICFSecSecGroupObj obj );
+	public void reallyDeepDisposeSecGroup( IYCFSecSecGroupObj obj );
 
-	void deepDisposeSecGroup( CFSecSecGroupPKey pkey );
+	void deepDisposeSecGroup( YCFSecSecGroupPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecGroupObj lockSecGroup( CFSecSecGroupPKey pkey );
+	IYCFSecSecGroupObj lockSecGroup( YCFSecSecGroupPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SecGroup-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecGroupObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecGroupObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecGroupObj> readAllSecGroup();
+	List<IYCFSecSecGroupObj> readAllSecGroup();
 
 	/**
 	 *	Return a sorted map of all the SecGroup-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecGroupObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecGroupObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecGroupObj> readAllSecGroup( boolean forceRead );
+	List<IYCFSecSecGroupObj> readAllSecGroup( boolean forceRead );
 
-	List<ICFSecSecGroupObj> readCachedAllSecGroup();
+	List<IYCFSecSecGroupObj> readCachedAllSecGroup();
 
 	/**
-	 *	Get the CFSecSecGroupObj instance for the primary key attributes.
+	 *	Get the YCFSecSecGroupObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecGroupId	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecGroupObj cached instance for the primary key, or
+	 *	@return	YCFSecSecGroupObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecGroupObj readSecGroupByIdIdx( long ClusterId,
+	IYCFSecSecGroupObj readSecGroupByIdIdx( long ClusterId,
 		int SecGroupId );
 
 	/**
-	 *	Get the CFSecSecGroupObj instance for the primary key attributes.
+	 *	Get the YCFSecSecGroupObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecGroupId	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecGroupObj refreshed instance for the primary key, or
+	 *	@return	YCFSecSecGroupObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecGroupObj readSecGroupByIdIdx( long ClusterId,
+	IYCFSecSecGroupObj readSecGroupByIdIdx( long ClusterId,
 		int SecGroupId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSecGroupObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecSecGroupObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecGroupObj> readSecGroupByClusterIdx( long ClusterId );
+	List<IYCFSecSecGroupObj> readSecGroupByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFSecSecGroupObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecSecGroupObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecGroupObj> readSecGroupByClusterIdx( long ClusterId,
+	List<IYCFSecSecGroupObj> readSecGroupByClusterIdx( long ClusterId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSecGroupObj instances sorted by their primary keys for the duplicate ClusterVisIdx key.
+	 *	Get the map of YCFSecSecGroupObj instances sorted by their primary keys for the duplicate ClusterVisIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argIsVisible	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterVisIdx key,
+	 *	@return	List of YCFSecSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
+	List<IYCFSecSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible );
 
 	/**
-	 *	Get the map of CFSecSecGroupObj instances sorted by their primary keys for the duplicate ClusterVisIdx key.
+	 *	Get the map of YCFSecSecGroupObj instances sorted by their primary keys for the duplicate ClusterVisIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argIsVisible	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterVisIdx key,
+	 *	@return	List of YCFSecSecGroupObj cached instances sorted by their primary keys for the duplicate ClusterVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
+	List<IYCFSecSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecSecGroupObj instance for the unique UNameIdx key.
+	 *	Get the YCFSecSecGroupObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecGroupObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFSecSecGroupObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecGroupObj readSecGroupByUNameIdx(long ClusterId,
+	IYCFSecSecGroupObj readSecGroupByUNameIdx(long ClusterId,
 		String Name );
 
 	/**
-	 *	Get the CFSecSecGroupObj instance for the unique UNameIdx key.
+	 *	Get the YCFSecSecGroupObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The SecGroup key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecGroupObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFSecSecGroupObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecGroupObj readSecGroupByUNameIdx(long ClusterId,
+	IYCFSecSecGroupObj readSecGroupByUNameIdx(long ClusterId,
 		String Name,
 		boolean forceRead );
 
-	ICFSecSecGroupObj readCachedSecGroupByIdIdx( long ClusterId,
+	IYCFSecSecGroupObj readCachedSecGroupByIdIdx( long ClusterId,
 		int SecGroupId );
 
-	List<ICFSecSecGroupObj> readCachedSecGroupByClusterIdx( long ClusterId );
+	List<IYCFSecSecGroupObj> readCachedSecGroupByClusterIdx( long ClusterId );
 
-	List<ICFSecSecGroupObj> readCachedSecGroupByClusterVisIdx( long ClusterId,
+	List<IYCFSecSecGroupObj> readCachedSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible );
 
-	ICFSecSecGroupObj readCachedSecGroupByUNameIdx( long ClusterId,
+	IYCFSecSecGroupObj readCachedSecGroupByUNameIdx( long ClusterId,
 		String Name );
 
 	void deepDisposeSecGroupByIdIdx( long ClusterId,
@@ -249,12 +249,12 @@ public interface ICFSecSecGroupTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecGroupObj updateSecGroup( ICFSecSecGroupObj Obj );
+	IYCFSecSecGroupObj updateSecGroup( IYCFSecSecGroupObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSecGroup( ICFSecSecGroupObj Obj );
+	void deleteSecGroup( IYCFSecSecGroupObj Obj );
 
 	/**
 	 *	Internal use only.

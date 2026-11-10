@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for HostNode
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,23 +35,23 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSaxLoaderHostNodeParse XML SAX Element Handler implementation
+ *	YCFBamSaxLoaderHostNodeParse XML SAX Element Handler implementation
  *	for HostNode.
  */
-public class CFBamSaxLoaderHostNode
-	extends CFLibXmlCoreElementHandler
+public class YCFBamSaxLoaderHostNode
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamSaxLoaderHostNode( CFBamSaxLoader saxLoader ) {
+	public YCFBamSaxLoaderHostNode( YCFBamSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -63,15 +63,15 @@ public class CFBamSaxLoaderHostNode
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFBamHostNodeObj origBuff = null;
-		ICFBamHostNodeEditObj editBuff = null;
+		IYCFBamHostNodeObj origBuff = null;
+		IYCFBamHostNodeEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// HostNode Attributes
 		String attrDescription = null;
 		String attrHostName = null;
 		// HostNode References
-		ICFBamClusterObj refCluster = null;
+		IYCFBamClusterObj refCluster = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -80,25 +80,25 @@ public class CFBamSaxLoaderHostNode
 		try {
 			assert qName.equals( "HostNode" );
 
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFBamHostNodeObj)schemaObj.getHostNodeTableObj().newInstance();
-			editBuff = (ICFBamHostNodeEditObj)origBuff.beginEdit();
+			origBuff = (IYCFBamHostNodeObj)schemaObj.getHostNodeTableObj().newInstance();
+			editBuff = (IYCFBamHostNodeEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -106,7 +106,7 @@ public class CFBamSaxLoaderHostNode
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -115,7 +115,7 @@ public class CFBamSaxLoaderHostNode
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -124,7 +124,7 @@ public class CFBamSaxLoaderHostNode
 				}
 				else if( attrLocalName.equals( "HostName" ) ) {
 					if( attrHostName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -135,7 +135,7 @@ public class CFBamSaxLoaderHostNode
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -144,20 +144,20 @@ public class CFBamSaxLoaderHostNode
 
 			// Ensure that required attributes have values
 			if( attrDescription == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Description" );
 			}
 			if( attrHostName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"HostName" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Description", attrDescription );
 			curContext.putNamedValue( "HostName", attrHostName );
@@ -180,7 +180,7 @@ public class CFBamSaxLoaderHostNode
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -192,26 +192,26 @@ public class CFBamSaxLoaderHostNode
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamClusterObj ) {
-				refCluster = (ICFBamClusterObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamClusterObj ) {
+				refCluster = (IYCFBamClusterObj) scopeObj;
 				editBuff.setRequiredContainerCluster( refCluster );
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamClusterObj" );
+					"IYCFBamClusterObj" );
 			}
 
-			CFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getHostNodeLoaderBehaviour();
-			ICFBamHostNodeEditObj editHostNode = null;
-			ICFBamHostNodeObj origHostNode = (ICFBamHostNodeObj)schemaObj.getHostNodeTableObj().readHostNodeByHostNameIdx( refCluster.getRequiredId(),
+			YCFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getHostNodeLoaderBehaviour();
+			IYCFBamHostNodeEditObj editHostNode = null;
+			IYCFBamHostNodeObj origHostNode = (IYCFBamHostNodeObj)schemaObj.getHostNodeTableObj().readHostNodeByHostNameIdx( refCluster.getRequiredId(),
 			editBuff.getRequiredHostName() );
 			if( origHostNode == null ) {
 				editHostNode = editBuff;
@@ -221,12 +221,12 @@ public class CFBamSaxLoaderHostNode
 					case Insert:
 						break;
 					case Update:
-						editHostNode = (ICFBamHostNodeEditObj)origHostNode.beginEdit();
+						editHostNode = (IYCFBamHostNodeEditObj)origHostNode.beginEdit();
 						editHostNode.setRequiredDescription( editBuff.getRequiredDescription() );
 						editHostNode.setRequiredHostName( editBuff.getRequiredHostName() );
 						break;
 					case Replace:
-						editHostNode = (ICFBamHostNodeEditObj)origHostNode.beginEdit();
+						editHostNode = (IYCFBamHostNodeEditObj)origHostNode.beginEdit();
 						editHostNode.deleteInstance();
 						editHostNode = null;
 						origHostNode = null;
@@ -240,7 +240,7 @@ public class CFBamSaxLoaderHostNode
 					editHostNode.update();
 				}
 				else {
-					origHostNode = (ICFBamHostNodeObj)editHostNode.create();
+					origHostNode = (IYCFBamHostNodeObj)editHostNode.create();
 				}
 				editHostNode = null;
 			}

@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for TSecGroup.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,45 +36,45 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbTSecGroupFactory implementation for TSecGroup
+	 *	YCFGenKbTSecGroupFactory implementation for TSecGroup
 	 */
-public class CFGenKbTSecGroupDefaultFactory
-	implements ICFGenKbTSecGroupFactory
+public class YCFGenKbTSecGroupDefaultFactory
+	implements IYCFGenKbTSecGroupFactory
 {
-	public CFGenKbTSecGroupDefaultFactory() {
+	public YCFGenKbTSecGroupDefaultFactory() {
 	}
 
-	public CFGenKbTSecGroupPKey newPKey() {
-		CFGenKbTSecGroupPKey pkey =
-			new CFGenKbTSecGroupPKey();
+	public YCFGenKbTSecGroupPKey newPKey() {
+		YCFGenKbTSecGroupPKey pkey =
+			new YCFGenKbTSecGroupPKey();
 		return( pkey );
 	}
 
-	public CFGenKbTSecGroupByTenantIdxKey newTenantIdxKey() {
-		CFGenKbTSecGroupByTenantIdxKey key =
-			new CFGenKbTSecGroupByTenantIdxKey();
+	public YCFGenKbTSecGroupByTenantIdxKey newTenantIdxKey() {
+		YCFGenKbTSecGroupByTenantIdxKey key =
+			new YCFGenKbTSecGroupByTenantIdxKey();
 		return( key );
 	}
 
-	public CFGenKbTSecGroupByTenantVisIdxKey newTenantVisIdxKey() {
-		CFGenKbTSecGroupByTenantVisIdxKey key =
-			new CFGenKbTSecGroupByTenantVisIdxKey();
+	public YCFGenKbTSecGroupByTenantVisIdxKey newTenantVisIdxKey() {
+		YCFGenKbTSecGroupByTenantVisIdxKey key =
+			new YCFGenKbTSecGroupByTenantVisIdxKey();
 		return( key );
 	}
 
-	public CFGenKbTSecGroupByUNameIdxKey newUNameIdxKey() {
-		CFGenKbTSecGroupByUNameIdxKey key =
-			new CFGenKbTSecGroupByUNameIdxKey();
+	public YCFGenKbTSecGroupByUNameIdxKey newUNameIdxKey() {
+		YCFGenKbTSecGroupByUNameIdxKey key =
+			new YCFGenKbTSecGroupByUNameIdxKey();
 		return( key );
 	}
 
-	public CFGenKbTSecGroupBuff newBuff() {
-		CFGenKbTSecGroupBuff buff =
-			new CFGenKbTSecGroupBuff();
+	public YCFGenKbTSecGroupBuff newBuff() {
+		YCFGenKbTSecGroupBuff buff =
+			new YCFGenKbTSecGroupBuff();
 		return( buff );
 	}
 }

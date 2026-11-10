@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb GelSwitch.
+// Description: Java 11 edit object instance implementation for YCFGenKb GelSwitch.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,39 +27,39 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGelSwitchEditObj
-	extends CFGenKbGelInstructionEditObj
+public class YCFGenKbGelSwitchEditObj
+	extends YCFGenKbGelInstructionEditObj
 
-	implements ICFGenKbGelSwitchEditObj
+	implements IYCFGenKbGelSwitchEditObj
 {
 
-	public CFGenKbGelSwitchEditObj( ICFGenKbGelSwitchObj argOrig ) {
+	public YCFGenKbGelSwitchEditObj( IYCFGenKbGelSwitchObj argOrig ) {
 		super( argOrig );
 	}
 
 	public String getClassCode() {
-		return( CFGenKbGelSwitchObj.CLASS_CODE );
+		return( YCFGenKbGelSwitchObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "GelSwitch" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -70,14 +70,14 @@ public class CFGenKbGelSwitchEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -88,10 +88,10 @@ public class CFGenKbGelSwitchEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -100,11 +100,11 @@ public class CFGenKbGelSwitchEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -128,13 +128,13 @@ public class CFGenKbGelSwitchEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -146,9 +146,9 @@ public class CFGenKbGelSwitchEditObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
+	public IYCFGenKbGelInstructionObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbGelSwitchObj retobj = getSchema().getGelSwitchTableObj().realiseGelSwitch( (ICFGenKbGelSwitchObj)this );
+		IYCFGenKbGelSwitchObj retobj = getSchema().getGelSwitchTableObj().realiseGelSwitch( (IYCFGenKbGelSwitchObj)this );
 		return( retobj );
 	}
 
@@ -156,56 +156,56 @@ public class CFGenKbGelSwitchEditObj
 		getOrigAsGelSwitch().forget();
 	}
 
-	public ICFGenKbGelInstructionObj create() {
+	public IYCFGenKbGelInstructionObj create() {
 		copyBuffToOrig();
-		ICFGenKbGelSwitchObj retobj = ((ICFGenKbSchemaObj)getOrigAsGelSwitch().getSchema()).getGelSwitchTableObj().createGelSwitch( getOrigAsGelSwitch() );
+		IYCFGenKbGelSwitchObj retobj = ((IYCFGenKbSchemaObj)getOrigAsGelSwitch().getSchema()).getGelSwitchTableObj().createGelSwitch( getOrigAsGelSwitch() );
 		if( retobj == getOrigAsGelSwitch() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbGelInstructionEditObj update() {
-		getSchema().getGelSwitchTableObj().updateGelSwitch( (ICFGenKbGelSwitchObj)this );
+	public YCFGenKbGelInstructionEditObj update() {
+		getSchema().getGelSwitchTableObj().updateGelSwitch( (IYCFGenKbGelSwitchObj)this );
 		return( null );
 	}
 
-	public CFGenKbGelInstructionEditObj deleteInstance() {
+	public YCFGenKbGelInstructionEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getGelSwitchTableObj().deleteGelSwitch( getOrigAsGelSwitch() );
 		return( null );
 	}
 
-	public ICFGenKbGelSwitchTableObj getGelSwitchTable() {
+	public IYCFGenKbGelSwitchTableObj getGelSwitchTable() {
 		return( orig.getSchema().getGelSwitchTableObj() );
 	}
 
-	public ICFGenKbGelSwitchEditObj getEditAsGelSwitch() {
-		return( (ICFGenKbGelSwitchEditObj)this );
+	public IYCFGenKbGelSwitchEditObj getEditAsGelSwitch() {
+		return( (IYCFGenKbGelSwitchEditObj)this );
 	}
 
-	public ICFGenKbGelSwitchObj getOrigAsGelSwitch() {
-		return( (ICFGenKbGelSwitchObj)orig );
+	public IYCFGenKbGelSwitchObj getOrigAsGelSwitch() {
+		return( (IYCFGenKbGelSwitchObj)orig );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsGelSwitch().getSchema().getBackingStore()).getFactoryGelSwitch().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsGelSwitch().getSchema().getBackingStore()).getFactoryGelSwitch().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 		}
 	}
 
-	public CFGenKbGelSwitchBuff getGelSwitchBuff() {
-		return( (CFGenKbGelSwitchBuff)getBuff() );
+	public YCFGenKbGelSwitchBuff getGelSwitchBuff() {
+		return( (YCFGenKbGelSwitchBuff)getBuff() );
 	}
 
 	public String getRequiredValueExpansion() {
@@ -248,18 +248,18 @@ public class CFGenKbGelSwitchEditObj
 		}
 	}
 
-	public List<ICFGenKbGelSwitchLimbObj> getOptionalChildrenSwitchLimb() {
-		List<ICFGenKbGelSwitchLimbObj> retval;
-		retval = ((ICFGenKbSchemaObj)getOrigAsGelSwitch().getSchema()).getGelSwitchLimbTableObj().readGelSwitchLimbBySwitchIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFGenKbGelSwitchLimbObj> getOptionalChildrenSwitchLimb() {
+		List<IYCFGenKbGelSwitchLimbObj> retval;
+		retval = ((IYCFGenKbSchemaObj)getOrigAsGelSwitch().getSchema()).getGelSwitchLimbTableObj().readGelSwitchLimbBySwitchIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredGelCacheId(),
 					getPKey().getRequiredGelInstId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFGenKbGelSwitchLimbObj> getOptionalChildrenSwitchLimb( boolean forceRead ) {
-		List<ICFGenKbGelSwitchLimbObj> retval;
-		retval = ((ICFGenKbSchemaObj)getOrigAsGelSwitch().getSchema()).getGelSwitchLimbTableObj().readGelSwitchLimbBySwitchIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFGenKbGelSwitchLimbObj> getOptionalChildrenSwitchLimb( boolean forceRead ) {
+		List<IYCFGenKbGelSwitchLimbObj> retval;
+		retval = ((IYCFGenKbSchemaObj)getOrigAsGelSwitch().getSchema()).getGelSwitchLimbTableObj().readGelSwitchLimbBySwitchIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredGelCacheId(),
 					getPKey().getRequiredGelInstId(),
 			forceRead );
@@ -267,14 +267,14 @@ public class CFGenKbGelSwitchEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbGelSwitchBuff origBuff = getOrigAsGelSwitch().getGelSwitchBuff();
-		CFGenKbGelSwitchBuff myBuff = getGelSwitchBuff();
+		YCFGenKbGelSwitchBuff origBuff = getOrigAsGelSwitch().getGelSwitchBuff();
+		YCFGenKbGelSwitchBuff myBuff = getGelSwitchBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbGelSwitchBuff origBuff = getOrigAsGelSwitch().getGelSwitchBuff();
-		CFGenKbGelSwitchBuff myBuff = getGelSwitchBuff();
+		YCFGenKbGelSwitchBuff origBuff = getOrigAsGelSwitch().getGelSwitchBuff();
+		YCFGenKbGelSwitchBuff myBuff = getGelSwitchBuff();
 		myBuff.set( origBuff );
 	}
 }

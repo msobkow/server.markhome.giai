@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelSpread buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelSpreadBuff
-	extends CFGenKbGelInstructionBuff
+public class YCFGenKbGelSpreadBuff
+	extends YCFGenKbGelInstructionBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -70,13 +70,13 @@ public class CFGenKbGelSpreadBuff
 	protected String optionalExpandLone;
 	protected String optionalExpandEmpty;
 	protected String optionalExpandAfter;
-	public CFGenKbGelSpreadBuff() {
+	public YCFGenKbGelSpreadBuff() {
 		super();
-		requiredIteratorName = new String( CFGenKbGelSpreadBuff.ITERATORNAME_INIT_VALUE );
+		requiredIteratorName = new String( YCFGenKbGelSpreadBuff.ITERATORNAME_INIT_VALUE );
 		optionalExpandBetween = null;
 		optionalExpandBefore = null;
 		optionalExpandFirst = null;
-		requiredExpandEach = new String( CFGenKbGelSpreadBuff.EXPANDEACH_INIT_VALUE );
+		requiredExpandEach = new String( YCFGenKbGelSpreadBuff.EXPANDEACH_INIT_VALUE );
 		optionalExpandLast = null;
 		optionalExpandLone = null;
 		optionalExpandEmpty = null;
@@ -93,13 +93,13 @@ public class CFGenKbGelSpreadBuff
 
 	public void setRequiredIteratorName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredIteratorName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredIteratorName",
 				1,
 				"value.length()",
@@ -118,7 +118,7 @@ public class CFGenKbGelSpreadBuff
 			optionalExpandBetween = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpandBetween",
 				1,
 				"value.length()",
@@ -139,7 +139,7 @@ public class CFGenKbGelSpreadBuff
 			optionalExpandBefore = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpandBefore",
 				1,
 				"value.length()",
@@ -160,7 +160,7 @@ public class CFGenKbGelSpreadBuff
 			optionalExpandFirst = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpandFirst",
 				1,
 				"value.length()",
@@ -178,13 +178,13 @@ public class CFGenKbGelSpreadBuff
 
 	public void setRequiredExpandEach( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredExpandEach",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredExpandEach",
 				1,
 				"value.length()",
@@ -203,7 +203,7 @@ public class CFGenKbGelSpreadBuff
 			optionalExpandLast = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpandLast",
 				1,
 				"value.length()",
@@ -224,7 +224,7 @@ public class CFGenKbGelSpreadBuff
 			optionalExpandLone = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpandLone",
 				1,
 				"value.length()",
@@ -245,7 +245,7 @@ public class CFGenKbGelSpreadBuff
 			optionalExpandEmpty = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpandEmpty",
 				1,
 				"value.length()",
@@ -266,7 +266,7 @@ public class CFGenKbGelSpreadBuff
 			optionalExpandAfter = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpandAfter",
 				1,
 				"value.length()",
@@ -282,8 +282,8 @@ public class CFGenKbGelSpreadBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelSpreadBuff ) {
-			CFGenKbGelSpreadBuff rhs = (CFGenKbGelSpreadBuff)obj;
+		else if( obj instanceof YCFGenKbGelSpreadBuff ) {
+			YCFGenKbGelSpreadBuff rhs = (YCFGenKbGelSpreadBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -385,8 +385,8 @@ public class CFGenKbGelSpreadBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -398,8 +398,8 @@ public class CFGenKbGelSpreadBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByBetweenIdxKey ) {
-			CFGenKbGelSpreadByBetweenIdxKey rhs = (CFGenKbGelSpreadByBetweenIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByBetweenIdxKey ) {
+			YCFGenKbGelSpreadByBetweenIdxKey rhs = (YCFGenKbGelSpreadByBetweenIdxKey)obj;
 			if( getOptionalExpandBetween() != null ) {
 				if( rhs.getOptionalExpandBetween() != null ) {
 					if( ! getOptionalExpandBetween().equals( rhs.getOptionalExpandBetween() ) ) {
@@ -414,8 +414,8 @@ public class CFGenKbGelSpreadBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByBeforeIdxKey ) {
-			CFGenKbGelSpreadByBeforeIdxKey rhs = (CFGenKbGelSpreadByBeforeIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByBeforeIdxKey ) {
+			YCFGenKbGelSpreadByBeforeIdxKey rhs = (YCFGenKbGelSpreadByBeforeIdxKey)obj;
 			if( getOptionalExpandBefore() != null ) {
 				if( rhs.getOptionalExpandBefore() != null ) {
 					if( ! getOptionalExpandBefore().equals( rhs.getOptionalExpandBefore() ) ) {
@@ -430,8 +430,8 @@ public class CFGenKbGelSpreadBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByFirstIdxKey ) {
-			CFGenKbGelSpreadByFirstIdxKey rhs = (CFGenKbGelSpreadByFirstIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByFirstIdxKey ) {
+			YCFGenKbGelSpreadByFirstIdxKey rhs = (YCFGenKbGelSpreadByFirstIdxKey)obj;
 			if( getOptionalExpandFirst() != null ) {
 				if( rhs.getOptionalExpandFirst() != null ) {
 					if( ! getOptionalExpandFirst().equals( rhs.getOptionalExpandFirst() ) ) {
@@ -446,15 +446,15 @@ public class CFGenKbGelSpreadBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByEachIdxKey ) {
-			CFGenKbGelSpreadByEachIdxKey rhs = (CFGenKbGelSpreadByEachIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByEachIdxKey ) {
+			YCFGenKbGelSpreadByEachIdxKey rhs = (YCFGenKbGelSpreadByEachIdxKey)obj;
 			if( ! getRequiredExpandEach().equals( rhs.getRequiredExpandEach() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByLastIdxKey ) {
-			CFGenKbGelSpreadByLastIdxKey rhs = (CFGenKbGelSpreadByLastIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByLastIdxKey ) {
+			YCFGenKbGelSpreadByLastIdxKey rhs = (YCFGenKbGelSpreadByLastIdxKey)obj;
 			if( getOptionalExpandLast() != null ) {
 				if( rhs.getOptionalExpandLast() != null ) {
 					if( ! getOptionalExpandLast().equals( rhs.getOptionalExpandLast() ) ) {
@@ -469,8 +469,8 @@ public class CFGenKbGelSpreadBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByLoneIdxKey ) {
-			CFGenKbGelSpreadByLoneIdxKey rhs = (CFGenKbGelSpreadByLoneIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByLoneIdxKey ) {
+			YCFGenKbGelSpreadByLoneIdxKey rhs = (YCFGenKbGelSpreadByLoneIdxKey)obj;
 			if( getOptionalExpandLone() != null ) {
 				if( rhs.getOptionalExpandLone() != null ) {
 					if( ! getOptionalExpandLone().equals( rhs.getOptionalExpandLone() ) ) {
@@ -485,8 +485,8 @@ public class CFGenKbGelSpreadBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByEmptyIdxKey ) {
-			CFGenKbGelSpreadByEmptyIdxKey rhs = (CFGenKbGelSpreadByEmptyIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByEmptyIdxKey ) {
+			YCFGenKbGelSpreadByEmptyIdxKey rhs = (YCFGenKbGelSpreadByEmptyIdxKey)obj;
 			if( getOptionalExpandEmpty() != null ) {
 				if( rhs.getOptionalExpandEmpty() != null ) {
 					if( ! getOptionalExpandEmpty().equals( rhs.getOptionalExpandEmpty() ) ) {
@@ -543,8 +543,8 @@ public class CFGenKbGelSpreadBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadBuff ) {
-			CFGenKbGelSpreadBuff rhs = (CFGenKbGelSpreadBuff)obj;
+		else if( obj instanceof YCFGenKbGelSpreadBuff ) {
+			YCFGenKbGelSpreadBuff rhs = (YCFGenKbGelSpreadBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -675,8 +675,8 @@ public class CFGenKbGelSpreadBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -697,8 +697,8 @@ public class CFGenKbGelSpreadBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByBetweenIdxKey ) {
-			CFGenKbGelSpreadByBetweenIdxKey rhs = (CFGenKbGelSpreadByBetweenIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByBetweenIdxKey ) {
+			YCFGenKbGelSpreadByBetweenIdxKey rhs = (YCFGenKbGelSpreadByBetweenIdxKey)obj;
 
 			if( getOptionalExpandBetween() != null ) {
 				if( rhs.getOptionalExpandBetween() != null ) {
@@ -717,8 +717,8 @@ public class CFGenKbGelSpreadBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByBeforeIdxKey ) {
-			CFGenKbGelSpreadByBeforeIdxKey rhs = (CFGenKbGelSpreadByBeforeIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByBeforeIdxKey ) {
+			YCFGenKbGelSpreadByBeforeIdxKey rhs = (YCFGenKbGelSpreadByBeforeIdxKey)obj;
 
 			if( getOptionalExpandBefore() != null ) {
 				if( rhs.getOptionalExpandBefore() != null ) {
@@ -737,8 +737,8 @@ public class CFGenKbGelSpreadBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByFirstIdxKey ) {
-			CFGenKbGelSpreadByFirstIdxKey rhs = (CFGenKbGelSpreadByFirstIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByFirstIdxKey ) {
+			YCFGenKbGelSpreadByFirstIdxKey rhs = (YCFGenKbGelSpreadByFirstIdxKey)obj;
 
 			if( getOptionalExpandFirst() != null ) {
 				if( rhs.getOptionalExpandFirst() != null ) {
@@ -757,8 +757,8 @@ public class CFGenKbGelSpreadBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByEachIdxKey ) {
-			CFGenKbGelSpreadByEachIdxKey rhs = (CFGenKbGelSpreadByEachIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByEachIdxKey ) {
+			YCFGenKbGelSpreadByEachIdxKey rhs = (YCFGenKbGelSpreadByEachIdxKey)obj;
 
 			{
 				int cmp = getRequiredExpandEach().compareTo( rhs.getRequiredExpandEach() );
@@ -767,8 +767,8 @@ public class CFGenKbGelSpreadBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByLastIdxKey ) {
-			CFGenKbGelSpreadByLastIdxKey rhs = (CFGenKbGelSpreadByLastIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByLastIdxKey ) {
+			YCFGenKbGelSpreadByLastIdxKey rhs = (YCFGenKbGelSpreadByLastIdxKey)obj;
 
 			if( getOptionalExpandLast() != null ) {
 				if( rhs.getOptionalExpandLast() != null ) {
@@ -787,8 +787,8 @@ public class CFGenKbGelSpreadBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByLoneIdxKey ) {
-			CFGenKbGelSpreadByLoneIdxKey rhs = (CFGenKbGelSpreadByLoneIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByLoneIdxKey ) {
+			YCFGenKbGelSpreadByLoneIdxKey rhs = (YCFGenKbGelSpreadByLoneIdxKey)obj;
 
 			if( getOptionalExpandLone() != null ) {
 				if( rhs.getOptionalExpandLone() != null ) {
@@ -807,8 +807,8 @@ public class CFGenKbGelSpreadBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSpreadByEmptyIdxKey ) {
-			CFGenKbGelSpreadByEmptyIdxKey rhs = (CFGenKbGelSpreadByEmptyIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSpreadByEmptyIdxKey ) {
+			YCFGenKbGelSpreadByEmptyIdxKey rhs = (YCFGenKbGelSpreadByEmptyIdxKey)obj;
 
 			if( getOptionalExpandEmpty() != null ) {
 				if( rhs.getOptionalExpandEmpty() != null ) {
@@ -833,20 +833,20 @@ public class CFGenKbGelSpreadBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelSpreadBuff ) {
-			setGelSpreadBuff( (CFGenKbGelSpreadBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelSpreadBuff ) {
+			setGelSpreadBuff( (YCFGenKbGelSpreadBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelSpreadBuff" );
+				"YCFGenKbGelSpreadBuff" );
 		}
 	}
 
-	public void setGelSpreadBuff( CFGenKbGelSpreadBuff src ) {
+	public void setGelSpreadBuff( YCFGenKbGelSpreadBuff src ) {
 		super.setGelInstructionBuff( src );
 		setRequiredIteratorName( src.getRequiredIteratorName() );
 		setOptionalExpandBetween( src.getOptionalExpandBetween() );

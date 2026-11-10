@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam DelSubDep3.
+// Description: Java 11 edit object instance implementation for YCFBam DelSubDep3.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,47 +45,47 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamDelSubDep3EditObj
-	extends CFBamDelDepEditObj
+public class YCFBamDelSubDep3EditObj
+	extends YCFBamDelDepEditObj
 
-	implements ICFBamDelSubDep3EditObj
+	implements IYCFBamDelSubDep3EditObj
 {
-	protected ICFBamDelSubDep2Obj requiredContainerDelSubDep2;
+	protected IYCFBamDelSubDep2Obj requiredContainerDelSubDep2;
 
-	public CFBamDelSubDep3EditObj( ICFBamDelSubDep3Obj argOrig ) {
+	public YCFBamDelSubDep3EditObj( IYCFBamDelSubDep3Obj argOrig ) {
 		super( argOrig );
 		requiredContainerDelSubDep2 = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamDelSubDep3Obj.CLASS_CODE );
+		return( YCFBamDelSubDep3Obj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "DelSubDep3" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamDelSubDep2Obj scope = getRequiredContainerDelSubDep2();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamDelSubDep2Obj scope = getRequiredContainerDelSubDep2();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamDelSubDep2Obj scope = getRequiredContainerDelSubDep2();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamDelSubDep2Obj scope = getRequiredContainerDelSubDep2();
 		return( scope );
 	}
 
@@ -95,14 +95,14 @@ public class CFBamDelSubDep3EditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -113,10 +113,10 @@ public class CFBamDelSubDep3EditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -125,11 +125,11 @@ public class CFBamDelSubDep3EditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -153,16 +153,16 @@ public class CFBamDelSubDep3EditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -174,9 +174,9 @@ public class CFBamDelSubDep3EditObj
 		return( qualName );
 	}
 
-	public ICFBamScopeObj realise() {
+	public IYCFBamScopeObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamDelSubDep3Obj retobj = getSchema().getDelSubDep3TableObj().realiseDelSubDep3( (ICFBamDelSubDep3Obj)this );
+		IYCFBamDelSubDep3Obj retobj = getSchema().getDelSubDep3TableObj().realiseDelSubDep3( (IYCFBamDelSubDep3Obj)this );
 		return( retobj );
 	}
 
@@ -184,57 +184,57 @@ public class CFBamDelSubDep3EditObj
 		getOrigAsDelSubDep3().forget();
 	}
 
-	public ICFBamScopeObj create() {
+	public IYCFBamScopeObj create() {
 		copyBuffToOrig();
-		ICFBamDelSubDep3Obj retobj = ((ICFBamSchemaObj)getOrigAsDelSubDep3().getSchema()).getDelSubDep3TableObj().createDelSubDep3( getOrigAsDelSubDep3() );
+		IYCFBamDelSubDep3Obj retobj = ((IYCFBamSchemaObj)getOrigAsDelSubDep3().getSchema()).getDelSubDep3TableObj().createDelSubDep3( getOrigAsDelSubDep3() );
 		if( retobj == getOrigAsDelSubDep3() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamScopeEditObj update() {
-		getSchema().getDelSubDep3TableObj().updateDelSubDep3( (ICFBamDelSubDep3Obj)this );
+	public YCFBamScopeEditObj update() {
+		getSchema().getDelSubDep3TableObj().updateDelSubDep3( (IYCFBamDelSubDep3Obj)this );
 		return( null );
 	}
 
-	public CFBamScopeEditObj deleteInstance() {
+	public YCFBamScopeEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getDelSubDep3TableObj().deleteDelSubDep3( getOrigAsDelSubDep3() );
 		return( null );
 	}
 
-	public ICFBamDelSubDep3TableObj getDelSubDep3Table() {
+	public IYCFBamDelSubDep3TableObj getDelSubDep3Table() {
 		return( orig.getSchema().getDelSubDep3TableObj() );
 	}
 
-	public ICFBamDelSubDep3EditObj getEditAsDelSubDep3() {
-		return( (ICFBamDelSubDep3EditObj)this );
+	public IYCFBamDelSubDep3EditObj getEditAsDelSubDep3() {
+		return( (IYCFBamDelSubDep3EditObj)this );
 	}
 
-	public ICFBamDelSubDep3Obj getOrigAsDelSubDep3() {
-		return( (ICFBamDelSubDep3Obj)orig );
+	public IYCFBamDelSubDep3Obj getOrigAsDelSubDep3() {
+		return( (IYCFBamDelSubDep3Obj)orig );
 	}
 
-	public CFBamScopeBuff getBuff() {
+	public YCFBamScopeBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsDelSubDep3().getSchema().getBackingStore()).getFactoryDelSubDep3().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsDelSubDep3().getSchema().getBackingStore()).getFactoryDelSubDep3().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamScopeBuff value ) {
+	public void setBuff( YCFBamScopeBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			requiredContainerDelSubDep2 = null;
 		}
 	}
 
-	public CFBamDelSubDep3Buff getDelSubDep3Buff() {
-		return( (CFBamDelSubDep3Buff)getBuff() );
+	public YCFBamDelSubDep3Buff getDelSubDep3Buff() {
+		return( (YCFBamDelSubDep3Buff)getBuff() );
 	}
 
 	public long getRequiredDelSubDep2TenantId() {
@@ -255,15 +255,15 @@ public class CFBamDelSubDep3EditObj
 		}
 	}
 
-	public ICFBamDelSubDep2Obj getRequiredContainerDelSubDep2() {
+	public IYCFBamDelSubDep2Obj getRequiredContainerDelSubDep2() {
 		return( getRequiredContainerDelSubDep2( false ) );
 	}
 
-	public ICFBamDelSubDep2Obj getRequiredContainerDelSubDep2( boolean forceRead ) {
+	public IYCFBamDelSubDep2Obj getRequiredContainerDelSubDep2( boolean forceRead ) {
 		if( forceRead || ( requiredContainerDelSubDep2 == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamDelSubDep2Obj obj = ((ICFBamSchemaObj)getOrigAsDelSubDep3().getSchema()).getDelSubDep2TableObj().readDelSubDep2ByIdIdx( getDelSubDep3Buff().getRequiredDelSubDep2TenantId(),
+				IYCFBamDelSubDep2Obj obj = ((IYCFBamSchemaObj)getOrigAsDelSubDep3().getSchema()).getDelSubDep2TableObj().readDelSubDep2ByIdIdx( getDelSubDep3Buff().getRequiredDelSubDep2TenantId(),
 					getDelSubDep3Buff().getRequiredDelSubDep2Id() );
 				requiredContainerDelSubDep2 = obj;
 				if( obj != null ) {
@@ -276,7 +276,7 @@ public class CFBamDelSubDep3EditObj
 		return( requiredContainerDelSubDep2 );
 	}
 
-	public void setRequiredContainerDelSubDep2( ICFBamDelSubDep2Obj value ) {
+	public void setRequiredContainerDelSubDep2( IYCFBamDelSubDep2Obj value ) {
 			if( buff == null ) {
 				getDelSubDep3Buff();
 			}
@@ -288,14 +288,14 @@ public class CFBamDelSubDep3EditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamDelSubDep3Buff origBuff = getOrigAsDelSubDep3().getDelSubDep3Buff();
-		CFBamDelSubDep3Buff myBuff = getDelSubDep3Buff();
+		YCFBamDelSubDep3Buff origBuff = getOrigAsDelSubDep3().getDelSubDep3Buff();
+		YCFBamDelSubDep3Buff myBuff = getDelSubDep3Buff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamDelSubDep3Buff origBuff = getOrigAsDelSubDep3().getDelSubDep3Buff();
-		CFBamDelSubDep3Buff myBuff = getDelSubDep3Buff();
+		YCFBamDelSubDep3Buff origBuff = getOrigAsDelSubDep3().getDelSubDep3Buff();
+		YCFBamDelSubDep3Buff myBuff = getDelSubDep3Buff();
 		myBuff.set( origBuff );
 	}
 }

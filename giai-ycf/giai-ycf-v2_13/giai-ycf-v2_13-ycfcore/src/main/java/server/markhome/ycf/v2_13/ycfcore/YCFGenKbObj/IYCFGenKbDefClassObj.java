@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb DefClass.
+// Description: Java 11 Object interface for YCFGenKb DefClass.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbDefClassObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbDefClassObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a DefClass.
 	 *
-	 *	@return	CFGenKbDefClassObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbDefClassObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbDefClassObj realise();
+	IYCFGenKbDefClassObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -59,99 +59,99 @@ public interface ICFGenKbDefClassObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbDefClassObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbDefClassObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbDefClassObj read();
+	IYCFGenKbDefClassObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbDefClassObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbDefClassObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbDefClassObj read( boolean forceRead );
+	IYCFGenKbDefClassObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this DefClass instance.
 	 *
-	 *	@return	The newly locked ICFGenKbDefClassEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbDefClassEditObj edition of this instance.
 	 */
-	ICFGenKbDefClassEditObj beginEdit();
+	IYCFGenKbDefClassEditObj beginEdit();
 
 	/**
 	 *	End this edition of this DefClass instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this DefClass instance.
 	 *
-	 *	@return	The ICFGenKbDefClassEditObj edition of this instance.
+	 *	@return	The IYCFGenKbDefClassEditObj edition of this instance.
 	 */
-	ICFGenKbDefClassEditObj getEdit();
+	IYCFGenKbDefClassEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this DefClass instance as a ICFGenKbDefClassEditObj.
+	 *	Get the current edition of this DefClass instance as a IYCFGenKbDefClassEditObj.
 	 *
-	 *	@return	The ICFGenKbDefClassEditObj edition of this instance.
+	 *	@return	The IYCFGenKbDefClassEditObj edition of this instance.
 	 */
-	ICFGenKbDefClassEditObj getEditAsDefClass();
+	IYCFGenKbDefClassEditObj getEditAsDefClass();
 
 	/**
-	 *	Get the ICFGenKbDefClassTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbDefClassTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbDefClassTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbDefClassTableObj table cache which manages this instance.
 	 */
-	ICFGenKbDefClassTableObj getDefClassTable();
+	IYCFGenKbDefClassTableObj getDefClassTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbDefClassBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbDefClassBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbDefClassBuff instance which currently backs this object.
+	 *	@return	YCFGenKbDefClassBuff instance which currently backs this object.
 	 */
-	CFGenKbDefClassBuff getBuff();
+	YCFGenKbDefClassBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbDefClassBuff value );
+	void setBuff( YCFGenKbDefClassBuff value );
 
 	/**
-	 *	Get the CFGenKbDefClassBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbDefClassBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbDefClassBuff instance which currently backs this object.
+	 *	@return	YCFGenKbDefClassBuff instance which currently backs this object.
 	 */
-	CFGenKbDefClassBuff getDefClassBuff();
+	YCFGenKbDefClassBuff getDefClassBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbDefClassPKey primary key for this instance.
+	 *	@return	YCFGenKbDefClassPKey primary key for this instance.
 	 */
-	CFGenKbDefClassPKey getPKey();
+	YCFGenKbDefClassPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbDefClassPKey primary key value for this instance.
+	 *	@param YCFGenKbDefClassPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbDefClassPKey value );
+	void setPKey( YCFGenKbDefClassPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -192,18 +192,18 @@ public interface ICFGenKbDefClassObj
 	Short getOptionalBaseId();
 
 	/**
-	 *	Get the optional ICFGenKbDefClassObj instance referenced by the BaseDefClass key.
+	 *	Get the optional IYCFGenKbDefClassObj instance referenced by the BaseDefClass key.
 	 *
-	 *	@return	The optional ICFGenKbDefClassObj instance referenced by the BaseDefClass key.
+	 *	@return	The optional IYCFGenKbDefClassObj instance referenced by the BaseDefClass key.
 	 */
-	ICFGenKbDefClassObj getOptionalParentBaseDefClass();
+	IYCFGenKbDefClassObj getOptionalParentBaseDefClass();
 
 	/**
-	 *	Get the optional ICFGenKbDefClassObj instance referenced by the BaseDefClass key.
+	 *	Get the optional IYCFGenKbDefClassObj instance referenced by the BaseDefClass key.
 	 *
-	 *	@return	The optional ICFGenKbDefClassObj instance referenced by the BaseDefClass key.
+	 *	@return	The optional IYCFGenKbDefClassObj instance referenced by the BaseDefClass key.
 	 */
-	ICFGenKbDefClassObj getOptionalParentBaseDefClass( boolean forceRead );
+	IYCFGenKbDefClassObj getOptionalParentBaseDefClass( boolean forceRead );
 
 	/**
 	 *	Internal use only.

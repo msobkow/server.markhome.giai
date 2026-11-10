@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for ISOCtryLang.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,67 +27,67 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecRam;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecRamISOCtryLangTable in-memory RAM DbIO implementation
+ *	YCFSecRamISOCtryLangTable in-memory RAM DbIO implementation
  *	for ISOCtryLang.
  */
-public class CFSecRamISOCtryLangTable
-	implements ICFSecISOCtryLangTable
+public class YCFSecRamISOCtryLangTable
+	implements IYCFSecISOCtryLangTable
 {
-	private ICFSecSchema schema;
-	private Map< CFSecISOCtryLangPKey,
-				CFSecISOCtryLangBuff > dictByPKey
-		= new HashMap< CFSecISOCtryLangPKey,
-				CFSecISOCtryLangBuff >();
-	private Map< CFSecISOCtryLangByCtryIdxKey,
-				Map< CFSecISOCtryLangPKey,
-					CFSecISOCtryLangBuff >> dictByCtryIdx
-		= new HashMap< CFSecISOCtryLangByCtryIdxKey,
-				Map< CFSecISOCtryLangPKey,
-					CFSecISOCtryLangBuff >>();
-	private Map< CFSecISOCtryLangByLangIdxKey,
-				Map< CFSecISOCtryLangPKey,
-					CFSecISOCtryLangBuff >> dictByLangIdx
-		= new HashMap< CFSecISOCtryLangByLangIdxKey,
-				Map< CFSecISOCtryLangPKey,
-					CFSecISOCtryLangBuff >>();
+	private IYCFSecSchema schema;
+	private Map< YCFSecISOCtryLangPKey,
+				YCFSecISOCtryLangBuff > dictByPKey
+		= new HashMap< YCFSecISOCtryLangPKey,
+				YCFSecISOCtryLangBuff >();
+	private Map< YCFSecISOCtryLangByCtryIdxKey,
+				Map< YCFSecISOCtryLangPKey,
+					YCFSecISOCtryLangBuff >> dictByCtryIdx
+		= new HashMap< YCFSecISOCtryLangByCtryIdxKey,
+				Map< YCFSecISOCtryLangPKey,
+					YCFSecISOCtryLangBuff >>();
+	private Map< YCFSecISOCtryLangByLangIdxKey,
+				Map< YCFSecISOCtryLangPKey,
+					YCFSecISOCtryLangBuff >> dictByLangIdx
+		= new HashMap< YCFSecISOCtryLangByLangIdxKey,
+				Map< YCFSecISOCtryLangPKey,
+					YCFSecISOCtryLangBuff >>();
 
-	public CFSecRamISOCtryLangTable( ICFSecSchema argSchema ) {
+	public YCFSecRamISOCtryLangTable( IYCFSecSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createISOCtryLang( CFSecAuthorization Authorization,
-		CFSecISOCtryLangBuff Buff )
+	public void createISOCtryLang( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangBuff Buff )
 	{
 		final String S_ProcName = "createISOCtryLang";
-		CFSecISOCtryLangPKey pkey = schema.getFactoryISOCtryLang().newPKey();
+		YCFSecISOCtryLangPKey pkey = schema.getFactoryISOCtryLang().newPKey();
 		pkey.setRequiredISOCtryId( Buff.getRequiredISOCtryId() );
 		pkey.setRequiredISOLangId( Buff.getRequiredISOLangId() );
 		Buff.setRequiredISOCtryId( pkey.getRequiredISOCtryId() );
 		Buff.setRequiredISOLangId( pkey.getRequiredISOLangId() );
-		CFSecISOCtryLangByCtryIdxKey keyCtryIdx = schema.getFactoryISOCtryLang().newCtryIdxKey();
+		YCFSecISOCtryLangByCtryIdxKey keyCtryIdx = schema.getFactoryISOCtryLang().newCtryIdxKey();
 		keyCtryIdx.setRequiredISOCtryId( Buff.getRequiredISOCtryId() );
 
-		CFSecISOCtryLangByLangIdxKey keyLangIdx = schema.getFactoryISOCtryLang().newLangIdxKey();
+		YCFSecISOCtryLangByLangIdxKey keyLangIdx = schema.getFactoryISOCtryLang().newLangIdxKey();
 		keyLangIdx.setRequiredISOLangId( Buff.getRequiredISOLangId() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		// Validate foreign keys
@@ -99,7 +99,7 @@ public class CFSecRamISOCtryLangTable
 				if( null == schema.getTableISOCtry().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredISOCtryId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"ISOCtryLangCtry",
@@ -113,36 +113,36 @@ public class CFSecRamISOCtryLangTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff > subdictCtryIdx;
+		Map< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff > subdictCtryIdx;
 		if( dictByCtryIdx.containsKey( keyCtryIdx ) ) {
 			subdictCtryIdx = dictByCtryIdx.get( keyCtryIdx );
 		}
 		else {
-			subdictCtryIdx = new HashMap< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff >();
+			subdictCtryIdx = new HashMap< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff >();
 			dictByCtryIdx.put( keyCtryIdx, subdictCtryIdx );
 		}
 		subdictCtryIdx.put( pkey, Buff );
 
-		Map< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff > subdictLangIdx;
+		Map< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff > subdictLangIdx;
 		if( dictByLangIdx.containsKey( keyLangIdx ) ) {
 			subdictLangIdx = dictByLangIdx.get( keyLangIdx );
 		}
 		else {
-			subdictLangIdx = new HashMap< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff >();
+			subdictLangIdx = new HashMap< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff >();
 			dictByLangIdx.put( keyLangIdx, subdictLangIdx );
 		}
 		subdictLangIdx.put( pkey, Buff );
 
 	}
 
-	public CFSecISOCtryLangBuff readDerived( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey PKey )
+	public YCFSecISOCtryLangBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey PKey )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readDerived";
-		CFSecISOCtryLangPKey key = schema.getFactoryISOCtryLang().newPKey();
+		final String S_ProcName = "YCFSecRamISOCtryLang.readDerived";
+		YCFSecISOCtryLangPKey key = schema.getFactoryISOCtryLang().newPKey();
 		key.setRequiredISOCtryId( PKey.getRequiredISOCtryId() );
 		key.setRequiredISOLangId( PKey.getRequiredISOLangId() );
-		CFSecISOCtryLangBuff buff;
+		YCFSecISOCtryLangBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -152,14 +152,14 @@ public class CFSecRamISOCtryLangTable
 		return( buff );
 	}
 
-	public CFSecISOCtryLangBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey PKey )
+	public YCFSecISOCtryLangBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey PKey )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readDerived";
-		CFSecISOCtryLangPKey key = schema.getFactoryISOCtryLang().newPKey();
+		final String S_ProcName = "YCFSecRamISOCtryLang.readDerived";
+		YCFSecISOCtryLangPKey key = schema.getFactoryISOCtryLang().newPKey();
 		key.setRequiredISOCtryId( PKey.getRequiredISOCtryId() );
 		key.setRequiredISOLangId( PKey.getRequiredISOLangId() );
-		CFSecISOCtryLangBuff buff;
+		YCFSecISOCtryLangBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -169,10 +169,10 @@ public class CFSecRamISOCtryLangTable
 		return( buff );
 	}
 
-	public CFSecISOCtryLangBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFSecRamISOCtryLang.readAllDerived";
-		CFSecISOCtryLangBuff[] retList = new CFSecISOCtryLangBuff[ dictByPKey.values().size() ];
-		Iterator< CFSecISOCtryLangBuff > iter = dictByPKey.values().iterator();
+	public YCFSecISOCtryLangBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFSecRamISOCtryLang.readAllDerived";
+		YCFSecISOCtryLangBuff[] retList = new YCFSecISOCtryLangBuff[ dictByPKey.values().size() ];
+		Iterator< YCFSecISOCtryLangBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -180,70 +180,70 @@ public class CFSecRamISOCtryLangTable
 		return( retList );
 	}
 
-	public CFSecISOCtryLangBuff[] readDerivedByCtryIdx( CFSecAuthorization Authorization,
+	public YCFSecISOCtryLangBuff[] readDerivedByCtryIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readDerivedByCtryIdx";
-		CFSecISOCtryLangByCtryIdxKey key = schema.getFactoryISOCtryLang().newCtryIdxKey();
+		final String S_ProcName = "YCFSecRamISOCtryLang.readDerivedByCtryIdx";
+		YCFSecISOCtryLangByCtryIdxKey key = schema.getFactoryISOCtryLang().newCtryIdxKey();
 		key.setRequiredISOCtryId( ISOCtryId );
 
-		CFSecISOCtryLangBuff[] recArray;
+		YCFSecISOCtryLangBuff[] recArray;
 		if( dictByCtryIdx.containsKey( key ) ) {
-			Map< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff > subdictCtryIdx
+			Map< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff > subdictCtryIdx
 				= dictByCtryIdx.get( key );
-			recArray = new CFSecISOCtryLangBuff[ subdictCtryIdx.size() ];
-			Iterator< CFSecISOCtryLangBuff > iter = subdictCtryIdx.values().iterator();
+			recArray = new YCFSecISOCtryLangBuff[ subdictCtryIdx.size() ];
+			Iterator< YCFSecISOCtryLangBuff > iter = subdictCtryIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff > subdictCtryIdx
-				= new HashMap< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff >();
+			Map< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff > subdictCtryIdx
+				= new HashMap< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff >();
 			dictByCtryIdx.put( key, subdictCtryIdx );
-			recArray = new CFSecISOCtryLangBuff[0];
+			recArray = new YCFSecISOCtryLangBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecISOCtryLangBuff[] readDerivedByLangIdx( CFSecAuthorization Authorization,
+	public YCFSecISOCtryLangBuff[] readDerivedByLangIdx( YCFSecAuthorization Authorization,
 		short ISOLangId )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readDerivedByLangIdx";
-		CFSecISOCtryLangByLangIdxKey key = schema.getFactoryISOCtryLang().newLangIdxKey();
+		final String S_ProcName = "YCFSecRamISOCtryLang.readDerivedByLangIdx";
+		YCFSecISOCtryLangByLangIdxKey key = schema.getFactoryISOCtryLang().newLangIdxKey();
 		key.setRequiredISOLangId( ISOLangId );
 
-		CFSecISOCtryLangBuff[] recArray;
+		YCFSecISOCtryLangBuff[] recArray;
 		if( dictByLangIdx.containsKey( key ) ) {
-			Map< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff > subdictLangIdx
+			Map< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff > subdictLangIdx
 				= dictByLangIdx.get( key );
-			recArray = new CFSecISOCtryLangBuff[ subdictLangIdx.size() ];
-			Iterator< CFSecISOCtryLangBuff > iter = subdictLangIdx.values().iterator();
+			recArray = new YCFSecISOCtryLangBuff[ subdictLangIdx.size() ];
+			Iterator< YCFSecISOCtryLangBuff > iter = subdictLangIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff > subdictLangIdx
-				= new HashMap< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff >();
+			Map< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff > subdictLangIdx
+				= new HashMap< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff >();
 			dictByLangIdx.put( key, subdictLangIdx );
-			recArray = new CFSecISOCtryLangBuff[0];
+			recArray = new YCFSecISOCtryLangBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecISOCtryLangBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecISOCtryLangBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId,
 		short ISOLangId )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readDerivedByIdIdx() ";
-		CFSecISOCtryLangPKey key = schema.getFactoryISOCtryLang().newPKey();
+		final String S_ProcName = "YCFSecRamISOCtryLang.readDerivedByIdIdx() ";
+		YCFSecISOCtryLangPKey key = schema.getFactoryISOCtryLang().newPKey();
 		key.setRequiredISOCtryId( ISOCtryId );
 		key.setRequiredISOLangId( ISOLangId );
 
-		CFSecISOCtryLangBuff buff;
+		YCFSecISOCtryLangBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -253,123 +253,123 @@ public class CFSecRamISOCtryLangTable
 		return( buff );
 	}
 
-	public CFSecISOCtryLangBuff readBuff( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey PKey )
+	public YCFSecISOCtryLangBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey PKey )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readBuff";
-		CFSecISOCtryLangBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFSecRamISOCtryLang.readBuff";
+		YCFSecISOCtryLangBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a006" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecISOCtryLangBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey PKey )
+	public YCFSecISOCtryLangBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFSecISOCtryLangBuff buff = readDerived( Authorization, PKey );
+		YCFSecISOCtryLangBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a006" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecISOCtryLangBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFSecISOCtryLangBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readAllBuff";
-		CFSecISOCtryLangBuff buff;
-		ArrayList<CFSecISOCtryLangBuff> filteredList = new ArrayList<CFSecISOCtryLangBuff>();
-		CFSecISOCtryLangBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFSecRamISOCtryLang.readAllBuff";
+		YCFSecISOCtryLangBuff buff;
+		ArrayList<YCFSecISOCtryLangBuff> filteredList = new ArrayList<YCFSecISOCtryLangBuff>();
+		YCFSecISOCtryLangBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a006" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecISOCtryLangBuff[0] ) );
+		return( filteredList.toArray( new YCFSecISOCtryLangBuff[0] ) );
 	}
 
-	public CFSecISOCtryLangBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecISOCtryLangBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId,
 		short ISOLangId )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readBuffByIdIdx() ";
-		CFSecISOCtryLangBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFSecRamISOCtryLang.readBuffByIdIdx() ";
+		YCFSecISOCtryLangBuff buff = readDerivedByIdIdx( Authorization,
 			ISOCtryId,
 			ISOLangId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a006" ) ) {
-			return( (CFSecISOCtryLangBuff)buff );
+			return( (YCFSecISOCtryLangBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecISOCtryLangBuff[] readBuffByCtryIdx( CFSecAuthorization Authorization,
+	public YCFSecISOCtryLangBuff[] readBuffByCtryIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readBuffByCtryIdx() ";
-		CFSecISOCtryLangBuff buff;
-		ArrayList<CFSecISOCtryLangBuff> filteredList = new ArrayList<CFSecISOCtryLangBuff>();
-		CFSecISOCtryLangBuff[] buffList = readDerivedByCtryIdx( Authorization,
+		final String S_ProcName = "YCFSecRamISOCtryLang.readBuffByCtryIdx() ";
+		YCFSecISOCtryLangBuff buff;
+		ArrayList<YCFSecISOCtryLangBuff> filteredList = new ArrayList<YCFSecISOCtryLangBuff>();
+		YCFSecISOCtryLangBuff[] buffList = readDerivedByCtryIdx( Authorization,
 			ISOCtryId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a006" ) ) {
-				filteredList.add( (CFSecISOCtryLangBuff)buff );
+				filteredList.add( (YCFSecISOCtryLangBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecISOCtryLangBuff[0] ) );
+		return( filteredList.toArray( new YCFSecISOCtryLangBuff[0] ) );
 	}
 
-	public CFSecISOCtryLangBuff[] readBuffByLangIdx( CFSecAuthorization Authorization,
+	public YCFSecISOCtryLangBuff[] readBuffByLangIdx( YCFSecAuthorization Authorization,
 		short ISOLangId )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLang.readBuffByLangIdx() ";
-		CFSecISOCtryLangBuff buff;
-		ArrayList<CFSecISOCtryLangBuff> filteredList = new ArrayList<CFSecISOCtryLangBuff>();
-		CFSecISOCtryLangBuff[] buffList = readDerivedByLangIdx( Authorization,
+		final String S_ProcName = "YCFSecRamISOCtryLang.readBuffByLangIdx() ";
+		YCFSecISOCtryLangBuff buff;
+		ArrayList<YCFSecISOCtryLangBuff> filteredList = new ArrayList<YCFSecISOCtryLangBuff>();
+		YCFSecISOCtryLangBuff[] buffList = readDerivedByLangIdx( Authorization,
 			ISOLangId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a006" ) ) {
-				filteredList.add( (CFSecISOCtryLangBuff)buff );
+				filteredList.add( (YCFSecISOCtryLangBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecISOCtryLangBuff[0] ) );
+		return( filteredList.toArray( new YCFSecISOCtryLangBuff[0] ) );
 	}
 
-	public void updateISOCtryLang( CFSecAuthorization Authorization,
-		CFSecISOCtryLangBuff Buff )
+	public void updateISOCtryLang( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangBuff Buff )
 	{
-		CFSecISOCtryLangPKey pkey = schema.getFactoryISOCtryLang().newPKey();
+		YCFSecISOCtryLangPKey pkey = schema.getFactoryISOCtryLang().newPKey();
 		pkey.setRequiredISOCtryId( Buff.getRequiredISOCtryId() );
 		pkey.setRequiredISOLangId( Buff.getRequiredISOLangId() );
-		CFSecISOCtryLangBuff existing = dictByPKey.get( pkey );
+		YCFSecISOCtryLangBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateISOCtryLang",
 				"Existing record not found",
 				"ISOCtryLang",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateISOCtryLang",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFSecISOCtryLangByCtryIdxKey existingKeyCtryIdx = schema.getFactoryISOCtryLang().newCtryIdxKey();
+		YCFSecISOCtryLangByCtryIdxKey existingKeyCtryIdx = schema.getFactoryISOCtryLang().newCtryIdxKey();
 		existingKeyCtryIdx.setRequiredISOCtryId( existing.getRequiredISOCtryId() );
 
-		CFSecISOCtryLangByCtryIdxKey newKeyCtryIdx = schema.getFactoryISOCtryLang().newCtryIdxKey();
+		YCFSecISOCtryLangByCtryIdxKey newKeyCtryIdx = schema.getFactoryISOCtryLang().newCtryIdxKey();
 		newKeyCtryIdx.setRequiredISOCtryId( Buff.getRequiredISOCtryId() );
 
-		CFSecISOCtryLangByLangIdxKey existingKeyLangIdx = schema.getFactoryISOCtryLang().newLangIdxKey();
+		YCFSecISOCtryLangByLangIdxKey existingKeyLangIdx = schema.getFactoryISOCtryLang().newLangIdxKey();
 		existingKeyLangIdx.setRequiredISOLangId( existing.getRequiredISOLangId() );
 
-		CFSecISOCtryLangByLangIdxKey newKeyLangIdx = schema.getFactoryISOCtryLang().newLangIdxKey();
+		YCFSecISOCtryLangByLangIdxKey newKeyLangIdx = schema.getFactoryISOCtryLang().newLangIdxKey();
 		newKeyLangIdx.setRequiredISOLangId( Buff.getRequiredISOLangId() );
 
 		// Check unique indexes
@@ -383,7 +383,7 @@ public class CFSecRamISOCtryLangTable
 				if( null == schema.getTableISOCtry().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredISOCtryId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateISOCtryLang",
 						"Container",
 						"ISOCtryLangCtry",
@@ -395,7 +395,7 @@ public class CFSecRamISOCtryLangTable
 
 		// Update is valid
 
-		Map< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff > subdict;
+		Map< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -408,7 +408,7 @@ public class CFSecRamISOCtryLangTable
 			subdict = dictByCtryIdx.get( newKeyCtryIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff >();
+			subdict = new HashMap< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff >();
 			dictByCtryIdx.put( newKeyCtryIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -421,41 +421,41 @@ public class CFSecRamISOCtryLangTable
 			subdict = dictByLangIdx.get( newKeyLangIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff >();
+			subdict = new HashMap< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff >();
 			dictByLangIdx.put( newKeyLangIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteISOCtryLang( CFSecAuthorization Authorization,
-		CFSecISOCtryLangBuff Buff )
+	public void deleteISOCtryLang( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangBuff Buff )
 	{
-		final String S_ProcName = "CFSecRamISOCtryLangTable.deleteISOCtryLang() ";
+		final String S_ProcName = "YCFSecRamISOCtryLangTable.deleteISOCtryLang() ";
 		String classCode;
-		CFSecISOCtryLangPKey pkey = schema.getFactoryISOCtryLang().newPKey();
+		YCFSecISOCtryLangPKey pkey = schema.getFactoryISOCtryLang().newPKey();
 		pkey.setRequiredISOCtryId( Buff.getRequiredISOCtryId() );
 		pkey.setRequiredISOLangId( Buff.getRequiredISOLangId() );
-		CFSecISOCtryLangBuff existing = dictByPKey.get( pkey );
+		YCFSecISOCtryLangBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteISOCtryLang",
 				pkey );
 		}
-		CFSecISOCtryLangByCtryIdxKey keyCtryIdx = schema.getFactoryISOCtryLang().newCtryIdxKey();
+		YCFSecISOCtryLangByCtryIdxKey keyCtryIdx = schema.getFactoryISOCtryLang().newCtryIdxKey();
 		keyCtryIdx.setRequiredISOCtryId( existing.getRequiredISOCtryId() );
 
-		CFSecISOCtryLangByLangIdxKey keyLangIdx = schema.getFactoryISOCtryLang().newLangIdxKey();
+		YCFSecISOCtryLangByLangIdxKey keyLangIdx = schema.getFactoryISOCtryLang().newLangIdxKey();
 		keyLangIdx.setRequiredISOLangId( existing.getRequiredISOLangId() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFSecISOCtryLangPKey, CFSecISOCtryLangBuff > subdict;
+		Map< YCFSecISOCtryLangPKey, YCFSecISOCtryLangBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -466,18 +466,18 @@ public class CFSecRamISOCtryLangTable
 		subdict.remove( pkey );
 
 	}
-	public void deleteISOCtryLangByIdIdx( CFSecAuthorization Authorization,
+	public void deleteISOCtryLangByIdIdx( YCFSecAuthorization Authorization,
 		short argISOCtryId,
 		short argISOLangId )
 	{
-		CFSecISOCtryLangPKey key = schema.getFactoryISOCtryLang().newPKey();
+		YCFSecISOCtryLangPKey key = schema.getFactoryISOCtryLang().newPKey();
 		key.setRequiredISOCtryId( argISOCtryId );
 		key.setRequiredISOLangId( argISOLangId );
 		deleteISOCtryLangByIdIdx( Authorization, key );
 	}
 
-	public void deleteISOCtryLangByIdIdx( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey argKey )
+	public void deleteISOCtryLangByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -485,16 +485,16 @@ public class CFSecRamISOCtryLangTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFSecISOCtryLangBuff cur;
-		LinkedList<CFSecISOCtryLangBuff> matchSet = new LinkedList<CFSecISOCtryLangBuff>();
-		Iterator<CFSecISOCtryLangBuff> values = dictByPKey.values().iterator();
+		YCFSecISOCtryLangBuff cur;
+		LinkedList<YCFSecISOCtryLangBuff> matchSet = new LinkedList<YCFSecISOCtryLangBuff>();
+		Iterator<YCFSecISOCtryLangBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOCtryLangBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOCtryLangBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOCtryLang().readDerivedByIdIdx( Authorization,
@@ -504,32 +504,32 @@ public class CFSecRamISOCtryLangTable
 		}
 	}
 
-	public void deleteISOCtryLangByCtryIdx( CFSecAuthorization Authorization,
+	public void deleteISOCtryLangByCtryIdx( YCFSecAuthorization Authorization,
 		short argISOCtryId )
 	{
-		CFSecISOCtryLangByCtryIdxKey key = schema.getFactoryISOCtryLang().newCtryIdxKey();
+		YCFSecISOCtryLangByCtryIdxKey key = schema.getFactoryISOCtryLang().newCtryIdxKey();
 		key.setRequiredISOCtryId( argISOCtryId );
 		deleteISOCtryLangByCtryIdx( Authorization, key );
 	}
 
-	public void deleteISOCtryLangByCtryIdx( CFSecAuthorization Authorization,
-		CFSecISOCtryLangByCtryIdxKey argKey )
+	public void deleteISOCtryLangByCtryIdx( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangByCtryIdxKey argKey )
 	{
-		CFSecISOCtryLangBuff cur;
+		YCFSecISOCtryLangBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecISOCtryLangBuff> matchSet = new LinkedList<CFSecISOCtryLangBuff>();
-		Iterator<CFSecISOCtryLangBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecISOCtryLangBuff> matchSet = new LinkedList<YCFSecISOCtryLangBuff>();
+		Iterator<YCFSecISOCtryLangBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOCtryLangBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOCtryLangBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOCtryLang().readDerivedByIdIdx( Authorization,
@@ -539,32 +539,32 @@ public class CFSecRamISOCtryLangTable
 		}
 	}
 
-	public void deleteISOCtryLangByLangIdx( CFSecAuthorization Authorization,
+	public void deleteISOCtryLangByLangIdx( YCFSecAuthorization Authorization,
 		short argISOLangId )
 	{
-		CFSecISOCtryLangByLangIdxKey key = schema.getFactoryISOCtryLang().newLangIdxKey();
+		YCFSecISOCtryLangByLangIdxKey key = schema.getFactoryISOCtryLang().newLangIdxKey();
 		key.setRequiredISOLangId( argISOLangId );
 		deleteISOCtryLangByLangIdx( Authorization, key );
 	}
 
-	public void deleteISOCtryLangByLangIdx( CFSecAuthorization Authorization,
-		CFSecISOCtryLangByLangIdxKey argKey )
+	public void deleteISOCtryLangByLangIdx( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangByLangIdxKey argKey )
 	{
-		CFSecISOCtryLangBuff cur;
+		YCFSecISOCtryLangBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecISOCtryLangBuff> matchSet = new LinkedList<CFSecISOCtryLangBuff>();
-		Iterator<CFSecISOCtryLangBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecISOCtryLangBuff> matchSet = new LinkedList<YCFSecISOCtryLangBuff>();
+		Iterator<YCFSecISOCtryLangBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOCtryLangBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOCtryLangBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOCtryLang().readDerivedByIdIdx( Authorization,

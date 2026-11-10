@@ -1,17 +1,17 @@
-// Description: Java 11 Schema Object implementation for CFBam.
+// Description: Java 11 Schema Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,396 +45,396 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-public class CFBamSchemaObj
-	implements ICFBamSchemaObj
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+public class YCFBamSchemaObj
+	implements IYCFBamSchemaObj
 {
-	public static String SCHEMA_NAME = "CFBam";
-	public static String SCHEMA_DBNAME = "cfbam213";
-	protected CFSecAuthorization authorization = null;
-	protected ICFSecSchema backingStore = null;
+	public static String SCHEMA_NAME = "YCFBam";
+	public static String SCHEMA_DBNAME = "ycfbam213";
+	protected YCFSecAuthorization authorization = null;
+	protected IYCFSecSchema backingStore = null;
 	protected String secClusterName = "system";
 	protected String secTenantName = "system";
 	protected String secUserName = "system";
-	protected ICFSecClusterObj secCluster = null;
+	protected IYCFSecClusterObj secCluster = null;
 	protected long secClusterId = 0L;
-	protected ICFSecTenantObj secTenant = null;
+	protected IYCFSecTenantObj secTenant = null;
 	protected long secTenantId = 0L;
-	protected ICFSecSecUserObj secUser = null;
+	protected IYCFSecSecUserObj secUser = null;
 	protected UUID secSessionUserId = null;
-	protected ICFSecSecSessionObj secSession = null;
+	protected IYCFSecSecSessionObj secSession = null;
 	protected UUID secSessionSessionId = null;
 	protected String schemaDbName = SCHEMA_DBNAME;
 	protected String lowerDbSchemaName = SCHEMA_DBNAME.toLowerCase();
-	protected ICFBamAtomTableObj atomTableObj;
-	protected ICFBamBlobColTableObj blobColTableObj;
-	protected ICFBamBlobDefTableObj blobDefTableObj;
-	protected ICFBamBlobTypeTableObj blobTypeTableObj;
-	protected ICFBamBoolColTableObj boolColTableObj;
-	protected ICFBamBoolDefTableObj boolDefTableObj;
-	protected ICFBamBoolTypeTableObj boolTypeTableObj;
-	protected ICFBamChainTableObj chainTableObj;
-	protected ICFBamClearDepTableObj clearDepTableObj;
-	protected ICFBamClearSubDep1TableObj clearSubDep1TableObj;
-	protected ICFBamClearSubDep2TableObj clearSubDep2TableObj;
-	protected ICFBamClearSubDep3TableObj clearSubDep3TableObj;
-	protected ICFBamClearTopDepTableObj clearTopDepTableObj;
-	protected ICFBamClusterTableObj clusterTableObj;
-	protected ICFBamDateColTableObj dateColTableObj;
-	protected ICFBamDateDefTableObj dateDefTableObj;
-	protected ICFBamDateTypeTableObj dateTypeTableObj;
-	protected ICFBamDbKeyHash128ColTableObj dbKeyHash128ColTableObj;
-	protected ICFBamDbKeyHash128DefTableObj dbKeyHash128DefTableObj;
-	protected ICFBamDbKeyHash128GenTableObj dbKeyHash128GenTableObj;
-	protected ICFBamDbKeyHash128TypeTableObj dbKeyHash128TypeTableObj;
-	protected ICFBamDbKeyHash160ColTableObj dbKeyHash160ColTableObj;
-	protected ICFBamDbKeyHash160DefTableObj dbKeyHash160DefTableObj;
-	protected ICFBamDbKeyHash160GenTableObj dbKeyHash160GenTableObj;
-	protected ICFBamDbKeyHash160TypeTableObj dbKeyHash160TypeTableObj;
-	protected ICFBamDbKeyHash224ColTableObj dbKeyHash224ColTableObj;
-	protected ICFBamDbKeyHash224DefTableObj dbKeyHash224DefTableObj;
-	protected ICFBamDbKeyHash224GenTableObj dbKeyHash224GenTableObj;
-	protected ICFBamDbKeyHash224TypeTableObj dbKeyHash224TypeTableObj;
-	protected ICFBamDbKeyHash256ColTableObj dbKeyHash256ColTableObj;
-	protected ICFBamDbKeyHash256DefTableObj dbKeyHash256DefTableObj;
-	protected ICFBamDbKeyHash256GenTableObj dbKeyHash256GenTableObj;
-	protected ICFBamDbKeyHash256TypeTableObj dbKeyHash256TypeTableObj;
-	protected ICFBamDbKeyHash384ColTableObj dbKeyHash384ColTableObj;
-	protected ICFBamDbKeyHash384DefTableObj dbKeyHash384DefTableObj;
-	protected ICFBamDbKeyHash384GenTableObj dbKeyHash384GenTableObj;
-	protected ICFBamDbKeyHash384TypeTableObj dbKeyHash384TypeTableObj;
-	protected ICFBamDbKeyHash512ColTableObj dbKeyHash512ColTableObj;
-	protected ICFBamDbKeyHash512DefTableObj dbKeyHash512DefTableObj;
-	protected ICFBamDbKeyHash512GenTableObj dbKeyHash512GenTableObj;
-	protected ICFBamDbKeyHash512TypeTableObj dbKeyHash512TypeTableObj;
-	protected ICFBamDelDepTableObj delDepTableObj;
-	protected ICFBamDelSubDep1TableObj delSubDep1TableObj;
-	protected ICFBamDelSubDep2TableObj delSubDep2TableObj;
-	protected ICFBamDelSubDep3TableObj delSubDep3TableObj;
-	protected ICFBamDelTopDepTableObj delTopDepTableObj;
-	protected ICFBamDoubleColTableObj doubleColTableObj;
-	protected ICFBamDoubleDefTableObj doubleDefTableObj;
-	protected ICFBamDoubleTypeTableObj doubleTypeTableObj;
-	protected ICFBamEnumDefTableObj enumDefTableObj;
-	protected ICFBamEnumTagTableObj enumTagTableObj;
-	protected ICFBamEnumTypeTableObj enumTypeTableObj;
-	protected ICFBamFloatColTableObj floatColTableObj;
-	protected ICFBamFloatDefTableObj floatDefTableObj;
-	protected ICFBamFloatTypeTableObj floatTypeTableObj;
-	protected ICFBamHostNodeTableObj hostNodeTableObj;
-	protected ICFBamISOCcyTableObj iSOCcyTableObj;
-	protected ICFBamISOCtryTableObj iSOCtryTableObj;
-	protected ICFBamISOCtryCcyTableObj iSOCtryCcyTableObj;
-	protected ICFBamISOCtryLangTableObj iSOCtryLangTableObj;
-	protected ICFBamISOLangTableObj iSOLangTableObj;
-	protected ICFBamISOTZoneTableObj iSOTZoneTableObj;
-	protected ICFBamId16GenTableObj id16GenTableObj;
-	protected ICFBamId32GenTableObj id32GenTableObj;
-	protected ICFBamId64GenTableObj id64GenTableObj;
-	protected ICFBamIndexTableObj indexTableObj;
-	protected ICFBamIndexColTableObj indexColTableObj;
-	protected ICFBamIndexTweakTableObj indexTweakTableObj;
-	protected ICFBamInt16ColTableObj int16ColTableObj;
-	protected ICFBamInt16DefTableObj int16DefTableObj;
-	protected ICFBamInt16TypeTableObj int16TypeTableObj;
-	protected ICFBamInt32ColTableObj int32ColTableObj;
-	protected ICFBamInt32DefTableObj int32DefTableObj;
-	protected ICFBamInt32TypeTableObj int32TypeTableObj;
-	protected ICFBamInt64ColTableObj int64ColTableObj;
-	protected ICFBamInt64DefTableObj int64DefTableObj;
-	protected ICFBamInt64TypeTableObj int64TypeTableObj;
-	protected ICFBamLicenseTableObj licenseTableObj;
-	protected ICFBamMajorVersionTableObj majorVersionTableObj;
-	protected ICFBamMimeTypeTableObj mimeTypeTableObj;
-	protected ICFBamMinorVersionTableObj minorVersionTableObj;
-	protected ICFBamNmTokenColTableObj nmTokenColTableObj;
-	protected ICFBamNmTokenDefTableObj nmTokenDefTableObj;
-	protected ICFBamNmTokenTypeTableObj nmTokenTypeTableObj;
-	protected ICFBamNmTokensColTableObj nmTokensColTableObj;
-	protected ICFBamNmTokensDefTableObj nmTokensDefTableObj;
-	protected ICFBamNmTokensTypeTableObj nmTokensTypeTableObj;
-	protected ICFBamNumberColTableObj numberColTableObj;
-	protected ICFBamNumberDefTableObj numberDefTableObj;
-	protected ICFBamNumberTypeTableObj numberTypeTableObj;
-	protected ICFBamParamTableObj paramTableObj;
-	protected ICFBamPopDepTableObj popDepTableObj;
-	protected ICFBamPopSubDep1TableObj popSubDep1TableObj;
-	protected ICFBamPopSubDep2TableObj popSubDep2TableObj;
-	protected ICFBamPopSubDep3TableObj popSubDep3TableObj;
-	protected ICFBamPopTopDepTableObj popTopDepTableObj;
-	protected ICFBamRelationTableObj relationTableObj;
-	protected ICFBamRelationColTableObj relationColTableObj;
-	protected ICFBamRoleDefTableObj roleDefTableObj;
-	protected ICFBamSchemaDefTableObj schemaDefTableObj;
-	protected ICFBamSchemaRefTableObj schemaRefTableObj;
-	protected ICFBamSchemaRoleTableObj schemaRoleTableObj;
-	protected ICFBamSchemaTweakTableObj schemaTweakTableObj;
-	protected ICFBamScopeTableObj scopeTableObj;
-	protected ICFBamSecAppTableObj secAppTableObj;
-	protected ICFBamSecDeviceTableObj secDeviceTableObj;
-	protected ICFBamSecFormTableObj secFormTableObj;
-	protected ICFBamSecGroupTableObj secGroupTableObj;
-	protected ICFBamSecGroupFormTableObj secGroupFormTableObj;
-	protected ICFBamSecGrpIncTableObj secGrpIncTableObj;
-	protected ICFBamSecGrpMembTableObj secGrpMembTableObj;
-	protected ICFBamSecSessionTableObj secSessionTableObj;
-	protected ICFBamSecUserTableObj secUserTableObj;
-	protected ICFBamServerListFuncTableObj serverListFuncTableObj;
-	protected ICFBamServerMethodTableObj serverMethodTableObj;
-	protected ICFBamServerObjFuncTableObj serverObjFuncTableObj;
-	protected ICFBamServerProcTableObj serverProcTableObj;
-	protected ICFBamServiceTableObj serviceTableObj;
-	protected ICFBamServiceTypeTableObj serviceTypeTableObj;
-	protected ICFBamStringColTableObj stringColTableObj;
-	protected ICFBamStringDefTableObj stringDefTableObj;
-	protected ICFBamStringTypeTableObj stringTypeTableObj;
-	protected ICFBamSubProjectTableObj subProjectTableObj;
-	protected ICFBamSysClusterTableObj sysClusterTableObj;
-	protected ICFBamTSecGroupTableObj tSecGroupTableObj;
-	protected ICFBamTSecGrpIncTableObj tSecGrpIncTableObj;
-	protected ICFBamTSecGrpMembTableObj tSecGrpMembTableObj;
-	protected ICFBamTZDateColTableObj tZDateColTableObj;
-	protected ICFBamTZDateDefTableObj tZDateDefTableObj;
-	protected ICFBamTZDateTypeTableObj tZDateTypeTableObj;
-	protected ICFBamTZTimeColTableObj tZTimeColTableObj;
-	protected ICFBamTZTimeDefTableObj tZTimeDefTableObj;
-	protected ICFBamTZTimeTypeTableObj tZTimeTypeTableObj;
-	protected ICFBamTZTimestampColTableObj tZTimestampColTableObj;
-	protected ICFBamTZTimestampDefTableObj tZTimestampDefTableObj;
-	protected ICFBamTZTimestampTypeTableObj tZTimestampTypeTableObj;
-	protected ICFBamTableTableObj tableTableObj;
-	protected ICFBamTableColTableObj tableColTableObj;
-	protected ICFBamTableTweakTableObj tableTweakTableObj;
-	protected ICFBamTenantTableObj tenantTableObj;
-	protected ICFBamTextColTableObj textColTableObj;
-	protected ICFBamTextDefTableObj textDefTableObj;
-	protected ICFBamTextTypeTableObj textTypeTableObj;
-	protected ICFBamTimeColTableObj timeColTableObj;
-	protected ICFBamTimeDefTableObj timeDefTableObj;
-	protected ICFBamTimeTypeTableObj timeTypeTableObj;
-	protected ICFBamTimestampColTableObj timestampColTableObj;
-	protected ICFBamTimestampDefTableObj timestampDefTableObj;
-	protected ICFBamTimestampTypeTableObj timestampTypeTableObj;
-	protected ICFBamTldTableObj tldTableObj;
-	protected ICFBamTokenColTableObj tokenColTableObj;
-	protected ICFBamTokenDefTableObj tokenDefTableObj;
-	protected ICFBamTokenTypeTableObj tokenTypeTableObj;
-	protected ICFBamTopDomainTableObj topDomainTableObj;
-	protected ICFBamTopProjectTableObj topProjectTableObj;
-	protected ICFBamTweakTableObj tweakTableObj;
-	protected ICFBamUInt16ColTableObj uInt16ColTableObj;
-	protected ICFBamUInt16DefTableObj uInt16DefTableObj;
-	protected ICFBamUInt16TypeTableObj uInt16TypeTableObj;
-	protected ICFBamUInt32ColTableObj uInt32ColTableObj;
-	protected ICFBamUInt32DefTableObj uInt32DefTableObj;
-	protected ICFBamUInt32TypeTableObj uInt32TypeTableObj;
-	protected ICFBamUInt64ColTableObj uInt64ColTableObj;
-	protected ICFBamUInt64DefTableObj uInt64DefTableObj;
-	protected ICFBamUInt64TypeTableObj uInt64TypeTableObj;
-	protected ICFBamURLProtocolTableObj uRLProtocolTableObj;
-	protected ICFBamUuid6ColTableObj uuid6ColTableObj;
-	protected ICFBamUuid6DefTableObj uuid6DefTableObj;
-	protected ICFBamUuid6GenTableObj uuid6GenTableObj;
-	protected ICFBamUuid6TypeTableObj uuid6TypeTableObj;
-	protected ICFBamUuidColTableObj uuidColTableObj;
-	protected ICFBamUuidDefTableObj uuidDefTableObj;
-	protected ICFBamUuidGenTableObj uuidGenTableObj;
-	protected ICFBamUuidTypeTableObj uuidTypeTableObj;
-	protected ICFBamValueTableObj valueTableObj;
+	protected IYCFBamAtomTableObj atomTableObj;
+	protected IYCFBamBlobColTableObj blobColTableObj;
+	protected IYCFBamBlobDefTableObj blobDefTableObj;
+	protected IYCFBamBlobTypeTableObj blobTypeTableObj;
+	protected IYCFBamBoolColTableObj boolColTableObj;
+	protected IYCFBamBoolDefTableObj boolDefTableObj;
+	protected IYCFBamBoolTypeTableObj boolTypeTableObj;
+	protected IYCFBamChainTableObj chainTableObj;
+	protected IYCFBamClearDepTableObj clearDepTableObj;
+	protected IYCFBamClearSubDep1TableObj clearSubDep1TableObj;
+	protected IYCFBamClearSubDep2TableObj clearSubDep2TableObj;
+	protected IYCFBamClearSubDep3TableObj clearSubDep3TableObj;
+	protected IYCFBamClearTopDepTableObj clearTopDepTableObj;
+	protected IYCFBamClusterTableObj clusterTableObj;
+	protected IYCFBamDateColTableObj dateColTableObj;
+	protected IYCFBamDateDefTableObj dateDefTableObj;
+	protected IYCFBamDateTypeTableObj dateTypeTableObj;
+	protected IYCFBamDbKeyHash128ColTableObj dbKeyHash128ColTableObj;
+	protected IYCFBamDbKeyHash128DefTableObj dbKeyHash128DefTableObj;
+	protected IYCFBamDbKeyHash128GenTableObj dbKeyHash128GenTableObj;
+	protected IYCFBamDbKeyHash128TypeTableObj dbKeyHash128TypeTableObj;
+	protected IYCFBamDbKeyHash160ColTableObj dbKeyHash160ColTableObj;
+	protected IYCFBamDbKeyHash160DefTableObj dbKeyHash160DefTableObj;
+	protected IYCFBamDbKeyHash160GenTableObj dbKeyHash160GenTableObj;
+	protected IYCFBamDbKeyHash160TypeTableObj dbKeyHash160TypeTableObj;
+	protected IYCFBamDbKeyHash224ColTableObj dbKeyHash224ColTableObj;
+	protected IYCFBamDbKeyHash224DefTableObj dbKeyHash224DefTableObj;
+	protected IYCFBamDbKeyHash224GenTableObj dbKeyHash224GenTableObj;
+	protected IYCFBamDbKeyHash224TypeTableObj dbKeyHash224TypeTableObj;
+	protected IYCFBamDbKeyHash256ColTableObj dbKeyHash256ColTableObj;
+	protected IYCFBamDbKeyHash256DefTableObj dbKeyHash256DefTableObj;
+	protected IYCFBamDbKeyHash256GenTableObj dbKeyHash256GenTableObj;
+	protected IYCFBamDbKeyHash256TypeTableObj dbKeyHash256TypeTableObj;
+	protected IYCFBamDbKeyHash384ColTableObj dbKeyHash384ColTableObj;
+	protected IYCFBamDbKeyHash384DefTableObj dbKeyHash384DefTableObj;
+	protected IYCFBamDbKeyHash384GenTableObj dbKeyHash384GenTableObj;
+	protected IYCFBamDbKeyHash384TypeTableObj dbKeyHash384TypeTableObj;
+	protected IYCFBamDbKeyHash512ColTableObj dbKeyHash512ColTableObj;
+	protected IYCFBamDbKeyHash512DefTableObj dbKeyHash512DefTableObj;
+	protected IYCFBamDbKeyHash512GenTableObj dbKeyHash512GenTableObj;
+	protected IYCFBamDbKeyHash512TypeTableObj dbKeyHash512TypeTableObj;
+	protected IYCFBamDelDepTableObj delDepTableObj;
+	protected IYCFBamDelSubDep1TableObj delSubDep1TableObj;
+	protected IYCFBamDelSubDep2TableObj delSubDep2TableObj;
+	protected IYCFBamDelSubDep3TableObj delSubDep3TableObj;
+	protected IYCFBamDelTopDepTableObj delTopDepTableObj;
+	protected IYCFBamDoubleColTableObj doubleColTableObj;
+	protected IYCFBamDoubleDefTableObj doubleDefTableObj;
+	protected IYCFBamDoubleTypeTableObj doubleTypeTableObj;
+	protected IYCFBamEnumDefTableObj enumDefTableObj;
+	protected IYCFBamEnumTagTableObj enumTagTableObj;
+	protected IYCFBamEnumTypeTableObj enumTypeTableObj;
+	protected IYCFBamFloatColTableObj floatColTableObj;
+	protected IYCFBamFloatDefTableObj floatDefTableObj;
+	protected IYCFBamFloatTypeTableObj floatTypeTableObj;
+	protected IYCFBamHostNodeTableObj hostNodeTableObj;
+	protected IYCFBamISOCcyTableObj iSOCcyTableObj;
+	protected IYCFBamISOCtryTableObj iSOCtryTableObj;
+	protected IYCFBamISOCtryCcyTableObj iSOCtryCcyTableObj;
+	protected IYCFBamISOCtryLangTableObj iSOCtryLangTableObj;
+	protected IYCFBamISOLangTableObj iSOLangTableObj;
+	protected IYCFBamISOTZoneTableObj iSOTZoneTableObj;
+	protected IYCFBamId16GenTableObj id16GenTableObj;
+	protected IYCFBamId32GenTableObj id32GenTableObj;
+	protected IYCFBamId64GenTableObj id64GenTableObj;
+	protected IYCFBamIndexTableObj indexTableObj;
+	protected IYCFBamIndexColTableObj indexColTableObj;
+	protected IYCFBamIndexTweakTableObj indexTweakTableObj;
+	protected IYCFBamInt16ColTableObj int16ColTableObj;
+	protected IYCFBamInt16DefTableObj int16DefTableObj;
+	protected IYCFBamInt16TypeTableObj int16TypeTableObj;
+	protected IYCFBamInt32ColTableObj int32ColTableObj;
+	protected IYCFBamInt32DefTableObj int32DefTableObj;
+	protected IYCFBamInt32TypeTableObj int32TypeTableObj;
+	protected IYCFBamInt64ColTableObj int64ColTableObj;
+	protected IYCFBamInt64DefTableObj int64DefTableObj;
+	protected IYCFBamInt64TypeTableObj int64TypeTableObj;
+	protected IYCFBamLicenseTableObj licenseTableObj;
+	protected IYCFBamMajorVersionTableObj majorVersionTableObj;
+	protected IYCFBamMimeTypeTableObj mimeTypeTableObj;
+	protected IYCFBamMinorVersionTableObj minorVersionTableObj;
+	protected IYCFBamNmTokenColTableObj nmTokenColTableObj;
+	protected IYCFBamNmTokenDefTableObj nmTokenDefTableObj;
+	protected IYCFBamNmTokenTypeTableObj nmTokenTypeTableObj;
+	protected IYCFBamNmTokensColTableObj nmTokensColTableObj;
+	protected IYCFBamNmTokensDefTableObj nmTokensDefTableObj;
+	protected IYCFBamNmTokensTypeTableObj nmTokensTypeTableObj;
+	protected IYCFBamNumberColTableObj numberColTableObj;
+	protected IYCFBamNumberDefTableObj numberDefTableObj;
+	protected IYCFBamNumberTypeTableObj numberTypeTableObj;
+	protected IYCFBamParamTableObj paramTableObj;
+	protected IYCFBamPopDepTableObj popDepTableObj;
+	protected IYCFBamPopSubDep1TableObj popSubDep1TableObj;
+	protected IYCFBamPopSubDep2TableObj popSubDep2TableObj;
+	protected IYCFBamPopSubDep3TableObj popSubDep3TableObj;
+	protected IYCFBamPopTopDepTableObj popTopDepTableObj;
+	protected IYCFBamRelationTableObj relationTableObj;
+	protected IYCFBamRelationColTableObj relationColTableObj;
+	protected IYCFBamRoleDefTableObj roleDefTableObj;
+	protected IYCFBamSchemaDefTableObj schemaDefTableObj;
+	protected IYCFBamSchemaRefTableObj schemaRefTableObj;
+	protected IYCFBamSchemaRoleTableObj schemaRoleTableObj;
+	protected IYCFBamSchemaTweakTableObj schemaTweakTableObj;
+	protected IYCFBamScopeTableObj scopeTableObj;
+	protected IYCFBamSecAppTableObj secAppTableObj;
+	protected IYCFBamSecDeviceTableObj secDeviceTableObj;
+	protected IYCFBamSecFormTableObj secFormTableObj;
+	protected IYCFBamSecGroupTableObj secGroupTableObj;
+	protected IYCFBamSecGroupFormTableObj secGroupFormTableObj;
+	protected IYCFBamSecGrpIncTableObj secGrpIncTableObj;
+	protected IYCFBamSecGrpMembTableObj secGrpMembTableObj;
+	protected IYCFBamSecSessionTableObj secSessionTableObj;
+	protected IYCFBamSecUserTableObj secUserTableObj;
+	protected IYCFBamServerListFuncTableObj serverListFuncTableObj;
+	protected IYCFBamServerMethodTableObj serverMethodTableObj;
+	protected IYCFBamServerObjFuncTableObj serverObjFuncTableObj;
+	protected IYCFBamServerProcTableObj serverProcTableObj;
+	protected IYCFBamServiceTableObj serviceTableObj;
+	protected IYCFBamServiceTypeTableObj serviceTypeTableObj;
+	protected IYCFBamStringColTableObj stringColTableObj;
+	protected IYCFBamStringDefTableObj stringDefTableObj;
+	protected IYCFBamStringTypeTableObj stringTypeTableObj;
+	protected IYCFBamSubProjectTableObj subProjectTableObj;
+	protected IYCFBamSysClusterTableObj sysClusterTableObj;
+	protected IYCFBamTSecGroupTableObj tSecGroupTableObj;
+	protected IYCFBamTSecGrpIncTableObj tSecGrpIncTableObj;
+	protected IYCFBamTSecGrpMembTableObj tSecGrpMembTableObj;
+	protected IYCFBamTZDateColTableObj tZDateColTableObj;
+	protected IYCFBamTZDateDefTableObj tZDateDefTableObj;
+	protected IYCFBamTZDateTypeTableObj tZDateTypeTableObj;
+	protected IYCFBamTZTimeColTableObj tZTimeColTableObj;
+	protected IYCFBamTZTimeDefTableObj tZTimeDefTableObj;
+	protected IYCFBamTZTimeTypeTableObj tZTimeTypeTableObj;
+	protected IYCFBamTZTimestampColTableObj tZTimestampColTableObj;
+	protected IYCFBamTZTimestampDefTableObj tZTimestampDefTableObj;
+	protected IYCFBamTZTimestampTypeTableObj tZTimestampTypeTableObj;
+	protected IYCFBamTableTableObj tableTableObj;
+	protected IYCFBamTableColTableObj tableColTableObj;
+	protected IYCFBamTableTweakTableObj tableTweakTableObj;
+	protected IYCFBamTenantTableObj tenantTableObj;
+	protected IYCFBamTextColTableObj textColTableObj;
+	protected IYCFBamTextDefTableObj textDefTableObj;
+	protected IYCFBamTextTypeTableObj textTypeTableObj;
+	protected IYCFBamTimeColTableObj timeColTableObj;
+	protected IYCFBamTimeDefTableObj timeDefTableObj;
+	protected IYCFBamTimeTypeTableObj timeTypeTableObj;
+	protected IYCFBamTimestampColTableObj timestampColTableObj;
+	protected IYCFBamTimestampDefTableObj timestampDefTableObj;
+	protected IYCFBamTimestampTypeTableObj timestampTypeTableObj;
+	protected IYCFBamTldTableObj tldTableObj;
+	protected IYCFBamTokenColTableObj tokenColTableObj;
+	protected IYCFBamTokenDefTableObj tokenDefTableObj;
+	protected IYCFBamTokenTypeTableObj tokenTypeTableObj;
+	protected IYCFBamTopDomainTableObj topDomainTableObj;
+	protected IYCFBamTopProjectTableObj topProjectTableObj;
+	protected IYCFBamTweakTableObj tweakTableObj;
+	protected IYCFBamUInt16ColTableObj uInt16ColTableObj;
+	protected IYCFBamUInt16DefTableObj uInt16DefTableObj;
+	protected IYCFBamUInt16TypeTableObj uInt16TypeTableObj;
+	protected IYCFBamUInt32ColTableObj uInt32ColTableObj;
+	protected IYCFBamUInt32DefTableObj uInt32DefTableObj;
+	protected IYCFBamUInt32TypeTableObj uInt32TypeTableObj;
+	protected IYCFBamUInt64ColTableObj uInt64ColTableObj;
+	protected IYCFBamUInt64DefTableObj uInt64DefTableObj;
+	protected IYCFBamUInt64TypeTableObj uInt64TypeTableObj;
+	protected IYCFBamURLProtocolTableObj uRLProtocolTableObj;
+	protected IYCFBamUuid6ColTableObj uuid6ColTableObj;
+	protected IYCFBamUuid6DefTableObj uuid6DefTableObj;
+	protected IYCFBamUuid6GenTableObj uuid6GenTableObj;
+	protected IYCFBamUuid6TypeTableObj uuid6TypeTableObj;
+	protected IYCFBamUuidColTableObj uuidColTableObj;
+	protected IYCFBamUuidDefTableObj uuidDefTableObj;
+	protected IYCFBamUuidGenTableObj uuidGenTableObj;
+	protected IYCFBamUuidTypeTableObj uuidTypeTableObj;
+	protected IYCFBamValueTableObj valueTableObj;
 
-	public CFBamSchemaObj() {
-		atomTableObj = new CFBamAtomTableObj( this );
-		blobColTableObj = new CFBamBlobColTableObj( this );
-		blobDefTableObj = new CFBamBlobDefTableObj( this );
-		blobTypeTableObj = new CFBamBlobTypeTableObj( this );
-		boolColTableObj = new CFBamBoolColTableObj( this );
-		boolDefTableObj = new CFBamBoolDefTableObj( this );
-		boolTypeTableObj = new CFBamBoolTypeTableObj( this );
-		chainTableObj = new CFBamChainTableObj( this );
-		clearDepTableObj = new CFBamClearDepTableObj( this );
-		clearSubDep1TableObj = new CFBamClearSubDep1TableObj( this );
-		clearSubDep2TableObj = new CFBamClearSubDep2TableObj( this );
-		clearSubDep3TableObj = new CFBamClearSubDep3TableObj( this );
-		clearTopDepTableObj = new CFBamClearTopDepTableObj( this );
-		clusterTableObj = new CFBamClusterTableObj( this );
-		dateColTableObj = new CFBamDateColTableObj( this );
-		dateDefTableObj = new CFBamDateDefTableObj( this );
-		dateTypeTableObj = new CFBamDateTypeTableObj( this );
-		dbKeyHash128ColTableObj = new CFBamDbKeyHash128ColTableObj( this );
-		dbKeyHash128DefTableObj = new CFBamDbKeyHash128DefTableObj( this );
-		dbKeyHash128GenTableObj = new CFBamDbKeyHash128GenTableObj( this );
-		dbKeyHash128TypeTableObj = new CFBamDbKeyHash128TypeTableObj( this );
-		dbKeyHash160ColTableObj = new CFBamDbKeyHash160ColTableObj( this );
-		dbKeyHash160DefTableObj = new CFBamDbKeyHash160DefTableObj( this );
-		dbKeyHash160GenTableObj = new CFBamDbKeyHash160GenTableObj( this );
-		dbKeyHash160TypeTableObj = new CFBamDbKeyHash160TypeTableObj( this );
-		dbKeyHash224ColTableObj = new CFBamDbKeyHash224ColTableObj( this );
-		dbKeyHash224DefTableObj = new CFBamDbKeyHash224DefTableObj( this );
-		dbKeyHash224GenTableObj = new CFBamDbKeyHash224GenTableObj( this );
-		dbKeyHash224TypeTableObj = new CFBamDbKeyHash224TypeTableObj( this );
-		dbKeyHash256ColTableObj = new CFBamDbKeyHash256ColTableObj( this );
-		dbKeyHash256DefTableObj = new CFBamDbKeyHash256DefTableObj( this );
-		dbKeyHash256GenTableObj = new CFBamDbKeyHash256GenTableObj( this );
-		dbKeyHash256TypeTableObj = new CFBamDbKeyHash256TypeTableObj( this );
-		dbKeyHash384ColTableObj = new CFBamDbKeyHash384ColTableObj( this );
-		dbKeyHash384DefTableObj = new CFBamDbKeyHash384DefTableObj( this );
-		dbKeyHash384GenTableObj = new CFBamDbKeyHash384GenTableObj( this );
-		dbKeyHash384TypeTableObj = new CFBamDbKeyHash384TypeTableObj( this );
-		dbKeyHash512ColTableObj = new CFBamDbKeyHash512ColTableObj( this );
-		dbKeyHash512DefTableObj = new CFBamDbKeyHash512DefTableObj( this );
-		dbKeyHash512GenTableObj = new CFBamDbKeyHash512GenTableObj( this );
-		dbKeyHash512TypeTableObj = new CFBamDbKeyHash512TypeTableObj( this );
-		delDepTableObj = new CFBamDelDepTableObj( this );
-		delSubDep1TableObj = new CFBamDelSubDep1TableObj( this );
-		delSubDep2TableObj = new CFBamDelSubDep2TableObj( this );
-		delSubDep3TableObj = new CFBamDelSubDep3TableObj( this );
-		delTopDepTableObj = new CFBamDelTopDepTableObj( this );
-		doubleColTableObj = new CFBamDoubleColTableObj( this );
-		doubleDefTableObj = new CFBamDoubleDefTableObj( this );
-		doubleTypeTableObj = new CFBamDoubleTypeTableObj( this );
-		enumDefTableObj = new CFBamEnumDefTableObj( this );
-		enumTagTableObj = new CFBamEnumTagTableObj( this );
-		enumTypeTableObj = new CFBamEnumTypeTableObj( this );
-		floatColTableObj = new CFBamFloatColTableObj( this );
-		floatDefTableObj = new CFBamFloatDefTableObj( this );
-		floatTypeTableObj = new CFBamFloatTypeTableObj( this );
-		hostNodeTableObj = new CFBamHostNodeTableObj( this );
-		iSOCcyTableObj = new CFBamISOCcyTableObj( this );
-		iSOCtryTableObj = new CFBamISOCtryTableObj( this );
-		iSOCtryCcyTableObj = new CFBamISOCtryCcyTableObj( this );
-		iSOCtryLangTableObj = new CFBamISOCtryLangTableObj( this );
-		iSOLangTableObj = new CFBamISOLangTableObj( this );
-		iSOTZoneTableObj = new CFBamISOTZoneTableObj( this );
-		id16GenTableObj = new CFBamId16GenTableObj( this );
-		id32GenTableObj = new CFBamId32GenTableObj( this );
-		id64GenTableObj = new CFBamId64GenTableObj( this );
-		indexTableObj = new CFBamIndexTableObj( this );
-		indexColTableObj = new CFBamIndexColTableObj( this );
-		indexTweakTableObj = new CFBamIndexTweakTableObj( this );
-		int16ColTableObj = new CFBamInt16ColTableObj( this );
-		int16DefTableObj = new CFBamInt16DefTableObj( this );
-		int16TypeTableObj = new CFBamInt16TypeTableObj( this );
-		int32ColTableObj = new CFBamInt32ColTableObj( this );
-		int32DefTableObj = new CFBamInt32DefTableObj( this );
-		int32TypeTableObj = new CFBamInt32TypeTableObj( this );
-		int64ColTableObj = new CFBamInt64ColTableObj( this );
-		int64DefTableObj = new CFBamInt64DefTableObj( this );
-		int64TypeTableObj = new CFBamInt64TypeTableObj( this );
-		licenseTableObj = new CFBamLicenseTableObj( this );
-		majorVersionTableObj = new CFBamMajorVersionTableObj( this );
-		mimeTypeTableObj = new CFBamMimeTypeTableObj( this );
-		minorVersionTableObj = new CFBamMinorVersionTableObj( this );
-		nmTokenColTableObj = new CFBamNmTokenColTableObj( this );
-		nmTokenDefTableObj = new CFBamNmTokenDefTableObj( this );
-		nmTokenTypeTableObj = new CFBamNmTokenTypeTableObj( this );
-		nmTokensColTableObj = new CFBamNmTokensColTableObj( this );
-		nmTokensDefTableObj = new CFBamNmTokensDefTableObj( this );
-		nmTokensTypeTableObj = new CFBamNmTokensTypeTableObj( this );
-		numberColTableObj = new CFBamNumberColTableObj( this );
-		numberDefTableObj = new CFBamNumberDefTableObj( this );
-		numberTypeTableObj = new CFBamNumberTypeTableObj( this );
-		paramTableObj = new CFBamParamTableObj( this );
-		popDepTableObj = new CFBamPopDepTableObj( this );
-		popSubDep1TableObj = new CFBamPopSubDep1TableObj( this );
-		popSubDep2TableObj = new CFBamPopSubDep2TableObj( this );
-		popSubDep3TableObj = new CFBamPopSubDep3TableObj( this );
-		popTopDepTableObj = new CFBamPopTopDepTableObj( this );
-		relationTableObj = new CFBamRelationTableObj( this );
-		relationColTableObj = new CFBamRelationColTableObj( this );
-		roleDefTableObj = new CFBamRoleDefTableObj( this );
-		schemaDefTableObj = new CFBamSchemaDefTableObj( this );
-		schemaRefTableObj = new CFBamSchemaRefTableObj( this );
-		schemaRoleTableObj = new CFBamSchemaRoleTableObj( this );
-		schemaTweakTableObj = new CFBamSchemaTweakTableObj( this );
-		scopeTableObj = new CFBamScopeTableObj( this );
-		secAppTableObj = new CFBamSecAppTableObj( this );
-		secDeviceTableObj = new CFBamSecDeviceTableObj( this );
-		secFormTableObj = new CFBamSecFormTableObj( this );
-		secGroupTableObj = new CFBamSecGroupTableObj( this );
-		secGroupFormTableObj = new CFBamSecGroupFormTableObj( this );
-		secGrpIncTableObj = new CFBamSecGrpIncTableObj( this );
-		secGrpMembTableObj = new CFBamSecGrpMembTableObj( this );
-		secSessionTableObj = new CFBamSecSessionTableObj( this );
-		secUserTableObj = new CFBamSecUserTableObj( this );
-		serverListFuncTableObj = new CFBamServerListFuncTableObj( this );
-		serverMethodTableObj = new CFBamServerMethodTableObj( this );
-		serverObjFuncTableObj = new CFBamServerObjFuncTableObj( this );
-		serverProcTableObj = new CFBamServerProcTableObj( this );
-		serviceTableObj = new CFBamServiceTableObj( this );
-		serviceTypeTableObj = new CFBamServiceTypeTableObj( this );
-		stringColTableObj = new CFBamStringColTableObj( this );
-		stringDefTableObj = new CFBamStringDefTableObj( this );
-		stringTypeTableObj = new CFBamStringTypeTableObj( this );
-		subProjectTableObj = new CFBamSubProjectTableObj( this );
-		sysClusterTableObj = new CFBamSysClusterTableObj( this );
-		tSecGroupTableObj = new CFBamTSecGroupTableObj( this );
-		tSecGrpIncTableObj = new CFBamTSecGrpIncTableObj( this );
-		tSecGrpMembTableObj = new CFBamTSecGrpMembTableObj( this );
-		tZDateColTableObj = new CFBamTZDateColTableObj( this );
-		tZDateDefTableObj = new CFBamTZDateDefTableObj( this );
-		tZDateTypeTableObj = new CFBamTZDateTypeTableObj( this );
-		tZTimeColTableObj = new CFBamTZTimeColTableObj( this );
-		tZTimeDefTableObj = new CFBamTZTimeDefTableObj( this );
-		tZTimeTypeTableObj = new CFBamTZTimeTypeTableObj( this );
-		tZTimestampColTableObj = new CFBamTZTimestampColTableObj( this );
-		tZTimestampDefTableObj = new CFBamTZTimestampDefTableObj( this );
-		tZTimestampTypeTableObj = new CFBamTZTimestampTypeTableObj( this );
-		tableTableObj = new CFBamTableTableObj( this );
-		tableColTableObj = new CFBamTableColTableObj( this );
-		tableTweakTableObj = new CFBamTableTweakTableObj( this );
-		tenantTableObj = new CFBamTenantTableObj( this );
-		textColTableObj = new CFBamTextColTableObj( this );
-		textDefTableObj = new CFBamTextDefTableObj( this );
-		textTypeTableObj = new CFBamTextTypeTableObj( this );
-		timeColTableObj = new CFBamTimeColTableObj( this );
-		timeDefTableObj = new CFBamTimeDefTableObj( this );
-		timeTypeTableObj = new CFBamTimeTypeTableObj( this );
-		timestampColTableObj = new CFBamTimestampColTableObj( this );
-		timestampDefTableObj = new CFBamTimestampDefTableObj( this );
-		timestampTypeTableObj = new CFBamTimestampTypeTableObj( this );
-		tldTableObj = new CFBamTldTableObj( this );
-		tokenColTableObj = new CFBamTokenColTableObj( this );
-		tokenDefTableObj = new CFBamTokenDefTableObj( this );
-		tokenTypeTableObj = new CFBamTokenTypeTableObj( this );
-		topDomainTableObj = new CFBamTopDomainTableObj( this );
-		topProjectTableObj = new CFBamTopProjectTableObj( this );
-		tweakTableObj = new CFBamTweakTableObj( this );
-		uInt16ColTableObj = new CFBamUInt16ColTableObj( this );
-		uInt16DefTableObj = new CFBamUInt16DefTableObj( this );
-		uInt16TypeTableObj = new CFBamUInt16TypeTableObj( this );
-		uInt32ColTableObj = new CFBamUInt32ColTableObj( this );
-		uInt32DefTableObj = new CFBamUInt32DefTableObj( this );
-		uInt32TypeTableObj = new CFBamUInt32TypeTableObj( this );
-		uInt64ColTableObj = new CFBamUInt64ColTableObj( this );
-		uInt64DefTableObj = new CFBamUInt64DefTableObj( this );
-		uInt64TypeTableObj = new CFBamUInt64TypeTableObj( this );
-		uRLProtocolTableObj = new CFBamURLProtocolTableObj( this );
-		uuid6ColTableObj = new CFBamUuid6ColTableObj( this );
-		uuid6DefTableObj = new CFBamUuid6DefTableObj( this );
-		uuid6GenTableObj = new CFBamUuid6GenTableObj( this );
-		uuid6TypeTableObj = new CFBamUuid6TypeTableObj( this );
-		uuidColTableObj = new CFBamUuidColTableObj( this );
-		uuidDefTableObj = new CFBamUuidDefTableObj( this );
-		uuidGenTableObj = new CFBamUuidGenTableObj( this );
-		uuidTypeTableObj = new CFBamUuidTypeTableObj( this );
-		valueTableObj = new CFBamValueTableObj( this );
+	public YCFBamSchemaObj() {
+		atomTableObj = new YCFBamAtomTableObj( this );
+		blobColTableObj = new YCFBamBlobColTableObj( this );
+		blobDefTableObj = new YCFBamBlobDefTableObj( this );
+		blobTypeTableObj = new YCFBamBlobTypeTableObj( this );
+		boolColTableObj = new YCFBamBoolColTableObj( this );
+		boolDefTableObj = new YCFBamBoolDefTableObj( this );
+		boolTypeTableObj = new YCFBamBoolTypeTableObj( this );
+		chainTableObj = new YCFBamChainTableObj( this );
+		clearDepTableObj = new YCFBamClearDepTableObj( this );
+		clearSubDep1TableObj = new YCFBamClearSubDep1TableObj( this );
+		clearSubDep2TableObj = new YCFBamClearSubDep2TableObj( this );
+		clearSubDep3TableObj = new YCFBamClearSubDep3TableObj( this );
+		clearTopDepTableObj = new YCFBamClearTopDepTableObj( this );
+		clusterTableObj = new YCFBamClusterTableObj( this );
+		dateColTableObj = new YCFBamDateColTableObj( this );
+		dateDefTableObj = new YCFBamDateDefTableObj( this );
+		dateTypeTableObj = new YCFBamDateTypeTableObj( this );
+		dbKeyHash128ColTableObj = new YCFBamDbKeyHash128ColTableObj( this );
+		dbKeyHash128DefTableObj = new YCFBamDbKeyHash128DefTableObj( this );
+		dbKeyHash128GenTableObj = new YCFBamDbKeyHash128GenTableObj( this );
+		dbKeyHash128TypeTableObj = new YCFBamDbKeyHash128TypeTableObj( this );
+		dbKeyHash160ColTableObj = new YCFBamDbKeyHash160ColTableObj( this );
+		dbKeyHash160DefTableObj = new YCFBamDbKeyHash160DefTableObj( this );
+		dbKeyHash160GenTableObj = new YCFBamDbKeyHash160GenTableObj( this );
+		dbKeyHash160TypeTableObj = new YCFBamDbKeyHash160TypeTableObj( this );
+		dbKeyHash224ColTableObj = new YCFBamDbKeyHash224ColTableObj( this );
+		dbKeyHash224DefTableObj = new YCFBamDbKeyHash224DefTableObj( this );
+		dbKeyHash224GenTableObj = new YCFBamDbKeyHash224GenTableObj( this );
+		dbKeyHash224TypeTableObj = new YCFBamDbKeyHash224TypeTableObj( this );
+		dbKeyHash256ColTableObj = new YCFBamDbKeyHash256ColTableObj( this );
+		dbKeyHash256DefTableObj = new YCFBamDbKeyHash256DefTableObj( this );
+		dbKeyHash256GenTableObj = new YCFBamDbKeyHash256GenTableObj( this );
+		dbKeyHash256TypeTableObj = new YCFBamDbKeyHash256TypeTableObj( this );
+		dbKeyHash384ColTableObj = new YCFBamDbKeyHash384ColTableObj( this );
+		dbKeyHash384DefTableObj = new YCFBamDbKeyHash384DefTableObj( this );
+		dbKeyHash384GenTableObj = new YCFBamDbKeyHash384GenTableObj( this );
+		dbKeyHash384TypeTableObj = new YCFBamDbKeyHash384TypeTableObj( this );
+		dbKeyHash512ColTableObj = new YCFBamDbKeyHash512ColTableObj( this );
+		dbKeyHash512DefTableObj = new YCFBamDbKeyHash512DefTableObj( this );
+		dbKeyHash512GenTableObj = new YCFBamDbKeyHash512GenTableObj( this );
+		dbKeyHash512TypeTableObj = new YCFBamDbKeyHash512TypeTableObj( this );
+		delDepTableObj = new YCFBamDelDepTableObj( this );
+		delSubDep1TableObj = new YCFBamDelSubDep1TableObj( this );
+		delSubDep2TableObj = new YCFBamDelSubDep2TableObj( this );
+		delSubDep3TableObj = new YCFBamDelSubDep3TableObj( this );
+		delTopDepTableObj = new YCFBamDelTopDepTableObj( this );
+		doubleColTableObj = new YCFBamDoubleColTableObj( this );
+		doubleDefTableObj = new YCFBamDoubleDefTableObj( this );
+		doubleTypeTableObj = new YCFBamDoubleTypeTableObj( this );
+		enumDefTableObj = new YCFBamEnumDefTableObj( this );
+		enumTagTableObj = new YCFBamEnumTagTableObj( this );
+		enumTypeTableObj = new YCFBamEnumTypeTableObj( this );
+		floatColTableObj = new YCFBamFloatColTableObj( this );
+		floatDefTableObj = new YCFBamFloatDefTableObj( this );
+		floatTypeTableObj = new YCFBamFloatTypeTableObj( this );
+		hostNodeTableObj = new YCFBamHostNodeTableObj( this );
+		iSOCcyTableObj = new YCFBamISOCcyTableObj( this );
+		iSOCtryTableObj = new YCFBamISOCtryTableObj( this );
+		iSOCtryCcyTableObj = new YCFBamISOCtryCcyTableObj( this );
+		iSOCtryLangTableObj = new YCFBamISOCtryLangTableObj( this );
+		iSOLangTableObj = new YCFBamISOLangTableObj( this );
+		iSOTZoneTableObj = new YCFBamISOTZoneTableObj( this );
+		id16GenTableObj = new YCFBamId16GenTableObj( this );
+		id32GenTableObj = new YCFBamId32GenTableObj( this );
+		id64GenTableObj = new YCFBamId64GenTableObj( this );
+		indexTableObj = new YCFBamIndexTableObj( this );
+		indexColTableObj = new YCFBamIndexColTableObj( this );
+		indexTweakTableObj = new YCFBamIndexTweakTableObj( this );
+		int16ColTableObj = new YCFBamInt16ColTableObj( this );
+		int16DefTableObj = new YCFBamInt16DefTableObj( this );
+		int16TypeTableObj = new YCFBamInt16TypeTableObj( this );
+		int32ColTableObj = new YCFBamInt32ColTableObj( this );
+		int32DefTableObj = new YCFBamInt32DefTableObj( this );
+		int32TypeTableObj = new YCFBamInt32TypeTableObj( this );
+		int64ColTableObj = new YCFBamInt64ColTableObj( this );
+		int64DefTableObj = new YCFBamInt64DefTableObj( this );
+		int64TypeTableObj = new YCFBamInt64TypeTableObj( this );
+		licenseTableObj = new YCFBamLicenseTableObj( this );
+		majorVersionTableObj = new YCFBamMajorVersionTableObj( this );
+		mimeTypeTableObj = new YCFBamMimeTypeTableObj( this );
+		minorVersionTableObj = new YCFBamMinorVersionTableObj( this );
+		nmTokenColTableObj = new YCFBamNmTokenColTableObj( this );
+		nmTokenDefTableObj = new YCFBamNmTokenDefTableObj( this );
+		nmTokenTypeTableObj = new YCFBamNmTokenTypeTableObj( this );
+		nmTokensColTableObj = new YCFBamNmTokensColTableObj( this );
+		nmTokensDefTableObj = new YCFBamNmTokensDefTableObj( this );
+		nmTokensTypeTableObj = new YCFBamNmTokensTypeTableObj( this );
+		numberColTableObj = new YCFBamNumberColTableObj( this );
+		numberDefTableObj = new YCFBamNumberDefTableObj( this );
+		numberTypeTableObj = new YCFBamNumberTypeTableObj( this );
+		paramTableObj = new YCFBamParamTableObj( this );
+		popDepTableObj = new YCFBamPopDepTableObj( this );
+		popSubDep1TableObj = new YCFBamPopSubDep1TableObj( this );
+		popSubDep2TableObj = new YCFBamPopSubDep2TableObj( this );
+		popSubDep3TableObj = new YCFBamPopSubDep3TableObj( this );
+		popTopDepTableObj = new YCFBamPopTopDepTableObj( this );
+		relationTableObj = new YCFBamRelationTableObj( this );
+		relationColTableObj = new YCFBamRelationColTableObj( this );
+		roleDefTableObj = new YCFBamRoleDefTableObj( this );
+		schemaDefTableObj = new YCFBamSchemaDefTableObj( this );
+		schemaRefTableObj = new YCFBamSchemaRefTableObj( this );
+		schemaRoleTableObj = new YCFBamSchemaRoleTableObj( this );
+		schemaTweakTableObj = new YCFBamSchemaTweakTableObj( this );
+		scopeTableObj = new YCFBamScopeTableObj( this );
+		secAppTableObj = new YCFBamSecAppTableObj( this );
+		secDeviceTableObj = new YCFBamSecDeviceTableObj( this );
+		secFormTableObj = new YCFBamSecFormTableObj( this );
+		secGroupTableObj = new YCFBamSecGroupTableObj( this );
+		secGroupFormTableObj = new YCFBamSecGroupFormTableObj( this );
+		secGrpIncTableObj = new YCFBamSecGrpIncTableObj( this );
+		secGrpMembTableObj = new YCFBamSecGrpMembTableObj( this );
+		secSessionTableObj = new YCFBamSecSessionTableObj( this );
+		secUserTableObj = new YCFBamSecUserTableObj( this );
+		serverListFuncTableObj = new YCFBamServerListFuncTableObj( this );
+		serverMethodTableObj = new YCFBamServerMethodTableObj( this );
+		serverObjFuncTableObj = new YCFBamServerObjFuncTableObj( this );
+		serverProcTableObj = new YCFBamServerProcTableObj( this );
+		serviceTableObj = new YCFBamServiceTableObj( this );
+		serviceTypeTableObj = new YCFBamServiceTypeTableObj( this );
+		stringColTableObj = new YCFBamStringColTableObj( this );
+		stringDefTableObj = new YCFBamStringDefTableObj( this );
+		stringTypeTableObj = new YCFBamStringTypeTableObj( this );
+		subProjectTableObj = new YCFBamSubProjectTableObj( this );
+		sysClusterTableObj = new YCFBamSysClusterTableObj( this );
+		tSecGroupTableObj = new YCFBamTSecGroupTableObj( this );
+		tSecGrpIncTableObj = new YCFBamTSecGrpIncTableObj( this );
+		tSecGrpMembTableObj = new YCFBamTSecGrpMembTableObj( this );
+		tZDateColTableObj = new YCFBamTZDateColTableObj( this );
+		tZDateDefTableObj = new YCFBamTZDateDefTableObj( this );
+		tZDateTypeTableObj = new YCFBamTZDateTypeTableObj( this );
+		tZTimeColTableObj = new YCFBamTZTimeColTableObj( this );
+		tZTimeDefTableObj = new YCFBamTZTimeDefTableObj( this );
+		tZTimeTypeTableObj = new YCFBamTZTimeTypeTableObj( this );
+		tZTimestampColTableObj = new YCFBamTZTimestampColTableObj( this );
+		tZTimestampDefTableObj = new YCFBamTZTimestampDefTableObj( this );
+		tZTimestampTypeTableObj = new YCFBamTZTimestampTypeTableObj( this );
+		tableTableObj = new YCFBamTableTableObj( this );
+		tableColTableObj = new YCFBamTableColTableObj( this );
+		tableTweakTableObj = new YCFBamTableTweakTableObj( this );
+		tenantTableObj = new YCFBamTenantTableObj( this );
+		textColTableObj = new YCFBamTextColTableObj( this );
+		textDefTableObj = new YCFBamTextDefTableObj( this );
+		textTypeTableObj = new YCFBamTextTypeTableObj( this );
+		timeColTableObj = new YCFBamTimeColTableObj( this );
+		timeDefTableObj = new YCFBamTimeDefTableObj( this );
+		timeTypeTableObj = new YCFBamTimeTypeTableObj( this );
+		timestampColTableObj = new YCFBamTimestampColTableObj( this );
+		timestampDefTableObj = new YCFBamTimestampDefTableObj( this );
+		timestampTypeTableObj = new YCFBamTimestampTypeTableObj( this );
+		tldTableObj = new YCFBamTldTableObj( this );
+		tokenColTableObj = new YCFBamTokenColTableObj( this );
+		tokenDefTableObj = new YCFBamTokenDefTableObj( this );
+		tokenTypeTableObj = new YCFBamTokenTypeTableObj( this );
+		topDomainTableObj = new YCFBamTopDomainTableObj( this );
+		topProjectTableObj = new YCFBamTopProjectTableObj( this );
+		tweakTableObj = new YCFBamTweakTableObj( this );
+		uInt16ColTableObj = new YCFBamUInt16ColTableObj( this );
+		uInt16DefTableObj = new YCFBamUInt16DefTableObj( this );
+		uInt16TypeTableObj = new YCFBamUInt16TypeTableObj( this );
+		uInt32ColTableObj = new YCFBamUInt32ColTableObj( this );
+		uInt32DefTableObj = new YCFBamUInt32DefTableObj( this );
+		uInt32TypeTableObj = new YCFBamUInt32TypeTableObj( this );
+		uInt64ColTableObj = new YCFBamUInt64ColTableObj( this );
+		uInt64DefTableObj = new YCFBamUInt64DefTableObj( this );
+		uInt64TypeTableObj = new YCFBamUInt64TypeTableObj( this );
+		uRLProtocolTableObj = new YCFBamURLProtocolTableObj( this );
+		uuid6ColTableObj = new YCFBamUuid6ColTableObj( this );
+		uuid6DefTableObj = new YCFBamUuid6DefTableObj( this );
+		uuid6GenTableObj = new YCFBamUuid6GenTableObj( this );
+		uuid6TypeTableObj = new YCFBamUuid6TypeTableObj( this );
+		uuidColTableObj = new YCFBamUuidColTableObj( this );
+		uuidDefTableObj = new YCFBamUuidDefTableObj( this );
+		uuidGenTableObj = new YCFBamUuidGenTableObj( this );
+		uuidTypeTableObj = new YCFBamUuidTypeTableObj( this );
+		valueTableObj = new YCFBamValueTableObj( this );
 		}
 
 	public void setSecClusterName( String value ) {
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setClusterName",
 				1,
 				"value" );
@@ -447,7 +447,7 @@ public class CFBamSchemaObj
 		return( secClusterName );
 	}
 
-	public ICFSecClusterObj getSecCluster() {
+	public IYCFSecClusterObj getSecCluster() {
 		if( secCluster == null ) {
 			if( authorization != null ) {
 				secCluster = getClusterTableObj().readClusterByIdIdx( authorization.getSecClusterId() );
@@ -469,7 +469,7 @@ public class CFBamSchemaObj
 		return( secCluster );
 	}
 
-	public void setSecCluster( ICFSecClusterObj value ) {
+	public void setSecCluster( IYCFSecClusterObj value ) {
 		secCluster = value;
 		if( secCluster == null ) {
 			return;
@@ -487,7 +487,7 @@ public class CFBamSchemaObj
 
 	public void setSecTenantName( String value ) {
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setTenantName",
 				1,
 				"value" );
@@ -500,7 +500,7 @@ public class CFBamSchemaObj
 		return( secTenantName );
 	}
 
-	public ICFSecTenantObj getSecTenant() {
+	public IYCFSecTenantObj getSecTenant() {
 		if( secTenant == null ) {
 			if( authorization != null ) {
 				secTenant = getTenantTableObj().readTenantByIdIdx( authorization.getSecTenantId() );
@@ -522,7 +522,7 @@ public class CFBamSchemaObj
 		return( secTenant );
 	}
 
-	public void setSecTenant( ICFSecTenantObj value ) {
+	public void setSecTenant( IYCFSecTenantObj value ) {
 		secTenant = value;
 		if( secTenant == null ) {
 			return;
@@ -540,7 +540,7 @@ public class CFBamSchemaObj
 
 	public void setSecUserName( String value ) {
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setUserName",
 				1,
 				"value" );
@@ -553,7 +553,7 @@ public class CFBamSchemaObj
 		return( secUserName );
 	}
 
-	public ICFSecSecUserObj getSecUser() {
+	public IYCFSecSecUserObj getSecUser() {
 		if( secUser == null ) {
 			if( authorization != null ) {
 				secUser = getSecUserTableObj().readSecUserByIdIdx( authorization.getSecUserId() );
@@ -572,14 +572,14 @@ public class CFBamSchemaObj
 		return( secUser );
 	}
 
-	public void setSecUser( ICFSecSecUserObj value ) {
+	public void setSecUser( IYCFSecSecUserObj value ) {
 		secUser = value;
 		if( secUser != null ) {
 			secUserName = secUser.getRequiredLoginId();
 			secSessionUserId = secUser.getRequiredSecUserId();
 		}
 	}
-	public ICFSecSecSessionObj getSecSession() {
+	public IYCFSecSecSessionObj getSecSession() {
 		if( secSession == null ) {
 			if( authorization != null ) {
 				secSession = getSecSessionTableObj().readSecSessionByIdIdx( authorization.getSecSessionId() );
@@ -595,7 +595,7 @@ public class CFBamSchemaObj
 		return( secSession );
 	}
 
-	public void setSecSession( ICFSecSecSessionObj value ) {
+	public void setSecSession( IYCFSecSecSessionObj value ) {
 		secSession = value;
 		if( secSession == null ) {
 			return;
@@ -660,7 +660,7 @@ public class CFBamSchemaObj
 		rollback();
 
 		if( ( argDbSchemaName == null ) || ( argDbSchemaName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"argDbSchemaName" );
@@ -689,19 +689,19 @@ public class CFBamSchemaObj
 	 */
 	public void releasePreparedStatements() {
 	}
-	public CFSecAuthorization getAuthorization() {
+	public YCFSecAuthorization getAuthorization() {
 		return( authorization );
 	}
 
-	public void setAuthorization( CFSecAuthorization value ) {
+	public void setAuthorization( YCFSecAuthorization value ) {
 		authorization = value;
 	}
 
-	public ICFSecSchema getBackingStore() {
+	public IYCFSecSchema getBackingStore() {
 		return( backingStore );
 	}
 
-	public void setBackingStore( ICFSecSchema value ) {
+	public void setBackingStore( IYCFSecSchema value ) {
 		backingStore = value;
 	}
 
@@ -729,25 +729,25 @@ public class CFBamSchemaObj
 	public boolean connect( String clusterName, String tenantName, String secUserName, String password ) {
 		final String S_ProcName = "connect-full";
 		if( ( clusterName == null ) || ( clusterName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"clusterName" );
 		}
 		if( ( tenantName == null ) || ( tenantName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"tenantName" );
 		}
 		if( ( secUserName == null ) || ( secUserName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				3,
 				"secUserName" );
 		}
 		if( ( password == null ) || ( password.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				5,
 				"password" );
@@ -773,7 +773,7 @@ public class CFBamSchemaObj
 		{
 			if( secCluster == null ) {
 				secCluster = getClusterTableObj().newInstance();
-				ICFSecClusterEditObj editCluster = secCluster.getEdit();
+				IYCFSecClusterEditObj editCluster = secCluster.getEdit();
 				if( editCluster == null ) {
 					editCluster = secCluster.beginEdit();
 					editCluster.setRequiredDescription( "system" );
@@ -784,7 +784,7 @@ public class CFBamSchemaObj
 			}
 			if( secTenant == null ) {
 				secTenant = getTenantTableObj().newInstance();
-				ICFSecTenantEditObj editTenant = secTenant.getEdit();
+				IYCFSecTenantEditObj editTenant = secTenant.getEdit();
 				if( editTenant == null ) {
 					editTenant = secTenant.beginEdit();
 					editTenant.setRequiredContainerCluster( secCluster);
@@ -795,7 +795,7 @@ public class CFBamSchemaObj
 			}
 			if( secUser == null ) {
 				secUser = getSecUserTableObj().newInstance();
-				ICFSecSecUserEditObj editSecUser = secUser.getEdit();
+				IYCFSecSecUserEditObj editSecUser = secUser.getEdit();
 				if( editSecUser == null ) {
 					editSecUser = secUser.beginEdit();
 					editSecUser.setRequiredEMailAddress( "system" );
@@ -811,13 +811,13 @@ public class CFBamSchemaObj
 			secTenant = null;
 			secUser = null;
 			secSession = null;
-			ICFSecClusterObj cluster = getSecCluster();
-			ICFSecTenantObj tenant = getSecTenant();
-			ICFSecSecUserObj user = getSecUser();
-			ICFSecSecSessionObj session;
+			IYCFSecClusterObj cluster = getSecCluster();
+			IYCFSecTenantObj tenant = getSecTenant();
+			IYCFSecSecUserObj user = getSecUser();
+			IYCFSecSecSessionObj session;
 			if( ( cluster != null ) && ( tenant != null ) && ( user != null ) ) {
 				session = getSecSessionTableObj().newInstance();
-				ICFSecSecSessionEditObj sessionEdit = session.beginEdit();
+				IYCFSecSecSessionEditObj sessionEdit = session.beginEdit();
 				sessionEdit.setRequiredContainerSecUser( user );
 				sessionEdit.setRequiredStart( Calendar.getInstance() );
 				sessionEdit.setOptionalFinish( null );
@@ -831,12 +831,12 @@ public class CFBamSchemaObj
 			if( ( cluster == null ) || ( tenant == null ) || ( user == null ) || ( session == null ) ) {
 				disconnect( false );
 				authorization = null;
-				throw new CFLibRuntimeException( getClass(),
+				throw new YCFLibRuntimeException( getClass(),
 					S_ProcName,
 					"Could not resolve cluster name, tenant name, user name, or session.  Login cancelled" );
 			}
 			if( authorization == null ) {
-				authorization = new CFSecAuthorization();
+				authorization = new YCFSecAuthorization();
 			}
 			authorization.setSecCluster( cluster );
 			authorization.setSecTenant( tenant );
@@ -851,13 +851,13 @@ public class CFBamSchemaObj
 		secTenant = null;
 		secUser = null;
 		secSession = null;
-		ICFSecClusterObj cluster = getSecCluster();
-		ICFSecTenantObj tenant = getSecTenant();
-		ICFSecSecUserObj user = getSecUser();
-		ICFSecSecSessionObj session;
+		IYCFSecClusterObj cluster = getSecCluster();
+		IYCFSecTenantObj tenant = getSecTenant();
+		IYCFSecSecUserObj user = getSecUser();
+		IYCFSecSecSessionObj session;
 		if( ( cluster != null ) && ( tenant != null ) && ( user != null ) ) {
 			session = getSecSessionTableObj().newInstance();
-			ICFSecSecSessionEditObj sessionEdit = session.beginEdit();
+			IYCFSecSecSessionEditObj sessionEdit = session.beginEdit();
 			sessionEdit.setRequiredContainerSecUser( user );
 			sessionEdit.setRequiredStart( Calendar.getInstance() );
 			sessionEdit.setOptionalFinish( null );
@@ -874,12 +874,12 @@ public class CFBamSchemaObj
 		if( ( cluster == null ) || ( tenant == null ) || ( user == null ) || ( session == null ) ) {
 			disconnect( false );
 			authorization = null;
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Could not resolve cluster name, tenant name, user name, or session.  Login cancelled" );
 		}
 		if( authorization == null ) {
-			authorization = new CFSecAuthorization();
+			authorization = new YCFSecAuthorization();
 		}
 		authorization.setSecCluster( cluster );
 		authorization.setSecTenant( tenant );
@@ -911,10 +911,10 @@ public class CFBamSchemaObj
 				}
 				UUID secSessionId = authorization.getSecSessionId();
 				if( secSessionId != null ) {
-					ICFSecSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
+					IYCFSecSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
 					if( secSession != null ) {
 						if( secSession.getOptionalFinish() == null ) {
-							ICFSecSecSessionEditObj editSecSession = secSession.beginEdit();
+							IYCFSecSecSessionEditObj editSecSession = secSession.beginEdit();
 							editSecSession.setOptionalFinish( Calendar.getInstance() );
 							editSecSession.update();
 							editSecSession = null;
@@ -1479,703 +1479,703 @@ public class CFBamSchemaObj
 	public void rollback() {
 		backingStore.rollback();
 	}
-	public ICFBamAtomTableObj getAtomTableObj() {
+	public IYCFBamAtomTableObj getAtomTableObj() {
 		return( atomTableObj );
 	}
 
-	public ICFBamBlobColTableObj getBlobColTableObj() {
+	public IYCFBamBlobColTableObj getBlobColTableObj() {
 		return( blobColTableObj );
 	}
 
-	public ICFBamBlobDefTableObj getBlobDefTableObj() {
+	public IYCFBamBlobDefTableObj getBlobDefTableObj() {
 		return( blobDefTableObj );
 	}
 
-	public ICFBamBlobTypeTableObj getBlobTypeTableObj() {
+	public IYCFBamBlobTypeTableObj getBlobTypeTableObj() {
 		return( blobTypeTableObj );
 	}
 
-	public ICFBamBoolColTableObj getBoolColTableObj() {
+	public IYCFBamBoolColTableObj getBoolColTableObj() {
 		return( boolColTableObj );
 	}
 
-	public ICFBamBoolDefTableObj getBoolDefTableObj() {
+	public IYCFBamBoolDefTableObj getBoolDefTableObj() {
 		return( boolDefTableObj );
 	}
 
-	public ICFBamBoolTypeTableObj getBoolTypeTableObj() {
+	public IYCFBamBoolTypeTableObj getBoolTypeTableObj() {
 		return( boolTypeTableObj );
 	}
 
-	public ICFBamChainTableObj getChainTableObj() {
+	public IYCFBamChainTableObj getChainTableObj() {
 		return( chainTableObj );
 	}
 
-	public ICFBamClearDepTableObj getClearDepTableObj() {
+	public IYCFBamClearDepTableObj getClearDepTableObj() {
 		return( clearDepTableObj );
 	}
 
-	public ICFBamClearSubDep1TableObj getClearSubDep1TableObj() {
+	public IYCFBamClearSubDep1TableObj getClearSubDep1TableObj() {
 		return( clearSubDep1TableObj );
 	}
 
-	public ICFBamClearSubDep2TableObj getClearSubDep2TableObj() {
+	public IYCFBamClearSubDep2TableObj getClearSubDep2TableObj() {
 		return( clearSubDep2TableObj );
 	}
 
-	public ICFBamClearSubDep3TableObj getClearSubDep3TableObj() {
+	public IYCFBamClearSubDep3TableObj getClearSubDep3TableObj() {
 		return( clearSubDep3TableObj );
 	}
 
-	public ICFBamClearTopDepTableObj getClearTopDepTableObj() {
+	public IYCFBamClearTopDepTableObj getClearTopDepTableObj() {
 		return( clearTopDepTableObj );
 	}
 
-	public ICFBamClusterTableObj getClusterTableObj() {
+	public IYCFBamClusterTableObj getClusterTableObj() {
 		return( clusterTableObj );
 	}
 
-	public ICFBamDateColTableObj getDateColTableObj() {
+	public IYCFBamDateColTableObj getDateColTableObj() {
 		return( dateColTableObj );
 	}
 
-	public ICFBamDateDefTableObj getDateDefTableObj() {
+	public IYCFBamDateDefTableObj getDateDefTableObj() {
 		return( dateDefTableObj );
 	}
 
-	public ICFBamDateTypeTableObj getDateTypeTableObj() {
+	public IYCFBamDateTypeTableObj getDateTypeTableObj() {
 		return( dateTypeTableObj );
 	}
 
-	public ICFBamDbKeyHash128ColTableObj getDbKeyHash128ColTableObj() {
+	public IYCFBamDbKeyHash128ColTableObj getDbKeyHash128ColTableObj() {
 		return( dbKeyHash128ColTableObj );
 	}
 
-	public ICFBamDbKeyHash128DefTableObj getDbKeyHash128DefTableObj() {
+	public IYCFBamDbKeyHash128DefTableObj getDbKeyHash128DefTableObj() {
 		return( dbKeyHash128DefTableObj );
 	}
 
-	public ICFBamDbKeyHash128GenTableObj getDbKeyHash128GenTableObj() {
+	public IYCFBamDbKeyHash128GenTableObj getDbKeyHash128GenTableObj() {
 		return( dbKeyHash128GenTableObj );
 	}
 
-	public ICFBamDbKeyHash128TypeTableObj getDbKeyHash128TypeTableObj() {
+	public IYCFBamDbKeyHash128TypeTableObj getDbKeyHash128TypeTableObj() {
 		return( dbKeyHash128TypeTableObj );
 	}
 
-	public ICFBamDbKeyHash160ColTableObj getDbKeyHash160ColTableObj() {
+	public IYCFBamDbKeyHash160ColTableObj getDbKeyHash160ColTableObj() {
 		return( dbKeyHash160ColTableObj );
 	}
 
-	public ICFBamDbKeyHash160DefTableObj getDbKeyHash160DefTableObj() {
+	public IYCFBamDbKeyHash160DefTableObj getDbKeyHash160DefTableObj() {
 		return( dbKeyHash160DefTableObj );
 	}
 
-	public ICFBamDbKeyHash160GenTableObj getDbKeyHash160GenTableObj() {
+	public IYCFBamDbKeyHash160GenTableObj getDbKeyHash160GenTableObj() {
 		return( dbKeyHash160GenTableObj );
 	}
 
-	public ICFBamDbKeyHash160TypeTableObj getDbKeyHash160TypeTableObj() {
+	public IYCFBamDbKeyHash160TypeTableObj getDbKeyHash160TypeTableObj() {
 		return( dbKeyHash160TypeTableObj );
 	}
 
-	public ICFBamDbKeyHash224ColTableObj getDbKeyHash224ColTableObj() {
+	public IYCFBamDbKeyHash224ColTableObj getDbKeyHash224ColTableObj() {
 		return( dbKeyHash224ColTableObj );
 	}
 
-	public ICFBamDbKeyHash224DefTableObj getDbKeyHash224DefTableObj() {
+	public IYCFBamDbKeyHash224DefTableObj getDbKeyHash224DefTableObj() {
 		return( dbKeyHash224DefTableObj );
 	}
 
-	public ICFBamDbKeyHash224GenTableObj getDbKeyHash224GenTableObj() {
+	public IYCFBamDbKeyHash224GenTableObj getDbKeyHash224GenTableObj() {
 		return( dbKeyHash224GenTableObj );
 	}
 
-	public ICFBamDbKeyHash224TypeTableObj getDbKeyHash224TypeTableObj() {
+	public IYCFBamDbKeyHash224TypeTableObj getDbKeyHash224TypeTableObj() {
 		return( dbKeyHash224TypeTableObj );
 	}
 
-	public ICFBamDbKeyHash256ColTableObj getDbKeyHash256ColTableObj() {
+	public IYCFBamDbKeyHash256ColTableObj getDbKeyHash256ColTableObj() {
 		return( dbKeyHash256ColTableObj );
 	}
 
-	public ICFBamDbKeyHash256DefTableObj getDbKeyHash256DefTableObj() {
+	public IYCFBamDbKeyHash256DefTableObj getDbKeyHash256DefTableObj() {
 		return( dbKeyHash256DefTableObj );
 	}
 
-	public ICFBamDbKeyHash256GenTableObj getDbKeyHash256GenTableObj() {
+	public IYCFBamDbKeyHash256GenTableObj getDbKeyHash256GenTableObj() {
 		return( dbKeyHash256GenTableObj );
 	}
 
-	public ICFBamDbKeyHash256TypeTableObj getDbKeyHash256TypeTableObj() {
+	public IYCFBamDbKeyHash256TypeTableObj getDbKeyHash256TypeTableObj() {
 		return( dbKeyHash256TypeTableObj );
 	}
 
-	public ICFBamDbKeyHash384ColTableObj getDbKeyHash384ColTableObj() {
+	public IYCFBamDbKeyHash384ColTableObj getDbKeyHash384ColTableObj() {
 		return( dbKeyHash384ColTableObj );
 	}
 
-	public ICFBamDbKeyHash384DefTableObj getDbKeyHash384DefTableObj() {
+	public IYCFBamDbKeyHash384DefTableObj getDbKeyHash384DefTableObj() {
 		return( dbKeyHash384DefTableObj );
 	}
 
-	public ICFBamDbKeyHash384GenTableObj getDbKeyHash384GenTableObj() {
+	public IYCFBamDbKeyHash384GenTableObj getDbKeyHash384GenTableObj() {
 		return( dbKeyHash384GenTableObj );
 	}
 
-	public ICFBamDbKeyHash384TypeTableObj getDbKeyHash384TypeTableObj() {
+	public IYCFBamDbKeyHash384TypeTableObj getDbKeyHash384TypeTableObj() {
 		return( dbKeyHash384TypeTableObj );
 	}
 
-	public ICFBamDbKeyHash512ColTableObj getDbKeyHash512ColTableObj() {
+	public IYCFBamDbKeyHash512ColTableObj getDbKeyHash512ColTableObj() {
 		return( dbKeyHash512ColTableObj );
 	}
 
-	public ICFBamDbKeyHash512DefTableObj getDbKeyHash512DefTableObj() {
+	public IYCFBamDbKeyHash512DefTableObj getDbKeyHash512DefTableObj() {
 		return( dbKeyHash512DefTableObj );
 	}
 
-	public ICFBamDbKeyHash512GenTableObj getDbKeyHash512GenTableObj() {
+	public IYCFBamDbKeyHash512GenTableObj getDbKeyHash512GenTableObj() {
 		return( dbKeyHash512GenTableObj );
 	}
 
-	public ICFBamDbKeyHash512TypeTableObj getDbKeyHash512TypeTableObj() {
+	public IYCFBamDbKeyHash512TypeTableObj getDbKeyHash512TypeTableObj() {
 		return( dbKeyHash512TypeTableObj );
 	}
 
-	public ICFBamDelDepTableObj getDelDepTableObj() {
+	public IYCFBamDelDepTableObj getDelDepTableObj() {
 		return( delDepTableObj );
 	}
 
-	public ICFBamDelSubDep1TableObj getDelSubDep1TableObj() {
+	public IYCFBamDelSubDep1TableObj getDelSubDep1TableObj() {
 		return( delSubDep1TableObj );
 	}
 
-	public ICFBamDelSubDep2TableObj getDelSubDep2TableObj() {
+	public IYCFBamDelSubDep2TableObj getDelSubDep2TableObj() {
 		return( delSubDep2TableObj );
 	}
 
-	public ICFBamDelSubDep3TableObj getDelSubDep3TableObj() {
+	public IYCFBamDelSubDep3TableObj getDelSubDep3TableObj() {
 		return( delSubDep3TableObj );
 	}
 
-	public ICFBamDelTopDepTableObj getDelTopDepTableObj() {
+	public IYCFBamDelTopDepTableObj getDelTopDepTableObj() {
 		return( delTopDepTableObj );
 	}
 
-	public ICFBamDoubleColTableObj getDoubleColTableObj() {
+	public IYCFBamDoubleColTableObj getDoubleColTableObj() {
 		return( doubleColTableObj );
 	}
 
-	public ICFBamDoubleDefTableObj getDoubleDefTableObj() {
+	public IYCFBamDoubleDefTableObj getDoubleDefTableObj() {
 		return( doubleDefTableObj );
 	}
 
-	public ICFBamDoubleTypeTableObj getDoubleTypeTableObj() {
+	public IYCFBamDoubleTypeTableObj getDoubleTypeTableObj() {
 		return( doubleTypeTableObj );
 	}
 
-	public ICFBamEnumDefTableObj getEnumDefTableObj() {
+	public IYCFBamEnumDefTableObj getEnumDefTableObj() {
 		return( enumDefTableObj );
 	}
 
-	public ICFBamEnumTagTableObj getEnumTagTableObj() {
+	public IYCFBamEnumTagTableObj getEnumTagTableObj() {
 		return( enumTagTableObj );
 	}
 
-	public ICFBamEnumTypeTableObj getEnumTypeTableObj() {
+	public IYCFBamEnumTypeTableObj getEnumTypeTableObj() {
 		return( enumTypeTableObj );
 	}
 
-	public ICFBamFloatColTableObj getFloatColTableObj() {
+	public IYCFBamFloatColTableObj getFloatColTableObj() {
 		return( floatColTableObj );
 	}
 
-	public ICFBamFloatDefTableObj getFloatDefTableObj() {
+	public IYCFBamFloatDefTableObj getFloatDefTableObj() {
 		return( floatDefTableObj );
 	}
 
-	public ICFBamFloatTypeTableObj getFloatTypeTableObj() {
+	public IYCFBamFloatTypeTableObj getFloatTypeTableObj() {
 		return( floatTypeTableObj );
 	}
 
-	public ICFBamHostNodeTableObj getHostNodeTableObj() {
+	public IYCFBamHostNodeTableObj getHostNodeTableObj() {
 		return( hostNodeTableObj );
 	}
 
-	public ICFBamISOCcyTableObj getISOCcyTableObj() {
+	public IYCFBamISOCcyTableObj getISOCcyTableObj() {
 		return( iSOCcyTableObj );
 	}
 
-	public ICFBamISOCtryTableObj getISOCtryTableObj() {
+	public IYCFBamISOCtryTableObj getISOCtryTableObj() {
 		return( iSOCtryTableObj );
 	}
 
-	public ICFBamISOCtryCcyTableObj getISOCtryCcyTableObj() {
+	public IYCFBamISOCtryCcyTableObj getISOCtryCcyTableObj() {
 		return( iSOCtryCcyTableObj );
 	}
 
-	public ICFBamISOCtryLangTableObj getISOCtryLangTableObj() {
+	public IYCFBamISOCtryLangTableObj getISOCtryLangTableObj() {
 		return( iSOCtryLangTableObj );
 	}
 
-	public ICFBamISOLangTableObj getISOLangTableObj() {
+	public IYCFBamISOLangTableObj getISOLangTableObj() {
 		return( iSOLangTableObj );
 	}
 
-	public ICFBamISOTZoneTableObj getISOTZoneTableObj() {
+	public IYCFBamISOTZoneTableObj getISOTZoneTableObj() {
 		return( iSOTZoneTableObj );
 	}
 
-	public ICFBamId16GenTableObj getId16GenTableObj() {
+	public IYCFBamId16GenTableObj getId16GenTableObj() {
 		return( id16GenTableObj );
 	}
 
-	public ICFBamId32GenTableObj getId32GenTableObj() {
+	public IYCFBamId32GenTableObj getId32GenTableObj() {
 		return( id32GenTableObj );
 	}
 
-	public ICFBamId64GenTableObj getId64GenTableObj() {
+	public IYCFBamId64GenTableObj getId64GenTableObj() {
 		return( id64GenTableObj );
 	}
 
-	public ICFBamIndexTableObj getIndexTableObj() {
+	public IYCFBamIndexTableObj getIndexTableObj() {
 		return( indexTableObj );
 	}
 
-	public ICFBamIndexColTableObj getIndexColTableObj() {
+	public IYCFBamIndexColTableObj getIndexColTableObj() {
 		return( indexColTableObj );
 	}
 
-	public ICFBamIndexTweakTableObj getIndexTweakTableObj() {
+	public IYCFBamIndexTweakTableObj getIndexTweakTableObj() {
 		return( indexTweakTableObj );
 	}
 
-	public ICFBamInt16ColTableObj getInt16ColTableObj() {
+	public IYCFBamInt16ColTableObj getInt16ColTableObj() {
 		return( int16ColTableObj );
 	}
 
-	public ICFBamInt16DefTableObj getInt16DefTableObj() {
+	public IYCFBamInt16DefTableObj getInt16DefTableObj() {
 		return( int16DefTableObj );
 	}
 
-	public ICFBamInt16TypeTableObj getInt16TypeTableObj() {
+	public IYCFBamInt16TypeTableObj getInt16TypeTableObj() {
 		return( int16TypeTableObj );
 	}
 
-	public ICFBamInt32ColTableObj getInt32ColTableObj() {
+	public IYCFBamInt32ColTableObj getInt32ColTableObj() {
 		return( int32ColTableObj );
 	}
 
-	public ICFBamInt32DefTableObj getInt32DefTableObj() {
+	public IYCFBamInt32DefTableObj getInt32DefTableObj() {
 		return( int32DefTableObj );
 	}
 
-	public ICFBamInt32TypeTableObj getInt32TypeTableObj() {
+	public IYCFBamInt32TypeTableObj getInt32TypeTableObj() {
 		return( int32TypeTableObj );
 	}
 
-	public ICFBamInt64ColTableObj getInt64ColTableObj() {
+	public IYCFBamInt64ColTableObj getInt64ColTableObj() {
 		return( int64ColTableObj );
 	}
 
-	public ICFBamInt64DefTableObj getInt64DefTableObj() {
+	public IYCFBamInt64DefTableObj getInt64DefTableObj() {
 		return( int64DefTableObj );
 	}
 
-	public ICFBamInt64TypeTableObj getInt64TypeTableObj() {
+	public IYCFBamInt64TypeTableObj getInt64TypeTableObj() {
 		return( int64TypeTableObj );
 	}
 
-	public ICFBamLicenseTableObj getLicenseTableObj() {
+	public IYCFBamLicenseTableObj getLicenseTableObj() {
 		return( licenseTableObj );
 	}
 
-	public ICFBamMajorVersionTableObj getMajorVersionTableObj() {
+	public IYCFBamMajorVersionTableObj getMajorVersionTableObj() {
 		return( majorVersionTableObj );
 	}
 
-	public ICFBamMimeTypeTableObj getMimeTypeTableObj() {
+	public IYCFBamMimeTypeTableObj getMimeTypeTableObj() {
 		return( mimeTypeTableObj );
 	}
 
-	public ICFBamMinorVersionTableObj getMinorVersionTableObj() {
+	public IYCFBamMinorVersionTableObj getMinorVersionTableObj() {
 		return( minorVersionTableObj );
 	}
 
-	public ICFBamNmTokenColTableObj getNmTokenColTableObj() {
+	public IYCFBamNmTokenColTableObj getNmTokenColTableObj() {
 		return( nmTokenColTableObj );
 	}
 
-	public ICFBamNmTokenDefTableObj getNmTokenDefTableObj() {
+	public IYCFBamNmTokenDefTableObj getNmTokenDefTableObj() {
 		return( nmTokenDefTableObj );
 	}
 
-	public ICFBamNmTokenTypeTableObj getNmTokenTypeTableObj() {
+	public IYCFBamNmTokenTypeTableObj getNmTokenTypeTableObj() {
 		return( nmTokenTypeTableObj );
 	}
 
-	public ICFBamNmTokensColTableObj getNmTokensColTableObj() {
+	public IYCFBamNmTokensColTableObj getNmTokensColTableObj() {
 		return( nmTokensColTableObj );
 	}
 
-	public ICFBamNmTokensDefTableObj getNmTokensDefTableObj() {
+	public IYCFBamNmTokensDefTableObj getNmTokensDefTableObj() {
 		return( nmTokensDefTableObj );
 	}
 
-	public ICFBamNmTokensTypeTableObj getNmTokensTypeTableObj() {
+	public IYCFBamNmTokensTypeTableObj getNmTokensTypeTableObj() {
 		return( nmTokensTypeTableObj );
 	}
 
-	public ICFBamNumberColTableObj getNumberColTableObj() {
+	public IYCFBamNumberColTableObj getNumberColTableObj() {
 		return( numberColTableObj );
 	}
 
-	public ICFBamNumberDefTableObj getNumberDefTableObj() {
+	public IYCFBamNumberDefTableObj getNumberDefTableObj() {
 		return( numberDefTableObj );
 	}
 
-	public ICFBamNumberTypeTableObj getNumberTypeTableObj() {
+	public IYCFBamNumberTypeTableObj getNumberTypeTableObj() {
 		return( numberTypeTableObj );
 	}
 
-	public ICFBamParamTableObj getParamTableObj() {
+	public IYCFBamParamTableObj getParamTableObj() {
 		return( paramTableObj );
 	}
 
-	public ICFBamPopDepTableObj getPopDepTableObj() {
+	public IYCFBamPopDepTableObj getPopDepTableObj() {
 		return( popDepTableObj );
 	}
 
-	public ICFBamPopSubDep1TableObj getPopSubDep1TableObj() {
+	public IYCFBamPopSubDep1TableObj getPopSubDep1TableObj() {
 		return( popSubDep1TableObj );
 	}
 
-	public ICFBamPopSubDep2TableObj getPopSubDep2TableObj() {
+	public IYCFBamPopSubDep2TableObj getPopSubDep2TableObj() {
 		return( popSubDep2TableObj );
 	}
 
-	public ICFBamPopSubDep3TableObj getPopSubDep3TableObj() {
+	public IYCFBamPopSubDep3TableObj getPopSubDep3TableObj() {
 		return( popSubDep3TableObj );
 	}
 
-	public ICFBamPopTopDepTableObj getPopTopDepTableObj() {
+	public IYCFBamPopTopDepTableObj getPopTopDepTableObj() {
 		return( popTopDepTableObj );
 	}
 
-	public ICFBamRelationTableObj getRelationTableObj() {
+	public IYCFBamRelationTableObj getRelationTableObj() {
 		return( relationTableObj );
 	}
 
-	public ICFBamRelationColTableObj getRelationColTableObj() {
+	public IYCFBamRelationColTableObj getRelationColTableObj() {
 		return( relationColTableObj );
 	}
 
-	public ICFBamRoleDefTableObj getRoleDefTableObj() {
+	public IYCFBamRoleDefTableObj getRoleDefTableObj() {
 		return( roleDefTableObj );
 	}
 
-	public ICFBamSchemaDefTableObj getSchemaDefTableObj() {
+	public IYCFBamSchemaDefTableObj getSchemaDefTableObj() {
 		return( schemaDefTableObj );
 	}
 
-	public ICFBamSchemaRefTableObj getSchemaRefTableObj() {
+	public IYCFBamSchemaRefTableObj getSchemaRefTableObj() {
 		return( schemaRefTableObj );
 	}
 
-	public ICFBamSchemaRoleTableObj getSchemaRoleTableObj() {
+	public IYCFBamSchemaRoleTableObj getSchemaRoleTableObj() {
 		return( schemaRoleTableObj );
 	}
 
-	public ICFBamSchemaTweakTableObj getSchemaTweakTableObj() {
+	public IYCFBamSchemaTweakTableObj getSchemaTweakTableObj() {
 		return( schemaTweakTableObj );
 	}
 
-	public ICFBamScopeTableObj getScopeTableObj() {
+	public IYCFBamScopeTableObj getScopeTableObj() {
 		return( scopeTableObj );
 	}
 
-	public ICFBamSecAppTableObj getSecAppTableObj() {
+	public IYCFBamSecAppTableObj getSecAppTableObj() {
 		return( secAppTableObj );
 	}
 
-	public ICFBamSecDeviceTableObj getSecDeviceTableObj() {
+	public IYCFBamSecDeviceTableObj getSecDeviceTableObj() {
 		return( secDeviceTableObj );
 	}
 
-	public ICFBamSecFormTableObj getSecFormTableObj() {
+	public IYCFBamSecFormTableObj getSecFormTableObj() {
 		return( secFormTableObj );
 	}
 
-	public ICFBamSecGroupTableObj getSecGroupTableObj() {
+	public IYCFBamSecGroupTableObj getSecGroupTableObj() {
 		return( secGroupTableObj );
 	}
 
-	public ICFBamSecGroupFormTableObj getSecGroupFormTableObj() {
+	public IYCFBamSecGroupFormTableObj getSecGroupFormTableObj() {
 		return( secGroupFormTableObj );
 	}
 
-	public ICFBamSecGrpIncTableObj getSecGrpIncTableObj() {
+	public IYCFBamSecGrpIncTableObj getSecGrpIncTableObj() {
 		return( secGrpIncTableObj );
 	}
 
-	public ICFBamSecGrpMembTableObj getSecGrpMembTableObj() {
+	public IYCFBamSecGrpMembTableObj getSecGrpMembTableObj() {
 		return( secGrpMembTableObj );
 	}
 
-	public ICFBamSecSessionTableObj getSecSessionTableObj() {
+	public IYCFBamSecSessionTableObj getSecSessionTableObj() {
 		return( secSessionTableObj );
 	}
 
-	public ICFBamSecUserTableObj getSecUserTableObj() {
+	public IYCFBamSecUserTableObj getSecUserTableObj() {
 		return( secUserTableObj );
 	}
 
-	public ICFBamServerListFuncTableObj getServerListFuncTableObj() {
+	public IYCFBamServerListFuncTableObj getServerListFuncTableObj() {
 		return( serverListFuncTableObj );
 	}
 
-	public ICFBamServerMethodTableObj getServerMethodTableObj() {
+	public IYCFBamServerMethodTableObj getServerMethodTableObj() {
 		return( serverMethodTableObj );
 	}
 
-	public ICFBamServerObjFuncTableObj getServerObjFuncTableObj() {
+	public IYCFBamServerObjFuncTableObj getServerObjFuncTableObj() {
 		return( serverObjFuncTableObj );
 	}
 
-	public ICFBamServerProcTableObj getServerProcTableObj() {
+	public IYCFBamServerProcTableObj getServerProcTableObj() {
 		return( serverProcTableObj );
 	}
 
-	public ICFBamServiceTableObj getServiceTableObj() {
+	public IYCFBamServiceTableObj getServiceTableObj() {
 		return( serviceTableObj );
 	}
 
-	public ICFBamServiceTypeTableObj getServiceTypeTableObj() {
+	public IYCFBamServiceTypeTableObj getServiceTypeTableObj() {
 		return( serviceTypeTableObj );
 	}
 
-	public ICFBamStringColTableObj getStringColTableObj() {
+	public IYCFBamStringColTableObj getStringColTableObj() {
 		return( stringColTableObj );
 	}
 
-	public ICFBamStringDefTableObj getStringDefTableObj() {
+	public IYCFBamStringDefTableObj getStringDefTableObj() {
 		return( stringDefTableObj );
 	}
 
-	public ICFBamStringTypeTableObj getStringTypeTableObj() {
+	public IYCFBamStringTypeTableObj getStringTypeTableObj() {
 		return( stringTypeTableObj );
 	}
 
-	public ICFBamSubProjectTableObj getSubProjectTableObj() {
+	public IYCFBamSubProjectTableObj getSubProjectTableObj() {
 		return( subProjectTableObj );
 	}
 
-	public ICFBamSysClusterTableObj getSysClusterTableObj() {
+	public IYCFBamSysClusterTableObj getSysClusterTableObj() {
 		return( sysClusterTableObj );
 	}
 
-	public ICFBamTSecGroupTableObj getTSecGroupTableObj() {
+	public IYCFBamTSecGroupTableObj getTSecGroupTableObj() {
 		return( tSecGroupTableObj );
 	}
 
-	public ICFBamTSecGrpIncTableObj getTSecGrpIncTableObj() {
+	public IYCFBamTSecGrpIncTableObj getTSecGrpIncTableObj() {
 		return( tSecGrpIncTableObj );
 	}
 
-	public ICFBamTSecGrpMembTableObj getTSecGrpMembTableObj() {
+	public IYCFBamTSecGrpMembTableObj getTSecGrpMembTableObj() {
 		return( tSecGrpMembTableObj );
 	}
 
-	public ICFBamTZDateColTableObj getTZDateColTableObj() {
+	public IYCFBamTZDateColTableObj getTZDateColTableObj() {
 		return( tZDateColTableObj );
 	}
 
-	public ICFBamTZDateDefTableObj getTZDateDefTableObj() {
+	public IYCFBamTZDateDefTableObj getTZDateDefTableObj() {
 		return( tZDateDefTableObj );
 	}
 
-	public ICFBamTZDateTypeTableObj getTZDateTypeTableObj() {
+	public IYCFBamTZDateTypeTableObj getTZDateTypeTableObj() {
 		return( tZDateTypeTableObj );
 	}
 
-	public ICFBamTZTimeColTableObj getTZTimeColTableObj() {
+	public IYCFBamTZTimeColTableObj getTZTimeColTableObj() {
 		return( tZTimeColTableObj );
 	}
 
-	public ICFBamTZTimeDefTableObj getTZTimeDefTableObj() {
+	public IYCFBamTZTimeDefTableObj getTZTimeDefTableObj() {
 		return( tZTimeDefTableObj );
 	}
 
-	public ICFBamTZTimeTypeTableObj getTZTimeTypeTableObj() {
+	public IYCFBamTZTimeTypeTableObj getTZTimeTypeTableObj() {
 		return( tZTimeTypeTableObj );
 	}
 
-	public ICFBamTZTimestampColTableObj getTZTimestampColTableObj() {
+	public IYCFBamTZTimestampColTableObj getTZTimestampColTableObj() {
 		return( tZTimestampColTableObj );
 	}
 
-	public ICFBamTZTimestampDefTableObj getTZTimestampDefTableObj() {
+	public IYCFBamTZTimestampDefTableObj getTZTimestampDefTableObj() {
 		return( tZTimestampDefTableObj );
 	}
 
-	public ICFBamTZTimestampTypeTableObj getTZTimestampTypeTableObj() {
+	public IYCFBamTZTimestampTypeTableObj getTZTimestampTypeTableObj() {
 		return( tZTimestampTypeTableObj );
 	}
 
-	public ICFBamTableTableObj getTableTableObj() {
+	public IYCFBamTableTableObj getTableTableObj() {
 		return( tableTableObj );
 	}
 
-	public ICFBamTableColTableObj getTableColTableObj() {
+	public IYCFBamTableColTableObj getTableColTableObj() {
 		return( tableColTableObj );
 	}
 
-	public ICFBamTableTweakTableObj getTableTweakTableObj() {
+	public IYCFBamTableTweakTableObj getTableTweakTableObj() {
 		return( tableTweakTableObj );
 	}
 
-	public ICFBamTenantTableObj getTenantTableObj() {
+	public IYCFBamTenantTableObj getTenantTableObj() {
 		return( tenantTableObj );
 	}
 
-	public ICFBamTextColTableObj getTextColTableObj() {
+	public IYCFBamTextColTableObj getTextColTableObj() {
 		return( textColTableObj );
 	}
 
-	public ICFBamTextDefTableObj getTextDefTableObj() {
+	public IYCFBamTextDefTableObj getTextDefTableObj() {
 		return( textDefTableObj );
 	}
 
-	public ICFBamTextTypeTableObj getTextTypeTableObj() {
+	public IYCFBamTextTypeTableObj getTextTypeTableObj() {
 		return( textTypeTableObj );
 	}
 
-	public ICFBamTimeColTableObj getTimeColTableObj() {
+	public IYCFBamTimeColTableObj getTimeColTableObj() {
 		return( timeColTableObj );
 	}
 
-	public ICFBamTimeDefTableObj getTimeDefTableObj() {
+	public IYCFBamTimeDefTableObj getTimeDefTableObj() {
 		return( timeDefTableObj );
 	}
 
-	public ICFBamTimeTypeTableObj getTimeTypeTableObj() {
+	public IYCFBamTimeTypeTableObj getTimeTypeTableObj() {
 		return( timeTypeTableObj );
 	}
 
-	public ICFBamTimestampColTableObj getTimestampColTableObj() {
+	public IYCFBamTimestampColTableObj getTimestampColTableObj() {
 		return( timestampColTableObj );
 	}
 
-	public ICFBamTimestampDefTableObj getTimestampDefTableObj() {
+	public IYCFBamTimestampDefTableObj getTimestampDefTableObj() {
 		return( timestampDefTableObj );
 	}
 
-	public ICFBamTimestampTypeTableObj getTimestampTypeTableObj() {
+	public IYCFBamTimestampTypeTableObj getTimestampTypeTableObj() {
 		return( timestampTypeTableObj );
 	}
 
-	public ICFBamTldTableObj getTldTableObj() {
+	public IYCFBamTldTableObj getTldTableObj() {
 		return( tldTableObj );
 	}
 
-	public ICFBamTokenColTableObj getTokenColTableObj() {
+	public IYCFBamTokenColTableObj getTokenColTableObj() {
 		return( tokenColTableObj );
 	}
 
-	public ICFBamTokenDefTableObj getTokenDefTableObj() {
+	public IYCFBamTokenDefTableObj getTokenDefTableObj() {
 		return( tokenDefTableObj );
 	}
 
-	public ICFBamTokenTypeTableObj getTokenTypeTableObj() {
+	public IYCFBamTokenTypeTableObj getTokenTypeTableObj() {
 		return( tokenTypeTableObj );
 	}
 
-	public ICFBamTopDomainTableObj getTopDomainTableObj() {
+	public IYCFBamTopDomainTableObj getTopDomainTableObj() {
 		return( topDomainTableObj );
 	}
 
-	public ICFBamTopProjectTableObj getTopProjectTableObj() {
+	public IYCFBamTopProjectTableObj getTopProjectTableObj() {
 		return( topProjectTableObj );
 	}
 
-	public ICFBamTweakTableObj getTweakTableObj() {
+	public IYCFBamTweakTableObj getTweakTableObj() {
 		return( tweakTableObj );
 	}
 
-	public ICFBamUInt16ColTableObj getUInt16ColTableObj() {
+	public IYCFBamUInt16ColTableObj getUInt16ColTableObj() {
 		return( uInt16ColTableObj );
 	}
 
-	public ICFBamUInt16DefTableObj getUInt16DefTableObj() {
+	public IYCFBamUInt16DefTableObj getUInt16DefTableObj() {
 		return( uInt16DefTableObj );
 	}
 
-	public ICFBamUInt16TypeTableObj getUInt16TypeTableObj() {
+	public IYCFBamUInt16TypeTableObj getUInt16TypeTableObj() {
 		return( uInt16TypeTableObj );
 	}
 
-	public ICFBamUInt32ColTableObj getUInt32ColTableObj() {
+	public IYCFBamUInt32ColTableObj getUInt32ColTableObj() {
 		return( uInt32ColTableObj );
 	}
 
-	public ICFBamUInt32DefTableObj getUInt32DefTableObj() {
+	public IYCFBamUInt32DefTableObj getUInt32DefTableObj() {
 		return( uInt32DefTableObj );
 	}
 
-	public ICFBamUInt32TypeTableObj getUInt32TypeTableObj() {
+	public IYCFBamUInt32TypeTableObj getUInt32TypeTableObj() {
 		return( uInt32TypeTableObj );
 	}
 
-	public ICFBamUInt64ColTableObj getUInt64ColTableObj() {
+	public IYCFBamUInt64ColTableObj getUInt64ColTableObj() {
 		return( uInt64ColTableObj );
 	}
 
-	public ICFBamUInt64DefTableObj getUInt64DefTableObj() {
+	public IYCFBamUInt64DefTableObj getUInt64DefTableObj() {
 		return( uInt64DefTableObj );
 	}
 
-	public ICFBamUInt64TypeTableObj getUInt64TypeTableObj() {
+	public IYCFBamUInt64TypeTableObj getUInt64TypeTableObj() {
 		return( uInt64TypeTableObj );
 	}
 
-	public ICFBamURLProtocolTableObj getURLProtocolTableObj() {
+	public IYCFBamURLProtocolTableObj getURLProtocolTableObj() {
 		return( uRLProtocolTableObj );
 	}
 
-	public ICFBamUuid6ColTableObj getUuid6ColTableObj() {
+	public IYCFBamUuid6ColTableObj getUuid6ColTableObj() {
 		return( uuid6ColTableObj );
 	}
 
-	public ICFBamUuid6DefTableObj getUuid6DefTableObj() {
+	public IYCFBamUuid6DefTableObj getUuid6DefTableObj() {
 		return( uuid6DefTableObj );
 	}
 
-	public ICFBamUuid6GenTableObj getUuid6GenTableObj() {
+	public IYCFBamUuid6GenTableObj getUuid6GenTableObj() {
 		return( uuid6GenTableObj );
 	}
 
-	public ICFBamUuid6TypeTableObj getUuid6TypeTableObj() {
+	public IYCFBamUuid6TypeTableObj getUuid6TypeTableObj() {
 		return( uuid6TypeTableObj );
 	}
 
-	public ICFBamUuidColTableObj getUuidColTableObj() {
+	public IYCFBamUuidColTableObj getUuidColTableObj() {
 		return( uuidColTableObj );
 	}
 
-	public ICFBamUuidDefTableObj getUuidDefTableObj() {
+	public IYCFBamUuidDefTableObj getUuidDefTableObj() {
 		return( uuidDefTableObj );
 	}
 
-	public ICFBamUuidGenTableObj getUuidGenTableObj() {
+	public IYCFBamUuidGenTableObj getUuidGenTableObj() {
 		return( uuidGenTableObj );
 	}
 
-	public ICFBamUuidTypeTableObj getUuidTypeTableObj() {
+	public IYCFBamUuidTypeTableObj getUuidTypeTableObj() {
 		return( uuidTypeTableObj );
 	}
 
-	public ICFBamValueTableObj getValueTableObj() {
+	public IYCFBamValueTableObj getValueTableObj() {
 		return( valueTableObj );
 	}
 }

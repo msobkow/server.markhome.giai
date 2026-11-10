@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for Tld
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,23 +35,23 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSaxLoaderTldParse XML SAX Element Handler implementation
+ *	YCFBamSaxLoaderTldParse XML SAX Element Handler implementation
  *	for Tld.
  */
-public class CFBamSaxLoaderTld
-	extends CFLibXmlCoreElementHandler
+public class YCFBamSaxLoaderTld
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamSaxLoaderTld( CFBamSaxLoader saxLoader ) {
+	public YCFBamSaxLoaderTld( YCFBamSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -63,15 +63,15 @@ public class CFBamSaxLoaderTld
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFBamTldObj origBuff = null;
-		ICFBamTldEditObj editBuff = null;
+		IYCFBamTldObj origBuff = null;
+		IYCFBamTldEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// Tld Attributes
 		String attrName = null;
 		String attrDescription = null;
 		// Tld References
-		ICFBamTenantObj refTenant = null;
+		IYCFBamTenantObj refTenant = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -80,25 +80,25 @@ public class CFBamSaxLoaderTld
 		try {
 			assert qName.equals( "Tld" );
 
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFBamTldObj)schemaObj.getTldTableObj().newInstance();
-			editBuff = (ICFBamTldEditObj)origBuff.beginEdit();
+			origBuff = (IYCFBamTldObj)schemaObj.getTldTableObj().newInstance();
+			editBuff = (IYCFBamTldEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -106,7 +106,7 @@ public class CFBamSaxLoaderTld
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -115,7 +115,7 @@ public class CFBamSaxLoaderTld
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -124,7 +124,7 @@ public class CFBamSaxLoaderTld
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -135,7 +135,7 @@ public class CFBamSaxLoaderTld
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -144,14 +144,14 @@ public class CFBamSaxLoaderTld
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "Description", attrDescription );
@@ -174,7 +174,7 @@ public class CFBamSaxLoaderTld
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -186,26 +186,26 @@ public class CFBamSaxLoaderTld
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamTenantObj ) {
-				refTenant = (ICFBamTenantObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamTenantObj ) {
+				refTenant = (IYCFBamTenantObj) scopeObj;
 				editBuff.setRequiredContainerTenant( refTenant );
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamTenantObj" );
+					"IYCFBamTenantObj" );
 			}
 
-			CFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTldLoaderBehaviour();
-			ICFBamTldEditObj editTld = null;
-			ICFBamTldObj origTld = (ICFBamTldObj)schemaObj.getTldTableObj().readTldByNameIdx( refTenant.getRequiredId(),
+			YCFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTldLoaderBehaviour();
+			IYCFBamTldEditObj editTld = null;
+			IYCFBamTldObj origTld = (IYCFBamTldObj)schemaObj.getTldTableObj().readTldByNameIdx( refTenant.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origTld == null ) {
 				editTld = editBuff;
@@ -215,12 +215,12 @@ public class CFBamSaxLoaderTld
 					case Insert:
 						break;
 					case Update:
-						editTld = (ICFBamTldEditObj)origTld.beginEdit();
+						editTld = (IYCFBamTldEditObj)origTld.beginEdit();
 						editTld.setRequiredName( editBuff.getRequiredName() );
 						editTld.setOptionalDescription( editBuff.getOptionalDescription() );
 						break;
 					case Replace:
-						editTld = (ICFBamTldEditObj)origTld.beginEdit();
+						editTld = (IYCFBamTldEditObj)origTld.beginEdit();
 						editTld.deleteInstance();
 						editTld = null;
 						origTld = null;
@@ -234,7 +234,7 @@ public class CFBamSaxLoaderTld
 					editTld.update();
 				}
 				else {
-					origTld = (ICFBamTldObj)editTld.create();
+					origTld = (IYCFBamTldObj)editTld.create();
 				}
 				editTld = null;
 			}

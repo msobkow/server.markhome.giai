@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for SecForm
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,19 +35,19 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSaxLoaderSecFormParse XML SAX Element Handler implementation
+ *	YCFSecSaxLoaderSecFormParse XML SAX Element Handler implementation
  *	for SecForm.
  */
-public class CFSecSaxLoaderSecForm
-	extends CFLibXmlCoreElementHandler
+public class YCFSecSaxLoaderSecForm
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFSecSaxLoaderSecForm( CFSecSaxLoader saxLoader ) {
+	public YCFSecSaxLoaderSecForm( YCFSecSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -59,15 +59,15 @@ public class CFSecSaxLoaderSecForm
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFSecSecFormObj origBuff = null;
-		ICFSecSecFormEditObj editBuff = null;
+		IYCFSecSecFormObj origBuff = null;
+		IYCFSecSecFormEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// SecForm Attributes
 		String attrJEEServletMapName = null;
 		// SecForm References
-		ICFSecClusterObj refCluster = null;
-		ICFSecSecAppObj refApplication = null;
+		IYCFSecClusterObj refCluster = null;
+		IYCFSecSecAppObj refApplication = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -76,25 +76,25 @@ public class CFSecSaxLoaderSecForm
 		try {
 			assert qName.equals( "SecForm" );
 
-			CFSecSaxLoader saxLoader = (CFSecSaxLoader)getParser();
+			YCFSecSaxLoader saxLoader = (YCFSecSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFSecSecFormObj)schemaObj.getSecFormTableObj().newInstance();
-			editBuff = (ICFSecSecFormEditObj)origBuff.beginEdit();
+			origBuff = (IYCFSecSecFormObj)schemaObj.getSecFormTableObj().newInstance();
+			editBuff = (IYCFSecSecFormEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -102,7 +102,7 @@ public class CFSecSaxLoaderSecForm
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -111,7 +111,7 @@ public class CFSecSaxLoaderSecForm
 				}
 				else if( attrLocalName.equals( "JEEServletMapName" ) ) {
 					if( attrJEEServletMapName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -122,7 +122,7 @@ public class CFSecSaxLoaderSecForm
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -131,14 +131,14 @@ public class CFSecSaxLoaderSecForm
 
 			// Ensure that required attributes have values
 			if( attrJEEServletMapName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"JEEServletMapName" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "JEEServletMapName", attrJEEServletMapName );
 
@@ -157,7 +157,7 @@ public class CFSecSaxLoaderSecForm
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -169,42 +169,42 @@ public class CFSecSaxLoaderSecForm
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFSecSecAppObj ) {
-				refApplication = (ICFSecSecAppObj) scopeObj;
+			else if( scopeObj instanceof IYCFSecSecAppObj ) {
+				refApplication = (IYCFSecSecAppObj) scopeObj;
 				editBuff.setRequiredContainerApplication( refApplication );
-				refCluster = (ICFSecClusterObj)editBuff.getRequiredOwnerCluster();
+				refCluster = (IYCFSecClusterObj)editBuff.getRequiredOwnerCluster();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFSecSecAppObj" );
+					"IYCFSecSecAppObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refCluster == null ) {
-				if( scopeObj instanceof ICFSecClusterObj ) {
-					refCluster = (ICFSecClusterObj) scopeObj;
+				if( scopeObj instanceof IYCFSecClusterObj ) {
+					refCluster = (IYCFSecClusterObj) scopeObj;
 					editBuff.setRequiredOwnerCluster( refCluster );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Cluster>" );
 				}
 			}
 
-			CFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecFormLoaderBehaviour();
-			ICFSecSecFormEditObj editSecForm = null;
-			ICFSecSecFormObj origSecForm = (ICFSecSecFormObj)schemaObj.getSecFormTableObj().readSecFormByUJEEServletIdx( refCluster.getRequiredId(),
+			YCFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecFormLoaderBehaviour();
+			IYCFSecSecFormEditObj editSecForm = null;
+			IYCFSecSecFormObj origSecForm = (IYCFSecSecFormObj)schemaObj.getSecFormTableObj().readSecFormByUJEEServletIdx( refCluster.getRequiredId(),
 			refApplication.getRequiredSecAppId(),
 			editBuff.getRequiredJEEServletMapName() );
 			if( origSecForm == null ) {
@@ -215,11 +215,11 @@ public class CFSecSaxLoaderSecForm
 					case Insert:
 						break;
 					case Update:
-						editSecForm = (ICFSecSecFormEditObj)origSecForm.beginEdit();
+						editSecForm = (IYCFSecSecFormEditObj)origSecForm.beginEdit();
 						editSecForm.setRequiredJEEServletMapName( editBuff.getRequiredJEEServletMapName() );
 						break;
 					case Replace:
-						editSecForm = (ICFSecSecFormEditObj)origSecForm.beginEdit();
+						editSecForm = (IYCFSecSecFormEditObj)origSecForm.beginEdit();
 						editSecForm.deleteInstance();
 						editSecForm = null;
 						origSecForm = null;
@@ -233,7 +233,7 @@ public class CFSecSaxLoaderSecForm
 					editSecForm.update();
 				}
 				else {
-					origSecForm = (ICFSecSecFormObj)editSecForm.create();
+					origSecForm = (IYCFSecSecFormObj)editSecForm.create();
 				}
 				editSecForm = null;
 			}

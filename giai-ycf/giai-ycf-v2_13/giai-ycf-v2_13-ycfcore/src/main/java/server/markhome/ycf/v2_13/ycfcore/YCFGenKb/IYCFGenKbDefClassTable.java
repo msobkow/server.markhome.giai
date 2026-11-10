@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for DefClass.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbDefClassTable database interface for DefClass
+ *	YCFGenKbDefClassTable database interface for DefClass
  */
-public interface ICFGenKbDefClassTable
+public interface IYCFGenKbDefClassTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createDefClass( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassBuff Buff );
+	void createDefClass( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateDefClass( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassBuff Buff );
+	void updateDefClass( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteDefClass( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassBuff Buff );
+	void deleteDefClass( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassBuff Buff );
 	/**
 	 *	Delete the DefClass instance identified by the primary key attributes.
 	 *
@@ -86,7 +86,7 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@param	argId	The DefClass key attribute of the instance generating the id.
 	 */
-	void deleteDefClassByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteDefClassByIdIdx( YCFGenKbAuthorization Authorization,
 		short argId );
 
 	/**
@@ -96,8 +96,8 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteDefClassByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassPKey argKey );
+	void deleteDefClassByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassPKey argKey );
 	/**
 	 *	Delete the DefClass instances identified by the key NameIdx.
 	 *
@@ -105,7 +105,7 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@param	argName	The DefClass key attribute of the instance generating the id.
 	 */
-	void deleteDefClassByNameIdx( CFGenKbAuthorization Authorization,
+	void deleteDefClassByNameIdx( YCFGenKbAuthorization Authorization,
 		String argName );
 
 	/**
@@ -115,8 +115,8 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDefClassByNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassByNameIdxKey argKey );
+	void deleteDefClassByNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassByNameIdxKey argKey );
 	/**
 	 *	Delete the DefClass instances identified by the key BaseIdx.
 	 *
@@ -124,7 +124,7 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@param	argBaseId	The DefClass key attribute of the instance generating the id.
 	 */
-	void deleteDefClassByBaseIdx( CFGenKbAuthorization Authorization,
+	void deleteDefClassByBaseIdx( YCFGenKbAuthorization Authorization,
 		Short argBaseId );
 
 	/**
@@ -134,8 +134,8 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDefClassByBaseIdx( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassByBaseIdxKey argKey );
+	void deleteDefClassByBaseIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassByBaseIdxKey argKey );
 
 
 	/**
@@ -148,8 +148,8 @@ public interface ICFGenKbDefClassTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbDefClassBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassPKey PKey );
+	YCFGenKbDefClassBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassPKey PKey );
 
 	/**
 	 *	Lock the derived DefClass buffer instance by primary key.
@@ -161,8 +161,8 @@ public interface ICFGenKbDefClassTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbDefClassBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassPKey PKey );
+	YCFGenKbDefClassBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassPKey PKey );
 
 	/**
 	 *	Read all DefClass instances.
@@ -171,7 +171,7 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbDefClassBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbDefClassBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived DefClass buffer instance identified by the unique key IdIdx.
@@ -183,7 +183,7 @@ public interface ICFGenKbDefClassTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbDefClassBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbDefClassBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		short Id );
 
 	/**
@@ -196,7 +196,7 @@ public interface ICFGenKbDefClassTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbDefClassBuff readDerivedByNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbDefClassBuff readDerivedByNameIdx( YCFGenKbAuthorization Authorization,
 		String Name );
 
 	/**
@@ -208,7 +208,7 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbDefClassBuff[] readDerivedByBaseIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbDefClassBuff[] readDerivedByBaseIdx( YCFGenKbAuthorization Authorization,
 		Short BaseId );
 
 	/**
@@ -221,10 +221,10 @@ public interface ICFGenKbDefClassTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbDefClassBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassPKey PKey );
+	YCFGenKbDefClassBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassPKey PKey );
 
 	/**
 	 *	Lock the specific DefClass buffer instance identified by the primary key.
@@ -236,10 +236,10 @@ public interface ICFGenKbDefClassTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbDefClassBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbDefClassPKey PKey );
+	YCFGenKbDefClassBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbDefClassPKey PKey );
 
 	/**
 	 *	Read all the specific DefClass buffer instances.
@@ -248,7 +248,7 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@return All the specific DefClass instances in the database accessible for the Authorization.
 	 */
-	CFGenKbDefClassBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbDefClassBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific DefClass buffer instance identified by the unique key IdIdx.
@@ -260,9 +260,9 @@ public interface ICFGenKbDefClassTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbDefClassBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbDefClassBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		short Id );
 
 	/**
@@ -275,9 +275,9 @@ public interface ICFGenKbDefClassTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbDefClassBuff readBuffByNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbDefClassBuff readBuffByNameIdx( YCFGenKbAuthorization Authorization,
 		String Name );
 
 	/**
@@ -289,15 +289,15 @@ public interface ICFGenKbDefClassTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbDefClassBuff[] readBuffByBaseIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbDefClassBuff[] readBuffByBaseIdx( YCFGenKbAuthorization Authorization,
 		Short BaseId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelCallTableObj
+public interface IYCFGenKbGelCallTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelCallObj newInstance();
+	IYCFGenKbGelCallObj newInstance();
 
 	/**
 	 *	Instantiate a new GelCall edition of the specified GelCall instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelCallEditObj newEditInstance( ICFGenKbGelCallObj orig );
+	IYCFGenKbGelCallEditObj newEditInstance( IYCFGenKbGelCallObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCallObj realiseGelCall( ICFGenKbGelCallObj Obj );
+	IYCFGenKbGelCallObj realiseGelCall( IYCFGenKbGelCallObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCallObj createGelCall( ICFGenKbGelCallObj Obj );
+	IYCFGenKbGelCallObj createGelCall( IYCFGenKbGelCallObj Obj );
 
 	/**
 	 *	Read a GelCall-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelCallTableObj
 	 *	@return	The GelCall-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelCallObj readGelCall( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelCallObj readGelCall( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelCall-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelCallTableObj
 	 *	@return	The GelCall-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelCallObj readGelCall( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelCallObj readGelCall( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelCallObj readCachedGelCall( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelCallObj readCachedGelCall( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelCall( ICFGenKbGelCallObj obj );
+	public void reallyDeepDisposeGelCall( IYCFGenKbGelCallObj obj );
 
-	void deepDisposeGelCall( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelCall( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCallObj lockGelCall( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelCallObj lockGelCall( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelCall-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelCallObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelCallObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readAllGelCall();
+	List<IYCFGenKbGelCallObj> readAllGelCall();
 
 	/**
 	 *	Return a sorted map of all the GelCall-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelCallObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelCallObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readAllGelCall( boolean forceRead );
+	List<IYCFGenKbGelCallObj> readAllGelCall( boolean forceRead );
 
-	List<ICFGenKbGelCallObj> readCachedAllGelCall();
+	List<IYCFGenKbGelCallObj> readCachedAllGelCall();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argGelInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelCallObj readGelCallByPIdx( long TenantId,
+	IYCFGenKbGelCallObj readGelCallByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argGelInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelCallObj readGelCallByPIdx( long TenantId,
+	IYCFGenKbGelCallObj readGelCallByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByTenantIdx( long TenantId );
+	List<IYCFGenKbGelCallObj> readGelCallByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByTenantIdx( long TenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelCall key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelCall key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -229,43 +229,43 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate CacheIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate CacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelCall key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate CacheIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate CacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByCacheIdx( long TenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate CacheIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate CacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelCall key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate CacheIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate CacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByCacheIdx( long TenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate SeqIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate SeqIdx key.
 	 *
 	 *	@param	argSeqInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -273,15 +273,15 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argSeqInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate SeqIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate SeqIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallBySeqIdx( Long SeqInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallBySeqIdx( Long SeqInstTenantId,
 		Long SeqInstGelCacheId,
 		Long SeqInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate SeqIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate SeqIdx key.
 	 *
 	 *	@param	argSeqInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -289,16 +289,16 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argSeqInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate SeqIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate SeqIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallBySeqIdx( Long SeqInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallBySeqIdx( Long SeqInstTenantId,
 		Long SeqInstGelCacheId,
 		Long SeqInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate CallInstIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate CallInstIdx key.
 	 *
 	 *	@param	argCallInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -306,15 +306,15 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argCallInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate CallInstIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate CallInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByCallInstIdx( Long CallInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByCallInstIdx( Long CallInstTenantId,
 		Long CallInstGelCacheId,
 		Long CallInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate CallInstIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate CallInstIdx key.
 	 *
 	 *	@param	argCallInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -322,16 +322,16 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argCallInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate CallInstIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate CallInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByCallInstIdx( Long CallInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByCallInstIdx( Long CallInstTenantId,
 		Long CallInstGelCacheId,
 		Long CallInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate PrevInstIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate PrevInstIdx key.
 	 *
 	 *	@param	argPrevInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -339,15 +339,15 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argPrevInstGelInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate PrevInstIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate PrevInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByPrevInstIdx( Long PrevInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByPrevInstIdx( Long PrevInstTenantId,
 		Long PrevInstGelCacheId,
 		Long PrevInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate PrevInstIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate PrevInstIdx key.
 	 *
 	 *	@param	argPrevInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -355,16 +355,16 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argPrevInstGelInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate PrevInstIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate PrevInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByPrevInstIdx( Long PrevInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByPrevInstIdx( Long PrevInstTenantId,
 		Long PrevInstGelCacheId,
 		Long PrevInstGelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate NextInstIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate NextInstIdx key.
 	 *
 	 *	@param	argNextInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -372,15 +372,15 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argNextInstGelInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate NextInstIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate NextInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByNextInstIdx( Long NextInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByNextInstIdx( Long NextInstTenantId,
 		Long NextInstGelCacheId,
 		Long NextInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelCallObj instances sorted by their primary keys for the duplicate NextInstIdx key.
+	 *	Get the map of YCFGenKbGelCallObj instances sorted by their primary keys for the duplicate NextInstIdx key.
 	 *
 	 *	@param	argNextInstTenantId	The GelCall key attribute of the instance generating the id.
 	 *
@@ -388,43 +388,43 @@ public interface ICFGenKbGelCallTableObj
 	 *
 	 *	@param	argNextInstGelInstId	The GelCall key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate NextInstIdx key,
+	 *	@return	List of YCFGenKbGelCallObj cached instances sorted by their primary keys for the duplicate NextInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCallObj> readGelCallByNextInstIdx( Long NextInstTenantId,
+	List<IYCFGenKbGelCallObj> readGelCallByNextInstIdx( Long NextInstTenantId,
 		Long NextInstGelCacheId,
 		Long NextInstGelInstId,
 		boolean forceRead );
 
-	ICFGenKbGelCallObj readCachedGelCallByPIdx( long TenantId,
+	IYCFGenKbGelCallObj readCachedGelCallByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelCallObj> readCachedGelCallByTenantIdx( long TenantId );
+	List<IYCFGenKbGelCallObj> readCachedGelCallByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelCallObj> readCachedGelCallByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelCallObj> readCachedGelCallByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelCallObj> readCachedGelCallByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelCallObj> readCachedGelCallByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
-	List<ICFGenKbGelCallObj> readCachedGelCallByCacheIdx( long TenantId,
+	List<IYCFGenKbGelCallObj> readCachedGelCallByCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelCallObj> readCachedGelCallBySeqIdx( Long SeqInstTenantId,
+	List<IYCFGenKbGelCallObj> readCachedGelCallBySeqIdx( Long SeqInstTenantId,
 		Long SeqInstGelCacheId,
 		Long SeqInstId );
 
-	List<ICFGenKbGelCallObj> readCachedGelCallByCallInstIdx( Long CallInstTenantId,
+	List<IYCFGenKbGelCallObj> readCachedGelCallByCallInstIdx( Long CallInstTenantId,
 		Long CallInstGelCacheId,
 		Long CallInstId );
 
-	List<ICFGenKbGelCallObj> readCachedGelCallByPrevInstIdx( Long PrevInstTenantId,
+	List<IYCFGenKbGelCallObj> readCachedGelCallByPrevInstIdx( Long PrevInstTenantId,
 		Long PrevInstGelCacheId,
 		Long PrevInstGelInstId );
 
-	List<ICFGenKbGelCallObj> readCachedGelCallByNextInstIdx( Long NextInstTenantId,
+	List<IYCFGenKbGelCallObj> readCachedGelCallByNextInstIdx( Long NextInstTenantId,
 		Long NextInstGelCacheId,
 		Long NextInstGelInstId );
 
@@ -463,12 +463,12 @@ public interface ICFGenKbGelCallTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCallObj updateGelCall( ICFGenKbGelCallObj Obj );
+	IYCFGenKbGelCallObj updateGelCall( IYCFGenKbGelCallObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelCall( ICFGenKbGelCallObj Obj );
+	void deleteGelCall( IYCFGenKbGelCallObj Obj );
 
 	/**
 	 *	Internal use only.

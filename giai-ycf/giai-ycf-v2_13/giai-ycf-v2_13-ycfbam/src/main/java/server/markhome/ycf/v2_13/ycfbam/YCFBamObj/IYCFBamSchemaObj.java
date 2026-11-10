@@ -1,17 +1,17 @@
-// Description: Java 11 Schema Object interface for CFBam.
+// Description: Java 11 Schema Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,1015 +45,1015 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamSchemaObj
-	extends ICFSecSchemaObj,
-		ICFIntSchemaObj
+public interface IYCFBamSchemaObj
+	extends IYCFSecSchemaObj,
+		IYCFIntSchemaObj
 {
 	/**
 	 *	Get the Atom interface for the schema.
 	 *
-	 *	@return	The ICFBamAtomTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamAtomTableObj interface implementation for the schema.
 	 */
-	ICFBamAtomTableObj getAtomTableObj();
+	IYCFBamAtomTableObj getAtomTableObj();
 
 	/**
 	 *	Get the BlobCol interface for the schema.
 	 *
-	 *	@return	The ICFBamBlobColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamBlobColTableObj interface implementation for the schema.
 	 */
-	ICFBamBlobColTableObj getBlobColTableObj();
+	IYCFBamBlobColTableObj getBlobColTableObj();
 
 	/**
 	 *	Get the BlobDef interface for the schema.
 	 *
-	 *	@return	The ICFBamBlobDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamBlobDefTableObj interface implementation for the schema.
 	 */
-	ICFBamBlobDefTableObj getBlobDefTableObj();
+	IYCFBamBlobDefTableObj getBlobDefTableObj();
 
 	/**
 	 *	Get the BlobType interface for the schema.
 	 *
-	 *	@return	The ICFBamBlobTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamBlobTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamBlobTypeTableObj getBlobTypeTableObj();
+	IYCFBamBlobTypeTableObj getBlobTypeTableObj();
 
 	/**
 	 *	Get the BoolCol interface for the schema.
 	 *
-	 *	@return	The ICFBamBoolColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamBoolColTableObj interface implementation for the schema.
 	 */
-	ICFBamBoolColTableObj getBoolColTableObj();
+	IYCFBamBoolColTableObj getBoolColTableObj();
 
 	/**
 	 *	Get the BoolDef interface for the schema.
 	 *
-	 *	@return	The ICFBamBoolDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamBoolDefTableObj interface implementation for the schema.
 	 */
-	ICFBamBoolDefTableObj getBoolDefTableObj();
+	IYCFBamBoolDefTableObj getBoolDefTableObj();
 
 	/**
 	 *	Get the BoolType interface for the schema.
 	 *
-	 *	@return	The ICFBamBoolTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamBoolTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamBoolTypeTableObj getBoolTypeTableObj();
+	IYCFBamBoolTypeTableObj getBoolTypeTableObj();
 
 	/**
 	 *	Get the Chain interface for the schema.
 	 *
-	 *	@return	The ICFBamChainTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamChainTableObj interface implementation for the schema.
 	 */
-	ICFBamChainTableObj getChainTableObj();
+	IYCFBamChainTableObj getChainTableObj();
 
 	/**
 	 *	Get the ClearDep interface for the schema.
 	 *
-	 *	@return	The ICFBamClearDepTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamClearDepTableObj interface implementation for the schema.
 	 */
-	ICFBamClearDepTableObj getClearDepTableObj();
+	IYCFBamClearDepTableObj getClearDepTableObj();
 
 	/**
 	 *	Get the ClearSubDep1 interface for the schema.
 	 *
-	 *	@return	The ICFBamClearSubDep1TableObj interface implementation for the schema.
+	 *	@return	The IYCFBamClearSubDep1TableObj interface implementation for the schema.
 	 */
-	ICFBamClearSubDep1TableObj getClearSubDep1TableObj();
+	IYCFBamClearSubDep1TableObj getClearSubDep1TableObj();
 
 	/**
 	 *	Get the ClearSubDep2 interface for the schema.
 	 *
-	 *	@return	The ICFBamClearSubDep2TableObj interface implementation for the schema.
+	 *	@return	The IYCFBamClearSubDep2TableObj interface implementation for the schema.
 	 */
-	ICFBamClearSubDep2TableObj getClearSubDep2TableObj();
+	IYCFBamClearSubDep2TableObj getClearSubDep2TableObj();
 
 	/**
 	 *	Get the ClearSubDep3 interface for the schema.
 	 *
-	 *	@return	The ICFBamClearSubDep3TableObj interface implementation for the schema.
+	 *	@return	The IYCFBamClearSubDep3TableObj interface implementation for the schema.
 	 */
-	ICFBamClearSubDep3TableObj getClearSubDep3TableObj();
+	IYCFBamClearSubDep3TableObj getClearSubDep3TableObj();
 
 	/**
 	 *	Get the ClearTopDep interface for the schema.
 	 *
-	 *	@return	The ICFBamClearTopDepTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamClearTopDepTableObj interface implementation for the schema.
 	 */
-	ICFBamClearTopDepTableObj getClearTopDepTableObj();
+	IYCFBamClearTopDepTableObj getClearTopDepTableObj();
 
 	/**
 	 *	Get the DateCol interface for the schema.
 	 *
-	 *	@return	The ICFBamDateColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDateColTableObj interface implementation for the schema.
 	 */
-	ICFBamDateColTableObj getDateColTableObj();
+	IYCFBamDateColTableObj getDateColTableObj();
 
 	/**
 	 *	Get the DateDef interface for the schema.
 	 *
-	 *	@return	The ICFBamDateDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDateDefTableObj interface implementation for the schema.
 	 */
-	ICFBamDateDefTableObj getDateDefTableObj();
+	IYCFBamDateDefTableObj getDateDefTableObj();
 
 	/**
 	 *	Get the DateType interface for the schema.
 	 *
-	 *	@return	The ICFBamDateTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDateTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamDateTypeTableObj getDateTypeTableObj();
+	IYCFBamDateTypeTableObj getDateTypeTableObj();
 
 	/**
 	 *	Get the DbKeyHash128Col interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash128ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash128ColTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash128ColTableObj getDbKeyHash128ColTableObj();
+	IYCFBamDbKeyHash128ColTableObj getDbKeyHash128ColTableObj();
 
 	/**
 	 *	Get the DbKeyHash128Def interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash128DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash128DefTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash128DefTableObj getDbKeyHash128DefTableObj();
+	IYCFBamDbKeyHash128DefTableObj getDbKeyHash128DefTableObj();
 
 	/**
 	 *	Get the DbKeyHash128Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash128GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash128GenTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash128GenTableObj getDbKeyHash128GenTableObj();
+	IYCFBamDbKeyHash128GenTableObj getDbKeyHash128GenTableObj();
 
 	/**
 	 *	Get the DbKeyHash128Type interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash128TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash128TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash128TypeTableObj getDbKeyHash128TypeTableObj();
+	IYCFBamDbKeyHash128TypeTableObj getDbKeyHash128TypeTableObj();
 
 	/**
 	 *	Get the DbKeyHash160Col interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash160ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash160ColTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash160ColTableObj getDbKeyHash160ColTableObj();
+	IYCFBamDbKeyHash160ColTableObj getDbKeyHash160ColTableObj();
 
 	/**
 	 *	Get the DbKeyHash160Def interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash160DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash160DefTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash160DefTableObj getDbKeyHash160DefTableObj();
+	IYCFBamDbKeyHash160DefTableObj getDbKeyHash160DefTableObj();
 
 	/**
 	 *	Get the DbKeyHash160Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash160GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash160GenTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash160GenTableObj getDbKeyHash160GenTableObj();
+	IYCFBamDbKeyHash160GenTableObj getDbKeyHash160GenTableObj();
 
 	/**
 	 *	Get the DbKeyHash160Type interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash160TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash160TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash160TypeTableObj getDbKeyHash160TypeTableObj();
+	IYCFBamDbKeyHash160TypeTableObj getDbKeyHash160TypeTableObj();
 
 	/**
 	 *	Get the DbKeyHash224Col interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash224ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash224ColTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash224ColTableObj getDbKeyHash224ColTableObj();
+	IYCFBamDbKeyHash224ColTableObj getDbKeyHash224ColTableObj();
 
 	/**
 	 *	Get the DbKeyHash224Def interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash224DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash224DefTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash224DefTableObj getDbKeyHash224DefTableObj();
+	IYCFBamDbKeyHash224DefTableObj getDbKeyHash224DefTableObj();
 
 	/**
 	 *	Get the DbKeyHash224Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash224GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash224GenTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash224GenTableObj getDbKeyHash224GenTableObj();
+	IYCFBamDbKeyHash224GenTableObj getDbKeyHash224GenTableObj();
 
 	/**
 	 *	Get the DbKeyHash224Type interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash224TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash224TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash224TypeTableObj getDbKeyHash224TypeTableObj();
+	IYCFBamDbKeyHash224TypeTableObj getDbKeyHash224TypeTableObj();
 
 	/**
 	 *	Get the DbKeyHash256Col interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash256ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash256ColTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash256ColTableObj getDbKeyHash256ColTableObj();
+	IYCFBamDbKeyHash256ColTableObj getDbKeyHash256ColTableObj();
 
 	/**
 	 *	Get the DbKeyHash256Def interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash256DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash256DefTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash256DefTableObj getDbKeyHash256DefTableObj();
+	IYCFBamDbKeyHash256DefTableObj getDbKeyHash256DefTableObj();
 
 	/**
 	 *	Get the DbKeyHash256Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash256GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash256GenTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash256GenTableObj getDbKeyHash256GenTableObj();
+	IYCFBamDbKeyHash256GenTableObj getDbKeyHash256GenTableObj();
 
 	/**
 	 *	Get the DbKeyHash256Type interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash256TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash256TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash256TypeTableObj getDbKeyHash256TypeTableObj();
+	IYCFBamDbKeyHash256TypeTableObj getDbKeyHash256TypeTableObj();
 
 	/**
 	 *	Get the DbKeyHash384Col interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash384ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash384ColTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash384ColTableObj getDbKeyHash384ColTableObj();
+	IYCFBamDbKeyHash384ColTableObj getDbKeyHash384ColTableObj();
 
 	/**
 	 *	Get the DbKeyHash384Def interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash384DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash384DefTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash384DefTableObj getDbKeyHash384DefTableObj();
+	IYCFBamDbKeyHash384DefTableObj getDbKeyHash384DefTableObj();
 
 	/**
 	 *	Get the DbKeyHash384Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash384GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash384GenTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash384GenTableObj getDbKeyHash384GenTableObj();
+	IYCFBamDbKeyHash384GenTableObj getDbKeyHash384GenTableObj();
 
 	/**
 	 *	Get the DbKeyHash384Type interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash384TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash384TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash384TypeTableObj getDbKeyHash384TypeTableObj();
+	IYCFBamDbKeyHash384TypeTableObj getDbKeyHash384TypeTableObj();
 
 	/**
 	 *	Get the DbKeyHash512Col interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash512ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash512ColTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash512ColTableObj getDbKeyHash512ColTableObj();
+	IYCFBamDbKeyHash512ColTableObj getDbKeyHash512ColTableObj();
 
 	/**
 	 *	Get the DbKeyHash512Def interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash512DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash512DefTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash512DefTableObj getDbKeyHash512DefTableObj();
+	IYCFBamDbKeyHash512DefTableObj getDbKeyHash512DefTableObj();
 
 	/**
 	 *	Get the DbKeyHash512Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash512GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash512GenTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash512GenTableObj getDbKeyHash512GenTableObj();
+	IYCFBamDbKeyHash512GenTableObj getDbKeyHash512GenTableObj();
 
 	/**
 	 *	Get the DbKeyHash512Type interface for the schema.
 	 *
-	 *	@return	The ICFBamDbKeyHash512TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDbKeyHash512TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamDbKeyHash512TypeTableObj getDbKeyHash512TypeTableObj();
+	IYCFBamDbKeyHash512TypeTableObj getDbKeyHash512TypeTableObj();
 
 	/**
 	 *	Get the DelDep interface for the schema.
 	 *
-	 *	@return	The ICFBamDelDepTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDelDepTableObj interface implementation for the schema.
 	 */
-	ICFBamDelDepTableObj getDelDepTableObj();
+	IYCFBamDelDepTableObj getDelDepTableObj();
 
 	/**
 	 *	Get the DelSubDep1 interface for the schema.
 	 *
-	 *	@return	The ICFBamDelSubDep1TableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDelSubDep1TableObj interface implementation for the schema.
 	 */
-	ICFBamDelSubDep1TableObj getDelSubDep1TableObj();
+	IYCFBamDelSubDep1TableObj getDelSubDep1TableObj();
 
 	/**
 	 *	Get the DelSubDep2 interface for the schema.
 	 *
-	 *	@return	The ICFBamDelSubDep2TableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDelSubDep2TableObj interface implementation for the schema.
 	 */
-	ICFBamDelSubDep2TableObj getDelSubDep2TableObj();
+	IYCFBamDelSubDep2TableObj getDelSubDep2TableObj();
 
 	/**
 	 *	Get the DelSubDep3 interface for the schema.
 	 *
-	 *	@return	The ICFBamDelSubDep3TableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDelSubDep3TableObj interface implementation for the schema.
 	 */
-	ICFBamDelSubDep3TableObj getDelSubDep3TableObj();
+	IYCFBamDelSubDep3TableObj getDelSubDep3TableObj();
 
 	/**
 	 *	Get the DelTopDep interface for the schema.
 	 *
-	 *	@return	The ICFBamDelTopDepTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDelTopDepTableObj interface implementation for the schema.
 	 */
-	ICFBamDelTopDepTableObj getDelTopDepTableObj();
+	IYCFBamDelTopDepTableObj getDelTopDepTableObj();
 
 	/**
 	 *	Get the DoubleCol interface for the schema.
 	 *
-	 *	@return	The ICFBamDoubleColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDoubleColTableObj interface implementation for the schema.
 	 */
-	ICFBamDoubleColTableObj getDoubleColTableObj();
+	IYCFBamDoubleColTableObj getDoubleColTableObj();
 
 	/**
 	 *	Get the DoubleDef interface for the schema.
 	 *
-	 *	@return	The ICFBamDoubleDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDoubleDefTableObj interface implementation for the schema.
 	 */
-	ICFBamDoubleDefTableObj getDoubleDefTableObj();
+	IYCFBamDoubleDefTableObj getDoubleDefTableObj();
 
 	/**
 	 *	Get the DoubleType interface for the schema.
 	 *
-	 *	@return	The ICFBamDoubleTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamDoubleTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamDoubleTypeTableObj getDoubleTypeTableObj();
+	IYCFBamDoubleTypeTableObj getDoubleTypeTableObj();
 
 	/**
 	 *	Get the EnumDef interface for the schema.
 	 *
-	 *	@return	The ICFBamEnumDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamEnumDefTableObj interface implementation for the schema.
 	 */
-	ICFBamEnumDefTableObj getEnumDefTableObj();
+	IYCFBamEnumDefTableObj getEnumDefTableObj();
 
 	/**
 	 *	Get the EnumTag interface for the schema.
 	 *
-	 *	@return	The ICFBamEnumTagTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamEnumTagTableObj interface implementation for the schema.
 	 */
-	ICFBamEnumTagTableObj getEnumTagTableObj();
+	IYCFBamEnumTagTableObj getEnumTagTableObj();
 
 	/**
 	 *	Get the EnumType interface for the schema.
 	 *
-	 *	@return	The ICFBamEnumTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamEnumTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamEnumTypeTableObj getEnumTypeTableObj();
+	IYCFBamEnumTypeTableObj getEnumTypeTableObj();
 
 	/**
 	 *	Get the FloatCol interface for the schema.
 	 *
-	 *	@return	The ICFBamFloatColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamFloatColTableObj interface implementation for the schema.
 	 */
-	ICFBamFloatColTableObj getFloatColTableObj();
+	IYCFBamFloatColTableObj getFloatColTableObj();
 
 	/**
 	 *	Get the FloatDef interface for the schema.
 	 *
-	 *	@return	The ICFBamFloatDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamFloatDefTableObj interface implementation for the schema.
 	 */
-	ICFBamFloatDefTableObj getFloatDefTableObj();
+	IYCFBamFloatDefTableObj getFloatDefTableObj();
 
 	/**
 	 *	Get the FloatType interface for the schema.
 	 *
-	 *	@return	The ICFBamFloatTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamFloatTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamFloatTypeTableObj getFloatTypeTableObj();
+	IYCFBamFloatTypeTableObj getFloatTypeTableObj();
 
 	/**
 	 *	Get the Id16Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamId16GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamId16GenTableObj interface implementation for the schema.
 	 */
-	ICFBamId16GenTableObj getId16GenTableObj();
+	IYCFBamId16GenTableObj getId16GenTableObj();
 
 	/**
 	 *	Get the Id32Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamId32GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamId32GenTableObj interface implementation for the schema.
 	 */
-	ICFBamId32GenTableObj getId32GenTableObj();
+	IYCFBamId32GenTableObj getId32GenTableObj();
 
 	/**
 	 *	Get the Id64Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamId64GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamId64GenTableObj interface implementation for the schema.
 	 */
-	ICFBamId64GenTableObj getId64GenTableObj();
+	IYCFBamId64GenTableObj getId64GenTableObj();
 
 	/**
 	 *	Get the Index interface for the schema.
 	 *
-	 *	@return	The ICFBamIndexTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamIndexTableObj interface implementation for the schema.
 	 */
-	ICFBamIndexTableObj getIndexTableObj();
+	IYCFBamIndexTableObj getIndexTableObj();
 
 	/**
 	 *	Get the IndexCol interface for the schema.
 	 *
-	 *	@return	The ICFBamIndexColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamIndexColTableObj interface implementation for the schema.
 	 */
-	ICFBamIndexColTableObj getIndexColTableObj();
+	IYCFBamIndexColTableObj getIndexColTableObj();
 
 	/**
 	 *	Get the IndexTweak interface for the schema.
 	 *
-	 *	@return	The ICFBamIndexTweakTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamIndexTweakTableObj interface implementation for the schema.
 	 */
-	ICFBamIndexTweakTableObj getIndexTweakTableObj();
+	IYCFBamIndexTweakTableObj getIndexTweakTableObj();
 
 	/**
 	 *	Get the Int16Col interface for the schema.
 	 *
-	 *	@return	The ICFBamInt16ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamInt16ColTableObj interface implementation for the schema.
 	 */
-	ICFBamInt16ColTableObj getInt16ColTableObj();
+	IYCFBamInt16ColTableObj getInt16ColTableObj();
 
 	/**
 	 *	Get the Int16Def interface for the schema.
 	 *
-	 *	@return	The ICFBamInt16DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamInt16DefTableObj interface implementation for the schema.
 	 */
-	ICFBamInt16DefTableObj getInt16DefTableObj();
+	IYCFBamInt16DefTableObj getInt16DefTableObj();
 
 	/**
 	 *	Get the Int16Type interface for the schema.
 	 *
-	 *	@return	The ICFBamInt16TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamInt16TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamInt16TypeTableObj getInt16TypeTableObj();
+	IYCFBamInt16TypeTableObj getInt16TypeTableObj();
 
 	/**
 	 *	Get the Int32Col interface for the schema.
 	 *
-	 *	@return	The ICFBamInt32ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamInt32ColTableObj interface implementation for the schema.
 	 */
-	ICFBamInt32ColTableObj getInt32ColTableObj();
+	IYCFBamInt32ColTableObj getInt32ColTableObj();
 
 	/**
 	 *	Get the Int32Def interface for the schema.
 	 *
-	 *	@return	The ICFBamInt32DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamInt32DefTableObj interface implementation for the schema.
 	 */
-	ICFBamInt32DefTableObj getInt32DefTableObj();
+	IYCFBamInt32DefTableObj getInt32DefTableObj();
 
 	/**
 	 *	Get the Int32Type interface for the schema.
 	 *
-	 *	@return	The ICFBamInt32TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamInt32TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamInt32TypeTableObj getInt32TypeTableObj();
+	IYCFBamInt32TypeTableObj getInt32TypeTableObj();
 
 	/**
 	 *	Get the Int64Col interface for the schema.
 	 *
-	 *	@return	The ICFBamInt64ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamInt64ColTableObj interface implementation for the schema.
 	 */
-	ICFBamInt64ColTableObj getInt64ColTableObj();
+	IYCFBamInt64ColTableObj getInt64ColTableObj();
 
 	/**
 	 *	Get the Int64Def interface for the schema.
 	 *
-	 *	@return	The ICFBamInt64DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamInt64DefTableObj interface implementation for the schema.
 	 */
-	ICFBamInt64DefTableObj getInt64DefTableObj();
+	IYCFBamInt64DefTableObj getInt64DefTableObj();
 
 	/**
 	 *	Get the Int64Type interface for the schema.
 	 *
-	 *	@return	The ICFBamInt64TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamInt64TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamInt64TypeTableObj getInt64TypeTableObj();
+	IYCFBamInt64TypeTableObj getInt64TypeTableObj();
 
 	/**
 	 *	Get the NmTokenCol interface for the schema.
 	 *
-	 *	@return	The ICFBamNmTokenColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamNmTokenColTableObj interface implementation for the schema.
 	 */
-	ICFBamNmTokenColTableObj getNmTokenColTableObj();
+	IYCFBamNmTokenColTableObj getNmTokenColTableObj();
 
 	/**
 	 *	Get the NmTokenDef interface for the schema.
 	 *
-	 *	@return	The ICFBamNmTokenDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamNmTokenDefTableObj interface implementation for the schema.
 	 */
-	ICFBamNmTokenDefTableObj getNmTokenDefTableObj();
+	IYCFBamNmTokenDefTableObj getNmTokenDefTableObj();
 
 	/**
 	 *	Get the NmTokenType interface for the schema.
 	 *
-	 *	@return	The ICFBamNmTokenTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamNmTokenTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamNmTokenTypeTableObj getNmTokenTypeTableObj();
+	IYCFBamNmTokenTypeTableObj getNmTokenTypeTableObj();
 
 	/**
 	 *	Get the NmTokensCol interface for the schema.
 	 *
-	 *	@return	The ICFBamNmTokensColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamNmTokensColTableObj interface implementation for the schema.
 	 */
-	ICFBamNmTokensColTableObj getNmTokensColTableObj();
+	IYCFBamNmTokensColTableObj getNmTokensColTableObj();
 
 	/**
 	 *	Get the NmTokensDef interface for the schema.
 	 *
-	 *	@return	The ICFBamNmTokensDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamNmTokensDefTableObj interface implementation for the schema.
 	 */
-	ICFBamNmTokensDefTableObj getNmTokensDefTableObj();
+	IYCFBamNmTokensDefTableObj getNmTokensDefTableObj();
 
 	/**
 	 *	Get the NmTokensType interface for the schema.
 	 *
-	 *	@return	The ICFBamNmTokensTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamNmTokensTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamNmTokensTypeTableObj getNmTokensTypeTableObj();
+	IYCFBamNmTokensTypeTableObj getNmTokensTypeTableObj();
 
 	/**
 	 *	Get the NumberCol interface for the schema.
 	 *
-	 *	@return	The ICFBamNumberColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamNumberColTableObj interface implementation for the schema.
 	 */
-	ICFBamNumberColTableObj getNumberColTableObj();
+	IYCFBamNumberColTableObj getNumberColTableObj();
 
 	/**
 	 *	Get the NumberDef interface for the schema.
 	 *
-	 *	@return	The ICFBamNumberDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamNumberDefTableObj interface implementation for the schema.
 	 */
-	ICFBamNumberDefTableObj getNumberDefTableObj();
+	IYCFBamNumberDefTableObj getNumberDefTableObj();
 
 	/**
 	 *	Get the NumberType interface for the schema.
 	 *
-	 *	@return	The ICFBamNumberTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamNumberTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamNumberTypeTableObj getNumberTypeTableObj();
+	IYCFBamNumberTypeTableObj getNumberTypeTableObj();
 
 	/**
 	 *	Get the Param interface for the schema.
 	 *
-	 *	@return	The ICFBamParamTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamParamTableObj interface implementation for the schema.
 	 */
-	ICFBamParamTableObj getParamTableObj();
+	IYCFBamParamTableObj getParamTableObj();
 
 	/**
 	 *	Get the PopDep interface for the schema.
 	 *
-	 *	@return	The ICFBamPopDepTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamPopDepTableObj interface implementation for the schema.
 	 */
-	ICFBamPopDepTableObj getPopDepTableObj();
+	IYCFBamPopDepTableObj getPopDepTableObj();
 
 	/**
 	 *	Get the PopSubDep1 interface for the schema.
 	 *
-	 *	@return	The ICFBamPopSubDep1TableObj interface implementation for the schema.
+	 *	@return	The IYCFBamPopSubDep1TableObj interface implementation for the schema.
 	 */
-	ICFBamPopSubDep1TableObj getPopSubDep1TableObj();
+	IYCFBamPopSubDep1TableObj getPopSubDep1TableObj();
 
 	/**
 	 *	Get the PopSubDep2 interface for the schema.
 	 *
-	 *	@return	The ICFBamPopSubDep2TableObj interface implementation for the schema.
+	 *	@return	The IYCFBamPopSubDep2TableObj interface implementation for the schema.
 	 */
-	ICFBamPopSubDep2TableObj getPopSubDep2TableObj();
+	IYCFBamPopSubDep2TableObj getPopSubDep2TableObj();
 
 	/**
 	 *	Get the PopSubDep3 interface for the schema.
 	 *
-	 *	@return	The ICFBamPopSubDep3TableObj interface implementation for the schema.
+	 *	@return	The IYCFBamPopSubDep3TableObj interface implementation for the schema.
 	 */
-	ICFBamPopSubDep3TableObj getPopSubDep3TableObj();
+	IYCFBamPopSubDep3TableObj getPopSubDep3TableObj();
 
 	/**
 	 *	Get the PopTopDep interface for the schema.
 	 *
-	 *	@return	The ICFBamPopTopDepTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamPopTopDepTableObj interface implementation for the schema.
 	 */
-	ICFBamPopTopDepTableObj getPopTopDepTableObj();
+	IYCFBamPopTopDepTableObj getPopTopDepTableObj();
 
 	/**
 	 *	Get the Relation interface for the schema.
 	 *
-	 *	@return	The ICFBamRelationTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamRelationTableObj interface implementation for the schema.
 	 */
-	ICFBamRelationTableObj getRelationTableObj();
+	IYCFBamRelationTableObj getRelationTableObj();
 
 	/**
 	 *	Get the RelationCol interface for the schema.
 	 *
-	 *	@return	The ICFBamRelationColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamRelationColTableObj interface implementation for the schema.
 	 */
-	ICFBamRelationColTableObj getRelationColTableObj();
+	IYCFBamRelationColTableObj getRelationColTableObj();
 
 	/**
 	 *	Get the RoleDef interface for the schema.
 	 *
-	 *	@return	The ICFBamRoleDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamRoleDefTableObj interface implementation for the schema.
 	 */
-	ICFBamRoleDefTableObj getRoleDefTableObj();
+	IYCFBamRoleDefTableObj getRoleDefTableObj();
 
 	/**
 	 *	Get the SchemaDef interface for the schema.
 	 *
-	 *	@return	The ICFBamSchemaDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamSchemaDefTableObj interface implementation for the schema.
 	 */
-	ICFBamSchemaDefTableObj getSchemaDefTableObj();
+	IYCFBamSchemaDefTableObj getSchemaDefTableObj();
 
 	/**
 	 *	Get the SchemaRef interface for the schema.
 	 *
-	 *	@return	The ICFBamSchemaRefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamSchemaRefTableObj interface implementation for the schema.
 	 */
-	ICFBamSchemaRefTableObj getSchemaRefTableObj();
+	IYCFBamSchemaRefTableObj getSchemaRefTableObj();
 
 	/**
 	 *	Get the SchemaRole interface for the schema.
 	 *
-	 *	@return	The ICFBamSchemaRoleTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamSchemaRoleTableObj interface implementation for the schema.
 	 */
-	ICFBamSchemaRoleTableObj getSchemaRoleTableObj();
+	IYCFBamSchemaRoleTableObj getSchemaRoleTableObj();
 
 	/**
 	 *	Get the SchemaTweak interface for the schema.
 	 *
-	 *	@return	The ICFBamSchemaTweakTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamSchemaTweakTableObj interface implementation for the schema.
 	 */
-	ICFBamSchemaTweakTableObj getSchemaTweakTableObj();
+	IYCFBamSchemaTweakTableObj getSchemaTweakTableObj();
 
 	/**
 	 *	Get the Scope interface for the schema.
 	 *
-	 *	@return	The ICFBamScopeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamScopeTableObj interface implementation for the schema.
 	 */
-	ICFBamScopeTableObj getScopeTableObj();
+	IYCFBamScopeTableObj getScopeTableObj();
 
 	/**
 	 *	Get the ServerListFunc interface for the schema.
 	 *
-	 *	@return	The ICFBamServerListFuncTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamServerListFuncTableObj interface implementation for the schema.
 	 */
-	ICFBamServerListFuncTableObj getServerListFuncTableObj();
+	IYCFBamServerListFuncTableObj getServerListFuncTableObj();
 
 	/**
 	 *	Get the ServerMethod interface for the schema.
 	 *
-	 *	@return	The ICFBamServerMethodTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamServerMethodTableObj interface implementation for the schema.
 	 */
-	ICFBamServerMethodTableObj getServerMethodTableObj();
+	IYCFBamServerMethodTableObj getServerMethodTableObj();
 
 	/**
 	 *	Get the ServerObjFunc interface for the schema.
 	 *
-	 *	@return	The ICFBamServerObjFuncTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamServerObjFuncTableObj interface implementation for the schema.
 	 */
-	ICFBamServerObjFuncTableObj getServerObjFuncTableObj();
+	IYCFBamServerObjFuncTableObj getServerObjFuncTableObj();
 
 	/**
 	 *	Get the ServerProc interface for the schema.
 	 *
-	 *	@return	The ICFBamServerProcTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamServerProcTableObj interface implementation for the schema.
 	 */
-	ICFBamServerProcTableObj getServerProcTableObj();
+	IYCFBamServerProcTableObj getServerProcTableObj();
 
 	/**
 	 *	Get the StringCol interface for the schema.
 	 *
-	 *	@return	The ICFBamStringColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamStringColTableObj interface implementation for the schema.
 	 */
-	ICFBamStringColTableObj getStringColTableObj();
+	IYCFBamStringColTableObj getStringColTableObj();
 
 	/**
 	 *	Get the StringDef interface for the schema.
 	 *
-	 *	@return	The ICFBamStringDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamStringDefTableObj interface implementation for the schema.
 	 */
-	ICFBamStringDefTableObj getStringDefTableObj();
+	IYCFBamStringDefTableObj getStringDefTableObj();
 
 	/**
 	 *	Get the StringType interface for the schema.
 	 *
-	 *	@return	The ICFBamStringTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamStringTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamStringTypeTableObj getStringTypeTableObj();
+	IYCFBamStringTypeTableObj getStringTypeTableObj();
 
 	/**
 	 *	Get the TZDateCol interface for the schema.
 	 *
-	 *	@return	The ICFBamTZDateColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTZDateColTableObj interface implementation for the schema.
 	 */
-	ICFBamTZDateColTableObj getTZDateColTableObj();
+	IYCFBamTZDateColTableObj getTZDateColTableObj();
 
 	/**
 	 *	Get the TZDateDef interface for the schema.
 	 *
-	 *	@return	The ICFBamTZDateDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTZDateDefTableObj interface implementation for the schema.
 	 */
-	ICFBamTZDateDefTableObj getTZDateDefTableObj();
+	IYCFBamTZDateDefTableObj getTZDateDefTableObj();
 
 	/**
 	 *	Get the TZDateType interface for the schema.
 	 *
-	 *	@return	The ICFBamTZDateTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTZDateTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamTZDateTypeTableObj getTZDateTypeTableObj();
+	IYCFBamTZDateTypeTableObj getTZDateTypeTableObj();
 
 	/**
 	 *	Get the TZTimeCol interface for the schema.
 	 *
-	 *	@return	The ICFBamTZTimeColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTZTimeColTableObj interface implementation for the schema.
 	 */
-	ICFBamTZTimeColTableObj getTZTimeColTableObj();
+	IYCFBamTZTimeColTableObj getTZTimeColTableObj();
 
 	/**
 	 *	Get the TZTimeDef interface for the schema.
 	 *
-	 *	@return	The ICFBamTZTimeDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTZTimeDefTableObj interface implementation for the schema.
 	 */
-	ICFBamTZTimeDefTableObj getTZTimeDefTableObj();
+	IYCFBamTZTimeDefTableObj getTZTimeDefTableObj();
 
 	/**
 	 *	Get the TZTimeType interface for the schema.
 	 *
-	 *	@return	The ICFBamTZTimeTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTZTimeTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamTZTimeTypeTableObj getTZTimeTypeTableObj();
+	IYCFBamTZTimeTypeTableObj getTZTimeTypeTableObj();
 
 	/**
 	 *	Get the TZTimestampCol interface for the schema.
 	 *
-	 *	@return	The ICFBamTZTimestampColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTZTimestampColTableObj interface implementation for the schema.
 	 */
-	ICFBamTZTimestampColTableObj getTZTimestampColTableObj();
+	IYCFBamTZTimestampColTableObj getTZTimestampColTableObj();
 
 	/**
 	 *	Get the TZTimestampDef interface for the schema.
 	 *
-	 *	@return	The ICFBamTZTimestampDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTZTimestampDefTableObj interface implementation for the schema.
 	 */
-	ICFBamTZTimestampDefTableObj getTZTimestampDefTableObj();
+	IYCFBamTZTimestampDefTableObj getTZTimestampDefTableObj();
 
 	/**
 	 *	Get the TZTimestampType interface for the schema.
 	 *
-	 *	@return	The ICFBamTZTimestampTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTZTimestampTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamTZTimestampTypeTableObj getTZTimestampTypeTableObj();
+	IYCFBamTZTimestampTypeTableObj getTZTimestampTypeTableObj();
 
 	/**
 	 *	Get the Table interface for the schema.
 	 *
-	 *	@return	The ICFBamTableTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTableTableObj interface implementation for the schema.
 	 */
-	ICFBamTableTableObj getTableTableObj();
+	IYCFBamTableTableObj getTableTableObj();
 
 	/**
 	 *	Get the TableCol interface for the schema.
 	 *
-	 *	@return	The ICFBamTableColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTableColTableObj interface implementation for the schema.
 	 */
-	ICFBamTableColTableObj getTableColTableObj();
+	IYCFBamTableColTableObj getTableColTableObj();
 
 	/**
 	 *	Get the TableTweak interface for the schema.
 	 *
-	 *	@return	The ICFBamTableTweakTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTableTweakTableObj interface implementation for the schema.
 	 */
-	ICFBamTableTweakTableObj getTableTweakTableObj();
+	IYCFBamTableTweakTableObj getTableTweakTableObj();
 
 	/**
 	 *	Get the TextCol interface for the schema.
 	 *
-	 *	@return	The ICFBamTextColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTextColTableObj interface implementation for the schema.
 	 */
-	ICFBamTextColTableObj getTextColTableObj();
+	IYCFBamTextColTableObj getTextColTableObj();
 
 	/**
 	 *	Get the TextDef interface for the schema.
 	 *
-	 *	@return	The ICFBamTextDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTextDefTableObj interface implementation for the schema.
 	 */
-	ICFBamTextDefTableObj getTextDefTableObj();
+	IYCFBamTextDefTableObj getTextDefTableObj();
 
 	/**
 	 *	Get the TextType interface for the schema.
 	 *
-	 *	@return	The ICFBamTextTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTextTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamTextTypeTableObj getTextTypeTableObj();
+	IYCFBamTextTypeTableObj getTextTypeTableObj();
 
 	/**
 	 *	Get the TimeCol interface for the schema.
 	 *
-	 *	@return	The ICFBamTimeColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTimeColTableObj interface implementation for the schema.
 	 */
-	ICFBamTimeColTableObj getTimeColTableObj();
+	IYCFBamTimeColTableObj getTimeColTableObj();
 
 	/**
 	 *	Get the TimeDef interface for the schema.
 	 *
-	 *	@return	The ICFBamTimeDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTimeDefTableObj interface implementation for the schema.
 	 */
-	ICFBamTimeDefTableObj getTimeDefTableObj();
+	IYCFBamTimeDefTableObj getTimeDefTableObj();
 
 	/**
 	 *	Get the TimeType interface for the schema.
 	 *
-	 *	@return	The ICFBamTimeTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTimeTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamTimeTypeTableObj getTimeTypeTableObj();
+	IYCFBamTimeTypeTableObj getTimeTypeTableObj();
 
 	/**
 	 *	Get the TimestampCol interface for the schema.
 	 *
-	 *	@return	The ICFBamTimestampColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTimestampColTableObj interface implementation for the schema.
 	 */
-	ICFBamTimestampColTableObj getTimestampColTableObj();
+	IYCFBamTimestampColTableObj getTimestampColTableObj();
 
 	/**
 	 *	Get the TimestampDef interface for the schema.
 	 *
-	 *	@return	The ICFBamTimestampDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTimestampDefTableObj interface implementation for the schema.
 	 */
-	ICFBamTimestampDefTableObj getTimestampDefTableObj();
+	IYCFBamTimestampDefTableObj getTimestampDefTableObj();
 
 	/**
 	 *	Get the TimestampType interface for the schema.
 	 *
-	 *	@return	The ICFBamTimestampTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTimestampTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamTimestampTypeTableObj getTimestampTypeTableObj();
+	IYCFBamTimestampTypeTableObj getTimestampTypeTableObj();
 
 	/**
 	 *	Get the TokenCol interface for the schema.
 	 *
-	 *	@return	The ICFBamTokenColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTokenColTableObj interface implementation for the schema.
 	 */
-	ICFBamTokenColTableObj getTokenColTableObj();
+	IYCFBamTokenColTableObj getTokenColTableObj();
 
 	/**
 	 *	Get the TokenDef interface for the schema.
 	 *
-	 *	@return	The ICFBamTokenDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTokenDefTableObj interface implementation for the schema.
 	 */
-	ICFBamTokenDefTableObj getTokenDefTableObj();
+	IYCFBamTokenDefTableObj getTokenDefTableObj();
 
 	/**
 	 *	Get the TokenType interface for the schema.
 	 *
-	 *	@return	The ICFBamTokenTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTokenTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamTokenTypeTableObj getTokenTypeTableObj();
+	IYCFBamTokenTypeTableObj getTokenTypeTableObj();
 
 	/**
 	 *	Get the Tweak interface for the schema.
 	 *
-	 *	@return	The ICFBamTweakTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamTweakTableObj interface implementation for the schema.
 	 */
-	ICFBamTweakTableObj getTweakTableObj();
+	IYCFBamTweakTableObj getTweakTableObj();
 
 	/**
 	 *	Get the UInt16Col interface for the schema.
 	 *
-	 *	@return	The ICFBamUInt16ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUInt16ColTableObj interface implementation for the schema.
 	 */
-	ICFBamUInt16ColTableObj getUInt16ColTableObj();
+	IYCFBamUInt16ColTableObj getUInt16ColTableObj();
 
 	/**
 	 *	Get the UInt16Def interface for the schema.
 	 *
-	 *	@return	The ICFBamUInt16DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUInt16DefTableObj interface implementation for the schema.
 	 */
-	ICFBamUInt16DefTableObj getUInt16DefTableObj();
+	IYCFBamUInt16DefTableObj getUInt16DefTableObj();
 
 	/**
 	 *	Get the UInt16Type interface for the schema.
 	 *
-	 *	@return	The ICFBamUInt16TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUInt16TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamUInt16TypeTableObj getUInt16TypeTableObj();
+	IYCFBamUInt16TypeTableObj getUInt16TypeTableObj();
 
 	/**
 	 *	Get the UInt32Col interface for the schema.
 	 *
-	 *	@return	The ICFBamUInt32ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUInt32ColTableObj interface implementation for the schema.
 	 */
-	ICFBamUInt32ColTableObj getUInt32ColTableObj();
+	IYCFBamUInt32ColTableObj getUInt32ColTableObj();
 
 	/**
 	 *	Get the UInt32Def interface for the schema.
 	 *
-	 *	@return	The ICFBamUInt32DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUInt32DefTableObj interface implementation for the schema.
 	 */
-	ICFBamUInt32DefTableObj getUInt32DefTableObj();
+	IYCFBamUInt32DefTableObj getUInt32DefTableObj();
 
 	/**
 	 *	Get the UInt32Type interface for the schema.
 	 *
-	 *	@return	The ICFBamUInt32TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUInt32TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamUInt32TypeTableObj getUInt32TypeTableObj();
+	IYCFBamUInt32TypeTableObj getUInt32TypeTableObj();
 
 	/**
 	 *	Get the UInt64Col interface for the schema.
 	 *
-	 *	@return	The ICFBamUInt64ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUInt64ColTableObj interface implementation for the schema.
 	 */
-	ICFBamUInt64ColTableObj getUInt64ColTableObj();
+	IYCFBamUInt64ColTableObj getUInt64ColTableObj();
 
 	/**
 	 *	Get the UInt64Def interface for the schema.
 	 *
-	 *	@return	The ICFBamUInt64DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUInt64DefTableObj interface implementation for the schema.
 	 */
-	ICFBamUInt64DefTableObj getUInt64DefTableObj();
+	IYCFBamUInt64DefTableObj getUInt64DefTableObj();
 
 	/**
 	 *	Get the UInt64Type interface for the schema.
 	 *
-	 *	@return	The ICFBamUInt64TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUInt64TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamUInt64TypeTableObj getUInt64TypeTableObj();
+	IYCFBamUInt64TypeTableObj getUInt64TypeTableObj();
 
 	/**
 	 *	Get the Uuid6Col interface for the schema.
 	 *
-	 *	@return	The ICFBamUuid6ColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUuid6ColTableObj interface implementation for the schema.
 	 */
-	ICFBamUuid6ColTableObj getUuid6ColTableObj();
+	IYCFBamUuid6ColTableObj getUuid6ColTableObj();
 
 	/**
 	 *	Get the Uuid6Def interface for the schema.
 	 *
-	 *	@return	The ICFBamUuid6DefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUuid6DefTableObj interface implementation for the schema.
 	 */
-	ICFBamUuid6DefTableObj getUuid6DefTableObj();
+	IYCFBamUuid6DefTableObj getUuid6DefTableObj();
 
 	/**
 	 *	Get the Uuid6Gen interface for the schema.
 	 *
-	 *	@return	The ICFBamUuid6GenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUuid6GenTableObj interface implementation for the schema.
 	 */
-	ICFBamUuid6GenTableObj getUuid6GenTableObj();
+	IYCFBamUuid6GenTableObj getUuid6GenTableObj();
 
 	/**
 	 *	Get the Uuid6Type interface for the schema.
 	 *
-	 *	@return	The ICFBamUuid6TypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUuid6TypeTableObj interface implementation for the schema.
 	 */
-	ICFBamUuid6TypeTableObj getUuid6TypeTableObj();
+	IYCFBamUuid6TypeTableObj getUuid6TypeTableObj();
 
 	/**
 	 *	Get the UuidCol interface for the schema.
 	 *
-	 *	@return	The ICFBamUuidColTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUuidColTableObj interface implementation for the schema.
 	 */
-	ICFBamUuidColTableObj getUuidColTableObj();
+	IYCFBamUuidColTableObj getUuidColTableObj();
 
 	/**
 	 *	Get the UuidDef interface for the schema.
 	 *
-	 *	@return	The ICFBamUuidDefTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUuidDefTableObj interface implementation for the schema.
 	 */
-	ICFBamUuidDefTableObj getUuidDefTableObj();
+	IYCFBamUuidDefTableObj getUuidDefTableObj();
 
 	/**
 	 *	Get the UuidGen interface for the schema.
 	 *
-	 *	@return	The ICFBamUuidGenTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUuidGenTableObj interface implementation for the schema.
 	 */
-	ICFBamUuidGenTableObj getUuidGenTableObj();
+	IYCFBamUuidGenTableObj getUuidGenTableObj();
 
 	/**
 	 *	Get the UuidType interface for the schema.
 	 *
-	 *	@return	The ICFBamUuidTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamUuidTypeTableObj interface implementation for the schema.
 	 */
-	ICFBamUuidTypeTableObj getUuidTypeTableObj();
+	IYCFBamUuidTypeTableObj getUuidTypeTableObj();
 
 	/**
 	 *	Get the Value interface for the schema.
 	 *
-	 *	@return	The ICFBamValueTableObj interface implementation for the schema.
+	 *	@return	The IYCFBamValueTableObj interface implementation for the schema.
 	 */
-	ICFBamValueTableObj getValueTableObj();
+	IYCFBamValueTableObj getValueTableObj();
 }

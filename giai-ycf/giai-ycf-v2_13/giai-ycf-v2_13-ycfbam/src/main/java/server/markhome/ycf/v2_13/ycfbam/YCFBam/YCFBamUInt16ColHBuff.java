@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a UInt16Col history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamUInt16ColHBuff
-	extends CFBamUInt16DefHBuff
+public class YCFBamUInt16ColHBuff
+	extends YCFBamUInt16DefHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -73,13 +73,13 @@ public class CFBamUInt16ColHBuff
 	public static final long TABLEID_MIN_VALUE = 0L;
 
 	protected long requiredTableId;
-	public CFBamUInt16ColHBuff() {
+	public YCFBamUInt16ColHBuff() {
 		super();
-		requiredTableId = CFBamUInt16ColBuff.TABLEID_INIT_VALUE;
+		requiredTableId = YCFBamUInt16ColBuff.TABLEID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
-		return( CFBamUInt16ColBuff.CLASS_CODE );
+		return( YCFBamUInt16ColBuff.CLASS_CODE );
 	}
 
 	public long getRequiredTableId() {
@@ -87,13 +87,13 @@ public class CFBamUInt16ColHBuff
 	}
 
 	public void setRequiredTableId( long value ) {
-		if( value < CFBamUInt16ColBuff.TABLEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamUInt16ColBuff.TABLEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTableId",
 				1,
 				"value",
 				value,
-				CFBamUInt16ColBuff.TABLEID_MIN_VALUE );
+				YCFBamUInt16ColBuff.TABLEID_MIN_VALUE );
 		}
 		requiredTableId = value;
 	}
@@ -102,8 +102,8 @@ public class CFBamUInt16ColHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamUInt16ColHBuff ) {
-			CFBamUInt16ColHBuff rhs = (CFBamUInt16ColHBuff)obj;
+		else if( obj instanceof YCFBamUInt16ColHBuff ) {
+			YCFBamUInt16ColHBuff rhs = (YCFBamUInt16ColHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -118,8 +118,8 @@ public class CFBamUInt16ColHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamUInt16ColBuff ) {
-			CFBamUInt16ColBuff rhs = (CFBamUInt16ColBuff)obj;
+		else if( obj instanceof YCFBamUInt16ColBuff ) {
+			YCFBamUInt16ColBuff rhs = (YCFBamUInt16ColBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -134,8 +134,8 @@ public class CFBamUInt16ColHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamUInt16ColByTableIdxKey ) {
-			CFBamUInt16ColByTableIdxKey rhs = (CFBamUInt16ColByTableIdxKey)obj;
+		else if( obj instanceof YCFBamUInt16ColByTableIdxKey ) {
+			YCFBamUInt16ColByTableIdxKey rhs = (YCFBamUInt16ColByTableIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -159,16 +159,16 @@ public class CFBamUInt16ColHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamUInt16ColBuff ) {
-			CFBamUInt16ColBuff rhs = (CFBamUInt16ColBuff)obj;
+		else if( obj instanceof YCFBamUInt16ColBuff ) {
+			YCFBamUInt16ColBuff rhs = (YCFBamUInt16ColBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamUInt16ColByTableIdxKey ) {
-			CFBamUInt16ColByTableIdxKey rhs = (CFBamUInt16ColByTableIdxKey)obj;
+		else if( obj instanceof YCFBamUInt16ColByTableIdxKey ) {
+			YCFBamUInt16ColByTableIdxKey rhs = (YCFBamUInt16ColByTableIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -183,8 +183,8 @@ public class CFBamUInt16ColHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamUInt16ColHBuff ) {
-			CFBamUInt16ColHBuff rhs = (CFBamUInt16ColHBuff)obj;
+		else if( obj instanceof YCFBamUInt16ColHBuff ) {
+			YCFBamUInt16ColHBuff rhs = (YCFBamUInt16ColHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -601,38 +601,38 @@ public class CFBamUInt16ColHBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamUInt16ColBuff ) {
-			setUInt16ColBuff( (CFBamUInt16ColBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamUInt16ColBuff ) {
+			setUInt16ColBuff( (YCFBamUInt16ColBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamUInt16ColBuff" );
+				"YCFBamUInt16ColBuff" );
 		}
 	}
 
-	public void setUInt16ColBuff( CFBamUInt16ColBuff src ) {
+	public void setUInt16ColBuff( YCFBamUInt16ColBuff src ) {
 		super.setUInt16DefBuff( src );
 		setRequiredTableId( src.getRequiredTableId() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamUInt16ColHBuff ) {
-			setUInt16ColBuff( (CFBamUInt16ColHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamUInt16ColHBuff ) {
+			setUInt16ColBuff( (YCFBamUInt16ColHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamUInt16ColHBuff" );
+				"YCFBamUInt16ColHBuff" );
 		}
 	}
 
-	public void setUInt16ColBuff( CFBamUInt16ColHBuff src ) {
+	public void setUInt16ColBuff( YCFBamUInt16ColHBuff src ) {
 		super.setUInt16DefBuff( src );
 		setRequiredTableId( src.getRequiredTableId() );
 	}

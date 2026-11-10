@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecGrpInc by ClusterIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSecGrpIncByClusterIdxKey
+public class YCFGenKbSecGrpIncByClusterIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredClusterId;
-	public CFGenKbSecGrpIncByClusterIdxKey() {
-		requiredClusterId = CFGenKbSecGrpIncBuff.CLUSTERID_INIT_VALUE;
+	public YCFGenKbSecGrpIncByClusterIdxKey() {
+		requiredClusterId = YCFGenKbSecGrpIncBuff.CLUSTERID_INIT_VALUE;
 	}
 
 	public long getRequiredClusterId() {
@@ -54,13 +54,13 @@ public class CFGenKbSecGrpIncByClusterIdxKey
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFGenKbSecGrpIncBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbSecGrpIncBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFGenKbSecGrpIncBuff.CLUSTERID_MIN_VALUE );
+				YCFGenKbSecGrpIncBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -69,15 +69,15 @@ public class CFGenKbSecGrpIncByClusterIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecGrpIncByClusterIdxKey ) {
-			CFGenKbSecGrpIncByClusterIdxKey rhs = (CFGenKbSecGrpIncByClusterIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecGrpIncByClusterIdxKey ) {
+			YCFGenKbSecGrpIncByClusterIdxKey rhs = (YCFGenKbSecGrpIncByClusterIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecGrpIncBuff ) {
-			CFGenKbSecGrpIncBuff rhs = (CFGenKbSecGrpIncBuff)obj;
+		else if( obj instanceof YCFGenKbSecGrpIncBuff ) {
+			YCFGenKbSecGrpIncBuff rhs = (YCFGenKbSecGrpIncBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -98,8 +98,8 @@ public class CFGenKbSecGrpIncByClusterIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbSecGrpIncByClusterIdxKey ) {
-			CFGenKbSecGrpIncByClusterIdxKey rhs = (CFGenKbSecGrpIncByClusterIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecGrpIncByClusterIdxKey ) {
+			YCFGenKbSecGrpIncByClusterIdxKey rhs = (YCFGenKbSecGrpIncByClusterIdxKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -108,8 +108,8 @@ public class CFGenKbSecGrpIncByClusterIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecGrpIncBuff ) {
-			CFGenKbSecGrpIncBuff rhs = (CFGenKbSecGrpIncBuff)obj;
+		else if( obj instanceof YCFGenKbSecGrpIncBuff ) {
+			YCFGenKbSecGrpIncBuff rhs = (YCFGenKbSecGrpIncBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -119,7 +119,7 @@ public class CFGenKbSecGrpIncByClusterIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -128,7 +128,7 @@ public class CFGenKbSecGrpIncByClusterIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbSecGrpIncByClusterIdx"
+		String ret = "<YCFGenKbSecGrpIncByClusterIdx"
 			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
 			+ "/>";
 		return( ret );

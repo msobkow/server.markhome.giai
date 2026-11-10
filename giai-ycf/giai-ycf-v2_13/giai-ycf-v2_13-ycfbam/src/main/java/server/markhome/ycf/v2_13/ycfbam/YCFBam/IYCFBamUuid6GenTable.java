@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for Uuid6Gen.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamUuid6GenTable database interface for Uuid6Gen
+ *	YCFBamUuid6GenTable database interface for Uuid6Gen
  */
-public interface ICFBamUuid6GenTable
+public interface IYCFBamUuid6GenTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createUuid6Gen( CFSecAuthorization Authorization,
-		CFBamUuid6GenBuff Buff );
+	void createUuid6Gen( YCFSecAuthorization Authorization,
+		YCFBamUuid6GenBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateUuid6Gen( CFSecAuthorization Authorization,
-		CFBamUuid6GenBuff Buff );
+	void updateUuid6Gen( YCFSecAuthorization Authorization,
+		YCFBamUuid6GenBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteUuid6Gen( CFSecAuthorization Authorization,
-		CFBamUuid6GenBuff Buff );
+	void deleteUuid6Gen( YCFSecAuthorization Authorization,
+		YCFBamUuid6GenBuff Buff );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key DispIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argDispenserId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByDispIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByDispIdx( YCFSecAuthorization Authorization,
 		Long argDispenserTenantId,
 		Long argDispenserId );
 
@@ -121,8 +121,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByDispIdx( CFSecAuthorization Authorization,
-		CFBamUuid6GenByDispIdxKey argKey );
+	void deleteUuid6GenByDispIdx( YCFSecAuthorization Authorization,
+		YCFBamUuid6GenByDispIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key SchemaIdx.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argSchemaDefId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenBySchemaIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId );
 
@@ -143,8 +143,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamUuid6TypeBySchemaIdxKey argKey );
+	void deleteUuid6GenBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamUuid6TypeBySchemaIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instance identified by the primary key attributes.
 	 *
@@ -154,7 +154,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByIdIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -165,8 +165,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteUuid6GenByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteUuid6GenByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key UNameIdx.
 	 *
@@ -178,7 +178,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argName	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByUNameIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -190,8 +190,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteUuid6GenByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key ValTentIdx.
 	 *
@@ -199,7 +199,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argTenantId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByValTentIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -209,8 +209,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteUuid6GenByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key ScopeIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argScopeId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByScopeIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -231,8 +231,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteUuid6GenByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key DefSchemaIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argDefSchemaId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -253,8 +253,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteUuid6GenByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key PrevIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argPrevId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByPrevIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -275,8 +275,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteUuid6GenByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key NextIdx.
 	 *
@@ -286,7 +286,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argNextId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByNextIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -297,8 +297,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteUuid6GenByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key ContPrevIdx.
 	 *
@@ -310,7 +310,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argPrevId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -322,8 +322,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteUuid6GenByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key ContNextIdx.
 	 *
@@ -335,7 +335,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argNextId	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByContNextIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -347,8 +347,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteUuid6GenByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key CodeVisIdx.
 	 *
@@ -356,8 +356,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argCodeVis	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteUuid6GenByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key CodeVisIdx.
@@ -366,8 +366,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteUuid6GenByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -379,10 +379,10 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argCodeVis	The Uuid6Gen key attribute of the instance generating the id.
 	 */
-	void deleteUuid6GenByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteUuid6GenByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the Uuid6Gen instances identified by the key ScopeCodeVisIdx.
@@ -391,8 +391,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteUuid6GenByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteUuid6GenByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -405,8 +405,8 @@ public interface ICFBamUuid6GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamUuid6GenBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamUuid6GenBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived Uuid6Gen buffer instance by primary key.
@@ -418,8 +418,8 @@ public interface ICFBamUuid6GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamUuid6GenBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamUuid6GenBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all Uuid6Gen instances.
@@ -428,7 +428,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamUuid6GenBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived Uuid6Gen buffer instance identified by the unique key IdIdx.
@@ -442,7 +442,7 @@ public interface ICFBamUuid6GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamUuid6GenBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -460,7 +460,7 @@ public interface ICFBamUuid6GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamUuid6GenBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -474,7 +474,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -488,7 +488,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -503,7 +503,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -518,7 +518,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -533,7 +533,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -550,7 +550,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -568,7 +568,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -582,8 +582,8 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamUuid6GenBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived Uuid6Gen buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -598,10 +598,10 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived Uuid6Gen buffer instances identified by the duplicate key SchemaIdx.
@@ -614,7 +614,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -629,7 +629,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamUuid6GenBuff[] readDerivedByDispIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readDerivedByDispIdx( YCFSecAuthorization Authorization,
 		Long DispenserTenantId,
 		Long DispenserId );
 
@@ -643,10 +643,10 @@ public interface ICFBamUuid6GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamUuid6GenBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific Uuid6Gen buffer instance identified by the primary key.
@@ -658,10 +658,10 @@ public interface ICFBamUuid6GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamUuid6GenBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific Uuid6Gen buffer instances.
@@ -670,7 +670,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return All the specific Uuid6Gen instances in the database accessible for the Authorization.
 	 */
-	CFBamUuid6GenBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamUuid6GenBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific Uuid6Gen buffer instance identified by the unique key IdIdx.
@@ -684,9 +684,9 @@ public interface ICFBamUuid6GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -704,9 +704,9 @@ public interface ICFBamUuid6GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -720,9 +720,9 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -736,9 +736,9 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -753,9 +753,9 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -770,9 +770,9 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -787,9 +787,9 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -806,9 +806,9 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -826,9 +826,9 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -842,10 +842,10 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamUuid6GenBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Uuid6Gen buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -860,12 +860,12 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Uuid6Gen buffer instances identified by the duplicate key SchemaIdx.
@@ -878,9 +878,9 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -895,9 +895,9 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamUuid6GenBuff[] readBuffByDispIdx( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff[] readBuffByDispIdx( YCFSecAuthorization Authorization,
 		Long DispenserTenantId,
 		Long DispenserId );
 
@@ -906,7 +906,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamUuid6GenBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -916,7 +916,7 @@ public interface ICFBamUuid6GenTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamUuid6GenBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamUuid6GenBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -924,7 +924,7 @@ public interface ICFBamUuid6GenTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

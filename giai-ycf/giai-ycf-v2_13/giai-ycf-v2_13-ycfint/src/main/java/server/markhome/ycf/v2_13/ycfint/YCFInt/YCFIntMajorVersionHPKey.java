@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a MajorVersion history primary key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,29 +36,29 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFIntMajorVersionHPKey History Primary Key for MajorVersion
+ *	YCFIntMajorVersionHPKey History Primary Key for MajorVersion
 
  *		requiredTenantId	Required object attribute TenantId.
  *		requiredId	Required object attribute Id. */
-public class CFIntMajorVersionHPKey
-	extends CFIntHPKey
+public class YCFIntMajorVersionHPKey
+	extends YCFIntHPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected long requiredTenantId;
 	protected long requiredId;
-	public CFIntMajorVersionHPKey()
+	public YCFIntMajorVersionHPKey()
 	{
 		super();
-		requiredTenantId = CFIntMajorVersionBuff.TENANTID_INIT_VALUE;
-		requiredId = CFIntMajorVersionBuff.ID_INIT_VALUE;
+		requiredTenantId = YCFIntMajorVersionBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFIntMajorVersionBuff.ID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -66,13 +66,13 @@ public class CFIntMajorVersionHPKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntMajorVersionBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntMajorVersionBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntMajorVersionBuff.TENANTID_MIN_VALUE );
+				YCFIntMajorVersionBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -82,13 +82,13 @@ public class CFIntMajorVersionHPKey
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFIntMajorVersionBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntMajorVersionBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFIntMajorVersionBuff.ID_MIN_VALUE );
+				YCFIntMajorVersionBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -97,8 +97,8 @@ public class CFIntMajorVersionHPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntMajorVersionHPKey ) {
-			CFIntMajorVersionHPKey rhs = (CFIntMajorVersionHPKey)obj;
+		else if( obj instanceof YCFIntMajorVersionHPKey ) {
+			YCFIntMajorVersionHPKey rhs = (YCFIntMajorVersionHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -162,8 +162,8 @@ public class CFIntMajorVersionHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -221,8 +221,8 @@ public class CFIntMajorVersionHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionPKey ) {
-			CFIntMajorVersionPKey rhs = (CFIntMajorVersionPKey)obj;
+		else if( obj instanceof YCFIntMajorVersionPKey ) {
+			YCFIntMajorVersionPKey rhs = (YCFIntMajorVersionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -231,8 +231,8 @@ public class CFIntMajorVersionHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionHBuff ) {
-			CFIntMajorVersionHBuff rhs = (CFIntMajorVersionHBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionHBuff ) {
+			YCFIntMajorVersionHBuff rhs = (YCFIntMajorVersionHBuff)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -302,8 +302,8 @@ public class CFIntMajorVersionHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionBuff ) {
-			CFIntMajorVersionBuff rhs = (CFIntMajorVersionBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionBuff ) {
+			YCFIntMajorVersionBuff rhs = (YCFIntMajorVersionBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -328,8 +328,8 @@ public class CFIntMajorVersionHPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntMajorVersionHBuff ) {
-			CFIntMajorVersionHBuff rhs = (CFIntMajorVersionHBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionHBuff ) {
+			YCFIntMajorVersionHBuff rhs = (YCFIntMajorVersionHBuff)obj;
 			int retval = 0;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
@@ -411,8 +411,8 @@ public class CFIntMajorVersionHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionHPKey ) {
-			CFIntMajorVersionHPKey rhs = (CFIntMajorVersionHPKey)obj;
+		else if( obj instanceof YCFIntMajorVersionHPKey ) {
+			YCFIntMajorVersionHPKey rhs = (YCFIntMajorVersionHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -493,8 +493,8 @@ public class CFIntMajorVersionHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -563,8 +563,8 @@ public class CFIntMajorVersionHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionPKey ) {
-			CFIntMajorVersionPKey rhs = (CFIntMajorVersionPKey)obj;
+		else if( obj instanceof YCFIntMajorVersionPKey ) {
+			YCFIntMajorVersionPKey rhs = (YCFIntMajorVersionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -579,8 +579,8 @@ public class CFIntMajorVersionHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionBuff ) {
-			CFIntMajorVersionBuff rhs = (CFIntMajorVersionBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionBuff ) {
+			YCFIntMajorVersionBuff rhs = (YCFIntMajorVersionBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -596,16 +596,16 @@ public class CFIntMajorVersionHPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFIntMajorVersionHPKey, CFIntMajorVersionPKey, CFIntMajorVersionBuff" );
+				"YCFIntMajorVersionHPKey, YCFIntMajorVersionPKey, YCFIntMajorVersionBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFIntMajorVersionHPKey"
+		String ret = "<YCFIntMajorVersionHPKey"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""

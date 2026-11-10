@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ServiceType history buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,12 +36,12 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecServiceTypeHBuff
+public class YCFSecServiceTypeHBuff
 
-	extends CFSecHPKey	implements Comparable<Object>,
+	extends YCFSecHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final int SERVICETYPEID_INIT_VALUE = 0;
@@ -50,14 +50,14 @@ public class CFSecServiceTypeHBuff
 
 	protected int requiredServiceTypeId;
 	protected String requiredDescription;
-	public CFSecServiceTypeHBuff() {
+	public YCFSecServiceTypeHBuff() {
 		super();
-		requiredServiceTypeId = CFSecServiceTypeBuff.SERVICETYPEID_INIT_VALUE;
-		requiredDescription = new String( CFSecServiceTypeBuff.DESCRIPTION_INIT_VALUE );
+		requiredServiceTypeId = YCFSecServiceTypeBuff.SERVICETYPEID_INIT_VALUE;
+		requiredDescription = new String( YCFSecServiceTypeBuff.DESCRIPTION_INIT_VALUE );
 	}
 
 	public String getClassCode() {
-		return( CFSecServiceTypeBuff.CLASS_CODE );
+		return( YCFSecServiceTypeBuff.CLASS_CODE );
 	}
 
 	public int getRequiredServiceTypeId() {
@@ -65,13 +65,13 @@ public class CFSecServiceTypeHBuff
 	}
 
 	public void setRequiredServiceTypeId( int value ) {
-		if( value < CFSecServiceTypeBuff.SERVICETYPEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecServiceTypeBuff.SERVICETYPEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredServiceTypeId",
 				1,
 				"value",
 				value,
-				CFSecServiceTypeBuff.SERVICETYPEID_MIN_VALUE );
+				YCFSecServiceTypeBuff.SERVICETYPEID_MIN_VALUE );
 		}
 		requiredServiceTypeId = value;
 	}
@@ -82,13 +82,13 @@ public class CFSecServiceTypeHBuff
 
 	public void setRequiredDescription( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredDescription",
 				1,
 				"value" );
 		}
 		if( value.length() > 50 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDescription",
 				1,
 				"value.length()",
@@ -102,8 +102,8 @@ public class CFSecServiceTypeHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecServiceTypeHBuff ) {
-			CFSecServiceTypeHBuff rhs = (CFSecServiceTypeHBuff)obj;
+		else if( obj instanceof YCFSecServiceTypeHBuff ) {
+			YCFSecServiceTypeHBuff rhs = (YCFSecServiceTypeHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -115,8 +115,8 @@ public class CFSecServiceTypeHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecServiceTypeBuff ) {
-			CFSecServiceTypeBuff rhs = (CFSecServiceTypeBuff)obj;
+		else if( obj instanceof YCFSecServiceTypeBuff ) {
+			YCFSecServiceTypeBuff rhs = (YCFSecServiceTypeBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -128,15 +128,15 @@ public class CFSecServiceTypeHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecServiceTypeByUDescrIdxKey ) {
-			CFSecServiceTypeByUDescrIdxKey rhs = (CFSecServiceTypeByUDescrIdxKey)obj;
+		else if( obj instanceof YCFSecServiceTypeByUDescrIdxKey ) {
+			YCFSecServiceTypeByUDescrIdxKey rhs = (YCFSecServiceTypeByUDescrIdxKey)obj;
 			if( ! getRequiredDescription().equals( rhs.getRequiredDescription() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecServiceTypeHPKey ) {
-			CFSecServiceTypeHPKey rhs = (CFSecServiceTypeHPKey)obj;
+		else if( obj instanceof YCFSecServiceTypeHPKey ) {
+			YCFSecServiceTypeHPKey rhs = (YCFSecServiceTypeHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -197,8 +197,8 @@ public class CFSecServiceTypeHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -256,8 +256,8 @@ public class CFSecServiceTypeHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecServiceTypePKey ) {
-			CFSecServiceTypePKey rhs = (CFSecServiceTypePKey)obj;
+		else if( obj instanceof YCFSecServiceTypePKey ) {
+			YCFSecServiceTypePKey rhs = (YCFSecServiceTypePKey)obj;
 			if( getRequiredServiceTypeId() != rhs.getRequiredServiceTypeId() ) {
 				return( false );
 			}
@@ -281,16 +281,16 @@ public class CFSecServiceTypeHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecServiceTypeBuff ) {
-			CFSecServiceTypeBuff rhs = (CFSecServiceTypeBuff)obj;
+		else if( obj instanceof YCFSecServiceTypeBuff ) {
+			YCFSecServiceTypeBuff rhs = (YCFSecServiceTypeBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecServiceTypeByUDescrIdxKey ) {
-			CFSecServiceTypeByUDescrIdxKey rhs = (CFSecServiceTypeByUDescrIdxKey)obj;
+		else if( obj instanceof YCFSecServiceTypeByUDescrIdxKey ) {
+			YCFSecServiceTypeByUDescrIdxKey rhs = (YCFSecServiceTypeByUDescrIdxKey)obj;
 
 			{
 				int cmp = getRequiredDescription().compareTo( rhs.getRequiredDescription() );
@@ -299,8 +299,8 @@ public class CFSecServiceTypeHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecServiceTypeHBuff ) {
-			CFSecServiceTypeHBuff rhs = (CFSecServiceTypeHBuff)obj;
+		else if( obj instanceof YCFSecServiceTypeHBuff ) {
+			YCFSecServiceTypeHBuff rhs = (YCFSecServiceTypeHBuff)obj;
 
 			int retval = 0;
 			{
@@ -449,8 +449,8 @@ public class CFSecServiceTypeHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecServiceTypeHPKey ) {
-			CFSecServiceTypeHPKey rhs = (CFSecServiceTypeHPKey)obj;
+		else if( obj instanceof YCFSecServiceTypeHPKey ) {
+			YCFSecServiceTypeHPKey rhs = (YCFSecServiceTypeHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -525,8 +525,8 @@ public class CFSecServiceTypeHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecServiceTypePKey ) {
-			CFSecServiceTypePKey rhs = (CFSecServiceTypePKey)obj;
+		else if( obj instanceof YCFSecServiceTypePKey ) {
+			YCFSecServiceTypePKey rhs = (YCFSecServiceTypePKey)obj;
 			if( getRequiredServiceTypeId() < rhs.getRequiredServiceTypeId() ) {
 				return( -1 );
 			}
@@ -535,8 +535,8 @@ public class CFSecServiceTypeHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -554,21 +554,21 @@ public class CFSecServiceTypeHBuff
 		}
 	}
 
-	public void set( CFSecServiceTypeBuff src ) {
+	public void set( YCFSecServiceTypeBuff src ) {
 		setServiceTypeBuff( src );
 	}
 
-	public void setServiceTypeBuff( CFSecServiceTypeBuff src ) {
+	public void setServiceTypeBuff( YCFSecServiceTypeBuff src ) {
 		setRequiredServiceTypeId( src.getRequiredServiceTypeId() );
 		setRequiredDescription( src.getRequiredDescription() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecServiceTypeHBuff src ) {
+	public void set( YCFSecServiceTypeHBuff src ) {
 		setServiceTypeBuff( src );
 	}
 
-	public void setServiceTypeBuff( CFSecServiceTypeHBuff src ) {
+	public void setServiceTypeBuff( YCFSecServiceTypeHBuff src ) {
 		setRequiredServiceTypeId( src.getRequiredServiceTypeId() );
 		setRequiredDescription( src.getRequiredDescription() );
 		setRequiredRevision( src.getRequiredRevision() );

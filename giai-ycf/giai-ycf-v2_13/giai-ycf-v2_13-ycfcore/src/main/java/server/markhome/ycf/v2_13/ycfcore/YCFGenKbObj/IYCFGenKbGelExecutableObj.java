@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelExecutable.
+// Description: Java 11 Object interface for YCFGenKb GelExecutable.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,45 +27,45 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGelExecutableObj
-	extends ICFGenKbGelSequenceObj
+public interface IYCFGenKbGelExecutableObj
+	extends IYCFGenKbGelSequenceObj
 {
 	/**
-	 *	Get the current edition of this GelExecutable instance as a ICFGenKbGelExecutableEditObj.
+	 *	Get the current edition of this GelExecutable instance as a IYCFGenKbGelExecutableEditObj.
 	 *
-	 *	@return	The ICFGenKbGelExecutableEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelExecutableEditObj edition of this instance.
 	 */
-	ICFGenKbGelExecutableEditObj getEditAsGelExecutable();
+	IYCFGenKbGelExecutableEditObj getEditAsGelExecutable();
 
 	/**
-	 *	Get the ICFGenKbGelExecutableTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelExecutableTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelExecutableTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelExecutableTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelExecutableTableObj getGelExecutableTable();
+	IYCFGenKbGelExecutableTableObj getGelExecutableTable();
 
 	/**
-	 *	Get the CFGenKbGelExecutableBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelExecutableBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelExecutableBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelExecutableBuff instance which currently backs this object.
 	 */
-	CFGenKbGelExecutableBuff getGelExecutableBuff();
+	YCFGenKbGelExecutableBuff getGelExecutableBuff();
 
 	/**
 	 *	Get the required long attribute GenItemId.
@@ -74,6 +74,6 @@ public interface ICFGenKbGelExecutableObj
 	 */
 	long getRequiredGenItemId();
 
-	public void addCalledInstruction( ICFGenKbGelCacheObj gelCache, ICFGenKbGelInstructionObj calledInstruction );
-	public String expand( MssCFGenContext genContext );
+	public void addCalledInstruction( IYCFGenKbGelCacheObj gelCache, IYCFGenKbGelInstructionObj calledInstruction );
+	public String expand( MssYCFGenContext genContext );
 }

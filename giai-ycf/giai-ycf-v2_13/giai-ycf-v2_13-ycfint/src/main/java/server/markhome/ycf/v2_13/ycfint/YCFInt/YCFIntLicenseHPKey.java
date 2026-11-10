@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a License history primary key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,29 +36,29 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFIntLicenseHPKey History Primary Key for License
+ *	YCFIntLicenseHPKey History Primary Key for License
 
  *		requiredTenantId	Required object attribute TenantId.
  *		requiredId	Required object attribute Id. */
-public class CFIntLicenseHPKey
-	extends CFIntHPKey
+public class YCFIntLicenseHPKey
+	extends YCFIntHPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected long requiredTenantId;
 	protected long requiredId;
-	public CFIntLicenseHPKey()
+	public YCFIntLicenseHPKey()
 	{
 		super();
-		requiredTenantId = CFIntLicenseBuff.TENANTID_INIT_VALUE;
-		requiredId = CFIntLicenseBuff.ID_INIT_VALUE;
+		requiredTenantId = YCFIntLicenseBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFIntLicenseBuff.ID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -66,13 +66,13 @@ public class CFIntLicenseHPKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntLicenseBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntLicenseBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntLicenseBuff.TENANTID_MIN_VALUE );
+				YCFIntLicenseBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -82,13 +82,13 @@ public class CFIntLicenseHPKey
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFIntLicenseBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntLicenseBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFIntLicenseBuff.ID_MIN_VALUE );
+				YCFIntLicenseBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -97,8 +97,8 @@ public class CFIntLicenseHPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntLicenseHPKey ) {
-			CFIntLicenseHPKey rhs = (CFIntLicenseHPKey)obj;
+		else if( obj instanceof YCFIntLicenseHPKey ) {
+			YCFIntLicenseHPKey rhs = (YCFIntLicenseHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -162,8 +162,8 @@ public class CFIntLicenseHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -221,8 +221,8 @@ public class CFIntLicenseHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicensePKey ) {
-			CFIntLicensePKey rhs = (CFIntLicensePKey)obj;
+		else if( obj instanceof YCFIntLicensePKey ) {
+			YCFIntLicensePKey rhs = (YCFIntLicensePKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -231,8 +231,8 @@ public class CFIntLicenseHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicenseHBuff ) {
-			CFIntLicenseHBuff rhs = (CFIntLicenseHBuff)obj;
+		else if( obj instanceof YCFIntLicenseHBuff ) {
+			YCFIntLicenseHBuff rhs = (YCFIntLicenseHBuff)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -302,8 +302,8 @@ public class CFIntLicenseHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicenseBuff ) {
-			CFIntLicenseBuff rhs = (CFIntLicenseBuff)obj;
+		else if( obj instanceof YCFIntLicenseBuff ) {
+			YCFIntLicenseBuff rhs = (YCFIntLicenseBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -328,8 +328,8 @@ public class CFIntLicenseHPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntLicenseHBuff ) {
-			CFIntLicenseHBuff rhs = (CFIntLicenseHBuff)obj;
+		else if( obj instanceof YCFIntLicenseHBuff ) {
+			YCFIntLicenseHBuff rhs = (YCFIntLicenseHBuff)obj;
 			int retval = 0;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
@@ -411,8 +411,8 @@ public class CFIntLicenseHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntLicenseHPKey ) {
-			CFIntLicenseHPKey rhs = (CFIntLicenseHPKey)obj;
+		else if( obj instanceof YCFIntLicenseHPKey ) {
+			YCFIntLicenseHPKey rhs = (YCFIntLicenseHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -493,8 +493,8 @@ public class CFIntLicenseHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -563,8 +563,8 @@ public class CFIntLicenseHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntLicensePKey ) {
-			CFIntLicensePKey rhs = (CFIntLicensePKey)obj;
+		else if( obj instanceof YCFIntLicensePKey ) {
+			YCFIntLicensePKey rhs = (YCFIntLicensePKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -579,8 +579,8 @@ public class CFIntLicenseHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntLicenseBuff ) {
-			CFIntLicenseBuff rhs = (CFIntLicenseBuff)obj;
+		else if( obj instanceof YCFIntLicenseBuff ) {
+			YCFIntLicenseBuff rhs = (YCFIntLicenseBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -596,16 +596,16 @@ public class CFIntLicenseHPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFIntLicenseHPKey, CFIntLicensePKey, CFIntLicenseBuff" );
+				"YCFIntLicenseHPKey, YCFIntLicensePKey, YCFIntLicenseBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFIntLicenseHPKey"
+		String ret = "<YCFIntLicenseHPKey"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""

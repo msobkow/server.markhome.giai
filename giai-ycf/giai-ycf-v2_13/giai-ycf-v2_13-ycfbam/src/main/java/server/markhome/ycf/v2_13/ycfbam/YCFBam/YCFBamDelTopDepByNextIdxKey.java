@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a DelTopDep by NextIdx index key object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,18 +55,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamDelTopDepByNextIdxKey
+public class YCFBamDelTopDepByNextIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalNextTenantId;
 	protected Long optionalNextId;
-	public CFBamDelTopDepByNextIdxKey() {
+	public YCFBamDelTopDepByNextIdxKey() {
 		optionalNextTenantId = null;
 		optionalNextId = null;
 	}
@@ -79,13 +79,13 @@ public class CFBamDelTopDepByNextIdxKey
 		if( value == null ) {
 			optionalNextTenantId = null;
 		}
-		else if( value < CFBamDelTopDepBuff.NEXTTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamDelTopDepBuff.NEXTTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNextTenantId",
 				1,
 				"value",
 				value,
-				CFBamDelTopDepBuff.NEXTTENANTID_MIN_VALUE );
+				YCFBamDelTopDepBuff.NEXTTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalNextTenantId = value;
@@ -100,13 +100,13 @@ public class CFBamDelTopDepByNextIdxKey
 		if( value == null ) {
 			optionalNextId = null;
 		}
-		else if( value < CFBamDelTopDepBuff.NEXTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamDelTopDepBuff.NEXTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNextId",
 				1,
 				"value",
 				value,
-				CFBamDelTopDepBuff.NEXTID_MIN_VALUE );
+				YCFBamDelTopDepBuff.NEXTID_MIN_VALUE );
 		}
 		else {
 			optionalNextId = value;
@@ -117,8 +117,8 @@ public class CFBamDelTopDepByNextIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamDelTopDepByNextIdxKey ) {
-			CFBamDelTopDepByNextIdxKey rhs = (CFBamDelTopDepByNextIdxKey)obj;
+		else if( obj instanceof YCFBamDelTopDepByNextIdxKey ) {
+			YCFBamDelTopDepByNextIdxKey rhs = (YCFBamDelTopDepByNextIdxKey)obj;
 			if( getOptionalNextTenantId() != null ) {
 				if( rhs.getOptionalNextTenantId() != null ) {
 					if( ! getOptionalNextTenantId().equals( rhs.getOptionalNextTenantId() ) ) {
@@ -145,8 +145,8 @@ public class CFBamDelTopDepByNextIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamDelTopDepBuff ) {
-			CFBamDelTopDepBuff rhs = (CFBamDelTopDepBuff)obj;
+		else if( obj instanceof YCFBamDelTopDepBuff ) {
+			YCFBamDelTopDepBuff rhs = (YCFBamDelTopDepBuff)obj;
 			if( getOptionalNextTenantId() != null ) {
 				if( rhs.getOptionalNextTenantId() != null ) {
 					if( ! getOptionalNextTenantId().equals( rhs.getOptionalNextTenantId() ) ) {
@@ -193,8 +193,8 @@ public class CFBamDelTopDepByNextIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFBamDelTopDepByNextIdxKey ) {
-			CFBamDelTopDepByNextIdxKey rhs = (CFBamDelTopDepByNextIdxKey)obj;
+		else if( obj instanceof YCFBamDelTopDepByNextIdxKey ) {
+			YCFBamDelTopDepByNextIdxKey rhs = (YCFBamDelTopDepByNextIdxKey)obj;
 			if( getOptionalNextTenantId() != null ) {
 				Long lhsNextTenantId = getOptionalNextTenantId();
 				if( rhs.getOptionalNextTenantId() != null ) {
@@ -233,8 +233,8 @@ public class CFBamDelTopDepByNextIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamDelTopDepBuff ) {
-			CFBamDelTopDepBuff rhs = (CFBamDelTopDepBuff)obj;
+		else if( obj instanceof YCFBamDelTopDepBuff ) {
+			YCFBamDelTopDepBuff rhs = (YCFBamDelTopDepBuff)obj;
 			if( getOptionalNextTenantId() != null ) {
 				Long lhsNextTenantId = getOptionalNextTenantId();
 				if( rhs.getOptionalNextTenantId() != null ) {
@@ -274,7 +274,7 @@ public class CFBamDelTopDepByNextIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -283,7 +283,7 @@ public class CFBamDelTopDepByNextIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFBamDelTopDepByNextIdx"
+		String ret = "<YCFBamDelTopDepByNextIdx"
 			+ " OptionalNextTenantId=" + ( ( getOptionalNextTenantId() == null ) ? "null" : "\"" + getOptionalNextTenantId().toString() + "\"" )
 			+ " OptionalNextId=" + ( ( getOptionalNextId() == null ) ? "null" : "\"" + getOptionalNextId().toString() + "\"" )
 			+ "/>";

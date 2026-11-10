@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFBam TopProject.
+// Description: Java 11 Instance Edit Object interface for YCFBam TopProject.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,23 +26,23 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamTopProjectEditObj
-	extends ICFBamTopProjectObj,
-		ICFIntTopProjectEditObj
+public interface IYCFBamTopProjectEditObj
+	extends IYCFBamTopProjectObj,
+		IYCFIntTopProjectEditObj
 {
 	/*
 	 *	create() may return a different instance than the
@@ -53,38 +53,38 @@ public interface ICFBamTopProjectEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFIntTopProjectObj create();
+	IYCFIntTopProjectObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFIntTopProjectEditObj update();
+	YCFIntTopProjectEditObj update();
 
 	/**
-	 *	Get the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Set the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFSecTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFSecTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredOwnerTenant( ICFSecTenantObj value );
+	void setRequiredOwnerTenant( IYCFSecTenantObj value );
 
 	/**
-	 *	Get the ICFIntTopDomainObj instance referenced by the ParentSDom key.
+	 *	Get the IYCFIntTopDomainObj instance referenced by the ParentSDom key.
 	 *
-	 *	@return	The ICFIntTopDomainObj instance referenced by the ParentSDom key.
+	 *	@return	The IYCFIntTopDomainObj instance referenced by the ParentSDom key.
 	 */
-	ICFIntTopDomainObj getRequiredContainerParentSDom();
+	IYCFIntTopDomainObj getRequiredContainerParentSDom();
 
 	/**
-	 *	Set the ICFIntTopDomainObj instance referenced by the ParentSDom key.
+	 *	Set the IYCFIntTopDomainObj instance referenced by the ParentSDom key.
 	 *
-	 *	@param	value	the ICFIntTopDomainObj instance to be referenced by the ParentSDom key.
+	 *	@param	value	the IYCFIntTopDomainObj instance to be referenced by the ParentSDom key.
 	 */
-	void setRequiredContainerParentSDom( ICFIntTopDomainObj value );
+	void setRequiredContainerParentSDom( IYCFIntTopDomainObj value );
 }

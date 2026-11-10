@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for MajorVersion.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,19 +35,19 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamMajorVersionTable database interface for MajorVersion
+ *	YCFBamMajorVersionTable database interface for MajorVersion
  */
-public interface ICFBamMajorVersionTable
-extends ICFIntMajorVersionTable
+public interface IYCFBamMajorVersionTable
+extends IYCFIntMajorVersionTable
 {
 
 	/**
@@ -58,8 +58,8 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createMajorVersion( CFSecAuthorization Authorization,
-		CFIntMajorVersionBuff Buff );
+	void createMajorVersion( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionBuff Buff );
 
 
 	/**
@@ -70,8 +70,8 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateMajorVersion( CFSecAuthorization Authorization,
-		CFIntMajorVersionBuff Buff );
+	void updateMajorVersion( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionBuff Buff );
 
 
 	/**
@@ -81,8 +81,8 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteMajorVersion( CFSecAuthorization Authorization,
-		CFIntMajorVersionBuff Buff );
+	void deleteMajorVersion( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionBuff Buff );
 	/**
 	 *	Delete the MajorVersion instance identified by the primary key attributes.
 	 *
@@ -92,7 +92,7 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	argId	The MajorVersion key attribute of the instance generating the id.
 	 */
-	void deleteMajorVersionByIdIdx( CFSecAuthorization Authorization,
+	void deleteMajorVersionByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -103,8 +103,8 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteMajorVersionByIdIdx( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey argKey );
+	void deleteMajorVersionByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey argKey );
 	/**
 	 *	Delete the MajorVersion instances identified by the key TenantIdx.
 	 *
@@ -112,7 +112,7 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	argTenantId	The MajorVersion key attribute of the instance generating the id.
 	 */
-	void deleteMajorVersionByTenantIdx( CFSecAuthorization Authorization,
+	void deleteMajorVersionByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -122,8 +122,8 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteMajorVersionByTenantIdx( CFSecAuthorization Authorization,
-		CFIntMajorVersionByTenantIdxKey argKey );
+	void deleteMajorVersionByTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionByTenantIdxKey argKey );
 	/**
 	 *	Delete the MajorVersion instances identified by the key SubProjectIdx.
 	 *
@@ -133,7 +133,7 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	argSubProjectId	The MajorVersion key attribute of the instance generating the id.
 	 */
-	void deleteMajorVersionBySubProjectIdx( CFSecAuthorization Authorization,
+	void deleteMajorVersionBySubProjectIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSubProjectId );
 
@@ -144,8 +144,8 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteMajorVersionBySubProjectIdx( CFSecAuthorization Authorization,
-		CFIntMajorVersionBySubProjectIdxKey argKey );
+	void deleteMajorVersionBySubProjectIdx( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionBySubProjectIdxKey argKey );
 	/**
 	 *	Delete the MajorVersion instances identified by the key NameIdx.
 	 *
@@ -157,7 +157,7 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	argName	The MajorVersion key attribute of the instance generating the id.
 	 */
-	void deleteMajorVersionByNameIdx( CFSecAuthorization Authorization,
+	void deleteMajorVersionByNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSubProjectId,
 		String argName );
@@ -169,8 +169,8 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteMajorVersionByNameIdx( CFSecAuthorization Authorization,
-		CFIntMajorVersionByNameIdxKey argKey );
+	void deleteMajorVersionByNameIdx( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionByNameIdxKey argKey );
 
 
 	/**
@@ -183,8 +183,8 @@ extends ICFIntMajorVersionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMajorVersionBuff readDerived( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey PKey );
+	YCFIntMajorVersionBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey PKey );
 
 	/**
 	 *	Lock the derived MajorVersion buffer instance by primary key.
@@ -196,8 +196,8 @@ extends ICFIntMajorVersionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMajorVersionBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey PKey );
+	YCFIntMajorVersionBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey PKey );
 
 	/**
 	 *	Read all MajorVersion instances.
@@ -206,7 +206,7 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFIntMajorVersionBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFIntMajorVersionBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived MajorVersion buffer instance identified by the unique key IdIdx.
@@ -220,7 +220,7 @@ extends ICFIntMajorVersionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMajorVersionBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFIntMajorVersionBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -233,7 +233,7 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntMajorVersionBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntMajorVersionBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -247,7 +247,7 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntMajorVersionBuff[] readDerivedBySubProjectIdx( CFSecAuthorization Authorization,
+	YCFIntMajorVersionBuff[] readDerivedBySubProjectIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SubProjectId );
 
@@ -265,7 +265,7 @@ extends ICFIntMajorVersionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMajorVersionBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	YCFIntMajorVersionBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SubProjectId,
 		String Name );
@@ -280,10 +280,10 @@ extends ICFIntMajorVersionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMajorVersionBuff readBuff( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey PKey );
+	YCFIntMajorVersionBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey PKey );
 
 	/**
 	 *	Lock the specific MajorVersion buffer instance identified by the primary key.
@@ -295,10 +295,10 @@ extends ICFIntMajorVersionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMajorVersionBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey PKey );
+	YCFIntMajorVersionBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey PKey );
 
 	/**
 	 *	Read all the specific MajorVersion buffer instances.
@@ -307,7 +307,7 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@return All the specific MajorVersion instances in the database accessible for the Authorization.
 	 */
-	CFIntMajorVersionBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFIntMajorVersionBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific MajorVersion buffer instance identified by the unique key IdIdx.
@@ -321,9 +321,9 @@ extends ICFIntMajorVersionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMajorVersionBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFIntMajorVersionBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -336,9 +336,9 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMajorVersionBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntMajorVersionBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -352,9 +352,9 @@ extends ICFIntMajorVersionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMajorVersionBuff[] readBuffBySubProjectIdx( CFSecAuthorization Authorization,
+	YCFIntMajorVersionBuff[] readBuffBySubProjectIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SubProjectId );
 
@@ -372,9 +372,9 @@ extends ICFIntMajorVersionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMajorVersionBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	YCFIntMajorVersionBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SubProjectId,
 		String Name );
@@ -382,7 +382,7 @@ extends ICFIntMajorVersionTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

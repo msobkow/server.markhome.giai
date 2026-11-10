@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFInt.
+// Description: Java 11 Table Object implementation for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,57 +26,57 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntTopProjectTableObj
-	implements ICFIntTopProjectTableObj
+public class YCFIntTopProjectTableObj
+	implements IYCFIntTopProjectTableObj
 {
-	protected ICFIntSchemaObj schema;
-	private Map<CFIntTopProjectPKey, ICFIntTopProjectObj> members;
-	private Map<CFIntTopProjectPKey, ICFIntTopProjectObj> allTopProject;
-	private Map< CFIntTopProjectByTenantIdxKey,
-		Map<CFIntTopProjectPKey, ICFIntTopProjectObj > > indexByTenantIdx;
-	private Map< CFIntTopProjectByTopDomainIdxKey,
-		Map<CFIntTopProjectPKey, ICFIntTopProjectObj > > indexByTopDomainIdx;
-	private Map< CFIntTopProjectByNameIdxKey,
-		ICFIntTopProjectObj > indexByNameIdx;
+	protected IYCFIntSchemaObj schema;
+	private Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj> members;
+	private Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj> allTopProject;
+	private Map< YCFIntTopProjectByTenantIdxKey,
+		Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj > > indexByTenantIdx;
+	private Map< YCFIntTopProjectByTopDomainIdxKey,
+		Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj > > indexByTopDomainIdx;
+	private Map< YCFIntTopProjectByNameIdxKey,
+		IYCFIntTopProjectObj > indexByNameIdx;
 	public static String TABLE_NAME = "TopProject";
 	public static String TABLE_DBNAME = "tprjdef";
 
-	public CFIntTopProjectTableObj() {
+	public YCFIntTopProjectTableObj() {
 		schema = null;
-		members = new HashMap<CFIntTopProjectPKey, ICFIntTopProjectObj>();
+		members = new HashMap<YCFIntTopProjectPKey, IYCFIntTopProjectObj>();
 		allTopProject = null;
 		indexByTenantIdx = null;
 		indexByTopDomainIdx = null;
 		indexByNameIdx = null;
 	}
 
-	public CFIntTopProjectTableObj( ICFIntSchemaObj argSchema ) {
-		schema = (ICFIntSchemaObj)argSchema;
-		members = new HashMap<CFIntTopProjectPKey, ICFIntTopProjectObj>();
+	public YCFIntTopProjectTableObj( IYCFIntSchemaObj argSchema ) {
+		schema = (IYCFIntSchemaObj)argSchema;
+		members = new HashMap<YCFIntTopProjectPKey, IYCFIntTopProjectObj>();
 		allTopProject = null;
 		indexByTenantIdx = null;
 		indexByTopDomainIdx = null;
 		indexByNameIdx = null;
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
-		schema = (ICFIntSchemaObj)value;
+	public void setSchema( IYCFIntSchemaObj value ) {
+		schema = (IYCFIntSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -88,7 +88,7 @@ public class CFIntTopProjectTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFIntTenantObj.class );
+		return( IYCFIntTenantObj.class );
 	}
 
 
@@ -97,9 +97,9 @@ public class CFIntTopProjectTableObj
 		indexByTenantIdx = null;
 		indexByTopDomainIdx = null;
 		indexByNameIdx = null;
-		List<ICFIntTopProjectObj> toForget = new LinkedList<ICFIntTopProjectObj>();
-		ICFIntTopProjectObj cur = null;
-		Iterator<ICFIntTopProjectObj> iter = members.values().iterator();
+		List<IYCFIntTopProjectObj> toForget = new LinkedList<IYCFIntTopProjectObj>();
+		IYCFIntTopProjectObj cur = null;
+		Iterator<IYCFIntTopProjectObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -117,10 +117,10 @@ public class CFIntTopProjectTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntTopProjectObj.
+	 *	YCFIntTopProjectObj.
 	 */
-	public ICFIntTopProjectObj newInstance() {
-		ICFIntTopProjectObj inst = new CFIntTopProjectObj( schema );
+	public IYCFIntTopProjectObj newInstance() {
+		IYCFIntTopProjectObj inst = new YCFIntTopProjectObj( schema );
 		return( inst );
 	}
 
@@ -131,19 +131,19 @@ public class CFIntTopProjectTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntTopProjectObj.
+	 *	YCFIntTopProjectObj.
 	 */
-	public ICFIntTopProjectEditObj newEditInstance( ICFIntTopProjectObj orig ) {
-		ICFIntTopProjectEditObj edit = new CFIntTopProjectEditObj( orig );
+	public IYCFIntTopProjectEditObj newEditInstance( IYCFIntTopProjectObj orig ) {
+		IYCFIntTopProjectEditObj edit = new YCFIntTopProjectEditObj( orig );
 		return( edit );
 	}
 
-	public ICFIntTopProjectObj realiseTopProject( ICFIntTopProjectObj Obj ) {
-		ICFIntTopProjectObj obj = Obj;
-		CFIntTopProjectPKey pkey = obj.getPKey();
-		ICFIntTopProjectObj keepObj = null;
+	public IYCFIntTopProjectObj realiseTopProject( IYCFIntTopProjectObj Obj ) {
+		IYCFIntTopProjectObj obj = Obj;
+		YCFIntTopProjectPKey pkey = obj.getPKey();
+		IYCFIntTopProjectObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFIntTopProjectObj existingObj = members.get( pkey );
+			IYCFIntTopProjectObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -154,10 +154,10 @@ public class CFIntTopProjectTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByTenantIdx != null ) {
-				CFIntTopProjectByTenantIdxKey keyTenantIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
+				YCFIntTopProjectByTenantIdxKey keyTenantIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntTopProjectPKey, ICFIntTopProjectObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.remove( keepObj.getPKey() );
 					if( mapTenantIdx.size() <= 0 ) {
@@ -167,11 +167,11 @@ public class CFIntTopProjectTableObj
 			}
 
 			if( indexByTopDomainIdx != null ) {
-				CFIntTopProjectByTopDomainIdxKey keyTopDomainIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
+				YCFIntTopProjectByTopDomainIdxKey keyTopDomainIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
 				keyTopDomainIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyTopDomainIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
-				Map<CFIntTopProjectPKey, ICFIntTopProjectObj > mapTopDomainIdx = indexByTopDomainIdx.get( keyTopDomainIdx );
+				Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj > mapTopDomainIdx = indexByTopDomainIdx.get( keyTopDomainIdx );
 				if( mapTopDomainIdx != null ) {
 					mapTopDomainIdx.remove( keepObj.getPKey() );
 					if( mapTopDomainIdx.size() <= 0 ) {
@@ -181,8 +181,8 @@ public class CFIntTopProjectTableObj
 			}
 
 			if( indexByNameIdx != null ) {
-				CFIntTopProjectByNameIdxKey keyNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
+				YCFIntTopProjectByNameIdxKey keyNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
 				keyNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyNameIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -193,29 +193,29 @@ public class CFIntTopProjectTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByTenantIdx != null ) {
-				CFIntTopProjectByTenantIdxKey keyTenantIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
+				YCFIntTopProjectByTenantIdxKey keyTenantIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntTopProjectPKey, ICFIntTopProjectObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByTopDomainIdx != null ) {
-				CFIntTopProjectByTopDomainIdxKey keyTopDomainIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
+				YCFIntTopProjectByTopDomainIdxKey keyTopDomainIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
 				keyTopDomainIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyTopDomainIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
-				Map<CFIntTopProjectPKey, ICFIntTopProjectObj > mapTopDomainIdx = indexByTopDomainIdx.get( keyTopDomainIdx );
+				Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj > mapTopDomainIdx = indexByTopDomainIdx.get( keyTopDomainIdx );
 				if( mapTopDomainIdx != null ) {
 					mapTopDomainIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNameIdx != null ) {
-				CFIntTopProjectByNameIdxKey keyNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
+				YCFIntTopProjectByNameIdxKey keyNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
 				keyNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyNameIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -237,29 +237,29 @@ public class CFIntTopProjectTableObj
 			}
 
 			if( indexByTenantIdx != null ) {
-				CFIntTopProjectByTenantIdxKey keyTenantIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
+				YCFIntTopProjectByTenantIdxKey keyTenantIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntTopProjectPKey, ICFIntTopProjectObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByTopDomainIdx != null ) {
-				CFIntTopProjectByTopDomainIdxKey keyTopDomainIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
+				YCFIntTopProjectByTopDomainIdxKey keyTopDomainIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
 				keyTopDomainIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyTopDomainIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
-				Map<CFIntTopProjectPKey, ICFIntTopProjectObj > mapTopDomainIdx = indexByTopDomainIdx.get( keyTopDomainIdx );
+				Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj > mapTopDomainIdx = indexByTopDomainIdx.get( keyTopDomainIdx );
 				if( mapTopDomainIdx != null ) {
 					mapTopDomainIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNameIdx != null ) {
-				CFIntTopProjectByNameIdxKey keyNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
+				YCFIntTopProjectByNameIdxKey keyNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
 				keyNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyNameIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -270,10 +270,10 @@ public class CFIntTopProjectTableObj
 		return( keepObj );
 	}
 
-	public ICFIntTopProjectObj createTopProject( ICFIntTopProjectObj Obj ) {
-		ICFIntTopProjectObj obj = Obj;
-		CFIntTopProjectBuff buff = obj.getTopProjectBuff();
-		((ICFIntSchema)schema.getBackingStore()).getTableTopProject().createTopProject(
+	public IYCFIntTopProjectObj createTopProject( IYCFIntTopProjectObj Obj ) {
+		IYCFIntTopProjectObj obj = Obj;
+		YCFIntTopProjectBuff buff = obj.getTopProjectBuff();
+		((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().createTopProject(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -282,58 +282,58 @@ public class CFIntTopProjectTableObj
 		return( obj );
 	}
 
-	public ICFIntTopProjectObj readTopProject( CFIntTopProjectPKey pkey ) {
+	public IYCFIntTopProjectObj readTopProject( YCFIntTopProjectPKey pkey ) {
 		return( readTopProject( pkey, false ) );
 	}
 
-	public ICFIntTopProjectObj readTopProject( CFIntTopProjectPKey pkey, boolean forceRead ) {
-		ICFIntTopProjectObj obj = null;
+	public IYCFIntTopProjectObj readTopProject( YCFIntTopProjectPKey pkey, boolean forceRead ) {
+		IYCFIntTopProjectObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFIntTopProjectBuff readBuff = ((ICFIntSchema)schema.getBackingStore()).getTableTopProject().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFIntTopProjectBuff readBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getTopProjectTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFIntTopProjectObj)obj.realise();
+				obj = (IYCFIntTopProjectObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntTopProjectObj readCachedTopProject( CFIntTopProjectPKey pkey ) {
-		ICFIntTopProjectObj obj = null;
+	public IYCFIntTopProjectObj readCachedTopProject( YCFIntTopProjectPKey pkey ) {
+		IYCFIntTopProjectObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeTopProject( ICFIntTopProjectObj obj )
+	public void reallyDeepDisposeTopProject( IYCFIntTopProjectObj obj )
 	{
-		final String S_ProcName = "CFIntTopProjectTableObj.reallyDeepDisposeTopProject() ";
+		final String S_ProcName = "YCFIntTopProjectTableObj.reallyDeepDisposeTopProject() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFIntTopProjectPKey pkey = obj.getPKey();
-		ICFIntTopProjectObj existing = readCachedTopProject( pkey );
+		YCFIntTopProjectPKey pkey = obj.getPKey();
+		IYCFIntTopProjectObj existing = readCachedTopProject( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFIntTopProjectByTenantIdxKey keyTenantIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
+		YCFIntTopProjectByTenantIdxKey keyTenantIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntTopProjectByTopDomainIdxKey keyTopDomainIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
+		YCFIntTopProjectByTopDomainIdxKey keyTopDomainIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
 		keyTopDomainIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyTopDomainIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 
-		CFIntTopProjectByNameIdxKey keyNameIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
+		YCFIntTopProjectByNameIdxKey keyNameIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyNameIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
@@ -366,57 +366,57 @@ public class CFIntTopProjectTableObj
 
 
 	}
-	public void deepDisposeTopProject( CFIntTopProjectPKey pkey ) {
-		ICFIntTopProjectObj obj = readCachedTopProject( pkey );
+	public void deepDisposeTopProject( YCFIntTopProjectPKey pkey ) {
+		IYCFIntTopProjectObj obj = readCachedTopProject( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFIntTopProjectObj lockTopProject( CFIntTopProjectPKey pkey ) {
-		ICFIntTopProjectObj locked = null;
-		CFIntTopProjectBuff lockBuff = ((ICFIntSchema)schema.getBackingStore()).getTableTopProject().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFIntTopProjectObj lockTopProject( YCFIntTopProjectPKey pkey ) {
+		IYCFIntTopProjectObj locked = null;
+		YCFIntTopProjectBuff lockBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getTopProjectTableObj().newInstance();
-			locked.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
+			locked.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFIntTopProjectObj)locked.realise();
+			locked = (IYCFIntTopProjectObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockTopProject", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockTopProject", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFIntTopProjectObj> readAllTopProject() {
+	public List<IYCFIntTopProjectObj> readAllTopProject() {
 		return( readAllTopProject( false ) );
 	}
 
-	public List<ICFIntTopProjectObj> readAllTopProject( boolean forceRead ) {
+	public List<IYCFIntTopProjectObj> readAllTopProject( boolean forceRead ) {
 		final String S_ProcName = "readAllTopProject";
 		if( ( allTopProject == null ) || forceRead ) {
-			Map<CFIntTopProjectPKey, ICFIntTopProjectObj> map = new HashMap<CFIntTopProjectPKey,ICFIntTopProjectObj>();
+			Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj> map = new HashMap<YCFIntTopProjectPKey,IYCFIntTopProjectObj>();
 			allTopProject = map;
-			CFIntTopProjectBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableTopProject().readAllDerived( schema.getAuthorization() );
-			CFIntTopProjectBuff buff;
-			ICFIntTopProjectObj obj;
+			YCFIntTopProjectBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().readAllDerived( schema.getAuthorization() );
+			YCFIntTopProjectBuff buff;
+			IYCFIntTopProjectObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
 				obj.setBuff( buff );
-				ICFIntTopProjectObj realised = (ICFIntTopProjectObj)obj.realise();
+				IYCFIntTopProjectObj realised = (IYCFIntTopProjectObj)obj.realise();
 			}
 		}
 		int len = allTopProject.size();
-		ICFIntTopProjectObj arr[] = new ICFIntTopProjectObj[len];
-		Iterator<ICFIntTopProjectObj> valIter = allTopProject.values().iterator();
+		IYCFIntTopProjectObj arr[] = new IYCFIntTopProjectObj[len];
+		Iterator<IYCFIntTopProjectObj> valIter = allTopProject.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -424,20 +424,20 @@ public class CFIntTopProjectTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntTopProjectObj> arrayList = new ArrayList<ICFIntTopProjectObj>(len);
+		ArrayList<IYCFIntTopProjectObj> arrayList = new ArrayList<IYCFIntTopProjectObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntTopProjectObj> cmp = new Comparator<ICFIntTopProjectObj>() {
-			public int compare( ICFIntTopProjectObj lhs, ICFIntTopProjectObj rhs ) {
+		Comparator<IYCFIntTopProjectObj> cmp = new Comparator<IYCFIntTopProjectObj>() {
+			public int compare( IYCFIntTopProjectObj lhs, IYCFIntTopProjectObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -450,31 +450,31 @@ public class CFIntTopProjectTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTopProjectPKey lhsPKey = lhs.getPKey();
-					CFIntTopProjectPKey rhsPKey = rhs.getPKey();
+					YCFIntTopProjectPKey lhsPKey = lhs.getPKey();
+					YCFIntTopProjectPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntTopProjectObj> sortedList = arrayList;
+		List<IYCFIntTopProjectObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFIntTopProjectObj> readCachedAllTopProject() {
+	public List<IYCFIntTopProjectObj> readCachedAllTopProject() {
 		final String S_ProcName = "readCachedAllTopProject";
-		ArrayList<ICFIntTopProjectObj> arrayList = new ArrayList<ICFIntTopProjectObj>();
+		ArrayList<IYCFIntTopProjectObj> arrayList = new ArrayList<IYCFIntTopProjectObj>();
 		if( allTopProject != null ) {
 			int len = allTopProject.size();
-			ICFIntTopProjectObj arr[] = new ICFIntTopProjectObj[len];
-			Iterator<ICFIntTopProjectObj> valIter = allTopProject.values().iterator();
+			IYCFIntTopProjectObj arr[] = new IYCFIntTopProjectObj[len];
+			Iterator<IYCFIntTopProjectObj> valIter = allTopProject.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -482,7 +482,7 @@ public class CFIntTopProjectTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -493,8 +493,8 @@ public class CFIntTopProjectTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFIntTopProjectObj> cmp = new Comparator<ICFIntTopProjectObj>() {
-			public int compare( ICFIntTopProjectObj lhs, ICFIntTopProjectObj rhs ) {
+		Comparator<IYCFIntTopProjectObj> cmp = new Comparator<IYCFIntTopProjectObj>() {
+			public int compare( IYCFIntTopProjectObj lhs, IYCFIntTopProjectObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -507,8 +507,8 @@ public class CFIntTopProjectTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTopProjectPKey lhsPKey = lhs.getPKey();
-					CFIntTopProjectPKey rhsPKey = rhs.getPKey();
+					YCFIntTopProjectPKey lhsPKey = lhs.getPKey();
+					YCFIntTopProjectPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -518,7 +518,7 @@ public class CFIntTopProjectTableObj
 		return( arrayList );
 	}
 
-	public ICFIntTopProjectObj readTopProjectByIdIdx( long TenantId,
+	public IYCFIntTopProjectObj readTopProjectByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readTopProjectByIdIdx( TenantId,
@@ -526,61 +526,61 @@ public class CFIntTopProjectTableObj
 			false ) );
 	}
 
-	public ICFIntTopProjectObj readTopProjectByIdIdx( long TenantId,
+	public IYCFIntTopProjectObj readTopProjectByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFIntTopProjectPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey();
+		YCFIntTopProjectPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFIntTopProjectObj obj = readTopProject( pkey, forceRead );
+		IYCFIntTopProjectObj obj = readTopProject( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFIntTopProjectObj> readTopProjectByTenantIdx( long TenantId )
+	public List<IYCFIntTopProjectObj> readTopProjectByTenantIdx( long TenantId )
 	{
 		return( readTopProjectByTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFIntTopProjectObj> readTopProjectByTenantIdx( long TenantId,
+	public List<IYCFIntTopProjectObj> readTopProjectByTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTopProjectByTenantIdx";
-		CFIntTopProjectByTenantIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
+		YCFIntTopProjectByTenantIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFIntTopProjectPKey, ICFIntTopProjectObj> dict;
+		Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj> dict;
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFIntTopProjectByTenantIdxKey,
-				Map< CFIntTopProjectPKey, ICFIntTopProjectObj > >();
+			indexByTenantIdx = new HashMap< YCFIntTopProjectByTenantIdxKey,
+				Map< YCFIntTopProjectPKey, IYCFIntTopProjectObj > >();
 		}
 		if( ( ! forceRead ) && indexByTenantIdx.containsKey( key ) ) {
 			dict = indexByTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFIntTopProjectPKey, ICFIntTopProjectObj>();
-			ICFIntTopProjectObj obj;
-			CFIntTopProjectBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableTopProject().readDerivedByTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFIntTopProjectPKey, IYCFIntTopProjectObj>();
+			IYCFIntTopProjectObj obj;
+			YCFIntTopProjectBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().readDerivedByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFIntTopProjectBuff buff;
+			YCFIntTopProjectBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getTopProjectTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
 				obj.setBuff( buff );
-				ICFIntTopProjectObj realised = (ICFIntTopProjectObj)obj.realise();
+				IYCFIntTopProjectObj realised = (IYCFIntTopProjectObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFIntTopProjectObj arr[] = new ICFIntTopProjectObj[len];
-		Iterator<ICFIntTopProjectObj> valIter = dict.values().iterator();
+		IYCFIntTopProjectObj arr[] = new IYCFIntTopProjectObj[len];
+		Iterator<IYCFIntTopProjectObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -588,20 +588,20 @@ public class CFIntTopProjectTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntTopProjectObj> arrayList = new ArrayList<ICFIntTopProjectObj>(len);
+		ArrayList<IYCFIntTopProjectObj> arrayList = new ArrayList<IYCFIntTopProjectObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntTopProjectObj> cmp = new Comparator<ICFIntTopProjectObj>() {
-			public int compare( ICFIntTopProjectObj lhs, ICFIntTopProjectObj rhs ) {
+		Comparator<IYCFIntTopProjectObj> cmp = new Comparator<IYCFIntTopProjectObj>() {
+			public int compare( IYCFIntTopProjectObj lhs, IYCFIntTopProjectObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -614,19 +614,19 @@ public class CFIntTopProjectTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTopProjectPKey lhsPKey = lhs.getPKey();
-					CFIntTopProjectPKey rhsPKey = rhs.getPKey();
+					YCFIntTopProjectPKey lhsPKey = lhs.getPKey();
+					YCFIntTopProjectPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntTopProjectObj> sortedList = arrayList;
+		List<IYCFIntTopProjectObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFIntTopProjectObj> readTopProjectByTopDomainIdx( long TenantId,
+	public List<IYCFIntTopProjectObj> readTopProjectByTopDomainIdx( long TenantId,
 		long TopDomainId )
 	{
 		return( readTopProjectByTopDomainIdx( TenantId,
@@ -634,48 +634,48 @@ public class CFIntTopProjectTableObj
 			false ) );
 	}
 
-	public List<ICFIntTopProjectObj> readTopProjectByTopDomainIdx( long TenantId,
+	public List<IYCFIntTopProjectObj> readTopProjectByTopDomainIdx( long TenantId,
 		long TopDomainId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readTopProjectByTopDomainIdx";
-		CFIntTopProjectByTopDomainIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
+		YCFIntTopProjectByTopDomainIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
-		Map<CFIntTopProjectPKey, ICFIntTopProjectObj> dict;
+		Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj> dict;
 		if( indexByTopDomainIdx == null ) {
-			indexByTopDomainIdx = new HashMap< CFIntTopProjectByTopDomainIdxKey,
-				Map< CFIntTopProjectPKey, ICFIntTopProjectObj > >();
+			indexByTopDomainIdx = new HashMap< YCFIntTopProjectByTopDomainIdxKey,
+				Map< YCFIntTopProjectPKey, IYCFIntTopProjectObj > >();
 		}
 		if( ( ! forceRead ) && indexByTopDomainIdx.containsKey( key ) ) {
 			dict = indexByTopDomainIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFIntTopProjectPKey, ICFIntTopProjectObj>();
-			ICFIntTopProjectObj obj;
-			CFIntTopProjectBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableTopProject().readDerivedByTopDomainIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFIntTopProjectPKey, IYCFIntTopProjectObj>();
+			IYCFIntTopProjectObj obj;
+			YCFIntTopProjectBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().readDerivedByTopDomainIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId );
-			CFIntTopProjectBuff buff;
+			YCFIntTopProjectBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getTopProjectTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
 				obj.setBuff( buff );
-				ICFIntTopProjectObj realised = (ICFIntTopProjectObj)obj.realise();
+				IYCFIntTopProjectObj realised = (IYCFIntTopProjectObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTopDomainIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFIntTopProjectObj arr[] = new ICFIntTopProjectObj[len];
-		Iterator<ICFIntTopProjectObj> valIter = dict.values().iterator();
+		IYCFIntTopProjectObj arr[] = new IYCFIntTopProjectObj[len];
+		Iterator<IYCFIntTopProjectObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -683,20 +683,20 @@ public class CFIntTopProjectTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntTopProjectObj> arrayList = new ArrayList<ICFIntTopProjectObj>(len);
+		ArrayList<IYCFIntTopProjectObj> arrayList = new ArrayList<IYCFIntTopProjectObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntTopProjectObj> cmp = new Comparator<ICFIntTopProjectObj>() {
-			public int compare( ICFIntTopProjectObj lhs, ICFIntTopProjectObj rhs ) {
+		Comparator<IYCFIntTopProjectObj> cmp = new Comparator<IYCFIntTopProjectObj>() {
+			public int compare( IYCFIntTopProjectObj lhs, IYCFIntTopProjectObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -709,19 +709,19 @@ public class CFIntTopProjectTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTopProjectPKey lhsPKey = lhs.getPKey();
-					CFIntTopProjectPKey rhsPKey = rhs.getPKey();
+					YCFIntTopProjectPKey lhsPKey = lhs.getPKey();
+					YCFIntTopProjectPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntTopProjectObj> sortedList = arrayList;
+		List<IYCFIntTopProjectObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFIntTopProjectObj readTopProjectByNameIdx( long TenantId,
+	public IYCFIntTopProjectObj readTopProjectByNameIdx( long TenantId,
 		long TopDomainId,
 		String Name )
 	{
@@ -731,67 +731,67 @@ public class CFIntTopProjectTableObj
 			false ) );
 	}
 
-	public ICFIntTopProjectObj readTopProjectByNameIdx( long TenantId,
+	public IYCFIntTopProjectObj readTopProjectByNameIdx( long TenantId,
 		long TopDomainId,
 		String Name, boolean forceRead )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFIntTopProjectByNameIdxKey,
-				ICFIntTopProjectObj >();
+			indexByNameIdx = new HashMap< YCFIntTopProjectByNameIdxKey,
+				IYCFIntTopProjectObj >();
 		}
-		CFIntTopProjectByNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
+		YCFIntTopProjectByNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		key.setRequiredName( Name );
-		ICFIntTopProjectObj obj = null;
+		IYCFIntTopProjectObj obj = null;
 		if( ( ! forceRead ) && indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
 		}
 		else {
-			CFIntTopProjectBuff buff = ((ICFIntSchema)schema.getBackingStore()).getTableTopProject().readDerivedByNameIdx( schema.getAuthorization(),
+			YCFIntTopProjectBuff buff = ((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().readDerivedByNameIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId,
 				Name );
 			if( buff != null ) {
 				obj = schema.getTopProjectTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFIntTopProjectObj)obj.realise();
+				obj = (IYCFIntTopProjectObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntTopProjectObj readCachedTopProjectByIdIdx( long TenantId,
+	public IYCFIntTopProjectObj readCachedTopProjectByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFIntTopProjectObj obj = null;
-		CFIntTopProjectPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey();
+		IYCFIntTopProjectObj obj = null;
+		YCFIntTopProjectPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedTopProject( pkey );
 		return( obj );
 	}
 
-	public List<ICFIntTopProjectObj> readCachedTopProjectByTenantIdx( long TenantId )
+	public List<IYCFIntTopProjectObj> readCachedTopProjectByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedTopProjectByTenantIdx";
-		CFIntTopProjectByTenantIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
+		YCFIntTopProjectByTenantIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFIntTopProjectObj> arrayList = new ArrayList<ICFIntTopProjectObj>();
+		ArrayList<IYCFIntTopProjectObj> arrayList = new ArrayList<IYCFIntTopProjectObj>();
 		if( indexByTenantIdx != null ) {
-			Map<CFIntTopProjectPKey, ICFIntTopProjectObj> dict;
+			Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj> dict;
 			if( indexByTenantIdx.containsKey( key ) ) {
 				dict = indexByTenantIdx.get( key );
 				int len = dict.size();
-				ICFIntTopProjectObj arr[] = new ICFIntTopProjectObj[len];
-				Iterator<ICFIntTopProjectObj> valIter = dict.values().iterator();
+				IYCFIntTopProjectObj arr[] = new IYCFIntTopProjectObj[len];
+				Iterator<IYCFIntTopProjectObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -799,7 +799,7 @@ public class CFIntTopProjectTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -812,8 +812,8 @@ public class CFIntTopProjectTableObj
 			}
 		}
 		else {
-			ICFIntTopProjectObj obj;
-			Iterator<ICFIntTopProjectObj> valIter = members.values().iterator();
+			IYCFIntTopProjectObj obj;
+			Iterator<IYCFIntTopProjectObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -823,8 +823,8 @@ public class CFIntTopProjectTableObj
 				}
 			}
 		}
-		Comparator<ICFIntTopProjectObj> cmp = new Comparator<ICFIntTopProjectObj>() {
-			public int compare( ICFIntTopProjectObj lhs, ICFIntTopProjectObj rhs ) {
+		Comparator<IYCFIntTopProjectObj> cmp = new Comparator<IYCFIntTopProjectObj>() {
+			public int compare( IYCFIntTopProjectObj lhs, IYCFIntTopProjectObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -837,8 +837,8 @@ public class CFIntTopProjectTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTopProjectPKey lhsPKey = lhs.getPKey();
-					CFIntTopProjectPKey rhsPKey = rhs.getPKey();
+					YCFIntTopProjectPKey lhsPKey = lhs.getPKey();
+					YCFIntTopProjectPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -848,27 +848,27 @@ public class CFIntTopProjectTableObj
 		return( arrayList );
 	}
 
-	public List<ICFIntTopProjectObj> readCachedTopProjectByTopDomainIdx( long TenantId,
+	public List<IYCFIntTopProjectObj> readCachedTopProjectByTopDomainIdx( long TenantId,
 		long TopDomainId )
 	{
 		final String S_ProcName = "readCachedTopProjectByTopDomainIdx";
-		CFIntTopProjectByTopDomainIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
+		YCFIntTopProjectByTopDomainIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
-		ArrayList<ICFIntTopProjectObj> arrayList = new ArrayList<ICFIntTopProjectObj>();
+		ArrayList<IYCFIntTopProjectObj> arrayList = new ArrayList<IYCFIntTopProjectObj>();
 		if( indexByTopDomainIdx != null ) {
-			Map<CFIntTopProjectPKey, ICFIntTopProjectObj> dict;
+			Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj> dict;
 			if( indexByTopDomainIdx.containsKey( key ) ) {
 				dict = indexByTopDomainIdx.get( key );
 				int len = dict.size();
-				ICFIntTopProjectObj arr[] = new ICFIntTopProjectObj[len];
-				Iterator<ICFIntTopProjectObj> valIter = dict.values().iterator();
+				IYCFIntTopProjectObj arr[] = new IYCFIntTopProjectObj[len];
+				Iterator<IYCFIntTopProjectObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -876,7 +876,7 @@ public class CFIntTopProjectTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -889,8 +889,8 @@ public class CFIntTopProjectTableObj
 			}
 		}
 		else {
-			ICFIntTopProjectObj obj;
-			Iterator<ICFIntTopProjectObj> valIter = members.values().iterator();
+			IYCFIntTopProjectObj obj;
+			Iterator<IYCFIntTopProjectObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -900,8 +900,8 @@ public class CFIntTopProjectTableObj
 				}
 			}
 		}
-		Comparator<ICFIntTopProjectObj> cmp = new Comparator<ICFIntTopProjectObj>() {
-			public int compare( ICFIntTopProjectObj lhs, ICFIntTopProjectObj rhs ) {
+		Comparator<IYCFIntTopProjectObj> cmp = new Comparator<IYCFIntTopProjectObj>() {
+			public int compare( IYCFIntTopProjectObj lhs, IYCFIntTopProjectObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -914,8 +914,8 @@ public class CFIntTopProjectTableObj
 					return( 1 );
 				}
 				else {
-					CFIntTopProjectPKey lhsPKey = lhs.getPKey();
-					CFIntTopProjectPKey rhsPKey = rhs.getPKey();
+					YCFIntTopProjectPKey lhsPKey = lhs.getPKey();
+					YCFIntTopProjectPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -925,12 +925,12 @@ public class CFIntTopProjectTableObj
 		return( arrayList );
 	}
 
-	public ICFIntTopProjectObj readCachedTopProjectByNameIdx( long TenantId,
+	public IYCFIntTopProjectObj readCachedTopProjectByNameIdx( long TenantId,
 		long TopDomainId,
 		String Name )
 	{
-		ICFIntTopProjectObj obj = null;
-		CFIntTopProjectByNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
+		IYCFIntTopProjectObj obj = null;
+		YCFIntTopProjectByNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		key.setRequiredName( Name );
@@ -939,7 +939,7 @@ public class CFIntTopProjectTableObj
 				obj = indexByNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFIntTopProjectObj> valIter = members.values().iterator();
+				Iterator<IYCFIntTopProjectObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -951,7 +951,7 @@ public class CFIntTopProjectTableObj
 			}
 		}
 		else {
-			Iterator<ICFIntTopProjectObj> valIter = members.values().iterator();
+			Iterator<IYCFIntTopProjectObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -967,7 +967,7 @@ public class CFIntTopProjectTableObj
 	public void deepDisposeTopProjectByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFIntTopProjectObj obj = readCachedTopProjectByIdIdx( TenantId,
+		IYCFIntTopProjectObj obj = readCachedTopProjectByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -977,10 +977,10 @@ public class CFIntTopProjectTableObj
 	public void deepDisposeTopProjectByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeTopProjectByTenantIdx";
-		ICFIntTopProjectObj obj;
-		List<ICFIntTopProjectObj> arrayList = readCachedTopProjectByTenantIdx( TenantId );
+		IYCFIntTopProjectObj obj;
+		List<IYCFIntTopProjectObj> arrayList = readCachedTopProjectByTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFIntTopProjectObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFIntTopProjectObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -994,11 +994,11 @@ public class CFIntTopProjectTableObj
 		long TopDomainId )
 	{
 		final String S_ProcName = "deepDisposeTopProjectByTopDomainIdx";
-		ICFIntTopProjectObj obj;
-		List<ICFIntTopProjectObj> arrayList = readCachedTopProjectByTopDomainIdx( TenantId,
+		IYCFIntTopProjectObj obj;
+		List<IYCFIntTopProjectObj> arrayList = readCachedTopProjectByTopDomainIdx( TenantId,
 				TopDomainId );
 		if( arrayList != null )  {
-			Iterator<ICFIntTopProjectObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFIntTopProjectObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1012,7 +1012,7 @@ public class CFIntTopProjectTableObj
 		long TopDomainId,
 		String Name )
 	{
-		ICFIntTopProjectObj obj = readCachedTopProjectByNameIdx( TenantId,
+		IYCFIntTopProjectObj obj = readCachedTopProjectByNameIdx( TenantId,
 				TopDomainId,
 				Name );
 		if( obj != null ) {
@@ -1020,18 +1020,18 @@ public class CFIntTopProjectTableObj
 		}
 	}
 
-	public ICFIntTopProjectObj updateTopProject( ICFIntTopProjectObj Obj ) {
-		ICFIntTopProjectObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableTopProject().updateTopProject( schema.getAuthorization(),
+	public IYCFIntTopProjectObj updateTopProject( IYCFIntTopProjectObj Obj ) {
+		IYCFIntTopProjectObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().updateTopProject( schema.getAuthorization(),
 			Obj.getTopProjectBuff() );
-		obj = (ICFIntTopProjectObj)Obj.realise();
+		obj = (IYCFIntTopProjectObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteTopProject( ICFIntTopProjectObj Obj ) {
-		ICFIntTopProjectObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProject( schema.getAuthorization(),
+	public void deleteTopProject( IYCFIntTopProjectObj Obj ) {
+		IYCFIntTopProjectObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProject( schema.getAuthorization(),
 			obj.getTopProjectBuff() );
 		Obj.forget();
 	}
@@ -1039,15 +1039,15 @@ public class CFIntTopProjectTableObj
 	public void deleteTopProjectByIdIdx( long TenantId,
 		long Id )
 	{
-		CFIntTopProjectPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey();
+		YCFIntTopProjectPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFIntTopProjectObj obj = readTopProject( pkey );
+		IYCFIntTopProjectObj obj = readTopProject( pkey );
 		if( obj != null ) {
-			ICFIntTopProjectEditObj editObj = (ICFIntTopProjectEditObj)obj.getEdit();
+			IYCFIntTopProjectEditObj editObj = (IYCFIntTopProjectEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFIntTopProjectEditObj)obj.beginEdit();
+				editObj = (IYCFIntTopProjectEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1072,19 +1072,19 @@ public class CFIntTopProjectTableObj
 
 	public void deleteTopProjectByTenantIdx( long TenantId )
 	{
-		CFIntTopProjectByTenantIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
+		YCFIntTopProjectByTenantIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFIntTopProjectByTenantIdxKey,
-				Map< CFIntTopProjectPKey, ICFIntTopProjectObj > >();
+			indexByTenantIdx = new HashMap< YCFIntTopProjectByTenantIdxKey,
+				Map< YCFIntTopProjectPKey, IYCFIntTopProjectObj > >();
 		}
 		if( indexByTenantIdx.containsKey( key ) ) {
-			Map<CFIntTopProjectPKey, ICFIntTopProjectObj> dict = indexByTenantIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByTenantIdx( schema.getAuthorization(),
+			Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj> dict = indexByTenantIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFIntTopProjectObj> iter = dict.values().iterator();
-			ICFIntTopProjectObj obj;
-			List<ICFIntTopProjectObj> toForget = new LinkedList<ICFIntTopProjectObj>();
+			Iterator<IYCFIntTopProjectObj> iter = dict.values().iterator();
+			IYCFIntTopProjectObj obj;
+			List<IYCFIntTopProjectObj> toForget = new LinkedList<IYCFIntTopProjectObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1097,7 +1097,7 @@ public class CFIntTopProjectTableObj
 			indexByTenantIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByTenantIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeTopProjectByTenantIdx( TenantId );
@@ -1106,21 +1106,21 @@ public class CFIntTopProjectTableObj
 	public void deleteTopProjectByTopDomainIdx( long TenantId,
 		long TopDomainId )
 	{
-		CFIntTopProjectByTopDomainIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
+		YCFIntTopProjectByTopDomainIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newTopDomainIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		if( indexByTopDomainIdx == null ) {
-			indexByTopDomainIdx = new HashMap< CFIntTopProjectByTopDomainIdxKey,
-				Map< CFIntTopProjectPKey, ICFIntTopProjectObj > >();
+			indexByTopDomainIdx = new HashMap< YCFIntTopProjectByTopDomainIdxKey,
+				Map< YCFIntTopProjectPKey, IYCFIntTopProjectObj > >();
 		}
 		if( indexByTopDomainIdx.containsKey( key ) ) {
-			Map<CFIntTopProjectPKey, ICFIntTopProjectObj> dict = indexByTopDomainIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByTopDomainIdx( schema.getAuthorization(),
+			Map<YCFIntTopProjectPKey, IYCFIntTopProjectObj> dict = indexByTopDomainIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByTopDomainIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId );
-			Iterator<ICFIntTopProjectObj> iter = dict.values().iterator();
-			ICFIntTopProjectObj obj;
-			List<ICFIntTopProjectObj> toForget = new LinkedList<ICFIntTopProjectObj>();
+			Iterator<IYCFIntTopProjectObj> iter = dict.values().iterator();
+			IYCFIntTopProjectObj obj;
+			List<IYCFIntTopProjectObj> toForget = new LinkedList<IYCFIntTopProjectObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1133,7 +1133,7 @@ public class CFIntTopProjectTableObj
 			indexByTopDomainIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByTopDomainIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByTopDomainIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId );
 		}
@@ -1146,24 +1146,24 @@ public class CFIntTopProjectTableObj
 		String Name )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFIntTopProjectByNameIdxKey,
-				ICFIntTopProjectObj >();
+			indexByNameIdx = new HashMap< YCFIntTopProjectByNameIdxKey,
+				IYCFIntTopProjectObj >();
 		}
-		CFIntTopProjectByNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
+		YCFIntTopProjectByNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryTopProject().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		key.setRequiredName( Name );
-		ICFIntTopProjectObj obj = null;
+		IYCFIntTopProjectObj obj = null;
 		if( indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByNameIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableTopProject().deleteTopProjectByNameIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId,
 				Name );

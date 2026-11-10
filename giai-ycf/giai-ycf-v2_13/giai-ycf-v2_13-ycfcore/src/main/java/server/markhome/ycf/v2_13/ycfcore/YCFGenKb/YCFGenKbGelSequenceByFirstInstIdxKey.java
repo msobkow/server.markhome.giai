@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelSequence by FirstInstIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelSequenceByFirstInstIdxKey
+public class YCFGenKbGelSequenceByFirstInstIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalFirstInstTenantId;
 	protected Long optionalFirstInstGelCacheId;
 	protected Long optionalFirstInstId;
-	public CFGenKbGelSequenceByFirstInstIdxKey() {
+	public YCFGenKbGelSequenceByFirstInstIdxKey() {
 		optionalFirstInstTenantId = null;
 		optionalFirstInstGelCacheId = null;
 		optionalFirstInstId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGelSequenceByFirstInstIdxKey
 		if( value == null ) {
 			optionalFirstInstTenantId = null;
 		}
-		else if( value < CFGenKbGelSequenceBuff.FIRSTINSTTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelSequenceBuff.FIRSTINSTTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalFirstInstTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelSequenceBuff.FIRSTINSTTENANTID_MIN_VALUE );
+				YCFGenKbGelSequenceBuff.FIRSTINSTTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalFirstInstTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGelSequenceByFirstInstIdxKey
 		if( value == null ) {
 			optionalFirstInstGelCacheId = null;
 		}
-		else if( value < CFGenKbGelSequenceBuff.FIRSTINSTGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelSequenceBuff.FIRSTINSTGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalFirstInstGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelSequenceBuff.FIRSTINSTGELCACHEID_MIN_VALUE );
+				YCFGenKbGelSequenceBuff.FIRSTINSTGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalFirstInstGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGelSequenceByFirstInstIdxKey
 		if( value == null ) {
 			optionalFirstInstId = null;
 		}
-		else if( value < CFGenKbGelSequenceBuff.FIRSTINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelSequenceBuff.FIRSTINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalFirstInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelSequenceBuff.FIRSTINSTID_MIN_VALUE );
+				YCFGenKbGelSequenceBuff.FIRSTINSTID_MIN_VALUE );
 		}
 		else {
 			optionalFirstInstId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGelSequenceByFirstInstIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelSequenceByFirstInstIdxKey ) {
-			CFGenKbGelSequenceByFirstInstIdxKey rhs = (CFGenKbGelSequenceByFirstInstIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSequenceByFirstInstIdxKey ) {
+			YCFGenKbGelSequenceByFirstInstIdxKey rhs = (YCFGenKbGelSequenceByFirstInstIdxKey)obj;
 			if( getOptionalFirstInstTenantId() != null ) {
 				if( rhs.getOptionalFirstInstTenantId() != null ) {
 					if( ! getOptionalFirstInstTenantId().equals( rhs.getOptionalFirstInstTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGelSequenceByFirstInstIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelSequenceBuff ) {
-			CFGenKbGelSequenceBuff rhs = (CFGenKbGelSequenceBuff)obj;
+		else if( obj instanceof YCFGenKbGelSequenceBuff ) {
+			YCFGenKbGelSequenceBuff rhs = (YCFGenKbGelSequenceBuff)obj;
 			if( getOptionalFirstInstTenantId() != null ) {
 				if( rhs.getOptionalFirstInstTenantId() != null ) {
 					if( ! getOptionalFirstInstTenantId().equals( rhs.getOptionalFirstInstTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGelSequenceByFirstInstIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelSequenceByFirstInstIdxKey ) {
-			CFGenKbGelSequenceByFirstInstIdxKey rhs = (CFGenKbGelSequenceByFirstInstIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelSequenceByFirstInstIdxKey ) {
+			YCFGenKbGelSequenceByFirstInstIdxKey rhs = (YCFGenKbGelSequenceByFirstInstIdxKey)obj;
 			if( getOptionalFirstInstTenantId() != null ) {
 				Long lhsFirstInstTenantId = getOptionalFirstInstTenantId();
 				if( rhs.getOptionalFirstInstTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGelSequenceByFirstInstIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelSequenceBuff ) {
-			CFGenKbGelSequenceBuff rhs = (CFGenKbGelSequenceBuff)obj;
+		else if( obj instanceof YCFGenKbGelSequenceBuff ) {
+			YCFGenKbGelSequenceBuff rhs = (YCFGenKbGelSequenceBuff)obj;
 			if( getOptionalFirstInstTenantId() != null ) {
 				Long lhsFirstInstTenantId = getOptionalFirstInstTenantId();
 				if( rhs.getOptionalFirstInstTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGelSequenceByFirstInstIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGelSequenceByFirstInstIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelSequenceByFirstInstIdx"
+		String ret = "<YCFGenKbGelSequenceByFirstInstIdx"
 			+ " OptionalFirstInstTenantId=" + ( ( getOptionalFirstInstTenantId() == null ) ? "null" : "\"" + getOptionalFirstInstTenantId().toString() + "\"" )
 			+ " OptionalFirstInstGelCacheId=" + ( ( getOptionalFirstInstGelCacheId() == null ) ? "null" : "\"" + getOptionalFirstInstGelCacheId().toString() + "\"" )
 			+ " OptionalFirstInstId=" + ( ( getOptionalFirstInstId() == null ) ? "null" : "\"" + getOptionalFirstInstId().toString() + "\"" )

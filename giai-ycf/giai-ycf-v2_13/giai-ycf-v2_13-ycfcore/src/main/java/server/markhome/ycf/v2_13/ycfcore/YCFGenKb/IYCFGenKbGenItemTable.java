@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GenItem.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGenItemTable database interface for GenItem
+ *	YCFGenKbGenItemTable database interface for GenItem
  */
-public interface ICFGenKbGenItemTable
+public interface IYCFGenKbGenItemTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGenItem( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemBuff Buff );
+	void createGenItem( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGenItem( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemBuff Buff );
+	void updateGenItem( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGenItem( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemBuff Buff );
+	void deleteGenItem( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemBuff Buff );
 	/**
 	 *	Delete the GenItem instance identified by the primary key attributes.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argItemId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByItemIdIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argCartridgeId,
 		long argItemId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGenItemByItemIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey argKey );
+	void deleteGenItemByItemIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey argKey );
 	/**
 	 *	Delete the GenItem instances identified by the key TenantIdx.
 	 *
@@ -111,7 +111,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argTenantId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -121,8 +121,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenItemByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByTenantIdxKey argKey );
+	void deleteGenItemByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByTenantIdxKey argKey );
 	/**
 	 *	Delete the GenItem instances identified by the key CartIdx.
 	 *
@@ -132,7 +132,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argCartridgeId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByCartIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByCartIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argCartridgeId );
 
@@ -143,8 +143,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenItemByCartIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByCartIdxKey argKey );
+	void deleteGenItemByCartIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByCartIdxKey argKey );
 	/**
 	 *	Delete the GenItem instances identified by the key RuleTypeIdx.
 	 *
@@ -152,7 +152,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argRuleTypeId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short argRuleTypeId );
 
 	/**
@@ -162,8 +162,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenItemByRuleTypeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByRuleTypeIdxKey argKey );
+	void deleteGenItemByRuleTypeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByRuleTypeIdxKey argKey );
 	/**
 	 *	Delete the GenItem instances identified by the key ToolSetIdx.
 	 *
@@ -171,7 +171,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argToolSetId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByToolSetIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short argToolSetId );
 
 	/**
@@ -181,8 +181,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenItemByToolSetIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByToolSetIdxKey argKey );
+	void deleteGenItemByToolSetIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByToolSetIdxKey argKey );
 	/**
 	 *	Delete the GenItem instances identified by the key ScopeIdx.
 	 *
@@ -190,7 +190,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argScopeDefId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByScopeIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short argScopeDefId );
 
 	/**
@@ -200,8 +200,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenItemByScopeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByScopeIdxKey argKey );
+	void deleteGenItemByScopeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByScopeIdxKey argKey );
 	/**
 	 *	Delete the GenItem instances identified by the key GenDefIdx.
 	 *
@@ -209,7 +209,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argGenDefId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByGenDefIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short argGenDefId );
 
 	/**
@@ -219,8 +219,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenItemByGenDefIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByGenDefIdxKey argKey );
+	void deleteGenItemByGenDefIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByGenDefIdxKey argKey );
 	/**
 	 *	Delete the GenItem instances identified by the key AltIdx.
 	 *
@@ -234,7 +234,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argGenDefId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByAltIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByAltIdx( YCFGenKbAuthorization Authorization,
 		String argName,
 		short argToolSetId,
 		Short argScopeDefId,
@@ -247,8 +247,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenItemByAltIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByAltIdxKey argKey );
+	void deleteGenItemByAltIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByAltIdxKey argKey );
 	/**
 	 *	Delete the GenItem instances identified by the key GelExecIdx.
 	 *
@@ -260,7 +260,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argGelExecutableId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByGelExecIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long argGelExecutableTenantId,
 		Long argGelExecutableGelCacheId,
 		Long argGelExecutableId );
@@ -272,8 +272,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenItemByGelExecIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByGelExecIdxKey argKey );
+	void deleteGenItemByGelExecIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByGelExecIdxKey argKey );
 	/**
 	 *	Delete the GenItem instances identified by the key ProbeIdx.
 	 *
@@ -285,7 +285,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argProbeGenItemId	The GenItem key attribute of the instance generating the id.
 	 */
-	void deleteGenItemByProbeIdx( CFGenKbAuthorization Authorization,
+	void deleteGenItemByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long argProbeTenantId,
 		Long argProbeCartridgeId,
 		Long argProbeGenItemId );
@@ -297,8 +297,8 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenItemByProbeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByProbeIdxKey argKey );
+	void deleteGenItemByProbeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByProbeIdxKey argKey );
 
 
 	/**
@@ -311,8 +311,8 @@ public interface ICFGenKbGenItemTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenItemBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenItemBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Lock the derived GenItem buffer instance by primary key.
@@ -324,8 +324,8 @@ public interface ICFGenKbGenItemTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenItemBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenItemBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Read all GenItem instances.
@@ -334,7 +334,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenItemBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGenItemBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GenItem buffer instance identified by the unique key ItemIdIdx.
@@ -350,7 +350,7 @@ public interface ICFGenKbGenItemTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenItemBuff readDerivedByItemIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff readDerivedByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId,
 		long ItemId );
@@ -364,7 +364,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenItemBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -378,7 +378,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenItemBuff[] readDerivedByCartIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readDerivedByCartIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId );
 
@@ -391,7 +391,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenItemBuff[] readDerivedByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readDerivedByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short RuleTypeId );
 
 	/**
@@ -403,7 +403,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenItemBuff[] readDerivedByToolSetIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readDerivedByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short ToolSetId );
 
 	/**
@@ -415,7 +415,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenItemBuff[] readDerivedByScopeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readDerivedByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short ScopeDefId );
 
 	/**
@@ -427,7 +427,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenItemBuff[] readDerivedByGenDefIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readDerivedByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short GenDefId );
 
 	/**
@@ -446,7 +446,7 @@ public interface ICFGenKbGenItemTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenItemBuff readDerivedByAltIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff readDerivedByAltIdx( YCFGenKbAuthorization Authorization,
 		String Name,
 		short ToolSetId,
 		Short ScopeDefId,
@@ -465,7 +465,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenItemBuff[] readDerivedByGelExecIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readDerivedByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
@@ -483,7 +483,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenItemBuff[] readDerivedByProbeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readDerivedByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
@@ -498,10 +498,10 @@ public interface ICFGenKbGenItemTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenItemBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Lock the specific GenItem buffer instance identified by the primary key.
@@ -513,10 +513,10 @@ public interface ICFGenKbGenItemTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenItemBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Read all the specific GenItem buffer instances.
@@ -525,7 +525,7 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return All the specific GenItem instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGenItemBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGenItemBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GenItem buffer instance identified by the unique key ItemIdIdx.
@@ -541,9 +541,9 @@ public interface ICFGenKbGenItemTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff readBuffByItemIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff readBuffByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId,
 		long ItemId );
@@ -557,9 +557,9 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -573,9 +573,9 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff[] readBuffByCartIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readBuffByCartIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId );
 
@@ -588,9 +588,9 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff[] readBuffByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readBuffByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short RuleTypeId );
 
 	/**
@@ -602,9 +602,9 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff[] readBuffByToolSetIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readBuffByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short ToolSetId );
 
 	/**
@@ -616,9 +616,9 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff[] readBuffByScopeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readBuffByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short ScopeDefId );
 
 	/**
@@ -630,9 +630,9 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff[] readBuffByGenDefIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readBuffByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short GenDefId );
 
 	/**
@@ -651,9 +651,9 @@ public interface ICFGenKbGenItemTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff readBuffByAltIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff readBuffByAltIdx( YCFGenKbAuthorization Authorization,
 		String Name,
 		short ToolSetId,
 		Short ScopeDefId,
@@ -672,9 +672,9 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff[] readBuffByGelExecIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readBuffByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
@@ -692,9 +692,9 @@ public interface ICFGenKbGenItemTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenItemBuff[] readBuffByProbeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenItemBuff[] readBuffByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
@@ -702,7 +702,7 @@ public interface ICFGenKbGenItemTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -1,11 +1,11 @@
-// Description: Java 11 Schema Object interface for CFGenKb.
+// Description: Java 11 Schema Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,41 +27,41 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSchemaObj
+public interface IYCFGenKbSchemaObj
 {
-	CFGenKbAuthorization getAuthorization();
-	void setAuthorization( CFGenKbAuthorization value );
+	YCFGenKbAuthorization getAuthorization();
+	void setAuthorization( YCFGenKbAuthorization value );
 
-	ICFGenKbSchema getBackingStore();
-	void setBackingStore( ICFGenKbSchema value );
+	IYCFGenKbSchema getBackingStore();
+	void setBackingStore( IYCFGenKbSchema value );
 
 	String getSchemaName();
 
 	void setSecClusterName( String value );
-	ICFGenKbClusterObj getSecCluster();
-	void setSecCluster( ICFGenKbClusterObj value );
+	IYCFGenKbClusterObj getSecCluster();
+	void setSecCluster( IYCFGenKbClusterObj value );
 
 	void setSecTenantName( String value );
-	ICFGenKbTenantObj getSecTenant();
-	void setSecTenant( ICFGenKbTenantObj value );
+	IYCFGenKbTenantObj getSecTenant();
+	void setSecTenant( IYCFGenKbTenantObj value );
 
 	void setSecUserName( String value );
-	ICFGenKbSecUserObj getSecUser();
-	void setSecUser( ICFGenKbSecUserObj value );
+	IYCFGenKbSecUserObj getSecUser();
+	void setSecUser( IYCFGenKbSecUserObj value );
 
 	void setSecSessionId( UUID value );
-	ICFGenKbSecSessionObj getSecSession();
-	void setSecSession( ICFGenKbSecSessionObj value );
+	IYCFGenKbSecSessionObj getSecSession();
+	void setSecSession( IYCFGenKbSecSessionObj value );
 
 	boolean isConnected();
 	boolean connect();
@@ -143,343 +143,343 @@ public interface ICFGenKbSchemaObj
 	/**
 	 *	Get the Cluster interface for the schema.
 	 *
-	 *	@return	The ICFGenKbClusterTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbClusterTableObj interface implementation for the schema.
 	 */
-	ICFGenKbClusterTableObj getClusterTableObj();
+	IYCFGenKbClusterTableObj getClusterTableObj();
 
 	/**
 	 *	Get the DefClass interface for the schema.
 	 *
-	 *	@return	The ICFGenKbDefClassTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbDefClassTableObj interface implementation for the schema.
 	 */
-	ICFGenKbDefClassTableObj getDefClassTableObj();
+	IYCFGenKbDefClassTableObj getDefClassTableObj();
 
 	/**
 	 *	Get the GelBoilerplate interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelBoilerplateTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelBoilerplateTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelBoilerplateTableObj getGelBoilerplateTableObj();
+	IYCFGenKbGelBoilerplateTableObj getGelBoilerplateTableObj();
 
 	/**
 	 *	Get the GelBuiltin interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelBuiltinTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelBuiltinTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelBuiltinTableObj getGelBuiltinTableObj();
+	IYCFGenKbGelBuiltinTableObj getGelBuiltinTableObj();
 
 	/**
 	 *	Get the GelCache interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelCacheTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelCacheTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelCacheTableObj getGelCacheTableObj();
+	IYCFGenKbGelCacheTableObj getGelCacheTableObj();
 
 	/**
 	 *	Get the GelCall interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelCallTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelCallTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelCallTableObj getGelCallTableObj();
+	IYCFGenKbGelCallTableObj getGelCallTableObj();
 
 	/**
 	 *	Get the GelConstrain interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelConstrainTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelConstrainTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelConstrainTableObj getGelConstrainTableObj();
+	IYCFGenKbGelConstrainTableObj getGelConstrainTableObj();
 
 	/**
 	 *	Get the GelCounter interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelCounterTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelCounterTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelCounterTableObj getGelCounterTableObj();
+	IYCFGenKbGelCounterTableObj getGelCounterTableObj();
 
 	/**
 	 *	Get the GelError interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelErrorTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelErrorTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelErrorTableObj getGelErrorTableObj();
+	IYCFGenKbGelErrorTableObj getGelErrorTableObj();
 
 	/**
 	 *	Get the GelExecutable interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelExecutableTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelExecutableTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelExecutableTableObj getGelExecutableTableObj();
+	IYCFGenKbGelExecutableTableObj getGelExecutableTableObj();
 
 	/**
 	 *	Get the GelExpansion interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelExpansionTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelExpansionTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelExpansionTableObj getGelExpansionTableObj();
+	IYCFGenKbGelExpansionTableObj getGelExpansionTableObj();
 
 	/**
 	 *	Get the GelInstruction interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelInstructionTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelInstructionTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelInstructionTableObj getGelInstructionTableObj();
+	IYCFGenKbGelInstructionTableObj getGelInstructionTableObj();
 
 	/**
 	 *	Get the GelIterator interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelIteratorTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelIteratorTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelIteratorTableObj getGelIteratorTableObj();
+	IYCFGenKbGelIteratorTableObj getGelIteratorTableObj();
 
 	/**
 	 *	Get the GelModifier interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelModifierTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelModifierTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelModifierTableObj getGelModifierTableObj();
+	IYCFGenKbGelModifierTableObj getGelModifierTableObj();
 
 	/**
 	 *	Get the GelPop interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelPopTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelPopTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelPopTableObj getGelPopTableObj();
+	IYCFGenKbGelPopTableObj getGelPopTableObj();
 
 	/**
 	 *	Get the GelPrefixLine interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelPrefixLineTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelPrefixLineTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelPrefixLineTableObj getGelPrefixLineTableObj();
+	IYCFGenKbGelPrefixLineTableObj getGelPrefixLineTableObj();
 
 	/**
 	 *	Get the GelPushContext interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelPushContextTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelPushContextTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelPushContextTableObj getGelPushContextTableObj();
+	IYCFGenKbGelPushContextTableObj getGelPushContextTableObj();
 
 	/**
 	 *	Get the GelPopContext interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelPopContextTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelPopContextTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelPopContextTableObj getGelPopContextTableObj();
+	IYCFGenKbGelPopContextTableObj getGelPopContextTableObj();
 
 	/**
 	 *	Get the GelReference interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelReferenceTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelReferenceTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelReferenceTableObj getGelReferenceTableObj();
+	IYCFGenKbGelReferenceTableObj getGelReferenceTableObj();
 
 	/**
 	 *	Get the GelSequence interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelSequenceTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelSequenceTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelSequenceTableObj getGelSequenceTableObj();
+	IYCFGenKbGelSequenceTableObj getGelSequenceTableObj();
 
 	/**
 	 *	Get the GelSpread interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelSpreadTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelSpreadTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelSpreadTableObj getGelSpreadTableObj();
+	IYCFGenKbGelSpreadTableObj getGelSpreadTableObj();
 
 	/**
 	 *	Get the GelSwitch interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelSwitchTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelSwitchTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelSwitchTableObj getGelSwitchTableObj();
+	IYCFGenKbGelSwitchTableObj getGelSwitchTableObj();
 
 	/**
 	 *	Get the GelSwitchLimb interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGelSwitchLimbTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGelSwitchLimbTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGelSwitchLimbTableObj getGelSwitchLimbTableObj();
+	IYCFGenKbGelSwitchLimbTableObj getGelSwitchLimbTableObj();
 
 	/**
 	 *	Get the GenBind interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGenBindTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGenBindTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGenBindTableObj getGenBindTableObj();
+	IYCFGenKbGenBindTableObj getGenBindTableObj();
 
 	/**
 	 *	Get the GenFile interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGenFileTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGenFileTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGenFileTableObj getGenFileTableObj();
+	IYCFGenKbGenFileTableObj getGenFileTableObj();
 
 	/**
 	 *	Get the GenItem interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGenItemTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGenItemTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGenItemTableObj getGenItemTableObj();
+	IYCFGenKbGenItemTableObj getGenItemTableObj();
 
 	/**
 	 *	Get the GenIterator interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGenIteratorTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGenIteratorTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGenIteratorTableObj getGenIteratorTableObj();
+	IYCFGenKbGenIteratorTableObj getGenIteratorTableObj();
 
 	/**
 	 *	Get the GenReference interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGenReferenceTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGenReferenceTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGenReferenceTableObj getGenReferenceTableObj();
+	IYCFGenKbGenReferenceTableObj getGenReferenceTableObj();
 
 	/**
 	 *	Get the GenRule interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGenRuleTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGenRuleTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGenRuleTableObj getGenRuleTableObj();
+	IYCFGenKbGenRuleTableObj getGenRuleTableObj();
 
 	/**
 	 *	Get the GenTrunc interface for the schema.
 	 *
-	 *	@return	The ICFGenKbGenTruncTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbGenTruncTableObj interface implementation for the schema.
 	 */
-	ICFGenKbGenTruncTableObj getGenTruncTableObj();
+	IYCFGenKbGenTruncTableObj getGenTruncTableObj();
 
 	/**
 	 *	Get the HostNode interface for the schema.
 	 *
-	 *	@return	The ICFGenKbHostNodeTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbHostNodeTableObj interface implementation for the schema.
 	 */
-	ICFGenKbHostNodeTableObj getHostNodeTableObj();
+	IYCFGenKbHostNodeTableObj getHostNodeTableObj();
 
 	/**
 	 *	Get the RuleCart interface for the schema.
 	 *
-	 *	@return	The ICFGenKbRuleCartTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbRuleCartTableObj interface implementation for the schema.
 	 */
-	ICFGenKbRuleCartTableObj getRuleCartTableObj();
+	IYCFGenKbRuleCartTableObj getRuleCartTableObj();
 
 	/**
 	 *	Get the RuleType interface for the schema.
 	 *
-	 *	@return	The ICFGenKbRuleTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbRuleTypeTableObj interface implementation for the schema.
 	 */
-	ICFGenKbRuleTypeTableObj getRuleTypeTableObj();
+	IYCFGenKbRuleTypeTableObj getRuleTypeTableObj();
 
 	/**
 	 *	Get the SecApp interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSecAppTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSecAppTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSecAppTableObj getSecAppTableObj();
+	IYCFGenKbSecAppTableObj getSecAppTableObj();
 
 	/**
 	 *	Get the SecDevice interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSecDeviceTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSecDeviceTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSecDeviceTableObj getSecDeviceTableObj();
+	IYCFGenKbSecDeviceTableObj getSecDeviceTableObj();
 
 	/**
 	 *	Get the SecForm interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSecFormTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSecFormTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSecFormTableObj getSecFormTableObj();
+	IYCFGenKbSecFormTableObj getSecFormTableObj();
 
 	/**
 	 *	Get the SecGroup interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSecGroupTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSecGroupTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSecGroupTableObj getSecGroupTableObj();
+	IYCFGenKbSecGroupTableObj getSecGroupTableObj();
 
 	/**
 	 *	Get the SecGroupForm interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSecGroupFormTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSecGroupFormTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSecGroupFormTableObj getSecGroupFormTableObj();
+	IYCFGenKbSecGroupFormTableObj getSecGroupFormTableObj();
 
 	/**
 	 *	Get the SecGrpInc interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSecGrpIncTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSecGrpIncTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSecGrpIncTableObj getSecGrpIncTableObj();
+	IYCFGenKbSecGrpIncTableObj getSecGrpIncTableObj();
 
 	/**
 	 *	Get the SecGrpMemb interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSecGrpMembTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSecGrpMembTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSecGrpMembTableObj getSecGrpMembTableObj();
+	IYCFGenKbSecGrpMembTableObj getSecGrpMembTableObj();
 
 	/**
 	 *	Get the SecSession interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSecSessionTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSecSessionTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSecSessionTableObj getSecSessionTableObj();
+	IYCFGenKbSecSessionTableObj getSecSessionTableObj();
 
 	/**
 	 *	Get the SecUser interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSecUserTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSecUserTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSecUserTableObj getSecUserTableObj();
+	IYCFGenKbSecUserTableObj getSecUserTableObj();
 
 	/**
 	 *	Get the SysCluster interface for the schema.
 	 *
-	 *	@return	The ICFGenKbSysClusterTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbSysClusterTableObj interface implementation for the schema.
 	 */
-	ICFGenKbSysClusterTableObj getSysClusterTableObj();
+	IYCFGenKbSysClusterTableObj getSysClusterTableObj();
 
 	/**
 	 *	Get the TSecGroup interface for the schema.
 	 *
-	 *	@return	The ICFGenKbTSecGroupTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbTSecGroupTableObj interface implementation for the schema.
 	 */
-	ICFGenKbTSecGroupTableObj getTSecGroupTableObj();
+	IYCFGenKbTSecGroupTableObj getTSecGroupTableObj();
 
 	/**
 	 *	Get the TSecGrpInc interface for the schema.
 	 *
-	 *	@return	The ICFGenKbTSecGrpIncTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbTSecGrpIncTableObj interface implementation for the schema.
 	 */
-	ICFGenKbTSecGrpIncTableObj getTSecGrpIncTableObj();
+	IYCFGenKbTSecGrpIncTableObj getTSecGrpIncTableObj();
 
 	/**
 	 *	Get the TSecGrpMemb interface for the schema.
 	 *
-	 *	@return	The ICFGenKbTSecGrpMembTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbTSecGrpMembTableObj interface implementation for the schema.
 	 */
-	ICFGenKbTSecGrpMembTableObj getTSecGrpMembTableObj();
+	IYCFGenKbTSecGrpMembTableObj getTSecGrpMembTableObj();
 
 	/**
 	 *	Get the Tenant interface for the schema.
 	 *
-	 *	@return	The ICFGenKbTenantTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbTenantTableObj interface implementation for the schema.
 	 */
-	ICFGenKbTenantTableObj getTenantTableObj();
+	IYCFGenKbTenantTableObj getTenantTableObj();
 
 	/**
 	 *	Get the Tool interface for the schema.
 	 *
-	 *	@return	The ICFGenKbToolTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbToolTableObj interface implementation for the schema.
 	 */
-	ICFGenKbToolTableObj getToolTableObj();
+	IYCFGenKbToolTableObj getToolTableObj();
 
 	/**
 	 *	Get the ToolSet interface for the schema.
 	 *
-	 *	@return	The ICFGenKbToolSetTableObj interface implementation for the schema.
+	 *	@return	The IYCFGenKbToolSetTableObj interface implementation for the schema.
 	 */
-	ICFGenKbToolSetTableObj getToolSetTableObj();
+	IYCFGenKbToolSetTableObj getToolSetTableObj();
 }

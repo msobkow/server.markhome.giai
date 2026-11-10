@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelBuiltin.
+// Description: Java 11 Object interface for YCFGenKb GelBuiltin.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,44 +27,44 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGelBuiltinObj
-	extends ICFGenKbGelInstructionObj
+public interface IYCFGenKbGelBuiltinObj
+	extends IYCFGenKbGelInstructionObj
 {
 	/**
-	 *	Get the current edition of this GelBuiltin instance as a ICFGenKbGelBuiltinEditObj.
+	 *	Get the current edition of this GelBuiltin instance as a IYCFGenKbGelBuiltinEditObj.
 	 *
-	 *	@return	The ICFGenKbGelBuiltinEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelBuiltinEditObj edition of this instance.
 	 */
-	ICFGenKbGelBuiltinEditObj getEditAsGelBuiltin();
+	IYCFGenKbGelBuiltinEditObj getEditAsGelBuiltin();
 
 	/**
-	 *	Get the ICFGenKbGelBuiltinTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelBuiltinTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelBuiltinTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelBuiltinTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelBuiltinTableObj getGelBuiltinTable();
+	IYCFGenKbGelBuiltinTableObj getGelBuiltinTable();
 
 	/**
-	 *	Get the CFGenKbGelBuiltinBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelBuiltinBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelBuiltinBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelBuiltinBuff instance which currently backs this object.
 	 */
-	CFGenKbGelBuiltinBuff getGelBuiltinBuff();
+	YCFGenKbGelBuiltinBuff getGelBuiltinBuff();
 
 }

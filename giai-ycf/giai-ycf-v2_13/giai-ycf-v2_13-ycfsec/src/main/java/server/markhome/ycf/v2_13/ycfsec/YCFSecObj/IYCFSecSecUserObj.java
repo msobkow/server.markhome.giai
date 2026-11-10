@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFSec SecUser.
+// Description: Java 11 Object interface for YCFSec SecUser.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,27 +26,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecUserObj
-	extends ICFLibAnyObj
+public interface IYCFSecSecUserObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -58,9 +58,9 @@ public interface ICFSecSecUserObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -71,9 +71,9 @@ public interface ICFSecSecUserObj
 	/**
 	 *	Realise this instance of a SecUser.
 	 *
-	 *	@return	CFSecSecUserObj instance which should be subsequently referenced.
+	 *	@return	YCFSecSecUserObj instance which should be subsequently referenced.
 	 */
-	ICFSecSecUserObj realise();
+	IYCFSecSecUserObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -85,99 +85,99 @@ public interface ICFSecSecUserObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSecUserObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSecUserObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSecUserObj read();
+	IYCFSecSecUserObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSecUserObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSecUserObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSecUserObj read( boolean forceRead );
+	IYCFSecSecUserObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SecUser instance.
 	 *
-	 *	@return	The newly locked ICFSecSecUserEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecSecUserEditObj edition of this instance.
 	 */
-	ICFSecSecUserEditObj beginEdit();
+	IYCFSecSecUserEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SecUser instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SecUser instance.
 	 *
-	 *	@return	The ICFSecSecUserEditObj edition of this instance.
+	 *	@return	The IYCFSecSecUserEditObj edition of this instance.
 	 */
-	ICFSecSecUserEditObj getEdit();
+	IYCFSecSecUserEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SecUser instance as a ICFSecSecUserEditObj.
+	 *	Get the current edition of this SecUser instance as a IYCFSecSecUserEditObj.
 	 *
-	 *	@return	The ICFSecSecUserEditObj edition of this instance.
+	 *	@return	The IYCFSecSecUserEditObj edition of this instance.
 	 */
-	ICFSecSecUserEditObj getEditAsSecUser();
+	IYCFSecSecUserEditObj getEditAsSecUser();
 
 	/**
-	 *	Get the ICFSecSecUserTableObj table cache which manages this instance.
+	 *	Get the IYCFSecSecUserTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecSecUserTableObj table cache which manages this instance.
+	 *	@return	IYCFSecSecUserTableObj table cache which manages this instance.
 	 */
-	ICFSecSecUserTableObj getSecUserTable();
+	IYCFSecSecUserTableObj getSecUserTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecSecUserBuff instance which currently backs this instance.
+	 *	Get the YCFSecSecUserBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSecUserBuff instance which currently backs this object.
+	 *	@return	YCFSecSecUserBuff instance which currently backs this object.
 	 */
-	CFSecSecUserBuff getBuff();
+	YCFSecSecUserBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecSecUserBuff value );
+	void setBuff( YCFSecSecUserBuff value );
 
 	/**
-	 *	Get the CFSecSecUserBuff instance which currently backs this instance.
+	 *	Get the YCFSecSecUserBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSecUserBuff instance which currently backs this object.
+	 *	@return	YCFSecSecUserBuff instance which currently backs this object.
 	 */
-	CFSecSecUserBuff getSecUserBuff();
+	YCFSecSecUserBuff getSecUserBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFSecSecUserPKey primary key for this instance.
+	 *	@return	YCFSecSecUserPKey primary key for this instance.
 	 */
-	CFSecSecUserPKey getPKey();
+	YCFSecSecUserPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFSecSecUserPKey primary key value for this instance.
+	 *	@param YCFSecSecUserPKey primary key value for this instance.
 	 */
-	void setPKey( CFSecSecUserPKey value );
+	void setPKey( YCFSecSecUserPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -253,88 +253,88 @@ public interface ICFSecSecUserObj
 	UUID getOptionalPasswordResetUuid();
 
 	/**
-	 *	Get the array of optional ICFSecSecDeviceObj array of instances referenced by the SecDev key.
+	 *	Get the array of optional IYCFSecSecDeviceObj array of instances referenced by the SecDev key.
 	 *
-	 *	@return	The optional ICFSecSecDeviceObj[] array of instances referenced by the SecDev key.
+	 *	@return	The optional IYCFSecSecDeviceObj[] array of instances referenced by the SecDev key.
 	 */
-	List<ICFSecSecDeviceObj> getOptionalComponentsSecDev();
+	List<IYCFSecSecDeviceObj> getOptionalComponentsSecDev();
 
 	/**
-	 *	Get the array of optional ICFSecSecDeviceObj array of instances referenced by the SecDev key.
+	 *	Get the array of optional IYCFSecSecDeviceObj array of instances referenced by the SecDev key.
 	 *
-	 *	@return	The optional ICFSecSecDeviceObj[] array of instances referenced by the SecDev key.
+	 *	@return	The optional IYCFSecSecDeviceObj[] array of instances referenced by the SecDev key.
 	 */
-	List<ICFSecSecDeviceObj> getOptionalComponentsSecDev( boolean forceRead );
+	List<IYCFSecSecDeviceObj> getOptionalComponentsSecDev( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFSecSecDeviceObj instance referenced by the DefDev key.
+	 *	Get the optional IYCFSecSecDeviceObj instance referenced by the DefDev key.
 	 *
-	 *	@return	The optional ICFSecSecDeviceObj instance referenced by the DefDev key.
+	 *	@return	The optional IYCFSecSecDeviceObj instance referenced by the DefDev key.
 	 */
-	ICFSecSecDeviceObj getOptionalLookupDefDev();
+	IYCFSecSecDeviceObj getOptionalLookupDefDev();
 
 	/**
-	 *	Get the optional ICFSecSecDeviceObj instance referenced by the DefDev key.
+	 *	Get the optional IYCFSecSecDeviceObj instance referenced by the DefDev key.
 	 *
-	 *	@return	The optional ICFSecSecDeviceObj instance referenced by the DefDev key.
+	 *	@return	The optional IYCFSecSecDeviceObj instance referenced by the DefDev key.
 	 */
-	ICFSecSecDeviceObj getOptionalLookupDefDev( boolean forceRead );
+	IYCFSecSecDeviceObj getOptionalLookupDefDev( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecSecSessionObj array of instances referenced by the SecSess key.
+	 *	Get the array of optional IYCFSecSecSessionObj array of instances referenced by the SecSess key.
 	 *
-	 *	@return	The optional ICFSecSecSessionObj[] array of instances referenced by the SecSess key.
+	 *	@return	The optional IYCFSecSecSessionObj[] array of instances referenced by the SecSess key.
 	 */
-	List<ICFSecSecSessionObj> getOptionalComponentsSecSess();
+	List<IYCFSecSecSessionObj> getOptionalComponentsSecSess();
 
 	/**
-	 *	Get the array of optional ICFSecSecSessionObj array of instances referenced by the SecSess key.
+	 *	Get the array of optional IYCFSecSecSessionObj array of instances referenced by the SecSess key.
 	 *
-	 *	@return	The optional ICFSecSecSessionObj[] array of instances referenced by the SecSess key.
+	 *	@return	The optional IYCFSecSecSessionObj[] array of instances referenced by the SecSess key.
 	 */
-	List<ICFSecSecSessionObj> getOptionalComponentsSecSess( boolean forceRead );
+	List<IYCFSecSecSessionObj> getOptionalComponentsSecSess( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecSecSessionObj array of instances referenced by the SecProxy key.
+	 *	Get the array of optional IYCFSecSecSessionObj array of instances referenced by the SecProxy key.
 	 *
-	 *	@return	The optional ICFSecSecSessionObj[] array of instances referenced by the SecProxy key.
+	 *	@return	The optional IYCFSecSecSessionObj[] array of instances referenced by the SecProxy key.
 	 */
-	List<ICFSecSecSessionObj> getOptionalChildrenSecProxy();
+	List<IYCFSecSecSessionObj> getOptionalChildrenSecProxy();
 
 	/**
-	 *	Get the array of optional ICFSecSecSessionObj array of instances referenced by the SecProxy key.
+	 *	Get the array of optional IYCFSecSecSessionObj array of instances referenced by the SecProxy key.
 	 *
-	 *	@return	The optional ICFSecSecSessionObj[] array of instances referenced by the SecProxy key.
+	 *	@return	The optional IYCFSecSecSessionObj[] array of instances referenced by the SecProxy key.
 	 */
-	List<ICFSecSecSessionObj> getOptionalChildrenSecProxy( boolean forceRead );
+	List<IYCFSecSecSessionObj> getOptionalChildrenSecProxy( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecSecGrpMembObj array of instances referenced by the SecGrpMemb key.
+	 *	Get the array of optional IYCFSecSecGrpMembObj array of instances referenced by the SecGrpMemb key.
 	 *
-	 *	@return	The optional ICFSecSecGrpMembObj[] array of instances referenced by the SecGrpMemb key.
+	 *	@return	The optional IYCFSecSecGrpMembObj[] array of instances referenced by the SecGrpMemb key.
 	 */
-	List<ICFSecSecGrpMembObj> getOptionalChildrenSecGrpMemb();
+	List<IYCFSecSecGrpMembObj> getOptionalChildrenSecGrpMemb();
 
 	/**
-	 *	Get the array of optional ICFSecSecGrpMembObj array of instances referenced by the SecGrpMemb key.
+	 *	Get the array of optional IYCFSecSecGrpMembObj array of instances referenced by the SecGrpMemb key.
 	 *
-	 *	@return	The optional ICFSecSecGrpMembObj[] array of instances referenced by the SecGrpMemb key.
+	 *	@return	The optional IYCFSecSecGrpMembObj[] array of instances referenced by the SecGrpMemb key.
 	 */
-	List<ICFSecSecGrpMembObj> getOptionalChildrenSecGrpMemb( boolean forceRead );
+	List<IYCFSecSecGrpMembObj> getOptionalChildrenSecGrpMemb( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecTSecGrpMembObj array of instances referenced by the TSecGrpMemb key.
+	 *	Get the array of optional IYCFSecTSecGrpMembObj array of instances referenced by the TSecGrpMemb key.
 	 *
-	 *	@return	The optional ICFSecTSecGrpMembObj[] array of instances referenced by the TSecGrpMemb key.
+	 *	@return	The optional IYCFSecTSecGrpMembObj[] array of instances referenced by the TSecGrpMemb key.
 	 */
-	List<ICFSecTSecGrpMembObj> getOptionalChildrenTSecGrpMemb();
+	List<IYCFSecTSecGrpMembObj> getOptionalChildrenTSecGrpMemb();
 
 	/**
-	 *	Get the array of optional ICFSecTSecGrpMembObj array of instances referenced by the TSecGrpMemb key.
+	 *	Get the array of optional IYCFSecTSecGrpMembObj array of instances referenced by the TSecGrpMemb key.
 	 *
-	 *	@return	The optional ICFSecTSecGrpMembObj[] array of instances referenced by the TSecGrpMemb key.
+	 *	@return	The optional IYCFSecTSecGrpMembObj[] array of instances referenced by the TSecGrpMemb key.
 	 */
-	List<ICFSecTSecGrpMembObj> getOptionalChildrenTSecGrpMemb( boolean forceRead );
+	List<IYCFSecTSecGrpMembObj> getOptionalChildrenTSecGrpMemb( boolean forceRead );
 
 	/**
 	 *	Internal use only.

@@ -1,11 +1,11 @@
-// Description: Java 11 implementation of a CFGenKb schema pool.
+// Description: Java 11 implementation of a YCFGenKb schema pool.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,38 +27,38 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSchemaPool
+public class YCFGenKbSchemaPool
 {
 
-	protected volatile static CFGenKbSchemaPool schemaPool = null;
+	protected volatile static YCFGenKbSchemaPool schemaPool = null;
 	protected String jndiName = null;
-	protected CFGenKbConfigurationFile configFile = null;
-	protected LinkedList<ICFGenKbSchema> instances = new LinkedList<ICFGenKbSchema>();
-	public CFGenKbSchemaPool() {
+	protected YCFGenKbConfigurationFile configFile = null;
+	protected LinkedList<IYCFGenKbSchema> instances = new LinkedList<IYCFGenKbSchema>();
+	public YCFGenKbSchemaPool() {
 	}
 
-	public static CFGenKbSchemaPool getSchemaPool() {
+	public static YCFGenKbSchemaPool getSchemaPool() {
 		return( schemaPool );
 	}
 
-	public static void setSchemaPool( CFGenKbSchemaPool pool ) {
+	public static void setSchemaPool( YCFGenKbSchemaPool pool ) {
 		if( schemaPool == null ) {
 			schemaPool = pool;
 		}
 
 	}
 
-	public CFGenKbConfigurationFile getConfigurationFile() {
+	public YCFGenKbConfigurationFile getConfigurationFile() {
 		return( configFile );
 	}
 
-	public void setConfigurationFile( CFGenKbConfigurationFile value ) {
+	public void setConfigurationFile( YCFGenKbConfigurationFile value ) {
 		
 		configFile = value;
 	}
@@ -68,12 +68,12 @@ public class CFGenKbSchemaPool
 	 *	Retrieve an entry from the pool with a previously
 	 *	established database connection.
 	 */
-	public synchronized ICFGenKbSchema getInstance() {
-		ICFGenKbSchema retInst = null;
+	public synchronized IYCFGenKbSchema getInstance() {
+		IYCFGenKbSchema retInst = null;
 		if( instances != null ) {
 			if( instances.isEmpty() ) {
 				retInst = newInstance();
-				retInst.setConfigurationFile( (CFGenKbConfigurationFile)getConfigurationFile() );
+				retInst.setConfigurationFile( (YCFGenKbConfigurationFile)getConfigurationFile() );
 				retInst.setJndiName( getJndiName() );
 				retInst.connect();
 			}
@@ -90,7 +90,7 @@ public class CFGenKbSchemaPool
 	/**
 	 *	Return an entry to the pool.
 	 */
-	public synchronized void releaseInstance( ICFGenKbSchema inst ) {
+	public synchronized void releaseInstance( IYCFGenKbSchema inst ) {
 		if( inst == null ) {
 			return;
 		}
@@ -106,15 +106,15 @@ public class CFGenKbSchemaPool
 	 *	You need to overload the implementation of newInstance() to return
 	 *	connected instances of your backing store.
 	 */
-	public ICFGenKbSchema newInstance() {
-		ICFGenKbSchema retInst = new CFGenKbSchema();
+	public IYCFGenKbSchema newInstance() {
+		IYCFGenKbSchema retInst = new YCFGenKbSchema();
 		return( retInst );
 	}
 
 	/**
 	 *	Overload disposeInstance().
 	 */
-	public void disposeInstance( ICFGenKbSchema inst ) {
+	public void disposeInstance( IYCFGenKbSchema inst ) {
 		try {
 			inst.disconnect( false );
 		}

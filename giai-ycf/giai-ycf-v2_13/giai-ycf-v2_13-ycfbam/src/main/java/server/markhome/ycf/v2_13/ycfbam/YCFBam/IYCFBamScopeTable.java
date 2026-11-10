@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for Scope.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamScopeTable database interface for Scope
+ *	YCFBamScopeTable database interface for Scope
  */
-public interface ICFBamScopeTable
+public interface IYCFBamScopeTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamScopeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createScope( CFSecAuthorization Authorization,
-		CFBamScopeBuff Buff );
+	void createScope( YCFSecAuthorization Authorization,
+		YCFBamScopeBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamScopeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateScope( CFSecAuthorization Authorization,
-		CFBamScopeBuff Buff );
+	void updateScope( YCFSecAuthorization Authorization,
+		YCFBamScopeBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamScopeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteScope( CFSecAuthorization Authorization,
-		CFBamScopeBuff Buff );
+	void deleteScope( YCFSecAuthorization Authorization,
+		YCFBamScopeBuff Buff );
 	/**
 	 *	Delete the Scope instance identified by the primary key attributes.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamScopeTable
 	 *
 	 *	@param	argId	The Scope key attribute of the instance generating the id.
 	 */
-	void deleteScopeByIdIdx( CFSecAuthorization Authorization,
+	void deleteScopeByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -121,8 +121,8 @@ public interface ICFBamScopeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteScopeByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey );
+	void deleteScopeByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey );
 	/**
 	 *	Delete the Scope instances identified by the key TenantIdx.
 	 *
@@ -130,7 +130,7 @@ public interface ICFBamScopeTable
 	 *
 	 *	@param	argTenantId	The Scope key attribute of the instance generating the id.
 	 */
-	void deleteScopeByTenantIdx( CFSecAuthorization Authorization,
+	void deleteScopeByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -140,8 +140,8 @@ public interface ICFBamScopeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteScopeByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey );
+	void deleteScopeByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey );
 
 
 	/**
@@ -154,8 +154,8 @@ public interface ICFBamScopeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamScopeBuff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamScopeBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the derived Scope buffer instance by primary key.
@@ -167,8 +167,8 @@ public interface ICFBamScopeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamScopeBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamScopeBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all Scope instances.
@@ -177,7 +177,7 @@ public interface ICFBamScopeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamScopeBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamScopeBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived Scope buffer instance identified by the unique key IdIdx.
@@ -191,7 +191,7 @@ public interface ICFBamScopeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamScopeBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamScopeBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -204,7 +204,7 @@ public interface ICFBamScopeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamScopeBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamScopeBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -217,10 +217,10 @@ public interface ICFBamScopeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamScopeBuff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamScopeBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the specific Scope buffer instance identified by the primary key.
@@ -232,10 +232,10 @@ public interface ICFBamScopeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamScopeBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamScopeBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all the specific Scope buffer instances.
@@ -244,7 +244,7 @@ public interface ICFBamScopeTable
 	 *
 	 *	@return All the specific Scope instances in the database accessible for the Authorization.
 	 */
-	CFBamScopeBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamScopeBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific Scope buffer instance identified by the unique key IdIdx.
@@ -258,9 +258,9 @@ public interface ICFBamScopeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamScopeBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamScopeBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -273,15 +273,15 @@ public interface ICFBamScopeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamScopeBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamScopeBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

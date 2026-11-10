@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for MimeType.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,60 +27,60 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntRam;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntRamMimeTypeTable in-memory RAM DbIO implementation
+ *	YCFIntRamMimeTypeTable in-memory RAM DbIO implementation
  *	for MimeType.
  */
-public class CFIntRamMimeTypeTable
-	implements ICFIntMimeTypeTable
+public class YCFIntRamMimeTypeTable
+	implements IYCFIntMimeTypeTable
 {
-	private ICFIntSchema schema;
-	private Map< CFIntMimeTypePKey,
-				CFIntMimeTypeBuff > dictByPKey
-		= new HashMap< CFIntMimeTypePKey,
-				CFIntMimeTypeBuff >();
-	private Map< CFIntMimeTypeByUNameIdxKey,
-			CFIntMimeTypeBuff > dictByUNameIdx
-		= new HashMap< CFIntMimeTypeByUNameIdxKey,
-			CFIntMimeTypeBuff >();
+	private IYCFIntSchema schema;
+	private Map< YCFIntMimeTypePKey,
+				YCFIntMimeTypeBuff > dictByPKey
+		= new HashMap< YCFIntMimeTypePKey,
+				YCFIntMimeTypeBuff >();
+	private Map< YCFIntMimeTypeByUNameIdxKey,
+			YCFIntMimeTypeBuff > dictByUNameIdx
+		= new HashMap< YCFIntMimeTypeByUNameIdxKey,
+			YCFIntMimeTypeBuff >();
 
-	public CFIntRamMimeTypeTable( ICFIntSchema argSchema ) {
+	public YCFIntRamMimeTypeTable( IYCFIntSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createMimeType( CFSecAuthorization Authorization,
-		CFIntMimeTypeBuff Buff )
+	public void createMimeType( YCFSecAuthorization Authorization,
+		YCFIntMimeTypeBuff Buff )
 	{
 		final String S_ProcName = "createMimeType";
-		CFIntMimeTypePKey pkey = schema.getFactoryMimeType().newPKey();
+		YCFIntMimeTypePKey pkey = schema.getFactoryMimeType().newPKey();
 		pkey.setRequiredMimeTypeId( schema.nextMimeTypeIdGen() );
 		Buff.setRequiredMimeTypeId( pkey.getRequiredMimeTypeId() );
-		CFIntMimeTypeByUNameIdxKey keyUNameIdx = schema.getFactoryMimeType().newUNameIdxKey();
+		YCFIntMimeTypeByUNameIdxKey keyUNameIdx = schema.getFactoryMimeType().newUNameIdxKey();
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUNameIdx.containsKey( keyUNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"MimeTypeUNameIdx",
 				keyUNameIdx );
@@ -96,13 +96,13 @@ public class CFIntRamMimeTypeTable
 
 	}
 
-	public CFIntMimeTypeBuff readDerived( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey PKey )
+	public YCFIntMimeTypeBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey PKey )
 	{
-		final String S_ProcName = "CFIntRamMimeType.readDerived";
-		CFIntMimeTypePKey key = schema.getFactoryMimeType().newPKey();
+		final String S_ProcName = "YCFIntRamMimeType.readDerived";
+		YCFIntMimeTypePKey key = schema.getFactoryMimeType().newPKey();
 		key.setRequiredMimeTypeId( PKey.getRequiredMimeTypeId() );
-		CFIntMimeTypeBuff buff;
+		YCFIntMimeTypeBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -112,13 +112,13 @@ public class CFIntRamMimeTypeTable
 		return( buff );
 	}
 
-	public CFIntMimeTypeBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey PKey )
+	public YCFIntMimeTypeBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey PKey )
 	{
-		final String S_ProcName = "CFIntRamMimeType.readDerived";
-		CFIntMimeTypePKey key = schema.getFactoryMimeType().newPKey();
+		final String S_ProcName = "YCFIntRamMimeType.readDerived";
+		YCFIntMimeTypePKey key = schema.getFactoryMimeType().newPKey();
 		key.setRequiredMimeTypeId( PKey.getRequiredMimeTypeId() );
-		CFIntMimeTypeBuff buff;
+		YCFIntMimeTypeBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -128,10 +128,10 @@ public class CFIntRamMimeTypeTable
 		return( buff );
 	}
 
-	public CFIntMimeTypeBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFIntRamMimeType.readAllDerived";
-		CFIntMimeTypeBuff[] retList = new CFIntMimeTypeBuff[ dictByPKey.values().size() ];
-		Iterator< CFIntMimeTypeBuff > iter = dictByPKey.values().iterator();
+	public YCFIntMimeTypeBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFIntRamMimeType.readAllDerived";
+		YCFIntMimeTypeBuff[] retList = new YCFIntMimeTypeBuff[ dictByPKey.values().size() ];
+		Iterator< YCFIntMimeTypeBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -139,14 +139,14 @@ public class CFIntRamMimeTypeTable
 		return( retList );
 	}
 
-	public CFIntMimeTypeBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFIntMimeTypeBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		String Name )
 	{
-		final String S_ProcName = "CFIntRamMimeType.readDerivedByUNameIdx";
-		CFIntMimeTypeByUNameIdxKey key = schema.getFactoryMimeType().newUNameIdxKey();
+		final String S_ProcName = "YCFIntRamMimeType.readDerivedByUNameIdx";
+		YCFIntMimeTypeByUNameIdxKey key = schema.getFactoryMimeType().newUNameIdxKey();
 		key.setRequiredName( Name );
 
-		CFIntMimeTypeBuff buff;
+		YCFIntMimeTypeBuff buff;
 		if( dictByUNameIdx.containsKey( key ) ) {
 			buff = dictByUNameIdx.get( key );
 		}
@@ -156,14 +156,14 @@ public class CFIntRamMimeTypeTable
 		return( buff );
 	}
 
-	public CFIntMimeTypeBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntMimeTypeBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		int MimeTypeId )
 	{
-		final String S_ProcName = "CFIntRamMimeType.readDerivedByIdIdx() ";
-		CFIntMimeTypePKey key = schema.getFactoryMimeType().newPKey();
+		final String S_ProcName = "YCFIntRamMimeType.readDerivedByIdIdx() ";
+		YCFIntMimeTypePKey key = schema.getFactoryMimeType().newPKey();
 		key.setRequiredMimeTypeId( MimeTypeId );
 
-		CFIntMimeTypeBuff buff;
+		YCFIntMimeTypeBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -173,101 +173,101 @@ public class CFIntRamMimeTypeTable
 		return( buff );
 	}
 
-	public CFIntMimeTypeBuff readBuff( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey PKey )
+	public YCFIntMimeTypeBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey PKey )
 	{
-		final String S_ProcName = "CFIntRamMimeType.readBuff";
-		CFIntMimeTypeBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFIntRamMimeType.readBuff";
+		YCFIntMimeTypeBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a103" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntMimeTypeBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey PKey )
+	public YCFIntMimeTypeBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFIntMimeTypeBuff buff = readDerived( Authorization, PKey );
+		YCFIntMimeTypeBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a103" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntMimeTypeBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFIntMimeTypeBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFIntRamMimeType.readAllBuff";
-		CFIntMimeTypeBuff buff;
-		ArrayList<CFIntMimeTypeBuff> filteredList = new ArrayList<CFIntMimeTypeBuff>();
-		CFIntMimeTypeBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFIntRamMimeType.readAllBuff";
+		YCFIntMimeTypeBuff buff;
+		ArrayList<YCFIntMimeTypeBuff> filteredList = new ArrayList<YCFIntMimeTypeBuff>();
+		YCFIntMimeTypeBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a103" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntMimeTypeBuff[0] ) );
+		return( filteredList.toArray( new YCFIntMimeTypeBuff[0] ) );
 	}
 
-	public CFIntMimeTypeBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntMimeTypeBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		int MimeTypeId )
 	{
-		final String S_ProcName = "CFIntRamMimeType.readBuffByIdIdx() ";
-		CFIntMimeTypeBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFIntRamMimeType.readBuffByIdIdx() ";
+		YCFIntMimeTypeBuff buff = readDerivedByIdIdx( Authorization,
 			MimeTypeId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a103" ) ) {
-			return( (CFIntMimeTypeBuff)buff );
+			return( (YCFIntMimeTypeBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFIntMimeTypeBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFIntMimeTypeBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		String Name )
 	{
-		final String S_ProcName = "CFIntRamMimeType.readBuffByUNameIdx() ";
-		CFIntMimeTypeBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFIntRamMimeType.readBuffByUNameIdx() ";
+		YCFIntMimeTypeBuff buff = readDerivedByUNameIdx( Authorization,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a103" ) ) {
-			return( (CFIntMimeTypeBuff)buff );
+			return( (YCFIntMimeTypeBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public void updateMimeType( CFSecAuthorization Authorization,
-		CFIntMimeTypeBuff Buff )
+	public void updateMimeType( YCFSecAuthorization Authorization,
+		YCFIntMimeTypeBuff Buff )
 	{
-		CFIntMimeTypePKey pkey = schema.getFactoryMimeType().newPKey();
+		YCFIntMimeTypePKey pkey = schema.getFactoryMimeType().newPKey();
 		pkey.setRequiredMimeTypeId( Buff.getRequiredMimeTypeId() );
-		CFIntMimeTypeBuff existing = dictByPKey.get( pkey );
+		YCFIntMimeTypeBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateMimeType",
 				"Existing record not found",
 				"MimeType",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateMimeType",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntMimeTypeByUNameIdxKey existingKeyUNameIdx = schema.getFactoryMimeType().newUNameIdxKey();
+		YCFIntMimeTypeByUNameIdxKey existingKeyUNameIdx = schema.getFactoryMimeType().newUNameIdxKey();
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntMimeTypeByUNameIdxKey newKeyUNameIdx = schema.getFactoryMimeType().newUNameIdxKey();
+		YCFIntMimeTypeByUNameIdxKey newKeyUNameIdx = schema.getFactoryMimeType().newUNameIdxKey();
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
 		// Check unique indexes
 
 		if( ! existingKeyUNameIdx.equals( newKeyUNameIdx ) ) {
 			if( dictByUNameIdx.containsKey( newKeyUNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateMimeType",
 					"MimeTypeUNameIdx",
 					newKeyUNameIdx );
@@ -278,7 +278,7 @@ public class CFIntRamMimeTypeTable
 
 		// Update is valid
 
-		Map< CFIntMimeTypePKey, CFIntMimeTypeBuff > subdict;
+		Map< YCFIntMimeTypePKey, YCFIntMimeTypeBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -288,62 +288,62 @@ public class CFIntRamMimeTypeTable
 
 	}
 
-	public void deleteMimeType( CFSecAuthorization Authorization,
-		CFIntMimeTypeBuff Buff )
+	public void deleteMimeType( YCFSecAuthorization Authorization,
+		YCFIntMimeTypeBuff Buff )
 	{
-		final String S_ProcName = "CFIntRamMimeTypeTable.deleteMimeType() ";
+		final String S_ProcName = "YCFIntRamMimeTypeTable.deleteMimeType() ";
 		String classCode;
-		CFIntMimeTypePKey pkey = schema.getFactoryMimeType().newPKey();
+		YCFIntMimeTypePKey pkey = schema.getFactoryMimeType().newPKey();
 		pkey.setRequiredMimeTypeId( Buff.getRequiredMimeTypeId() );
-		CFIntMimeTypeBuff existing = dictByPKey.get( pkey );
+		YCFIntMimeTypeBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteMimeType",
 				pkey );
 		}
-		CFIntMimeTypeByUNameIdxKey keyUNameIdx = schema.getFactoryMimeType().newUNameIdxKey();
+		YCFIntMimeTypeByUNameIdxKey keyUNameIdx = schema.getFactoryMimeType().newUNameIdxKey();
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFIntMimeTypePKey, CFIntMimeTypeBuff > subdict;
+		Map< YCFIntMimeTypePKey, YCFIntMimeTypeBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
 		dictByUNameIdx.remove( keyUNameIdx );
 
 	}
-	public void deleteMimeTypeByIdIdx( CFSecAuthorization Authorization,
+	public void deleteMimeTypeByIdIdx( YCFSecAuthorization Authorization,
 		int argMimeTypeId )
 	{
-		CFIntMimeTypePKey key = schema.getFactoryMimeType().newPKey();
+		YCFIntMimeTypePKey key = schema.getFactoryMimeType().newPKey();
 		key.setRequiredMimeTypeId( argMimeTypeId );
 		deleteMimeTypeByIdIdx( Authorization, key );
 	}
 
-	public void deleteMimeTypeByIdIdx( CFSecAuthorization Authorization,
-		CFIntMimeTypePKey argKey )
+	public void deleteMimeTypeByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntMimeTypePKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFIntMimeTypeBuff cur;
-		LinkedList<CFIntMimeTypeBuff> matchSet = new LinkedList<CFIntMimeTypeBuff>();
-		Iterator<CFIntMimeTypeBuff> values = dictByPKey.values().iterator();
+		YCFIntMimeTypeBuff cur;
+		LinkedList<YCFIntMimeTypeBuff> matchSet = new LinkedList<YCFIntMimeTypeBuff>();
+		Iterator<YCFIntMimeTypeBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMimeTypeBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMimeTypeBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMimeType().readDerivedByIdIdx( Authorization,
@@ -352,32 +352,32 @@ public class CFIntRamMimeTypeTable
 		}
 	}
 
-	public void deleteMimeTypeByUNameIdx( CFSecAuthorization Authorization,
+	public void deleteMimeTypeByUNameIdx( YCFSecAuthorization Authorization,
 		String argName )
 	{
-		CFIntMimeTypeByUNameIdxKey key = schema.getFactoryMimeType().newUNameIdxKey();
+		YCFIntMimeTypeByUNameIdxKey key = schema.getFactoryMimeType().newUNameIdxKey();
 		key.setRequiredName( argName );
 		deleteMimeTypeByUNameIdx( Authorization, key );
 	}
 
-	public void deleteMimeTypeByUNameIdx( CFSecAuthorization Authorization,
-		CFIntMimeTypeByUNameIdxKey argKey )
+	public void deleteMimeTypeByUNameIdx( YCFSecAuthorization Authorization,
+		YCFIntMimeTypeByUNameIdxKey argKey )
 	{
-		CFIntMimeTypeBuff cur;
+		YCFIntMimeTypeBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntMimeTypeBuff> matchSet = new LinkedList<CFIntMimeTypeBuff>();
-		Iterator<CFIntMimeTypeBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntMimeTypeBuff> matchSet = new LinkedList<YCFIntMimeTypeBuff>();
+		Iterator<YCFIntMimeTypeBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMimeTypeBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMimeTypeBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMimeType().readDerivedByIdIdx( Authorization,

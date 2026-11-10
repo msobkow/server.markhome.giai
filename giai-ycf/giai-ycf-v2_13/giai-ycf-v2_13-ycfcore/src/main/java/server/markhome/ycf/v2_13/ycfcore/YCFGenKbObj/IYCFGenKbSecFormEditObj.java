@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb SecForm.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb SecForm.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecFormEditObj
-	extends ICFGenKbSecFormObj
+public interface IYCFGenKbSecFormEditObj
+	extends IYCFGenKbSecFormObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbSecFormObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbSecFormObj.
 	 */
-	ICFGenKbSecFormObj getOrig();
+	IYCFGenKbSecFormObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbSecFormObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbSecFormObj.
 	 */
-	ICFGenKbSecFormObj getOrigAsSecForm();
+	IYCFGenKbSecFormObj getOrigAsSecForm();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbSecFormEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbSecFormObj create();
+	IYCFGenKbSecFormObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbSecFormEditObj update();
+	YCFGenKbSecFormEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbSecFormEditObj deleteInstance();
+	YCFGenKbSecFormEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute JEEServletMapName.
@@ -90,39 +90,39 @@ public interface ICFGenKbSecFormEditObj
 	void setRequiredJEEServletMapName( String value );
 
 	/**
-	 *	Get the ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredOwnerCluster();
+	IYCFGenKbClusterObj getRequiredOwnerCluster();
 
 	/**
-	 *	Set the ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Set the IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@param	value	the ICFGenKbClusterObj instance to be referenced by the Cluster key.
+	 *	@param	value	the IYCFGenKbClusterObj instance to be referenced by the Cluster key.
 	 */
-	void setRequiredOwnerCluster( ICFGenKbClusterObj value );
+	void setRequiredOwnerCluster( IYCFGenKbClusterObj value );
 
 	/**
-	 *	Get the ICFGenKbSecAppObj instance referenced by the Application key.
+	 *	Get the IYCFGenKbSecAppObj instance referenced by the Application key.
 	 *
-	 *	@return	The ICFGenKbSecAppObj instance referenced by the Application key.
+	 *	@return	The IYCFGenKbSecAppObj instance referenced by the Application key.
 	 */
-	ICFGenKbSecAppObj getRequiredContainerApplication();
+	IYCFGenKbSecAppObj getRequiredContainerApplication();
 
 	/**
-	 *	Set the ICFGenKbSecAppObj instance referenced by the Application key.
+	 *	Set the IYCFGenKbSecAppObj instance referenced by the Application key.
 	 *
-	 *	@param	value	the ICFGenKbSecAppObj instance to be referenced by the Application key.
+	 *	@param	value	the IYCFGenKbSecAppObj instance to be referenced by the Application key.
 	 */
-	void setRequiredContainerApplication( ICFGenKbSecAppObj value );
+	void setRequiredContainerApplication( IYCFGenKbSecAppObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFGenKbSecUserObj value );
+	void setCreatedBy( IYCFGenKbSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -134,9 +134,9 @@ public interface ICFGenKbSecFormEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFGenKbSecUserObj value );
+	void setUpdatedBy( IYCFGenKbSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelCache.
+// Description: Java 11 Object interface for YCFGenKb GelCache.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,29 +27,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGelCacheObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbGelCacheObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a GelCache.
 	 *
-	 *	@return	CFGenKbGelCacheObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbGelCacheObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbGelCacheObj realise();
+	IYCFGenKbGelCacheObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -61,99 +61,99 @@ public interface ICFGenKbGelCacheObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbGelCacheObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbGelCacheObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbGelCacheObj read();
+	IYCFGenKbGelCacheObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbGelCacheObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbGelCacheObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbGelCacheObj read( boolean forceRead );
+	IYCFGenKbGelCacheObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this GelCache instance.
 	 *
-	 *	@return	The newly locked ICFGenKbGelCacheEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbGelCacheEditObj edition of this instance.
 	 */
-	ICFGenKbGelCacheEditObj beginEdit();
+	IYCFGenKbGelCacheEditObj beginEdit();
 
 	/**
 	 *	End this edition of this GelCache instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this GelCache instance.
 	 *
-	 *	@return	The ICFGenKbGelCacheEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelCacheEditObj edition of this instance.
 	 */
-	ICFGenKbGelCacheEditObj getEdit();
+	IYCFGenKbGelCacheEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this GelCache instance as a ICFGenKbGelCacheEditObj.
+	 *	Get the current edition of this GelCache instance as a IYCFGenKbGelCacheEditObj.
 	 *
-	 *	@return	The ICFGenKbGelCacheEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelCacheEditObj edition of this instance.
 	 */
-	ICFGenKbGelCacheEditObj getEditAsGelCache();
+	IYCFGenKbGelCacheEditObj getEditAsGelCache();
 
 	/**
-	 *	Get the ICFGenKbGelCacheTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelCacheTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelCacheTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelCacheTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelCacheTableObj getGelCacheTable();
+	IYCFGenKbGelCacheTableObj getGelCacheTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbGelCacheBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelCacheBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelCacheBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelCacheBuff instance which currently backs this object.
 	 */
-	CFGenKbGelCacheBuff getBuff();
+	YCFGenKbGelCacheBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbGelCacheBuff value );
+	void setBuff( YCFGenKbGelCacheBuff value );
 
 	/**
-	 *	Get the CFGenKbGelCacheBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelCacheBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelCacheBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelCacheBuff instance which currently backs this object.
 	 */
-	CFGenKbGelCacheBuff getGelCacheBuff();
+	YCFGenKbGelCacheBuff getGelCacheBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbGelCachePKey primary key for this instance.
+	 *	@return	YCFGenKbGelCachePKey primary key for this instance.
 	 */
-	CFGenKbGelCachePKey getPKey();
+	YCFGenKbGelCachePKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbGelCachePKey primary key value for this instance.
+	 *	@param YCFGenKbGelCachePKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbGelCachePKey value );
+	void setPKey( YCFGenKbGelCachePKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -194,18 +194,18 @@ public interface ICFGenKbGelCacheObj
 	String getRequiredCacheName();
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant();
+	IYCFGenKbTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
 	 *	Internal use only.
@@ -217,8 +217,8 @@ public interface ICFGenKbGelCacheObj
 	 */
 	void copyBuffToPKey();
 
-	public ICFGenKbGelInstructionObj lookupMacro( String macroBody );
-	public ICFGenKbGelInstructionObj rememberMacro( String macroBody, ICFGenKbGelInstructionObj gel );
-	public ICFGenKbGelExecutableObj lookupExecutable( String execName );
-	public ICFGenKbGelExecutableObj rememberExecutable( String execName, ICFGenKbGelExecutableObj gel );
+	public IYCFGenKbGelInstructionObj lookupMacro( String macroBody );
+	public IYCFGenKbGelInstructionObj rememberMacro( String macroBody, IYCFGenKbGelInstructionObj gel );
+	public IYCFGenKbGelExecutableObj lookupExecutable( String execName );
+	public IYCFGenKbGelExecutableObj rememberExecutable( String execName, IYCFGenKbGelExecutableObj gel );
 }

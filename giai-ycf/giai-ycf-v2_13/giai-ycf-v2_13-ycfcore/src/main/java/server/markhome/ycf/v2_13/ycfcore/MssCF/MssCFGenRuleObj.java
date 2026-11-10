@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -30,24 +30,24 @@ import java.security.cert.*;
 import java.text.*;
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGenRuleObj
-extends CFGenKbGenRuleObj
+public class MssYCFGenRuleObj
+extends YCFGenKbGenRuleObj
 {
-	public MssCFGenRuleObj() {
+	public MssYCFGenRuleObj() {
 		super();
 	}
 
-	public MssCFGenRuleObj(MssCFEngine schema) {
+	public MssYCFGenRuleObj(MssYCFEngine schema) {
 		super( schema );
 	}
 
-	public String getBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "MssCFGenRuleObj.getBody() ";
-		ICFGenKbGelInstructionObj bodyBin = CFGenKbGenRuleObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
+	public String getBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "MssYCFGenRuleObj.getBody() ";
+		IYCFGenKbGelInstructionObj bodyBin = YCFGenKbGenRuleObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
 		if( bodyBin == null ) {
 			throw new RuntimeException( S_ProcName + "Could not resolve compiled Body GEL executable" );
 		}
@@ -55,8 +55,8 @@ extends CFGenKbGenRuleObj
 		return( body );
 	}
 
-	public String expandBody(MssCFGenContext genContext) {
-		final String S_ProcName = "MssCFGenRuleObj.expandBody() ";
+	public String expandBody(MssYCFGenContext genContext) {
+		final String S_ProcName = "MssYCFGenRuleObj.expandBody() ";
 
 		String ret = null;
 

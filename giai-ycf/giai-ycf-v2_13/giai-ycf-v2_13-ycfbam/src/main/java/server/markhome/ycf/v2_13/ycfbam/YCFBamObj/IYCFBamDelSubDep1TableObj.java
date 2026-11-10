@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamDelSubDep1TableObj
+public interface IYCFBamDelSubDep1TableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamDelSubDep1TableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamDelSubDep1Obj newInstance();
+	IYCFBamDelSubDep1Obj newInstance();
 
 	/**
 	 *	Instantiate a new DelSubDep1 edition of the specified DelSubDep1 instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamDelSubDep1EditObj newEditInstance( ICFBamDelSubDep1Obj orig );
+	IYCFBamDelSubDep1EditObj newEditInstance( IYCFBamDelSubDep1Obj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDelSubDep1Obj realiseDelSubDep1( ICFBamDelSubDep1Obj Obj );
+	IYCFBamDelSubDep1Obj realiseDelSubDep1( IYCFBamDelSubDep1Obj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDelSubDep1Obj createDelSubDep1( ICFBamDelSubDep1Obj Obj );
+	IYCFBamDelSubDep1Obj createDelSubDep1( IYCFBamDelSubDep1Obj Obj );
 
 	/**
 	 *	Read a DelSubDep1-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamDelSubDep1TableObj
 	 *	@return	The DelSubDep1-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDelSubDep1Obj readDelSubDep1( CFBamScopePKey pkey );
+	IYCFBamDelSubDep1Obj readDelSubDep1( YCFBamScopePKey pkey );
 
 	/**
 	 *	Read a DelSubDep1-derived instance by it's primary key.
@@ -113,169 +113,169 @@ public interface ICFBamDelSubDep1TableObj
 	 *	@return	The DelSubDep1-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDelSubDep1Obj readDelSubDep1( CFBamScopePKey pkey,
+	IYCFBamDelSubDep1Obj readDelSubDep1( YCFBamScopePKey pkey,
 		boolean forceRead );
 
-	ICFBamDelSubDep1Obj readCachedDelSubDep1( CFBamScopePKey pkey );
+	IYCFBamDelSubDep1Obj readCachedDelSubDep1( YCFBamScopePKey pkey );
 
-	public void reallyDeepDisposeDelSubDep1( ICFBamDelSubDep1Obj obj );
+	public void reallyDeepDisposeDelSubDep1( IYCFBamDelSubDep1Obj obj );
 
-	void deepDisposeDelSubDep1( CFBamScopePKey pkey );
+	void deepDisposeDelSubDep1( YCFBamScopePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDelSubDep1Obj lockDelSubDep1( CFBamScopePKey pkey );
+	IYCFBamDelSubDep1Obj lockDelSubDep1( YCFBamScopePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the DelSubDep1-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDelSubDep1Obj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDelSubDep1Obj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readAllDelSubDep1();
+	List<IYCFBamDelSubDep1Obj> readAllDelSubDep1();
 
 	/**
 	 *	Return a sorted map of all the DelSubDep1-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDelSubDep1Obj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDelSubDep1Obj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readAllDelSubDep1( boolean forceRead );
+	List<IYCFBamDelSubDep1Obj> readAllDelSubDep1( boolean forceRead );
 
-	List<ICFBamDelSubDep1Obj> readCachedAllDelSubDep1();
+	List<IYCFBamDelSubDep1Obj> readCachedAllDelSubDep1();
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj cached instance for the primary key, or
+	 *	@return	YCFBamScopeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDelSubDep1Obj readDelSubDep1ByIdIdx( long TenantId,
+	IYCFBamDelSubDep1Obj readDelSubDep1ByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj refreshed instance for the primary key, or
+	 *	@return	YCFBamScopeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDelSubDep1Obj readDelSubDep1ByIdIdx( long TenantId,
+	IYCFBamDelSubDep1Obj readDelSubDep1ByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readDelSubDep1ByTenantIdx( long TenantId );
+	List<IYCFBamDelSubDep1Obj> readDelSubDep1ByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readDelSubDep1ByTenantIdx( long TenantId,
+	List<IYCFBamDelSubDep1Obj> readDelSubDep1ByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamDelDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamDelDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readDelSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDelSubDep1Obj> readDelSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readDelSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDelSubDep1Obj> readDelSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamDelDepObj instances sorted by their primary keys for the duplicate DelDepIdx key.
+	 *	Get the map of YCFBamDelDepObj instances sorted by their primary keys for the duplicate DelDepIdx key.
 	 *
 	 *	@param	argRelationTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DelDepIdx key,
+	 *	@return	List of YCFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DelDepIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readDelSubDep1ByDelDepIdx( long RelationTenantId,
+	List<IYCFBamDelSubDep1Obj> readDelSubDep1ByDelDepIdx( long RelationTenantId,
 		long RelationId );
 
 	/**
-	 *	Get the map of CFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate DelDepIdx key.
+	 *	Get the map of YCFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate DelDepIdx key.
 	 *
 	 *	@param	argRelationTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DelDepIdx key,
+	 *	@return	List of YCFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DelDepIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readDelSubDep1ByDelDepIdx( long RelationTenantId,
+	List<IYCFBamDelSubDep1Obj> readDelSubDep1ByDelDepIdx( long RelationTenantId,
 		long RelationId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate DelTopDepIdx key.
+	 *	Get the map of YCFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate DelTopDepIdx key.
 	 *
 	 *	@param	argDelTopDepTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
 	 *	@param	argDelTopDepId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DelTopDepIdx key,
+	 *	@return	List of YCFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DelTopDepIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readDelSubDep1ByDelTopDepIdx( long DelTopDepTenantId,
+	List<IYCFBamDelSubDep1Obj> readDelSubDep1ByDelTopDepIdx( long DelTopDepTenantId,
 		long DelTopDepId );
 
 	/**
-	 *	Get the map of CFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate DelTopDepIdx key.
+	 *	Get the map of YCFBamDelSubDep1Obj instances sorted by their primary keys for the duplicate DelTopDepIdx key.
 	 *
 	 *	@param	argDelTopDepTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
 	 *	@param	argDelTopDepId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DelTopDepIdx key,
+	 *	@return	List of YCFBamDelSubDep1Obj cached instances sorted by their primary keys for the duplicate DelTopDepIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDelSubDep1Obj> readDelSubDep1ByDelTopDepIdx( long DelTopDepTenantId,
+	List<IYCFBamDelSubDep1Obj> readDelSubDep1ByDelTopDepIdx( long DelTopDepTenantId,
 		long DelTopDepId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamDelSubDep1Obj instance for the unique UNameIdx key.
+	 *	Get the YCFBamDelSubDep1Obj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argDelTopDepTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
@@ -283,15 +283,15 @@ public interface ICFBamDelSubDep1TableObj
 	 *
 	 *	@param	argName	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamDelSubDep1Obj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamDelSubDep1Obj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDelSubDep1Obj readDelSubDep1ByUNameIdx(long DelTopDepTenantId,
+	IYCFBamDelSubDep1Obj readDelSubDep1ByUNameIdx(long DelTopDepTenantId,
 		long DelTopDepId,
 		String Name );
 
 	/**
-	 *	Get the CFBamDelSubDep1Obj instance for the unique UNameIdx key.
+	 *	Get the YCFBamDelSubDep1Obj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argDelTopDepTenantId	The DelSubDep1 key attribute of the instance generating the id.
 	 *
@@ -299,29 +299,29 @@ public interface ICFBamDelSubDep1TableObj
 	 *
 	 *	@param	argName	The DelSubDep1 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamDelSubDep1Obj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamDelSubDep1Obj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDelSubDep1Obj readDelSubDep1ByUNameIdx(long DelTopDepTenantId,
+	IYCFBamDelSubDep1Obj readDelSubDep1ByUNameIdx(long DelTopDepTenantId,
 		long DelTopDepId,
 		String Name,
 		boolean forceRead );
 
-	ICFBamDelSubDep1Obj readCachedDelSubDep1ByIdIdx( long TenantId,
+	IYCFBamDelSubDep1Obj readCachedDelSubDep1ByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFBamDelSubDep1Obj> readCachedDelSubDep1ByTenantIdx( long TenantId );
+	List<IYCFBamDelSubDep1Obj> readCachedDelSubDep1ByTenantIdx( long TenantId );
 
-	List<ICFBamDelSubDep1Obj> readCachedDelSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDelSubDep1Obj> readCachedDelSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamDelSubDep1Obj> readCachedDelSubDep1ByDelDepIdx( long RelationTenantId,
+	List<IYCFBamDelSubDep1Obj> readCachedDelSubDep1ByDelDepIdx( long RelationTenantId,
 		long RelationId );
 
-	List<ICFBamDelSubDep1Obj> readCachedDelSubDep1ByDelTopDepIdx( long DelTopDepTenantId,
+	List<IYCFBamDelSubDep1Obj> readCachedDelSubDep1ByDelTopDepIdx( long DelTopDepTenantId,
 		long DelTopDepId );
 
-	ICFBamDelSubDep1Obj readCachedDelSubDep1ByUNameIdx( long DelTopDepTenantId,
+	IYCFBamDelSubDep1Obj readCachedDelSubDep1ByUNameIdx( long DelTopDepTenantId,
 		long DelTopDepId,
 		String Name );
 
@@ -346,12 +346,12 @@ public interface ICFBamDelSubDep1TableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDelSubDep1Obj updateDelSubDep1( ICFBamDelSubDep1Obj Obj );
+	IYCFBamDelSubDep1Obj updateDelSubDep1( IYCFBamDelSubDep1Obj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteDelSubDep1( ICFBamDelSubDep1Obj Obj );
+	void deleteDelSubDep1( IYCFBamDelSubDep1Obj Obj );
 
 	/**
 	 *	Internal use only.

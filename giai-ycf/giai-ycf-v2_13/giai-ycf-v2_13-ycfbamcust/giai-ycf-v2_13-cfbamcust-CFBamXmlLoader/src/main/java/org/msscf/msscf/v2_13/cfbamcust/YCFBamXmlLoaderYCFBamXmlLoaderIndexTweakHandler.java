@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustXmlLoader
+ *	MSS Code Factory YCFBam 2.13 CustXmlLoader
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,45 +23,45 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader;
+package org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamXmlLoaderTableColParse XML SAX Element Handler implementation
+ *	YCFBamXmlLoaderTableColParse XML SAX Element Handler implementation
  *	for TableCol.
  */
-public class CFBamXmlLoaderIndexTweakHandler
-	extends CFLibXmlCoreElementHandler
+public class YCFBamXmlLoaderIndexTweakHandler
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamXmlLoaderIndexTweakHandler( CFBamXmlLoader saxLoader ) {
+	public YCFBamXmlLoaderIndexTweakHandler( YCFBamXmlLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -77,10 +77,10 @@ public class CFBamXmlLoaderIndexTweakHandler
 			String	attrId = null;
 			String	attrName = null;
 			// Tweak References
-			ICFBamTenantObj refTenant = null;
-			ICFBamScopeObj refScope = null;
+			IYCFBamTenantObj refTenant = null;
+			IYCFBamScopeObj refScope = null;
 			// IndexTweak References
-			ICFBamIndexObj refIndex = null;
+			IYCFBamIndexObj refIndex = null;
 			// Attribute Extraction
 			String	attrLocalName;
 			String	attrReplacesInherited = null;
@@ -91,24 +91,24 @@ public class CFBamXmlLoaderIndexTweakHandler
 
 			assert qName.equals( "IndexTweak" );
 
-			CFBamXmlLoader saxLoader = (CFBamXmlLoader)getParser();
+			YCFBamXmlLoader saxLoader = (YCFBamXmlLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			ICFBamIndexTweakEditObj editBuff = (ICFBamIndexTweakEditObj)schemaObj.getIndexTweakTableObj().newInstance().beginEdit();
+			IYCFBamIndexTweakEditObj editBuff = (IYCFBamIndexTweakEditObj)schemaObj.getIndexTweakTableObj().newInstance().beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -116,7 +116,7 @@ public class CFBamXmlLoaderIndexTweakHandler
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -125,7 +125,7 @@ public class CFBamXmlLoaderIndexTweakHandler
 				}
 				else if( attrLocalName.equalsIgnoreCase("Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -134,7 +134,7 @@ public class CFBamXmlLoaderIndexTweakHandler
 				}
 				else if( attrLocalName.equals( "ReplacesInherited" ) ) {
 					if( attrReplacesInherited != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -145,7 +145,7 @@ public class CFBamXmlLoaderIndexTweakHandler
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -154,15 +154,15 @@ public class CFBamXmlLoaderIndexTweakHandler
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
-			if( ! CFBamXmlLoader.getProcessSchema( curContext ) ) {
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
+			if( ! YCFBamXmlLoader.getProcessSchema( curContext ) ) {
 				return;
 			}
 
@@ -194,7 +194,7 @@ public class CFBamXmlLoaderIndexTweakHandler
 				natReplacesInherited = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected ReplacesInherited value, must be one of true, false, yes, no, 1, or 0, not \"" + attrReplacesInherited + "\"" );
 			}
@@ -202,7 +202,7 @@ public class CFBamXmlLoaderIndexTweakHandler
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -214,33 +214,33 @@ public class CFBamXmlLoaderIndexTweakHandler
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamIndexObj ) {
-				refIndex = (ICFBamIndexObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamIndexObj ) {
+				refIndex = (IYCFBamIndexObj) scopeObj;
 				editBuff.setRequiredContainerIndexDef(refIndex);
-				refTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamIndexObj" );
+					"IYCFBamIndexObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
@@ -251,7 +251,7 @@ public class CFBamXmlLoaderIndexTweakHandler
 
 			editBuff.setRequiredTweakGelText("");
 
-			ICFBamIndexTweakObj origIndexTweak = (ICFBamIndexTweakObj)editBuff.create();
+			IYCFBamIndexTweakObj origIndexTweak = (IYCFBamIndexTweakObj)editBuff.create();
 
 			curContext.putNamedValue( "Object", origIndexTweak );
 		}
@@ -275,16 +275,16 @@ public class CFBamXmlLoaderIndexTweakHandler
 
 		assert qName.equals( "IndexTweak" );
 
-		CFLibXmlCoreContext curContext = getParser().getCurContext();
-		if( ! CFBamXmlLoader.getProcessSchema( curContext ) ) {
+		YCFLibXmlCoreContext curContext = getParser().getCurContext();
+		if( ! YCFBamXmlLoader.getProcessSchema( curContext ) ) {
 			return;
 		}
 
-		ICFBamIndexTweakObj tableTweak = (ICFBamIndexTweakObj)curContext.getNamedValue( "Object" );
+		IYCFBamIndexTweakObj tableTweak = (IYCFBamIndexTweakObj)curContext.getNamedValue( "Object" );
 
 		String text = curContext.getElementText();
 
-		ICFBamIndexTweakEditObj editIndexTweak = (ICFBamIndexTweakEditObj)tableTweak.beginEdit();
+		IYCFBamIndexTweakEditObj editIndexTweak = (IYCFBamIndexTweakEditObj)tableTweak.beginEdit();
 		editIndexTweak.setRequiredTweakGelText(text);
 		editIndexTweak.update();
 		editIndexTweak = null;

@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object implementation for CFGenKb.
+// Description: Java 11 Table Object implementation for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,47 +27,47 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbRuleTypeTableObj
-	implements ICFGenKbRuleTypeTableObj
+public class YCFGenKbRuleTypeTableObj
+	implements IYCFGenKbRuleTypeTableObj
 {
-	protected ICFGenKbSchemaObj schema;
-	private Map<CFGenKbRuleTypePKey, ICFGenKbRuleTypeObj> members;
-	private Map<CFGenKbRuleTypePKey, ICFGenKbRuleTypeObj> allRuleType;
-	private Map< CFGenKbRuleTypeByNameIdxKey,
-		ICFGenKbRuleTypeObj > indexByNameIdx;
+	protected IYCFGenKbSchemaObj schema;
+	private Map<YCFGenKbRuleTypePKey, IYCFGenKbRuleTypeObj> members;
+	private Map<YCFGenKbRuleTypePKey, IYCFGenKbRuleTypeObj> allRuleType;
+	private Map< YCFGenKbRuleTypeByNameIdxKey,
+		IYCFGenKbRuleTypeObj > indexByNameIdx;
 	public static String TABLE_NAME = "RuleType";
 	public static String TABLE_DBNAME = "kbruletype";
 
-	public CFGenKbRuleTypeTableObj() {
+	public YCFGenKbRuleTypeTableObj() {
 		schema = null;
-		members = new HashMap<CFGenKbRuleTypePKey, ICFGenKbRuleTypeObj>();
+		members = new HashMap<YCFGenKbRuleTypePKey, IYCFGenKbRuleTypeObj>();
 		allRuleType = null;
 		indexByNameIdx = null;
 	}
 
-	public CFGenKbRuleTypeTableObj( ICFGenKbSchemaObj argSchema ) {
-		schema = (ICFGenKbSchemaObj)argSchema;
-		members = new HashMap<CFGenKbRuleTypePKey, ICFGenKbRuleTypeObj>();
+	public YCFGenKbRuleTypeTableObj( IYCFGenKbSchemaObj argSchema ) {
+		schema = (IYCFGenKbSchemaObj)argSchema;
+		members = new HashMap<YCFGenKbRuleTypePKey, IYCFGenKbRuleTypeObj>();
 		allRuleType = null;
 		indexByNameIdx = null;
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
-		schema = (ICFGenKbSchemaObj)value;
+	public void setSchema( IYCFGenKbSchemaObj value ) {
+		schema = (IYCFGenKbSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -86,9 +86,9 @@ public class CFGenKbRuleTypeTableObj
 	public void minimizeMemory() {
 		allRuleType = null;
 		indexByNameIdx = null;
-		List<ICFGenKbRuleTypeObj> toForget = new LinkedList<ICFGenKbRuleTypeObj>();
-		ICFGenKbRuleTypeObj cur = null;
-		Iterator<ICFGenKbRuleTypeObj> iter = members.values().iterator();
+		List<IYCFGenKbRuleTypeObj> toForget = new LinkedList<IYCFGenKbRuleTypeObj>();
+		IYCFGenKbRuleTypeObj cur = null;
+		Iterator<IYCFGenKbRuleTypeObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -106,10 +106,10 @@ public class CFGenKbRuleTypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbRuleTypeObj.
+	 *	YCFGenKbRuleTypeObj.
 	 */
-	public ICFGenKbRuleTypeObj newInstance() {
-		ICFGenKbRuleTypeObj inst = new CFGenKbRuleTypeObj( schema );
+	public IYCFGenKbRuleTypeObj newInstance() {
+		IYCFGenKbRuleTypeObj inst = new YCFGenKbRuleTypeObj( schema );
 		return( inst );
 	}
 
@@ -120,19 +120,19 @@ public class CFGenKbRuleTypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbRuleTypeObj.
+	 *	YCFGenKbRuleTypeObj.
 	 */
-	public ICFGenKbRuleTypeEditObj newEditInstance( ICFGenKbRuleTypeObj orig ) {
-		ICFGenKbRuleTypeEditObj edit = new CFGenKbRuleTypeEditObj( orig );
+	public IYCFGenKbRuleTypeEditObj newEditInstance( IYCFGenKbRuleTypeObj orig ) {
+		IYCFGenKbRuleTypeEditObj edit = new YCFGenKbRuleTypeEditObj( orig );
 		return( edit );
 	}
 
-	public ICFGenKbRuleTypeObj realiseRuleType( ICFGenKbRuleTypeObj Obj ) {
-		ICFGenKbRuleTypeObj obj = Obj;
-		CFGenKbRuleTypePKey pkey = obj.getPKey();
-		ICFGenKbRuleTypeObj keepObj = null;
+	public IYCFGenKbRuleTypeObj realiseRuleType( IYCFGenKbRuleTypeObj Obj ) {
+		IYCFGenKbRuleTypeObj obj = Obj;
+		YCFGenKbRuleTypePKey pkey = obj.getPKey();
+		IYCFGenKbRuleTypeObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFGenKbRuleTypeObj existingObj = members.get( pkey );
+			IYCFGenKbRuleTypeObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -143,8 +143,8 @@ public class CFGenKbRuleTypeTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByNameIdx != null ) {
-				CFGenKbRuleTypeByNameIdxKey keyNameIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
+				YCFGenKbRuleTypeByNameIdxKey keyNameIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByNameIdx.remove( keyNameIdx );
 			}
@@ -153,8 +153,8 @@ public class CFGenKbRuleTypeTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByNameIdx != null ) {
-				CFGenKbRuleTypeByNameIdxKey keyNameIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
+				YCFGenKbRuleTypeByNameIdxKey keyNameIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByNameIdx.put( keyNameIdx, keepObj );
 			}
@@ -174,8 +174,8 @@ public class CFGenKbRuleTypeTableObj
 			}
 
 			if( indexByNameIdx != null ) {
-				CFGenKbRuleTypeByNameIdxKey keyNameIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
+				YCFGenKbRuleTypeByNameIdxKey keyNameIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByNameIdx.put( keyNameIdx, keepObj );
 			}
@@ -184,10 +184,10 @@ public class CFGenKbRuleTypeTableObj
 		return( keepObj );
 	}
 
-	public ICFGenKbRuleTypeObj createRuleType( ICFGenKbRuleTypeObj Obj ) {
-		ICFGenKbRuleTypeObj obj = Obj;
-		CFGenKbRuleTypeBuff buff = obj.getRuleTypeBuff();
-		((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().createRuleType(
+	public IYCFGenKbRuleTypeObj createRuleType( IYCFGenKbRuleTypeObj Obj ) {
+		IYCFGenKbRuleTypeObj obj = Obj;
+		YCFGenKbRuleTypeBuff buff = obj.getRuleTypeBuff();
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().createRuleType(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -196,50 +196,50 @@ public class CFGenKbRuleTypeTableObj
 		return( obj );
 	}
 
-	public ICFGenKbRuleTypeObj readRuleType( CFGenKbRuleTypePKey pkey ) {
+	public IYCFGenKbRuleTypeObj readRuleType( YCFGenKbRuleTypePKey pkey ) {
 		return( readRuleType( pkey, false ) );
 	}
 
-	public ICFGenKbRuleTypeObj readRuleType( CFGenKbRuleTypePKey pkey, boolean forceRead ) {
-		ICFGenKbRuleTypeObj obj = null;
+	public IYCFGenKbRuleTypeObj readRuleType( YCFGenKbRuleTypePKey pkey, boolean forceRead ) {
+		IYCFGenKbRuleTypeObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFGenKbRuleTypeBuff readBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFGenKbRuleTypeBuff readBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getRuleTypeTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFGenKbRuleTypeObj)obj.realise();
+				obj = (IYCFGenKbRuleTypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbRuleTypeObj readCachedRuleType( CFGenKbRuleTypePKey pkey ) {
-		ICFGenKbRuleTypeObj obj = null;
+	public IYCFGenKbRuleTypeObj readCachedRuleType( YCFGenKbRuleTypePKey pkey ) {
+		IYCFGenKbRuleTypeObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeRuleType( ICFGenKbRuleTypeObj obj )
+	public void reallyDeepDisposeRuleType( IYCFGenKbRuleTypeObj obj )
 	{
-		final String S_ProcName = "CFGenKbRuleTypeTableObj.reallyDeepDisposeRuleType() ";
+		final String S_ProcName = "YCFGenKbRuleTypeTableObj.reallyDeepDisposeRuleType() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFGenKbRuleTypePKey pkey = obj.getPKey();
-		ICFGenKbRuleTypeObj existing = readCachedRuleType( pkey );
+		YCFGenKbRuleTypePKey pkey = obj.getPKey();
+		IYCFGenKbRuleTypeObj existing = readCachedRuleType( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFGenKbRuleTypeByNameIdxKey keyNameIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
+		YCFGenKbRuleTypeByNameIdxKey keyNameIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
 
 
@@ -250,57 +250,57 @@ public class CFGenKbRuleTypeTableObj
 
 
 	}
-	public void deepDisposeRuleType( CFGenKbRuleTypePKey pkey ) {
-		ICFGenKbRuleTypeObj obj = readCachedRuleType( pkey );
+	public void deepDisposeRuleType( YCFGenKbRuleTypePKey pkey ) {
+		IYCFGenKbRuleTypeObj obj = readCachedRuleType( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFGenKbRuleTypeObj lockRuleType( CFGenKbRuleTypePKey pkey ) {
-		ICFGenKbRuleTypeObj locked = null;
-		CFGenKbRuleTypeBuff lockBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFGenKbRuleTypeObj lockRuleType( YCFGenKbRuleTypePKey pkey ) {
+		IYCFGenKbRuleTypeObj locked = null;
+		YCFGenKbRuleTypeBuff lockBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getRuleTypeTableObj().newInstance();
-			locked.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey() );
+			locked.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFGenKbRuleTypeObj)locked.realise();
+			locked = (IYCFGenKbRuleTypeObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockRuleType", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockRuleType", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFGenKbRuleTypeObj> readAllRuleType() {
+	public List<IYCFGenKbRuleTypeObj> readAllRuleType() {
 		return( readAllRuleType( false ) );
 	}
 
-	public List<ICFGenKbRuleTypeObj> readAllRuleType( boolean forceRead ) {
+	public List<IYCFGenKbRuleTypeObj> readAllRuleType( boolean forceRead ) {
 		final String S_ProcName = "readAllRuleType";
 		if( ( allRuleType == null ) || forceRead ) {
-			Map<CFGenKbRuleTypePKey, ICFGenKbRuleTypeObj> map = new HashMap<CFGenKbRuleTypePKey,ICFGenKbRuleTypeObj>();
+			Map<YCFGenKbRuleTypePKey, IYCFGenKbRuleTypeObj> map = new HashMap<YCFGenKbRuleTypePKey,IYCFGenKbRuleTypeObj>();
 			allRuleType = map;
-			CFGenKbRuleTypeBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().readAllDerived( schema.getAuthorization() );
-			CFGenKbRuleTypeBuff buff;
-			ICFGenKbRuleTypeObj obj;
+			YCFGenKbRuleTypeBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().readAllDerived( schema.getAuthorization() );
+			YCFGenKbRuleTypeBuff buff;
+			IYCFGenKbRuleTypeObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbRuleTypeObj realised = (ICFGenKbRuleTypeObj)obj.realise();
+				IYCFGenKbRuleTypeObj realised = (IYCFGenKbRuleTypeObj)obj.realise();
 			}
 		}
 		int len = allRuleType.size();
-		ICFGenKbRuleTypeObj arr[] = new ICFGenKbRuleTypeObj[len];
-		Iterator<ICFGenKbRuleTypeObj> valIter = allRuleType.values().iterator();
+		IYCFGenKbRuleTypeObj arr[] = new IYCFGenKbRuleTypeObj[len];
+		Iterator<IYCFGenKbRuleTypeObj> valIter = allRuleType.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -308,20 +308,20 @@ public class CFGenKbRuleTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbRuleTypeObj> arrayList = new ArrayList<ICFGenKbRuleTypeObj>(len);
+		ArrayList<IYCFGenKbRuleTypeObj> arrayList = new ArrayList<IYCFGenKbRuleTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbRuleTypeObj> cmp = new Comparator<ICFGenKbRuleTypeObj>() {
-			public int compare( ICFGenKbRuleTypeObj lhs, ICFGenKbRuleTypeObj rhs ) {
+		Comparator<IYCFGenKbRuleTypeObj> cmp = new Comparator<IYCFGenKbRuleTypeObj>() {
+			public int compare( IYCFGenKbRuleTypeObj lhs, IYCFGenKbRuleTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -334,31 +334,31 @@ public class CFGenKbRuleTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbRuleTypePKey lhsPKey = lhs.getPKey();
-					CFGenKbRuleTypePKey rhsPKey = rhs.getPKey();
+					YCFGenKbRuleTypePKey lhsPKey = lhs.getPKey();
+					YCFGenKbRuleTypePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbRuleTypeObj> sortedList = arrayList;
+		List<IYCFGenKbRuleTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbRuleTypeObj> readCachedAllRuleType() {
+	public List<IYCFGenKbRuleTypeObj> readCachedAllRuleType() {
 		final String S_ProcName = "readCachedAllRuleType";
-		ArrayList<ICFGenKbRuleTypeObj> arrayList = new ArrayList<ICFGenKbRuleTypeObj>();
+		ArrayList<IYCFGenKbRuleTypeObj> arrayList = new ArrayList<IYCFGenKbRuleTypeObj>();
 		if( allRuleType != null ) {
 			int len = allRuleType.size();
-			ICFGenKbRuleTypeObj arr[] = new ICFGenKbRuleTypeObj[len];
-			Iterator<ICFGenKbRuleTypeObj> valIter = allRuleType.values().iterator();
+			IYCFGenKbRuleTypeObj arr[] = new IYCFGenKbRuleTypeObj[len];
+			Iterator<IYCFGenKbRuleTypeObj> valIter = allRuleType.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -366,7 +366,7 @@ public class CFGenKbRuleTypeTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -377,8 +377,8 @@ public class CFGenKbRuleTypeTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFGenKbRuleTypeObj> cmp = new Comparator<ICFGenKbRuleTypeObj>() {
-			public int compare( ICFGenKbRuleTypeObj lhs, ICFGenKbRuleTypeObj rhs ) {
+		Comparator<IYCFGenKbRuleTypeObj> cmp = new Comparator<IYCFGenKbRuleTypeObj>() {
+			public int compare( IYCFGenKbRuleTypeObj lhs, IYCFGenKbRuleTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -391,8 +391,8 @@ public class CFGenKbRuleTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbRuleTypePKey lhsPKey = lhs.getPKey();
-					CFGenKbRuleTypePKey rhsPKey = rhs.getPKey();
+					YCFGenKbRuleTypePKey lhsPKey = lhs.getPKey();
+					YCFGenKbRuleTypePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -402,71 +402,71 @@ public class CFGenKbRuleTypeTableObj
 		return( arrayList );
 	}
 
-	public ICFGenKbRuleTypeObj readRuleTypeByIdIdx( short Id )
+	public IYCFGenKbRuleTypeObj readRuleTypeByIdIdx( short Id )
 	{
 		return( readRuleTypeByIdIdx( Id,
 			false ) );
 	}
 
-	public ICFGenKbRuleTypeObj readRuleTypeByIdIdx( short Id, boolean forceRead )
+	public IYCFGenKbRuleTypeObj readRuleTypeByIdIdx( short Id, boolean forceRead )
 	{
-		CFGenKbRuleTypePKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey();
+		YCFGenKbRuleTypePKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey();
 		pkey.setRequiredId( Id );
-		ICFGenKbRuleTypeObj obj = readRuleType( pkey, forceRead );
+		IYCFGenKbRuleTypeObj obj = readRuleType( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFGenKbRuleTypeObj readRuleTypeByNameIdx( String Name )
+	public IYCFGenKbRuleTypeObj readRuleTypeByNameIdx( String Name )
 	{
 		return( readRuleTypeByNameIdx( Name,
 			false ) );
 	}
 
-	public ICFGenKbRuleTypeObj readRuleTypeByNameIdx( String Name, boolean forceRead )
+	public IYCFGenKbRuleTypeObj readRuleTypeByNameIdx( String Name, boolean forceRead )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFGenKbRuleTypeByNameIdxKey,
-				ICFGenKbRuleTypeObj >();
+			indexByNameIdx = new HashMap< YCFGenKbRuleTypeByNameIdxKey,
+				IYCFGenKbRuleTypeObj >();
 		}
-		CFGenKbRuleTypeByNameIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
+		YCFGenKbRuleTypeByNameIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
 		key.setRequiredName( Name );
-		ICFGenKbRuleTypeObj obj = null;
+		IYCFGenKbRuleTypeObj obj = null;
 		if( ( ! forceRead ) && indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
 		}
 		else {
-			CFGenKbRuleTypeBuff buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().readDerivedByNameIdx( schema.getAuthorization(),
+			YCFGenKbRuleTypeBuff buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().readDerivedByNameIdx( schema.getAuthorization(),
 				Name );
 			if( buff != null ) {
 				obj = schema.getRuleTypeTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFGenKbRuleTypeObj)obj.realise();
+				obj = (IYCFGenKbRuleTypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbRuleTypeObj readCachedRuleTypeByIdIdx( short Id )
+	public IYCFGenKbRuleTypeObj readCachedRuleTypeByIdIdx( short Id )
 	{
-		ICFGenKbRuleTypeObj obj = null;
-		CFGenKbRuleTypePKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey();
+		IYCFGenKbRuleTypeObj obj = null;
+		YCFGenKbRuleTypePKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey();
 		pkey.setRequiredId( Id );
 		obj = readCachedRuleType( pkey );
 		return( obj );
 	}
 
-	public ICFGenKbRuleTypeObj readCachedRuleTypeByNameIdx( String Name )
+	public IYCFGenKbRuleTypeObj readCachedRuleTypeByNameIdx( String Name )
 	{
-		ICFGenKbRuleTypeObj obj = null;
-		CFGenKbRuleTypeByNameIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
+		IYCFGenKbRuleTypeObj obj = null;
+		YCFGenKbRuleTypeByNameIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
 		key.setRequiredName( Name );
 		if( indexByNameIdx != null ) {
 			if( indexByNameIdx.containsKey( key ) ) {
 				obj = indexByNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFGenKbRuleTypeObj> valIter = members.values().iterator();
+				Iterator<IYCFGenKbRuleTypeObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -478,7 +478,7 @@ public class CFGenKbRuleTypeTableObj
 			}
 		}
 		else {
-			Iterator<ICFGenKbRuleTypeObj> valIter = members.values().iterator();
+			Iterator<IYCFGenKbRuleTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -493,7 +493,7 @@ public class CFGenKbRuleTypeTableObj
 
 	public void deepDisposeRuleTypeByIdIdx( short Id )
 	{
-		ICFGenKbRuleTypeObj obj = readCachedRuleTypeByIdIdx( Id );
+		IYCFGenKbRuleTypeObj obj = readCachedRuleTypeByIdIdx( Id );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -501,38 +501,38 @@ public class CFGenKbRuleTypeTableObj
 
 	public void deepDisposeRuleTypeByNameIdx( String Name )
 	{
-		ICFGenKbRuleTypeObj obj = readCachedRuleTypeByNameIdx( Name );
+		IYCFGenKbRuleTypeObj obj = readCachedRuleTypeByNameIdx( Name );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFGenKbRuleTypeObj updateRuleType( ICFGenKbRuleTypeObj Obj ) {
-		ICFGenKbRuleTypeObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().updateRuleType( schema.getAuthorization(),
+	public IYCFGenKbRuleTypeObj updateRuleType( IYCFGenKbRuleTypeObj Obj ) {
+		IYCFGenKbRuleTypeObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().updateRuleType( schema.getAuthorization(),
 			Obj.getRuleTypeBuff() );
-		obj = (ICFGenKbRuleTypeObj)Obj.realise();
+		obj = (IYCFGenKbRuleTypeObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteRuleType( ICFGenKbRuleTypeObj Obj ) {
-		ICFGenKbRuleTypeObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().deleteRuleType( schema.getAuthorization(),
+	public void deleteRuleType( IYCFGenKbRuleTypeObj Obj ) {
+		IYCFGenKbRuleTypeObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().deleteRuleType( schema.getAuthorization(),
 			obj.getRuleTypeBuff() );
 		Obj.forget();
 	}
 
 	public void deleteRuleTypeByIdIdx( short Id )
 	{
-		CFGenKbRuleTypePKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey();
+		YCFGenKbRuleTypePKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey();
 		pkey.setRequiredId( Id );
-		ICFGenKbRuleTypeObj obj = readRuleType( pkey );
+		IYCFGenKbRuleTypeObj obj = readRuleType( pkey );
 		if( obj != null ) {
-			ICFGenKbRuleTypeEditObj editObj = (ICFGenKbRuleTypeEditObj)obj.getEdit();
+			IYCFGenKbRuleTypeEditObj editObj = (IYCFGenKbRuleTypeEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFGenKbRuleTypeEditObj)obj.beginEdit();
+				editObj = (IYCFGenKbRuleTypeEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -557,20 +557,20 @@ public class CFGenKbRuleTypeTableObj
 	public void deleteRuleTypeByNameIdx( String Name )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFGenKbRuleTypeByNameIdxKey,
-				ICFGenKbRuleTypeObj >();
+			indexByNameIdx = new HashMap< YCFGenKbRuleTypeByNameIdxKey,
+				IYCFGenKbRuleTypeObj >();
 		}
-		CFGenKbRuleTypeByNameIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
+		YCFGenKbRuleTypeByNameIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newNameIdxKey();
 		key.setRequiredName( Name );
-		ICFGenKbRuleTypeObj obj = null;
+		IYCFGenKbRuleTypeObj obj = null;
 		if( indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().deleteRuleTypeByNameIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().deleteRuleTypeByNameIdx( schema.getAuthorization(),
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().deleteRuleTypeByNameIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().deleteRuleTypeByNameIdx( schema.getAuthorization(),
 				Name );
 		}
 		deepDisposeRuleTypeByNameIdx( Name );

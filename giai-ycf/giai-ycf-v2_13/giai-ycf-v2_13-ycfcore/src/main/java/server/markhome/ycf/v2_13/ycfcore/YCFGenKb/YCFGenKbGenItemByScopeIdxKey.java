@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenItem by ScopeIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,15 +37,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenItemByScopeIdxKey
+public class YCFGenKbGenItemByScopeIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Short optionalScopeDefId;
-	public CFGenKbGenItemByScopeIdxKey() {
+	public YCFGenKbGenItemByScopeIdxKey() {
 		optionalScopeDefId = null;
 	}
 
@@ -57,21 +57,21 @@ public class CFGenKbGenItemByScopeIdxKey
 		if( value == null ) {
 			optionalScopeDefId = null;
 		}
-		else if( value < CFGenKbGenItemBuff.SCOPEDEFID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenItemBuff.SCOPEDEFID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalScopeDefId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.SCOPEDEFID_MIN_VALUE );
+				YCFGenKbGenItemBuff.SCOPEDEFID_MIN_VALUE );
 		}
-		else if( value > CFGenKbGenItemBuff.SCOPEDEFID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFGenKbGenItemBuff.SCOPEDEFID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalScopeDefId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.SCOPEDEFID_MAX_VALUE );
+				YCFGenKbGenItemBuff.SCOPEDEFID_MAX_VALUE );
 		}
 		else {
 			optionalScopeDefId = value;
@@ -82,8 +82,8 @@ public class CFGenKbGenItemByScopeIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenItemByScopeIdxKey ) {
-			CFGenKbGenItemByScopeIdxKey rhs = (CFGenKbGenItemByScopeIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByScopeIdxKey ) {
+			YCFGenKbGenItemByScopeIdxKey rhs = (YCFGenKbGenItemByScopeIdxKey)obj;
 			if( getOptionalScopeDefId() != null ) {
 				if( rhs.getOptionalScopeDefId() != null ) {
 					if( ! getOptionalScopeDefId().equals( rhs.getOptionalScopeDefId() ) ) {
@@ -98,8 +98,8 @@ public class CFGenKbGenItemByScopeIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getOptionalScopeDefId() != null ) {
 				if( rhs.getOptionalScopeDefId() != null ) {
 					if( ! getOptionalScopeDefId().equals( rhs.getOptionalScopeDefId() ) ) {
@@ -134,8 +134,8 @@ public class CFGenKbGenItemByScopeIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenItemByScopeIdxKey ) {
-			CFGenKbGenItemByScopeIdxKey rhs = (CFGenKbGenItemByScopeIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByScopeIdxKey ) {
+			YCFGenKbGenItemByScopeIdxKey rhs = (YCFGenKbGenItemByScopeIdxKey)obj;
 			if( getOptionalScopeDefId() != null ) {
 				Short lhsScopeDefId = getOptionalScopeDefId();
 				if( rhs.getOptionalScopeDefId() != null ) {
@@ -156,8 +156,8 @@ public class CFGenKbGenItemByScopeIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getOptionalScopeDefId() != null ) {
 				Short lhsScopeDefId = getOptionalScopeDefId();
 				if( rhs.getOptionalScopeDefId() != null ) {
@@ -179,7 +179,7 @@ public class CFGenKbGenItemByScopeIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -188,7 +188,7 @@ public class CFGenKbGenItemByScopeIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenItemByScopeIdx"
+		String ret = "<YCFGenKbGenItemByScopeIdx"
 			+ " OptionalScopeDefId=" + ( ( getOptionalScopeDefId() == null ) ? "null" : "\"" + getOptionalScopeDefId().toString() + "\"" )
 			+ "/>";
 		return( ret );

@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for DbKeyHash384Gen.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamDbKeyHash384GenTable database interface for DbKeyHash384Gen
+ *	YCFBamDbKeyHash384GenTable database interface for DbKeyHash384Gen
  */
-public interface ICFBamDbKeyHash384GenTable
+public interface IYCFBamDbKeyHash384GenTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createDbKeyHash384Gen( CFSecAuthorization Authorization,
-		CFBamDbKeyHash384GenBuff Buff );
+	void createDbKeyHash384Gen( YCFSecAuthorization Authorization,
+		YCFBamDbKeyHash384GenBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateDbKeyHash384Gen( CFSecAuthorization Authorization,
-		CFBamDbKeyHash384GenBuff Buff );
+	void updateDbKeyHash384Gen( YCFSecAuthorization Authorization,
+		YCFBamDbKeyHash384GenBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteDbKeyHash384Gen( CFSecAuthorization Authorization,
-		CFBamDbKeyHash384GenBuff Buff );
+	void deleteDbKeyHash384Gen( YCFSecAuthorization Authorization,
+		YCFBamDbKeyHash384GenBuff Buff );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key DispIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argDispenserId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByDispIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByDispIdx( YCFSecAuthorization Authorization,
 		Long argDispenserTenantId,
 		Long argDispenserId );
 
@@ -121,8 +121,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByDispIdx( CFSecAuthorization Authorization,
-		CFBamDbKeyHash384GenByDispIdxKey argKey );
+	void deleteDbKeyHash384GenByDispIdx( YCFSecAuthorization Authorization,
+		YCFBamDbKeyHash384GenByDispIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key SchemaIdx.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argSchemaDefId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenBySchemaIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId );
 
@@ -143,8 +143,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamDbKeyHash384TypeBySchemaIdxKey argKey );
+	void deleteDbKeyHash384GenBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamDbKeyHash384TypeBySchemaIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instance identified by the primary key attributes.
 	 *
@@ -154,7 +154,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByIdIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -165,8 +165,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteDbKeyHash384GenByIdIdx( CFSecAuthorization Authorization,
-		CFBamValuePKey argKey );
+	void deleteDbKeyHash384GenByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamValuePKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key UNameIdx.
 	 *
@@ -178,7 +178,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argName	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByUNameIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -190,8 +190,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByUNameIdx( CFSecAuthorization Authorization,
-		CFBamValueByUNameIdxKey argKey );
+	void deleteDbKeyHash384GenByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByUNameIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key ValTentIdx.
 	 *
@@ -199,7 +199,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argTenantId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByValTentIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -209,8 +209,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByValTentIdx( CFSecAuthorization Authorization,
-		CFBamValueByValTentIdxKey argKey );
+	void deleteDbKeyHash384GenByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByValTentIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key ScopeIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argScopeId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByScopeIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -231,8 +231,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByScopeIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeIdxKey argKey );
+	void deleteDbKeyHash384GenByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key DefSchemaIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argDefSchemaId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -253,8 +253,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamValueByDefSchemaIdxKey argKey );
+	void deleteDbKeyHash384GenByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key PrevIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argPrevId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByPrevIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -275,8 +275,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByPrevIdxKey argKey );
+	void deleteDbKeyHash384GenByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByPrevIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key NextIdx.
 	 *
@@ -286,7 +286,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argNextId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByNextIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -297,8 +297,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByNextIdxKey argKey );
+	void deleteDbKeyHash384GenByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByNextIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key ContPrevIdx.
 	 *
@@ -310,7 +310,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argPrevId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByContPrevIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByContPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argPrevId );
@@ -322,8 +322,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByContPrevIdx( CFSecAuthorization Authorization,
-		CFBamValueByContPrevIdxKey argKey );
+	void deleteDbKeyHash384GenByContPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContPrevIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key ContNextIdx.
 	 *
@@ -335,7 +335,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argNextId	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByContNextIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByContNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argNextId );
@@ -347,8 +347,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByContNextIdx( CFSecAuthorization Authorization,
-		CFBamValueByContNextIdxKey argKey );
+	void deleteDbKeyHash384GenByContNextIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByContNextIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key CodeVisIdx.
 	 *
@@ -356,8 +356,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argCodeVis	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteDbKeyHash384GenByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key CodeVisIdx.
@@ -366,8 +366,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByCodeVisIdxKey argKey );
+	void deleteDbKeyHash384GenByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key ScopeCodeVisIdx.
 	 *
@@ -379,10 +379,10 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argCodeVis	The DbKeyHash384Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash384GenByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteDbKeyHash384GenByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key ScopeCodeVisIdx.
@@ -391,8 +391,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDbKeyHash384GenByScopeCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamValueByScopeCodeVisIdxKey argKey );
+	void deleteDbKeyHash384GenByScopeCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -405,8 +405,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDbKeyHash384GenBuff readDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDbKeyHash384GenBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the derived DbKeyHash384Gen buffer instance by primary key.
@@ -418,8 +418,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDbKeyHash384GenBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDbKeyHash384GenBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all DbKeyHash384Gen instances.
@@ -428,7 +428,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamDbKeyHash384GenBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived DbKeyHash384Gen buffer instance identified by the unique key IdIdx.
@@ -442,7 +442,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDbKeyHash384GenBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -460,7 +460,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDbKeyHash384GenBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -474,7 +474,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -488,7 +488,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -503,7 +503,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -518,7 +518,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -533,7 +533,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -550,7 +550,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -568,7 +568,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -582,8 +582,8 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamDbKeyHash384GenBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived DbKeyHash384Gen buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -598,10 +598,10 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived DbKeyHash384Gen buffer instances identified by the duplicate key SchemaIdx.
@@ -614,7 +614,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -629,7 +629,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDbKeyHash384GenBuff[] readDerivedByDispIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readDerivedByDispIdx( YCFSecAuthorization Authorization,
 		Long DispenserTenantId,
 		Long DispenserId );
 
@@ -643,10 +643,10 @@ public interface ICFBamDbKeyHash384GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff readBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDbKeyHash384GenBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Lock the specific DbKeyHash384Gen buffer instance identified by the primary key.
@@ -658,10 +658,10 @@ public interface ICFBamDbKeyHash384GenTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamValuePKey PKey );
+	YCFBamDbKeyHash384GenBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamValuePKey PKey );
 
 	/**
 	 *	Read all the specific DbKeyHash384Gen buffer instances.
@@ -670,7 +670,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return All the specific DbKeyHash384Gen instances in the database accessible for the Authorization.
 	 */
-	CFBamDbKeyHash384GenBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamDbKeyHash384GenBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific DbKeyHash384Gen buffer instance identified by the unique key IdIdx.
@@ -684,9 +684,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -704,9 +704,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -720,9 +720,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -736,9 +736,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -753,9 +753,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -770,9 +770,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -787,9 +787,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -806,9 +806,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByContPrevIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffByContPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long PrevId );
@@ -826,9 +826,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByContNextIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffByContNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long NextId );
@@ -842,10 +842,10 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamDbKeyHash384GenBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific DbKeyHash384Gen buffer instances identified by the duplicate key ScopeCodeVisIdx.
@@ -860,12 +860,12 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffByScopeCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific DbKeyHash384Gen buffer instances identified by the duplicate key SchemaIdx.
@@ -878,9 +878,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -895,9 +895,9 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDbKeyHash384GenBuff[] readBuffByDispIdx( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff[] readBuffByDispIdx( YCFSecAuthorization Authorization,
 		Long DispenserTenantId,
 		Long DispenserId );
 
@@ -906,7 +906,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamDbKeyHash384GenBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -916,7 +916,7 @@ public interface ICFBamDbKeyHash384GenTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamDbKeyHash384GenBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamDbKeyHash384GenBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -924,7 +924,7 @@ public interface ICFBamDbKeyHash384GenTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

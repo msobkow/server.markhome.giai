@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamSchemaRefTableObj
+public interface IYCFBamSchemaRefTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamSchemaRefTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamSchemaRefObj newInstance();
+	IYCFBamSchemaRefObj newInstance();
 
 	/**
 	 *	Instantiate a new SchemaRef edition of the specified SchemaRef instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamSchemaRefEditObj newEditInstance( ICFBamSchemaRefObj orig );
+	IYCFBamSchemaRefEditObj newEditInstance( IYCFBamSchemaRefObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamSchemaRefObj realiseSchemaRef( ICFBamSchemaRefObj Obj );
+	IYCFBamSchemaRefObj realiseSchemaRef( IYCFBamSchemaRefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamSchemaRefObj createSchemaRef( ICFBamSchemaRefObj Obj );
+	IYCFBamSchemaRefObj createSchemaRef( IYCFBamSchemaRefObj Obj );
 
 	/**
 	 *	Read a SchemaRef-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamSchemaRefTableObj
 	 *	@return	The SchemaRef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamSchemaRefObj readSchemaRef( CFBamScopePKey pkey );
+	IYCFBamSchemaRefObj readSchemaRef( YCFBamScopePKey pkey );
 
 	/**
 	 *	Read a SchemaRef-derived instance by it's primary key.
@@ -113,115 +113,115 @@ public interface ICFBamSchemaRefTableObj
 	 *	@return	The SchemaRef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamSchemaRefObj readSchemaRef( CFBamScopePKey pkey,
+	IYCFBamSchemaRefObj readSchemaRef( YCFBamScopePKey pkey,
 		boolean forceRead );
 
-	ICFBamSchemaRefObj readCachedSchemaRef( CFBamScopePKey pkey );
+	IYCFBamSchemaRefObj readCachedSchemaRef( YCFBamScopePKey pkey );
 
-	public void reallyDeepDisposeSchemaRef( ICFBamSchemaRefObj obj );
+	public void reallyDeepDisposeSchemaRef( IYCFBamSchemaRefObj obj );
 
-	void deepDisposeSchemaRef( CFBamScopePKey pkey );
+	void deepDisposeSchemaRef( YCFBamScopePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamSchemaRefObj lockSchemaRef( CFBamScopePKey pkey );
+	IYCFBamSchemaRefObj lockSchemaRef( YCFBamScopePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SchemaRef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamSchemaRefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamSchemaRefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readAllSchemaRef();
+	List<IYCFBamSchemaRefObj> readAllSchemaRef();
 
 	/**
 	 *	Return a sorted map of all the SchemaRef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamSchemaRefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamSchemaRefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readAllSchemaRef( boolean forceRead );
+	List<IYCFBamSchemaRefObj> readAllSchemaRef( boolean forceRead );
 
-	List<ICFBamSchemaRefObj> readCachedAllSchemaRef();
+	List<IYCFBamSchemaRefObj> readCachedAllSchemaRef();
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj cached instance for the primary key, or
+	 *	@return	YCFBamScopeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRefObj readSchemaRefByIdIdx( long TenantId,
+	IYCFBamSchemaRefObj readSchemaRefByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj refreshed instance for the primary key, or
+	 *	@return	YCFBamScopeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRefObj readSchemaRefByIdIdx( long TenantId,
+	IYCFBamSchemaRefObj readSchemaRefByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefByTenantIdx( long TenantId );
+	List<IYCFBamSchemaRefObj> readSchemaRefByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamSchemaRefObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamSchemaRefObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefByTenantIdx( long TenantId,
+	List<IYCFBamSchemaRefObj> readSchemaRefByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamSchemaRefObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamSchemaRefObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefBySchemaIdx( long TenantId,
+	List<IYCFBamSchemaRefObj> readSchemaRefBySchemaIdx( long TenantId,
 		long SchemaId );
 
 	/**
-	 *	Get the map of CFBamSchemaRefObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamSchemaRefObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefBySchemaIdx( long TenantId,
+	List<IYCFBamSchemaRefObj> readSchemaRefBySchemaIdx( long TenantId,
 		long SchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamSchemaRefObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamSchemaRefObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
@@ -229,15 +229,15 @@ public interface ICFBamSchemaRefTableObj
 	 *
 	 *	@param	argName	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamSchemaRefObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamSchemaRefObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRefObj readSchemaRefByUNameIdx(long TenantId,
+	IYCFBamSchemaRefObj readSchemaRefByUNameIdx(long TenantId,
 		long SchemaId,
 		String Name );
 
 	/**
-	 *	Get the CFBamSchemaRefObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamSchemaRefObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
@@ -245,114 +245,114 @@ public interface ICFBamSchemaRefTableObj
 	 *
 	 *	@param	argName	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamSchemaRefObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamSchemaRefObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamSchemaRefObj readSchemaRefByUNameIdx(long TenantId,
+	IYCFBamSchemaRefObj readSchemaRefByUNameIdx(long TenantId,
 		long SchemaId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamSchemaRefObj instances sorted by their primary keys for the duplicate RefSchemaIdx key.
+	 *	Get the map of YCFBamSchemaRefObj instances sorted by their primary keys for the duplicate RefSchemaIdx key.
 	 *
 	 *	@param	argRefSchemaTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argRefSchemaId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate RefSchemaIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate RefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefByRefSchemaIdx( Long RefSchemaTenantId,
+	List<IYCFBamSchemaRefObj> readSchemaRefByRefSchemaIdx( Long RefSchemaTenantId,
 		Long RefSchemaId );
 
 	/**
-	 *	Get the map of CFBamSchemaRefObj instances sorted by their primary keys for the duplicate RefSchemaIdx key.
+	 *	Get the map of YCFBamSchemaRefObj instances sorted by their primary keys for the duplicate RefSchemaIdx key.
 	 *
 	 *	@param	argRefSchemaTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argRefSchemaId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate RefSchemaIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate RefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefByRefSchemaIdx( Long RefSchemaTenantId,
+	List<IYCFBamSchemaRefObj> readSchemaRefByRefSchemaIdx( Long RefSchemaTenantId,
 		Long RefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamSchemaRefObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamSchemaRefObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamSchemaRefObj> readSchemaRefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamSchemaRefObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamSchemaRefObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamSchemaRefObj> readSchemaRefByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamSchemaRefObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamSchemaRefObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefByNextIdx( Long NextTenantId,
+	List<IYCFBamSchemaRefObj> readSchemaRefByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamSchemaRefObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamSchemaRefObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The SchemaRef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The SchemaRef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamSchemaRefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamSchemaRefObj> readSchemaRefByNextIdx( Long NextTenantId,
+	List<IYCFBamSchemaRefObj> readSchemaRefByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
-	ICFBamSchemaRefObj readCachedSchemaRefByIdIdx( long TenantId,
+	IYCFBamSchemaRefObj readCachedSchemaRefByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFBamSchemaRefObj> readCachedSchemaRefByTenantIdx( long TenantId );
+	List<IYCFBamSchemaRefObj> readCachedSchemaRefByTenantIdx( long TenantId );
 
-	List<ICFBamSchemaRefObj> readCachedSchemaRefBySchemaIdx( long TenantId,
+	List<IYCFBamSchemaRefObj> readCachedSchemaRefBySchemaIdx( long TenantId,
 		long SchemaId );
 
-	ICFBamSchemaRefObj readCachedSchemaRefByUNameIdx( long TenantId,
+	IYCFBamSchemaRefObj readCachedSchemaRefByUNameIdx( long TenantId,
 		long SchemaId,
 		String Name );
 
-	List<ICFBamSchemaRefObj> readCachedSchemaRefByRefSchemaIdx( Long RefSchemaTenantId,
+	List<IYCFBamSchemaRefObj> readCachedSchemaRefByRefSchemaIdx( Long RefSchemaTenantId,
 		Long RefSchemaId );
 
-	List<ICFBamSchemaRefObj> readCachedSchemaRefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamSchemaRefObj> readCachedSchemaRefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamSchemaRefObj> readCachedSchemaRefByNextIdx( Long NextTenantId,
+	List<IYCFBamSchemaRefObj> readCachedSchemaRefByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	void deepDisposeSchemaRefByIdIdx( long TenantId,
@@ -379,12 +379,12 @@ public interface ICFBamSchemaRefTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamSchemaRefObj updateSchemaRef( ICFBamSchemaRefObj Obj );
+	IYCFBamSchemaRefObj updateSchemaRef( IYCFBamSchemaRefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSchemaRef( ICFBamSchemaRefObj Obj );
+	void deleteSchemaRef( IYCFBamSchemaRefObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -457,16 +457,16 @@ public interface ICFBamSchemaRefTableObj
 		Long NextId );
 
 	/**
-	 *	Move the CFBamSchemaRefObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamSchemaRefObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamSchemaRefObj refreshed cache instance.
+	 *	@return	YCFBamSchemaRefObj refreshed cache instance.
 	 */
-	ICFBamSchemaRefObj moveUpSchemaRef( ICFBamSchemaRefObj Obj );
+	IYCFBamSchemaRefObj moveUpSchemaRef( IYCFBamSchemaRefObj Obj );
 
 	/**
-	 *	Move the CFBamSchemaRefObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamSchemaRefObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamSchemaRefObj refreshed cache instance.
+	 *	@return	YCFBamSchemaRefObj refreshed cache instance.
 	 */
-	ICFBamSchemaRefObj moveDownSchemaRef( ICFBamSchemaRefObj Obj );
+	IYCFBamSchemaRefObj moveDownSchemaRef( IYCFBamSchemaRefObj Obj );
 }

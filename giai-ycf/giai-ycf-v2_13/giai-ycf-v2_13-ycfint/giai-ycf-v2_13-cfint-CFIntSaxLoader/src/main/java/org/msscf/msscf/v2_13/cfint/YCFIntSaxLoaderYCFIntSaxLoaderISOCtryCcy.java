@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for ISOCtryCcy
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,21 +35,21 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSaxLoaderISOCtryCcyParse XML SAX Element Handler implementation
+ *	YCFIntSaxLoaderISOCtryCcyParse XML SAX Element Handler implementation
  *	for ISOCtryCcy.
  */
-public class CFIntSaxLoaderISOCtryCcy
-	extends CFLibXmlCoreElementHandler
+public class YCFIntSaxLoaderISOCtryCcy
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFIntSaxLoaderISOCtryCcy( CFIntSaxLoader saxLoader ) {
+	public YCFIntSaxLoaderISOCtryCcy( YCFIntSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -61,15 +61,15 @@ public class CFIntSaxLoaderISOCtryCcy
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFIntISOCtryCcyObj origBuff = null;
-		ICFIntISOCtryCcyEditObj editBuff = null;
+		IYCFIntISOCtryCcyObj origBuff = null;
+		IYCFIntISOCtryCcyEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// ISOCtryCcy Attributes
 		String attrCcy = null;
 		// ISOCtryCcy References
-		ICFIntISOCtryObj refCtry = null;
-		ICFIntISOCcyObj refCcy = null;
+		IYCFIntISOCtryObj refCtry = null;
+		IYCFIntISOCcyObj refCcy = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -78,25 +78,25 @@ public class CFIntSaxLoaderISOCtryCcy
 		try {
 			assert qName.equals( "ISOCtryCcy" );
 
-			CFIntSaxLoader saxLoader = (CFIntSaxLoader)getParser();
+			YCFIntSaxLoader saxLoader = (YCFIntSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFIntISOCtryCcyObj)schemaObj.getISOCtryCcyTableObj().newInstance();
-			editBuff = (ICFIntISOCtryCcyEditObj)origBuff.beginEdit();
+			origBuff = (IYCFIntISOCtryCcyObj)schemaObj.getISOCtryCcyTableObj().newInstance();
+			editBuff = (IYCFIntISOCtryCcyEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -104,7 +104,7 @@ public class CFIntSaxLoaderISOCtryCcy
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -113,7 +113,7 @@ public class CFIntSaxLoaderISOCtryCcy
 				}
 				else if( attrLocalName.equals( "Ccy" ) ) {
 					if( attrCcy != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -124,7 +124,7 @@ public class CFIntSaxLoaderISOCtryCcy
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -133,14 +133,14 @@ public class CFIntSaxLoaderISOCtryCcy
 
 			// Ensure that required attributes have values
 			if( ( attrCcy == null ) || ( attrCcy.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Ccy" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Ccy", attrCcy );
 
@@ -156,7 +156,7 @@ public class CFIntSaxLoaderISOCtryCcy
 			}
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -168,28 +168,28 @@ public class CFIntSaxLoaderISOCtryCcy
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFIntISOCtryObj ) {
-				refCtry = (ICFIntISOCtryObj) scopeObj;
+			else if( scopeObj instanceof IYCFIntISOCtryObj ) {
+				refCtry = (IYCFIntISOCtryObj) scopeObj;
 				editBuff.setRequiredContainerCtry( refCtry );
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFIntISOCtryObj" );
+					"IYCFIntISOCtryObj" );
 			}
 
 			// Lookup refCcy by key name value attr
 			if( ( attrCcy != null ) && ( attrCcy.length() > 0 ) ) {
-				refCcy = (ICFIntISOCcyObj)schemaObj.getISOCcyTableObj().readISOCcyByCcyCdIdx( attrCcy );
+				refCcy = (IYCFIntISOCcyObj)schemaObj.getISOCcyTableObj().readISOCcyByCcyCdIdx( attrCcy );
 				if( refCcy == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve Ccy reference named \"" + attrCcy + "\" to table ISOCcy" );
@@ -200,9 +200,9 @@ public class CFIntSaxLoaderISOCtryCcy
 			}
 			editBuff.setRequiredParentCcy( refCcy );
 
-			ICFIntISOCtryCcyObj origISOCtryCcy;
-			ICFIntISOCtryCcyEditObj editISOCtryCcy = editBuff;
-			origISOCtryCcy = (ICFIntISOCtryCcyObj)editISOCtryCcy.create();
+			IYCFIntISOCtryCcyObj origISOCtryCcy;
+			IYCFIntISOCtryCcyEditObj editISOCtryCcy = editBuff;
+			origISOCtryCcy = (IYCFIntISOCtryCcyObj)editISOCtryCcy.create();
 			editISOCtryCcy = null;
 
 			curContext.putNamedValue( "Object", origISOCtryCcy );

@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamFloatColTableObj
+public interface IYCFBamFloatColTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamFloatColObj newInstance();
+	IYCFBamFloatColObj newInstance();
 
 	/**
 	 *	Instantiate a new FloatCol edition of the specified FloatCol instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamFloatColEditObj newEditInstance( ICFBamFloatColObj orig );
+	IYCFBamFloatColEditObj newEditInstance( IYCFBamFloatColObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamFloatColObj realiseFloatCol( ICFBamFloatColObj Obj );
+	IYCFBamFloatColObj realiseFloatCol( IYCFBamFloatColObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamFloatColObj createFloatCol( ICFBamFloatColObj Obj );
+	IYCFBamFloatColObj createFloatCol( IYCFBamFloatColObj Obj );
 
 	/**
 	 *	Read a FloatCol-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamFloatColTableObj
 	 *	@return	The FloatCol-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamFloatColObj readFloatCol( CFBamValuePKey pkey );
+	IYCFBamFloatColObj readFloatCol( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a FloatCol-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamFloatColTableObj
 	 *	@return	The FloatCol-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamFloatColObj readFloatCol( CFBamValuePKey pkey,
+	IYCFBamFloatColObj readFloatCol( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamFloatColObj readCachedFloatCol( CFBamValuePKey pkey );
+	IYCFBamFloatColObj readCachedFloatCol( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeFloatCol( ICFBamFloatColObj obj );
+	public void reallyDeepDisposeFloatCol( IYCFBamFloatColObj obj );
 
-	void deepDisposeFloatCol( CFBamValuePKey pkey );
+	void deepDisposeFloatCol( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamFloatColObj lockFloatCol( CFBamValuePKey pkey );
+	IYCFBamFloatColObj lockFloatCol( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the FloatCol-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamFloatColObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamFloatColObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamFloatColObj> readAllFloatCol();
+	List<IYCFBamFloatColObj> readAllFloatCol();
 
 	/**
 	 *	Return a sorted map of all the FloatCol-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamFloatColObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamFloatColObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamFloatColObj> readAllFloatCol( boolean forceRead );
+	List<IYCFBamFloatColObj> readAllFloatCol( boolean forceRead );
 
-	List<ICFBamFloatColObj> readCachedAllFloatCol();
+	List<IYCFBamFloatColObj> readCachedAllFloatCol();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamFloatColObj readFloatColByIdIdx( long TenantId,
+	IYCFBamFloatColObj readFloatColByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamFloatColObj readFloatColByIdIdx( long TenantId,
+	IYCFBamFloatColObj readFloatColByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@param	argName	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamFloatColObj readFloatColByUNameIdx( long TenantId,
+	IYCFBamFloatColObj readFloatColByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@param	argName	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamFloatColObj readFloatColByUNameIdx( long TenantId,
+	IYCFBamFloatColObj readFloatColByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByValTentIdx( long TenantId );
+	List<IYCFBamFloatColObj> readFloatColByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByValTentIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByScopeIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByScopeIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamFloatColObj> readFloatColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamFloatColObj> readFloatColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByPrevIdx( Long PrevTenantId,
+	List<IYCFBamFloatColObj> readFloatColByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByPrevIdx( Long PrevTenantId,
+	List<IYCFBamFloatColObj> readFloatColByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByNextIdx( Long NextTenantId,
+	List<IYCFBamFloatColObj> readFloatColByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByNextIdx( Long NextTenantId,
+	List<IYCFBamFloatColObj> readFloatColByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@param	argPrevId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByContPrevIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@param	argPrevId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByContPrevIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@param	argNextId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByContNextIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@param	argNextId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByContNextIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamFloatColObj> readFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamFloatColObj> readFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@param	argCodeVis	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
@@ -446,77 +446,77 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@param	argCodeVis	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate TableIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate TableIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate TableIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByTableIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByTableIdx( long TenantId,
 		long TableId );
 
 	/**
-	 *	Get the map of CFBamFloatColObj instances sorted by their primary keys for the duplicate TableIdx key.
+	 *	Get the map of YCFBamFloatColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The FloatCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The FloatCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamFloatColObj cached instances sorted by their primary keys for the duplicate TableIdx key,
+	 *	@return	List of YCFBamFloatColObj cached instances sorted by their primary keys for the duplicate TableIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamFloatColObj> readFloatColByTableIdx( long TenantId,
+	List<IYCFBamFloatColObj> readFloatColByTableIdx( long TenantId,
 		long TableId,
 		boolean forceRead );
 
-	ICFBamFloatColObj readCachedFloatColByIdIdx( long TenantId,
+	IYCFBamFloatColObj readCachedFloatColByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamFloatColObj readCachedFloatColByUNameIdx( long TenantId,
+	IYCFBamFloatColObj readCachedFloatColByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamFloatColObj> readCachedFloatColByValTentIdx( long TenantId );
+	List<IYCFBamFloatColObj> readCachedFloatColByValTentIdx( long TenantId );
 
-	List<ICFBamFloatColObj> readCachedFloatColByScopeIdx( long TenantId,
+	List<IYCFBamFloatColObj> readCachedFloatColByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamFloatColObj> readCachedFloatColByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamFloatColObj> readCachedFloatColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamFloatColObj> readCachedFloatColByPrevIdx( Long PrevTenantId,
+	List<IYCFBamFloatColObj> readCachedFloatColByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamFloatColObj> readCachedFloatColByNextIdx( Long NextTenantId,
+	List<IYCFBamFloatColObj> readCachedFloatColByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamFloatColObj> readCachedFloatColByContPrevIdx( long TenantId,
+	List<IYCFBamFloatColObj> readCachedFloatColByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamFloatColObj> readCachedFloatColByContNextIdx( long TenantId,
+	List<IYCFBamFloatColObj> readCachedFloatColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamFloatColObj> readCachedFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamFloatColObj> readCachedFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamFloatColObj> readCachedFloatColByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamFloatColObj> readCachedFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamFloatColObj> readCachedFloatColByTableIdx( long TenantId,
+	List<IYCFBamFloatColObj> readCachedFloatColByTableIdx( long TenantId,
 		long TableId );
 
 	void deepDisposeFloatColByIdIdx( long TenantId,
@@ -548,11 +548,11 @@ public interface ICFBamFloatColTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeFloatColByTableIdx( long TenantId,
 		long TableId );
@@ -560,12 +560,12 @@ public interface ICFBamFloatColTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamFloatColObj updateFloatCol( ICFBamFloatColObj Obj );
+	IYCFBamFloatColObj updateFloatCol( IYCFBamFloatColObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteFloatCol( ICFBamFloatColObj Obj );
+	void deleteFloatCol( IYCFBamFloatColObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -668,7 +668,7 @@ public interface ICFBamFloatColTableObj
 	 *
 	 *	@param	argCodeVis	The FloatCol key attribute of the instance generating the id.
 	 */
-	void deleteFloatColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteFloatColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -681,7 +681,7 @@ public interface ICFBamFloatColTableObj
 	 */
 	void deleteFloatColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -694,16 +694,16 @@ public interface ICFBamFloatColTableObj
 		long TableId );
 
 	/**
-	 *	Move the CFBamFloatColObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamFloatColObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamFloatColObj refreshed cache instance.
+	 *	@return	YCFBamFloatColObj refreshed cache instance.
 	 */
-	ICFBamFloatColObj moveUpFloatCol( ICFBamFloatColObj Obj );
+	IYCFBamFloatColObj moveUpFloatCol( IYCFBamFloatColObj Obj );
 
 	/**
-	 *	Move the CFBamFloatColObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamFloatColObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamFloatColObj refreshed cache instance.
+	 *	@return	YCFBamFloatColObj refreshed cache instance.
 	 */
-	ICFBamFloatColObj moveDownFloatCol( ICFBamFloatColObj Obj );
+	IYCFBamFloatColObj moveDownFloatCol( IYCFBamFloatColObj Obj );
 }

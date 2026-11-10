@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelSwitch.
+// Description: Java 11 Object interface for YCFGenKb GelSwitch.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,44 +27,44 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
 
-public interface ICFGenKbGelSwitchObj
-	extends ICFGenKbGelInstructionObj
+public interface IYCFGenKbGelSwitchObj
+	extends IYCFGenKbGelInstructionObj
 {
 	/**
-	 *	Get the current edition of this GelSwitch instance as a ICFGenKbGelSwitchEditObj.
+	 *	Get the current edition of this GelSwitch instance as a IYCFGenKbGelSwitchEditObj.
 	 *
-	 *	@return	The ICFGenKbGelSwitchEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelSwitchEditObj edition of this instance.
 	 */
-	ICFGenKbGelSwitchEditObj getEditAsGelSwitch();
+	IYCFGenKbGelSwitchEditObj getEditAsGelSwitch();
 
 	/**
-	 *	Get the ICFGenKbGelSwitchTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelSwitchTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelSwitchTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelSwitchTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelSwitchTableObj getGelSwitchTable();
+	IYCFGenKbGelSwitchTableObj getGelSwitchTable();
 
 	/**
-	 *	Get the CFGenKbGelSwitchBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelSwitchBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelSwitchBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelSwitchBuff instance which currently backs this object.
 	 */
-	CFGenKbGelSwitchBuff getGelSwitchBuff();
+	YCFGenKbGelSwitchBuff getGelSwitchBuff();
 
 	/**
 	 *	Get the required String attribute ValueExpansion.
@@ -95,17 +95,17 @@ public interface ICFGenKbGelSwitchObj
 	String getRequiredDefaultExpansion();
 
 	/**
-	 *	Get the array of optional ICFGenKbGelSwitchLimbObj array of instances referenced by the SwitchLimb key.
+	 *	Get the array of optional IYCFGenKbGelSwitchLimbObj array of instances referenced by the SwitchLimb key.
 	 *
-	 *	@return	The optional ICFGenKbGelSwitchLimbObj[] array of instances referenced by the SwitchLimb key.
+	 *	@return	The optional IYCFGenKbGelSwitchLimbObj[] array of instances referenced by the SwitchLimb key.
 	 */
-	List<ICFGenKbGelSwitchLimbObj> getOptionalChildrenSwitchLimb();
+	List<IYCFGenKbGelSwitchLimbObj> getOptionalChildrenSwitchLimb();
 
 	/**
-	 *	Get the array of optional ICFGenKbGelSwitchLimbObj array of instances referenced by the SwitchLimb key.
+	 *	Get the array of optional IYCFGenKbGelSwitchLimbObj array of instances referenced by the SwitchLimb key.
 	 *
-	 *	@return	The optional ICFGenKbGelSwitchLimbObj[] array of instances referenced by the SwitchLimb key.
+	 *	@return	The optional IYCFGenKbGelSwitchLimbObj[] array of instances referenced by the SwitchLimb key.
 	 */
-	List<ICFGenKbGelSwitchLimbObj> getOptionalChildrenSwitchLimb( boolean forceRead );
+	List<IYCFGenKbGelSwitchLimbObj> getOptionalChildrenSwitchLimb( boolean forceRead );
 
 }

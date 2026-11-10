@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for Index.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamIndexTable database interface for Index
+ *	YCFBamIndexTable database interface for Index
  */
-public interface ICFBamIndexTable
+public interface IYCFBamIndexTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createIndex( CFSecAuthorization Authorization,
-		CFBamIndexBuff Buff );
+	void createIndex( YCFSecAuthorization Authorization,
+		YCFBamIndexBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateIndex( CFSecAuthorization Authorization,
-		CFBamIndexBuff Buff );
+	void updateIndex( YCFSecAuthorization Authorization,
+		YCFBamIndexBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteIndex( CFSecAuthorization Authorization,
-		CFBamIndexBuff Buff );
+	void deleteIndex( YCFSecAuthorization Authorization,
+		YCFBamIndexBuff Buff );
 	/**
 	 *	Delete the Index instances identified by the key UNameIdx.
 	 *
@@ -112,7 +112,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argName	The Index key attribute of the instance generating the id.
 	 */
-	void deleteIndexByUNameIdx( CFSecAuthorization Authorization,
+	void deleteIndexByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
 		String argName );
@@ -124,8 +124,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexByUNameIdx( CFSecAuthorization Authorization,
-		CFBamIndexByUNameIdxKey argKey );
+	void deleteIndexByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexByUNameIdxKey argKey );
 	/**
 	 *	Delete the Index instances identified by the key IndexTenantIdx.
 	 *
@@ -133,7 +133,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argTenantId	The Index key attribute of the instance generating the id.
 	 */
-	void deleteIndexByIndexTenantIdx( CFSecAuthorization Authorization,
+	void deleteIndexByIndexTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -143,8 +143,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexByIndexTenantIdx( CFSecAuthorization Authorization,
-		CFBamIndexByIndexTenantIdxKey argKey );
+	void deleteIndexByIndexTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexByIndexTenantIdxKey argKey );
 	/**
 	 *	Delete the Index instances identified by the key IdxTableIdx.
 	 *
@@ -154,7 +154,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argTableId	The Index key attribute of the instance generating the id.
 	 */
-	void deleteIndexByIdxTableIdx( CFSecAuthorization Authorization,
+	void deleteIndexByIdxTableIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId );
 
@@ -165,8 +165,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexByIdxTableIdx( CFSecAuthorization Authorization,
-		CFBamIndexByIdxTableIdxKey argKey );
+	void deleteIndexByIdxTableIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexByIdxTableIdxKey argKey );
 	/**
 	 *	Delete the Index instances identified by the key CodeVisIdx.
 	 *
@@ -174,8 +174,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argCodeVis	The Index key attribute of the instance generating the id.
 	 */
-	void deleteIndexByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteIndexByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the Index instances identified by the key CodeVisIdx.
@@ -184,8 +184,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamIndexByCodeVisIdxKey argKey );
+	void deleteIndexByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the Index instances identified by the key TableCodeVisIdx.
 	 *
@@ -197,10 +197,10 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argCodeVis	The Index key attribute of the instance generating the id.
 	 */
-	void deleteIndexByTableCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteIndexByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the Index instances identified by the key TableCodeVisIdx.
@@ -209,8 +209,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexByTableCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamIndexByTableCodeVisIdxKey argKey );
+	void deleteIndexByTableCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexByTableCodeVisIdxKey argKey );
 	/**
 	 *	Delete the Index instances identified by the key DefSchemaIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argDefSchemaId	The Index key attribute of the instance generating the id.
 	 */
-	void deleteIndexByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteIndexByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -231,8 +231,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamIndexByDefSchemaIdxKey argKey );
+	void deleteIndexByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the Index instance identified by the primary key attributes.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argId	The Index key attribute of the instance generating the id.
 	 */
-	void deleteIndexByIdIdx( CFSecAuthorization Authorization,
+	void deleteIndexByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -253,8 +253,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteIndexByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey );
+	void deleteIndexByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey );
 	/**
 	 *	Delete the Index instances identified by the key TenantIdx.
 	 *
@@ -262,7 +262,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argTenantId	The Index key attribute of the instance generating the id.
 	 */
-	void deleteIndexByTenantIdx( CFSecAuthorization Authorization,
+	void deleteIndexByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -272,8 +272,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey );
+	void deleteIndexByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey );
 
 
 	/**
@@ -286,8 +286,8 @@ public interface ICFBamIndexTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexBuff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamIndexBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the derived Index buffer instance by primary key.
@@ -299,8 +299,8 @@ public interface ICFBamIndexTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamIndexBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all Index instances.
@@ -309,7 +309,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamIndexBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamIndexBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived Index buffer instance identified by the unique key IdIdx.
@@ -323,7 +323,7 @@ public interface ICFBamIndexTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -336,7 +336,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -353,7 +353,7 @@ public interface ICFBamIndexTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name );
@@ -367,7 +367,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexBuff[] readDerivedByIndexTenantIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readDerivedByIndexTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -381,7 +381,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexBuff[] readDerivedByIdxTableIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readDerivedByIdxTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -394,8 +394,8 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamIndexBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived Index buffer instances identified by the duplicate key TableCodeVisIdx.
@@ -410,10 +410,10 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexBuff[] readDerivedByTableCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readDerivedByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived Index buffer instances identified by the duplicate key DefSchemaIdx.
@@ -426,7 +426,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -440,10 +440,10 @@ public interface ICFBamIndexTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamIndexBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the specific Index buffer instance identified by the primary key.
@@ -455,10 +455,10 @@ public interface ICFBamIndexTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamIndexBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all the specific Index buffer instances.
@@ -467,7 +467,7 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return All the specific Index instances in the database accessible for the Authorization.
 	 */
-	CFBamIndexBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamIndexBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific Index buffer instance identified by the unique key IdIdx.
@@ -481,9 +481,9 @@ public interface ICFBamIndexTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -496,9 +496,9 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -515,9 +515,9 @@ public interface ICFBamIndexTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name );
@@ -531,9 +531,9 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff[] readBuffByIndexTenantIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readBuffByIndexTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -547,9 +547,9 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff[] readBuffByIdxTableIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readBuffByIdxTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -562,10 +562,10 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamIndexBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Index buffer instances identified by the duplicate key TableCodeVisIdx.
@@ -580,12 +580,12 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff[] readBuffByTableCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readBuffByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Index buffer instances identified by the duplicate key DefSchemaIdx.
@@ -598,16 +598,16 @@ public interface ICFBamIndexTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamIndexBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

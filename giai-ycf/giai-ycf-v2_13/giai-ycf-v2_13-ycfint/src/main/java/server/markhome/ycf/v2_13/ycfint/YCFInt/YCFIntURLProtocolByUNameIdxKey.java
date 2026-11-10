@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a URLProtocol by UNameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,17 +36,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntURLProtocolByUNameIdxKey
+public class YCFIntURLProtocolByUNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String requiredName;
-	public CFIntURLProtocolByUNameIdxKey() {
-		requiredName = new String( CFIntURLProtocolBuff.NAME_INIT_VALUE );
+	public YCFIntURLProtocolByUNameIdxKey() {
+		requiredName = new String( YCFIntURLProtocolBuff.NAME_INIT_VALUE );
 	}
 
 	public String getRequiredName() {
@@ -55,13 +55,13 @@ public class CFIntURLProtocolByUNameIdxKey
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -75,15 +75,15 @@ public class CFIntURLProtocolByUNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntURLProtocolByUNameIdxKey ) {
-			CFIntURLProtocolByUNameIdxKey rhs = (CFIntURLProtocolByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntURLProtocolByUNameIdxKey ) {
+			YCFIntURLProtocolByUNameIdxKey rhs = (YCFIntURLProtocolByUNameIdxKey)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolBuff ) {
-			CFIntURLProtocolBuff rhs = (CFIntURLProtocolBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolBuff ) {
+			YCFIntURLProtocolBuff rhs = (YCFIntURLProtocolBuff)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
@@ -106,8 +106,8 @@ public class CFIntURLProtocolByUNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFIntURLProtocolByUNameIdxKey ) {
-			CFIntURLProtocolByUNameIdxKey rhs = (CFIntURLProtocolByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntURLProtocolByUNameIdxKey ) {
+			YCFIntURLProtocolByUNameIdxKey rhs = (YCFIntURLProtocolByUNameIdxKey)obj;
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
 				if( cmp != 0 ) {
@@ -116,8 +116,8 @@ public class CFIntURLProtocolByUNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolBuff ) {
-			CFIntURLProtocolBuff rhs = (CFIntURLProtocolBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolBuff ) {
+			YCFIntURLProtocolBuff rhs = (YCFIntURLProtocolBuff)obj;
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
 				if( cmp != 0 ) {
@@ -127,7 +127,7 @@ public class CFIntURLProtocolByUNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -136,8 +136,8 @@ public class CFIntURLProtocolByUNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFIntURLProtocolByUNameIdx"
-			+ " RequiredName=" + "\"" + CFIntSchema.xmlEncodeString( getRequiredName() ) + "\""
+		String ret = "<YCFIntURLProtocolByUNameIdx"
+			+ " RequiredName=" + "\"" + YCFIntSchema.xmlEncodeString( getRequiredName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

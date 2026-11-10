@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a Relation buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamRelationBuff
-	extends CFBamScopeBuff
+public class YCFBamRelationBuff
+	extends YCFBamScopeBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -72,7 +72,7 @@ public class CFBamRelationBuff
 	public static final long DEFSCHEMATENANTID_INIT_VALUE = 0L;
 	public static final long DEFSCHEMAID_INIT_VALUE = 0L;
 	public static final String NAME_INIT_VALUE = new String( "" );
-	public static final ICFBamSchema.RelationTypeEnum RELATIONTYPE_INIT_VALUE = CFBamSchema.ordinalToRelationTypeEnum( 0 );
+	public static final IYCFBamSchema.RelationTypeEnum RELATIONTYPE_INIT_VALUE = YCFBamSchema.ordinalToRelationTypeEnum( 0 );
 	public static final long FROMINDEXID_INIT_VALUE = 0L;
 	public static final long TOTABLEID_INIT_VALUE = 0L;
 	public static final long TOINDEXID_INIT_VALUE = 0L;
@@ -82,21 +82,21 @@ public class CFBamRelationBuff
 	public final static boolean ALLOWADDENDUM_INIT_VALUE = false;
 	public static final long NARROWEDTENANTID_INIT_VALUE = 0L;
 	public static final long NARROWEDID_INIT_VALUE = 0L;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = CFBamSchema.ordinalToCodeVisibilityEnum( 0 );
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = YCFBamSchema.ordinalToCodeVisibilityEnum( 0 );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long TABLEID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
 	public static final long DEFSCHEMATENANTID_MIN_VALUE = 0L;
 	public static final long DEFSCHEMAID_MIN_VALUE = 0L;
-	public static final ICFBamSchema.RelationTypeEnum RELATIONTYPE_MIN_VALUE = ICFBamSchema.RelationTypeEnum.Unknown;
+	public static final IYCFBamSchema.RelationTypeEnum RELATIONTYPE_MIN_VALUE = IYCFBamSchema.RelationTypeEnum.Unknown;
 	public static final long FROMINDEXID_MIN_VALUE = 0L;
 	public static final long TOTABLEID_MIN_VALUE = 0L;
 	public static final long TOINDEXID_MIN_VALUE = 0L;
 	public static final long NARROWEDTENANTID_MIN_VALUE = 0L;
 	public static final long NARROWEDID_MIN_VALUE = 0L;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = ICFBamSchema.CodeVisibilityEnum.Public;
-	public static final ICFBamSchema.RelationTypeEnum RELATIONTYPE_MAX_VALUE = ICFBamSchema.RelationTypeEnum.Children;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = ICFBamSchema.CodeVisibilityEnum.Private;
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = IYCFBamSchema.CodeVisibilityEnum.Public;
+	public static final IYCFBamSchema.RelationTypeEnum RELATIONTYPE_MAX_VALUE = IYCFBamSchema.RelationTypeEnum.Children;
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = IYCFBamSchema.CodeVisibilityEnum.Private;
 	protected long requiredTableId;
 	protected Long optionalDefSchemaTenantId;
 	protected Long optionalDefSchemaId;
@@ -105,7 +105,7 @@ public class CFBamRelationBuff
 	protected String optionalLabel;
 	protected String optionalShortDescription;
 	protected String optionalDescription;
-	protected ICFBamSchema.RelationTypeEnum requiredRelationType;
+	protected IYCFBamSchema.RelationTypeEnum requiredRelationType;
 	protected String optionalDbName;
 	protected String optionalSuffix;
 	protected long requiredFromIndexId;
@@ -117,30 +117,30 @@ public class CFBamRelationBuff
 	protected boolean requiredAllowAddendum;
 	protected Long optionalNarrowedTenantId;
 	protected Long optionalNarrowedId;
-	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
-	public CFBamRelationBuff() {
+	protected IYCFBamSchema.CodeVisibilityEnum requiredCodeVis;
+	public YCFBamRelationBuff() {
 		super();
-		requiredTableId = CFBamRelationBuff.TABLEID_INIT_VALUE;
+		requiredTableId = YCFBamRelationBuff.TABLEID_INIT_VALUE;
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
-		requiredName = new String( CFBamRelationBuff.NAME_INIT_VALUE );
+		requiredName = new String( YCFBamRelationBuff.NAME_INIT_VALUE );
 		optionalShortName = null;
 		optionalLabel = null;
 		optionalShortDescription = null;
 		optionalDescription = null;
-		requiredRelationType = CFBamRelationBuff.RELATIONTYPE_INIT_VALUE;
+		requiredRelationType = YCFBamRelationBuff.RELATIONTYPE_INIT_VALUE;
 		optionalDbName = null;
 		optionalSuffix = null;
-		requiredFromIndexId = CFBamRelationBuff.FROMINDEXID_INIT_VALUE;
-		requiredToTableId = CFBamRelationBuff.TOTABLEID_INIT_VALUE;
-		requiredToIndexId = CFBamRelationBuff.TOINDEXID_INIT_VALUE;
-		requiredIsRequired = CFBamRelationBuff.ISREQUIRED_INIT_VALUE;
-		requiredIsXsdContainer = CFBamRelationBuff.ISXSDCONTAINER_INIT_VALUE;
-		requiredIsLateResolver = CFBamRelationBuff.ISLATERESOLVER_INIT_VALUE;
-		requiredAllowAddendum = CFBamRelationBuff.ALLOWADDENDUM_INIT_VALUE;
+		requiredFromIndexId = YCFBamRelationBuff.FROMINDEXID_INIT_VALUE;
+		requiredToTableId = YCFBamRelationBuff.TOTABLEID_INIT_VALUE;
+		requiredToIndexId = YCFBamRelationBuff.TOINDEXID_INIT_VALUE;
+		requiredIsRequired = YCFBamRelationBuff.ISREQUIRED_INIT_VALUE;
+		requiredIsXsdContainer = YCFBamRelationBuff.ISXSDCONTAINER_INIT_VALUE;
+		requiredIsLateResolver = YCFBamRelationBuff.ISLATERESOLVER_INIT_VALUE;
+		requiredAllowAddendum = YCFBamRelationBuff.ALLOWADDENDUM_INIT_VALUE;
 		optionalNarrowedTenantId = null;
 		optionalNarrowedId = null;
-		requiredCodeVis = CFBamRelationBuff.CODEVIS_INIT_VALUE;
+		requiredCodeVis = YCFBamRelationBuff.CODEVIS_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -152,13 +152,13 @@ public class CFBamRelationBuff
 	}
 
 	public void setRequiredTableId( long value ) {
-		if( value < CFBamRelationBuff.TABLEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamRelationBuff.TABLEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTableId",
 				1,
 				"value",
 				value,
-				CFBamRelationBuff.TABLEID_MIN_VALUE );
+				YCFBamRelationBuff.TABLEID_MIN_VALUE );
 		}
 		requiredTableId = value;
 	}
@@ -171,13 +171,13 @@ public class CFBamRelationBuff
 		if( value == null ) {
 			optionalDefSchemaTenantId = null;
 		}
-		else if( value < CFBamRelationBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamRelationBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaTenantId",
 				1,
 				"value",
 				value,
-				CFBamRelationBuff.DEFSCHEMATENANTID_MIN_VALUE );
+				YCFBamRelationBuff.DEFSCHEMATENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaTenantId = value;
@@ -192,13 +192,13 @@ public class CFBamRelationBuff
 		if( value == null ) {
 			optionalDefSchemaId = null;
 		}
-		else if( value < CFBamRelationBuff.DEFSCHEMAID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamRelationBuff.DEFSCHEMAID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaId",
 				1,
 				"value",
 				value,
-				CFBamRelationBuff.DEFSCHEMAID_MIN_VALUE );
+				YCFBamRelationBuff.DEFSCHEMAID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaId = value;
@@ -211,13 +211,13 @@ public class CFBamRelationBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -236,7 +236,7 @@ public class CFBamRelationBuff
 			optionalShortName = null;
 		}
 		else if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortName",
 				1,
 				"value.length()",
@@ -257,7 +257,7 @@ public class CFBamRelationBuff
 			optionalLabel = null;
 		}
 		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalLabel",
 				1,
 				"value.length()",
@@ -278,7 +278,7 @@ public class CFBamRelationBuff
 			optionalShortDescription = null;
 		}
 		else if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortDescription",
 				1,
 				"value.length()",
@@ -299,7 +299,7 @@ public class CFBamRelationBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1023 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -311,13 +311,13 @@ public class CFBamRelationBuff
 		}
 	}
 
-	public ICFBamSchema.RelationTypeEnum getRequiredRelationType() {
+	public IYCFBamSchema.RelationTypeEnum getRequiredRelationType() {
 		return( requiredRelationType );
 	}
 
-	public void setRequiredRelationType( ICFBamSchema.RelationTypeEnum value ) {
+	public void setRequiredRelationType( IYCFBamSchema.RelationTypeEnum value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredRelationType",
 				1,
 				"value" );
@@ -334,7 +334,7 @@ public class CFBamRelationBuff
 			optionalDbName = null;
 		}
 		else if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDbName",
 				1,
 				"value.length()",
@@ -355,7 +355,7 @@ public class CFBamRelationBuff
 			optionalSuffix = null;
 		}
 		else if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalSuffix",
 				1,
 				"value.length()",
@@ -372,13 +372,13 @@ public class CFBamRelationBuff
 	}
 
 	public void setRequiredFromIndexId( long value ) {
-		if( value < CFBamRelationBuff.FROMINDEXID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamRelationBuff.FROMINDEXID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredFromIndexId",
 				1,
 				"value",
 				value,
-				CFBamRelationBuff.FROMINDEXID_MIN_VALUE );
+				YCFBamRelationBuff.FROMINDEXID_MIN_VALUE );
 		}
 		requiredFromIndexId = value;
 	}
@@ -388,13 +388,13 @@ public class CFBamRelationBuff
 	}
 
 	public void setRequiredToTableId( long value ) {
-		if( value < CFBamRelationBuff.TOTABLEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamRelationBuff.TOTABLEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredToTableId",
 				1,
 				"value",
 				value,
-				CFBamRelationBuff.TOTABLEID_MIN_VALUE );
+				YCFBamRelationBuff.TOTABLEID_MIN_VALUE );
 		}
 		requiredToTableId = value;
 	}
@@ -404,13 +404,13 @@ public class CFBamRelationBuff
 	}
 
 	public void setRequiredToIndexId( long value ) {
-		if( value < CFBamRelationBuff.TOINDEXID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamRelationBuff.TOINDEXID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredToIndexId",
 				1,
 				"value",
 				value,
-				CFBamRelationBuff.TOINDEXID_MIN_VALUE );
+				YCFBamRelationBuff.TOINDEXID_MIN_VALUE );
 		}
 		requiredToIndexId = value;
 	}
@@ -455,13 +455,13 @@ public class CFBamRelationBuff
 		if( value == null ) {
 			optionalNarrowedTenantId = null;
 		}
-		else if( value < CFBamRelationBuff.NARROWEDTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamRelationBuff.NARROWEDTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNarrowedTenantId",
 				1,
 				"value",
 				value,
-				CFBamRelationBuff.NARROWEDTENANTID_MIN_VALUE );
+				YCFBamRelationBuff.NARROWEDTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalNarrowedTenantId = value;
@@ -476,26 +476,26 @@ public class CFBamRelationBuff
 		if( value == null ) {
 			optionalNarrowedId = null;
 		}
-		else if( value < CFBamRelationBuff.NARROWEDID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamRelationBuff.NARROWEDID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNarrowedId",
 				1,
 				"value",
 				value,
-				CFBamRelationBuff.NARROWEDID_MIN_VALUE );
+				YCFBamRelationBuff.NARROWEDID_MIN_VALUE );
 		}
 		else {
 			optionalNarrowedId = value;
 		}
 	}
 
-	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+	public IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
 		return( requiredCodeVis );
 	}
 
-	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+	public void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredCodeVis",
 				1,
 				"value" );
@@ -507,8 +507,8 @@ public class CFBamRelationBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamRelationBuff ) {
-			CFBamRelationBuff rhs = (CFBamRelationBuff)obj;
+		else if( obj instanceof YCFBamRelationBuff ) {
+			YCFBamRelationBuff rhs = (YCFBamRelationBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -670,8 +670,8 @@ public class CFBamRelationBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamScopePKey ) {
-			CFBamScopePKey rhs = (CFBamScopePKey)obj;
+		else if( obj instanceof YCFBamScopePKey ) {
+			YCFBamScopePKey rhs = (YCFBamScopePKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -680,8 +680,8 @@ public class CFBamRelationBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationHBuff ) {
-			CFBamRelationHBuff rhs = (CFBamRelationHBuff)obj;
+		else if( obj instanceof YCFBamRelationHBuff ) {
+			YCFBamRelationHBuff rhs = (YCFBamRelationHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -843,8 +843,8 @@ public class CFBamRelationBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamScopeHPKey ) {
-			CFBamScopeHPKey rhs = (CFBamScopeHPKey)obj;
+		else if( obj instanceof YCFBamScopeHPKey ) {
+			YCFBamScopeHPKey rhs = (YCFBamScopeHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -853,8 +853,8 @@ public class CFBamRelationBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationByUNameIdxKey ) {
-			CFBamRelationByUNameIdxKey rhs = (CFBamRelationByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByUNameIdxKey ) {
+			YCFBamRelationByUNameIdxKey rhs = (YCFBamRelationByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -866,45 +866,45 @@ public class CFBamRelationBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationByRelnTenantIdxKey ) {
-			CFBamRelationByRelnTenantIdxKey rhs = (CFBamRelationByRelnTenantIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByRelnTenantIdxKey ) {
+			YCFBamRelationByRelnTenantIdxKey rhs = (YCFBamRelationByRelnTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationByRelTableIdxKey ) {
-			CFBamRelationByRelTableIdxKey rhs = (CFBamRelationByRelTableIdxKey)obj;
-			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
-				return( false );
-			}
-			if( getRequiredTableId() != rhs.getRequiredTableId() ) {
-				return( false );
-			}
-			return( true );
-		}
-		else if( obj instanceof CFBamRelationByCodeVisIdxKey ) {
-			CFBamRelationByCodeVisIdxKey rhs = (CFBamRelationByCodeVisIdxKey)obj;
-			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
-				return( false );
-			}
-			return( true );
-		}
-		else if( obj instanceof CFBamRelationByTableCodeVisIdxKey ) {
-			CFBamRelationByTableCodeVisIdxKey rhs = (CFBamRelationByTableCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByRelTableIdxKey ) {
+			YCFBamRelationByRelTableIdxKey rhs = (YCFBamRelationByRelTableIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			if( getRequiredTableId() != rhs.getRequiredTableId() ) {
 				return( false );
 			}
+			return( true );
+		}
+		else if( obj instanceof YCFBamRelationByCodeVisIdxKey ) {
+			YCFBamRelationByCodeVisIdxKey rhs = (YCFBamRelationByCodeVisIdxKey)obj;
 			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationByDefSchemaIdxKey ) {
-			CFBamRelationByDefSchemaIdxKey rhs = (CFBamRelationByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByTableCodeVisIdxKey ) {
+			YCFBamRelationByTableCodeVisIdxKey rhs = (YCFBamRelationByTableCodeVisIdxKey)obj;
+			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
+				return( false );
+			}
+			if( getRequiredTableId() != rhs.getRequiredTableId() ) {
+				return( false );
+			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof YCFBamRelationByDefSchemaIdxKey ) {
+			YCFBamRelationByDefSchemaIdxKey rhs = (YCFBamRelationByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
 				if( rhs.getOptionalDefSchemaTenantId() != null ) {
 					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
@@ -931,8 +931,8 @@ public class CFBamRelationBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationByFromKeyIdxKey ) {
-			CFBamRelationByFromKeyIdxKey rhs = (CFBamRelationByFromKeyIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByFromKeyIdxKey ) {
+			YCFBamRelationByFromKeyIdxKey rhs = (YCFBamRelationByFromKeyIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -941,8 +941,8 @@ public class CFBamRelationBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationByToTblIdxKey ) {
-			CFBamRelationByToTblIdxKey rhs = (CFBamRelationByToTblIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByToTblIdxKey ) {
+			YCFBamRelationByToTblIdxKey rhs = (YCFBamRelationByToTblIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -951,8 +951,8 @@ public class CFBamRelationBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationByToKeyIdxKey ) {
-			CFBamRelationByToKeyIdxKey rhs = (CFBamRelationByToKeyIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByToKeyIdxKey ) {
+			YCFBamRelationByToKeyIdxKey rhs = (YCFBamRelationByToKeyIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -961,8 +961,8 @@ public class CFBamRelationBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRelationByNarrowedIdxKey ) {
-			CFBamRelationByNarrowedIdxKey rhs = (CFBamRelationByNarrowedIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByNarrowedIdxKey ) {
+			YCFBamRelationByNarrowedIdxKey rhs = (YCFBamRelationByNarrowedIdxKey)obj;
 			if( getOptionalNarrowedTenantId() != null ) {
 				if( rhs.getOptionalNarrowedTenantId() != null ) {
 					if( ! getOptionalNarrowedTenantId().equals( rhs.getOptionalNarrowedTenantId() ) ) {
@@ -1067,8 +1067,8 @@ public class CFBamRelationBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamRelationBuff ) {
-			CFBamRelationBuff rhs = (CFBamRelationBuff)obj;
+		else if( obj instanceof YCFBamRelationBuff ) {
+			YCFBamRelationBuff rhs = (YCFBamRelationBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -1325,8 +1325,8 @@ public class CFBamRelationBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamScopePKey ) {
-			CFBamScopePKey rhs = (CFBamScopePKey)obj;
+		else if( obj instanceof YCFBamScopePKey ) {
+			YCFBamScopePKey rhs = (YCFBamScopePKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -1341,8 +1341,8 @@ public class CFBamRelationBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamScopeHPKey ) {
-			CFBamScopeHPKey rhs = (CFBamScopeHPKey)obj;
+		else if( obj instanceof YCFBamScopeHPKey ) {
+			YCFBamScopeHPKey rhs = (YCFBamScopeHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -1367,8 +1367,8 @@ public class CFBamRelationBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationHBuff ) {
-			CFBamRelationHBuff rhs = (CFBamRelationHBuff)obj;
+		else if( obj instanceof YCFBamRelationHBuff ) {
+			YCFBamRelationHBuff rhs = (YCFBamRelationHBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -1625,8 +1625,8 @@ public class CFBamRelationBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationByUNameIdxKey ) {
-			CFBamRelationByUNameIdxKey rhs = (CFBamRelationByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByUNameIdxKey ) {
+			YCFBamRelationByUNameIdxKey rhs = (YCFBamRelationByUNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1647,8 +1647,8 @@ public class CFBamRelationBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationByRelnTenantIdxKey ) {
-			CFBamRelationByRelnTenantIdxKey rhs = (CFBamRelationByRelnTenantIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByRelnTenantIdxKey ) {
+			YCFBamRelationByRelnTenantIdxKey rhs = (YCFBamRelationByRelnTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1657,34 +1657,8 @@ public class CFBamRelationBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationByRelTableIdxKey ) {
-			CFBamRelationByRelTableIdxKey rhs = (CFBamRelationByRelTableIdxKey)obj;
-
-			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
-				return( -1 );
-			}
-			else if( getRequiredTenantId() > rhs.getRequiredTenantId() ) {
-				return( 1 );
-			}
-			if( getRequiredTableId() < rhs.getRequiredTableId() ) {
-				return( -1 );
-			}
-			else if( getRequiredTableId() > rhs.getRequiredTableId() ) {
-				return( 1 );
-			}			return( 0 );
-		}
-		else if( obj instanceof CFBamRelationByCodeVisIdxKey ) {
-			CFBamRelationByCodeVisIdxKey rhs = (CFBamRelationByCodeVisIdxKey)obj;
-
-			{
-				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
-				if( cmp != 0 ) {
-					return( cmp );
-				}
-			}			return( 0 );
-		}
-		else if( obj instanceof CFBamRelationByTableCodeVisIdxKey ) {
-			CFBamRelationByTableCodeVisIdxKey rhs = (CFBamRelationByTableCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByRelTableIdxKey ) {
+			YCFBamRelationByRelTableIdxKey rhs = (YCFBamRelationByRelTableIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1697,6 +1671,32 @@ public class CFBamRelationBuff
 			}
 			else if( getRequiredTableId() > rhs.getRequiredTableId() ) {
 				return( 1 );
+			}			return( 0 );
+		}
+		else if( obj instanceof YCFBamRelationByCodeVisIdxKey ) {
+			YCFBamRelationByCodeVisIdxKey rhs = (YCFBamRelationByCodeVisIdxKey)obj;
+
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}			return( 0 );
+		}
+		else if( obj instanceof YCFBamRelationByTableCodeVisIdxKey ) {
+			YCFBamRelationByTableCodeVisIdxKey rhs = (YCFBamRelationByTableCodeVisIdxKey)obj;
+
+			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTenantId() > rhs.getRequiredTenantId() ) {
+				return( 1 );
+			}
+			if( getRequiredTableId() < rhs.getRequiredTableId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTableId() > rhs.getRequiredTableId() ) {
+				return( 1 );
 			}
 			{
 				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
@@ -1705,8 +1705,8 @@ public class CFBamRelationBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationByDefSchemaIdxKey ) {
-			CFBamRelationByDefSchemaIdxKey rhs = (CFBamRelationByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByDefSchemaIdxKey ) {
+			YCFBamRelationByDefSchemaIdxKey rhs = (YCFBamRelationByDefSchemaIdxKey)obj;
 
 			if( getOptionalDefSchemaTenantId() != null ) {
 				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
@@ -1745,8 +1745,8 @@ public class CFBamRelationBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationByFromKeyIdxKey ) {
-			CFBamRelationByFromKeyIdxKey rhs = (CFBamRelationByFromKeyIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByFromKeyIdxKey ) {
+			YCFBamRelationByFromKeyIdxKey rhs = (YCFBamRelationByFromKeyIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1761,8 +1761,8 @@ public class CFBamRelationBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationByToTblIdxKey ) {
-			CFBamRelationByToTblIdxKey rhs = (CFBamRelationByToTblIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByToTblIdxKey ) {
+			YCFBamRelationByToTblIdxKey rhs = (YCFBamRelationByToTblIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1777,8 +1777,8 @@ public class CFBamRelationBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationByToKeyIdxKey ) {
-			CFBamRelationByToKeyIdxKey rhs = (CFBamRelationByToKeyIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByToKeyIdxKey ) {
+			YCFBamRelationByToKeyIdxKey rhs = (YCFBamRelationByToKeyIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1793,8 +1793,8 @@ public class CFBamRelationBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamRelationByNarrowedIdxKey ) {
-			CFBamRelationByNarrowedIdxKey rhs = (CFBamRelationByNarrowedIdxKey)obj;
+		else if( obj instanceof YCFBamRelationByNarrowedIdxKey ) {
+			YCFBamRelationByNarrowedIdxKey rhs = (YCFBamRelationByNarrowedIdxKey)obj;
 
 			if( getOptionalNarrowedTenantId() != null ) {
 				Long lhsNarrowedTenantId = getOptionalNarrowedTenantId();
@@ -1839,20 +1839,20 @@ public class CFBamRelationBuff
 		}
 	}
 
-	public void set( CFBamScopeBuff src ) {
-		if( src instanceof CFBamRelationBuff ) {
-			setRelationBuff( (CFBamRelationBuff)src );
+	public void set( YCFBamScopeBuff src ) {
+		if( src instanceof YCFBamRelationBuff ) {
+			setRelationBuff( (YCFBamRelationBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamRelationBuff" );
+				"YCFBamRelationBuff" );
 		}
 	}
 
-	public void setRelationBuff( CFBamRelationBuff src ) {
+	public void setRelationBuff( YCFBamRelationBuff src ) {
 		super.setScopeBuff( src );
 		setRequiredTableId( src.getRequiredTableId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
@@ -1877,20 +1877,20 @@ public class CFBamRelationBuff
 		setRequiredCodeVis( src.getRequiredCodeVis() );
 	}
 
-	public void set( CFBamScopeHBuff src ) {
-		if( src instanceof CFBamRelationHBuff ) {
-			setRelationBuff( (CFBamRelationHBuff)src );
+	public void set( YCFBamScopeHBuff src ) {
+		if( src instanceof YCFBamRelationHBuff ) {
+			setRelationBuff( (YCFBamRelationHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamRelationHBuff" );
+				"YCFBamRelationHBuff" );
 		}
 	}
 
-	public void setRelationBuff( CFBamRelationHBuff src ) {
+	public void setRelationBuff( YCFBamRelationHBuff src ) {
 		super.setScopeBuff( src );
 		setRequiredTableId( src.getRequiredTableId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );

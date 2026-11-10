@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a Chain history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,14 +55,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamChainHBuff
+public class YCFBamChainHBuff
 
-	extends CFBamHPKey	implements Comparable<Object>,
+	extends YCFBamHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final long TENANTID_INIT_VALUE = 0L;
@@ -100,27 +100,27 @@ public class CFBamChainHBuff
 	protected long requiredPrevRelationId;
 	protected long requiredNextRelationTenantId;
 	protected long requiredNextRelationId;
-	public CFBamChainHBuff() {
+	public YCFBamChainHBuff() {
 		super();
-		requiredTenantId = CFBamChainBuff.TENANTID_INIT_VALUE;
-		requiredId = CFBamChainBuff.ID_INIT_VALUE;
+		requiredTenantId = YCFBamChainBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFBamChainBuff.ID_INIT_VALUE;
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
-		requiredName = new String( CFBamChainBuff.NAME_INIT_VALUE );
+		requiredName = new String( YCFBamChainBuff.NAME_INIT_VALUE );
 		optionalShortName = null;
 		optionalLabel = null;
 		optionalShortDescription = null;
 		optionalDescription = null;
-		requiredTableId = CFBamChainBuff.TABLEID_INIT_VALUE;
+		requiredTableId = YCFBamChainBuff.TABLEID_INIT_VALUE;
 		optionalSuffix = null;
-		requiredPrevRelationTenantId = CFBamChainBuff.PREVRELATIONTENANTID_INIT_VALUE;
-		requiredPrevRelationId = CFBamChainBuff.PREVRELATIONID_INIT_VALUE;
-		requiredNextRelationTenantId = CFBamChainBuff.NEXTRELATIONTENANTID_INIT_VALUE;
-		requiredNextRelationId = CFBamChainBuff.NEXTRELATIONID_INIT_VALUE;
+		requiredPrevRelationTenantId = YCFBamChainBuff.PREVRELATIONTENANTID_INIT_VALUE;
+		requiredPrevRelationId = YCFBamChainBuff.PREVRELATIONID_INIT_VALUE;
+		requiredNextRelationTenantId = YCFBamChainBuff.NEXTRELATIONTENANTID_INIT_VALUE;
+		requiredNextRelationId = YCFBamChainBuff.NEXTRELATIONID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
-		return( CFBamChainBuff.CLASS_CODE );
+		return( YCFBamChainBuff.CLASS_CODE );
 	}
 
 	public long getRequiredTenantId() {
@@ -128,13 +128,13 @@ public class CFBamChainHBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFBamChainBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamChainBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.TENANTID_MIN_VALUE );
+				YCFBamChainBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -144,13 +144,13 @@ public class CFBamChainHBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFBamChainBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamChainBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.ID_MIN_VALUE );
+				YCFBamChainBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -163,13 +163,13 @@ public class CFBamChainHBuff
 		if( value == null ) {
 			optionalDefSchemaTenantId = null;
 		}
-		else if( value < CFBamChainBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamChainBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaTenantId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.DEFSCHEMATENANTID_MIN_VALUE );
+				YCFBamChainBuff.DEFSCHEMATENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaTenantId = value;
@@ -184,13 +184,13 @@ public class CFBamChainHBuff
 		if( value == null ) {
 			optionalDefSchemaId = null;
 		}
-		else if( value < CFBamChainBuff.DEFSCHEMAID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamChainBuff.DEFSCHEMAID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.DEFSCHEMAID_MIN_VALUE );
+				YCFBamChainBuff.DEFSCHEMAID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaId = value;
@@ -203,13 +203,13 @@ public class CFBamChainHBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -228,7 +228,7 @@ public class CFBamChainHBuff
 			optionalShortName = null;
 		}
 		else if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortName",
 				1,
 				"value.length()",
@@ -249,7 +249,7 @@ public class CFBamChainHBuff
 			optionalLabel = null;
 		}
 		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalLabel",
 				1,
 				"value.length()",
@@ -270,7 +270,7 @@ public class CFBamChainHBuff
 			optionalShortDescription = null;
 		}
 		else if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortDescription",
 				1,
 				"value.length()",
@@ -291,7 +291,7 @@ public class CFBamChainHBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1023 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -308,13 +308,13 @@ public class CFBamChainHBuff
 	}
 
 	public void setRequiredTableId( long value ) {
-		if( value < CFBamChainBuff.TABLEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamChainBuff.TABLEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTableId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.TABLEID_MIN_VALUE );
+				YCFBamChainBuff.TABLEID_MIN_VALUE );
 		}
 		requiredTableId = value;
 	}
@@ -328,7 +328,7 @@ public class CFBamChainHBuff
 			optionalSuffix = null;
 		}
 		else if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalSuffix",
 				1,
 				"value.length()",
@@ -345,13 +345,13 @@ public class CFBamChainHBuff
 	}
 
 	public void setRequiredPrevRelationTenantId( long value ) {
-		if( value < CFBamChainBuff.PREVRELATIONTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamChainBuff.PREVRELATIONTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredPrevRelationTenantId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.PREVRELATIONTENANTID_MIN_VALUE );
+				YCFBamChainBuff.PREVRELATIONTENANTID_MIN_VALUE );
 		}
 		requiredPrevRelationTenantId = value;
 	}
@@ -361,13 +361,13 @@ public class CFBamChainHBuff
 	}
 
 	public void setRequiredPrevRelationId( long value ) {
-		if( value < CFBamChainBuff.PREVRELATIONID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamChainBuff.PREVRELATIONID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredPrevRelationId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.PREVRELATIONID_MIN_VALUE );
+				YCFBamChainBuff.PREVRELATIONID_MIN_VALUE );
 		}
 		requiredPrevRelationId = value;
 	}
@@ -377,13 +377,13 @@ public class CFBamChainHBuff
 	}
 
 	public void setRequiredNextRelationTenantId( long value ) {
-		if( value < CFBamChainBuff.NEXTRELATIONTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamChainBuff.NEXTRELATIONTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredNextRelationTenantId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.NEXTRELATIONTENANTID_MIN_VALUE );
+				YCFBamChainBuff.NEXTRELATIONTENANTID_MIN_VALUE );
 		}
 		requiredNextRelationTenantId = value;
 	}
@@ -393,13 +393,13 @@ public class CFBamChainHBuff
 	}
 
 	public void setRequiredNextRelationId( long value ) {
-		if( value < CFBamChainBuff.NEXTRELATIONID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamChainBuff.NEXTRELATIONID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredNextRelationId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.NEXTRELATIONID_MIN_VALUE );
+				YCFBamChainBuff.NEXTRELATIONID_MIN_VALUE );
 		}
 		requiredNextRelationId = value;
 	}
@@ -408,8 +408,8 @@ public class CFBamChainHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamChainHBuff ) {
-			CFBamChainHBuff rhs = (CFBamChainHBuff)obj;
+		else if( obj instanceof YCFBamChainHBuff ) {
+			YCFBamChainHBuff rhs = (YCFBamChainHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -523,8 +523,8 @@ public class CFBamChainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainBuff ) {
-			CFBamChainBuff rhs = (CFBamChainBuff)obj;
+		else if( obj instanceof YCFBamChainBuff ) {
+			YCFBamChainBuff rhs = (YCFBamChainBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -638,15 +638,15 @@ public class CFBamChainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainByTenantIdxKey ) {
-			CFBamChainByTenantIdxKey rhs = (CFBamChainByTenantIdxKey)obj;
+		else if( obj instanceof YCFBamChainByTenantIdxKey ) {
+			YCFBamChainByTenantIdxKey rhs = (YCFBamChainByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainByChainTableIdxKey ) {
-			CFBamChainByChainTableIdxKey rhs = (CFBamChainByChainTableIdxKey)obj;
+		else if( obj instanceof YCFBamChainByChainTableIdxKey ) {
+			YCFBamChainByChainTableIdxKey rhs = (YCFBamChainByChainTableIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -655,8 +655,8 @@ public class CFBamChainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainByDefSchemaIdxKey ) {
-			CFBamChainByDefSchemaIdxKey rhs = (CFBamChainByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamChainByDefSchemaIdxKey ) {
+			YCFBamChainByDefSchemaIdxKey rhs = (YCFBamChainByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
 				if( rhs.getOptionalDefSchemaTenantId() != null ) {
 					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
@@ -683,8 +683,8 @@ public class CFBamChainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainByUNameIdxKey ) {
-			CFBamChainByUNameIdxKey rhs = (CFBamChainByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamChainByUNameIdxKey ) {
+			YCFBamChainByUNameIdxKey rhs = (YCFBamChainByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -696,8 +696,8 @@ public class CFBamChainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainByPrevRelIdxKey ) {
-			CFBamChainByPrevRelIdxKey rhs = (CFBamChainByPrevRelIdxKey)obj;
+		else if( obj instanceof YCFBamChainByPrevRelIdxKey ) {
+			YCFBamChainByPrevRelIdxKey rhs = (YCFBamChainByPrevRelIdxKey)obj;
 			if( getRequiredPrevRelationTenantId() != rhs.getRequiredPrevRelationTenantId() ) {
 				return( false );
 			}
@@ -706,8 +706,8 @@ public class CFBamChainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainByNextRelIdxKey ) {
-			CFBamChainByNextRelIdxKey rhs = (CFBamChainByNextRelIdxKey)obj;
+		else if( obj instanceof YCFBamChainByNextRelIdxKey ) {
+			YCFBamChainByNextRelIdxKey rhs = (YCFBamChainByNextRelIdxKey)obj;
 			if( getRequiredNextRelationTenantId() != rhs.getRequiredNextRelationTenantId() ) {
 				return( false );
 			}
@@ -716,8 +716,8 @@ public class CFBamChainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainHPKey ) {
-			CFBamChainHPKey rhs = (CFBamChainHPKey)obj;
+		else if( obj instanceof YCFBamChainHPKey ) {
+			YCFBamChainHPKey rhs = (YCFBamChainHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -781,8 +781,8 @@ public class CFBamChainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamHPKey ) {
-			CFBamHPKey rhs = (CFBamHPKey)obj;
+		else if( obj instanceof YCFBamHPKey ) {
+			YCFBamHPKey rhs = (YCFBamHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -840,8 +840,8 @@ public class CFBamChainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainPKey ) {
-			CFBamChainPKey rhs = (CFBamChainPKey)obj;
+		else if( obj instanceof YCFBamChainPKey ) {
+			YCFBamChainPKey rhs = (YCFBamChainPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -895,16 +895,16 @@ public class CFBamChainHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamChainBuff ) {
-			CFBamChainBuff rhs = (CFBamChainBuff)obj;
+		else if( obj instanceof YCFBamChainBuff ) {
+			YCFBamChainBuff rhs = (YCFBamChainBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamChainByTenantIdxKey ) {
-			CFBamChainByTenantIdxKey rhs = (CFBamChainByTenantIdxKey)obj;
+		else if( obj instanceof YCFBamChainByTenantIdxKey ) {
+			YCFBamChainByTenantIdxKey rhs = (YCFBamChainByTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -913,8 +913,8 @@ public class CFBamChainHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamChainByChainTableIdxKey ) {
-			CFBamChainByChainTableIdxKey rhs = (CFBamChainByChainTableIdxKey)obj;
+		else if( obj instanceof YCFBamChainByChainTableIdxKey ) {
+			YCFBamChainByChainTableIdxKey rhs = (YCFBamChainByChainTableIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -929,8 +929,8 @@ public class CFBamChainHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamChainByDefSchemaIdxKey ) {
-			CFBamChainByDefSchemaIdxKey rhs = (CFBamChainByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamChainByDefSchemaIdxKey ) {
+			YCFBamChainByDefSchemaIdxKey rhs = (YCFBamChainByDefSchemaIdxKey)obj;
 
 			if( getOptionalDefSchemaTenantId() != null ) {
 				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
@@ -969,8 +969,8 @@ public class CFBamChainHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamChainByUNameIdxKey ) {
-			CFBamChainByUNameIdxKey rhs = (CFBamChainByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamChainByUNameIdxKey ) {
+			YCFBamChainByUNameIdxKey rhs = (YCFBamChainByUNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -991,8 +991,8 @@ public class CFBamChainHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamChainByPrevRelIdxKey ) {
-			CFBamChainByPrevRelIdxKey rhs = (CFBamChainByPrevRelIdxKey)obj;
+		else if( obj instanceof YCFBamChainByPrevRelIdxKey ) {
+			YCFBamChainByPrevRelIdxKey rhs = (YCFBamChainByPrevRelIdxKey)obj;
 
 			if( getRequiredPrevRelationTenantId() < rhs.getRequiredPrevRelationTenantId() ) {
 				return( -1 );
@@ -1007,8 +1007,8 @@ public class CFBamChainHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamChainByNextRelIdxKey ) {
-			CFBamChainByNextRelIdxKey rhs = (CFBamChainByNextRelIdxKey)obj;
+		else if( obj instanceof YCFBamChainByNextRelIdxKey ) {
+			YCFBamChainByNextRelIdxKey rhs = (YCFBamChainByNextRelIdxKey)obj;
 
 			if( getRequiredNextRelationTenantId() < rhs.getRequiredNextRelationTenantId() ) {
 				return( -1 );
@@ -1023,8 +1023,8 @@ public class CFBamChainHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamChainHBuff ) {
-			CFBamChainHBuff rhs = (CFBamChainHBuff)obj;
+		else if( obj instanceof YCFBamChainHBuff ) {
+			YCFBamChainHBuff rhs = (YCFBamChainHBuff)obj;
 
 			int retval = 0;
 			{
@@ -1325,8 +1325,8 @@ public class CFBamChainHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamChainHPKey ) {
-			CFBamChainHPKey rhs = (CFBamChainHPKey)obj;
+		else if( obj instanceof YCFBamChainHPKey ) {
+			YCFBamChainHPKey rhs = (YCFBamChainHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -1407,8 +1407,8 @@ public class CFBamChainHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamChainPKey ) {
-			CFBamChainPKey rhs = (CFBamChainPKey)obj;
+		else if( obj instanceof YCFBamChainPKey ) {
+			YCFBamChainPKey rhs = (YCFBamChainPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -1423,8 +1423,8 @@ public class CFBamChainHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamHPKey ) {
-			CFBamHPKey rhs = (CFBamHPKey)obj;
+		else if( obj instanceof YCFBamHPKey ) {
+			YCFBamHPKey rhs = (YCFBamHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -1442,11 +1442,11 @@ public class CFBamChainHBuff
 		}
 	}
 
-	public void set( CFBamChainBuff src ) {
+	public void set( YCFBamChainBuff src ) {
 		setChainBuff( src );
 	}
 
-	public void setChainBuff( CFBamChainBuff src ) {
+	public void setChainBuff( YCFBamChainBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
@@ -1465,11 +1465,11 @@ public class CFBamChainHBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFBamChainHBuff src ) {
+	public void set( YCFBamChainHBuff src ) {
 		setChainBuff( src );
 	}
 
-	public void setChainBuff( CFBamChainHBuff src ) {
+	public void setChainBuff( YCFBamChainHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );

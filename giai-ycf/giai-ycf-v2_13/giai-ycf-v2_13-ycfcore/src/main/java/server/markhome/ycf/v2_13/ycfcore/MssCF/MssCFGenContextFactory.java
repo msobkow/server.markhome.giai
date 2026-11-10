@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,36 +21,36 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class MssCFGenContextFactory
+public class MssYCFGenContextFactory
 {
-	public MssCFGenContextFactory()
+	public MssYCFGenContextFactory()
 	{
 	}
 
-	public MssCFGenContext newGenContext(
+	public MssYCFGenContext newGenContext(
 		String				buildString,
-		MssCFGenContext		genContext,
+		MssYCFGenContext		genContext,
 		String				subClassGenDefName,
-		ICFLibAnyObj		subObject )
+		IYCFLibAnyObj		subObject )
 	{
-		return( new MssCFGenContext( buildString, genContext, subClassGenDefName, subObject ) );
+		return( new MssYCFGenContext( buildString, genContext, subClassGenDefName, subObject ) );
 	}
 
-	public MssCFGenContext newGenContext(
+	public MssYCFGenContext newGenContext(
 		String				buildString,
-		MssCFEngine			engine,
+		MssYCFEngine			engine,
 		String				argRootGenDir,
 		String				toolset,
 		String				scopeDefClassName,
 		String				genDefClassName,
 		String				itemName )
 	{
-		return( new MssCFGenContext( buildString,
+		return( new MssYCFGenContext( buildString,
 			engine,
 			argRootGenDir,
 			toolset,
@@ -59,18 +59,18 @@ public class MssCFGenContextFactory
 			itemName ) );
 	}
 
-	public MssCFGenContext newGenContext(
+	public MssYCFGenContext newGenContext(
 		String				buildString,
-		MssCFEngine			engine,
+		MssYCFEngine			engine,
 		String				argRootGenDir,
 		String				toolset,
 		String				scopeDefClassName,
 		String				genDefClassName,
 		String				itemName,
-		ICFLibAnyObj		argGenDef,
-		ICFLibAnyObj		argScopeDef )
+		IYCFLibAnyObj		argGenDef,
+		IYCFLibAnyObj		argScopeDef )
 	{
-		return( new MssCFGenContext( buildString,
+		return( new MssYCFGenContext( buildString,
 			engine,
 			argRootGenDir,
 			toolset,

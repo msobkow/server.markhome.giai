@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFSec SecForm.
+// Description: Java 11 Object interface for YCFSec SecForm.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,27 +26,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecFormObj
-	extends ICFLibAnyObj
+public interface IYCFSecSecFormObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -58,9 +58,9 @@ public interface ICFSecSecFormObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -71,9 +71,9 @@ public interface ICFSecSecFormObj
 	/**
 	 *	Realise this instance of a SecForm.
 	 *
-	 *	@return	CFSecSecFormObj instance which should be subsequently referenced.
+	 *	@return	YCFSecSecFormObj instance which should be subsequently referenced.
 	 */
-	ICFSecSecFormObj realise();
+	IYCFSecSecFormObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -85,99 +85,99 @@ public interface ICFSecSecFormObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSecFormObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSecFormObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSecFormObj read();
+	IYCFSecSecFormObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSecFormObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSecFormObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSecFormObj read( boolean forceRead );
+	IYCFSecSecFormObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SecForm instance.
 	 *
-	 *	@return	The newly locked ICFSecSecFormEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecSecFormEditObj edition of this instance.
 	 */
-	ICFSecSecFormEditObj beginEdit();
+	IYCFSecSecFormEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SecForm instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SecForm instance.
 	 *
-	 *	@return	The ICFSecSecFormEditObj edition of this instance.
+	 *	@return	The IYCFSecSecFormEditObj edition of this instance.
 	 */
-	ICFSecSecFormEditObj getEdit();
+	IYCFSecSecFormEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SecForm instance as a ICFSecSecFormEditObj.
+	 *	Get the current edition of this SecForm instance as a IYCFSecSecFormEditObj.
 	 *
-	 *	@return	The ICFSecSecFormEditObj edition of this instance.
+	 *	@return	The IYCFSecSecFormEditObj edition of this instance.
 	 */
-	ICFSecSecFormEditObj getEditAsSecForm();
+	IYCFSecSecFormEditObj getEditAsSecForm();
 
 	/**
-	 *	Get the ICFSecSecFormTableObj table cache which manages this instance.
+	 *	Get the IYCFSecSecFormTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecSecFormTableObj table cache which manages this instance.
+	 *	@return	IYCFSecSecFormTableObj table cache which manages this instance.
 	 */
-	ICFSecSecFormTableObj getSecFormTable();
+	IYCFSecSecFormTableObj getSecFormTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecSecFormBuff instance which currently backs this instance.
+	 *	Get the YCFSecSecFormBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSecFormBuff instance which currently backs this object.
+	 *	@return	YCFSecSecFormBuff instance which currently backs this object.
 	 */
-	CFSecSecFormBuff getBuff();
+	YCFSecSecFormBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecSecFormBuff value );
+	void setBuff( YCFSecSecFormBuff value );
 
 	/**
-	 *	Get the CFSecSecFormBuff instance which currently backs this instance.
+	 *	Get the YCFSecSecFormBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSecFormBuff instance which currently backs this object.
+	 *	@return	YCFSecSecFormBuff instance which currently backs this object.
 	 */
-	CFSecSecFormBuff getSecFormBuff();
+	YCFSecSecFormBuff getSecFormBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFSecSecFormPKey primary key for this instance.
+	 *	@return	YCFSecSecFormPKey primary key for this instance.
 	 */
-	CFSecSecFormPKey getPKey();
+	YCFSecSecFormPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFSecSecFormPKey primary key value for this instance.
+	 *	@param YCFSecSecFormPKey primary key value for this instance.
 	 */
-	void setPKey( CFSecSecFormPKey value );
+	void setPKey( YCFSecSecFormPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -225,32 +225,32 @@ public interface ICFSecSecFormObj
 	String getRequiredJEEServletMapName();
 
 	/**
-	 *	Get the required ICFSecClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFSecClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFSecClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFSecClusterObj instance referenced by the Cluster key.
 	 */
-	ICFSecClusterObj getRequiredOwnerCluster();
+	IYCFSecClusterObj getRequiredOwnerCluster();
 
 	/**
-	 *	Get the required ICFSecClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFSecClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFSecClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFSecClusterObj instance referenced by the Cluster key.
 	 */
-	ICFSecClusterObj getRequiredOwnerCluster( boolean forceRead );
+	IYCFSecClusterObj getRequiredOwnerCluster( boolean forceRead );
 
 	/**
-	 *	Get the required ICFSecSecAppObj instance referenced by the Application key.
+	 *	Get the required IYCFSecSecAppObj instance referenced by the Application key.
 	 *
-	 *	@return	The required ICFSecSecAppObj instance referenced by the Application key.
+	 *	@return	The required IYCFSecSecAppObj instance referenced by the Application key.
 	 */
-	ICFSecSecAppObj getRequiredContainerApplication();
+	IYCFSecSecAppObj getRequiredContainerApplication();
 
 	/**
-	 *	Get the required ICFSecSecAppObj instance referenced by the Application key.
+	 *	Get the required IYCFSecSecAppObj instance referenced by the Application key.
 	 *
-	 *	@return	The required ICFSecSecAppObj instance referenced by the Application key.
+	 *	@return	The required IYCFSecSecAppObj instance referenced by the Application key.
 	 */
-	ICFSecSecAppObj getRequiredContainerApplication( boolean forceRead );
+	IYCFSecSecAppObj getRequiredContainerApplication( boolean forceRead );
 
 	/**
 	 *	Internal use only.

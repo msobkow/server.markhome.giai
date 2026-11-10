@@ -2,11 +2,11 @@
 // Description: Java 11 Factory interface for SecSession.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,15 +36,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbSecSessionFactory interface for SecSession
+ *	YCFGenKbSecSessionFactory interface for SecSession
  */
-public interface ICFGenKbSecSessionFactory
+public interface IYCFGenKbSecSessionFactory
 {
 
 	/**
@@ -52,48 +52,48 @@ public interface ICFGenKbSecSessionFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbSecSessionPKey newPKey();
+	YCFGenKbSecSessionPKey newPKey();
 
 	/**
 	 *	Allocate a SecUserIdx key over SecSession instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbSecSessionBySecUserIdxKey newSecUserIdxKey();
+	YCFGenKbSecSessionBySecUserIdxKey newSecUserIdxKey();
 
 	/**
 	 *	Allocate a SecDevIdx key over SecSession instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbSecSessionBySecDevIdxKey newSecDevIdxKey();
+	YCFGenKbSecSessionBySecDevIdxKey newSecDevIdxKey();
 
 	/**
 	 *	Allocate a StartIdx key over SecSession instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbSecSessionByStartIdxKey newStartIdxKey();
+	YCFGenKbSecSessionByStartIdxKey newStartIdxKey();
 
 	/**
 	 *	Allocate a FinishIdx key over SecSession instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbSecSessionByFinishIdxKey newFinishIdxKey();
+	YCFGenKbSecSessionByFinishIdxKey newFinishIdxKey();
 
 	/**
 	 *	Allocate a SecProxyIdx key over SecSession instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbSecSessionBySecProxyIdxKey newSecProxyIdxKey();
+	YCFGenKbSecSessionBySecProxyIdxKey newSecProxyIdxKey();
 
 	/**
 	 *	Allocate a SecSession instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbSecSessionBuff newBuff();
+	YCFGenKbSecSessionBuff newBuff();
 
 }

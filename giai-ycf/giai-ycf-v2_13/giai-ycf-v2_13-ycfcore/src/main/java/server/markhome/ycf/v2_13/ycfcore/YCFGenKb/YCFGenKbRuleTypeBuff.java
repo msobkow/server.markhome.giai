@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a RuleType buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbRuleTypeBuff
+public class YCFGenKbRuleTypeBuff
 {
 	public final static String CLASS_CODE = "a926";
 	public static final short ID_INIT_VALUE = (short)0;
@@ -50,9 +50,9 @@ public class CFGenKbRuleTypeBuff
 	protected short requiredId;
 	protected String requiredName;
 	protected int requiredRevision;
-	public CFGenKbRuleTypeBuff() {
-		requiredId = CFGenKbRuleTypeBuff.ID_INIT_VALUE;
-		requiredName = new String( CFGenKbRuleTypeBuff.NAME_INIT_VALUE );
+	public YCFGenKbRuleTypeBuff() {
+		requiredId = YCFGenKbRuleTypeBuff.ID_INIT_VALUE;
+		requiredName = new String( YCFGenKbRuleTypeBuff.NAME_INIT_VALUE );
 	}
 
 	public String getClassCode() {
@@ -64,21 +64,21 @@ public class CFGenKbRuleTypeBuff
 	}
 
 	public void setRequiredId( short value ) {
-		if( value < CFGenKbRuleTypeBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbRuleTypeBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbRuleTypeBuff.ID_MIN_VALUE );
+				YCFGenKbRuleTypeBuff.ID_MIN_VALUE );
 		}
-		if( value > CFGenKbRuleTypeBuff.ID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbRuleTypeBuff.ID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbRuleTypeBuff.ID_MAX_VALUE );
+				YCFGenKbRuleTypeBuff.ID_MAX_VALUE );
 		}
 		requiredId = value;
 	}
@@ -89,13 +89,13 @@ public class CFGenKbRuleTypeBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -117,8 +117,8 @@ public class CFGenKbRuleTypeBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbRuleTypeBuff ) {
-			CFGenKbRuleTypeBuff rhs = (CFGenKbRuleTypeBuff)obj;
+		else if( obj instanceof YCFGenKbRuleTypeBuff ) {
+			YCFGenKbRuleTypeBuff rhs = (YCFGenKbRuleTypeBuff)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -127,15 +127,15 @@ public class CFGenKbRuleTypeBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbRuleTypePKey ) {
-			CFGenKbRuleTypePKey rhs = (CFGenKbRuleTypePKey)obj;
+		else if( obj instanceof YCFGenKbRuleTypePKey ) {
+			YCFGenKbRuleTypePKey rhs = (YCFGenKbRuleTypePKey)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbRuleTypeByNameIdxKey ) {
-			CFGenKbRuleTypeByNameIdxKey rhs = (CFGenKbRuleTypeByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleTypeByNameIdxKey ) {
+			YCFGenKbRuleTypeByNameIdxKey rhs = (YCFGenKbRuleTypeByNameIdxKey)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
@@ -160,8 +160,8 @@ public class CFGenKbRuleTypeBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbRuleTypeBuff ) {
-			CFGenKbRuleTypeBuff rhs = (CFGenKbRuleTypeBuff)obj;
+		else if( obj instanceof YCFGenKbRuleTypeBuff ) {
+			YCFGenKbRuleTypeBuff rhs = (YCFGenKbRuleTypeBuff)obj;
 			int retval = 0;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
@@ -177,8 +177,8 @@ public class CFGenKbRuleTypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbRuleTypePKey ) {
-			CFGenKbRuleTypePKey rhs = (CFGenKbRuleTypePKey)obj;
+		else if( obj instanceof YCFGenKbRuleTypePKey ) {
+			YCFGenKbRuleTypePKey rhs = (YCFGenKbRuleTypePKey)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -187,8 +187,8 @@ public class CFGenKbRuleTypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbRuleTypeByNameIdxKey ) {
-			CFGenKbRuleTypeByNameIdxKey rhs = (CFGenKbRuleTypeByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleTypeByNameIdxKey ) {
+			YCFGenKbRuleTypeByNameIdxKey rhs = (YCFGenKbRuleTypeByNameIdxKey)obj;
 
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
@@ -198,7 +198,7 @@ public class CFGenKbRuleTypeBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -206,11 +206,11 @@ public class CFGenKbRuleTypeBuff
 		}
 	}
 
-	public void set( CFGenKbRuleTypeBuff src ) {
+	public void set( YCFGenKbRuleTypeBuff src ) {
 		setRuleTypeBuff( src );
 	}
 
-	public void setRuleTypeBuff( CFGenKbRuleTypeBuff src ) {
+	public void setRuleTypeBuff( YCFGenKbRuleTypeBuff src ) {
 		setRequiredId( src.getRequiredId() );
 		setRequiredName( src.getRequiredName() );
 		setRequiredRevision( src.getRequiredRevision() );

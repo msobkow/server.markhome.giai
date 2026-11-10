@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for TopProject
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,21 +35,21 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSaxLoaderTopProjectParse XML SAX Element Handler implementation
+ *	YCFIntSaxLoaderTopProjectParse XML SAX Element Handler implementation
  *	for TopProject.
  */
-public class CFIntSaxLoaderTopProject
-	extends CFLibXmlCoreElementHandler
+public class YCFIntSaxLoaderTopProject
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFIntSaxLoaderTopProject( CFIntSaxLoader saxLoader ) {
+	public YCFIntSaxLoaderTopProject( YCFIntSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -61,16 +61,16 @@ public class CFIntSaxLoaderTopProject
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFIntTopProjectObj origBuff = null;
-		ICFIntTopProjectEditObj editBuff = null;
+		IYCFIntTopProjectObj origBuff = null;
+		IYCFIntTopProjectEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// TopProject Attributes
 		String attrName = null;
 		String attrDescription = null;
 		// TopProject References
-		ICFIntTenantObj refTenant = null;
-		ICFIntTopDomainObj refParentSDom = null;
+		IYCFIntTenantObj refTenant = null;
+		IYCFIntTopDomainObj refParentSDom = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -79,25 +79,25 @@ public class CFIntSaxLoaderTopProject
 		try {
 			assert qName.equals( "TopProject" );
 
-			CFIntSaxLoader saxLoader = (CFIntSaxLoader)getParser();
+			YCFIntSaxLoader saxLoader = (YCFIntSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFIntTopProjectObj)schemaObj.getTopProjectTableObj().newInstance();
-			editBuff = (ICFIntTopProjectEditObj)origBuff.beginEdit();
+			origBuff = (IYCFIntTopProjectObj)schemaObj.getTopProjectTableObj().newInstance();
+			editBuff = (IYCFIntTopProjectEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -105,7 +105,7 @@ public class CFIntSaxLoaderTopProject
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -114,7 +114,7 @@ public class CFIntSaxLoaderTopProject
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -123,7 +123,7 @@ public class CFIntSaxLoaderTopProject
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -134,7 +134,7 @@ public class CFIntSaxLoaderTopProject
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -143,14 +143,14 @@ public class CFIntSaxLoaderTopProject
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "Description", attrDescription );
@@ -173,7 +173,7 @@ public class CFIntSaxLoaderTopProject
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -185,42 +185,42 @@ public class CFIntSaxLoaderTopProject
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFIntTopDomainObj ) {
-				refParentSDom = (ICFIntTopDomainObj) scopeObj;
+			else if( scopeObj instanceof IYCFIntTopDomainObj ) {
+				refParentSDom = (IYCFIntTopDomainObj) scopeObj;
 				editBuff.setRequiredContainerParentSDom( refParentSDom );
-				refTenant = (ICFIntTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFIntTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFIntTopDomainObj" );
+					"IYCFIntTopDomainObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFIntTenantObj ) {
-					refTenant = (ICFIntTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFIntTenantObj ) {
+					refTenant = (IYCFIntTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
 				}
 			}
 
-			CFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTopProjectLoaderBehaviour();
-			ICFIntTopProjectEditObj editTopProject = null;
-			ICFIntTopProjectObj origTopProject = (ICFIntTopProjectObj)schemaObj.getTopProjectTableObj().readTopProjectByNameIdx( refTenant.getRequiredId(),
+			YCFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTopProjectLoaderBehaviour();
+			IYCFIntTopProjectEditObj editTopProject = null;
+			IYCFIntTopProjectObj origTopProject = (IYCFIntTopProjectObj)schemaObj.getTopProjectTableObj().readTopProjectByNameIdx( refTenant.getRequiredId(),
 			refParentSDom.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origTopProject == null ) {
@@ -231,12 +231,12 @@ public class CFIntSaxLoaderTopProject
 					case Insert:
 						break;
 					case Update:
-						editTopProject = (ICFIntTopProjectEditObj)origTopProject.beginEdit();
+						editTopProject = (IYCFIntTopProjectEditObj)origTopProject.beginEdit();
 						editTopProject.setRequiredName( editBuff.getRequiredName() );
 						editTopProject.setOptionalDescription( editBuff.getOptionalDescription() );
 						break;
 					case Replace:
-						editTopProject = (ICFIntTopProjectEditObj)origTopProject.beginEdit();
+						editTopProject = (IYCFIntTopProjectEditObj)origTopProject.beginEdit();
 						editTopProject.deleteInstance();
 						editTopProject = null;
 						origTopProject = null;
@@ -250,7 +250,7 @@ public class CFIntSaxLoaderTopProject
 					editTopProject.update();
 				}
 				else {
-					origTopProject = (ICFIntTopProjectObj)editTopProject.create();
+					origTopProject = (IYCFIntTopProjectObj)editTopProject.create();
 				}
 				editTopProject = null;
 			}

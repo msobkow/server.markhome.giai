@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for SecUser.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbSecUserTable database interface for SecUser
+ *	YCFGenKbSecUserTable database interface for SecUser
  */
-public interface ICFGenKbSecUserTable
+public interface IYCFGenKbSecUserTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecUser( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserBuff Buff );
+	void createSecUser( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecUser( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserBuff Buff );
+	void updateSecUser( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecUser( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserBuff Buff );
+	void deleteSecUser( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserBuff Buff );
 	/**
 	 *	Delete the SecUser instance identified by the primary key attributes.
 	 *
@@ -86,7 +86,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argSecUserId	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteSecUserByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecUserId );
 
 	/**
@@ -96,8 +96,8 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecUserByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey argKey );
+	void deleteSecUserByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey argKey );
 	/**
 	 *	Delete the SecUser instances identified by the key ULoginIdx.
 	 *
@@ -105,7 +105,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argLoginId	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByULoginIdx( CFGenKbAuthorization Authorization,
+	void deleteSecUserByULoginIdx( YCFGenKbAuthorization Authorization,
 		String argLoginId );
 
 	/**
@@ -115,8 +115,8 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecUserByULoginIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserByULoginIdxKey argKey );
+	void deleteSecUserByULoginIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserByULoginIdxKey argKey );
 	/**
 	 *	Delete the SecUser instances identified by the key EMConfIdx.
 	 *
@@ -124,7 +124,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argEMailConfirmUuid	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByEMConfIdx( CFGenKbAuthorization Authorization,
+	void deleteSecUserByEMConfIdx( YCFGenKbAuthorization Authorization,
 		UUID argEMailConfirmUuid );
 
 	/**
@@ -134,8 +134,8 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecUserByEMConfIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserByEMConfIdxKey argKey );
+	void deleteSecUserByEMConfIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserByEMConfIdxKey argKey );
 	/**
 	 *	Delete the SecUser instances identified by the key PwdResetIdx.
 	 *
@@ -143,7 +143,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argPasswordResetUuid	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByPwdResetIdx( CFGenKbAuthorization Authorization,
+	void deleteSecUserByPwdResetIdx( YCFGenKbAuthorization Authorization,
 		UUID argPasswordResetUuid );
 
 	/**
@@ -153,8 +153,8 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecUserByPwdResetIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserByPwdResetIdxKey argKey );
+	void deleteSecUserByPwdResetIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserByPwdResetIdxKey argKey );
 	/**
 	 *	Delete the SecUser instances identified by the key DefDevIdx.
 	 *
@@ -164,7 +164,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argDfltDevName	The SecUser key attribute of the instance generating the id.
 	 */
-	void deleteSecUserByDefDevIdx( CFGenKbAuthorization Authorization,
+	void deleteSecUserByDefDevIdx( YCFGenKbAuthorization Authorization,
 		UUID argDfltDevUserId,
 		String argDfltDevName );
 
@@ -175,8 +175,8 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecUserByDefDevIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserByDefDevIdxKey argKey );
+	void deleteSecUserByDefDevIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserByDefDevIdxKey argKey );
 
 
 	/**
@@ -189,8 +189,8 @@ public interface ICFGenKbSecUserTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecUserBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey PKey );
+	YCFGenKbSecUserBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey PKey );
 
 	/**
 	 *	Lock the derived SecUser buffer instance by primary key.
@@ -202,8 +202,8 @@ public interface ICFGenKbSecUserTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecUserBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey PKey );
+	YCFGenKbSecUserBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey PKey );
 
 	/**
 	 *	Read all SecUser instances.
@@ -212,7 +212,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecUserBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbSecUserBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecUser buffer instance identified by the unique key IdIdx.
@@ -224,7 +224,7 @@ public interface ICFGenKbSecUserTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecUserBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -237,7 +237,7 @@ public interface ICFGenKbSecUserTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecUserBuff readDerivedByULoginIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff readDerivedByULoginIdx( YCFGenKbAuthorization Authorization,
 		String LoginId );
 
 	/**
@@ -249,7 +249,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecUserBuff[] readDerivedByEMConfIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] readDerivedByEMConfIdx( YCFGenKbAuthorization Authorization,
 		UUID EMailConfirmUuid );
 
 	/**
@@ -261,7 +261,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecUserBuff[] readDerivedByPwdResetIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] readDerivedByPwdResetIdx( YCFGenKbAuthorization Authorization,
 		UUID PasswordResetUuid );
 
 	/**
@@ -275,7 +275,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecUserBuff[] readDerivedByDefDevIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] readDerivedByDefDevIdx( YCFGenKbAuthorization Authorization,
 		UUID DfltDevUserId,
 		String DfltDevName );
 
@@ -289,10 +289,10 @@ public interface ICFGenKbSecUserTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey PKey );
+	YCFGenKbSecUserBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey PKey );
 
 	/**
 	 *	Lock the specific SecUser buffer instance identified by the primary key.
@@ -304,10 +304,10 @@ public interface ICFGenKbSecUserTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecUserPKey PKey );
+	YCFGenKbSecUserBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecUserPKey PKey );
 
 	/**
 	 *	Read all the specific SecUser buffer instances.
@@ -316,7 +316,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return All the specific SecUser instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSecUserBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbSecUserBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific SecUser buffer instances.
@@ -325,7 +325,7 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return All the specific SecUser instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSecUserBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		UUID priorSecUserId );
 
 	/**
@@ -338,9 +338,9 @@ public interface ICFGenKbSecUserTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -353,9 +353,9 @@ public interface ICFGenKbSecUserTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff readBuffByULoginIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff readBuffByULoginIdx( YCFGenKbAuthorization Authorization,
 		String LoginId );
 
 	/**
@@ -367,9 +367,9 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff[] readBuffByEMConfIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] readBuffByEMConfIdx( YCFGenKbAuthorization Authorization,
 		UUID EMailConfirmUuid );
 
 	/**
@@ -381,9 +381,9 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff[] readBuffByPwdResetIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] readBuffByPwdResetIdx( YCFGenKbAuthorization Authorization,
 		UUID PasswordResetUuid );
 
 	/**
@@ -397,9 +397,9 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff[] readBuffByDefDevIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] readBuffByDefDevIdx( YCFGenKbAuthorization Authorization,
 		UUID DfltDevUserId,
 		String DfltDevName );
 
@@ -412,9 +412,9 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff[] pageBuffByEMConfIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] pageBuffByEMConfIdx( YCFGenKbAuthorization Authorization,
 		UUID EMailConfirmUuid,
 		UUID priorSecUserId );
 
@@ -427,9 +427,9 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff[] pageBuffByPwdResetIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] pageBuffByPwdResetIdx( YCFGenKbAuthorization Authorization,
 		UUID PasswordResetUuid,
 		UUID priorSecUserId );
 
@@ -444,9 +444,9 @@ public interface ICFGenKbSecUserTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecUserBuff[] pageBuffByDefDevIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecUserBuff[] pageBuffByDefDevIdx( YCFGenKbAuthorization Authorization,
 		UUID DfltDevUserId,
 		String DfltDevName,
 		UUID priorSecUserId );
@@ -454,7 +454,7 @@ public interface ICFGenKbSecUserTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

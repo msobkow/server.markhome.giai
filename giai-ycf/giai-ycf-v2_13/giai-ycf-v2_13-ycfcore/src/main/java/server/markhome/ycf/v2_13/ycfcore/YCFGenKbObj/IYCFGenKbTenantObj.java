@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb Tenant.
+// Description: Java 11 Object interface for YCFGenKb Tenant.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbTenantObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbTenantObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	ICFGenKbSecUserObj getCreatedBy();
+	IYCFGenKbSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -59,9 +59,9 @@ public interface ICFGenKbTenantObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	ICFGenKbSecUserObj getUpdatedBy();
+	IYCFGenKbSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -72,9 +72,9 @@ public interface ICFGenKbTenantObj
 	/**
 	 *	Realise this instance of a Tenant.
 	 *
-	 *	@return	CFGenKbTenantObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbTenantObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbTenantObj realise();
+	IYCFGenKbTenantObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -86,99 +86,99 @@ public interface ICFGenKbTenantObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbTenantObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbTenantObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbTenantObj read();
+	IYCFGenKbTenantObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbTenantObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbTenantObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbTenantObj read( boolean forceRead );
+	IYCFGenKbTenantObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this Tenant instance.
 	 *
-	 *	@return	The newly locked ICFGenKbTenantEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbTenantEditObj edition of this instance.
 	 */
-	ICFGenKbTenantEditObj beginEdit();
+	IYCFGenKbTenantEditObj beginEdit();
 
 	/**
 	 *	End this edition of this Tenant instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this Tenant instance.
 	 *
-	 *	@return	The ICFGenKbTenantEditObj edition of this instance.
+	 *	@return	The IYCFGenKbTenantEditObj edition of this instance.
 	 */
-	ICFGenKbTenantEditObj getEdit();
+	IYCFGenKbTenantEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this Tenant instance as a ICFGenKbTenantEditObj.
+	 *	Get the current edition of this Tenant instance as a IYCFGenKbTenantEditObj.
 	 *
-	 *	@return	The ICFGenKbTenantEditObj edition of this instance.
+	 *	@return	The IYCFGenKbTenantEditObj edition of this instance.
 	 */
-	ICFGenKbTenantEditObj getEditAsTenant();
+	IYCFGenKbTenantEditObj getEditAsTenant();
 
 	/**
-	 *	Get the ICFGenKbTenantTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbTenantTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbTenantTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbTenantTableObj table cache which manages this instance.
 	 */
-	ICFGenKbTenantTableObj getTenantTable();
+	IYCFGenKbTenantTableObj getTenantTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbTenantBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbTenantBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbTenantBuff instance which currently backs this object.
+	 *	@return	YCFGenKbTenantBuff instance which currently backs this object.
 	 */
-	CFGenKbTenantBuff getBuff();
+	YCFGenKbTenantBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbTenantBuff value );
+	void setBuff( YCFGenKbTenantBuff value );
 
 	/**
-	 *	Get the CFGenKbTenantBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbTenantBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbTenantBuff instance which currently backs this object.
+	 *	@return	YCFGenKbTenantBuff instance which currently backs this object.
 	 */
-	CFGenKbTenantBuff getTenantBuff();
+	YCFGenKbTenantBuff getTenantBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbTenantPKey primary key for this instance.
+	 *	@return	YCFGenKbTenantPKey primary key for this instance.
 	 */
-	CFGenKbTenantPKey getPKey();
+	YCFGenKbTenantPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbTenantPKey primary key value for this instance.
+	 *	@param YCFGenKbTenantPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbTenantPKey value );
+	void setPKey( YCFGenKbTenantPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -219,46 +219,46 @@ public interface ICFGenKbTenantObj
 	String getRequiredTenantName();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster();
+	IYCFGenKbClusterObj getRequiredContainerCluster();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster( boolean forceRead );
+	IYCFGenKbClusterObj getRequiredContainerCluster( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbTSecGroupObj array of instances referenced by the TSecGroup key.
+	 *	Get the array of optional IYCFGenKbTSecGroupObj array of instances referenced by the TSecGroup key.
 	 *
-	 *	@return	The optional ICFGenKbTSecGroupObj[] array of instances referenced by the TSecGroup key.
+	 *	@return	The optional IYCFGenKbTSecGroupObj[] array of instances referenced by the TSecGroup key.
 	 */
-	List<ICFGenKbTSecGroupObj> getOptionalComponentsTSecGroup();
+	List<IYCFGenKbTSecGroupObj> getOptionalComponentsTSecGroup();
 
 	/**
-	 *	Get the array of optional ICFGenKbTSecGroupObj array of instances referenced by the TSecGroup key.
+	 *	Get the array of optional IYCFGenKbTSecGroupObj array of instances referenced by the TSecGroup key.
 	 *
-	 *	@return	The optional ICFGenKbTSecGroupObj[] array of instances referenced by the TSecGroup key.
+	 *	@return	The optional IYCFGenKbTSecGroupObj[] array of instances referenced by the TSecGroup key.
 	 */
-	List<ICFGenKbTSecGroupObj> getOptionalComponentsTSecGroup( boolean forceRead );
+	List<IYCFGenKbTSecGroupObj> getOptionalComponentsTSecGroup( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbRuleCartObj array of instances referenced by the RuleCart key.
+	 *	Get the array of optional IYCFGenKbRuleCartObj array of instances referenced by the RuleCart key.
 	 *
-	 *	@return	The optional ICFGenKbRuleCartObj[] array of instances referenced by the RuleCart key.
+	 *	@return	The optional IYCFGenKbRuleCartObj[] array of instances referenced by the RuleCart key.
 	 */
-	List<ICFGenKbRuleCartObj> getOptionalComponentsRuleCart();
+	List<IYCFGenKbRuleCartObj> getOptionalComponentsRuleCart();
 
 	/**
-	 *	Get the array of optional ICFGenKbRuleCartObj array of instances referenced by the RuleCart key.
+	 *	Get the array of optional IYCFGenKbRuleCartObj array of instances referenced by the RuleCart key.
 	 *
-	 *	@return	The optional ICFGenKbRuleCartObj[] array of instances referenced by the RuleCart key.
+	 *	@return	The optional IYCFGenKbRuleCartObj[] array of instances referenced by the RuleCart key.
 	 */
-	List<ICFGenKbRuleCartObj> getOptionalComponentsRuleCart( boolean forceRead );
+	List<IYCFGenKbRuleCartObj> getOptionalComponentsRuleCart( boolean forceRead );
 
 	/**
 	 *	Internal use only.

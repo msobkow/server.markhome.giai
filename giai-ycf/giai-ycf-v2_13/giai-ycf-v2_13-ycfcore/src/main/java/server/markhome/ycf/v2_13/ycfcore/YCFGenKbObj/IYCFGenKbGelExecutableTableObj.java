@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelExecutableTableObj
+public interface IYCFGenKbGelExecutableTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelExecutableTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelExecutableObj newInstance();
+	IYCFGenKbGelExecutableObj newInstance();
 
 	/**
 	 *	Instantiate a new GelExecutable edition of the specified GelExecutable instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelExecutableEditObj newEditInstance( ICFGenKbGelExecutableObj orig );
+	IYCFGenKbGelExecutableEditObj newEditInstance( IYCFGenKbGelExecutableObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelExecutableObj realiseGelExecutable( ICFGenKbGelExecutableObj Obj );
+	IYCFGenKbGelExecutableObj realiseGelExecutable( IYCFGenKbGelExecutableObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelExecutableObj createGelExecutable( ICFGenKbGelExecutableObj Obj );
+	IYCFGenKbGelExecutableObj createGelExecutable( IYCFGenKbGelExecutableObj Obj );
 
 	/**
 	 *	Read a GelExecutable-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelExecutableTableObj
 	 *	@return	The GelExecutable-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelExecutableObj readGelExecutable( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelExecutableObj readGelExecutable( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelExecutable-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelExecutableTableObj
 	 *	@return	The GelExecutable-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelExecutableObj readGelExecutable( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelExecutableObj readGelExecutable( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelExecutableObj readCachedGelExecutable( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelExecutableObj readCachedGelExecutable( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelExecutable( ICFGenKbGelExecutableObj obj );
+	public void reallyDeepDisposeGelExecutable( IYCFGenKbGelExecutableObj obj );
 
-	void deepDisposeGelExecutable( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelExecutable( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelExecutableObj lockGelExecutable( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelExecutableObj lockGelExecutable( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelExecutable-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelExecutableObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelExecutableObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readAllGelExecutable();
+	List<IYCFGenKbGelExecutableObj> readAllGelExecutable();
 
 	/**
 	 *	Return a sorted map of all the GelExecutable-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelExecutableObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelExecutableObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readAllGelExecutable( boolean forceRead );
+	List<IYCFGenKbGelExecutableObj> readAllGelExecutable( boolean forceRead );
 
-	List<ICFGenKbGelExecutableObj> readCachedAllGelExecutable();
+	List<IYCFGenKbGelExecutableObj> readCachedAllGelExecutable();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelExecutableTableObj
 	 *
 	 *	@param	argGelInstId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelExecutableObj readGelExecutableByPIdx( long TenantId,
+	IYCFGenKbGelExecutableObj readGelExecutableByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelExecutableTableObj
 	 *
 	 *	@param	argGelInstId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelExecutableObj readGelExecutableByPIdx( long TenantId,
+	IYCFGenKbGelExecutableObj readGelExecutableByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByTenantIdx( long TenantId );
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByTenantIdx( long TenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelExecutableTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
@@ -229,16 +229,16 @@ public interface ICFGenKbGelExecutableTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelSequenceObj instances sorted by their primary keys for the duplicate FirstInstIdx key.
+	 *	Get the map of YCFGenKbGelSequenceObj instances sorted by their primary keys for the duplicate FirstInstIdx key.
 	 *
 	 *	@param	argFirstInstTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
@@ -246,15 +246,15 @@ public interface ICFGenKbGelExecutableTableObj
 	 *
 	 *	@param	argFirstInstId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate FirstInstIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate FirstInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByFirstInstIdx( Long FirstInstTenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByFirstInstIdx( Long FirstInstTenantId,
 		Long FirstInstGelCacheId,
 		Long FirstInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate FirstInstIdx key.
+	 *	Get the map of YCFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate FirstInstIdx key.
 	 *
 	 *	@param	argFirstInstTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
@@ -262,16 +262,16 @@ public interface ICFGenKbGelExecutableTableObj
 	 *
 	 *	@param	argFirstInstId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate FirstInstIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate FirstInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByFirstInstIdx( Long FirstInstTenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByFirstInstIdx( Long FirstInstTenantId,
 		Long FirstInstGelCacheId,
 		Long FirstInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelSequenceObj instances sorted by their primary keys for the duplicate LastInstIdx key.
+	 *	Get the map of YCFGenKbGelSequenceObj instances sorted by their primary keys for the duplicate LastInstIdx key.
 	 *
 	 *	@param	argLastInstTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
@@ -279,15 +279,15 @@ public interface ICFGenKbGelExecutableTableObj
 	 *
 	 *	@param	argLastInstId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate LastInstIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate LastInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByLastInstIdx( Long LastInstTenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByLastInstIdx( Long LastInstTenantId,
 		Long LastInstGelCacheId,
 		Long LastInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate LastInstIdx key.
+	 *	Get the map of YCFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate LastInstIdx key.
 	 *
 	 *	@param	argLastInstTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
@@ -295,63 +295,63 @@ public interface ICFGenKbGelExecutableTableObj
 	 *
 	 *	@param	argLastInstId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate LastInstIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate LastInstIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByLastInstIdx( Long LastInstTenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByLastInstIdx( Long LastInstTenantId,
 		Long LastInstGelCacheId,
 		Long LastInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate GenItemIdx key.
+	 *	Get the map of YCFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate GenItemIdx key.
 	 *
 	 *	@param	argTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate GenItemIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate GenItemIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByGenItemIdx( long TenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByGenItemIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate GenItemIdx key.
+	 *	Get the map of YCFGenKbGelExecutableObj instances sorted by their primary keys for the duplicate GenItemIdx key.
 	 *
 	 *	@param	argTenantId	The GelExecutable key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelExecutable key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate GenItemIdx key,
+	 *	@return	List of YCFGenKbGelExecutableObj cached instances sorted by their primary keys for the duplicate GenItemIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExecutableObj> readGelExecutableByGenItemIdx( long TenantId,
+	List<IYCFGenKbGelExecutableObj> readGelExecutableByGenItemIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
-	ICFGenKbGelExecutableObj readCachedGelExecutableByPIdx( long TenantId,
+	IYCFGenKbGelExecutableObj readCachedGelExecutableByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelExecutableObj> readCachedGelExecutableByTenantIdx( long TenantId );
+	List<IYCFGenKbGelExecutableObj> readCachedGelExecutableByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelExecutableObj> readCachedGelExecutableByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelExecutableObj> readCachedGelExecutableByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelExecutableObj> readCachedGelExecutableByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelExecutableObj> readCachedGelExecutableByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
-	List<ICFGenKbGelExecutableObj> readCachedGelExecutableByFirstInstIdx( Long FirstInstTenantId,
+	List<IYCFGenKbGelExecutableObj> readCachedGelExecutableByFirstInstIdx( Long FirstInstTenantId,
 		Long FirstInstGelCacheId,
 		Long FirstInstId );
 
-	List<ICFGenKbGelExecutableObj> readCachedGelExecutableByLastInstIdx( Long LastInstTenantId,
+	List<IYCFGenKbGelExecutableObj> readCachedGelExecutableByLastInstIdx( Long LastInstTenantId,
 		Long LastInstGelCacheId,
 		Long LastInstId );
 
-	List<ICFGenKbGelExecutableObj> readCachedGelExecutableByGenItemIdx( long TenantId,
+	List<IYCFGenKbGelExecutableObj> readCachedGelExecutableByGenItemIdx( long TenantId,
 		long GelCacheId );
 
 	void deepDisposeGelExecutableByPIdx( long TenantId,
@@ -381,12 +381,12 @@ public interface ICFGenKbGelExecutableTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelExecutableObj updateGelExecutable( ICFGenKbGelExecutableObj Obj );
+	IYCFGenKbGelExecutableObj updateGelExecutable( IYCFGenKbGelExecutableObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelExecutable( ICFGenKbGelExecutableObj Obj );
+	void deleteGelExecutable( IYCFGenKbGelExecutableObj Obj );
 
 	/**
 	 *	Internal use only.

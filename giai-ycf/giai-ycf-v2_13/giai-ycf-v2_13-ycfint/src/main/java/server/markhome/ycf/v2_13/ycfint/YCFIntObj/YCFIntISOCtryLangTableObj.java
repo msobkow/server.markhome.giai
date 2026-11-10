@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFInt.
+// Description: Java 11 Table Object implementation for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,53 +26,53 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntISOCtryLangTableObj
-	implements ICFIntISOCtryLangTableObj
+public class YCFIntISOCtryLangTableObj
+	implements IYCFIntISOCtryLangTableObj
 {
-	protected ICFIntSchemaObj schema;
-	private Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj> members;
-	private Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj> allISOCtryLang;
-	private Map< CFSecISOCtryLangByCtryIdxKey,
-		Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > > indexByCtryIdx;
-	private Map< CFSecISOCtryLangByLangIdxKey,
-		Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > > indexByLangIdx;
+	protected IYCFIntSchemaObj schema;
+	private Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj> members;
+	private Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj> allISOCtryLang;
+	private Map< YCFSecISOCtryLangByCtryIdxKey,
+		Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > > indexByCtryIdx;
+	private Map< YCFSecISOCtryLangByLangIdxKey,
+		Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > > indexByLangIdx;
 	public static String TABLE_NAME = "ISOCtryLang";
 	public static String TABLE_DBNAME = "iso_cntrylng";
 
-	public CFIntISOCtryLangTableObj() {
+	public YCFIntISOCtryLangTableObj() {
 		schema = null;
-		members = new HashMap<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj>();
+		members = new HashMap<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj>();
 		allISOCtryLang = null;
 		indexByCtryIdx = null;
 		indexByLangIdx = null;
 	}
 
-	public CFIntISOCtryLangTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFIntSchemaObj)argSchema;
-		members = new HashMap<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj>();
+	public YCFIntISOCtryLangTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFIntSchemaObj)argSchema;
+		members = new HashMap<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj>();
 		allISOCtryLang = null;
 		indexByCtryIdx = null;
 		indexByLangIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFIntSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFIntSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -92,9 +92,9 @@ public class CFIntISOCtryLangTableObj
 		allISOCtryLang = null;
 		indexByCtryIdx = null;
 		indexByLangIdx = null;
-		List<ICFSecISOCtryLangObj> toForget = new LinkedList<ICFSecISOCtryLangObj>();
-		ICFSecISOCtryLangObj cur = null;
-		Iterator<ICFSecISOCtryLangObj> iter = members.values().iterator();
+		List<IYCFSecISOCtryLangObj> toForget = new LinkedList<IYCFSecISOCtryLangObj>();
+		IYCFSecISOCtryLangObj cur = null;
+		Iterator<IYCFSecISOCtryLangObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -112,10 +112,10 @@ public class CFIntISOCtryLangTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntISOCtryLangObj.
+	 *	YCFIntISOCtryLangObj.
 	 */
-	public ICFSecISOCtryLangObj newInstance() {
-		ICFSecISOCtryLangObj inst = new CFIntISOCtryLangObj( schema );
+	public IYCFSecISOCtryLangObj newInstance() {
+		IYCFSecISOCtryLangObj inst = new YCFIntISOCtryLangObj( schema );
 		return( inst );
 	}
 
@@ -126,19 +126,19 @@ public class CFIntISOCtryLangTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntISOCtryLangObj.
+	 *	YCFIntISOCtryLangObj.
 	 */
-	public ICFSecISOCtryLangEditObj newEditInstance( ICFSecISOCtryLangObj orig ) {
-		ICFSecISOCtryLangEditObj edit = new CFIntISOCtryLangEditObj( orig );
+	public IYCFSecISOCtryLangEditObj newEditInstance( IYCFSecISOCtryLangObj orig ) {
+		IYCFSecISOCtryLangEditObj edit = new YCFIntISOCtryLangEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecISOCtryLangObj realiseISOCtryLang( ICFSecISOCtryLangObj Obj ) {
-		ICFSecISOCtryLangObj obj = Obj;
-		CFSecISOCtryLangPKey pkey = obj.getPKey();
-		ICFSecISOCtryLangObj keepObj = null;
+	public IYCFSecISOCtryLangObj realiseISOCtryLang( IYCFSecISOCtryLangObj Obj ) {
+		IYCFSecISOCtryLangObj obj = Obj;
+		YCFSecISOCtryLangPKey pkey = obj.getPKey();
+		IYCFSecISOCtryLangObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecISOCtryLangObj existingObj = members.get( pkey );
+			IYCFSecISOCtryLangObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -149,10 +149,10 @@ public class CFIntISOCtryLangTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByCtryIdx != null ) {
-				CFSecISOCtryLangByCtryIdxKey keyCtryIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
+				YCFSecISOCtryLangByCtryIdxKey keyCtryIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
 				keyCtryIdx.setRequiredISOCtryId( keepObj.getRequiredISOCtryId() );
-				Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > mapCtryIdx = indexByCtryIdx.get( keyCtryIdx );
+				Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > mapCtryIdx = indexByCtryIdx.get( keyCtryIdx );
 				if( mapCtryIdx != null ) {
 					mapCtryIdx.remove( keepObj.getPKey() );
 					if( mapCtryIdx.size() <= 0 ) {
@@ -162,10 +162,10 @@ public class CFIntISOCtryLangTableObj
 			}
 
 			if( indexByLangIdx != null ) {
-				CFSecISOCtryLangByLangIdxKey keyLangIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
+				YCFSecISOCtryLangByLangIdxKey keyLangIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
 				keyLangIdx.setRequiredISOLangId( keepObj.getRequiredISOLangId() );
-				Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > mapLangIdx = indexByLangIdx.get( keyLangIdx );
+				Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > mapLangIdx = indexByLangIdx.get( keyLangIdx );
 				if( mapLangIdx != null ) {
 					mapLangIdx.remove( keepObj.getPKey() );
 					if( mapLangIdx.size() <= 0 ) {
@@ -178,20 +178,20 @@ public class CFIntISOCtryLangTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByCtryIdx != null ) {
-				CFSecISOCtryLangByCtryIdxKey keyCtryIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
+				YCFSecISOCtryLangByCtryIdxKey keyCtryIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
 				keyCtryIdx.setRequiredISOCtryId( keepObj.getRequiredISOCtryId() );
-				Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > mapCtryIdx = indexByCtryIdx.get( keyCtryIdx );
+				Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > mapCtryIdx = indexByCtryIdx.get( keyCtryIdx );
 				if( mapCtryIdx != null ) {
 					mapCtryIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByLangIdx != null ) {
-				CFSecISOCtryLangByLangIdxKey keyLangIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
+				YCFSecISOCtryLangByLangIdxKey keyLangIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
 				keyLangIdx.setRequiredISOLangId( keepObj.getRequiredISOLangId() );
-				Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > mapLangIdx = indexByLangIdx.get( keyLangIdx );
+				Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > mapLangIdx = indexByLangIdx.get( keyLangIdx );
 				if( mapLangIdx != null ) {
 					mapLangIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -212,20 +212,20 @@ public class CFIntISOCtryLangTableObj
 			}
 
 			if( indexByCtryIdx != null ) {
-				CFSecISOCtryLangByCtryIdxKey keyCtryIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
+				YCFSecISOCtryLangByCtryIdxKey keyCtryIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
 				keyCtryIdx.setRequiredISOCtryId( keepObj.getRequiredISOCtryId() );
-				Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > mapCtryIdx = indexByCtryIdx.get( keyCtryIdx );
+				Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > mapCtryIdx = indexByCtryIdx.get( keyCtryIdx );
 				if( mapCtryIdx != null ) {
 					mapCtryIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByLangIdx != null ) {
-				CFSecISOCtryLangByLangIdxKey keyLangIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
+				YCFSecISOCtryLangByLangIdxKey keyLangIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
 				keyLangIdx.setRequiredISOLangId( keepObj.getRequiredISOLangId() );
-				Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > mapLangIdx = indexByLangIdx.get( keyLangIdx );
+				Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > mapLangIdx = indexByLangIdx.get( keyLangIdx );
 				if( mapLangIdx != null ) {
 					mapLangIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -235,10 +235,10 @@ public class CFIntISOCtryLangTableObj
 		return( keepObj );
 	}
 
-	public ICFSecISOCtryLangObj createISOCtryLang( ICFSecISOCtryLangObj Obj ) {
-		ICFSecISOCtryLangObj obj = Obj;
-		CFSecISOCtryLangBuff buff = obj.getISOCtryLangBuff();
-		((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().createISOCtryLang(
+	public IYCFSecISOCtryLangObj createISOCtryLang( IYCFSecISOCtryLangObj Obj ) {
+		IYCFSecISOCtryLangObj obj = Obj;
+		YCFSecISOCtryLangBuff buff = obj.getISOCtryLangBuff();
+		((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().createISOCtryLang(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -247,54 +247,54 @@ public class CFIntISOCtryLangTableObj
 		return( obj );
 	}
 
-	public ICFSecISOCtryLangObj readISOCtryLang( CFSecISOCtryLangPKey pkey ) {
+	public IYCFSecISOCtryLangObj readISOCtryLang( YCFSecISOCtryLangPKey pkey ) {
 		return( readISOCtryLang( pkey, false ) );
 	}
 
-	public ICFSecISOCtryLangObj readISOCtryLang( CFSecISOCtryLangPKey pkey, boolean forceRead ) {
-		ICFSecISOCtryLangObj obj = null;
+	public IYCFSecISOCtryLangObj readISOCtryLang( YCFSecISOCtryLangPKey pkey, boolean forceRead ) {
+		IYCFSecISOCtryLangObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecISOCtryLangBuff readBuff = ((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecISOCtryLangBuff readBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredISOCtryId(),
 				pkey.getRequiredISOLangId() );
 			if( readBuff != null ) {
 				obj = schema.getISOCtryLangTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecISOCtryLangObj)obj.realise();
+				obj = (IYCFSecISOCtryLangObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecISOCtryLangObj readCachedISOCtryLang( CFSecISOCtryLangPKey pkey ) {
-		ICFSecISOCtryLangObj obj = null;
+	public IYCFSecISOCtryLangObj readCachedISOCtryLang( YCFSecISOCtryLangPKey pkey ) {
+		IYCFSecISOCtryLangObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeISOCtryLang( ICFSecISOCtryLangObj obj )
+	public void reallyDeepDisposeISOCtryLang( IYCFSecISOCtryLangObj obj )
 	{
-		final String S_ProcName = "CFIntISOCtryLangTableObj.reallyDeepDisposeISOCtryLang() ";
+		final String S_ProcName = "YCFIntISOCtryLangTableObj.reallyDeepDisposeISOCtryLang() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecISOCtryLangPKey pkey = obj.getPKey();
-		ICFSecISOCtryLangObj existing = readCachedISOCtryLang( pkey );
+		YCFSecISOCtryLangPKey pkey = obj.getPKey();
+		IYCFSecISOCtryLangObj existing = readCachedISOCtryLang( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecISOCtryLangByCtryIdxKey keyCtryIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
+		YCFSecISOCtryLangByCtryIdxKey keyCtryIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
 		keyCtryIdx.setRequiredISOCtryId( existing.getRequiredISOCtryId() );
 
-		CFSecISOCtryLangByLangIdxKey keyLangIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
+		YCFSecISOCtryLangByLangIdxKey keyLangIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
 		keyLangIdx.setRequiredISOLangId( existing.getRequiredISOLangId() );
 
 
@@ -319,57 +319,57 @@ public class CFIntISOCtryLangTableObj
 
 
 	}
-	public void deepDisposeISOCtryLang( CFSecISOCtryLangPKey pkey ) {
-		ICFSecISOCtryLangObj obj = readCachedISOCtryLang( pkey );
+	public void deepDisposeISOCtryLang( YCFSecISOCtryLangPKey pkey ) {
+		IYCFSecISOCtryLangObj obj = readCachedISOCtryLang( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecISOCtryLangObj lockISOCtryLang( CFSecISOCtryLangPKey pkey ) {
-		ICFSecISOCtryLangObj locked = null;
-		CFSecISOCtryLangBuff lockBuff = ((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecISOCtryLangObj lockISOCtryLang( YCFSecISOCtryLangPKey pkey ) {
+		IYCFSecISOCtryLangObj locked = null;
+		YCFSecISOCtryLangBuff lockBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getISOCtryLangTableObj().newInstance();
-			locked.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
+			locked.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecISOCtryLangObj)locked.realise();
+			locked = (IYCFSecISOCtryLangObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockISOCtryLang", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockISOCtryLang", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecISOCtryLangObj> readAllISOCtryLang() {
+	public List<IYCFSecISOCtryLangObj> readAllISOCtryLang() {
 		return( readAllISOCtryLang( false ) );
 	}
 
-	public List<ICFSecISOCtryLangObj> readAllISOCtryLang( boolean forceRead ) {
+	public List<IYCFSecISOCtryLangObj> readAllISOCtryLang( boolean forceRead ) {
 		final String S_ProcName = "readAllISOCtryLang";
 		if( ( allISOCtryLang == null ) || forceRead ) {
-			Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj> map = new HashMap<CFSecISOCtryLangPKey,ICFSecISOCtryLangObj>();
+			Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj> map = new HashMap<YCFSecISOCtryLangPKey,IYCFSecISOCtryLangObj>();
 			allISOCtryLang = map;
-			CFSecISOCtryLangBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().readAllDerived( schema.getAuthorization() );
-			CFSecISOCtryLangBuff buff;
-			ICFSecISOCtryLangObj obj;
+			YCFSecISOCtryLangBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().readAllDerived( schema.getAuthorization() );
+			YCFSecISOCtryLangBuff buff;
+			IYCFSecISOCtryLangObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
 				obj.setBuff( buff );
-				ICFSecISOCtryLangObj realised = (ICFSecISOCtryLangObj)obj.realise();
+				IYCFSecISOCtryLangObj realised = (IYCFSecISOCtryLangObj)obj.realise();
 			}
 		}
 		int len = allISOCtryLang.size();
-		ICFSecISOCtryLangObj arr[] = new ICFSecISOCtryLangObj[len];
-		Iterator<ICFSecISOCtryLangObj> valIter = allISOCtryLang.values().iterator();
+		IYCFSecISOCtryLangObj arr[] = new IYCFSecISOCtryLangObj[len];
+		Iterator<IYCFSecISOCtryLangObj> valIter = allISOCtryLang.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -377,20 +377,20 @@ public class CFIntISOCtryLangTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecISOCtryLangObj> arrayList = new ArrayList<ICFSecISOCtryLangObj>(len);
+		ArrayList<IYCFSecISOCtryLangObj> arrayList = new ArrayList<IYCFSecISOCtryLangObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecISOCtryLangObj> cmp = new Comparator<ICFSecISOCtryLangObj>() {
-			public int compare( ICFSecISOCtryLangObj lhs, ICFSecISOCtryLangObj rhs ) {
+		Comparator<IYCFSecISOCtryLangObj> cmp = new Comparator<IYCFSecISOCtryLangObj>() {
+			public int compare( IYCFSecISOCtryLangObj lhs, IYCFSecISOCtryLangObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -403,31 +403,31 @@ public class CFIntISOCtryLangTableObj
 					return( 1 );
 				}
 				else {
-					CFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
-					CFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
+					YCFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
+					YCFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecISOCtryLangObj> sortedList = arrayList;
+		List<IYCFSecISOCtryLangObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecISOCtryLangObj> readCachedAllISOCtryLang() {
+	public List<IYCFSecISOCtryLangObj> readCachedAllISOCtryLang() {
 		final String S_ProcName = "readCachedAllISOCtryLang";
-		ArrayList<ICFSecISOCtryLangObj> arrayList = new ArrayList<ICFSecISOCtryLangObj>();
+		ArrayList<IYCFSecISOCtryLangObj> arrayList = new ArrayList<IYCFSecISOCtryLangObj>();
 		if( allISOCtryLang != null ) {
 			int len = allISOCtryLang.size();
-			ICFSecISOCtryLangObj arr[] = new ICFSecISOCtryLangObj[len];
-			Iterator<ICFSecISOCtryLangObj> valIter = allISOCtryLang.values().iterator();
+			IYCFSecISOCtryLangObj arr[] = new IYCFSecISOCtryLangObj[len];
+			Iterator<IYCFSecISOCtryLangObj> valIter = allISOCtryLang.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -435,7 +435,7 @@ public class CFIntISOCtryLangTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -446,8 +446,8 @@ public class CFIntISOCtryLangTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecISOCtryLangObj> cmp = new Comparator<ICFSecISOCtryLangObj>() {
-			public int compare( ICFSecISOCtryLangObj lhs, ICFSecISOCtryLangObj rhs ) {
+		Comparator<IYCFSecISOCtryLangObj> cmp = new Comparator<IYCFSecISOCtryLangObj>() {
+			public int compare( IYCFSecISOCtryLangObj lhs, IYCFSecISOCtryLangObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -460,8 +460,8 @@ public class CFIntISOCtryLangTableObj
 					return( 1 );
 				}
 				else {
-					CFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
-					CFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
+					YCFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
+					YCFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -471,7 +471,7 @@ public class CFIntISOCtryLangTableObj
 		return( arrayList );
 	}
 
-	public ICFSecISOCtryLangObj readISOCtryLangByIdIdx( short ISOCtryId,
+	public IYCFSecISOCtryLangObj readISOCtryLangByIdIdx( short ISOCtryId,
 		short ISOLangId )
 	{
 		return( readISOCtryLangByIdIdx( ISOCtryId,
@@ -479,61 +479,61 @@ public class CFIntISOCtryLangTableObj
 			false ) );
 	}
 
-	public ICFSecISOCtryLangObj readISOCtryLangByIdIdx( short ISOCtryId,
+	public IYCFSecISOCtryLangObj readISOCtryLangByIdIdx( short ISOCtryId,
 		short ISOLangId, boolean forceRead )
 	{
-		CFSecISOCtryLangPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey();
+		YCFSecISOCtryLangPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey();
 		pkey.setRequiredISOCtryId( ISOCtryId );
 		pkey.setRequiredISOLangId( ISOLangId );
-		ICFSecISOCtryLangObj obj = readISOCtryLang( pkey, forceRead );
+		IYCFSecISOCtryLangObj obj = readISOCtryLang( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFSecISOCtryLangObj> readISOCtryLangByCtryIdx( short ISOCtryId )
+	public List<IYCFSecISOCtryLangObj> readISOCtryLangByCtryIdx( short ISOCtryId )
 	{
 		return( readISOCtryLangByCtryIdx( ISOCtryId,
 			false ) );
 	}
 
-	public List<ICFSecISOCtryLangObj> readISOCtryLangByCtryIdx( short ISOCtryId,
+	public List<IYCFSecISOCtryLangObj> readISOCtryLangByCtryIdx( short ISOCtryId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readISOCtryLangByCtryIdx";
-		CFSecISOCtryLangByCtryIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
+		YCFSecISOCtryLangByCtryIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
 		key.setRequiredISOCtryId( ISOCtryId );
-		Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj> dict;
+		Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj> dict;
 		if( indexByCtryIdx == null ) {
-			indexByCtryIdx = new HashMap< CFSecISOCtryLangByCtryIdxKey,
-				Map< CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > >();
+			indexByCtryIdx = new HashMap< YCFSecISOCtryLangByCtryIdxKey,
+				Map< YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > >();
 		}
 		if( ( ! forceRead ) && indexByCtryIdx.containsKey( key ) ) {
 			dict = indexByCtryIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj>();
-			ICFSecISOCtryLangObj obj;
-			CFSecISOCtryLangBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().readDerivedByCtryIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj>();
+			IYCFSecISOCtryLangObj obj;
+			YCFSecISOCtryLangBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().readDerivedByCtryIdx( schema.getAuthorization(),
 				ISOCtryId );
-			CFSecISOCtryLangBuff buff;
+			YCFSecISOCtryLangBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getISOCtryLangTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
 				obj.setBuff( buff );
-				ICFSecISOCtryLangObj realised = (ICFSecISOCtryLangObj)obj.realise();
+				IYCFSecISOCtryLangObj realised = (IYCFSecISOCtryLangObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByCtryIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecISOCtryLangObj arr[] = new ICFSecISOCtryLangObj[len];
-		Iterator<ICFSecISOCtryLangObj> valIter = dict.values().iterator();
+		IYCFSecISOCtryLangObj arr[] = new IYCFSecISOCtryLangObj[len];
+		Iterator<IYCFSecISOCtryLangObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -541,20 +541,20 @@ public class CFIntISOCtryLangTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecISOCtryLangObj> arrayList = new ArrayList<ICFSecISOCtryLangObj>(len);
+		ArrayList<IYCFSecISOCtryLangObj> arrayList = new ArrayList<IYCFSecISOCtryLangObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecISOCtryLangObj> cmp = new Comparator<ICFSecISOCtryLangObj>() {
-			public int compare( ICFSecISOCtryLangObj lhs, ICFSecISOCtryLangObj rhs ) {
+		Comparator<IYCFSecISOCtryLangObj> cmp = new Comparator<IYCFSecISOCtryLangObj>() {
+			public int compare( IYCFSecISOCtryLangObj lhs, IYCFSecISOCtryLangObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -567,63 +567,63 @@ public class CFIntISOCtryLangTableObj
 					return( 1 );
 				}
 				else {
-					CFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
-					CFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
+					YCFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
+					YCFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecISOCtryLangObj> sortedList = arrayList;
+		List<IYCFSecISOCtryLangObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecISOCtryLangObj> readISOCtryLangByLangIdx( short ISOLangId )
+	public List<IYCFSecISOCtryLangObj> readISOCtryLangByLangIdx( short ISOLangId )
 	{
 		return( readISOCtryLangByLangIdx( ISOLangId,
 			false ) );
 	}
 
-	public List<ICFSecISOCtryLangObj> readISOCtryLangByLangIdx( short ISOLangId,
+	public List<IYCFSecISOCtryLangObj> readISOCtryLangByLangIdx( short ISOLangId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readISOCtryLangByLangIdx";
-		CFSecISOCtryLangByLangIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
+		YCFSecISOCtryLangByLangIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
 		key.setRequiredISOLangId( ISOLangId );
-		Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj> dict;
+		Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj> dict;
 		if( indexByLangIdx == null ) {
-			indexByLangIdx = new HashMap< CFSecISOCtryLangByLangIdxKey,
-				Map< CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > >();
+			indexByLangIdx = new HashMap< YCFSecISOCtryLangByLangIdxKey,
+				Map< YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > >();
 		}
 		if( ( ! forceRead ) && indexByLangIdx.containsKey( key ) ) {
 			dict = indexByLangIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj>();
-			ICFSecISOCtryLangObj obj;
-			CFSecISOCtryLangBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().readDerivedByLangIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj>();
+			IYCFSecISOCtryLangObj obj;
+			YCFSecISOCtryLangBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().readDerivedByLangIdx( schema.getAuthorization(),
 				ISOLangId );
-			CFSecISOCtryLangBuff buff;
+			YCFSecISOCtryLangBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getISOCtryLangTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey() );
 				obj.setBuff( buff );
-				ICFSecISOCtryLangObj realised = (ICFSecISOCtryLangObj)obj.realise();
+				IYCFSecISOCtryLangObj realised = (IYCFSecISOCtryLangObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByLangIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecISOCtryLangObj arr[] = new ICFSecISOCtryLangObj[len];
-		Iterator<ICFSecISOCtryLangObj> valIter = dict.values().iterator();
+		IYCFSecISOCtryLangObj arr[] = new IYCFSecISOCtryLangObj[len];
+		Iterator<IYCFSecISOCtryLangObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -631,20 +631,20 @@ public class CFIntISOCtryLangTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecISOCtryLangObj> arrayList = new ArrayList<ICFSecISOCtryLangObj>(len);
+		ArrayList<IYCFSecISOCtryLangObj> arrayList = new ArrayList<IYCFSecISOCtryLangObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecISOCtryLangObj> cmp = new Comparator<ICFSecISOCtryLangObj>() {
-			public int compare( ICFSecISOCtryLangObj lhs, ICFSecISOCtryLangObj rhs ) {
+		Comparator<IYCFSecISOCtryLangObj> cmp = new Comparator<IYCFSecISOCtryLangObj>() {
+			public int compare( IYCFSecISOCtryLangObj lhs, IYCFSecISOCtryLangObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -657,48 +657,48 @@ public class CFIntISOCtryLangTableObj
 					return( 1 );
 				}
 				else {
-					CFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
-					CFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
+					YCFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
+					YCFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecISOCtryLangObj> sortedList = arrayList;
+		List<IYCFSecISOCtryLangObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecISOCtryLangObj readCachedISOCtryLangByIdIdx( short ISOCtryId,
+	public IYCFSecISOCtryLangObj readCachedISOCtryLangByIdIdx( short ISOCtryId,
 		short ISOLangId )
 	{
-		ICFSecISOCtryLangObj obj = null;
-		CFSecISOCtryLangPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey();
+		IYCFSecISOCtryLangObj obj = null;
+		YCFSecISOCtryLangPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey();
 		pkey.setRequiredISOCtryId( ISOCtryId );
 		pkey.setRequiredISOLangId( ISOLangId );
 		obj = readCachedISOCtryLang( pkey );
 		return( obj );
 	}
 
-	public List<ICFSecISOCtryLangObj> readCachedISOCtryLangByCtryIdx( short ISOCtryId )
+	public List<IYCFSecISOCtryLangObj> readCachedISOCtryLangByCtryIdx( short ISOCtryId )
 	{
 		final String S_ProcName = "readCachedISOCtryLangByCtryIdx";
-		CFSecISOCtryLangByCtryIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
+		YCFSecISOCtryLangByCtryIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
 		key.setRequiredISOCtryId( ISOCtryId );
-		ArrayList<ICFSecISOCtryLangObj> arrayList = new ArrayList<ICFSecISOCtryLangObj>();
+		ArrayList<IYCFSecISOCtryLangObj> arrayList = new ArrayList<IYCFSecISOCtryLangObj>();
 		if( indexByCtryIdx != null ) {
-			Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj> dict;
+			Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj> dict;
 			if( indexByCtryIdx.containsKey( key ) ) {
 				dict = indexByCtryIdx.get( key );
 				int len = dict.size();
-				ICFSecISOCtryLangObj arr[] = new ICFSecISOCtryLangObj[len];
-				Iterator<ICFSecISOCtryLangObj> valIter = dict.values().iterator();
+				IYCFSecISOCtryLangObj arr[] = new IYCFSecISOCtryLangObj[len];
+				Iterator<IYCFSecISOCtryLangObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -706,7 +706,7 @@ public class CFIntISOCtryLangTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -719,8 +719,8 @@ public class CFIntISOCtryLangTableObj
 			}
 		}
 		else {
-			ICFSecISOCtryLangObj obj;
-			Iterator<ICFSecISOCtryLangObj> valIter = members.values().iterator();
+			IYCFSecISOCtryLangObj obj;
+			Iterator<IYCFSecISOCtryLangObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -730,8 +730,8 @@ public class CFIntISOCtryLangTableObj
 				}
 			}
 		}
-		Comparator<ICFSecISOCtryLangObj> cmp = new Comparator<ICFSecISOCtryLangObj>() {
-			public int compare( ICFSecISOCtryLangObj lhs, ICFSecISOCtryLangObj rhs ) {
+		Comparator<IYCFSecISOCtryLangObj> cmp = new Comparator<IYCFSecISOCtryLangObj>() {
+			public int compare( IYCFSecISOCtryLangObj lhs, IYCFSecISOCtryLangObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -744,8 +744,8 @@ public class CFIntISOCtryLangTableObj
 					return( 1 );
 				}
 				else {
-					CFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
-					CFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
+					YCFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
+					YCFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -755,25 +755,25 @@ public class CFIntISOCtryLangTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecISOCtryLangObj> readCachedISOCtryLangByLangIdx( short ISOLangId )
+	public List<IYCFSecISOCtryLangObj> readCachedISOCtryLangByLangIdx( short ISOLangId )
 	{
 		final String S_ProcName = "readCachedISOCtryLangByLangIdx";
-		CFSecISOCtryLangByLangIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
+		YCFSecISOCtryLangByLangIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
 		key.setRequiredISOLangId( ISOLangId );
-		ArrayList<ICFSecISOCtryLangObj> arrayList = new ArrayList<ICFSecISOCtryLangObj>();
+		ArrayList<IYCFSecISOCtryLangObj> arrayList = new ArrayList<IYCFSecISOCtryLangObj>();
 		if( indexByLangIdx != null ) {
-			Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj> dict;
+			Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj> dict;
 			if( indexByLangIdx.containsKey( key ) ) {
 				dict = indexByLangIdx.get( key );
 				int len = dict.size();
-				ICFSecISOCtryLangObj arr[] = new ICFSecISOCtryLangObj[len];
-				Iterator<ICFSecISOCtryLangObj> valIter = dict.values().iterator();
+				IYCFSecISOCtryLangObj arr[] = new IYCFSecISOCtryLangObj[len];
+				Iterator<IYCFSecISOCtryLangObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -781,7 +781,7 @@ public class CFIntISOCtryLangTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -794,8 +794,8 @@ public class CFIntISOCtryLangTableObj
 			}
 		}
 		else {
-			ICFSecISOCtryLangObj obj;
-			Iterator<ICFSecISOCtryLangObj> valIter = members.values().iterator();
+			IYCFSecISOCtryLangObj obj;
+			Iterator<IYCFSecISOCtryLangObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -805,8 +805,8 @@ public class CFIntISOCtryLangTableObj
 				}
 			}
 		}
-		Comparator<ICFSecISOCtryLangObj> cmp = new Comparator<ICFSecISOCtryLangObj>() {
-			public int compare( ICFSecISOCtryLangObj lhs, ICFSecISOCtryLangObj rhs ) {
+		Comparator<IYCFSecISOCtryLangObj> cmp = new Comparator<IYCFSecISOCtryLangObj>() {
+			public int compare( IYCFSecISOCtryLangObj lhs, IYCFSecISOCtryLangObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -819,8 +819,8 @@ public class CFIntISOCtryLangTableObj
 					return( 1 );
 				}
 				else {
-					CFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
-					CFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
+					YCFSecISOCtryLangPKey lhsPKey = lhs.getPKey();
+					YCFSecISOCtryLangPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -833,7 +833,7 @@ public class CFIntISOCtryLangTableObj
 	public void deepDisposeISOCtryLangByIdIdx( short ISOCtryId,
 		short ISOLangId )
 	{
-		ICFSecISOCtryLangObj obj = readCachedISOCtryLangByIdIdx( ISOCtryId,
+		IYCFSecISOCtryLangObj obj = readCachedISOCtryLangByIdIdx( ISOCtryId,
 				ISOLangId );
 		if( obj != null ) {
 			obj.forget();
@@ -843,10 +843,10 @@ public class CFIntISOCtryLangTableObj
 	public void deepDisposeISOCtryLangByCtryIdx( short ISOCtryId )
 	{
 		final String S_ProcName = "deepDisposeISOCtryLangByCtryIdx";
-		ICFSecISOCtryLangObj obj;
-		List<ICFSecISOCtryLangObj> arrayList = readCachedISOCtryLangByCtryIdx( ISOCtryId );
+		IYCFSecISOCtryLangObj obj;
+		List<IYCFSecISOCtryLangObj> arrayList = readCachedISOCtryLangByCtryIdx( ISOCtryId );
 		if( arrayList != null )  {
-			Iterator<ICFSecISOCtryLangObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecISOCtryLangObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -859,10 +859,10 @@ public class CFIntISOCtryLangTableObj
 	public void deepDisposeISOCtryLangByLangIdx( short ISOLangId )
 	{
 		final String S_ProcName = "deepDisposeISOCtryLangByLangIdx";
-		ICFSecISOCtryLangObj obj;
-		List<ICFSecISOCtryLangObj> arrayList = readCachedISOCtryLangByLangIdx( ISOLangId );
+		IYCFSecISOCtryLangObj obj;
+		List<IYCFSecISOCtryLangObj> arrayList = readCachedISOCtryLangByLangIdx( ISOLangId );
 		if( arrayList != null )  {
-			Iterator<ICFSecISOCtryLangObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecISOCtryLangObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -872,18 +872,18 @@ public class CFIntISOCtryLangTableObj
 		}
 	}
 
-	public ICFSecISOCtryLangObj updateISOCtryLang( ICFSecISOCtryLangObj Obj ) {
-		ICFSecISOCtryLangObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().updateISOCtryLang( schema.getAuthorization(),
+	public IYCFSecISOCtryLangObj updateISOCtryLang( IYCFSecISOCtryLangObj Obj ) {
+		IYCFSecISOCtryLangObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().updateISOCtryLang( schema.getAuthorization(),
 			Obj.getISOCtryLangBuff() );
-		obj = (ICFSecISOCtryLangObj)Obj.realise();
+		obj = (IYCFSecISOCtryLangObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteISOCtryLang( ICFSecISOCtryLangObj Obj ) {
-		ICFSecISOCtryLangObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLang( schema.getAuthorization(),
+	public void deleteISOCtryLang( IYCFSecISOCtryLangObj Obj ) {
+		IYCFSecISOCtryLangObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLang( schema.getAuthorization(),
 			obj.getISOCtryLangBuff() );
 		Obj.forget();
 	}
@@ -891,15 +891,15 @@ public class CFIntISOCtryLangTableObj
 	public void deleteISOCtryLangByIdIdx( short ISOCtryId,
 		short ISOLangId )
 	{
-		CFSecISOCtryLangPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey();
+		YCFSecISOCtryLangPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newPKey();
 		pkey.setRequiredISOCtryId( ISOCtryId );
 		pkey.setRequiredISOLangId( ISOLangId );
-		ICFSecISOCtryLangObj obj = readISOCtryLang( pkey );
+		IYCFSecISOCtryLangObj obj = readISOCtryLang( pkey );
 		if( obj != null ) {
-			ICFSecISOCtryLangEditObj editObj = (ICFSecISOCtryLangEditObj)obj.getEdit();
+			IYCFSecISOCtryLangEditObj editObj = (IYCFSecISOCtryLangEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecISOCtryLangEditObj)obj.beginEdit();
+				editObj = (IYCFSecISOCtryLangEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -924,19 +924,19 @@ public class CFIntISOCtryLangTableObj
 
 	public void deleteISOCtryLangByCtryIdx( short ISOCtryId )
 	{
-		CFSecISOCtryLangByCtryIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
+		YCFSecISOCtryLangByCtryIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newCtryIdxKey();
 		key.setRequiredISOCtryId( ISOCtryId );
 		if( indexByCtryIdx == null ) {
-			indexByCtryIdx = new HashMap< CFSecISOCtryLangByCtryIdxKey,
-				Map< CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > >();
+			indexByCtryIdx = new HashMap< YCFSecISOCtryLangByCtryIdxKey,
+				Map< YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > >();
 		}
 		if( indexByCtryIdx.containsKey( key ) ) {
-			Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj> dict = indexByCtryIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLangByCtryIdx( schema.getAuthorization(),
+			Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj> dict = indexByCtryIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLangByCtryIdx( schema.getAuthorization(),
 				ISOCtryId );
-			Iterator<ICFSecISOCtryLangObj> iter = dict.values().iterator();
-			ICFSecISOCtryLangObj obj;
-			List<ICFSecISOCtryLangObj> toForget = new LinkedList<ICFSecISOCtryLangObj>();
+			Iterator<IYCFSecISOCtryLangObj> iter = dict.values().iterator();
+			IYCFSecISOCtryLangObj obj;
+			List<IYCFSecISOCtryLangObj> toForget = new LinkedList<IYCFSecISOCtryLangObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -949,7 +949,7 @@ public class CFIntISOCtryLangTableObj
 			indexByCtryIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLangByCtryIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLangByCtryIdx( schema.getAuthorization(),
 				ISOCtryId );
 		}
 		deepDisposeISOCtryLangByCtryIdx( ISOCtryId );
@@ -957,19 +957,19 @@ public class CFIntISOCtryLangTableObj
 
 	public void deleteISOCtryLangByLangIdx( short ISOLangId )
 	{
-		CFSecISOCtryLangByLangIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
+		YCFSecISOCtryLangByLangIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryISOCtryLang().newLangIdxKey();
 		key.setRequiredISOLangId( ISOLangId );
 		if( indexByLangIdx == null ) {
-			indexByLangIdx = new HashMap< CFSecISOCtryLangByLangIdxKey,
-				Map< CFSecISOCtryLangPKey, ICFSecISOCtryLangObj > >();
+			indexByLangIdx = new HashMap< YCFSecISOCtryLangByLangIdxKey,
+				Map< YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj > >();
 		}
 		if( indexByLangIdx.containsKey( key ) ) {
-			Map<CFSecISOCtryLangPKey, ICFSecISOCtryLangObj> dict = indexByLangIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLangByLangIdx( schema.getAuthorization(),
+			Map<YCFSecISOCtryLangPKey, IYCFSecISOCtryLangObj> dict = indexByLangIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLangByLangIdx( schema.getAuthorization(),
 				ISOLangId );
-			Iterator<ICFSecISOCtryLangObj> iter = dict.values().iterator();
-			ICFSecISOCtryLangObj obj;
-			List<ICFSecISOCtryLangObj> toForget = new LinkedList<ICFSecISOCtryLangObj>();
+			Iterator<IYCFSecISOCtryLangObj> iter = dict.values().iterator();
+			IYCFSecISOCtryLangObj obj;
+			List<IYCFSecISOCtryLangObj> toForget = new LinkedList<IYCFSecISOCtryLangObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -982,7 +982,7 @@ public class CFIntISOCtryLangTableObj
 			indexByLangIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLangByLangIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableISOCtryLang().deleteISOCtryLangByLangIdx( schema.getAuthorization(),
 				ISOLangId );
 		}
 		deepDisposeISOCtryLangByLangIdx( ISOLangId );

@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbDefClassTableObj
+public interface IYCFGenKbDefClassTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbDefClassTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbDefClassObj newInstance();
+	IYCFGenKbDefClassObj newInstance();
 
 	/**
 	 *	Instantiate a new DefClass edition of the specified DefClass instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbDefClassEditObj newEditInstance( ICFGenKbDefClassObj orig );
+	IYCFGenKbDefClassEditObj newEditInstance( IYCFGenKbDefClassObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbDefClassObj realiseDefClass( ICFGenKbDefClassObj Obj );
+	IYCFGenKbDefClassObj realiseDefClass( IYCFGenKbDefClassObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbDefClassObj createDefClass( ICFGenKbDefClassObj Obj );
+	IYCFGenKbDefClassObj createDefClass( IYCFGenKbDefClassObj Obj );
 
 	/**
 	 *	Read a DefClass-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbDefClassTableObj
 	 *	@return	The DefClass-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbDefClassObj readDefClass( CFGenKbDefClassPKey pkey );
+	IYCFGenKbDefClassObj readDefClass( YCFGenKbDefClassPKey pkey );
 
 	/**
 	 *	Read a DefClass-derived instance by it's primary key.
@@ -91,106 +91,106 @@ public interface ICFGenKbDefClassTableObj
 	 *	@return	The DefClass-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbDefClassObj readDefClass( CFGenKbDefClassPKey pkey,
+	IYCFGenKbDefClassObj readDefClass( YCFGenKbDefClassPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbDefClassObj readCachedDefClass( CFGenKbDefClassPKey pkey );
+	IYCFGenKbDefClassObj readCachedDefClass( YCFGenKbDefClassPKey pkey );
 
-	public void reallyDeepDisposeDefClass( ICFGenKbDefClassObj obj );
+	public void reallyDeepDisposeDefClass( IYCFGenKbDefClassObj obj );
 
-	void deepDisposeDefClass( CFGenKbDefClassPKey pkey );
+	void deepDisposeDefClass( YCFGenKbDefClassPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbDefClassObj lockDefClass( CFGenKbDefClassPKey pkey );
+	IYCFGenKbDefClassObj lockDefClass( YCFGenKbDefClassPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the DefClass-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbDefClassObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbDefClassObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbDefClassObj> readAllDefClass();
+	List<IYCFGenKbDefClassObj> readAllDefClass();
 
 	/**
 	 *	Return a sorted map of all the DefClass-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbDefClassObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbDefClassObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbDefClassObj> readAllDefClass( boolean forceRead );
+	List<IYCFGenKbDefClassObj> readAllDefClass( boolean forceRead );
 
-	List<ICFGenKbDefClassObj> readCachedAllDefClass();
+	List<IYCFGenKbDefClassObj> readCachedAllDefClass();
 
 	/**
-	 *	Get the CFGenKbDefClassObj instance for the primary key attributes.
+	 *	Get the YCFGenKbDefClassObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The DefClass key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbDefClassObj cached instance for the primary key, or
+	 *	@return	YCFGenKbDefClassObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbDefClassObj readDefClassByIdIdx( short Id );
+	IYCFGenKbDefClassObj readDefClassByIdIdx( short Id );
 
 	/**
-	 *	Get the CFGenKbDefClassObj instance for the primary key attributes.
+	 *	Get the YCFGenKbDefClassObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The DefClass key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbDefClassObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbDefClassObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbDefClassObj readDefClassByIdIdx( short Id,
+	IYCFGenKbDefClassObj readDefClassByIdIdx( short Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbDefClassObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbDefClassObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The DefClass key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbDefClassObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbDefClassObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbDefClassObj readDefClassByNameIdx(String Name );
+	IYCFGenKbDefClassObj readDefClassByNameIdx(String Name );
 
 	/**
-	 *	Get the CFGenKbDefClassObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbDefClassObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The DefClass key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbDefClassObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbDefClassObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbDefClassObj readDefClassByNameIdx(String Name,
+	IYCFGenKbDefClassObj readDefClassByNameIdx(String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbDefClassObj instances sorted by their primary keys for the duplicate BaseIdx key.
+	 *	Get the map of YCFGenKbDefClassObj instances sorted by their primary keys for the duplicate BaseIdx key.
 	 *
 	 *	@param	argBaseId	The DefClass key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbDefClassObj cached instances sorted by their primary keys for the duplicate BaseIdx key,
+	 *	@return	List of YCFGenKbDefClassObj cached instances sorted by their primary keys for the duplicate BaseIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbDefClassObj> readDefClassByBaseIdx( Short BaseId );
+	List<IYCFGenKbDefClassObj> readDefClassByBaseIdx( Short BaseId );
 
 	/**
-	 *	Get the map of CFGenKbDefClassObj instances sorted by their primary keys for the duplicate BaseIdx key.
+	 *	Get the map of YCFGenKbDefClassObj instances sorted by their primary keys for the duplicate BaseIdx key.
 	 *
 	 *	@param	argBaseId	The DefClass key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbDefClassObj cached instances sorted by their primary keys for the duplicate BaseIdx key,
+	 *	@return	List of YCFGenKbDefClassObj cached instances sorted by their primary keys for the duplicate BaseIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbDefClassObj> readDefClassByBaseIdx( Short BaseId,
+	List<IYCFGenKbDefClassObj> readDefClassByBaseIdx( Short BaseId,
 		boolean forceRead );
 
-	ICFGenKbDefClassObj readCachedDefClassByIdIdx( short Id );
+	IYCFGenKbDefClassObj readCachedDefClassByIdIdx( short Id );
 
-	ICFGenKbDefClassObj readCachedDefClassByNameIdx( String Name );
+	IYCFGenKbDefClassObj readCachedDefClassByNameIdx( String Name );
 
-	List<ICFGenKbDefClassObj> readCachedDefClassByBaseIdx( Short BaseId );
+	List<IYCFGenKbDefClassObj> readCachedDefClassByBaseIdx( Short BaseId );
 
 	void deepDisposeDefClassByIdIdx( short Id );
 
@@ -201,12 +201,12 @@ public interface ICFGenKbDefClassTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbDefClassObj updateDefClass( ICFGenKbDefClassObj Obj );
+	IYCFGenKbDefClassObj updateDefClass( IYCFGenKbDefClassObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteDefClass( ICFGenKbDefClassObj Obj );
+	void deleteDefClass( IYCFGenKbDefClassObj Obj );
 
 	/**
 	 *	Internal use only.

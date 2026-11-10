@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for TopProject.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,61 +35,61 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 	/*
-	 *	CFBamTopProjectFactory implementation for TopProject
+	 *	YCFBamTopProjectFactory implementation for TopProject
 	 */
-public class CFBamTopProjectDefaultFactory
-	extends CFIntTopProjectDefaultFactory
-	implements ICFBamTopProjectFactory
+public class YCFBamTopProjectDefaultFactory
+	extends YCFIntTopProjectDefaultFactory
+	implements IYCFBamTopProjectFactory
 {
-	public CFBamTopProjectDefaultFactory() {
+	public YCFBamTopProjectDefaultFactory() {
 		super();
 	}
 
-	public CFIntTopProjectPKey newPKey() {
-		CFIntTopProjectPKey pkey =
-			new CFIntTopProjectPKey();
+	public YCFIntTopProjectPKey newPKey() {
+		YCFIntTopProjectPKey pkey =
+			new YCFIntTopProjectPKey();
 		return( pkey );
 	}
 
-	public CFIntTopProjectHPKey newHPKey() {
-		CFIntTopProjectHPKey hpkey =
-			new CFIntTopProjectHPKey();
+	public YCFIntTopProjectHPKey newHPKey() {
+		YCFIntTopProjectHPKey hpkey =
+			new YCFIntTopProjectHPKey();
 		return( hpkey );
 	}
 
-	public CFIntTopProjectByTenantIdxKey newTenantIdxKey() {
-		CFIntTopProjectByTenantIdxKey key =
-			new CFIntTopProjectByTenantIdxKey();
+	public YCFIntTopProjectByTenantIdxKey newTenantIdxKey() {
+		YCFIntTopProjectByTenantIdxKey key =
+			new YCFIntTopProjectByTenantIdxKey();
 		return( key );
 	}
 
-	public CFIntTopProjectByTopDomainIdxKey newTopDomainIdxKey() {
-		CFIntTopProjectByTopDomainIdxKey key =
-			new CFIntTopProjectByTopDomainIdxKey();
+	public YCFIntTopProjectByTopDomainIdxKey newTopDomainIdxKey() {
+		YCFIntTopProjectByTopDomainIdxKey key =
+			new YCFIntTopProjectByTopDomainIdxKey();
 		return( key );
 	}
 
-	public CFIntTopProjectByNameIdxKey newNameIdxKey() {
-		CFIntTopProjectByNameIdxKey key =
-			new CFIntTopProjectByNameIdxKey();
+	public YCFIntTopProjectByNameIdxKey newNameIdxKey() {
+		YCFIntTopProjectByNameIdxKey key =
+			new YCFIntTopProjectByNameIdxKey();
 		return( key );
 	}
 
-	public CFIntTopProjectBuff newBuff() {
-		CFIntTopProjectBuff buff =
-			new CFIntTopProjectBuff();
+	public YCFIntTopProjectBuff newBuff() {
+		YCFIntTopProjectBuff buff =
+			new YCFIntTopProjectBuff();
 		return( buff );
 	}
 
-	public CFIntTopProjectHBuff newHBuff() {
-		CFIntTopProjectHBuff hbuff =
-			new CFIntTopProjectHBuff();
+	public YCFIntTopProjectHBuff newHBuff() {
+		YCFIntTopProjectHBuff hbuff =
+			new YCFIntTopProjectHBuff();
 		return( hbuff );
 	}
 }

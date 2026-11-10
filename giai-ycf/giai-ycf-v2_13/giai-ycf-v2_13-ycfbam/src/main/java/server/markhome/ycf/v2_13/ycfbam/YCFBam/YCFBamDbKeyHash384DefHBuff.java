@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a DbKeyHash384Def history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamDbKeyHash384DefHBuff
-	extends CFBamAtomHBuff
+public class YCFBamDbKeyHash384DefHBuff
+	extends YCFBamAtomHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -71,13 +71,13 @@ public class CFBamDbKeyHash384DefHBuff
 	public static final long ID_MIN_VALUE = 0L;
 
 	protected String optionalInitValue;
-	public CFBamDbKeyHash384DefHBuff() {
+	public YCFBamDbKeyHash384DefHBuff() {
 		super();
 		optionalInitValue = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamDbKeyHash384DefBuff.CLASS_CODE );
+		return( YCFBamDbKeyHash384DefBuff.CLASS_CODE );
 	}
 
 	public String getOptionalInitValue() {
@@ -89,7 +89,7 @@ public class CFBamDbKeyHash384DefHBuff
 			optionalInitValue = null;
 		}
 		else if( value.length() > 96 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalInitValue",
 				1,
 				"value.length()",
@@ -105,8 +105,8 @@ public class CFBamDbKeyHash384DefHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamDbKeyHash384DefHBuff ) {
-			CFBamDbKeyHash384DefHBuff rhs = (CFBamDbKeyHash384DefHBuff)obj;
+		else if( obj instanceof YCFBamDbKeyHash384DefHBuff ) {
+			YCFBamDbKeyHash384DefHBuff rhs = (YCFBamDbKeyHash384DefHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -130,8 +130,8 @@ public class CFBamDbKeyHash384DefHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamDbKeyHash384DefBuff ) {
-			CFBamDbKeyHash384DefBuff rhs = (CFBamDbKeyHash384DefBuff)obj;
+		else if( obj instanceof YCFBamDbKeyHash384DefBuff ) {
+			YCFBamDbKeyHash384DefBuff rhs = (YCFBamDbKeyHash384DefBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -172,16 +172,16 @@ public class CFBamDbKeyHash384DefHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamDbKeyHash384DefBuff ) {
-			CFBamDbKeyHash384DefBuff rhs = (CFBamDbKeyHash384DefBuff)obj;
+		else if( obj instanceof YCFBamDbKeyHash384DefBuff ) {
+			YCFBamDbKeyHash384DefBuff rhs = (YCFBamDbKeyHash384DefBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamDbKeyHash384DefHBuff ) {
-			CFBamDbKeyHash384DefHBuff rhs = (CFBamDbKeyHash384DefHBuff)obj;
+		else if( obj instanceof YCFBamDbKeyHash384DefHBuff ) {
+			YCFBamDbKeyHash384DefHBuff rhs = (YCFBamDbKeyHash384DefHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -554,38 +554,38 @@ public class CFBamDbKeyHash384DefHBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamDbKeyHash384DefBuff ) {
-			setDbKeyHash384DefBuff( (CFBamDbKeyHash384DefBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamDbKeyHash384DefBuff ) {
+			setDbKeyHash384DefBuff( (YCFBamDbKeyHash384DefBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamDbKeyHash384DefBuff" );
+				"YCFBamDbKeyHash384DefBuff" );
 		}
 	}
 
-	public void setDbKeyHash384DefBuff( CFBamDbKeyHash384DefBuff src ) {
+	public void setDbKeyHash384DefBuff( YCFBamDbKeyHash384DefBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalInitValue( src.getOptionalInitValue() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamDbKeyHash384DefHBuff ) {
-			setDbKeyHash384DefBuff( (CFBamDbKeyHash384DefHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamDbKeyHash384DefHBuff ) {
+			setDbKeyHash384DefBuff( (YCFBamDbKeyHash384DefHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamDbKeyHash384DefHBuff" );
+				"YCFBamDbKeyHash384DefHBuff" );
 		}
 	}
 
-	public void setDbKeyHash384DefBuff( CFBamDbKeyHash384DefHBuff src ) {
+	public void setDbKeyHash384DefBuff( YCFBamDbKeyHash384DefHBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalInitValue( src.getOptionalInitValue() );
 	}

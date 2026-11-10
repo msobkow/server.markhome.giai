@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,42 +45,42 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamClearSubDep1TableObj
-	implements ICFBamClearSubDep1TableObj
+public class YCFBamClearSubDep1TableObj
+	implements IYCFBamClearSubDep1TableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFBamScopePKey, ICFBamClearSubDep1Obj> members;
-	private Map<CFBamScopePKey, ICFBamClearSubDep1Obj> allClearSubDep1;
-	private Map< CFBamScopeByTenantIdxKey,
-		Map<CFBamScopePKey, ICFBamClearSubDep1Obj > > indexByTenantIdx;
-	private Map< CFBamClearDepByClearDepIdxKey,
-		Map<CFBamScopePKey, ICFBamClearSubDep1Obj > > indexByClearDepIdx;
-	private Map< CFBamClearDepByDefSchemaIdxKey,
-		Map<CFBamScopePKey, ICFBamClearSubDep1Obj > > indexByDefSchemaIdx;
-	private Map< CFBamClearSubDep1ByClearTopDepIdxKey,
-		Map<CFBamScopePKey, ICFBamClearSubDep1Obj > > indexByClearTopDepIdx;
-	private Map< CFBamClearSubDep1ByUNameIdxKey,
-		ICFBamClearSubDep1Obj > indexByUNameIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> members;
+	private Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> allClearSubDep1;
+	private Map< YCFBamScopeByTenantIdxKey,
+		Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > > indexByTenantIdx;
+	private Map< YCFBamClearDepByClearDepIdxKey,
+		Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > > indexByClearDepIdx;
+	private Map< YCFBamClearDepByDefSchemaIdxKey,
+		Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > > indexByDefSchemaIdx;
+	private Map< YCFBamClearSubDep1ByClearTopDepIdxKey,
+		Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > > indexByClearTopDepIdx;
+	private Map< YCFBamClearSubDep1ByUNameIdxKey,
+		IYCFBamClearSubDep1Obj > indexByUNameIdx;
 	public static String TABLE_NAME = "ClearSubDep1";
 	public static String TABLE_DBNAME = "clrsubdep1";
 
-	public CFBamClearSubDep1TableObj() {
+	public YCFBamClearSubDep1TableObj() {
 		schema = null;
-		members = new HashMap<CFBamScopePKey, ICFBamClearSubDep1Obj>();
+		members = new HashMap<YCFBamScopePKey, IYCFBamClearSubDep1Obj>();
 		allClearSubDep1 = null;
 		indexByTenantIdx = null;
 		indexByClearDepIdx = null;
@@ -89,9 +89,9 @@ public class CFBamClearSubDep1TableObj
 		indexByUNameIdx = null;
 	}
 
-	public CFBamClearSubDep1TableObj( ICFBamSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFBamScopePKey, ICFBamClearSubDep1Obj>();
+	public YCFBamClearSubDep1TableObj( IYCFBamSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFBamScopePKey, IYCFBamClearSubDep1Obj>();
 		allClearSubDep1 = null;
 		indexByTenantIdx = null;
 		indexByClearDepIdx = null;
@@ -100,12 +100,12 @@ public class CFBamClearSubDep1TableObj
 		indexByUNameIdx = null;
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFBamSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFBamSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -117,7 +117,7 @@ public class CFBamClearSubDep1TableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamSchemaDefObj.class );
+		return( IYCFBamSchemaDefObj.class );
 	}
 
 
@@ -128,9 +128,9 @@ public class CFBamClearSubDep1TableObj
 		indexByDefSchemaIdx = null;
 		indexByClearTopDepIdx = null;
 		indexByUNameIdx = null;
-		List<ICFBamClearSubDep1Obj> toForget = new LinkedList<ICFBamClearSubDep1Obj>();
-		ICFBamClearSubDep1Obj cur = null;
-		Iterator<ICFBamClearSubDep1Obj> iter = members.values().iterator();
+		List<IYCFBamClearSubDep1Obj> toForget = new LinkedList<IYCFBamClearSubDep1Obj>();
+		IYCFBamClearSubDep1Obj cur = null;
+		Iterator<IYCFBamClearSubDep1Obj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -148,10 +148,10 @@ public class CFBamClearSubDep1TableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamClearSubDep1Obj.
+	 *	YCFBamClearSubDep1Obj.
 	 */
-	public ICFBamClearSubDep1Obj newInstance() {
-		ICFBamClearSubDep1Obj inst = new CFBamClearSubDep1Obj( schema );
+	public IYCFBamClearSubDep1Obj newInstance() {
+		IYCFBamClearSubDep1Obj inst = new YCFBamClearSubDep1Obj( schema );
 		return( inst );
 	}
 
@@ -162,19 +162,19 @@ public class CFBamClearSubDep1TableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamClearSubDep1Obj.
+	 *	YCFBamClearSubDep1Obj.
 	 */
-	public ICFBamClearSubDep1EditObj newEditInstance( ICFBamClearSubDep1Obj orig ) {
-		ICFBamClearSubDep1EditObj edit = new CFBamClearSubDep1EditObj( orig );
+	public IYCFBamClearSubDep1EditObj newEditInstance( IYCFBamClearSubDep1Obj orig ) {
+		IYCFBamClearSubDep1EditObj edit = new YCFBamClearSubDep1EditObj( orig );
 		return( edit );
 	}
 
-	public ICFBamClearSubDep1Obj realiseClearSubDep1( ICFBamClearSubDep1Obj Obj ) {
-		ICFBamClearSubDep1Obj obj = Obj;
-		CFBamScopePKey pkey = obj.getPKey();
-		ICFBamClearSubDep1Obj keepObj = null;
+	public IYCFBamClearSubDep1Obj realiseClearSubDep1( IYCFBamClearSubDep1Obj Obj ) {
+		IYCFBamClearSubDep1Obj obj = Obj;
+		YCFBamScopePKey pkey = obj.getPKey();
+		IYCFBamClearSubDep1Obj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFBamClearSubDep1Obj existingObj = members.get( pkey );
+			IYCFBamClearSubDep1Obj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -185,43 +185,43 @@ public class CFBamClearSubDep1TableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByTenantIdx != null ) {
-				CFBamScopeByTenantIdxKey keyTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+				YCFBamScopeByTenantIdxKey keyTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					indexByTenantIdx.remove( keyTenantIdx );
 				}
 			}
 
 			if( indexByClearDepIdx != null ) {
-				CFBamClearDepByClearDepIdxKey keyClearDepIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
+				YCFBamClearDepByClearDepIdxKey keyClearDepIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
 				keyClearDepIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyClearDepIdx.setRequiredRelationId( keepObj.getRequiredRelationId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapClearDepIdx = indexByClearDepIdx.get( keyClearDepIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapClearDepIdx = indexByClearDepIdx.get( keyClearDepIdx );
 				if( mapClearDepIdx != null ) {
 					indexByClearDepIdx.remove( keyClearDepIdx );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamClearDepByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
+				YCFBamClearDepByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					indexByDefSchemaIdx.remove( keyDefSchemaIdx );
 				}
 			}
 
 			if( indexByClearTopDepIdx != null ) {
-				CFBamClearSubDep1ByClearTopDepIdxKey keyClearTopDepIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
+				YCFBamClearSubDep1ByClearTopDepIdxKey keyClearTopDepIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
 				keyClearTopDepIdx.setRequiredClearTopDepTenantId( keepObj.getRequiredClearTopDepTenantId() );
 				keyClearTopDepIdx.setRequiredClearTopDepId( keepObj.getRequiredClearTopDepId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapClearTopDepIdx = indexByClearTopDepIdx.get( keyClearTopDepIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapClearTopDepIdx = indexByClearTopDepIdx.get( keyClearTopDepIdx );
 				if( mapClearTopDepIdx != null ) {
 					mapClearTopDepIdx.remove( keepObj.getPKey() );
 					if( mapClearTopDepIdx.size() <= 0 ) {
@@ -231,8 +231,8 @@ public class CFBamClearSubDep1TableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamClearSubDep1ByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
+				YCFBamClearSubDep1ByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
 				keyUNameIdx.setRequiredClearTopDepTenantId( keepObj.getRequiredClearTopDepTenantId() );
 				keyUNameIdx.setRequiredClearTopDepId( keepObj.getRequiredClearTopDepId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -241,56 +241,56 @@ public class CFBamClearSubDep1TableObj
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
-			keepObj = (ICFBamClearSubDep1Obj)schema.getClearDepTableObj().realiseClearDep( Obj );
+			keepObj = (IYCFBamClearSubDep1Obj)schema.getClearDepTableObj().realiseClearDep( Obj );
 
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByTenantIdx != null ) {
-				CFBamScopeByTenantIdxKey keyTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+				YCFBamScopeByTenantIdxKey keyTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByClearDepIdx != null ) {
-				CFBamClearDepByClearDepIdxKey keyClearDepIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
+				YCFBamClearDepByClearDepIdxKey keyClearDepIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
 				keyClearDepIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyClearDepIdx.setRequiredRelationId( keepObj.getRequiredRelationId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapClearDepIdx = indexByClearDepIdx.get( keyClearDepIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapClearDepIdx = indexByClearDepIdx.get( keyClearDepIdx );
 				if( mapClearDepIdx != null ) {
 					mapClearDepIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamClearDepByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
+				YCFBamClearDepByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByClearTopDepIdx != null ) {
-				CFBamClearSubDep1ByClearTopDepIdxKey keyClearTopDepIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
+				YCFBamClearSubDep1ByClearTopDepIdxKey keyClearTopDepIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
 				keyClearTopDepIdx.setRequiredClearTopDepTenantId( keepObj.getRequiredClearTopDepTenantId() );
 				keyClearTopDepIdx.setRequiredClearTopDepId( keepObj.getRequiredClearTopDepId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapClearTopDepIdx = indexByClearTopDepIdx.get( keyClearTopDepIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapClearTopDepIdx = indexByClearTopDepIdx.get( keyClearTopDepIdx );
 				if( mapClearTopDepIdx != null ) {
 					mapClearTopDepIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamClearSubDep1ByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
+				YCFBamClearSubDep1ByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
 				keyUNameIdx.setRequiredClearTopDepTenantId( keepObj.getRequiredClearTopDepTenantId() );
 				keyUNameIdx.setRequiredClearTopDepId( keepObj.getRequiredClearTopDepId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -303,7 +303,7 @@ public class CFBamClearSubDep1TableObj
 		}
 		else {
 			keepObj = obj;
-			keepObj = (ICFBamClearSubDep1Obj)schema.getClearDepTableObj().realiseClearDep( keepObj );
+			keepObj = (IYCFBamClearSubDep1Obj)schema.getClearDepTableObj().realiseClearDep( keepObj );
 
 			// Attach new object to PKey, all, alternate, and duplicate indexes
 			members.put( keepObj.getPKey(), keepObj );
@@ -312,51 +312,51 @@ public class CFBamClearSubDep1TableObj
 			}
 
 			if( indexByTenantIdx != null ) {
-				CFBamScopeByTenantIdxKey keyTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+				YCFBamScopeByTenantIdxKey keyTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByClearDepIdx != null ) {
-				CFBamClearDepByClearDepIdxKey keyClearDepIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
+				YCFBamClearDepByClearDepIdxKey keyClearDepIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
 				keyClearDepIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyClearDepIdx.setRequiredRelationId( keepObj.getRequiredRelationId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapClearDepIdx = indexByClearDepIdx.get( keyClearDepIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapClearDepIdx = indexByClearDepIdx.get( keyClearDepIdx );
 				if( mapClearDepIdx != null ) {
 					mapClearDepIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamClearDepByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
+				YCFBamClearDepByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByClearTopDepIdx != null ) {
-				CFBamClearSubDep1ByClearTopDepIdxKey keyClearTopDepIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
+				YCFBamClearSubDep1ByClearTopDepIdxKey keyClearTopDepIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
 				keyClearTopDepIdx.setRequiredClearTopDepTenantId( keepObj.getRequiredClearTopDepTenantId() );
 				keyClearTopDepIdx.setRequiredClearTopDepId( keepObj.getRequiredClearTopDepId() );
-				Map<CFBamScopePKey, ICFBamClearSubDep1Obj > mapClearTopDepIdx = indexByClearTopDepIdx.get( keyClearTopDepIdx );
+				Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj > mapClearTopDepIdx = indexByClearTopDepIdx.get( keyClearTopDepIdx );
 				if( mapClearTopDepIdx != null ) {
 					mapClearTopDepIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamClearSubDep1ByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
+				YCFBamClearSubDep1ByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
 				keyUNameIdx.setRequiredClearTopDepTenantId( keepObj.getRequiredClearTopDepTenantId() );
 				keyUNameIdx.setRequiredClearTopDepId( keepObj.getRequiredClearTopDepId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -367,69 +367,69 @@ public class CFBamClearSubDep1TableObj
 		return( keepObj );
 	}
 
-	public ICFBamClearSubDep1Obj createClearSubDep1( ICFBamClearSubDep1Obj Obj ) {
-		ICFBamClearSubDep1Obj obj = Obj;
-		CFBamClearSubDep1Buff buff = obj.getClearSubDep1Buff();
-		((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().createClearSubDep1(
+	public IYCFBamClearSubDep1Obj createClearSubDep1( IYCFBamClearSubDep1Obj Obj ) {
+		IYCFBamClearSubDep1Obj obj = Obj;
+		YCFBamClearSubDep1Buff buff = obj.getClearSubDep1Buff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().createClearSubDep1(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		if( obj.getPKey().getClassCode().equals( "a814" ) ) {
-			obj = (ICFBamClearSubDep1Obj)(obj.realise());
+			obj = (IYCFBamClearSubDep1Obj)(obj.realise());
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public ICFBamClearSubDep1Obj readClearSubDep1( CFBamScopePKey pkey ) {
+	public IYCFBamClearSubDep1Obj readClearSubDep1( YCFBamScopePKey pkey ) {
 		return( readClearSubDep1( pkey, false ) );
 	}
 
-	public ICFBamClearSubDep1Obj readClearSubDep1( CFBamScopePKey pkey, boolean forceRead ) {
-		ICFBamClearSubDep1Obj obj = null;
+	public IYCFBamClearSubDep1Obj readClearSubDep1( YCFBamScopePKey pkey, boolean forceRead ) {
+		IYCFBamClearSubDep1Obj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFBamClearSubDep1Buff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFBamClearSubDep1Buff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
-				obj = (ICFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( readBuff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( readBuff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFBamClearSubDep1Obj)obj.realise();
+				obj = (IYCFBamClearSubDep1Obj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamClearSubDep1Obj readCachedClearSubDep1( CFBamScopePKey pkey ) {
-		ICFBamClearSubDep1Obj obj = null;
+	public IYCFBamClearSubDep1Obj readCachedClearSubDep1( YCFBamScopePKey pkey ) {
+		IYCFBamClearSubDep1Obj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeClearSubDep1( ICFBamClearSubDep1Obj obj )
+	public void reallyDeepDisposeClearSubDep1( IYCFBamClearSubDep1Obj obj )
 	{
-		final String S_ProcName = "CFBamClearSubDep1TableObj.reallyDeepDisposeClearSubDep1() ";
+		final String S_ProcName = "YCFBamClearSubDep1TableObj.reallyDeepDisposeClearSubDep1() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFBamScopePKey pkey = obj.getPKey();
-		ICFBamClearSubDep1Obj existing = readCachedClearSubDep1( pkey );
+		YCFBamScopePKey pkey = obj.getPKey();
+		IYCFBamClearSubDep1Obj existing = readCachedClearSubDep1( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFBamClearSubDep1ByClearTopDepIdxKey keyClearTopDepIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
+		YCFBamClearSubDep1ByClearTopDepIdxKey keyClearTopDepIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
 		keyClearTopDepIdx.setRequiredClearTopDepTenantId( existing.getRequiredClearTopDepTenantId() );
 		keyClearTopDepIdx.setRequiredClearTopDepId( existing.getRequiredClearTopDepId() );
 
-		CFBamClearSubDep1ByUNameIdxKey keyUNameIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
+		YCFBamClearSubDep1ByUNameIdxKey keyUNameIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
 		keyUNameIdx.setRequiredClearTopDepTenantId( existing.getRequiredClearTopDepTenantId() );
 		keyUNameIdx.setRequiredClearTopDepId( existing.getRequiredClearTopDepId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
@@ -454,57 +454,57 @@ public class CFBamClearSubDep1TableObj
 
 		schema.getClearDepTableObj().reallyDeepDisposeClearDep( obj );
 	}
-	public void deepDisposeClearSubDep1( CFBamScopePKey pkey ) {
-		ICFBamClearSubDep1Obj obj = readCachedClearSubDep1( pkey );
+	public void deepDisposeClearSubDep1( YCFBamScopePKey pkey ) {
+		IYCFBamClearSubDep1Obj obj = readCachedClearSubDep1( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFBamClearSubDep1Obj lockClearSubDep1( CFBamScopePKey pkey ) {
-		ICFBamClearSubDep1Obj locked = null;
-		CFBamClearSubDep1Buff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFBamClearSubDep1Obj lockClearSubDep1( YCFBamScopePKey pkey ) {
+		IYCFBamClearSubDep1Obj locked = null;
+		YCFBamClearSubDep1Buff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
-				locked = (ICFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( lockBuff.getClassCode() );
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				locked = (IYCFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( lockBuff.getClassCode() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFBamClearSubDep1Obj)locked.realise();
+			locked = (IYCFBamClearSubDep1Obj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockClearSubDep1", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockClearSubDep1", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readAllClearSubDep1() {
+	public List<IYCFBamClearSubDep1Obj> readAllClearSubDep1() {
 		return( readAllClearSubDep1( false ) );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readAllClearSubDep1( boolean forceRead ) {
+	public List<IYCFBamClearSubDep1Obj> readAllClearSubDep1( boolean forceRead ) {
 		final String S_ProcName = "readAllClearSubDep1";
 		if( ( allClearSubDep1 == null ) || forceRead ) {
-			Map<CFBamScopePKey, ICFBamClearSubDep1Obj> map = new HashMap<CFBamScopePKey,ICFBamClearSubDep1Obj>();
+			Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> map = new HashMap<YCFBamScopePKey,IYCFBamClearSubDep1Obj>();
 			allClearSubDep1 = map;
-			CFBamClearSubDep1Buff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().readAllDerived( schema.getAuthorization() );
-			CFBamClearSubDep1Buff buff;
-			ICFBamClearSubDep1Obj obj;
+			YCFBamClearSubDep1Buff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().readAllDerived( schema.getAuthorization() );
+			YCFBamClearSubDep1Buff buff;
+			IYCFBamClearSubDep1Obj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamClearSubDep1Obj realised = (ICFBamClearSubDep1Obj)obj.realise();
+				IYCFBamClearSubDep1Obj realised = (IYCFBamClearSubDep1Obj)obj.realise();
 			}
 		}
 		int len = allClearSubDep1.size();
-		ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-		Iterator<ICFBamClearSubDep1Obj> valIter = allClearSubDep1.values().iterator();
+		IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+		Iterator<IYCFBamClearSubDep1Obj> valIter = allClearSubDep1.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -512,20 +512,20 @@ public class CFBamClearSubDep1TableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>(len);
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -538,31 +538,31 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamClearSubDep1Obj> sortedList = arrayList;
+		List<IYCFBamClearSubDep1Obj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readCachedAllClearSubDep1() {
+	public List<IYCFBamClearSubDep1Obj> readCachedAllClearSubDep1() {
 		final String S_ProcName = "readCachedAllClearSubDep1";
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>();
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>();
 		if( allClearSubDep1 != null ) {
 			int len = allClearSubDep1.size();
-			ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-			Iterator<ICFBamClearSubDep1Obj> valIter = allClearSubDep1.values().iterator();
+			IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+			Iterator<IYCFBamClearSubDep1Obj> valIter = allClearSubDep1.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -570,7 +570,7 @@ public class CFBamClearSubDep1TableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -581,8 +581,8 @@ public class CFBamClearSubDep1TableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -595,8 +595,8 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -606,7 +606,7 @@ public class CFBamClearSubDep1TableObj
 		return( arrayList );
 	}
 
-	public ICFBamClearSubDep1Obj readClearSubDep1ByIdIdx( long TenantId,
+	public IYCFBamClearSubDep1Obj readClearSubDep1ByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readClearSubDep1ByIdIdx( TenantId,
@@ -614,61 +614,61 @@ public class CFBamClearSubDep1TableObj
 			false ) );
 	}
 
-	public ICFBamClearSubDep1Obj readClearSubDep1ByIdIdx( long TenantId,
+	public IYCFBamClearSubDep1Obj readClearSubDep1ByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFBamScopePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamClearSubDep1Obj obj = readClearSubDep1( pkey, forceRead );
+		IYCFBamClearSubDep1Obj obj = readClearSubDep1( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readClearSubDep1ByTenantIdx( long TenantId )
+	public List<IYCFBamClearSubDep1Obj> readClearSubDep1ByTenantIdx( long TenantId )
 	{
 		return( readClearSubDep1ByTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readClearSubDep1ByTenantIdx( long TenantId,
+	public List<IYCFBamClearSubDep1Obj> readClearSubDep1ByTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readClearSubDep1ByTenantIdx";
-		CFBamScopeByTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict;
+		Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict;
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFBamScopeByTenantIdxKey,
-				Map< CFBamScopePKey, ICFBamClearSubDep1Obj > >();
+			indexByTenantIdx = new HashMap< YCFBamScopeByTenantIdxKey,
+				Map< YCFBamScopePKey, IYCFBamClearSubDep1Obj > >();
 		}
 		if( ( ! forceRead ) && indexByTenantIdx.containsKey( key ) ) {
 			dict = indexByTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamClearSubDep1Obj>();
-			ICFBamScopeObj obj;
-			CFBamScopeBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableScope().readDerivedByTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamClearSubDep1Obj>();
+			IYCFBamScopeObj obj;
+			YCFBamScopeBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableScope().readDerivedByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamScopeBuff buff;
+			YCFBamScopeBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamClearSubDep1Obj realised = (ICFBamClearSubDep1Obj)obj.realise();
+				IYCFBamClearSubDep1Obj realised = (IYCFBamClearSubDep1Obj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-		Iterator<ICFBamClearSubDep1Obj> valIter = dict.values().iterator();
+		IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+		Iterator<IYCFBamClearSubDep1Obj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -676,20 +676,20 @@ public class CFBamClearSubDep1TableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>(len);
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -702,19 +702,19 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamClearSubDep1Obj> sortedList = arrayList;
+		List<IYCFBamClearSubDep1Obj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readClearSubDep1ByClearDepIdx( long TenantId,
+	public List<IYCFBamClearSubDep1Obj> readClearSubDep1ByClearDepIdx( long TenantId,
 		long RelationId )
 	{
 		return( readClearSubDep1ByClearDepIdx( TenantId,
@@ -722,48 +722,48 @@ public class CFBamClearSubDep1TableObj
 			false ) );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readClearSubDep1ByClearDepIdx( long TenantId,
+	public List<IYCFBamClearSubDep1Obj> readClearSubDep1ByClearDepIdx( long TenantId,
 		long RelationId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readClearSubDep1ByClearDepIdx";
-		CFBamClearDepByClearDepIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
+		YCFBamClearDepByClearDepIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredRelationId( RelationId );
-		Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict;
+		Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict;
 		if( indexByClearDepIdx == null ) {
-			indexByClearDepIdx = new HashMap< CFBamClearDepByClearDepIdxKey,
-				Map< CFBamScopePKey, ICFBamClearSubDep1Obj > >();
+			indexByClearDepIdx = new HashMap< YCFBamClearDepByClearDepIdxKey,
+				Map< YCFBamScopePKey, IYCFBamClearSubDep1Obj > >();
 		}
 		if( ( ! forceRead ) && indexByClearDepIdx.containsKey( key ) ) {
 			dict = indexByClearDepIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamClearSubDep1Obj>();
-			ICFBamClearDepObj obj;
-			CFBamClearDepBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableClearDep().readDerivedByClearDepIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamClearSubDep1Obj>();
+			IYCFBamClearDepObj obj;
+			YCFBamClearDepBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableClearDep().readDerivedByClearDepIdx( schema.getAuthorization(),
 				TenantId,
 				RelationId );
-			CFBamClearDepBuff buff;
+			YCFBamClearDepBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamClearSubDep1Obj realised = (ICFBamClearSubDep1Obj)obj.realise();
+				IYCFBamClearSubDep1Obj realised = (IYCFBamClearSubDep1Obj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClearDepIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-		Iterator<ICFBamClearSubDep1Obj> valIter = dict.values().iterator();
+		IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+		Iterator<IYCFBamClearSubDep1Obj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -771,20 +771,20 @@ public class CFBamClearSubDep1TableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>(len);
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -797,19 +797,19 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamClearSubDep1Obj> sortedList = arrayList;
+		List<IYCFBamClearSubDep1Obj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readClearSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamClearSubDep1Obj> readClearSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		return( readClearSubDep1ByDefSchemaIdx( DefSchemaTenantId,
@@ -817,48 +817,48 @@ public class CFBamClearSubDep1TableObj
 			false ) );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readClearSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamClearSubDep1Obj> readClearSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readClearSubDep1ByDefSchemaIdx";
-		CFBamClearDepByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
+		YCFBamClearDepByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict;
+		Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict;
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamClearDepByDefSchemaIdxKey,
-				Map< CFBamScopePKey, ICFBamClearSubDep1Obj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamClearDepByDefSchemaIdxKey,
+				Map< YCFBamScopePKey, IYCFBamClearSubDep1Obj > >();
 		}
 		if( ( ! forceRead ) && indexByDefSchemaIdx.containsKey( key ) ) {
 			dict = indexByDefSchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamClearSubDep1Obj>();
-			ICFBamClearDepObj obj;
-			CFBamClearDepBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableClearDep().readDerivedByDefSchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamClearSubDep1Obj>();
+			IYCFBamClearDepObj obj;
+			YCFBamClearDepBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableClearDep().readDerivedByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			CFBamClearDepBuff buff;
+			YCFBamClearDepBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamClearSubDep1Obj realised = (ICFBamClearSubDep1Obj)obj.realise();
+				IYCFBamClearSubDep1Obj realised = (IYCFBamClearSubDep1Obj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDefSchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-		Iterator<ICFBamClearSubDep1Obj> valIter = dict.values().iterator();
+		IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+		Iterator<IYCFBamClearSubDep1Obj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -866,20 +866,20 @@ public class CFBamClearSubDep1TableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>(len);
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -892,19 +892,19 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamClearSubDep1Obj> sortedList = arrayList;
+		List<IYCFBamClearSubDep1Obj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readClearSubDep1ByClearTopDepIdx( long ClearTopDepTenantId,
+	public List<IYCFBamClearSubDep1Obj> readClearSubDep1ByClearTopDepIdx( long ClearTopDepTenantId,
 		long ClearTopDepId )
 	{
 		return( readClearSubDep1ByClearTopDepIdx( ClearTopDepTenantId,
@@ -912,48 +912,48 @@ public class CFBamClearSubDep1TableObj
 			false ) );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readClearSubDep1ByClearTopDepIdx( long ClearTopDepTenantId,
+	public List<IYCFBamClearSubDep1Obj> readClearSubDep1ByClearTopDepIdx( long ClearTopDepTenantId,
 		long ClearTopDepId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readClearSubDep1ByClearTopDepIdx";
-		CFBamClearSubDep1ByClearTopDepIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
+		YCFBamClearSubDep1ByClearTopDepIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
 		key.setRequiredClearTopDepTenantId( ClearTopDepTenantId );
 		key.setRequiredClearTopDepId( ClearTopDepId );
-		Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict;
+		Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict;
 		if( indexByClearTopDepIdx == null ) {
-			indexByClearTopDepIdx = new HashMap< CFBamClearSubDep1ByClearTopDepIdxKey,
-				Map< CFBamScopePKey, ICFBamClearSubDep1Obj > >();
+			indexByClearTopDepIdx = new HashMap< YCFBamClearSubDep1ByClearTopDepIdxKey,
+				Map< YCFBamScopePKey, IYCFBamClearSubDep1Obj > >();
 		}
 		if( ( ! forceRead ) && indexByClearTopDepIdx.containsKey( key ) ) {
 			dict = indexByClearTopDepIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamClearSubDep1Obj>();
-			ICFBamClearSubDep1Obj obj;
-			CFBamClearSubDep1Buff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().readDerivedByClearTopDepIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamClearSubDep1Obj>();
+			IYCFBamClearSubDep1Obj obj;
+			YCFBamClearSubDep1Buff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().readDerivedByClearTopDepIdx( schema.getAuthorization(),
 				ClearTopDepTenantId,
 				ClearTopDepId );
-			CFBamClearSubDep1Buff buff;
+			YCFBamClearSubDep1Buff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamClearSubDep1Obj realised = (ICFBamClearSubDep1Obj)obj.realise();
+				IYCFBamClearSubDep1Obj realised = (IYCFBamClearSubDep1Obj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClearTopDepIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-		Iterator<ICFBamClearSubDep1Obj> valIter = dict.values().iterator();
+		IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+		Iterator<IYCFBamClearSubDep1Obj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -961,20 +961,20 @@ public class CFBamClearSubDep1TableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>(len);
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -987,19 +987,19 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamClearSubDep1Obj> sortedList = arrayList;
+		List<IYCFBamClearSubDep1Obj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamClearSubDep1Obj readClearSubDep1ByUNameIdx( long ClearTopDepTenantId,
+	public IYCFBamClearSubDep1Obj readClearSubDep1ByUNameIdx( long ClearTopDepTenantId,
 		long ClearTopDepId,
 		String Name )
 	{
@@ -1009,67 +1009,67 @@ public class CFBamClearSubDep1TableObj
 			false ) );
 	}
 
-	public ICFBamClearSubDep1Obj readClearSubDep1ByUNameIdx( long ClearTopDepTenantId,
+	public IYCFBamClearSubDep1Obj readClearSubDep1ByUNameIdx( long ClearTopDepTenantId,
 		long ClearTopDepId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamClearSubDep1ByUNameIdxKey,
-				ICFBamClearSubDep1Obj >();
+			indexByUNameIdx = new HashMap< YCFBamClearSubDep1ByUNameIdxKey,
+				IYCFBamClearSubDep1Obj >();
 		}
-		CFBamClearSubDep1ByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
+		YCFBamClearSubDep1ByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
 		key.setRequiredClearTopDepTenantId( ClearTopDepTenantId );
 		key.setRequiredClearTopDepId( ClearTopDepId );
 		key.setRequiredName( Name );
-		ICFBamClearSubDep1Obj obj = null;
+		IYCFBamClearSubDep1Obj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFBamClearSubDep1Buff buff = ((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFBamClearSubDep1Buff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().readDerivedByUNameIdx( schema.getAuthorization(),
 				ClearTopDepTenantId,
 				ClearTopDepId,
 				Name );
 			if( buff != null ) {
-				obj = (ICFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamClearSubDep1Obj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFBamClearSubDep1Obj)obj.realise();
+				obj = (IYCFBamClearSubDep1Obj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamClearSubDep1Obj readCachedClearSubDep1ByIdIdx( long TenantId,
+	public IYCFBamClearSubDep1Obj readCachedClearSubDep1ByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamClearSubDep1Obj obj = null;
-		CFBamScopePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
+		IYCFBamClearSubDep1Obj obj = null;
+		YCFBamScopePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedClearSubDep1( pkey );
 		return( obj );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readCachedClearSubDep1ByTenantIdx( long TenantId )
+	public List<IYCFBamClearSubDep1Obj> readCachedClearSubDep1ByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedClearSubDep1ByTenantIdx";
-		CFBamScopeByTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>();
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>();
 		if( indexByTenantIdx != null ) {
-			Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict;
+			Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict;
 			if( indexByTenantIdx.containsKey( key ) ) {
 				dict = indexByTenantIdx.get( key );
 				int len = dict.size();
-				ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-				Iterator<ICFBamClearSubDep1Obj> valIter = dict.values().iterator();
+				IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+				Iterator<IYCFBamClearSubDep1Obj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1077,7 +1077,7 @@ public class CFBamClearSubDep1TableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1090,8 +1090,8 @@ public class CFBamClearSubDep1TableObj
 			}
 		}
 		else {
-			ICFBamClearSubDep1Obj obj;
-			Iterator<ICFBamClearSubDep1Obj> valIter = members.values().iterator();
+			IYCFBamClearSubDep1Obj obj;
+			Iterator<IYCFBamClearSubDep1Obj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1101,8 +1101,8 @@ public class CFBamClearSubDep1TableObj
 				}
 			}
 		}
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1115,8 +1115,8 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1126,27 +1126,27 @@ public class CFBamClearSubDep1TableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readCachedClearSubDep1ByClearDepIdx( long TenantId,
+	public List<IYCFBamClearSubDep1Obj> readCachedClearSubDep1ByClearDepIdx( long TenantId,
 		long RelationId )
 	{
 		final String S_ProcName = "readCachedClearSubDep1ByClearDepIdx";
-		CFBamClearDepByClearDepIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
+		YCFBamClearDepByClearDepIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredRelationId( RelationId );
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>();
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>();
 		if( indexByClearDepIdx != null ) {
-			Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict;
+			Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict;
 			if( indexByClearDepIdx.containsKey( key ) ) {
 				dict = indexByClearDepIdx.get( key );
 				int len = dict.size();
-				ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-				Iterator<ICFBamClearSubDep1Obj> valIter = dict.values().iterator();
+				IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+				Iterator<IYCFBamClearSubDep1Obj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1154,7 +1154,7 @@ public class CFBamClearSubDep1TableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1167,8 +1167,8 @@ public class CFBamClearSubDep1TableObj
 			}
 		}
 		else {
-			ICFBamClearSubDep1Obj obj;
-			Iterator<ICFBamClearSubDep1Obj> valIter = members.values().iterator();
+			IYCFBamClearSubDep1Obj obj;
+			Iterator<IYCFBamClearSubDep1Obj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1178,8 +1178,8 @@ public class CFBamClearSubDep1TableObj
 				}
 			}
 		}
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1192,8 +1192,8 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1203,27 +1203,27 @@ public class CFBamClearSubDep1TableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readCachedClearSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamClearSubDep1Obj> readCachedClearSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "readCachedClearSubDep1ByDefSchemaIdx";
-		CFBamClearDepByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
+		YCFBamClearDepByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>();
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>();
 		if( indexByDefSchemaIdx != null ) {
-			Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict;
+			Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict;
 			if( indexByDefSchemaIdx.containsKey( key ) ) {
 				dict = indexByDefSchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-				Iterator<ICFBamClearSubDep1Obj> valIter = dict.values().iterator();
+				IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+				Iterator<IYCFBamClearSubDep1Obj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1231,7 +1231,7 @@ public class CFBamClearSubDep1TableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1244,8 +1244,8 @@ public class CFBamClearSubDep1TableObj
 			}
 		}
 		else {
-			ICFBamClearSubDep1Obj obj;
-			Iterator<ICFBamClearSubDep1Obj> valIter = members.values().iterator();
+			IYCFBamClearSubDep1Obj obj;
+			Iterator<IYCFBamClearSubDep1Obj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1255,8 +1255,8 @@ public class CFBamClearSubDep1TableObj
 				}
 			}
 		}
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1269,8 +1269,8 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1280,27 +1280,27 @@ public class CFBamClearSubDep1TableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamClearSubDep1Obj> readCachedClearSubDep1ByClearTopDepIdx( long ClearTopDepTenantId,
+	public List<IYCFBamClearSubDep1Obj> readCachedClearSubDep1ByClearTopDepIdx( long ClearTopDepTenantId,
 		long ClearTopDepId )
 	{
 		final String S_ProcName = "readCachedClearSubDep1ByClearTopDepIdx";
-		CFBamClearSubDep1ByClearTopDepIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
+		YCFBamClearSubDep1ByClearTopDepIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
 		key.setRequiredClearTopDepTenantId( ClearTopDepTenantId );
 		key.setRequiredClearTopDepId( ClearTopDepId );
-		ArrayList<ICFBamClearSubDep1Obj> arrayList = new ArrayList<ICFBamClearSubDep1Obj>();
+		ArrayList<IYCFBamClearSubDep1Obj> arrayList = new ArrayList<IYCFBamClearSubDep1Obj>();
 		if( indexByClearTopDepIdx != null ) {
-			Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict;
+			Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict;
 			if( indexByClearTopDepIdx.containsKey( key ) ) {
 				dict = indexByClearTopDepIdx.get( key );
 				int len = dict.size();
-				ICFBamClearSubDep1Obj arr[] = new ICFBamClearSubDep1Obj[len];
-				Iterator<ICFBamClearSubDep1Obj> valIter = dict.values().iterator();
+				IYCFBamClearSubDep1Obj arr[] = new IYCFBamClearSubDep1Obj[len];
+				Iterator<IYCFBamClearSubDep1Obj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1308,7 +1308,7 @@ public class CFBamClearSubDep1TableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1321,8 +1321,8 @@ public class CFBamClearSubDep1TableObj
 			}
 		}
 		else {
-			ICFBamClearSubDep1Obj obj;
-			Iterator<ICFBamClearSubDep1Obj> valIter = members.values().iterator();
+			IYCFBamClearSubDep1Obj obj;
+			Iterator<IYCFBamClearSubDep1Obj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1332,8 +1332,8 @@ public class CFBamClearSubDep1TableObj
 				}
 			}
 		}
-		Comparator<ICFBamClearSubDep1Obj> cmp = new Comparator<ICFBamClearSubDep1Obj>() {
-			public int compare( ICFBamClearSubDep1Obj lhs, ICFBamClearSubDep1Obj rhs ) {
+		Comparator<IYCFBamClearSubDep1Obj> cmp = new Comparator<IYCFBamClearSubDep1Obj>() {
+			public int compare( IYCFBamClearSubDep1Obj lhs, IYCFBamClearSubDep1Obj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1346,8 +1346,8 @@ public class CFBamClearSubDep1TableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1357,12 +1357,12 @@ public class CFBamClearSubDep1TableObj
 		return( arrayList );
 	}
 
-	public ICFBamClearSubDep1Obj readCachedClearSubDep1ByUNameIdx( long ClearTopDepTenantId,
+	public IYCFBamClearSubDep1Obj readCachedClearSubDep1ByUNameIdx( long ClearTopDepTenantId,
 		long ClearTopDepId,
 		String Name )
 	{
-		ICFBamClearSubDep1Obj obj = null;
-		CFBamClearSubDep1ByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
+		IYCFBamClearSubDep1Obj obj = null;
+		YCFBamClearSubDep1ByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
 		key.setRequiredClearTopDepTenantId( ClearTopDepTenantId );
 		key.setRequiredClearTopDepId( ClearTopDepId );
 		key.setRequiredName( Name );
@@ -1371,7 +1371,7 @@ public class CFBamClearSubDep1TableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFBamClearSubDep1Obj> valIter = members.values().iterator();
+				Iterator<IYCFBamClearSubDep1Obj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1383,7 +1383,7 @@ public class CFBamClearSubDep1TableObj
 			}
 		}
 		else {
-			Iterator<ICFBamClearSubDep1Obj> valIter = members.values().iterator();
+			Iterator<IYCFBamClearSubDep1Obj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1399,7 +1399,7 @@ public class CFBamClearSubDep1TableObj
 	public void deepDisposeClearSubDep1ByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamClearSubDep1Obj obj = readCachedClearSubDep1ByIdIdx( TenantId,
+		IYCFBamClearSubDep1Obj obj = readCachedClearSubDep1ByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -1409,10 +1409,10 @@ public class CFBamClearSubDep1TableObj
 	public void deepDisposeClearSubDep1ByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeClearSubDep1ByTenantIdx";
-		ICFBamClearSubDep1Obj obj;
-		List<ICFBamClearSubDep1Obj> arrayList = readCachedClearSubDep1ByTenantIdx( TenantId );
+		IYCFBamClearSubDep1Obj obj;
+		List<IYCFBamClearSubDep1Obj> arrayList = readCachedClearSubDep1ByTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamClearSubDep1Obj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamClearSubDep1Obj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1426,11 +1426,11 @@ public class CFBamClearSubDep1TableObj
 		long RelationId )
 	{
 		final String S_ProcName = "deepDisposeClearSubDep1ByClearDepIdx";
-		ICFBamClearSubDep1Obj obj;
-		List<ICFBamClearSubDep1Obj> arrayList = readCachedClearSubDep1ByClearDepIdx( TenantId,
+		IYCFBamClearSubDep1Obj obj;
+		List<IYCFBamClearSubDep1Obj> arrayList = readCachedClearSubDep1ByClearDepIdx( TenantId,
 				RelationId );
 		if( arrayList != null )  {
-			Iterator<ICFBamClearSubDep1Obj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamClearSubDep1Obj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1444,11 +1444,11 @@ public class CFBamClearSubDep1TableObj
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "deepDisposeClearSubDep1ByDefSchemaIdx";
-		ICFBamClearSubDep1Obj obj;
-		List<ICFBamClearSubDep1Obj> arrayList = readCachedClearSubDep1ByDefSchemaIdx( DefSchemaTenantId,
+		IYCFBamClearSubDep1Obj obj;
+		List<IYCFBamClearSubDep1Obj> arrayList = readCachedClearSubDep1ByDefSchemaIdx( DefSchemaTenantId,
 				DefSchemaId );
 		if( arrayList != null )  {
-			Iterator<ICFBamClearSubDep1Obj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamClearSubDep1Obj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1462,11 +1462,11 @@ public class CFBamClearSubDep1TableObj
 		long ClearTopDepId )
 	{
 		final String S_ProcName = "deepDisposeClearSubDep1ByClearTopDepIdx";
-		ICFBamClearSubDep1Obj obj;
-		List<ICFBamClearSubDep1Obj> arrayList = readCachedClearSubDep1ByClearTopDepIdx( ClearTopDepTenantId,
+		IYCFBamClearSubDep1Obj obj;
+		List<IYCFBamClearSubDep1Obj> arrayList = readCachedClearSubDep1ByClearTopDepIdx( ClearTopDepTenantId,
 				ClearTopDepId );
 		if( arrayList != null )  {
-			Iterator<ICFBamClearSubDep1Obj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamClearSubDep1Obj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1480,7 +1480,7 @@ public class CFBamClearSubDep1TableObj
 		long ClearTopDepId,
 		String Name )
 	{
-		ICFBamClearSubDep1Obj obj = readCachedClearSubDep1ByUNameIdx( ClearTopDepTenantId,
+		IYCFBamClearSubDep1Obj obj = readCachedClearSubDep1ByUNameIdx( ClearTopDepTenantId,
 				ClearTopDepId,
 				Name );
 		if( obj != null ) {
@@ -1488,20 +1488,20 @@ public class CFBamClearSubDep1TableObj
 		}
 	}
 
-	public ICFBamClearSubDep1Obj updateClearSubDep1( ICFBamClearSubDep1Obj Obj ) {
-		ICFBamClearSubDep1Obj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().updateClearSubDep1( schema.getAuthorization(),
+	public IYCFBamClearSubDep1Obj updateClearSubDep1( IYCFBamClearSubDep1Obj Obj ) {
+		IYCFBamClearSubDep1Obj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().updateClearSubDep1( schema.getAuthorization(),
 			Obj.getClearSubDep1Buff() );
 		if( Obj.getClassCode().equals( "a814" ) ) {
-			obj = (ICFBamClearSubDep1Obj)Obj.realise();
+			obj = (IYCFBamClearSubDep1Obj)Obj.realise();
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteClearSubDep1( ICFBamClearSubDep1Obj Obj ) {
-		ICFBamClearSubDep1Obj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1( schema.getAuthorization(),
+	public void deleteClearSubDep1( IYCFBamClearSubDep1Obj Obj ) {
+		IYCFBamClearSubDep1Obj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1( schema.getAuthorization(),
 			obj.getClearSubDep1Buff() );
 		Obj.forget();
 	}
@@ -1509,15 +1509,15 @@ public class CFBamClearSubDep1TableObj
 	public void deleteClearSubDep1ByIdIdx( long TenantId,
 		long Id )
 	{
-		CFBamScopePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamClearSubDep1Obj obj = readClearSubDep1( pkey );
+		IYCFBamClearSubDep1Obj obj = readClearSubDep1( pkey );
 		if( obj != null ) {
-			ICFBamClearSubDep1EditObj editObj = (ICFBamClearSubDep1EditObj)obj.getEdit();
+			IYCFBamClearSubDep1EditObj editObj = (IYCFBamClearSubDep1EditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFBamClearSubDep1EditObj)obj.beginEdit();
+				editObj = (IYCFBamClearSubDep1EditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1542,19 +1542,19 @@ public class CFBamClearSubDep1TableObj
 
 	public void deleteClearSubDep1ByTenantIdx( long TenantId )
 	{
-		CFBamScopeByTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFBamScopeByTenantIdxKey,
-				Map< CFBamScopePKey, ICFBamClearSubDep1Obj > >();
+			indexByTenantIdx = new HashMap< YCFBamScopeByTenantIdxKey,
+				Map< YCFBamScopePKey, IYCFBamClearSubDep1Obj > >();
 		}
 		if( indexByTenantIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict = indexByTenantIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByTenantIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict = indexByTenantIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamClearSubDep1Obj> iter = dict.values().iterator();
-			ICFBamClearSubDep1Obj obj;
-			List<ICFBamClearSubDep1Obj> toForget = new LinkedList<ICFBamClearSubDep1Obj>();
+			Iterator<IYCFBamClearSubDep1Obj> iter = dict.values().iterator();
+			IYCFBamClearSubDep1Obj obj;
+			List<IYCFBamClearSubDep1Obj> toForget = new LinkedList<IYCFBamClearSubDep1Obj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1567,7 +1567,7 @@ public class CFBamClearSubDep1TableObj
 			indexByTenantIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByTenantIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeClearSubDep1ByTenantIdx( TenantId );
@@ -1576,21 +1576,21 @@ public class CFBamClearSubDep1TableObj
 	public void deleteClearSubDep1ByClearDepIdx( long TenantId,
 		long RelationId )
 	{
-		CFBamClearDepByClearDepIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
+		YCFBamClearDepByClearDepIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newClearDepIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredRelationId( RelationId );
 		if( indexByClearDepIdx == null ) {
-			indexByClearDepIdx = new HashMap< CFBamClearDepByClearDepIdxKey,
-				Map< CFBamScopePKey, ICFBamClearSubDep1Obj > >();
+			indexByClearDepIdx = new HashMap< YCFBamClearDepByClearDepIdxKey,
+				Map< YCFBamScopePKey, IYCFBamClearSubDep1Obj > >();
 		}
 		if( indexByClearDepIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict = indexByClearDepIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByClearDepIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict = indexByClearDepIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByClearDepIdx( schema.getAuthorization(),
 				TenantId,
 				RelationId );
-			Iterator<ICFBamClearSubDep1Obj> iter = dict.values().iterator();
-			ICFBamClearSubDep1Obj obj;
-			List<ICFBamClearSubDep1Obj> toForget = new LinkedList<ICFBamClearSubDep1Obj>();
+			Iterator<IYCFBamClearSubDep1Obj> iter = dict.values().iterator();
+			IYCFBamClearSubDep1Obj obj;
+			List<IYCFBamClearSubDep1Obj> toForget = new LinkedList<IYCFBamClearSubDep1Obj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1603,7 +1603,7 @@ public class CFBamClearSubDep1TableObj
 			indexByClearDepIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByClearDepIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByClearDepIdx( schema.getAuthorization(),
 				TenantId,
 				RelationId );
 		}
@@ -1614,21 +1614,21 @@ public class CFBamClearSubDep1TableObj
 	public void deleteClearSubDep1ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		CFBamClearDepByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
+		YCFBamClearDepByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearDep().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamClearDepByDefSchemaIdxKey,
-				Map< CFBamScopePKey, ICFBamClearSubDep1Obj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamClearDepByDefSchemaIdxKey,
+				Map< YCFBamScopePKey, IYCFBamClearSubDep1Obj > >();
 		}
 		if( indexByDefSchemaIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict = indexByDefSchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByDefSchemaIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict = indexByDefSchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			Iterator<ICFBamClearSubDep1Obj> iter = dict.values().iterator();
-			ICFBamClearSubDep1Obj obj;
-			List<ICFBamClearSubDep1Obj> toForget = new LinkedList<ICFBamClearSubDep1Obj>();
+			Iterator<IYCFBamClearSubDep1Obj> iter = dict.values().iterator();
+			IYCFBamClearSubDep1Obj obj;
+			List<IYCFBamClearSubDep1Obj> toForget = new LinkedList<IYCFBamClearSubDep1Obj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1641,7 +1641,7 @@ public class CFBamClearSubDep1TableObj
 			indexByDefSchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByDefSchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
 		}
@@ -1652,21 +1652,21 @@ public class CFBamClearSubDep1TableObj
 	public void deleteClearSubDep1ByClearTopDepIdx( long ClearTopDepTenantId,
 		long ClearTopDepId )
 	{
-		CFBamClearSubDep1ByClearTopDepIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
+		YCFBamClearSubDep1ByClearTopDepIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newClearTopDepIdxKey();
 		key.setRequiredClearTopDepTenantId( ClearTopDepTenantId );
 		key.setRequiredClearTopDepId( ClearTopDepId );
 		if( indexByClearTopDepIdx == null ) {
-			indexByClearTopDepIdx = new HashMap< CFBamClearSubDep1ByClearTopDepIdxKey,
-				Map< CFBamScopePKey, ICFBamClearSubDep1Obj > >();
+			indexByClearTopDepIdx = new HashMap< YCFBamClearSubDep1ByClearTopDepIdxKey,
+				Map< YCFBamScopePKey, IYCFBamClearSubDep1Obj > >();
 		}
 		if( indexByClearTopDepIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamClearSubDep1Obj> dict = indexByClearTopDepIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByClearTopDepIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamClearSubDep1Obj> dict = indexByClearTopDepIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByClearTopDepIdx( schema.getAuthorization(),
 				ClearTopDepTenantId,
 				ClearTopDepId );
-			Iterator<ICFBamClearSubDep1Obj> iter = dict.values().iterator();
-			ICFBamClearSubDep1Obj obj;
-			List<ICFBamClearSubDep1Obj> toForget = new LinkedList<ICFBamClearSubDep1Obj>();
+			Iterator<IYCFBamClearSubDep1Obj> iter = dict.values().iterator();
+			IYCFBamClearSubDep1Obj obj;
+			List<IYCFBamClearSubDep1Obj> toForget = new LinkedList<IYCFBamClearSubDep1Obj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1679,7 +1679,7 @@ public class CFBamClearSubDep1TableObj
 			indexByClearTopDepIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByClearTopDepIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByClearTopDepIdx( schema.getAuthorization(),
 				ClearTopDepTenantId,
 				ClearTopDepId );
 		}
@@ -1692,24 +1692,24 @@ public class CFBamClearSubDep1TableObj
 		String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamClearSubDep1ByUNameIdxKey,
-				ICFBamClearSubDep1Obj >();
+			indexByUNameIdx = new HashMap< YCFBamClearSubDep1ByUNameIdxKey,
+				IYCFBamClearSubDep1Obj >();
 		}
-		CFBamClearSubDep1ByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
+		YCFBamClearSubDep1ByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryClearSubDep1().newUNameIdxKey();
 		key.setRequiredClearTopDepTenantId( ClearTopDepTenantId );
 		key.setRequiredClearTopDepId( ClearTopDepId );
 		key.setRequiredName( Name );
-		ICFBamClearSubDep1Obj obj = null;
+		IYCFBamClearSubDep1Obj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByUNameIdx( schema.getAuthorization(),
 				ClearTopDepTenantId,
 				ClearTopDepId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableClearSubDep1().deleteClearSubDep1ByUNameIdx( schema.getAuthorization(),
 				ClearTopDepTenantId,
 				ClearTopDepId,
 				Name );

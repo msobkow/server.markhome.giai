@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustXmlLoader
+ *	MSS Code Factory YCFBam 2.13 CustXmlLoader
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,38 +23,38 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader;
+package org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamXmlLoaderIndexAddendumHandler SAX Element Handler implementation
+ *	YCFBamXmlLoaderIndexAddendumHandler SAX Element Handler implementation
  */
-public class CFBamXmlLoaderIndexAddendumHandler
-	extends CFLibXmlCoreElementHandler
+public class YCFBamXmlLoaderIndexAddendumHandler
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamXmlLoaderIndexAddendumHandler( CFBamXmlLoader saxLoader ) {
+	public YCFBamXmlLoaderIndexAddendumHandler( YCFBamXmlLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -82,7 +82,7 @@ public class CFBamXmlLoaderIndexAddendumHandler
 			attrLocalName = attrs.getLocalName( idxAttr );
 			if( attrLocalName.equals( "FromIndex" ) ) {
 				if( attrFromIndex != null ) {
-					throw new CFLibUniqueIndexViolationException( getClass(),
+					throw new YCFLibUniqueIndexViolationException( getClass(),
 						S_ProcName,
 						attrLocalName );
 				}
@@ -92,7 +92,7 @@ public class CFBamXmlLoaderIndexAddendumHandler
 				// ignored
 			}
 			else {
-				throw new CFLibUnrecognizedAttributeException( getClass(),
+				throw new YCFLibUnrecognizedAttributeException( getClass(),
 					S_ProcName,
 					"LocalName",
 					attrLocalName );
@@ -100,45 +100,45 @@ public class CFBamXmlLoaderIndexAddendumHandler
 		}
 
 		if( ( attrFromIndex == null ) || ( attrFromIndex.length() <= 0 ) ) {
-			throw new CFLibEmptyArgumentException( getClass(),
+			throw new YCFLibEmptyArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"FromIndex" );
 		}
 
-		CFBamXmlLoader saxLoader = (CFBamXmlLoader)getParser();
+		YCFBamXmlLoader saxLoader = (YCFBamXmlLoader)getParser();
 		if( saxLoader == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"getParser()" );
 		}
 
-		CFLibXmlCoreContext curContext = saxLoader.getCurContext();
+		YCFLibXmlCoreContext curContext = saxLoader.getCurContext();
 		if( curContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"getParser().getCurContext()" );
 		}
 
-		ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+		IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 		if( schemaObj == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"getParser().getSchemaObj()" );
 		}
 
-		if( ! CFBamXmlLoader.getProcessSchema( curContext ) ) {
+		if( ! YCFBamXmlLoader.getProcessSchema( curContext ) ) {
 			return;
 		}
 
-		CFLibXmlCoreContext prevContext = curContext.getPrevContext();
-		ICFBamSchemaDefObj schemaDef = (ICFBamSchemaDefObj)( prevContext.getNamedValue( "Object" ) );
+		YCFLibXmlCoreContext prevContext = curContext.getPrevContext();
+		IYCFBamSchemaDefObj schemaDef = (IYCFBamSchemaDefObj)( prevContext.getNamedValue( "Object" ) );
 		int idxDot = attrFromIndex.indexOf('.');
 		if (idxDot <= 0) {
-			throw new CFLibInvalidArgumentException(getClass(),
+			throw new YCFLibInvalidArgumentException(getClass(),
 				S_ProcName,
 				0,
 				"attrFromIndex",
@@ -147,28 +147,28 @@ public class CFBamXmlLoaderIndexAddendumHandler
 		String tableName = attrFromIndex.substring(0, idxDot - 1);
 		String indexName = attrFromIndex.substring( idxDot + 1 );
 		if (0 < indexName.indexOf('.')) {
-			throw new CFLibInvalidArgumentException(getClass(),
+			throw new YCFLibInvalidArgumentException(getClass(),
 				S_ProcName,
 				0,
 				"attrFromIndex",
 				"Invalid FromIndex attribute has more than one dot separator");
 		}
-		ICFBamTableObj fromTable = schemaObj.getTableTableObj().readTableByUNameIdx( schemaDef.getRequiredTenantId(),
+		IYCFBamTableObj fromTable = schemaObj.getTableTableObj().readTableByUNameIdx( schemaDef.getRequiredTenantId(),
 			schemaDef.getRequiredId(),
 			tableName );
 		if( fromTable == null ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				" Could not resolve FromIndex table \""
 					+ tableName + "\" in Schema \""
 					+ schemaDef.getObjFullName()
 					+ "\"" );
 		}
-		ICFBamIndexObj fromIndex = schemaObj.getIndexTableObj().readIndexByUNameIdx( schemaDef.getRequiredTenantId(),
+		IYCFBamIndexObj fromIndex = schemaObj.getIndexTableObj().readIndexByUNameIdx( schemaDef.getRequiredTenantId(),
 		fromTable.getRequiredId(),
 			indexName);
 		if( fromIndex == null ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				" Could not resolve FromIndex index \""
 					+ indexName + "\" for table \""

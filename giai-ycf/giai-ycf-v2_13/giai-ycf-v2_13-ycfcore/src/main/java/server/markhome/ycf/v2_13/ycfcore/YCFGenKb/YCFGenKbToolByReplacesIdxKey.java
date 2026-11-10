@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a Tool by ReplacesIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,15 +37,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbToolByReplacesIdxKey
+public class YCFGenKbToolByReplacesIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Short optionalReplacesId;
-	public CFGenKbToolByReplacesIdxKey() {
+	public YCFGenKbToolByReplacesIdxKey() {
 		optionalReplacesId = null;
 	}
 
@@ -57,21 +57,21 @@ public class CFGenKbToolByReplacesIdxKey
 		if( value == null ) {
 			optionalReplacesId = null;
 		}
-		else if( value < CFGenKbToolBuff.REPLACESID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbToolBuff.REPLACESID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalReplacesId",
 				1,
 				"value",
 				value,
-				CFGenKbToolBuff.REPLACESID_MIN_VALUE );
+				YCFGenKbToolBuff.REPLACESID_MIN_VALUE );
 		}
-		else if( value > CFGenKbToolBuff.REPLACESID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFGenKbToolBuff.REPLACESID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalReplacesId",
 				1,
 				"value",
 				value,
-				CFGenKbToolBuff.REPLACESID_MAX_VALUE );
+				YCFGenKbToolBuff.REPLACESID_MAX_VALUE );
 		}
 		else {
 			optionalReplacesId = value;
@@ -82,8 +82,8 @@ public class CFGenKbToolByReplacesIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbToolByReplacesIdxKey ) {
-			CFGenKbToolByReplacesIdxKey rhs = (CFGenKbToolByReplacesIdxKey)obj;
+		else if( obj instanceof YCFGenKbToolByReplacesIdxKey ) {
+			YCFGenKbToolByReplacesIdxKey rhs = (YCFGenKbToolByReplacesIdxKey)obj;
 			if( getOptionalReplacesId() != null ) {
 				if( rhs.getOptionalReplacesId() != null ) {
 					if( ! getOptionalReplacesId().equals( rhs.getOptionalReplacesId() ) ) {
@@ -98,8 +98,8 @@ public class CFGenKbToolByReplacesIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbToolBuff ) {
-			CFGenKbToolBuff rhs = (CFGenKbToolBuff)obj;
+		else if( obj instanceof YCFGenKbToolBuff ) {
+			YCFGenKbToolBuff rhs = (YCFGenKbToolBuff)obj;
 			if( getOptionalReplacesId() != null ) {
 				if( rhs.getOptionalReplacesId() != null ) {
 					if( ! getOptionalReplacesId().equals( rhs.getOptionalReplacesId() ) ) {
@@ -134,8 +134,8 @@ public class CFGenKbToolByReplacesIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbToolByReplacesIdxKey ) {
-			CFGenKbToolByReplacesIdxKey rhs = (CFGenKbToolByReplacesIdxKey)obj;
+		else if( obj instanceof YCFGenKbToolByReplacesIdxKey ) {
+			YCFGenKbToolByReplacesIdxKey rhs = (YCFGenKbToolByReplacesIdxKey)obj;
 			if( getOptionalReplacesId() != null ) {
 				Short lhsReplacesId = getOptionalReplacesId();
 				if( rhs.getOptionalReplacesId() != null ) {
@@ -156,8 +156,8 @@ public class CFGenKbToolByReplacesIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbToolBuff ) {
-			CFGenKbToolBuff rhs = (CFGenKbToolBuff)obj;
+		else if( obj instanceof YCFGenKbToolBuff ) {
+			YCFGenKbToolBuff rhs = (YCFGenKbToolBuff)obj;
 			if( getOptionalReplacesId() != null ) {
 				Short lhsReplacesId = getOptionalReplacesId();
 				if( rhs.getOptionalReplacesId() != null ) {
@@ -179,7 +179,7 @@ public class CFGenKbToolByReplacesIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -188,7 +188,7 @@ public class CFGenKbToolByReplacesIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbToolByReplacesIdx"
+		String ret = "<YCFGenKbToolByReplacesIdx"
 			+ " OptionalReplacesId=" + ( ( getOptionalReplacesId() == null ) ? "null" : "\"" + getOptionalReplacesId().toString() + "\"" )
 			+ "/>";
 		return( ret );

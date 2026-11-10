@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,14 +21,14 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import javafx.scene.control.TextArea;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFTextEditor
+public class YCFTextEditor
 extends TextArea
 {
 	protected int maxLen = 0;
@@ -48,7 +48,7 @@ extends TextArea
 		}
 	}
 
-	public CFTextEditor() {
+	public YCFTextEditor() {
 		super();
 		setPrefWidth( 660 );
 		setMinHeight( 50 );
@@ -62,7 +62,7 @@ extends TextArea
 			return;
 		}
 		if( text.length() > maxLen ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+			throw new YCFLibArgumentOverflowException( fieldName,
 				S_ProcName,
 				"Maximum length of text editor is " + maxLen );
 		}
@@ -81,7 +81,7 @@ extends TextArea
 	public void setMaxLen( int value ) {
 		final String S_ProcName = "setMaxLen";
 		if( value < 1 ) {
-			throw new CFLibArgumentUnderflowException( fieldName,
+			throw new YCFLibArgumentUnderflowException( fieldName,
 					S_ProcName,
 					1,
 					"value",

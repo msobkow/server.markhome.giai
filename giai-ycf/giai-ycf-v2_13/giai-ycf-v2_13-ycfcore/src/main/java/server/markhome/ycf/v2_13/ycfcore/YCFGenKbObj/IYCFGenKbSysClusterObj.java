@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb SysCluster.
+// Description: Java 11 Object interface for YCFGenKb SysCluster.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSysClusterObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbSysClusterObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a SysCluster.
 	 *
-	 *	@return	CFGenKbSysClusterObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbSysClusterObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbSysClusterObj realise();
+	IYCFGenKbSysClusterObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -59,99 +59,99 @@ public interface ICFGenKbSysClusterObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSysClusterObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSysClusterObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSysClusterObj read();
+	IYCFGenKbSysClusterObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSysClusterObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSysClusterObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSysClusterObj read( boolean forceRead );
+	IYCFGenKbSysClusterObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SysCluster instance.
 	 *
-	 *	@return	The newly locked ICFGenKbSysClusterEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbSysClusterEditObj edition of this instance.
 	 */
-	ICFGenKbSysClusterEditObj beginEdit();
+	IYCFGenKbSysClusterEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SysCluster instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SysCluster instance.
 	 *
-	 *	@return	The ICFGenKbSysClusterEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSysClusterEditObj edition of this instance.
 	 */
-	ICFGenKbSysClusterEditObj getEdit();
+	IYCFGenKbSysClusterEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SysCluster instance as a ICFGenKbSysClusterEditObj.
+	 *	Get the current edition of this SysCluster instance as a IYCFGenKbSysClusterEditObj.
 	 *
-	 *	@return	The ICFGenKbSysClusterEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSysClusterEditObj edition of this instance.
 	 */
-	ICFGenKbSysClusterEditObj getEditAsSysCluster();
+	IYCFGenKbSysClusterEditObj getEditAsSysCluster();
 
 	/**
-	 *	Get the ICFGenKbSysClusterTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbSysClusterTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSysClusterTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbSysClusterTableObj table cache which manages this instance.
 	 */
-	ICFGenKbSysClusterTableObj getSysClusterTable();
+	IYCFGenKbSysClusterTableObj getSysClusterTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbSysClusterBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSysClusterBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSysClusterBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSysClusterBuff instance which currently backs this object.
 	 */
-	CFGenKbSysClusterBuff getBuff();
+	YCFGenKbSysClusterBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbSysClusterBuff value );
+	void setBuff( YCFGenKbSysClusterBuff value );
 
 	/**
-	 *	Get the CFGenKbSysClusterBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSysClusterBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSysClusterBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSysClusterBuff instance which currently backs this object.
 	 */
-	CFGenKbSysClusterBuff getSysClusterBuff();
+	YCFGenKbSysClusterBuff getSysClusterBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbSysClusterPKey primary key for this instance.
+	 *	@return	YCFGenKbSysClusterPKey primary key for this instance.
 	 */
-	CFGenKbSysClusterPKey getPKey();
+	YCFGenKbSysClusterPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbSysClusterPKey primary key value for this instance.
+	 *	@param YCFGenKbSysClusterPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbSysClusterPKey value );
+	void setPKey( YCFGenKbSysClusterPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -185,18 +185,18 @@ public interface ICFGenKbSysClusterObj
 	long getRequiredClusterId();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster();
+	IYCFGenKbClusterObj getRequiredContainerCluster();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster( boolean forceRead );
+	IYCFGenKbClusterObj getRequiredContainerCluster( boolean forceRead );
 
 	/**
 	 *	Internal use only.

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -38,15 +38,15 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javafx.scene.control.TextArea;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
-public class CFConsole
+public class YCFConsole
 extends TextArea
 {
 	protected static boolean logExceptionsToSystem = true;
-	protected static CFConsole sharedConsole = null;
+	protected static YCFConsole sharedConsole = null;
 	
-	public CFConsole() {
+	public YCFConsole() {
 		super();
 		setPrefWidth( 660 );
 		setMinHeight( 50 );
@@ -110,7 +110,7 @@ extends TextArea
 		String buffString = buff.toString();
 		appendText( buffString );
 		positionCaret( getLength() );
-		CFLib.beep();
+		YCFLib.beep();
 		if( logExceptionsToSystem ) {
 			System.out.print( buffString );
 			t.printStackTrace( System.out );

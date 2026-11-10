@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb GenFile.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb GenFile.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,26 +27,26 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGenFileEditObj
-	extends ICFGenKbGenFileObj,
-		ICFGenKbGenRuleEditObj
+public interface IYCFGenKbGenFileEditObj
+	extends IYCFGenKbGenFileObj,
+		IYCFGenKbGenRuleEditObj
 {
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbGenFileObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbGenFileObj.
 	 */
-	ICFGenKbGenFileObj getOrigAsGenFile();
+	IYCFGenKbGenFileObj getOrigAsGenFile();
 
 	/**
 	 *	Get the optional String attribute GenerateOnce.
@@ -161,100 +161,100 @@ public interface ICFGenKbGenFileEditObj
 	void setOptionalExpansionFileName( String value );
 
 	/**
-	 *	Get the ICFGenKbGelExecutableObj instance referenced by the SrcBundleGel key.
+	 *	Get the IYCFGenKbGelExecutableObj instance referenced by the SrcBundleGel key.
 	 *
-	 *	@return	The ICFGenKbGelExecutableObj instance referenced by the SrcBundleGel key.
+	 *	@return	The IYCFGenKbGelExecutableObj instance referenced by the SrcBundleGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsSrcBundleGel();
+	IYCFGenKbGelExecutableObj getOptionalComponentsSrcBundleGel();
 
 	/**
-	 *	Set the ICFGenKbGelExecutableObj instance referenced by the SrcBundleGel key.
+	 *	Set the IYCFGenKbGelExecutableObj instance referenced by the SrcBundleGel key.
 	 *
-	 *	@param	value	the ICFGenKbGelExecutableObj instance to be referenced by the SrcBundleGel key.
+	 *	@param	value	the IYCFGenKbGelExecutableObj instance to be referenced by the SrcBundleGel key.
 	 */
-	void setOptionalComponentsSrcBundleGel( ICFGenKbGelExecutableObj value );
+	void setOptionalComponentsSrcBundleGel( IYCFGenKbGelExecutableObj value );
 
 	/**
-	 *	Get the ICFGenKbGelExecutableObj instance referenced by the BasePackageGel key.
+	 *	Get the IYCFGenKbGelExecutableObj instance referenced by the BasePackageGel key.
 	 *
-	 *	@return	The ICFGenKbGelExecutableObj instance referenced by the BasePackageGel key.
+	 *	@return	The IYCFGenKbGelExecutableObj instance referenced by the BasePackageGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsBasePackageGel();
+	IYCFGenKbGelExecutableObj getOptionalComponentsBasePackageGel();
 
 	/**
-	 *	Set the ICFGenKbGelExecutableObj instance referenced by the BasePackageGel key.
+	 *	Set the IYCFGenKbGelExecutableObj instance referenced by the BasePackageGel key.
 	 *
-	 *	@param	value	the ICFGenKbGelExecutableObj instance to be referenced by the BasePackageGel key.
+	 *	@param	value	the IYCFGenKbGelExecutableObj instance to be referenced by the BasePackageGel key.
 	 */
-	void setOptionalComponentsBasePackageGel( ICFGenKbGelExecutableObj value );
+	void setOptionalComponentsBasePackageGel( IYCFGenKbGelExecutableObj value );
 
 	/**
-	 *	Get the ICFGenKbGelExecutableObj instance referenced by the ModuleNameGel key.
+	 *	Get the IYCFGenKbGelExecutableObj instance referenced by the ModuleNameGel key.
 	 *
-	 *	@return	The ICFGenKbGelExecutableObj instance referenced by the ModuleNameGel key.
+	 *	@return	The IYCFGenKbGelExecutableObj instance referenced by the ModuleNameGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsModuleNameGel();
+	IYCFGenKbGelExecutableObj getOptionalComponentsModuleNameGel();
 
 	/**
-	 *	Set the ICFGenKbGelExecutableObj instance referenced by the ModuleNameGel key.
+	 *	Set the IYCFGenKbGelExecutableObj instance referenced by the ModuleNameGel key.
 	 *
-	 *	@param	value	the ICFGenKbGelExecutableObj instance to be referenced by the ModuleNameGel key.
+	 *	@param	value	the IYCFGenKbGelExecutableObj instance to be referenced by the ModuleNameGel key.
 	 */
-	void setOptionalComponentsModuleNameGel( ICFGenKbGelExecutableObj value );
+	void setOptionalComponentsModuleNameGel( IYCFGenKbGelExecutableObj value );
 
 	/**
-	 *	Get the ICFGenKbGelExecutableObj instance referenced by the SubPackageGel key.
+	 *	Get the IYCFGenKbGelExecutableObj instance referenced by the SubPackageGel key.
 	 *
-	 *	@return	The ICFGenKbGelExecutableObj instance referenced by the SubPackageGel key.
+	 *	@return	The IYCFGenKbGelExecutableObj instance referenced by the SubPackageGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsSubPackageGel();
+	IYCFGenKbGelExecutableObj getOptionalComponentsSubPackageGel();
 
 	/**
-	 *	Set the ICFGenKbGelExecutableObj instance referenced by the SubPackageGel key.
+	 *	Set the IYCFGenKbGelExecutableObj instance referenced by the SubPackageGel key.
 	 *
-	 *	@param	value	the ICFGenKbGelExecutableObj instance to be referenced by the SubPackageGel key.
+	 *	@param	value	the IYCFGenKbGelExecutableObj instance to be referenced by the SubPackageGel key.
 	 */
-	void setOptionalComponentsSubPackageGel( ICFGenKbGelExecutableObj value );
+	void setOptionalComponentsSubPackageGel( IYCFGenKbGelExecutableObj value );
 
 	/**
-	 *	Get the ICFGenKbGelExecutableObj instance referenced by the ExpClassGel key.
+	 *	Get the IYCFGenKbGelExecutableObj instance referenced by the ExpClassGel key.
 	 *
-	 *	@return	The ICFGenKbGelExecutableObj instance referenced by the ExpClassGel key.
+	 *	@return	The IYCFGenKbGelExecutableObj instance referenced by the ExpClassGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsExpClassGel();
+	IYCFGenKbGelExecutableObj getOptionalComponentsExpClassGel();
 
 	/**
-	 *	Set the ICFGenKbGelExecutableObj instance referenced by the ExpClassGel key.
+	 *	Set the IYCFGenKbGelExecutableObj instance referenced by the ExpClassGel key.
 	 *
-	 *	@param	value	the ICFGenKbGelExecutableObj instance to be referenced by the ExpClassGel key.
+	 *	@param	value	the IYCFGenKbGelExecutableObj instance to be referenced by the ExpClassGel key.
 	 */
-	void setOptionalComponentsExpClassGel( ICFGenKbGelExecutableObj value );
+	void setOptionalComponentsExpClassGel( IYCFGenKbGelExecutableObj value );
 
 	/**
-	 *	Get the ICFGenKbGelExecutableObj instance referenced by the ExpKeyNameGel key.
+	 *	Get the IYCFGenKbGelExecutableObj instance referenced by the ExpKeyNameGel key.
 	 *
-	 *	@return	The ICFGenKbGelExecutableObj instance referenced by the ExpKeyNameGel key.
+	 *	@return	The IYCFGenKbGelExecutableObj instance referenced by the ExpKeyNameGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsExpKeyNameGel();
+	IYCFGenKbGelExecutableObj getOptionalComponentsExpKeyNameGel();
 
 	/**
-	 *	Set the ICFGenKbGelExecutableObj instance referenced by the ExpKeyNameGel key.
+	 *	Set the IYCFGenKbGelExecutableObj instance referenced by the ExpKeyNameGel key.
 	 *
-	 *	@param	value	the ICFGenKbGelExecutableObj instance to be referenced by the ExpKeyNameGel key.
+	 *	@param	value	the IYCFGenKbGelExecutableObj instance to be referenced by the ExpKeyNameGel key.
 	 */
-	void setOptionalComponentsExpKeyNameGel( ICFGenKbGelExecutableObj value );
+	void setOptionalComponentsExpKeyNameGel( IYCFGenKbGelExecutableObj value );
 
 	/**
-	 *	Get the ICFGenKbGelExecutableObj instance referenced by the ExpFileNameGel key.
+	 *	Get the IYCFGenKbGelExecutableObj instance referenced by the ExpFileNameGel key.
 	 *
-	 *	@return	The ICFGenKbGelExecutableObj instance referenced by the ExpFileNameGel key.
+	 *	@return	The IYCFGenKbGelExecutableObj instance referenced by the ExpFileNameGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsExpFileNameGel();
+	IYCFGenKbGelExecutableObj getOptionalComponentsExpFileNameGel();
 
 	/**
-	 *	Set the ICFGenKbGelExecutableObj instance referenced by the ExpFileNameGel key.
+	 *	Set the IYCFGenKbGelExecutableObj instance referenced by the ExpFileNameGel key.
 	 *
-	 *	@param	value	the ICFGenKbGelExecutableObj instance to be referenced by the ExpFileNameGel key.
+	 *	@param	value	the IYCFGenKbGelExecutableObj instance to be referenced by the ExpFileNameGel key.
 	 */
-	void setOptionalComponentsExpFileNameGel( ICFGenKbGelExecutableObj value );
+	void setOptionalComponentsExpFileNameGel( IYCFGenKbGelExecutableObj value );
 }

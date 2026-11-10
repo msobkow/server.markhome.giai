@@ -1,18 +1,18 @@
 
-// Description: Java 11 MssCF Reference for UInt32Col Relationship Table.
+// Description: Java 11 MssYCF Reference for UInt32Col Relationship Table.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,33 +46,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.sql.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /**
- *	CFBamMssCFReferenceUInt32ColTable binds UInt32Col.Table
- *	as an instance of MssCFGenReferenceObj.
+ *	YCFBamMssYCFReferenceUInt32ColTable binds UInt32Col.Table
+ *	as an instance of MssYCFGenReferenceObj.
  */
-public class CFBamMssCFReferenceUInt32ColTable
-	extends MssCFGenReferenceObj
+public class YCFBamMssYCFReferenceUInt32ColTable
+	extends MssYCFGenReferenceObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFReferenceUInt32ColTable() {
+	public YCFBamMssYCFReferenceUInt32ColTable() {
 		super();
 	}
 
-	public CFBamMssCFReferenceUInt32ColTable( MssCFEngine argEngine ) {
+	public YCFBamMssYCFReferenceUInt32ColTable( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
@@ -81,35 +81,35 @@ public class CFBamMssCFReferenceUInt32ColTable
 			"Table" );
 	}
 
-	public ICFLibAnyObj dereference( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFReferenceUInt32ColTable.dereference() ";
+	public IYCFLibAnyObj dereference( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFReferenceUInt32ColTable.dereference() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext.getGenDef()" );
 		}
 
-		ICFBamTableObj obj;
+		IYCFBamTableObj obj;
 
-		if( genDef instanceof ICFBamUInt32ColObj ) {
-			obj = (ICFBamTableObj)((ICFBamUInt32ColObj)genDef).getRequiredContainerTable();
+		if( genDef instanceof IYCFBamUInt32ColObj ) {
+			obj = (IYCFBamTableObj)((IYCFBamUInt32ColObj)genDef).getRequiredContainerTable();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamUInt32ColObj" );
+				"IYCFBamUInt32ColObj" );
 		}
 
 		return( obj );

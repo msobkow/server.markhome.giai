@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelCounterTableObj
+public interface IYCFGenKbGelCounterTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelCounterTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelCounterObj newInstance();
+	IYCFGenKbGelCounterObj newInstance();
 
 	/**
 	 *	Instantiate a new GelCounter edition of the specified GelCounter instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelCounterEditObj newEditInstance( ICFGenKbGelCounterObj orig );
+	IYCFGenKbGelCounterEditObj newEditInstance( IYCFGenKbGelCounterObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCounterObj realiseGelCounter( ICFGenKbGelCounterObj Obj );
+	IYCFGenKbGelCounterObj realiseGelCounter( IYCFGenKbGelCounterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCounterObj createGelCounter( ICFGenKbGelCounterObj Obj );
+	IYCFGenKbGelCounterObj createGelCounter( IYCFGenKbGelCounterObj Obj );
 
 	/**
 	 *	Read a GelCounter-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelCounterTableObj
 	 *	@return	The GelCounter-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelCounterObj readGelCounter( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelCounterObj readGelCounter( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelCounter-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelCounterTableObj
 	 *	@return	The GelCounter-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelCounterObj readGelCounter( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelCounterObj readGelCounter( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelCounterObj readCachedGelCounter( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelCounterObj readCachedGelCounter( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelCounter( ICFGenKbGelCounterObj obj );
+	public void reallyDeepDisposeGelCounter( IYCFGenKbGelCounterObj obj );
 
-	void deepDisposeGelCounter( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelCounter( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCounterObj lockGelCounter( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelCounterObj lockGelCounter( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelCounter-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelCounterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelCounterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelCounterObj> readAllGelCounter();
+	List<IYCFGenKbGelCounterObj> readAllGelCounter();
 
 	/**
 	 *	Return a sorted map of all the GelCounter-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelCounterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelCounterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelCounterObj> readAllGelCounter( boolean forceRead );
+	List<IYCFGenKbGelCounterObj> readAllGelCounter( boolean forceRead );
 
-	List<ICFGenKbGelCounterObj> readCachedAllGelCounter();
+	List<IYCFGenKbGelCounterObj> readCachedAllGelCounter();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelCounter key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelCounterTableObj
 	 *
 	 *	@param	argGelInstId	The GelCounter key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelCounterObj readGelCounterByPIdx( long TenantId,
+	IYCFGenKbGelCounterObj readGelCounterByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelCounter key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelCounterTableObj
 	 *
 	 *	@param	argGelInstId	The GelCounter key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelCounterObj readGelCounterByPIdx( long TenantId,
+	IYCFGenKbGelCounterObj readGelCounterByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelCounter key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCounterObj> readGelCounterByTenantIdx( long TenantId );
+	List<IYCFGenKbGelCounterObj> readGelCounterByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelCounterObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelCounterObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelCounter key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCounterObj> readGelCounterByTenantIdx( long TenantId,
+	List<IYCFGenKbGelCounterObj> readGelCounterByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelCounter key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelCounter key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCounterObj> readGelCounterByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelCounterObj> readGelCounterByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelCounterObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelCounterObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelCounter key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelCounter key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCounterObj> readGelCounterByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelCounterObj> readGelCounterByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelCounter key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelCounterTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelCounter key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCounterObj> readGelCounterByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelCounterObj> readGelCounterByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelCounterObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelCounterObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelCounter key attribute of the instance generating the id.
 	 *
@@ -229,24 +229,24 @@ public interface ICFGenKbGelCounterTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelCounter key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelCounterObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelCounterObj> readGelCounterByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelCounterObj> readGelCounterByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
-	ICFGenKbGelCounterObj readCachedGelCounterByPIdx( long TenantId,
+	IYCFGenKbGelCounterObj readCachedGelCounterByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelCounterObj> readCachedGelCounterByTenantIdx( long TenantId );
+	List<IYCFGenKbGelCounterObj> readCachedGelCounterByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelCounterObj> readCachedGelCounterByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelCounterObj> readCachedGelCounterByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelCounterObj> readCachedGelCounterByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelCounterObj> readCachedGelCounterByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
@@ -266,12 +266,12 @@ public interface ICFGenKbGelCounterTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelCounterObj updateGelCounter( ICFGenKbGelCounterObj Obj );
+	IYCFGenKbGelCounterObj updateGelCounter( IYCFGenKbGelCounterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelCounter( ICFGenKbGelCounterObj Obj );
+	void deleteGelCounter( IYCFGenKbGelCounterObj Obj );
 
 	/**
 	 *	Internal use only.

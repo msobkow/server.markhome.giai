@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GelCache.
+// Description: Java 11 base object instance implementation for YCFGenKb GelCache.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,37 +27,37 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public class CFGenKbGelCacheObj
-	implements ICFGenKbGelCacheObj
+public class YCFGenKbGelCacheObj
+	implements IYCFGenKbGelCacheObj
 {
 	public final static String CLASS_CODE = "a915";
 	protected boolean isNew;
-	protected ICFGenKbGelCacheEditObj edit;
-	protected ICFGenKbSchemaObj schema;
-	protected CFGenKbGelCachePKey pKey;
-	protected CFGenKbGelCacheBuff buff;
-	protected ICFGenKbTenantObj requiredOwnerTenant;
-	protected Map< String, ICFGenKbGelInstructionObj > mapMacro = new HashMap< String, ICFGenKbGelInstructionObj >();
-	protected Map< String, ICFGenKbGelExecutableObj > mapExecutable = new HashMap< String, ICFGenKbGelExecutableObj >();
+	protected IYCFGenKbGelCacheEditObj edit;
+	protected IYCFGenKbSchemaObj schema;
+	protected YCFGenKbGelCachePKey pKey;
+	protected YCFGenKbGelCacheBuff buff;
+	protected IYCFGenKbTenantObj requiredOwnerTenant;
+	protected Map< String, IYCFGenKbGelInstructionObj > mapMacro = new HashMap< String, IYCFGenKbGelInstructionObj >();
+	protected Map< String, IYCFGenKbGelExecutableObj > mapExecutable = new HashMap< String, IYCFGenKbGelExecutableObj >();
 
-	public CFGenKbGelCacheObj() {
+	public YCFGenKbGelCacheObj() {
 		isNew = true;
 		requiredOwnerTenant = null;
 	}
 
-	public CFGenKbGelCacheObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGelCacheObj( IYCFGenKbSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -72,11 +72,11 @@ public class CFGenKbGelCacheObj
 		return( "GelCache" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -87,14 +87,14 @@ public class CFGenKbGelCacheObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -105,10 +105,10 @@ public class CFGenKbGelCacheObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -117,20 +117,20 @@ public class CFGenKbGelCacheObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -154,13 +154,13 @@ public class CFGenKbGelCacheObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -174,13 +174,13 @@ public class CFGenKbGelCacheObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -192,48 +192,48 @@ public class CFGenKbGelCacheObj
 		return( fullName );
 	}
 
-	public ICFGenKbGelCacheObj realise() {
-		ICFGenKbGelCacheObj retobj = ((ICFGenKbSchemaObj)schema).getGelCacheTableObj().realiseGelCache(
-			(ICFGenKbGelCacheObj)this );
-		return( (ICFGenKbGelCacheObj)retobj );
+	public IYCFGenKbGelCacheObj realise() {
+		IYCFGenKbGelCacheObj retobj = ((IYCFGenKbSchemaObj)schema).getGelCacheTableObj().realiseGelCache(
+			(IYCFGenKbGelCacheObj)this );
+		return( (IYCFGenKbGelCacheObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGelCacheTableObj().reallyDeepDisposeGelCache( (ICFGenKbGelCacheObj)this );
+		((IYCFGenKbSchemaObj)schema).getGelCacheTableObj().reallyDeepDisposeGelCache( (IYCFGenKbGelCacheObj)this );
 	}
 
-	public ICFGenKbGelCacheObj read() {
-		ICFGenKbGelCacheObj retobj = ((ICFGenKbSchemaObj)schema).getGelCacheTableObj().readGelCacheByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelCacheObj read() {
+		IYCFGenKbGelCacheObj retobj = ((IYCFGenKbSchemaObj)schema).getGelCacheTableObj().readGelCacheByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(), false );
-		return( (ICFGenKbGelCacheObj)retobj );
+		return( (IYCFGenKbGelCacheObj)retobj );
 	}
 
-	public ICFGenKbGelCacheObj read( boolean forceRead ) {
-		ICFGenKbGelCacheObj retobj = ((ICFGenKbSchemaObj)schema).getGelCacheTableObj().readGelCacheByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelCacheObj read( boolean forceRead ) {
+		IYCFGenKbGelCacheObj retobj = ((IYCFGenKbSchemaObj)schema).getGelCacheTableObj().readGelCacheByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(), forceRead );
-		return( (ICFGenKbGelCacheObj)retobj );
+		return( (IYCFGenKbGelCacheObj)retobj );
 	}
 
-	public ICFGenKbGelCacheTableObj getGelCacheTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGelCacheTableObj() );
+	public IYCFGenKbGelCacheTableObj getGelCacheTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGelCacheTableObj() );
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
+	public void setSchema( IYCFGenKbSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFGenKbGelCacheBuff getBuff() {
+	public YCFGenKbGelCacheBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelCache().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelCache().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelCache().readDerivedByIdIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelCache().readDerivedByIdIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredGelCacheId() );
 				if( buff != null ) {
@@ -244,31 +244,31 @@ public class CFGenKbGelCacheObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelCacheBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGelCacheBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGelCacheBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGelCacheBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGelCacheBuff" );
+				"YCFGenKbGelCacheBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
 		requiredOwnerTenant = null;
 	}
 
-	public CFGenKbGelCacheBuff getGelCacheBuff() {
-		return( (CFGenKbGelCacheBuff)getBuff() );
+	public YCFGenKbGelCacheBuff getGelCacheBuff() {
+		return( (YCFGenKbGelCacheBuff)getBuff() );
 	}
 
-	public CFGenKbGelCachePKey getPKey() {
+	public YCFGenKbGelCachePKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelCache().newPKey();
+			pKey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelCache().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFGenKbGelCachePKey value ) {
+	public void setPKey( YCFGenKbGelCachePKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -283,31 +283,31 @@ public class CFGenKbGelCacheObj
 		isNew = value;
 	}
 
-	public ICFGenKbGelCacheEditObj beginEdit() {
+	public IYCFGenKbGelCacheEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGelCacheObj lockobj;
+		IYCFGenKbGelCacheObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGelCacheObj)this;
+			lockobj = (IYCFGenKbGelCacheObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGelCacheTableObj().lockGelCache( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGelCacheTableObj().lockGelCache( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGelCacheTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGelCacheEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGelCacheTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGelCacheEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFGenKbGelCacheEditObj getEdit() {
+	public IYCFGenKbGelCacheEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFGenKbGelCacheEditObj getEditAsGelCache() {
-		return( (ICFGenKbGelCacheEditObj)edit );
+	public IYCFGenKbGelCacheEditObj getEditAsGelCache() {
+		return( (IYCFGenKbGelCacheEditObj)edit );
 	}
 
 	public long getRequiredTenantId() {
@@ -322,15 +322,15 @@ public class CFGenKbGelCacheObj
 		return( getGelCacheBuff().getRequiredCacheName() );
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant() {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( ( requiredOwnerTenant == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredOwnerTenant = ((ICFGenKbSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
+				requiredOwnerTenant = ((IYCFGenKbSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
 			}
 		}
 		return( requiredOwnerTenant );
@@ -351,13 +351,13 @@ public class CFGenKbGelCacheObj
 		getPKey().setRequiredGelCacheId( buff.getRequiredGelCacheId() );
 	}
 
-	public ICFGenKbGelInstructionObj lookupMacro( String macroBody ) {
-		ICFGenKbGelInstructionObj gel = mapMacro.get( macroBody );
+	public IYCFGenKbGelInstructionObj lookupMacro( String macroBody ) {
+		IYCFGenKbGelInstructionObj gel = mapMacro.get( macroBody );
 		return( gel );
 	}
 
-	public ICFGenKbGelInstructionObj rememberMacro( String macroBody, ICFGenKbGelInstructionObj gel ) {
-		ICFGenKbGelInstructionObj found;
+	public IYCFGenKbGelInstructionObj rememberMacro( String macroBody, IYCFGenKbGelInstructionObj gel ) {
+		IYCFGenKbGelInstructionObj found;
 		found = mapMacro.get( macroBody );
 		if( found == null ) {
 			mapMacro.put( macroBody, gel );
@@ -366,13 +366,13 @@ public class CFGenKbGelCacheObj
 		return( found );
 	}
 
-	public ICFGenKbGelExecutableObj lookupExecutable( String execName ) {
-		ICFGenKbGelExecutableObj gel = mapExecutable.get( execName );
+	public IYCFGenKbGelExecutableObj lookupExecutable( String execName ) {
+		IYCFGenKbGelExecutableObj gel = mapExecutable.get( execName );
 		return( gel );
 	}
 
-	public ICFGenKbGelExecutableObj rememberExecutable( String execName, ICFGenKbGelExecutableObj gel ) {
-		ICFGenKbGelExecutableObj found;
+	public IYCFGenKbGelExecutableObj rememberExecutable( String execName, IYCFGenKbGelExecutableObj gel ) {
+		IYCFGenKbGelExecutableObj found;
 		found = mapExecutable.get( execName );
 		if( found == null ) {
 			mapExecutable.put( execName, gel );

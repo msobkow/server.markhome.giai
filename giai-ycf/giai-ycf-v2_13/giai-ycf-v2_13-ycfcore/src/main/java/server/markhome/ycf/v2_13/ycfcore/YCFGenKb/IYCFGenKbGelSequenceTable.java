@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelSequence.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelSequenceTable database interface for GelSequence
+ *	YCFGenKbGelSequenceTable database interface for GelSequence
  */
-public interface ICFGenKbGelSequenceTable
+public interface IYCFGenKbGelSequenceTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelSequence( CFGenKbAuthorization Authorization,
-		CFGenKbGelSequenceBuff Buff );
+	void createGelSequence( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSequenceBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelSequence( CFGenKbAuthorization Authorization,
-		CFGenKbGelSequenceBuff Buff );
+	void updateGelSequence( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSequenceBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelSequence( CFGenKbAuthorization Authorization,
-		CFGenKbGelSequenceBuff Buff );
+	void deleteGelSequence( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSequenceBuff Buff );
 	/**
 	 *	Delete the GelSequence instances identified by the key FirstInstIdx.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argFirstInstId	The GelSequence key attribute of the instance generating the id.
 	 */
-	void deleteGelSequenceByFirstInstIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSequenceByFirstInstIdx( YCFGenKbAuthorization Authorization,
 		Long argFirstInstTenantId,
 		Long argFirstInstGelCacheId,
 		Long argFirstInstId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSequenceByFirstInstIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSequenceByFirstInstIdxKey argKey );
+	void deleteGelSequenceByFirstInstIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSequenceByFirstInstIdxKey argKey );
 	/**
 	 *	Delete the GelSequence instances identified by the key LastInstIdx.
 	 *
@@ -115,7 +115,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argLastInstId	The GelSequence key attribute of the instance generating the id.
 	 */
-	void deleteGelSequenceByLastInstIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSequenceByLastInstIdx( YCFGenKbAuthorization Authorization,
 		Long argLastInstTenantId,
 		Long argLastInstGelCacheId,
 		Long argLastInstId );
@@ -127,8 +127,8 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSequenceByLastInstIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSequenceByLastInstIdxKey argKey );
+	void deleteGelSequenceByLastInstIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSequenceByLastInstIdxKey argKey );
 	/**
 	 *	Delete the GelSequence instance identified by the primary key attributes.
 	 *
@@ -140,7 +140,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argGelInstId	The GelSequence key attribute of the instance generating the id.
 	 */
-	void deleteGelSequenceByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSequenceByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -152,8 +152,8 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelSequenceByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelSequenceByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelSequence instances identified by the key TenantIdx.
 	 *
@@ -161,7 +161,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argTenantId	The GelSequence key attribute of the instance generating the id.
 	 */
-	void deleteGelSequenceByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSequenceByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -171,8 +171,8 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSequenceByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelSequenceByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelSequence instances identified by the key GelCacheIdx.
 	 *
@@ -182,7 +182,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argGelCacheId	The GelSequence key attribute of the instance generating the id.
 	 */
-	void deleteGelSequenceByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSequenceByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -193,8 +193,8 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSequenceByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelSequenceByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelSequence instances identified by the key ChainIdx.
 	 *
@@ -206,7 +206,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelSequence key attribute of the instance generating the id.
 	 */
-	void deleteGelSequenceByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSequenceByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -218,8 +218,8 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSequenceByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelSequenceByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -232,8 +232,8 @@ public interface ICFGenKbGelSequenceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelSequenceBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelSequenceBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelSequence buffer instance by primary key.
@@ -245,8 +245,8 @@ public interface ICFGenKbGelSequenceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelSequenceBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelSequenceBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelSequence instances.
@@ -255,7 +255,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSequenceBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelSequenceBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelSequence buffer instance identified by the unique key PIdx.
@@ -271,7 +271,7 @@ public interface ICFGenKbGelSequenceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelSequenceBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -285,7 +285,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSequenceBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -299,7 +299,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSequenceBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -316,7 +316,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSequenceBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -334,7 +334,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSequenceBuff[] readDerivedByFirstInstIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readDerivedByFirstInstIdx( YCFGenKbAuthorization Authorization,
 		Long FirstInstTenantId,
 		Long FirstInstGelCacheId,
 		Long FirstInstId );
@@ -352,7 +352,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSequenceBuff[] readDerivedByLastInstIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readDerivedByLastInstIdx( YCFGenKbAuthorization Authorization,
 		Long LastInstTenantId,
 		Long LastInstGelCacheId,
 		Long LastInstId );
@@ -367,10 +367,10 @@ public interface ICFGenKbGelSequenceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSequenceBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelSequenceBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelSequence buffer instance identified by the primary key.
@@ -382,10 +382,10 @@ public interface ICFGenKbGelSequenceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSequenceBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelSequenceBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelSequence buffer instances.
@@ -394,7 +394,7 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return All the specific GelSequence instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelSequenceBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelSequenceBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelSequence buffer instance identified by the unique key PIdx.
@@ -410,9 +410,9 @@ public interface ICFGenKbGelSequenceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSequenceBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -426,9 +426,9 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSequenceBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -442,9 +442,9 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSequenceBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -461,9 +461,9 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSequenceBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -481,9 +481,9 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSequenceBuff[] readBuffByFirstInstIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readBuffByFirstInstIdx( YCFGenKbAuthorization Authorization,
 		Long FirstInstTenantId,
 		Long FirstInstGelCacheId,
 		Long FirstInstId );
@@ -501,9 +501,9 @@ public interface ICFGenKbGelSequenceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSequenceBuff[] readBuffByLastInstIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSequenceBuff[] readBuffByLastInstIdx( YCFGenKbAuthorization Authorization,
 		Long LastInstTenantId,
 		Long LastInstGelCacheId,
 		Long LastInstId );
@@ -511,7 +511,7 @@ public interface ICFGenKbGelSequenceTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

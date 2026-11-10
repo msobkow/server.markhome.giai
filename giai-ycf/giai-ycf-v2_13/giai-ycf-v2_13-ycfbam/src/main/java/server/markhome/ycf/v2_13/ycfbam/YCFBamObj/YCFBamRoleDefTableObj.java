@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,42 +45,42 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamRoleDefTableObj
-	implements ICFBamRoleDefTableObj
+public class YCFBamRoleDefTableObj
+	implements IYCFBamRoleDefTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFBamRoleDefPKey, ICFBamRoleDefObj> members;
-	private Map<CFBamRoleDefPKey, ICFBamRoleDefObj> allRoleDef;
-	private Map< CFBamRoleDefByUNameIdxKey,
-		ICFBamRoleDefObj > indexByUNameIdx;
-	private Map< CFBamRoleDefByUDefIdxKey,
-		ICFBamRoleDefObj > indexByUDefIdx;
-	private Map< CFBamRoleDefByRoleDefTentIdxKey,
-		Map<CFBamRoleDefPKey, ICFBamRoleDefObj > > indexByRoleDefTentIdx;
-	private Map< CFBamRoleDefByScopeIdxKey,
-		Map<CFBamRoleDefPKey, ICFBamRoleDefObj > > indexByScopeIdx;
-	private Map< CFBamRoleDefByDefSchemaIdxKey,
-		Map<CFBamRoleDefPKey, ICFBamRoleDefObj > > indexByDefSchemaIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> members;
+	private Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> allRoleDef;
+	private Map< YCFBamRoleDefByUNameIdxKey,
+		IYCFBamRoleDefObj > indexByUNameIdx;
+	private Map< YCFBamRoleDefByUDefIdxKey,
+		IYCFBamRoleDefObj > indexByUDefIdx;
+	private Map< YCFBamRoleDefByRoleDefTentIdxKey,
+		Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > > indexByRoleDefTentIdx;
+	private Map< YCFBamRoleDefByScopeIdxKey,
+		Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > > indexByScopeIdx;
+	private Map< YCFBamRoleDefByDefSchemaIdxKey,
+		Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > > indexByDefSchemaIdx;
 	public static String TABLE_NAME = "RoleDef";
 	public static String TABLE_DBNAME = "roledef";
 
-	public CFBamRoleDefTableObj() {
+	public YCFBamRoleDefTableObj() {
 		schema = null;
-		members = new HashMap<CFBamRoleDefPKey, ICFBamRoleDefObj>();
+		members = new HashMap<YCFBamRoleDefPKey, IYCFBamRoleDefObj>();
 		allRoleDef = null;
 		indexByUNameIdx = null;
 		indexByUDefIdx = null;
@@ -89,9 +89,9 @@ public class CFBamRoleDefTableObj
 		indexByDefSchemaIdx = null;
 	}
 
-	public CFBamRoleDefTableObj( ICFBamSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFBamRoleDefPKey, ICFBamRoleDefObj>();
+	public YCFBamRoleDefTableObj( IYCFBamSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFBamRoleDefPKey, IYCFBamRoleDefObj>();
 		allRoleDef = null;
 		indexByUNameIdx = null;
 		indexByUDefIdx = null;
@@ -100,12 +100,12 @@ public class CFBamRoleDefTableObj
 		indexByDefSchemaIdx = null;
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFBamSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFBamSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -117,7 +117,7 @@ public class CFBamRoleDefTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamSchemaDefObj.class );
+		return( IYCFBamSchemaDefObj.class );
 	}
 
 
@@ -128,9 +128,9 @@ public class CFBamRoleDefTableObj
 		indexByRoleDefTentIdx = null;
 		indexByScopeIdx = null;
 		indexByDefSchemaIdx = null;
-		List<ICFBamRoleDefObj> toForget = new LinkedList<ICFBamRoleDefObj>();
-		ICFBamRoleDefObj cur = null;
-		Iterator<ICFBamRoleDefObj> iter = members.values().iterator();
+		List<IYCFBamRoleDefObj> toForget = new LinkedList<IYCFBamRoleDefObj>();
+		IYCFBamRoleDefObj cur = null;
+		Iterator<IYCFBamRoleDefObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -148,10 +148,10 @@ public class CFBamRoleDefTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamRoleDefObj.
+	 *	YCFBamRoleDefObj.
 	 */
-	public ICFBamRoleDefObj newInstance() {
-		ICFBamRoleDefObj inst = new CFBamRoleDefObj( schema );
+	public IYCFBamRoleDefObj newInstance() {
+		IYCFBamRoleDefObj inst = new YCFBamRoleDefObj( schema );
 		return( inst );
 	}
 
@@ -162,30 +162,30 @@ public class CFBamRoleDefTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamRoleDefObj.
+	 *	YCFBamRoleDefObj.
 	 */
-	public ICFBamRoleDefEditObj newEditInstance( ICFBamRoleDefObj orig ) {
-		ICFBamRoleDefEditObj edit = new CFBamRoleDefEditObj( orig );
+	public IYCFBamRoleDefEditObj newEditInstance( IYCFBamRoleDefObj orig ) {
+		IYCFBamRoleDefEditObj edit = new YCFBamRoleDefEditObj( orig );
 		return( edit );
 	}
 
-	public ICFBamRoleDefObj constructByClassCode( String argClassCode ) {
-		ICFBamRoleDefObj obj = null;
+	public IYCFBamRoleDefObj constructByClassCode( String argClassCode ) {
+		IYCFBamRoleDefObj obj = null;
 		if( argClassCode.equals( "a88d" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getRoleDefTableObj().newInstance();
+			obj = ((IYCFBamSchemaObj)schema).getRoleDefTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a88e" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getSchemaRoleTableObj().newInstance();
+			obj = ((IYCFBamSchemaObj)schema).getSchemaRoleTableObj().newInstance();
 		}
 		return( obj );
 	}
 
-	public ICFBamRoleDefObj realiseRoleDef( ICFBamRoleDefObj Obj ) {
-		ICFBamRoleDefObj obj = Obj;
-		CFBamRoleDefPKey pkey = obj.getPKey();
-		ICFBamRoleDefObj keepObj = null;
+	public IYCFBamRoleDefObj realiseRoleDef( IYCFBamRoleDefObj Obj ) {
+		IYCFBamRoleDefObj obj = Obj;
+		YCFBamRoleDefPKey pkey = obj.getPKey();
+		IYCFBamRoleDefObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFBamRoleDefObj existingObj = members.get( pkey );
+			IYCFBamRoleDefObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -196,8 +196,8 @@ public class CFBamRoleDefTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByUNameIdx != null ) {
-				CFBamRoleDefByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
+				YCFBamRoleDefByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -205,8 +205,8 @@ public class CFBamRoleDefTableObj
 			}
 
 			if( indexByUDefIdx != null ) {
-				CFBamRoleDefByUDefIdxKey keyUDefIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
+				YCFBamRoleDefByUDefIdxKey keyUDefIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
 				keyUDefIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUDefIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUDefIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
@@ -216,10 +216,10 @@ public class CFBamRoleDefTableObj
 			}
 
 			if( indexByRoleDefTentIdx != null ) {
-				CFBamRoleDefByRoleDefTentIdxKey keyRoleDefTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
+				YCFBamRoleDefByRoleDefTentIdxKey keyRoleDefTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
 				keyRoleDefTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamRoleDefPKey, ICFBamRoleDefObj > mapRoleDefTentIdx = indexByRoleDefTentIdx.get( keyRoleDefTentIdx );
+				Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > mapRoleDefTentIdx = indexByRoleDefTentIdx.get( keyRoleDefTentIdx );
 				if( mapRoleDefTentIdx != null ) {
 					mapRoleDefTentIdx.remove( keepObj.getPKey() );
 					if( mapRoleDefTentIdx.size() <= 0 ) {
@@ -229,11 +229,11 @@ public class CFBamRoleDefTableObj
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamRoleDefByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
+				YCFBamRoleDefByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamRoleDefPKey, ICFBamRoleDefObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					mapScopeIdx.remove( keepObj.getPKey() );
 					if( mapScopeIdx.size() <= 0 ) {
@@ -243,11 +243,11 @@ public class CFBamRoleDefTableObj
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamRoleDefByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
+				YCFBamRoleDefByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamRoleDefPKey, ICFBamRoleDefObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.remove( keepObj.getPKey() );
 					if( mapDefSchemaIdx.size() <= 0 ) {
@@ -260,8 +260,8 @@ public class CFBamRoleDefTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByUNameIdx != null ) {
-				CFBamRoleDefByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
+				YCFBamRoleDefByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -269,8 +269,8 @@ public class CFBamRoleDefTableObj
 			}
 
 			if( indexByUDefIdx != null ) {
-				CFBamRoleDefByUDefIdxKey keyUDefIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
+				YCFBamRoleDefByUDefIdxKey keyUDefIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
 				keyUDefIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUDefIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUDefIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
@@ -280,32 +280,32 @@ public class CFBamRoleDefTableObj
 			}
 
 			if( indexByRoleDefTentIdx != null ) {
-				CFBamRoleDefByRoleDefTentIdxKey keyRoleDefTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
+				YCFBamRoleDefByRoleDefTentIdxKey keyRoleDefTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
 				keyRoleDefTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamRoleDefPKey, ICFBamRoleDefObj > mapRoleDefTentIdx = indexByRoleDefTentIdx.get( keyRoleDefTentIdx );
+				Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > mapRoleDefTentIdx = indexByRoleDefTentIdx.get( keyRoleDefTentIdx );
 				if( mapRoleDefTentIdx != null ) {
 					mapRoleDefTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamRoleDefByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
+				YCFBamRoleDefByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamRoleDefPKey, ICFBamRoleDefObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					mapScopeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamRoleDefByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
+				YCFBamRoleDefByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamRoleDefPKey, ICFBamRoleDefObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -326,8 +326,8 @@ public class CFBamRoleDefTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamRoleDefByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
+				YCFBamRoleDefByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -335,8 +335,8 @@ public class CFBamRoleDefTableObj
 			}
 
 			if( indexByUDefIdx != null ) {
-				CFBamRoleDefByUDefIdxKey keyUDefIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
+				YCFBamRoleDefByUDefIdxKey keyUDefIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
 				keyUDefIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUDefIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUDefIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
@@ -346,32 +346,32 @@ public class CFBamRoleDefTableObj
 			}
 
 			if( indexByRoleDefTentIdx != null ) {
-				CFBamRoleDefByRoleDefTentIdxKey keyRoleDefTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
+				YCFBamRoleDefByRoleDefTentIdxKey keyRoleDefTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
 				keyRoleDefTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamRoleDefPKey, ICFBamRoleDefObj > mapRoleDefTentIdx = indexByRoleDefTentIdx.get( keyRoleDefTentIdx );
+				Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > mapRoleDefTentIdx = indexByRoleDefTentIdx.get( keyRoleDefTentIdx );
 				if( mapRoleDefTentIdx != null ) {
 					mapRoleDefTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByScopeIdx != null ) {
-				CFBamRoleDefByScopeIdxKey keyScopeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
+				YCFBamRoleDefByScopeIdxKey keyScopeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
 				keyScopeIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyScopeIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
-				Map<CFBamRoleDefPKey, ICFBamRoleDefObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
+				Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > mapScopeIdx = indexByScopeIdx.get( keyScopeIdx );
 				if( mapScopeIdx != null ) {
 					mapScopeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamRoleDefByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
+				YCFBamRoleDefByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamRoleDefPKey, ICFBamRoleDefObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -381,84 +381,84 @@ public class CFBamRoleDefTableObj
 		return( keepObj );
 	}
 
-	public ICFBamRoleDefObj createRoleDef( ICFBamRoleDefObj Obj ) {
-		ICFBamRoleDefObj obj = Obj;
-		CFBamRoleDefBuff buff = obj.getRoleDefBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().createRoleDef(
+	public IYCFBamRoleDefObj createRoleDef( IYCFBamRoleDefObj Obj ) {
+		IYCFBamRoleDefObj obj = Obj;
+		YCFBamRoleDefBuff buff = obj.getRoleDefBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().createRoleDef(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		if( obj.getPKey().getClassCode().equals( "a88d" ) ) {
-			obj = (ICFBamRoleDefObj)(obj.realise());
+			obj = (IYCFBamRoleDefObj)(obj.realise());
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public ICFBamRoleDefObj readRoleDef( CFBamRoleDefPKey pkey ) {
+	public IYCFBamRoleDefObj readRoleDef( YCFBamRoleDefPKey pkey ) {
 		return( readRoleDef( pkey, false ) );
 	}
 
-	public ICFBamRoleDefObj readRoleDef( CFBamRoleDefPKey pkey, boolean forceRead ) {
-		ICFBamRoleDefObj obj = null;
+	public IYCFBamRoleDefObj readRoleDef( YCFBamRoleDefPKey pkey, boolean forceRead ) {
+		IYCFBamRoleDefObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFBamRoleDefBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFBamRoleDefBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
-				obj = (ICFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( readBuff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
+				obj = (IYCFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( readBuff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFBamRoleDefObj)obj.realise();
+				obj = (IYCFBamRoleDefObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamRoleDefObj readCachedRoleDef( CFBamRoleDefPKey pkey ) {
-		ICFBamRoleDefObj obj = null;
+	public IYCFBamRoleDefObj readCachedRoleDef( YCFBamRoleDefPKey pkey ) {
+		IYCFBamRoleDefObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeRoleDef( ICFBamRoleDefObj obj )
+	public void reallyDeepDisposeRoleDef( IYCFBamRoleDefObj obj )
 	{
-		final String S_ProcName = "CFBamRoleDefTableObj.reallyDeepDisposeRoleDef() ";
+		final String S_ProcName = "YCFBamRoleDefTableObj.reallyDeepDisposeRoleDef() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFBamRoleDefPKey pkey = obj.getPKey();
-		ICFBamRoleDefObj existing = readCachedRoleDef( pkey );
+		YCFBamRoleDefPKey pkey = obj.getPKey();
+		IYCFBamRoleDefObj existing = readCachedRoleDef( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFBamRoleDefByUNameIdxKey keyUNameIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
+		YCFBamRoleDefByUNameIdxKey keyUNameIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyUNameIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamRoleDefByUDefIdxKey keyUDefIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
+		YCFBamRoleDefByUDefIdxKey keyUDefIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
 		keyUDefIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyUDefIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 		keyUDefIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		keyUDefIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 		keyUDefIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamRoleDefByRoleDefTentIdxKey keyRoleDefTentIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
+		YCFBamRoleDefByRoleDefTentIdxKey keyRoleDefTentIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
 		keyRoleDefTentIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFBamRoleDefByScopeIdxKey keyScopeIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
+		YCFBamRoleDefByScopeIdxKey keyScopeIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
 		keyScopeIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyScopeIdx.setRequiredScopeId( existing.getRequiredScopeId() );
 
-		CFBamRoleDefByDefSchemaIdxKey keyDefSchemaIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
+		YCFBamRoleDefByDefSchemaIdxKey keyDefSchemaIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
@@ -501,57 +501,57 @@ public class CFBamRoleDefTableObj
 
 
 	}
-	public void deepDisposeRoleDef( CFBamRoleDefPKey pkey ) {
-		ICFBamRoleDefObj obj = readCachedRoleDef( pkey );
+	public void deepDisposeRoleDef( YCFBamRoleDefPKey pkey ) {
+		IYCFBamRoleDefObj obj = readCachedRoleDef( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFBamRoleDefObj lockRoleDef( CFBamRoleDefPKey pkey ) {
-		ICFBamRoleDefObj locked = null;
-		CFBamRoleDefBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFBamRoleDefObj lockRoleDef( YCFBamRoleDefPKey pkey ) {
+		IYCFBamRoleDefObj locked = null;
+		YCFBamRoleDefBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
-				locked = (ICFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( lockBuff.getClassCode() );
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
+				locked = (IYCFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( lockBuff.getClassCode() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFBamRoleDefObj)locked.realise();
+			locked = (IYCFBamRoleDefObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockRoleDef", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockRoleDef", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFBamRoleDefObj> readAllRoleDef() {
+	public List<IYCFBamRoleDefObj> readAllRoleDef() {
 		return( readAllRoleDef( false ) );
 	}
 
-	public List<ICFBamRoleDefObj> readAllRoleDef( boolean forceRead ) {
+	public List<IYCFBamRoleDefObj> readAllRoleDef( boolean forceRead ) {
 		final String S_ProcName = "readAllRoleDef";
 		if( ( allRoleDef == null ) || forceRead ) {
-			Map<CFBamRoleDefPKey, ICFBamRoleDefObj> map = new HashMap<CFBamRoleDefPKey,ICFBamRoleDefObj>();
+			Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> map = new HashMap<YCFBamRoleDefPKey,IYCFBamRoleDefObj>();
 			allRoleDef = map;
-			CFBamRoleDefBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().readAllDerived( schema.getAuthorization() );
-			CFBamRoleDefBuff buff;
-			ICFBamRoleDefObj obj;
+			YCFBamRoleDefBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().readAllDerived( schema.getAuthorization() );
+			YCFBamRoleDefBuff buff;
+			IYCFBamRoleDefObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
+				obj = (IYCFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRoleDefObj realised = (ICFBamRoleDefObj)obj.realise();
+				IYCFBamRoleDefObj realised = (IYCFBamRoleDefObj)obj.realise();
 			}
 		}
 		int len = allRoleDef.size();
-		ICFBamRoleDefObj arr[] = new ICFBamRoleDefObj[len];
-		Iterator<ICFBamRoleDefObj> valIter = allRoleDef.values().iterator();
+		IYCFBamRoleDefObj arr[] = new IYCFBamRoleDefObj[len];
+		Iterator<IYCFBamRoleDefObj> valIter = allRoleDef.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -559,20 +559,20 @@ public class CFBamRoleDefTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRoleDefObj> arrayList = new ArrayList<ICFBamRoleDefObj>(len);
+		ArrayList<IYCFBamRoleDefObj> arrayList = new ArrayList<IYCFBamRoleDefObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRoleDefObj> cmp = new Comparator<ICFBamRoleDefObj>() {
-			public int compare( ICFBamRoleDefObj lhs, ICFBamRoleDefObj rhs ) {
+		Comparator<IYCFBamRoleDefObj> cmp = new Comparator<IYCFBamRoleDefObj>() {
+			public int compare( IYCFBamRoleDefObj lhs, IYCFBamRoleDefObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -585,31 +585,31 @@ public class CFBamRoleDefTableObj
 					return( 1 );
 				}
 				else {
-					CFBamRoleDefPKey lhsPKey = lhs.getPKey();
-					CFBamRoleDefPKey rhsPKey = rhs.getPKey();
+					YCFBamRoleDefPKey lhsPKey = lhs.getPKey();
+					YCFBamRoleDefPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRoleDefObj> sortedList = arrayList;
+		List<IYCFBamRoleDefObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRoleDefObj> readCachedAllRoleDef() {
+	public List<IYCFBamRoleDefObj> readCachedAllRoleDef() {
 		final String S_ProcName = "readCachedAllRoleDef";
-		ArrayList<ICFBamRoleDefObj> arrayList = new ArrayList<ICFBamRoleDefObj>();
+		ArrayList<IYCFBamRoleDefObj> arrayList = new ArrayList<IYCFBamRoleDefObj>();
 		if( allRoleDef != null ) {
 			int len = allRoleDef.size();
-			ICFBamRoleDefObj arr[] = new ICFBamRoleDefObj[len];
-			Iterator<ICFBamRoleDefObj> valIter = allRoleDef.values().iterator();
+			IYCFBamRoleDefObj arr[] = new IYCFBamRoleDefObj[len];
+			Iterator<IYCFBamRoleDefObj> valIter = allRoleDef.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -617,7 +617,7 @@ public class CFBamRoleDefTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -628,8 +628,8 @@ public class CFBamRoleDefTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFBamRoleDefObj> cmp = new Comparator<ICFBamRoleDefObj>() {
-			public int compare( ICFBamRoleDefObj lhs, ICFBamRoleDefObj rhs ) {
+		Comparator<IYCFBamRoleDefObj> cmp = new Comparator<IYCFBamRoleDefObj>() {
+			public int compare( IYCFBamRoleDefObj lhs, IYCFBamRoleDefObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -642,8 +642,8 @@ public class CFBamRoleDefTableObj
 					return( 1 );
 				}
 				else {
-					CFBamRoleDefPKey lhsPKey = lhs.getPKey();
-					CFBamRoleDefPKey rhsPKey = rhs.getPKey();
+					YCFBamRoleDefPKey lhsPKey = lhs.getPKey();
+					YCFBamRoleDefPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -653,7 +653,7 @@ public class CFBamRoleDefTableObj
 		return( arrayList );
 	}
 
-	public ICFBamRoleDefObj readRoleDefByIdIdx( long TenantId,
+	public IYCFBamRoleDefObj readRoleDefByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readRoleDefByIdIdx( TenantId,
@@ -661,17 +661,17 @@ public class CFBamRoleDefTableObj
 			false ) );
 	}
 
-	public ICFBamRoleDefObj readRoleDefByIdIdx( long TenantId,
+	public IYCFBamRoleDefObj readRoleDefByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFBamRoleDefPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey();
+		YCFBamRoleDefPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamRoleDefObj obj = readRoleDef( pkey, forceRead );
+		IYCFBamRoleDefObj obj = readRoleDef( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFBamRoleDefObj readRoleDefByUNameIdx( long TenantId,
+	public IYCFBamRoleDefObj readRoleDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name )
 	{
@@ -681,38 +681,38 @@ public class CFBamRoleDefTableObj
 			false ) );
 	}
 
-	public ICFBamRoleDefObj readRoleDefByUNameIdx( long TenantId,
+	public IYCFBamRoleDefObj readRoleDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamRoleDefByUNameIdxKey,
-				ICFBamRoleDefObj >();
+			indexByUNameIdx = new HashMap< YCFBamRoleDefByUNameIdxKey,
+				IYCFBamRoleDefObj >();
 		}
-		CFBamRoleDefByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
+		YCFBamRoleDefByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
-		ICFBamRoleDefObj obj = null;
+		IYCFBamRoleDefObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFBamRoleDefBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFBamRoleDefBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
 			if( buff != null ) {
-				obj = (ICFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
+				obj = (IYCFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFBamRoleDefObj)obj.realise();
+				obj = (IYCFBamRoleDefObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamRoleDefObj readRoleDefByUDefIdx( long TenantId,
+	public IYCFBamRoleDefObj readRoleDefByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
@@ -726,88 +726,88 @@ public class CFBamRoleDefTableObj
 			false ) );
 	}
 
-	public ICFBamRoleDefObj readRoleDefByUDefIdx( long TenantId,
+	public IYCFBamRoleDefObj readRoleDefByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUDefIdx == null ) {
-			indexByUDefIdx = new HashMap< CFBamRoleDefByUDefIdxKey,
-				ICFBamRoleDefObj >();
+			indexByUDefIdx = new HashMap< YCFBamRoleDefByUDefIdxKey,
+				IYCFBamRoleDefObj >();
 		}
-		CFBamRoleDefByUDefIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
+		YCFBamRoleDefByUDefIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		key.setRequiredName( Name );
-		ICFBamRoleDefObj obj = null;
+		IYCFBamRoleDefObj obj = null;
 		if( ( ! forceRead ) && indexByUDefIdx.containsKey( key ) ) {
 			obj = indexByUDefIdx.get( key );
 		}
 		else {
-			CFBamRoleDefBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByUDefIdx( schema.getAuthorization(),
+			YCFBamRoleDefBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByUDefIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				DefSchemaTenantId,
 				DefSchemaId,
 				Name );
 			if( buff != null ) {
-				obj = (ICFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
+				obj = (IYCFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFBamRoleDefObj)obj.realise();
+				obj = (IYCFBamRoleDefObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFBamRoleDefObj> readRoleDefByRoleDefTentIdx( long TenantId )
+	public List<IYCFBamRoleDefObj> readRoleDefByRoleDefTentIdx( long TenantId )
 	{
 		return( readRoleDefByRoleDefTentIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamRoleDefObj> readRoleDefByRoleDefTentIdx( long TenantId,
+	public List<IYCFBamRoleDefObj> readRoleDefByRoleDefTentIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRoleDefByRoleDefTentIdx";
-		CFBamRoleDefByRoleDefTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
+		YCFBamRoleDefByRoleDefTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamRoleDefPKey, ICFBamRoleDefObj> dict;
+		Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> dict;
 		if( indexByRoleDefTentIdx == null ) {
-			indexByRoleDefTentIdx = new HashMap< CFBamRoleDefByRoleDefTentIdxKey,
-				Map< CFBamRoleDefPKey, ICFBamRoleDefObj > >();
+			indexByRoleDefTentIdx = new HashMap< YCFBamRoleDefByRoleDefTentIdxKey,
+				Map< YCFBamRoleDefPKey, IYCFBamRoleDefObj > >();
 		}
 		if( ( ! forceRead ) && indexByRoleDefTentIdx.containsKey( key ) ) {
 			dict = indexByRoleDefTentIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamRoleDefPKey, ICFBamRoleDefObj>();
-			ICFBamRoleDefObj obj;
-			CFBamRoleDefBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByRoleDefTentIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamRoleDefPKey, IYCFBamRoleDefObj>();
+			IYCFBamRoleDefObj obj;
+			YCFBamRoleDefBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByRoleDefTentIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamRoleDefBuff buff;
+			YCFBamRoleDefBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
+				obj = (IYCFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRoleDefObj realised = (ICFBamRoleDefObj)obj.realise();
+				IYCFBamRoleDefObj realised = (IYCFBamRoleDefObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByRoleDefTentIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRoleDefObj arr[] = new ICFBamRoleDefObj[len];
-		Iterator<ICFBamRoleDefObj> valIter = dict.values().iterator();
+		IYCFBamRoleDefObj arr[] = new IYCFBamRoleDefObj[len];
+		Iterator<IYCFBamRoleDefObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -815,20 +815,20 @@ public class CFBamRoleDefTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRoleDefObj> arrayList = new ArrayList<ICFBamRoleDefObj>(len);
+		ArrayList<IYCFBamRoleDefObj> arrayList = new ArrayList<IYCFBamRoleDefObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRoleDefObj> cmp = new Comparator<ICFBamRoleDefObj>() {
-			public int compare( ICFBamRoleDefObj lhs, ICFBamRoleDefObj rhs ) {
+		Comparator<IYCFBamRoleDefObj> cmp = new Comparator<IYCFBamRoleDefObj>() {
+			public int compare( IYCFBamRoleDefObj lhs, IYCFBamRoleDefObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -841,19 +841,19 @@ public class CFBamRoleDefTableObj
 					return( 1 );
 				}
 				else {
-					CFBamRoleDefPKey lhsPKey = lhs.getPKey();
-					CFBamRoleDefPKey rhsPKey = rhs.getPKey();
+					YCFBamRoleDefPKey lhsPKey = lhs.getPKey();
+					YCFBamRoleDefPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRoleDefObj> sortedList = arrayList;
+		List<IYCFBamRoleDefObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRoleDefObj> readRoleDefByScopeIdx( long TenantId,
+	public List<IYCFBamRoleDefObj> readRoleDefByScopeIdx( long TenantId,
 		long ScopeId )
 	{
 		return( readRoleDefByScopeIdx( TenantId,
@@ -861,48 +861,48 @@ public class CFBamRoleDefTableObj
 			false ) );
 	}
 
-	public List<ICFBamRoleDefObj> readRoleDefByScopeIdx( long TenantId,
+	public List<IYCFBamRoleDefObj> readRoleDefByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRoleDefByScopeIdx";
-		CFBamRoleDefByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
+		YCFBamRoleDefByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
-		Map<CFBamRoleDefPKey, ICFBamRoleDefObj> dict;
+		Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> dict;
 		if( indexByScopeIdx == null ) {
-			indexByScopeIdx = new HashMap< CFBamRoleDefByScopeIdxKey,
-				Map< CFBamRoleDefPKey, ICFBamRoleDefObj > >();
+			indexByScopeIdx = new HashMap< YCFBamRoleDefByScopeIdxKey,
+				Map< YCFBamRoleDefPKey, IYCFBamRoleDefObj > >();
 		}
 		if( ( ! forceRead ) && indexByScopeIdx.containsKey( key ) ) {
 			dict = indexByScopeIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamRoleDefPKey, ICFBamRoleDefObj>();
-			ICFBamRoleDefObj obj;
-			CFBamRoleDefBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByScopeIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamRoleDefPKey, IYCFBamRoleDefObj>();
+			IYCFBamRoleDefObj obj;
+			YCFBamRoleDefBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
-			CFBamRoleDefBuff buff;
+			YCFBamRoleDefBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
+				obj = (IYCFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRoleDefObj realised = (ICFBamRoleDefObj)obj.realise();
+				IYCFBamRoleDefObj realised = (IYCFBamRoleDefObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByScopeIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRoleDefObj arr[] = new ICFBamRoleDefObj[len];
-		Iterator<ICFBamRoleDefObj> valIter = dict.values().iterator();
+		IYCFBamRoleDefObj arr[] = new IYCFBamRoleDefObj[len];
+		Iterator<IYCFBamRoleDefObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -910,20 +910,20 @@ public class CFBamRoleDefTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRoleDefObj> arrayList = new ArrayList<ICFBamRoleDefObj>(len);
+		ArrayList<IYCFBamRoleDefObj> arrayList = new ArrayList<IYCFBamRoleDefObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRoleDefObj> cmp = new Comparator<ICFBamRoleDefObj>() {
-			public int compare( ICFBamRoleDefObj lhs, ICFBamRoleDefObj rhs ) {
+		Comparator<IYCFBamRoleDefObj> cmp = new Comparator<IYCFBamRoleDefObj>() {
+			public int compare( IYCFBamRoleDefObj lhs, IYCFBamRoleDefObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -936,19 +936,19 @@ public class CFBamRoleDefTableObj
 					return( 1 );
 				}
 				else {
-					CFBamRoleDefPKey lhsPKey = lhs.getPKey();
-					CFBamRoleDefPKey rhsPKey = rhs.getPKey();
+					YCFBamRoleDefPKey lhsPKey = lhs.getPKey();
+					YCFBamRoleDefPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRoleDefObj> sortedList = arrayList;
+		List<IYCFBamRoleDefObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamRoleDefObj> readRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamRoleDefObj> readRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		return( readRoleDefByDefSchemaIdx( DefSchemaTenantId,
@@ -956,48 +956,48 @@ public class CFBamRoleDefTableObj
 			false ) );
 	}
 
-	public List<ICFBamRoleDefObj> readRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamRoleDefObj> readRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readRoleDefByDefSchemaIdx";
-		CFBamRoleDefByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
+		YCFBamRoleDefByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		Map<CFBamRoleDefPKey, ICFBamRoleDefObj> dict;
+		Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> dict;
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamRoleDefByDefSchemaIdxKey,
-				Map< CFBamRoleDefPKey, ICFBamRoleDefObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamRoleDefByDefSchemaIdxKey,
+				Map< YCFBamRoleDefPKey, IYCFBamRoleDefObj > >();
 		}
 		if( ( ! forceRead ) && indexByDefSchemaIdx.containsKey( key ) ) {
 			dict = indexByDefSchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamRoleDefPKey, ICFBamRoleDefObj>();
-			ICFBamRoleDefObj obj;
-			CFBamRoleDefBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByDefSchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamRoleDefPKey, IYCFBamRoleDefObj>();
+			IYCFBamRoleDefObj obj;
+			YCFBamRoleDefBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().readDerivedByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			CFBamRoleDefBuff buff;
+			YCFBamRoleDefBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
+				obj = (IYCFBamRoleDefObj)schema.getRoleDefTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey() );
 				obj.setBuff( buff );
-				ICFBamRoleDefObj realised = (ICFBamRoleDefObj)obj.realise();
+				IYCFBamRoleDefObj realised = (IYCFBamRoleDefObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDefSchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamRoleDefObj arr[] = new ICFBamRoleDefObj[len];
-		Iterator<ICFBamRoleDefObj> valIter = dict.values().iterator();
+		IYCFBamRoleDefObj arr[] = new IYCFBamRoleDefObj[len];
+		Iterator<IYCFBamRoleDefObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1005,20 +1005,20 @@ public class CFBamRoleDefTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamRoleDefObj> arrayList = new ArrayList<ICFBamRoleDefObj>(len);
+		ArrayList<IYCFBamRoleDefObj> arrayList = new ArrayList<IYCFBamRoleDefObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamRoleDefObj> cmp = new Comparator<ICFBamRoleDefObj>() {
-			public int compare( ICFBamRoleDefObj lhs, ICFBamRoleDefObj rhs ) {
+		Comparator<IYCFBamRoleDefObj> cmp = new Comparator<IYCFBamRoleDefObj>() {
+			public int compare( IYCFBamRoleDefObj lhs, IYCFBamRoleDefObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1031,35 +1031,35 @@ public class CFBamRoleDefTableObj
 					return( 1 );
 				}
 				else {
-					CFBamRoleDefPKey lhsPKey = lhs.getPKey();
-					CFBamRoleDefPKey rhsPKey = rhs.getPKey();
+					YCFBamRoleDefPKey lhsPKey = lhs.getPKey();
+					YCFBamRoleDefPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamRoleDefObj> sortedList = arrayList;
+		List<IYCFBamRoleDefObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamRoleDefObj readCachedRoleDefByIdIdx( long TenantId,
+	public IYCFBamRoleDefObj readCachedRoleDefByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamRoleDefObj obj = null;
-		CFBamRoleDefPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey();
+		IYCFBamRoleDefObj obj = null;
+		YCFBamRoleDefPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedRoleDef( pkey );
 		return( obj );
 	}
 
-	public ICFBamRoleDefObj readCachedRoleDefByUNameIdx( long TenantId,
+	public IYCFBamRoleDefObj readCachedRoleDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name )
 	{
-		ICFBamRoleDefObj obj = null;
-		CFBamRoleDefByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
+		IYCFBamRoleDefObj obj = null;
+		YCFBamRoleDefByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
@@ -1068,7 +1068,7 @@ public class CFBamRoleDefTableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFBamRoleDefObj> valIter = members.values().iterator();
+				Iterator<IYCFBamRoleDefObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1080,7 +1080,7 @@ public class CFBamRoleDefTableObj
 			}
 		}
 		else {
-			Iterator<ICFBamRoleDefObj> valIter = members.values().iterator();
+			Iterator<IYCFBamRoleDefObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1093,14 +1093,14 @@ public class CFBamRoleDefTableObj
 		return( obj );
 	}
 
-	public ICFBamRoleDefObj readCachedRoleDefByUDefIdx( long TenantId,
+	public IYCFBamRoleDefObj readCachedRoleDefByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name )
 	{
-		ICFBamRoleDefObj obj = null;
-		CFBamRoleDefByUDefIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
+		IYCFBamRoleDefObj obj = null;
+		YCFBamRoleDefByUDefIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
@@ -1111,7 +1111,7 @@ public class CFBamRoleDefTableObj
 				obj = indexByUDefIdx.get( key );
 			}
 			else {
-				Iterator<ICFBamRoleDefObj> valIter = members.values().iterator();
+				Iterator<IYCFBamRoleDefObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1123,7 +1123,7 @@ public class CFBamRoleDefTableObj
 			}
 		}
 		else {
-			Iterator<ICFBamRoleDefObj> valIter = members.values().iterator();
+			Iterator<IYCFBamRoleDefObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1136,25 +1136,25 @@ public class CFBamRoleDefTableObj
 		return( obj );
 	}
 
-	public List<ICFBamRoleDefObj> readCachedRoleDefByRoleDefTentIdx( long TenantId )
+	public List<IYCFBamRoleDefObj> readCachedRoleDefByRoleDefTentIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedRoleDefByRoleDefTentIdx";
-		CFBamRoleDefByRoleDefTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
+		YCFBamRoleDefByRoleDefTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamRoleDefObj> arrayList = new ArrayList<ICFBamRoleDefObj>();
+		ArrayList<IYCFBamRoleDefObj> arrayList = new ArrayList<IYCFBamRoleDefObj>();
 		if( indexByRoleDefTentIdx != null ) {
-			Map<CFBamRoleDefPKey, ICFBamRoleDefObj> dict;
+			Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> dict;
 			if( indexByRoleDefTentIdx.containsKey( key ) ) {
 				dict = indexByRoleDefTentIdx.get( key );
 				int len = dict.size();
-				ICFBamRoleDefObj arr[] = new ICFBamRoleDefObj[len];
-				Iterator<ICFBamRoleDefObj> valIter = dict.values().iterator();
+				IYCFBamRoleDefObj arr[] = new IYCFBamRoleDefObj[len];
+				Iterator<IYCFBamRoleDefObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1162,7 +1162,7 @@ public class CFBamRoleDefTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1175,8 +1175,8 @@ public class CFBamRoleDefTableObj
 			}
 		}
 		else {
-			ICFBamRoleDefObj obj;
-			Iterator<ICFBamRoleDefObj> valIter = members.values().iterator();
+			IYCFBamRoleDefObj obj;
+			Iterator<IYCFBamRoleDefObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1186,8 +1186,8 @@ public class CFBamRoleDefTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRoleDefObj> cmp = new Comparator<ICFBamRoleDefObj>() {
-			public int compare( ICFBamRoleDefObj lhs, ICFBamRoleDefObj rhs ) {
+		Comparator<IYCFBamRoleDefObj> cmp = new Comparator<IYCFBamRoleDefObj>() {
+			public int compare( IYCFBamRoleDefObj lhs, IYCFBamRoleDefObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1200,8 +1200,8 @@ public class CFBamRoleDefTableObj
 					return( 1 );
 				}
 				else {
-					CFBamRoleDefPKey lhsPKey = lhs.getPKey();
-					CFBamRoleDefPKey rhsPKey = rhs.getPKey();
+					YCFBamRoleDefPKey lhsPKey = lhs.getPKey();
+					YCFBamRoleDefPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1211,27 +1211,27 @@ public class CFBamRoleDefTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRoleDefObj> readCachedRoleDefByScopeIdx( long TenantId,
+	public List<IYCFBamRoleDefObj> readCachedRoleDefByScopeIdx( long TenantId,
 		long ScopeId )
 	{
 		final String S_ProcName = "readCachedRoleDefByScopeIdx";
-		CFBamRoleDefByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
+		YCFBamRoleDefByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
-		ArrayList<ICFBamRoleDefObj> arrayList = new ArrayList<ICFBamRoleDefObj>();
+		ArrayList<IYCFBamRoleDefObj> arrayList = new ArrayList<IYCFBamRoleDefObj>();
 		if( indexByScopeIdx != null ) {
-			Map<CFBamRoleDefPKey, ICFBamRoleDefObj> dict;
+			Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> dict;
 			if( indexByScopeIdx.containsKey( key ) ) {
 				dict = indexByScopeIdx.get( key );
 				int len = dict.size();
-				ICFBamRoleDefObj arr[] = new ICFBamRoleDefObj[len];
-				Iterator<ICFBamRoleDefObj> valIter = dict.values().iterator();
+				IYCFBamRoleDefObj arr[] = new IYCFBamRoleDefObj[len];
+				Iterator<IYCFBamRoleDefObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1239,7 +1239,7 @@ public class CFBamRoleDefTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1252,8 +1252,8 @@ public class CFBamRoleDefTableObj
 			}
 		}
 		else {
-			ICFBamRoleDefObj obj;
-			Iterator<ICFBamRoleDefObj> valIter = members.values().iterator();
+			IYCFBamRoleDefObj obj;
+			Iterator<IYCFBamRoleDefObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1263,8 +1263,8 @@ public class CFBamRoleDefTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRoleDefObj> cmp = new Comparator<ICFBamRoleDefObj>() {
-			public int compare( ICFBamRoleDefObj lhs, ICFBamRoleDefObj rhs ) {
+		Comparator<IYCFBamRoleDefObj> cmp = new Comparator<IYCFBamRoleDefObj>() {
+			public int compare( IYCFBamRoleDefObj lhs, IYCFBamRoleDefObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1277,8 +1277,8 @@ public class CFBamRoleDefTableObj
 					return( 1 );
 				}
 				else {
-					CFBamRoleDefPKey lhsPKey = lhs.getPKey();
-					CFBamRoleDefPKey rhsPKey = rhs.getPKey();
+					YCFBamRoleDefPKey lhsPKey = lhs.getPKey();
+					YCFBamRoleDefPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1288,27 +1288,27 @@ public class CFBamRoleDefTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamRoleDefObj> readCachedRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamRoleDefObj> readCachedRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "readCachedRoleDefByDefSchemaIdx";
-		CFBamRoleDefByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
+		YCFBamRoleDefByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		ArrayList<ICFBamRoleDefObj> arrayList = new ArrayList<ICFBamRoleDefObj>();
+		ArrayList<IYCFBamRoleDefObj> arrayList = new ArrayList<IYCFBamRoleDefObj>();
 		if( indexByDefSchemaIdx != null ) {
-			Map<CFBamRoleDefPKey, ICFBamRoleDefObj> dict;
+			Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> dict;
 			if( indexByDefSchemaIdx.containsKey( key ) ) {
 				dict = indexByDefSchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamRoleDefObj arr[] = new ICFBamRoleDefObj[len];
-				Iterator<ICFBamRoleDefObj> valIter = dict.values().iterator();
+				IYCFBamRoleDefObj arr[] = new IYCFBamRoleDefObj[len];
+				Iterator<IYCFBamRoleDefObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1316,7 +1316,7 @@ public class CFBamRoleDefTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1329,8 +1329,8 @@ public class CFBamRoleDefTableObj
 			}
 		}
 		else {
-			ICFBamRoleDefObj obj;
-			Iterator<ICFBamRoleDefObj> valIter = members.values().iterator();
+			IYCFBamRoleDefObj obj;
+			Iterator<IYCFBamRoleDefObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1340,8 +1340,8 @@ public class CFBamRoleDefTableObj
 				}
 			}
 		}
-		Comparator<ICFBamRoleDefObj> cmp = new Comparator<ICFBamRoleDefObj>() {
-			public int compare( ICFBamRoleDefObj lhs, ICFBamRoleDefObj rhs ) {
+		Comparator<IYCFBamRoleDefObj> cmp = new Comparator<IYCFBamRoleDefObj>() {
+			public int compare( IYCFBamRoleDefObj lhs, IYCFBamRoleDefObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1354,8 +1354,8 @@ public class CFBamRoleDefTableObj
 					return( 1 );
 				}
 				else {
-					CFBamRoleDefPKey lhsPKey = lhs.getPKey();
-					CFBamRoleDefPKey rhsPKey = rhs.getPKey();
+					YCFBamRoleDefPKey lhsPKey = lhs.getPKey();
+					YCFBamRoleDefPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1368,7 +1368,7 @@ public class CFBamRoleDefTableObj
 	public void deepDisposeRoleDefByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamRoleDefObj obj = readCachedRoleDefByIdIdx( TenantId,
+		IYCFBamRoleDefObj obj = readCachedRoleDefByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -1379,7 +1379,7 @@ public class CFBamRoleDefTableObj
 		long ScopeId,
 		String Name )
 	{
-		ICFBamRoleDefObj obj = readCachedRoleDefByUNameIdx( TenantId,
+		IYCFBamRoleDefObj obj = readCachedRoleDefByUNameIdx( TenantId,
 				ScopeId,
 				Name );
 		if( obj != null ) {
@@ -1393,7 +1393,7 @@ public class CFBamRoleDefTableObj
 		Long DefSchemaId,
 		String Name )
 	{
-		ICFBamRoleDefObj obj = readCachedRoleDefByUDefIdx( TenantId,
+		IYCFBamRoleDefObj obj = readCachedRoleDefByUDefIdx( TenantId,
 				ScopeId,
 				DefSchemaTenantId,
 				DefSchemaId,
@@ -1406,10 +1406,10 @@ public class CFBamRoleDefTableObj
 	public void deepDisposeRoleDefByRoleDefTentIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeRoleDefByRoleDefTentIdx";
-		ICFBamRoleDefObj obj;
-		List<ICFBamRoleDefObj> arrayList = readCachedRoleDefByRoleDefTentIdx( TenantId );
+		IYCFBamRoleDefObj obj;
+		List<IYCFBamRoleDefObj> arrayList = readCachedRoleDefByRoleDefTentIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRoleDefObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRoleDefObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1423,11 +1423,11 @@ public class CFBamRoleDefTableObj
 		long ScopeId )
 	{
 		final String S_ProcName = "deepDisposeRoleDefByScopeIdx";
-		ICFBamRoleDefObj obj;
-		List<ICFBamRoleDefObj> arrayList = readCachedRoleDefByScopeIdx( TenantId,
+		IYCFBamRoleDefObj obj;
+		List<IYCFBamRoleDefObj> arrayList = readCachedRoleDefByScopeIdx( TenantId,
 				ScopeId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRoleDefObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRoleDefObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1441,11 +1441,11 @@ public class CFBamRoleDefTableObj
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "deepDisposeRoleDefByDefSchemaIdx";
-		ICFBamRoleDefObj obj;
-		List<ICFBamRoleDefObj> arrayList = readCachedRoleDefByDefSchemaIdx( DefSchemaTenantId,
+		IYCFBamRoleDefObj obj;
+		List<IYCFBamRoleDefObj> arrayList = readCachedRoleDefByDefSchemaIdx( DefSchemaTenantId,
 				DefSchemaId );
 		if( arrayList != null )  {
-			Iterator<ICFBamRoleDefObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamRoleDefObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1455,20 +1455,20 @@ public class CFBamRoleDefTableObj
 		}
 	}
 
-	public ICFBamRoleDefObj updateRoleDef( ICFBamRoleDefObj Obj ) {
-		ICFBamRoleDefObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().updateRoleDef( schema.getAuthorization(),
+	public IYCFBamRoleDefObj updateRoleDef( IYCFBamRoleDefObj Obj ) {
+		IYCFBamRoleDefObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().updateRoleDef( schema.getAuthorization(),
 			Obj.getRoleDefBuff() );
 		if( Obj.getClassCode().equals( "a88d" ) ) {
-			obj = (ICFBamRoleDefObj)Obj.realise();
+			obj = (IYCFBamRoleDefObj)Obj.realise();
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteRoleDef( ICFBamRoleDefObj Obj ) {
-		ICFBamRoleDefObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDef( schema.getAuthorization(),
+	public void deleteRoleDef( IYCFBamRoleDefObj Obj ) {
+		IYCFBamRoleDefObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDef( schema.getAuthorization(),
 			obj.getRoleDefBuff() );
 		Obj.forget();
 	}
@@ -1476,15 +1476,15 @@ public class CFBamRoleDefTableObj
 	public void deleteRoleDefByIdIdx( long TenantId,
 		long Id )
 	{
-		CFBamRoleDefPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey();
+		YCFBamRoleDefPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamRoleDefObj obj = readRoleDef( pkey );
+		IYCFBamRoleDefObj obj = readRoleDef( pkey );
 		if( obj != null ) {
-			ICFBamRoleDefEditObj editObj = (ICFBamRoleDefEditObj)obj.getEdit();
+			IYCFBamRoleDefEditObj editObj = (IYCFBamRoleDefEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFBamRoleDefEditObj)obj.beginEdit();
+				editObj = (IYCFBamRoleDefEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1512,24 +1512,24 @@ public class CFBamRoleDefTableObj
 		String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamRoleDefByUNameIdxKey,
-				ICFBamRoleDefObj >();
+			indexByUNameIdx = new HashMap< YCFBamRoleDefByUNameIdxKey,
+				IYCFBamRoleDefObj >();
 		}
-		CFBamRoleDefByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
+		YCFBamRoleDefByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setRequiredName( Name );
-		ICFBamRoleDefObj obj = null;
+		IYCFBamRoleDefObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				Name );
@@ -1546,19 +1546,19 @@ public class CFBamRoleDefTableObj
 		String Name )
 	{
 		if( indexByUDefIdx == null ) {
-			indexByUDefIdx = new HashMap< CFBamRoleDefByUDefIdxKey,
-				ICFBamRoleDefObj >();
+			indexByUDefIdx = new HashMap< YCFBamRoleDefByUDefIdxKey,
+				IYCFBamRoleDefObj >();
 		}
-		CFBamRoleDefByUDefIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
+		YCFBamRoleDefByUDefIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newUDefIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		key.setRequiredName( Name );
-		ICFBamRoleDefObj obj = null;
+		IYCFBamRoleDefObj obj = null;
 		if( indexByUDefIdx.containsKey( key ) ) {
 			obj = indexByUDefIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByUDefIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByUDefIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				DefSchemaTenantId,
@@ -1567,7 +1567,7 @@ public class CFBamRoleDefTableObj
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByUDefIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByUDefIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
 				DefSchemaTenantId,
@@ -1583,19 +1583,19 @@ public class CFBamRoleDefTableObj
 
 	public void deleteRoleDefByRoleDefTentIdx( long TenantId )
 	{
-		CFBamRoleDefByRoleDefTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
+		YCFBamRoleDefByRoleDefTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newRoleDefTentIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByRoleDefTentIdx == null ) {
-			indexByRoleDefTentIdx = new HashMap< CFBamRoleDefByRoleDefTentIdxKey,
-				Map< CFBamRoleDefPKey, ICFBamRoleDefObj > >();
+			indexByRoleDefTentIdx = new HashMap< YCFBamRoleDefByRoleDefTentIdxKey,
+				Map< YCFBamRoleDefPKey, IYCFBamRoleDefObj > >();
 		}
 		if( indexByRoleDefTentIdx.containsKey( key ) ) {
-			Map<CFBamRoleDefPKey, ICFBamRoleDefObj> dict = indexByRoleDefTentIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByRoleDefTentIdx( schema.getAuthorization(),
+			Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> dict = indexByRoleDefTentIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByRoleDefTentIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamRoleDefObj> iter = dict.values().iterator();
-			ICFBamRoleDefObj obj;
-			List<ICFBamRoleDefObj> toForget = new LinkedList<ICFBamRoleDefObj>();
+			Iterator<IYCFBamRoleDefObj> iter = dict.values().iterator();
+			IYCFBamRoleDefObj obj;
+			List<IYCFBamRoleDefObj> toForget = new LinkedList<IYCFBamRoleDefObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1608,7 +1608,7 @@ public class CFBamRoleDefTableObj
 			indexByRoleDefTentIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByRoleDefTentIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByRoleDefTentIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeRoleDefByRoleDefTentIdx( TenantId );
@@ -1617,21 +1617,21 @@ public class CFBamRoleDefTableObj
 	public void deleteRoleDefByScopeIdx( long TenantId,
 		long ScopeId )
 	{
-		CFBamRoleDefByScopeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
+		YCFBamRoleDefByScopeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newScopeIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredScopeId( ScopeId );
 		if( indexByScopeIdx == null ) {
-			indexByScopeIdx = new HashMap< CFBamRoleDefByScopeIdxKey,
-				Map< CFBamRoleDefPKey, ICFBamRoleDefObj > >();
+			indexByScopeIdx = new HashMap< YCFBamRoleDefByScopeIdxKey,
+				Map< YCFBamRoleDefPKey, IYCFBamRoleDefObj > >();
 		}
 		if( indexByScopeIdx.containsKey( key ) ) {
-			Map<CFBamRoleDefPKey, ICFBamRoleDefObj> dict = indexByScopeIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByScopeIdx( schema.getAuthorization(),
+			Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> dict = indexByScopeIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
-			Iterator<ICFBamRoleDefObj> iter = dict.values().iterator();
-			ICFBamRoleDefObj obj;
-			List<ICFBamRoleDefObj> toForget = new LinkedList<ICFBamRoleDefObj>();
+			Iterator<IYCFBamRoleDefObj> iter = dict.values().iterator();
+			IYCFBamRoleDefObj obj;
+			List<IYCFBamRoleDefObj> toForget = new LinkedList<IYCFBamRoleDefObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1644,7 +1644,7 @@ public class CFBamRoleDefTableObj
 			indexByScopeIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByScopeIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByScopeIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId );
 		}
@@ -1655,21 +1655,21 @@ public class CFBamRoleDefTableObj
 	public void deleteRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		CFBamRoleDefByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
+		YCFBamRoleDefByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryRoleDef().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamRoleDefByDefSchemaIdxKey,
-				Map< CFBamRoleDefPKey, ICFBamRoleDefObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamRoleDefByDefSchemaIdxKey,
+				Map< YCFBamRoleDefPKey, IYCFBamRoleDefObj > >();
 		}
 		if( indexByDefSchemaIdx.containsKey( key ) ) {
-			Map<CFBamRoleDefPKey, ICFBamRoleDefObj> dict = indexByDefSchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByDefSchemaIdx( schema.getAuthorization(),
+			Map<YCFBamRoleDefPKey, IYCFBamRoleDefObj> dict = indexByDefSchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			Iterator<ICFBamRoleDefObj> iter = dict.values().iterator();
-			ICFBamRoleDefObj obj;
-			List<ICFBamRoleDefObj> toForget = new LinkedList<ICFBamRoleDefObj>();
+			Iterator<IYCFBamRoleDefObj> iter = dict.values().iterator();
+			IYCFBamRoleDefObj obj;
+			List<IYCFBamRoleDefObj> toForget = new LinkedList<IYCFBamRoleDefObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1682,7 +1682,7 @@ public class CFBamRoleDefTableObj
 			indexByDefSchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByDefSchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableRoleDef().deleteRoleDefByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
 		}

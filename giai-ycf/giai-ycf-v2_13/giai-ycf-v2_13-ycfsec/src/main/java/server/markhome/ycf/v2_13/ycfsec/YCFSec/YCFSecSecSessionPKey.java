@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SecSession primary key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,22 +36,22 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFSecSecSessionPKey Primary Key for SecSession
+ *	YCFSecSecSessionPKey Primary Key for SecSession
 
  *		requiredSecSessionId	Required object attribute SecSessionId. */
-public class CFSecSecSessionPKey
+public class YCFSecSecSessionPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected UUID requiredSecSessionId;
-	public CFSecSecSessionPKey() {
-		requiredSecSessionId = UUID.fromString( CFSecSecSessionBuff.SECSESSIONID_INIT_VALUE.toString() );
+	public YCFSecSecSessionPKey() {
+		requiredSecSessionId = UUID.fromString( YCFSecSecSessionBuff.SECSESSIONID_INIT_VALUE.toString() );
 	}
 
 	public UUID getRequiredSecSessionId() {
@@ -60,7 +60,7 @@ public class CFSecSecSessionPKey
 
 	public void setRequiredSecSessionId( UUID value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecSessionId",
 				1,
 				"value" );
@@ -72,29 +72,29 @@ public class CFSecSecSessionPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSecSessionHPKey ) {
-			CFSecSecSessionHPKey rhs = (CFSecSecSessionHPKey)obj;
+		else if( obj instanceof YCFSecSecSessionHPKey ) {
+			YCFSecSecSessionHPKey rhs = (YCFSecSecSessionHPKey)obj;
 			if( ! getRequiredSecSessionId().equals( rhs.getRequiredSecSessionId() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecSessionPKey ) {
-			CFSecSecSessionPKey rhs = (CFSecSecSessionPKey)obj;
+		else if( obj instanceof YCFSecSecSessionPKey ) {
+			YCFSecSecSessionPKey rhs = (YCFSecSecSessionPKey)obj;
 			if( ! getRequiredSecSessionId().equals( rhs.getRequiredSecSessionId() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecSessionHBuff ) {
-			CFSecSecSessionHBuff rhs = (CFSecSecSessionHBuff)obj;
+		else if( obj instanceof YCFSecSecSessionHBuff ) {
+			YCFSecSecSessionHBuff rhs = (YCFSecSecSessionHBuff)obj;
 			if( ! getRequiredSecSessionId().equals( rhs.getRequiredSecSessionId() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecSessionBuff ) {
-			CFSecSecSessionBuff rhs = (CFSecSecSessionBuff)obj;
+		else if( obj instanceof YCFSecSecSessionBuff ) {
+			YCFSecSecSessionBuff rhs = (YCFSecSecSessionBuff)obj;
 			if( ! getRequiredSecSessionId().equals( rhs.getRequiredSecSessionId() ) ) {
 				return( false );
 			}
@@ -115,8 +115,8 @@ public class CFSecSecSessionPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecSecSessionHPKey ) {
-			CFSecSecSessionHPKey rhs = (CFSecSecSessionHPKey)obj;
+		else if( obj instanceof YCFSecSecSessionHPKey ) {
+			YCFSecSecSessionHPKey rhs = (YCFSecSecSessionHPKey)obj;
 			{
 				int cmp = getRequiredSecSessionId().compareTo( rhs.getRequiredSecSessionId() );
 				if( cmp != 0 ) {
@@ -125,8 +125,8 @@ public class CFSecSecSessionPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecSessionPKey ) {
-			CFSecSecSessionPKey rhs = (CFSecSecSessionPKey)obj;
+		else if( obj instanceof YCFSecSecSessionPKey ) {
+			YCFSecSecSessionPKey rhs = (YCFSecSecSessionPKey)obj;
 			{
 				int cmp = getRequiredSecSessionId().compareTo( rhs.getRequiredSecSessionId() );
 				if( cmp != 0 ) {
@@ -135,8 +135,8 @@ public class CFSecSecSessionPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecSessionBuff ) {
-			CFSecSecSessionBuff rhs = (CFSecSecSessionBuff)obj;
+		else if( obj instanceof YCFSecSecSessionBuff ) {
+			YCFSecSecSessionBuff rhs = (YCFSecSecSessionBuff)obj;
 			{
 				int cmp = getRequiredSecSessionId().compareTo( rhs.getRequiredSecSessionId() );
 				if( cmp != 0 ) {
@@ -145,8 +145,8 @@ public class CFSecSecSessionPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecSessionHBuff ) {
-			CFSecSecSessionHBuff rhs = (CFSecSecSessionHBuff)obj;
+		else if( obj instanceof YCFSecSecSessionHBuff ) {
+			YCFSecSecSessionHBuff rhs = (YCFSecSecSessionHBuff)obj;
 			{
 				int cmp = getRequiredSecSessionId().compareTo( rhs.getRequiredSecSessionId() );
 				if( cmp != 0 ) {
@@ -156,16 +156,16 @@ public class CFSecSecSessionPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFSecSecSessionPKey, CFSecSecSessionBuff" );
+				"YCFSecSecSessionPKey, YCFSecSecSessionBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFSecSecSessionPKey"
+		String ret = "<YCFSecSecSessionPKey"
 			+ " RequiredSecSessionId=" + "\"" + getRequiredSecSessionId().toString() + "\""
 			+ "/>";
 		return( ret );

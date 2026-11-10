@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for GenFile.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,63 +36,63 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbGenFileFactory implementation for GenFile
+	 *	YCFGenKbGenFileFactory implementation for GenFile
 	 */
-public class CFGenKbGenFileDefaultFactory
-	implements ICFGenKbGenFileFactory
+public class YCFGenKbGenFileDefaultFactory
+	implements IYCFGenKbGenFileFactory
 {
-	public CFGenKbGenFileDefaultFactory() {
+	public YCFGenKbGenFileDefaultFactory() {
 	}
 
-	public CFGenKbGenFileByXSrcBundleKey newXSrcBundleKey() {
-		CFGenKbGenFileByXSrcBundleKey key =
-			new CFGenKbGenFileByXSrcBundleKey();
+	public YCFGenKbGenFileByXSrcBundleKey newXSrcBundleKey() {
+		YCFGenKbGenFileByXSrcBundleKey key =
+			new YCFGenKbGenFileByXSrcBundleKey();
 		return( key );
 	}
 
-	public CFGenKbGenFileByXModNameKey newXModNameKey() {
-		CFGenKbGenFileByXModNameKey key =
-			new CFGenKbGenFileByXModNameKey();
+	public YCFGenKbGenFileByXModNameKey newXModNameKey() {
+		YCFGenKbGenFileByXModNameKey key =
+			new YCFGenKbGenFileByXModNameKey();
 		return( key );
 	}
 
-	public CFGenKbGenFileByXBasePkgKey newXBasePkgKey() {
-		CFGenKbGenFileByXBasePkgKey key =
-			new CFGenKbGenFileByXBasePkgKey();
+	public YCFGenKbGenFileByXBasePkgKey newXBasePkgKey() {
+		YCFGenKbGenFileByXBasePkgKey key =
+			new YCFGenKbGenFileByXBasePkgKey();
 		return( key );
 	}
 
-	public CFGenKbGenFileByXSubPkgKey newXSubPkgKey() {
-		CFGenKbGenFileByXSubPkgKey key =
-			new CFGenKbGenFileByXSubPkgKey();
+	public YCFGenKbGenFileByXSubPkgKey newXSubPkgKey() {
+		YCFGenKbGenFileByXSubPkgKey key =
+			new YCFGenKbGenFileByXSubPkgKey();
 		return( key );
 	}
 
-	public CFGenKbGenFileByXExpClsNameKey newXExpClsNameKey() {
-		CFGenKbGenFileByXExpClsNameKey key =
-			new CFGenKbGenFileByXExpClsNameKey();
+	public YCFGenKbGenFileByXExpClsNameKey newXExpClsNameKey() {
+		YCFGenKbGenFileByXExpClsNameKey key =
+			new YCFGenKbGenFileByXExpClsNameKey();
 		return( key );
 	}
 
-	public CFGenKbGenFileByXExpKeyNameKey newXExpKeyNameKey() {
-		CFGenKbGenFileByXExpKeyNameKey key =
-			new CFGenKbGenFileByXExpKeyNameKey();
+	public YCFGenKbGenFileByXExpKeyNameKey newXExpKeyNameKey() {
+		YCFGenKbGenFileByXExpKeyNameKey key =
+			new YCFGenKbGenFileByXExpKeyNameKey();
 		return( key );
 	}
 
-	public CFGenKbGenFileByXExpFileNameKey newXExpFileNameKey() {
-		CFGenKbGenFileByXExpFileNameKey key =
-			new CFGenKbGenFileByXExpFileNameKey();
+	public YCFGenKbGenFileByXExpFileNameKey newXExpFileNameKey() {
+		YCFGenKbGenFileByXExpFileNameKey key =
+			new YCFGenKbGenFileByXExpFileNameKey();
 		return( key );
 	}
 
-	public CFGenKbGenFileBuff newBuff() {
-		CFGenKbGenFileBuff buff =
-			new CFGenKbGenFileBuff();
+	public YCFGenKbGenFileBuff newBuff() {
+		YCFGenKbGenFileBuff buff =
+			new YCFGenKbGenFileBuff();
 		return( buff );
 	}
 }

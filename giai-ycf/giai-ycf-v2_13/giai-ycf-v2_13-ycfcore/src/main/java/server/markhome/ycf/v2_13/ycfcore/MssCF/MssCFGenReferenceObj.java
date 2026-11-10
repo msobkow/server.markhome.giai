@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,40 +21,40 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGenReferenceObj
-extends CFGenKbGenReferenceObj
+public class MssYCFGenReferenceObj
+extends YCFGenKbGenReferenceObj
 {
-	protected ICFGenKbDefClassObj detailClass = null;
-	public ICFGenKbDefClassObj getDetailClass()
+	protected IYCFGenKbDefClassObj detailClass = null;
+	public IYCFGenKbDefClassObj getDetailClass()
 	{
 		return (detailClass);
 	}
 
-	public void setDetailClass( ICFGenKbDefClassObj value )
+	public void setDetailClass( IYCFGenKbDefClassObj value )
 	{
 		detailClass = value;
 	}
 
-	public MssCFGenReferenceObj()
+	public MssYCFGenReferenceObj()
 	{
 		super();
 	}
 
-	public MssCFGenReferenceObj(MssCFEngine schema)
+	public MssYCFGenReferenceObj(MssYCFEngine schema)
 	{
 		super( schema );
 	}
 
-	public MssCFGenReferenceObj(
-		MssCFEngine engine,
+	public MssYCFGenReferenceObj(
+		MssYCFEngine engine,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -63,7 +63,7 @@ extends CFGenKbGenReferenceObj
 	{
 		super( engine );
 		requiredLookupToolSet = schema.getToolSetTableObj().readToolSetByNameIdx(toolset);
-		CFGenKbGenItemBuff genItemBuff = getGenItemBuff();
+		YCFGenKbGenItemBuff genItemBuff = getGenItemBuff();
 
 		genItemBuff.setRequiredToolSetId( requiredLookupToolSet.getRequiredId() );
 
@@ -91,15 +91,15 @@ extends CFGenKbGenReferenceObj
 		detailClass = schema.getDefClassTableObj().readDefClassByNameIdx(detailClassName);
 	}
 
-	public String expandBody(MssCFGenContext genContext)
+	public String expandBody(MssYCFGenContext genContext)
 	{
-		final String S_ProcName = "MssCFGenReferenceObj.expandBody() ";
+		final String S_ProcName = "MssYCFGenReferenceObj.expandBody() ";
 		throw new RuntimeException( S_ProcName + "Cannot directly expand a reference" );
 	}
 
-	public ICFLibAnyObj dereference(MssCFGenContext genContext)
+	public IYCFLibAnyObj dereference(MssYCFGenContext genContext)
 	{
-		final String S_ProcName = "MssCFGenReferenceObj.dereference() ";
+		final String S_ProcName = "MssYCFGenReferenceObj.dereference() ";
 		throw new RuntimeException( S_ProcName + "dereference() must be overridden by the implementation");
 	}
 }

@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFInt.
+// Description: Java 11 Table Object interface for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,22 +26,22 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntLicenseTableObj
+public interface IYCFIntLicenseTableObj
 {
-	ICFIntSchemaObj getSchema();
-	void setSchema( ICFIntSchemaObj value );
+	IYCFIntSchemaObj getSchema();
+	void setSchema( IYCFIntSchemaObj value );
 
 	void minimizeMemory();
 
@@ -55,24 +55,24 @@ public interface ICFIntLicenseTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFIntLicenseObj newInstance();
+	IYCFIntLicenseObj newInstance();
 
 	/**
 	 *	Instantiate a new License edition of the specified License instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFIntLicenseEditObj newEditInstance( ICFIntLicenseObj orig );
+	IYCFIntLicenseEditObj newEditInstance( IYCFIntLicenseObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntLicenseObj realiseLicense( ICFIntLicenseObj Obj );
+	IYCFIntLicenseObj realiseLicense( IYCFIntLicenseObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntLicenseObj createLicense( ICFIntLicenseObj Obj );
+	IYCFIntLicenseObj createLicense( IYCFIntLicenseObj Obj );
 
 	/**
 	 *	Read a License-derived instance by it's primary key.
@@ -82,7 +82,7 @@ public interface ICFIntLicenseTableObj
 	 *	@return	The License-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntLicenseObj readLicense( CFIntLicensePKey pkey );
+	IYCFIntLicenseObj readLicense( YCFIntLicensePKey pkey );
 
 	/**
 	 *	Read a License-derived instance by it's primary key.
@@ -92,115 +92,115 @@ public interface ICFIntLicenseTableObj
 	 *	@return	The License-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntLicenseObj readLicense( CFIntLicensePKey pkey,
+	IYCFIntLicenseObj readLicense( YCFIntLicensePKey pkey,
 		boolean forceRead );
 
-	ICFIntLicenseObj readCachedLicense( CFIntLicensePKey pkey );
+	IYCFIntLicenseObj readCachedLicense( YCFIntLicensePKey pkey );
 
-	public void reallyDeepDisposeLicense( ICFIntLicenseObj obj );
+	public void reallyDeepDisposeLicense( IYCFIntLicenseObj obj );
 
-	void deepDisposeLicense( CFIntLicensePKey pkey );
+	void deepDisposeLicense( YCFIntLicensePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntLicenseObj lockLicense( CFIntLicensePKey pkey );
+	IYCFIntLicenseObj lockLicense( YCFIntLicensePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the License-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntLicenseObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntLicenseObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntLicenseObj> readAllLicense();
+	List<IYCFIntLicenseObj> readAllLicense();
 
 	/**
 	 *	Return a sorted map of all the License-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntLicenseObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntLicenseObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntLicenseObj> readAllLicense( boolean forceRead );
+	List<IYCFIntLicenseObj> readAllLicense( boolean forceRead );
 
-	List<ICFIntLicenseObj> readCachedAllLicense();
+	List<IYCFIntLicenseObj> readCachedAllLicense();
 
 	/**
-	 *	Get the CFIntLicenseObj instance for the primary key attributes.
+	 *	Get the YCFIntLicenseObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The License key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The License key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntLicenseObj cached instance for the primary key, or
+	 *	@return	YCFIntLicenseObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntLicenseObj readLicenseByIdIdx( long TenantId,
+	IYCFIntLicenseObj readLicenseByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFIntLicenseObj instance for the primary key attributes.
+	 *	Get the YCFIntLicenseObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The License key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The License key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntLicenseObj refreshed instance for the primary key, or
+	 *	@return	YCFIntLicenseObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntLicenseObj readLicenseByIdIdx( long TenantId,
+	IYCFIntLicenseObj readLicenseByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntLicenseObj instances sorted by their primary keys for the duplicate LicnTenantIdx key.
+	 *	Get the map of YCFIntLicenseObj instances sorted by their primary keys for the duplicate LicnTenantIdx key.
 	 *
 	 *	@param	argTenantId	The License key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntLicenseObj cached instances sorted by their primary keys for the duplicate LicnTenantIdx key,
+	 *	@return	List of YCFIntLicenseObj cached instances sorted by their primary keys for the duplicate LicnTenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntLicenseObj> readLicenseByLicnTenantIdx( long TenantId );
+	List<IYCFIntLicenseObj> readLicenseByLicnTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFIntLicenseObj instances sorted by their primary keys for the duplicate LicnTenantIdx key.
+	 *	Get the map of YCFIntLicenseObj instances sorted by their primary keys for the duplicate LicnTenantIdx key.
 	 *
 	 *	@param	argTenantId	The License key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntLicenseObj cached instances sorted by their primary keys for the duplicate LicnTenantIdx key,
+	 *	@return	List of YCFIntLicenseObj cached instances sorted by their primary keys for the duplicate LicnTenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntLicenseObj> readLicenseByLicnTenantIdx( long TenantId,
+	List<IYCFIntLicenseObj> readLicenseByLicnTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntLicenseObj instances sorted by their primary keys for the duplicate DomainIdx key.
+	 *	Get the map of YCFIntLicenseObj instances sorted by their primary keys for the duplicate DomainIdx key.
 	 *
 	 *	@param	argTenantId	The License key attribute of the instance generating the id.
 	 *
 	 *	@param	argTopDomainId	The License key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntLicenseObj cached instances sorted by their primary keys for the duplicate DomainIdx key,
+	 *	@return	List of YCFIntLicenseObj cached instances sorted by their primary keys for the duplicate DomainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntLicenseObj> readLicenseByDomainIdx( long TenantId,
+	List<IYCFIntLicenseObj> readLicenseByDomainIdx( long TenantId,
 		long TopDomainId );
 
 	/**
-	 *	Get the map of CFIntLicenseObj instances sorted by their primary keys for the duplicate DomainIdx key.
+	 *	Get the map of YCFIntLicenseObj instances sorted by their primary keys for the duplicate DomainIdx key.
 	 *
 	 *	@param	argTenantId	The License key attribute of the instance generating the id.
 	 *
 	 *	@param	argTopDomainId	The License key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntLicenseObj cached instances sorted by their primary keys for the duplicate DomainIdx key,
+	 *	@return	List of YCFIntLicenseObj cached instances sorted by their primary keys for the duplicate DomainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntLicenseObj> readLicenseByDomainIdx( long TenantId,
+	List<IYCFIntLicenseObj> readLicenseByDomainIdx( long TenantId,
 		long TopDomainId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFIntLicenseObj instance for the unique UNameIdx key.
+	 *	Get the YCFIntLicenseObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The License key attribute of the instance generating the id.
 	 *
@@ -208,15 +208,15 @@ public interface ICFIntLicenseTableObj
 	 *
 	 *	@param	argName	The License key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntLicenseObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFIntLicenseObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntLicenseObj readLicenseByUNameIdx(long TenantId,
+	IYCFIntLicenseObj readLicenseByUNameIdx(long TenantId,
 		long TopDomainId,
 		String Name );
 
 	/**
-	 *	Get the CFIntLicenseObj instance for the unique UNameIdx key.
+	 *	Get the YCFIntLicenseObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The License key attribute of the instance generating the id.
 	 *
@@ -224,23 +224,23 @@ public interface ICFIntLicenseTableObj
 	 *
 	 *	@param	argName	The License key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntLicenseObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFIntLicenseObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntLicenseObj readLicenseByUNameIdx(long TenantId,
+	IYCFIntLicenseObj readLicenseByUNameIdx(long TenantId,
 		long TopDomainId,
 		String Name,
 		boolean forceRead );
 
-	ICFIntLicenseObj readCachedLicenseByIdIdx( long TenantId,
+	IYCFIntLicenseObj readCachedLicenseByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFIntLicenseObj> readCachedLicenseByLicnTenantIdx( long TenantId );
+	List<IYCFIntLicenseObj> readCachedLicenseByLicnTenantIdx( long TenantId );
 
-	List<ICFIntLicenseObj> readCachedLicenseByDomainIdx( long TenantId,
+	List<IYCFIntLicenseObj> readCachedLicenseByDomainIdx( long TenantId,
 		long TopDomainId );
 
-	ICFIntLicenseObj readCachedLicenseByUNameIdx( long TenantId,
+	IYCFIntLicenseObj readCachedLicenseByUNameIdx( long TenantId,
 		long TopDomainId,
 		String Name );
 
@@ -259,12 +259,12 @@ public interface ICFIntLicenseTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntLicenseObj updateLicense( ICFIntLicenseObj Obj );
+	IYCFIntLicenseObj updateLicense( IYCFIntLicenseObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteLicense( ICFIntLicenseObj Obj );
+	void deleteLicense( IYCFIntLicenseObj Obj );
 
 	/**
 	 *	Internal use only.

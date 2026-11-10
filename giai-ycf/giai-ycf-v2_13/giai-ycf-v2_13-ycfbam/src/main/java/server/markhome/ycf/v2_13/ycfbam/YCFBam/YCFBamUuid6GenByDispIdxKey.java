@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a Uuid6Gen by DispIdx index key object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,18 +55,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamUuid6GenByDispIdxKey
+public class YCFBamUuid6GenByDispIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalDispenserTenantId;
 	protected Long optionalDispenserId;
-	public CFBamUuid6GenByDispIdxKey() {
+	public YCFBamUuid6GenByDispIdxKey() {
 		optionalDispenserTenantId = null;
 		optionalDispenserId = null;
 	}
@@ -79,13 +79,13 @@ public class CFBamUuid6GenByDispIdxKey
 		if( value == null ) {
 			optionalDispenserTenantId = null;
 		}
-		else if( value < CFBamUuid6GenBuff.DISPENSERTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamUuid6GenBuff.DISPENSERTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDispenserTenantId",
 				1,
 				"value",
 				value,
-				CFBamUuid6GenBuff.DISPENSERTENANTID_MIN_VALUE );
+				YCFBamUuid6GenBuff.DISPENSERTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDispenserTenantId = value;
@@ -100,13 +100,13 @@ public class CFBamUuid6GenByDispIdxKey
 		if( value == null ) {
 			optionalDispenserId = null;
 		}
-		else if( value < CFBamUuid6GenBuff.DISPENSERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamUuid6GenBuff.DISPENSERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDispenserId",
 				1,
 				"value",
 				value,
-				CFBamUuid6GenBuff.DISPENSERID_MIN_VALUE );
+				YCFBamUuid6GenBuff.DISPENSERID_MIN_VALUE );
 		}
 		else {
 			optionalDispenserId = value;
@@ -117,8 +117,8 @@ public class CFBamUuid6GenByDispIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamUuid6GenByDispIdxKey ) {
-			CFBamUuid6GenByDispIdxKey rhs = (CFBamUuid6GenByDispIdxKey)obj;
+		else if( obj instanceof YCFBamUuid6GenByDispIdxKey ) {
+			YCFBamUuid6GenByDispIdxKey rhs = (YCFBamUuid6GenByDispIdxKey)obj;
 			if( getOptionalDispenserTenantId() != null ) {
 				if( rhs.getOptionalDispenserTenantId() != null ) {
 					if( ! getOptionalDispenserTenantId().equals( rhs.getOptionalDispenserTenantId() ) ) {
@@ -145,8 +145,8 @@ public class CFBamUuid6GenByDispIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamUuid6GenBuff ) {
-			CFBamUuid6GenBuff rhs = (CFBamUuid6GenBuff)obj;
+		else if( obj instanceof YCFBamUuid6GenBuff ) {
+			YCFBamUuid6GenBuff rhs = (YCFBamUuid6GenBuff)obj;
 			if( getOptionalDispenserTenantId() != null ) {
 				if( rhs.getOptionalDispenserTenantId() != null ) {
 					if( ! getOptionalDispenserTenantId().equals( rhs.getOptionalDispenserTenantId() ) ) {
@@ -193,8 +193,8 @@ public class CFBamUuid6GenByDispIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFBamUuid6GenByDispIdxKey ) {
-			CFBamUuid6GenByDispIdxKey rhs = (CFBamUuid6GenByDispIdxKey)obj;
+		else if( obj instanceof YCFBamUuid6GenByDispIdxKey ) {
+			YCFBamUuid6GenByDispIdxKey rhs = (YCFBamUuid6GenByDispIdxKey)obj;
 			if( getOptionalDispenserTenantId() != null ) {
 				Long lhsDispenserTenantId = getOptionalDispenserTenantId();
 				if( rhs.getOptionalDispenserTenantId() != null ) {
@@ -233,8 +233,8 @@ public class CFBamUuid6GenByDispIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamUuid6GenBuff ) {
-			CFBamUuid6GenBuff rhs = (CFBamUuid6GenBuff)obj;
+		else if( obj instanceof YCFBamUuid6GenBuff ) {
+			YCFBamUuid6GenBuff rhs = (YCFBamUuid6GenBuff)obj;
 			if( getOptionalDispenserTenantId() != null ) {
 				Long lhsDispenserTenantId = getOptionalDispenserTenantId();
 				if( rhs.getOptionalDispenserTenantId() != null ) {
@@ -274,7 +274,7 @@ public class CFBamUuid6GenByDispIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -283,7 +283,7 @@ public class CFBamUuid6GenByDispIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFBamUuid6GenByDispIdx"
+		String ret = "<YCFBamUuid6GenByDispIdx"
 			+ " OptionalDispenserTenantId=" + ( ( getOptionalDispenserTenantId() == null ) ? "null" : "\"" + getOptionalDispenserTenantId().toString() + "\"" )
 			+ " OptionalDispenserId=" + ( ( getOptionalDispenserId() == null ) ? "null" : "\"" + getOptionalDispenserId().toString() + "\"" )
 			+ "/>";

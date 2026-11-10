@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for SecGroupForm.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,13 +35,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 /*
- *	CFSecSecGroupFormFactory interface for SecGroupForm
+ *	YCFSecSecGroupFormFactory interface for SecGroupForm
  */
-public interface ICFSecSecGroupFormFactory
+public interface IYCFSecSecGroupFormFactory
 {
 
 	/**
@@ -49,62 +49,62 @@ public interface ICFSecSecGroupFormFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGroupFormPKey newPKey();
+	YCFSecSecGroupFormPKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for SecGroupForm instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGroupFormHPKey newHPKey();
+	YCFSecSecGroupFormHPKey newHPKey();
 
 	/**
 	 *	Allocate a ClusterIdx key over SecGroupForm instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGroupFormByClusterIdxKey newClusterIdxKey();
+	YCFSecSecGroupFormByClusterIdxKey newClusterIdxKey();
 
 	/**
 	 *	Allocate a GroupIdx key over SecGroupForm instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGroupFormByGroupIdxKey newGroupIdxKey();
+	YCFSecSecGroupFormByGroupIdxKey newGroupIdxKey();
 
 	/**
 	 *	Allocate a AppIdx key over SecGroupForm instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGroupFormByAppIdxKey newAppIdxKey();
+	YCFSecSecGroupFormByAppIdxKey newAppIdxKey();
 
 	/**
 	 *	Allocate a FormIdx key over SecGroupForm instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGroupFormByFormIdxKey newFormIdxKey();
+	YCFSecSecGroupFormByFormIdxKey newFormIdxKey();
 
 	/**
 	 *	Allocate a UFormIdx key over SecGroupForm instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGroupFormByUFormIdxKey newUFormIdxKey();
+	YCFSecSecGroupFormByUFormIdxKey newUFormIdxKey();
 
 	/**
 	 *	Allocate a SecGroupForm instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGroupFormBuff newBuff();
+	YCFSecSecGroupFormBuff newBuff();
 
 	/**
 	 *	Allocate a SecGroupForm history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGroupFormHBuff newHBuff();
+	YCFSecSecGroupFormHBuff newHBuff();
 
 }

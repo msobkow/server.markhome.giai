@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,19 +21,19 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.util.Calendar;
 import javafx.geometry.Pos;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFTZDateEditor
-extends CFTextField
+public class YCFTZDateEditor
+extends YCFTextField
 {
-	public final static Calendar MIN_VALUE = CFLib.getUTCGregorianCalendar( 0, 0, 0, 0, 0, 0 );
-	public final static Calendar MAX_VALUE = CFLib.getUTCGregorianCalendar( 9999, 11, 31, 0, 0, 0 );
+	public final static Calendar MIN_VALUE = YCFLib.getUTCGregorianCalendar( 0, 0, 0, 0, 0, 0 );
+	public final static Calendar MAX_VALUE = YCFLib.getUTCGregorianCalendar( 9999, 11, 31, 0, 0, 0 );
 
 	protected Calendar curValue = null;
 
@@ -55,7 +55,7 @@ extends CFTextField
 		}
 	}
 
-	public CFTZDateEditor() {
+	public YCFTZDateEditor() {
 		super();
 		setAlignment( Pos.CENTER_LEFT );
 		setMinWidth( 160 );
@@ -101,14 +101,14 @@ extends CFTextField
 			return( true );
 		}
 		curValue = null;
-		curValue = CFLibXmlUtil.parseTZDate( fieldName, text );
+		curValue = YCFLibXmlUtil.parseTZDate( fieldName, text );
 		return( true );
 	}
 
 	public void setTZDateValue( Calendar value ) {
 		curValue = value;
 		if( curValue != null ) {
-			String str = CFLibXmlUtil.formatTZDate( value );
+			String str = YCFLibXmlUtil.formatTZDate( value );
 			setText( str );
 		}
 		else {
@@ -125,7 +125,7 @@ extends CFTextField
 			return( curValue );
 		}
 		else {
-			throw new CFLibInvalidArgumentException( fieldName,
+			throw new YCFLibInvalidArgumentException( fieldName,
 					S_ProcName,
 					0,
 					"text",

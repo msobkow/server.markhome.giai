@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a TopProject by TopDomainIdx index key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,19 +36,19 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntTopProjectByTopDomainIdxKey
+public class YCFIntTopProjectByTopDomainIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected long requiredTopDomainId;
-	public CFIntTopProjectByTopDomainIdxKey() {
-		requiredTenantId = CFIntTopProjectBuff.TENANTID_INIT_VALUE;
-		requiredTopDomainId = CFIntTopProjectBuff.TOPDOMAINID_INIT_VALUE;
+	public YCFIntTopProjectByTopDomainIdxKey() {
+		requiredTenantId = YCFIntTopProjectBuff.TENANTID_INIT_VALUE;
+		requiredTopDomainId = YCFIntTopProjectBuff.TOPDOMAINID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -56,13 +56,13 @@ public class CFIntTopProjectByTopDomainIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntTopProjectBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopProjectBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntTopProjectBuff.TENANTID_MIN_VALUE );
+				YCFIntTopProjectBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -72,13 +72,13 @@ public class CFIntTopProjectByTopDomainIdxKey
 	}
 
 	public void setRequiredTopDomainId( long value ) {
-		if( value < CFIntTopProjectBuff.TOPDOMAINID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopProjectBuff.TOPDOMAINID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTopDomainId",
 				1,
 				"value",
 				value,
-				CFIntTopProjectBuff.TOPDOMAINID_MIN_VALUE );
+				YCFIntTopProjectBuff.TOPDOMAINID_MIN_VALUE );
 		}
 		requiredTopDomainId = value;
 	}
@@ -87,8 +87,8 @@ public class CFIntTopProjectByTopDomainIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntTopProjectByTopDomainIdxKey ) {
-			CFIntTopProjectByTopDomainIdxKey rhs = (CFIntTopProjectByTopDomainIdxKey)obj;
+		else if( obj instanceof YCFIntTopProjectByTopDomainIdxKey ) {
+			YCFIntTopProjectByTopDomainIdxKey rhs = (YCFIntTopProjectByTopDomainIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -97,8 +97,8 @@ public class CFIntTopProjectByTopDomainIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopProjectBuff ) {
-			CFIntTopProjectBuff rhs = (CFIntTopProjectBuff)obj;
+		else if( obj instanceof YCFIntTopProjectBuff ) {
+			YCFIntTopProjectBuff rhs = (YCFIntTopProjectBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -123,8 +123,8 @@ public class CFIntTopProjectByTopDomainIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFIntTopProjectByTopDomainIdxKey ) {
-			CFIntTopProjectByTopDomainIdxKey rhs = (CFIntTopProjectByTopDomainIdxKey)obj;
+		else if( obj instanceof YCFIntTopProjectByTopDomainIdxKey ) {
+			YCFIntTopProjectByTopDomainIdxKey rhs = (YCFIntTopProjectByTopDomainIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -139,8 +139,8 @@ public class CFIntTopProjectByTopDomainIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTopProjectBuff ) {
-			CFIntTopProjectBuff rhs = (CFIntTopProjectBuff)obj;
+		else if( obj instanceof YCFIntTopProjectBuff ) {
+			YCFIntTopProjectBuff rhs = (YCFIntTopProjectBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -156,7 +156,7 @@ public class CFIntTopProjectByTopDomainIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -165,7 +165,7 @@ public class CFIntTopProjectByTopDomainIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFIntTopProjectByTopDomainIdx"
+		String ret = "<YCFIntTopProjectByTopDomainIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredTopDomainId=" + "\"" + Long.toString( getRequiredTopDomainId() ) + "\""
 			+ "/>";

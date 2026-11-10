@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a Chain by PrevRelIdx index key object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,20 +55,20 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamChainByPrevRelIdxKey
+public class YCFBamChainByPrevRelIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredPrevRelationTenantId;
 	protected long requiredPrevRelationId;
-	public CFBamChainByPrevRelIdxKey() {
-		requiredPrevRelationTenantId = CFBamChainBuff.PREVRELATIONTENANTID_INIT_VALUE;
-		requiredPrevRelationId = CFBamChainBuff.PREVRELATIONID_INIT_VALUE;
+	public YCFBamChainByPrevRelIdxKey() {
+		requiredPrevRelationTenantId = YCFBamChainBuff.PREVRELATIONTENANTID_INIT_VALUE;
+		requiredPrevRelationId = YCFBamChainBuff.PREVRELATIONID_INIT_VALUE;
 	}
 
 	public long getRequiredPrevRelationTenantId() {
@@ -76,13 +76,13 @@ public class CFBamChainByPrevRelIdxKey
 	}
 
 	public void setRequiredPrevRelationTenantId( long value ) {
-		if( value < CFBamChainBuff.PREVRELATIONTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamChainBuff.PREVRELATIONTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredPrevRelationTenantId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.PREVRELATIONTENANTID_MIN_VALUE );
+				YCFBamChainBuff.PREVRELATIONTENANTID_MIN_VALUE );
 		}
 		requiredPrevRelationTenantId = value;
 	}
@@ -92,13 +92,13 @@ public class CFBamChainByPrevRelIdxKey
 	}
 
 	public void setRequiredPrevRelationId( long value ) {
-		if( value < CFBamChainBuff.PREVRELATIONID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamChainBuff.PREVRELATIONID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredPrevRelationId",
 				1,
 				"value",
 				value,
-				CFBamChainBuff.PREVRELATIONID_MIN_VALUE );
+				YCFBamChainBuff.PREVRELATIONID_MIN_VALUE );
 		}
 		requiredPrevRelationId = value;
 	}
@@ -107,8 +107,8 @@ public class CFBamChainByPrevRelIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamChainByPrevRelIdxKey ) {
-			CFBamChainByPrevRelIdxKey rhs = (CFBamChainByPrevRelIdxKey)obj;
+		else if( obj instanceof YCFBamChainByPrevRelIdxKey ) {
+			YCFBamChainByPrevRelIdxKey rhs = (YCFBamChainByPrevRelIdxKey)obj;
 			if( getRequiredPrevRelationTenantId() != rhs.getRequiredPrevRelationTenantId() ) {
 				return( false );
 			}
@@ -117,8 +117,8 @@ public class CFBamChainByPrevRelIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamChainBuff ) {
-			CFBamChainBuff rhs = (CFBamChainBuff)obj;
+		else if( obj instanceof YCFBamChainBuff ) {
+			YCFBamChainBuff rhs = (YCFBamChainBuff)obj;
 			if( getRequiredPrevRelationTenantId() != rhs.getRequiredPrevRelationTenantId() ) {
 				return( false );
 			}
@@ -143,8 +143,8 @@ public class CFBamChainByPrevRelIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFBamChainByPrevRelIdxKey ) {
-			CFBamChainByPrevRelIdxKey rhs = (CFBamChainByPrevRelIdxKey)obj;
+		else if( obj instanceof YCFBamChainByPrevRelIdxKey ) {
+			YCFBamChainByPrevRelIdxKey rhs = (YCFBamChainByPrevRelIdxKey)obj;
 			if( getRequiredPrevRelationTenantId() < rhs.getRequiredPrevRelationTenantId() ) {
 				return( -1 );
 			}
@@ -159,8 +159,8 @@ public class CFBamChainByPrevRelIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamChainBuff ) {
-			CFBamChainBuff rhs = (CFBamChainBuff)obj;
+		else if( obj instanceof YCFBamChainBuff ) {
+			YCFBamChainBuff rhs = (YCFBamChainBuff)obj;
 			if( getRequiredPrevRelationTenantId() < rhs.getRequiredPrevRelationTenantId() ) {
 				return( -1 );
 			}
@@ -176,7 +176,7 @@ public class CFBamChainByPrevRelIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -185,7 +185,7 @@ public class CFBamChainByPrevRelIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFBamChainByPrevRelIdx"
+		String ret = "<YCFBamChainByPrevRelIdx"
 			+ " RequiredPrevRelationTenantId=" + "\"" + Long.toString( getRequiredPrevRelationTenantId() ) + "\""
 			+ " RequiredPrevRelationId=" + "\"" + Long.toString( getRequiredPrevRelationId() ) + "\""
 			+ "/>";

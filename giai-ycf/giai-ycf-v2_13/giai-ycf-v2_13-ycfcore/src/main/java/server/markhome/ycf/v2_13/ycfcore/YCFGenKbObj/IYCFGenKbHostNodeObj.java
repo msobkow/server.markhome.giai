@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb HostNode.
+// Description: Java 11 Object interface for YCFGenKb HostNode.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbHostNodeObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbHostNodeObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	ICFGenKbSecUserObj getCreatedBy();
+	IYCFGenKbSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -59,9 +59,9 @@ public interface ICFGenKbHostNodeObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	ICFGenKbSecUserObj getUpdatedBy();
+	IYCFGenKbSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -72,9 +72,9 @@ public interface ICFGenKbHostNodeObj
 	/**
 	 *	Realise this instance of a HostNode.
 	 *
-	 *	@return	CFGenKbHostNodeObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbHostNodeObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbHostNodeObj realise();
+	IYCFGenKbHostNodeObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -86,99 +86,99 @@ public interface ICFGenKbHostNodeObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbHostNodeObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbHostNodeObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbHostNodeObj read();
+	IYCFGenKbHostNodeObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbHostNodeObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbHostNodeObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbHostNodeObj read( boolean forceRead );
+	IYCFGenKbHostNodeObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this HostNode instance.
 	 *
-	 *	@return	The newly locked ICFGenKbHostNodeEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbHostNodeEditObj edition of this instance.
 	 */
-	ICFGenKbHostNodeEditObj beginEdit();
+	IYCFGenKbHostNodeEditObj beginEdit();
 
 	/**
 	 *	End this edition of this HostNode instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this HostNode instance.
 	 *
-	 *	@return	The ICFGenKbHostNodeEditObj edition of this instance.
+	 *	@return	The IYCFGenKbHostNodeEditObj edition of this instance.
 	 */
-	ICFGenKbHostNodeEditObj getEdit();
+	IYCFGenKbHostNodeEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this HostNode instance as a ICFGenKbHostNodeEditObj.
+	 *	Get the current edition of this HostNode instance as a IYCFGenKbHostNodeEditObj.
 	 *
-	 *	@return	The ICFGenKbHostNodeEditObj edition of this instance.
+	 *	@return	The IYCFGenKbHostNodeEditObj edition of this instance.
 	 */
-	ICFGenKbHostNodeEditObj getEditAsHostNode();
+	IYCFGenKbHostNodeEditObj getEditAsHostNode();
 
 	/**
-	 *	Get the ICFGenKbHostNodeTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbHostNodeTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbHostNodeTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbHostNodeTableObj table cache which manages this instance.
 	 */
-	ICFGenKbHostNodeTableObj getHostNodeTable();
+	IYCFGenKbHostNodeTableObj getHostNodeTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbHostNodeBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbHostNodeBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbHostNodeBuff instance which currently backs this object.
+	 *	@return	YCFGenKbHostNodeBuff instance which currently backs this object.
 	 */
-	CFGenKbHostNodeBuff getBuff();
+	YCFGenKbHostNodeBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbHostNodeBuff value );
+	void setBuff( YCFGenKbHostNodeBuff value );
 
 	/**
-	 *	Get the CFGenKbHostNodeBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbHostNodeBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbHostNodeBuff instance which currently backs this object.
+	 *	@return	YCFGenKbHostNodeBuff instance which currently backs this object.
 	 */
-	CFGenKbHostNodeBuff getHostNodeBuff();
+	YCFGenKbHostNodeBuff getHostNodeBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbHostNodePKey primary key for this instance.
+	 *	@return	YCFGenKbHostNodePKey primary key for this instance.
 	 */
-	CFGenKbHostNodePKey getPKey();
+	YCFGenKbHostNodePKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbHostNodePKey primary key value for this instance.
+	 *	@param YCFGenKbHostNodePKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbHostNodePKey value );
+	void setPKey( YCFGenKbHostNodePKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -226,18 +226,18 @@ public interface ICFGenKbHostNodeObj
 	String getRequiredHostName();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster();
+	IYCFGenKbClusterObj getRequiredContainerCluster();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster( boolean forceRead );
+	IYCFGenKbClusterObj getRequiredContainerCluster( boolean forceRead );
 
 	/**
 	 *	Internal use only.

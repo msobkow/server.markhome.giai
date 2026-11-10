@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a Tenant primary key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,22 +37,22 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFGenKbTenantPKey Primary Key for Tenant
+ *	YCFGenKbTenantPKey Primary Key for Tenant
 
  *		requiredId	Required object attribute Id. */
-public class CFGenKbTenantPKey
+public class YCFGenKbTenantPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected long requiredId;
-	public CFGenKbTenantPKey() {
-		requiredId = CFGenKbTenantBuff.ID_INIT_VALUE;
+	public YCFGenKbTenantPKey() {
+		requiredId = YCFGenKbTenantBuff.ID_INIT_VALUE;
 	}
 
 	public long getRequiredId() {
@@ -60,13 +60,13 @@ public class CFGenKbTenantPKey
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFGenKbTenantBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbTenantBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbTenantBuff.ID_MIN_VALUE );
+				YCFGenKbTenantBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -75,15 +75,15 @@ public class CFGenKbTenantPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbTenantPKey ) {
-			CFGenKbTenantPKey rhs = (CFGenKbTenantPKey)obj;
+		else if( obj instanceof YCFGenKbTenantPKey ) {
+			YCFGenKbTenantPKey rhs = (YCFGenKbTenantPKey)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTenantBuff ) {
-			CFGenKbTenantBuff rhs = (CFGenKbTenantBuff)obj;
+		else if( obj instanceof YCFGenKbTenantBuff ) {
+			YCFGenKbTenantBuff rhs = (YCFGenKbTenantBuff)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -104,8 +104,8 @@ public class CFGenKbTenantPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbTenantPKey ) {
-			CFGenKbTenantPKey rhs = (CFGenKbTenantPKey)obj;
+		else if( obj instanceof YCFGenKbTenantPKey ) {
+			YCFGenKbTenantPKey rhs = (YCFGenKbTenantPKey)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -114,8 +114,8 @@ public class CFGenKbTenantPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTenantBuff ) {
-			CFGenKbTenantBuff rhs = (CFGenKbTenantBuff)obj;
+		else if( obj instanceof YCFGenKbTenantBuff ) {
+			YCFGenKbTenantBuff rhs = (YCFGenKbTenantBuff)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -125,16 +125,16 @@ public class CFGenKbTenantPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFGenKbTenantPKey, CFGenKbTenantBuff" );
+				"YCFGenKbTenantPKey, YCFGenKbTenantBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbTenantPKey"
+		String ret = "<YCFGenKbTenantPKey"
 			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
 			+ "/>";
 		return( ret );

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.io.InputStream;
 
@@ -34,15 +34,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFReferenceEditor
+public class YCFReferenceEditor
 extends AnchorPane
 {
-	public final static String PICK_ICON_RESOURCE = "/org.msscf.msscf.v2_13.cflib.CFLib/JavaFX/images/PickReference.gif";
-	public final static String VIEW_ICON_RESOURCE = "/org.msscf.msscf.v2_13.cflib.CFLib/JavaFX/images/ViewReference.gif";
-	protected ICFLibAnyObj referencedObject = null;
+	public final static String PICK_ICON_RESOURCE = "/org.mssycf.mssycf.v2_13.ycflib.YCFLib/JavaFX/images/PickReference.gif";
+	public final static String VIEW_ICON_RESOURCE = "/org.mssycf.mssycf.v2_13.ycflib.YCFLib/JavaFX/images/ViewReference.gif";
+	protected IYCFLibAnyObj referencedObject = null;
 	protected TextField textFieldQualifiedName = null;
 	protected Button buttonPickReference = null;
 	protected Button buttonViewReference = null;
@@ -63,18 +63,18 @@ extends AnchorPane
 		}
 	}
 
-	public interface ICFReferenceCallback {
-		void chose( org.msscf.msscf.v2_13.cflib.CFLib.ICFLibAnyObj value );
-		void view( org.msscf.msscf.v2_13.cflib.CFLib.ICFLibAnyObj value );
+	public interface IYCFReferenceCallback {
+		void chose( org.mssycf.mssycf.v2_13.ycflib.YCFLib.IYCFLibAnyObj value );
+		void view( org.mssycf.mssycf.v2_13.ycflib.YCFLib.IYCFLibAnyObj value );
 	}
 	
-	protected ICFReferenceCallback callback = null;
+	protected IYCFReferenceCallback callback = null;
 	
-	public CFReferenceEditor( ICFReferenceCallback argCallback ) {
+	public YCFReferenceEditor( IYCFReferenceCallback argCallback ) {
 		super();
 		final String S_ProcName = "construct";
 		if( argCallback == null ) {
-			throw new CFLibNullArgumentException( fieldName,
+			throw new YCFLibNullArgumentException( fieldName,
 				S_ProcName,
 				1,
 				"argCallback" );
@@ -135,11 +135,11 @@ extends AnchorPane
 		setRightAnchor( buttonViewReference, 0.0 );
 	}
 
-	public ICFLibAnyObj getReferencedObject() {
+	public IYCFLibAnyObj getReferencedObject() {
 		return( referencedObject );
 	}
 	
-	public void setReferencedObject( ICFLibAnyObj value ) {
+	public void setReferencedObject( IYCFLibAnyObj value ) {
 		referencedObject = value;
 		TextField textField = getTextFieldQualifiedName();
 		if( referencedObject != null ) {
@@ -160,9 +160,9 @@ extends AnchorPane
 	
 	public Image getPickIcon() {
 		final String S_ProcName="getPickIcon";
-		InputStream stream = CFReferenceEditor.class.getResourceAsStream( PICK_ICON_RESOURCE );
+		InputStream stream = YCFReferenceEditor.class.getResourceAsStream( PICK_ICON_RESOURCE );
 		if( stream == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Resource " + PICK_ICON_RESOURCE );
@@ -173,9 +173,9 @@ extends AnchorPane
 	
 	public Image getViewIcon() {
 		final String S_ProcName="getViewIcon";
-		InputStream stream = CFReferenceEditor.class.getResourceAsStream( VIEW_ICON_RESOURCE );
+		InputStream stream = YCFReferenceEditor.class.getResourceAsStream( VIEW_ICON_RESOURCE );
 		if( stream == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Resource " + VIEW_ICON_RESOURCE );

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.Tip;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.Tip;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,28 +43,28 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 // import org.apache.xerces.xni.grammars.Grammar;
 import org.xml.sax.*;
 
-public class CFTipClientHandler
-	extends CFLibXmlCoreSaxParser
+public class YCFTipClientHandler
+	extends YCFLibXmlCoreSaxParser
 {
 
 	// The namespace URI of the supported schema
-	public final static String	SCHEMA_XMLNS = "http://msscf.org:8088/msscf/2.0.13/CFTipServerInfo";
+	public final static String	SCHEMA_XMLNS = "http://mssycf.org:8088/mssycf/2.0.13/YCFTipServerInfo";
 
 	// The source for loading the supported schema
-	public final static String	SCHEMA_URI = "http://msscf.org:8088/msscf/2.0.13/xsd/cftip-2.13-serverinfo.xsd";
-	public final static String	SCHEMA_ROOT_URI = "/xsd/cftip-2.13-serverinfo.xsd";
+	public final static String	SCHEMA_URI = "http://mssycf.org:8088/mssycf/2.0.13/xsd/ycftip-2.13-serverinfo.xsd";
+	public final static String	SCHEMA_ROOT_URI = "/xsd/ycftip-2.13-serverinfo.xsd";
 
 	// protected static Grammar myGrammar = null;
 	
 	// Constructors
 
-	public CFTipClientHandler() {
+	public YCFTipClientHandler() {
 		super();
 		setRootElementHandler( getSaxRqstRootHandler() );
 		// if( myGrammar == null ) {
@@ -91,7 +91,7 @@ public class CFTipClientHandler
 		initParser();
 	}
 
-	public CFTipClientHandler( ICFLibMessageLog logger ) {
+	public YCFTipClientHandler( IYCFLibMessageLog logger ) {
 		super( logger );
 		setRootElementHandler( getSaxRqstRootHandler() );
 		// if( myGrammar == null ) {
@@ -120,16 +120,16 @@ public class CFTipClientHandler
 
 	// The Response Handler for the incoming response messages
 
-	private ICFTipResponseHandler responseHandler = null;
+	private IYCFTipResponseHandler responseHandler = null;
 
-	public ICFTipResponseHandler getResponseHandler() {
+	public IYCFTipResponseHandler getResponseHandler() {
 		return( responseHandler );
 	}
 
-	public void setResponseHandler( ICFTipResponseHandler value ) {
+	public void setResponseHandler( IYCFTipResponseHandler value ) {
 		final String S_ProcName = "setResponseHandler";
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"value" );
@@ -139,13 +139,13 @@ public class CFTipClientHandler
 
 	// Server Information
 
-	private CFTipServerInfo serverInfo = null;
+	private YCFTipServerInfo serverInfo = null;
 
-	public CFTipServerInfo getServerInfo() {
+	public YCFTipServerInfo getServerInfo() {
 		return( serverInfo );
 	}
 
-	void setServerInfo( CFTipServerInfo value ) {
+	void setServerInfo( YCFTipServerInfo value ) {
 		serverInfo = value;
 	}
 
@@ -168,7 +168,7 @@ public class CFTipClientHandler
 		final String S_ProcName = "getEncodedSessionKey";
 		
 		if( sessionKey == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Session key must be initialized by initSessionKey()" );
 		}
@@ -198,14 +198,14 @@ public class CFTipClientHandler
 		final String S_ProcName = "encryptWithClientPrivateKey";
 
 		if( sessionKey == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Session key must be initialized by initSessionKey()" );
 		}
 
 		Cipher cipher = Cipher.getInstance( "AES/CBC/PKCS5Padding" );
 		if( cipher == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"cipher" );
@@ -229,14 +229,14 @@ public class CFTipClientHandler
 		final String S_ProcName = "decryptWithClientPrivateKey";
 
 		if( sessionKey == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Session key must be initialized by initSessionKey()" );
 		}
 
 		Cipher cipher = Cipher.getInstance( "AES/CBC/PKCS5Padding" );
 		if( cipher == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"cipher" );
@@ -291,7 +291,7 @@ public class CFTipClientHandler
 		final String S_ProcName = "getEncodedDevicePublicKey";
 
 		if( devicePublicKey == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Device keys must be initialized by createDeviceKeys() or loadDeviceKeys()" );
 		}
@@ -311,14 +311,14 @@ public class CFTipClientHandler
 		final String S_ProcName = "encryptWithDevicePrivateKey";
 
 		if( devicePrivateKey == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Device keys must be initialized by createDeviceKeys() or loadDeviceKeys()" );
 		}
 
 		Cipher cipher = Cipher.getInstance( "RSA/ECB/PKCS1Padding" );
 		if( cipher == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"cipher" );
@@ -335,13 +335,13 @@ public class CFTipClientHandler
 	
 	public String sendReceive( String value ) {
 		final String S_ProcName = "sendReceive";
-		throw new CFLibMustOverrideException( getClass(),
+		throw new YCFLibMustOverrideException( getClass(),
 			S_ProcName );
 	}
 
 	// Issue a server information query and process the response
 
-	public CFTipServerInfo requestServerInfo()
+	public YCFTipServerInfo requestServerInfo()
 	throws InvalidKeyException,
 		NoSuchAlgorithmException,
 		NoSuchPaddingException,
@@ -350,23 +350,23 @@ public class CFTipClientHandler
 		final String S_ProcName = "requestServerInfo";
 		final String msg =
 				"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-			+	"<CFTIPEnvelope\n"
-			+	"\t\txmlns=\"uri://org.msscf.msscf/cftipenvelope\"\n"
+			+	"<YCFTIPEnvelope\n"
+			+	"\t\txmlns=\"uri://org.mssycf.mssycf/ycftipenvelope\"\n"
 			+	"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
 			+	"\t\txmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n"
-			+	"\t\txsi:schemaLocation=\"uri://org.msscf.msscf/cftipenvelope http://gitlab.marhome.server:8088/msscf/2.0.13/xsd/cftip-2.13-envelope.xsd\" >\n"
+			+	"\t\txsi:schemaLocation=\"uri://org.mssycf.mssycf/ycftipenvelope http://gitlab.marhome.server:8088/mssycf/2.0.13/xsd/ycftip-2.13-envelope.xsd\" >\n"
 			+	"\t<QueryServerInfo />\n"
-			+	"</CFTIPEnvelope>\n";
+			+	"</YCFTIPEnvelope>\n";
 		String response = sendReceive( msg );
 		if( ( response == null ) || ( response.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"response" );
 		}
 		parseStringContents( response );
 		if( serverInfo == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"serverInfo" );
@@ -390,19 +390,19 @@ public class CFTipClientHandler
 		final String S_ProcName = "issueLoginRequest";
 
 		if( responseHandler == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Response handler must be set first by setResponseHandler()" );
 		}
 
 		if( serverInfo == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Server info must be queried first by requestServerInfo()" );
 		}
 
 		if( ( body == null ) || ( body.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"body" );
@@ -427,16 +427,16 @@ public class CFTipClientHandler
 
 		final String msg =
 				"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-			+	"<CFTIPEnvelope\n"
-			+	"\t\txmlns=\"uri://org.msscf.msscf/cftipenvelope\"\n"
+			+	"<YCFTIPEnvelope\n"
+			+	"\t\txmlns=\"uri://org.mssycf.mssycf/ycftipenvelope\"\n"
 			+	"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
 			+	"\t\txmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n"
-			+	"\t\txsi:schemaLocation=\"uri://org.msscf.msscf/cftipenvelope http://gitlab.markhome.server:8088/msscf/2.0.13/xsd/cftip-envelope.xsd\" >\n"
+			+	"\t\txsi:schemaLocation=\"uri://org.mssycf.mssycf/ycftipenvelope http://gitlab.markhome.server:8088/mssycf/2.0.13/xsd/ycftip-envelope.xsd\" >\n"
 			+	"\t<LoginRequest MessageIV=\"" + stringIV + "\" AES256Key=\"" + stringSessionKey + "\" Payload=\"" + encoded + "\" />\n"
-			+	"</CFTIPEnvelope>\n";
+			+	"</YCFTIPEnvelope>\n";
 		String response = sendReceive( msg );
 		if( ( response == null ) || ( response.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"response" );
@@ -460,25 +460,25 @@ public class CFTipClientHandler
 		final String S_ProcName = "issueAppRequest";
 
 		if( responseHandler == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Response handler must be set first by setResponseHandler()" );
 		}
 
 		if( serverInfo == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Server info must be queried first by requestServerInfo()" );
 		}
 
 		if( sessionKey == null ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Session key must be set first by logging in" );
 		}
 
 		if( ( body == null ) || ( body.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"body" );
@@ -498,16 +498,16 @@ public class CFTipClientHandler
 
 		final String msg =
 				"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-			+	"<CFTIPEnvelope\n"
-			+	"\t\txmlns=\"uri://org.msscf.msscf/cftipenvelope\"\n"
+			+	"<YCFTIPEnvelope\n"
+			+	"\t\txmlns=\"uri://org.mssycf.mssycf/ycftipenvelope\"\n"
 			+	"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
 			+	"\t\txmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n"
-			+	"\t\txsi:schemaLocation=\"uri://org.msscf.msscf/cftipenvelope http://gitlab.markhome.server:8088/msscf/2.0.13/xsd/cftip-2.13-envelope.xsd\" >\n"
+			+	"\t\txsi:schemaLocation=\"uri://org.mssycf.mssycf/ycftipenvelope http://gitlab.markhome.server:8088/mssycf/2.0.13/xsd/ycftip-2.13-envelope.xsd\" >\n"
 			+	"\t<AppRequest MessageIV=\"" + stringIV + "\" Payload=\"" + encoded + "\" />\n"
-			+	"</CFTIPEnvelope>\n";
+			+	"</YCFTIPEnvelope>\n";
 		String response = sendReceive( msg );
 		if( ( response == null ) || ( response.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"response" );
@@ -520,22 +520,22 @@ public class CFTipClientHandler
 	
 	// Element Handler instances
 
-	private CFTipSaxServerInfoRootHandler saxServerInfoRootHandler = null;
-	private CFTipSaxServerInfoDocHandler saxServerInfoDocHandler = null;
-	private CFTipAltSchemaEltHandler altSchemaEltHandler = null;
+	private YCFTipSaxServerInfoRootHandler saxServerInfoRootHandler = null;
+	private YCFTipSaxServerInfoDocHandler saxServerInfoDocHandler = null;
+	private YCFTipAltSchemaEltHandler altSchemaEltHandler = null;
 	
 	// Element Handler Resolver Factories
 
-	protected CFTipAltSchemaEltHandler getAltSchemaEltHandler() {
+	protected YCFTipAltSchemaEltHandler getAltSchemaEltHandler() {
 		if( altSchemaEltHandler == null ) {
-			altSchemaEltHandler = new CFTipAltSchemaEltHandler( this );
+			altSchemaEltHandler = new YCFTipAltSchemaEltHandler( this );
 		}
 		return( altSchemaEltHandler );
 	}
 
-	protected CFTipSaxServerInfoDocHandler getSaxServerInfoDocHandler() {
+	protected YCFTipSaxServerInfoDocHandler getSaxServerInfoDocHandler() {
 		if( saxServerInfoDocHandler == null ) {
-			saxServerInfoDocHandler = new CFTipSaxServerInfoDocHandler( this );
+			saxServerInfoDocHandler = new YCFTipSaxServerInfoDocHandler( this );
 			saxServerInfoDocHandler.addElementHandler( "AltSchema", getAltSchemaEltHandler() );
 		}
 		return( saxServerInfoDocHandler );
@@ -543,10 +543,10 @@ public class CFTipClientHandler
 
 	// Root Element Handler Resolver Factory
 
-	protected CFTipSaxServerInfoRootHandler getSaxRqstRootHandler() {
+	protected YCFTipSaxServerInfoRootHandler getSaxRqstRootHandler() {
 		if( saxServerInfoRootHandler == null ) {
-			saxServerInfoRootHandler = new CFTipSaxServerInfoRootHandler( this );
-			saxServerInfoRootHandler.addElementHandler( "CFTipServerInfo", getSaxServerInfoDocHandler() );
+			saxServerInfoRootHandler = new YCFTipSaxServerInfoRootHandler( this );
+			saxServerInfoRootHandler.addElementHandler( "YCFTipServerInfo", getSaxServerInfoDocHandler() );
 		}
 		return( saxServerInfoRootHandler );
 	}
@@ -554,12 +554,12 @@ public class CFTipClientHandler
 	// Root Element Handler
 
 	/*
-	 *	CFTipSaxServerInfoRootHandler XML SAX Root Element Handler implementation
+	 *	YCFTipSaxServerInfoRootHandler XML SAX Root Element Handler implementation
 	 */
-	public class CFTipSaxServerInfoRootHandler
-		extends CFLibXmlCoreElementHandler
+	public class YCFTipSaxServerInfoRootHandler
+		extends YCFLibXmlCoreElementHandler
 	{
-		public CFTipSaxServerInfoRootHandler( CFTipClientHandler xmsgRqstHandler ) {
+		public YCFTipSaxServerInfoRootHandler( YCFTipClientHandler xmsgRqstHandler ) {
 			super( xmsgRqstHandler );
 		}
 
@@ -584,12 +584,12 @@ public class CFTipClientHandler
 	// Document Element Handler
 
 	/*
-	 *	CFTipSaxServerInfoDocHandler XML SAX Doc Element Handler implementation
+	 *	YCFTipSaxServerInfoDocHandler XML SAX Doc Element Handler implementation
 	 */
-	public class CFTipSaxServerInfoDocHandler
-		extends CFLibXmlCoreElementHandler
+	public class YCFTipSaxServerInfoDocHandler
+		extends YCFLibXmlCoreElementHandler
 	{
-		public CFTipSaxServerInfoDocHandler( CFTipClientHandler clientHandler ) {
+		public YCFTipSaxServerInfoDocHandler( YCFTipClientHandler clientHandler ) {
 			super( clientHandler );
 		}
 
@@ -603,9 +603,9 @@ public class CFTipClientHandler
 			final String S_ProcName = "startElement";
 			final String S_LocalName = "LocalName";
 
-			CFTipClientHandler clientHandler = (CFTipClientHandler)getParser();
+			YCFTipClientHandler clientHandler = (YCFTipClientHandler)getParser();
 			if( clientHandler == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
@@ -625,7 +625,7 @@ public class CFTipClientHandler
 				int		numAttrs;
 				int		idxAttr;
 
-				assert qName.equals( "CFTipServerInfo" );
+				assert qName.equals( "YCFTipServerInfo" );
 
 				// Extract Attributes
 				numAttrs = attrs.getLength();
@@ -633,7 +633,7 @@ public class CFTipClientHandler
 					attrLocalName = attrs.getLocalName( idxAttr );
 					if( attrLocalName.equals( "Id" ) ) {
 						if( attrId != null ) {
-							throw new CFLibUniqueIndexViolationException( getClass(),
+							throw new YCFLibUniqueIndexViolationException( getClass(),
 								S_ProcName,
 								S_LocalName,
 								attrLocalName );
@@ -642,7 +642,7 @@ public class CFTipClientHandler
 					}
 					else if( attrLocalName.equals( "ClusterURL" ) ) {
 						if( attrClusterURL != null ) {
-							throw new CFLibUniqueIndexViolationException( getClass(),
+							throw new YCFLibUniqueIndexViolationException( getClass(),
 								S_ProcName,
 								S_LocalName,
 								attrLocalName );
@@ -651,7 +651,7 @@ public class CFTipClientHandler
 					}
 					else if( attrLocalName.equals( "ClusterDescr" ) ) {
 						if( attrClusterDescr != null ) {
-							throw new CFLibUniqueIndexViolationException( getClass(),
+							throw new YCFLibUniqueIndexViolationException( getClass(),
 								S_ProcName,
 								S_LocalName,
 								attrLocalName );
@@ -660,7 +660,7 @@ public class CFTipClientHandler
 					}
 					else if( attrLocalName.equals( "SchemaName" ) ) {
 						if( attrSchemaName != null ) {
-							throw new CFLibUniqueIndexViolationException( getClass(),
+							throw new YCFLibUniqueIndexViolationException( getClass(),
 								S_ProcName,
 								S_LocalName,
 								attrLocalName );
@@ -669,7 +669,7 @@ public class CFTipClientHandler
 					}
 					else if( attrLocalName.equals( "SchemaDescr" ) ) {
 						if( attrSchemaDescr != null ) {
-							throw new CFLibUniqueIndexViolationException( getClass(),
+							throw new YCFLibUniqueIndexViolationException( getClass(),
 								S_ProcName,
 								S_LocalName,
 								attrLocalName );
@@ -678,7 +678,7 @@ public class CFTipClientHandler
 					}
 					else if( attrLocalName.equals( "ServerLoginKey" ) ) {
 						if( attrServerLoginKey != null ) {
-							throw new CFLibUniqueIndexViolationException( getClass(),
+							throw new YCFLibUniqueIndexViolationException( getClass(),
 								S_ProcName,
 								S_LocalName,
 								attrLocalName );
@@ -689,7 +689,7 @@ public class CFTipClientHandler
 						// ignored
 					}
 					else {
-						throw new CFLibUnrecognizedAttributeException( getClass(),
+						throw new YCFLibUnrecognizedAttributeException( getClass(),
 							S_ProcName,
 							getParser().getLocationInfo(),
 							attrLocalName );
@@ -699,35 +699,35 @@ public class CFTipClientHandler
 				// Verify that required attributes were provided
 
 				if( ( attrClusterURL == null ) || ( attrClusterURL.length() <= 0 ) ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"ClusterURL" );
 				}
 
 				if( ( attrClusterDescr == null ) || ( attrClusterDescr.length() <= 0 ) ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"ClusterDescr" );
 				}
 
 				if( ( attrSchemaName == null ) || ( attrSchemaName.length() <= 0 ) ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"SchemaName" );
 				}
 
 				if( ( attrSchemaDescr == null ) || ( attrSchemaDescr.length() <= 0 ) ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"SchemaDescr" );
 				}
 
 				if( ( attrServerLoginKey == null ) || ( attrServerLoginKey.length() <= 0 ) ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"ServerLoginKey" );
@@ -735,7 +735,7 @@ public class CFTipClientHandler
 
 				// Initialize a ServerInfo object with the attributes
 				
-				CFTipServerInfo info = new CFTipServerInfo();
+				YCFTipServerInfo info = new YCFTipServerInfo();
 				info.setClusterURL( attrClusterURL );
 				info.setClusterDescr( attrClusterDescr );
 				info.setSchemaName( attrSchemaName );
@@ -765,10 +765,10 @@ public class CFTipClientHandler
 
 	// AltSchemaElt Handler
 
-	public class CFTipAltSchemaEltHandler
-		extends CFLibXmlCoreElementHandler
+	public class YCFTipAltSchemaEltHandler
+		extends YCFLibXmlCoreElementHandler
 	{
-		public CFTipAltSchemaEltHandler( CFTipClientHandler clientHandler ) {
+		public YCFTipAltSchemaEltHandler( YCFTipClientHandler clientHandler ) {
 			super( clientHandler );
 		}
 
@@ -782,9 +782,9 @@ public class CFTipClientHandler
 			final String S_ProcName = "startElement";
 			final String S_LocalName = "LocalName";
 
-			CFTipClientHandler clientHandler = (CFTipClientHandler)getParser();
+			YCFTipClientHandler clientHandler = (YCFTipClientHandler)getParser();
 			if( clientHandler == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
@@ -808,7 +808,7 @@ public class CFTipClientHandler
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -817,7 +817,7 @@ public class CFTipClientHandler
 				}
 				else if( attrLocalName.equals( "SchemaName" ) ) {
 					if( attrSchemaName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -826,7 +826,7 @@ public class CFTipClientHandler
 				}
 				else if( attrLocalName.equals( "SchemaDescr" ) ) {
 					if( attrSchemaDescr != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -837,7 +837,7 @@ public class CFTipClientHandler
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -847,14 +847,14 @@ public class CFTipClientHandler
 			// Verify that required attributes were provided
 
 			if( ( attrSchemaName == null ) || ( attrSchemaName.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"SchemaName" );
 			}
 
 			if( ( attrSchemaDescr == null ) || ( attrSchemaDescr.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"SchemaDescr" );
@@ -881,7 +881,7 @@ public class CFTipClientHandler
 		try {
 			super.parseStringContents( str );
 		}
-		catch( CFLibRuntimeException e ) {
+		catch( YCFLibRuntimeException e ) {
 			setServerInfo( null );
 			throw( e );
 		}
@@ -902,7 +902,7 @@ public class CFTipClientHandler
 		try {
 			super.parse( url );
 		}
-		catch( CFLibRuntimeException e ) {
+		catch( YCFLibRuntimeException e ) {
 			setServerInfo( null );
 			throw( e );
 		}
@@ -923,7 +923,7 @@ public class CFTipClientHandler
 		try {
 			super.parse( url );
 		}
-		catch( CFLibRuntimeException e ) {
+		catch( YCFLibRuntimeException e ) {
 			setServerInfo( null );
 			throw( e );
 		}

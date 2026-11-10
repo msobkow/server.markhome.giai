@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam Index.
+// Description: Java 11 edit object instance implementation for YCFBam Index.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,30 +45,30 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamIndexEditObj
-	extends CFBamScopeEditObj
+public class YCFBamIndexEditObj
+	extends YCFBamScopeEditObj
 
-	implements ICFBamIndexEditObj
+	implements IYCFBamIndexEditObj
 {
-	protected ICFBamTableObj requiredContainerTable;
-	protected ICFBamSchemaDefObj optionalLookupDefSchema;
-	protected ICFSecTenantObj requiredOwnerIdxTenant;
+	protected IYCFBamTableObj requiredContainerTable;
+	protected IYCFBamSchemaDefObj optionalLookupDefSchema;
+	protected IYCFSecTenantObj requiredOwnerIdxTenant;
 
-	public CFBamIndexEditObj( ICFBamIndexObj argOrig ) {
+	public YCFBamIndexEditObj( IYCFBamIndexObj argOrig ) {
 		super( argOrig );
 		requiredContainerTable = null;
 		optionalLookupDefSchema = null;
@@ -76,20 +76,20 @@ public class CFBamIndexEditObj
 	}
 
 	public String getClassCode() {
-		return( CFBamIndexObj.CLASS_CODE );
+		return( YCFBamIndexObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "Index" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamTableObj scope = getRequiredContainerTable();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamTableObj scope = getRequiredContainerTable();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamTableObj scope = getRequiredContainerTable();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamTableObj scope = getRequiredContainerTable();
 		return( scope );
 	}
 
@@ -99,14 +99,14 @@ public class CFBamIndexEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -117,10 +117,10 @@ public class CFBamIndexEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -129,11 +129,11 @@ public class CFBamIndexEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -144,12 +144,12 @@ public class CFBamIndexEditObj
 			remainingName = null;
 		}
 		if( subObj == null ) {
-			subObj = ((ICFBamSchemaObj)getSchema()).getIndexColTableObj().readIndexColByUNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFBamSchemaObj)getSchema()).getIndexColTableObj().readIndexColByUNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
 		if( subObj == null ) {
-			subObj = ((ICFBamSchemaObj)getSchema()).getIndexTweakTableObj().readIndexTweakByUNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFBamSchemaObj)getSchema()).getIndexTweakTableObj().readIndexTweakByUNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
@@ -167,16 +167,16 @@ public class CFBamIndexEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -188,9 +188,9 @@ public class CFBamIndexEditObj
 		return( qualName );
 	}
 
-	public ICFBamScopeObj realise() {
+	public IYCFBamScopeObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamIndexObj retobj = getSchema().getIndexTableObj().realiseIndex( (ICFBamIndexObj)this );
+		IYCFBamIndexObj retobj = getSchema().getIndexTableObj().realiseIndex( (IYCFBamIndexObj)this );
 		return( retobj );
 	}
 
@@ -198,49 +198,49 @@ public class CFBamIndexEditObj
 		getOrigAsIndex().forget();
 	}
 
-	public ICFBamScopeObj create() {
+	public IYCFBamScopeObj create() {
 		copyBuffToOrig();
-		ICFBamIndexObj retobj = ((ICFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexTableObj().createIndex( getOrigAsIndex() );
+		IYCFBamIndexObj retobj = ((IYCFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexTableObj().createIndex( getOrigAsIndex() );
 		if( retobj == getOrigAsIndex() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamScopeEditObj update() {
-		getSchema().getIndexTableObj().updateIndex( (ICFBamIndexObj)this );
+	public YCFBamScopeEditObj update() {
+		getSchema().getIndexTableObj().updateIndex( (IYCFBamIndexObj)this );
 		return( null );
 	}
 
-	public CFBamScopeEditObj deleteInstance() {
+	public YCFBamScopeEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getIndexTableObj().deleteIndex( getOrigAsIndex() );
 		return( null );
 	}
 
-	public ICFBamIndexTableObj getIndexTable() {
+	public IYCFBamIndexTableObj getIndexTable() {
 		return( orig.getSchema().getIndexTableObj() );
 	}
 
-	public ICFBamIndexEditObj getEditAsIndex() {
-		return( (ICFBamIndexEditObj)this );
+	public IYCFBamIndexEditObj getEditAsIndex() {
+		return( (IYCFBamIndexEditObj)this );
 	}
 
-	public ICFBamIndexObj getOrigAsIndex() {
-		return( (ICFBamIndexObj)orig );
+	public IYCFBamIndexObj getOrigAsIndex() {
+		return( (IYCFBamIndexObj)orig );
 	}
 
-	public CFBamScopeBuff getBuff() {
+	public YCFBamScopeBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsIndex().getSchema().getBackingStore()).getFactoryIndex().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsIndex().getSchema().getBackingStore()).getFactoryIndex().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamScopeBuff value ) {
+	public void setBuff( YCFBamScopeBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			requiredContainerTable = null;
@@ -249,8 +249,8 @@ public class CFBamIndexEditObj
 		}
 	}
 
-	public CFBamIndexBuff getIndexBuff() {
-		return( (CFBamIndexBuff)getBuff() );
+	public YCFBamIndexBuff getIndexBuff() {
+		return( (YCFBamIndexBuff)getBuff() );
 	}
 
 	public long getRequiredTableId() {
@@ -355,25 +355,25 @@ public class CFBamIndexEditObj
 		}
 	}
 
-	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+	public IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
 		return( getIndexBuff().getRequiredCodeVis() );
 	}
 
-	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+	public void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value ) {
 		if( getIndexBuff().getRequiredCodeVis() != value ) {
 			getIndexBuff().setRequiredCodeVis( value );
 		}
 	}
 
-	public ICFBamTableObj getRequiredContainerTable() {
+	public IYCFBamTableObj getRequiredContainerTable() {
 		return( getRequiredContainerTable( false ) );
 	}
 
-	public ICFBamTableObj getRequiredContainerTable( boolean forceRead ) {
+	public IYCFBamTableObj getRequiredContainerTable( boolean forceRead ) {
 		if( forceRead || ( requiredContainerTable == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsIndex().getSchema()).getTableTableObj().readTableByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFBamTableObj obj = ((IYCFBamSchemaObj)getOrigAsIndex().getSchema()).getTableTableObj().readTableByIdIdx( getPKey().getRequiredTenantId(),
 					getIndexBuff().getRequiredTableId() );
 				requiredContainerTable = obj;
 				if( obj != null ) {
@@ -386,7 +386,7 @@ public class CFBamIndexEditObj
 		return( requiredContainerTable );
 	}
 
-	public void setRequiredContainerTable( ICFBamTableObj value ) {
+	public void setRequiredContainerTable( IYCFBamTableObj value ) {
 			if( buff == null ) {
 				getIndexBuff();
 			}
@@ -398,11 +398,11 @@ public class CFBamIndexEditObj
 			requiredContainerTable = value;
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema() {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema() {
 		return( getOptionalLookupDefSchema( false ) );
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
 		if( forceRead || ( optionalLookupDefSchema == null ) ) {
 			boolean anyMissing = false;
 			if( getIndexBuff().getOptionalDefSchemaTenantId() == null ) {
@@ -412,7 +412,7 @@ public class CFBamIndexEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamSchemaDefObj obj = ((ICFBamSchemaObj)getOrigAsIndex().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getIndexBuff().getOptionalDefSchemaTenantId(),
+				IYCFBamSchemaDefObj obj = ((IYCFBamSchemaObj)getOrigAsIndex().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getIndexBuff().getOptionalDefSchemaTenantId(),
 					getIndexBuff().getOptionalDefSchemaId() );
 				optionalLookupDefSchema = obj;
 			}
@@ -420,7 +420,7 @@ public class CFBamIndexEditObj
 		return( optionalLookupDefSchema );
 	}
 
-	public void setOptionalLookupDefSchema( ICFBamSchemaDefObj value ) {
+	public void setOptionalLookupDefSchema( IYCFBamSchemaDefObj value ) {
 			if( buff == null ) {
 				getIndexBuff();
 			}
@@ -435,54 +435,54 @@ public class CFBamIndexEditObj
 			optionalLookupDefSchema = value;
 	}
 
-	public List<ICFBamIndexColObj> getOptionalComponentsColumns() {
-		List<ICFBamIndexColObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexColTableObj().readIndexColByIndexIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamIndexColObj> getOptionalComponentsColumns() {
+		List<IYCFBamIndexColObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexColTableObj().readIndexColByIndexIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamIndexColObj> getOptionalComponentsColumns( boolean forceRead ) {
-		List<ICFBamIndexColObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexColTableObj().readIndexColByIndexIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamIndexColObj> getOptionalComponentsColumns( boolean forceRead ) {
+		List<IYCFBamIndexColObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexColTableObj().readIndexColByIndexIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamIndexTweakObj> getOptionalComponentsTweaks() {
-		List<ICFBamIndexTweakObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexTweakTableObj().readIndexTweakByIndexIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamIndexTweakObj> getOptionalComponentsTweaks() {
+		List<IYCFBamIndexTweakObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexTweakTableObj().readIndexTweakByIndexIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamIndexTweakObj> getOptionalComponentsTweaks( boolean forceRead ) {
-		List<ICFBamIndexTweakObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexTweakTableObj().readIndexTweakByIndexIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamIndexTweakObj> getOptionalComponentsTweaks( boolean forceRead ) {
+		List<IYCFBamIndexTweakObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsIndex().getSchema()).getIndexTweakTableObj().readIndexTweakByIndexIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerIdxTenant() {
+	public IYCFSecTenantObj getRequiredOwnerIdxTenant() {
 		return( getRequiredOwnerIdxTenant( false ) );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerIdxTenant( boolean forceRead ) {
+	public IYCFSecTenantObj getRequiredOwnerIdxTenant( boolean forceRead ) {
 		if( forceRead || ( requiredOwnerIdxTenant == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFSecTenantObj obj = ((ICFBamSchemaObj)getOrigAsIndex().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
+				IYCFSecTenantObj obj = ((IYCFBamSchemaObj)getOrigAsIndex().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
 				requiredOwnerIdxTenant = obj;
 			}
 		}
 		return( requiredOwnerIdxTenant );
 	}
 
-	public void setRequiredOwnerIdxTenant( ICFSecTenantObj value ) {
+	public void setRequiredOwnerIdxTenant( IYCFSecTenantObj value ) {
 			if( buff == null ) {
 				getIndexBuff();
 			}
@@ -495,14 +495,14 @@ public class CFBamIndexEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamIndexBuff origBuff = getOrigAsIndex().getIndexBuff();
-		CFBamIndexBuff myBuff = getIndexBuff();
+		YCFBamIndexBuff origBuff = getOrigAsIndex().getIndexBuff();
+		YCFBamIndexBuff myBuff = getIndexBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamIndexBuff origBuff = getOrigAsIndex().getIndexBuff();
-		CFBamIndexBuff myBuff = getIndexBuff();
+		YCFBamIndexBuff origBuff = getOrigAsIndex().getIndexBuff();
+		YCFBamIndexBuff myBuff = getIndexBuff();
 		myBuff.set( origBuff );
 	}
 }

@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb RuleType.
+// Description: Java 11 Object interface for YCFGenKb RuleType.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbRuleTypeObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbRuleTypeObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a RuleType.
 	 *
-	 *	@return	CFGenKbRuleTypeObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbRuleTypeObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbRuleTypeObj realise();
+	IYCFGenKbRuleTypeObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -59,99 +59,99 @@ public interface ICFGenKbRuleTypeObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbRuleTypeObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbRuleTypeObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbRuleTypeObj read();
+	IYCFGenKbRuleTypeObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbRuleTypeObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbRuleTypeObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbRuleTypeObj read( boolean forceRead );
+	IYCFGenKbRuleTypeObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this RuleType instance.
 	 *
-	 *	@return	The newly locked ICFGenKbRuleTypeEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbRuleTypeEditObj edition of this instance.
 	 */
-	ICFGenKbRuleTypeEditObj beginEdit();
+	IYCFGenKbRuleTypeEditObj beginEdit();
 
 	/**
 	 *	End this edition of this RuleType instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this RuleType instance.
 	 *
-	 *	@return	The ICFGenKbRuleTypeEditObj edition of this instance.
+	 *	@return	The IYCFGenKbRuleTypeEditObj edition of this instance.
 	 */
-	ICFGenKbRuleTypeEditObj getEdit();
+	IYCFGenKbRuleTypeEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this RuleType instance as a ICFGenKbRuleTypeEditObj.
+	 *	Get the current edition of this RuleType instance as a IYCFGenKbRuleTypeEditObj.
 	 *
-	 *	@return	The ICFGenKbRuleTypeEditObj edition of this instance.
+	 *	@return	The IYCFGenKbRuleTypeEditObj edition of this instance.
 	 */
-	ICFGenKbRuleTypeEditObj getEditAsRuleType();
+	IYCFGenKbRuleTypeEditObj getEditAsRuleType();
 
 	/**
-	 *	Get the ICFGenKbRuleTypeTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbRuleTypeTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbRuleTypeTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbRuleTypeTableObj table cache which manages this instance.
 	 */
-	ICFGenKbRuleTypeTableObj getRuleTypeTable();
+	IYCFGenKbRuleTypeTableObj getRuleTypeTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbRuleTypeBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbRuleTypeBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbRuleTypeBuff instance which currently backs this object.
+	 *	@return	YCFGenKbRuleTypeBuff instance which currently backs this object.
 	 */
-	CFGenKbRuleTypeBuff getBuff();
+	YCFGenKbRuleTypeBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbRuleTypeBuff value );
+	void setBuff( YCFGenKbRuleTypeBuff value );
 
 	/**
-	 *	Get the CFGenKbRuleTypeBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbRuleTypeBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbRuleTypeBuff instance which currently backs this object.
+	 *	@return	YCFGenKbRuleTypeBuff instance which currently backs this object.
 	 */
-	CFGenKbRuleTypeBuff getRuleTypeBuff();
+	YCFGenKbRuleTypeBuff getRuleTypeBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbRuleTypePKey primary key for this instance.
+	 *	@return	YCFGenKbRuleTypePKey primary key for this instance.
 	 */
-	CFGenKbRuleTypePKey getPKey();
+	YCFGenKbRuleTypePKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbRuleTypePKey primary key value for this instance.
+	 *	@param YCFGenKbRuleTypePKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbRuleTypePKey value );
+	void setPKey( YCFGenKbRuleTypePKey value );
 
 	/**
 	 *	Is this a new instance?

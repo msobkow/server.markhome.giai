@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSysClusterTableObj
+public interface IYCFSecSysClusterTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecSysClusterTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecSysClusterObj newInstance();
+	IYCFSecSysClusterObj newInstance();
 
 	/**
 	 *	Instantiate a new SysCluster edition of the specified SysCluster instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecSysClusterEditObj newEditInstance( ICFSecSysClusterObj orig );
+	IYCFSecSysClusterEditObj newEditInstance( IYCFSecSysClusterObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSysClusterObj realiseSysCluster( ICFSecSysClusterObj Obj );
+	IYCFSecSysClusterObj realiseSysCluster( IYCFSecSysClusterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSysClusterObj createSysCluster( ICFSecSysClusterObj Obj );
+	IYCFSecSysClusterObj createSysCluster( IYCFSecSysClusterObj Obj );
 
 	/**
 	 *	Read a SysCluster-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecSysClusterTableObj
 	 *	@return	The SysCluster-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSysClusterObj readSysCluster( CFSecSysClusterPKey pkey );
+	IYCFSecSysClusterObj readSysCluster( YCFSecSysClusterPKey pkey );
 
 	/**
 	 *	Read a SysCluster-derived instance by it's primary key.
@@ -90,83 +90,83 @@ public interface ICFSecSysClusterTableObj
 	 *	@return	The SysCluster-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSysClusterObj readSysCluster( CFSecSysClusterPKey pkey,
+	IYCFSecSysClusterObj readSysCluster( YCFSecSysClusterPKey pkey,
 		boolean forceRead );
 
-	ICFSecSysClusterObj readCachedSysCluster( CFSecSysClusterPKey pkey );
+	IYCFSecSysClusterObj readCachedSysCluster( YCFSecSysClusterPKey pkey );
 
-	public void reallyDeepDisposeSysCluster( ICFSecSysClusterObj obj );
+	public void reallyDeepDisposeSysCluster( IYCFSecSysClusterObj obj );
 
-	void deepDisposeSysCluster( CFSecSysClusterPKey pkey );
+	void deepDisposeSysCluster( YCFSecSysClusterPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSysClusterObj lockSysCluster( CFSecSysClusterPKey pkey );
+	IYCFSecSysClusterObj lockSysCluster( YCFSecSysClusterPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SysCluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSysClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSysClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSysClusterObj> readAllSysCluster();
+	List<IYCFSecSysClusterObj> readAllSysCluster();
 
 	/**
 	 *	Return a sorted map of all the SysCluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSysClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSysClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSysClusterObj> readAllSysCluster( boolean forceRead );
+	List<IYCFSecSysClusterObj> readAllSysCluster( boolean forceRead );
 
-	List<ICFSecSysClusterObj> readCachedAllSysCluster();
+	List<IYCFSecSysClusterObj> readCachedAllSysCluster();
 
 	/**
-	 *	Get the CFSecSysClusterObj instance for the primary key attributes.
+	 *	Get the YCFSecSysClusterObj instance for the primary key attributes.
 	 *
 	 *	@param	argSingletonId	The SysCluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSysClusterObj cached instance for the primary key, or
+	 *	@return	YCFSecSysClusterObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSysClusterObj readSysClusterByIdIdx( int SingletonId );
+	IYCFSecSysClusterObj readSysClusterByIdIdx( int SingletonId );
 
 	/**
-	 *	Get the CFSecSysClusterObj instance for the primary key attributes.
+	 *	Get the YCFSecSysClusterObj instance for the primary key attributes.
 	 *
 	 *	@param	argSingletonId	The SysCluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSysClusterObj refreshed instance for the primary key, or
+	 *	@return	YCFSecSysClusterObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSysClusterObj readSysClusterByIdIdx( int SingletonId,
+	IYCFSecSysClusterObj readSysClusterByIdIdx( int SingletonId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSysClusterObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecSysClusterObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SysCluster key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSysClusterObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecSysClusterObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSysClusterObj> readSysClusterByClusterIdx( long ClusterId );
+	List<IYCFSecSysClusterObj> readSysClusterByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFSecSysClusterObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecSysClusterObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SysCluster key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSysClusterObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecSysClusterObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSysClusterObj> readSysClusterByClusterIdx( long ClusterId,
+	List<IYCFSecSysClusterObj> readSysClusterByClusterIdx( long ClusterId,
 		boolean forceRead );
 
-	ICFSecSysClusterObj readCachedSysClusterByIdIdx( int SingletonId );
+	IYCFSecSysClusterObj readCachedSysClusterByIdIdx( int SingletonId );
 
-	List<ICFSecSysClusterObj> readCachedSysClusterByClusterIdx( long ClusterId );
+	List<IYCFSecSysClusterObj> readCachedSysClusterByClusterIdx( long ClusterId );
 
 	void deepDisposeSysClusterByIdIdx( int SingletonId );
 
@@ -175,12 +175,12 @@ public interface ICFSecSysClusterTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSysClusterObj updateSysCluster( ICFSecSysClusterObj Obj );
+	IYCFSecSysClusterObj updateSysCluster( IYCFSecSysClusterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSysCluster( ICFSecSysClusterObj Obj );
+	void deleteSysCluster( IYCFSecSysClusterObj Obj );
 
 	/**
 	 *	Internal use only.

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenFile by XSubPkg index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenFileByXSubPkgKey
+public class YCFGenKbGenFileByXSubPkgKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalSubPackageTenantId;
 	protected Long optionalSubPackageGelCacheId;
 	protected Long optionalSubPackageGelId;
-	public CFGenKbGenFileByXSubPkgKey() {
+	public YCFGenKbGenFileByXSubPkgKey() {
 		optionalSubPackageTenantId = null;
 		optionalSubPackageGelCacheId = null;
 		optionalSubPackageGelId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGenFileByXSubPkgKey
 		if( value == null ) {
 			optionalSubPackageTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SUBPACKAGETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SUBPACKAGETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSubPackageTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SUBPACKAGETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SUBPACKAGETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalSubPackageTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGenFileByXSubPkgKey
 		if( value == null ) {
 			optionalSubPackageGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SUBPACKAGEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SUBPACKAGEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSubPackageGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SUBPACKAGEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SUBPACKAGEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalSubPackageGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGenFileByXSubPkgKey
 		if( value == null ) {
 			optionalSubPackageGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SUBPACKAGEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SUBPACKAGEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSubPackageGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SUBPACKAGEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SUBPACKAGEGELID_MIN_VALUE );
 		}
 		else {
 			optionalSubPackageGelId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGenFileByXSubPkgKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenFileByXSubPkgKey ) {
-			CFGenKbGenFileByXSubPkgKey rhs = (CFGenKbGenFileByXSubPkgKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXSubPkgKey ) {
+			YCFGenKbGenFileByXSubPkgKey rhs = (YCFGenKbGenFileByXSubPkgKey)obj;
 			if( getOptionalSubPackageTenantId() != null ) {
 				if( rhs.getOptionalSubPackageTenantId() != null ) {
 					if( ! getOptionalSubPackageTenantId().equals( rhs.getOptionalSubPackageTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGenFileByXSubPkgKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			if( getOptionalSubPackageTenantId() != null ) {
 				if( rhs.getOptionalSubPackageTenantId() != null ) {
 					if( ! getOptionalSubPackageTenantId().equals( rhs.getOptionalSubPackageTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGenFileByXSubPkgKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXSubPkgKey ) {
-			CFGenKbGenFileByXSubPkgKey rhs = (CFGenKbGenFileByXSubPkgKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXSubPkgKey ) {
+			YCFGenKbGenFileByXSubPkgKey rhs = (YCFGenKbGenFileByXSubPkgKey)obj;
 			if( getOptionalSubPackageTenantId() != null ) {
 				Long lhsSubPackageTenantId = getOptionalSubPackageTenantId();
 				if( rhs.getOptionalSubPackageTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGenFileByXSubPkgKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			if( getOptionalSubPackageTenantId() != null ) {
 				Long lhsSubPackageTenantId = getOptionalSubPackageTenantId();
 				if( rhs.getOptionalSubPackageTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGenFileByXSubPkgKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGenFileByXSubPkgKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenFileByXSubPkg"
+		String ret = "<YCFGenKbGenFileByXSubPkg"
 			+ " OptionalSubPackageTenantId=" + ( ( getOptionalSubPackageTenantId() == null ) ? "null" : "\"" + getOptionalSubPackageTenantId().toString() + "\"" )
 			+ " OptionalSubPackageGelCacheId=" + ( ( getOptionalSubPackageGelCacheId() == null ) ? "null" : "\"" + getOptionalSubPackageGelCacheId().toString() + "\"" )
 			+ " OptionalSubPackageGelId=" + ( ( getOptionalSubPackageGelId() == null ) ? "null" : "\"" + getOptionalSubPackageGelId().toString() + "\"" )

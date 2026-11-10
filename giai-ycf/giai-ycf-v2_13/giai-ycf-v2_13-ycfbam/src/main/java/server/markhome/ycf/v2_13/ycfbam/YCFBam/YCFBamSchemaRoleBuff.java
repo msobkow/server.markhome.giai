@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a SchemaRole buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamSchemaRoleBuff
-	extends CFBamRoleDefBuff
+public class YCFBamSchemaRoleBuff
+	extends YCFBamRoleDefBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -69,18 +69,18 @@ public class CFBamSchemaRoleBuff
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long SCHEMADEFID_INIT_VALUE = 0L;
-	public static final ICFBamSchema.RoleScopeEnum ROLESCOPE_INIT_VALUE = CFBamSchema.ordinalToRoleScopeEnum( 0 );
+	public static final IYCFBamSchema.RoleScopeEnum ROLESCOPE_INIT_VALUE = YCFBamSchema.ordinalToRoleScopeEnum( 0 );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
 	public static final long SCHEMADEFID_MIN_VALUE = 0L;
-	public static final ICFBamSchema.RoleScopeEnum ROLESCOPE_MIN_VALUE = ICFBamSchema.RoleScopeEnum.SysRole;
-	public static final ICFBamSchema.RoleScopeEnum ROLESCOPE_MAX_VALUE = ICFBamSchema.RoleScopeEnum.TentRole;
+	public static final IYCFBamSchema.RoleScopeEnum ROLESCOPE_MIN_VALUE = IYCFBamSchema.RoleScopeEnum.SysRole;
+	public static final IYCFBamSchema.RoleScopeEnum ROLESCOPE_MAX_VALUE = IYCFBamSchema.RoleScopeEnum.TentRole;
 	protected long requiredSchemaDefId;
-	protected ICFBamSchema.RoleScopeEnum requiredRoleScope;
-	public CFBamSchemaRoleBuff() {
+	protected IYCFBamSchema.RoleScopeEnum requiredRoleScope;
+	public YCFBamSchemaRoleBuff() {
 		super();
-		requiredSchemaDefId = CFBamSchemaRoleBuff.SCHEMADEFID_INIT_VALUE;
-		requiredRoleScope = CFBamSchemaRoleBuff.ROLESCOPE_INIT_VALUE;
+		requiredSchemaDefId = YCFBamSchemaRoleBuff.SCHEMADEFID_INIT_VALUE;
+		requiredRoleScope = YCFBamSchemaRoleBuff.ROLESCOPE_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -92,24 +92,24 @@ public class CFBamSchemaRoleBuff
 	}
 
 	public void setRequiredSchemaDefId( long value ) {
-		if( value < CFBamSchemaRoleBuff.SCHEMADEFID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamSchemaRoleBuff.SCHEMADEFID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSchemaDefId",
 				1,
 				"value",
 				value,
-				CFBamSchemaRoleBuff.SCHEMADEFID_MIN_VALUE );
+				YCFBamSchemaRoleBuff.SCHEMADEFID_MIN_VALUE );
 		}
 		requiredSchemaDefId = value;
 	}
 
-	public ICFBamSchema.RoleScopeEnum getRequiredRoleScope() {
+	public IYCFBamSchema.RoleScopeEnum getRequiredRoleScope() {
 		return( requiredRoleScope );
 	}
 
-	public void setRequiredRoleScope( ICFBamSchema.RoleScopeEnum value ) {
+	public void setRequiredRoleScope( IYCFBamSchema.RoleScopeEnum value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredRoleScope",
 				1,
 				"value" );
@@ -121,8 +121,8 @@ public class CFBamSchemaRoleBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamSchemaRoleBuff ) {
-			CFBamSchemaRoleBuff rhs = (CFBamSchemaRoleBuff)obj;
+		else if( obj instanceof YCFBamSchemaRoleBuff ) {
+			YCFBamSchemaRoleBuff rhs = (YCFBamSchemaRoleBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -137,8 +137,8 @@ public class CFBamSchemaRoleBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRoleDefPKey ) {
-			CFBamRoleDefPKey rhs = (CFBamRoleDefPKey)obj;
+		else if( obj instanceof YCFBamRoleDefPKey ) {
+			YCFBamRoleDefPKey rhs = (YCFBamRoleDefPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -147,8 +147,8 @@ public class CFBamSchemaRoleBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamSchemaRoleHBuff ) {
-			CFBamSchemaRoleHBuff rhs = (CFBamSchemaRoleHBuff)obj;
+		else if( obj instanceof YCFBamSchemaRoleHBuff ) {
+			YCFBamSchemaRoleHBuff rhs = (YCFBamSchemaRoleHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -163,8 +163,8 @@ public class CFBamSchemaRoleBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamRoleDefHPKey ) {
-			CFBamRoleDefHPKey rhs = (CFBamRoleDefHPKey)obj;
+		else if( obj instanceof YCFBamRoleDefHPKey ) {
+			YCFBamRoleDefHPKey rhs = (YCFBamRoleDefHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -173,8 +173,8 @@ public class CFBamSchemaRoleBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamSchemaRoleBySchemaIdxKey ) {
-			CFBamSchemaRoleBySchemaIdxKey rhs = (CFBamSchemaRoleBySchemaIdxKey)obj;
+		else if( obj instanceof YCFBamSchemaRoleBySchemaIdxKey ) {
+			YCFBamSchemaRoleBySchemaIdxKey rhs = (YCFBamSchemaRoleBySchemaIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -183,15 +183,15 @@ public class CFBamSchemaRoleBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamSchemaRoleByRoleScopeIdxKey ) {
-			CFBamSchemaRoleByRoleScopeIdxKey rhs = (CFBamSchemaRoleByRoleScopeIdxKey)obj;
+		else if( obj instanceof YCFBamSchemaRoleByRoleScopeIdxKey ) {
+			YCFBamSchemaRoleByRoleScopeIdxKey rhs = (YCFBamSchemaRoleByRoleScopeIdxKey)obj;
 			if( ! getRequiredRoleScope().equals( rhs.getRequiredRoleScope() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamSchemaRoleBySchRoleScpIdxKey ) {
-			CFBamSchemaRoleBySchRoleScpIdxKey rhs = (CFBamSchemaRoleBySchRoleScpIdxKey)obj;
+		else if( obj instanceof YCFBamSchemaRoleBySchRoleScpIdxKey ) {
+			YCFBamSchemaRoleBySchRoleScpIdxKey rhs = (YCFBamSchemaRoleBySchRoleScpIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -220,8 +220,8 @@ public class CFBamSchemaRoleBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamSchemaRoleBuff ) {
-			CFBamSchemaRoleBuff rhs = (CFBamSchemaRoleBuff)obj;
+		else if( obj instanceof YCFBamSchemaRoleBuff ) {
+			YCFBamSchemaRoleBuff rhs = (YCFBamSchemaRoleBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -240,8 +240,8 @@ public class CFBamSchemaRoleBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamRoleDefPKey ) {
-			CFBamRoleDefPKey rhs = (CFBamRoleDefPKey)obj;
+		else if( obj instanceof YCFBamRoleDefPKey ) {
+			YCFBamRoleDefPKey rhs = (YCFBamRoleDefPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -256,8 +256,8 @@ public class CFBamSchemaRoleBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamRoleDefHPKey ) {
-			CFBamRoleDefHPKey rhs = (CFBamRoleDefHPKey)obj;
+		else if( obj instanceof YCFBamRoleDefHPKey ) {
+			YCFBamRoleDefHPKey rhs = (YCFBamRoleDefHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -282,8 +282,8 @@ public class CFBamSchemaRoleBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamSchemaRoleHBuff ) {
-			CFBamSchemaRoleHBuff rhs = (CFBamSchemaRoleHBuff)obj;
+		else if( obj instanceof YCFBamSchemaRoleHBuff ) {
+			YCFBamSchemaRoleHBuff rhs = (YCFBamSchemaRoleHBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -302,8 +302,8 @@ public class CFBamSchemaRoleBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamSchemaRoleBySchemaIdxKey ) {
-			CFBamSchemaRoleBySchemaIdxKey rhs = (CFBamSchemaRoleBySchemaIdxKey)obj;
+		else if( obj instanceof YCFBamSchemaRoleBySchemaIdxKey ) {
+			YCFBamSchemaRoleBySchemaIdxKey rhs = (YCFBamSchemaRoleBySchemaIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -318,8 +318,8 @@ public class CFBamSchemaRoleBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamSchemaRoleByRoleScopeIdxKey ) {
-			CFBamSchemaRoleByRoleScopeIdxKey rhs = (CFBamSchemaRoleByRoleScopeIdxKey)obj;
+		else if( obj instanceof YCFBamSchemaRoleByRoleScopeIdxKey ) {
+			YCFBamSchemaRoleByRoleScopeIdxKey rhs = (YCFBamSchemaRoleByRoleScopeIdxKey)obj;
 
 			{
 				int cmp = getRequiredRoleScope().compareTo( rhs.getRequiredRoleScope() );
@@ -328,8 +328,8 @@ public class CFBamSchemaRoleBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamSchemaRoleBySchRoleScpIdxKey ) {
-			CFBamSchemaRoleBySchRoleScpIdxKey rhs = (CFBamSchemaRoleBySchRoleScpIdxKey)obj;
+		else if( obj instanceof YCFBamSchemaRoleBySchRoleScpIdxKey ) {
+			YCFBamSchemaRoleBySchRoleScpIdxKey rhs = (YCFBamSchemaRoleBySchRoleScpIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -356,39 +356,39 @@ public class CFBamSchemaRoleBuff
 		}
 	}
 
-	public void set( CFBamRoleDefBuff src ) {
-		if( src instanceof CFBamSchemaRoleBuff ) {
-			setSchemaRoleBuff( (CFBamSchemaRoleBuff)src );
+	public void set( YCFBamRoleDefBuff src ) {
+		if( src instanceof YCFBamSchemaRoleBuff ) {
+			setSchemaRoleBuff( (YCFBamSchemaRoleBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamSchemaRoleBuff" );
+				"YCFBamSchemaRoleBuff" );
 		}
 	}
 
-	public void setSchemaRoleBuff( CFBamSchemaRoleBuff src ) {
+	public void setSchemaRoleBuff( YCFBamSchemaRoleBuff src ) {
 		super.setRoleDefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 		setRequiredRoleScope( src.getRequiredRoleScope() );
 	}
 
-	public void set( CFBamRoleDefHBuff src ) {
-		if( src instanceof CFBamSchemaRoleHBuff ) {
-			setSchemaRoleBuff( (CFBamSchemaRoleHBuff)src );
+	public void set( YCFBamRoleDefHBuff src ) {
+		if( src instanceof YCFBamSchemaRoleHBuff ) {
+			setSchemaRoleBuff( (YCFBamSchemaRoleHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamSchemaRoleHBuff" );
+				"YCFBamSchemaRoleHBuff" );
 		}
 	}
 
-	public void setSchemaRoleBuff( CFBamSchemaRoleHBuff src ) {
+	public void setSchemaRoleBuff( YCFBamSchemaRoleHBuff src ) {
 		super.setRoleDefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 		setRequiredRoleScope( src.getRequiredRoleScope() );

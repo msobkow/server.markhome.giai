@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for Tool.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbToolTable database interface for Tool
+ *	YCFGenKbToolTable database interface for Tool
  */
-public interface ICFGenKbToolTable
+public interface IYCFGenKbToolTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createTool( CFGenKbAuthorization Authorization,
-		CFGenKbToolBuff Buff );
+	void createTool( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateTool( CFGenKbAuthorization Authorization,
-		CFGenKbToolBuff Buff );
+	void updateTool( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteTool( CFGenKbAuthorization Authorization,
-		CFGenKbToolBuff Buff );
+	void deleteTool( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolBuff Buff );
 	/**
 	 *	Delete the Tool instance identified by the primary key attributes.
 	 *
@@ -86,7 +86,7 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@param	argId	The Tool key attribute of the instance generating the id.
 	 */
-	void deleteToolByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteToolByIdIdx( YCFGenKbAuthorization Authorization,
 		short argId );
 
 	/**
@@ -96,8 +96,8 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteToolByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey argKey );
+	void deleteToolByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey argKey );
 	/**
 	 *	Delete the Tool instances identified by the key NameIdx.
 	 *
@@ -105,7 +105,7 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@param	argName	The Tool key attribute of the instance generating the id.
 	 */
-	void deleteToolByNameIdx( CFGenKbAuthorization Authorization,
+	void deleteToolByNameIdx( YCFGenKbAuthorization Authorization,
 		String argName );
 
 	/**
@@ -115,8 +115,8 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteToolByNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbToolByNameIdxKey argKey );
+	void deleteToolByNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolByNameIdxKey argKey );
 	/**
 	 *	Delete the Tool instances identified by the key ReplacesIdx.
 	 *
@@ -124,7 +124,7 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@param	argReplacesId	The Tool key attribute of the instance generating the id.
 	 */
-	void deleteToolByReplacesIdx( CFGenKbAuthorization Authorization,
+	void deleteToolByReplacesIdx( YCFGenKbAuthorization Authorization,
 		Short argReplacesId );
 
 	/**
@@ -134,8 +134,8 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteToolByReplacesIdx( CFGenKbAuthorization Authorization,
-		CFGenKbToolByReplacesIdxKey argKey );
+	void deleteToolByReplacesIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolByReplacesIdxKey argKey );
 
 
 	/**
@@ -148,8 +148,8 @@ public interface ICFGenKbToolTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbToolBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey PKey );
+	YCFGenKbToolBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey PKey );
 
 	/**
 	 *	Lock the derived Tool buffer instance by primary key.
@@ -161,8 +161,8 @@ public interface ICFGenKbToolTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbToolBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey PKey );
+	YCFGenKbToolBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey PKey );
 
 	/**
 	 *	Read all Tool instances.
@@ -171,7 +171,7 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbToolBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbToolBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived Tool buffer instance identified by the unique key IdIdx.
@@ -183,7 +183,7 @@ public interface ICFGenKbToolTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbToolBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbToolBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		short Id );
 
 	/**
@@ -196,7 +196,7 @@ public interface ICFGenKbToolTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbToolBuff readDerivedByNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbToolBuff readDerivedByNameIdx( YCFGenKbAuthorization Authorization,
 		String Name );
 
 	/**
@@ -208,7 +208,7 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbToolBuff[] readDerivedByReplacesIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbToolBuff[] readDerivedByReplacesIdx( YCFGenKbAuthorization Authorization,
 		Short ReplacesId );
 
 	/**
@@ -221,10 +221,10 @@ public interface ICFGenKbToolTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbToolBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey PKey );
+	YCFGenKbToolBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey PKey );
 
 	/**
 	 *	Lock the specific Tool buffer instance identified by the primary key.
@@ -236,10 +236,10 @@ public interface ICFGenKbToolTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbToolBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbToolPKey PKey );
+	YCFGenKbToolBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbToolPKey PKey );
 
 	/**
 	 *	Read all the specific Tool buffer instances.
@@ -248,7 +248,7 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@return All the specific Tool instances in the database accessible for the Authorization.
 	 */
-	CFGenKbToolBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbToolBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific Tool buffer instance identified by the unique key IdIdx.
@@ -260,9 +260,9 @@ public interface ICFGenKbToolTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbToolBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbToolBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		short Id );
 
 	/**
@@ -275,9 +275,9 @@ public interface ICFGenKbToolTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbToolBuff readBuffByNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbToolBuff readBuffByNameIdx( YCFGenKbAuthorization Authorization,
 		String Name );
 
 	/**
@@ -289,15 +289,15 @@ public interface ICFGenKbToolTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbToolBuff[] readBuffByReplacesIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbToolBuff[] readBuffByReplacesIdx( YCFGenKbAuthorization Authorization,
 		Short ReplacesId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

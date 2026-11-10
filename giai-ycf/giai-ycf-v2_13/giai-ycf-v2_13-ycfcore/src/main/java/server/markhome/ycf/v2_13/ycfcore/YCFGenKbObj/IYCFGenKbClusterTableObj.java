@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbClusterTableObj
+public interface IYCFGenKbClusterTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbClusterTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbClusterObj newInstance();
+	IYCFGenKbClusterObj newInstance();
 
 	/**
 	 *	Instantiate a new Cluster edition of the specified Cluster instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbClusterEditObj newEditInstance( ICFGenKbClusterObj orig );
+	IYCFGenKbClusterEditObj newEditInstance( IYCFGenKbClusterObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbClusterObj realiseCluster( ICFGenKbClusterObj Obj );
+	IYCFGenKbClusterObj realiseCluster( IYCFGenKbClusterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbClusterObj createCluster( ICFGenKbClusterObj Obj );
+	IYCFGenKbClusterObj createCluster( IYCFGenKbClusterObj Obj );
 
 	/**
 	 *	Read a Cluster-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbClusterTableObj
 	 *	@return	The Cluster-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbClusterObj readCluster( CFGenKbClusterPKey pkey );
+	IYCFGenKbClusterObj readCluster( YCFGenKbClusterPKey pkey );
 
 	/**
 	 *	Read a Cluster-derived instance by it's primary key.
@@ -91,114 +91,114 @@ public interface ICFGenKbClusterTableObj
 	 *	@return	The Cluster-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbClusterObj readCluster( CFGenKbClusterPKey pkey,
+	IYCFGenKbClusterObj readCluster( YCFGenKbClusterPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbClusterObj readCachedCluster( CFGenKbClusterPKey pkey );
+	IYCFGenKbClusterObj readCachedCluster( YCFGenKbClusterPKey pkey );
 
-	public void reallyDeepDisposeCluster( ICFGenKbClusterObj obj );
+	public void reallyDeepDisposeCluster( IYCFGenKbClusterObj obj );
 
-	void deepDisposeCluster( CFGenKbClusterPKey pkey );
+	void deepDisposeCluster( YCFGenKbClusterPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbClusterObj lockCluster( CFGenKbClusterPKey pkey );
+	IYCFGenKbClusterObj lockCluster( YCFGenKbClusterPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the Cluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbClusterObj> readAllCluster();
+	List<IYCFGenKbClusterObj> readAllCluster();
 
 	/**
 	 *	Return a sorted map of all the Cluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbClusterObj> readAllCluster( boolean forceRead );
+	List<IYCFGenKbClusterObj> readAllCluster( boolean forceRead );
 
-	List<ICFGenKbClusterObj> readCachedAllCluster();
+	List<IYCFGenKbClusterObj> readCachedAllCluster();
 
 	/**
 	 *	Return a sorted map of a page of the Cluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbClusterObj> pageAllCluster(Long priorId );
+	List<IYCFGenKbClusterObj> pageAllCluster(Long priorId );
 
 	/**
-	 *	Get the CFGenKbClusterObj instance for the primary key attributes.
+	 *	Get the YCFGenKbClusterObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbClusterObj cached instance for the primary key, or
+	 *	@return	YCFGenKbClusterObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbClusterObj readClusterByIdIdx( long Id );
+	IYCFGenKbClusterObj readClusterByIdIdx( long Id );
 
 	/**
-	 *	Get the CFGenKbClusterObj instance for the primary key attributes.
+	 *	Get the YCFGenKbClusterObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbClusterObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbClusterObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbClusterObj readClusterByIdIdx( long Id,
+	IYCFGenKbClusterObj readClusterByIdIdx( long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbClusterObj instance for the unique UDomNameIdx key.
+	 *	Get the YCFGenKbClusterObj instance for the unique UDomNameIdx key.
 	 *
 	 *	@param	argFullDomName	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbClusterObj cached instance for the unique UDomNameIdx key, or
+	 *	@return	YCFGenKbClusterObj cached instance for the unique UDomNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbClusterObj readClusterByUDomNameIdx(String FullDomName );
+	IYCFGenKbClusterObj readClusterByUDomNameIdx(String FullDomName );
 
 	/**
-	 *	Get the CFGenKbClusterObj instance for the unique UDomNameIdx key.
+	 *	Get the YCFGenKbClusterObj instance for the unique UDomNameIdx key.
 	 *
 	 *	@param	argFullDomName	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbClusterObj refreshed instance for the unique UDomNameIdx key, or
+	 *	@return	YCFGenKbClusterObj refreshed instance for the unique UDomNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbClusterObj readClusterByUDomNameIdx(String FullDomName,
+	IYCFGenKbClusterObj readClusterByUDomNameIdx(String FullDomName,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbClusterObj instance for the unique UDescrIdx key.
+	 *	Get the YCFGenKbClusterObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argDescription	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbClusterObj cached instance for the unique UDescrIdx key, or
+	 *	@return	YCFGenKbClusterObj cached instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbClusterObj readClusterByUDescrIdx(String Description );
+	IYCFGenKbClusterObj readClusterByUDescrIdx(String Description );
 
 	/**
-	 *	Get the CFGenKbClusterObj instance for the unique UDescrIdx key.
+	 *	Get the YCFGenKbClusterObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argDescription	The Cluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbClusterObj refreshed instance for the unique UDescrIdx key, or
+	 *	@return	YCFGenKbClusterObj refreshed instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbClusterObj readClusterByUDescrIdx(String Description,
+	IYCFGenKbClusterObj readClusterByUDescrIdx(String Description,
 		boolean forceRead );
 
-	ICFGenKbClusterObj readCachedClusterByIdIdx( long Id );
+	IYCFGenKbClusterObj readCachedClusterByIdIdx( long Id );
 
-	ICFGenKbClusterObj readCachedClusterByUDomNameIdx( String FullDomName );
+	IYCFGenKbClusterObj readCachedClusterByUDomNameIdx( String FullDomName );
 
-	ICFGenKbClusterObj readCachedClusterByUDescrIdx( String Description );
+	IYCFGenKbClusterObj readCachedClusterByUDescrIdx( String Description );
 
 	void deepDisposeClusterByIdIdx( long Id );
 
@@ -209,12 +209,12 @@ public interface ICFGenKbClusterTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbClusterObj updateCluster( ICFGenKbClusterObj Obj );
+	IYCFGenKbClusterObj updateCluster( IYCFGenKbClusterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteCluster( ICFGenKbClusterObj Obj );
+	void deleteCluster( IYCFGenKbClusterObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -237,5 +237,5 @@ public interface ICFGenKbClusterTableObj
 	 */
 	void deleteClusterByUDescrIdx(String Description );
 
-	ICFGenKbClusterObj getSystemCluster();
+	IYCFGenKbClusterObj getSystemCluster();
 }

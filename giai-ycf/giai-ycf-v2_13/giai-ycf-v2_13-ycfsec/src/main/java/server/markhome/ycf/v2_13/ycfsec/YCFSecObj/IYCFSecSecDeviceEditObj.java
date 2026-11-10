@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFSec SecDevice.
+// Description: Java 11 Instance Edit Object interface for YCFSec SecDevice.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,32 +26,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecDeviceEditObj
-	extends ICFSecSecDeviceObj
+public interface IYCFSecSecDeviceEditObj
+	extends IYCFSecSecDeviceObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFSecSecDeviceObj.
+	 *	@return The original, non-modifiable instance as a base IYCFSecSecDeviceObj.
 	 */
-	ICFSecSecDeviceObj getOrig();
+	IYCFSecSecDeviceObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFSecSecDeviceObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFSecSecDeviceObj.
 	 */
-	ICFSecSecDeviceObj getOrigAsSecDevice();
+	IYCFSecSecDeviceObj getOrigAsSecDevice();
 
 	/*
 	 *	create() may return a different instance than the
@@ -62,17 +62,17 @@ public interface ICFSecSecDeviceEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFSecSecDeviceObj create();
+	IYCFSecSecDeviceObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFSecSecDeviceEditObj update();
+	YCFSecSecDeviceEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFSecSecDeviceEditObj deleteInstance();
+	YCFSecSecDeviceEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute DevName.
@@ -103,25 +103,25 @@ public interface ICFSecSecDeviceEditObj
 	void setOptionalPubKey( String value );
 
 	/**
-	 *	Get the ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	Get the IYCFSecSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	@return	The IYCFSecSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFSecSecUserObj getRequiredContainerSecUser();
+	IYCFSecSecUserObj getRequiredContainerSecUser();
 
 	/**
-	 *	Set the ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	Set the IYCFSecSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@param	value	the ICFSecSecUserObj instance to be referenced by the SecUser key.
+	 *	@param	value	the IYCFSecSecUserObj instance to be referenced by the SecUser key.
 	 */
-	void setRequiredContainerSecUser( ICFSecSecUserObj value );
+	void setRequiredContainerSecUser( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFSecSecUserObj value );
+	void setCreatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -133,9 +133,9 @@ public interface ICFSecSecDeviceEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFSecSecUserObj value );
+	void setUpdatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

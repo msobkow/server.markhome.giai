@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for SecDevice.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,70 +28,70 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamSecDeviceTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamSecDeviceTable in-memory RAM DbIO implementation
  *	for SecDevice.
  */
-public class CFGenKbRamSecDeviceTable
-	implements ICFGenKbSecDeviceTable
+public class YCFGenKbRamSecDeviceTable
+	implements IYCFGenKbSecDeviceTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbSecDevicePKey,
-				CFGenKbSecDeviceBuff > dictByPKey
-		= new HashMap< CFGenKbSecDevicePKey,
-				CFGenKbSecDeviceBuff >();
-	private Map< CFGenKbSecDeviceByNameIdxKey,
-			CFGenKbSecDeviceBuff > dictByNameIdx
-		= new HashMap< CFGenKbSecDeviceByNameIdxKey,
-			CFGenKbSecDeviceBuff >();
-	private Map< CFGenKbSecDeviceByUserIdxKey,
-				Map< CFGenKbSecDevicePKey,
-					CFGenKbSecDeviceBuff >> dictByUserIdx
-		= new HashMap< CFGenKbSecDeviceByUserIdxKey,
-				Map< CFGenKbSecDevicePKey,
-					CFGenKbSecDeviceBuff >>();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbSecDevicePKey,
+				YCFGenKbSecDeviceBuff > dictByPKey
+		= new HashMap< YCFGenKbSecDevicePKey,
+				YCFGenKbSecDeviceBuff >();
+	private Map< YCFGenKbSecDeviceByNameIdxKey,
+			YCFGenKbSecDeviceBuff > dictByNameIdx
+		= new HashMap< YCFGenKbSecDeviceByNameIdxKey,
+			YCFGenKbSecDeviceBuff >();
+	private Map< YCFGenKbSecDeviceByUserIdxKey,
+				Map< YCFGenKbSecDevicePKey,
+					YCFGenKbSecDeviceBuff >> dictByUserIdx
+		= new HashMap< YCFGenKbSecDeviceByUserIdxKey,
+				Map< YCFGenKbSecDevicePKey,
+					YCFGenKbSecDeviceBuff >>();
 
-	public CFGenKbRamSecDeviceTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamSecDeviceTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createSecDevice( CFGenKbAuthorization Authorization,
-		CFGenKbSecDeviceBuff Buff )
+	public void createSecDevice( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDeviceBuff Buff )
 	{
 		final String S_ProcName = "createSecDevice";
-		CFGenKbSecDevicePKey pkey = schema.getFactorySecDevice().newPKey();
+		YCFGenKbSecDevicePKey pkey = schema.getFactorySecDevice().newPKey();
 		pkey.setRequiredSecUserId( Buff.getRequiredSecUserId() );
 		pkey.setRequiredDevName( Buff.getRequiredDevName() );
 		Buff.setRequiredSecUserId( pkey.getRequiredSecUserId() );
 		Buff.setRequiredDevName( pkey.getRequiredDevName() );
-		CFGenKbSecDeviceByNameIdxKey keyNameIdx = schema.getFactorySecDevice().newNameIdxKey();
+		YCFGenKbSecDeviceByNameIdxKey keyNameIdx = schema.getFactorySecDevice().newNameIdxKey();
 		keyNameIdx.setRequiredSecUserId( Buff.getRequiredSecUserId() );
 		keyNameIdx.setRequiredDevName( Buff.getRequiredDevName() );
 
-		CFGenKbSecDeviceByUserIdxKey keyUserIdx = schema.getFactorySecDevice().newUserIdxKey();
+		YCFGenKbSecDeviceByUserIdxKey keyUserIdx = schema.getFactorySecDevice().newUserIdxKey();
 		keyUserIdx.setRequiredSecUserId( Buff.getRequiredSecUserId() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByNameIdx.containsKey( keyNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"SecDeviceNameIdx",
 				keyNameIdx );
@@ -106,7 +106,7 @@ public class CFGenKbRamSecDeviceTable
 				if( null == schema.getTableSecUser().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredSecUserId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"SecDeviceSecUser",
@@ -122,26 +122,26 @@ public class CFGenKbRamSecDeviceTable
 
 		dictByNameIdx.put( keyNameIdx, Buff );
 
-		Map< CFGenKbSecDevicePKey, CFGenKbSecDeviceBuff > subdictUserIdx;
+		Map< YCFGenKbSecDevicePKey, YCFGenKbSecDeviceBuff > subdictUserIdx;
 		if( dictByUserIdx.containsKey( keyUserIdx ) ) {
 			subdictUserIdx = dictByUserIdx.get( keyUserIdx );
 		}
 		else {
-			subdictUserIdx = new HashMap< CFGenKbSecDevicePKey, CFGenKbSecDeviceBuff >();
+			subdictUserIdx = new HashMap< YCFGenKbSecDevicePKey, YCFGenKbSecDeviceBuff >();
 			dictByUserIdx.put( keyUserIdx, subdictUserIdx );
 		}
 		subdictUserIdx.put( pkey, Buff );
 
 	}
 
-	public CFGenKbSecDeviceBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecDevicePKey PKey )
+	public YCFGenKbSecDeviceBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDevicePKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readDerived";
-		CFGenKbSecDevicePKey key = schema.getFactorySecDevice().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecDevice.readDerived";
+		YCFGenKbSecDevicePKey key = schema.getFactorySecDevice().newPKey();
 		key.setRequiredSecUserId( PKey.getRequiredSecUserId() );
 		key.setRequiredDevName( PKey.getRequiredDevName() );
-		CFGenKbSecDeviceBuff buff;
+		YCFGenKbSecDeviceBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -151,14 +151,14 @@ public class CFGenKbRamSecDeviceTable
 		return( buff );
 	}
 
-	public CFGenKbSecDeviceBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecDevicePKey PKey )
+	public YCFGenKbSecDeviceBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDevicePKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readDerived";
-		CFGenKbSecDevicePKey key = schema.getFactorySecDevice().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecDevice.readDerived";
+		YCFGenKbSecDevicePKey key = schema.getFactorySecDevice().newPKey();
 		key.setRequiredSecUserId( PKey.getRequiredSecUserId() );
 		key.setRequiredDevName( PKey.getRequiredDevName() );
-		CFGenKbSecDeviceBuff buff;
+		YCFGenKbSecDeviceBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -168,10 +168,10 @@ public class CFGenKbRamSecDeviceTable
 		return( buff );
 	}
 
-	public CFGenKbSecDeviceBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamSecDevice.readAllDerived";
-		CFGenKbSecDeviceBuff[] retList = new CFGenKbSecDeviceBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbSecDeviceBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbSecDeviceBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamSecDevice.readAllDerived";
+		YCFGenKbSecDeviceBuff[] retList = new YCFGenKbSecDeviceBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbSecDeviceBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -179,16 +179,16 @@ public class CFGenKbRamSecDeviceTable
 		return( retList );
 	}
 
-	public CFGenKbSecDeviceBuff readDerivedByNameIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecDeviceBuff readDerivedByNameIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		String DevName )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readDerivedByNameIdx";
-		CFGenKbSecDeviceByNameIdxKey key = schema.getFactorySecDevice().newNameIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecDevice.readDerivedByNameIdx";
+		YCFGenKbSecDeviceByNameIdxKey key = schema.getFactorySecDevice().newNameIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setRequiredDevName( DevName );
 
-		CFGenKbSecDeviceBuff buff;
+		YCFGenKbSecDeviceBuff buff;
 		if( dictByNameIdx.containsKey( key ) ) {
 			buff = dictByNameIdx.get( key );
 		}
@@ -198,43 +198,43 @@ public class CFGenKbRamSecDeviceTable
 		return( buff );
 	}
 
-	public CFGenKbSecDeviceBuff[] readDerivedByUserIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecDeviceBuff[] readDerivedByUserIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readDerivedByUserIdx";
-		CFGenKbSecDeviceByUserIdxKey key = schema.getFactorySecDevice().newUserIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecDevice.readDerivedByUserIdx";
+		YCFGenKbSecDeviceByUserIdxKey key = schema.getFactorySecDevice().newUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 
-		CFGenKbSecDeviceBuff[] recArray;
+		YCFGenKbSecDeviceBuff[] recArray;
 		if( dictByUserIdx.containsKey( key ) ) {
-			Map< CFGenKbSecDevicePKey, CFGenKbSecDeviceBuff > subdictUserIdx
+			Map< YCFGenKbSecDevicePKey, YCFGenKbSecDeviceBuff > subdictUserIdx
 				= dictByUserIdx.get( key );
-			recArray = new CFGenKbSecDeviceBuff[ subdictUserIdx.size() ];
-			Iterator< CFGenKbSecDeviceBuff > iter = subdictUserIdx.values().iterator();
+			recArray = new YCFGenKbSecDeviceBuff[ subdictUserIdx.size() ];
+			Iterator< YCFGenKbSecDeviceBuff > iter = subdictUserIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSecDevicePKey, CFGenKbSecDeviceBuff > subdictUserIdx
-				= new HashMap< CFGenKbSecDevicePKey, CFGenKbSecDeviceBuff >();
+			Map< YCFGenKbSecDevicePKey, YCFGenKbSecDeviceBuff > subdictUserIdx
+				= new HashMap< YCFGenKbSecDevicePKey, YCFGenKbSecDeviceBuff >();
 			dictByUserIdx.put( key, subdictUserIdx );
-			recArray = new CFGenKbSecDeviceBuff[0];
+			recArray = new YCFGenKbSecDeviceBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSecDeviceBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecDeviceBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		String DevName )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readDerivedByIdIdx() ";
-		CFGenKbSecDevicePKey key = schema.getFactorySecDevice().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecDevice.readDerivedByIdIdx() ";
+		YCFGenKbSecDevicePKey key = schema.getFactorySecDevice().newPKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setRequiredDevName( DevName );
 
-		CFGenKbSecDeviceBuff buff;
+		YCFGenKbSecDeviceBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -244,41 +244,41 @@ public class CFGenKbRamSecDeviceTable
 		return( buff );
 	}
 
-	public CFGenKbSecDeviceBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecDevicePKey PKey )
+	public YCFGenKbSecDeviceBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDevicePKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readBuff";
-		CFGenKbSecDeviceBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamSecDevice.readBuff";
+		YCFGenKbSecDeviceBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a905" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSecDeviceBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecDevicePKey PKey )
+	public YCFGenKbSecDeviceBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDevicePKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbSecDeviceBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbSecDeviceBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a905" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSecDeviceBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbSecDeviceBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readAllBuff";
-		CFGenKbSecDeviceBuff buff;
-		ArrayList<CFGenKbSecDeviceBuff> filteredList = new ArrayList<CFGenKbSecDeviceBuff>();
-		CFGenKbSecDeviceBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamSecDevice.readAllBuff";
+		YCFGenKbSecDeviceBuff buff;
+		ArrayList<YCFGenKbSecDeviceBuff> filteredList = new ArrayList<YCFGenKbSecDeviceBuff>();
+		YCFGenKbSecDeviceBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a905" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecDeviceBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecDeviceBuff[0] ) );
 	}
 
 	/**
@@ -288,61 +288,61 @@ public class CFGenKbRamSecDeviceTable
 	 *
 	 *	@return All the specific SecDevice instances in the database accessible for the Authorization.
 	 */
-	public CFGenKbSecDeviceBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecDeviceBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		UUID priorSecUserId,
 		String priorDevName )
 	{
 		final String S_ProcName = "pageAllBuff";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public CFGenKbSecDeviceBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecDeviceBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		String DevName )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readBuffByIdIdx() ";
-		CFGenKbSecDeviceBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecDevice.readBuffByIdIdx() ";
+		YCFGenKbSecDeviceBuff buff = readDerivedByIdIdx( Authorization,
 			SecUserId,
 			DevName );
 		if( ( buff != null ) && buff.getClassCode().equals( "a905" ) ) {
-			return( (CFGenKbSecDeviceBuff)buff );
+			return( (YCFGenKbSecDeviceBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbSecDeviceBuff readBuffByNameIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecDeviceBuff readBuffByNameIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		String DevName )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readBuffByNameIdx() ";
-		CFGenKbSecDeviceBuff buff = readDerivedByNameIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecDevice.readBuffByNameIdx() ";
+		YCFGenKbSecDeviceBuff buff = readDerivedByNameIdx( Authorization,
 			SecUserId,
 			DevName );
 		if( ( buff != null ) && buff.getClassCode().equals( "a905" ) ) {
-			return( (CFGenKbSecDeviceBuff)buff );
+			return( (YCFGenKbSecDeviceBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbSecDeviceBuff[] readBuffByUserIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecDeviceBuff[] readBuffByUserIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId )
 	{
-		final String S_ProcName = "CFGenKbRamSecDevice.readBuffByUserIdx() ";
-		CFGenKbSecDeviceBuff buff;
-		ArrayList<CFGenKbSecDeviceBuff> filteredList = new ArrayList<CFGenKbSecDeviceBuff>();
-		CFGenKbSecDeviceBuff[] buffList = readDerivedByUserIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecDevice.readBuffByUserIdx() ";
+		YCFGenKbSecDeviceBuff buff;
+		ArrayList<YCFGenKbSecDeviceBuff> filteredList = new ArrayList<YCFGenKbSecDeviceBuff>();
+		YCFGenKbSecDeviceBuff[] buffList = readDerivedByUserIdx( Authorization,
 			SecUserId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a905" ) ) {
-				filteredList.add( (CFGenKbSecDeviceBuff)buff );
+				filteredList.add( (YCFGenKbSecDeviceBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecDeviceBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecDeviceBuff[0] ) );
 	}
 
 	/**
@@ -354,56 +354,56 @@ public class CFGenKbRamSecDeviceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbSecDeviceBuff[] pageBuffByUserIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecDeviceBuff[] pageBuffByUserIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		UUID priorSecUserId,
 		String priorDevName )
 	{
 		final String S_ProcName = "pageBuffByUserIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateSecDevice( CFGenKbAuthorization Authorization,
-		CFGenKbSecDeviceBuff Buff )
+	public void updateSecDevice( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDeviceBuff Buff )
 	{
-		CFGenKbSecDevicePKey pkey = schema.getFactorySecDevice().newPKey();
+		YCFGenKbSecDevicePKey pkey = schema.getFactorySecDevice().newPKey();
 		pkey.setRequiredSecUserId( Buff.getRequiredSecUserId() );
 		pkey.setRequiredDevName( Buff.getRequiredDevName() );
-		CFGenKbSecDeviceBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSecDeviceBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateSecDevice",
 				"Existing record not found",
 				"SecDevice",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateSecDevice",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFGenKbSecDeviceByNameIdxKey existingKeyNameIdx = schema.getFactorySecDevice().newNameIdxKey();
+		YCFGenKbSecDeviceByNameIdxKey existingKeyNameIdx = schema.getFactorySecDevice().newNameIdxKey();
 		existingKeyNameIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 		existingKeyNameIdx.setRequiredDevName( existing.getRequiredDevName() );
 
-		CFGenKbSecDeviceByNameIdxKey newKeyNameIdx = schema.getFactorySecDevice().newNameIdxKey();
+		YCFGenKbSecDeviceByNameIdxKey newKeyNameIdx = schema.getFactorySecDevice().newNameIdxKey();
 		newKeyNameIdx.setRequiredSecUserId( Buff.getRequiredSecUserId() );
 		newKeyNameIdx.setRequiredDevName( Buff.getRequiredDevName() );
 
-		CFGenKbSecDeviceByUserIdxKey existingKeyUserIdx = schema.getFactorySecDevice().newUserIdxKey();
+		YCFGenKbSecDeviceByUserIdxKey existingKeyUserIdx = schema.getFactorySecDevice().newUserIdxKey();
 		existingKeyUserIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 
-		CFGenKbSecDeviceByUserIdxKey newKeyUserIdx = schema.getFactorySecDevice().newUserIdxKey();
+		YCFGenKbSecDeviceByUserIdxKey newKeyUserIdx = schema.getFactorySecDevice().newUserIdxKey();
 		newKeyUserIdx.setRequiredSecUserId( Buff.getRequiredSecUserId() );
 
 		// Check unique indexes
 
 		if( ! existingKeyNameIdx.equals( newKeyNameIdx ) ) {
 			if( dictByNameIdx.containsKey( newKeyNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateSecDevice",
 					"SecDeviceNameIdx",
 					newKeyNameIdx );
@@ -419,7 +419,7 @@ public class CFGenKbRamSecDeviceTable
 				if( null == schema.getTableSecUser().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredSecUserId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSecDevice",
 						"Container",
 						"SecDeviceSecUser",
@@ -431,7 +431,7 @@ public class CFGenKbRamSecDeviceTable
 
 		// Update is valid
 
-		Map< CFGenKbSecDevicePKey, CFGenKbSecDeviceBuff > subdict;
+		Map< YCFGenKbSecDevicePKey, YCFGenKbSecDeviceBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -447,42 +447,42 @@ public class CFGenKbRamSecDeviceTable
 			subdict = dictByUserIdx.get( newKeyUserIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSecDevicePKey, CFGenKbSecDeviceBuff >();
+			subdict = new HashMap< YCFGenKbSecDevicePKey, YCFGenKbSecDeviceBuff >();
 			dictByUserIdx.put( newKeyUserIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteSecDevice( CFGenKbAuthorization Authorization,
-		CFGenKbSecDeviceBuff Buff )
+	public void deleteSecDevice( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDeviceBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamSecDeviceTable.deleteSecDevice() ";
+		final String S_ProcName = "YCFGenKbRamSecDeviceTable.deleteSecDevice() ";
 		String classCode;
-		CFGenKbSecDevicePKey pkey = schema.getFactorySecDevice().newPKey();
+		YCFGenKbSecDevicePKey pkey = schema.getFactorySecDevice().newPKey();
 		pkey.setRequiredSecUserId( Buff.getRequiredSecUserId() );
 		pkey.setRequiredDevName( Buff.getRequiredDevName() );
-		CFGenKbSecDeviceBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSecDeviceBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteSecDevice",
 				pkey );
 		}
-		CFGenKbSecDeviceByNameIdxKey keyNameIdx = schema.getFactorySecDevice().newNameIdxKey();
+		YCFGenKbSecDeviceByNameIdxKey keyNameIdx = schema.getFactorySecDevice().newNameIdxKey();
 		keyNameIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 		keyNameIdx.setRequiredDevName( existing.getRequiredDevName() );
 
-		CFGenKbSecDeviceByUserIdxKey keyUserIdx = schema.getFactorySecDevice().newUserIdxKey();
+		YCFGenKbSecDeviceByUserIdxKey keyUserIdx = schema.getFactorySecDevice().newUserIdxKey();
 		keyUserIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbSecDevicePKey, CFGenKbSecDeviceBuff > subdict;
+		Map< YCFGenKbSecDevicePKey, YCFGenKbSecDeviceBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -492,18 +492,18 @@ public class CFGenKbRamSecDeviceTable
 		subdict.remove( pkey );
 
 	}
-	public void deleteSecDeviceByIdIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecDeviceByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecUserId,
 		String argDevName )
 	{
-		CFGenKbSecDevicePKey key = schema.getFactorySecDevice().newPKey();
+		YCFGenKbSecDevicePKey key = schema.getFactorySecDevice().newPKey();
 		key.setRequiredSecUserId( argSecUserId );
 		key.setRequiredDevName( argDevName );
 		deleteSecDeviceByIdIdx( Authorization, key );
 	}
 
-	public void deleteSecDeviceByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecDevicePKey argKey )
+	public void deleteSecDeviceByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDevicePKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -511,16 +511,16 @@ public class CFGenKbRamSecDeviceTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbSecDeviceBuff cur;
-		LinkedList<CFGenKbSecDeviceBuff> matchSet = new LinkedList<CFGenKbSecDeviceBuff>();
-		Iterator<CFGenKbSecDeviceBuff> values = dictByPKey.values().iterator();
+		YCFGenKbSecDeviceBuff cur;
+		LinkedList<YCFGenKbSecDeviceBuff> matchSet = new LinkedList<YCFGenKbSecDeviceBuff>();
+		Iterator<YCFGenKbSecDeviceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecDeviceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecDeviceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecDevice().readDerivedByIdIdx( Authorization,
@@ -530,35 +530,35 @@ public class CFGenKbRamSecDeviceTable
 		}
 	}
 
-	public void deleteSecDeviceByNameIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecDeviceByNameIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecUserId,
 		String argDevName )
 	{
-		CFGenKbSecDeviceByNameIdxKey key = schema.getFactorySecDevice().newNameIdxKey();
+		YCFGenKbSecDeviceByNameIdxKey key = schema.getFactorySecDevice().newNameIdxKey();
 		key.setRequiredSecUserId( argSecUserId );
 		key.setRequiredDevName( argDevName );
 		deleteSecDeviceByNameIdx( Authorization, key );
 	}
 
-	public void deleteSecDeviceByNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecDeviceByNameIdxKey argKey )
+	public void deleteSecDeviceByNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDeviceByNameIdxKey argKey )
 	{
-		CFGenKbSecDeviceBuff cur;
+		YCFGenKbSecDeviceBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecDeviceBuff> matchSet = new LinkedList<CFGenKbSecDeviceBuff>();
-		Iterator<CFGenKbSecDeviceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecDeviceBuff> matchSet = new LinkedList<YCFGenKbSecDeviceBuff>();
+		Iterator<YCFGenKbSecDeviceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecDeviceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecDeviceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecDevice().readDerivedByIdIdx( Authorization,
@@ -568,32 +568,32 @@ public class CFGenKbRamSecDeviceTable
 		}
 	}
 
-	public void deleteSecDeviceByUserIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecDeviceByUserIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecUserId )
 	{
-		CFGenKbSecDeviceByUserIdxKey key = schema.getFactorySecDevice().newUserIdxKey();
+		YCFGenKbSecDeviceByUserIdxKey key = schema.getFactorySecDevice().newUserIdxKey();
 		key.setRequiredSecUserId( argSecUserId );
 		deleteSecDeviceByUserIdx( Authorization, key );
 	}
 
-	public void deleteSecDeviceByUserIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecDeviceByUserIdxKey argKey )
+	public void deleteSecDeviceByUserIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecDeviceByUserIdxKey argKey )
 	{
-		CFGenKbSecDeviceBuff cur;
+		YCFGenKbSecDeviceBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecDeviceBuff> matchSet = new LinkedList<CFGenKbSecDeviceBuff>();
-		Iterator<CFGenKbSecDeviceBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecDeviceBuff> matchSet = new LinkedList<YCFGenKbSecDeviceBuff>();
+		Iterator<YCFGenKbSecDeviceBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecDeviceBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecDeviceBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecDevice().readDerivedByIdIdx( Authorization,

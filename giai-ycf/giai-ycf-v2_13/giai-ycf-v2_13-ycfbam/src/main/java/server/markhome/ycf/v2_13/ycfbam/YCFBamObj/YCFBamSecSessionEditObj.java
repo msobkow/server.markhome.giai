@@ -1,15 +1,15 @@
-// Description: Java 11 edit object instance implementation for CFBam SecSession.
+// Description: Java 11 edit object instance implementation for YCFBam SecSession.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,52 +26,52 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamSecSessionEditObj
-	implements ICFBamSecSessionEditObj
+public class YCFBamSecSessionEditObj
+	implements IYCFBamSecSessionEditObj
 {
-	protected ICFSecSecSessionObj orig;
-	protected CFSecSecSessionBuff buff;
-	protected ICFSecSecUserObj requiredContainerSecUser;
-	protected ICFSecSecUserObj requiredParentSecProxy;
+	protected IYCFSecSecSessionObj orig;
+	protected YCFSecSecSessionBuff buff;
+	protected IYCFSecSecUserObj requiredContainerSecUser;
+	protected IYCFSecSecUserObj requiredParentSecProxy;
 
-	public CFBamSecSessionEditObj( ICFSecSecSessionObj argOrig ) {
+	public YCFBamSecSessionEditObj( IYCFSecSecSessionObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFSecSecSessionBuff origBuff = orig.getBuff();
+		YCFSecSecSessionBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredContainerSecUser = null;
 		requiredParentSecProxy = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamSecSessionObj.CLASS_CODE );
+		return( YCFBamSecSessionObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "SecSession" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFSecSecUserObj scope = getRequiredContainerSecUser();
+	public IYCFLibAnyObj getScope() {
+		IYCFSecSecUserObj scope = getRequiredContainerSecUser();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFSecSecUserObj scope = getRequiredContainerSecUser();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFSecSecUserObj scope = getRequiredContainerSecUser();
 		return( scope );
 	}
 
@@ -82,14 +82,14 @@ public class CFBamSecSessionEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -100,10 +100,10 @@ public class CFBamSecSessionEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -112,20 +112,20 @@ public class CFBamSecSessionEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -149,13 +149,13 @@ public class CFBamSecSessionEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -169,13 +169,13 @@ public class CFBamSecSessionEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -187,9 +187,9 @@ public class CFBamSecSessionEditObj
 		return( fullName );
 	}
 
-	public ICFSecSecSessionObj realise() {
+	public IYCFSecSecSessionObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFSecSecSessionObj retobj = getSchema().getSecSessionTableObj().realiseSecSession( (ICFBamSecSessionObj)this );
+		IYCFSecSecSessionObj retobj = getSchema().getSecSessionTableObj().realiseSecSession( (IYCFBamSecSessionObj)this );
 		return( retobj );
 	}
 
@@ -197,10 +197,10 @@ public class CFBamSecSessionEditObj
 		getOrigAsSecSession().forget();
 	}
 
-	public ICFSecSecSessionObj read() {
-		ICFSecSecSessionObj retval = getOrigAsSecSession().read();
+	public IYCFSecSecSessionObj read() {
+		IYCFSecSecSessionObj retval = getOrigAsSecSession().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -208,10 +208,10 @@ public class CFBamSecSessionEditObj
 		return( retval );
 	}
 
-	public ICFSecSecSessionObj read( boolean forceRead ) {
-		ICFSecSecSessionObj retval = getOrigAsSecSession().read( forceRead );
+	public IYCFSecSecSessionObj read( boolean forceRead ) {
+		IYCFSecSecSessionObj retval = getOrigAsSecSession().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -219,69 +219,69 @@ public class CFBamSecSessionEditObj
 		return( retval );
 	}
 
-	public ICFSecSecSessionObj create() {
+	public IYCFSecSecSessionObj create() {
 		copyBuffToOrig();
-		ICFSecSecSessionObj retobj = ((ICFBamSchemaObj)getOrigAsSecSession().getSchema()).getSecSessionTableObj().createSecSession( getOrigAsSecSession() );
+		IYCFSecSecSessionObj retobj = ((IYCFBamSchemaObj)getOrigAsSecSession().getSchema()).getSecSessionTableObj().createSecSession( getOrigAsSecSession() );
 		if( retobj == getOrigAsSecSession() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFSecSecSessionEditObj update() {
-		getSchema().getSecSessionTableObj().updateSecSession( (ICFSecSecSessionObj)this );
+	public YCFSecSecSessionEditObj update() {
+		getSchema().getSecSessionTableObj().updateSecSession( (IYCFSecSecSessionObj)this );
 		return( null );
 	}
 
-	public CFSecSecSessionEditObj deleteInstance() {
+	public YCFSecSecSessionEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getSecSessionTableObj().deleteSecSession( getOrigAsSecSession() );
 		return( null );
 	}
 
-	public ICFSecSecSessionTableObj getSecSessionTable() {
+	public IYCFSecSecSessionTableObj getSecSessionTable() {
 		return( orig.getSchema().getSecSessionTableObj() );
 	}
 
-	public ICFSecSecSessionEditObj getEdit() {
-		return( (ICFSecSecSessionEditObj)this );
+	public IYCFSecSecSessionEditObj getEdit() {
+		return( (IYCFSecSecSessionEditObj)this );
 	}
 
-	public ICFSecSecSessionEditObj getEditAsSecSession() {
-		return( (ICFSecSecSessionEditObj)this );
+	public IYCFSecSecSessionEditObj getEditAsSecSession() {
+		return( (IYCFSecSecSessionEditObj)this );
 	}
 
-	public ICFSecSecSessionEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFSecSecSessionEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFSecSecSessionObj getOrig() {
+	public IYCFSecSecSessionObj getOrig() {
 		return( orig );
 	}
 
-	public ICFSecSecSessionObj getOrigAsSecSession() {
-		return( (ICFSecSecSessionObj)orig );
+	public IYCFSecSecSessionObj getOrigAsSecSession() {
+		return( (IYCFSecSecSessionObj)orig );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFSecSecSessionBuff getBuff() {
+	public YCFSecSecSessionBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsSecSession().getSchema().getBackingStore()).getFactorySecSession().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsSecSession().getSchema().getBackingStore()).getFactorySecSession().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFSecSecSessionBuff value ) {
+	public void setBuff( YCFSecSecSessionBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredContainerSecUser = null;
@@ -289,15 +289,15 @@ public class CFBamSecSessionEditObj
 		}
 	}
 
-	public CFSecSecSessionBuff getSecSessionBuff() {
-		return( (CFSecSecSessionBuff)getBuff() );
+	public YCFSecSecSessionBuff getSecSessionBuff() {
+		return( (YCFSecSecSessionBuff)getBuff() );
 	}
 
-	public CFSecSecSessionPKey getPKey() {
+	public YCFSecSecSessionPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFSecSecSessionPKey value ) {
+	public void setPKey( YCFSecSecSessionPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -352,15 +352,15 @@ public class CFBamSecSessionEditObj
 		return( getSecSessionBuff().getOptionalSecProxyId() );
 	}
 
-	public ICFSecSecUserObj getRequiredContainerSecUser() {
+	public IYCFSecSecUserObj getRequiredContainerSecUser() {
 		return( getRequiredContainerSecUser( false ) );
 	}
 
-	public ICFSecSecUserObj getRequiredContainerSecUser( boolean forceRead ) {
+	public IYCFSecSecUserObj getRequiredContainerSecUser( boolean forceRead ) {
 		if( forceRead || ( requiredContainerSecUser == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFSecSecUserObj obj = ((ICFBamSchemaObj)getOrigAsSecSession().getSchema()).getSecUserTableObj().readSecUserByIdIdx( getSecSessionBuff().getRequiredSecUserId() );
+				IYCFSecSecUserObj obj = ((IYCFBamSchemaObj)getOrigAsSecSession().getSchema()).getSecUserTableObj().readSecUserByIdIdx( getSecSessionBuff().getRequiredSecUserId() );
 				requiredContainerSecUser = obj;
 				if( obj != null ) {
 					getSecSessionBuff().setRequiredSecUserId( obj.getRequiredSecUserId() );
@@ -371,7 +371,7 @@ public class CFBamSecSessionEditObj
 		return( requiredContainerSecUser );
 	}
 
-	public void setRequiredContainerSecUser( ICFSecSecUserObj value ) {
+	public void setRequiredContainerSecUser( IYCFSecSecUserObj value ) {
 			if( buff == null ) {
 				getSecSessionBuff();
 			}
@@ -381,25 +381,25 @@ public class CFBamSecSessionEditObj
 			requiredContainerSecUser = value;
 	}
 
-	public ICFSecSecUserObj getRequiredParentSecProxy() {
+	public IYCFSecSecUserObj getRequiredParentSecProxy() {
 		return( getRequiredParentSecProxy( false ) );
 	}
 
-	public ICFSecSecUserObj getRequiredParentSecProxy( boolean forceRead ) {
+	public IYCFSecSecUserObj getRequiredParentSecProxy( boolean forceRead ) {
 		if( forceRead || ( requiredParentSecProxy == null ) ) {
 			boolean anyMissing = false;
 			if( getSecSessionBuff().getOptionalSecProxyId() == null ) {
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFSecSecUserObj obj = ((ICFBamSchemaObj)getOrigAsSecSession().getSchema()).getSecUserTableObj().readSecUserByIdIdx( getSecSessionBuff().getOptionalSecProxyId() );
+				IYCFSecSecUserObj obj = ((IYCFBamSchemaObj)getOrigAsSecSession().getSchema()).getSecUserTableObj().readSecUserByIdIdx( getSecSessionBuff().getOptionalSecProxyId() );
 				requiredParentSecProxy = obj;
 			}
 		}
 		return( requiredParentSecProxy );
 	}
 
-	public void setRequiredParentSecProxy( ICFSecSecUserObj value ) {
+	public void setRequiredParentSecProxy( IYCFSecSecUserObj value ) {
 			if( buff == null ) {
 				getSecSessionBuff();
 			}
@@ -421,14 +421,14 @@ public class CFBamSecSessionEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFSecSecSessionBuff origBuff = getOrigAsSecSession().getSecSessionBuff();
-		CFSecSecSessionBuff myBuff = getSecSessionBuff();
+		YCFSecSecSessionBuff origBuff = getOrigAsSecSession().getSecSessionBuff();
+		YCFSecSecSessionBuff myBuff = getSecSessionBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFSecSecSessionBuff origBuff = getOrigAsSecSession().getSecSessionBuff();
-		CFSecSecSessionBuff myBuff = getSecSessionBuff();
+		YCFSecSecSessionBuff origBuff = getOrigAsSecSession().getSecSessionBuff();
+		YCFSecSecSessionBuff myBuff = getSecSessionBuff();
 		myBuff.set( origBuff );
 	}
 }

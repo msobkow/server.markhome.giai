@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for SysCluster.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,56 +28,56 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamSysClusterTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamSysClusterTable in-memory RAM DbIO implementation
  *	for SysCluster.
  */
-public class CFGenKbRamSysClusterTable
-	implements ICFGenKbSysClusterTable
+public class YCFGenKbRamSysClusterTable
+	implements IYCFGenKbSysClusterTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbSysClusterPKey,
-				CFGenKbSysClusterBuff > dictByPKey
-		= new HashMap< CFGenKbSysClusterPKey,
-				CFGenKbSysClusterBuff >();
-	private Map< CFGenKbSysClusterByClusterIdxKey,
-				Map< CFGenKbSysClusterPKey,
-					CFGenKbSysClusterBuff >> dictByClusterIdx
-		= new HashMap< CFGenKbSysClusterByClusterIdxKey,
-				Map< CFGenKbSysClusterPKey,
-					CFGenKbSysClusterBuff >>();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbSysClusterPKey,
+				YCFGenKbSysClusterBuff > dictByPKey
+		= new HashMap< YCFGenKbSysClusterPKey,
+				YCFGenKbSysClusterBuff >();
+	private Map< YCFGenKbSysClusterByClusterIdxKey,
+				Map< YCFGenKbSysClusterPKey,
+					YCFGenKbSysClusterBuff >> dictByClusterIdx
+		= new HashMap< YCFGenKbSysClusterByClusterIdxKey,
+				Map< YCFGenKbSysClusterPKey,
+					YCFGenKbSysClusterBuff >>();
 
-	public CFGenKbRamSysClusterTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamSysClusterTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createSysCluster( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterBuff Buff )
+	public void createSysCluster( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterBuff Buff )
 	{
 		final String S_ProcName = "createSysCluster";
-		CFGenKbSysClusterPKey pkey = schema.getFactorySysCluster().newPKey();
+		YCFGenKbSysClusterPKey pkey = schema.getFactorySysCluster().newPKey();
 		pkey.setRequiredSingletonId( Buff.getRequiredSingletonId() );
 		Buff.setRequiredSingletonId( pkey.getRequiredSingletonId() );
-		CFGenKbSysClusterByClusterIdxKey keyClusterIdx = schema.getFactorySysCluster().newClusterIdxKey();
+		YCFGenKbSysClusterByClusterIdxKey keyClusterIdx = schema.getFactorySysCluster().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		// Validate foreign keys
@@ -89,7 +89,7 @@ public class CFGenKbRamSysClusterTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"SysClusterCluster",
@@ -103,25 +103,25 @@ public class CFGenKbRamSysClusterTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFGenKbSysClusterPKey, CFGenKbSysClusterBuff > subdictClusterIdx;
+		Map< YCFGenKbSysClusterPKey, YCFGenKbSysClusterBuff > subdictClusterIdx;
 		if( dictByClusterIdx.containsKey( keyClusterIdx ) ) {
 			subdictClusterIdx = dictByClusterIdx.get( keyClusterIdx );
 		}
 		else {
-			subdictClusterIdx = new HashMap< CFGenKbSysClusterPKey, CFGenKbSysClusterBuff >();
+			subdictClusterIdx = new HashMap< YCFGenKbSysClusterPKey, YCFGenKbSysClusterBuff >();
 			dictByClusterIdx.put( keyClusterIdx, subdictClusterIdx );
 		}
 		subdictClusterIdx.put( pkey, Buff );
 
 	}
 
-	public CFGenKbSysClusterBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey PKey )
+	public YCFGenKbSysClusterBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSysCluster.readDerived";
-		CFGenKbSysClusterPKey key = schema.getFactorySysCluster().newPKey();
+		final String S_ProcName = "YCFGenKbRamSysCluster.readDerived";
+		YCFGenKbSysClusterPKey key = schema.getFactorySysCluster().newPKey();
 		key.setRequiredSingletonId( PKey.getRequiredSingletonId() );
-		CFGenKbSysClusterBuff buff;
+		YCFGenKbSysClusterBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -131,13 +131,13 @@ public class CFGenKbRamSysClusterTable
 		return( buff );
 	}
 
-	public CFGenKbSysClusterBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey PKey )
+	public YCFGenKbSysClusterBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSysCluster.readDerived";
-		CFGenKbSysClusterPKey key = schema.getFactorySysCluster().newPKey();
+		final String S_ProcName = "YCFGenKbRamSysCluster.readDerived";
+		YCFGenKbSysClusterPKey key = schema.getFactorySysCluster().newPKey();
 		key.setRequiredSingletonId( PKey.getRequiredSingletonId() );
-		CFGenKbSysClusterBuff buff;
+		YCFGenKbSysClusterBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -147,10 +147,10 @@ public class CFGenKbRamSysClusterTable
 		return( buff );
 	}
 
-	public CFGenKbSysClusterBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamSysCluster.readAllDerived";
-		CFGenKbSysClusterBuff[] retList = new CFGenKbSysClusterBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbSysClusterBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbSysClusterBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamSysCluster.readAllDerived";
+		YCFGenKbSysClusterBuff[] retList = new YCFGenKbSysClusterBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbSysClusterBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -158,41 +158,41 @@ public class CFGenKbRamSysClusterTable
 		return( retList );
 	}
 
-	public CFGenKbSysClusterBuff[] readDerivedByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSysClusterBuff[] readDerivedByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFGenKbRamSysCluster.readDerivedByClusterIdx";
-		CFGenKbSysClusterByClusterIdxKey key = schema.getFactorySysCluster().newClusterIdxKey();
+		final String S_ProcName = "YCFGenKbRamSysCluster.readDerivedByClusterIdx";
+		YCFGenKbSysClusterByClusterIdxKey key = schema.getFactorySysCluster().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 
-		CFGenKbSysClusterBuff[] recArray;
+		YCFGenKbSysClusterBuff[] recArray;
 		if( dictByClusterIdx.containsKey( key ) ) {
-			Map< CFGenKbSysClusterPKey, CFGenKbSysClusterBuff > subdictClusterIdx
+			Map< YCFGenKbSysClusterPKey, YCFGenKbSysClusterBuff > subdictClusterIdx
 				= dictByClusterIdx.get( key );
-			recArray = new CFGenKbSysClusterBuff[ subdictClusterIdx.size() ];
-			Iterator< CFGenKbSysClusterBuff > iter = subdictClusterIdx.values().iterator();
+			recArray = new YCFGenKbSysClusterBuff[ subdictClusterIdx.size() ];
+			Iterator< YCFGenKbSysClusterBuff > iter = subdictClusterIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSysClusterPKey, CFGenKbSysClusterBuff > subdictClusterIdx
-				= new HashMap< CFGenKbSysClusterPKey, CFGenKbSysClusterBuff >();
+			Map< YCFGenKbSysClusterPKey, YCFGenKbSysClusterBuff > subdictClusterIdx
+				= new HashMap< YCFGenKbSysClusterPKey, YCFGenKbSysClusterBuff >();
 			dictByClusterIdx.put( key, subdictClusterIdx );
-			recArray = new CFGenKbSysClusterBuff[0];
+			recArray = new YCFGenKbSysClusterBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSysClusterBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSysClusterBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		int SingletonId )
 	{
-		final String S_ProcName = "CFGenKbRamSysCluster.readDerivedByIdIdx() ";
-		CFGenKbSysClusterPKey key = schema.getFactorySysCluster().newPKey();
+		final String S_ProcName = "YCFGenKbRamSysCluster.readDerivedByIdIdx() ";
+		YCFGenKbSysClusterPKey key = schema.getFactorySysCluster().newPKey();
 		key.setRequiredSingletonId( SingletonId );
 
-		CFGenKbSysClusterBuff buff;
+		YCFGenKbSysClusterBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -202,97 +202,97 @@ public class CFGenKbRamSysClusterTable
 		return( buff );
 	}
 
-	public CFGenKbSysClusterBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey PKey )
+	public YCFGenKbSysClusterBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSysCluster.readBuff";
-		CFGenKbSysClusterBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamSysCluster.readBuff";
+		YCFGenKbSysClusterBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a90f" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSysClusterBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey PKey )
+	public YCFGenKbSysClusterBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbSysClusterBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbSysClusterBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a90f" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSysClusterBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbSysClusterBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamSysCluster.readAllBuff";
-		CFGenKbSysClusterBuff buff;
-		ArrayList<CFGenKbSysClusterBuff> filteredList = new ArrayList<CFGenKbSysClusterBuff>();
-		CFGenKbSysClusterBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamSysCluster.readAllBuff";
+		YCFGenKbSysClusterBuff buff;
+		ArrayList<YCFGenKbSysClusterBuff> filteredList = new ArrayList<YCFGenKbSysClusterBuff>();
+		YCFGenKbSysClusterBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90f" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSysClusterBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSysClusterBuff[0] ) );
 	}
 
-	public CFGenKbSysClusterBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSysClusterBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		int SingletonId )
 	{
-		final String S_ProcName = "CFGenKbRamSysCluster.readBuffByIdIdx() ";
-		CFGenKbSysClusterBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSysCluster.readBuffByIdIdx() ";
+		YCFGenKbSysClusterBuff buff = readDerivedByIdIdx( Authorization,
 			SingletonId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a90f" ) ) {
-			return( (CFGenKbSysClusterBuff)buff );
+			return( (YCFGenKbSysClusterBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbSysClusterBuff[] readBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSysClusterBuff[] readBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFGenKbRamSysCluster.readBuffByClusterIdx() ";
-		CFGenKbSysClusterBuff buff;
-		ArrayList<CFGenKbSysClusterBuff> filteredList = new ArrayList<CFGenKbSysClusterBuff>();
-		CFGenKbSysClusterBuff[] buffList = readDerivedByClusterIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSysCluster.readBuffByClusterIdx() ";
+		YCFGenKbSysClusterBuff buff;
+		ArrayList<YCFGenKbSysClusterBuff> filteredList = new ArrayList<YCFGenKbSysClusterBuff>();
+		YCFGenKbSysClusterBuff[] buffList = readDerivedByClusterIdx( Authorization,
 			ClusterId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a90f" ) ) {
-				filteredList.add( (CFGenKbSysClusterBuff)buff );
+				filteredList.add( (YCFGenKbSysClusterBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSysClusterBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSysClusterBuff[0] ) );
 	}
 
-	public void updateSysCluster( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterBuff Buff )
+	public void updateSysCluster( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterBuff Buff )
 	{
-		CFGenKbSysClusterPKey pkey = schema.getFactorySysCluster().newPKey();
+		YCFGenKbSysClusterPKey pkey = schema.getFactorySysCluster().newPKey();
 		pkey.setRequiredSingletonId( Buff.getRequiredSingletonId() );
-		CFGenKbSysClusterBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSysClusterBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateSysCluster",
 				"Existing record not found",
 				"SysCluster",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateSysCluster",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFGenKbSysClusterByClusterIdxKey existingKeyClusterIdx = schema.getFactorySysCluster().newClusterIdxKey();
+		YCFGenKbSysClusterByClusterIdxKey existingKeyClusterIdx = schema.getFactorySysCluster().newClusterIdxKey();
 		existingKeyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFGenKbSysClusterByClusterIdxKey newKeyClusterIdx = schema.getFactorySysCluster().newClusterIdxKey();
+		YCFGenKbSysClusterByClusterIdxKey newKeyClusterIdx = schema.getFactorySysCluster().newClusterIdxKey();
 		newKeyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
 		// Check unique indexes
@@ -306,7 +306,7 @@ public class CFGenKbRamSysClusterTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSysCluster",
 						"Container",
 						"SysClusterCluster",
@@ -318,7 +318,7 @@ public class CFGenKbRamSysClusterTable
 
 		// Update is valid
 
-		Map< CFGenKbSysClusterPKey, CFGenKbSysClusterBuff > subdict;
+		Map< YCFGenKbSysClusterPKey, YCFGenKbSysClusterBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -331,37 +331,37 @@ public class CFGenKbRamSysClusterTable
 			subdict = dictByClusterIdx.get( newKeyClusterIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSysClusterPKey, CFGenKbSysClusterBuff >();
+			subdict = new HashMap< YCFGenKbSysClusterPKey, YCFGenKbSysClusterBuff >();
 			dictByClusterIdx.put( newKeyClusterIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteSysCluster( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterBuff Buff )
+	public void deleteSysCluster( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamSysClusterTable.deleteSysCluster() ";
+		final String S_ProcName = "YCFGenKbRamSysClusterTable.deleteSysCluster() ";
 		String classCode;
-		CFGenKbSysClusterPKey pkey = schema.getFactorySysCluster().newPKey();
+		YCFGenKbSysClusterPKey pkey = schema.getFactorySysCluster().newPKey();
 		pkey.setRequiredSingletonId( Buff.getRequiredSingletonId() );
-		CFGenKbSysClusterBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSysClusterBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteSysCluster",
 				pkey );
 		}
-		CFGenKbSysClusterByClusterIdxKey keyClusterIdx = schema.getFactorySysCluster().newClusterIdxKey();
+		YCFGenKbSysClusterByClusterIdxKey keyClusterIdx = schema.getFactorySysCluster().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbSysClusterPKey, CFGenKbSysClusterBuff > subdict;
+		Map< YCFGenKbSysClusterPKey, YCFGenKbSysClusterBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -369,32 +369,32 @@ public class CFGenKbRamSysClusterTable
 		subdict.remove( pkey );
 
 	}
-	public void deleteSysClusterByIdIdx( CFGenKbAuthorization Authorization,
+	public void deleteSysClusterByIdIdx( YCFGenKbAuthorization Authorization,
 		int argSingletonId )
 	{
-		CFGenKbSysClusterPKey key = schema.getFactorySysCluster().newPKey();
+		YCFGenKbSysClusterPKey key = schema.getFactorySysCluster().newPKey();
 		key.setRequiredSingletonId( argSingletonId );
 		deleteSysClusterByIdIdx( Authorization, key );
 	}
 
-	public void deleteSysClusterByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey argKey )
+	public void deleteSysClusterByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbSysClusterBuff cur;
-		LinkedList<CFGenKbSysClusterBuff> matchSet = new LinkedList<CFGenKbSysClusterBuff>();
-		Iterator<CFGenKbSysClusterBuff> values = dictByPKey.values().iterator();
+		YCFGenKbSysClusterBuff cur;
+		LinkedList<YCFGenKbSysClusterBuff> matchSet = new LinkedList<YCFGenKbSysClusterBuff>();
+		Iterator<YCFGenKbSysClusterBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSysClusterBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSysClusterBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSysCluster().readDerivedByIdIdx( Authorization,
@@ -403,32 +403,32 @@ public class CFGenKbRamSysClusterTable
 		}
 	}
 
-	public void deleteSysClusterByClusterIdx( CFGenKbAuthorization Authorization,
+	public void deleteSysClusterByClusterIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId )
 	{
-		CFGenKbSysClusterByClusterIdxKey key = schema.getFactorySysCluster().newClusterIdxKey();
+		YCFGenKbSysClusterByClusterIdxKey key = schema.getFactorySysCluster().newClusterIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		deleteSysClusterByClusterIdx( Authorization, key );
 	}
 
-	public void deleteSysClusterByClusterIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterByClusterIdxKey argKey )
+	public void deleteSysClusterByClusterIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterByClusterIdxKey argKey )
 	{
-		CFGenKbSysClusterBuff cur;
+		YCFGenKbSysClusterBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSysClusterBuff> matchSet = new LinkedList<CFGenKbSysClusterBuff>();
-		Iterator<CFGenKbSysClusterBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSysClusterBuff> matchSet = new LinkedList<YCFGenKbSysClusterBuff>();
+		Iterator<YCFGenKbSysClusterBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSysClusterBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSysClusterBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSysCluster().readDerivedByIdIdx( Authorization,

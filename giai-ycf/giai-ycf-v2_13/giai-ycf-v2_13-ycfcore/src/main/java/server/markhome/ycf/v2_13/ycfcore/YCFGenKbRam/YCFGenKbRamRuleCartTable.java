@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for RuleCart.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,71 +28,71 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamRuleCartTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamRuleCartTable in-memory RAM DbIO implementation
  *	for RuleCart.
  */
-public class CFGenKbRamRuleCartTable
-	implements ICFGenKbRuleCartTable
+public class YCFGenKbRamRuleCartTable
+	implements IYCFGenKbRuleCartTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbRuleCartPKey,
-				CFGenKbRuleCartBuff > dictByPKey
-		= new HashMap< CFGenKbRuleCartPKey,
-				CFGenKbRuleCartBuff >();
-	private Map< CFGenKbRuleCartByTenantIdxKey,
-				Map< CFGenKbRuleCartPKey,
-					CFGenKbRuleCartBuff >> dictByTenantIdx
-		= new HashMap< CFGenKbRuleCartByTenantIdxKey,
-				Map< CFGenKbRuleCartPKey,
-					CFGenKbRuleCartBuff >>();
-	private Map< CFGenKbRuleCartByNameIdxKey,
-			CFGenKbRuleCartBuff > dictByNameIdx
-		= new HashMap< CFGenKbRuleCartByNameIdxKey,
-			CFGenKbRuleCartBuff >();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbRuleCartPKey,
+				YCFGenKbRuleCartBuff > dictByPKey
+		= new HashMap< YCFGenKbRuleCartPKey,
+				YCFGenKbRuleCartBuff >();
+	private Map< YCFGenKbRuleCartByTenantIdxKey,
+				Map< YCFGenKbRuleCartPKey,
+					YCFGenKbRuleCartBuff >> dictByTenantIdx
+		= new HashMap< YCFGenKbRuleCartByTenantIdxKey,
+				Map< YCFGenKbRuleCartPKey,
+					YCFGenKbRuleCartBuff >>();
+	private Map< YCFGenKbRuleCartByNameIdxKey,
+			YCFGenKbRuleCartBuff > dictByNameIdx
+		= new HashMap< YCFGenKbRuleCartByNameIdxKey,
+			YCFGenKbRuleCartBuff >();
 
-	public CFGenKbRamRuleCartTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamRuleCartTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createRuleCart( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartBuff Buff )
+	public void createRuleCart( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartBuff Buff )
 	{
 		final String S_ProcName = "createRuleCart";
-		CFGenKbRuleCartPKey pkey = schema.getFactoryRuleCart().newPKey();
+		YCFGenKbRuleCartPKey pkey = schema.getFactoryRuleCart().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
-		pkey.setRequiredId( ((CFGenKbRamTenantTable)schema.getTableTenant()).nextRuleCartIdGen( Authorization,
+		pkey.setRequiredId( ((YCFGenKbRamTenantTable)schema.getTableTenant()).nextRuleCartIdGen( Authorization,
 			Buff.getRequiredTenantId() ) );
 		Buff.setRequiredTenantId( pkey.getRequiredTenantId() );
 		Buff.setRequiredId( pkey.getRequiredId() );
-		CFGenKbRuleCartByTenantIdxKey keyTenantIdx = schema.getFactoryRuleCart().newTenantIdxKey();
+		YCFGenKbRuleCartByTenantIdxKey keyTenantIdx = schema.getFactoryRuleCart().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFGenKbRuleCartByNameIdxKey keyNameIdx = schema.getFactoryRuleCart().newNameIdxKey();
+		YCFGenKbRuleCartByNameIdxKey keyNameIdx = schema.getFactoryRuleCart().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyNameIdx.setRequiredName( Buff.getRequiredName() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByNameIdx.containsKey( keyNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"RuleCartName",
 				keyNameIdx );
@@ -107,7 +107,7 @@ public class CFGenKbRamRuleCartTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"Tenant",
@@ -121,12 +121,12 @@ public class CFGenKbRamRuleCartTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFGenKbRuleCartPKey, CFGenKbRuleCartBuff > subdictTenantIdx;
+		Map< YCFGenKbRuleCartPKey, YCFGenKbRuleCartBuff > subdictTenantIdx;
 		if( dictByTenantIdx.containsKey( keyTenantIdx ) ) {
 			subdictTenantIdx = dictByTenantIdx.get( keyTenantIdx );
 		}
 		else {
-			subdictTenantIdx = new HashMap< CFGenKbRuleCartPKey, CFGenKbRuleCartBuff >();
+			subdictTenantIdx = new HashMap< YCFGenKbRuleCartPKey, YCFGenKbRuleCartBuff >();
 			dictByTenantIdx.put( keyTenantIdx, subdictTenantIdx );
 		}
 		subdictTenantIdx.put( pkey, Buff );
@@ -135,14 +135,14 @@ public class CFGenKbRamRuleCartTable
 
 	}
 
-	public CFGenKbRuleCartBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey PKey )
+	public YCFGenKbRuleCartBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readDerived";
-		CFGenKbRuleCartPKey key = schema.getFactoryRuleCart().newPKey();
+		final String S_ProcName = "YCFGenKbRamRuleCart.readDerived";
+		YCFGenKbRuleCartPKey key = schema.getFactoryRuleCart().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFGenKbRuleCartBuff buff;
+		YCFGenKbRuleCartBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -152,14 +152,14 @@ public class CFGenKbRamRuleCartTable
 		return( buff );
 	}
 
-	public CFGenKbRuleCartBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey PKey )
+	public YCFGenKbRuleCartBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readDerived";
-		CFGenKbRuleCartPKey key = schema.getFactoryRuleCart().newPKey();
+		final String S_ProcName = "YCFGenKbRamRuleCart.readDerived";
+		YCFGenKbRuleCartPKey key = schema.getFactoryRuleCart().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFGenKbRuleCartBuff buff;
+		YCFGenKbRuleCartBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -169,10 +169,10 @@ public class CFGenKbRamRuleCartTable
 		return( buff );
 	}
 
-	public CFGenKbRuleCartBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamRuleCart.readAllDerived";
-		CFGenKbRuleCartBuff[] retList = new CFGenKbRuleCartBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbRuleCartBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbRuleCartBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamRuleCart.readAllDerived";
+		YCFGenKbRuleCartBuff[] retList = new YCFGenKbRuleCartBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbRuleCartBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -180,43 +180,43 @@ public class CFGenKbRamRuleCartTable
 		return( retList );
 	}
 
-	public CFGenKbRuleCartBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbRuleCartBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readDerivedByTenantIdx";
-		CFGenKbRuleCartByTenantIdxKey key = schema.getFactoryRuleCart().newTenantIdxKey();
+		final String S_ProcName = "YCFGenKbRamRuleCart.readDerivedByTenantIdx";
+		YCFGenKbRuleCartByTenantIdxKey key = schema.getFactoryRuleCart().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 
-		CFGenKbRuleCartBuff[] recArray;
+		YCFGenKbRuleCartBuff[] recArray;
 		if( dictByTenantIdx.containsKey( key ) ) {
-			Map< CFGenKbRuleCartPKey, CFGenKbRuleCartBuff > subdictTenantIdx
+			Map< YCFGenKbRuleCartPKey, YCFGenKbRuleCartBuff > subdictTenantIdx
 				= dictByTenantIdx.get( key );
-			recArray = new CFGenKbRuleCartBuff[ subdictTenantIdx.size() ];
-			Iterator< CFGenKbRuleCartBuff > iter = subdictTenantIdx.values().iterator();
+			recArray = new YCFGenKbRuleCartBuff[ subdictTenantIdx.size() ];
+			Iterator< YCFGenKbRuleCartBuff > iter = subdictTenantIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbRuleCartPKey, CFGenKbRuleCartBuff > subdictTenantIdx
-				= new HashMap< CFGenKbRuleCartPKey, CFGenKbRuleCartBuff >();
+			Map< YCFGenKbRuleCartPKey, YCFGenKbRuleCartBuff > subdictTenantIdx
+				= new HashMap< YCFGenKbRuleCartPKey, YCFGenKbRuleCartBuff >();
 			dictByTenantIdx.put( key, subdictTenantIdx );
-			recArray = new CFGenKbRuleCartBuff[0];
+			recArray = new YCFGenKbRuleCartBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbRuleCartBuff readDerivedByNameIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbRuleCartBuff readDerivedByNameIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		String Name )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readDerivedByNameIdx";
-		CFGenKbRuleCartByNameIdxKey key = schema.getFactoryRuleCart().newNameIdxKey();
+		final String S_ProcName = "YCFGenKbRamRuleCart.readDerivedByNameIdx";
+		YCFGenKbRuleCartByNameIdxKey key = schema.getFactoryRuleCart().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredName( Name );
 
-		CFGenKbRuleCartBuff buff;
+		YCFGenKbRuleCartBuff buff;
 		if( dictByNameIdx.containsKey( key ) ) {
 			buff = dictByNameIdx.get( key );
 		}
@@ -226,16 +226,16 @@ public class CFGenKbRamRuleCartTable
 		return( buff );
 	}
 
-	public CFGenKbRuleCartBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbRuleCartBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readDerivedByIdIdx() ";
-		CFGenKbRuleCartPKey key = schema.getFactoryRuleCart().newPKey();
+		final String S_ProcName = "YCFGenKbRamRuleCart.readDerivedByIdIdx() ";
+		YCFGenKbRuleCartPKey key = schema.getFactoryRuleCart().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFGenKbRuleCartBuff buff;
+		YCFGenKbRuleCartBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -245,123 +245,123 @@ public class CFGenKbRamRuleCartTable
 		return( buff );
 	}
 
-	public CFGenKbRuleCartBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey PKey )
+	public YCFGenKbRuleCartBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readBuff";
-		CFGenKbRuleCartBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamRuleCart.readBuff";
+		YCFGenKbRuleCartBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a925" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbRuleCartBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey PKey )
+	public YCFGenKbRuleCartBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbRuleCartBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbRuleCartBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a925" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbRuleCartBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbRuleCartBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readAllBuff";
-		CFGenKbRuleCartBuff buff;
-		ArrayList<CFGenKbRuleCartBuff> filteredList = new ArrayList<CFGenKbRuleCartBuff>();
-		CFGenKbRuleCartBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamRuleCart.readAllBuff";
+		YCFGenKbRuleCartBuff buff;
+		ArrayList<YCFGenKbRuleCartBuff> filteredList = new ArrayList<YCFGenKbRuleCartBuff>();
+		YCFGenKbRuleCartBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a925" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbRuleCartBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbRuleCartBuff[0] ) );
 	}
 
-	public CFGenKbRuleCartBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbRuleCartBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readBuffByIdIdx() ";
-		CFGenKbRuleCartBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamRuleCart.readBuffByIdIdx() ";
+		YCFGenKbRuleCartBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a925" ) ) {
-			return( (CFGenKbRuleCartBuff)buff );
+			return( (YCFGenKbRuleCartBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbRuleCartBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbRuleCartBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readBuffByTenantIdx() ";
-		CFGenKbRuleCartBuff buff;
-		ArrayList<CFGenKbRuleCartBuff> filteredList = new ArrayList<CFGenKbRuleCartBuff>();
-		CFGenKbRuleCartBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamRuleCart.readBuffByTenantIdx() ";
+		YCFGenKbRuleCartBuff buff;
+		ArrayList<YCFGenKbRuleCartBuff> filteredList = new ArrayList<YCFGenKbRuleCartBuff>();
+		YCFGenKbRuleCartBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a925" ) ) {
-				filteredList.add( (CFGenKbRuleCartBuff)buff );
+				filteredList.add( (YCFGenKbRuleCartBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbRuleCartBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbRuleCartBuff[0] ) );
 	}
 
-	public CFGenKbRuleCartBuff readBuffByNameIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbRuleCartBuff readBuffByNameIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		String Name )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCart.readBuffByNameIdx() ";
-		CFGenKbRuleCartBuff buff = readDerivedByNameIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamRuleCart.readBuffByNameIdx() ";
+		YCFGenKbRuleCartBuff buff = readDerivedByNameIdx( Authorization,
 			TenantId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a925" ) ) {
-			return( (CFGenKbRuleCartBuff)buff );
+			return( (YCFGenKbRuleCartBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public void updateRuleCart( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartBuff Buff )
+	public void updateRuleCart( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartBuff Buff )
 	{
-		CFGenKbRuleCartPKey pkey = schema.getFactoryRuleCart().newPKey();
+		YCFGenKbRuleCartPKey pkey = schema.getFactoryRuleCart().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFGenKbRuleCartBuff existing = dictByPKey.get( pkey );
+		YCFGenKbRuleCartBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateRuleCart",
 				"Existing record not found",
 				"RuleCart",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateRuleCart",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFGenKbRuleCartByTenantIdxKey existingKeyTenantIdx = schema.getFactoryRuleCart().newTenantIdxKey();
+		YCFGenKbRuleCartByTenantIdxKey existingKeyTenantIdx = schema.getFactoryRuleCart().newTenantIdxKey();
 		existingKeyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFGenKbRuleCartByTenantIdxKey newKeyTenantIdx = schema.getFactoryRuleCart().newTenantIdxKey();
+		YCFGenKbRuleCartByTenantIdxKey newKeyTenantIdx = schema.getFactoryRuleCart().newTenantIdxKey();
 		newKeyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFGenKbRuleCartByNameIdxKey existingKeyNameIdx = schema.getFactoryRuleCart().newNameIdxKey();
+		YCFGenKbRuleCartByNameIdxKey existingKeyNameIdx = schema.getFactoryRuleCart().newNameIdxKey();
 		existingKeyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFGenKbRuleCartByNameIdxKey newKeyNameIdx = schema.getFactoryRuleCart().newNameIdxKey();
+		YCFGenKbRuleCartByNameIdxKey newKeyNameIdx = schema.getFactoryRuleCart().newNameIdxKey();
 		newKeyNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyNameIdx.setRequiredName( Buff.getRequiredName() );
 
@@ -369,7 +369,7 @@ public class CFGenKbRamRuleCartTable
 
 		if( ! existingKeyNameIdx.equals( newKeyNameIdx ) ) {
 			if( dictByNameIdx.containsKey( newKeyNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateRuleCart",
 					"RuleCartName",
 					newKeyNameIdx );
@@ -385,7 +385,7 @@ public class CFGenKbRamRuleCartTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateRuleCart",
 						"Container",
 						"Tenant",
@@ -397,7 +397,7 @@ public class CFGenKbRamRuleCartTable
 
 		// Update is valid
 
-		Map< CFGenKbRuleCartPKey, CFGenKbRuleCartBuff > subdict;
+		Map< YCFGenKbRuleCartPKey, YCFGenKbRuleCartBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -410,7 +410,7 @@ public class CFGenKbRamRuleCartTable
 			subdict = dictByTenantIdx.get( newKeyTenantIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbRuleCartPKey, CFGenKbRuleCartBuff >();
+			subdict = new HashMap< YCFGenKbRuleCartPKey, YCFGenKbRuleCartBuff >();
 			dictByTenantIdx.put( newKeyTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -420,38 +420,38 @@ public class CFGenKbRamRuleCartTable
 
 	}
 
-	public void deleteRuleCart( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartBuff Buff )
+	public void deleteRuleCart( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamRuleCartTable.deleteRuleCart() ";
+		final String S_ProcName = "YCFGenKbRamRuleCartTable.deleteRuleCart() ";
 		String classCode;
-		CFGenKbRuleCartPKey pkey = schema.getFactoryRuleCart().newPKey();
+		YCFGenKbRuleCartPKey pkey = schema.getFactoryRuleCart().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFGenKbRuleCartBuff existing = dictByPKey.get( pkey );
+		YCFGenKbRuleCartBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteRuleCart",
 				pkey );
 		}
 					schema.getTableGenItem().deleteGenItemByCartIdx( Authorization,
 						existing.getRequiredTenantId(),
 						existing.getRequiredId() );
-		CFGenKbRuleCartByTenantIdxKey keyTenantIdx = schema.getFactoryRuleCart().newTenantIdxKey();
+		YCFGenKbRuleCartByTenantIdxKey keyTenantIdx = schema.getFactoryRuleCart().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFGenKbRuleCartByNameIdxKey keyNameIdx = schema.getFactoryRuleCart().newNameIdxKey();
+		YCFGenKbRuleCartByNameIdxKey keyNameIdx = schema.getFactoryRuleCart().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbRuleCartPKey, CFGenKbRuleCartBuff > subdict;
+		Map< YCFGenKbRuleCartPKey, YCFGenKbRuleCartBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -461,18 +461,18 @@ public class CFGenKbRamRuleCartTable
 		dictByNameIdx.remove( keyNameIdx );
 
 	}
-	public void deleteRuleCartByIdIdx( CFGenKbAuthorization Authorization,
+	public void deleteRuleCartByIdIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFGenKbRuleCartPKey key = schema.getFactoryRuleCart().newPKey();
+		YCFGenKbRuleCartPKey key = schema.getFactoryRuleCart().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deleteRuleCartByIdIdx( Authorization, key );
 	}
 
-	public void deleteRuleCartByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartPKey argKey )
+	public void deleteRuleCartByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -480,16 +480,16 @@ public class CFGenKbRamRuleCartTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbRuleCartBuff cur;
-		LinkedList<CFGenKbRuleCartBuff> matchSet = new LinkedList<CFGenKbRuleCartBuff>();
-		Iterator<CFGenKbRuleCartBuff> values = dictByPKey.values().iterator();
+		YCFGenKbRuleCartBuff cur;
+		LinkedList<YCFGenKbRuleCartBuff> matchSet = new LinkedList<YCFGenKbRuleCartBuff>();
+		Iterator<YCFGenKbRuleCartBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbRuleCartBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbRuleCartBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRuleCart().readDerivedByIdIdx( Authorization,
@@ -499,32 +499,32 @@ public class CFGenKbRamRuleCartTable
 		}
 	}
 
-	public void deleteRuleCartByTenantIdx( CFGenKbAuthorization Authorization,
+	public void deleteRuleCartByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId )
 	{
-		CFGenKbRuleCartByTenantIdxKey key = schema.getFactoryRuleCart().newTenantIdxKey();
+		YCFGenKbRuleCartByTenantIdxKey key = schema.getFactoryRuleCart().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteRuleCartByTenantIdx( Authorization, key );
 	}
 
-	public void deleteRuleCartByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartByTenantIdxKey argKey )
+	public void deleteRuleCartByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartByTenantIdxKey argKey )
 	{
-		CFGenKbRuleCartBuff cur;
+		YCFGenKbRuleCartBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbRuleCartBuff> matchSet = new LinkedList<CFGenKbRuleCartBuff>();
-		Iterator<CFGenKbRuleCartBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbRuleCartBuff> matchSet = new LinkedList<YCFGenKbRuleCartBuff>();
+		Iterator<YCFGenKbRuleCartBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbRuleCartBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbRuleCartBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRuleCart().readDerivedByIdIdx( Authorization,
@@ -534,35 +534,35 @@ public class CFGenKbRamRuleCartTable
 		}
 	}
 
-	public void deleteRuleCartByNameIdx( CFGenKbAuthorization Authorization,
+	public void deleteRuleCartByNameIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		String argName )
 	{
-		CFGenKbRuleCartByNameIdxKey key = schema.getFactoryRuleCart().newNameIdxKey();
+		YCFGenKbRuleCartByNameIdxKey key = schema.getFactoryRuleCart().newNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredName( argName );
 		deleteRuleCartByNameIdx( Authorization, key );
 	}
 
-	public void deleteRuleCartByNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbRuleCartByNameIdxKey argKey )
+	public void deleteRuleCartByNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleCartByNameIdxKey argKey )
 	{
-		CFGenKbRuleCartBuff cur;
+		YCFGenKbRuleCartBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbRuleCartBuff> matchSet = new LinkedList<CFGenKbRuleCartBuff>();
-		Iterator<CFGenKbRuleCartBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbRuleCartBuff> matchSet = new LinkedList<YCFGenKbRuleCartBuff>();
+		Iterator<YCFGenKbRuleCartBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbRuleCartBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbRuleCartBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRuleCart().readDerivedByIdIdx( Authorization,

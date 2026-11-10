@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GenRule.
+// Description: Java 11 Object interface for YCFGenKb GenRule.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,46 +27,46 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGelCompiler;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGelCompiler;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGenRuleObj
-	extends ICFGenKbGenItemObj
+public interface IYCFGenKbGenRuleObj
+	extends IYCFGenKbGenItemObj
 {
 	/**
-	 *	Get the current edition of this GenRule instance as a ICFGenKbGenRuleEditObj.
+	 *	Get the current edition of this GenRule instance as a IYCFGenKbGenRuleEditObj.
 	 *
-	 *	@return	The ICFGenKbGenRuleEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGenRuleEditObj edition of this instance.
 	 */
-	ICFGenKbGenRuleEditObj getEditAsGenRule();
+	IYCFGenKbGenRuleEditObj getEditAsGenRule();
 
 	/**
-	 *	Get the ICFGenKbGenRuleTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGenRuleTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGenRuleTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGenRuleTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGenRuleTableObj getGenRuleTable();
+	IYCFGenKbGenRuleTableObj getGenRuleTable();
 
 	/**
-	 *	Get the CFGenKbGenRuleBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGenRuleBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGenRuleBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGenRuleBuff instance which currently backs this object.
 	 */
-	CFGenKbGenRuleBuff getGenRuleBuff();
+	YCFGenKbGenRuleBuff getGenRuleBuff();
 
 	/**
 	 *	Get the required String attribute DefinedNear.
@@ -104,17 +104,17 @@ public interface ICFGenKbGenRuleObj
 	Long getOptionalBodyGelId();
 
 	/**
-	 *	Get the optional ICFGenKbGelExecutableObj instance referenced by the BodyGel key.
+	 *	Get the optional IYCFGenKbGelExecutableObj instance referenced by the BodyGel key.
 	 *
-	 *	@return	The optional ICFGenKbGelExecutableObj instance referenced by the BodyGel key.
+	 *	@return	The optional IYCFGenKbGelExecutableObj instance referenced by the BodyGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsBodyGel();
+	IYCFGenKbGelExecutableObj getOptionalComponentsBodyGel();
 
 	/**
-	 *	Get the optional ICFGenKbGelExecutableObj instance referenced by the BodyGel key.
+	 *	Get the optional IYCFGenKbGelExecutableObj instance referenced by the BodyGel key.
 	 *
-	 *	@return	The optional ICFGenKbGelExecutableObj instance referenced by the BodyGel key.
+	 *	@return	The optional IYCFGenKbGelExecutableObj instance referenced by the BodyGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsBodyGel( boolean forceRead );
+	IYCFGenKbGelExecutableObj getOptionalComponentsBodyGel( boolean forceRead );
 
 }

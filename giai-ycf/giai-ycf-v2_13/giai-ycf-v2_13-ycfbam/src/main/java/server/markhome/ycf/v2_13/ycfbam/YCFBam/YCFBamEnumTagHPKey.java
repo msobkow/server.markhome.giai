@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a EnumTag history primary key object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,30 +55,30 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFBamEnumTagHPKey History Primary Key for EnumTag
+ *	YCFBamEnumTagHPKey History Primary Key for EnumTag
 
  *		requiredTenantId	Required object attribute TenantId.
  *		requiredId	Required object attribute Id. */
-public class CFBamEnumTagHPKey
-	extends CFBamHPKey
+public class YCFBamEnumTagHPKey
+	extends YCFBamHPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected long requiredTenantId;
 	protected long requiredId;
-	public CFBamEnumTagHPKey()
+	public YCFBamEnumTagHPKey()
 	{
 		super();
-		requiredTenantId = CFBamEnumTagBuff.TENANTID_INIT_VALUE;
-		requiredId = CFBamEnumTagBuff.ID_INIT_VALUE;
+		requiredTenantId = YCFBamEnumTagBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFBamEnumTagBuff.ID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -86,13 +86,13 @@ public class CFBamEnumTagHPKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFBamEnumTagBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamEnumTagBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.TENANTID_MIN_VALUE );
+				YCFBamEnumTagBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -102,13 +102,13 @@ public class CFBamEnumTagHPKey
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFBamEnumTagBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamEnumTagBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFBamEnumTagBuff.ID_MIN_VALUE );
+				YCFBamEnumTagBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -117,8 +117,8 @@ public class CFBamEnumTagHPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamEnumTagHPKey ) {
-			CFBamEnumTagHPKey rhs = (CFBamEnumTagHPKey)obj;
+		else if( obj instanceof YCFBamEnumTagHPKey ) {
+			YCFBamEnumTagHPKey rhs = (YCFBamEnumTagHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -182,8 +182,8 @@ public class CFBamEnumTagHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamHPKey ) {
-			CFBamHPKey rhs = (CFBamHPKey)obj;
+		else if( obj instanceof YCFBamHPKey ) {
+			YCFBamHPKey rhs = (YCFBamHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -241,8 +241,8 @@ public class CFBamEnumTagHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagPKey ) {
-			CFBamEnumTagPKey rhs = (CFBamEnumTagPKey)obj;
+		else if( obj instanceof YCFBamEnumTagPKey ) {
+			YCFBamEnumTagPKey rhs = (YCFBamEnumTagPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -251,8 +251,8 @@ public class CFBamEnumTagHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagHBuff ) {
-			CFBamEnumTagHBuff rhs = (CFBamEnumTagHBuff)obj;
+		else if( obj instanceof YCFBamEnumTagHBuff ) {
+			YCFBamEnumTagHBuff rhs = (YCFBamEnumTagHBuff)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -322,8 +322,8 @@ public class CFBamEnumTagHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamEnumTagBuff ) {
-			CFBamEnumTagBuff rhs = (CFBamEnumTagBuff)obj;
+		else if( obj instanceof YCFBamEnumTagBuff ) {
+			YCFBamEnumTagBuff rhs = (YCFBamEnumTagBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -348,8 +348,8 @@ public class CFBamEnumTagHPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamEnumTagHBuff ) {
-			CFBamEnumTagHBuff rhs = (CFBamEnumTagHBuff)obj;
+		else if( obj instanceof YCFBamEnumTagHBuff ) {
+			YCFBamEnumTagHBuff rhs = (YCFBamEnumTagHBuff)obj;
 			int retval = 0;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
@@ -431,8 +431,8 @@ public class CFBamEnumTagHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagHPKey ) {
-			CFBamEnumTagHPKey rhs = (CFBamEnumTagHPKey)obj;
+		else if( obj instanceof YCFBamEnumTagHPKey ) {
+			YCFBamEnumTagHPKey rhs = (YCFBamEnumTagHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -513,8 +513,8 @@ public class CFBamEnumTagHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamHPKey ) {
-			CFBamHPKey rhs = (CFBamHPKey)obj;
+		else if( obj instanceof YCFBamHPKey ) {
+			YCFBamHPKey rhs = (YCFBamHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -583,8 +583,8 @@ public class CFBamEnumTagHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagPKey ) {
-			CFBamEnumTagPKey rhs = (CFBamEnumTagPKey)obj;
+		else if( obj instanceof YCFBamEnumTagPKey ) {
+			YCFBamEnumTagPKey rhs = (YCFBamEnumTagPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -599,8 +599,8 @@ public class CFBamEnumTagHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamEnumTagBuff ) {
-			CFBamEnumTagBuff rhs = (CFBamEnumTagBuff)obj;
+		else if( obj instanceof YCFBamEnumTagBuff ) {
+			YCFBamEnumTagBuff rhs = (YCFBamEnumTagBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -616,16 +616,16 @@ public class CFBamEnumTagHPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFBamEnumTagHPKey, CFBamEnumTagPKey, CFBamEnumTagBuff" );
+				"YCFBamEnumTagHPKey, YCFBamEnumTagPKey, YCFBamEnumTagBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFBamEnumTagHPKey"
+		String ret = "<YCFBamEnumTagHPKey"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""

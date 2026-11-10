@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a TSecGrpInc buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbTSecGrpIncBuff
+public class YCFGenKbTSecGrpIncBuff
 {
 	public final static String CLASS_CODE = "a912";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -55,20 +55,20 @@ public class CFGenKbTSecGrpIncBuff
 	public static final long TSECGRPINCID_MIN_VALUE = 0L;
 	public static final int TSECGROUPID_MIN_VALUE = 0;
 	public static final int INCLUDEGROUPID_MIN_VALUE = 0;
-	protected UUID createdByUserId = CFGenKbTSecGrpIncBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFGenKbTSecGrpIncBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFGenKbTSecGrpIncBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFGenKbTSecGrpIncBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected long requiredTenantId;
 	protected long requiredTSecGrpIncId;
 	protected int requiredTSecGroupId;
 	protected int requiredIncludeGroupId;
 	protected int requiredRevision;
-	public CFGenKbTSecGrpIncBuff() {
-		requiredTenantId = CFGenKbTSecGrpIncBuff.TENANTID_INIT_VALUE;
-		requiredTSecGrpIncId = CFGenKbTSecGrpIncBuff.TSECGRPINCID_INIT_VALUE;
-		requiredTSecGroupId = CFGenKbTSecGrpIncBuff.TSECGROUPID_INIT_VALUE;
-		requiredIncludeGroupId = CFGenKbTSecGrpIncBuff.INCLUDEGROUPID_INIT_VALUE;
+	public YCFGenKbTSecGrpIncBuff() {
+		requiredTenantId = YCFGenKbTSecGrpIncBuff.TENANTID_INIT_VALUE;
+		requiredTSecGrpIncId = YCFGenKbTSecGrpIncBuff.TSECGRPINCID_INIT_VALUE;
+		requiredTSecGroupId = YCFGenKbTSecGrpIncBuff.TSECGROUPID_INIT_VALUE;
+		requiredIncludeGroupId = YCFGenKbTSecGrpIncBuff.INCLUDEGROUPID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -111,13 +111,13 @@ public class CFGenKbTSecGrpIncBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbTSecGrpIncBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbTSecGrpIncBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbTSecGrpIncBuff.TENANTID_MIN_VALUE );
+				YCFGenKbTSecGrpIncBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -127,13 +127,13 @@ public class CFGenKbTSecGrpIncBuff
 	}
 
 	public void setRequiredTSecGrpIncId( long value ) {
-		if( value < CFGenKbTSecGrpIncBuff.TSECGRPINCID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbTSecGrpIncBuff.TSECGRPINCID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTSecGrpIncId",
 				1,
 				"value",
 				value,
-				CFGenKbTSecGrpIncBuff.TSECGRPINCID_MIN_VALUE );
+				YCFGenKbTSecGrpIncBuff.TSECGRPINCID_MIN_VALUE );
 		}
 		requiredTSecGrpIncId = value;
 	}
@@ -143,13 +143,13 @@ public class CFGenKbTSecGrpIncBuff
 	}
 
 	public void setRequiredTSecGroupId( int value ) {
-		if( value < CFGenKbTSecGrpIncBuff.TSECGROUPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbTSecGrpIncBuff.TSECGROUPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTSecGroupId",
 				1,
 				"value",
 				value,
-				CFGenKbTSecGrpIncBuff.TSECGROUPID_MIN_VALUE );
+				YCFGenKbTSecGrpIncBuff.TSECGROUPID_MIN_VALUE );
 		}
 		requiredTSecGroupId = value;
 	}
@@ -159,13 +159,13 @@ public class CFGenKbTSecGrpIncBuff
 	}
 
 	public void setRequiredIncludeGroupId( int value ) {
-		if( value < CFGenKbTSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbTSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredIncludeGroupId",
 				1,
 				"value",
 				value,
-				CFGenKbTSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE );
+				YCFGenKbTSecGrpIncBuff.INCLUDEGROUPID_MIN_VALUE );
 		}
 		requiredIncludeGroupId = value;
 	}
@@ -182,8 +182,8 @@ public class CFGenKbTSecGrpIncBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncBuff ) {
-			CFGenKbTSecGrpIncBuff rhs = (CFGenKbTSecGrpIncBuff)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncBuff ) {
+			YCFGenKbTSecGrpIncBuff rhs = (YCFGenKbTSecGrpIncBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -210,8 +210,8 @@ public class CFGenKbTSecGrpIncBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncPKey ) {
-			CFGenKbTSecGrpIncPKey rhs = (CFGenKbTSecGrpIncPKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncPKey ) {
+			YCFGenKbTSecGrpIncPKey rhs = (YCFGenKbTSecGrpIncPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -220,15 +220,15 @@ public class CFGenKbTSecGrpIncBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByTenantIdxKey ) {
-			CFGenKbTSecGrpIncByTenantIdxKey rhs = (CFGenKbTSecGrpIncByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByTenantIdxKey ) {
+			YCFGenKbTSecGrpIncByTenantIdxKey rhs = (YCFGenKbTSecGrpIncByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByGroupIdxKey ) {
-			CFGenKbTSecGrpIncByGroupIdxKey rhs = (CFGenKbTSecGrpIncByGroupIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByGroupIdxKey ) {
+			YCFGenKbTSecGrpIncByGroupIdxKey rhs = (YCFGenKbTSecGrpIncByGroupIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -237,8 +237,8 @@ public class CFGenKbTSecGrpIncBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByIncludeIdxKey ) {
-			CFGenKbTSecGrpIncByIncludeIdxKey rhs = (CFGenKbTSecGrpIncByIncludeIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByIncludeIdxKey ) {
+			YCFGenKbTSecGrpIncByIncludeIdxKey rhs = (YCFGenKbTSecGrpIncByIncludeIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -247,8 +247,8 @@ public class CFGenKbTSecGrpIncBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByUIncludeIdxKey ) {
-			CFGenKbTSecGrpIncByUIncludeIdxKey rhs = (CFGenKbTSecGrpIncByUIncludeIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByUIncludeIdxKey ) {
+			YCFGenKbTSecGrpIncByUIncludeIdxKey rhs = (YCFGenKbTSecGrpIncByUIncludeIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -283,8 +283,8 @@ public class CFGenKbTSecGrpIncBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncBuff ) {
-			CFGenKbTSecGrpIncBuff rhs = (CFGenKbTSecGrpIncBuff)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncBuff ) {
+			YCFGenKbTSecGrpIncBuff rhs = (YCFGenKbTSecGrpIncBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -333,8 +333,8 @@ public class CFGenKbTSecGrpIncBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncPKey ) {
-			CFGenKbTSecGrpIncPKey rhs = (CFGenKbTSecGrpIncPKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncPKey ) {
+			YCFGenKbTSecGrpIncPKey rhs = (YCFGenKbTSecGrpIncPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -349,8 +349,8 @@ public class CFGenKbTSecGrpIncBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByTenantIdxKey ) {
-			CFGenKbTSecGrpIncByTenantIdxKey rhs = (CFGenKbTSecGrpIncByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByTenantIdxKey ) {
+			YCFGenKbTSecGrpIncByTenantIdxKey rhs = (YCFGenKbTSecGrpIncByTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -359,8 +359,8 @@ public class CFGenKbTSecGrpIncBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByGroupIdxKey ) {
-			CFGenKbTSecGrpIncByGroupIdxKey rhs = (CFGenKbTSecGrpIncByGroupIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByGroupIdxKey ) {
+			YCFGenKbTSecGrpIncByGroupIdxKey rhs = (YCFGenKbTSecGrpIncByGroupIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -375,8 +375,8 @@ public class CFGenKbTSecGrpIncBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByIncludeIdxKey ) {
-			CFGenKbTSecGrpIncByIncludeIdxKey rhs = (CFGenKbTSecGrpIncByIncludeIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByIncludeIdxKey ) {
+			YCFGenKbTSecGrpIncByIncludeIdxKey rhs = (YCFGenKbTSecGrpIncByIncludeIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -391,8 +391,8 @@ public class CFGenKbTSecGrpIncBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTSecGrpIncByUIncludeIdxKey ) {
-			CFGenKbTSecGrpIncByUIncludeIdxKey rhs = (CFGenKbTSecGrpIncByUIncludeIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGrpIncByUIncludeIdxKey ) {
+			YCFGenKbTSecGrpIncByUIncludeIdxKey rhs = (YCFGenKbTSecGrpIncByUIncludeIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -414,7 +414,7 @@ public class CFGenKbTSecGrpIncBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -422,11 +422,11 @@ public class CFGenKbTSecGrpIncBuff
 		}
 	}
 
-	public void set( CFGenKbTSecGrpIncBuff src ) {
+	public void set( YCFGenKbTSecGrpIncBuff src ) {
 		setTSecGrpIncBuff( src );
 	}
 
-	public void setTSecGrpIncBuff( CFGenKbTSecGrpIncBuff src ) {
+	public void setTSecGrpIncBuff( YCFGenKbTSecGrpIncBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredTSecGrpIncId( src.getRequiredTSecGrpIncId() );
 		setCreatedByUserId( src.getCreatedByUserId() );

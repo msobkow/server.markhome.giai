@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb GenRule.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb GenRule.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,26 +27,26 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGenRuleEditObj
-	extends ICFGenKbGenRuleObj,
-		ICFGenKbGenItemEditObj
+public interface IYCFGenKbGenRuleEditObj
+	extends IYCFGenKbGenRuleObj,
+		IYCFGenKbGenItemEditObj
 {
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbGenRuleObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbGenRuleObj.
 	 */
-	ICFGenKbGenRuleObj getOrigAsGenRule();
+	IYCFGenKbGenRuleObj getOrigAsGenRule();
 
 	/**
 	 *	Get the required String attribute DefinedNear.
@@ -77,16 +77,16 @@ public interface ICFGenKbGenRuleEditObj
 	void setRequiredBody( String value );
 
 	/**
-	 *	Get the ICFGenKbGelExecutableObj instance referenced by the BodyGel key.
+	 *	Get the IYCFGenKbGelExecutableObj instance referenced by the BodyGel key.
 	 *
-	 *	@return	The ICFGenKbGelExecutableObj instance referenced by the BodyGel key.
+	 *	@return	The IYCFGenKbGelExecutableObj instance referenced by the BodyGel key.
 	 */
-	ICFGenKbGelExecutableObj getOptionalComponentsBodyGel();
+	IYCFGenKbGelExecutableObj getOptionalComponentsBodyGel();
 
 	/**
-	 *	Set the ICFGenKbGelExecutableObj instance referenced by the BodyGel key.
+	 *	Set the IYCFGenKbGelExecutableObj instance referenced by the BodyGel key.
 	 *
-	 *	@param	value	the ICFGenKbGelExecutableObj instance to be referenced by the BodyGel key.
+	 *	@param	value	the IYCFGenKbGelExecutableObj instance to be referenced by the BodyGel key.
 	 */
-	void setOptionalComponentsBodyGel( ICFGenKbGelExecutableObj value );
+	void setOptionalComponentsBodyGel( IYCFGenKbGelExecutableObj value );
 }

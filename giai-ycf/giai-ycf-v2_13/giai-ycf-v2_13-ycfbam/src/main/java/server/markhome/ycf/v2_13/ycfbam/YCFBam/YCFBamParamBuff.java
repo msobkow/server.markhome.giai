@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a Param buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,12 +55,12 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamParamBuff
+public class YCFBamParamBuff
 {
 	public final static String CLASS_CODE = "a832";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -91,9 +91,9 @@ public class CFBamParamBuff
 	public static final long PREVID_MIN_VALUE = 0L;
 	public static final long NEXTTENANTID_MIN_VALUE = 0L;
 	public static final long NEXTID_MIN_VALUE = 0L;
-	protected UUID createdByUserId = CFBamParamBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFBamParamBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFBamParamBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFBamParamBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected long requiredTenantId;
 	protected long requiredServerMethodId;
@@ -111,16 +111,16 @@ public class CFBamParamBuff
 	protected Long optionalNextTenantId;
 	protected Long optionalNextId;
 	protected int requiredRevision;
-	public CFBamParamBuff() {
-		requiredTenantId = CFBamParamBuff.TENANTID_INIT_VALUE;
-		requiredServerMethodId = CFBamParamBuff.SERVERMETHODID_INIT_VALUE;
-		requiredId = CFBamParamBuff.ID_INIT_VALUE;
+	public YCFBamParamBuff() {
+		requiredTenantId = YCFBamParamBuff.TENANTID_INIT_VALUE;
+		requiredServerMethodId = YCFBamParamBuff.SERVERMETHODID_INIT_VALUE;
+		requiredId = YCFBamParamBuff.ID_INIT_VALUE;
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
-		requiredName = new String( CFBamParamBuff.NAME_INIT_VALUE );
+		requiredName = new String( YCFBamParamBuff.NAME_INIT_VALUE );
 		optionalShortDescription = null;
 		optionalDescription = null;
-		requiredIsNullable = CFBamParamBuff.ISNULLABLE_INIT_VALUE;
+		requiredIsNullable = YCFBamParamBuff.ISNULLABLE_INIT_VALUE;
 		optionalTypeTenantId = null;
 		optionalTypeId = null;
 		optionalPrevTenantId = null;
@@ -169,13 +169,13 @@ public class CFBamParamBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFBamParamBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamParamBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.TENANTID_MIN_VALUE );
+				YCFBamParamBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -185,13 +185,13 @@ public class CFBamParamBuff
 	}
 
 	public void setRequiredServerMethodId( long value ) {
-		if( value < CFBamParamBuff.SERVERMETHODID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamParamBuff.SERVERMETHODID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredServerMethodId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.SERVERMETHODID_MIN_VALUE );
+				YCFBamParamBuff.SERVERMETHODID_MIN_VALUE );
 		}
 		requiredServerMethodId = value;
 	}
@@ -201,13 +201,13 @@ public class CFBamParamBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFBamParamBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamParamBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.ID_MIN_VALUE );
+				YCFBamParamBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -220,13 +220,13 @@ public class CFBamParamBuff
 		if( value == null ) {
 			optionalDefSchemaTenantId = null;
 		}
-		else if( value < CFBamParamBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamParamBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaTenantId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.DEFSCHEMATENANTID_MIN_VALUE );
+				YCFBamParamBuff.DEFSCHEMATENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaTenantId = value;
@@ -241,13 +241,13 @@ public class CFBamParamBuff
 		if( value == null ) {
 			optionalDefSchemaId = null;
 		}
-		else if( value < CFBamParamBuff.DEFSCHEMAID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamParamBuff.DEFSCHEMAID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.DEFSCHEMAID_MIN_VALUE );
+				YCFBamParamBuff.DEFSCHEMAID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaId = value;
@@ -260,13 +260,13 @@ public class CFBamParamBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -285,7 +285,7 @@ public class CFBamParamBuff
 			optionalShortDescription = null;
 		}
 		else if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortDescription",
 				1,
 				"value.length()",
@@ -306,7 +306,7 @@ public class CFBamParamBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1023 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -334,13 +334,13 @@ public class CFBamParamBuff
 		if( value == null ) {
 			optionalTypeTenantId = null;
 		}
-		else if( value < CFBamParamBuff.TYPETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamParamBuff.TYPETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalTypeTenantId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.TYPETENANTID_MIN_VALUE );
+				YCFBamParamBuff.TYPETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalTypeTenantId = value;
@@ -355,13 +355,13 @@ public class CFBamParamBuff
 		if( value == null ) {
 			optionalTypeId = null;
 		}
-		else if( value < CFBamParamBuff.TYPEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamParamBuff.TYPEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalTypeId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.TYPEID_MIN_VALUE );
+				YCFBamParamBuff.TYPEID_MIN_VALUE );
 		}
 		else {
 			optionalTypeId = value;
@@ -376,13 +376,13 @@ public class CFBamParamBuff
 		if( value == null ) {
 			optionalPrevTenantId = null;
 		}
-		else if( value < CFBamParamBuff.PREVTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamParamBuff.PREVTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrevTenantId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.PREVTENANTID_MIN_VALUE );
+				YCFBamParamBuff.PREVTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalPrevTenantId = value;
@@ -397,13 +397,13 @@ public class CFBamParamBuff
 		if( value == null ) {
 			optionalPrevId = null;
 		}
-		else if( value < CFBamParamBuff.PREVID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamParamBuff.PREVID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrevId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.PREVID_MIN_VALUE );
+				YCFBamParamBuff.PREVID_MIN_VALUE );
 		}
 		else {
 			optionalPrevId = value;
@@ -418,13 +418,13 @@ public class CFBamParamBuff
 		if( value == null ) {
 			optionalNextTenantId = null;
 		}
-		else if( value < CFBamParamBuff.NEXTTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamParamBuff.NEXTTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNextTenantId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.NEXTTENANTID_MIN_VALUE );
+				YCFBamParamBuff.NEXTTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalNextTenantId = value;
@@ -439,13 +439,13 @@ public class CFBamParamBuff
 		if( value == null ) {
 			optionalNextId = null;
 		}
-		else if( value < CFBamParamBuff.NEXTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamParamBuff.NEXTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNextId",
 				1,
 				"value",
 				value,
-				CFBamParamBuff.NEXTID_MIN_VALUE );
+				YCFBamParamBuff.NEXTID_MIN_VALUE );
 		}
 		else {
 			optionalNextId = value;
@@ -464,8 +464,8 @@ public class CFBamParamBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamParamBuff ) {
-			CFBamParamBuff rhs = (CFBamParamBuff)obj;
+		else if( obj instanceof YCFBamParamBuff ) {
+			YCFBamParamBuff rhs = (YCFBamParamBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -615,8 +615,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamPKey ) {
-			CFBamParamPKey rhs = (CFBamParamPKey)obj;
+		else if( obj instanceof YCFBamParamPKey ) {
+			YCFBamParamPKey rhs = (YCFBamParamPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -625,8 +625,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamHBuff ) {
-			CFBamParamHBuff rhs = (CFBamParamHBuff)obj;
+		else if( obj instanceof YCFBamParamHBuff ) {
+			YCFBamParamHBuff rhs = (YCFBamParamHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -764,8 +764,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamHPKey ) {
-			CFBamParamHPKey rhs = (CFBamParamHPKey)obj;
+		else if( obj instanceof YCFBamParamHPKey ) {
+			YCFBamParamHPKey rhs = (YCFBamParamHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -774,8 +774,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamByUNameIdxKey ) {
-			CFBamParamByUNameIdxKey rhs = (CFBamParamByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamParamByUNameIdxKey ) {
+			YCFBamParamByUNameIdxKey rhs = (YCFBamParamByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -787,15 +787,15 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamByValTentIdxKey ) {
-			CFBamParamByValTentIdxKey rhs = (CFBamParamByValTentIdxKey)obj;
+		else if( obj instanceof YCFBamParamByValTentIdxKey ) {
+			YCFBamParamByValTentIdxKey rhs = (YCFBamParamByValTentIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamByServerMethodIdxKey ) {
-			CFBamParamByServerMethodIdxKey rhs = (CFBamParamByServerMethodIdxKey)obj;
+		else if( obj instanceof YCFBamParamByServerMethodIdxKey ) {
+			YCFBamParamByServerMethodIdxKey rhs = (YCFBamParamByServerMethodIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -804,8 +804,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamByDefSchemaIdxKey ) {
-			CFBamParamByDefSchemaIdxKey rhs = (CFBamParamByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamParamByDefSchemaIdxKey ) {
+			YCFBamParamByDefSchemaIdxKey rhs = (YCFBamParamByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
 				if( rhs.getOptionalDefSchemaTenantId() != null ) {
 					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
@@ -832,8 +832,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamByServerTypeIdxKey ) {
-			CFBamParamByServerTypeIdxKey rhs = (CFBamParamByServerTypeIdxKey)obj;
+		else if( obj instanceof YCFBamParamByServerTypeIdxKey ) {
+			YCFBamParamByServerTypeIdxKey rhs = (YCFBamParamByServerTypeIdxKey)obj;
 			if( getOptionalTypeTenantId() != null ) {
 				if( rhs.getOptionalTypeTenantId() != null ) {
 					if( ! getOptionalTypeTenantId().equals( rhs.getOptionalTypeTenantId() ) ) {
@@ -860,8 +860,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamByPrevIdxKey ) {
-			CFBamParamByPrevIdxKey rhs = (CFBamParamByPrevIdxKey)obj;
+		else if( obj instanceof YCFBamParamByPrevIdxKey ) {
+			YCFBamParamByPrevIdxKey rhs = (YCFBamParamByPrevIdxKey)obj;
 			if( getOptionalPrevTenantId() != null ) {
 				if( rhs.getOptionalPrevTenantId() != null ) {
 					if( ! getOptionalPrevTenantId().equals( rhs.getOptionalPrevTenantId() ) ) {
@@ -888,8 +888,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamByNextIdxKey ) {
-			CFBamParamByNextIdxKey rhs = (CFBamParamByNextIdxKey)obj;
+		else if( obj instanceof YCFBamParamByNextIdxKey ) {
+			YCFBamParamByNextIdxKey rhs = (YCFBamParamByNextIdxKey)obj;
 			if( getOptionalNextTenantId() != null ) {
 				if( rhs.getOptionalNextTenantId() != null ) {
 					if( ! getOptionalNextTenantId().equals( rhs.getOptionalNextTenantId() ) ) {
@@ -916,8 +916,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamByContPrevIdxKey ) {
-			CFBamParamByContPrevIdxKey rhs = (CFBamParamByContPrevIdxKey)obj;
+		else if( obj instanceof YCFBamParamByContPrevIdxKey ) {
+			YCFBamParamByContPrevIdxKey rhs = (YCFBamParamByContPrevIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -938,8 +938,8 @@ public class CFBamParamBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamParamByContNextIdxKey ) {
-			CFBamParamByContNextIdxKey rhs = (CFBamParamByContNextIdxKey)obj;
+		else if( obj instanceof YCFBamParamByContNextIdxKey ) {
+			YCFBamParamByContNextIdxKey rhs = (YCFBamParamByContNextIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -1021,8 +1021,8 @@ public class CFBamParamBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamParamBuff ) {
-			CFBamParamBuff rhs = (CFBamParamBuff)obj;
+		else if( obj instanceof YCFBamParamBuff ) {
+			YCFBamParamBuff rhs = (YCFBamParamBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -1257,8 +1257,8 @@ public class CFBamParamBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamParamPKey ) {
-			CFBamParamPKey rhs = (CFBamParamPKey)obj;
+		else if( obj instanceof YCFBamParamPKey ) {
+			YCFBamParamPKey rhs = (YCFBamParamPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -1273,8 +1273,8 @@ public class CFBamParamBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamParamHPKey ) {
-			CFBamParamHPKey rhs = (CFBamParamHPKey)obj;
+		else if( obj instanceof YCFBamParamHPKey ) {
+			YCFBamParamHPKey rhs = (YCFBamParamHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -1299,8 +1299,8 @@ public class CFBamParamBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamParamHBuff ) {
-			CFBamParamHBuff rhs = (CFBamParamHBuff)obj;
+		else if( obj instanceof YCFBamParamHBuff ) {
+			YCFBamParamHBuff rhs = (YCFBamParamHBuff)obj;
 			int retval = 0;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1514,8 +1514,8 @@ public class CFBamParamBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamParamByUNameIdxKey ) {
-			CFBamParamByUNameIdxKey rhs = (CFBamParamByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamParamByUNameIdxKey ) {
+			YCFBamParamByUNameIdxKey rhs = (YCFBamParamByUNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1536,8 +1536,8 @@ public class CFBamParamBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamParamByValTentIdxKey ) {
-			CFBamParamByValTentIdxKey rhs = (CFBamParamByValTentIdxKey)obj;
+		else if( obj instanceof YCFBamParamByValTentIdxKey ) {
+			YCFBamParamByValTentIdxKey rhs = (YCFBamParamByValTentIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1546,8 +1546,8 @@ public class CFBamParamBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamParamByServerMethodIdxKey ) {
-			CFBamParamByServerMethodIdxKey rhs = (CFBamParamByServerMethodIdxKey)obj;
+		else if( obj instanceof YCFBamParamByServerMethodIdxKey ) {
+			YCFBamParamByServerMethodIdxKey rhs = (YCFBamParamByServerMethodIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1562,8 +1562,8 @@ public class CFBamParamBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamParamByDefSchemaIdxKey ) {
-			CFBamParamByDefSchemaIdxKey rhs = (CFBamParamByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamParamByDefSchemaIdxKey ) {
+			YCFBamParamByDefSchemaIdxKey rhs = (YCFBamParamByDefSchemaIdxKey)obj;
 
 			if( getOptionalDefSchemaTenantId() != null ) {
 				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
@@ -1602,8 +1602,8 @@ public class CFBamParamBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamParamByServerTypeIdxKey ) {
-			CFBamParamByServerTypeIdxKey rhs = (CFBamParamByServerTypeIdxKey)obj;
+		else if( obj instanceof YCFBamParamByServerTypeIdxKey ) {
+			YCFBamParamByServerTypeIdxKey rhs = (YCFBamParamByServerTypeIdxKey)obj;
 
 			if( getOptionalTypeTenantId() != null ) {
 				Long lhsTypeTenantId = getOptionalTypeTenantId();
@@ -1642,8 +1642,8 @@ public class CFBamParamBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamParamByPrevIdxKey ) {
-			CFBamParamByPrevIdxKey rhs = (CFBamParamByPrevIdxKey)obj;
+		else if( obj instanceof YCFBamParamByPrevIdxKey ) {
+			YCFBamParamByPrevIdxKey rhs = (YCFBamParamByPrevIdxKey)obj;
 
 			if( getOptionalPrevTenantId() != null ) {
 				Long lhsPrevTenantId = getOptionalPrevTenantId();
@@ -1682,8 +1682,8 @@ public class CFBamParamBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamParamByNextIdxKey ) {
-			CFBamParamByNextIdxKey rhs = (CFBamParamByNextIdxKey)obj;
+		else if( obj instanceof YCFBamParamByNextIdxKey ) {
+			YCFBamParamByNextIdxKey rhs = (YCFBamParamByNextIdxKey)obj;
 
 			if( getOptionalNextTenantId() != null ) {
 				Long lhsNextTenantId = getOptionalNextTenantId();
@@ -1722,8 +1722,8 @@ public class CFBamParamBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamParamByContPrevIdxKey ) {
-			CFBamParamByContPrevIdxKey rhs = (CFBamParamByContPrevIdxKey)obj;
+		else if( obj instanceof YCFBamParamByContPrevIdxKey ) {
+			YCFBamParamByContPrevIdxKey rhs = (YCFBamParamByContPrevIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1756,8 +1756,8 @@ public class CFBamParamBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamParamByContNextIdxKey ) {
-			CFBamParamByContNextIdxKey rhs = (CFBamParamByContNextIdxKey)obj;
+		else if( obj instanceof YCFBamParamByContNextIdxKey ) {
+			YCFBamParamByContNextIdxKey rhs = (YCFBamParamByContNextIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1791,7 +1791,7 @@ public class CFBamParamBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -1799,11 +1799,11 @@ public class CFBamParamBuff
 		}
 	}
 
-	public void set( CFBamParamBuff src ) {
+	public void set( YCFBamParamBuff src ) {
 		setParamBuff( src );
 	}
 
-	public void setParamBuff( CFBamParamBuff src ) {
+	public void setParamBuff( YCFBamParamBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setCreatedByUserId( src.getCreatedByUserId() );
@@ -1826,11 +1826,11 @@ public class CFBamParamBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFBamParamHBuff src ) {
+	public void set( YCFBamParamHBuff src ) {
 		setParamBuff( src );
 	}
 
-	public void setParamBuff( CFBamParamHBuff src ) {
+	public void setParamBuff( YCFBamParamHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredServerMethodId( src.getRequiredServerMethodId() );

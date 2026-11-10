@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,29 +21,29 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGenReferenceContainer
-extends MssCFGenReferenceObj
+public class MssYCFGenReferenceContainer
+extends MssYCFGenReferenceObj
 {
-	public MssCFGenReferenceContainer()
+	public MssYCFGenReferenceContainer()
 	{
 		super();
 	}
 
-	public MssCFGenReferenceContainer(MssCFEngine schema)
+	public MssYCFGenReferenceContainer(MssYCFEngine schema)
 	{
 		super( schema );
 	}
 
-	public MssCFGenReferenceContainer(
-		MssCFEngine engine,
+	public MssYCFGenReferenceContainer(
+		MssYCFEngine engine,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -52,7 +52,7 @@ extends MssCFGenReferenceObj
 	{
 		super( engine );
 		requiredLookupToolSet = schema.getToolSetTableObj().readToolSetByNameIdx(toolset);
-		CFGenKbGenItemBuff genItemBuff = getGenItemBuff();
+		YCFGenKbGenItemBuff genItemBuff = getGenItemBuff();
 
 		genItemBuff.setRequiredToolSetId( requiredLookupToolSet.getRequiredId() );
 
@@ -80,15 +80,15 @@ extends MssCFGenReferenceObj
 		detailClass = schema.getDefClassTableObj().readDefClassByNameIdx(detailClassName);
 	}
 
-	public String expandBody(MssCFGenContext genContext)
+	public String expandBody(MssYCFGenContext genContext)
 	{
-		final String S_ProcName = "MssCFGenReferenceObj.expandBody() ";
+		final String S_ProcName = "MssYCFGenReferenceObj.expandBody() ";
 		throw new RuntimeException( S_ProcName + "Cannot directly expand a reference" );
 	}
 
-	public ICFLibAnyObj dereference(MssCFGenContext genContext)
+	public IYCFLibAnyObj dereference(MssYCFGenContext genContext)
 	{
-		ICFLibAnyObj ofInterest = genContext.getGenDef();
+		IYCFLibAnyObj ofInterest = genContext.getGenDef();
 		if( ofInterest != null ) {
 			ofInterest = ofInterest.getObjScope();
 		}

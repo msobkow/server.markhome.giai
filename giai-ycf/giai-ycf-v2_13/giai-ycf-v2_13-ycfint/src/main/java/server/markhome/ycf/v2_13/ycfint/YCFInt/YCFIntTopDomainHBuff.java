@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a TopDomain history buffer object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,13 +36,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntTopDomainHBuff
+public class YCFIntTopDomainHBuff
 
-	extends CFIntHPKey	implements Comparable<Object>,
+	extends YCFIntHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final long TENANTID_INIT_VALUE = 0L;
@@ -59,17 +59,17 @@ public class CFIntTopDomainHBuff
 	protected long requiredTldId;
 	protected String requiredName;
 	protected String optionalDescription;
-	public CFIntTopDomainHBuff() {
+	public YCFIntTopDomainHBuff() {
 		super();
-		requiredTenantId = CFIntTopDomainBuff.TENANTID_INIT_VALUE;
-		requiredId = CFIntTopDomainBuff.ID_INIT_VALUE;
-		requiredTldId = CFIntTopDomainBuff.TLDID_INIT_VALUE;
-		requiredName = new String( CFIntTopDomainBuff.NAME_INIT_VALUE );
+		requiredTenantId = YCFIntTopDomainBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFIntTopDomainBuff.ID_INIT_VALUE;
+		requiredTldId = YCFIntTopDomainBuff.TLDID_INIT_VALUE;
+		requiredName = new String( YCFIntTopDomainBuff.NAME_INIT_VALUE );
 		optionalDescription = null;
 	}
 
 	public String getClassCode() {
-		return( CFIntTopDomainBuff.CLASS_CODE );
+		return( YCFIntTopDomainBuff.CLASS_CODE );
 	}
 
 	public long getRequiredTenantId() {
@@ -77,13 +77,13 @@ public class CFIntTopDomainHBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntTopDomainBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopDomainBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntTopDomainBuff.TENANTID_MIN_VALUE );
+				YCFIntTopDomainBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -93,13 +93,13 @@ public class CFIntTopDomainHBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFIntTopDomainBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopDomainBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFIntTopDomainBuff.ID_MIN_VALUE );
+				YCFIntTopDomainBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -109,13 +109,13 @@ public class CFIntTopDomainHBuff
 	}
 
 	public void setRequiredTldId( long value ) {
-		if( value < CFIntTopDomainBuff.TLDID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopDomainBuff.TLDID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTldId",
 				1,
 				"value",
 				value,
-				CFIntTopDomainBuff.TLDID_MIN_VALUE );
+				YCFIntTopDomainBuff.TLDID_MIN_VALUE );
 		}
 		requiredTldId = value;
 	}
@@ -126,13 +126,13 @@ public class CFIntTopDomainHBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -151,7 +151,7 @@ public class CFIntTopDomainHBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -167,8 +167,8 @@ public class CFIntTopDomainHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntTopDomainHBuff ) {
-			CFIntTopDomainHBuff rhs = (CFIntTopDomainHBuff)obj;
+		else if( obj instanceof YCFIntTopDomainHBuff ) {
+			YCFIntTopDomainHBuff rhs = (YCFIntTopDomainHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -198,8 +198,8 @@ public class CFIntTopDomainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopDomainBuff ) {
-			CFIntTopDomainBuff rhs = (CFIntTopDomainBuff)obj;
+		else if( obj instanceof YCFIntTopDomainBuff ) {
+			YCFIntTopDomainBuff rhs = (YCFIntTopDomainBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -229,15 +229,15 @@ public class CFIntTopDomainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopDomainByTenantIdxKey ) {
-			CFIntTopDomainByTenantIdxKey rhs = (CFIntTopDomainByTenantIdxKey)obj;
+		else if( obj instanceof YCFIntTopDomainByTenantIdxKey ) {
+			YCFIntTopDomainByTenantIdxKey rhs = (YCFIntTopDomainByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopDomainByTldIdxKey ) {
-			CFIntTopDomainByTldIdxKey rhs = (CFIntTopDomainByTldIdxKey)obj;
+		else if( obj instanceof YCFIntTopDomainByTldIdxKey ) {
+			YCFIntTopDomainByTldIdxKey rhs = (YCFIntTopDomainByTldIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -246,8 +246,8 @@ public class CFIntTopDomainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopDomainByNameIdxKey ) {
-			CFIntTopDomainByNameIdxKey rhs = (CFIntTopDomainByNameIdxKey)obj;
+		else if( obj instanceof YCFIntTopDomainByNameIdxKey ) {
+			YCFIntTopDomainByNameIdxKey rhs = (YCFIntTopDomainByNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -259,8 +259,8 @@ public class CFIntTopDomainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopDomainHPKey ) {
-			CFIntTopDomainHPKey rhs = (CFIntTopDomainHPKey)obj;
+		else if( obj instanceof YCFIntTopDomainHPKey ) {
+			YCFIntTopDomainHPKey rhs = (YCFIntTopDomainHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -324,8 +324,8 @@ public class CFIntTopDomainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -383,8 +383,8 @@ public class CFIntTopDomainHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopDomainPKey ) {
-			CFIntTopDomainPKey rhs = (CFIntTopDomainPKey)obj;
+		else if( obj instanceof YCFIntTopDomainPKey ) {
+			YCFIntTopDomainPKey rhs = (YCFIntTopDomainPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -416,16 +416,16 @@ public class CFIntTopDomainHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntTopDomainBuff ) {
-			CFIntTopDomainBuff rhs = (CFIntTopDomainBuff)obj;
+		else if( obj instanceof YCFIntTopDomainBuff ) {
+			YCFIntTopDomainBuff rhs = (YCFIntTopDomainBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTopDomainByTenantIdxKey ) {
-			CFIntTopDomainByTenantIdxKey rhs = (CFIntTopDomainByTenantIdxKey)obj;
+		else if( obj instanceof YCFIntTopDomainByTenantIdxKey ) {
+			YCFIntTopDomainByTenantIdxKey rhs = (YCFIntTopDomainByTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -434,8 +434,8 @@ public class CFIntTopDomainHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntTopDomainByTldIdxKey ) {
-			CFIntTopDomainByTldIdxKey rhs = (CFIntTopDomainByTldIdxKey)obj;
+		else if( obj instanceof YCFIntTopDomainByTldIdxKey ) {
+			YCFIntTopDomainByTldIdxKey rhs = (YCFIntTopDomainByTldIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -450,8 +450,8 @@ public class CFIntTopDomainHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntTopDomainByNameIdxKey ) {
-			CFIntTopDomainByNameIdxKey rhs = (CFIntTopDomainByNameIdxKey)obj;
+		else if( obj instanceof YCFIntTopDomainByNameIdxKey ) {
+			YCFIntTopDomainByNameIdxKey rhs = (YCFIntTopDomainByNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -472,8 +472,8 @@ public class CFIntTopDomainHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntTopDomainHBuff ) {
-			CFIntTopDomainHBuff rhs = (CFIntTopDomainHBuff)obj;
+		else if( obj instanceof YCFIntTopDomainHBuff ) {
+			YCFIntTopDomainHBuff rhs = (YCFIntTopDomainHBuff)obj;
 
 			int retval = 0;
 			{
@@ -650,8 +650,8 @@ public class CFIntTopDomainHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTopDomainHPKey ) {
-			CFIntTopDomainHPKey rhs = (CFIntTopDomainHPKey)obj;
+		else if( obj instanceof YCFIntTopDomainHPKey ) {
+			YCFIntTopDomainHPKey rhs = (YCFIntTopDomainHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -732,8 +732,8 @@ public class CFIntTopDomainHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTopDomainPKey ) {
-			CFIntTopDomainPKey rhs = (CFIntTopDomainPKey)obj;
+		else if( obj instanceof YCFIntTopDomainPKey ) {
+			YCFIntTopDomainPKey rhs = (YCFIntTopDomainPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -748,8 +748,8 @@ public class CFIntTopDomainHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -767,11 +767,11 @@ public class CFIntTopDomainHBuff
 		}
 	}
 
-	public void set( CFIntTopDomainBuff src ) {
+	public void set( YCFIntTopDomainBuff src ) {
 		setTopDomainBuff( src );
 	}
 
-	public void setTopDomainBuff( CFIntTopDomainBuff src ) {
+	public void setTopDomainBuff( YCFIntTopDomainBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredTldId( src.getRequiredTldId() );
@@ -780,11 +780,11 @@ public class CFIntTopDomainHBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFIntTopDomainHBuff src ) {
+	public void set( YCFIntTopDomainHBuff src ) {
 		setTopDomainBuff( src );
 	}
 
-	public void setTopDomainBuff( CFIntTopDomainHBuff src ) {
+	public void setTopDomainBuff( YCFIntTopDomainHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredTldId( src.getRequiredTldId() );

@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a TSecGroup by UNameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,18 +36,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecTSecGroupByUNameIdxKey
+public class YCFSecTSecGroupByUNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected String requiredName;
-	public CFSecTSecGroupByUNameIdxKey() {
-		requiredTenantId = CFSecTSecGroupBuff.TENANTID_INIT_VALUE;
-		requiredName = new String( CFSecTSecGroupBuff.NAME_INIT_VALUE );
+	public YCFSecTSecGroupByUNameIdxKey() {
+		requiredTenantId = YCFSecTSecGroupBuff.TENANTID_INIT_VALUE;
+		requiredName = new String( YCFSecTSecGroupBuff.NAME_INIT_VALUE );
 	}
 
 	public long getRequiredTenantId() {
@@ -55,13 +55,13 @@ public class CFSecTSecGroupByUNameIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFSecTSecGroupBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecTSecGroupBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFSecTSecGroupBuff.TENANTID_MIN_VALUE );
+				YCFSecTSecGroupBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -72,13 +72,13 @@ public class CFSecTSecGroupByUNameIdxKey
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -92,8 +92,8 @@ public class CFSecTSecGroupByUNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecTSecGroupByUNameIdxKey ) {
-			CFSecTSecGroupByUNameIdxKey rhs = (CFSecTSecGroupByUNameIdxKey)obj;
+		else if( obj instanceof YCFSecTSecGroupByUNameIdxKey ) {
+			YCFSecTSecGroupByUNameIdxKey rhs = (YCFSecTSecGroupByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -102,8 +102,8 @@ public class CFSecTSecGroupByUNameIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecTSecGroupBuff ) {
-			CFSecTSecGroupBuff rhs = (CFSecTSecGroupBuff)obj;
+		else if( obj instanceof YCFSecTSecGroupBuff ) {
+			YCFSecTSecGroupBuff rhs = (YCFSecTSecGroupBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -130,8 +130,8 @@ public class CFSecTSecGroupByUNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecTSecGroupByUNameIdxKey ) {
-			CFSecTSecGroupByUNameIdxKey rhs = (CFSecTSecGroupByUNameIdxKey)obj;
+		else if( obj instanceof YCFSecTSecGroupByUNameIdxKey ) {
+			YCFSecTSecGroupByUNameIdxKey rhs = (YCFSecTSecGroupByUNameIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -146,8 +146,8 @@ public class CFSecTSecGroupByUNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecTSecGroupBuff ) {
-			CFSecTSecGroupBuff rhs = (CFSecTSecGroupBuff)obj;
+		else if( obj instanceof YCFSecTSecGroupBuff ) {
+			YCFSecTSecGroupBuff rhs = (YCFSecTSecGroupBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -163,7 +163,7 @@ public class CFSecTSecGroupByUNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -172,9 +172,9 @@ public class CFSecTSecGroupByUNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecTSecGroupByUNameIdx"
+		String ret = "<YCFSecTSecGroupByUNameIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
-			+ " RequiredName=" + "\"" + CFSecSchema.xmlEncodeString( getRequiredName() ) + "\""
+			+ " RequiredName=" + "\"" + YCFSecSchema.xmlEncodeString( getRequiredName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

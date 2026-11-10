@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,59 +26,59 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamLicenseTableObj
-	implements ICFBamLicenseTableObj
+public class YCFBamLicenseTableObj
+	implements IYCFBamLicenseTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFIntLicensePKey, ICFIntLicenseObj> members;
-	private Map<CFIntLicensePKey, ICFIntLicenseObj> allLicense;
-	private Map< CFIntLicenseByLicnTenantIdxKey,
-		Map<CFIntLicensePKey, ICFIntLicenseObj > > indexByLicnTenantIdx;
-	private Map< CFIntLicenseByDomainIdxKey,
-		Map<CFIntLicensePKey, ICFIntLicenseObj > > indexByDomainIdx;
-	private Map< CFIntLicenseByUNameIdxKey,
-		ICFIntLicenseObj > indexByUNameIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFIntLicensePKey, IYCFIntLicenseObj> members;
+	private Map<YCFIntLicensePKey, IYCFIntLicenseObj> allLicense;
+	private Map< YCFIntLicenseByLicnTenantIdxKey,
+		Map<YCFIntLicensePKey, IYCFIntLicenseObj > > indexByLicnTenantIdx;
+	private Map< YCFIntLicenseByDomainIdxKey,
+		Map<YCFIntLicensePKey, IYCFIntLicenseObj > > indexByDomainIdx;
+	private Map< YCFIntLicenseByUNameIdxKey,
+		IYCFIntLicenseObj > indexByUNameIdx;
 	public static String TABLE_NAME = "License";
 	public static String TABLE_DBNAME = "licn";
 
-	public CFBamLicenseTableObj() {
+	public YCFBamLicenseTableObj() {
 		schema = null;
-		members = new HashMap<CFIntLicensePKey, ICFIntLicenseObj>();
+		members = new HashMap<YCFIntLicensePKey, IYCFIntLicenseObj>();
 		allLicense = null;
 		indexByLicnTenantIdx = null;
 		indexByDomainIdx = null;
 		indexByUNameIdx = null;
 	}
 
-	public CFBamLicenseTableObj( ICFIntSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFIntLicensePKey, ICFIntLicenseObj>();
+	public YCFBamLicenseTableObj( IYCFIntSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFIntLicensePKey, IYCFIntLicenseObj>();
 		allLicense = null;
 		indexByLicnTenantIdx = null;
 		indexByDomainIdx = null;
 		indexByUNameIdx = null;
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFIntSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -90,7 +90,7 @@ public class CFBamLicenseTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamTenantObj.class );
+		return( IYCFBamTenantObj.class );
 	}
 
 
@@ -99,9 +99,9 @@ public class CFBamLicenseTableObj
 		indexByLicnTenantIdx = null;
 		indexByDomainIdx = null;
 		indexByUNameIdx = null;
-		List<ICFIntLicenseObj> toForget = new LinkedList<ICFIntLicenseObj>();
-		ICFIntLicenseObj cur = null;
-		Iterator<ICFIntLicenseObj> iter = members.values().iterator();
+		List<IYCFIntLicenseObj> toForget = new LinkedList<IYCFIntLicenseObj>();
+		IYCFIntLicenseObj cur = null;
+		Iterator<IYCFIntLicenseObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -119,10 +119,10 @@ public class CFBamLicenseTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamLicenseObj.
+	 *	YCFBamLicenseObj.
 	 */
-	public ICFIntLicenseObj newInstance() {
-		ICFIntLicenseObj inst = new CFBamLicenseObj( schema );
+	public IYCFIntLicenseObj newInstance() {
+		IYCFIntLicenseObj inst = new YCFBamLicenseObj( schema );
 		return( inst );
 	}
 
@@ -133,19 +133,19 @@ public class CFBamLicenseTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamLicenseObj.
+	 *	YCFBamLicenseObj.
 	 */
-	public ICFIntLicenseEditObj newEditInstance( ICFIntLicenseObj orig ) {
-		ICFIntLicenseEditObj edit = new CFBamLicenseEditObj( orig );
+	public IYCFIntLicenseEditObj newEditInstance( IYCFIntLicenseObj orig ) {
+		IYCFIntLicenseEditObj edit = new YCFBamLicenseEditObj( orig );
 		return( edit );
 	}
 
-	public ICFIntLicenseObj realiseLicense( ICFIntLicenseObj Obj ) {
-		ICFIntLicenseObj obj = Obj;
-		CFIntLicensePKey pkey = obj.getPKey();
-		ICFIntLicenseObj keepObj = null;
+	public IYCFIntLicenseObj realiseLicense( IYCFIntLicenseObj Obj ) {
+		IYCFIntLicenseObj obj = Obj;
+		YCFIntLicensePKey pkey = obj.getPKey();
+		IYCFIntLicenseObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFIntLicenseObj existingObj = members.get( pkey );
+			IYCFIntLicenseObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -156,10 +156,10 @@ public class CFBamLicenseTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByLicnTenantIdx != null ) {
-				CFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
+				YCFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
 				keyLicnTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntLicensePKey, ICFIntLicenseObj > mapLicnTenantIdx = indexByLicnTenantIdx.get( keyLicnTenantIdx );
+				Map<YCFIntLicensePKey, IYCFIntLicenseObj > mapLicnTenantIdx = indexByLicnTenantIdx.get( keyLicnTenantIdx );
 				if( mapLicnTenantIdx != null ) {
 					mapLicnTenantIdx.remove( keepObj.getPKey() );
 					if( mapLicnTenantIdx.size() <= 0 ) {
@@ -169,11 +169,11 @@ public class CFBamLicenseTableObj
 			}
 
 			if( indexByDomainIdx != null ) {
-				CFIntLicenseByDomainIdxKey keyDomainIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
+				YCFIntLicenseByDomainIdxKey keyDomainIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
 				keyDomainIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyDomainIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
-				Map<CFIntLicensePKey, ICFIntLicenseObj > mapDomainIdx = indexByDomainIdx.get( keyDomainIdx );
+				Map<YCFIntLicensePKey, IYCFIntLicenseObj > mapDomainIdx = indexByDomainIdx.get( keyDomainIdx );
 				if( mapDomainIdx != null ) {
 					mapDomainIdx.remove( keepObj.getPKey() );
 					if( mapDomainIdx.size() <= 0 ) {
@@ -183,8 +183,8 @@ public class CFBamLicenseTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFIntLicenseByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
+				YCFIntLicenseByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -195,29 +195,29 @@ public class CFBamLicenseTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByLicnTenantIdx != null ) {
-				CFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
+				YCFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
 				keyLicnTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntLicensePKey, ICFIntLicenseObj > mapLicnTenantIdx = indexByLicnTenantIdx.get( keyLicnTenantIdx );
+				Map<YCFIntLicensePKey, IYCFIntLicenseObj > mapLicnTenantIdx = indexByLicnTenantIdx.get( keyLicnTenantIdx );
 				if( mapLicnTenantIdx != null ) {
 					mapLicnTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDomainIdx != null ) {
-				CFIntLicenseByDomainIdxKey keyDomainIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
+				YCFIntLicenseByDomainIdxKey keyDomainIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
 				keyDomainIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyDomainIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
-				Map<CFIntLicensePKey, ICFIntLicenseObj > mapDomainIdx = indexByDomainIdx.get( keyDomainIdx );
+				Map<YCFIntLicensePKey, IYCFIntLicenseObj > mapDomainIdx = indexByDomainIdx.get( keyDomainIdx );
 				if( mapDomainIdx != null ) {
 					mapDomainIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFIntLicenseByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
+				YCFIntLicenseByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -239,29 +239,29 @@ public class CFBamLicenseTableObj
 			}
 
 			if( indexByLicnTenantIdx != null ) {
-				CFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
+				YCFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
 				keyLicnTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntLicensePKey, ICFIntLicenseObj > mapLicnTenantIdx = indexByLicnTenantIdx.get( keyLicnTenantIdx );
+				Map<YCFIntLicensePKey, IYCFIntLicenseObj > mapLicnTenantIdx = indexByLicnTenantIdx.get( keyLicnTenantIdx );
 				if( mapLicnTenantIdx != null ) {
 					mapLicnTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDomainIdx != null ) {
-				CFIntLicenseByDomainIdxKey keyDomainIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
+				YCFIntLicenseByDomainIdxKey keyDomainIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
 				keyDomainIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyDomainIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
-				Map<CFIntLicensePKey, ICFIntLicenseObj > mapDomainIdx = indexByDomainIdx.get( keyDomainIdx );
+				Map<YCFIntLicensePKey, IYCFIntLicenseObj > mapDomainIdx = indexByDomainIdx.get( keyDomainIdx );
 				if( mapDomainIdx != null ) {
 					mapDomainIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFIntLicenseByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
+				YCFIntLicenseByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredTopDomainId( keepObj.getRequiredTopDomainId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -272,10 +272,10 @@ public class CFBamLicenseTableObj
 		return( keepObj );
 	}
 
-	public ICFIntLicenseObj createLicense( ICFIntLicenseObj Obj ) {
-		ICFIntLicenseObj obj = Obj;
-		CFIntLicenseBuff buff = obj.getLicenseBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableLicense().createLicense(
+	public IYCFIntLicenseObj createLicense( IYCFIntLicenseObj Obj ) {
+		IYCFIntLicenseObj obj = Obj;
+		YCFIntLicenseBuff buff = obj.getLicenseBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableLicense().createLicense(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -284,58 +284,58 @@ public class CFBamLicenseTableObj
 		return( obj );
 	}
 
-	public ICFIntLicenseObj readLicense( CFIntLicensePKey pkey ) {
+	public IYCFIntLicenseObj readLicense( YCFIntLicensePKey pkey ) {
 		return( readLicense( pkey, false ) );
 	}
 
-	public ICFIntLicenseObj readLicense( CFIntLicensePKey pkey, boolean forceRead ) {
-		ICFIntLicenseObj obj = null;
+	public IYCFIntLicenseObj readLicense( YCFIntLicensePKey pkey, boolean forceRead ) {
+		IYCFIntLicenseObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFIntLicenseBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableLicense().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFIntLicenseBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableLicense().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getLicenseTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFIntLicenseObj)obj.realise();
+				obj = (IYCFIntLicenseObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntLicenseObj readCachedLicense( CFIntLicensePKey pkey ) {
-		ICFIntLicenseObj obj = null;
+	public IYCFIntLicenseObj readCachedLicense( YCFIntLicensePKey pkey ) {
+		IYCFIntLicenseObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeLicense( ICFIntLicenseObj obj )
+	public void reallyDeepDisposeLicense( IYCFIntLicenseObj obj )
 	{
-		final String S_ProcName = "CFBamLicenseTableObj.reallyDeepDisposeLicense() ";
+		final String S_ProcName = "YCFBamLicenseTableObj.reallyDeepDisposeLicense() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFIntLicensePKey pkey = obj.getPKey();
-		ICFIntLicenseObj existing = readCachedLicense( pkey );
+		YCFIntLicensePKey pkey = obj.getPKey();
+		IYCFIntLicenseObj existing = readCachedLicense( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
+		YCFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
 		keyLicnTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntLicenseByDomainIdxKey keyDomainIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
+		YCFIntLicenseByDomainIdxKey keyDomainIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
 		keyDomainIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyDomainIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 
-		CFIntLicenseByUNameIdxKey keyUNameIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
+		YCFIntLicenseByUNameIdxKey keyUNameIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyUNameIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
@@ -366,57 +366,57 @@ public class CFBamLicenseTableObj
 
 
 	}
-	public void deepDisposeLicense( CFIntLicensePKey pkey ) {
-		ICFIntLicenseObj obj = readCachedLicense( pkey );
+	public void deepDisposeLicense( YCFIntLicensePKey pkey ) {
+		IYCFIntLicenseObj obj = readCachedLicense( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFIntLicenseObj lockLicense( CFIntLicensePKey pkey ) {
-		ICFIntLicenseObj locked = null;
-		CFIntLicenseBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableLicense().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFIntLicenseObj lockLicense( YCFIntLicensePKey pkey ) {
+		IYCFIntLicenseObj locked = null;
+		YCFIntLicenseBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableLicense().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getLicenseTableObj().newInstance();
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFIntLicenseObj)locked.realise();
+			locked = (IYCFIntLicenseObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockLicense", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockLicense", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFIntLicenseObj> readAllLicense() {
+	public List<IYCFIntLicenseObj> readAllLicense() {
 		return( readAllLicense( false ) );
 	}
 
-	public List<ICFIntLicenseObj> readAllLicense( boolean forceRead ) {
+	public List<IYCFIntLicenseObj> readAllLicense( boolean forceRead ) {
 		final String S_ProcName = "readAllLicense";
 		if( ( allLicense == null ) || forceRead ) {
-			Map<CFIntLicensePKey, ICFIntLicenseObj> map = new HashMap<CFIntLicensePKey,ICFIntLicenseObj>();
+			Map<YCFIntLicensePKey, IYCFIntLicenseObj> map = new HashMap<YCFIntLicensePKey,IYCFIntLicenseObj>();
 			allLicense = map;
-			CFIntLicenseBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableLicense().readAllDerived( schema.getAuthorization() );
-			CFIntLicenseBuff buff;
-			ICFIntLicenseObj obj;
+			YCFIntLicenseBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableLicense().readAllDerived( schema.getAuthorization() );
+			YCFIntLicenseBuff buff;
+			IYCFIntLicenseObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
 				obj.setBuff( buff );
-				ICFIntLicenseObj realised = (ICFIntLicenseObj)obj.realise();
+				IYCFIntLicenseObj realised = (IYCFIntLicenseObj)obj.realise();
 			}
 		}
 		int len = allLicense.size();
-		ICFIntLicenseObj arr[] = new ICFIntLicenseObj[len];
-		Iterator<ICFIntLicenseObj> valIter = allLicense.values().iterator();
+		IYCFIntLicenseObj arr[] = new IYCFIntLicenseObj[len];
+		Iterator<IYCFIntLicenseObj> valIter = allLicense.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -424,20 +424,20 @@ public class CFBamLicenseTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntLicenseObj> arrayList = new ArrayList<ICFIntLicenseObj>(len);
+		ArrayList<IYCFIntLicenseObj> arrayList = new ArrayList<IYCFIntLicenseObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntLicenseObj> cmp = new Comparator<ICFIntLicenseObj>() {
-			public int compare( ICFIntLicenseObj lhs, ICFIntLicenseObj rhs ) {
+		Comparator<IYCFIntLicenseObj> cmp = new Comparator<IYCFIntLicenseObj>() {
+			public int compare( IYCFIntLicenseObj lhs, IYCFIntLicenseObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -450,31 +450,31 @@ public class CFBamLicenseTableObj
 					return( 1 );
 				}
 				else {
-					CFIntLicensePKey lhsPKey = lhs.getPKey();
-					CFIntLicensePKey rhsPKey = rhs.getPKey();
+					YCFIntLicensePKey lhsPKey = lhs.getPKey();
+					YCFIntLicensePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntLicenseObj> sortedList = arrayList;
+		List<IYCFIntLicenseObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFIntLicenseObj> readCachedAllLicense() {
+	public List<IYCFIntLicenseObj> readCachedAllLicense() {
 		final String S_ProcName = "readCachedAllLicense";
-		ArrayList<ICFIntLicenseObj> arrayList = new ArrayList<ICFIntLicenseObj>();
+		ArrayList<IYCFIntLicenseObj> arrayList = new ArrayList<IYCFIntLicenseObj>();
 		if( allLicense != null ) {
 			int len = allLicense.size();
-			ICFIntLicenseObj arr[] = new ICFIntLicenseObj[len];
-			Iterator<ICFIntLicenseObj> valIter = allLicense.values().iterator();
+			IYCFIntLicenseObj arr[] = new IYCFIntLicenseObj[len];
+			Iterator<IYCFIntLicenseObj> valIter = allLicense.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -482,7 +482,7 @@ public class CFBamLicenseTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -493,8 +493,8 @@ public class CFBamLicenseTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFIntLicenseObj> cmp = new Comparator<ICFIntLicenseObj>() {
-			public int compare( ICFIntLicenseObj lhs, ICFIntLicenseObj rhs ) {
+		Comparator<IYCFIntLicenseObj> cmp = new Comparator<IYCFIntLicenseObj>() {
+			public int compare( IYCFIntLicenseObj lhs, IYCFIntLicenseObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -507,8 +507,8 @@ public class CFBamLicenseTableObj
 					return( 1 );
 				}
 				else {
-					CFIntLicensePKey lhsPKey = lhs.getPKey();
-					CFIntLicensePKey rhsPKey = rhs.getPKey();
+					YCFIntLicensePKey lhsPKey = lhs.getPKey();
+					YCFIntLicensePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -518,7 +518,7 @@ public class CFBamLicenseTableObj
 		return( arrayList );
 	}
 
-	public ICFIntLicenseObj readLicenseByIdIdx( long TenantId,
+	public IYCFIntLicenseObj readLicenseByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readLicenseByIdIdx( TenantId,
@@ -526,61 +526,61 @@ public class CFBamLicenseTableObj
 			false ) );
 	}
 
-	public ICFIntLicenseObj readLicenseByIdIdx( long TenantId,
+	public IYCFIntLicenseObj readLicenseByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFIntLicensePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey();
+		YCFIntLicensePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFIntLicenseObj obj = readLicense( pkey, forceRead );
+		IYCFIntLicenseObj obj = readLicense( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFIntLicenseObj> readLicenseByLicnTenantIdx( long TenantId )
+	public List<IYCFIntLicenseObj> readLicenseByLicnTenantIdx( long TenantId )
 	{
 		return( readLicenseByLicnTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFIntLicenseObj> readLicenseByLicnTenantIdx( long TenantId,
+	public List<IYCFIntLicenseObj> readLicenseByLicnTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readLicenseByLicnTenantIdx";
-		CFIntLicenseByLicnTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
+		YCFIntLicenseByLicnTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFIntLicensePKey, ICFIntLicenseObj> dict;
+		Map<YCFIntLicensePKey, IYCFIntLicenseObj> dict;
 		if( indexByLicnTenantIdx == null ) {
-			indexByLicnTenantIdx = new HashMap< CFIntLicenseByLicnTenantIdxKey,
-				Map< CFIntLicensePKey, ICFIntLicenseObj > >();
+			indexByLicnTenantIdx = new HashMap< YCFIntLicenseByLicnTenantIdxKey,
+				Map< YCFIntLicensePKey, IYCFIntLicenseObj > >();
 		}
 		if( ( ! forceRead ) && indexByLicnTenantIdx.containsKey( key ) ) {
 			dict = indexByLicnTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFIntLicensePKey, ICFIntLicenseObj>();
-			ICFIntLicenseObj obj;
-			CFIntLicenseBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableLicense().readDerivedByLicnTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFIntLicensePKey, IYCFIntLicenseObj>();
+			IYCFIntLicenseObj obj;
+			YCFIntLicenseBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableLicense().readDerivedByLicnTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFIntLicenseBuff buff;
+			YCFIntLicenseBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getLicenseTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
 				obj.setBuff( buff );
-				ICFIntLicenseObj realised = (ICFIntLicenseObj)obj.realise();
+				IYCFIntLicenseObj realised = (IYCFIntLicenseObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByLicnTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFIntLicenseObj arr[] = new ICFIntLicenseObj[len];
-		Iterator<ICFIntLicenseObj> valIter = dict.values().iterator();
+		IYCFIntLicenseObj arr[] = new IYCFIntLicenseObj[len];
+		Iterator<IYCFIntLicenseObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -588,20 +588,20 @@ public class CFBamLicenseTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntLicenseObj> arrayList = new ArrayList<ICFIntLicenseObj>(len);
+		ArrayList<IYCFIntLicenseObj> arrayList = new ArrayList<IYCFIntLicenseObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntLicenseObj> cmp = new Comparator<ICFIntLicenseObj>() {
-			public int compare( ICFIntLicenseObj lhs, ICFIntLicenseObj rhs ) {
+		Comparator<IYCFIntLicenseObj> cmp = new Comparator<IYCFIntLicenseObj>() {
+			public int compare( IYCFIntLicenseObj lhs, IYCFIntLicenseObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -614,19 +614,19 @@ public class CFBamLicenseTableObj
 					return( 1 );
 				}
 				else {
-					CFIntLicensePKey lhsPKey = lhs.getPKey();
-					CFIntLicensePKey rhsPKey = rhs.getPKey();
+					YCFIntLicensePKey lhsPKey = lhs.getPKey();
+					YCFIntLicensePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntLicenseObj> sortedList = arrayList;
+		List<IYCFIntLicenseObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFIntLicenseObj> readLicenseByDomainIdx( long TenantId,
+	public List<IYCFIntLicenseObj> readLicenseByDomainIdx( long TenantId,
 		long TopDomainId )
 	{
 		return( readLicenseByDomainIdx( TenantId,
@@ -634,48 +634,48 @@ public class CFBamLicenseTableObj
 			false ) );
 	}
 
-	public List<ICFIntLicenseObj> readLicenseByDomainIdx( long TenantId,
+	public List<IYCFIntLicenseObj> readLicenseByDomainIdx( long TenantId,
 		long TopDomainId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readLicenseByDomainIdx";
-		CFIntLicenseByDomainIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
+		YCFIntLicenseByDomainIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
-		Map<CFIntLicensePKey, ICFIntLicenseObj> dict;
+		Map<YCFIntLicensePKey, IYCFIntLicenseObj> dict;
 		if( indexByDomainIdx == null ) {
-			indexByDomainIdx = new HashMap< CFIntLicenseByDomainIdxKey,
-				Map< CFIntLicensePKey, ICFIntLicenseObj > >();
+			indexByDomainIdx = new HashMap< YCFIntLicenseByDomainIdxKey,
+				Map< YCFIntLicensePKey, IYCFIntLicenseObj > >();
 		}
 		if( ( ! forceRead ) && indexByDomainIdx.containsKey( key ) ) {
 			dict = indexByDomainIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFIntLicensePKey, ICFIntLicenseObj>();
-			ICFIntLicenseObj obj;
-			CFIntLicenseBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableLicense().readDerivedByDomainIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFIntLicensePKey, IYCFIntLicenseObj>();
+			IYCFIntLicenseObj obj;
+			YCFIntLicenseBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableLicense().readDerivedByDomainIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId );
-			CFIntLicenseBuff buff;
+			YCFIntLicenseBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getLicenseTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
 				obj.setBuff( buff );
-				ICFIntLicenseObj realised = (ICFIntLicenseObj)obj.realise();
+				IYCFIntLicenseObj realised = (IYCFIntLicenseObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDomainIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFIntLicenseObj arr[] = new ICFIntLicenseObj[len];
-		Iterator<ICFIntLicenseObj> valIter = dict.values().iterator();
+		IYCFIntLicenseObj arr[] = new IYCFIntLicenseObj[len];
+		Iterator<IYCFIntLicenseObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -683,20 +683,20 @@ public class CFBamLicenseTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntLicenseObj> arrayList = new ArrayList<ICFIntLicenseObj>(len);
+		ArrayList<IYCFIntLicenseObj> arrayList = new ArrayList<IYCFIntLicenseObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntLicenseObj> cmp = new Comparator<ICFIntLicenseObj>() {
-			public int compare( ICFIntLicenseObj lhs, ICFIntLicenseObj rhs ) {
+		Comparator<IYCFIntLicenseObj> cmp = new Comparator<IYCFIntLicenseObj>() {
+			public int compare( IYCFIntLicenseObj lhs, IYCFIntLicenseObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -709,19 +709,19 @@ public class CFBamLicenseTableObj
 					return( 1 );
 				}
 				else {
-					CFIntLicensePKey lhsPKey = lhs.getPKey();
-					CFIntLicensePKey rhsPKey = rhs.getPKey();
+					YCFIntLicensePKey lhsPKey = lhs.getPKey();
+					YCFIntLicensePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntLicenseObj> sortedList = arrayList;
+		List<IYCFIntLicenseObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFIntLicenseObj readLicenseByUNameIdx( long TenantId,
+	public IYCFIntLicenseObj readLicenseByUNameIdx( long TenantId,
 		long TopDomainId,
 		String Name )
 	{
@@ -731,67 +731,67 @@ public class CFBamLicenseTableObj
 			false ) );
 	}
 
-	public ICFIntLicenseObj readLicenseByUNameIdx( long TenantId,
+	public IYCFIntLicenseObj readLicenseByUNameIdx( long TenantId,
 		long TopDomainId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFIntLicenseByUNameIdxKey,
-				ICFIntLicenseObj >();
+			indexByUNameIdx = new HashMap< YCFIntLicenseByUNameIdxKey,
+				IYCFIntLicenseObj >();
 		}
-		CFIntLicenseByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
+		YCFIntLicenseByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		key.setRequiredName( Name );
-		ICFIntLicenseObj obj = null;
+		IYCFIntLicenseObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFIntLicenseBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableLicense().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFIntLicenseBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableLicense().readDerivedByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId,
 				Name );
 			if( buff != null ) {
 				obj = schema.getLicenseTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFIntLicenseObj)obj.realise();
+				obj = (IYCFIntLicenseObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntLicenseObj readCachedLicenseByIdIdx( long TenantId,
+	public IYCFIntLicenseObj readCachedLicenseByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFIntLicenseObj obj = null;
-		CFIntLicensePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey();
+		IYCFIntLicenseObj obj = null;
+		YCFIntLicensePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedLicense( pkey );
 		return( obj );
 	}
 
-	public List<ICFIntLicenseObj> readCachedLicenseByLicnTenantIdx( long TenantId )
+	public List<IYCFIntLicenseObj> readCachedLicenseByLicnTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedLicenseByLicnTenantIdx";
-		CFIntLicenseByLicnTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
+		YCFIntLicenseByLicnTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFIntLicenseObj> arrayList = new ArrayList<ICFIntLicenseObj>();
+		ArrayList<IYCFIntLicenseObj> arrayList = new ArrayList<IYCFIntLicenseObj>();
 		if( indexByLicnTenantIdx != null ) {
-			Map<CFIntLicensePKey, ICFIntLicenseObj> dict;
+			Map<YCFIntLicensePKey, IYCFIntLicenseObj> dict;
 			if( indexByLicnTenantIdx.containsKey( key ) ) {
 				dict = indexByLicnTenantIdx.get( key );
 				int len = dict.size();
-				ICFIntLicenseObj arr[] = new ICFIntLicenseObj[len];
-				Iterator<ICFIntLicenseObj> valIter = dict.values().iterator();
+				IYCFIntLicenseObj arr[] = new IYCFIntLicenseObj[len];
+				Iterator<IYCFIntLicenseObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -799,7 +799,7 @@ public class CFBamLicenseTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -812,8 +812,8 @@ public class CFBamLicenseTableObj
 			}
 		}
 		else {
-			ICFIntLicenseObj obj;
-			Iterator<ICFIntLicenseObj> valIter = members.values().iterator();
+			IYCFIntLicenseObj obj;
+			Iterator<IYCFIntLicenseObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -823,8 +823,8 @@ public class CFBamLicenseTableObj
 				}
 			}
 		}
-		Comparator<ICFIntLicenseObj> cmp = new Comparator<ICFIntLicenseObj>() {
-			public int compare( ICFIntLicenseObj lhs, ICFIntLicenseObj rhs ) {
+		Comparator<IYCFIntLicenseObj> cmp = new Comparator<IYCFIntLicenseObj>() {
+			public int compare( IYCFIntLicenseObj lhs, IYCFIntLicenseObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -837,8 +837,8 @@ public class CFBamLicenseTableObj
 					return( 1 );
 				}
 				else {
-					CFIntLicensePKey lhsPKey = lhs.getPKey();
-					CFIntLicensePKey rhsPKey = rhs.getPKey();
+					YCFIntLicensePKey lhsPKey = lhs.getPKey();
+					YCFIntLicensePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -848,27 +848,27 @@ public class CFBamLicenseTableObj
 		return( arrayList );
 	}
 
-	public List<ICFIntLicenseObj> readCachedLicenseByDomainIdx( long TenantId,
+	public List<IYCFIntLicenseObj> readCachedLicenseByDomainIdx( long TenantId,
 		long TopDomainId )
 	{
 		final String S_ProcName = "readCachedLicenseByDomainIdx";
-		CFIntLicenseByDomainIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
+		YCFIntLicenseByDomainIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
-		ArrayList<ICFIntLicenseObj> arrayList = new ArrayList<ICFIntLicenseObj>();
+		ArrayList<IYCFIntLicenseObj> arrayList = new ArrayList<IYCFIntLicenseObj>();
 		if( indexByDomainIdx != null ) {
-			Map<CFIntLicensePKey, ICFIntLicenseObj> dict;
+			Map<YCFIntLicensePKey, IYCFIntLicenseObj> dict;
 			if( indexByDomainIdx.containsKey( key ) ) {
 				dict = indexByDomainIdx.get( key );
 				int len = dict.size();
-				ICFIntLicenseObj arr[] = new ICFIntLicenseObj[len];
-				Iterator<ICFIntLicenseObj> valIter = dict.values().iterator();
+				IYCFIntLicenseObj arr[] = new IYCFIntLicenseObj[len];
+				Iterator<IYCFIntLicenseObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -876,7 +876,7 @@ public class CFBamLicenseTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -889,8 +889,8 @@ public class CFBamLicenseTableObj
 			}
 		}
 		else {
-			ICFIntLicenseObj obj;
-			Iterator<ICFIntLicenseObj> valIter = members.values().iterator();
+			IYCFIntLicenseObj obj;
+			Iterator<IYCFIntLicenseObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -900,8 +900,8 @@ public class CFBamLicenseTableObj
 				}
 			}
 		}
-		Comparator<ICFIntLicenseObj> cmp = new Comparator<ICFIntLicenseObj>() {
-			public int compare( ICFIntLicenseObj lhs, ICFIntLicenseObj rhs ) {
+		Comparator<IYCFIntLicenseObj> cmp = new Comparator<IYCFIntLicenseObj>() {
+			public int compare( IYCFIntLicenseObj lhs, IYCFIntLicenseObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -914,8 +914,8 @@ public class CFBamLicenseTableObj
 					return( 1 );
 				}
 				else {
-					CFIntLicensePKey lhsPKey = lhs.getPKey();
-					CFIntLicensePKey rhsPKey = rhs.getPKey();
+					YCFIntLicensePKey lhsPKey = lhs.getPKey();
+					YCFIntLicensePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -925,12 +925,12 @@ public class CFBamLicenseTableObj
 		return( arrayList );
 	}
 
-	public ICFIntLicenseObj readCachedLicenseByUNameIdx( long TenantId,
+	public IYCFIntLicenseObj readCachedLicenseByUNameIdx( long TenantId,
 		long TopDomainId,
 		String Name )
 	{
-		ICFIntLicenseObj obj = null;
-		CFIntLicenseByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
+		IYCFIntLicenseObj obj = null;
+		YCFIntLicenseByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		key.setRequiredName( Name );
@@ -939,7 +939,7 @@ public class CFBamLicenseTableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFIntLicenseObj> valIter = members.values().iterator();
+				Iterator<IYCFIntLicenseObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -951,7 +951,7 @@ public class CFBamLicenseTableObj
 			}
 		}
 		else {
-			Iterator<ICFIntLicenseObj> valIter = members.values().iterator();
+			Iterator<IYCFIntLicenseObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -967,7 +967,7 @@ public class CFBamLicenseTableObj
 	public void deepDisposeLicenseByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFIntLicenseObj obj = readCachedLicenseByIdIdx( TenantId,
+		IYCFIntLicenseObj obj = readCachedLicenseByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -977,10 +977,10 @@ public class CFBamLicenseTableObj
 	public void deepDisposeLicenseByLicnTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeLicenseByLicnTenantIdx";
-		ICFIntLicenseObj obj;
-		List<ICFIntLicenseObj> arrayList = readCachedLicenseByLicnTenantIdx( TenantId );
+		IYCFIntLicenseObj obj;
+		List<IYCFIntLicenseObj> arrayList = readCachedLicenseByLicnTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFIntLicenseObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFIntLicenseObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -994,11 +994,11 @@ public class CFBamLicenseTableObj
 		long TopDomainId )
 	{
 		final String S_ProcName = "deepDisposeLicenseByDomainIdx";
-		ICFIntLicenseObj obj;
-		List<ICFIntLicenseObj> arrayList = readCachedLicenseByDomainIdx( TenantId,
+		IYCFIntLicenseObj obj;
+		List<IYCFIntLicenseObj> arrayList = readCachedLicenseByDomainIdx( TenantId,
 				TopDomainId );
 		if( arrayList != null )  {
-			Iterator<ICFIntLicenseObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFIntLicenseObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1012,7 +1012,7 @@ public class CFBamLicenseTableObj
 		long TopDomainId,
 		String Name )
 	{
-		ICFIntLicenseObj obj = readCachedLicenseByUNameIdx( TenantId,
+		IYCFIntLicenseObj obj = readCachedLicenseByUNameIdx( TenantId,
 				TopDomainId,
 				Name );
 		if( obj != null ) {
@@ -1020,18 +1020,18 @@ public class CFBamLicenseTableObj
 		}
 	}
 
-	public ICFIntLicenseObj updateLicense( ICFIntLicenseObj Obj ) {
-		ICFIntLicenseObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableLicense().updateLicense( schema.getAuthorization(),
+	public IYCFIntLicenseObj updateLicense( IYCFIntLicenseObj Obj ) {
+		IYCFIntLicenseObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableLicense().updateLicense( schema.getAuthorization(),
 			Obj.getLicenseBuff() );
-		obj = (ICFIntLicenseObj)Obj.realise();
+		obj = (IYCFIntLicenseObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteLicense( ICFIntLicenseObj Obj ) {
-		ICFIntLicenseObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicense( schema.getAuthorization(),
+	public void deleteLicense( IYCFIntLicenseObj Obj ) {
+		IYCFIntLicenseObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicense( schema.getAuthorization(),
 			obj.getLicenseBuff() );
 		Obj.forget();
 	}
@@ -1039,15 +1039,15 @@ public class CFBamLicenseTableObj
 	public void deleteLicenseByIdIdx( long TenantId,
 		long Id )
 	{
-		CFIntLicensePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey();
+		YCFIntLicensePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFIntLicenseObj obj = readLicense( pkey );
+		IYCFIntLicenseObj obj = readLicense( pkey );
 		if( obj != null ) {
-			ICFIntLicenseEditObj editObj = (ICFIntLicenseEditObj)obj.getEdit();
+			IYCFIntLicenseEditObj editObj = (IYCFIntLicenseEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFIntLicenseEditObj)obj.beginEdit();
+				editObj = (IYCFIntLicenseEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1072,19 +1072,19 @@ public class CFBamLicenseTableObj
 
 	public void deleteLicenseByLicnTenantIdx( long TenantId )
 	{
-		CFIntLicenseByLicnTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
+		YCFIntLicenseByLicnTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newLicnTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByLicnTenantIdx == null ) {
-			indexByLicnTenantIdx = new HashMap< CFIntLicenseByLicnTenantIdxKey,
-				Map< CFIntLicensePKey, ICFIntLicenseObj > >();
+			indexByLicnTenantIdx = new HashMap< YCFIntLicenseByLicnTenantIdxKey,
+				Map< YCFIntLicensePKey, IYCFIntLicenseObj > >();
 		}
 		if( indexByLicnTenantIdx.containsKey( key ) ) {
-			Map<CFIntLicensePKey, ICFIntLicenseObj> dict = indexByLicnTenantIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByLicnTenantIdx( schema.getAuthorization(),
+			Map<YCFIntLicensePKey, IYCFIntLicenseObj> dict = indexByLicnTenantIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByLicnTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFIntLicenseObj> iter = dict.values().iterator();
-			ICFIntLicenseObj obj;
-			List<ICFIntLicenseObj> toForget = new LinkedList<ICFIntLicenseObj>();
+			Iterator<IYCFIntLicenseObj> iter = dict.values().iterator();
+			IYCFIntLicenseObj obj;
+			List<IYCFIntLicenseObj> toForget = new LinkedList<IYCFIntLicenseObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1097,7 +1097,7 @@ public class CFBamLicenseTableObj
 			indexByLicnTenantIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByLicnTenantIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByLicnTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeLicenseByLicnTenantIdx( TenantId );
@@ -1106,21 +1106,21 @@ public class CFBamLicenseTableObj
 	public void deleteLicenseByDomainIdx( long TenantId,
 		long TopDomainId )
 	{
-		CFIntLicenseByDomainIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
+		YCFIntLicenseByDomainIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newDomainIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		if( indexByDomainIdx == null ) {
-			indexByDomainIdx = new HashMap< CFIntLicenseByDomainIdxKey,
-				Map< CFIntLicensePKey, ICFIntLicenseObj > >();
+			indexByDomainIdx = new HashMap< YCFIntLicenseByDomainIdxKey,
+				Map< YCFIntLicensePKey, IYCFIntLicenseObj > >();
 		}
 		if( indexByDomainIdx.containsKey( key ) ) {
-			Map<CFIntLicensePKey, ICFIntLicenseObj> dict = indexByDomainIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByDomainIdx( schema.getAuthorization(),
+			Map<YCFIntLicensePKey, IYCFIntLicenseObj> dict = indexByDomainIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByDomainIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId );
-			Iterator<ICFIntLicenseObj> iter = dict.values().iterator();
-			ICFIntLicenseObj obj;
-			List<ICFIntLicenseObj> toForget = new LinkedList<ICFIntLicenseObj>();
+			Iterator<IYCFIntLicenseObj> iter = dict.values().iterator();
+			IYCFIntLicenseObj obj;
+			List<IYCFIntLicenseObj> toForget = new LinkedList<IYCFIntLicenseObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1133,7 +1133,7 @@ public class CFBamLicenseTableObj
 			indexByDomainIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByDomainIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByDomainIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId );
 		}
@@ -1146,24 +1146,24 @@ public class CFBamLicenseTableObj
 		String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFIntLicenseByUNameIdxKey,
-				ICFIntLicenseObj >();
+			indexByUNameIdx = new HashMap< YCFIntLicenseByUNameIdxKey,
+				IYCFIntLicenseObj >();
 		}
-		CFIntLicenseByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
+		YCFIntLicenseByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryLicense().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		key.setRequiredName( Name );
-		ICFIntLicenseObj obj = null;
+		IYCFIntLicenseObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableLicense().deleteLicenseByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				TopDomainId,
 				Name );

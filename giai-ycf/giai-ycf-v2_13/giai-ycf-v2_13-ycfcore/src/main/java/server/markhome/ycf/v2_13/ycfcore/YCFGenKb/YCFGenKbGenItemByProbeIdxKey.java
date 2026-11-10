@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenItem by ProbeIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenItemByProbeIdxKey
+public class YCFGenKbGenItemByProbeIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalProbeTenantId;
 	protected Long optionalProbeCartridgeId;
 	protected Long optionalProbeGenItemId;
-	public CFGenKbGenItemByProbeIdxKey() {
+	public YCFGenKbGenItemByProbeIdxKey() {
 		optionalProbeTenantId = null;
 		optionalProbeCartridgeId = null;
 		optionalProbeGenItemId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGenItemByProbeIdxKey
 		if( value == null ) {
 			optionalProbeTenantId = null;
 		}
-		else if( value < CFGenKbGenItemBuff.PROBETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenItemBuff.PROBETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalProbeTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.PROBETENANTID_MIN_VALUE );
+				YCFGenKbGenItemBuff.PROBETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalProbeTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGenItemByProbeIdxKey
 		if( value == null ) {
 			optionalProbeCartridgeId = null;
 		}
-		else if( value < CFGenKbGenItemBuff.PROBECARTRIDGEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenItemBuff.PROBECARTRIDGEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalProbeCartridgeId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.PROBECARTRIDGEID_MIN_VALUE );
+				YCFGenKbGenItemBuff.PROBECARTRIDGEID_MIN_VALUE );
 		}
 		else {
 			optionalProbeCartridgeId = value;
@@ -103,21 +103,21 @@ public class CFGenKbGenItemByProbeIdxKey
 		if( value == null ) {
 			optionalProbeGenItemId = null;
 		}
-		else if( value < CFGenKbGenItemBuff.PROBEGENITEMID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenItemBuff.PROBEGENITEMID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalProbeGenItemId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.PROBEGENITEMID_MIN_VALUE );
+				YCFGenKbGenItemBuff.PROBEGENITEMID_MIN_VALUE );
 		}
-		else if( value > CFGenKbGenItemBuff.PROBEGENITEMID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFGenKbGenItemBuff.PROBEGENITEMID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalProbeGenItemId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.PROBEGENITEMID_MAX_VALUE );
+				YCFGenKbGenItemBuff.PROBEGENITEMID_MAX_VALUE );
 		}
 		else {
 			optionalProbeGenItemId = value;
@@ -128,8 +128,8 @@ public class CFGenKbGenItemByProbeIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenItemByProbeIdxKey ) {
-			CFGenKbGenItemByProbeIdxKey rhs = (CFGenKbGenItemByProbeIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByProbeIdxKey ) {
+			YCFGenKbGenItemByProbeIdxKey rhs = (YCFGenKbGenItemByProbeIdxKey)obj;
 			if( getOptionalProbeTenantId() != null ) {
 				if( rhs.getOptionalProbeTenantId() != null ) {
 					if( ! getOptionalProbeTenantId().equals( rhs.getOptionalProbeTenantId() ) ) {
@@ -168,8 +168,8 @@ public class CFGenKbGenItemByProbeIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getOptionalProbeTenantId() != null ) {
 				if( rhs.getOptionalProbeTenantId() != null ) {
 					if( ! getOptionalProbeTenantId().equals( rhs.getOptionalProbeTenantId() ) ) {
@@ -231,8 +231,8 @@ public class CFGenKbGenItemByProbeIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenItemByProbeIdxKey ) {
-			CFGenKbGenItemByProbeIdxKey rhs = (CFGenKbGenItemByProbeIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByProbeIdxKey ) {
+			YCFGenKbGenItemByProbeIdxKey rhs = (YCFGenKbGenItemByProbeIdxKey)obj;
 			if( getOptionalProbeTenantId() != null ) {
 				Long lhsProbeTenantId = getOptionalProbeTenantId();
 				if( rhs.getOptionalProbeTenantId() != null ) {
@@ -289,8 +289,8 @@ public class CFGenKbGenItemByProbeIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getOptionalProbeTenantId() != null ) {
 				Long lhsProbeTenantId = getOptionalProbeTenantId();
 				if( rhs.getOptionalProbeTenantId() != null ) {
@@ -348,7 +348,7 @@ public class CFGenKbGenItemByProbeIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -357,7 +357,7 @@ public class CFGenKbGenItemByProbeIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenItemByProbeIdx"
+		String ret = "<YCFGenKbGenItemByProbeIdx"
 			+ " OptionalProbeTenantId=" + ( ( getOptionalProbeTenantId() == null ) ? "null" : "\"" + getOptionalProbeTenantId().toString() + "\"" )
 			+ " OptionalProbeCartridgeId=" + ( ( getOptionalProbeCartridgeId() == null ) ? "null" : "\"" + getOptionalProbeCartridgeId().toString() + "\"" )
 			+ " OptionalProbeGenItemId=" + ( ( getOptionalProbeGenItemId() == null ) ? "null" : "\"" + getOptionalProbeGenItemId().toString() + "\"" )

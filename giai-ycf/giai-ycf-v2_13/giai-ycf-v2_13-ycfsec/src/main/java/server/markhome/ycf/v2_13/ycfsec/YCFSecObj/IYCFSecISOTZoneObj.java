@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFSec ISOTZone.
+// Description: Java 11 Object interface for YCFSec ISOTZone.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,27 +26,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOTZoneObj
-	extends ICFLibAnyObj
+public interface IYCFSecISOTZoneObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -58,9 +58,9 @@ public interface ICFSecISOTZoneObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -71,9 +71,9 @@ public interface ICFSecISOTZoneObj
 	/**
 	 *	Realise this instance of a ISOTZone.
 	 *
-	 *	@return	CFSecISOTZoneObj instance which should be subsequently referenced.
+	 *	@return	YCFSecISOTZoneObj instance which should be subsequently referenced.
 	 */
-	ICFSecISOTZoneObj realise();
+	IYCFSecISOTZoneObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -85,99 +85,99 @@ public interface ICFSecISOTZoneObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecISOTZoneObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecISOTZoneObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecISOTZoneObj read();
+	IYCFSecISOTZoneObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecISOTZoneObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecISOTZoneObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecISOTZoneObj read( boolean forceRead );
+	IYCFSecISOTZoneObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this ISOTZone instance.
 	 *
-	 *	@return	The newly locked ICFSecISOTZoneEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecISOTZoneEditObj edition of this instance.
 	 */
-	ICFSecISOTZoneEditObj beginEdit();
+	IYCFSecISOTZoneEditObj beginEdit();
 
 	/**
 	 *	End this edition of this ISOTZone instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this ISOTZone instance.
 	 *
-	 *	@return	The ICFSecISOTZoneEditObj edition of this instance.
+	 *	@return	The IYCFSecISOTZoneEditObj edition of this instance.
 	 */
-	ICFSecISOTZoneEditObj getEdit();
+	IYCFSecISOTZoneEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this ISOTZone instance as a ICFSecISOTZoneEditObj.
+	 *	Get the current edition of this ISOTZone instance as a IYCFSecISOTZoneEditObj.
 	 *
-	 *	@return	The ICFSecISOTZoneEditObj edition of this instance.
+	 *	@return	The IYCFSecISOTZoneEditObj edition of this instance.
 	 */
-	ICFSecISOTZoneEditObj getEditAsISOTZone();
+	IYCFSecISOTZoneEditObj getEditAsISOTZone();
 
 	/**
-	 *	Get the ICFSecISOTZoneTableObj table cache which manages this instance.
+	 *	Get the IYCFSecISOTZoneTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecISOTZoneTableObj table cache which manages this instance.
+	 *	@return	IYCFSecISOTZoneTableObj table cache which manages this instance.
 	 */
-	ICFSecISOTZoneTableObj getISOTZoneTable();
+	IYCFSecISOTZoneTableObj getISOTZoneTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecISOTZoneBuff instance which currently backs this instance.
+	 *	Get the YCFSecISOTZoneBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecISOTZoneBuff instance which currently backs this object.
+	 *	@return	YCFSecISOTZoneBuff instance which currently backs this object.
 	 */
-	CFSecISOTZoneBuff getBuff();
+	YCFSecISOTZoneBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecISOTZoneBuff value );
+	void setBuff( YCFSecISOTZoneBuff value );
 
 	/**
-	 *	Get the CFSecISOTZoneBuff instance which currently backs this instance.
+	 *	Get the YCFSecISOTZoneBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecISOTZoneBuff instance which currently backs this object.
+	 *	@return	YCFSecISOTZoneBuff instance which currently backs this object.
 	 */
-	CFSecISOTZoneBuff getISOTZoneBuff();
+	YCFSecISOTZoneBuff getISOTZoneBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFSecISOTZonePKey primary key for this instance.
+	 *	@return	YCFSecISOTZonePKey primary key for this instance.
 	 */
-	CFSecISOTZonePKey getPKey();
+	YCFSecISOTZonePKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFSecISOTZonePKey primary key value for this instance.
+	 *	@param YCFSecISOTZonePKey primary key value for this instance.
 	 */
-	void setPKey( CFSecISOTZonePKey value );
+	void setPKey( YCFSecISOTZonePKey value );
 
 	/**
 	 *	Is this a new instance?

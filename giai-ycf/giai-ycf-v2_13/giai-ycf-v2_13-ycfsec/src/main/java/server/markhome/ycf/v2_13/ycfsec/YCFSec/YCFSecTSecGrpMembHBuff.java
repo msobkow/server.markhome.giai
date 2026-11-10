@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a TSecGrpMemb history buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,12 +36,12 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecTSecGrpMembHBuff
+public class YCFSecTSecGrpMembHBuff
 
-	extends CFSecHPKey	implements Comparable<Object>,
+	extends YCFSecHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final long TENANTID_INIT_VALUE = 0L;
@@ -56,16 +56,16 @@ public class CFSecTSecGrpMembHBuff
 	protected long requiredTSecGrpMembId;
 	protected int requiredTSecGroupId;
 	protected UUID requiredSecUserId;
-	public CFSecTSecGrpMembHBuff() {
+	public YCFSecTSecGrpMembHBuff() {
 		super();
-		requiredTenantId = CFSecTSecGrpMembBuff.TENANTID_INIT_VALUE;
-		requiredTSecGrpMembId = CFSecTSecGrpMembBuff.TSECGRPMEMBID_INIT_VALUE;
-		requiredTSecGroupId = CFSecTSecGrpMembBuff.TSECGROUPID_INIT_VALUE;
-		requiredSecUserId = UUID.fromString( CFSecTSecGrpMembBuff.SECUSERID_INIT_VALUE.toString() );
+		requiredTenantId = YCFSecTSecGrpMembBuff.TENANTID_INIT_VALUE;
+		requiredTSecGrpMembId = YCFSecTSecGrpMembBuff.TSECGRPMEMBID_INIT_VALUE;
+		requiredTSecGroupId = YCFSecTSecGrpMembBuff.TSECGROUPID_INIT_VALUE;
+		requiredSecUserId = UUID.fromString( YCFSecTSecGrpMembBuff.SECUSERID_INIT_VALUE.toString() );
 	}
 
 	public String getClassCode() {
-		return( CFSecTSecGrpMembBuff.CLASS_CODE );
+		return( YCFSecTSecGrpMembBuff.CLASS_CODE );
 	}
 
 	public long getRequiredTenantId() {
@@ -73,13 +73,13 @@ public class CFSecTSecGrpMembHBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFSecTSecGrpMembBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecTSecGrpMembBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFSecTSecGrpMembBuff.TENANTID_MIN_VALUE );
+				YCFSecTSecGrpMembBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -89,13 +89,13 @@ public class CFSecTSecGrpMembHBuff
 	}
 
 	public void setRequiredTSecGrpMembId( long value ) {
-		if( value < CFSecTSecGrpMembBuff.TSECGRPMEMBID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecTSecGrpMembBuff.TSECGRPMEMBID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTSecGrpMembId",
 				1,
 				"value",
 				value,
-				CFSecTSecGrpMembBuff.TSECGRPMEMBID_MIN_VALUE );
+				YCFSecTSecGrpMembBuff.TSECGRPMEMBID_MIN_VALUE );
 		}
 		requiredTSecGrpMembId = value;
 	}
@@ -105,13 +105,13 @@ public class CFSecTSecGrpMembHBuff
 	}
 
 	public void setRequiredTSecGroupId( int value ) {
-		if( value < CFSecTSecGrpMembBuff.TSECGROUPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecTSecGrpMembBuff.TSECGROUPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTSecGroupId",
 				1,
 				"value",
 				value,
-				CFSecTSecGrpMembBuff.TSECGROUPID_MIN_VALUE );
+				YCFSecTSecGrpMembBuff.TSECGROUPID_MIN_VALUE );
 		}
 		requiredTSecGroupId = value;
 	}
@@ -122,7 +122,7 @@ public class CFSecTSecGrpMembHBuff
 
 	public void setRequiredSecUserId( UUID value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
 				1,
 				"value" );
@@ -134,8 +134,8 @@ public class CFSecTSecGrpMembHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecTSecGrpMembHBuff ) {
-			CFSecTSecGrpMembHBuff rhs = (CFSecTSecGrpMembHBuff)obj;
+		else if( obj instanceof YCFSecTSecGrpMembHBuff ) {
+			YCFSecTSecGrpMembHBuff rhs = (YCFSecTSecGrpMembHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -153,8 +153,8 @@ public class CFSecTSecGrpMembHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecTSecGrpMembBuff ) {
-			CFSecTSecGrpMembBuff rhs = (CFSecTSecGrpMembBuff)obj;
+		else if( obj instanceof YCFSecTSecGrpMembBuff ) {
+			YCFSecTSecGrpMembBuff rhs = (YCFSecTSecGrpMembBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -172,45 +172,45 @@ public class CFSecTSecGrpMembHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecTSecGrpMembByTenantIdxKey ) {
-			CFSecTSecGrpMembByTenantIdxKey rhs = (CFSecTSecGrpMembByTenantIdxKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembByTenantIdxKey ) {
+			YCFSecTSecGrpMembByTenantIdxKey rhs = (YCFSecTSecGrpMembByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecTSecGrpMembByGroupIdxKey ) {
-			CFSecTSecGrpMembByGroupIdxKey rhs = (CFSecTSecGrpMembByGroupIdxKey)obj;
-			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
-				return( false );
-			}
-			if( getRequiredTSecGroupId() != rhs.getRequiredTSecGroupId() ) {
-				return( false );
-			}
-			return( true );
-		}
-		else if( obj instanceof CFSecTSecGrpMembByUserIdxKey ) {
-			CFSecTSecGrpMembByUserIdxKey rhs = (CFSecTSecGrpMembByUserIdxKey)obj;
-			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
-				return( false );
-			}
-			return( true );
-		}
-		else if( obj instanceof CFSecTSecGrpMembByUUserIdxKey ) {
-			CFSecTSecGrpMembByUUserIdxKey rhs = (CFSecTSecGrpMembByUUserIdxKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembByGroupIdxKey ) {
+			YCFSecTSecGrpMembByGroupIdxKey rhs = (YCFSecTSecGrpMembByGroupIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			if( getRequiredTSecGroupId() != rhs.getRequiredTSecGroupId() ) {
 				return( false );
 			}
+			return( true );
+		}
+		else if( obj instanceof YCFSecTSecGrpMembByUserIdxKey ) {
+			YCFSecTSecGrpMembByUserIdxKey rhs = (YCFSecTSecGrpMembByUserIdxKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecTSecGrpMembHPKey ) {
-			CFSecTSecGrpMembHPKey rhs = (CFSecTSecGrpMembHPKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembByUUserIdxKey ) {
+			YCFSecTSecGrpMembByUUserIdxKey rhs = (YCFSecTSecGrpMembByUUserIdxKey)obj;
+			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
+				return( false );
+			}
+			if( getRequiredTSecGroupId() != rhs.getRequiredTSecGroupId() ) {
+				return( false );
+			}
+			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof YCFSecTSecGrpMembHPKey ) {
+			YCFSecTSecGrpMembHPKey rhs = (YCFSecTSecGrpMembHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -274,8 +274,8 @@ public class CFSecTSecGrpMembHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -333,8 +333,8 @@ public class CFSecTSecGrpMembHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecTSecGrpMembPKey ) {
-			CFSecTSecGrpMembPKey rhs = (CFSecTSecGrpMembPKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembPKey ) {
+			YCFSecTSecGrpMembPKey rhs = (YCFSecTSecGrpMembPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -361,16 +361,16 @@ public class CFSecTSecGrpMembHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembBuff ) {
-			CFSecTSecGrpMembBuff rhs = (CFSecTSecGrpMembBuff)obj;
+		else if( obj instanceof YCFSecTSecGrpMembBuff ) {
+			YCFSecTSecGrpMembBuff rhs = (YCFSecTSecGrpMembBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembByTenantIdxKey ) {
-			CFSecTSecGrpMembByTenantIdxKey rhs = (CFSecTSecGrpMembByTenantIdxKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembByTenantIdxKey ) {
+			YCFSecTSecGrpMembByTenantIdxKey rhs = (YCFSecTSecGrpMembByTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -379,34 +379,8 @@ public class CFSecTSecGrpMembHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembByGroupIdxKey ) {
-			CFSecTSecGrpMembByGroupIdxKey rhs = (CFSecTSecGrpMembByGroupIdxKey)obj;
-
-			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
-				return( -1 );
-			}
-			else if( getRequiredTenantId() > rhs.getRequiredTenantId() ) {
-				return( 1 );
-			}
-			if( getRequiredTSecGroupId() < rhs.getRequiredTSecGroupId() ) {
-				return( -1 );
-			}
-			else if( getRequiredTSecGroupId() > rhs.getRequiredTSecGroupId() ) {
-				return( 1 );
-			}			return( 0 );
-		}
-		else if( obj instanceof CFSecTSecGrpMembByUserIdxKey ) {
-			CFSecTSecGrpMembByUserIdxKey rhs = (CFSecTSecGrpMembByUserIdxKey)obj;
-
-			{
-				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
-				if( cmp != 0 ) {
-					return( cmp );
-				}
-			}			return( 0 );
-		}
-		else if( obj instanceof CFSecTSecGrpMembByUUserIdxKey ) {
-			CFSecTSecGrpMembByUUserIdxKey rhs = (CFSecTSecGrpMembByUUserIdxKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembByGroupIdxKey ) {
+			YCFSecTSecGrpMembByGroupIdxKey rhs = (YCFSecTSecGrpMembByGroupIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -419,6 +393,32 @@ public class CFSecTSecGrpMembHBuff
 			}
 			else if( getRequiredTSecGroupId() > rhs.getRequiredTSecGroupId() ) {
 				return( 1 );
+			}			return( 0 );
+		}
+		else if( obj instanceof YCFSecTSecGrpMembByUserIdxKey ) {
+			YCFSecTSecGrpMembByUserIdxKey rhs = (YCFSecTSecGrpMembByUserIdxKey)obj;
+
+			{
+				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}			return( 0 );
+		}
+		else if( obj instanceof YCFSecTSecGrpMembByUUserIdxKey ) {
+			YCFSecTSecGrpMembByUUserIdxKey rhs = (YCFSecTSecGrpMembByUUserIdxKey)obj;
+
+			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTenantId() > rhs.getRequiredTenantId() ) {
+				return( 1 );
+			}
+			if( getRequiredTSecGroupId() < rhs.getRequiredTSecGroupId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTSecGroupId() > rhs.getRequiredTSecGroupId() ) {
+				return( 1 );
 			}
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
@@ -427,8 +427,8 @@ public class CFSecTSecGrpMembHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembHBuff ) {
-			CFSecTSecGrpMembHBuff rhs = (CFSecTSecGrpMembHBuff)obj;
+		else if( obj instanceof YCFSecTSecGrpMembHBuff ) {
+			YCFSecTSecGrpMembHBuff rhs = (YCFSecTSecGrpMembHBuff)obj;
 
 			int retval = 0;
 			{
@@ -589,8 +589,8 @@ public class CFSecTSecGrpMembHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembHPKey ) {
-			CFSecTSecGrpMembHPKey rhs = (CFSecTSecGrpMembHPKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembHPKey ) {
+			YCFSecTSecGrpMembHPKey rhs = (YCFSecTSecGrpMembHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -671,8 +671,8 @@ public class CFSecTSecGrpMembHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembPKey ) {
-			CFSecTSecGrpMembPKey rhs = (CFSecTSecGrpMembPKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembPKey ) {
+			YCFSecTSecGrpMembPKey rhs = (YCFSecTSecGrpMembPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -687,8 +687,8 @@ public class CFSecTSecGrpMembHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -706,11 +706,11 @@ public class CFSecTSecGrpMembHBuff
 		}
 	}
 
-	public void set( CFSecTSecGrpMembBuff src ) {
+	public void set( YCFSecTSecGrpMembBuff src ) {
 		setTSecGrpMembBuff( src );
 	}
 
-	public void setTSecGrpMembBuff( CFSecTSecGrpMembBuff src ) {
+	public void setTSecGrpMembBuff( YCFSecTSecGrpMembBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredTSecGrpMembId( src.getRequiredTSecGrpMembId() );
 		setRequiredTSecGroupId( src.getRequiredTSecGroupId() );
@@ -718,11 +718,11 @@ public class CFSecTSecGrpMembHBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecTSecGrpMembHBuff src ) {
+	public void set( YCFSecTSecGrpMembHBuff src ) {
 		setTSecGrpMembBuff( src );
 	}
 
-	public void setTSecGrpMembBuff( CFSecTSecGrpMembHBuff src ) {
+	public void setTSecGrpMembBuff( YCFSecTSecGrpMembHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredTSecGrpMembId( src.getRequiredTSecGrpMembId() );
 		setRequiredTSecGroupId( src.getRequiredTSecGroupId() );

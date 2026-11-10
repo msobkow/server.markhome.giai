@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFInt Service.
+// Description: Java 11 Object interface for YCFInt Service.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,29 +26,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntServiceObj
-	extends ICFSecServiceObj
+public interface IYCFIntServiceObj
+	extends IYCFSecServiceObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -60,9 +60,9 @@ public interface ICFIntServiceObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -73,9 +73,9 @@ public interface ICFIntServiceObj
 	/**
 	 *	Realise this instance of a Service.
 	 *
-	 *	@return	CFSecServiceObj instance which should be subsequently referenced.
+	 *	@return	YCFSecServiceObj instance which should be subsequently referenced.
 	 */
-	ICFSecServiceObj realise();
+	IYCFSecServiceObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -87,83 +87,83 @@ public interface ICFIntServiceObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecServiceObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecServiceObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecServiceObj read();
+	IYCFSecServiceObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecServiceObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecServiceObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecServiceObj read( boolean forceRead );
+	IYCFSecServiceObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this Service instance.
 	 *
-	 *	@return	The newly locked ICFSecServiceEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecServiceEditObj edition of this instance.
 	 */
-	ICFSecServiceEditObj beginEdit();
+	IYCFSecServiceEditObj beginEdit();
 
 	/**
 	 *	End this edition of this Service instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this Service instance.
 	 *
-	 *	@return	The ICFSecServiceEditObj edition of this instance.
+	 *	@return	The IYCFSecServiceEditObj edition of this instance.
 	 */
-	ICFSecServiceEditObj getEdit();
+	IYCFSecServiceEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this Service instance as a ICFSecServiceEditObj.
+	 *	Get the current edition of this Service instance as a IYCFSecServiceEditObj.
 	 *
-	 *	@return	The ICFSecServiceEditObj edition of this instance.
+	 *	@return	The IYCFSecServiceEditObj edition of this instance.
 	 */
-	ICFSecServiceEditObj getEditAsService();
+	IYCFSecServiceEditObj getEditAsService();
 
 	/**
-	 *	Get the ICFSecServiceTableObj table cache which manages this instance.
+	 *	Get the IYCFSecServiceTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecServiceTableObj table cache which manages this instance.
+	 *	@return	IYCFSecServiceTableObj table cache which manages this instance.
 	 */
-	ICFSecServiceTableObj getServiceTable();
+	IYCFSecServiceTableObj getServiceTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecServiceBuff instance which currently backs this instance.
+	 *	Get the YCFSecServiceBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecServiceBuff instance which currently backs this object.
+	 *	@return	YCFSecServiceBuff instance which currently backs this object.
 	 */
-	CFSecServiceBuff getBuff();
+	YCFSecServiceBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecServiceBuff value );
+	void setBuff( YCFSecServiceBuff value );
 
 	/**
-	 *	Get the CFSecServiceBuff instance which currently backs this instance.
+	 *	Get the YCFSecServiceBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecServiceBuff instance which currently backs this object.
+	 *	@return	YCFSecServiceBuff instance which currently backs this object.
 	 */
-	CFSecServiceBuff getServiceBuff();
+	YCFSecServiceBuff getServiceBuff();
 
 	/**
 	 *	Is this a new instance?
@@ -218,46 +218,46 @@ public interface ICFIntServiceObj
 	short getRequiredHostPort();
 
 	/**
-	 *	Get the required ICFIntClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFIntClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFIntClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFIntClusterObj instance referenced by the Cluster key.
 	 */
-	ICFSecClusterObj getRequiredOwnerCluster();
+	IYCFSecClusterObj getRequiredOwnerCluster();
 
 	/**
-	 *	Get the required ICFSecClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFSecClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFSecClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFSecClusterObj instance referenced by the Cluster key.
 	 */
-	ICFSecClusterObj getRequiredOwnerCluster( boolean forceRead );
+	IYCFSecClusterObj getRequiredOwnerCluster( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFIntHostNodeObj instance referenced by the Host key.
+	 *	Get the optional IYCFIntHostNodeObj instance referenced by the Host key.
 	 *
-	 *	@return	The optional ICFIntHostNodeObj instance referenced by the Host key.
+	 *	@return	The optional IYCFIntHostNodeObj instance referenced by the Host key.
 	 */
-	ICFSecHostNodeObj getOptionalContainerHost();
+	IYCFSecHostNodeObj getOptionalContainerHost();
 
 	/**
-	 *	Get the optional ICFSecHostNodeObj instance referenced by the Host key.
+	 *	Get the optional IYCFSecHostNodeObj instance referenced by the Host key.
 	 *
-	 *	@return	The optional ICFSecHostNodeObj instance referenced by the Host key.
+	 *	@return	The optional IYCFSecHostNodeObj instance referenced by the Host key.
 	 */
-	ICFSecHostNodeObj getOptionalContainerHost( boolean forceRead );
+	IYCFSecHostNodeObj getOptionalContainerHost( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFIntServiceTypeObj instance referenced by the ServiceType key.
+	 *	Get the optional IYCFIntServiceTypeObj instance referenced by the ServiceType key.
 	 *
-	 *	@return	The optional ICFIntServiceTypeObj instance referenced by the ServiceType key.
+	 *	@return	The optional IYCFIntServiceTypeObj instance referenced by the ServiceType key.
 	 */
-	ICFSecServiceTypeObj getOptionalParentServiceType();
+	IYCFSecServiceTypeObj getOptionalParentServiceType();
 
 	/**
-	 *	Get the optional ICFSecServiceTypeObj instance referenced by the ServiceType key.
+	 *	Get the optional IYCFSecServiceTypeObj instance referenced by the ServiceType key.
 	 *
-	 *	@return	The optional ICFSecServiceTypeObj instance referenced by the ServiceType key.
+	 *	@return	The optional IYCFSecServiceTypeObj instance referenced by the ServiceType key.
 	 */
-	ICFSecServiceTypeObj getOptionalParentServiceType( boolean forceRead );
+	IYCFSecServiceTypeObj getOptionalParentServiceType( boolean forceRead );
 
 	/**
 	 *	Internal use only.

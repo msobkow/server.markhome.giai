@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecSession by FinishIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSecSessionByFinishIdxKey
+public class YCFGenKbSecSessionByFinishIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected UUID requiredSecUserId;
 	protected Calendar optionalFinish;
-	public CFGenKbSecSessionByFinishIdxKey() {
-		requiredSecUserId = UUID.fromString( CFGenKbSecSessionBuff.SECUSERID_INIT_VALUE.toString() );
+	public YCFGenKbSecSessionByFinishIdxKey() {
+		requiredSecUserId = UUID.fromString( YCFGenKbSecSessionBuff.SECUSERID_INIT_VALUE.toString() );
 		optionalFinish = null;
 	}
 
@@ -57,7 +57,7 @@ public class CFGenKbSecSessionByFinishIdxKey
 
 	public void setRequiredSecUserId( UUID value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
 				1,
 				"value" );
@@ -82,8 +82,8 @@ public class CFGenKbSecSessionByFinishIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecSessionByFinishIdxKey ) {
-			CFGenKbSecSessionByFinishIdxKey rhs = (CFGenKbSecSessionByFinishIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecSessionByFinishIdxKey ) {
+			YCFGenKbSecSessionByFinishIdxKey rhs = (YCFGenKbSecSessionByFinishIdxKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -101,8 +101,8 @@ public class CFGenKbSecSessionByFinishIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecSessionBuff ) {
-			CFGenKbSecSessionBuff rhs = (CFGenKbSecSessionBuff)obj;
+		else if( obj instanceof YCFGenKbSecSessionBuff ) {
+			YCFGenKbSecSessionBuff rhs = (YCFGenKbSecSessionBuff)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -138,8 +138,8 @@ public class CFGenKbSecSessionByFinishIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbSecSessionByFinishIdxKey ) {
-			CFGenKbSecSessionByFinishIdxKey rhs = (CFGenKbSecSessionByFinishIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecSessionByFinishIdxKey ) {
+			YCFGenKbSecSessionByFinishIdxKey rhs = (YCFGenKbSecSessionByFinishIdxKey)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -164,8 +164,8 @@ public class CFGenKbSecSessionByFinishIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecSessionBuff ) {
-			CFGenKbSecSessionBuff rhs = (CFGenKbSecSessionBuff)obj;
+		else if( obj instanceof YCFGenKbSecSessionBuff ) {
+			YCFGenKbSecSessionBuff rhs = (YCFGenKbSecSessionBuff)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -191,7 +191,7 @@ public class CFGenKbSecSessionByFinishIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -200,7 +200,7 @@ public class CFGenKbSecSessionByFinishIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbSecSessionByFinishIdx"
+		String ret = "<YCFGenKbSecSessionByFinishIdx"
 			+ " RequiredSecUserId=" + "\"" + getRequiredSecUserId().toString() + "\""
 			+ " OptionalFinish=" + ( ( getOptionalFinish() == null ) ? "null" : "\"" + getOptionalFinish().toString() + "\"" )
 			+ "/>";

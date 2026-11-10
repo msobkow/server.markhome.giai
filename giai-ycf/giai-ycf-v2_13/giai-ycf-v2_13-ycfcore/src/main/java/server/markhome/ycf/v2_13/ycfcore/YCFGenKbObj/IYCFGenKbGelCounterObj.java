@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelCounter.
+// Description: Java 11 Object interface for YCFGenKb GelCounter.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,45 +27,45 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGelCounterObj
-	extends ICFGenKbGelInstructionObj
+public interface IYCFGenKbGelCounterObj
+	extends IYCFGenKbGelInstructionObj
 {
 	/**
-	 *	Get the current edition of this GelCounter instance as a ICFGenKbGelCounterEditObj.
+	 *	Get the current edition of this GelCounter instance as a IYCFGenKbGelCounterEditObj.
 	 *
-	 *	@return	The ICFGenKbGelCounterEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelCounterEditObj edition of this instance.
 	 */
-	ICFGenKbGelCounterEditObj getEditAsGelCounter();
+	IYCFGenKbGelCounterEditObj getEditAsGelCounter();
 
 	/**
-	 *	Get the ICFGenKbGelCounterTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelCounterTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelCounterTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelCounterTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelCounterTableObj getGelCounterTable();
+	IYCFGenKbGelCounterTableObj getGelCounterTable();
 
 	/**
-	 *	Get the CFGenKbGelCounterBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelCounterBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelCounterBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelCounterBuff instance which currently backs this object.
 	 */
-	CFGenKbGelCounterBuff getGelCounterBuff();
+	YCFGenKbGelCounterBuff getGelCounterBuff();
 
 	/**
 	 *	Get the required String attribute CounterName.

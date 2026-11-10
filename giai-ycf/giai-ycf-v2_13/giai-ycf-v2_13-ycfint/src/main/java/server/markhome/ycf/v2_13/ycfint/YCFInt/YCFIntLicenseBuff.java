@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a License buffer object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,11 +36,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntLicenseBuff
+public class YCFIntLicenseBuff
 {
 	public final static String CLASS_CODE = "a101";
 	public static final long TENANTID_INIT_VALUE = 0L;
@@ -61,11 +61,11 @@ public class CFIntLicenseBuff
 	protected String optionalEmbeddedText;
 	protected String optionalFullText;
 	protected int requiredRevision;
-	public CFIntLicenseBuff() {
-		requiredTenantId = CFIntLicenseBuff.TENANTID_INIT_VALUE;
-		requiredId = CFIntLicenseBuff.ID_INIT_VALUE;
-		requiredTopDomainId = CFIntLicenseBuff.TOPDOMAINID_INIT_VALUE;
-		requiredName = new String( CFIntLicenseBuff.NAME_INIT_VALUE );
+	public YCFIntLicenseBuff() {
+		requiredTenantId = YCFIntLicenseBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFIntLicenseBuff.ID_INIT_VALUE;
+		requiredTopDomainId = YCFIntLicenseBuff.TOPDOMAINID_INIT_VALUE;
+		requiredName = new String( YCFIntLicenseBuff.NAME_INIT_VALUE );
 		optionalDescription = null;
 		optionalEmbeddedText = null;
 		optionalFullText = null;
@@ -80,13 +80,13 @@ public class CFIntLicenseBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntLicenseBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntLicenseBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntLicenseBuff.TENANTID_MIN_VALUE );
+				YCFIntLicenseBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -96,13 +96,13 @@ public class CFIntLicenseBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFIntLicenseBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntLicenseBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFIntLicenseBuff.ID_MIN_VALUE );
+				YCFIntLicenseBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -112,13 +112,13 @@ public class CFIntLicenseBuff
 	}
 
 	public void setRequiredTopDomainId( long value ) {
-		if( value < CFIntLicenseBuff.TOPDOMAINID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntLicenseBuff.TOPDOMAINID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTopDomainId",
 				1,
 				"value",
 				value,
-				CFIntLicenseBuff.TOPDOMAINID_MIN_VALUE );
+				YCFIntLicenseBuff.TOPDOMAINID_MIN_VALUE );
 		}
 		requiredTopDomainId = value;
 	}
@@ -129,13 +129,13 @@ public class CFIntLicenseBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -154,7 +154,7 @@ public class CFIntLicenseBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -175,7 +175,7 @@ public class CFIntLicenseBuff
 			optionalEmbeddedText = null;
 		}
 		else if( value.length() > 8000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalEmbeddedText",
 				1,
 				"value.length()",
@@ -196,7 +196,7 @@ public class CFIntLicenseBuff
 			optionalFullText = null;
 		}
 		else if( value.length() > 8000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalFullText",
 				1,
 				"value.length()",
@@ -220,8 +220,8 @@ public class CFIntLicenseBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntLicenseBuff ) {
-			CFIntLicenseBuff rhs = (CFIntLicenseBuff)obj;
+		else if( obj instanceof YCFIntLicenseBuff ) {
+			YCFIntLicenseBuff rhs = (YCFIntLicenseBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -272,8 +272,8 @@ public class CFIntLicenseBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicensePKey ) {
-			CFIntLicensePKey rhs = (CFIntLicensePKey)obj;
+		else if( obj instanceof YCFIntLicensePKey ) {
+			YCFIntLicensePKey rhs = (YCFIntLicensePKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -282,8 +282,8 @@ public class CFIntLicenseBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicenseHBuff ) {
-			CFIntLicenseHBuff rhs = (CFIntLicenseHBuff)obj;
+		else if( obj instanceof YCFIntLicenseHBuff ) {
+			YCFIntLicenseHBuff rhs = (YCFIntLicenseHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -334,8 +334,8 @@ public class CFIntLicenseBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicenseHPKey ) {
-			CFIntLicenseHPKey rhs = (CFIntLicenseHPKey)obj;
+		else if( obj instanceof YCFIntLicenseHPKey ) {
+			YCFIntLicenseHPKey rhs = (YCFIntLicenseHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -344,15 +344,15 @@ public class CFIntLicenseBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicenseByLicnTenantIdxKey ) {
-			CFIntLicenseByLicnTenantIdxKey rhs = (CFIntLicenseByLicnTenantIdxKey)obj;
+		else if( obj instanceof YCFIntLicenseByLicnTenantIdxKey ) {
+			YCFIntLicenseByLicnTenantIdxKey rhs = (YCFIntLicenseByLicnTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicenseByDomainIdxKey ) {
-			CFIntLicenseByDomainIdxKey rhs = (CFIntLicenseByDomainIdxKey)obj;
+		else if( obj instanceof YCFIntLicenseByDomainIdxKey ) {
+			YCFIntLicenseByDomainIdxKey rhs = (YCFIntLicenseByDomainIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -361,8 +361,8 @@ public class CFIntLicenseBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicenseByUNameIdxKey ) {
-			CFIntLicenseByUNameIdxKey rhs = (CFIntLicenseByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntLicenseByUNameIdxKey ) {
+			YCFIntLicenseByUNameIdxKey rhs = (YCFIntLicenseByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -404,8 +404,8 @@ public class CFIntLicenseBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntLicenseBuff ) {
-			CFIntLicenseBuff rhs = (CFIntLicenseBuff)obj;
+		else if( obj instanceof YCFIntLicenseBuff ) {
+			YCFIntLicenseBuff rhs = (YCFIntLicenseBuff)obj;
 			int retval = 0;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -481,8 +481,8 @@ public class CFIntLicenseBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntLicensePKey ) {
-			CFIntLicensePKey rhs = (CFIntLicensePKey)obj;
+		else if( obj instanceof YCFIntLicensePKey ) {
+			YCFIntLicensePKey rhs = (YCFIntLicensePKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -497,8 +497,8 @@ public class CFIntLicenseBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntLicenseHPKey ) {
-			CFIntLicenseHPKey rhs = (CFIntLicenseHPKey)obj;
+		else if( obj instanceof YCFIntLicenseHPKey ) {
+			YCFIntLicenseHPKey rhs = (YCFIntLicenseHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -523,8 +523,8 @@ public class CFIntLicenseBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntLicenseHBuff ) {
-			CFIntLicenseHBuff rhs = (CFIntLicenseHBuff)obj;
+		else if( obj instanceof YCFIntLicenseHBuff ) {
+			YCFIntLicenseHBuff rhs = (YCFIntLicenseHBuff)obj;
 			int retval = 0;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -600,8 +600,8 @@ public class CFIntLicenseBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntLicenseByLicnTenantIdxKey ) {
-			CFIntLicenseByLicnTenantIdxKey rhs = (CFIntLicenseByLicnTenantIdxKey)obj;
+		else if( obj instanceof YCFIntLicenseByLicnTenantIdxKey ) {
+			YCFIntLicenseByLicnTenantIdxKey rhs = (YCFIntLicenseByLicnTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -610,8 +610,8 @@ public class CFIntLicenseBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntLicenseByDomainIdxKey ) {
-			CFIntLicenseByDomainIdxKey rhs = (CFIntLicenseByDomainIdxKey)obj;
+		else if( obj instanceof YCFIntLicenseByDomainIdxKey ) {
+			YCFIntLicenseByDomainIdxKey rhs = (YCFIntLicenseByDomainIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -626,8 +626,8 @@ public class CFIntLicenseBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntLicenseByUNameIdxKey ) {
-			CFIntLicenseByUNameIdxKey rhs = (CFIntLicenseByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntLicenseByUNameIdxKey ) {
+			YCFIntLicenseByUNameIdxKey rhs = (YCFIntLicenseByUNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -649,7 +649,7 @@ public class CFIntLicenseBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -657,11 +657,11 @@ public class CFIntLicenseBuff
 		}
 	}
 
-	public void set( CFIntLicenseBuff src ) {
+	public void set( YCFIntLicenseBuff src ) {
 		setLicenseBuff( src );
 	}
 
-	public void setLicenseBuff( CFIntLicenseBuff src ) {
+	public void setLicenseBuff( YCFIntLicenseBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredTopDomainId( src.getRequiredTopDomainId() );
@@ -672,11 +672,11 @@ public class CFIntLicenseBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFIntLicenseHBuff src ) {
+	public void set( YCFIntLicenseHBuff src ) {
 		setLicenseBuff( src );
 	}
 
-	public void setLicenseBuff( CFIntLicenseHBuff src ) {
+	public void setLicenseBuff( YCFIntLicenseHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredTopDomainId( src.getRequiredTopDomainId() );

@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb RuleCart.
+// Description: Java 11 Object interface for YCFGenKb RuleCart.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbRuleCartObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbRuleCartObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a RuleCart.
 	 *
-	 *	@return	CFGenKbRuleCartObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbRuleCartObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbRuleCartObj realise();
+	IYCFGenKbRuleCartObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -59,99 +59,99 @@ public interface ICFGenKbRuleCartObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbRuleCartObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbRuleCartObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbRuleCartObj read();
+	IYCFGenKbRuleCartObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbRuleCartObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbRuleCartObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbRuleCartObj read( boolean forceRead );
+	IYCFGenKbRuleCartObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this RuleCart instance.
 	 *
-	 *	@return	The newly locked ICFGenKbRuleCartEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbRuleCartEditObj edition of this instance.
 	 */
-	ICFGenKbRuleCartEditObj beginEdit();
+	IYCFGenKbRuleCartEditObj beginEdit();
 
 	/**
 	 *	End this edition of this RuleCart instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this RuleCart instance.
 	 *
-	 *	@return	The ICFGenKbRuleCartEditObj edition of this instance.
+	 *	@return	The IYCFGenKbRuleCartEditObj edition of this instance.
 	 */
-	ICFGenKbRuleCartEditObj getEdit();
+	IYCFGenKbRuleCartEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this RuleCart instance as a ICFGenKbRuleCartEditObj.
+	 *	Get the current edition of this RuleCart instance as a IYCFGenKbRuleCartEditObj.
 	 *
-	 *	@return	The ICFGenKbRuleCartEditObj edition of this instance.
+	 *	@return	The IYCFGenKbRuleCartEditObj edition of this instance.
 	 */
-	ICFGenKbRuleCartEditObj getEditAsRuleCart();
+	IYCFGenKbRuleCartEditObj getEditAsRuleCart();
 
 	/**
-	 *	Get the ICFGenKbRuleCartTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbRuleCartTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbRuleCartTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbRuleCartTableObj table cache which manages this instance.
 	 */
-	ICFGenKbRuleCartTableObj getRuleCartTable();
+	IYCFGenKbRuleCartTableObj getRuleCartTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbRuleCartBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbRuleCartBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbRuleCartBuff instance which currently backs this object.
+	 *	@return	YCFGenKbRuleCartBuff instance which currently backs this object.
 	 */
-	CFGenKbRuleCartBuff getBuff();
+	YCFGenKbRuleCartBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbRuleCartBuff value );
+	void setBuff( YCFGenKbRuleCartBuff value );
 
 	/**
-	 *	Get the CFGenKbRuleCartBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbRuleCartBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbRuleCartBuff instance which currently backs this object.
+	 *	@return	YCFGenKbRuleCartBuff instance which currently backs this object.
 	 */
-	CFGenKbRuleCartBuff getRuleCartBuff();
+	YCFGenKbRuleCartBuff getRuleCartBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbRuleCartPKey primary key for this instance.
+	 *	@return	YCFGenKbRuleCartPKey primary key for this instance.
 	 */
-	CFGenKbRuleCartPKey getPKey();
+	YCFGenKbRuleCartPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbRuleCartPKey primary key value for this instance.
+	 *	@param YCFGenKbRuleCartPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbRuleCartPKey value );
+	void setPKey( YCFGenKbRuleCartPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -206,32 +206,32 @@ public interface ICFGenKbRuleCartObj
 	String getOptionalRevisionString();
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredContainerTenant();
+	IYCFGenKbTenantObj getRequiredContainerTenant();
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredContainerTenant( boolean forceRead );
+	IYCFGenKbTenantObj getRequiredContainerTenant( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbGenItemObj array of instances referenced by the Rule key.
+	 *	Get the array of optional IYCFGenKbGenItemObj array of instances referenced by the Rule key.
 	 *
-	 *	@return	The optional ICFGenKbGenItemObj[] array of instances referenced by the Rule key.
+	 *	@return	The optional IYCFGenKbGenItemObj[] array of instances referenced by the Rule key.
 	 */
-	List<ICFGenKbGenItemObj> getOptionalComponentsRule();
+	List<IYCFGenKbGenItemObj> getOptionalComponentsRule();
 
 	/**
-	 *	Get the array of optional ICFGenKbGenItemObj array of instances referenced by the Rule key.
+	 *	Get the array of optional IYCFGenKbGenItemObj array of instances referenced by the Rule key.
 	 *
-	 *	@return	The optional ICFGenKbGenItemObj[] array of instances referenced by the Rule key.
+	 *	@return	The optional IYCFGenKbGenItemObj[] array of instances referenced by the Rule key.
 	 */
-	List<ICFGenKbGenItemObj> getOptionalComponentsRule( boolean forceRead );
+	List<IYCFGenKbGenItemObj> getOptionalComponentsRule( boolean forceRead );
 
 	/**
 	 *	Internal use only.

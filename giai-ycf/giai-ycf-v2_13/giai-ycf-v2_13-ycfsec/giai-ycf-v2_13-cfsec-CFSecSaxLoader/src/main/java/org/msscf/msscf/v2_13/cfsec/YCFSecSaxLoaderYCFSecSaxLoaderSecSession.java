@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for SecSession
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,19 +35,19 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSaxLoaderSecSessionParse XML SAX Element Handler implementation
+ *	YCFSecSaxLoaderSecSessionParse XML SAX Element Handler implementation
  *	for SecSession.
  */
-public class CFSecSaxLoaderSecSession
-	extends CFLibXmlCoreElementHandler
+public class YCFSecSaxLoaderSecSession
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFSecSaxLoaderSecSession( CFSecSaxLoader saxLoader ) {
+	public YCFSecSaxLoaderSecSession( YCFSecSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -59,8 +59,8 @@ public class CFSecSaxLoaderSecSession
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFSecSecSessionObj origBuff = null;
-		ICFSecSecSessionEditObj editBuff = null;
+		IYCFSecSecSessionObj origBuff = null;
+		IYCFSecSecSessionEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// SecSession Attributes
@@ -69,8 +69,8 @@ public class CFSecSaxLoaderSecSession
 		String attrFinish = null;
 		String attrSecProxy = null;
 		// SecSession References
-		ICFSecSecUserObj refSecUser = null;
-		ICFSecSecUserObj refSecProxy = null;
+		IYCFSecSecUserObj refSecUser = null;
+		IYCFSecSecUserObj refSecProxy = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -79,25 +79,25 @@ public class CFSecSaxLoaderSecSession
 		try {
 			assert qName.equals( "SecSession" );
 
-			CFSecSaxLoader saxLoader = (CFSecSaxLoader)getParser();
+			YCFSecSaxLoader saxLoader = (YCFSecSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFSecSecSessionObj)schemaObj.getSecSessionTableObj().newInstance();
-			editBuff = (ICFSecSecSessionEditObj)origBuff.beginEdit();
+			origBuff = (IYCFSecSecSessionObj)schemaObj.getSecSessionTableObj().newInstance();
+			editBuff = (IYCFSecSecSessionEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -105,7 +105,7 @@ public class CFSecSaxLoaderSecSession
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -114,7 +114,7 @@ public class CFSecSaxLoaderSecSession
 				}
 				else if( attrLocalName.equals( "SecDevName" ) ) {
 					if( attrSecDevName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -123,7 +123,7 @@ public class CFSecSaxLoaderSecSession
 				}
 				else if( attrLocalName.equals( "Start" ) ) {
 					if( attrStart != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -132,7 +132,7 @@ public class CFSecSaxLoaderSecSession
 				}
 				else if( attrLocalName.equals( "Finish" ) ) {
 					if( attrFinish != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -141,7 +141,7 @@ public class CFSecSaxLoaderSecSession
 				}
 				else if( attrLocalName.equals( "SecProxy" ) ) {
 					if( attrSecProxy != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -152,7 +152,7 @@ public class CFSecSaxLoaderSecSession
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -161,20 +161,20 @@ public class CFSecSaxLoaderSecSession
 
 			// Ensure that required attributes have values
 			if( ( attrStart == null ) || ( attrStart.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Start" );
 			}
 			if( ( attrSecProxy == null ) || ( attrSecProxy.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"SecProxy" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "SecDevName", attrSecDevName );
 			curContext.putNamedValue( "Start", attrStart );
@@ -196,10 +196,10 @@ public class CFSecSaxLoaderSecSession
 
 			Calendar natStart;
 			try {
-				natStart = CFLibXmlUtil.parseTimestamp( attrStart );
+				natStart = YCFLibXmlUtil.parseTimestamp( attrStart );
 			}
 			catch( RuntimeException e ) {
-				throw new CFLibInvalidArgumentException( getClass(),
+				throw new YCFLibInvalidArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Start",
@@ -214,10 +214,10 @@ public class CFSecSaxLoaderSecSession
 			}
 			else {
 				try {
-					natFinish = CFLibXmlUtil.parseTimestamp( attrFinish );
+					natFinish = YCFLibXmlUtil.parseTimestamp( attrFinish );
 				}
 				catch( RuntimeException e ) {
-					throw new CFLibInvalidArgumentException( getClass(),
+					throw new YCFLibInvalidArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Finish",
@@ -229,7 +229,7 @@ public class CFSecSaxLoaderSecSession
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -241,28 +241,28 @@ public class CFSecSaxLoaderSecSession
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFSecSecUserObj ) {
-				refSecUser = (ICFSecSecUserObj) scopeObj;
+			else if( scopeObj instanceof IYCFSecSecUserObj ) {
+				refSecUser = (IYCFSecSecUserObj) scopeObj;
 				editBuff.setRequiredContainerSecUser( refSecUser );
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFSecSecUserObj" );
+					"IYCFSecSecUserObj" );
 			}
 
 			// Lookup refSecProxy by key name value attr
 			if( ( attrSecProxy != null ) && ( attrSecProxy.length() > 0 ) ) {
-				refSecProxy = (ICFSecSecUserObj)schemaObj.getSecUserTableObj().readSecUserByULoginIdx( attrSecProxy );
+				refSecProxy = (IYCFSecSecUserObj)schemaObj.getSecUserTableObj().readSecUserByULoginIdx( attrSecProxy );
 				if( refSecProxy == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve SecProxy reference named \"" + attrSecProxy + "\" to table SecUser" );
@@ -273,9 +273,9 @@ public class CFSecSaxLoaderSecSession
 			}
 			editBuff.setRequiredParentSecProxy( refSecProxy );
 
-			ICFSecSecSessionObj origSecSession;
-			ICFSecSecSessionEditObj editSecSession = editBuff;
-			origSecSession = (ICFSecSecSessionObj)editSecSession.create();
+			IYCFSecSecSessionObj origSecSession;
+			IYCFSecSecSessionEditObj editSecSession = editBuff;
+			origSecSession = (IYCFSecSecSessionObj)editSecSession.create();
 			editSecSession = null;
 
 			curContext.putNamedValue( "Object", origSecSession );

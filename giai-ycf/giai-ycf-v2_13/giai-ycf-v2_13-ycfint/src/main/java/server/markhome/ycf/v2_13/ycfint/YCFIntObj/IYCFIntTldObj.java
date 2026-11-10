@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFInt Tld.
+// Description: Java 11 Object interface for YCFInt Tld.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,29 +26,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntTldObj
-	extends ICFLibAnyObj
+public interface IYCFIntTldObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -60,9 +60,9 @@ public interface ICFIntTldObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -73,9 +73,9 @@ public interface ICFIntTldObj
 	/**
 	 *	Realise this instance of a Tld.
 	 *
-	 *	@return	CFIntTldObj instance which should be subsequently referenced.
+	 *	@return	YCFIntTldObj instance which should be subsequently referenced.
 	 */
-	ICFIntTldObj realise();
+	IYCFIntTldObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -87,99 +87,99 @@ public interface ICFIntTldObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntTldObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntTldObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntTldObj read();
+	IYCFIntTldObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntTldObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntTldObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntTldObj read( boolean forceRead );
+	IYCFIntTldObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this Tld instance.
 	 *
-	 *	@return	The newly locked ICFIntTldEditObj edition of this instance.
+	 *	@return	The newly locked IYCFIntTldEditObj edition of this instance.
 	 */
-	ICFIntTldEditObj beginEdit();
+	IYCFIntTldEditObj beginEdit();
 
 	/**
 	 *	End this edition of this Tld instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this Tld instance.
 	 *
-	 *	@return	The ICFIntTldEditObj edition of this instance.
+	 *	@return	The IYCFIntTldEditObj edition of this instance.
 	 */
-	ICFIntTldEditObj getEdit();
+	IYCFIntTldEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this Tld instance as a ICFIntTldEditObj.
+	 *	Get the current edition of this Tld instance as a IYCFIntTldEditObj.
 	 *
-	 *	@return	The ICFIntTldEditObj edition of this instance.
+	 *	@return	The IYCFIntTldEditObj edition of this instance.
 	 */
-	ICFIntTldEditObj getEditAsTld();
+	IYCFIntTldEditObj getEditAsTld();
 
 	/**
-	 *	Get the ICFIntTldTableObj table cache which manages this instance.
+	 *	Get the IYCFIntTldTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFIntTldTableObj table cache which manages this instance.
+	 *	@return	IYCFIntTldTableObj table cache which manages this instance.
 	 */
-	ICFIntTldTableObj getTldTable();
+	IYCFIntTldTableObj getTldTable();
 
 	/**
-	 *	Get the ICFIntSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFIntSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFIntSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFIntSchemaObj schema cache which manages this instance.
 	 */
-	ICFIntSchemaObj getSchema();
+	IYCFIntSchemaObj getSchema();
 
 	/**
-	 *	Get the CFIntTldBuff instance which currently backs this instance.
+	 *	Get the YCFIntTldBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntTldBuff instance which currently backs this object.
+	 *	@return	YCFIntTldBuff instance which currently backs this object.
 	 */
-	CFIntTldBuff getBuff();
+	YCFIntTldBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFIntTldBuff value );
+	void setBuff( YCFIntTldBuff value );
 
 	/**
-	 *	Get the CFIntTldBuff instance which currently backs this instance.
+	 *	Get the YCFIntTldBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntTldBuff instance which currently backs this object.
+	 *	@return	YCFIntTldBuff instance which currently backs this object.
 	 */
-	CFIntTldBuff getTldBuff();
+	YCFIntTldBuff getTldBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFIntTldPKey primary key for this instance.
+	 *	@return	YCFIntTldPKey primary key for this instance.
 	 */
-	CFIntTldPKey getPKey();
+	YCFIntTldPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFIntTldPKey primary key value for this instance.
+	 *	@param YCFIntTldPKey primary key value for this instance.
 	 */
-	void setPKey( CFIntTldPKey value );
+	void setPKey( YCFIntTldPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -227,32 +227,32 @@ public interface ICFIntTldObj
 	String getOptionalDescription();
 
 	/**
-	 *	Get the required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFIntTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFIntTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredContainerTenant();
+	IYCFSecTenantObj getRequiredContainerTenant();
 
 	/**
-	 *	Get the required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredContainerTenant( boolean forceRead );
+	IYCFSecTenantObj getRequiredContainerTenant( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFIntTopDomainObj array of instances referenced by the TopDomain key.
+	 *	Get the array of optional IYCFIntTopDomainObj array of instances referenced by the TopDomain key.
 	 *
-	 *	@return	The optional ICFIntTopDomainObj[] array of instances referenced by the TopDomain key.
+	 *	@return	The optional IYCFIntTopDomainObj[] array of instances referenced by the TopDomain key.
 	 */
-	List<ICFIntTopDomainObj> getOptionalComponentsTopDomain();
+	List<IYCFIntTopDomainObj> getOptionalComponentsTopDomain();
 
 	/**
-	 *	Get the array of optional ICFIntTopDomainObj array of instances referenced by the TopDomain key.
+	 *	Get the array of optional IYCFIntTopDomainObj array of instances referenced by the TopDomain key.
 	 *
-	 *	@return	The optional ICFIntTopDomainObj[] array of instances referenced by the TopDomain key.
+	 *	@return	The optional IYCFIntTopDomainObj[] array of instances referenced by the TopDomain key.
 	 */
-	List<ICFIntTopDomainObj> getOptionalComponentsTopDomain( boolean forceRead );
+	List<IYCFIntTopDomainObj> getOptionalComponentsTopDomain( boolean forceRead );
 
 	/**
 	 *	Internal use only.

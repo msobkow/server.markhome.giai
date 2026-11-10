@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for TSecGrpMemb.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,13 +35,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 /*
- *	CFSecTSecGrpMembFactory interface for TSecGrpMemb
+ *	YCFSecTSecGrpMembFactory interface for TSecGrpMemb
  */
-public interface ICFSecTSecGrpMembFactory
+public interface IYCFSecTSecGrpMembFactory
 {
 
 	/**
@@ -49,55 +49,55 @@ public interface ICFSecTSecGrpMembFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecTSecGrpMembPKey newPKey();
+	YCFSecTSecGrpMembPKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for TSecGrpMemb instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecTSecGrpMembHPKey newHPKey();
+	YCFSecTSecGrpMembHPKey newHPKey();
 
 	/**
 	 *	Allocate a TenantIdx key over TSecGrpMemb instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecTSecGrpMembByTenantIdxKey newTenantIdxKey();
+	YCFSecTSecGrpMembByTenantIdxKey newTenantIdxKey();
 
 	/**
 	 *	Allocate a GroupIdx key over TSecGrpMemb instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecTSecGrpMembByGroupIdxKey newGroupIdxKey();
+	YCFSecTSecGrpMembByGroupIdxKey newGroupIdxKey();
 
 	/**
 	 *	Allocate a UserIdx key over TSecGrpMemb instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecTSecGrpMembByUserIdxKey newUserIdxKey();
+	YCFSecTSecGrpMembByUserIdxKey newUserIdxKey();
 
 	/**
 	 *	Allocate a UUserIdx key over TSecGrpMemb instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecTSecGrpMembByUUserIdxKey newUUserIdxKey();
+	YCFSecTSecGrpMembByUUserIdxKey newUUserIdxKey();
 
 	/**
 	 *	Allocate a TSecGrpMemb instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecTSecGrpMembBuff newBuff();
+	YCFSecTSecGrpMembBuff newBuff();
 
 	/**
 	 *	Allocate a TSecGrpMemb history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecTSecGrpMembHBuff newHBuff();
+	YCFSecTSecGrpMembHBuff newHBuff();
 
 }

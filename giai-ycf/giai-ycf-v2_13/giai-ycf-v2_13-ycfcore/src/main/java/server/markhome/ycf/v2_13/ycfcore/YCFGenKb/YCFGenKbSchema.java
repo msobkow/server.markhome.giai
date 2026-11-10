@@ -1,11 +1,11 @@
-// Description: Java 11 implementation of a CFGenKb schema.
+// Description: Java 11 implementation of a YCFGenKb schema.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,16 +35,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.Tip.CFTipClientHandler;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.Tip.YCFTipClientHandler;
 
-public class CFGenKbSchema
-	implements ICFGenKbSchema
+public class YCFGenKbSchema
+	implements IYCFGenKbSchema
 {
-	protected CFGenKbAuthorization authorization;
-	protected ICFGenKbTablePerms tablePerms;
-	protected CFGenKbConfigurationFile configuration;
+	protected YCFGenKbAuthorization authorization;
+	protected IYCFGenKbTablePerms tablePerms;
+	protected YCFGenKbConfigurationFile configuration;
 	protected String jndiName;
 	protected String schemaDbName = "GenKb213";
 	protected String lowerDbSchemaName = schemaDbName.toLowerCase();
@@ -52,7 +52,7 @@ public class CFGenKbSchema
 	static HashMap<String,AuditActionEnum> lookupAuditActionEnum = null;
 
 	public static AuditActionEnum parseAuditActionEnum( String value ) {
-		AuditActionEnum retval = parseAuditActionEnum( CFGenKbSchema.class.getName(), value );
+		AuditActionEnum retval = parseAuditActionEnum( YCFGenKbSchema.class.getName(), value );
 		return( retval );
 	}
 
@@ -72,7 +72,7 @@ public class CFGenKbSchema
 		else {
 			retval = lookupAuditActionEnum.get( value );
 			if( retval == null ) {
-				throw new CFLibInvalidArgumentException( fieldOrClassName,
+				throw new YCFLibInvalidArgumentException( fieldOrClassName,
 					S_ProcName,
 					1,
 					"value",
@@ -112,7 +112,7 @@ public class CFGenKbSchema
 			retval = null;
 		}
 		else {
-			retval = ordinalToAuditActionEnum( CFGenKbSchema.class.getName(), Integer.valueOf( value.shortValue() ) );
+			retval = ordinalToAuditActionEnum( YCFGenKbSchema.class.getName(), Integer.valueOf( value.shortValue() ) );
 		}
 		return( retval );
 	}
@@ -133,7 +133,7 @@ public class CFGenKbSchema
 		else {
 			retval = lookupOrdinalAuditActionEnum.get( value );
 			if( retval == null ) {
-				throw new CFLibInvalidArgumentException( fieldOrClassName,
+				throw new YCFLibInvalidArgumentException( fieldOrClassName,
 					S_ProcName,
 					1,
 					"value",
@@ -143,108 +143,108 @@ public class CFGenKbSchema
 		return( retval );
 	}
 
-	protected ICFGenKbClusterTable tableCluster;
-	protected ICFGenKbDefClassTable tableDefClass;
-	protected ICFGenKbGelBoilerplateTable tableGelBoilerplate;
-	protected ICFGenKbGelBuiltinTable tableGelBuiltin;
-	protected ICFGenKbGelCacheTable tableGelCache;
-	protected ICFGenKbGelCallTable tableGelCall;
-	protected ICFGenKbGelConstrainTable tableGelConstrain;
-	protected ICFGenKbGelCounterTable tableGelCounter;
-	protected ICFGenKbGelErrorTable tableGelError;
-	protected ICFGenKbGelExecutableTable tableGelExecutable;
-	protected ICFGenKbGelExpansionTable tableGelExpansion;
-	protected ICFGenKbGelInstructionTable tableGelInstruction;
-	protected ICFGenKbGelIteratorTable tableGelIterator;
-	protected ICFGenKbGelModifierTable tableGelModifier;
-	protected ICFGenKbGelPopTable tableGelPop;
-	protected ICFGenKbGelPushContextTable tableGelPushContext;
-	protected ICFGenKbGelPopContextTable tableGelPopContext;
-	protected ICFGenKbGelPrefixLineTable tableGelPrefixLine;
-	protected ICFGenKbGelReferenceTable tableGelReference;
-	protected ICFGenKbGelSequenceTable tableGelSequence;
-	protected ICFGenKbGelSpreadTable tableGelSpread;
-	protected ICFGenKbGelSwitchTable tableGelSwitch;
-	protected ICFGenKbGelSwitchLimbTable tableGelSwitchLimb;
-	protected ICFGenKbGenBindTable tableGenBind;
-	protected ICFGenKbGenFileTable tableGenFile;
-	protected ICFGenKbGenItemTable tableGenItem;
-	protected ICFGenKbGenIteratorTable tableGenIterator;
-	protected ICFGenKbGenReferenceTable tableGenReference;
-	protected ICFGenKbGenRuleTable tableGenRule;
-	protected ICFGenKbGenTruncTable tableGenTrunc;
-	protected ICFGenKbHostNodeTable tableHostNode;
-	protected ICFGenKbRuleCartTable tableRuleCart;
-	protected ICFGenKbRuleTypeTable tableRuleType;
-	protected ICFGenKbSecAppTable tableSecApp;
-	protected ICFGenKbSecDeviceTable tableSecDevice;
-	protected ICFGenKbSecFormTable tableSecForm;
-	protected ICFGenKbSecGroupTable tableSecGroup;
-	protected ICFGenKbSecGroupFormTable tableSecGroupForm;
-	protected ICFGenKbSecGrpIncTable tableSecGrpInc;
-	protected ICFGenKbSecGrpMembTable tableSecGrpMemb;
-	protected ICFGenKbSecSessionTable tableSecSession;
-	protected ICFGenKbSecUserTable tableSecUser;
-	protected ICFGenKbSysClusterTable tableSysCluster;
-	protected ICFGenKbTSecGroupTable tableTSecGroup;
-	protected ICFGenKbTSecGrpIncTable tableTSecGrpInc;
-	protected ICFGenKbTSecGrpMembTable tableTSecGrpMemb;
-	protected ICFGenKbTenantTable tableTenant;
-	protected ICFGenKbToolTable tableTool;
-	protected ICFGenKbToolSetTable tableToolSet;
+	protected IYCFGenKbClusterTable tableCluster;
+	protected IYCFGenKbDefClassTable tableDefClass;
+	protected IYCFGenKbGelBoilerplateTable tableGelBoilerplate;
+	protected IYCFGenKbGelBuiltinTable tableGelBuiltin;
+	protected IYCFGenKbGelCacheTable tableGelCache;
+	protected IYCFGenKbGelCallTable tableGelCall;
+	protected IYCFGenKbGelConstrainTable tableGelConstrain;
+	protected IYCFGenKbGelCounterTable tableGelCounter;
+	protected IYCFGenKbGelErrorTable tableGelError;
+	protected IYCFGenKbGelExecutableTable tableGelExecutable;
+	protected IYCFGenKbGelExpansionTable tableGelExpansion;
+	protected IYCFGenKbGelInstructionTable tableGelInstruction;
+	protected IYCFGenKbGelIteratorTable tableGelIterator;
+	protected IYCFGenKbGelModifierTable tableGelModifier;
+	protected IYCFGenKbGelPopTable tableGelPop;
+	protected IYCFGenKbGelPushContextTable tableGelPushContext;
+	protected IYCFGenKbGelPopContextTable tableGelPopContext;
+	protected IYCFGenKbGelPrefixLineTable tableGelPrefixLine;
+	protected IYCFGenKbGelReferenceTable tableGelReference;
+	protected IYCFGenKbGelSequenceTable tableGelSequence;
+	protected IYCFGenKbGelSpreadTable tableGelSpread;
+	protected IYCFGenKbGelSwitchTable tableGelSwitch;
+	protected IYCFGenKbGelSwitchLimbTable tableGelSwitchLimb;
+	protected IYCFGenKbGenBindTable tableGenBind;
+	protected IYCFGenKbGenFileTable tableGenFile;
+	protected IYCFGenKbGenItemTable tableGenItem;
+	protected IYCFGenKbGenIteratorTable tableGenIterator;
+	protected IYCFGenKbGenReferenceTable tableGenReference;
+	protected IYCFGenKbGenRuleTable tableGenRule;
+	protected IYCFGenKbGenTruncTable tableGenTrunc;
+	protected IYCFGenKbHostNodeTable tableHostNode;
+	protected IYCFGenKbRuleCartTable tableRuleCart;
+	protected IYCFGenKbRuleTypeTable tableRuleType;
+	protected IYCFGenKbSecAppTable tableSecApp;
+	protected IYCFGenKbSecDeviceTable tableSecDevice;
+	protected IYCFGenKbSecFormTable tableSecForm;
+	protected IYCFGenKbSecGroupTable tableSecGroup;
+	protected IYCFGenKbSecGroupFormTable tableSecGroupForm;
+	protected IYCFGenKbSecGrpIncTable tableSecGrpInc;
+	protected IYCFGenKbSecGrpMembTable tableSecGrpMemb;
+	protected IYCFGenKbSecSessionTable tableSecSession;
+	protected IYCFGenKbSecUserTable tableSecUser;
+	protected IYCFGenKbSysClusterTable tableSysCluster;
+	protected IYCFGenKbTSecGroupTable tableTSecGroup;
+	protected IYCFGenKbTSecGrpIncTable tableTSecGrpInc;
+	protected IYCFGenKbTSecGrpMembTable tableTSecGrpMemb;
+	protected IYCFGenKbTenantTable tableTenant;
+	protected IYCFGenKbToolTable tableTool;
+	protected IYCFGenKbToolSetTable tableToolSet;
 
-	protected ICFGenKbClusterFactory factoryCluster;
-	protected ICFGenKbDefClassFactory factoryDefClass;
-	protected ICFGenKbGelBoilerplateFactory factoryGelBoilerplate;
-	protected ICFGenKbGelBuiltinFactory factoryGelBuiltin;
-	protected ICFGenKbGelCacheFactory factoryGelCache;
-	protected ICFGenKbGelCallFactory factoryGelCall;
-	protected ICFGenKbGelConstrainFactory factoryGelConstrain;
-	protected ICFGenKbGelCounterFactory factoryGelCounter;
-	protected ICFGenKbGelErrorFactory factoryGelError;
-	protected ICFGenKbGelExecutableFactory factoryGelExecutable;
-	protected ICFGenKbGelExpansionFactory factoryGelExpansion;
-	protected ICFGenKbGelInstructionFactory factoryGelInstruction;
-	protected ICFGenKbGelIteratorFactory factoryGelIterator;
-	protected ICFGenKbGelModifierFactory factoryGelModifier;
-	protected ICFGenKbGelPopFactory factoryGelPop;
-	protected ICFGenKbGelPushContextFactory factoryGelPushContext;
-	protected ICFGenKbGelPopContextFactory factoryGelPopContext;
-	protected ICFGenKbGelPrefixLineFactory factoryGelPrefixLine;
-	protected ICFGenKbGelReferenceFactory factoryGelReference;
-	protected ICFGenKbGelSequenceFactory factoryGelSequence;
-	protected ICFGenKbGelSpreadFactory factoryGelSpread;
-	protected ICFGenKbGelSwitchFactory factoryGelSwitch;
-	protected ICFGenKbGelSwitchLimbFactory factoryGelSwitchLimb;
-	protected ICFGenKbGenBindFactory factoryGenBind;
-	protected ICFGenKbGenFileFactory factoryGenFile;
-	protected ICFGenKbGenItemFactory factoryGenItem;
-	protected ICFGenKbGenIteratorFactory factoryGenIterator;
-	protected ICFGenKbGenReferenceFactory factoryGenReference;
-	protected ICFGenKbGenRuleFactory factoryGenRule;
-	protected ICFGenKbGenTruncFactory factoryGenTrunc;
-	protected ICFGenKbHostNodeFactory factoryHostNode;
-	protected ICFGenKbRuleCartFactory factoryRuleCart;
-	protected ICFGenKbRuleTypeFactory factoryRuleType;
-	protected ICFGenKbSecAppFactory factorySecApp;
-	protected ICFGenKbSecDeviceFactory factorySecDevice;
-	protected ICFGenKbSecFormFactory factorySecForm;
-	protected ICFGenKbSecGroupFactory factorySecGroup;
-	protected ICFGenKbSecGroupFormFactory factorySecGroupForm;
-	protected ICFGenKbSecGrpIncFactory factorySecGrpInc;
-	protected ICFGenKbSecGrpMembFactory factorySecGrpMemb;
-	protected ICFGenKbSecSessionFactory factorySecSession;
-	protected ICFGenKbSecUserFactory factorySecUser;
-	protected ICFGenKbSysClusterFactory factorySysCluster;
-	protected ICFGenKbTSecGroupFactory factoryTSecGroup;
-	protected ICFGenKbTSecGrpIncFactory factoryTSecGrpInc;
-	protected ICFGenKbTSecGrpMembFactory factoryTSecGrpMemb;
-	protected ICFGenKbTenantFactory factoryTenant;
-	protected ICFGenKbToolFactory factoryTool;
-	protected ICFGenKbToolSetFactory factoryToolSet;
+	protected IYCFGenKbClusterFactory factoryCluster;
+	protected IYCFGenKbDefClassFactory factoryDefClass;
+	protected IYCFGenKbGelBoilerplateFactory factoryGelBoilerplate;
+	protected IYCFGenKbGelBuiltinFactory factoryGelBuiltin;
+	protected IYCFGenKbGelCacheFactory factoryGelCache;
+	protected IYCFGenKbGelCallFactory factoryGelCall;
+	protected IYCFGenKbGelConstrainFactory factoryGelConstrain;
+	protected IYCFGenKbGelCounterFactory factoryGelCounter;
+	protected IYCFGenKbGelErrorFactory factoryGelError;
+	protected IYCFGenKbGelExecutableFactory factoryGelExecutable;
+	protected IYCFGenKbGelExpansionFactory factoryGelExpansion;
+	protected IYCFGenKbGelInstructionFactory factoryGelInstruction;
+	protected IYCFGenKbGelIteratorFactory factoryGelIterator;
+	protected IYCFGenKbGelModifierFactory factoryGelModifier;
+	protected IYCFGenKbGelPopFactory factoryGelPop;
+	protected IYCFGenKbGelPushContextFactory factoryGelPushContext;
+	protected IYCFGenKbGelPopContextFactory factoryGelPopContext;
+	protected IYCFGenKbGelPrefixLineFactory factoryGelPrefixLine;
+	protected IYCFGenKbGelReferenceFactory factoryGelReference;
+	protected IYCFGenKbGelSequenceFactory factoryGelSequence;
+	protected IYCFGenKbGelSpreadFactory factoryGelSpread;
+	protected IYCFGenKbGelSwitchFactory factoryGelSwitch;
+	protected IYCFGenKbGelSwitchLimbFactory factoryGelSwitchLimb;
+	protected IYCFGenKbGenBindFactory factoryGenBind;
+	protected IYCFGenKbGenFileFactory factoryGenFile;
+	protected IYCFGenKbGenItemFactory factoryGenItem;
+	protected IYCFGenKbGenIteratorFactory factoryGenIterator;
+	protected IYCFGenKbGenReferenceFactory factoryGenReference;
+	protected IYCFGenKbGenRuleFactory factoryGenRule;
+	protected IYCFGenKbGenTruncFactory factoryGenTrunc;
+	protected IYCFGenKbHostNodeFactory factoryHostNode;
+	protected IYCFGenKbRuleCartFactory factoryRuleCart;
+	protected IYCFGenKbRuleTypeFactory factoryRuleType;
+	protected IYCFGenKbSecAppFactory factorySecApp;
+	protected IYCFGenKbSecDeviceFactory factorySecDevice;
+	protected IYCFGenKbSecFormFactory factorySecForm;
+	protected IYCFGenKbSecGroupFactory factorySecGroup;
+	protected IYCFGenKbSecGroupFormFactory factorySecGroupForm;
+	protected IYCFGenKbSecGrpIncFactory factorySecGrpInc;
+	protected IYCFGenKbSecGrpMembFactory factorySecGrpMemb;
+	protected IYCFGenKbSecSessionFactory factorySecSession;
+	protected IYCFGenKbSecUserFactory factorySecUser;
+	protected IYCFGenKbSysClusterFactory factorySysCluster;
+	protected IYCFGenKbTSecGroupFactory factoryTSecGroup;
+	protected IYCFGenKbTSecGrpIncFactory factoryTSecGrpInc;
+	protected IYCFGenKbTSecGrpMembFactory factoryTSecGrpMemb;
+	protected IYCFGenKbTenantFactory factoryTenant;
+	protected IYCFGenKbToolFactory factoryTool;
+	protected IYCFGenKbToolSetFactory factoryToolSet;
 
 
-	public CFGenKbSchema() {
+	public YCFGenKbSchema() {
 		configuration = null;
 		jndiName = null;
 
@@ -298,60 +298,60 @@ public class CFGenKbSchema
 		tableTool = null;
 		tableToolSet = null;
 
-		factoryCluster = new CFGenKbClusterDefaultFactory();
-		factoryDefClass = new CFGenKbDefClassDefaultFactory();
-		factoryGelBoilerplate = new CFGenKbGelBoilerplateDefaultFactory();
-		factoryGelBuiltin = new CFGenKbGelBuiltinDefaultFactory();
-		factoryGelCache = new CFGenKbGelCacheDefaultFactory();
-		factoryGelCall = new CFGenKbGelCallDefaultFactory();
-		factoryGelConstrain = new CFGenKbGelConstrainDefaultFactory();
-		factoryGelCounter = new CFGenKbGelCounterDefaultFactory();
-		factoryGelError = new CFGenKbGelErrorDefaultFactory();
-		factoryGelExecutable = new CFGenKbGelExecutableDefaultFactory();
-		factoryGelExpansion = new CFGenKbGelExpansionDefaultFactory();
-		factoryGelInstruction = new CFGenKbGelInstructionDefaultFactory();
-		factoryGelIterator = new CFGenKbGelIteratorDefaultFactory();
-		factoryGelModifier = new CFGenKbGelModifierDefaultFactory();
-		factoryGelPop = new CFGenKbGelPopDefaultFactory();
-		factoryGelPushContext = new CFGenKbGelPushContextDefaultFactory();
-		factoryGelPopContext = new CFGenKbGelPopContextDefaultFactory();
-		factoryGelPrefixLine = new CFGenKbGelPrefixLineDefaultFactory();
-		factoryGelReference = new CFGenKbGelReferenceDefaultFactory();
-		factoryGelSequence = new CFGenKbGelSequenceDefaultFactory();
-		factoryGelSpread = new CFGenKbGelSpreadDefaultFactory();
-		factoryGelSwitch = new CFGenKbGelSwitchDefaultFactory();
-		factoryGelSwitchLimb = new CFGenKbGelSwitchLimbDefaultFactory();
-		factoryGenBind = new CFGenKbGenBindDefaultFactory();
-		factoryGenFile = new CFGenKbGenFileDefaultFactory();
-		factoryGenItem = new CFGenKbGenItemDefaultFactory();
-		factoryGenIterator = new CFGenKbGenIteratorDefaultFactory();
-		factoryGenReference = new CFGenKbGenReferenceDefaultFactory();
-		factoryGenRule = new CFGenKbGenRuleDefaultFactory();
-		factoryGenTrunc = new CFGenKbGenTruncDefaultFactory();
-		factoryHostNode = new CFGenKbHostNodeDefaultFactory();
-		factoryRuleCart = new CFGenKbRuleCartDefaultFactory();
-		factoryRuleType = new CFGenKbRuleTypeDefaultFactory();
-		factorySecApp = new CFGenKbSecAppDefaultFactory();
-		factorySecDevice = new CFGenKbSecDeviceDefaultFactory();
-		factorySecForm = new CFGenKbSecFormDefaultFactory();
-		factorySecGroup = new CFGenKbSecGroupDefaultFactory();
-		factorySecGroupForm = new CFGenKbSecGroupFormDefaultFactory();
-		factorySecGrpInc = new CFGenKbSecGrpIncDefaultFactory();
-		factorySecGrpMemb = new CFGenKbSecGrpMembDefaultFactory();
-		factorySecSession = new CFGenKbSecSessionDefaultFactory();
-		factorySecUser = new CFGenKbSecUserDefaultFactory();
-		factorySysCluster = new CFGenKbSysClusterDefaultFactory();
-		factoryTSecGroup = new CFGenKbTSecGroupDefaultFactory();
-		factoryTSecGrpInc = new CFGenKbTSecGrpIncDefaultFactory();
-		factoryTSecGrpMemb = new CFGenKbTSecGrpMembDefaultFactory();
-		factoryTenant = new CFGenKbTenantDefaultFactory();
-		factoryTool = new CFGenKbToolDefaultFactory();
-		factoryToolSet = new CFGenKbToolSetDefaultFactory();	}
+		factoryCluster = new YCFGenKbClusterDefaultFactory();
+		factoryDefClass = new YCFGenKbDefClassDefaultFactory();
+		factoryGelBoilerplate = new YCFGenKbGelBoilerplateDefaultFactory();
+		factoryGelBuiltin = new YCFGenKbGelBuiltinDefaultFactory();
+		factoryGelCache = new YCFGenKbGelCacheDefaultFactory();
+		factoryGelCall = new YCFGenKbGelCallDefaultFactory();
+		factoryGelConstrain = new YCFGenKbGelConstrainDefaultFactory();
+		factoryGelCounter = new YCFGenKbGelCounterDefaultFactory();
+		factoryGelError = new YCFGenKbGelErrorDefaultFactory();
+		factoryGelExecutable = new YCFGenKbGelExecutableDefaultFactory();
+		factoryGelExpansion = new YCFGenKbGelExpansionDefaultFactory();
+		factoryGelInstruction = new YCFGenKbGelInstructionDefaultFactory();
+		factoryGelIterator = new YCFGenKbGelIteratorDefaultFactory();
+		factoryGelModifier = new YCFGenKbGelModifierDefaultFactory();
+		factoryGelPop = new YCFGenKbGelPopDefaultFactory();
+		factoryGelPushContext = new YCFGenKbGelPushContextDefaultFactory();
+		factoryGelPopContext = new YCFGenKbGelPopContextDefaultFactory();
+		factoryGelPrefixLine = new YCFGenKbGelPrefixLineDefaultFactory();
+		factoryGelReference = new YCFGenKbGelReferenceDefaultFactory();
+		factoryGelSequence = new YCFGenKbGelSequenceDefaultFactory();
+		factoryGelSpread = new YCFGenKbGelSpreadDefaultFactory();
+		factoryGelSwitch = new YCFGenKbGelSwitchDefaultFactory();
+		factoryGelSwitchLimb = new YCFGenKbGelSwitchLimbDefaultFactory();
+		factoryGenBind = new YCFGenKbGenBindDefaultFactory();
+		factoryGenFile = new YCFGenKbGenFileDefaultFactory();
+		factoryGenItem = new YCFGenKbGenItemDefaultFactory();
+		factoryGenIterator = new YCFGenKbGenIteratorDefaultFactory();
+		factoryGenReference = new YCFGenKbGenReferenceDefaultFactory();
+		factoryGenRule = new YCFGenKbGenRuleDefaultFactory();
+		factoryGenTrunc = new YCFGenKbGenTruncDefaultFactory();
+		factoryHostNode = new YCFGenKbHostNodeDefaultFactory();
+		factoryRuleCart = new YCFGenKbRuleCartDefaultFactory();
+		factoryRuleType = new YCFGenKbRuleTypeDefaultFactory();
+		factorySecApp = new YCFGenKbSecAppDefaultFactory();
+		factorySecDevice = new YCFGenKbSecDeviceDefaultFactory();
+		factorySecForm = new YCFGenKbSecFormDefaultFactory();
+		factorySecGroup = new YCFGenKbSecGroupDefaultFactory();
+		factorySecGroupForm = new YCFGenKbSecGroupFormDefaultFactory();
+		factorySecGrpInc = new YCFGenKbSecGrpIncDefaultFactory();
+		factorySecGrpMemb = new YCFGenKbSecGrpMembDefaultFactory();
+		factorySecSession = new YCFGenKbSecSessionDefaultFactory();
+		factorySecUser = new YCFGenKbSecUserDefaultFactory();
+		factorySysCluster = new YCFGenKbSysClusterDefaultFactory();
+		factoryTSecGroup = new YCFGenKbTSecGroupDefaultFactory();
+		factoryTSecGrpInc = new YCFGenKbTSecGrpIncDefaultFactory();
+		factoryTSecGrpMemb = new YCFGenKbTSecGrpMembDefaultFactory();
+		factoryTenant = new YCFGenKbTenantDefaultFactory();
+		factoryTool = new YCFGenKbToolDefaultFactory();
+		factoryToolSet = new YCFGenKbToolSetDefaultFactory();	}
 
-	public CFGenKbSchema( CFGenKbConfigurationFile conf ) {
+	public YCFGenKbSchema( YCFGenKbConfigurationFile conf ) {
 		if( conf == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"CFGenKbSchema-constructor",
+			throw new YCFLibNullArgumentException( getClass(),
+				"YCFGenKbSchema-constructor",
 				1,
 				"conf" );
 		}
@@ -408,60 +408,60 @@ public class CFGenKbSchema
 		tableTool = null;
 		tableToolSet = null;
 
-		factoryCluster = new CFGenKbClusterDefaultFactory();
-		factoryDefClass = new CFGenKbDefClassDefaultFactory();
-		factoryGelBoilerplate = new CFGenKbGelBoilerplateDefaultFactory();
-		factoryGelBuiltin = new CFGenKbGelBuiltinDefaultFactory();
-		factoryGelCache = new CFGenKbGelCacheDefaultFactory();
-		factoryGelCall = new CFGenKbGelCallDefaultFactory();
-		factoryGelConstrain = new CFGenKbGelConstrainDefaultFactory();
-		factoryGelCounter = new CFGenKbGelCounterDefaultFactory();
-		factoryGelError = new CFGenKbGelErrorDefaultFactory();
-		factoryGelExecutable = new CFGenKbGelExecutableDefaultFactory();
-		factoryGelExpansion = new CFGenKbGelExpansionDefaultFactory();
-		factoryGelInstruction = new CFGenKbGelInstructionDefaultFactory();
-		factoryGelIterator = new CFGenKbGelIteratorDefaultFactory();
-		factoryGelModifier = new CFGenKbGelModifierDefaultFactory();
-		factoryGelPop = new CFGenKbGelPopDefaultFactory();
-		factoryGelPushContext = new CFGenKbGelPushContextDefaultFactory();
-		factoryGelPopContext = new CFGenKbGelPopContextDefaultFactory();
-		factoryGelPrefixLine = new CFGenKbGelPrefixLineDefaultFactory();
-		factoryGelReference = new CFGenKbGelReferenceDefaultFactory();
-		factoryGelSequence = new CFGenKbGelSequenceDefaultFactory();
-		factoryGelSpread = new CFGenKbGelSpreadDefaultFactory();
-		factoryGelSwitch = new CFGenKbGelSwitchDefaultFactory();
-		factoryGelSwitchLimb = new CFGenKbGelSwitchLimbDefaultFactory();
-		factoryGenBind = new CFGenKbGenBindDefaultFactory();
-		factoryGenFile = new CFGenKbGenFileDefaultFactory();
-		factoryGenItem = new CFGenKbGenItemDefaultFactory();
-		factoryGenIterator = new CFGenKbGenIteratorDefaultFactory();
-		factoryGenReference = new CFGenKbGenReferenceDefaultFactory();
-		factoryGenRule = new CFGenKbGenRuleDefaultFactory();
-		factoryGenTrunc = new CFGenKbGenTruncDefaultFactory();
-		factoryHostNode = new CFGenKbHostNodeDefaultFactory();
-		factoryRuleCart = new CFGenKbRuleCartDefaultFactory();
-		factoryRuleType = new CFGenKbRuleTypeDefaultFactory();
-		factorySecApp = new CFGenKbSecAppDefaultFactory();
-		factorySecDevice = new CFGenKbSecDeviceDefaultFactory();
-		factorySecForm = new CFGenKbSecFormDefaultFactory();
-		factorySecGroup = new CFGenKbSecGroupDefaultFactory();
-		factorySecGroupForm = new CFGenKbSecGroupFormDefaultFactory();
-		factorySecGrpInc = new CFGenKbSecGrpIncDefaultFactory();
-		factorySecGrpMemb = new CFGenKbSecGrpMembDefaultFactory();
-		factorySecSession = new CFGenKbSecSessionDefaultFactory();
-		factorySecUser = new CFGenKbSecUserDefaultFactory();
-		factorySysCluster = new CFGenKbSysClusterDefaultFactory();
-		factoryTSecGroup = new CFGenKbTSecGroupDefaultFactory();
-		factoryTSecGrpInc = new CFGenKbTSecGrpIncDefaultFactory();
-		factoryTSecGrpMemb = new CFGenKbTSecGrpMembDefaultFactory();
-		factoryTenant = new CFGenKbTenantDefaultFactory();
-		factoryTool = new CFGenKbToolDefaultFactory();
-		factoryToolSet = new CFGenKbToolSetDefaultFactory();	}
+		factoryCluster = new YCFGenKbClusterDefaultFactory();
+		factoryDefClass = new YCFGenKbDefClassDefaultFactory();
+		factoryGelBoilerplate = new YCFGenKbGelBoilerplateDefaultFactory();
+		factoryGelBuiltin = new YCFGenKbGelBuiltinDefaultFactory();
+		factoryGelCache = new YCFGenKbGelCacheDefaultFactory();
+		factoryGelCall = new YCFGenKbGelCallDefaultFactory();
+		factoryGelConstrain = new YCFGenKbGelConstrainDefaultFactory();
+		factoryGelCounter = new YCFGenKbGelCounterDefaultFactory();
+		factoryGelError = new YCFGenKbGelErrorDefaultFactory();
+		factoryGelExecutable = new YCFGenKbGelExecutableDefaultFactory();
+		factoryGelExpansion = new YCFGenKbGelExpansionDefaultFactory();
+		factoryGelInstruction = new YCFGenKbGelInstructionDefaultFactory();
+		factoryGelIterator = new YCFGenKbGelIteratorDefaultFactory();
+		factoryGelModifier = new YCFGenKbGelModifierDefaultFactory();
+		factoryGelPop = new YCFGenKbGelPopDefaultFactory();
+		factoryGelPushContext = new YCFGenKbGelPushContextDefaultFactory();
+		factoryGelPopContext = new YCFGenKbGelPopContextDefaultFactory();
+		factoryGelPrefixLine = new YCFGenKbGelPrefixLineDefaultFactory();
+		factoryGelReference = new YCFGenKbGelReferenceDefaultFactory();
+		factoryGelSequence = new YCFGenKbGelSequenceDefaultFactory();
+		factoryGelSpread = new YCFGenKbGelSpreadDefaultFactory();
+		factoryGelSwitch = new YCFGenKbGelSwitchDefaultFactory();
+		factoryGelSwitchLimb = new YCFGenKbGelSwitchLimbDefaultFactory();
+		factoryGenBind = new YCFGenKbGenBindDefaultFactory();
+		factoryGenFile = new YCFGenKbGenFileDefaultFactory();
+		factoryGenItem = new YCFGenKbGenItemDefaultFactory();
+		factoryGenIterator = new YCFGenKbGenIteratorDefaultFactory();
+		factoryGenReference = new YCFGenKbGenReferenceDefaultFactory();
+		factoryGenRule = new YCFGenKbGenRuleDefaultFactory();
+		factoryGenTrunc = new YCFGenKbGenTruncDefaultFactory();
+		factoryHostNode = new YCFGenKbHostNodeDefaultFactory();
+		factoryRuleCart = new YCFGenKbRuleCartDefaultFactory();
+		factoryRuleType = new YCFGenKbRuleTypeDefaultFactory();
+		factorySecApp = new YCFGenKbSecAppDefaultFactory();
+		factorySecDevice = new YCFGenKbSecDeviceDefaultFactory();
+		factorySecForm = new YCFGenKbSecFormDefaultFactory();
+		factorySecGroup = new YCFGenKbSecGroupDefaultFactory();
+		factorySecGroupForm = new YCFGenKbSecGroupFormDefaultFactory();
+		factorySecGrpInc = new YCFGenKbSecGrpIncDefaultFactory();
+		factorySecGrpMemb = new YCFGenKbSecGrpMembDefaultFactory();
+		factorySecSession = new YCFGenKbSecSessionDefaultFactory();
+		factorySecUser = new YCFGenKbSecUserDefaultFactory();
+		factorySysCluster = new YCFGenKbSysClusterDefaultFactory();
+		factoryTSecGroup = new YCFGenKbTSecGroupDefaultFactory();
+		factoryTSecGrpInc = new YCFGenKbTSecGrpIncDefaultFactory();
+		factoryTSecGrpMemb = new YCFGenKbTSecGrpMembDefaultFactory();
+		factoryTenant = new YCFGenKbTenantDefaultFactory();
+		factoryTool = new YCFGenKbToolDefaultFactory();
+		factoryToolSet = new YCFGenKbToolSetDefaultFactory();	}
 
-	public CFGenKbSchema( String argJndiName ) {
+	public YCFGenKbSchema( String argJndiName ) {
 		if( ( argJndiName == null ) || ( argJndiName.length() <= 0 ) ) {
-			throw new CFLibEmptyArgumentException( getClass(),
-				"CFGenKbSchema-constructor",
+			throw new YCFLibEmptyArgumentException( getClass(),
+				"YCFGenKbSchema-constructor",
 				1,
 				"argJndiName" );
 		}
@@ -518,64 +518,64 @@ public class CFGenKbSchema
 		tableTool = null;
 		tableToolSet = null;
 
-		factoryCluster = new CFGenKbClusterDefaultFactory();
-		factoryDefClass = new CFGenKbDefClassDefaultFactory();
-		factoryGelBoilerplate = new CFGenKbGelBoilerplateDefaultFactory();
-		factoryGelBuiltin = new CFGenKbGelBuiltinDefaultFactory();
-		factoryGelCache = new CFGenKbGelCacheDefaultFactory();
-		factoryGelCall = new CFGenKbGelCallDefaultFactory();
-		factoryGelConstrain = new CFGenKbGelConstrainDefaultFactory();
-		factoryGelCounter = new CFGenKbGelCounterDefaultFactory();
-		factoryGelError = new CFGenKbGelErrorDefaultFactory();
-		factoryGelExecutable = new CFGenKbGelExecutableDefaultFactory();
-		factoryGelExpansion = new CFGenKbGelExpansionDefaultFactory();
-		factoryGelInstruction = new CFGenKbGelInstructionDefaultFactory();
-		factoryGelIterator = new CFGenKbGelIteratorDefaultFactory();
-		factoryGelModifier = new CFGenKbGelModifierDefaultFactory();
-		factoryGelPop = new CFGenKbGelPopDefaultFactory();
-		factoryGelPushContext = new CFGenKbGelPushContextDefaultFactory();
-		factoryGelPopContext = new CFGenKbGelPopContextDefaultFactory();
-		factoryGelPrefixLine = new CFGenKbGelPrefixLineDefaultFactory();
-		factoryGelReference = new CFGenKbGelReferenceDefaultFactory();
-		factoryGelSequence = new CFGenKbGelSequenceDefaultFactory();
-		factoryGelSpread = new CFGenKbGelSpreadDefaultFactory();
-		factoryGelSwitch = new CFGenKbGelSwitchDefaultFactory();
-		factoryGelSwitchLimb = new CFGenKbGelSwitchLimbDefaultFactory();
-		factoryGenBind = new CFGenKbGenBindDefaultFactory();
-		factoryGenFile = new CFGenKbGenFileDefaultFactory();
-		factoryGenItem = new CFGenKbGenItemDefaultFactory();
-		factoryGenIterator = new CFGenKbGenIteratorDefaultFactory();
-		factoryGenReference = new CFGenKbGenReferenceDefaultFactory();
-		factoryGenRule = new CFGenKbGenRuleDefaultFactory();
-		factoryGenTrunc = new CFGenKbGenTruncDefaultFactory();
-		factoryHostNode = new CFGenKbHostNodeDefaultFactory();
-		factoryRuleCart = new CFGenKbRuleCartDefaultFactory();
-		factoryRuleType = new CFGenKbRuleTypeDefaultFactory();
-		factorySecApp = new CFGenKbSecAppDefaultFactory();
-		factorySecDevice = new CFGenKbSecDeviceDefaultFactory();
-		factorySecForm = new CFGenKbSecFormDefaultFactory();
-		factorySecGroup = new CFGenKbSecGroupDefaultFactory();
-		factorySecGroupForm = new CFGenKbSecGroupFormDefaultFactory();
-		factorySecGrpInc = new CFGenKbSecGrpIncDefaultFactory();
-		factorySecGrpMemb = new CFGenKbSecGrpMembDefaultFactory();
-		factorySecSession = new CFGenKbSecSessionDefaultFactory();
-		factorySecUser = new CFGenKbSecUserDefaultFactory();
-		factorySysCluster = new CFGenKbSysClusterDefaultFactory();
-		factoryTSecGroup = new CFGenKbTSecGroupDefaultFactory();
-		factoryTSecGrpInc = new CFGenKbTSecGrpIncDefaultFactory();
-		factoryTSecGrpMemb = new CFGenKbTSecGrpMembDefaultFactory();
-		factoryTenant = new CFGenKbTenantDefaultFactory();
-		factoryTool = new CFGenKbToolDefaultFactory();
-		factoryToolSet = new CFGenKbToolSetDefaultFactory();	}
+		factoryCluster = new YCFGenKbClusterDefaultFactory();
+		factoryDefClass = new YCFGenKbDefClassDefaultFactory();
+		factoryGelBoilerplate = new YCFGenKbGelBoilerplateDefaultFactory();
+		factoryGelBuiltin = new YCFGenKbGelBuiltinDefaultFactory();
+		factoryGelCache = new YCFGenKbGelCacheDefaultFactory();
+		factoryGelCall = new YCFGenKbGelCallDefaultFactory();
+		factoryGelConstrain = new YCFGenKbGelConstrainDefaultFactory();
+		factoryGelCounter = new YCFGenKbGelCounterDefaultFactory();
+		factoryGelError = new YCFGenKbGelErrorDefaultFactory();
+		factoryGelExecutable = new YCFGenKbGelExecutableDefaultFactory();
+		factoryGelExpansion = new YCFGenKbGelExpansionDefaultFactory();
+		factoryGelInstruction = new YCFGenKbGelInstructionDefaultFactory();
+		factoryGelIterator = new YCFGenKbGelIteratorDefaultFactory();
+		factoryGelModifier = new YCFGenKbGelModifierDefaultFactory();
+		factoryGelPop = new YCFGenKbGelPopDefaultFactory();
+		factoryGelPushContext = new YCFGenKbGelPushContextDefaultFactory();
+		factoryGelPopContext = new YCFGenKbGelPopContextDefaultFactory();
+		factoryGelPrefixLine = new YCFGenKbGelPrefixLineDefaultFactory();
+		factoryGelReference = new YCFGenKbGelReferenceDefaultFactory();
+		factoryGelSequence = new YCFGenKbGelSequenceDefaultFactory();
+		factoryGelSpread = new YCFGenKbGelSpreadDefaultFactory();
+		factoryGelSwitch = new YCFGenKbGelSwitchDefaultFactory();
+		factoryGelSwitchLimb = new YCFGenKbGelSwitchLimbDefaultFactory();
+		factoryGenBind = new YCFGenKbGenBindDefaultFactory();
+		factoryGenFile = new YCFGenKbGenFileDefaultFactory();
+		factoryGenItem = new YCFGenKbGenItemDefaultFactory();
+		factoryGenIterator = new YCFGenKbGenIteratorDefaultFactory();
+		factoryGenReference = new YCFGenKbGenReferenceDefaultFactory();
+		factoryGenRule = new YCFGenKbGenRuleDefaultFactory();
+		factoryGenTrunc = new YCFGenKbGenTruncDefaultFactory();
+		factoryHostNode = new YCFGenKbHostNodeDefaultFactory();
+		factoryRuleCart = new YCFGenKbRuleCartDefaultFactory();
+		factoryRuleType = new YCFGenKbRuleTypeDefaultFactory();
+		factorySecApp = new YCFGenKbSecAppDefaultFactory();
+		factorySecDevice = new YCFGenKbSecDeviceDefaultFactory();
+		factorySecForm = new YCFGenKbSecFormDefaultFactory();
+		factorySecGroup = new YCFGenKbSecGroupDefaultFactory();
+		factorySecGroupForm = new YCFGenKbSecGroupFormDefaultFactory();
+		factorySecGrpInc = new YCFGenKbSecGrpIncDefaultFactory();
+		factorySecGrpMemb = new YCFGenKbSecGrpMembDefaultFactory();
+		factorySecSession = new YCFGenKbSecSessionDefaultFactory();
+		factorySecUser = new YCFGenKbSecUserDefaultFactory();
+		factorySysCluster = new YCFGenKbSysClusterDefaultFactory();
+		factoryTSecGroup = new YCFGenKbTSecGroupDefaultFactory();
+		factoryTSecGrpInc = new YCFGenKbTSecGrpIncDefaultFactory();
+		factoryTSecGrpMemb = new YCFGenKbTSecGrpMembDefaultFactory();
+		factoryTenant = new YCFGenKbTenantDefaultFactory();
+		factoryTool = new YCFGenKbToolDefaultFactory();
+		factoryToolSet = new YCFGenKbToolSetDefaultFactory();	}
 
 	/**
-	 *	The majority of cases do not have a CFTipClientHandler
+	 *	The majority of cases do not have a YCFTipClientHandler
 	 *	associated with it's persistence implementation.
 	 *	Only the XMsg client implementations overload this
-	 *	to return the actual CFTipClientHandler associated
+	 *	to return the actual YCFTipClientHandler associated
 	 *	with the connection instance.
 	 */
-	public CFTipClientHandler getCFTipClientHandler() {
+	public YCFTipClientHandler getYCFTipClientHandler() {
 		return( null );
 	}
 
@@ -586,11 +586,11 @@ public class CFGenKbSchema
 	public void setServerURL( String value ) {
 	}
 
-	public CFGenKbConfigurationFile getConfigurationFile() {
+	public YCFGenKbConfigurationFile getConfigurationFile() {
 		return( configuration );
 	}
 
-	public void setConfigurationFile( CFGenKbConfigurationFile value ) {
+	public void setConfigurationFile( YCFGenKbConfigurationFile value ) {
 		if( value == null ) {
 			configuration = null;
 		}
@@ -600,11 +600,11 @@ public class CFGenKbSchema
 		}
 	}
 
-	public CFGenKbAuthorization getAuthorization() {
+	public YCFGenKbAuthorization getAuthorization() {
 		return( authorization );
 	}
 
-	public void setAuthorization( CFGenKbAuthorization value ) {
+	public void setAuthorization( YCFGenKbAuthorization value ) {
 		authorization = value;
 	}
 
@@ -623,55 +623,55 @@ public class CFGenKbSchema
 	}
 
 	public boolean isConnected() {
-		throw new CFLibMustOverrideException( getClass(), "isConnected" );
+		throw new YCFLibMustOverrideException( getClass(), "isConnected" );
 	}
 
 	public boolean connect() {
-		throw new CFLibMustOverrideException( getClass(), "connect" );
+		throw new YCFLibMustOverrideException( getClass(), "connect" );
 	}
 
 	public boolean connect( String username, String password ) {
-		throw new CFLibMustOverrideException( getClass(), "connect-userpw" );
+		throw new YCFLibMustOverrideException( getClass(), "connect-userpw" );
 	}
 
 	public boolean connect( String loginId, String password, String clusterName, String tenantName ) {
-		throw new CFLibMustOverrideException( getClass(), "connect-full" );
+		throw new YCFLibMustOverrideException( getClass(), "connect-full" );
 	}
 
 	public void disconnect( boolean doCommit ) {
-		throw new CFLibMustOverrideException( getClass(), "disconnect" );
+		throw new YCFLibMustOverrideException( getClass(), "disconnect" );
 	}
 
-	public void logout( CFGenKbAuthorization auth ) {
-		throw new CFLibMustOverrideException( getClass(), "logout" );
+	public void logout( YCFGenKbAuthorization auth ) {
+		throw new YCFLibMustOverrideException( getClass(), "logout" );
 	}
 
-	public ICFGenKbSchema newSchema() {
-		throw new CFLibMustOverrideException( getClass(), "newSchema" );
+	public IYCFGenKbSchema newSchema() {
+		throw new YCFLibMustOverrideException( getClass(), "newSchema" );
 	}
 
 	public short nextDefClassIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextDefClassIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextDefClassIdGen" );
 	}
 
 	public short nextRuleTypeIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextRuleTypeIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextRuleTypeIdGen" );
 	}
 
 	public short nextToolIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextToolIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextToolIdGen" );
 	}
 
 	public short nextToolSetIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextToolSetIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextToolSetIdGen" );
 	}
 
 	public long nextClusterIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextClusterIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextClusterIdGen" );
 	}
 
 	public long nextTenantIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextTenantIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextTenantIdGen" );
 	}
 
 	public UUID nextSecSessionIdGen() {
@@ -684,811 +684,811 @@ public class CFGenKbSchema
 		return( retval );
 	}
 
-	public ICFGenKbClusterTable getTableCluster() {
+	public IYCFGenKbClusterTable getTableCluster() {
 		return( tableCluster );
 	}
 
-	public void setTableCluster( ICFGenKbClusterTable value ) {
+	public void setTableCluster( IYCFGenKbClusterTable value ) {
 		tableCluster = value;
 	}
 
-	public ICFGenKbClusterFactory getFactoryCluster() {
+	public IYCFGenKbClusterFactory getFactoryCluster() {
 		return( factoryCluster );
 	}
 
-	public void setFactoryCluster( ICFGenKbClusterFactory value ) {
+	public void setFactoryCluster( IYCFGenKbClusterFactory value ) {
 		factoryCluster = value;
 	}
 
-	public ICFGenKbDefClassTable getTableDefClass() {
+	public IYCFGenKbDefClassTable getTableDefClass() {
 		return( tableDefClass );
 	}
 
-	public void setTableDefClass( ICFGenKbDefClassTable value ) {
+	public void setTableDefClass( IYCFGenKbDefClassTable value ) {
 		tableDefClass = value;
 	}
 
-	public ICFGenKbDefClassFactory getFactoryDefClass() {
+	public IYCFGenKbDefClassFactory getFactoryDefClass() {
 		return( factoryDefClass );
 	}
 
-	public void setFactoryDefClass( ICFGenKbDefClassFactory value ) {
+	public void setFactoryDefClass( IYCFGenKbDefClassFactory value ) {
 		factoryDefClass = value;
 	}
 
-	public ICFGenKbGelBoilerplateTable getTableGelBoilerplate() {
+	public IYCFGenKbGelBoilerplateTable getTableGelBoilerplate() {
 		return( tableGelBoilerplate );
 	}
 
-	public void setTableGelBoilerplate( ICFGenKbGelBoilerplateTable value ) {
+	public void setTableGelBoilerplate( IYCFGenKbGelBoilerplateTable value ) {
 		tableGelBoilerplate = value;
 	}
 
-	public ICFGenKbGelBoilerplateFactory getFactoryGelBoilerplate() {
+	public IYCFGenKbGelBoilerplateFactory getFactoryGelBoilerplate() {
 		return( factoryGelBoilerplate );
 	}
 
-	public void setFactoryGelBoilerplate( ICFGenKbGelBoilerplateFactory value ) {
+	public void setFactoryGelBoilerplate( IYCFGenKbGelBoilerplateFactory value ) {
 		factoryGelBoilerplate = value;
 	}
 
-	public ICFGenKbGelBuiltinTable getTableGelBuiltin() {
+	public IYCFGenKbGelBuiltinTable getTableGelBuiltin() {
 		return( tableGelBuiltin );
 	}
 
-	public void setTableGelBuiltin( ICFGenKbGelBuiltinTable value ) {
+	public void setTableGelBuiltin( IYCFGenKbGelBuiltinTable value ) {
 		tableGelBuiltin = value;
 	}
 
-	public ICFGenKbGelBuiltinFactory getFactoryGelBuiltin() {
+	public IYCFGenKbGelBuiltinFactory getFactoryGelBuiltin() {
 		return( factoryGelBuiltin );
 	}
 
-	public void setFactoryGelBuiltin( ICFGenKbGelBuiltinFactory value ) {
+	public void setFactoryGelBuiltin( IYCFGenKbGelBuiltinFactory value ) {
 		factoryGelBuiltin = value;
 	}
 
-	public ICFGenKbGelCacheTable getTableGelCache() {
+	public IYCFGenKbGelCacheTable getTableGelCache() {
 		return( tableGelCache );
 	}
 
-	public void setTableGelCache( ICFGenKbGelCacheTable value ) {
+	public void setTableGelCache( IYCFGenKbGelCacheTable value ) {
 		tableGelCache = value;
 	}
 
-	public ICFGenKbGelCacheFactory getFactoryGelCache() {
+	public IYCFGenKbGelCacheFactory getFactoryGelCache() {
 		return( factoryGelCache );
 	}
 
-	public void setFactoryGelCache( ICFGenKbGelCacheFactory value ) {
+	public void setFactoryGelCache( IYCFGenKbGelCacheFactory value ) {
 		factoryGelCache = value;
 	}
 
-	public ICFGenKbGelCallTable getTableGelCall() {
+	public IYCFGenKbGelCallTable getTableGelCall() {
 		return( tableGelCall );
 	}
 
-	public void setTableGelCall( ICFGenKbGelCallTable value ) {
+	public void setTableGelCall( IYCFGenKbGelCallTable value ) {
 		tableGelCall = value;
 	}
 
-	public ICFGenKbGelCallFactory getFactoryGelCall() {
+	public IYCFGenKbGelCallFactory getFactoryGelCall() {
 		return( factoryGelCall );
 	}
 
-	public void setFactoryGelCall( ICFGenKbGelCallFactory value ) {
+	public void setFactoryGelCall( IYCFGenKbGelCallFactory value ) {
 		factoryGelCall = value;
 	}
 
-	public ICFGenKbGelConstrainTable getTableGelConstrain() {
+	public IYCFGenKbGelConstrainTable getTableGelConstrain() {
 		return( tableGelConstrain );
 	}
 
-	public void setTableGelConstrain( ICFGenKbGelConstrainTable value ) {
+	public void setTableGelConstrain( IYCFGenKbGelConstrainTable value ) {
 		tableGelConstrain = value;
 	}
 
-	public ICFGenKbGelConstrainFactory getFactoryGelConstrain() {
+	public IYCFGenKbGelConstrainFactory getFactoryGelConstrain() {
 		return( factoryGelConstrain );
 	}
 
-	public void setFactoryGelConstrain( ICFGenKbGelConstrainFactory value ) {
+	public void setFactoryGelConstrain( IYCFGenKbGelConstrainFactory value ) {
 		factoryGelConstrain = value;
 	}
 
-	public ICFGenKbGelCounterTable getTableGelCounter() {
+	public IYCFGenKbGelCounterTable getTableGelCounter() {
 		return( tableGelCounter );
 	}
 
-	public void setTableGelCounter( ICFGenKbGelCounterTable value ) {
+	public void setTableGelCounter( IYCFGenKbGelCounterTable value ) {
 		tableGelCounter = value;
 	}
 
-	public ICFGenKbGelCounterFactory getFactoryGelCounter() {
+	public IYCFGenKbGelCounterFactory getFactoryGelCounter() {
 		return( factoryGelCounter );
 	}
 
-	public void setFactoryGelCounter( ICFGenKbGelCounterFactory value ) {
+	public void setFactoryGelCounter( IYCFGenKbGelCounterFactory value ) {
 		factoryGelCounter = value;
 	}
 
-	public ICFGenKbGelErrorTable getTableGelError() {
+	public IYCFGenKbGelErrorTable getTableGelError() {
 		return( tableGelError );
 	}
 
-	public void setTableGelError( ICFGenKbGelErrorTable value ) {
+	public void setTableGelError( IYCFGenKbGelErrorTable value ) {
 		tableGelError = value;
 	}
 
-	public ICFGenKbGelErrorFactory getFactoryGelError() {
+	public IYCFGenKbGelErrorFactory getFactoryGelError() {
 		return( factoryGelError );
 	}
 
-	public void setFactoryGelError( ICFGenKbGelErrorFactory value ) {
+	public void setFactoryGelError( IYCFGenKbGelErrorFactory value ) {
 		factoryGelError = value;
 	}
 
-	public ICFGenKbGelExecutableTable getTableGelExecutable() {
+	public IYCFGenKbGelExecutableTable getTableGelExecutable() {
 		return( tableGelExecutable );
 	}
 
-	public void setTableGelExecutable( ICFGenKbGelExecutableTable value ) {
+	public void setTableGelExecutable( IYCFGenKbGelExecutableTable value ) {
 		tableGelExecutable = value;
 	}
 
-	public ICFGenKbGelExecutableFactory getFactoryGelExecutable() {
+	public IYCFGenKbGelExecutableFactory getFactoryGelExecutable() {
 		return( factoryGelExecutable );
 	}
 
-	public void setFactoryGelExecutable( ICFGenKbGelExecutableFactory value ) {
+	public void setFactoryGelExecutable( IYCFGenKbGelExecutableFactory value ) {
 		factoryGelExecutable = value;
 	}
 
-	public ICFGenKbGelExpansionTable getTableGelExpansion() {
+	public IYCFGenKbGelExpansionTable getTableGelExpansion() {
 		return( tableGelExpansion );
 	}
 
-	public void setTableGelExpansion( ICFGenKbGelExpansionTable value ) {
+	public void setTableGelExpansion( IYCFGenKbGelExpansionTable value ) {
 		tableGelExpansion = value;
 	}
 
-	public ICFGenKbGelExpansionFactory getFactoryGelExpansion() {
+	public IYCFGenKbGelExpansionFactory getFactoryGelExpansion() {
 		return( factoryGelExpansion );
 	}
 
-	public void setFactoryGelExpansion( ICFGenKbGelExpansionFactory value ) {
+	public void setFactoryGelExpansion( IYCFGenKbGelExpansionFactory value ) {
 		factoryGelExpansion = value;
 	}
 
-	public ICFGenKbGelInstructionTable getTableGelInstruction() {
+	public IYCFGenKbGelInstructionTable getTableGelInstruction() {
 		return( tableGelInstruction );
 	}
 
-	public void setTableGelInstruction( ICFGenKbGelInstructionTable value ) {
+	public void setTableGelInstruction( IYCFGenKbGelInstructionTable value ) {
 		tableGelInstruction = value;
 	}
 
-	public ICFGenKbGelInstructionFactory getFactoryGelInstruction() {
+	public IYCFGenKbGelInstructionFactory getFactoryGelInstruction() {
 		return( factoryGelInstruction );
 	}
 
-	public void setFactoryGelInstruction( ICFGenKbGelInstructionFactory value ) {
+	public void setFactoryGelInstruction( IYCFGenKbGelInstructionFactory value ) {
 		factoryGelInstruction = value;
 	}
 
-	public ICFGenKbGelIteratorTable getTableGelIterator() {
+	public IYCFGenKbGelIteratorTable getTableGelIterator() {
 		return( tableGelIterator );
 	}
 
-	public void setTableGelIterator( ICFGenKbGelIteratorTable value ) {
+	public void setTableGelIterator( IYCFGenKbGelIteratorTable value ) {
 		tableGelIterator = value;
 	}
 
-	public ICFGenKbGelIteratorFactory getFactoryGelIterator() {
+	public IYCFGenKbGelIteratorFactory getFactoryGelIterator() {
 		return( factoryGelIterator );
 	}
 
-	public void setFactoryGelIterator( ICFGenKbGelIteratorFactory value ) {
+	public void setFactoryGelIterator( IYCFGenKbGelIteratorFactory value ) {
 		factoryGelIterator = value;
 	}
 
-	public ICFGenKbGelModifierTable getTableGelModifier() {
+	public IYCFGenKbGelModifierTable getTableGelModifier() {
 		return( tableGelModifier );
 	}
 
-	public void setTableGelModifier( ICFGenKbGelModifierTable value ) {
+	public void setTableGelModifier( IYCFGenKbGelModifierTable value ) {
 		tableGelModifier = value;
 	}
 
-	public ICFGenKbGelModifierFactory getFactoryGelModifier() {
+	public IYCFGenKbGelModifierFactory getFactoryGelModifier() {
 		return( factoryGelModifier );
 	}
 
-	public void setFactoryGelModifier( ICFGenKbGelModifierFactory value ) {
+	public void setFactoryGelModifier( IYCFGenKbGelModifierFactory value ) {
 		factoryGelModifier = value;
 	}
 
-	public ICFGenKbGelPopTable getTableGelPop() {
+	public IYCFGenKbGelPopTable getTableGelPop() {
 		return( tableGelPop );
 	}
 
-	public void setTableGelPop( ICFGenKbGelPopTable value ) {
+	public void setTableGelPop( IYCFGenKbGelPopTable value ) {
 		tableGelPop = value;
 	}
 
-	public ICFGenKbGelPopFactory getFactoryGelPop() {
+	public IYCFGenKbGelPopFactory getFactoryGelPop() {
 		return( factoryGelPop );
 	}
 
-	public void setFactoryGelPop( ICFGenKbGelPopFactory value ) {
+	public void setFactoryGelPop( IYCFGenKbGelPopFactory value ) {
 		factoryGelPop = value;
 	}
 
-	public ICFGenKbGelPushContextTable getTableGelPushContext() {
+	public IYCFGenKbGelPushContextTable getTableGelPushContext() {
 		return( tableGelPushContext );
 	}
 
-	public void setTableGelPushContext( ICFGenKbGelPushContextTable value ) {
+	public void setTableGelPushContext( IYCFGenKbGelPushContextTable value ) {
 		tableGelPushContext = value;
 	}
 
-	public ICFGenKbGelPushContextFactory getFactoryGelPushContext() {
+	public IYCFGenKbGelPushContextFactory getFactoryGelPushContext() {
 		return( factoryGelPushContext );
 	}
 
-	public void setFactoryGelPushContext( ICFGenKbGelPushContextFactory value ) {
+	public void setFactoryGelPushContext( IYCFGenKbGelPushContextFactory value ) {
 		factoryGelPushContext = value;
 	}
 
-	public ICFGenKbGelPopContextTable getTableGelPopContext() {
+	public IYCFGenKbGelPopContextTable getTableGelPopContext() {
 		return( tableGelPopContext );
 	}
 
-	public void setTableGelPopContext( ICFGenKbGelPopContextTable value ) {
+	public void setTableGelPopContext( IYCFGenKbGelPopContextTable value ) {
 		tableGelPopContext = value;
 	}
 
-	public ICFGenKbGelPopContextFactory getFactoryGelPopContext() {
+	public IYCFGenKbGelPopContextFactory getFactoryGelPopContext() {
 		return( factoryGelPopContext );
 	}
 
-	public void setFactoryGelPopContext( ICFGenKbGelPopContextFactory value ) {
+	public void setFactoryGelPopContext( IYCFGenKbGelPopContextFactory value ) {
 		factoryGelPopContext = value;
 	}
 
-	public ICFGenKbGelPrefixLineTable getTableGelPrefixLine() {
+	public IYCFGenKbGelPrefixLineTable getTableGelPrefixLine() {
 		return( tableGelPrefixLine );
 	}
 
-	public void setTableGelPrefixLine( ICFGenKbGelPrefixLineTable value ) {
+	public void setTableGelPrefixLine( IYCFGenKbGelPrefixLineTable value ) {
 		tableGelPrefixLine = value;
 	}
 
-	public ICFGenKbGelPrefixLineFactory getFactoryGelPrefixLine() {
+	public IYCFGenKbGelPrefixLineFactory getFactoryGelPrefixLine() {
 		return( factoryGelPrefixLine );
 	}
 
-	public void setFactoryGelPrefixLine( ICFGenKbGelPrefixLineFactory value ) {
+	public void setFactoryGelPrefixLine( IYCFGenKbGelPrefixLineFactory value ) {
 		factoryGelPrefixLine = value;
 	}
 
-	public ICFGenKbGelReferenceTable getTableGelReference() {
+	public IYCFGenKbGelReferenceTable getTableGelReference() {
 		return( tableGelReference );
 	}
 
-	public void setTableGelReference( ICFGenKbGelReferenceTable value ) {
+	public void setTableGelReference( IYCFGenKbGelReferenceTable value ) {
 		tableGelReference = value;
 	}
 
-	public ICFGenKbGelReferenceFactory getFactoryGelReference() {
+	public IYCFGenKbGelReferenceFactory getFactoryGelReference() {
 		return( factoryGelReference );
 	}
 
-	public void setFactoryGelReference( ICFGenKbGelReferenceFactory value ) {
+	public void setFactoryGelReference( IYCFGenKbGelReferenceFactory value ) {
 		factoryGelReference = value;
 	}
 
-	public ICFGenKbGelSequenceTable getTableGelSequence() {
+	public IYCFGenKbGelSequenceTable getTableGelSequence() {
 		return( tableGelSequence );
 	}
 
-	public void setTableGelSequence( ICFGenKbGelSequenceTable value ) {
+	public void setTableGelSequence( IYCFGenKbGelSequenceTable value ) {
 		tableGelSequence = value;
 	}
 
-	public ICFGenKbGelSequenceFactory getFactoryGelSequence() {
+	public IYCFGenKbGelSequenceFactory getFactoryGelSequence() {
 		return( factoryGelSequence );
 	}
 
-	public void setFactoryGelSequence( ICFGenKbGelSequenceFactory value ) {
+	public void setFactoryGelSequence( IYCFGenKbGelSequenceFactory value ) {
 		factoryGelSequence = value;
 	}
 
-	public ICFGenKbGelSpreadTable getTableGelSpread() {
+	public IYCFGenKbGelSpreadTable getTableGelSpread() {
 		return( tableGelSpread );
 	}
 
-	public void setTableGelSpread( ICFGenKbGelSpreadTable value ) {
+	public void setTableGelSpread( IYCFGenKbGelSpreadTable value ) {
 		tableGelSpread = value;
 	}
 
-	public ICFGenKbGelSpreadFactory getFactoryGelSpread() {
+	public IYCFGenKbGelSpreadFactory getFactoryGelSpread() {
 		return( factoryGelSpread );
 	}
 
-	public void setFactoryGelSpread( ICFGenKbGelSpreadFactory value ) {
+	public void setFactoryGelSpread( IYCFGenKbGelSpreadFactory value ) {
 		factoryGelSpread = value;
 	}
 
-	public ICFGenKbGelSwitchTable getTableGelSwitch() {
+	public IYCFGenKbGelSwitchTable getTableGelSwitch() {
 		return( tableGelSwitch );
 	}
 
-	public void setTableGelSwitch( ICFGenKbGelSwitchTable value ) {
+	public void setTableGelSwitch( IYCFGenKbGelSwitchTable value ) {
 		tableGelSwitch = value;
 	}
 
-	public ICFGenKbGelSwitchFactory getFactoryGelSwitch() {
+	public IYCFGenKbGelSwitchFactory getFactoryGelSwitch() {
 		return( factoryGelSwitch );
 	}
 
-	public void setFactoryGelSwitch( ICFGenKbGelSwitchFactory value ) {
+	public void setFactoryGelSwitch( IYCFGenKbGelSwitchFactory value ) {
 		factoryGelSwitch = value;
 	}
 
-	public ICFGenKbGelSwitchLimbTable getTableGelSwitchLimb() {
+	public IYCFGenKbGelSwitchLimbTable getTableGelSwitchLimb() {
 		return( tableGelSwitchLimb );
 	}
 
-	public void setTableGelSwitchLimb( ICFGenKbGelSwitchLimbTable value ) {
+	public void setTableGelSwitchLimb( IYCFGenKbGelSwitchLimbTable value ) {
 		tableGelSwitchLimb = value;
 	}
 
-	public ICFGenKbGelSwitchLimbFactory getFactoryGelSwitchLimb() {
+	public IYCFGenKbGelSwitchLimbFactory getFactoryGelSwitchLimb() {
 		return( factoryGelSwitchLimb );
 	}
 
-	public void setFactoryGelSwitchLimb( ICFGenKbGelSwitchLimbFactory value ) {
+	public void setFactoryGelSwitchLimb( IYCFGenKbGelSwitchLimbFactory value ) {
 		factoryGelSwitchLimb = value;
 	}
 
-	public ICFGenKbGenBindTable getTableGenBind() {
+	public IYCFGenKbGenBindTable getTableGenBind() {
 		return( tableGenBind );
 	}
 
-	public void setTableGenBind( ICFGenKbGenBindTable value ) {
+	public void setTableGenBind( IYCFGenKbGenBindTable value ) {
 		tableGenBind = value;
 	}
 
-	public ICFGenKbGenBindFactory getFactoryGenBind() {
+	public IYCFGenKbGenBindFactory getFactoryGenBind() {
 		return( factoryGenBind );
 	}
 
-	public void setFactoryGenBind( ICFGenKbGenBindFactory value ) {
+	public void setFactoryGenBind( IYCFGenKbGenBindFactory value ) {
 		factoryGenBind = value;
 	}
 
-	public ICFGenKbGenFileTable getTableGenFile() {
+	public IYCFGenKbGenFileTable getTableGenFile() {
 		return( tableGenFile );
 	}
 
-	public void setTableGenFile( ICFGenKbGenFileTable value ) {
+	public void setTableGenFile( IYCFGenKbGenFileTable value ) {
 		tableGenFile = value;
 	}
 
-	public ICFGenKbGenFileFactory getFactoryGenFile() {
+	public IYCFGenKbGenFileFactory getFactoryGenFile() {
 		return( factoryGenFile );
 	}
 
-	public void setFactoryGenFile( ICFGenKbGenFileFactory value ) {
+	public void setFactoryGenFile( IYCFGenKbGenFileFactory value ) {
 		factoryGenFile = value;
 	}
 
-	public ICFGenKbGenItemTable getTableGenItem() {
+	public IYCFGenKbGenItemTable getTableGenItem() {
 		return( tableGenItem );
 	}
 
-	public void setTableGenItem( ICFGenKbGenItemTable value ) {
+	public void setTableGenItem( IYCFGenKbGenItemTable value ) {
 		tableGenItem = value;
 	}
 
-	public ICFGenKbGenItemFactory getFactoryGenItem() {
+	public IYCFGenKbGenItemFactory getFactoryGenItem() {
 		return( factoryGenItem );
 	}
 
-	public void setFactoryGenItem( ICFGenKbGenItemFactory value ) {
+	public void setFactoryGenItem( IYCFGenKbGenItemFactory value ) {
 		factoryGenItem = value;
 	}
 
-	public ICFGenKbGenIteratorTable getTableGenIterator() {
+	public IYCFGenKbGenIteratorTable getTableGenIterator() {
 		return( tableGenIterator );
 	}
 
-	public void setTableGenIterator( ICFGenKbGenIteratorTable value ) {
+	public void setTableGenIterator( IYCFGenKbGenIteratorTable value ) {
 		tableGenIterator = value;
 	}
 
-	public ICFGenKbGenIteratorFactory getFactoryGenIterator() {
+	public IYCFGenKbGenIteratorFactory getFactoryGenIterator() {
 		return( factoryGenIterator );
 	}
 
-	public void setFactoryGenIterator( ICFGenKbGenIteratorFactory value ) {
+	public void setFactoryGenIterator( IYCFGenKbGenIteratorFactory value ) {
 		factoryGenIterator = value;
 	}
 
-	public ICFGenKbGenReferenceTable getTableGenReference() {
+	public IYCFGenKbGenReferenceTable getTableGenReference() {
 		return( tableGenReference );
 	}
 
-	public void setTableGenReference( ICFGenKbGenReferenceTable value ) {
+	public void setTableGenReference( IYCFGenKbGenReferenceTable value ) {
 		tableGenReference = value;
 	}
 
-	public ICFGenKbGenReferenceFactory getFactoryGenReference() {
+	public IYCFGenKbGenReferenceFactory getFactoryGenReference() {
 		return( factoryGenReference );
 	}
 
-	public void setFactoryGenReference( ICFGenKbGenReferenceFactory value ) {
+	public void setFactoryGenReference( IYCFGenKbGenReferenceFactory value ) {
 		factoryGenReference = value;
 	}
 
-	public ICFGenKbGenRuleTable getTableGenRule() {
+	public IYCFGenKbGenRuleTable getTableGenRule() {
 		return( tableGenRule );
 	}
 
-	public void setTableGenRule( ICFGenKbGenRuleTable value ) {
+	public void setTableGenRule( IYCFGenKbGenRuleTable value ) {
 		tableGenRule = value;
 	}
 
-	public ICFGenKbGenRuleFactory getFactoryGenRule() {
+	public IYCFGenKbGenRuleFactory getFactoryGenRule() {
 		return( factoryGenRule );
 	}
 
-	public void setFactoryGenRule( ICFGenKbGenRuleFactory value ) {
+	public void setFactoryGenRule( IYCFGenKbGenRuleFactory value ) {
 		factoryGenRule = value;
 	}
 
-	public ICFGenKbGenTruncTable getTableGenTrunc() {
+	public IYCFGenKbGenTruncTable getTableGenTrunc() {
 		return( tableGenTrunc );
 	}
 
-	public void setTableGenTrunc( ICFGenKbGenTruncTable value ) {
+	public void setTableGenTrunc( IYCFGenKbGenTruncTable value ) {
 		tableGenTrunc = value;
 	}
 
-	public ICFGenKbGenTruncFactory getFactoryGenTrunc() {
+	public IYCFGenKbGenTruncFactory getFactoryGenTrunc() {
 		return( factoryGenTrunc );
 	}
 
-	public void setFactoryGenTrunc( ICFGenKbGenTruncFactory value ) {
+	public void setFactoryGenTrunc( IYCFGenKbGenTruncFactory value ) {
 		factoryGenTrunc = value;
 	}
 
-	public ICFGenKbHostNodeTable getTableHostNode() {
+	public IYCFGenKbHostNodeTable getTableHostNode() {
 		return( tableHostNode );
 	}
 
-	public void setTableHostNode( ICFGenKbHostNodeTable value ) {
+	public void setTableHostNode( IYCFGenKbHostNodeTable value ) {
 		tableHostNode = value;
 	}
 
-	public ICFGenKbHostNodeFactory getFactoryHostNode() {
+	public IYCFGenKbHostNodeFactory getFactoryHostNode() {
 		return( factoryHostNode );
 	}
 
-	public void setFactoryHostNode( ICFGenKbHostNodeFactory value ) {
+	public void setFactoryHostNode( IYCFGenKbHostNodeFactory value ) {
 		factoryHostNode = value;
 	}
 
-	public ICFGenKbRuleCartTable getTableRuleCart() {
+	public IYCFGenKbRuleCartTable getTableRuleCart() {
 		return( tableRuleCart );
 	}
 
-	public void setTableRuleCart( ICFGenKbRuleCartTable value ) {
+	public void setTableRuleCart( IYCFGenKbRuleCartTable value ) {
 		tableRuleCart = value;
 	}
 
-	public ICFGenKbRuleCartFactory getFactoryRuleCart() {
+	public IYCFGenKbRuleCartFactory getFactoryRuleCart() {
 		return( factoryRuleCart );
 	}
 
-	public void setFactoryRuleCart( ICFGenKbRuleCartFactory value ) {
+	public void setFactoryRuleCart( IYCFGenKbRuleCartFactory value ) {
 		factoryRuleCart = value;
 	}
 
-	public ICFGenKbRuleTypeTable getTableRuleType() {
+	public IYCFGenKbRuleTypeTable getTableRuleType() {
 		return( tableRuleType );
 	}
 
-	public void setTableRuleType( ICFGenKbRuleTypeTable value ) {
+	public void setTableRuleType( IYCFGenKbRuleTypeTable value ) {
 		tableRuleType = value;
 	}
 
-	public ICFGenKbRuleTypeFactory getFactoryRuleType() {
+	public IYCFGenKbRuleTypeFactory getFactoryRuleType() {
 		return( factoryRuleType );
 	}
 
-	public void setFactoryRuleType( ICFGenKbRuleTypeFactory value ) {
+	public void setFactoryRuleType( IYCFGenKbRuleTypeFactory value ) {
 		factoryRuleType = value;
 	}
 
-	public ICFGenKbSecAppTable getTableSecApp() {
+	public IYCFGenKbSecAppTable getTableSecApp() {
 		return( tableSecApp );
 	}
 
-	public void setTableSecApp( ICFGenKbSecAppTable value ) {
+	public void setTableSecApp( IYCFGenKbSecAppTable value ) {
 		tableSecApp = value;
 	}
 
-	public ICFGenKbSecAppFactory getFactorySecApp() {
+	public IYCFGenKbSecAppFactory getFactorySecApp() {
 		return( factorySecApp );
 	}
 
-	public void setFactorySecApp( ICFGenKbSecAppFactory value ) {
+	public void setFactorySecApp( IYCFGenKbSecAppFactory value ) {
 		factorySecApp = value;
 	}
 
-	public ICFGenKbSecDeviceTable getTableSecDevice() {
+	public IYCFGenKbSecDeviceTable getTableSecDevice() {
 		return( tableSecDevice );
 	}
 
-	public void setTableSecDevice( ICFGenKbSecDeviceTable value ) {
+	public void setTableSecDevice( IYCFGenKbSecDeviceTable value ) {
 		tableSecDevice = value;
 	}
 
-	public ICFGenKbSecDeviceFactory getFactorySecDevice() {
+	public IYCFGenKbSecDeviceFactory getFactorySecDevice() {
 		return( factorySecDevice );
 	}
 
-	public void setFactorySecDevice( ICFGenKbSecDeviceFactory value ) {
+	public void setFactorySecDevice( IYCFGenKbSecDeviceFactory value ) {
 		factorySecDevice = value;
 	}
 
-	public ICFGenKbSecFormTable getTableSecForm() {
+	public IYCFGenKbSecFormTable getTableSecForm() {
 		return( tableSecForm );
 	}
 
-	public void setTableSecForm( ICFGenKbSecFormTable value ) {
+	public void setTableSecForm( IYCFGenKbSecFormTable value ) {
 		tableSecForm = value;
 	}
 
-	public ICFGenKbSecFormFactory getFactorySecForm() {
+	public IYCFGenKbSecFormFactory getFactorySecForm() {
 		return( factorySecForm );
 	}
 
-	public void setFactorySecForm( ICFGenKbSecFormFactory value ) {
+	public void setFactorySecForm( IYCFGenKbSecFormFactory value ) {
 		factorySecForm = value;
 	}
 
-	public ICFGenKbSecGroupTable getTableSecGroup() {
+	public IYCFGenKbSecGroupTable getTableSecGroup() {
 		return( tableSecGroup );
 	}
 
-	public void setTableSecGroup( ICFGenKbSecGroupTable value ) {
+	public void setTableSecGroup( IYCFGenKbSecGroupTable value ) {
 		tableSecGroup = value;
 	}
 
-	public ICFGenKbSecGroupFactory getFactorySecGroup() {
+	public IYCFGenKbSecGroupFactory getFactorySecGroup() {
 		return( factorySecGroup );
 	}
 
-	public void setFactorySecGroup( ICFGenKbSecGroupFactory value ) {
+	public void setFactorySecGroup( IYCFGenKbSecGroupFactory value ) {
 		factorySecGroup = value;
 	}
 
-	public ICFGenKbSecGroupFormTable getTableSecGroupForm() {
+	public IYCFGenKbSecGroupFormTable getTableSecGroupForm() {
 		return( tableSecGroupForm );
 	}
 
-	public void setTableSecGroupForm( ICFGenKbSecGroupFormTable value ) {
+	public void setTableSecGroupForm( IYCFGenKbSecGroupFormTable value ) {
 		tableSecGroupForm = value;
 	}
 
-	public ICFGenKbSecGroupFormFactory getFactorySecGroupForm() {
+	public IYCFGenKbSecGroupFormFactory getFactorySecGroupForm() {
 		return( factorySecGroupForm );
 	}
 
-	public void setFactorySecGroupForm( ICFGenKbSecGroupFormFactory value ) {
+	public void setFactorySecGroupForm( IYCFGenKbSecGroupFormFactory value ) {
 		factorySecGroupForm = value;
 	}
 
-	public ICFGenKbSecGrpIncTable getTableSecGrpInc() {
+	public IYCFGenKbSecGrpIncTable getTableSecGrpInc() {
 		return( tableSecGrpInc );
 	}
 
-	public void setTableSecGrpInc( ICFGenKbSecGrpIncTable value ) {
+	public void setTableSecGrpInc( IYCFGenKbSecGrpIncTable value ) {
 		tableSecGrpInc = value;
 	}
 
-	public ICFGenKbSecGrpIncFactory getFactorySecGrpInc() {
+	public IYCFGenKbSecGrpIncFactory getFactorySecGrpInc() {
 		return( factorySecGrpInc );
 	}
 
-	public void setFactorySecGrpInc( ICFGenKbSecGrpIncFactory value ) {
+	public void setFactorySecGrpInc( IYCFGenKbSecGrpIncFactory value ) {
 		factorySecGrpInc = value;
 	}
 
-	public ICFGenKbSecGrpMembTable getTableSecGrpMemb() {
+	public IYCFGenKbSecGrpMembTable getTableSecGrpMemb() {
 		return( tableSecGrpMemb );
 	}
 
-	public void setTableSecGrpMemb( ICFGenKbSecGrpMembTable value ) {
+	public void setTableSecGrpMemb( IYCFGenKbSecGrpMembTable value ) {
 		tableSecGrpMemb = value;
 	}
 
-	public ICFGenKbSecGrpMembFactory getFactorySecGrpMemb() {
+	public IYCFGenKbSecGrpMembFactory getFactorySecGrpMemb() {
 		return( factorySecGrpMemb );
 	}
 
-	public void setFactorySecGrpMemb( ICFGenKbSecGrpMembFactory value ) {
+	public void setFactorySecGrpMemb( IYCFGenKbSecGrpMembFactory value ) {
 		factorySecGrpMemb = value;
 	}
 
-	public ICFGenKbSecSessionTable getTableSecSession() {
+	public IYCFGenKbSecSessionTable getTableSecSession() {
 		return( tableSecSession );
 	}
 
-	public void setTableSecSession( ICFGenKbSecSessionTable value ) {
+	public void setTableSecSession( IYCFGenKbSecSessionTable value ) {
 		tableSecSession = value;
 	}
 
-	public ICFGenKbSecSessionFactory getFactorySecSession() {
+	public IYCFGenKbSecSessionFactory getFactorySecSession() {
 		return( factorySecSession );
 	}
 
-	public void setFactorySecSession( ICFGenKbSecSessionFactory value ) {
+	public void setFactorySecSession( IYCFGenKbSecSessionFactory value ) {
 		factorySecSession = value;
 	}
 
-	public ICFGenKbSecUserTable getTableSecUser() {
+	public IYCFGenKbSecUserTable getTableSecUser() {
 		return( tableSecUser );
 	}
 
-	public void setTableSecUser( ICFGenKbSecUserTable value ) {
+	public void setTableSecUser( IYCFGenKbSecUserTable value ) {
 		tableSecUser = value;
 	}
 
-	public ICFGenKbSecUserFactory getFactorySecUser() {
+	public IYCFGenKbSecUserFactory getFactorySecUser() {
 		return( factorySecUser );
 	}
 
-	public void setFactorySecUser( ICFGenKbSecUserFactory value ) {
+	public void setFactorySecUser( IYCFGenKbSecUserFactory value ) {
 		factorySecUser = value;
 	}
 
-	public ICFGenKbSysClusterTable getTableSysCluster() {
+	public IYCFGenKbSysClusterTable getTableSysCluster() {
 		return( tableSysCluster );
 	}
 
-	public void setTableSysCluster( ICFGenKbSysClusterTable value ) {
+	public void setTableSysCluster( IYCFGenKbSysClusterTable value ) {
 		tableSysCluster = value;
 	}
 
-	public ICFGenKbSysClusterFactory getFactorySysCluster() {
+	public IYCFGenKbSysClusterFactory getFactorySysCluster() {
 		return( factorySysCluster );
 	}
 
-	public void setFactorySysCluster( ICFGenKbSysClusterFactory value ) {
+	public void setFactorySysCluster( IYCFGenKbSysClusterFactory value ) {
 		factorySysCluster = value;
 	}
 
-	public ICFGenKbTSecGroupTable getTableTSecGroup() {
+	public IYCFGenKbTSecGroupTable getTableTSecGroup() {
 		return( tableTSecGroup );
 	}
 
-	public void setTableTSecGroup( ICFGenKbTSecGroupTable value ) {
+	public void setTableTSecGroup( IYCFGenKbTSecGroupTable value ) {
 		tableTSecGroup = value;
 	}
 
-	public ICFGenKbTSecGroupFactory getFactoryTSecGroup() {
+	public IYCFGenKbTSecGroupFactory getFactoryTSecGroup() {
 		return( factoryTSecGroup );
 	}
 
-	public void setFactoryTSecGroup( ICFGenKbTSecGroupFactory value ) {
+	public void setFactoryTSecGroup( IYCFGenKbTSecGroupFactory value ) {
 		factoryTSecGroup = value;
 	}
 
-	public ICFGenKbTSecGrpIncTable getTableTSecGrpInc() {
+	public IYCFGenKbTSecGrpIncTable getTableTSecGrpInc() {
 		return( tableTSecGrpInc );
 	}
 
-	public void setTableTSecGrpInc( ICFGenKbTSecGrpIncTable value ) {
+	public void setTableTSecGrpInc( IYCFGenKbTSecGrpIncTable value ) {
 		tableTSecGrpInc = value;
 	}
 
-	public ICFGenKbTSecGrpIncFactory getFactoryTSecGrpInc() {
+	public IYCFGenKbTSecGrpIncFactory getFactoryTSecGrpInc() {
 		return( factoryTSecGrpInc );
 	}
 
-	public void setFactoryTSecGrpInc( ICFGenKbTSecGrpIncFactory value ) {
+	public void setFactoryTSecGrpInc( IYCFGenKbTSecGrpIncFactory value ) {
 		factoryTSecGrpInc = value;
 	}
 
-	public ICFGenKbTSecGrpMembTable getTableTSecGrpMemb() {
+	public IYCFGenKbTSecGrpMembTable getTableTSecGrpMemb() {
 		return( tableTSecGrpMemb );
 	}
 
-	public void setTableTSecGrpMemb( ICFGenKbTSecGrpMembTable value ) {
+	public void setTableTSecGrpMemb( IYCFGenKbTSecGrpMembTable value ) {
 		tableTSecGrpMemb = value;
 	}
 
-	public ICFGenKbTSecGrpMembFactory getFactoryTSecGrpMemb() {
+	public IYCFGenKbTSecGrpMembFactory getFactoryTSecGrpMemb() {
 		return( factoryTSecGrpMemb );
 	}
 
-	public void setFactoryTSecGrpMemb( ICFGenKbTSecGrpMembFactory value ) {
+	public void setFactoryTSecGrpMemb( IYCFGenKbTSecGrpMembFactory value ) {
 		factoryTSecGrpMemb = value;
 	}
 
-	public ICFGenKbTenantTable getTableTenant() {
+	public IYCFGenKbTenantTable getTableTenant() {
 		return( tableTenant );
 	}
 
-	public void setTableTenant( ICFGenKbTenantTable value ) {
+	public void setTableTenant( IYCFGenKbTenantTable value ) {
 		tableTenant = value;
 	}
 
-	public ICFGenKbTenantFactory getFactoryTenant() {
+	public IYCFGenKbTenantFactory getFactoryTenant() {
 		return( factoryTenant );
 	}
 
-	public void setFactoryTenant( ICFGenKbTenantFactory value ) {
+	public void setFactoryTenant( IYCFGenKbTenantFactory value ) {
 		factoryTenant = value;
 	}
 
-	public ICFGenKbToolTable getTableTool() {
+	public IYCFGenKbToolTable getTableTool() {
 		return( tableTool );
 	}
 
-	public void setTableTool( ICFGenKbToolTable value ) {
+	public void setTableTool( IYCFGenKbToolTable value ) {
 		tableTool = value;
 	}
 
-	public ICFGenKbToolFactory getFactoryTool() {
+	public IYCFGenKbToolFactory getFactoryTool() {
 		return( factoryTool );
 	}
 
-	public void setFactoryTool( ICFGenKbToolFactory value ) {
+	public void setFactoryTool( IYCFGenKbToolFactory value ) {
 		factoryTool = value;
 	}
 
-	public ICFGenKbToolSetTable getTableToolSet() {
+	public IYCFGenKbToolSetTable getTableToolSet() {
 		return( tableToolSet );
 	}
 
-	public void setTableToolSet( ICFGenKbToolSetTable value ) {
+	public void setTableToolSet( IYCFGenKbToolSetTable value ) {
 		tableToolSet = value;
 	}
 
-	public ICFGenKbToolSetFactory getFactoryToolSet() {
+	public IYCFGenKbToolSetFactory getFactoryToolSet() {
 		return( factoryToolSet );
 	}
 
-	public void setFactoryToolSet( ICFGenKbToolSetFactory value ) {
+	public void setFactoryToolSet( IYCFGenKbToolSetFactory value ) {
 		factoryToolSet = value;
 	}
 
 	public boolean isTransactionOpen() {
-		throw new CFLibMustOverrideException( getClass(), "isTransactionOpen" );
+		throw new YCFLibMustOverrideException( getClass(), "isTransactionOpen" );
 	}
 
 	public boolean beginTransaction() {
-		throw new CFLibMustOverrideException( getClass(), "beginTransaction" );
+		throw new YCFLibMustOverrideException( getClass(), "beginTransaction" );
 	}
 
 	public void commit() {
-		throw new CFLibMustOverrideException( getClass(), "commit" );
+		throw new YCFLibMustOverrideException( getClass(), "commit" );
 	}
 
 	public void rollback() {
-		throw new CFLibMustOverrideException( getClass(), "rollback" );
+		throw new YCFLibMustOverrideException( getClass(), "rollback" );
 	}
 
-	public ICFGenKbTablePerms getTablePerms() {
+	public IYCFGenKbTablePerms getTablePerms() {
 		return( tablePerms );
 	}
 
-	public void setTablePerms( ICFGenKbTablePerms value ) {
+	public void setTablePerms( IYCFGenKbTablePerms value ) {
 		tablePerms = value;
 	}
 
@@ -1564,7 +1564,7 @@ public class CFGenKbSchema
 	public void setDbSchemaName( String argDbSchemaName ) {
 		final String S_ProcName = "setDbSchemaName";
 		if( ( argDbSchemaName == null ) || ( argDbSchemaName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"argDbSchemaName" );

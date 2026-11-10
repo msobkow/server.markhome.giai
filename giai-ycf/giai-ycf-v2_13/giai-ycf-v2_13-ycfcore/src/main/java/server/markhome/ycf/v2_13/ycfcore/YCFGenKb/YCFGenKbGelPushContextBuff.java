@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelPush buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelPushContextBuff
-	extends CFGenKbGelInstructionBuff
+public class YCFGenKbGelPushContextBuff
+	extends YCFGenKbGelInstructionBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -63,11 +63,11 @@ public class CFGenKbGelPushContextBuff
 	protected Long optionalRemainderTenantId;
 	protected long requiredRemainderGelCacheId;
 	protected Long optionalRemainderInstId;
-	public CFGenKbGelPushContextBuff() {
+	public YCFGenKbGelPushContextBuff() {
 		super();
-		requiredGoalTypeName = new String( CFGenKbGelPushContextBuff.GOALTYPENAME_INIT_VALUE );
+		requiredGoalTypeName = new String( YCFGenKbGelPushContextBuff.GOALTYPENAME_INIT_VALUE );
 		optionalRemainderTenantId = null;
-		requiredRemainderGelCacheId = CFGenKbGelPushContextBuff.REMAINDERGELCACHEID_INIT_VALUE;
+		requiredRemainderGelCacheId = YCFGenKbGelPushContextBuff.REMAINDERGELCACHEID_INIT_VALUE;
 		optionalRemainderInstId = null;
 	}
 
@@ -81,13 +81,13 @@ public class CFGenKbGelPushContextBuff
 
 	public void setRequiredGoalTypeName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredGoalTypeName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredGoalTypeName",
 				1,
 				"value.length()",
@@ -105,13 +105,13 @@ public class CFGenKbGelPushContextBuff
 		if( value == null ) {
 			optionalRemainderTenantId = null;
 		}
-		else if( value < CFGenKbGelPushContextBuff.REMAINDERTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelPushContextBuff.REMAINDERTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelPushContextBuff.REMAINDERTENANTID_MIN_VALUE );
+				YCFGenKbGelPushContextBuff.REMAINDERTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderTenantId = value;
@@ -123,13 +123,13 @@ public class CFGenKbGelPushContextBuff
 	}
 
 	public void setRequiredRemainderGelCacheId( long value ) {
-		if( value < CFGenKbGelPushContextBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelPushContextBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredRemainderGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelPushContextBuff.REMAINDERGELCACHEID_MIN_VALUE );
+				YCFGenKbGelPushContextBuff.REMAINDERGELCACHEID_MIN_VALUE );
 		}
 		requiredRemainderGelCacheId = value;
 	}
@@ -142,13 +142,13 @@ public class CFGenKbGelPushContextBuff
 		if( value == null ) {
 			optionalRemainderInstId = null;
 		}
-		else if( value < CFGenKbGelPushContextBuff.REMAINDERINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelPushContextBuff.REMAINDERINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelPushContextBuff.REMAINDERINSTID_MIN_VALUE );
+				YCFGenKbGelPushContextBuff.REMAINDERINSTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderInstId = value;
@@ -159,8 +159,8 @@ public class CFGenKbGelPushContextBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelPushContextBuff ) {
-			CFGenKbGelPushContextBuff rhs = (CFGenKbGelPushContextBuff)obj;
+		else if( obj instanceof YCFGenKbGelPushContextBuff ) {
+			YCFGenKbGelPushContextBuff rhs = (YCFGenKbGelPushContextBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -202,8 +202,8 @@ public class CFGenKbGelPushContextBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -215,8 +215,8 @@ public class CFGenKbGelPushContextBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelPushContextByRemainderIdxKey ) {
-			CFGenKbGelPushContextByRemainderIdxKey rhs = (CFGenKbGelPushContextByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelPushContextByRemainderIdxKey ) {
+			YCFGenKbGelPushContextByRemainderIdxKey rhs = (YCFGenKbGelPushContextByRemainderIdxKey)obj;
 			if( getOptionalRemainderTenantId() != null ) {
 				if( rhs.getOptionalRemainderTenantId() != null ) {
 					if( ! getOptionalRemainderTenantId().equals( rhs.getOptionalRemainderTenantId() ) ) {
@@ -271,8 +271,8 @@ public class CFGenKbGelPushContextBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelPushContextBuff ) {
-			CFGenKbGelPushContextBuff rhs = (CFGenKbGelPushContextBuff)obj;
+		else if( obj instanceof YCFGenKbGelPushContextBuff ) {
+			YCFGenKbGelPushContextBuff rhs = (YCFGenKbGelPushContextBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -327,8 +327,8 @@ public class CFGenKbGelPushContextBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -349,8 +349,8 @@ public class CFGenKbGelPushContextBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelPushContextByRemainderIdxKey ) {
-			CFGenKbGelPushContextByRemainderIdxKey rhs = (CFGenKbGelPushContextByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelPushContextByRemainderIdxKey ) {
+			YCFGenKbGelPushContextByRemainderIdxKey rhs = (YCFGenKbGelPushContextByRemainderIdxKey)obj;
 
 			if( getOptionalRemainderTenantId() != null ) {
 				Long lhsRemainderTenantId = getOptionalRemainderTenantId();
@@ -401,20 +401,20 @@ public class CFGenKbGelPushContextBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelPushContextBuff ) {
-			setGelPushBuff((CFGenKbGelPushContextBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelPushContextBuff ) {
+			setGelPushBuff((YCFGenKbGelPushContextBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelPushBuff" );
+				"YCFGenKbGelPushBuff" );
 		}
 	}
 
-	public void setGelPushBuff( CFGenKbGelPushContextBuff src ) {
+	public void setGelPushBuff( YCFGenKbGelPushContextBuff src ) {
 		super.setGelInstructionBuff( src );
 		setRequiredGoalTypeName( src.getRequiredGoalTypeName() );
 		setOptionalRemainderTenantId( src.getOptionalRemainderTenantId() );

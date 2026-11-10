@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,22 +21,22 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import javafx.scene.layout.Pane;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
-public class CFPane
+public class YCFPane
 extends Pane
-implements ICFPaneCommon
+implements IYCFPaneCommon
 {
 	/**
 	 *	Panels all start in an Unknown or View state.
 	 *
-	 *	public void AttrJPanel.setPanelMode( CFJPanel.PanelMode value ) {
-	 *		CFJPanel.PanelMode.oldMode = getPanelMode();
-	 *		if( value != CFJPanel.PanelMode.Unknown ) {
+	 *	public void AttrJPanel.setPanelMode( YCFJPanel.PanelMode value ) {
+	 *		YCFJPanel.PanelMode.oldMode = getPanelMode();
+	 *		if( value != YCFJPanel.PanelMode.Unknown ) {
 	 *			if( SwingFocus is null ) {
 	 *				RAISE NullParameterException;
 	 *			}
@@ -100,20 +100,20 @@ implements ICFPaneCommon
 	 *						break;
 	 *				}
 	 *				if( SwingFocus is null ) {
-	 *					setPanelMode( CFJPanel.PanelMode.Unknown );
+	 *					setPanelMode( YCFJPanel.PanelMode.Unknown );
 	 *				}
 	 *				else {
-	 *					setPanelMode( CFJPanel.PanelMode.View );
+	 *					setPanelMode( YCFJPanel.PanelMode.View );
 	 *				}
 	 *				break;
 	 *			case Delete:
-	 *				if( oldMode != CFJPanel.PanelMode.Edit ) {
+	 *				if( oldMode != YCFJPanel.PanelMode.Edit ) {
 	 *					RAISE UsageException
 	 *				}
 	 *				SwingFocus.Edit.delete();
 	 *				SwingFocus.Edit.endEdit();
 	 *				SwingFocus = null;
-	 *				setPanelMode( CFJPanel.PanelMode.Unknown );
+	 *				setPanelMode( YCFJPanel.PanelMode.Unknown );
 	 *				break;
 	 *		}
 	 *		RefreshDisplayedValues
@@ -128,26 +128,26 @@ implements ICFPaneCommon
 		Delete
 	};
 
-	protected ICFLibAnyObj javaFXFocus = null;
-	protected CFPane.PaneMode paneMode = CFPane.PaneMode.Unknown;
+	protected IYCFLibAnyObj javaFXFocus = null;
+	protected YCFPane.PaneMode paneMode = YCFPane.PaneMode.Unknown;
 	
-	public CFPane() {
+	public YCFPane() {
 		super();
 	}
 
-	public ICFLibAnyObj getJavaFXFocus() {
+	public IYCFLibAnyObj getJavaFXFocus() {
 		return( javaFXFocus );
 	}
 	
-	public void setJavaFXFocus( ICFLibAnyObj value ) {
+	public void setJavaFXFocus( IYCFLibAnyObj value ) {
 		javaFXFocus = value;
 	}
 	
-	public CFPane.PaneMode getPaneMode() {
+	public YCFPane.PaneMode getPaneMode() {
 		return( paneMode );
 	}
 	
-	public void setPaneMode( CFPane.PaneMode value ) {
+	public void setPaneMode( YCFPane.PaneMode value ) {
 		paneMode = value;
 	}
 }

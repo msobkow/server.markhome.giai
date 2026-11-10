@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam TextCol.
+// Description: Java 11 edit object instance implementation for YCFBam TextCol.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,47 +45,47 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamTextColEditObj
-	extends CFBamTextDefEditObj
+public class YCFBamTextColEditObj
+	extends YCFBamTextDefEditObj
 
-	implements ICFBamTextColEditObj
+	implements IYCFBamTextColEditObj
 {
-	protected ICFBamTableObj requiredContainerTable;
+	protected IYCFBamTableObj requiredContainerTable;
 
-	public CFBamTextColEditObj( ICFBamTextColObj argOrig ) {
+	public YCFBamTextColEditObj( IYCFBamTextColObj argOrig ) {
 		super( argOrig );
 		requiredContainerTable = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamTextColObj.CLASS_CODE );
+		return( YCFBamTextColObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "TextCol" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamTableObj scope = getRequiredContainerTable();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamTableObj scope = getRequiredContainerTable();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamTableObj scope = getRequiredContainerTable();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamTableObj scope = getRequiredContainerTable();
 		return( scope );
 	}
 
@@ -95,14 +95,14 @@ public class CFBamTextColEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -113,10 +113,10 @@ public class CFBamTextColEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -125,11 +125,11 @@ public class CFBamTextColEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -153,16 +153,16 @@ public class CFBamTextColEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -174,9 +174,9 @@ public class CFBamTextColEditObj
 		return( qualName );
 	}
 
-	public ICFBamValueObj realise() {
+	public IYCFBamValueObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamTextColObj retobj = getSchema().getTextColTableObj().realiseTextCol( (ICFBamTextColObj)this );
+		IYCFBamTextColObj retobj = getSchema().getTextColTableObj().realiseTextCol( (IYCFBamTextColObj)this );
 		return( retobj );
 	}
 
@@ -184,101 +184,101 @@ public class CFBamTextColEditObj
 		getOrigAsTextCol().forget();
 	}
 
-	public ICFBamValueObj moveUp() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveUp() {
+		throw new YCFLibUsageException( getClass(),
 			"moveUp",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj moveDown() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveDown() {
+		throw new YCFLibUsageException( getClass(),
 			"moveDown",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj create() {
+	public IYCFBamValueObj create() {
 		copyBuffToOrig();
-		ICFBamTextColObj retobj = ((ICFBamSchemaObj)getOrigAsTextCol().getSchema()).getTextColTableObj().createTextCol( getOrigAsTextCol() );
+		IYCFBamTextColObj retobj = ((IYCFBamSchemaObj)getOrigAsTextCol().getSchema()).getTextColTableObj().createTextCol( getOrigAsTextCol() );
 		if( retobj == getOrigAsTextCol() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamValueEditObj update() {
-		getSchema().getTextColTableObj().updateTextCol( (ICFBamTextColObj)this );
+	public YCFBamValueEditObj update() {
+		getSchema().getTextColTableObj().updateTextCol( (IYCFBamTextColObj)this );
 		return( null );
 	}
 
-	public CFBamValueEditObj deleteInstance() {
+	public YCFBamValueEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getTextColTableObj().deleteTextCol( getOrigAsTextCol() );
 		return( null );
 	}
 
-	public ICFBamTextColTableObj getTextColTable() {
+	public IYCFBamTextColTableObj getTextColTable() {
 		return( orig.getSchema().getTextColTableObj() );
 	}
 
-	public ICFBamTextColEditObj getEditAsTextCol() {
-		return( (ICFBamTextColEditObj)this );
+	public IYCFBamTextColEditObj getEditAsTextCol() {
+		return( (IYCFBamTextColEditObj)this );
 	}
 
-	public ICFBamTextColObj getOrigAsTextCol() {
-		return( (ICFBamTextColObj)orig );
+	public IYCFBamTextColObj getOrigAsTextCol() {
+		return( (IYCFBamTextColObj)orig );
 	}
 
-	public CFBamValueBuff getBuff() {
+	public YCFBamValueBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsTextCol().getSchema().getBackingStore()).getFactoryTextCol().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsTextCol().getSchema().getBackingStore()).getFactoryTextCol().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamValueBuff value ) {
+	public void setBuff( YCFBamValueBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			requiredContainerTable = null;
 		}
 	}
 
-	public CFBamTextColBuff getTextColBuff() {
-		return( (CFBamTextColBuff)getBuff() );
+	public YCFBamTextColBuff getTextColBuff() {
+		return( (YCFBamTextColBuff)getBuff() );
 	}
 
 	public long getRequiredTableId() {
 		return( getTextColBuff().getRequiredTableId() );
 	}
 
-	public void setRequiredContainerScope( ICFBamScopeObj value ) {
-		final String S_ProcName = "CFBamTextColEditObj.setRequiredContainerScope() ";
+	public void setRequiredContainerScope( IYCFBamScopeObj value ) {
+		final String S_ProcName = "YCFBamTextColEditObj.setRequiredContainerScope() ";
 		if( value == null ) {
 			setRequiredContainerTable( null );
 		}
-		else if( ! ( value instanceof ICFBamTableObj ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+		else if( ! ( value instanceof IYCFBamTableObj ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setRequiredContainerScope",
 				"value",
 				value,
-				"ICFBamTableObj" );
+				"IYCFBamTableObj" );
 		}
 		else {
-			setRequiredContainerTable( (ICFBamTableObj)value );
+			setRequiredContainerTable( (IYCFBamTableObj)value );
 		}
 	}
 
-	public ICFBamTableObj getRequiredContainerTable() {
+	public IYCFBamTableObj getRequiredContainerTable() {
 		return( getRequiredContainerTable( false ) );
 	}
 
-	public ICFBamTableObj getRequiredContainerTable( boolean forceRead ) {
+	public IYCFBamTableObj getRequiredContainerTable( boolean forceRead ) {
 		if( forceRead || ( requiredContainerTable == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsTextCol().getSchema()).getTableTableObj().readTableByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFBamTableObj obj = ((IYCFBamSchemaObj)getOrigAsTextCol().getSchema()).getTableTableObj().readTableByIdIdx( getPKey().getRequiredTenantId(),
 					getTextColBuff().getRequiredTableId() );
 				requiredContainerTable = obj;
 				if( obj != null ) {
@@ -291,7 +291,7 @@ public class CFBamTextColEditObj
 		return( requiredContainerTable );
 	}
 
-	public void setRequiredContainerTable( ICFBamTableObj value ) {
+	public void setRequiredContainerTable( IYCFBamTableObj value ) {
 			if( buff == null ) {
 				getTextColBuff();
 			}
@@ -305,14 +305,14 @@ public class CFBamTextColEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamTextColBuff origBuff = getOrigAsTextCol().getTextColBuff();
-		CFBamTextColBuff myBuff = getTextColBuff();
+		YCFBamTextColBuff origBuff = getOrigAsTextCol().getTextColBuff();
+		YCFBamTextColBuff myBuff = getTextColBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamTextColBuff origBuff = getOrigAsTextCol().getTextColBuff();
-		CFBamTextColBuff myBuff = getTextColBuff();
+		YCFBamTextColBuff origBuff = getOrigAsTextCol().getTextColBuff();
+		YCFBamTextColBuff myBuff = getTextColBuff();
 		myBuff.set( origBuff );
 	}
 }

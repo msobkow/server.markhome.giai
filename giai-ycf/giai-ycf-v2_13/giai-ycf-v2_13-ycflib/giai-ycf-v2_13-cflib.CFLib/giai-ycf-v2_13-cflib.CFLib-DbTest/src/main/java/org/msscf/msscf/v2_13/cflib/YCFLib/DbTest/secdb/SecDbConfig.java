@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,7 +20,7 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb;
 import javax.sql.DataSource;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.DbTest;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.DbTest;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,10 +43,10 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
-@EntityScan(basePackages = "org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb")
+@EntityScan(basePackages = "org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb")
 @EnableTransactionManagement
 @EnableJpaRepositories(
-    basePackages = "org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb",
+    basePackages = "org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb",
     entityManagerFactoryRef = "secEntityManagerFactory",
     transactionManagerRef = "secTransactionManager"
 )
@@ -208,7 +208,7 @@ public class SecDbConfig {
                 // Configure EntityManagerFactoryBean
                 LocalContainerEntityManagerFactoryBean emfBean = new LocalContainerEntityManagerFactoryBean();
                 emfBean.setDataSource(secDataSource);
-                emfBean.setPackagesToScan("org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb");
+                emfBean.setPackagesToScan("org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb");
                 emfBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
                 emfBean.setJpaProperties(secJpaProperties);
                 emfBean.setPersistenceUnitName(persistenceUnitName);

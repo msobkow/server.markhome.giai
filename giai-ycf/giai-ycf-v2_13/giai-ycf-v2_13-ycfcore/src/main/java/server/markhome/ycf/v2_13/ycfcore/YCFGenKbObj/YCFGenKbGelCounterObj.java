@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GelCounter.
+// Description: Java 11 base object instance implementation for YCFGenKb GelCounter.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,29 +27,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public class CFGenKbGelCounterObj
-	extends CFGenKbGelInstructionObj
-	implements ICFGenKbGelCounterObj
+public class YCFGenKbGelCounterObj
+	extends YCFGenKbGelInstructionObj
+	implements IYCFGenKbGelCounterObj
 {
 	public final static String CLASS_CODE = "a92d";
 
-	public CFGenKbGelCounterObj() {
+	public YCFGenKbGelCounterObj() {
 		super();
 	}
 
-	public CFGenKbGelCounterObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGelCounterObj( IYCFGenKbSchemaObj argSchema ) {
 		super( argSchema );
 	}
 
@@ -61,11 +61,11 @@ public class CFGenKbGelCounterObj
 		return( "GelCounter" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -76,14 +76,14 @@ public class CFGenKbGelCounterObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -94,10 +94,10 @@ public class CFGenKbGelCounterObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -106,11 +106,11 @@ public class CFGenKbGelCounterObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -134,13 +134,13 @@ public class CFGenKbGelCounterObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -152,42 +152,42 @@ public class CFGenKbGelCounterObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
-		ICFGenKbGelCounterObj retobj = ((ICFGenKbSchemaObj)schema).getGelCounterTableObj().realiseGelCounter(
-			(ICFGenKbGelCounterObj)this );
-		return( (ICFGenKbGelInstructionObj)retobj );
+	public IYCFGenKbGelInstructionObj realise() {
+		IYCFGenKbGelCounterObj retobj = ((IYCFGenKbSchemaObj)schema).getGelCounterTableObj().realiseGelCounter(
+			(IYCFGenKbGelCounterObj)this );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGelCounterTableObj().reallyDeepDisposeGelCounter( (ICFGenKbGelCounterObj)this );
+		((IYCFGenKbSchemaObj)schema).getGelCounterTableObj().reallyDeepDisposeGelCounter( (IYCFGenKbGelCounterObj)this );
 	}
 
-	public ICFGenKbGelInstructionObj read() {
-		ICFGenKbGelCounterObj retobj = ((ICFGenKbSchemaObj)schema).getGelCounterTableObj().readGelCounterByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read() {
+		IYCFGenKbGelCounterObj retobj = ((IYCFGenKbSchemaObj)schema).getGelCounterTableObj().readGelCounterByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), false );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelInstructionObj read( boolean forceRead ) {
-		ICFGenKbGelCounterObj retobj = ((ICFGenKbSchemaObj)schema).getGelCounterTableObj().readGelCounterByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read( boolean forceRead ) {
+		IYCFGenKbGelCounterObj retobj = ((IYCFGenKbSchemaObj)schema).getGelCounterTableObj().readGelCounterByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), forceRead );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelCounterTableObj getGelCounterTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGelCounterTableObj() );
+	public IYCFGenKbGelCounterTableObj getGelCounterTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGelCounterTableObj() );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelCounter().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelCounter().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelCounter().readDerivedByPIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelCounter().readDerivedByPIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredGelCacheId(),
 						getPKey().getRequiredGelInstId() );
@@ -199,13 +199,13 @@ public class CFGenKbGelCounterObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGelCounterBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGelCounterBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGelCounterBuff" );
+				"YCFGenKbGelCounterBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -214,34 +214,34 @@ public class CFGenKbGelCounterObj
 		optionalLookupChainInst = null;
 	}
 
-	public CFGenKbGelCounterBuff getGelCounterBuff() {
-		return( (CFGenKbGelCounterBuff)getBuff() );
+	public YCFGenKbGelCounterBuff getGelCounterBuff() {
+		return( (YCFGenKbGelCounterBuff)getBuff() );
 	}
 
-	public ICFGenKbGelInstructionEditObj beginEdit() {
+	public IYCFGenKbGelInstructionEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGelCounterObj lockobj;
+		IYCFGenKbGelCounterObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGelCounterObj)this;
+			lockobj = (IYCFGenKbGelCounterObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGelCounterTableObj().lockGelCounter( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGelCounterTableObj().lockGelCounter( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGelCounterTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGelInstructionEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGelCounterTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGelInstructionEditObj)edit );
 	}
 
-	public ICFGenKbGelCounterEditObj getEditAsGelCounter() {
-		return( (ICFGenKbGelCounterEditObj)edit );
+	public IYCFGenKbGelCounterEditObj getEditAsGelCounter() {
+		return( (IYCFGenKbGelCounterEditObj)edit );
 	}
 
 	public String getRequiredCounterName() {
 		return( getGelCounterBuff().getRequiredCounterName() );
 	}
 
-	public String expand( MssCFGenContext genContext ) {
-		throw new RuntimeException( "CFGenKbGelCounterObj.expand() Implemention must be overriden by counter specialization");
+	public String expand( MssYCFGenContext genContext ) {
+		throw new RuntimeException( "YCFGenKbGelCounterObj.expand() Implemention must be overriden by counter specialization");
 	}
 }

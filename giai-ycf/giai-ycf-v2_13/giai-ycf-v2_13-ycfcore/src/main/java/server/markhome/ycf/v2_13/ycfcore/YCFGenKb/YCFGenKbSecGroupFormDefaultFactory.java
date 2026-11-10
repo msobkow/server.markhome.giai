@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for SecGroupForm.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,57 +36,57 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbSecGroupFormFactory implementation for SecGroupForm
+	 *	YCFGenKbSecGroupFormFactory implementation for SecGroupForm
 	 */
-public class CFGenKbSecGroupFormDefaultFactory
-	implements ICFGenKbSecGroupFormFactory
+public class YCFGenKbSecGroupFormDefaultFactory
+	implements IYCFGenKbSecGroupFormFactory
 {
-	public CFGenKbSecGroupFormDefaultFactory() {
+	public YCFGenKbSecGroupFormDefaultFactory() {
 	}
 
-	public CFGenKbSecGroupFormPKey newPKey() {
-		CFGenKbSecGroupFormPKey pkey =
-			new CFGenKbSecGroupFormPKey();
+	public YCFGenKbSecGroupFormPKey newPKey() {
+		YCFGenKbSecGroupFormPKey pkey =
+			new YCFGenKbSecGroupFormPKey();
 		return( pkey );
 	}
 
-	public CFGenKbSecGroupFormByClusterIdxKey newClusterIdxKey() {
-		CFGenKbSecGroupFormByClusterIdxKey key =
-			new CFGenKbSecGroupFormByClusterIdxKey();
+	public YCFGenKbSecGroupFormByClusterIdxKey newClusterIdxKey() {
+		YCFGenKbSecGroupFormByClusterIdxKey key =
+			new YCFGenKbSecGroupFormByClusterIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecGroupFormByGroupIdxKey newGroupIdxKey() {
-		CFGenKbSecGroupFormByGroupIdxKey key =
-			new CFGenKbSecGroupFormByGroupIdxKey();
+	public YCFGenKbSecGroupFormByGroupIdxKey newGroupIdxKey() {
+		YCFGenKbSecGroupFormByGroupIdxKey key =
+			new YCFGenKbSecGroupFormByGroupIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecGroupFormByAppIdxKey newAppIdxKey() {
-		CFGenKbSecGroupFormByAppIdxKey key =
-			new CFGenKbSecGroupFormByAppIdxKey();
+	public YCFGenKbSecGroupFormByAppIdxKey newAppIdxKey() {
+		YCFGenKbSecGroupFormByAppIdxKey key =
+			new YCFGenKbSecGroupFormByAppIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecGroupFormByFormIdxKey newFormIdxKey() {
-		CFGenKbSecGroupFormByFormIdxKey key =
-			new CFGenKbSecGroupFormByFormIdxKey();
+	public YCFGenKbSecGroupFormByFormIdxKey newFormIdxKey() {
+		YCFGenKbSecGroupFormByFormIdxKey key =
+			new YCFGenKbSecGroupFormByFormIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecGroupFormByUFormIdxKey newUFormIdxKey() {
-		CFGenKbSecGroupFormByUFormIdxKey key =
-			new CFGenKbSecGroupFormByUFormIdxKey();
+	public YCFGenKbSecGroupFormByUFormIdxKey newUFormIdxKey() {
+		YCFGenKbSecGroupFormByUFormIdxKey key =
+			new YCFGenKbSecGroupFormByUFormIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecGroupFormBuff newBuff() {
-		CFGenKbSecGroupFormBuff buff =
-			new CFGenKbSecGroupFormBuff();
+	public YCFGenKbSecGroupFormBuff newBuff() {
+		YCFGenKbSecGroupFormBuff buff =
+			new YCFGenKbSecGroupFormBuff();
 		return( buff );
 	}
 }

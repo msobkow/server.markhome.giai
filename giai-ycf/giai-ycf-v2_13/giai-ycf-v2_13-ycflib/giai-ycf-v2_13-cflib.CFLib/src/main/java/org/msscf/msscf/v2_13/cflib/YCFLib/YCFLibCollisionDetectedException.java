@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,19 +21,19 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
-public class CFLibCollisionDetectedException extends CFLibRuntimeException {
+public class YCFLibCollisionDetectedException extends YCFLibRuntimeException {
 
 	protected Object indexKey = null;
 
-	public CFLibCollisionDetectedException(
+	public YCFLibCollisionDetectedException(
 		String msg )
 	{
 		super( msg );
 	}
 
-	public CFLibCollisionDetectedException(
+	public YCFLibCollisionDetectedException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -41,7 +41,7 @@ public class CFLibCollisionDetectedException extends CFLibRuntimeException {
 		super( throwingClass, methName, msg );
 	}
 
-	public CFLibCollisionDetectedException(
+	public YCFLibCollisionDetectedException(
 		Class throwingClass,
 		String methName,
 		String msg,
@@ -50,7 +50,7 @@ public class CFLibCollisionDetectedException extends CFLibRuntimeException {
 		super( throwingClass, methName, msg, th );
 	}
 
-	public CFLibCollisionDetectedException(
+	public YCFLibCollisionDetectedException(
 		Class throwingClass,
 		String methName,
 		Object argKey )
@@ -63,7 +63,7 @@ public class CFLibCollisionDetectedException extends CFLibRuntimeException {
 		indexKey = argKey;
 	}
 
-	public CFLibCollisionDetectedException(
+	public YCFLibCollisionDetectedException(
 		Class throwingClass,
 		String methName,
 		Object argKey,

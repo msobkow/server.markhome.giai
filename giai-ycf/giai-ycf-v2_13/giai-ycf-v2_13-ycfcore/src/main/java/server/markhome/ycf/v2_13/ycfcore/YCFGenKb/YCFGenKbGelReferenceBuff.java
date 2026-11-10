@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelReference buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelReferenceBuff
-	extends CFGenKbGelInstructionBuff
+public class YCFGenKbGelReferenceBuff
+	extends YCFGenKbGelInstructionBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -63,11 +63,11 @@ public class CFGenKbGelReferenceBuff
 	protected Long optionalRemainderTenantId;
 	protected long requiredRemainderGelCacheId;
 	protected Long optionalRemainderInstId;
-	public CFGenKbGelReferenceBuff() {
+	public YCFGenKbGelReferenceBuff() {
 		super();
-		requiredReferenceName = new String( CFGenKbGelReferenceBuff.REFERENCENAME_INIT_VALUE );
+		requiredReferenceName = new String( YCFGenKbGelReferenceBuff.REFERENCENAME_INIT_VALUE );
 		optionalRemainderTenantId = null;
-		requiredRemainderGelCacheId = CFGenKbGelReferenceBuff.REMAINDERGELCACHEID_INIT_VALUE;
+		requiredRemainderGelCacheId = YCFGenKbGelReferenceBuff.REMAINDERGELCACHEID_INIT_VALUE;
 		optionalRemainderInstId = null;
 	}
 
@@ -81,13 +81,13 @@ public class CFGenKbGelReferenceBuff
 
 	public void setRequiredReferenceName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredReferenceName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredReferenceName",
 				1,
 				"value.length()",
@@ -105,13 +105,13 @@ public class CFGenKbGelReferenceBuff
 		if( value == null ) {
 			optionalRemainderTenantId = null;
 		}
-		else if( value < CFGenKbGelReferenceBuff.REMAINDERTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelReferenceBuff.REMAINDERTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelReferenceBuff.REMAINDERTENANTID_MIN_VALUE );
+				YCFGenKbGelReferenceBuff.REMAINDERTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderTenantId = value;
@@ -123,13 +123,13 @@ public class CFGenKbGelReferenceBuff
 	}
 
 	public void setRequiredRemainderGelCacheId( long value ) {
-		if( value < CFGenKbGelReferenceBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelReferenceBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredRemainderGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelReferenceBuff.REMAINDERGELCACHEID_MIN_VALUE );
+				YCFGenKbGelReferenceBuff.REMAINDERGELCACHEID_MIN_VALUE );
 		}
 		requiredRemainderGelCacheId = value;
 	}
@@ -142,13 +142,13 @@ public class CFGenKbGelReferenceBuff
 		if( value == null ) {
 			optionalRemainderInstId = null;
 		}
-		else if( value < CFGenKbGelReferenceBuff.REMAINDERINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelReferenceBuff.REMAINDERINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelReferenceBuff.REMAINDERINSTID_MIN_VALUE );
+				YCFGenKbGelReferenceBuff.REMAINDERINSTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderInstId = value;
@@ -159,8 +159,8 @@ public class CFGenKbGelReferenceBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelReferenceBuff ) {
-			CFGenKbGelReferenceBuff rhs = (CFGenKbGelReferenceBuff)obj;
+		else if( obj instanceof YCFGenKbGelReferenceBuff ) {
+			YCFGenKbGelReferenceBuff rhs = (YCFGenKbGelReferenceBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -202,8 +202,8 @@ public class CFGenKbGelReferenceBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -215,8 +215,8 @@ public class CFGenKbGelReferenceBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelReferenceByRemainderIdxKey ) {
-			CFGenKbGelReferenceByRemainderIdxKey rhs = (CFGenKbGelReferenceByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelReferenceByRemainderIdxKey ) {
+			YCFGenKbGelReferenceByRemainderIdxKey rhs = (YCFGenKbGelReferenceByRemainderIdxKey)obj;
 			if( getOptionalRemainderTenantId() != null ) {
 				if( rhs.getOptionalRemainderTenantId() != null ) {
 					if( ! getOptionalRemainderTenantId().equals( rhs.getOptionalRemainderTenantId() ) ) {
@@ -271,8 +271,8 @@ public class CFGenKbGelReferenceBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelReferenceBuff ) {
-			CFGenKbGelReferenceBuff rhs = (CFGenKbGelReferenceBuff)obj;
+		else if( obj instanceof YCFGenKbGelReferenceBuff ) {
+			YCFGenKbGelReferenceBuff rhs = (YCFGenKbGelReferenceBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -327,8 +327,8 @@ public class CFGenKbGelReferenceBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -349,8 +349,8 @@ public class CFGenKbGelReferenceBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelReferenceByRemainderIdxKey ) {
-			CFGenKbGelReferenceByRemainderIdxKey rhs = (CFGenKbGelReferenceByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelReferenceByRemainderIdxKey ) {
+			YCFGenKbGelReferenceByRemainderIdxKey rhs = (YCFGenKbGelReferenceByRemainderIdxKey)obj;
 
 			if( getOptionalRemainderTenantId() != null ) {
 				Long lhsRemainderTenantId = getOptionalRemainderTenantId();
@@ -401,20 +401,20 @@ public class CFGenKbGelReferenceBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelReferenceBuff ) {
-			setGelReferenceBuff( (CFGenKbGelReferenceBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelReferenceBuff ) {
+			setGelReferenceBuff( (YCFGenKbGelReferenceBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelReferenceBuff" );
+				"YCFGenKbGelReferenceBuff" );
 		}
 	}
 
-	public void setGelReferenceBuff( CFGenKbGelReferenceBuff src ) {
+	public void setGelReferenceBuff( YCFGenKbGelReferenceBuff src ) {
 		super.setGelInstructionBuff( src );
 		setRequiredReferenceName( src.getRequiredReferenceName() );
 		setOptionalRemainderTenantId( src.getOptionalRemainderTenantId() );

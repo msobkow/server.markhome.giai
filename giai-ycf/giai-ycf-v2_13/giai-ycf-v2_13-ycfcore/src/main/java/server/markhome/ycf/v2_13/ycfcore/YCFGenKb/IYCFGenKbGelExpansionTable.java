@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelExpansion.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelExpansionTable database interface for GelExpansion
+ *	YCFGenKbGelExpansionTable database interface for GelExpansion
  */
-public interface ICFGenKbGelExpansionTable
+public interface IYCFGenKbGelExpansionTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelExpansion( CFGenKbAuthorization Authorization,
-		CFGenKbGelExpansionBuff Buff );
+	void createGelExpansion( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelExpansionBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelExpansion( CFGenKbAuthorization Authorization,
-		CFGenKbGelExpansionBuff Buff );
+	void updateGelExpansion( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelExpansionBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelExpansion( CFGenKbAuthorization Authorization,
-		CFGenKbGelExpansionBuff Buff );
+	void deleteGelExpansion( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelExpansionBuff Buff );
 	/**
 	 *	Delete the GelExpansion instance identified by the primary key attributes.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	argGelInstId	The GelExpansion key attribute of the instance generating the id.
 	 */
-	void deleteGelExpansionByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelExpansionByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelExpansionByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelExpansionByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelExpansion instances identified by the key TenantIdx.
 	 *
@@ -111,7 +111,7 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	argTenantId	The GelExpansion key attribute of the instance generating the id.
 	 */
-	void deleteGelExpansionByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelExpansionByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -121,8 +121,8 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelExpansionByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelExpansionByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelExpansion instances identified by the key GelCacheIdx.
 	 *
@@ -132,7 +132,7 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	argGelCacheId	The GelExpansion key attribute of the instance generating the id.
 	 */
-	void deleteGelExpansionByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelExpansionByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -143,8 +143,8 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelExpansionByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelExpansionByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelExpansion instances identified by the key ChainIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelExpansion key attribute of the instance generating the id.
 	 */
-	void deleteGelExpansionByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelExpansionByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -168,8 +168,8 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelExpansionByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelExpansionByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -182,8 +182,8 @@ public interface ICFGenKbGelExpansionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelExpansionBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelExpansionBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelExpansion buffer instance by primary key.
@@ -195,8 +195,8 @@ public interface ICFGenKbGelExpansionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelExpansionBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelExpansionBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelExpansion instances.
@@ -205,7 +205,7 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelExpansionBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelExpansionBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelExpansion buffer instance identified by the unique key PIdx.
@@ -221,7 +221,7 @@ public interface ICFGenKbGelExpansionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelExpansionBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelExpansionBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -235,7 +235,7 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelExpansionBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelExpansionBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -249,7 +249,7 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelExpansionBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelExpansionBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -266,7 +266,7 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelExpansionBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelExpansionBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -281,10 +281,10 @@ public interface ICFGenKbGelExpansionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelExpansionBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelExpansionBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelExpansion buffer instance identified by the primary key.
@@ -296,10 +296,10 @@ public interface ICFGenKbGelExpansionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelExpansionBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelExpansionBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelExpansion buffer instances.
@@ -308,7 +308,7 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@return All the specific GelExpansion instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelExpansionBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelExpansionBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelExpansion buffer instance identified by the unique key PIdx.
@@ -324,9 +324,9 @@ public interface ICFGenKbGelExpansionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelExpansionBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelExpansionBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -340,9 +340,9 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelExpansionBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelExpansionBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -356,9 +356,9 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelExpansionBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelExpansionBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -375,9 +375,9 @@ public interface ICFGenKbGelExpansionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelExpansionBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelExpansionBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -385,7 +385,7 @@ public interface ICFGenKbGelExpansionTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

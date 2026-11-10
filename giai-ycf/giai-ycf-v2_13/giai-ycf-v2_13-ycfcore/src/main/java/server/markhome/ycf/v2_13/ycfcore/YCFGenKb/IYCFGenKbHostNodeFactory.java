@@ -2,11 +2,11 @@
 // Description: Java 11 Factory interface for HostNode.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,15 +36,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbHostNodeFactory interface for HostNode
+ *	YCFGenKbHostNodeFactory interface for HostNode
  */
-public interface ICFGenKbHostNodeFactory
+public interface IYCFGenKbHostNodeFactory
 {
 
 	/**
@@ -52,34 +52,34 @@ public interface ICFGenKbHostNodeFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbHostNodePKey newPKey();
+	YCFGenKbHostNodePKey newPKey();
 
 	/**
 	 *	Allocate a ClusterIdx key over HostNode instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbHostNodeByClusterIdxKey newClusterIdxKey();
+	YCFGenKbHostNodeByClusterIdxKey newClusterIdxKey();
 
 	/**
 	 *	Allocate a UDescrIdx key over HostNode instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbHostNodeByUDescrIdxKey newUDescrIdxKey();
+	YCFGenKbHostNodeByUDescrIdxKey newUDescrIdxKey();
 
 	/**
 	 *	Allocate a HostNameIdx key over HostNode instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbHostNodeByHostNameIdxKey newHostNameIdxKey();
+	YCFGenKbHostNodeByHostNameIdxKey newHostNameIdxKey();
 
 	/**
 	 *	Allocate a HostNode instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbHostNodeBuff newBuff();
+	YCFGenKbHostNodeBuff newBuff();
 
 }

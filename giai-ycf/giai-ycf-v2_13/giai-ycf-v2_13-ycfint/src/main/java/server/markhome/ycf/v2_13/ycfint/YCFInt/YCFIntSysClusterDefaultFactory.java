@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for SysCluster.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,48 +35,48 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntSysClusterFactory implementation for SysCluster
+	 *	YCFIntSysClusterFactory implementation for SysCluster
 	 */
-public class CFIntSysClusterDefaultFactory
-	extends CFSecSysClusterDefaultFactory
-	implements ICFIntSysClusterFactory
+public class YCFIntSysClusterDefaultFactory
+	extends YCFSecSysClusterDefaultFactory
+	implements IYCFIntSysClusterFactory
 {
-	public CFIntSysClusterDefaultFactory() {
+	public YCFIntSysClusterDefaultFactory() {
 		super();
 	}
 
-	public CFSecSysClusterPKey newPKey() {
-		CFSecSysClusterPKey pkey =
-			new CFSecSysClusterPKey();
+	public YCFSecSysClusterPKey newPKey() {
+		YCFSecSysClusterPKey pkey =
+			new YCFSecSysClusterPKey();
 		return( pkey );
 	}
 
-	public CFSecSysClusterHPKey newHPKey() {
-		CFSecSysClusterHPKey hpkey =
-			new CFSecSysClusterHPKey();
+	public YCFSecSysClusterHPKey newHPKey() {
+		YCFSecSysClusterHPKey hpkey =
+			new YCFSecSysClusterHPKey();
 		return( hpkey );
 	}
 
-	public CFSecSysClusterByClusterIdxKey newClusterIdxKey() {
-		CFSecSysClusterByClusterIdxKey key =
-			new CFSecSysClusterByClusterIdxKey();
+	public YCFSecSysClusterByClusterIdxKey newClusterIdxKey() {
+		YCFSecSysClusterByClusterIdxKey key =
+			new YCFSecSysClusterByClusterIdxKey();
 		return( key );
 	}
 
-	public CFSecSysClusterBuff newBuff() {
-		CFSecSysClusterBuff buff =
-			new CFSecSysClusterBuff();
+	public YCFSecSysClusterBuff newBuff() {
+		YCFSecSysClusterBuff buff =
+			new YCFSecSysClusterBuff();
 		return( buff );
 	}
 
-	public CFSecSysClusterHBuff newHBuff() {
-		CFSecSysClusterHBuff hbuff =
-			new CFSecSysClusterHBuff();
+	public YCFSecSysClusterHBuff newHBuff() {
+		YCFSecSysClusterHBuff hbuff =
+			new YCFSecSysClusterHBuff();
 		return( hbuff );
 	}
 }

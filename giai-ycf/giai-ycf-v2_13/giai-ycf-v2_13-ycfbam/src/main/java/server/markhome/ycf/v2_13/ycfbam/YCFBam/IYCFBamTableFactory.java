@@ -2,17 +2,17 @@
 // Description: Java 11 Factory interface for Table.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,15 +54,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 /*
- *	CFBamTableFactory interface for Table
+ *	YCFBamTableFactory interface for Table
  */
-public interface ICFBamTableFactory
+public interface IYCFBamTableFactory
 {
 
 	/**
@@ -70,83 +70,83 @@ public interface ICFBamTableFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableBySchemaDefIdxKey newSchemaDefIdxKey();
+	YCFBamTableBySchemaDefIdxKey newSchemaDefIdxKey();
 
 	/**
 	 *	Allocate a CodeVisIdx key over Table instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableByCodeVisIdxKey newCodeVisIdxKey();
+	YCFBamTableByCodeVisIdxKey newCodeVisIdxKey();
 
 	/**
 	 *	Allocate a SchemaCodeVisIdx key over Table instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableBySchemaCodeVisIdxKey newSchemaCodeVisIdxKey();
+	YCFBamTableBySchemaCodeVisIdxKey newSchemaCodeVisIdxKey();
 
 	/**
 	 *	Allocate a DefSchemaIdx key over Table instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableByDefSchemaIdxKey newDefSchemaIdxKey();
+	YCFBamTableByDefSchemaIdxKey newDefSchemaIdxKey();
 
 	/**
 	 *	Allocate a UNameIdx key over Table instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableByUNameIdxKey newUNameIdxKey();
+	YCFBamTableByUNameIdxKey newUNameIdxKey();
 
 	/**
 	 *	Allocate a SchemaCdIdx key over Table instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableBySchemaCdIdxKey newSchemaCdIdxKey();
+	YCFBamTableBySchemaCdIdxKey newSchemaCdIdxKey();
 
 	/**
 	 *	Allocate a PrimaryIndexIdx key over Table instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableByPrimaryIndexIdxKey newPrimaryIndexIdxKey();
+	YCFBamTableByPrimaryIndexIdxKey newPrimaryIndexIdxKey();
 
 	/**
 	 *	Allocate a LookupIndexIdx key over Table instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableByLookupIndexIdxKey newLookupIndexIdxKey();
+	YCFBamTableByLookupIndexIdxKey newLookupIndexIdxKey();
 
 	/**
 	 *	Allocate a AltIndexIdx key over Table instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableByAltIndexIdxKey newAltIndexIdxKey();
+	YCFBamTableByAltIndexIdxKey newAltIndexIdxKey();
 
 	/**
 	 *	Allocate a QualTableIdx key over Table instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableByQualTableIdxKey newQualTableIdxKey();
+	YCFBamTableByQualTableIdxKey newQualTableIdxKey();
 
 	/**
 	 *	Allocate a Table instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableBuff newBuff();
+	YCFBamTableBuff newBuff();
 
 	/**
 	 *	Allocate a Table history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamTableHBuff newHBuff();
+	YCFBamTableHBuff newHBuff();
 
 }

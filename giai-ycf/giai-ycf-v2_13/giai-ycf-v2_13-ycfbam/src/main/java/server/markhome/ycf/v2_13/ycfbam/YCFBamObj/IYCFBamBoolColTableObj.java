@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamBoolColTableObj
+public interface IYCFBamBoolColTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamBoolColObj newInstance();
+	IYCFBamBoolColObj newInstance();
 
 	/**
 	 *	Instantiate a new BoolCol edition of the specified BoolCol instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamBoolColEditObj newEditInstance( ICFBamBoolColObj orig );
+	IYCFBamBoolColEditObj newEditInstance( IYCFBamBoolColObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamBoolColObj realiseBoolCol( ICFBamBoolColObj Obj );
+	IYCFBamBoolColObj realiseBoolCol( IYCFBamBoolColObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamBoolColObj createBoolCol( ICFBamBoolColObj Obj );
+	IYCFBamBoolColObj createBoolCol( IYCFBamBoolColObj Obj );
 
 	/**
 	 *	Read a BoolCol-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamBoolColTableObj
 	 *	@return	The BoolCol-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamBoolColObj readBoolCol( CFBamValuePKey pkey );
+	IYCFBamBoolColObj readBoolCol( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a BoolCol-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamBoolColTableObj
 	 *	@return	The BoolCol-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamBoolColObj readBoolCol( CFBamValuePKey pkey,
+	IYCFBamBoolColObj readBoolCol( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamBoolColObj readCachedBoolCol( CFBamValuePKey pkey );
+	IYCFBamBoolColObj readCachedBoolCol( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeBoolCol( ICFBamBoolColObj obj );
+	public void reallyDeepDisposeBoolCol( IYCFBamBoolColObj obj );
 
-	void deepDisposeBoolCol( CFBamValuePKey pkey );
+	void deepDisposeBoolCol( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamBoolColObj lockBoolCol( CFBamValuePKey pkey );
+	IYCFBamBoolColObj lockBoolCol( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the BoolCol-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamBoolColObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamBoolColObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamBoolColObj> readAllBoolCol();
+	List<IYCFBamBoolColObj> readAllBoolCol();
 
 	/**
 	 *	Return a sorted map of all the BoolCol-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamBoolColObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamBoolColObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamBoolColObj> readAllBoolCol( boolean forceRead );
+	List<IYCFBamBoolColObj> readAllBoolCol( boolean forceRead );
 
-	List<ICFBamBoolColObj> readCachedAllBoolCol();
+	List<IYCFBamBoolColObj> readCachedAllBoolCol();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamBoolColObj readBoolColByIdIdx( long TenantId,
+	IYCFBamBoolColObj readBoolColByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamBoolColObj readBoolColByIdIdx( long TenantId,
+	IYCFBamBoolColObj readBoolColByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@param	argName	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamBoolColObj readBoolColByUNameIdx( long TenantId,
+	IYCFBamBoolColObj readBoolColByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@param	argName	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamBoolColObj readBoolColByUNameIdx( long TenantId,
+	IYCFBamBoolColObj readBoolColByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByValTentIdx( long TenantId );
+	List<IYCFBamBoolColObj> readBoolColByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByValTentIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByScopeIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByScopeIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamBoolColObj> readBoolColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamBoolColObj> readBoolColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByPrevIdx( Long PrevTenantId,
+	List<IYCFBamBoolColObj> readBoolColByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByPrevIdx( Long PrevTenantId,
+	List<IYCFBamBoolColObj> readBoolColByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByNextIdx( Long NextTenantId,
+	List<IYCFBamBoolColObj> readBoolColByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByNextIdx( Long NextTenantId,
+	List<IYCFBamBoolColObj> readBoolColByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@param	argPrevId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByContPrevIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@param	argPrevId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByContPrevIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@param	argNextId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByContNextIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@param	argNextId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByContNextIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamBoolColObj> readBoolColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamBoolColObj> readBoolColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
@@ -446,77 +446,77 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate TableIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate TableIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate TableIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByTableIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByTableIdx( long TenantId,
 		long TableId );
 
 	/**
-	 *	Get the map of CFBamBoolColObj instances sorted by their primary keys for the duplicate TableIdx key.
+	 *	Get the map of YCFBamBoolColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The BoolCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamBoolColObj cached instances sorted by their primary keys for the duplicate TableIdx key,
+	 *	@return	List of YCFBamBoolColObj cached instances sorted by their primary keys for the duplicate TableIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamBoolColObj> readBoolColByTableIdx( long TenantId,
+	List<IYCFBamBoolColObj> readBoolColByTableIdx( long TenantId,
 		long TableId,
 		boolean forceRead );
 
-	ICFBamBoolColObj readCachedBoolColByIdIdx( long TenantId,
+	IYCFBamBoolColObj readCachedBoolColByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamBoolColObj readCachedBoolColByUNameIdx( long TenantId,
+	IYCFBamBoolColObj readCachedBoolColByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamBoolColObj> readCachedBoolColByValTentIdx( long TenantId );
+	List<IYCFBamBoolColObj> readCachedBoolColByValTentIdx( long TenantId );
 
-	List<ICFBamBoolColObj> readCachedBoolColByScopeIdx( long TenantId,
+	List<IYCFBamBoolColObj> readCachedBoolColByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamBoolColObj> readCachedBoolColByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamBoolColObj> readCachedBoolColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamBoolColObj> readCachedBoolColByPrevIdx( Long PrevTenantId,
+	List<IYCFBamBoolColObj> readCachedBoolColByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamBoolColObj> readCachedBoolColByNextIdx( Long NextTenantId,
+	List<IYCFBamBoolColObj> readCachedBoolColByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamBoolColObj> readCachedBoolColByContPrevIdx( long TenantId,
+	List<IYCFBamBoolColObj> readCachedBoolColByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamBoolColObj> readCachedBoolColByContNextIdx( long TenantId,
+	List<IYCFBamBoolColObj> readCachedBoolColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamBoolColObj> readCachedBoolColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamBoolColObj> readCachedBoolColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamBoolColObj> readCachedBoolColByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamBoolColObj> readCachedBoolColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamBoolColObj> readCachedBoolColByTableIdx( long TenantId,
+	List<IYCFBamBoolColObj> readCachedBoolColByTableIdx( long TenantId,
 		long TableId );
 
 	void deepDisposeBoolColByIdIdx( long TenantId,
@@ -548,11 +548,11 @@ public interface ICFBamBoolColTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeBoolColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeBoolColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeBoolColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeBoolColByTableIdx( long TenantId,
 		long TableId );
@@ -560,12 +560,12 @@ public interface ICFBamBoolColTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamBoolColObj updateBoolCol( ICFBamBoolColObj Obj );
+	IYCFBamBoolColObj updateBoolCol( IYCFBamBoolColObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteBoolCol( ICFBamBoolColObj Obj );
+	void deleteBoolCol( IYCFBamBoolColObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -668,7 +668,7 @@ public interface ICFBamBoolColTableObj
 	 *
 	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
 	 */
-	void deleteBoolColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteBoolColByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -681,7 +681,7 @@ public interface ICFBamBoolColTableObj
 	 */
 	void deleteBoolColByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -694,16 +694,16 @@ public interface ICFBamBoolColTableObj
 		long TableId );
 
 	/**
-	 *	Move the CFBamBoolColObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamBoolColObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamBoolColObj refreshed cache instance.
+	 *	@return	YCFBamBoolColObj refreshed cache instance.
 	 */
-	ICFBamBoolColObj moveUpBoolCol( ICFBamBoolColObj Obj );
+	IYCFBamBoolColObj moveUpBoolCol( IYCFBamBoolColObj Obj );
 
 	/**
-	 *	Move the CFBamBoolColObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamBoolColObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamBoolColObj refreshed cache instance.
+	 *	@return	YCFBamBoolColObj refreshed cache instance.
 	 */
-	ICFBamBoolColObj moveDownBoolCol( ICFBamBoolColObj Obj );
+	IYCFBamBoolColObj moveDownBoolCol( IYCFBamBoolColObj Obj );
 }

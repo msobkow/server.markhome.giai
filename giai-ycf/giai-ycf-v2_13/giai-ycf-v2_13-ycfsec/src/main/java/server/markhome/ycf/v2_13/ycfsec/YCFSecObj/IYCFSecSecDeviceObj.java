@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFSec SecDevice.
+// Description: Java 11 Object interface for YCFSec SecDevice.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,27 +26,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecDeviceObj
-	extends ICFLibAnyObj
+public interface IYCFSecSecDeviceObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -58,9 +58,9 @@ public interface ICFSecSecDeviceObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -71,9 +71,9 @@ public interface ICFSecSecDeviceObj
 	/**
 	 *	Realise this instance of a SecDevice.
 	 *
-	 *	@return	CFSecSecDeviceObj instance which should be subsequently referenced.
+	 *	@return	YCFSecSecDeviceObj instance which should be subsequently referenced.
 	 */
-	ICFSecSecDeviceObj realise();
+	IYCFSecSecDeviceObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -85,99 +85,99 @@ public interface ICFSecSecDeviceObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSecDeviceObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSecDeviceObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSecDeviceObj read();
+	IYCFSecSecDeviceObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecSecDeviceObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecSecDeviceObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecSecDeviceObj read( boolean forceRead );
+	IYCFSecSecDeviceObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SecDevice instance.
 	 *
-	 *	@return	The newly locked ICFSecSecDeviceEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecSecDeviceEditObj edition of this instance.
 	 */
-	ICFSecSecDeviceEditObj beginEdit();
+	IYCFSecSecDeviceEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SecDevice instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SecDevice instance.
 	 *
-	 *	@return	The ICFSecSecDeviceEditObj edition of this instance.
+	 *	@return	The IYCFSecSecDeviceEditObj edition of this instance.
 	 */
-	ICFSecSecDeviceEditObj getEdit();
+	IYCFSecSecDeviceEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SecDevice instance as a ICFSecSecDeviceEditObj.
+	 *	Get the current edition of this SecDevice instance as a IYCFSecSecDeviceEditObj.
 	 *
-	 *	@return	The ICFSecSecDeviceEditObj edition of this instance.
+	 *	@return	The IYCFSecSecDeviceEditObj edition of this instance.
 	 */
-	ICFSecSecDeviceEditObj getEditAsSecDevice();
+	IYCFSecSecDeviceEditObj getEditAsSecDevice();
 
 	/**
-	 *	Get the ICFSecSecDeviceTableObj table cache which manages this instance.
+	 *	Get the IYCFSecSecDeviceTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecSecDeviceTableObj table cache which manages this instance.
+	 *	@return	IYCFSecSecDeviceTableObj table cache which manages this instance.
 	 */
-	ICFSecSecDeviceTableObj getSecDeviceTable();
+	IYCFSecSecDeviceTableObj getSecDeviceTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecSecDeviceBuff instance which currently backs this instance.
+	 *	Get the YCFSecSecDeviceBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSecDeviceBuff instance which currently backs this object.
+	 *	@return	YCFSecSecDeviceBuff instance which currently backs this object.
 	 */
-	CFSecSecDeviceBuff getBuff();
+	YCFSecSecDeviceBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecSecDeviceBuff value );
+	void setBuff( YCFSecSecDeviceBuff value );
 
 	/**
-	 *	Get the CFSecSecDeviceBuff instance which currently backs this instance.
+	 *	Get the YCFSecSecDeviceBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecSecDeviceBuff instance which currently backs this object.
+	 *	@return	YCFSecSecDeviceBuff instance which currently backs this object.
 	 */
-	CFSecSecDeviceBuff getSecDeviceBuff();
+	YCFSecSecDeviceBuff getSecDeviceBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFSecSecDevicePKey primary key for this instance.
+	 *	@return	YCFSecSecDevicePKey primary key for this instance.
 	 */
-	CFSecSecDevicePKey getPKey();
+	YCFSecSecDevicePKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFSecSecDevicePKey primary key value for this instance.
+	 *	@param YCFSecSecDevicePKey primary key value for this instance.
 	 */
-	void setPKey( CFSecSecDevicePKey value );
+	void setPKey( YCFSecSecDevicePKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -218,18 +218,18 @@ public interface ICFSecSecDeviceObj
 	String getOptionalPubKey();
 
 	/**
-	 *	Get the required ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	Get the required IYCFSecSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The required ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	@return	The required IYCFSecSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFSecSecUserObj getRequiredContainerSecUser();
+	IYCFSecSecUserObj getRequiredContainerSecUser();
 
 	/**
-	 *	Get the required ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	Get the required IYCFSecSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The required ICFSecSecUserObj instance referenced by the SecUser key.
+	 *	@return	The required IYCFSecSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFSecSecUserObj getRequiredContainerSecUser( boolean forceRead );
+	IYCFSecSecUserObj getRequiredContainerSecUser( boolean forceRead );
 
 	/**
 	 *	Internal use only.

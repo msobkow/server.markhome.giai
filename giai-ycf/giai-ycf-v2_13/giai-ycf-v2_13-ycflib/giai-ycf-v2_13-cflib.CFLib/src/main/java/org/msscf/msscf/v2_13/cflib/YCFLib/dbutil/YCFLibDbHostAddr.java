@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,16 +21,16 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.dbutil;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * The CFLibDbHostAddr is a packed address for either IPV4 or IPV6 addresses, with indicators and detectors for which is which.
+ * The YCFLibDbHostAddr is a packed address for either IPV4 or IPV6 addresses, with indicators and detectors for which is which.
  * @author msobkow
  */
-public final class CFLibDbHostAddr {
+public final class YCFLibDbHostAddr {
     public static final int IPV6_LENGTH = 16;
     public static final int IPV4_LENGTH = 4;
     public static final int IPV4_PAD = IPV6_LENGTH - IPV4_LENGTH;

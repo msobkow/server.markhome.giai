@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFInt.
+// Description: Java 11 Table Object implementation for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,57 +26,57 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntSecFormTableObj
-	implements ICFIntSecFormTableObj
+public class YCFIntSecFormTableObj
+	implements IYCFIntSecFormTableObj
 {
-	protected ICFIntSchemaObj schema;
-	private Map<CFSecSecFormPKey, ICFSecSecFormObj> members;
-	private Map<CFSecSecFormPKey, ICFSecSecFormObj> allSecForm;
-	private Map< CFSecSecFormByClusterIdxKey,
-		Map<CFSecSecFormPKey, ICFSecSecFormObj > > indexByClusterIdx;
-	private Map< CFSecSecFormBySecAppIdxKey,
-		Map<CFSecSecFormPKey, ICFSecSecFormObj > > indexBySecAppIdx;
-	private Map< CFSecSecFormByUJEEServletIdxKey,
-		ICFSecSecFormObj > indexByUJEEServletIdx;
+	protected IYCFIntSchemaObj schema;
+	private Map<YCFSecSecFormPKey, IYCFSecSecFormObj> members;
+	private Map<YCFSecSecFormPKey, IYCFSecSecFormObj> allSecForm;
+	private Map< YCFSecSecFormByClusterIdxKey,
+		Map<YCFSecSecFormPKey, IYCFSecSecFormObj > > indexByClusterIdx;
+	private Map< YCFSecSecFormBySecAppIdxKey,
+		Map<YCFSecSecFormPKey, IYCFSecSecFormObj > > indexBySecAppIdx;
+	private Map< YCFSecSecFormByUJEEServletIdxKey,
+		IYCFSecSecFormObj > indexByUJEEServletIdx;
 	public static String TABLE_NAME = "SecForm";
-	public static String TABLE_DBNAME = "secform";
+	public static String TABLE_DBNAME = "seycform";
 
-	public CFIntSecFormTableObj() {
+	public YCFIntSecFormTableObj() {
 		schema = null;
-		members = new HashMap<CFSecSecFormPKey, ICFSecSecFormObj>();
+		members = new HashMap<YCFSecSecFormPKey, IYCFSecSecFormObj>();
 		allSecForm = null;
 		indexByClusterIdx = null;
 		indexBySecAppIdx = null;
 		indexByUJEEServletIdx = null;
 	}
 
-	public CFIntSecFormTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFIntSchemaObj)argSchema;
-		members = new HashMap<CFSecSecFormPKey, ICFSecSecFormObj>();
+	public YCFIntSecFormTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFIntSchemaObj)argSchema;
+		members = new HashMap<YCFSecSecFormPKey, IYCFSecSecFormObj>();
 		allSecForm = null;
 		indexByClusterIdx = null;
 		indexBySecAppIdx = null;
 		indexByUJEEServletIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFIntSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFIntSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -97,9 +97,9 @@ public class CFIntSecFormTableObj
 		indexByClusterIdx = null;
 		indexBySecAppIdx = null;
 		indexByUJEEServletIdx = null;
-		List<ICFSecSecFormObj> toForget = new LinkedList<ICFSecSecFormObj>();
-		ICFSecSecFormObj cur = null;
-		Iterator<ICFSecSecFormObj> iter = members.values().iterator();
+		List<IYCFSecSecFormObj> toForget = new LinkedList<IYCFSecSecFormObj>();
+		IYCFSecSecFormObj cur = null;
+		Iterator<IYCFSecSecFormObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -117,10 +117,10 @@ public class CFIntSecFormTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntSecFormObj.
+	 *	YCFIntSecFormObj.
 	 */
-	public ICFSecSecFormObj newInstance() {
-		ICFSecSecFormObj inst = new CFIntSecFormObj( schema );
+	public IYCFSecSecFormObj newInstance() {
+		IYCFSecSecFormObj inst = new YCFIntSecFormObj( schema );
 		return( inst );
 	}
 
@@ -131,19 +131,19 @@ public class CFIntSecFormTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntSecFormObj.
+	 *	YCFIntSecFormObj.
 	 */
-	public ICFSecSecFormEditObj newEditInstance( ICFSecSecFormObj orig ) {
-		ICFSecSecFormEditObj edit = new CFIntSecFormEditObj( orig );
+	public IYCFSecSecFormEditObj newEditInstance( IYCFSecSecFormObj orig ) {
+		IYCFSecSecFormEditObj edit = new YCFIntSecFormEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecSecFormObj realiseSecForm( ICFSecSecFormObj Obj ) {
-		ICFSecSecFormObj obj = Obj;
-		CFSecSecFormPKey pkey = obj.getPKey();
-		ICFSecSecFormObj keepObj = null;
+	public IYCFSecSecFormObj realiseSecForm( IYCFSecSecFormObj Obj ) {
+		IYCFSecSecFormObj obj = Obj;
+		YCFSecSecFormPKey pkey = obj.getPKey();
+		IYCFSecSecFormObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecSecFormObj existingObj = members.get( pkey );
+			IYCFSecSecFormObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -154,10 +154,10 @@ public class CFIntSecFormTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByClusterIdx != null ) {
-				CFSecSecFormByClusterIdxKey keyClusterIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
+				YCFSecSecFormByClusterIdxKey keyClusterIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecSecFormPKey, ICFSecSecFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecSecFormPKey, IYCFSecSecFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.remove( keepObj.getPKey() );
 					if( mapClusterIdx.size() <= 0 ) {
@@ -167,11 +167,11 @@ public class CFIntSecFormTableObj
 			}
 
 			if( indexBySecAppIdx != null ) {
-				CFSecSecFormBySecAppIdxKey keySecAppIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
+				YCFSecSecFormBySecAppIdxKey keySecAppIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
 				keySecAppIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keySecAppIdx.setRequiredSecAppId( keepObj.getRequiredSecAppId() );
-				Map<CFSecSecFormPKey, ICFSecSecFormObj > mapSecAppIdx = indexBySecAppIdx.get( keySecAppIdx );
+				Map<YCFSecSecFormPKey, IYCFSecSecFormObj > mapSecAppIdx = indexBySecAppIdx.get( keySecAppIdx );
 				if( mapSecAppIdx != null ) {
 					mapSecAppIdx.remove( keepObj.getPKey() );
 					if( mapSecAppIdx.size() <= 0 ) {
@@ -181,8 +181,8 @@ public class CFIntSecFormTableObj
 			}
 
 			if( indexByUJEEServletIdx != null ) {
-				CFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
+				YCFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
 				keyUJEEServletIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUJEEServletIdx.setRequiredSecAppId( keepObj.getRequiredSecAppId() );
 				keyUJEEServletIdx.setRequiredJEEServletMapName( keepObj.getRequiredJEEServletMapName() );
@@ -193,29 +193,29 @@ public class CFIntSecFormTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByClusterIdx != null ) {
-				CFSecSecFormByClusterIdxKey keyClusterIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
+				YCFSecSecFormByClusterIdxKey keyClusterIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecSecFormPKey, ICFSecSecFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecSecFormPKey, IYCFSecSecFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySecAppIdx != null ) {
-				CFSecSecFormBySecAppIdxKey keySecAppIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
+				YCFSecSecFormBySecAppIdxKey keySecAppIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
 				keySecAppIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keySecAppIdx.setRequiredSecAppId( keepObj.getRequiredSecAppId() );
-				Map<CFSecSecFormPKey, ICFSecSecFormObj > mapSecAppIdx = indexBySecAppIdx.get( keySecAppIdx );
+				Map<YCFSecSecFormPKey, IYCFSecSecFormObj > mapSecAppIdx = indexBySecAppIdx.get( keySecAppIdx );
 				if( mapSecAppIdx != null ) {
 					mapSecAppIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUJEEServletIdx != null ) {
-				CFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
+				YCFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
 				keyUJEEServletIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUJEEServletIdx.setRequiredSecAppId( keepObj.getRequiredSecAppId() );
 				keyUJEEServletIdx.setRequiredJEEServletMapName( keepObj.getRequiredJEEServletMapName() );
@@ -237,29 +237,29 @@ public class CFIntSecFormTableObj
 			}
 
 			if( indexByClusterIdx != null ) {
-				CFSecSecFormByClusterIdxKey keyClusterIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
+				YCFSecSecFormByClusterIdxKey keyClusterIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecSecFormPKey, ICFSecSecFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecSecFormPKey, IYCFSecSecFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySecAppIdx != null ) {
-				CFSecSecFormBySecAppIdxKey keySecAppIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
+				YCFSecSecFormBySecAppIdxKey keySecAppIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
 				keySecAppIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keySecAppIdx.setRequiredSecAppId( keepObj.getRequiredSecAppId() );
-				Map<CFSecSecFormPKey, ICFSecSecFormObj > mapSecAppIdx = indexBySecAppIdx.get( keySecAppIdx );
+				Map<YCFSecSecFormPKey, IYCFSecSecFormObj > mapSecAppIdx = indexBySecAppIdx.get( keySecAppIdx );
 				if( mapSecAppIdx != null ) {
 					mapSecAppIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUJEEServletIdx != null ) {
-				CFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
+				YCFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
 				keyUJEEServletIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUJEEServletIdx.setRequiredSecAppId( keepObj.getRequiredSecAppId() );
 				keyUJEEServletIdx.setRequiredJEEServletMapName( keepObj.getRequiredJEEServletMapName() );
@@ -270,10 +270,10 @@ public class CFIntSecFormTableObj
 		return( keepObj );
 	}
 
-	public ICFSecSecFormObj createSecForm( ICFSecSecFormObj Obj ) {
-		ICFSecSecFormObj obj = Obj;
-		CFSecSecFormBuff buff = obj.getSecFormBuff();
-		((ICFIntSchema)schema.getBackingStore()).getTableSecForm().createSecForm(
+	public IYCFSecSecFormObj createSecForm( IYCFSecSecFormObj Obj ) {
+		IYCFSecSecFormObj obj = Obj;
+		YCFSecSecFormBuff buff = obj.getSecFormBuff();
+		((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().createSecForm(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -282,58 +282,58 @@ public class CFIntSecFormTableObj
 		return( obj );
 	}
 
-	public ICFSecSecFormObj readSecForm( CFSecSecFormPKey pkey ) {
+	public IYCFSecSecFormObj readSecForm( YCFSecSecFormPKey pkey ) {
 		return( readSecForm( pkey, false ) );
 	}
 
-	public ICFSecSecFormObj readSecForm( CFSecSecFormPKey pkey, boolean forceRead ) {
-		ICFSecSecFormObj obj = null;
+	public IYCFSecSecFormObj readSecForm( YCFSecSecFormPKey pkey, boolean forceRead ) {
+		IYCFSecSecFormObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecSecFormBuff readBuff = ((ICFIntSchema)schema.getBackingStore()).getTableSecForm().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecSecFormBuff readBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredClusterId(),
 				pkey.getRequiredSecFormId() );
 			if( readBuff != null ) {
 				obj = schema.getSecFormTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecSecFormObj)obj.realise();
+				obj = (IYCFSecSecFormObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecSecFormObj readCachedSecForm( CFSecSecFormPKey pkey ) {
-		ICFSecSecFormObj obj = null;
+	public IYCFSecSecFormObj readCachedSecForm( YCFSecSecFormPKey pkey ) {
+		IYCFSecSecFormObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeSecForm( ICFSecSecFormObj obj )
+	public void reallyDeepDisposeSecForm( IYCFSecSecFormObj obj )
 	{
-		final String S_ProcName = "CFIntSecFormTableObj.reallyDeepDisposeSecForm() ";
+		final String S_ProcName = "YCFIntSecFormTableObj.reallyDeepDisposeSecForm() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecSecFormPKey pkey = obj.getPKey();
-		ICFSecSecFormObj existing = readCachedSecForm( pkey );
+		YCFSecSecFormPKey pkey = obj.getPKey();
+		IYCFSecSecFormObj existing = readCachedSecForm( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecSecFormByClusterIdxKey keyClusterIdx = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey keyClusterIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecSecFormBySecAppIdxKey keySecAppIdx = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey keySecAppIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
 		keySecAppIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keySecAppIdx.setRequiredSecAppId( existing.getRequiredSecAppId() );
 
-		CFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
+		YCFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
 		keyUJEEServletIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUJEEServletIdx.setRequiredSecAppId( existing.getRequiredSecAppId() );
 		keyUJEEServletIdx.setRequiredJEEServletMapName( existing.getRequiredJEEServletMapName() );
@@ -364,57 +364,57 @@ public class CFIntSecFormTableObj
 
 
 	}
-	public void deepDisposeSecForm( CFSecSecFormPKey pkey ) {
-		ICFSecSecFormObj obj = readCachedSecForm( pkey );
+	public void deepDisposeSecForm( YCFSecSecFormPKey pkey ) {
+		IYCFSecSecFormObj obj = readCachedSecForm( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecSecFormObj lockSecForm( CFSecSecFormPKey pkey ) {
-		ICFSecSecFormObj locked = null;
-		CFSecSecFormBuff lockBuff = ((ICFIntSchema)schema.getBackingStore()).getTableSecForm().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecSecFormObj lockSecForm( YCFSecSecFormPKey pkey ) {
+		IYCFSecSecFormObj locked = null;
+		YCFSecSecFormBuff lockBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getSecFormTableObj().newInstance();
-			locked.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
+			locked.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecSecFormObj)locked.realise();
+			locked = (IYCFSecSecFormObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockSecForm", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockSecForm", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecSecFormObj> readAllSecForm() {
+	public List<IYCFSecSecFormObj> readAllSecForm() {
 		return( readAllSecForm( false ) );
 	}
 
-	public List<ICFSecSecFormObj> readAllSecForm( boolean forceRead ) {
+	public List<IYCFSecSecFormObj> readAllSecForm( boolean forceRead ) {
 		final String S_ProcName = "readAllSecForm";
 		if( ( allSecForm == null ) || forceRead ) {
-			Map<CFSecSecFormPKey, ICFSecSecFormObj> map = new HashMap<CFSecSecFormPKey,ICFSecSecFormObj>();
+			Map<YCFSecSecFormPKey, IYCFSecSecFormObj> map = new HashMap<YCFSecSecFormPKey,IYCFSecSecFormObj>();
 			allSecForm = map;
-			CFSecSecFormBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableSecForm().readAllDerived( schema.getAuthorization() );
-			CFSecSecFormBuff buff;
-			ICFSecSecFormObj obj;
+			YCFSecSecFormBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().readAllDerived( schema.getAuthorization() );
+			YCFSecSecFormBuff buff;
+			IYCFSecSecFormObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecFormObj realised = (ICFSecSecFormObj)obj.realise();
+				IYCFSecSecFormObj realised = (IYCFSecSecFormObj)obj.realise();
 			}
 		}
 		int len = allSecForm.size();
-		ICFSecSecFormObj arr[] = new ICFSecSecFormObj[len];
-		Iterator<ICFSecSecFormObj> valIter = allSecForm.values().iterator();
+		IYCFSecSecFormObj arr[] = new IYCFSecSecFormObj[len];
+		Iterator<IYCFSecSecFormObj> valIter = allSecForm.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -422,20 +422,20 @@ public class CFIntSecFormTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecFormObj> arrayList = new ArrayList<ICFSecSecFormObj>(len);
+		ArrayList<IYCFSecSecFormObj> arrayList = new ArrayList<IYCFSecSecFormObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecFormObj> cmp = new Comparator<ICFSecSecFormObj>() {
-			public int compare( ICFSecSecFormObj lhs, ICFSecSecFormObj rhs ) {
+		Comparator<IYCFSecSecFormObj> cmp = new Comparator<IYCFSecSecFormObj>() {
+			public int compare( IYCFSecSecFormObj lhs, IYCFSecSecFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -448,31 +448,31 @@ public class CFIntSecFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecFormObj> sortedList = arrayList;
+		List<IYCFSecSecFormObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecFormObj> readCachedAllSecForm() {
+	public List<IYCFSecSecFormObj> readCachedAllSecForm() {
 		final String S_ProcName = "readCachedAllSecForm";
-		ArrayList<ICFSecSecFormObj> arrayList = new ArrayList<ICFSecSecFormObj>();
+		ArrayList<IYCFSecSecFormObj> arrayList = new ArrayList<IYCFSecSecFormObj>();
 		if( allSecForm != null ) {
 			int len = allSecForm.size();
-			ICFSecSecFormObj arr[] = new ICFSecSecFormObj[len];
-			Iterator<ICFSecSecFormObj> valIter = allSecForm.values().iterator();
+			IYCFSecSecFormObj arr[] = new IYCFSecSecFormObj[len];
+			Iterator<IYCFSecSecFormObj> valIter = allSecForm.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -480,7 +480,7 @@ public class CFIntSecFormTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -491,8 +491,8 @@ public class CFIntSecFormTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecSecFormObj> cmp = new Comparator<ICFSecSecFormObj>() {
-			public int compare( ICFSecSecFormObj lhs, ICFSecSecFormObj rhs ) {
+		Comparator<IYCFSecSecFormObj> cmp = new Comparator<IYCFSecSecFormObj>() {
+			public int compare( IYCFSecSecFormObj lhs, IYCFSecSecFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -505,8 +505,8 @@ public class CFIntSecFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -519,33 +519,33 @@ public class CFIntSecFormTableObj
 	/**
 	 *	Return a sorted map of a page of the SecForm-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecFormObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecFormObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	public List<ICFSecSecFormObj> pageAllSecForm(Long priorClusterId,
+	public List<IYCFSecSecFormObj> pageAllSecForm(Long priorClusterId,
 		Integer priorSecFormId )
 	{
 		final String S_ProcName = "pageAllSecForm";
-		Map<CFSecSecFormPKey, ICFSecSecFormObj> map = new HashMap<CFSecSecFormPKey,ICFSecSecFormObj>();
-		CFSecSecFormBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableSecForm().pageAllBuff( schema.getAuthorization(),
+		Map<YCFSecSecFormPKey, IYCFSecSecFormObj> map = new HashMap<YCFSecSecFormPKey,IYCFSecSecFormObj>();
+		YCFSecSecFormBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().pageAllBuff( schema.getAuthorization(),
 			priorClusterId,
 			priorSecFormId );
-		CFSecSecFormBuff buff;
-		ICFSecSecFormObj obj;
-		ICFSecSecFormObj realised;
-		ArrayList<ICFSecSecFormObj> arrayList = new ArrayList<ICFSecSecFormObj>( buffList.length );
+		YCFSecSecFormBuff buff;
+		IYCFSecSecFormObj obj;
+		IYCFSecSecFormObj realised;
+		ArrayList<IYCFSecSecFormObj> arrayList = new ArrayList<IYCFSecSecFormObj>( buffList.length );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = newInstance();
-			obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
+			obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
 			obj.setBuff( buff );
-			realised = (ICFSecSecFormObj)obj.realise();
+			realised = (IYCFSecSecFormObj)obj.realise();
 			arrayList.add( realised );
 		}
 		return( arrayList );
 	}
 
-	public ICFSecSecFormObj readSecFormByIdIdx( long ClusterId,
+	public IYCFSecSecFormObj readSecFormByIdIdx( long ClusterId,
 		int SecFormId )
 	{
 		return( readSecFormByIdIdx( ClusterId,
@@ -553,61 +553,61 @@ public class CFIntSecFormTableObj
 			false ) );
 	}
 
-	public ICFSecSecFormObj readSecFormByIdIdx( long ClusterId,
+	public IYCFSecSecFormObj readSecFormByIdIdx( long ClusterId,
 		int SecFormId, boolean forceRead )
 	{
-		CFSecSecFormPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey();
+		YCFSecSecFormPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecFormId( SecFormId );
-		ICFSecSecFormObj obj = readSecForm( pkey, forceRead );
+		IYCFSecSecFormObj obj = readSecForm( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFSecSecFormObj> readSecFormByClusterIdx( long ClusterId )
+	public List<IYCFSecSecFormObj> readSecFormByClusterIdx( long ClusterId )
 	{
 		return( readSecFormByClusterIdx( ClusterId,
 			false ) );
 	}
 
-	public List<ICFSecSecFormObj> readSecFormByClusterIdx( long ClusterId,
+	public List<IYCFSecSecFormObj> readSecFormByClusterIdx( long ClusterId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecFormByClusterIdx";
-		CFSecSecFormByClusterIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		Map<CFSecSecFormPKey, ICFSecSecFormObj> dict;
+		Map<YCFSecSecFormPKey, IYCFSecSecFormObj> dict;
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecSecFormByClusterIdxKey,
-				Map< CFSecSecFormPKey, ICFSecSecFormObj > >();
+			indexByClusterIdx = new HashMap< YCFSecSecFormByClusterIdxKey,
+				Map< YCFSecSecFormPKey, IYCFSecSecFormObj > >();
 		}
 		if( ( ! forceRead ) && indexByClusterIdx.containsKey( key ) ) {
 			dict = indexByClusterIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecFormPKey, ICFSecSecFormObj>();
-			ICFSecSecFormObj obj;
-			CFSecSecFormBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableSecForm().readDerivedByClusterIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecFormPKey, IYCFSecSecFormObj>();
+			IYCFSecSecFormObj obj;
+			YCFSecSecFormBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().readDerivedByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			CFSecSecFormBuff buff;
+			YCFSecSecFormBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecFormTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecFormObj realised = (ICFSecSecFormObj)obj.realise();
+				IYCFSecSecFormObj realised = (IYCFSecSecFormObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClusterIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecFormObj arr[] = new ICFSecSecFormObj[len];
-		Iterator<ICFSecSecFormObj> valIter = dict.values().iterator();
+		IYCFSecSecFormObj arr[] = new IYCFSecSecFormObj[len];
+		Iterator<IYCFSecSecFormObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -615,20 +615,20 @@ public class CFIntSecFormTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecFormObj> arrayList = new ArrayList<ICFSecSecFormObj>(len);
+		ArrayList<IYCFSecSecFormObj> arrayList = new ArrayList<IYCFSecSecFormObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecFormObj> cmp = new Comparator<ICFSecSecFormObj>() {
-			public int compare( ICFSecSecFormObj lhs, ICFSecSecFormObj rhs ) {
+		Comparator<IYCFSecSecFormObj> cmp = new Comparator<IYCFSecSecFormObj>() {
+			public int compare( IYCFSecSecFormObj lhs, IYCFSecSecFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -641,19 +641,19 @@ public class CFIntSecFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecFormObj> sortedList = arrayList;
+		List<IYCFSecSecFormObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecFormObj> readSecFormBySecAppIdx( long ClusterId,
+	public List<IYCFSecSecFormObj> readSecFormBySecAppIdx( long ClusterId,
 		int SecAppId )
 	{
 		return( readSecFormBySecAppIdx( ClusterId,
@@ -661,48 +661,48 @@ public class CFIntSecFormTableObj
 			false ) );
 	}
 
-	public List<ICFSecSecFormObj> readSecFormBySecAppIdx( long ClusterId,
+	public List<IYCFSecSecFormObj> readSecFormBySecAppIdx( long ClusterId,
 		int SecAppId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecFormBySecAppIdx";
-		CFSecSecFormBySecAppIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
-		Map<CFSecSecFormPKey, ICFSecSecFormObj> dict;
+		Map<YCFSecSecFormPKey, IYCFSecSecFormObj> dict;
 		if( indexBySecAppIdx == null ) {
-			indexBySecAppIdx = new HashMap< CFSecSecFormBySecAppIdxKey,
-				Map< CFSecSecFormPKey, ICFSecSecFormObj > >();
+			indexBySecAppIdx = new HashMap< YCFSecSecFormBySecAppIdxKey,
+				Map< YCFSecSecFormPKey, IYCFSecSecFormObj > >();
 		}
 		if( ( ! forceRead ) && indexBySecAppIdx.containsKey( key ) ) {
 			dict = indexBySecAppIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecFormPKey, ICFSecSecFormObj>();
-			ICFSecSecFormObj obj;
-			CFSecSecFormBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableSecForm().readDerivedBySecAppIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecFormPKey, IYCFSecSecFormObj>();
+			IYCFSecSecFormObj obj;
+			YCFSecSecFormBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().readDerivedBySecAppIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId );
-			CFSecSecFormBuff buff;
+			YCFSecSecFormBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecFormTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecFormObj realised = (ICFSecSecFormObj)obj.realise();
+				IYCFSecSecFormObj realised = (IYCFSecSecFormObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexBySecAppIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecFormObj arr[] = new ICFSecSecFormObj[len];
-		Iterator<ICFSecSecFormObj> valIter = dict.values().iterator();
+		IYCFSecSecFormObj arr[] = new IYCFSecSecFormObj[len];
+		Iterator<IYCFSecSecFormObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -710,20 +710,20 @@ public class CFIntSecFormTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecFormObj> arrayList = new ArrayList<ICFSecSecFormObj>(len);
+		ArrayList<IYCFSecSecFormObj> arrayList = new ArrayList<IYCFSecSecFormObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecFormObj> cmp = new Comparator<ICFSecSecFormObj>() {
-			public int compare( ICFSecSecFormObj lhs, ICFSecSecFormObj rhs ) {
+		Comparator<IYCFSecSecFormObj> cmp = new Comparator<IYCFSecSecFormObj>() {
+			public int compare( IYCFSecSecFormObj lhs, IYCFSecSecFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -736,19 +736,19 @@ public class CFIntSecFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecFormObj> sortedList = arrayList;
+		List<IYCFSecSecFormObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecSecFormObj readSecFormByUJEEServletIdx( long ClusterId,
+	public IYCFSecSecFormObj readSecFormByUJEEServletIdx( long ClusterId,
 		int SecAppId,
 		String JEEServletMapName )
 	{
@@ -758,67 +758,67 @@ public class CFIntSecFormTableObj
 			false ) );
 	}
 
-	public ICFSecSecFormObj readSecFormByUJEEServletIdx( long ClusterId,
+	public IYCFSecSecFormObj readSecFormByUJEEServletIdx( long ClusterId,
 		int SecAppId,
 		String JEEServletMapName, boolean forceRead )
 	{
 		if( indexByUJEEServletIdx == null ) {
-			indexByUJEEServletIdx = new HashMap< CFSecSecFormByUJEEServletIdxKey,
-				ICFSecSecFormObj >();
+			indexByUJEEServletIdx = new HashMap< YCFSecSecFormByUJEEServletIdxKey,
+				IYCFSecSecFormObj >();
 		}
-		CFSecSecFormByUJEEServletIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
+		YCFSecSecFormByUJEEServletIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
 		key.setRequiredJEEServletMapName( JEEServletMapName );
-		ICFSecSecFormObj obj = null;
+		IYCFSecSecFormObj obj = null;
 		if( ( ! forceRead ) && indexByUJEEServletIdx.containsKey( key ) ) {
 			obj = indexByUJEEServletIdx.get( key );
 		}
 		else {
-			CFSecSecFormBuff buff = ((ICFIntSchema)schema.getBackingStore()).getTableSecForm().readDerivedByUJEEServletIdx( schema.getAuthorization(),
+			YCFSecSecFormBuff buff = ((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().readDerivedByUJEEServletIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId,
 				JEEServletMapName );
 			if( buff != null ) {
 				obj = schema.getSecFormTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecSecFormObj)obj.realise();
+				obj = (IYCFSecSecFormObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecSecFormObj readCachedSecFormByIdIdx( long ClusterId,
+	public IYCFSecSecFormObj readCachedSecFormByIdIdx( long ClusterId,
 		int SecFormId )
 	{
-		ICFSecSecFormObj obj = null;
-		CFSecSecFormPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey();
+		IYCFSecSecFormObj obj = null;
+		YCFSecSecFormPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecFormId( SecFormId );
 		obj = readCachedSecForm( pkey );
 		return( obj );
 	}
 
-	public List<ICFSecSecFormObj> readCachedSecFormByClusterIdx( long ClusterId )
+	public List<IYCFSecSecFormObj> readCachedSecFormByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "readCachedSecFormByClusterIdx";
-		CFSecSecFormByClusterIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		ArrayList<ICFSecSecFormObj> arrayList = new ArrayList<ICFSecSecFormObj>();
+		ArrayList<IYCFSecSecFormObj> arrayList = new ArrayList<IYCFSecSecFormObj>();
 		if( indexByClusterIdx != null ) {
-			Map<CFSecSecFormPKey, ICFSecSecFormObj> dict;
+			Map<YCFSecSecFormPKey, IYCFSecSecFormObj> dict;
 			if( indexByClusterIdx.containsKey( key ) ) {
 				dict = indexByClusterIdx.get( key );
 				int len = dict.size();
-				ICFSecSecFormObj arr[] = new ICFSecSecFormObj[len];
-				Iterator<ICFSecSecFormObj> valIter = dict.values().iterator();
+				IYCFSecSecFormObj arr[] = new IYCFSecSecFormObj[len];
+				Iterator<IYCFSecSecFormObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -826,7 +826,7 @@ public class CFIntSecFormTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -839,8 +839,8 @@ public class CFIntSecFormTableObj
 			}
 		}
 		else {
-			ICFSecSecFormObj obj;
-			Iterator<ICFSecSecFormObj> valIter = members.values().iterator();
+			IYCFSecSecFormObj obj;
+			Iterator<IYCFSecSecFormObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -850,8 +850,8 @@ public class CFIntSecFormTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecFormObj> cmp = new Comparator<ICFSecSecFormObj>() {
-			public int compare( ICFSecSecFormObj lhs, ICFSecSecFormObj rhs ) {
+		Comparator<IYCFSecSecFormObj> cmp = new Comparator<IYCFSecSecFormObj>() {
+			public int compare( IYCFSecSecFormObj lhs, IYCFSecSecFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -864,8 +864,8 @@ public class CFIntSecFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -875,27 +875,27 @@ public class CFIntSecFormTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecSecFormObj> readCachedSecFormBySecAppIdx( long ClusterId,
+	public List<IYCFSecSecFormObj> readCachedSecFormBySecAppIdx( long ClusterId,
 		int SecAppId )
 	{
 		final String S_ProcName = "readCachedSecFormBySecAppIdx";
-		CFSecSecFormBySecAppIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
-		ArrayList<ICFSecSecFormObj> arrayList = new ArrayList<ICFSecSecFormObj>();
+		ArrayList<IYCFSecSecFormObj> arrayList = new ArrayList<IYCFSecSecFormObj>();
 		if( indexBySecAppIdx != null ) {
-			Map<CFSecSecFormPKey, ICFSecSecFormObj> dict;
+			Map<YCFSecSecFormPKey, IYCFSecSecFormObj> dict;
 			if( indexBySecAppIdx.containsKey( key ) ) {
 				dict = indexBySecAppIdx.get( key );
 				int len = dict.size();
-				ICFSecSecFormObj arr[] = new ICFSecSecFormObj[len];
-				Iterator<ICFSecSecFormObj> valIter = dict.values().iterator();
+				IYCFSecSecFormObj arr[] = new IYCFSecSecFormObj[len];
+				Iterator<IYCFSecSecFormObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -903,7 +903,7 @@ public class CFIntSecFormTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -916,8 +916,8 @@ public class CFIntSecFormTableObj
 			}
 		}
 		else {
-			ICFSecSecFormObj obj;
-			Iterator<ICFSecSecFormObj> valIter = members.values().iterator();
+			IYCFSecSecFormObj obj;
+			Iterator<IYCFSecSecFormObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -927,8 +927,8 @@ public class CFIntSecFormTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecFormObj> cmp = new Comparator<ICFSecSecFormObj>() {
-			public int compare( ICFSecSecFormObj lhs, ICFSecSecFormObj rhs ) {
+		Comparator<IYCFSecSecFormObj> cmp = new Comparator<IYCFSecSecFormObj>() {
+			public int compare( IYCFSecSecFormObj lhs, IYCFSecSecFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -941,8 +941,8 @@ public class CFIntSecFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -952,12 +952,12 @@ public class CFIntSecFormTableObj
 		return( arrayList );
 	}
 
-	public ICFSecSecFormObj readCachedSecFormByUJEEServletIdx( long ClusterId,
+	public IYCFSecSecFormObj readCachedSecFormByUJEEServletIdx( long ClusterId,
 		int SecAppId,
 		String JEEServletMapName )
 	{
-		ICFSecSecFormObj obj = null;
-		CFSecSecFormByUJEEServletIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
+		IYCFSecSecFormObj obj = null;
+		YCFSecSecFormByUJEEServletIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
 		key.setRequiredJEEServletMapName( JEEServletMapName );
@@ -966,7 +966,7 @@ public class CFIntSecFormTableObj
 				obj = indexByUJEEServletIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecSecFormObj> valIter = members.values().iterator();
+				Iterator<IYCFSecSecFormObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -978,7 +978,7 @@ public class CFIntSecFormTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecSecFormObj> valIter = members.values().iterator();
+			Iterator<IYCFSecSecFormObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -994,7 +994,7 @@ public class CFIntSecFormTableObj
 	public void deepDisposeSecFormByIdIdx( long ClusterId,
 		int SecFormId )
 	{
-		ICFSecSecFormObj obj = readCachedSecFormByIdIdx( ClusterId,
+		IYCFSecSecFormObj obj = readCachedSecFormByIdIdx( ClusterId,
 				SecFormId );
 		if( obj != null ) {
 			obj.forget();
@@ -1004,10 +1004,10 @@ public class CFIntSecFormTableObj
 	public void deepDisposeSecFormByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "deepDisposeSecFormByClusterIdx";
-		ICFSecSecFormObj obj;
-		List<ICFSecSecFormObj> arrayList = readCachedSecFormByClusterIdx( ClusterId );
+		IYCFSecSecFormObj obj;
+		List<IYCFSecSecFormObj> arrayList = readCachedSecFormByClusterIdx( ClusterId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecFormObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecFormObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1021,11 +1021,11 @@ public class CFIntSecFormTableObj
 		int SecAppId )
 	{
 		final String S_ProcName = "deepDisposeSecFormBySecAppIdx";
-		ICFSecSecFormObj obj;
-		List<ICFSecSecFormObj> arrayList = readCachedSecFormBySecAppIdx( ClusterId,
+		IYCFSecSecFormObj obj;
+		List<IYCFSecSecFormObj> arrayList = readCachedSecFormBySecAppIdx( ClusterId,
 				SecAppId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecFormObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecFormObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1039,7 +1039,7 @@ public class CFIntSecFormTableObj
 		int SecAppId,
 		String JEEServletMapName )
 	{
-		ICFSecSecFormObj obj = readCachedSecFormByUJEEServletIdx( ClusterId,
+		IYCFSecSecFormObj obj = readCachedSecFormByUJEEServletIdx( ClusterId,
 				SecAppId,
 				JEEServletMapName );
 		if( obj != null ) {
@@ -1056,26 +1056,26 @@ public class CFIntSecFormTableObj
 	 *	@return	A List of SecForm-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecFormObj> pageSecFormByClusterIdx( long ClusterId,
+	public List<IYCFSecSecFormObj> pageSecFormByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Integer priorSecFormId )
 	{
 		final String S_ProcName = "pageSecFormByClusterIdx";
-		CFSecSecFormByClusterIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		List<ICFSecSecFormObj> retList = new LinkedList<ICFSecSecFormObj>();
-		ICFSecSecFormObj obj;
-		CFSecSecFormBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableSecForm().pageBuffByClusterIdx( schema.getAuthorization(),
+		List<IYCFSecSecFormObj> retList = new LinkedList<IYCFSecSecFormObj>();
+		IYCFSecSecFormObj obj;
+		YCFSecSecFormBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().pageBuffByClusterIdx( schema.getAuthorization(),
 				ClusterId,
 			priorClusterId,
 			priorSecFormId );
-		CFSecSecFormBuff buff;
+		YCFSecSecFormBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecFormTableObj().newInstance();
-			obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
+			obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecFormObj realised = (ICFSecSecFormObj)obj.realise();
+			IYCFSecSecFormObj realised = (IYCFSecSecFormObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1092,46 +1092,46 @@ public class CFIntSecFormTableObj
 	 *	@return	A List of SecForm-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecFormObj> pageSecFormBySecAppIdx( long ClusterId,
+	public List<IYCFSecSecFormObj> pageSecFormBySecAppIdx( long ClusterId,
 		int SecAppId,
 		Long priorClusterId,
 		Integer priorSecFormId )
 	{
 		final String S_ProcName = "pageSecFormBySecAppIdx";
-		CFSecSecFormBySecAppIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
-		List<ICFSecSecFormObj> retList = new LinkedList<ICFSecSecFormObj>();
-		ICFSecSecFormObj obj;
-		CFSecSecFormBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableSecForm().pageBuffBySecAppIdx( schema.getAuthorization(),
+		List<IYCFSecSecFormObj> retList = new LinkedList<IYCFSecSecFormObj>();
+		IYCFSecSecFormObj obj;
+		YCFSecSecFormBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().pageBuffBySecAppIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId,
 			priorClusterId,
 			priorSecFormId );
-		CFSecSecFormBuff buff;
+		YCFSecSecFormBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecFormTableObj().newInstance();
-			obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
+			obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecFormObj realised = (ICFSecSecFormObj)obj.realise();
+			IYCFSecSecFormObj realised = (IYCFSecSecFormObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
 	}
 
-	public ICFSecSecFormObj updateSecForm( ICFSecSecFormObj Obj ) {
-		ICFSecSecFormObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableSecForm().updateSecForm( schema.getAuthorization(),
+	public IYCFSecSecFormObj updateSecForm( IYCFSecSecFormObj Obj ) {
+		IYCFSecSecFormObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().updateSecForm( schema.getAuthorization(),
 			Obj.getSecFormBuff() );
-		obj = (ICFSecSecFormObj)Obj.realise();
+		obj = (IYCFSecSecFormObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteSecForm( ICFSecSecFormObj Obj ) {
-		ICFSecSecFormObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecForm( schema.getAuthorization(),
+	public void deleteSecForm( IYCFSecSecFormObj Obj ) {
+		IYCFSecSecFormObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecForm( schema.getAuthorization(),
 			obj.getSecFormBuff() );
 		Obj.forget();
 	}
@@ -1139,15 +1139,15 @@ public class CFIntSecFormTableObj
 	public void deleteSecFormByIdIdx( long ClusterId,
 		int SecFormId )
 	{
-		CFSecSecFormPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey();
+		YCFSecSecFormPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecFormId( SecFormId );
-		ICFSecSecFormObj obj = readSecForm( pkey );
+		IYCFSecSecFormObj obj = readSecForm( pkey );
 		if( obj != null ) {
-			ICFSecSecFormEditObj editObj = (ICFSecSecFormEditObj)obj.getEdit();
+			IYCFSecSecFormEditObj editObj = (IYCFSecSecFormEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecSecFormEditObj)obj.beginEdit();
+				editObj = (IYCFSecSecFormEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1172,19 +1172,19 @@ public class CFIntSecFormTableObj
 
 	public void deleteSecFormByClusterIdx( long ClusterId )
 	{
-		CFSecSecFormByClusterIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecSecFormByClusterIdxKey,
-				Map< CFSecSecFormPKey, ICFSecSecFormObj > >();
+			indexByClusterIdx = new HashMap< YCFSecSecFormByClusterIdxKey,
+				Map< YCFSecSecFormPKey, IYCFSecSecFormObj > >();
 		}
 		if( indexByClusterIdx.containsKey( key ) ) {
-			Map<CFSecSecFormPKey, ICFSecSecFormObj> dict = indexByClusterIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormByClusterIdx( schema.getAuthorization(),
+			Map<YCFSecSecFormPKey, IYCFSecSecFormObj> dict = indexByClusterIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			Iterator<ICFSecSecFormObj> iter = dict.values().iterator();
-			ICFSecSecFormObj obj;
-			List<ICFSecSecFormObj> toForget = new LinkedList<ICFSecSecFormObj>();
+			Iterator<IYCFSecSecFormObj> iter = dict.values().iterator();
+			IYCFSecSecFormObj obj;
+			List<IYCFSecSecFormObj> toForget = new LinkedList<IYCFSecSecFormObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1197,7 +1197,7 @@ public class CFIntSecFormTableObj
 			indexByClusterIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormByClusterIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormByClusterIdx( schema.getAuthorization(),
 				ClusterId );
 		}
 		deepDisposeSecFormByClusterIdx( ClusterId );
@@ -1206,21 +1206,21 @@ public class CFIntSecFormTableObj
 	public void deleteSecFormBySecAppIdx( long ClusterId,
 		int SecAppId )
 	{
-		CFSecSecFormBySecAppIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newSecAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
 		if( indexBySecAppIdx == null ) {
-			indexBySecAppIdx = new HashMap< CFSecSecFormBySecAppIdxKey,
-				Map< CFSecSecFormPKey, ICFSecSecFormObj > >();
+			indexBySecAppIdx = new HashMap< YCFSecSecFormBySecAppIdxKey,
+				Map< YCFSecSecFormPKey, IYCFSecSecFormObj > >();
 		}
 		if( indexBySecAppIdx.containsKey( key ) ) {
-			Map<CFSecSecFormPKey, ICFSecSecFormObj> dict = indexBySecAppIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormBySecAppIdx( schema.getAuthorization(),
+			Map<YCFSecSecFormPKey, IYCFSecSecFormObj> dict = indexBySecAppIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormBySecAppIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId );
-			Iterator<ICFSecSecFormObj> iter = dict.values().iterator();
-			ICFSecSecFormObj obj;
-			List<ICFSecSecFormObj> toForget = new LinkedList<ICFSecSecFormObj>();
+			Iterator<IYCFSecSecFormObj> iter = dict.values().iterator();
+			IYCFSecSecFormObj obj;
+			List<IYCFSecSecFormObj> toForget = new LinkedList<IYCFSecSecFormObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1233,7 +1233,7 @@ public class CFIntSecFormTableObj
 			indexBySecAppIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormBySecAppIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormBySecAppIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId );
 		}
@@ -1246,24 +1246,24 @@ public class CFIntSecFormTableObj
 		String JEEServletMapName )
 	{
 		if( indexByUJEEServletIdx == null ) {
-			indexByUJEEServletIdx = new HashMap< CFSecSecFormByUJEEServletIdxKey,
-				ICFSecSecFormObj >();
+			indexByUJEEServletIdx = new HashMap< YCFSecSecFormByUJEEServletIdxKey,
+				IYCFSecSecFormObj >();
 		}
-		CFSecSecFormByUJEEServletIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
+		YCFSecSecFormByUJEEServletIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactorySecForm().newUJEEServletIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
 		key.setRequiredJEEServletMapName( JEEServletMapName );
-		ICFSecSecFormObj obj = null;
+		IYCFSecSecFormObj obj = null;
 		if( indexByUJEEServletIdx.containsKey( key ) ) {
 			obj = indexByUJEEServletIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormByUJEEServletIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormByUJEEServletIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId,
 				JEEServletMapName );
 			obj.forget();
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormByUJEEServletIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableSecForm().deleteSecFormByUJEEServletIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId,
 				JEEServletMapName );

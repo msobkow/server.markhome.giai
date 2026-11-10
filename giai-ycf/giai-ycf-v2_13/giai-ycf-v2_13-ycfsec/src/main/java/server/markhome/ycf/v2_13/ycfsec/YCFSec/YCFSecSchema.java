@@ -1,15 +1,15 @@
-// Description: Java 11 implementation of a CFSec schema.
+// Description: Java 11 implementation of a YCFSec schema.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -34,24 +34,24 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.Tip.CFTipClientHandler;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.Tip.YCFTipClientHandler;
 
-public class CFSecSchema
-	implements ICFSecSchema
+public class YCFSecSchema
+	implements IYCFSecSchema
 {
-	protected CFSecAuthorization authorization;
-	protected ICFSecTablePerms tablePerms;
-	protected CFSecConfigurationFile configuration;
+	protected YCFSecAuthorization authorization;
+	protected IYCFSecTablePerms tablePerms;
+	protected YCFSecConfigurationFile configuration;
 	protected String jndiName;
-	protected String schemaDbName = "CFSec213";
+	protected String schemaDbName = "YCFSec213";
 	protected String lowerDbSchemaName = schemaDbName.toLowerCase();
 
 	static HashMap<String,AuditActionEnum> lookupAuditActionEnum = null;
 
 	public static AuditActionEnum parseAuditActionEnum( String value ) {
-		AuditActionEnum retval = parseAuditActionEnum( CFSecSchema.class.getName(), value );
+		AuditActionEnum retval = parseAuditActionEnum( YCFSecSchema.class.getName(), value );
 		return( retval );
 	}
 
@@ -71,7 +71,7 @@ public class CFSecSchema
 		else {
 			retval = lookupAuditActionEnum.get( value );
 			if( retval == null ) {
-				throw new CFLibInvalidArgumentException( fieldOrClassName,
+				throw new YCFLibInvalidArgumentException( fieldOrClassName,
 					S_ProcName,
 					1,
 					"value",
@@ -111,7 +111,7 @@ public class CFSecSchema
 			retval = null;
 		}
 		else {
-			retval = ordinalToAuditActionEnum( CFSecSchema.class.getName(), Integer.valueOf( value.shortValue() ) );
+			retval = ordinalToAuditActionEnum( YCFSecSchema.class.getName(), Integer.valueOf( value.shortValue() ) );
 		}
 		return( retval );
 	}
@@ -132,7 +132,7 @@ public class CFSecSchema
 		else {
 			retval = lookupOrdinalAuditActionEnum.get( value );
 			if( retval == null ) {
-				throw new CFLibInvalidArgumentException( fieldOrClassName,
+				throw new YCFLibInvalidArgumentException( fieldOrClassName,
 					S_ProcName,
 					1,
 					"value",
@@ -142,58 +142,58 @@ public class CFSecSchema
 		return( retval );
 	}
 
-	protected ICFSecClusterTable tableCluster;
-	protected ICFSecHostNodeTable tableHostNode;
-	protected ICFSecISOCcyTable tableISOCcy;
-	protected ICFSecISOCtryTable tableISOCtry;
-	protected ICFSecISOCtryCcyTable tableISOCtryCcy;
-	protected ICFSecISOCtryLangTable tableISOCtryLang;
-	protected ICFSecISOLangTable tableISOLang;
-	protected ICFSecISOTZoneTable tableISOTZone;
-	protected ICFSecSecAppTable tableSecApp;
-	protected ICFSecSecDeviceTable tableSecDevice;
-	protected ICFSecSecFormTable tableSecForm;
-	protected ICFSecSecGroupTable tableSecGroup;
-	protected ICFSecSecGroupFormTable tableSecGroupForm;
-	protected ICFSecSecGrpIncTable tableSecGrpInc;
-	protected ICFSecSecGrpMembTable tableSecGrpMemb;
-	protected ICFSecSecSessionTable tableSecSession;
-	protected ICFSecSecUserTable tableSecUser;
-	protected ICFSecServiceTable tableService;
-	protected ICFSecServiceTypeTable tableServiceType;
-	protected ICFSecSysClusterTable tableSysCluster;
-	protected ICFSecTSecGroupTable tableTSecGroup;
-	protected ICFSecTSecGrpIncTable tableTSecGrpInc;
-	protected ICFSecTSecGrpMembTable tableTSecGrpMemb;
-	protected ICFSecTenantTable tableTenant;
+	protected IYCFSecClusterTable tableCluster;
+	protected IYCFSecHostNodeTable tableHostNode;
+	protected IYCFSecISOCcyTable tableISOCcy;
+	protected IYCFSecISOCtryTable tableISOCtry;
+	protected IYCFSecISOCtryCcyTable tableISOCtryCcy;
+	protected IYCFSecISOCtryLangTable tableISOCtryLang;
+	protected IYCFSecISOLangTable tableISOLang;
+	protected IYCFSecISOTZoneTable tableISOTZone;
+	protected IYCFSecSecAppTable tableSecApp;
+	protected IYCFSecSecDeviceTable tableSecDevice;
+	protected IYCFSecSecFormTable tableSecForm;
+	protected IYCFSecSecGroupTable tableSecGroup;
+	protected IYCFSecSecGroupFormTable tableSecGroupForm;
+	protected IYCFSecSecGrpIncTable tableSecGrpInc;
+	protected IYCFSecSecGrpMembTable tableSecGrpMemb;
+	protected IYCFSecSecSessionTable tableSecSession;
+	protected IYCFSecSecUserTable tableSecUser;
+	protected IYCFSecServiceTable tableService;
+	protected IYCFSecServiceTypeTable tableServiceType;
+	protected IYCFSecSysClusterTable tableSysCluster;
+	protected IYCFSecTSecGroupTable tableTSecGroup;
+	protected IYCFSecTSecGrpIncTable tableTSecGrpInc;
+	protected IYCFSecTSecGrpMembTable tableTSecGrpMemb;
+	protected IYCFSecTenantTable tableTenant;
 
-	protected ICFSecClusterFactory factoryCluster;
-	protected ICFSecHostNodeFactory factoryHostNode;
-	protected ICFSecISOCcyFactory factoryISOCcy;
-	protected ICFSecISOCtryFactory factoryISOCtry;
-	protected ICFSecISOCtryCcyFactory factoryISOCtryCcy;
-	protected ICFSecISOCtryLangFactory factoryISOCtryLang;
-	protected ICFSecISOLangFactory factoryISOLang;
-	protected ICFSecISOTZoneFactory factoryISOTZone;
-	protected ICFSecSecAppFactory factorySecApp;
-	protected ICFSecSecDeviceFactory factorySecDevice;
-	protected ICFSecSecFormFactory factorySecForm;
-	protected ICFSecSecGroupFactory factorySecGroup;
-	protected ICFSecSecGroupFormFactory factorySecGroupForm;
-	protected ICFSecSecGrpIncFactory factorySecGrpInc;
-	protected ICFSecSecGrpMembFactory factorySecGrpMemb;
-	protected ICFSecSecSessionFactory factorySecSession;
-	protected ICFSecSecUserFactory factorySecUser;
-	protected ICFSecServiceFactory factoryService;
-	protected ICFSecServiceTypeFactory factoryServiceType;
-	protected ICFSecSysClusterFactory factorySysCluster;
-	protected ICFSecTSecGroupFactory factoryTSecGroup;
-	protected ICFSecTSecGrpIncFactory factoryTSecGrpInc;
-	protected ICFSecTSecGrpMembFactory factoryTSecGrpMemb;
-	protected ICFSecTenantFactory factoryTenant;
+	protected IYCFSecClusterFactory factoryCluster;
+	protected IYCFSecHostNodeFactory factoryHostNode;
+	protected IYCFSecISOCcyFactory factoryISOCcy;
+	protected IYCFSecISOCtryFactory factoryISOCtry;
+	protected IYCFSecISOCtryCcyFactory factoryISOCtryCcy;
+	protected IYCFSecISOCtryLangFactory factoryISOCtryLang;
+	protected IYCFSecISOLangFactory factoryISOLang;
+	protected IYCFSecISOTZoneFactory factoryISOTZone;
+	protected IYCFSecSecAppFactory factorySecApp;
+	protected IYCFSecSecDeviceFactory factorySecDevice;
+	protected IYCFSecSecFormFactory factorySecForm;
+	protected IYCFSecSecGroupFactory factorySecGroup;
+	protected IYCFSecSecGroupFormFactory factorySecGroupForm;
+	protected IYCFSecSecGrpIncFactory factorySecGrpInc;
+	protected IYCFSecSecGrpMembFactory factorySecGrpMemb;
+	protected IYCFSecSecSessionFactory factorySecSession;
+	protected IYCFSecSecUserFactory factorySecUser;
+	protected IYCFSecServiceFactory factoryService;
+	protected IYCFSecServiceTypeFactory factoryServiceType;
+	protected IYCFSecSysClusterFactory factorySysCluster;
+	protected IYCFSecTSecGroupFactory factoryTSecGroup;
+	protected IYCFSecTSecGrpIncFactory factoryTSecGrpInc;
+	protected IYCFSecTSecGrpMembFactory factoryTSecGrpMemb;
+	protected IYCFSecTenantFactory factoryTenant;
 
 
-	public CFSecSchema() {
+	public YCFSecSchema() {
 		configuration = null;
 		jndiName = null;
 
@@ -222,35 +222,35 @@ public class CFSecSchema
 		tableTSecGrpMemb = null;
 		tableTenant = null;
 
-		factoryCluster = new CFSecClusterDefaultFactory();
-		factoryHostNode = new CFSecHostNodeDefaultFactory();
-		factoryISOCcy = new CFSecISOCcyDefaultFactory();
-		factoryISOCtry = new CFSecISOCtryDefaultFactory();
-		factoryISOCtryCcy = new CFSecISOCtryCcyDefaultFactory();
-		factoryISOCtryLang = new CFSecISOCtryLangDefaultFactory();
-		factoryISOLang = new CFSecISOLangDefaultFactory();
-		factoryISOTZone = new CFSecISOTZoneDefaultFactory();
-		factorySecApp = new CFSecSecAppDefaultFactory();
-		factorySecDevice = new CFSecSecDeviceDefaultFactory();
-		factorySecForm = new CFSecSecFormDefaultFactory();
-		factorySecGroup = new CFSecSecGroupDefaultFactory();
-		factorySecGroupForm = new CFSecSecGroupFormDefaultFactory();
-		factorySecGrpInc = new CFSecSecGrpIncDefaultFactory();
-		factorySecGrpMemb = new CFSecSecGrpMembDefaultFactory();
-		factorySecSession = new CFSecSecSessionDefaultFactory();
-		factorySecUser = new CFSecSecUserDefaultFactory();
-		factoryService = new CFSecServiceDefaultFactory();
-		factoryServiceType = new CFSecServiceTypeDefaultFactory();
-		factorySysCluster = new CFSecSysClusterDefaultFactory();
-		factoryTSecGroup = new CFSecTSecGroupDefaultFactory();
-		factoryTSecGrpInc = new CFSecTSecGrpIncDefaultFactory();
-		factoryTSecGrpMemb = new CFSecTSecGrpMembDefaultFactory();
-		factoryTenant = new CFSecTenantDefaultFactory();	}
+		factoryCluster = new YCFSecClusterDefaultFactory();
+		factoryHostNode = new YCFSecHostNodeDefaultFactory();
+		factoryISOCcy = new YCFSecISOCcyDefaultFactory();
+		factoryISOCtry = new YCFSecISOCtryDefaultFactory();
+		factoryISOCtryCcy = new YCFSecISOCtryCcyDefaultFactory();
+		factoryISOCtryLang = new YCFSecISOCtryLangDefaultFactory();
+		factoryISOLang = new YCFSecISOLangDefaultFactory();
+		factoryISOTZone = new YCFSecISOTZoneDefaultFactory();
+		factorySecApp = new YCFSecSecAppDefaultFactory();
+		factorySecDevice = new YCFSecSecDeviceDefaultFactory();
+		factorySecForm = new YCFSecSecFormDefaultFactory();
+		factorySecGroup = new YCFSecSecGroupDefaultFactory();
+		factorySecGroupForm = new YCFSecSecGroupFormDefaultFactory();
+		factorySecGrpInc = new YCFSecSecGrpIncDefaultFactory();
+		factorySecGrpMemb = new YCFSecSecGrpMembDefaultFactory();
+		factorySecSession = new YCFSecSecSessionDefaultFactory();
+		factorySecUser = new YCFSecSecUserDefaultFactory();
+		factoryService = new YCFSecServiceDefaultFactory();
+		factoryServiceType = new YCFSecServiceTypeDefaultFactory();
+		factorySysCluster = new YCFSecSysClusterDefaultFactory();
+		factoryTSecGroup = new YCFSecTSecGroupDefaultFactory();
+		factoryTSecGrpInc = new YCFSecTSecGrpIncDefaultFactory();
+		factoryTSecGrpMemb = new YCFSecTSecGrpMembDefaultFactory();
+		factoryTenant = new YCFSecTenantDefaultFactory();	}
 
-	public CFSecSchema( CFSecConfigurationFile conf ) {
+	public YCFSecSchema( YCFSecConfigurationFile conf ) {
 		if( conf == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"CFSecSchema-constructor",
+			throw new YCFLibNullArgumentException( getClass(),
+				"YCFSecSchema-constructor",
 				1,
 				"conf" );
 		}
@@ -282,35 +282,35 @@ public class CFSecSchema
 		tableTSecGrpMemb = null;
 		tableTenant = null;
 
-		factoryCluster = new CFSecClusterDefaultFactory();
-		factoryHostNode = new CFSecHostNodeDefaultFactory();
-		factoryISOCcy = new CFSecISOCcyDefaultFactory();
-		factoryISOCtry = new CFSecISOCtryDefaultFactory();
-		factoryISOCtryCcy = new CFSecISOCtryCcyDefaultFactory();
-		factoryISOCtryLang = new CFSecISOCtryLangDefaultFactory();
-		factoryISOLang = new CFSecISOLangDefaultFactory();
-		factoryISOTZone = new CFSecISOTZoneDefaultFactory();
-		factorySecApp = new CFSecSecAppDefaultFactory();
-		factorySecDevice = new CFSecSecDeviceDefaultFactory();
-		factorySecForm = new CFSecSecFormDefaultFactory();
-		factorySecGroup = new CFSecSecGroupDefaultFactory();
-		factorySecGroupForm = new CFSecSecGroupFormDefaultFactory();
-		factorySecGrpInc = new CFSecSecGrpIncDefaultFactory();
-		factorySecGrpMemb = new CFSecSecGrpMembDefaultFactory();
-		factorySecSession = new CFSecSecSessionDefaultFactory();
-		factorySecUser = new CFSecSecUserDefaultFactory();
-		factoryService = new CFSecServiceDefaultFactory();
-		factoryServiceType = new CFSecServiceTypeDefaultFactory();
-		factorySysCluster = new CFSecSysClusterDefaultFactory();
-		factoryTSecGroup = new CFSecTSecGroupDefaultFactory();
-		factoryTSecGrpInc = new CFSecTSecGrpIncDefaultFactory();
-		factoryTSecGrpMemb = new CFSecTSecGrpMembDefaultFactory();
-		factoryTenant = new CFSecTenantDefaultFactory();	}
+		factoryCluster = new YCFSecClusterDefaultFactory();
+		factoryHostNode = new YCFSecHostNodeDefaultFactory();
+		factoryISOCcy = new YCFSecISOCcyDefaultFactory();
+		factoryISOCtry = new YCFSecISOCtryDefaultFactory();
+		factoryISOCtryCcy = new YCFSecISOCtryCcyDefaultFactory();
+		factoryISOCtryLang = new YCFSecISOCtryLangDefaultFactory();
+		factoryISOLang = new YCFSecISOLangDefaultFactory();
+		factoryISOTZone = new YCFSecISOTZoneDefaultFactory();
+		factorySecApp = new YCFSecSecAppDefaultFactory();
+		factorySecDevice = new YCFSecSecDeviceDefaultFactory();
+		factorySecForm = new YCFSecSecFormDefaultFactory();
+		factorySecGroup = new YCFSecSecGroupDefaultFactory();
+		factorySecGroupForm = new YCFSecSecGroupFormDefaultFactory();
+		factorySecGrpInc = new YCFSecSecGrpIncDefaultFactory();
+		factorySecGrpMemb = new YCFSecSecGrpMembDefaultFactory();
+		factorySecSession = new YCFSecSecSessionDefaultFactory();
+		factorySecUser = new YCFSecSecUserDefaultFactory();
+		factoryService = new YCFSecServiceDefaultFactory();
+		factoryServiceType = new YCFSecServiceTypeDefaultFactory();
+		factorySysCluster = new YCFSecSysClusterDefaultFactory();
+		factoryTSecGroup = new YCFSecTSecGroupDefaultFactory();
+		factoryTSecGrpInc = new YCFSecTSecGrpIncDefaultFactory();
+		factoryTSecGrpMemb = new YCFSecTSecGrpMembDefaultFactory();
+		factoryTenant = new YCFSecTenantDefaultFactory();	}
 
-	public CFSecSchema( String argJndiName ) {
+	public YCFSecSchema( String argJndiName ) {
 		if( ( argJndiName == null ) || ( argJndiName.length() <= 0 ) ) {
-			throw new CFLibEmptyArgumentException( getClass(),
-				"CFSecSchema-constructor",
+			throw new YCFLibEmptyArgumentException( getClass(),
+				"YCFSecSchema-constructor",
 				1,
 				"argJndiName" );
 		}
@@ -342,39 +342,39 @@ public class CFSecSchema
 		tableTSecGrpMemb = null;
 		tableTenant = null;
 
-		factoryCluster = new CFSecClusterDefaultFactory();
-		factoryHostNode = new CFSecHostNodeDefaultFactory();
-		factoryISOCcy = new CFSecISOCcyDefaultFactory();
-		factoryISOCtry = new CFSecISOCtryDefaultFactory();
-		factoryISOCtryCcy = new CFSecISOCtryCcyDefaultFactory();
-		factoryISOCtryLang = new CFSecISOCtryLangDefaultFactory();
-		factoryISOLang = new CFSecISOLangDefaultFactory();
-		factoryISOTZone = new CFSecISOTZoneDefaultFactory();
-		factorySecApp = new CFSecSecAppDefaultFactory();
-		factorySecDevice = new CFSecSecDeviceDefaultFactory();
-		factorySecForm = new CFSecSecFormDefaultFactory();
-		factorySecGroup = new CFSecSecGroupDefaultFactory();
-		factorySecGroupForm = new CFSecSecGroupFormDefaultFactory();
-		factorySecGrpInc = new CFSecSecGrpIncDefaultFactory();
-		factorySecGrpMemb = new CFSecSecGrpMembDefaultFactory();
-		factorySecSession = new CFSecSecSessionDefaultFactory();
-		factorySecUser = new CFSecSecUserDefaultFactory();
-		factoryService = new CFSecServiceDefaultFactory();
-		factoryServiceType = new CFSecServiceTypeDefaultFactory();
-		factorySysCluster = new CFSecSysClusterDefaultFactory();
-		factoryTSecGroup = new CFSecTSecGroupDefaultFactory();
-		factoryTSecGrpInc = new CFSecTSecGrpIncDefaultFactory();
-		factoryTSecGrpMemb = new CFSecTSecGrpMembDefaultFactory();
-		factoryTenant = new CFSecTenantDefaultFactory();	}
+		factoryCluster = new YCFSecClusterDefaultFactory();
+		factoryHostNode = new YCFSecHostNodeDefaultFactory();
+		factoryISOCcy = new YCFSecISOCcyDefaultFactory();
+		factoryISOCtry = new YCFSecISOCtryDefaultFactory();
+		factoryISOCtryCcy = new YCFSecISOCtryCcyDefaultFactory();
+		factoryISOCtryLang = new YCFSecISOCtryLangDefaultFactory();
+		factoryISOLang = new YCFSecISOLangDefaultFactory();
+		factoryISOTZone = new YCFSecISOTZoneDefaultFactory();
+		factorySecApp = new YCFSecSecAppDefaultFactory();
+		factorySecDevice = new YCFSecSecDeviceDefaultFactory();
+		factorySecForm = new YCFSecSecFormDefaultFactory();
+		factorySecGroup = new YCFSecSecGroupDefaultFactory();
+		factorySecGroupForm = new YCFSecSecGroupFormDefaultFactory();
+		factorySecGrpInc = new YCFSecSecGrpIncDefaultFactory();
+		factorySecGrpMemb = new YCFSecSecGrpMembDefaultFactory();
+		factorySecSession = new YCFSecSecSessionDefaultFactory();
+		factorySecUser = new YCFSecSecUserDefaultFactory();
+		factoryService = new YCFSecServiceDefaultFactory();
+		factoryServiceType = new YCFSecServiceTypeDefaultFactory();
+		factorySysCluster = new YCFSecSysClusterDefaultFactory();
+		factoryTSecGroup = new YCFSecTSecGroupDefaultFactory();
+		factoryTSecGrpInc = new YCFSecTSecGrpIncDefaultFactory();
+		factoryTSecGrpMemb = new YCFSecTSecGrpMembDefaultFactory();
+		factoryTenant = new YCFSecTenantDefaultFactory();	}
 
 	/**
-	 *	The majority of cases do not have a CFTipClientHandler
+	 *	The majority of cases do not have a YCFTipClientHandler
 	 *	associated with it's persistence implementation.
 	 *	Only the XMsg client implementations overload this
-	 *	to return the actual CFTipClientHandler associated
+	 *	to return the actual YCFTipClientHandler associated
 	 *	with the connection instance.
 	 */
-	public CFTipClientHandler getCFTipClientHandler() {
+	public YCFTipClientHandler getYCFTipClientHandler() {
 		return( null );
 	}
 
@@ -385,11 +385,11 @@ public class CFSecSchema
 	public void setServerURL( String value ) {
 	}
 
-	public CFSecConfigurationFile getConfigurationFile() {
+	public YCFSecConfigurationFile getConfigurationFile() {
 		return( configuration );
 	}
 
-	public void setConfigurationFile( CFSecConfigurationFile value ) {
+	public void setConfigurationFile( YCFSecConfigurationFile value ) {
 		if( value == null ) {
 			configuration = null;
 		}
@@ -399,11 +399,11 @@ public class CFSecSchema
 		}
 	}
 
-	public CFSecAuthorization getAuthorization() {
+	public YCFSecAuthorization getAuthorization() {
 		return( authorization );
 	}
 
-	public void setAuthorization( CFSecAuthorization value ) {
+	public void setAuthorization( YCFSecAuthorization value ) {
 		authorization = value;
 	}
 
@@ -422,70 +422,70 @@ public class CFSecSchema
 	}
 
 	public boolean isConnected() {
-		throw new CFLibMustOverrideException( getClass(), "isConnected" );
+		throw new YCFLibMustOverrideException( getClass(), "isConnected" );
 	}
 
 	public boolean connect() {
-		throw new CFLibMustOverrideException( getClass(), "connect" );
+		throw new YCFLibMustOverrideException( getClass(), "connect" );
 	}
 
 	public boolean connect( String username, String password ) {
-		throw new CFLibMustOverrideException( getClass(), "connect-userpw" );
+		throw new YCFLibMustOverrideException( getClass(), "connect-userpw" );
 	}
 
 	public boolean connect( String loginId, String password, String clusterName, String tenantName ) {
-		throw new CFLibMustOverrideException( getClass(), "connect-full" );
+		throw new YCFLibMustOverrideException( getClass(), "connect-full" );
 	}
 
 	public void disconnect( boolean doCommit ) {
-		throw new CFLibMustOverrideException( getClass(), "disconnect" );
+		throw new YCFLibMustOverrideException( getClass(), "disconnect" );
 	}
 
-	public void logout( CFSecAuthorization auth ) {
-		throw new CFLibMustOverrideException( getClass(), "logout" );
+	public void logout( YCFSecAuthorization auth ) {
+		throw new YCFLibMustOverrideException( getClass(), "logout" );
 	}
 
-	public ICFSecSchema newSchema() {
-		throw new CFLibMustOverrideException( getClass(), "newSchema" );
+	public IYCFSecSchema newSchema() {
+		throw new YCFLibMustOverrideException( getClass(), "newSchema" );
 	}
 
 	/**
 	 *	Import the contents of the specified file name
 	 *	and file contents by applying a SAX Loader parse.
 	 */
-	public String fileImport( CFSecAuthorization auth, String fileName, String fileContent ) {
+	public String fileImport( YCFSecAuthorization auth, String fileName, String fileContent ) {
 		final String S_ProcName = "fileImport";
-		throw new CFLibNotImplementedYetException( getClass(),
+		throw new YCFLibNotImplementedYetException( getClass(),
 			S_ProcName,
 			"You must overload this method to apply a SAX Parser to the file contents" );
 	}
 
 	public short nextISOCcyIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextISOCcyIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextISOCcyIdGen" );
 	}
 
 	public short nextISOCtryIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextISOCtryIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextISOCtryIdGen" );
 	}
 
 	public short nextISOLangIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextISOLangIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextISOLangIdGen" );
 	}
 
 	public short nextISOTZoneIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextISOTZoneIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextISOTZoneIdGen" );
 	}
 
 	public int nextServiceTypeIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextServiceTypeIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextServiceTypeIdGen" );
 	}
 
 	public long nextClusterIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextClusterIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextClusterIdGen" );
 	}
 
 	public long nextTenantIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextTenantIdGen" );
+		throw new YCFLibNotImplementedYetException( getClass(), "nextTenantIdGen" );
 	}
 
 	public UUID nextSecSessionIdGen() {
@@ -498,411 +498,411 @@ public class CFSecSchema
 		return( retval );
 	}
 
-	public ICFSecClusterTable getTableCluster() {
+	public IYCFSecClusterTable getTableCluster() {
 		return( tableCluster );
 	}
 
-	public void setTableCluster( ICFSecClusterTable value ) {
+	public void setTableCluster( IYCFSecClusterTable value ) {
 		tableCluster = value;
 	}
 
-	public ICFSecClusterFactory getFactoryCluster() {
+	public IYCFSecClusterFactory getFactoryCluster() {
 		return( factoryCluster );
 	}
 
-	public void setFactoryCluster( ICFSecClusterFactory value ) {
+	public void setFactoryCluster( IYCFSecClusterFactory value ) {
 		factoryCluster = value;
 	}
 
-	public ICFSecHostNodeTable getTableHostNode() {
+	public IYCFSecHostNodeTable getTableHostNode() {
 		return( tableHostNode );
 	}
 
-	public void setTableHostNode( ICFSecHostNodeTable value ) {
+	public void setTableHostNode( IYCFSecHostNodeTable value ) {
 		tableHostNode = value;
 	}
 
-	public ICFSecHostNodeFactory getFactoryHostNode() {
+	public IYCFSecHostNodeFactory getFactoryHostNode() {
 		return( factoryHostNode );
 	}
 
-	public void setFactoryHostNode( ICFSecHostNodeFactory value ) {
+	public void setFactoryHostNode( IYCFSecHostNodeFactory value ) {
 		factoryHostNode = value;
 	}
 
-	public ICFSecISOCcyTable getTableISOCcy() {
+	public IYCFSecISOCcyTable getTableISOCcy() {
 		return( tableISOCcy );
 	}
 
-	public void setTableISOCcy( ICFSecISOCcyTable value ) {
+	public void setTableISOCcy( IYCFSecISOCcyTable value ) {
 		tableISOCcy = value;
 	}
 
-	public ICFSecISOCcyFactory getFactoryISOCcy() {
+	public IYCFSecISOCcyFactory getFactoryISOCcy() {
 		return( factoryISOCcy );
 	}
 
-	public void setFactoryISOCcy( ICFSecISOCcyFactory value ) {
+	public void setFactoryISOCcy( IYCFSecISOCcyFactory value ) {
 		factoryISOCcy = value;
 	}
 
-	public ICFSecISOCtryTable getTableISOCtry() {
+	public IYCFSecISOCtryTable getTableISOCtry() {
 		return( tableISOCtry );
 	}
 
-	public void setTableISOCtry( ICFSecISOCtryTable value ) {
+	public void setTableISOCtry( IYCFSecISOCtryTable value ) {
 		tableISOCtry = value;
 	}
 
-	public ICFSecISOCtryFactory getFactoryISOCtry() {
+	public IYCFSecISOCtryFactory getFactoryISOCtry() {
 		return( factoryISOCtry );
 	}
 
-	public void setFactoryISOCtry( ICFSecISOCtryFactory value ) {
+	public void setFactoryISOCtry( IYCFSecISOCtryFactory value ) {
 		factoryISOCtry = value;
 	}
 
-	public ICFSecISOCtryCcyTable getTableISOCtryCcy() {
+	public IYCFSecISOCtryCcyTable getTableISOCtryCcy() {
 		return( tableISOCtryCcy );
 	}
 
-	public void setTableISOCtryCcy( ICFSecISOCtryCcyTable value ) {
+	public void setTableISOCtryCcy( IYCFSecISOCtryCcyTable value ) {
 		tableISOCtryCcy = value;
 	}
 
-	public ICFSecISOCtryCcyFactory getFactoryISOCtryCcy() {
+	public IYCFSecISOCtryCcyFactory getFactoryISOCtryCcy() {
 		return( factoryISOCtryCcy );
 	}
 
-	public void setFactoryISOCtryCcy( ICFSecISOCtryCcyFactory value ) {
+	public void setFactoryISOCtryCcy( IYCFSecISOCtryCcyFactory value ) {
 		factoryISOCtryCcy = value;
 	}
 
-	public ICFSecISOCtryLangTable getTableISOCtryLang() {
+	public IYCFSecISOCtryLangTable getTableISOCtryLang() {
 		return( tableISOCtryLang );
 	}
 
-	public void setTableISOCtryLang( ICFSecISOCtryLangTable value ) {
+	public void setTableISOCtryLang( IYCFSecISOCtryLangTable value ) {
 		tableISOCtryLang = value;
 	}
 
-	public ICFSecISOCtryLangFactory getFactoryISOCtryLang() {
+	public IYCFSecISOCtryLangFactory getFactoryISOCtryLang() {
 		return( factoryISOCtryLang );
 	}
 
-	public void setFactoryISOCtryLang( ICFSecISOCtryLangFactory value ) {
+	public void setFactoryISOCtryLang( IYCFSecISOCtryLangFactory value ) {
 		factoryISOCtryLang = value;
 	}
 
-	public ICFSecISOLangTable getTableISOLang() {
+	public IYCFSecISOLangTable getTableISOLang() {
 		return( tableISOLang );
 	}
 
-	public void setTableISOLang( ICFSecISOLangTable value ) {
+	public void setTableISOLang( IYCFSecISOLangTable value ) {
 		tableISOLang = value;
 	}
 
-	public ICFSecISOLangFactory getFactoryISOLang() {
+	public IYCFSecISOLangFactory getFactoryISOLang() {
 		return( factoryISOLang );
 	}
 
-	public void setFactoryISOLang( ICFSecISOLangFactory value ) {
+	public void setFactoryISOLang( IYCFSecISOLangFactory value ) {
 		factoryISOLang = value;
 	}
 
-	public ICFSecISOTZoneTable getTableISOTZone() {
+	public IYCFSecISOTZoneTable getTableISOTZone() {
 		return( tableISOTZone );
 	}
 
-	public void setTableISOTZone( ICFSecISOTZoneTable value ) {
+	public void setTableISOTZone( IYCFSecISOTZoneTable value ) {
 		tableISOTZone = value;
 	}
 
-	public ICFSecISOTZoneFactory getFactoryISOTZone() {
+	public IYCFSecISOTZoneFactory getFactoryISOTZone() {
 		return( factoryISOTZone );
 	}
 
-	public void setFactoryISOTZone( ICFSecISOTZoneFactory value ) {
+	public void setFactoryISOTZone( IYCFSecISOTZoneFactory value ) {
 		factoryISOTZone = value;
 	}
 
-	public ICFSecSecAppTable getTableSecApp() {
+	public IYCFSecSecAppTable getTableSecApp() {
 		return( tableSecApp );
 	}
 
-	public void setTableSecApp( ICFSecSecAppTable value ) {
+	public void setTableSecApp( IYCFSecSecAppTable value ) {
 		tableSecApp = value;
 	}
 
-	public ICFSecSecAppFactory getFactorySecApp() {
+	public IYCFSecSecAppFactory getFactorySecApp() {
 		return( factorySecApp );
 	}
 
-	public void setFactorySecApp( ICFSecSecAppFactory value ) {
+	public void setFactorySecApp( IYCFSecSecAppFactory value ) {
 		factorySecApp = value;
 	}
 
-	public ICFSecSecDeviceTable getTableSecDevice() {
+	public IYCFSecSecDeviceTable getTableSecDevice() {
 		return( tableSecDevice );
 	}
 
-	public void setTableSecDevice( ICFSecSecDeviceTable value ) {
+	public void setTableSecDevice( IYCFSecSecDeviceTable value ) {
 		tableSecDevice = value;
 	}
 
-	public ICFSecSecDeviceFactory getFactorySecDevice() {
+	public IYCFSecSecDeviceFactory getFactorySecDevice() {
 		return( factorySecDevice );
 	}
 
-	public void setFactorySecDevice( ICFSecSecDeviceFactory value ) {
+	public void setFactorySecDevice( IYCFSecSecDeviceFactory value ) {
 		factorySecDevice = value;
 	}
 
-	public ICFSecSecFormTable getTableSecForm() {
+	public IYCFSecSecFormTable getTableSecForm() {
 		return( tableSecForm );
 	}
 
-	public void setTableSecForm( ICFSecSecFormTable value ) {
+	public void setTableSecForm( IYCFSecSecFormTable value ) {
 		tableSecForm = value;
 	}
 
-	public ICFSecSecFormFactory getFactorySecForm() {
+	public IYCFSecSecFormFactory getFactorySecForm() {
 		return( factorySecForm );
 	}
 
-	public void setFactorySecForm( ICFSecSecFormFactory value ) {
+	public void setFactorySecForm( IYCFSecSecFormFactory value ) {
 		factorySecForm = value;
 	}
 
-	public ICFSecSecGroupTable getTableSecGroup() {
+	public IYCFSecSecGroupTable getTableSecGroup() {
 		return( tableSecGroup );
 	}
 
-	public void setTableSecGroup( ICFSecSecGroupTable value ) {
+	public void setTableSecGroup( IYCFSecSecGroupTable value ) {
 		tableSecGroup = value;
 	}
 
-	public ICFSecSecGroupFactory getFactorySecGroup() {
+	public IYCFSecSecGroupFactory getFactorySecGroup() {
 		return( factorySecGroup );
 	}
 
-	public void setFactorySecGroup( ICFSecSecGroupFactory value ) {
+	public void setFactorySecGroup( IYCFSecSecGroupFactory value ) {
 		factorySecGroup = value;
 	}
 
-	public ICFSecSecGroupFormTable getTableSecGroupForm() {
+	public IYCFSecSecGroupFormTable getTableSecGroupForm() {
 		return( tableSecGroupForm );
 	}
 
-	public void setTableSecGroupForm( ICFSecSecGroupFormTable value ) {
+	public void setTableSecGroupForm( IYCFSecSecGroupFormTable value ) {
 		tableSecGroupForm = value;
 	}
 
-	public ICFSecSecGroupFormFactory getFactorySecGroupForm() {
+	public IYCFSecSecGroupFormFactory getFactorySecGroupForm() {
 		return( factorySecGroupForm );
 	}
 
-	public void setFactorySecGroupForm( ICFSecSecGroupFormFactory value ) {
+	public void setFactorySecGroupForm( IYCFSecSecGroupFormFactory value ) {
 		factorySecGroupForm = value;
 	}
 
-	public ICFSecSecGrpIncTable getTableSecGrpInc() {
+	public IYCFSecSecGrpIncTable getTableSecGrpInc() {
 		return( tableSecGrpInc );
 	}
 
-	public void setTableSecGrpInc( ICFSecSecGrpIncTable value ) {
+	public void setTableSecGrpInc( IYCFSecSecGrpIncTable value ) {
 		tableSecGrpInc = value;
 	}
 
-	public ICFSecSecGrpIncFactory getFactorySecGrpInc() {
+	public IYCFSecSecGrpIncFactory getFactorySecGrpInc() {
 		return( factorySecGrpInc );
 	}
 
-	public void setFactorySecGrpInc( ICFSecSecGrpIncFactory value ) {
+	public void setFactorySecGrpInc( IYCFSecSecGrpIncFactory value ) {
 		factorySecGrpInc = value;
 	}
 
-	public ICFSecSecGrpMembTable getTableSecGrpMemb() {
+	public IYCFSecSecGrpMembTable getTableSecGrpMemb() {
 		return( tableSecGrpMemb );
 	}
 
-	public void setTableSecGrpMemb( ICFSecSecGrpMembTable value ) {
+	public void setTableSecGrpMemb( IYCFSecSecGrpMembTable value ) {
 		tableSecGrpMemb = value;
 	}
 
-	public ICFSecSecGrpMembFactory getFactorySecGrpMemb() {
+	public IYCFSecSecGrpMembFactory getFactorySecGrpMemb() {
 		return( factorySecGrpMemb );
 	}
 
-	public void setFactorySecGrpMemb( ICFSecSecGrpMembFactory value ) {
+	public void setFactorySecGrpMemb( IYCFSecSecGrpMembFactory value ) {
 		factorySecGrpMemb = value;
 	}
 
-	public ICFSecSecSessionTable getTableSecSession() {
+	public IYCFSecSecSessionTable getTableSecSession() {
 		return( tableSecSession );
 	}
 
-	public void setTableSecSession( ICFSecSecSessionTable value ) {
+	public void setTableSecSession( IYCFSecSecSessionTable value ) {
 		tableSecSession = value;
 	}
 
-	public ICFSecSecSessionFactory getFactorySecSession() {
+	public IYCFSecSecSessionFactory getFactorySecSession() {
 		return( factorySecSession );
 	}
 
-	public void setFactorySecSession( ICFSecSecSessionFactory value ) {
+	public void setFactorySecSession( IYCFSecSecSessionFactory value ) {
 		factorySecSession = value;
 	}
 
-	public ICFSecSecUserTable getTableSecUser() {
+	public IYCFSecSecUserTable getTableSecUser() {
 		return( tableSecUser );
 	}
 
-	public void setTableSecUser( ICFSecSecUserTable value ) {
+	public void setTableSecUser( IYCFSecSecUserTable value ) {
 		tableSecUser = value;
 	}
 
-	public ICFSecSecUserFactory getFactorySecUser() {
+	public IYCFSecSecUserFactory getFactorySecUser() {
 		return( factorySecUser );
 	}
 
-	public void setFactorySecUser( ICFSecSecUserFactory value ) {
+	public void setFactorySecUser( IYCFSecSecUserFactory value ) {
 		factorySecUser = value;
 	}
 
-	public ICFSecServiceTable getTableService() {
+	public IYCFSecServiceTable getTableService() {
 		return( tableService );
 	}
 
-	public void setTableService( ICFSecServiceTable value ) {
+	public void setTableService( IYCFSecServiceTable value ) {
 		tableService = value;
 	}
 
-	public ICFSecServiceFactory getFactoryService() {
+	public IYCFSecServiceFactory getFactoryService() {
 		return( factoryService );
 	}
 
-	public void setFactoryService( ICFSecServiceFactory value ) {
+	public void setFactoryService( IYCFSecServiceFactory value ) {
 		factoryService = value;
 	}
 
-	public ICFSecServiceTypeTable getTableServiceType() {
+	public IYCFSecServiceTypeTable getTableServiceType() {
 		return( tableServiceType );
 	}
 
-	public void setTableServiceType( ICFSecServiceTypeTable value ) {
+	public void setTableServiceType( IYCFSecServiceTypeTable value ) {
 		tableServiceType = value;
 	}
 
-	public ICFSecServiceTypeFactory getFactoryServiceType() {
+	public IYCFSecServiceTypeFactory getFactoryServiceType() {
 		return( factoryServiceType );
 	}
 
-	public void setFactoryServiceType( ICFSecServiceTypeFactory value ) {
+	public void setFactoryServiceType( IYCFSecServiceTypeFactory value ) {
 		factoryServiceType = value;
 	}
 
-	public ICFSecSysClusterTable getTableSysCluster() {
+	public IYCFSecSysClusterTable getTableSysCluster() {
 		return( tableSysCluster );
 	}
 
-	public void setTableSysCluster( ICFSecSysClusterTable value ) {
+	public void setTableSysCluster( IYCFSecSysClusterTable value ) {
 		tableSysCluster = value;
 	}
 
-	public ICFSecSysClusterFactory getFactorySysCluster() {
+	public IYCFSecSysClusterFactory getFactorySysCluster() {
 		return( factorySysCluster );
 	}
 
-	public void setFactorySysCluster( ICFSecSysClusterFactory value ) {
+	public void setFactorySysCluster( IYCFSecSysClusterFactory value ) {
 		factorySysCluster = value;
 	}
 
-	public ICFSecTSecGroupTable getTableTSecGroup() {
+	public IYCFSecTSecGroupTable getTableTSecGroup() {
 		return( tableTSecGroup );
 	}
 
-	public void setTableTSecGroup( ICFSecTSecGroupTable value ) {
+	public void setTableTSecGroup( IYCFSecTSecGroupTable value ) {
 		tableTSecGroup = value;
 	}
 
-	public ICFSecTSecGroupFactory getFactoryTSecGroup() {
+	public IYCFSecTSecGroupFactory getFactoryTSecGroup() {
 		return( factoryTSecGroup );
 	}
 
-	public void setFactoryTSecGroup( ICFSecTSecGroupFactory value ) {
+	public void setFactoryTSecGroup( IYCFSecTSecGroupFactory value ) {
 		factoryTSecGroup = value;
 	}
 
-	public ICFSecTSecGrpIncTable getTableTSecGrpInc() {
+	public IYCFSecTSecGrpIncTable getTableTSecGrpInc() {
 		return( tableTSecGrpInc );
 	}
 
-	public void setTableTSecGrpInc( ICFSecTSecGrpIncTable value ) {
+	public void setTableTSecGrpInc( IYCFSecTSecGrpIncTable value ) {
 		tableTSecGrpInc = value;
 	}
 
-	public ICFSecTSecGrpIncFactory getFactoryTSecGrpInc() {
+	public IYCFSecTSecGrpIncFactory getFactoryTSecGrpInc() {
 		return( factoryTSecGrpInc );
 	}
 
-	public void setFactoryTSecGrpInc( ICFSecTSecGrpIncFactory value ) {
+	public void setFactoryTSecGrpInc( IYCFSecTSecGrpIncFactory value ) {
 		factoryTSecGrpInc = value;
 	}
 
-	public ICFSecTSecGrpMembTable getTableTSecGrpMemb() {
+	public IYCFSecTSecGrpMembTable getTableTSecGrpMemb() {
 		return( tableTSecGrpMemb );
 	}
 
-	public void setTableTSecGrpMemb( ICFSecTSecGrpMembTable value ) {
+	public void setTableTSecGrpMemb( IYCFSecTSecGrpMembTable value ) {
 		tableTSecGrpMemb = value;
 	}
 
-	public ICFSecTSecGrpMembFactory getFactoryTSecGrpMemb() {
+	public IYCFSecTSecGrpMembFactory getFactoryTSecGrpMemb() {
 		return( factoryTSecGrpMemb );
 	}
 
-	public void setFactoryTSecGrpMemb( ICFSecTSecGrpMembFactory value ) {
+	public void setFactoryTSecGrpMemb( IYCFSecTSecGrpMembFactory value ) {
 		factoryTSecGrpMemb = value;
 	}
 
-	public ICFSecTenantTable getTableTenant() {
+	public IYCFSecTenantTable getTableTenant() {
 		return( tableTenant );
 	}
 
-	public void setTableTenant( ICFSecTenantTable value ) {
+	public void setTableTenant( IYCFSecTenantTable value ) {
 		tableTenant = value;
 	}
 
-	public ICFSecTenantFactory getFactoryTenant() {
+	public IYCFSecTenantFactory getFactoryTenant() {
 		return( factoryTenant );
 	}
 
-	public void setFactoryTenant( ICFSecTenantFactory value ) {
+	public void setFactoryTenant( IYCFSecTenantFactory value ) {
 		factoryTenant = value;
 	}
 
 	public boolean isTransactionOpen() {
-		throw new CFLibMustOverrideException( getClass(), "isTransactionOpen" );
+		throw new YCFLibMustOverrideException( getClass(), "isTransactionOpen" );
 	}
 
 	public boolean beginTransaction() {
-		throw new CFLibMustOverrideException( getClass(), "beginTransaction" );
+		throw new YCFLibMustOverrideException( getClass(), "beginTransaction" );
 	}
 
 	public void commit() {
-		throw new CFLibMustOverrideException( getClass(), "commit" );
+		throw new YCFLibMustOverrideException( getClass(), "commit" );
 	}
 
 	public void rollback() {
-		throw new CFLibMustOverrideException( getClass(), "rollback" );
+		throw new YCFLibMustOverrideException( getClass(), "rollback" );
 	}
 
-	public ICFSecTablePerms getTablePerms() {
+	public IYCFSecTablePerms getTablePerms() {
 		return( tablePerms );
 	}
 
-	public void setTablePerms( ICFSecTablePerms value ) {
+	public void setTablePerms( IYCFSecTablePerms value ) {
 		tablePerms = value;
 	}
 
@@ -978,7 +978,7 @@ public class CFSecSchema
 	public void setDbSchemaName( String argDbSchemaName ) {
 		final String S_ProcName = "setDbSchemaName";
 		if( ( argDbSchemaName == null ) || ( argDbSchemaName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"argDbSchemaName" );

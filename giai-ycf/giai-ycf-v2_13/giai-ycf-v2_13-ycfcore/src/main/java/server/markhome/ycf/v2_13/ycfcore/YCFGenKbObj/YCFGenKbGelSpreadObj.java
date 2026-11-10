@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GelSpread.
+// Description: Java 11 base object instance implementation for YCFGenKb GelSpread.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,28 +27,28 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
 
-public class CFGenKbGelSpreadObj
-	extends CFGenKbGelInstructionObj
-	implements ICFGenKbGelSpreadObj
+public class YCFGenKbGelSpreadObj
+	extends YCFGenKbGelInstructionObj
+	implements IYCFGenKbGelSpreadObj
 {
 	public final static String CLASS_CODE = "a918";
 
-	public CFGenKbGelSpreadObj() {
+	public YCFGenKbGelSpreadObj() {
 		super();
 	}
 
-	public CFGenKbGelSpreadObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGelSpreadObj( IYCFGenKbSchemaObj argSchema ) {
 		super( argSchema );
 	}
 
@@ -60,11 +60,11 @@ public class CFGenKbGelSpreadObj
 		return( "GelSpread" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -75,14 +75,14 @@ public class CFGenKbGelSpreadObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -93,10 +93,10 @@ public class CFGenKbGelSpreadObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -105,11 +105,11 @@ public class CFGenKbGelSpreadObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -133,13 +133,13 @@ public class CFGenKbGelSpreadObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -151,42 +151,42 @@ public class CFGenKbGelSpreadObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
-		ICFGenKbGelSpreadObj retobj = ((ICFGenKbSchemaObj)schema).getGelSpreadTableObj().realiseGelSpread(
-			(ICFGenKbGelSpreadObj)this );
-		return( (ICFGenKbGelInstructionObj)retobj );
+	public IYCFGenKbGelInstructionObj realise() {
+		IYCFGenKbGelSpreadObj retobj = ((IYCFGenKbSchemaObj)schema).getGelSpreadTableObj().realiseGelSpread(
+			(IYCFGenKbGelSpreadObj)this );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGelSpreadTableObj().reallyDeepDisposeGelSpread( (ICFGenKbGelSpreadObj)this );
+		((IYCFGenKbSchemaObj)schema).getGelSpreadTableObj().reallyDeepDisposeGelSpread( (IYCFGenKbGelSpreadObj)this );
 	}
 
-	public ICFGenKbGelInstructionObj read() {
-		ICFGenKbGelSpreadObj retobj = ((ICFGenKbSchemaObj)schema).getGelSpreadTableObj().readGelSpreadByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read() {
+		IYCFGenKbGelSpreadObj retobj = ((IYCFGenKbSchemaObj)schema).getGelSpreadTableObj().readGelSpreadByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), false );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelInstructionObj read( boolean forceRead ) {
-		ICFGenKbGelSpreadObj retobj = ((ICFGenKbSchemaObj)schema).getGelSpreadTableObj().readGelSpreadByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read( boolean forceRead ) {
+		IYCFGenKbGelSpreadObj retobj = ((IYCFGenKbSchemaObj)schema).getGelSpreadTableObj().readGelSpreadByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), forceRead );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelSpreadTableObj getGelSpreadTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGelSpreadTableObj() );
+	public IYCFGenKbGelSpreadTableObj getGelSpreadTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGelSpreadTableObj() );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelSpread().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelSpread().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelSpread().readDerivedByPIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelSpread().readDerivedByPIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredGelCacheId(),
 						getPKey().getRequiredGelInstId() );
@@ -198,13 +198,13 @@ public class CFGenKbGelSpreadObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGelSpreadBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGelSpreadBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGelSpreadBuff" );
+				"YCFGenKbGelSpreadBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -213,27 +213,27 @@ public class CFGenKbGelSpreadObj
 		optionalLookupChainInst = null;
 	}
 
-	public CFGenKbGelSpreadBuff getGelSpreadBuff() {
-		return( (CFGenKbGelSpreadBuff)getBuff() );
+	public YCFGenKbGelSpreadBuff getGelSpreadBuff() {
+		return( (YCFGenKbGelSpreadBuff)getBuff() );
 	}
 
-	public ICFGenKbGelInstructionEditObj beginEdit() {
+	public IYCFGenKbGelInstructionEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGelSpreadObj lockobj;
+		IYCFGenKbGelSpreadObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGelSpreadObj)this;
+			lockobj = (IYCFGenKbGelSpreadObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGelSpreadTableObj().lockGelSpread( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGelSpreadTableObj().lockGelSpread( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGelSpreadTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGelInstructionEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGelSpreadTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGelInstructionEditObj)edit );
 	}
 
-	public ICFGenKbGelSpreadEditObj getEditAsGelSpread() {
-		return( (ICFGenKbGelSpreadEditObj)edit );
+	public IYCFGenKbGelSpreadEditObj getEditAsGelSpread() {
+		return( (IYCFGenKbGelSpreadEditObj)edit );
 	}
 
 	public String getRequiredIteratorName() {
@@ -272,21 +272,21 @@ public class CFGenKbGelSpreadObj
 		return( getGelSpreadBuff().getOptionalExpandAfter() );
 	}
 
-	public String expand( MssCFGenContext genContext ) {
+	public String expand( MssYCFGenContext genContext ) {
 		String					itemExpansion = null;
-		ICFLibAnyObj			detailDef = null;
-		MssCFGenContext			detailContext = null;
+		IYCFLibAnyObj			detailDef = null;
+		MssYCFGenContext			detailContext = null;
 		int						idx;
 		int						numItems = 0;
 		int						totalItems = 0;
-		List<ICFLibAnyObj>		detailList;
+		List<IYCFLibAnyObj>		detailList;
 
-		ICFGenKbGenItemObj		itemBetween = null;
-		ICFGenKbGenItemObj		itemBefore = null;
-		ICFGenKbGenItemObj		itemAfter = null;
-		ICFGenKbGenItemObj		itemEmpty = null;
+		IYCFGenKbGenItemObj		itemBetween = null;
+		IYCFGenKbGenItemObj		itemBefore = null;
+		IYCFGenKbGenItemObj		itemAfter = null;
+		IYCFGenKbGenItemObj		itemEmpty = null;
 
-		ICFGenKbGenItemObj		itemRule = null;
+		IYCFGenKbGenItemObj		itemRule = null;
 
 		String					failedBetween = null;
 		String					failedBefore = null;
@@ -298,9 +298,9 @@ public class CFGenKbGelSpreadObj
 		String					failedEmpty = null;
 
 		String					expansion = null;
-		MssCFGenContext			subContext = null;
+		MssYCFGenContext			subContext = null;
 
-		final String S_ProcName = "CFGenKbGelSpreadObj.expand() ";
+		final String S_ProcName = "YCFGenKbGelSpreadObj.expand() ";
 
 		String				iteratorName = getRequiredIteratorName();
 		String				bodyBetween = getOptionalExpandBetween();
@@ -312,9 +312,9 @@ public class CFGenKbGelSpreadObj
 		String				bodyLone = getOptionalExpandLone();
 		String				bodyEmpty = getOptionalExpandEmpty();
 
-		MssCFEngine genEngine = genContext.getGenEngine();
+		MssYCFEngine genEngine = genContext.getGenEngine();
 
-		ICFGenKbGenItemObj genItem = genEngine.findContextItem(genContext, iteratorName );
+		IYCFGenKbGenItemObj genItem = genEngine.findContextItem(genContext, iteratorName );
 		if( genItem == null ) {
 			genEngine.getLog().message( "Could not find iterator \""
 				+ iteratorName
@@ -323,10 +323,10 @@ public class CFGenKbGelSpreadObj
 			return( null );
 		}
 
-		if( ! ( genItem instanceof MssCFGenIteratorObj ) ) {
+		if( ! ( genItem instanceof MssYCFGenIteratorObj ) ) {
 			genEngine.getLog().message( "Context item \""
 				+ iteratorName
-				+ "\" must be a MssCFGenIteratorObj, not a "
+				+ "\" must be a MssYCFGenIteratorObj, not a "
 				+ genItem.getClass().getPackage().getName() + "." + genItem.getClass().getSimpleName()
 				+ ".  \""
 				+ "$" + getRequiredSourceText() + "$"
@@ -334,7 +334,7 @@ public class CFGenKbGelSpreadObj
 			return( null );
 		}
 
-		MssCFGenIteratorObj	iterator = (MssCFGenIteratorObj)genItem;
+		MssYCFGenIteratorObj	iterator = (MssYCFGenIteratorObj)genItem;
 
 		String detailClassName;
 		if (iterator.getDetailClass() != null) {
@@ -367,7 +367,7 @@ public class CFGenKbGelSpreadObj
 				genEngine.getLog().message( "Could not find expansion item for iterator \""
 					+ iteratorName
 					+ "\" "
-					+ MssCFGelCompiler._SPREAD_BETWEEN
+					+ MssYCFGelCompiler._SPREAD_BETWEEN
 					+ " \""
 					+ bodyBetween
 					+ "\"" );
@@ -381,7 +381,7 @@ public class CFGenKbGelSpreadObj
 				genEngine.getLog().message( "Could not find expansion item for iterator \""
 					+ iteratorName
 					+ "\" "
-					+ MssCFGelCompiler._ITERATOR_BEFORE
+					+ MssYCFGelCompiler._ITERATOR_BEFORE
 					+ " \""
 					+ bodyBefore
 					+ "\"" );
@@ -395,7 +395,7 @@ public class CFGenKbGelSpreadObj
 				genEngine.getLog().message( "Could not find expansion item for iterator \""
 					+ iteratorName
 					+ "\" "
-					+ MssCFGelCompiler._ITERATOR_AFTER
+					+ MssYCFGelCompiler._ITERATOR_AFTER
 					+ " \""
 					+ bodyAfter
 					+ "\"" );
@@ -404,13 +404,13 @@ public class CFGenKbGelSpreadObj
 
 		if( bodyEmpty != null ) {
 			failedEmpty = "$" + bodyEmpty + "$";
-			if( ! bodyEmpty.equals( MssCFGelCompiler._ITERATOR_EMPTY ) ) {
+			if( ! bodyEmpty.equals( MssYCFGelCompiler._ITERATOR_EMPTY ) ) {
 				itemEmpty = genEngine.findContextItem( genContext, bodyEmpty );
 				if( itemEmpty == null ) {
 					genEngine.getLog().message( "Could not find expansion item for iterator \""
 						+ iteratorName
 						+ "\" "
-						+ MssCFGelCompiler._ITERATOR_EMPTY
+						+ MssYCFGelCompiler._ITERATOR_EMPTY
 						+ " \""
 						+ bodyEmpty
 						+ "\"" );
@@ -459,7 +459,7 @@ public class CFGenKbGelSpreadObj
 						expansion = expansion + failedEmpty;
 					}
 				}
-				else if( ! bodyEmpty.equals( MssCFGelCompiler._ITERATOR_EMPTY ) ) {
+				else if( ! bodyEmpty.equals( MssYCFGelCompiler._ITERATOR_EMPTY ) ) {
 					expansion = expansion + failedEmpty;
 				}
 			}
@@ -511,7 +511,7 @@ public class CFGenKbGelSpreadObj
 							genEngine.getLog().message( "Could not find expansion item for iterator \""
 								+ iteratorName
 								+ "\" "
-								+ MssCFGelCompiler._ITERATOR_LONE
+								+ MssYCFGelCompiler._ITERATOR_LONE
 								+ " \""
 								+ bodyLone
 								+ "\"" );
@@ -533,7 +533,7 @@ public class CFGenKbGelSpreadObj
 							genEngine.getLog().message( "Could not find expansion item for iterator \""
 								+ iteratorName
 								+ "\" "
-								+ MssCFGelCompiler._ITERATOR_FIRST
+								+ MssYCFGelCompiler._ITERATOR_FIRST
 								+ " \""
 								+ bodyFirst
 								+ "\"" );
@@ -555,7 +555,7 @@ public class CFGenKbGelSpreadObj
 							genEngine.getLog().message( "Could not find expansion item for iterator \""
 								+ iteratorName
 								+ "\" "
-								+ MssCFGelCompiler._ITERATOR_LAST
+								+ MssYCFGelCompiler._ITERATOR_LAST
 								+ " \""
 								+ bodyLast
 								+ "\"" );
@@ -577,7 +577,7 @@ public class CFGenKbGelSpreadObj
 							genEngine.getLog().message( "Could not find expansion item for iterator \""
 								+ iteratorName
 								+ "\" "
-								+ MssCFGelCompiler._ITERATOR_EACH
+								+ MssYCFGelCompiler._ITERATOR_EACH
 								+ " \""
 								+ bodyEach
 								+ "\"" );
@@ -609,7 +609,7 @@ public class CFGenKbGelSpreadObj
 							genEngine.getLog().message( "Could not find expansion item for iterator \""
 								+ iteratorName
 								+ "\" "
-								+ MssCFGelCompiler._ITERATOR_FIRST
+								+ MssYCFGelCompiler._ITERATOR_FIRST
 								+ " \""
 								+ bodyFirst
 								+ "\"" );
@@ -631,7 +631,7 @@ public class CFGenKbGelSpreadObj
 							genEngine.getLog().message( "Could not find expansion item for iterator \""
 								+ iteratorName
 								+ "\" "
-								+ MssCFGelCompiler._ITERATOR_EACH
+								+ MssYCFGelCompiler._ITERATOR_EACH
 								+ " \""
 								+ bodyEach
 								+ "\"" );
@@ -662,7 +662,7 @@ public class CFGenKbGelSpreadObj
 							genEngine.getLog().message( "Could not find expansion item for iterator \""
 								+ iteratorName
 								+ "\" "
-								+ MssCFGelCompiler._ITERATOR_EACH
+								+ MssYCFGelCompiler._ITERATOR_EACH
 								+ " \""
 								+ bodyEach
 								+ "\"" );
@@ -692,7 +692,7 @@ public class CFGenKbGelSpreadObj
 							genEngine.getLog().message( "Could not find expansion item for iterator \""
 								+ iteratorName
 								+ "\" "
-								+ MssCFGelCompiler._ITERATOR_LAST
+								+ MssYCFGelCompiler._ITERATOR_LAST
 								+ " \""
 								+ bodyLast
 								+ "\"" );
@@ -714,7 +714,7 @@ public class CFGenKbGelSpreadObj
 							genEngine.getLog().message( "Could not find expansion item for iterator \""
 								+ iteratorName
 								+ "\" "
-								+ MssCFGelCompiler._ITERATOR_EACH
+								+ MssYCFGelCompiler._ITERATOR_EACH
 								+ " \""
 								+ bodyEach
 								+ "\"" );

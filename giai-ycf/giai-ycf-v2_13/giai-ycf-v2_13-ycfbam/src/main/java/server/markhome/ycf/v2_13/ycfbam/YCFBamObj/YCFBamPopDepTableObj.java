@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,59 +45,59 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamPopDepTableObj
-	implements ICFBamPopDepTableObj
+public class YCFBamPopDepTableObj
+	implements IYCFBamPopDepTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFBamScopePKey, ICFBamPopDepObj> members;
-	private Map<CFBamScopePKey, ICFBamPopDepObj> allPopDep;
-	private Map< CFBamScopeByTenantIdxKey,
-		Map<CFBamScopePKey, ICFBamPopDepObj > > indexByTenantIdx;
-	private Map< CFBamPopDepByRelationIdxKey,
-		Map<CFBamScopePKey, ICFBamPopDepObj > > indexByRelationIdx;
-	private Map< CFBamPopDepByDefSchemaIdxKey,
-		Map<CFBamScopePKey, ICFBamPopDepObj > > indexByDefSchemaIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFBamScopePKey, IYCFBamPopDepObj> members;
+	private Map<YCFBamScopePKey, IYCFBamPopDepObj> allPopDep;
+	private Map< YCFBamScopeByTenantIdxKey,
+		Map<YCFBamScopePKey, IYCFBamPopDepObj > > indexByTenantIdx;
+	private Map< YCFBamPopDepByRelationIdxKey,
+		Map<YCFBamScopePKey, IYCFBamPopDepObj > > indexByRelationIdx;
+	private Map< YCFBamPopDepByDefSchemaIdxKey,
+		Map<YCFBamScopePKey, IYCFBamPopDepObj > > indexByDefSchemaIdx;
 	public static String TABLE_NAME = "PopDep";
 	public static String TABLE_DBNAME = "pop_dep";
 
-	public CFBamPopDepTableObj() {
+	public YCFBamPopDepTableObj() {
 		schema = null;
-		members = new HashMap<CFBamScopePKey, ICFBamPopDepObj>();
+		members = new HashMap<YCFBamScopePKey, IYCFBamPopDepObj>();
 		allPopDep = null;
 		indexByTenantIdx = null;
 		indexByRelationIdx = null;
 		indexByDefSchemaIdx = null;
 	}
 
-	public CFBamPopDepTableObj( ICFBamSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFBamScopePKey, ICFBamPopDepObj>();
+	public YCFBamPopDepTableObj( IYCFBamSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFBamScopePKey, IYCFBamPopDepObj>();
 		allPopDep = null;
 		indexByTenantIdx = null;
 		indexByRelationIdx = null;
 		indexByDefSchemaIdx = null;
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFBamSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFBamSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -109,7 +109,7 @@ public class CFBamPopDepTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamSchemaDefObj.class );
+		return( IYCFBamSchemaDefObj.class );
 	}
 
 
@@ -118,9 +118,9 @@ public class CFBamPopDepTableObj
 		indexByTenantIdx = null;
 		indexByRelationIdx = null;
 		indexByDefSchemaIdx = null;
-		List<ICFBamPopDepObj> toForget = new LinkedList<ICFBamPopDepObj>();
-		ICFBamPopDepObj cur = null;
-		Iterator<ICFBamPopDepObj> iter = members.values().iterator();
+		List<IYCFBamPopDepObj> toForget = new LinkedList<IYCFBamPopDepObj>();
+		IYCFBamPopDepObj cur = null;
+		Iterator<IYCFBamPopDepObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -138,10 +138,10 @@ public class CFBamPopDepTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamPopDepObj.
+	 *	YCFBamPopDepObj.
 	 */
-	public ICFBamPopDepObj newInstance() {
-		ICFBamPopDepObj inst = new CFBamPopDepObj( schema );
+	public IYCFBamPopDepObj newInstance() {
+		IYCFBamPopDepObj inst = new YCFBamPopDepObj( schema );
 		return( inst );
 	}
 
@@ -152,19 +152,19 @@ public class CFBamPopDepTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamPopDepObj.
+	 *	YCFBamPopDepObj.
 	 */
-	public ICFBamPopDepEditObj newEditInstance( ICFBamPopDepObj orig ) {
-		ICFBamPopDepEditObj edit = new CFBamPopDepEditObj( orig );
+	public IYCFBamPopDepEditObj newEditInstance( IYCFBamPopDepObj orig ) {
+		IYCFBamPopDepEditObj edit = new YCFBamPopDepEditObj( orig );
 		return( edit );
 	}
 
-	public ICFBamPopDepObj realisePopDep( ICFBamPopDepObj Obj ) {
-		ICFBamPopDepObj obj = Obj;
-		CFBamScopePKey pkey = obj.getPKey();
-		ICFBamPopDepObj keepObj = null;
+	public IYCFBamPopDepObj realisePopDep( IYCFBamPopDepObj Obj ) {
+		IYCFBamPopDepObj obj = Obj;
+		YCFBamScopePKey pkey = obj.getPKey();
+		IYCFBamPopDepObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFBamPopDepObj existingObj = members.get( pkey );
+			IYCFBamPopDepObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -175,21 +175,21 @@ public class CFBamPopDepTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByTenantIdx != null ) {
-				CFBamScopeByTenantIdxKey keyTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+				YCFBamScopeByTenantIdxKey keyTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamPopDepObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamPopDepObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					indexByTenantIdx.remove( keyTenantIdx );
 				}
 			}
 
 			if( indexByRelationIdx != null ) {
-				CFBamPopDepByRelationIdxKey keyRelationIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
+				YCFBamPopDepByRelationIdxKey keyRelationIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
 				keyRelationIdx.setRequiredRelationTenantId( keepObj.getRequiredRelationTenantId() );
 				keyRelationIdx.setRequiredRelationId( keepObj.getRequiredRelationId() );
-				Map<CFBamScopePKey, ICFBamPopDepObj > mapRelationIdx = indexByRelationIdx.get( keyRelationIdx );
+				Map<YCFBamScopePKey, IYCFBamPopDepObj > mapRelationIdx = indexByRelationIdx.get( keyRelationIdx );
 				if( mapRelationIdx != null ) {
 					mapRelationIdx.remove( keepObj.getPKey() );
 					if( mapRelationIdx.size() <= 0 ) {
@@ -199,11 +199,11 @@ public class CFBamPopDepTableObj
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamPopDepByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
+				YCFBamPopDepByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamScopePKey, ICFBamPopDepObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamScopePKey, IYCFBamPopDepObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.remove( keepObj.getPKey() );
 					if( mapDefSchemaIdx.size() <= 0 ) {
@@ -214,37 +214,37 @@ public class CFBamPopDepTableObj
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
-			keepObj = (ICFBamPopDepObj)schema.getScopeTableObj().realiseScope( Obj );
+			keepObj = (IYCFBamPopDepObj)schema.getScopeTableObj().realiseScope( Obj );
 
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByTenantIdx != null ) {
-				CFBamScopeByTenantIdxKey keyTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+				YCFBamScopeByTenantIdxKey keyTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamPopDepObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamPopDepObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByRelationIdx != null ) {
-				CFBamPopDepByRelationIdxKey keyRelationIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
+				YCFBamPopDepByRelationIdxKey keyRelationIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
 				keyRelationIdx.setRequiredRelationTenantId( keepObj.getRequiredRelationTenantId() );
 				keyRelationIdx.setRequiredRelationId( keepObj.getRequiredRelationId() );
-				Map<CFBamScopePKey, ICFBamPopDepObj > mapRelationIdx = indexByRelationIdx.get( keyRelationIdx );
+				Map<YCFBamScopePKey, IYCFBamPopDepObj > mapRelationIdx = indexByRelationIdx.get( keyRelationIdx );
 				if( mapRelationIdx != null ) {
 					mapRelationIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamPopDepByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
+				YCFBamPopDepByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamScopePKey, ICFBamPopDepObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamScopePKey, IYCFBamPopDepObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -256,7 +256,7 @@ public class CFBamPopDepTableObj
 		}
 		else {
 			keepObj = obj;
-			keepObj = (ICFBamPopDepObj)schema.getScopeTableObj().realiseScope( keepObj );
+			keepObj = (IYCFBamPopDepObj)schema.getScopeTableObj().realiseScope( keepObj );
 
 			// Attach new object to PKey, all, alternate, and duplicate indexes
 			members.put( keepObj.getPKey(), keepObj );
@@ -265,32 +265,32 @@ public class CFBamPopDepTableObj
 			}
 
 			if( indexByTenantIdx != null ) {
-				CFBamScopeByTenantIdxKey keyTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+				YCFBamScopeByTenantIdxKey keyTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamScopePKey, ICFBamPopDepObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFBamScopePKey, IYCFBamPopDepObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByRelationIdx != null ) {
-				CFBamPopDepByRelationIdxKey keyRelationIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
+				YCFBamPopDepByRelationIdxKey keyRelationIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
 				keyRelationIdx.setRequiredRelationTenantId( keepObj.getRequiredRelationTenantId() );
 				keyRelationIdx.setRequiredRelationId( keepObj.getRequiredRelationId() );
-				Map<CFBamScopePKey, ICFBamPopDepObj > mapRelationIdx = indexByRelationIdx.get( keyRelationIdx );
+				Map<YCFBamScopePKey, IYCFBamPopDepObj > mapRelationIdx = indexByRelationIdx.get( keyRelationIdx );
 				if( mapRelationIdx != null ) {
 					mapRelationIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamPopDepByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
+				YCFBamPopDepByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamScopePKey, ICFBamPopDepObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamScopePKey, IYCFBamPopDepObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -300,69 +300,69 @@ public class CFBamPopDepTableObj
 		return( keepObj );
 	}
 
-	public ICFBamPopDepObj createPopDep( ICFBamPopDepObj Obj ) {
-		ICFBamPopDepObj obj = Obj;
-		CFBamPopDepBuff buff = obj.getPopDepBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTablePopDep().createPopDep(
+	public IYCFBamPopDepObj createPopDep( IYCFBamPopDepObj Obj ) {
+		IYCFBamPopDepObj obj = Obj;
+		YCFBamPopDepBuff buff = obj.getPopDepBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().createPopDep(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		if( obj.getPKey().getClassCode().equals( "a833" ) ) {
-			obj = (ICFBamPopDepObj)(obj.realise());
+			obj = (IYCFBamPopDepObj)(obj.realise());
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public ICFBamPopDepObj readPopDep( CFBamScopePKey pkey ) {
+	public IYCFBamPopDepObj readPopDep( YCFBamScopePKey pkey ) {
 		return( readPopDep( pkey, false ) );
 	}
 
-	public ICFBamPopDepObj readPopDep( CFBamScopePKey pkey, boolean forceRead ) {
-		ICFBamPopDepObj obj = null;
+	public IYCFBamPopDepObj readPopDep( YCFBamScopePKey pkey, boolean forceRead ) {
+		IYCFBamPopDepObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFBamPopDepBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTablePopDep().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFBamPopDepBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
-				obj = (ICFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( readBuff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( readBuff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFBamPopDepObj)obj.realise();
+				obj = (IYCFBamPopDepObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamPopDepObj readCachedPopDep( CFBamScopePKey pkey ) {
-		ICFBamPopDepObj obj = null;
+	public IYCFBamPopDepObj readCachedPopDep( YCFBamScopePKey pkey ) {
+		IYCFBamPopDepObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposePopDep( ICFBamPopDepObj obj )
+	public void reallyDeepDisposePopDep( IYCFBamPopDepObj obj )
 	{
-		final String S_ProcName = "CFBamPopDepTableObj.reallyDeepDisposePopDep() ";
+		final String S_ProcName = "YCFBamPopDepTableObj.reallyDeepDisposePopDep() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFBamScopePKey pkey = obj.getPKey();
-		ICFBamPopDepObj existing = readCachedPopDep( pkey );
+		YCFBamScopePKey pkey = obj.getPKey();
+		IYCFBamPopDepObj existing = readCachedPopDep( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFBamPopDepByRelationIdxKey keyRelationIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
+		YCFBamPopDepByRelationIdxKey keyRelationIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
 		keyRelationIdx.setRequiredRelationTenantId( existing.getRequiredRelationTenantId() );
 		keyRelationIdx.setRequiredRelationId( existing.getRequiredRelationId() );
 
-		CFBamPopDepByDefSchemaIdxKey keyDefSchemaIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
+		YCFBamPopDepByDefSchemaIdxKey keyDefSchemaIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
@@ -389,57 +389,57 @@ public class CFBamPopDepTableObj
 
 		schema.getScopeTableObj().reallyDeepDisposeScope( obj );
 	}
-	public void deepDisposePopDep( CFBamScopePKey pkey ) {
-		ICFBamPopDepObj obj = readCachedPopDep( pkey );
+	public void deepDisposePopDep( YCFBamScopePKey pkey ) {
+		IYCFBamPopDepObj obj = readCachedPopDep( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFBamPopDepObj lockPopDep( CFBamScopePKey pkey ) {
-		ICFBamPopDepObj locked = null;
-		CFBamPopDepBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTablePopDep().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFBamPopDepObj lockPopDep( YCFBamScopePKey pkey ) {
+		IYCFBamPopDepObj locked = null;
+		YCFBamPopDepBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
-				locked = (ICFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( lockBuff.getClassCode() );
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				locked = (IYCFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( lockBuff.getClassCode() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFBamPopDepObj)locked.realise();
+			locked = (IYCFBamPopDepObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockPopDep", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockPopDep", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFBamPopDepObj> readAllPopDep() {
+	public List<IYCFBamPopDepObj> readAllPopDep() {
 		return( readAllPopDep( false ) );
 	}
 
-	public List<ICFBamPopDepObj> readAllPopDep( boolean forceRead ) {
+	public List<IYCFBamPopDepObj> readAllPopDep( boolean forceRead ) {
 		final String S_ProcName = "readAllPopDep";
 		if( ( allPopDep == null ) || forceRead ) {
-			Map<CFBamScopePKey, ICFBamPopDepObj> map = new HashMap<CFBamScopePKey,ICFBamPopDepObj>();
+			Map<YCFBamScopePKey, IYCFBamPopDepObj> map = new HashMap<YCFBamScopePKey,IYCFBamPopDepObj>();
 			allPopDep = map;
-			CFBamPopDepBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTablePopDep().readAllDerived( schema.getAuthorization() );
-			CFBamPopDepBuff buff;
-			ICFBamPopDepObj obj;
+			YCFBamPopDepBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().readAllDerived( schema.getAuthorization() );
+			YCFBamPopDepBuff buff;
+			IYCFBamPopDepObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamPopDepObj realised = (ICFBamPopDepObj)obj.realise();
+				IYCFBamPopDepObj realised = (IYCFBamPopDepObj)obj.realise();
 			}
 		}
 		int len = allPopDep.size();
-		ICFBamPopDepObj arr[] = new ICFBamPopDepObj[len];
-		Iterator<ICFBamPopDepObj> valIter = allPopDep.values().iterator();
+		IYCFBamPopDepObj arr[] = new IYCFBamPopDepObj[len];
+		Iterator<IYCFBamPopDepObj> valIter = allPopDep.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -447,20 +447,20 @@ public class CFBamPopDepTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamPopDepObj> arrayList = new ArrayList<ICFBamPopDepObj>(len);
+		ArrayList<IYCFBamPopDepObj> arrayList = new ArrayList<IYCFBamPopDepObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamPopDepObj> cmp = new Comparator<ICFBamPopDepObj>() {
-			public int compare( ICFBamPopDepObj lhs, ICFBamPopDepObj rhs ) {
+		Comparator<IYCFBamPopDepObj> cmp = new Comparator<IYCFBamPopDepObj>() {
+			public int compare( IYCFBamPopDepObj lhs, IYCFBamPopDepObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -473,31 +473,31 @@ public class CFBamPopDepTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamPopDepObj> sortedList = arrayList;
+		List<IYCFBamPopDepObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamPopDepObj> readCachedAllPopDep() {
+	public List<IYCFBamPopDepObj> readCachedAllPopDep() {
 		final String S_ProcName = "readCachedAllPopDep";
-		ArrayList<ICFBamPopDepObj> arrayList = new ArrayList<ICFBamPopDepObj>();
+		ArrayList<IYCFBamPopDepObj> arrayList = new ArrayList<IYCFBamPopDepObj>();
 		if( allPopDep != null ) {
 			int len = allPopDep.size();
-			ICFBamPopDepObj arr[] = new ICFBamPopDepObj[len];
-			Iterator<ICFBamPopDepObj> valIter = allPopDep.values().iterator();
+			IYCFBamPopDepObj arr[] = new IYCFBamPopDepObj[len];
+			Iterator<IYCFBamPopDepObj> valIter = allPopDep.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -505,7 +505,7 @@ public class CFBamPopDepTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -516,8 +516,8 @@ public class CFBamPopDepTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFBamPopDepObj> cmp = new Comparator<ICFBamPopDepObj>() {
-			public int compare( ICFBamPopDepObj lhs, ICFBamPopDepObj rhs ) {
+		Comparator<IYCFBamPopDepObj> cmp = new Comparator<IYCFBamPopDepObj>() {
+			public int compare( IYCFBamPopDepObj lhs, IYCFBamPopDepObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -530,8 +530,8 @@ public class CFBamPopDepTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -541,7 +541,7 @@ public class CFBamPopDepTableObj
 		return( arrayList );
 	}
 
-	public ICFBamPopDepObj readPopDepByIdIdx( long TenantId,
+	public IYCFBamPopDepObj readPopDepByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readPopDepByIdIdx( TenantId,
@@ -549,61 +549,61 @@ public class CFBamPopDepTableObj
 			false ) );
 	}
 
-	public ICFBamPopDepObj readPopDepByIdIdx( long TenantId,
+	public IYCFBamPopDepObj readPopDepByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFBamScopePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamPopDepObj obj = readPopDep( pkey, forceRead );
+		IYCFBamPopDepObj obj = readPopDep( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFBamPopDepObj> readPopDepByTenantIdx( long TenantId )
+	public List<IYCFBamPopDepObj> readPopDepByTenantIdx( long TenantId )
 	{
 		return( readPopDepByTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamPopDepObj> readPopDepByTenantIdx( long TenantId,
+	public List<IYCFBamPopDepObj> readPopDepByTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readPopDepByTenantIdx";
-		CFBamScopeByTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamScopePKey, ICFBamPopDepObj> dict;
+		Map<YCFBamScopePKey, IYCFBamPopDepObj> dict;
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFBamScopeByTenantIdxKey,
-				Map< CFBamScopePKey, ICFBamPopDepObj > >();
+			indexByTenantIdx = new HashMap< YCFBamScopeByTenantIdxKey,
+				Map< YCFBamScopePKey, IYCFBamPopDepObj > >();
 		}
 		if( ( ! forceRead ) && indexByTenantIdx.containsKey( key ) ) {
 			dict = indexByTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamPopDepObj>();
-			ICFBamScopeObj obj;
-			CFBamScopeBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableScope().readDerivedByTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamPopDepObj>();
+			IYCFBamScopeObj obj;
+			YCFBamScopeBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableScope().readDerivedByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamScopeBuff buff;
+			YCFBamScopeBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamPopDepObj realised = (ICFBamPopDepObj)obj.realise();
+				IYCFBamPopDepObj realised = (IYCFBamPopDepObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamPopDepObj arr[] = new ICFBamPopDepObj[len];
-		Iterator<ICFBamPopDepObj> valIter = dict.values().iterator();
+		IYCFBamPopDepObj arr[] = new IYCFBamPopDepObj[len];
+		Iterator<IYCFBamPopDepObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -611,20 +611,20 @@ public class CFBamPopDepTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamPopDepObj> arrayList = new ArrayList<ICFBamPopDepObj>(len);
+		ArrayList<IYCFBamPopDepObj> arrayList = new ArrayList<IYCFBamPopDepObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamPopDepObj> cmp = new Comparator<ICFBamPopDepObj>() {
-			public int compare( ICFBamPopDepObj lhs, ICFBamPopDepObj rhs ) {
+		Comparator<IYCFBamPopDepObj> cmp = new Comparator<IYCFBamPopDepObj>() {
+			public int compare( IYCFBamPopDepObj lhs, IYCFBamPopDepObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -637,19 +637,19 @@ public class CFBamPopDepTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamPopDepObj> sortedList = arrayList;
+		List<IYCFBamPopDepObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamPopDepObj> readPopDepByRelationIdx( long RelationTenantId,
+	public List<IYCFBamPopDepObj> readPopDepByRelationIdx( long RelationTenantId,
 		long RelationId )
 	{
 		return( readPopDepByRelationIdx( RelationTenantId,
@@ -657,48 +657,48 @@ public class CFBamPopDepTableObj
 			false ) );
 	}
 
-	public List<ICFBamPopDepObj> readPopDepByRelationIdx( long RelationTenantId,
+	public List<IYCFBamPopDepObj> readPopDepByRelationIdx( long RelationTenantId,
 		long RelationId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readPopDepByRelationIdx";
-		CFBamPopDepByRelationIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
+		YCFBamPopDepByRelationIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
 		key.setRequiredRelationTenantId( RelationTenantId );
 		key.setRequiredRelationId( RelationId );
-		Map<CFBamScopePKey, ICFBamPopDepObj> dict;
+		Map<YCFBamScopePKey, IYCFBamPopDepObj> dict;
 		if( indexByRelationIdx == null ) {
-			indexByRelationIdx = new HashMap< CFBamPopDepByRelationIdxKey,
-				Map< CFBamScopePKey, ICFBamPopDepObj > >();
+			indexByRelationIdx = new HashMap< YCFBamPopDepByRelationIdxKey,
+				Map< YCFBamScopePKey, IYCFBamPopDepObj > >();
 		}
 		if( ( ! forceRead ) && indexByRelationIdx.containsKey( key ) ) {
 			dict = indexByRelationIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamPopDepObj>();
-			ICFBamPopDepObj obj;
-			CFBamPopDepBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTablePopDep().readDerivedByRelationIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamPopDepObj>();
+			IYCFBamPopDepObj obj;
+			YCFBamPopDepBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().readDerivedByRelationIdx( schema.getAuthorization(),
 				RelationTenantId,
 				RelationId );
-			CFBamPopDepBuff buff;
+			YCFBamPopDepBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamPopDepObj realised = (ICFBamPopDepObj)obj.realise();
+				IYCFBamPopDepObj realised = (IYCFBamPopDepObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByRelationIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamPopDepObj arr[] = new ICFBamPopDepObj[len];
-		Iterator<ICFBamPopDepObj> valIter = dict.values().iterator();
+		IYCFBamPopDepObj arr[] = new IYCFBamPopDepObj[len];
+		Iterator<IYCFBamPopDepObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -706,20 +706,20 @@ public class CFBamPopDepTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamPopDepObj> arrayList = new ArrayList<ICFBamPopDepObj>(len);
+		ArrayList<IYCFBamPopDepObj> arrayList = new ArrayList<IYCFBamPopDepObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamPopDepObj> cmp = new Comparator<ICFBamPopDepObj>() {
-			public int compare( ICFBamPopDepObj lhs, ICFBamPopDepObj rhs ) {
+		Comparator<IYCFBamPopDepObj> cmp = new Comparator<IYCFBamPopDepObj>() {
+			public int compare( IYCFBamPopDepObj lhs, IYCFBamPopDepObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -732,19 +732,19 @@ public class CFBamPopDepTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamPopDepObj> sortedList = arrayList;
+		List<IYCFBamPopDepObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamPopDepObj> readPopDepByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamPopDepObj> readPopDepByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		return( readPopDepByDefSchemaIdx( DefSchemaTenantId,
@@ -752,48 +752,48 @@ public class CFBamPopDepTableObj
 			false ) );
 	}
 
-	public List<ICFBamPopDepObj> readPopDepByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamPopDepObj> readPopDepByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readPopDepByDefSchemaIdx";
-		CFBamPopDepByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
+		YCFBamPopDepByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		Map<CFBamScopePKey, ICFBamPopDepObj> dict;
+		Map<YCFBamScopePKey, IYCFBamPopDepObj> dict;
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamPopDepByDefSchemaIdxKey,
-				Map< CFBamScopePKey, ICFBamPopDepObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamPopDepByDefSchemaIdxKey,
+				Map< YCFBamScopePKey, IYCFBamPopDepObj > >();
 		}
 		if( ( ! forceRead ) && indexByDefSchemaIdx.containsKey( key ) ) {
 			dict = indexByDefSchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamScopePKey, ICFBamPopDepObj>();
-			ICFBamPopDepObj obj;
-			CFBamPopDepBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTablePopDep().readDerivedByDefSchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamScopePKey, IYCFBamPopDepObj>();
+			IYCFBamPopDepObj obj;
+			YCFBamPopDepBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().readDerivedByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			CFBamPopDepBuff buff;
+			YCFBamPopDepBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
-				obj = (ICFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj = (IYCFBamPopDepObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
 				obj.setBuff( buff );
-				ICFBamPopDepObj realised = (ICFBamPopDepObj)obj.realise();
+				IYCFBamPopDepObj realised = (IYCFBamPopDepObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDefSchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamPopDepObj arr[] = new ICFBamPopDepObj[len];
-		Iterator<ICFBamPopDepObj> valIter = dict.values().iterator();
+		IYCFBamPopDepObj arr[] = new IYCFBamPopDepObj[len];
+		Iterator<IYCFBamPopDepObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -801,20 +801,20 @@ public class CFBamPopDepTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamPopDepObj> arrayList = new ArrayList<ICFBamPopDepObj>(len);
+		ArrayList<IYCFBamPopDepObj> arrayList = new ArrayList<IYCFBamPopDepObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamPopDepObj> cmp = new Comparator<ICFBamPopDepObj>() {
-			public int compare( ICFBamPopDepObj lhs, ICFBamPopDepObj rhs ) {
+		Comparator<IYCFBamPopDepObj> cmp = new Comparator<IYCFBamPopDepObj>() {
+			public int compare( IYCFBamPopDepObj lhs, IYCFBamPopDepObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -827,48 +827,48 @@ public class CFBamPopDepTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamPopDepObj> sortedList = arrayList;
+		List<IYCFBamPopDepObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamPopDepObj readCachedPopDepByIdIdx( long TenantId,
+	public IYCFBamPopDepObj readCachedPopDepByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamPopDepObj obj = null;
-		CFBamScopePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
+		IYCFBamPopDepObj obj = null;
+		YCFBamScopePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedPopDep( pkey );
 		return( obj );
 	}
 
-	public List<ICFBamPopDepObj> readCachedPopDepByTenantIdx( long TenantId )
+	public List<IYCFBamPopDepObj> readCachedPopDepByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedPopDepByTenantIdx";
-		CFBamScopeByTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamPopDepObj> arrayList = new ArrayList<ICFBamPopDepObj>();
+		ArrayList<IYCFBamPopDepObj> arrayList = new ArrayList<IYCFBamPopDepObj>();
 		if( indexByTenantIdx != null ) {
-			Map<CFBamScopePKey, ICFBamPopDepObj> dict;
+			Map<YCFBamScopePKey, IYCFBamPopDepObj> dict;
 			if( indexByTenantIdx.containsKey( key ) ) {
 				dict = indexByTenantIdx.get( key );
 				int len = dict.size();
-				ICFBamPopDepObj arr[] = new ICFBamPopDepObj[len];
-				Iterator<ICFBamPopDepObj> valIter = dict.values().iterator();
+				IYCFBamPopDepObj arr[] = new IYCFBamPopDepObj[len];
+				Iterator<IYCFBamPopDepObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -876,7 +876,7 @@ public class CFBamPopDepTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -889,8 +889,8 @@ public class CFBamPopDepTableObj
 			}
 		}
 		else {
-			ICFBamPopDepObj obj;
-			Iterator<ICFBamPopDepObj> valIter = members.values().iterator();
+			IYCFBamPopDepObj obj;
+			Iterator<IYCFBamPopDepObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -900,8 +900,8 @@ public class CFBamPopDepTableObj
 				}
 			}
 		}
-		Comparator<ICFBamPopDepObj> cmp = new Comparator<ICFBamPopDepObj>() {
-			public int compare( ICFBamPopDepObj lhs, ICFBamPopDepObj rhs ) {
+		Comparator<IYCFBamPopDepObj> cmp = new Comparator<IYCFBamPopDepObj>() {
+			public int compare( IYCFBamPopDepObj lhs, IYCFBamPopDepObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -914,8 +914,8 @@ public class CFBamPopDepTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -925,27 +925,27 @@ public class CFBamPopDepTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamPopDepObj> readCachedPopDepByRelationIdx( long RelationTenantId,
+	public List<IYCFBamPopDepObj> readCachedPopDepByRelationIdx( long RelationTenantId,
 		long RelationId )
 	{
 		final String S_ProcName = "readCachedPopDepByRelationIdx";
-		CFBamPopDepByRelationIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
+		YCFBamPopDepByRelationIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
 		key.setRequiredRelationTenantId( RelationTenantId );
 		key.setRequiredRelationId( RelationId );
-		ArrayList<ICFBamPopDepObj> arrayList = new ArrayList<ICFBamPopDepObj>();
+		ArrayList<IYCFBamPopDepObj> arrayList = new ArrayList<IYCFBamPopDepObj>();
 		if( indexByRelationIdx != null ) {
-			Map<CFBamScopePKey, ICFBamPopDepObj> dict;
+			Map<YCFBamScopePKey, IYCFBamPopDepObj> dict;
 			if( indexByRelationIdx.containsKey( key ) ) {
 				dict = indexByRelationIdx.get( key );
 				int len = dict.size();
-				ICFBamPopDepObj arr[] = new ICFBamPopDepObj[len];
-				Iterator<ICFBamPopDepObj> valIter = dict.values().iterator();
+				IYCFBamPopDepObj arr[] = new IYCFBamPopDepObj[len];
+				Iterator<IYCFBamPopDepObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -953,7 +953,7 @@ public class CFBamPopDepTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -966,8 +966,8 @@ public class CFBamPopDepTableObj
 			}
 		}
 		else {
-			ICFBamPopDepObj obj;
-			Iterator<ICFBamPopDepObj> valIter = members.values().iterator();
+			IYCFBamPopDepObj obj;
+			Iterator<IYCFBamPopDepObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -977,8 +977,8 @@ public class CFBamPopDepTableObj
 				}
 			}
 		}
-		Comparator<ICFBamPopDepObj> cmp = new Comparator<ICFBamPopDepObj>() {
-			public int compare( ICFBamPopDepObj lhs, ICFBamPopDepObj rhs ) {
+		Comparator<IYCFBamPopDepObj> cmp = new Comparator<IYCFBamPopDepObj>() {
+			public int compare( IYCFBamPopDepObj lhs, IYCFBamPopDepObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -991,8 +991,8 @@ public class CFBamPopDepTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1002,27 +1002,27 @@ public class CFBamPopDepTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamPopDepObj> readCachedPopDepByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamPopDepObj> readCachedPopDepByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "readCachedPopDepByDefSchemaIdx";
-		CFBamPopDepByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
+		YCFBamPopDepByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		ArrayList<ICFBamPopDepObj> arrayList = new ArrayList<ICFBamPopDepObj>();
+		ArrayList<IYCFBamPopDepObj> arrayList = new ArrayList<IYCFBamPopDepObj>();
 		if( indexByDefSchemaIdx != null ) {
-			Map<CFBamScopePKey, ICFBamPopDepObj> dict;
+			Map<YCFBamScopePKey, IYCFBamPopDepObj> dict;
 			if( indexByDefSchemaIdx.containsKey( key ) ) {
 				dict = indexByDefSchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamPopDepObj arr[] = new ICFBamPopDepObj[len];
-				Iterator<ICFBamPopDepObj> valIter = dict.values().iterator();
+				IYCFBamPopDepObj arr[] = new IYCFBamPopDepObj[len];
+				Iterator<IYCFBamPopDepObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1030,7 +1030,7 @@ public class CFBamPopDepTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1043,8 +1043,8 @@ public class CFBamPopDepTableObj
 			}
 		}
 		else {
-			ICFBamPopDepObj obj;
-			Iterator<ICFBamPopDepObj> valIter = members.values().iterator();
+			IYCFBamPopDepObj obj;
+			Iterator<IYCFBamPopDepObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1054,8 +1054,8 @@ public class CFBamPopDepTableObj
 				}
 			}
 		}
-		Comparator<ICFBamPopDepObj> cmp = new Comparator<ICFBamPopDepObj>() {
-			public int compare( ICFBamPopDepObj lhs, ICFBamPopDepObj rhs ) {
+		Comparator<IYCFBamPopDepObj> cmp = new Comparator<IYCFBamPopDepObj>() {
+			public int compare( IYCFBamPopDepObj lhs, IYCFBamPopDepObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1068,8 +1068,8 @@ public class CFBamPopDepTableObj
 					return( 1 );
 				}
 				else {
-					CFBamScopePKey lhsPKey = lhs.getPKey();
-					CFBamScopePKey rhsPKey = rhs.getPKey();
+					YCFBamScopePKey lhsPKey = lhs.getPKey();
+					YCFBamScopePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1082,7 +1082,7 @@ public class CFBamPopDepTableObj
 	public void deepDisposePopDepByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamPopDepObj obj = readCachedPopDepByIdIdx( TenantId,
+		IYCFBamPopDepObj obj = readCachedPopDepByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -1092,10 +1092,10 @@ public class CFBamPopDepTableObj
 	public void deepDisposePopDepByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposePopDepByTenantIdx";
-		ICFBamPopDepObj obj;
-		List<ICFBamPopDepObj> arrayList = readCachedPopDepByTenantIdx( TenantId );
+		IYCFBamPopDepObj obj;
+		List<IYCFBamPopDepObj> arrayList = readCachedPopDepByTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamPopDepObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamPopDepObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1109,11 +1109,11 @@ public class CFBamPopDepTableObj
 		long RelationId )
 	{
 		final String S_ProcName = "deepDisposePopDepByRelationIdx";
-		ICFBamPopDepObj obj;
-		List<ICFBamPopDepObj> arrayList = readCachedPopDepByRelationIdx( RelationTenantId,
+		IYCFBamPopDepObj obj;
+		List<IYCFBamPopDepObj> arrayList = readCachedPopDepByRelationIdx( RelationTenantId,
 				RelationId );
 		if( arrayList != null )  {
-			Iterator<ICFBamPopDepObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamPopDepObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1127,11 +1127,11 @@ public class CFBamPopDepTableObj
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "deepDisposePopDepByDefSchemaIdx";
-		ICFBamPopDepObj obj;
-		List<ICFBamPopDepObj> arrayList = readCachedPopDepByDefSchemaIdx( DefSchemaTenantId,
+		IYCFBamPopDepObj obj;
+		List<IYCFBamPopDepObj> arrayList = readCachedPopDepByDefSchemaIdx( DefSchemaTenantId,
 				DefSchemaId );
 		if( arrayList != null )  {
-			Iterator<ICFBamPopDepObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamPopDepObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1141,20 +1141,20 @@ public class CFBamPopDepTableObj
 		}
 	}
 
-	public ICFBamPopDepObj updatePopDep( ICFBamPopDepObj Obj ) {
-		ICFBamPopDepObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTablePopDep().updatePopDep( schema.getAuthorization(),
+	public IYCFBamPopDepObj updatePopDep( IYCFBamPopDepObj Obj ) {
+		IYCFBamPopDepObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().updatePopDep( schema.getAuthorization(),
 			Obj.getPopDepBuff() );
 		if( Obj.getClassCode().equals( "a833" ) ) {
-			obj = (ICFBamPopDepObj)Obj.realise();
+			obj = (IYCFBamPopDepObj)Obj.realise();
 		}
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deletePopDep( ICFBamPopDepObj Obj ) {
-		ICFBamPopDepObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDep( schema.getAuthorization(),
+	public void deletePopDep( IYCFBamPopDepObj Obj ) {
+		IYCFBamPopDepObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDep( schema.getAuthorization(),
 			obj.getPopDepBuff() );
 		Obj.forget();
 	}
@@ -1162,15 +1162,15 @@ public class CFBamPopDepTableObj
 	public void deletePopDepByIdIdx( long TenantId,
 		long Id )
 	{
-		CFBamScopePKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamPopDepObj obj = readPopDep( pkey );
+		IYCFBamPopDepObj obj = readPopDep( pkey );
 		if( obj != null ) {
-			ICFBamPopDepEditObj editObj = (ICFBamPopDepEditObj)obj.getEdit();
+			IYCFBamPopDepEditObj editObj = (IYCFBamPopDepEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFBamPopDepEditObj)obj.beginEdit();
+				editObj = (IYCFBamPopDepEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1195,19 +1195,19 @@ public class CFBamPopDepTableObj
 
 	public void deletePopDepByTenantIdx( long TenantId )
 	{
-		CFBamScopeByTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFBamScopeByTenantIdxKey,
-				Map< CFBamScopePKey, ICFBamPopDepObj > >();
+			indexByTenantIdx = new HashMap< YCFBamScopeByTenantIdxKey,
+				Map< YCFBamScopePKey, IYCFBamPopDepObj > >();
 		}
 		if( indexByTenantIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamPopDepObj> dict = indexByTenantIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByTenantIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamPopDepObj> dict = indexByTenantIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamPopDepObj> iter = dict.values().iterator();
-			ICFBamPopDepObj obj;
-			List<ICFBamPopDepObj> toForget = new LinkedList<ICFBamPopDepObj>();
+			Iterator<IYCFBamPopDepObj> iter = dict.values().iterator();
+			IYCFBamPopDepObj obj;
+			List<IYCFBamPopDepObj> toForget = new LinkedList<IYCFBamPopDepObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1220,7 +1220,7 @@ public class CFBamPopDepTableObj
 			indexByTenantIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByTenantIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposePopDepByTenantIdx( TenantId );
@@ -1229,21 +1229,21 @@ public class CFBamPopDepTableObj
 	public void deletePopDepByRelationIdx( long RelationTenantId,
 		long RelationId )
 	{
-		CFBamPopDepByRelationIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
+		YCFBamPopDepByRelationIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newRelationIdxKey();
 		key.setRequiredRelationTenantId( RelationTenantId );
 		key.setRequiredRelationId( RelationId );
 		if( indexByRelationIdx == null ) {
-			indexByRelationIdx = new HashMap< CFBamPopDepByRelationIdxKey,
-				Map< CFBamScopePKey, ICFBamPopDepObj > >();
+			indexByRelationIdx = new HashMap< YCFBamPopDepByRelationIdxKey,
+				Map< YCFBamScopePKey, IYCFBamPopDepObj > >();
 		}
 		if( indexByRelationIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamPopDepObj> dict = indexByRelationIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByRelationIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamPopDepObj> dict = indexByRelationIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByRelationIdx( schema.getAuthorization(),
 				RelationTenantId,
 				RelationId );
-			Iterator<ICFBamPopDepObj> iter = dict.values().iterator();
-			ICFBamPopDepObj obj;
-			List<ICFBamPopDepObj> toForget = new LinkedList<ICFBamPopDepObj>();
+			Iterator<IYCFBamPopDepObj> iter = dict.values().iterator();
+			IYCFBamPopDepObj obj;
+			List<IYCFBamPopDepObj> toForget = new LinkedList<IYCFBamPopDepObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1256,7 +1256,7 @@ public class CFBamPopDepTableObj
 			indexByRelationIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByRelationIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByRelationIdx( schema.getAuthorization(),
 				RelationTenantId,
 				RelationId );
 		}
@@ -1267,21 +1267,21 @@ public class CFBamPopDepTableObj
 	public void deletePopDepByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		CFBamPopDepByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
+		YCFBamPopDepByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryPopDep().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamPopDepByDefSchemaIdxKey,
-				Map< CFBamScopePKey, ICFBamPopDepObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamPopDepByDefSchemaIdxKey,
+				Map< YCFBamScopePKey, IYCFBamPopDepObj > >();
 		}
 		if( indexByDefSchemaIdx.containsKey( key ) ) {
-			Map<CFBamScopePKey, ICFBamPopDepObj> dict = indexByDefSchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByDefSchemaIdx( schema.getAuthorization(),
+			Map<YCFBamScopePKey, IYCFBamPopDepObj> dict = indexByDefSchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			Iterator<ICFBamPopDepObj> iter = dict.values().iterator();
-			ICFBamPopDepObj obj;
-			List<ICFBamPopDepObj> toForget = new LinkedList<ICFBamPopDepObj>();
+			Iterator<IYCFBamPopDepObj> iter = dict.values().iterator();
+			IYCFBamPopDepObj obj;
+			List<IYCFBamPopDepObj> toForget = new LinkedList<IYCFBamPopDepObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1294,7 +1294,7 @@ public class CFBamPopDepTableObj
 			indexByDefSchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByDefSchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTablePopDep().deletePopDepByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
 		}

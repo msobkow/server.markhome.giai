@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam IndexTweak.
+// Description: Java 11 edit object instance implementation for YCFBam IndexTweak.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,47 +45,47 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamIndexTweakEditObj
-	extends CFBamTweakEditObj
+public class YCFBamIndexTweakEditObj
+	extends YCFBamTweakEditObj
 
-	implements ICFBamIndexTweakEditObj
+	implements IYCFBamIndexTweakEditObj
 {
-	protected ICFBamIndexObj requiredContainerIndexDef;
+	protected IYCFBamIndexObj requiredContainerIndexDef;
 
-	public CFBamIndexTweakEditObj( ICFBamIndexTweakObj argOrig ) {
+	public YCFBamIndexTweakEditObj( IYCFBamIndexTweakObj argOrig ) {
 		super( argOrig );
 		requiredContainerIndexDef = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamIndexTweakObj.CLASS_CODE );
+		return( YCFBamIndexTweakObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "IndexTweak" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamIndexObj scope = getRequiredContainerIndexDef();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamIndexObj scope = getRequiredContainerIndexDef();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamIndexObj scope = getRequiredContainerIndexDef();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamIndexObj scope = getRequiredContainerIndexDef();
 		return( scope );
 	}
 
@@ -95,14 +95,14 @@ public class CFBamIndexTweakEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -113,10 +113,10 @@ public class CFBamIndexTweakEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -125,11 +125,11 @@ public class CFBamIndexTweakEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -153,16 +153,16 @@ public class CFBamIndexTweakEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -174,9 +174,9 @@ public class CFBamIndexTweakEditObj
 		return( qualName );
 	}
 
-	public ICFBamTweakObj realise() {
+	public IYCFBamTweakObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamIndexTweakObj retobj = getSchema().getIndexTweakTableObj().realiseIndexTweak( (ICFBamIndexTweakObj)this );
+		IYCFBamIndexTweakObj retobj = getSchema().getIndexTweakTableObj().realiseIndexTweak( (IYCFBamIndexTweakObj)this );
 		return( retobj );
 	}
 
@@ -184,89 +184,89 @@ public class CFBamIndexTweakEditObj
 		getOrigAsIndexTweak().forget();
 	}
 
-	public ICFBamTweakObj create() {
+	public IYCFBamTweakObj create() {
 		copyBuffToOrig();
-		ICFBamIndexTweakObj retobj = ((ICFBamSchemaObj)getOrigAsIndexTweak().getSchema()).getIndexTweakTableObj().createIndexTweak( getOrigAsIndexTweak() );
+		IYCFBamIndexTweakObj retobj = ((IYCFBamSchemaObj)getOrigAsIndexTweak().getSchema()).getIndexTweakTableObj().createIndexTweak( getOrigAsIndexTweak() );
 		if( retobj == getOrigAsIndexTweak() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamTweakEditObj update() {
-		getSchema().getIndexTweakTableObj().updateIndexTweak( (ICFBamIndexTweakObj)this );
+	public YCFBamTweakEditObj update() {
+		getSchema().getIndexTweakTableObj().updateIndexTweak( (IYCFBamIndexTweakObj)this );
 		return( null );
 	}
 
-	public CFBamTweakEditObj deleteInstance() {
+	public YCFBamTweakEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getIndexTweakTableObj().deleteIndexTweak( getOrigAsIndexTweak() );
 		return( null );
 	}
 
-	public ICFBamIndexTweakTableObj getIndexTweakTable() {
+	public IYCFBamIndexTweakTableObj getIndexTweakTable() {
 		return( orig.getSchema().getIndexTweakTableObj() );
 	}
 
-	public ICFBamIndexTweakEditObj getEditAsIndexTweak() {
-		return( (ICFBamIndexTweakEditObj)this );
+	public IYCFBamIndexTweakEditObj getEditAsIndexTweak() {
+		return( (IYCFBamIndexTweakEditObj)this );
 	}
 
-	public ICFBamIndexTweakObj getOrigAsIndexTweak() {
-		return( (ICFBamIndexTweakObj)orig );
+	public IYCFBamIndexTweakObj getOrigAsIndexTweak() {
+		return( (IYCFBamIndexTweakObj)orig );
 	}
 
-	public CFBamTweakBuff getBuff() {
+	public YCFBamTweakBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsIndexTweak().getSchema().getBackingStore()).getFactoryIndexTweak().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsIndexTweak().getSchema().getBackingStore()).getFactoryIndexTweak().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamTweakBuff value ) {
+	public void setBuff( YCFBamTweakBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			requiredContainerIndexDef = null;
 		}
 	}
 
-	public CFBamIndexTweakBuff getIndexTweakBuff() {
-		return( (CFBamIndexTweakBuff)getBuff() );
+	public YCFBamIndexTweakBuff getIndexTweakBuff() {
+		return( (YCFBamIndexTweakBuff)getBuff() );
 	}
 
 	public long getRequiredIndexId() {
 		return( getIndexTweakBuff().getRequiredIndexId() );
 	}
 
-	public void setRequiredContainerScopeDef( ICFBamScopeObj value ) {
-		final String S_ProcName = "CFBamIndexTweakEditObj.setRequiredContainerScopeDef() ";
+	public void setRequiredContainerScopeDef( IYCFBamScopeObj value ) {
+		final String S_ProcName = "YCFBamIndexTweakEditObj.setRequiredContainerScopeDef() ";
 		if( value == null ) {
 			setRequiredContainerIndexDef( null );
 		}
-		else if( ! ( value instanceof ICFBamIndexObj ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+		else if( ! ( value instanceof IYCFBamIndexObj ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setRequiredContainerScopeDef",
 				"value",
 				value,
-				"ICFBamIndexObj" );
+				"IYCFBamIndexObj" );
 		}
 		else {
-			setRequiredContainerIndexDef( (ICFBamIndexObj)value );
+			setRequiredContainerIndexDef( (IYCFBamIndexObj)value );
 		}
 	}
 
-	public ICFBamIndexObj getRequiredContainerIndexDef() {
+	public IYCFBamIndexObj getRequiredContainerIndexDef() {
 		return( getRequiredContainerIndexDef( false ) );
 	}
 
-	public ICFBamIndexObj getRequiredContainerIndexDef( boolean forceRead ) {
+	public IYCFBamIndexObj getRequiredContainerIndexDef( boolean forceRead ) {
 		if( forceRead || ( requiredContainerIndexDef == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamIndexObj obj = ((ICFBamSchemaObj)getOrigAsIndexTweak().getSchema()).getIndexTableObj().readIndexByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFBamIndexObj obj = ((IYCFBamSchemaObj)getOrigAsIndexTweak().getSchema()).getIndexTableObj().readIndexByIdIdx( getPKey().getRequiredTenantId(),
 					getIndexTweakBuff().getRequiredIndexId() );
 				requiredContainerIndexDef = obj;
 				if( obj != null ) {
@@ -279,7 +279,7 @@ public class CFBamIndexTweakEditObj
 		return( requiredContainerIndexDef );
 	}
 
-	public void setRequiredContainerIndexDef( ICFBamIndexObj value ) {
+	public void setRequiredContainerIndexDef( IYCFBamIndexObj value ) {
 			if( buff == null ) {
 				getIndexTweakBuff();
 			}
@@ -293,14 +293,14 @@ public class CFBamIndexTweakEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamIndexTweakBuff origBuff = getOrigAsIndexTweak().getIndexTweakBuff();
-		CFBamIndexTweakBuff myBuff = getIndexTweakBuff();
+		YCFBamIndexTweakBuff origBuff = getOrigAsIndexTweak().getIndexTweakBuff();
+		YCFBamIndexTweakBuff myBuff = getIndexTweakBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamIndexTweakBuff origBuff = getOrigAsIndexTweak().getIndexTweakBuff();
-		CFBamIndexTweakBuff myBuff = getIndexTweakBuff();
+		YCFBamIndexTweakBuff origBuff = getOrigAsIndexTweak().getIndexTweakBuff();
+		YCFBamIndexTweakBuff myBuff = getIndexTweakBuff();
 		myBuff.set( origBuff );
 	}
 }

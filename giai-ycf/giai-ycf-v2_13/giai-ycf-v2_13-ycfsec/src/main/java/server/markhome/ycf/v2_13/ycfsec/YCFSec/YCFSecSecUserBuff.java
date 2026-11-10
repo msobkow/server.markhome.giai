@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SecUser buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,10 +36,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecSecUserBuff
+public class YCFSecSecUserBuff
 {
 	public final static String CLASS_CODE = "a011";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -52,9 +52,9 @@ public class CFSecSecUserBuff
 	public static final UUID DFLTDEVUSERID_INIT_VALUE = UUID.fromString( "654dbba0-eda7-11e1-aff1-0800200c9a66" );
 	public static final String DFLTDEVNAME_INIT_VALUE = new String( "" );
 	public static final String PASSWORDHASH_INIT_VALUE = new String( "" );
-	protected UUID createdByUserId = CFSecSecUserBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFSecSecUserBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFSecSecUserBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFSecSecUserBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected UUID requiredSecUserId;
 	protected String requiredLoginId;
@@ -65,14 +65,14 @@ public class CFSecSecUserBuff
 	protected String requiredPasswordHash;
 	protected UUID optionalPasswordResetUuid;
 	protected int requiredRevision;
-	public CFSecSecUserBuff() {
-		requiredSecUserId = UUID.fromString( CFSecSecUserBuff.SECUSERID_INIT_VALUE.toString() );
-		requiredLoginId = new String( CFSecSecUserBuff.LOGINID_INIT_VALUE );
-		requiredEMailAddress = new String( CFSecSecUserBuff.EMAILADDRESS_INIT_VALUE );
+	public YCFSecSecUserBuff() {
+		requiredSecUserId = UUID.fromString( YCFSecSecUserBuff.SECUSERID_INIT_VALUE.toString() );
+		requiredLoginId = new String( YCFSecSecUserBuff.LOGINID_INIT_VALUE );
+		requiredEMailAddress = new String( YCFSecSecUserBuff.EMAILADDRESS_INIT_VALUE );
 		optionalEMailConfirmUuid = null;
 		optionalDfltDevUserId = null;
 		optionalDfltDevName = null;
-		requiredPasswordHash = new String( CFSecSecUserBuff.PASSWORDHASH_INIT_VALUE );
+		requiredPasswordHash = new String( YCFSecSecUserBuff.PASSWORDHASH_INIT_VALUE );
 		optionalPasswordResetUuid = null;
 	}
 
@@ -117,7 +117,7 @@ public class CFSecSecUserBuff
 
 	public void setRequiredSecUserId( UUID value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
 				1,
 				"value" );
@@ -131,13 +131,13 @@ public class CFSecSecUserBuff
 
 	public void setRequiredLoginId( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredLoginId",
 				1,
 				"value" );
 		}
 		if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredLoginId",
 				1,
 				"value.length()",
@@ -153,13 +153,13 @@ public class CFSecSecUserBuff
 
 	public void setRequiredEMailAddress( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredEMailAddress",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredEMailAddress",
 				1,
 				"value.length()",
@@ -204,7 +204,7 @@ public class CFSecSecUserBuff
 			optionalDfltDevName = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDfltDevName",
 				1,
 				"value.length()",
@@ -222,13 +222,13 @@ public class CFSecSecUserBuff
 
 	public void setRequiredPasswordHash( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredPasswordHash",
 				1,
 				"value" );
 		}
 		if( value.length() > 256 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredPasswordHash",
 				1,
 				"value.length()",
@@ -263,8 +263,8 @@ public class CFSecSecUserBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSecUserBuff ) {
-			CFSecSecUserBuff rhs = (CFSecSecUserBuff)obj;
+		else if( obj instanceof YCFSecSecUserBuff ) {
+			YCFSecSecUserBuff rhs = (YCFSecSecUserBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -339,15 +339,15 @@ public class CFSecSecUserBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecUserPKey ) {
-			CFSecSecUserPKey rhs = (CFSecSecUserPKey)obj;
+		else if( obj instanceof YCFSecSecUserPKey ) {
+			YCFSecSecUserPKey rhs = (YCFSecSecUserPKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecUserHBuff ) {
-			CFSecSecUserHBuff rhs = (CFSecSecUserHBuff)obj;
+		else if( obj instanceof YCFSecSecUserHBuff ) {
+			YCFSecSecUserHBuff rhs = (YCFSecSecUserHBuff)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -410,22 +410,22 @@ public class CFSecSecUserBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecUserHPKey ) {
-			CFSecSecUserHPKey rhs = (CFSecSecUserHPKey)obj;
+		else if( obj instanceof YCFSecSecUserHPKey ) {
+			YCFSecSecUserHPKey rhs = (YCFSecSecUserHPKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecUserByULoginIdxKey ) {
-			CFSecSecUserByULoginIdxKey rhs = (CFSecSecUserByULoginIdxKey)obj;
+		else if( obj instanceof YCFSecSecUserByULoginIdxKey ) {
+			YCFSecSecUserByULoginIdxKey rhs = (YCFSecSecUserByULoginIdxKey)obj;
 			if( ! getRequiredLoginId().equals( rhs.getRequiredLoginId() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecUserByEMConfIdxKey ) {
-			CFSecSecUserByEMConfIdxKey rhs = (CFSecSecUserByEMConfIdxKey)obj;
+		else if( obj instanceof YCFSecSecUserByEMConfIdxKey ) {
+			YCFSecSecUserByEMConfIdxKey rhs = (YCFSecSecUserByEMConfIdxKey)obj;
 			if( getOptionalEMailConfirmUuid() != null ) {
 				if( rhs.getOptionalEMailConfirmUuid() != null ) {
 					if( ! getOptionalEMailConfirmUuid().equals( rhs.getOptionalEMailConfirmUuid() ) ) {
@@ -440,8 +440,8 @@ public class CFSecSecUserBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecUserByPwdResetIdxKey ) {
-			CFSecSecUserByPwdResetIdxKey rhs = (CFSecSecUserByPwdResetIdxKey)obj;
+		else if( obj instanceof YCFSecSecUserByPwdResetIdxKey ) {
+			YCFSecSecUserByPwdResetIdxKey rhs = (YCFSecSecUserByPwdResetIdxKey)obj;
 			if( getOptionalPasswordResetUuid() != null ) {
 				if( rhs.getOptionalPasswordResetUuid() != null ) {
 					if( ! getOptionalPasswordResetUuid().equals( rhs.getOptionalPasswordResetUuid() ) ) {
@@ -456,8 +456,8 @@ public class CFSecSecUserBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecUserByDefDevIdxKey ) {
-			CFSecSecUserByDefDevIdxKey rhs = (CFSecSecUserByDefDevIdxKey)obj;
+		else if( obj instanceof YCFSecSecUserByDefDevIdxKey ) {
+			YCFSecSecUserByDefDevIdxKey rhs = (YCFSecSecUserByDefDevIdxKey)obj;
 			if( getOptionalDfltDevUserId() != null ) {
 				if( rhs.getOptionalDfltDevUserId() != null ) {
 					if( ! getOptionalDfltDevUserId().equals( rhs.getOptionalDfltDevUserId() ) ) {
@@ -525,8 +525,8 @@ public class CFSecSecUserBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecSecUserBuff ) {
-			CFSecSecUserBuff rhs = (CFSecSecUserBuff)obj;
+		else if( obj instanceof YCFSecSecUserBuff ) {
+			YCFSecSecUserBuff rhs = (YCFSecSecUserBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -639,8 +639,8 @@ public class CFSecSecUserBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecUserPKey ) {
-			CFSecSecUserPKey rhs = (CFSecSecUserPKey)obj;
+		else if( obj instanceof YCFSecSecUserPKey ) {
+			YCFSecSecUserPKey rhs = (YCFSecSecUserPKey)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -649,8 +649,8 @@ public class CFSecSecUserBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecUserHPKey ) {
-			CFSecSecUserHPKey rhs = (CFSecSecUserHPKey)obj;
+		else if( obj instanceof YCFSecSecUserHPKey ) {
+			YCFSecSecUserHPKey rhs = (YCFSecSecUserHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -669,8 +669,8 @@ public class CFSecSecUserBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecUserHBuff ) {
-			CFSecSecUserHBuff rhs = (CFSecSecUserHBuff)obj;
+		else if( obj instanceof YCFSecSecUserHBuff ) {
+			YCFSecSecUserHBuff rhs = (YCFSecSecUserHBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
@@ -762,8 +762,8 @@ public class CFSecSecUserBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecUserByULoginIdxKey ) {
-			CFSecSecUserByULoginIdxKey rhs = (CFSecSecUserByULoginIdxKey)obj;
+		else if( obj instanceof YCFSecSecUserByULoginIdxKey ) {
+			YCFSecSecUserByULoginIdxKey rhs = (YCFSecSecUserByULoginIdxKey)obj;
 
 			{
 				int cmp = getRequiredLoginId().compareTo( rhs.getRequiredLoginId() );
@@ -772,8 +772,8 @@ public class CFSecSecUserBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecUserByEMConfIdxKey ) {
-			CFSecSecUserByEMConfIdxKey rhs = (CFSecSecUserByEMConfIdxKey)obj;
+		else if( obj instanceof YCFSecSecUserByEMConfIdxKey ) {
+			YCFSecSecUserByEMConfIdxKey rhs = (YCFSecSecUserByEMConfIdxKey)obj;
 
 			if( getOptionalEMailConfirmUuid() != null ) {
 				if( rhs.getOptionalEMailConfirmUuid() != null ) {
@@ -792,8 +792,8 @@ public class CFSecSecUserBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecUserByPwdResetIdxKey ) {
-			CFSecSecUserByPwdResetIdxKey rhs = (CFSecSecUserByPwdResetIdxKey)obj;
+		else if( obj instanceof YCFSecSecUserByPwdResetIdxKey ) {
+			YCFSecSecUserByPwdResetIdxKey rhs = (YCFSecSecUserByPwdResetIdxKey)obj;
 
 			if( getOptionalPasswordResetUuid() != null ) {
 				if( rhs.getOptionalPasswordResetUuid() != null ) {
@@ -812,8 +812,8 @@ public class CFSecSecUserBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecUserByDefDevIdxKey ) {
-			CFSecSecUserByDefDevIdxKey rhs = (CFSecSecUserByDefDevIdxKey)obj;
+		else if( obj instanceof YCFSecSecUserByDefDevIdxKey ) {
+			YCFSecSecUserByDefDevIdxKey rhs = (YCFSecSecUserByDefDevIdxKey)obj;
 
 			if( getOptionalDfltDevUserId() != null ) {
 				if( rhs.getOptionalDfltDevUserId() != null ) {
@@ -849,7 +849,7 @@ public class CFSecSecUserBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -857,11 +857,11 @@ public class CFSecSecUserBuff
 		}
 	}
 
-	public void set( CFSecSecUserBuff src ) {
+	public void set( YCFSecSecUserBuff src ) {
 		setSecUserBuff( src );
 	}
 
-	public void setSecUserBuff( CFSecSecUserBuff src ) {
+	public void setSecUserBuff( YCFSecSecUserBuff src ) {
 		setRequiredSecUserId( src.getRequiredSecUserId() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -877,11 +877,11 @@ public class CFSecSecUserBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecSecUserHBuff src ) {
+	public void set( YCFSecSecUserHBuff src ) {
 		setSecUserBuff( src );
 	}
 
-	public void setSecUserBuff( CFSecSecUserHBuff src ) {
+	public void setSecUserBuff( YCFSecSecUserHBuff src ) {
 		setRequiredSecUserId( src.getRequiredSecUserId() );
 		setRequiredLoginId( src.getRequiredLoginId() );
 		setRequiredEMailAddress( src.getRequiredEMailAddress() );

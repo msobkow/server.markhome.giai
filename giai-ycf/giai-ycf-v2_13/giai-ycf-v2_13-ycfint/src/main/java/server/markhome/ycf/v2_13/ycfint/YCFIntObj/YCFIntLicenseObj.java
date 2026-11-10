@@ -1,15 +1,15 @@
-// Description: Java 11 base object instance implementation for CFInt License.
+// Description: Java 11 base object instance implementation for YCFInt License.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,37 +26,37 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntLicenseObj
-	implements ICFIntLicenseObj
+public class YCFIntLicenseObj
+	implements IYCFIntLicenseObj
 {
 	public final static String CLASS_CODE = "a101";
 	protected boolean isNew;
-	protected ICFIntLicenseEditObj edit;
-	protected ICFIntSchemaObj schema;
-	protected CFIntLicensePKey pKey;
-	protected CFIntLicenseBuff buff;
-	protected ICFSecTenantObj requiredOwnerTenant;
-	protected ICFIntTopDomainObj requiredContainerTopDomain;
+	protected IYCFIntLicenseEditObj edit;
+	protected IYCFIntSchemaObj schema;
+	protected YCFIntLicensePKey pKey;
+	protected YCFIntLicenseBuff buff;
+	protected IYCFSecTenantObj requiredOwnerTenant;
+	protected IYCFIntTopDomainObj requiredContainerTopDomain;
 
-	public CFIntLicenseObj() {
+	public YCFIntLicenseObj() {
 		isNew = true;
 		requiredOwnerTenant = null;
 		requiredContainerTopDomain = null;
 	}
 
-	public CFIntLicenseObj( ICFIntSchemaObj argSchema ) {
+	public YCFIntLicenseObj( IYCFIntSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -72,13 +72,13 @@ public class CFIntLicenseObj
 		return( "License" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFIntTopDomainObj scope = getRequiredContainerTopDomain();
+	public IYCFLibAnyObj getScope() {
+		IYCFIntTopDomainObj scope = getRequiredContainerTopDomain();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFIntTopDomainObj scope = getRequiredContainerTopDomain();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFIntTopDomainObj scope = getRequiredContainerTopDomain();
 		return( scope );
 	}
 
@@ -88,14 +88,14 @@ public class CFIntLicenseObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -106,10 +106,10 @@ public class CFIntLicenseObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -118,20 +118,20 @@ public class CFIntLicenseObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -155,16 +155,16 @@ public class CFIntLicenseObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFIntTenantObj ) {
+			else if( container instanceof IYCFIntTenantObj ) {
 				container = null;
 			}
 			else {
@@ -178,13 +178,13 @@ public class CFIntLicenseObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -196,48 +196,48 @@ public class CFIntLicenseObj
 		return( fullName );
 	}
 
-	public ICFIntLicenseObj realise() {
-		ICFIntLicenseObj retobj = ((ICFIntSchemaObj)schema).getLicenseTableObj().realiseLicense(
-			(ICFIntLicenseObj)this );
-		return( (ICFIntLicenseObj)retobj );
+	public IYCFIntLicenseObj realise() {
+		IYCFIntLicenseObj retobj = ((IYCFIntSchemaObj)schema).getLicenseTableObj().realiseLicense(
+			(IYCFIntLicenseObj)this );
+		return( (IYCFIntLicenseObj)retobj );
 	}
 
 	public void forget() {
-		((ICFIntSchemaObj)schema).getLicenseTableObj().reallyDeepDisposeLicense( (ICFIntLicenseObj)this );
+		((IYCFIntSchemaObj)schema).getLicenseTableObj().reallyDeepDisposeLicense( (IYCFIntLicenseObj)this );
 	}
 
-	public ICFIntLicenseObj read() {
-		ICFIntLicenseObj retobj = ((ICFIntSchemaObj)schema).getLicenseTableObj().readLicenseByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFIntLicenseObj read() {
+		IYCFIntLicenseObj retobj = ((IYCFIntSchemaObj)schema).getLicenseTableObj().readLicenseByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), false );
-		return( (ICFIntLicenseObj)retobj );
+		return( (IYCFIntLicenseObj)retobj );
 	}
 
-	public ICFIntLicenseObj read( boolean forceRead ) {
-		ICFIntLicenseObj retobj = ((ICFIntSchemaObj)schema).getLicenseTableObj().readLicenseByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFIntLicenseObj read( boolean forceRead ) {
+		IYCFIntLicenseObj retobj = ((IYCFIntSchemaObj)schema).getLicenseTableObj().readLicenseByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), forceRead );
-		return( (ICFIntLicenseObj)retobj );
+		return( (IYCFIntLicenseObj)retobj );
 	}
 
-	public ICFIntLicenseTableObj getLicenseTable() {
-		return( ((ICFIntSchemaObj)schema).getLicenseTableObj() );
+	public IYCFIntLicenseTableObj getLicenseTable() {
+		return( ((IYCFIntSchemaObj)schema).getLicenseTableObj() );
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
+	public void setSchema( IYCFIntSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFIntLicenseBuff getBuff() {
+	public YCFIntLicenseBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFIntSchema)schema.getBackingStore()).getFactoryLicense().newBuff();
+				buff = ((IYCFIntSchema)schema.getBackingStore()).getFactoryLicense().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFIntSchema)schema.getBackingStore()).getTableLicense().readDerivedByIdIdx( ((ICFIntSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFIntSchema)schema.getBackingStore()).getTableLicense().readDerivedByIdIdx( ((IYCFIntSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredId() );
 				if( buff != null ) {
@@ -248,13 +248,13 @@ public class CFIntLicenseObj
 		return( buff );
 	}
 
-	public void setBuff( CFIntLicenseBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFIntLicenseBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFIntLicenseBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFIntLicenseBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFIntLicenseBuff" );
+				"YCFIntLicenseBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -262,18 +262,18 @@ public class CFIntLicenseObj
 		requiredContainerTopDomain = null;
 	}
 
-	public CFIntLicenseBuff getLicenseBuff() {
-		return( (CFIntLicenseBuff)getBuff() );
+	public YCFIntLicenseBuff getLicenseBuff() {
+		return( (YCFIntLicenseBuff)getBuff() );
 	}
 
-	public CFIntLicensePKey getPKey() {
+	public YCFIntLicensePKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFIntSchema)schema.getBackingStore()).getFactoryLicense().newPKey();
+			pKey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryLicense().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFIntLicensePKey value ) {
+	public void setPKey( YCFIntLicensePKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -288,31 +288,31 @@ public class CFIntLicenseObj
 		isNew = value;
 	}
 
-	public ICFIntLicenseEditObj beginEdit() {
+	public IYCFIntLicenseEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFIntLicenseObj lockobj;
+		IYCFIntLicenseObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFIntLicenseObj)this;
+			lockobj = (IYCFIntLicenseObj)this;
 		}
 		else {
-			lockobj = ((ICFIntSchemaObj)schema).getLicenseTableObj().lockLicense( getPKey() );
+			lockobj = ((IYCFIntSchemaObj)schema).getLicenseTableObj().lockLicense( getPKey() );
 		}
-		edit = ((ICFIntSchemaObj)schema).getLicenseTableObj().newEditInstance( lockobj );
-		return( (ICFIntLicenseEditObj)edit );
+		edit = ((IYCFIntSchemaObj)schema).getLicenseTableObj().newEditInstance( lockobj );
+		return( (IYCFIntLicenseEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFIntLicenseEditObj getEdit() {
+	public IYCFIntLicenseEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFIntLicenseEditObj getEditAsLicense() {
-		return( (ICFIntLicenseEditObj)edit );
+	public IYCFIntLicenseEditObj getEditAsLicense() {
+		return( (IYCFIntLicenseEditObj)edit );
 	}
 
 	public long getRequiredTenantId() {
@@ -343,29 +343,29 @@ public class CFIntLicenseObj
 		return( getLicenseBuff().getOptionalFullText() );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant() {
+	public IYCFSecTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( ( requiredOwnerTenant == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredOwnerTenant = ((ICFIntSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
+				requiredOwnerTenant = ((IYCFIntSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
 			}
 		}
 		return( requiredOwnerTenant );
 	}
 
-	public ICFIntTopDomainObj getRequiredContainerTopDomain() {
+	public IYCFIntTopDomainObj getRequiredContainerTopDomain() {
 		return( getRequiredContainerTopDomain( false ) );
 	}
 
-	public ICFIntTopDomainObj getRequiredContainerTopDomain( boolean forceRead ) {
+	public IYCFIntTopDomainObj getRequiredContainerTopDomain( boolean forceRead ) {
 		if( ( requiredContainerTopDomain == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerTopDomain = ((ICFIntSchemaObj)schema).getTopDomainTableObj().readTopDomainByIdIdx( getPKey().getRequiredTenantId(),
+				requiredContainerTopDomain = ((IYCFIntSchemaObj)schema).getTopDomainTableObj().readTopDomainByIdIdx( getPKey().getRequiredTenantId(),
 					getLicenseBuff().getRequiredTopDomainId(), forceRead );
 			}
 		}

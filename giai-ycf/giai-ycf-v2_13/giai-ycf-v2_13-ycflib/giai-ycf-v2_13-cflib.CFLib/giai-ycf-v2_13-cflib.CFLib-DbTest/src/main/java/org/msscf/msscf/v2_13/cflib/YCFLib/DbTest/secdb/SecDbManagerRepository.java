@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,14 +20,14 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb;
 import java.util.List;
 import java.util.Optional;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash256;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash256;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SecDbManagerRepository extends JpaRepository<SecDbManager, CFLibDbKeyHash256> {
+public interface SecDbManagerRepository extends JpaRepository<SecDbManager, YCFLibDbKeyHash256> {
     List<SecDbManager> findByEmail(String email);
     List<SecDbManager> findByMemberDeptCode(String memberDeptCode);
 }

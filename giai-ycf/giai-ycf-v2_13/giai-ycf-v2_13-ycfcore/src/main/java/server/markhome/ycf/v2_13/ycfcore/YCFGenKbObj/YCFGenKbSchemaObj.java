@@ -1,11 +1,11 @@
-// Description: Java 11 Schema Object implementation for CFGenKb.
+// Description: Java 11 Schema Object implementation for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,140 +27,140 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-public class CFGenKbSchemaObj
-	implements ICFGenKbSchemaObj
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+public class YCFGenKbSchemaObj
+	implements IYCFGenKbSchemaObj
 {
-	public static String SCHEMA_NAME = "CFGenKb";
+	public static String SCHEMA_NAME = "YCFGenKb";
 	public static String SCHEMA_DBNAME = "genkb213";
-	protected CFGenKbAuthorization authorization = null;
-	protected ICFGenKbSchema backingStore = null;
+	protected YCFGenKbAuthorization authorization = null;
+	protected IYCFGenKbSchema backingStore = null;
 	protected String secClusterName = "system";
 	protected String secTenantName = "system";
 	protected String secUserName = "system";
-	protected ICFGenKbClusterObj secCluster = null;
+	protected IYCFGenKbClusterObj secCluster = null;
 	protected long secClusterId = 0L;
-	protected ICFGenKbTenantObj secTenant = null;
+	protected IYCFGenKbTenantObj secTenant = null;
 	protected long secTenantId = 0L;
-	protected ICFGenKbSecUserObj secUser = null;
+	protected IYCFGenKbSecUserObj secUser = null;
 	protected UUID secSessionUserId = null;
-	protected ICFGenKbSecSessionObj secSession = null;
+	protected IYCFGenKbSecSessionObj secSession = null;
 	protected UUID secSessionSessionId = null;
 	protected String schemaDbName = SCHEMA_DBNAME;
 	protected String lowerDbSchemaName = SCHEMA_DBNAME.toLowerCase();
-	protected ICFGenKbClusterTableObj clusterTableObj;
-	protected ICFGenKbDefClassTableObj defClassTableObj;
-	protected ICFGenKbGelBoilerplateTableObj gelBoilerplateTableObj;
-	protected ICFGenKbGelBuiltinTableObj gelBuiltinTableObj;
-	protected ICFGenKbGelCacheTableObj gelCacheTableObj;
-	protected ICFGenKbGelCallTableObj gelCallTableObj;
-	protected ICFGenKbGelConstrainTableObj gelConstrainTableObj;
-	protected ICFGenKbGelCounterTableObj gelCounterTableObj;
-	protected ICFGenKbGelErrorTableObj gelErrorTableObj;
-	protected ICFGenKbGelExecutableTableObj gelExecutableTableObj;
-	protected ICFGenKbGelExpansionTableObj gelExpansionTableObj;
-	protected ICFGenKbGelInstructionTableObj gelInstructionTableObj;
-	protected ICFGenKbGelIteratorTableObj gelIteratorTableObj;
-	protected ICFGenKbGelModifierTableObj gelModifierTableObj;
-	protected ICFGenKbGelPopTableObj gelPopTableObj;
-	protected ICFGenKbGelPushContextTableObj gelPushContextTableObj;
-	protected ICFGenKbGelPopContextTableObj gelPopContextTableObj;
-	protected ICFGenKbGelPrefixLineTableObj gelPrefixLineTableObj;
-	protected ICFGenKbGelReferenceTableObj gelReferenceTableObj;
-	protected ICFGenKbGelSequenceTableObj gelSequenceTableObj;
-	protected ICFGenKbGelSpreadTableObj gelSpreadTableObj;
-	protected ICFGenKbGelSwitchTableObj gelSwitchTableObj;
-	protected ICFGenKbGelSwitchLimbTableObj gelSwitchLimbTableObj;
-	protected ICFGenKbGenBindTableObj genBindTableObj;
-	protected ICFGenKbGenFileTableObj genFileTableObj;
-	protected ICFGenKbGenItemTableObj genItemTableObj;
-	protected ICFGenKbGenIteratorTableObj genIteratorTableObj;
-	protected ICFGenKbGenReferenceTableObj genReferenceTableObj;
-	protected ICFGenKbGenRuleTableObj genRuleTableObj;
-	protected ICFGenKbGenTruncTableObj genTruncTableObj;
-	protected ICFGenKbHostNodeTableObj hostNodeTableObj;
-	protected ICFGenKbRuleCartTableObj ruleCartTableObj;
-	protected ICFGenKbRuleTypeTableObj ruleTypeTableObj;
-	protected ICFGenKbSecAppTableObj secAppTableObj;
-	protected ICFGenKbSecDeviceTableObj secDeviceTableObj;
-	protected ICFGenKbSecFormTableObj secFormTableObj;
-	protected ICFGenKbSecGroupTableObj secGroupTableObj;
-	protected ICFGenKbSecGroupFormTableObj secGroupFormTableObj;
-	protected ICFGenKbSecGrpIncTableObj secGrpIncTableObj;
-	protected ICFGenKbSecGrpMembTableObj secGrpMembTableObj;
-	protected ICFGenKbSecSessionTableObj secSessionTableObj;
-	protected ICFGenKbSecUserTableObj secUserTableObj;
-	protected ICFGenKbSysClusterTableObj sysClusterTableObj;
-	protected ICFGenKbTSecGroupTableObj tSecGroupTableObj;
-	protected ICFGenKbTSecGrpIncTableObj tSecGrpIncTableObj;
-	protected ICFGenKbTSecGrpMembTableObj tSecGrpMembTableObj;
-	protected ICFGenKbTenantTableObj tenantTableObj;
-	protected ICFGenKbToolTableObj toolTableObj;
-	protected ICFGenKbToolSetTableObj toolSetTableObj;
+	protected IYCFGenKbClusterTableObj clusterTableObj;
+	protected IYCFGenKbDefClassTableObj defClassTableObj;
+	protected IYCFGenKbGelBoilerplateTableObj gelBoilerplateTableObj;
+	protected IYCFGenKbGelBuiltinTableObj gelBuiltinTableObj;
+	protected IYCFGenKbGelCacheTableObj gelCacheTableObj;
+	protected IYCFGenKbGelCallTableObj gelCallTableObj;
+	protected IYCFGenKbGelConstrainTableObj gelConstrainTableObj;
+	protected IYCFGenKbGelCounterTableObj gelCounterTableObj;
+	protected IYCFGenKbGelErrorTableObj gelErrorTableObj;
+	protected IYCFGenKbGelExecutableTableObj gelExecutableTableObj;
+	protected IYCFGenKbGelExpansionTableObj gelExpansionTableObj;
+	protected IYCFGenKbGelInstructionTableObj gelInstructionTableObj;
+	protected IYCFGenKbGelIteratorTableObj gelIteratorTableObj;
+	protected IYCFGenKbGelModifierTableObj gelModifierTableObj;
+	protected IYCFGenKbGelPopTableObj gelPopTableObj;
+	protected IYCFGenKbGelPushContextTableObj gelPushContextTableObj;
+	protected IYCFGenKbGelPopContextTableObj gelPopContextTableObj;
+	protected IYCFGenKbGelPrefixLineTableObj gelPrefixLineTableObj;
+	protected IYCFGenKbGelReferenceTableObj gelReferenceTableObj;
+	protected IYCFGenKbGelSequenceTableObj gelSequenceTableObj;
+	protected IYCFGenKbGelSpreadTableObj gelSpreadTableObj;
+	protected IYCFGenKbGelSwitchTableObj gelSwitchTableObj;
+	protected IYCFGenKbGelSwitchLimbTableObj gelSwitchLimbTableObj;
+	protected IYCFGenKbGenBindTableObj genBindTableObj;
+	protected IYCFGenKbGenFileTableObj genFileTableObj;
+	protected IYCFGenKbGenItemTableObj genItemTableObj;
+	protected IYCFGenKbGenIteratorTableObj genIteratorTableObj;
+	protected IYCFGenKbGenReferenceTableObj genReferenceTableObj;
+	protected IYCFGenKbGenRuleTableObj genRuleTableObj;
+	protected IYCFGenKbGenTruncTableObj genTruncTableObj;
+	protected IYCFGenKbHostNodeTableObj hostNodeTableObj;
+	protected IYCFGenKbRuleCartTableObj ruleCartTableObj;
+	protected IYCFGenKbRuleTypeTableObj ruleTypeTableObj;
+	protected IYCFGenKbSecAppTableObj secAppTableObj;
+	protected IYCFGenKbSecDeviceTableObj secDeviceTableObj;
+	protected IYCFGenKbSecFormTableObj secFormTableObj;
+	protected IYCFGenKbSecGroupTableObj secGroupTableObj;
+	protected IYCFGenKbSecGroupFormTableObj secGroupFormTableObj;
+	protected IYCFGenKbSecGrpIncTableObj secGrpIncTableObj;
+	protected IYCFGenKbSecGrpMembTableObj secGrpMembTableObj;
+	protected IYCFGenKbSecSessionTableObj secSessionTableObj;
+	protected IYCFGenKbSecUserTableObj secUserTableObj;
+	protected IYCFGenKbSysClusterTableObj sysClusterTableObj;
+	protected IYCFGenKbTSecGroupTableObj tSecGroupTableObj;
+	protected IYCFGenKbTSecGrpIncTableObj tSecGrpIncTableObj;
+	protected IYCFGenKbTSecGrpMembTableObj tSecGrpMembTableObj;
+	protected IYCFGenKbTenantTableObj tenantTableObj;
+	protected IYCFGenKbToolTableObj toolTableObj;
+	protected IYCFGenKbToolSetTableObj toolSetTableObj;
 
-	public CFGenKbSchemaObj() {
-		clusterTableObj = new CFGenKbClusterTableObj( this );
-		defClassTableObj = new CFGenKbDefClassTableObj( this );
-		gelBoilerplateTableObj = new CFGenKbGelBoilerplateTableObj( this );
-		gelBuiltinTableObj = new CFGenKbGelBuiltinTableObj( this );
-		gelCacheTableObj = new CFGenKbGelCacheTableObj( this );
-		gelCallTableObj = new CFGenKbGelCallTableObj( this );
-		gelConstrainTableObj = new CFGenKbGelConstrainTableObj( this );
-		gelCounterTableObj = new CFGenKbGelCounterTableObj( this );
-		gelErrorTableObj = new CFGenKbGelErrorTableObj( this );
-		gelExecutableTableObj = new CFGenKbGelExecutableTableObj( this );
-		gelExpansionTableObj = new CFGenKbGelExpansionTableObj( this );
-		gelInstructionTableObj = new CFGenKbGelInstructionTableObj( this );
-		gelIteratorTableObj = new CFGenKbGelIteratorTableObj( this );
-		gelModifierTableObj = new CFGenKbGelModifierTableObj( this );
-		gelPopTableObj = new CFGenKbGelPopTableObj( this );
-		gelPushContextTableObj = new CFGenKbGelPushContextTableObj( this );
-		gelPopContextTableObj = new CFGenKbGelPopContextTableObj( this );
-		gelPrefixLineTableObj = new CFGenKbGelPrefixLineTableObj( this );
-		gelReferenceTableObj = new CFGenKbGelReferenceTableObj( this );
-		gelSequenceTableObj = new CFGenKbGelSequenceTableObj( this );
-		gelSpreadTableObj = new CFGenKbGelSpreadTableObj( this );
-		gelSwitchTableObj = new CFGenKbGelSwitchTableObj( this );
-		gelSwitchLimbTableObj = new CFGenKbGelSwitchLimbTableObj( this );
-		genBindTableObj = new CFGenKbGenBindTableObj( this );
-		genFileTableObj = new CFGenKbGenFileTableObj( this );
-		genItemTableObj = new CFGenKbGenItemTableObj( this );
-		genIteratorTableObj = new CFGenKbGenIteratorTableObj( this );
-		genReferenceTableObj = new CFGenKbGenReferenceTableObj( this );
-		genRuleTableObj = new CFGenKbGenRuleTableObj( this );
-		genTruncTableObj = new CFGenKbGenTruncTableObj( this );
-		hostNodeTableObj = new CFGenKbHostNodeTableObj( this );
-		ruleCartTableObj = new CFGenKbRuleCartTableObj( this );
-		ruleTypeTableObj = new CFGenKbRuleTypeTableObj( this );
-		secAppTableObj = new CFGenKbSecAppTableObj( this );
-		secDeviceTableObj = new CFGenKbSecDeviceTableObj( this );
-		secFormTableObj = new CFGenKbSecFormTableObj( this );
-		secGroupTableObj = new CFGenKbSecGroupTableObj( this );
-		secGroupFormTableObj = new CFGenKbSecGroupFormTableObj( this );
-		secGrpIncTableObj = new CFGenKbSecGrpIncTableObj( this );
-		secGrpMembTableObj = new CFGenKbSecGrpMembTableObj( this );
-		secSessionTableObj = new CFGenKbSecSessionTableObj( this );
-		secUserTableObj = new CFGenKbSecUserTableObj( this );
-		sysClusterTableObj = new CFGenKbSysClusterTableObj( this );
-		tSecGroupTableObj = new CFGenKbTSecGroupTableObj( this );
-		tSecGrpIncTableObj = new CFGenKbTSecGrpIncTableObj( this );
-		tSecGrpMembTableObj = new CFGenKbTSecGrpMembTableObj( this );
-		tenantTableObj = new CFGenKbTenantTableObj( this );
-		toolTableObj = new CFGenKbToolTableObj( this );
-		toolSetTableObj = new CFGenKbToolSetTableObj( this );
+	public YCFGenKbSchemaObj() {
+		clusterTableObj = new YCFGenKbClusterTableObj( this );
+		defClassTableObj = new YCFGenKbDefClassTableObj( this );
+		gelBoilerplateTableObj = new YCFGenKbGelBoilerplateTableObj( this );
+		gelBuiltinTableObj = new YCFGenKbGelBuiltinTableObj( this );
+		gelCacheTableObj = new YCFGenKbGelCacheTableObj( this );
+		gelCallTableObj = new YCFGenKbGelCallTableObj( this );
+		gelConstrainTableObj = new YCFGenKbGelConstrainTableObj( this );
+		gelCounterTableObj = new YCFGenKbGelCounterTableObj( this );
+		gelErrorTableObj = new YCFGenKbGelErrorTableObj( this );
+		gelExecutableTableObj = new YCFGenKbGelExecutableTableObj( this );
+		gelExpansionTableObj = new YCFGenKbGelExpansionTableObj( this );
+		gelInstructionTableObj = new YCFGenKbGelInstructionTableObj( this );
+		gelIteratorTableObj = new YCFGenKbGelIteratorTableObj( this );
+		gelModifierTableObj = new YCFGenKbGelModifierTableObj( this );
+		gelPopTableObj = new YCFGenKbGelPopTableObj( this );
+		gelPushContextTableObj = new YCFGenKbGelPushContextTableObj( this );
+		gelPopContextTableObj = new YCFGenKbGelPopContextTableObj( this );
+		gelPrefixLineTableObj = new YCFGenKbGelPrefixLineTableObj( this );
+		gelReferenceTableObj = new YCFGenKbGelReferenceTableObj( this );
+		gelSequenceTableObj = new YCFGenKbGelSequenceTableObj( this );
+		gelSpreadTableObj = new YCFGenKbGelSpreadTableObj( this );
+		gelSwitchTableObj = new YCFGenKbGelSwitchTableObj( this );
+		gelSwitchLimbTableObj = new YCFGenKbGelSwitchLimbTableObj( this );
+		genBindTableObj = new YCFGenKbGenBindTableObj( this );
+		genFileTableObj = new YCFGenKbGenFileTableObj( this );
+		genItemTableObj = new YCFGenKbGenItemTableObj( this );
+		genIteratorTableObj = new YCFGenKbGenIteratorTableObj( this );
+		genReferenceTableObj = new YCFGenKbGenReferenceTableObj( this );
+		genRuleTableObj = new YCFGenKbGenRuleTableObj( this );
+		genTruncTableObj = new YCFGenKbGenTruncTableObj( this );
+		hostNodeTableObj = new YCFGenKbHostNodeTableObj( this );
+		ruleCartTableObj = new YCFGenKbRuleCartTableObj( this );
+		ruleTypeTableObj = new YCFGenKbRuleTypeTableObj( this );
+		secAppTableObj = new YCFGenKbSecAppTableObj( this );
+		secDeviceTableObj = new YCFGenKbSecDeviceTableObj( this );
+		secFormTableObj = new YCFGenKbSecFormTableObj( this );
+		secGroupTableObj = new YCFGenKbSecGroupTableObj( this );
+		secGroupFormTableObj = new YCFGenKbSecGroupFormTableObj( this );
+		secGrpIncTableObj = new YCFGenKbSecGrpIncTableObj( this );
+		secGrpMembTableObj = new YCFGenKbSecGrpMembTableObj( this );
+		secSessionTableObj = new YCFGenKbSecSessionTableObj( this );
+		secUserTableObj = new YCFGenKbSecUserTableObj( this );
+		sysClusterTableObj = new YCFGenKbSysClusterTableObj( this );
+		tSecGroupTableObj = new YCFGenKbTSecGroupTableObj( this );
+		tSecGrpIncTableObj = new YCFGenKbTSecGrpIncTableObj( this );
+		tSecGrpMembTableObj = new YCFGenKbTSecGrpMembTableObj( this );
+		tenantTableObj = new YCFGenKbTenantTableObj( this );
+		toolTableObj = new YCFGenKbToolTableObj( this );
+		toolSetTableObj = new YCFGenKbToolSetTableObj( this );
 		}
 
 	public void setSecClusterName( String value ) {
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setClusterName",
 				1,
 				"value" );
@@ -173,7 +173,7 @@ public class CFGenKbSchemaObj
 		return( secClusterName );
 	}
 
-	public ICFGenKbClusterObj getSecCluster() {
+	public IYCFGenKbClusterObj getSecCluster() {
 		if( secCluster == null ) {
 			if( authorization != null ) {
 				secCluster = getClusterTableObj().readClusterByIdIdx( authorization.getSecClusterId() );
@@ -195,7 +195,7 @@ public class CFGenKbSchemaObj
 		return( secCluster );
 	}
 
-	public void setSecCluster( ICFGenKbClusterObj value ) {
+	public void setSecCluster( IYCFGenKbClusterObj value ) {
 		secCluster = value;
 		if( secCluster == null ) {
 			return;
@@ -213,7 +213,7 @@ public class CFGenKbSchemaObj
 
 	public void setSecTenantName( String value ) {
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setTenantName",
 				1,
 				"value" );
@@ -226,7 +226,7 @@ public class CFGenKbSchemaObj
 		return( secTenantName );
 	}
 
-	public ICFGenKbTenantObj getSecTenant() {
+	public IYCFGenKbTenantObj getSecTenant() {
 		if( secTenant == null ) {
 			if( authorization != null ) {
 				secTenant = getTenantTableObj().readTenantByIdIdx( authorization.getSecTenantId() );
@@ -248,7 +248,7 @@ public class CFGenKbSchemaObj
 		return( secTenant );
 	}
 
-	public void setSecTenant( ICFGenKbTenantObj value ) {
+	public void setSecTenant( IYCFGenKbTenantObj value ) {
 		secTenant = value;
 		if( secTenant == null ) {
 			return;
@@ -266,7 +266,7 @@ public class CFGenKbSchemaObj
 
 	public void setSecUserName( String value ) {
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setUserName",
 				1,
 				"value" );
@@ -279,7 +279,7 @@ public class CFGenKbSchemaObj
 		return( secUserName );
 	}
 
-	public ICFGenKbSecUserObj getSecUser() {
+	public IYCFGenKbSecUserObj getSecUser() {
 		if( secUser == null ) {
 			if( authorization != null ) {
 				secUser = getSecUserTableObj().readSecUserByIdIdx( authorization.getSecUserId() );
@@ -298,14 +298,14 @@ public class CFGenKbSchemaObj
 		return( secUser );
 	}
 
-	public void setSecUser( ICFGenKbSecUserObj value ) {
+	public void setSecUser( IYCFGenKbSecUserObj value ) {
 		secUser = value;
 		if( secUser != null ) {
 			secUserName = secUser.getRequiredLoginId();
 			secSessionUserId = secUser.getRequiredSecUserId();
 		}
 	}
-	public ICFGenKbSecSessionObj getSecSession() {
+	public IYCFGenKbSecSessionObj getSecSession() {
 		if( secSession == null ) {
 			if( authorization != null ) {
 				secSession = getSecSessionTableObj().readSecSessionByIdIdx( authorization.getSecSessionId() );
@@ -321,7 +321,7 @@ public class CFGenKbSchemaObj
 		return( secSession );
 	}
 
-	public void setSecSession( ICFGenKbSecSessionObj value ) {
+	public void setSecSession( IYCFGenKbSecSessionObj value ) {
 		secSession = value;
 		if( secSession == null ) {
 			return;
@@ -386,7 +386,7 @@ public class CFGenKbSchemaObj
 		rollback();
 
 		if( ( argDbSchemaName == null ) || ( argDbSchemaName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"argDbSchemaName" );
@@ -410,19 +410,19 @@ public class CFGenKbSchemaObj
 	 */
 	public void releasePreparedStatements() {
 	}
-	public CFGenKbAuthorization getAuthorization() {
+	public YCFGenKbAuthorization getAuthorization() {
 		return( authorization );
 	}
 
-	public void setAuthorization( CFGenKbAuthorization value ) {
+	public void setAuthorization( YCFGenKbAuthorization value ) {
 		authorization = value;
 	}
 
-	public ICFGenKbSchema getBackingStore() {
+	public IYCFGenKbSchema getBackingStore() {
 		return( backingStore );
 	}
 
-	public void setBackingStore( ICFGenKbSchema value ) {
+	public void setBackingStore( IYCFGenKbSchema value ) {
 		backingStore = value;
 	}
 
@@ -450,25 +450,25 @@ public class CFGenKbSchemaObj
 	public boolean connect( String clusterName, String tenantName, String secUserName, String password ) {
 		final String S_ProcName = "connect-full";
 		if( ( clusterName == null ) || ( clusterName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"clusterName" );
 		}
 		if( ( tenantName == null ) || ( tenantName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"tenantName" );
 		}
 		if( ( secUserName == null ) || ( secUserName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				3,
 				"secUserName" );
 		}
 		if( ( password == null ) || ( password.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				5,
 				"password" );
@@ -494,7 +494,7 @@ public class CFGenKbSchemaObj
 		{
 			if( secCluster == null ) {
 				secCluster = getClusterTableObj().newInstance();
-				ICFGenKbClusterEditObj editCluster = secCluster.getEdit();
+				IYCFGenKbClusterEditObj editCluster = secCluster.getEdit();
 				if( editCluster == null ) {
 					editCluster = secCluster.beginEdit();
 					editCluster.setRequiredDescription( "system" );
@@ -505,7 +505,7 @@ public class CFGenKbSchemaObj
 			}
 			if( secTenant == null ) {
 				secTenant = getTenantTableObj().newInstance();
-				ICFGenKbTenantEditObj editTenant = secTenant.getEdit();
+				IYCFGenKbTenantEditObj editTenant = secTenant.getEdit();
 				if( editTenant == null ) {
 					editTenant = secTenant.beginEdit();
 					editTenant.setRequiredContainerCluster( secCluster);
@@ -516,7 +516,7 @@ public class CFGenKbSchemaObj
 			}
 			if( secUser == null ) {
 				secUser = getSecUserTableObj().newInstance();
-				ICFGenKbSecUserEditObj editSecUser = secUser.getEdit();
+				IYCFGenKbSecUserEditObj editSecUser = secUser.getEdit();
 				if( editSecUser == null ) {
 					editSecUser = secUser.beginEdit();
 					editSecUser.setRequiredEMailAddress( "system" );
@@ -532,13 +532,13 @@ public class CFGenKbSchemaObj
 			secTenant = null;
 			secUser = null;
 			secSession = null;
-			ICFGenKbClusterObj cluster = getSecCluster();
-			ICFGenKbTenantObj tenant = getSecTenant();
-			ICFGenKbSecUserObj user = getSecUser();
-			ICFGenKbSecSessionObj session;
+			IYCFGenKbClusterObj cluster = getSecCluster();
+			IYCFGenKbTenantObj tenant = getSecTenant();
+			IYCFGenKbSecUserObj user = getSecUser();
+			IYCFGenKbSecSessionObj session;
 			if( ( cluster != null ) && ( tenant != null ) && ( user != null ) ) {
 				session = getSecSessionTableObj().newInstance();
-				ICFGenKbSecSessionEditObj sessionEdit = session.beginEdit();
+				IYCFGenKbSecSessionEditObj sessionEdit = session.beginEdit();
 				sessionEdit.setRequiredContainerSecUser( user );
 				sessionEdit.setRequiredStart( Calendar.getInstance() );
 				sessionEdit.setOptionalFinish( null );
@@ -552,12 +552,12 @@ public class CFGenKbSchemaObj
 			if( ( cluster == null ) || ( tenant == null ) || ( user == null ) || ( session == null ) ) {
 				disconnect( false );
 				authorization = null;
-				throw new CFLibRuntimeException( getClass(),
+				throw new YCFLibRuntimeException( getClass(),
 					S_ProcName,
 					"Could not resolve cluster name, tenant name, user name, or session.  Login cancelled" );
 			}
 			if( authorization == null ) {
-				authorization = new CFGenKbAuthorization();
+				authorization = new YCFGenKbAuthorization();
 			}
 			authorization.setSecCluster( cluster );
 			authorization.setSecTenant( tenant );
@@ -572,13 +572,13 @@ public class CFGenKbSchemaObj
 		secTenant = null;
 		secUser = null;
 		secSession = null;
-		ICFGenKbClusterObj cluster = getSecCluster();
-		ICFGenKbTenantObj tenant = getSecTenant();
-		ICFGenKbSecUserObj user = getSecUser();
-		ICFGenKbSecSessionObj session;
+		IYCFGenKbClusterObj cluster = getSecCluster();
+		IYCFGenKbTenantObj tenant = getSecTenant();
+		IYCFGenKbSecUserObj user = getSecUser();
+		IYCFGenKbSecSessionObj session;
 		if( ( cluster != null ) && ( tenant != null ) && ( user != null ) ) {
 			session = getSecSessionTableObj().newInstance();
-			ICFGenKbSecSessionEditObj sessionEdit = session.beginEdit();
+			IYCFGenKbSecSessionEditObj sessionEdit = session.beginEdit();
 			sessionEdit.setRequiredContainerSecUser( user );
 			sessionEdit.setRequiredStart( Calendar.getInstance() );
 			sessionEdit.setOptionalFinish( null );
@@ -595,12 +595,12 @@ public class CFGenKbSchemaObj
 		if( ( cluster == null ) || ( tenant == null ) || ( user == null ) || ( session == null ) ) {
 			disconnect( false );
 			authorization = null;
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Could not resolve cluster name, tenant name, user name, or session.  Login cancelled" );
 		}
 		if( authorization == null ) {
-			authorization = new CFGenKbAuthorization();
+			authorization = new YCFGenKbAuthorization();
 		}
 		authorization.setSecCluster( cluster );
 		authorization.setSecTenant( tenant );
@@ -632,10 +632,10 @@ public class CFGenKbSchemaObj
 				}
 				UUID secSessionId = authorization.getSecSessionId();
 				if( secSessionId != null ) {
-					ICFGenKbSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
+					IYCFGenKbSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
 					if( secSession != null ) {
 						if( secSession.getOptionalFinish() == null ) {
-							ICFGenKbSecSessionEditObj editSecSession = secSession.beginEdit();
+							IYCFGenKbSecSessionEditObj editSecSession = secSession.beginEdit();
 							editSecSession.setOptionalFinish( Calendar.getInstance() );
 							editSecSession.update();
 							editSecSession = null;
@@ -822,199 +822,199 @@ public class CFGenKbSchemaObj
 	public void rollback() {
 		backingStore.rollback();
 	}
-	public ICFGenKbClusterTableObj getClusterTableObj() {
+	public IYCFGenKbClusterTableObj getClusterTableObj() {
 		return( clusterTableObj );
 	}
 
-	public ICFGenKbDefClassTableObj getDefClassTableObj() {
+	public IYCFGenKbDefClassTableObj getDefClassTableObj() {
 		return( defClassTableObj );
 	}
 
-	public ICFGenKbGelBoilerplateTableObj getGelBoilerplateTableObj() {
+	public IYCFGenKbGelBoilerplateTableObj getGelBoilerplateTableObj() {
 		return( gelBoilerplateTableObj );
 	}
 
-	public ICFGenKbGelBuiltinTableObj getGelBuiltinTableObj() {
+	public IYCFGenKbGelBuiltinTableObj getGelBuiltinTableObj() {
 		return( gelBuiltinTableObj );
 	}
 
-	public ICFGenKbGelCacheTableObj getGelCacheTableObj() {
+	public IYCFGenKbGelCacheTableObj getGelCacheTableObj() {
 		return( gelCacheTableObj );
 	}
 
-	public ICFGenKbGelCallTableObj getGelCallTableObj() {
+	public IYCFGenKbGelCallTableObj getGelCallTableObj() {
 		return( gelCallTableObj );
 	}
 
-	public ICFGenKbGelConstrainTableObj getGelConstrainTableObj() {
+	public IYCFGenKbGelConstrainTableObj getGelConstrainTableObj() {
 		return( gelConstrainTableObj );
 	}
 
-	public ICFGenKbGelCounterTableObj getGelCounterTableObj() {
+	public IYCFGenKbGelCounterTableObj getGelCounterTableObj() {
 		return( gelCounterTableObj );
 	}
 
-	public ICFGenKbGelErrorTableObj getGelErrorTableObj() {
+	public IYCFGenKbGelErrorTableObj getGelErrorTableObj() {
 		return( gelErrorTableObj );
 	}
 
-	public ICFGenKbGelExecutableTableObj getGelExecutableTableObj() {
+	public IYCFGenKbGelExecutableTableObj getGelExecutableTableObj() {
 		return( gelExecutableTableObj );
 	}
 
-	public ICFGenKbGelExpansionTableObj getGelExpansionTableObj() {
+	public IYCFGenKbGelExpansionTableObj getGelExpansionTableObj() {
 		return( gelExpansionTableObj );
 	}
 
-	public ICFGenKbGelInstructionTableObj getGelInstructionTableObj() {
+	public IYCFGenKbGelInstructionTableObj getGelInstructionTableObj() {
 		return( gelInstructionTableObj );
 	}
 
-	public ICFGenKbGelIteratorTableObj getGelIteratorTableObj() {
+	public IYCFGenKbGelIteratorTableObj getGelIteratorTableObj() {
 		return( gelIteratorTableObj );
 	}
 
-	public ICFGenKbGelModifierTableObj getGelModifierTableObj() {
+	public IYCFGenKbGelModifierTableObj getGelModifierTableObj() {
 		return( gelModifierTableObj );
 	}
 
-	public ICFGenKbGelPopTableObj getGelPopTableObj() {
+	public IYCFGenKbGelPopTableObj getGelPopTableObj() {
 		return( gelPopTableObj );
 	}
 
-	public ICFGenKbGelPushContextTableObj getGelPushContextTableObj() {
+	public IYCFGenKbGelPushContextTableObj getGelPushContextTableObj() {
 		return( gelPushContextTableObj );
 	}
 
-	public ICFGenKbGelPopContextTableObj getGelPopContextTableObj() {
+	public IYCFGenKbGelPopContextTableObj getGelPopContextTableObj() {
 		return( gelPopContextTableObj );
 	}
 
-	public ICFGenKbGelPrefixLineTableObj getGelPrefixLineTableObj() {
+	public IYCFGenKbGelPrefixLineTableObj getGelPrefixLineTableObj() {
 		return( gelPrefixLineTableObj );
 	}
 
-	public ICFGenKbGelReferenceTableObj getGelReferenceTableObj() {
+	public IYCFGenKbGelReferenceTableObj getGelReferenceTableObj() {
 		return( gelReferenceTableObj );
 	}
 
-	public ICFGenKbGelSequenceTableObj getGelSequenceTableObj() {
+	public IYCFGenKbGelSequenceTableObj getGelSequenceTableObj() {
 		return( gelSequenceTableObj );
 	}
 
-	public ICFGenKbGelSpreadTableObj getGelSpreadTableObj() {
+	public IYCFGenKbGelSpreadTableObj getGelSpreadTableObj() {
 		return( gelSpreadTableObj );
 	}
 
-	public ICFGenKbGelSwitchTableObj getGelSwitchTableObj() {
+	public IYCFGenKbGelSwitchTableObj getGelSwitchTableObj() {
 		return( gelSwitchTableObj );
 	}
 
-	public ICFGenKbGelSwitchLimbTableObj getGelSwitchLimbTableObj() {
+	public IYCFGenKbGelSwitchLimbTableObj getGelSwitchLimbTableObj() {
 		return( gelSwitchLimbTableObj );
 	}
 
-	public ICFGenKbGenBindTableObj getGenBindTableObj() {
+	public IYCFGenKbGenBindTableObj getGenBindTableObj() {
 		return( genBindTableObj );
 	}
 
-	public ICFGenKbGenFileTableObj getGenFileTableObj() {
+	public IYCFGenKbGenFileTableObj getGenFileTableObj() {
 		return( genFileTableObj );
 	}
 
-	public ICFGenKbGenItemTableObj getGenItemTableObj() {
+	public IYCFGenKbGenItemTableObj getGenItemTableObj() {
 		return( genItemTableObj );
 	}
 
-	public ICFGenKbGenIteratorTableObj getGenIteratorTableObj() {
+	public IYCFGenKbGenIteratorTableObj getGenIteratorTableObj() {
 		return( genIteratorTableObj );
 	}
 
-	public ICFGenKbGenReferenceTableObj getGenReferenceTableObj() {
+	public IYCFGenKbGenReferenceTableObj getGenReferenceTableObj() {
 		return( genReferenceTableObj );
 	}
 
-	public ICFGenKbGenRuleTableObj getGenRuleTableObj() {
+	public IYCFGenKbGenRuleTableObj getGenRuleTableObj() {
 		return( genRuleTableObj );
 	}
 
-	public ICFGenKbGenTruncTableObj getGenTruncTableObj() {
+	public IYCFGenKbGenTruncTableObj getGenTruncTableObj() {
 		return( genTruncTableObj );
 	}
 
-	public ICFGenKbHostNodeTableObj getHostNodeTableObj() {
+	public IYCFGenKbHostNodeTableObj getHostNodeTableObj() {
 		return( hostNodeTableObj );
 	}
 
-	public ICFGenKbRuleCartTableObj getRuleCartTableObj() {
+	public IYCFGenKbRuleCartTableObj getRuleCartTableObj() {
 		return( ruleCartTableObj );
 	}
 
-	public ICFGenKbRuleTypeTableObj getRuleTypeTableObj() {
+	public IYCFGenKbRuleTypeTableObj getRuleTypeTableObj() {
 		return( ruleTypeTableObj );
 	}
 
-	public ICFGenKbSecAppTableObj getSecAppTableObj() {
+	public IYCFGenKbSecAppTableObj getSecAppTableObj() {
 		return( secAppTableObj );
 	}
 
-	public ICFGenKbSecDeviceTableObj getSecDeviceTableObj() {
+	public IYCFGenKbSecDeviceTableObj getSecDeviceTableObj() {
 		return( secDeviceTableObj );
 	}
 
-	public ICFGenKbSecFormTableObj getSecFormTableObj() {
+	public IYCFGenKbSecFormTableObj getSecFormTableObj() {
 		return( secFormTableObj );
 	}
 
-	public ICFGenKbSecGroupTableObj getSecGroupTableObj() {
+	public IYCFGenKbSecGroupTableObj getSecGroupTableObj() {
 		return( secGroupTableObj );
 	}
 
-	public ICFGenKbSecGroupFormTableObj getSecGroupFormTableObj() {
+	public IYCFGenKbSecGroupFormTableObj getSecGroupFormTableObj() {
 		return( secGroupFormTableObj );
 	}
 
-	public ICFGenKbSecGrpIncTableObj getSecGrpIncTableObj() {
+	public IYCFGenKbSecGrpIncTableObj getSecGrpIncTableObj() {
 		return( secGrpIncTableObj );
 	}
 
-	public ICFGenKbSecGrpMembTableObj getSecGrpMembTableObj() {
+	public IYCFGenKbSecGrpMembTableObj getSecGrpMembTableObj() {
 		return( secGrpMembTableObj );
 	}
 
-	public ICFGenKbSecSessionTableObj getSecSessionTableObj() {
+	public IYCFGenKbSecSessionTableObj getSecSessionTableObj() {
 		return( secSessionTableObj );
 	}
 
-	public ICFGenKbSecUserTableObj getSecUserTableObj() {
+	public IYCFGenKbSecUserTableObj getSecUserTableObj() {
 		return( secUserTableObj );
 	}
 
-	public ICFGenKbSysClusterTableObj getSysClusterTableObj() {
+	public IYCFGenKbSysClusterTableObj getSysClusterTableObj() {
 		return( sysClusterTableObj );
 	}
 
-	public ICFGenKbTSecGroupTableObj getTSecGroupTableObj() {
+	public IYCFGenKbTSecGroupTableObj getTSecGroupTableObj() {
 		return( tSecGroupTableObj );
 	}
 
-	public ICFGenKbTSecGrpIncTableObj getTSecGrpIncTableObj() {
+	public IYCFGenKbTSecGrpIncTableObj getTSecGrpIncTableObj() {
 		return( tSecGrpIncTableObj );
 	}
 
-	public ICFGenKbTSecGrpMembTableObj getTSecGrpMembTableObj() {
+	public IYCFGenKbTSecGrpMembTableObj getTSecGrpMembTableObj() {
 		return( tSecGrpMembTableObj );
 	}
 
-	public ICFGenKbTenantTableObj getTenantTableObj() {
+	public IYCFGenKbTenantTableObj getTenantTableObj() {
 		return( tenantTableObj );
 	}
 
-	public ICFGenKbToolTableObj getToolTableObj() {
+	public IYCFGenKbToolTableObj getToolTableObj() {
 		return( toolTableObj );
 	}
 
-	public ICFGenKbToolSetTableObj getToolSetTableObj() {
+	public IYCFGenKbToolSetTableObj getToolSetTableObj() {
 		return( toolSetTableObj );
 	}
 }

@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for SecApp.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbSecAppTable database interface for SecApp
+ *	YCFGenKbSecAppTable database interface for SecApp
  */
-public interface ICFGenKbSecAppTable
+public interface IYCFGenKbSecAppTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecApp( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppBuff Buff );
+	void createSecApp( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecApp( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppBuff Buff );
+	void updateSecApp( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecApp( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppBuff Buff );
+	void deleteSecApp( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppBuff Buff );
 	/**
 	 *	Delete the SecApp instance identified by the primary key attributes.
 	 *
@@ -88,7 +88,7 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@param	argSecAppId	The SecApp key attribute of the instance generating the id.
 	 */
-	void deleteSecAppByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteSecAppByIdIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecAppId );
 
@@ -99,8 +99,8 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecAppByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey argKey );
+	void deleteSecAppByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey argKey );
 	/**
 	 *	Delete the SecApp instances identified by the key ClusterIdx.
 	 *
@@ -108,7 +108,7 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@param	argClusterId	The SecApp key attribute of the instance generating the id.
 	 */
-	void deleteSecAppByClusterIdx( CFGenKbAuthorization Authorization,
+	void deleteSecAppByClusterIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -118,8 +118,8 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecAppByClusterIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppByClusterIdxKey argKey );
+	void deleteSecAppByClusterIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppByClusterIdxKey argKey );
 	/**
 	 *	Delete the SecApp instances identified by the key UJEEMountIdx.
 	 *
@@ -129,7 +129,7 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@param	argJEEMountName	The SecApp key attribute of the instance generating the id.
 	 */
-	void deleteSecAppByUJEEMountIdx( CFGenKbAuthorization Authorization,
+	void deleteSecAppByUJEEMountIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		String argJEEMountName );
 
@@ -140,8 +140,8 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecAppByUJEEMountIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppByUJEEMountIdxKey argKey );
+	void deleteSecAppByUJEEMountIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppByUJEEMountIdxKey argKey );
 
 
 	/**
@@ -154,8 +154,8 @@ public interface ICFGenKbSecAppTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecAppBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey PKey );
+	YCFGenKbSecAppBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey PKey );
 
 	/**
 	 *	Lock the derived SecApp buffer instance by primary key.
@@ -167,8 +167,8 @@ public interface ICFGenKbSecAppTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecAppBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey PKey );
+	YCFGenKbSecAppBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey PKey );
 
 	/**
 	 *	Read all SecApp instances.
@@ -177,7 +177,7 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecAppBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbSecAppBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecApp buffer instance identified by the unique key IdIdx.
@@ -191,7 +191,7 @@ public interface ICFGenKbSecAppTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecAppBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecAppBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId );
 
@@ -204,7 +204,7 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecAppBuff[] readDerivedByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecAppBuff[] readDerivedByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -219,7 +219,7 @@ public interface ICFGenKbSecAppTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecAppBuff readDerivedByUJEEMountIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecAppBuff readDerivedByUJEEMountIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String JEEMountName );
 
@@ -233,10 +233,10 @@ public interface ICFGenKbSecAppTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecAppBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey PKey );
+	YCFGenKbSecAppBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey PKey );
 
 	/**
 	 *	Lock the specific SecApp buffer instance identified by the primary key.
@@ -248,10 +248,10 @@ public interface ICFGenKbSecAppTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecAppBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey PKey );
+	YCFGenKbSecAppBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey PKey );
 
 	/**
 	 *	Read all the specific SecApp buffer instances.
@@ -260,7 +260,7 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@return All the specific SecApp instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSecAppBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbSecAppBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific SecApp buffer instances.
@@ -269,7 +269,7 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@return All the specific SecApp instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSecAppBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	YCFGenKbSecAppBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		Long priorClusterId,
 		Integer priorSecAppId );
 
@@ -285,9 +285,9 @@ public interface ICFGenKbSecAppTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecAppBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecAppBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId );
 
@@ -300,9 +300,9 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecAppBuff[] readBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecAppBuff[] readBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -317,9 +317,9 @@ public interface ICFGenKbSecAppTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecAppBuff readBuffByUJEEMountIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecAppBuff readBuffByUJEEMountIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String JEEMountName );
 
@@ -332,9 +332,9 @@ public interface ICFGenKbSecAppTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecAppBuff[] pageBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecAppBuff[] pageBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Integer priorSecAppId );
@@ -342,7 +342,7 @@ public interface ICFGenKbSecAppTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

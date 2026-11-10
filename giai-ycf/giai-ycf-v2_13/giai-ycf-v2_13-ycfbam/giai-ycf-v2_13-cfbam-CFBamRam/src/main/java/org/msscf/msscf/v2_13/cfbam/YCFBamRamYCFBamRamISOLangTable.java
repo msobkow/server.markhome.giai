@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for ISOLang.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,71 +27,71 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamISOLangTable in-memory RAM DbIO implementation
+ *	YCFBamRamISOLangTable in-memory RAM DbIO implementation
  *	for ISOLang.
  */
-public class CFBamRamISOLangTable
-	implements ICFBamISOLangTable
+public class YCFBamRamISOLangTable
+	implements IYCFBamISOLangTable
 {
-	private ICFBamSchema schema;
-	private Map< CFSecISOLangPKey,
-				CFSecISOLangBuff > dictByPKey
-		= new HashMap< CFSecISOLangPKey,
-				CFSecISOLangBuff >();
-	private Map< CFSecISOLangByCode3IdxKey,
-			CFSecISOLangBuff > dictByCode3Idx
-		= new HashMap< CFSecISOLangByCode3IdxKey,
-			CFSecISOLangBuff >();
-	private Map< CFSecISOLangByCode2IdxKey,
-				Map< CFSecISOLangPKey,
-					CFSecISOLangBuff >> dictByCode2Idx
-		= new HashMap< CFSecISOLangByCode2IdxKey,
-				Map< CFSecISOLangPKey,
-					CFSecISOLangBuff >>();
+	private IYCFBamSchema schema;
+	private Map< YCFSecISOLangPKey,
+				YCFSecISOLangBuff > dictByPKey
+		= new HashMap< YCFSecISOLangPKey,
+				YCFSecISOLangBuff >();
+	private Map< YCFSecISOLangByCode3IdxKey,
+			YCFSecISOLangBuff > dictByCode3Idx
+		= new HashMap< YCFSecISOLangByCode3IdxKey,
+			YCFSecISOLangBuff >();
+	private Map< YCFSecISOLangByCode2IdxKey,
+				Map< YCFSecISOLangPKey,
+					YCFSecISOLangBuff >> dictByCode2Idx
+		= new HashMap< YCFSecISOLangByCode2IdxKey,
+				Map< YCFSecISOLangPKey,
+					YCFSecISOLangBuff >>();
 
-	public CFBamRamISOLangTable( ICFBamSchema argSchema ) {
+	public YCFBamRamISOLangTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createISOLang( CFSecAuthorization Authorization,
-		CFSecISOLangBuff Buff )
+	public void createISOLang( YCFSecAuthorization Authorization,
+		YCFSecISOLangBuff Buff )
 	{
 		final String S_ProcName = "createISOLang";
-		CFSecISOLangPKey pkey = schema.getFactoryISOLang().newPKey();
+		YCFSecISOLangPKey pkey = schema.getFactoryISOLang().newPKey();
 		pkey.setRequiredISOLangId( schema.nextISOLangIdGen() );
 		Buff.setRequiredISOLangId( pkey.getRequiredISOLangId() );
-		CFSecISOLangByCode3IdxKey keyCode3Idx = schema.getFactoryISOLang().newCode3IdxKey();
+		YCFSecISOLangByCode3IdxKey keyCode3Idx = schema.getFactoryISOLang().newCode3IdxKey();
 		keyCode3Idx.setRequiredISO6392Code( Buff.getRequiredISO6392Code() );
 
-		CFSecISOLangByCode2IdxKey keyCode2Idx = schema.getFactoryISOLang().newCode2IdxKey();
+		YCFSecISOLangByCode2IdxKey keyCode2Idx = schema.getFactoryISOLang().newCode2IdxKey();
 		keyCode2Idx.setOptionalISO6391Code( Buff.getOptionalISO6391Code() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByCode3Idx.containsKey( keyCode3Idx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"ISOLang6392Idx",
 				keyCode3Idx );
@@ -105,25 +105,25 @@ public class CFBamRamISOLangTable
 
 		dictByCode3Idx.put( keyCode3Idx, Buff );
 
-		Map< CFSecISOLangPKey, CFSecISOLangBuff > subdictCode2Idx;
+		Map< YCFSecISOLangPKey, YCFSecISOLangBuff > subdictCode2Idx;
 		if( dictByCode2Idx.containsKey( keyCode2Idx ) ) {
 			subdictCode2Idx = dictByCode2Idx.get( keyCode2Idx );
 		}
 		else {
-			subdictCode2Idx = new HashMap< CFSecISOLangPKey, CFSecISOLangBuff >();
+			subdictCode2Idx = new HashMap< YCFSecISOLangPKey, YCFSecISOLangBuff >();
 			dictByCode2Idx.put( keyCode2Idx, subdictCode2Idx );
 		}
 		subdictCode2Idx.put( pkey, Buff );
 
 	}
 
-	public CFSecISOLangBuff readDerived( CFSecAuthorization Authorization,
-		CFSecISOLangPKey PKey )
+	public YCFSecISOLangBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readDerived";
-		CFSecISOLangPKey key = schema.getFactoryISOLang().newPKey();
+		final String S_ProcName = "YCFBamRamISOLang.readDerived";
+		YCFSecISOLangPKey key = schema.getFactoryISOLang().newPKey();
 		key.setRequiredISOLangId( PKey.getRequiredISOLangId() );
-		CFSecISOLangBuff buff;
+		YCFSecISOLangBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -133,13 +133,13 @@ public class CFBamRamISOLangTable
 		return( buff );
 	}
 
-	public CFSecISOLangBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecISOLangPKey PKey )
+	public YCFSecISOLangBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readDerived";
-		CFSecISOLangPKey key = schema.getFactoryISOLang().newPKey();
+		final String S_ProcName = "YCFBamRamISOLang.readDerived";
+		YCFSecISOLangPKey key = schema.getFactoryISOLang().newPKey();
 		key.setRequiredISOLangId( PKey.getRequiredISOLangId() );
-		CFSecISOLangBuff buff;
+		YCFSecISOLangBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -149,10 +149,10 @@ public class CFBamRamISOLangTable
 		return( buff );
 	}
 
-	public CFSecISOLangBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamISOLang.readAllDerived";
-		CFSecISOLangBuff[] retList = new CFSecISOLangBuff[ dictByPKey.values().size() ];
-		Iterator< CFSecISOLangBuff > iter = dictByPKey.values().iterator();
+	public YCFSecISOLangBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamISOLang.readAllDerived";
+		YCFSecISOLangBuff[] retList = new YCFSecISOLangBuff[ dictByPKey.values().size() ];
+		Iterator< YCFSecISOLangBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -160,14 +160,14 @@ public class CFBamRamISOLangTable
 		return( retList );
 	}
 
-	public CFSecISOLangBuff readDerivedByCode3Idx( CFSecAuthorization Authorization,
+	public YCFSecISOLangBuff readDerivedByCode3Idx( YCFSecAuthorization Authorization,
 		String ISO6392Code )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readDerivedByCode3Idx";
-		CFSecISOLangByCode3IdxKey key = schema.getFactoryISOLang().newCode3IdxKey();
+		final String S_ProcName = "YCFBamRamISOLang.readDerivedByCode3Idx";
+		YCFSecISOLangByCode3IdxKey key = schema.getFactoryISOLang().newCode3IdxKey();
 		key.setRequiredISO6392Code( ISO6392Code );
 
-		CFSecISOLangBuff buff;
+		YCFSecISOLangBuff buff;
 		if( dictByCode3Idx.containsKey( key ) ) {
 			buff = dictByCode3Idx.get( key );
 		}
@@ -177,41 +177,41 @@ public class CFBamRamISOLangTable
 		return( buff );
 	}
 
-	public CFSecISOLangBuff[] readDerivedByCode2Idx( CFSecAuthorization Authorization,
+	public YCFSecISOLangBuff[] readDerivedByCode2Idx( YCFSecAuthorization Authorization,
 		String ISO6391Code )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readDerivedByCode2Idx";
-		CFSecISOLangByCode2IdxKey key = schema.getFactoryISOLang().newCode2IdxKey();
+		final String S_ProcName = "YCFBamRamISOLang.readDerivedByCode2Idx";
+		YCFSecISOLangByCode2IdxKey key = schema.getFactoryISOLang().newCode2IdxKey();
 		key.setOptionalISO6391Code( ISO6391Code );
 
-		CFSecISOLangBuff[] recArray;
+		YCFSecISOLangBuff[] recArray;
 		if( dictByCode2Idx.containsKey( key ) ) {
-			Map< CFSecISOLangPKey, CFSecISOLangBuff > subdictCode2Idx
+			Map< YCFSecISOLangPKey, YCFSecISOLangBuff > subdictCode2Idx
 				= dictByCode2Idx.get( key );
-			recArray = new CFSecISOLangBuff[ subdictCode2Idx.size() ];
-			Iterator< CFSecISOLangBuff > iter = subdictCode2Idx.values().iterator();
+			recArray = new YCFSecISOLangBuff[ subdictCode2Idx.size() ];
+			Iterator< YCFSecISOLangBuff > iter = subdictCode2Idx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecISOLangPKey, CFSecISOLangBuff > subdictCode2Idx
-				= new HashMap< CFSecISOLangPKey, CFSecISOLangBuff >();
+			Map< YCFSecISOLangPKey, YCFSecISOLangBuff > subdictCode2Idx
+				= new HashMap< YCFSecISOLangPKey, YCFSecISOLangBuff >();
 			dictByCode2Idx.put( key, subdictCode2Idx );
-			recArray = new CFSecISOLangBuff[0];
+			recArray = new YCFSecISOLangBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecISOLangBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecISOLangBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		short ISOLangId )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readDerivedByIdIdx() ";
-		CFSecISOLangPKey key = schema.getFactoryISOLang().newPKey();
+		final String S_ProcName = "YCFBamRamISOLang.readDerivedByIdIdx() ";
+		YCFSecISOLangPKey key = schema.getFactoryISOLang().newPKey();
 		key.setRequiredISOLangId( ISOLangId );
 
-		CFSecISOLangBuff buff;
+		YCFSecISOLangBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -221,124 +221,124 @@ public class CFBamRamISOLangTable
 		return( buff );
 	}
 
-	public CFSecISOLangBuff readBuff( CFSecAuthorization Authorization,
-		CFSecISOLangPKey PKey )
+	public YCFSecISOLangBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readBuff";
-		CFSecISOLangBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamISOLang.readBuff";
+		YCFSecISOLangBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a007" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecISOLangBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecISOLangPKey PKey )
+	public YCFSecISOLangBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFSecISOLangBuff buff = readDerived( Authorization, PKey );
+		YCFSecISOLangBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a007" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecISOLangBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFSecISOLangBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readAllBuff";
-		CFSecISOLangBuff buff;
-		ArrayList<CFSecISOLangBuff> filteredList = new ArrayList<CFSecISOLangBuff>();
-		CFSecISOLangBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamISOLang.readAllBuff";
+		YCFSecISOLangBuff buff;
+		ArrayList<YCFSecISOLangBuff> filteredList = new ArrayList<YCFSecISOLangBuff>();
+		YCFSecISOLangBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a007" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecISOLangBuff[0] ) );
+		return( filteredList.toArray( new YCFSecISOLangBuff[0] ) );
 	}
 
-	public CFSecISOLangBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecISOLangBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		short ISOLangId )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readBuffByIdIdx() ";
-		CFSecISOLangBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamISOLang.readBuffByIdIdx() ";
+		YCFSecISOLangBuff buff = readDerivedByIdIdx( Authorization,
 			ISOLangId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a007" ) ) {
-			return( (CFSecISOLangBuff)buff );
+			return( (YCFSecISOLangBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecISOLangBuff readBuffByCode3Idx( CFSecAuthorization Authorization,
+	public YCFSecISOLangBuff readBuffByCode3Idx( YCFSecAuthorization Authorization,
 		String ISO6392Code )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readBuffByCode3Idx() ";
-		CFSecISOLangBuff buff = readDerivedByCode3Idx( Authorization,
+		final String S_ProcName = "YCFBamRamISOLang.readBuffByCode3Idx() ";
+		YCFSecISOLangBuff buff = readDerivedByCode3Idx( Authorization,
 			ISO6392Code );
 		if( ( buff != null ) && buff.getClassCode().equals( "a007" ) ) {
-			return( (CFSecISOLangBuff)buff );
+			return( (YCFSecISOLangBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecISOLangBuff[] readBuffByCode2Idx( CFSecAuthorization Authorization,
+	public YCFSecISOLangBuff[] readBuffByCode2Idx( YCFSecAuthorization Authorization,
 		String ISO6391Code )
 	{
-		final String S_ProcName = "CFBamRamISOLang.readBuffByCode2Idx() ";
-		CFSecISOLangBuff buff;
-		ArrayList<CFSecISOLangBuff> filteredList = new ArrayList<CFSecISOLangBuff>();
-		CFSecISOLangBuff[] buffList = readDerivedByCode2Idx( Authorization,
+		final String S_ProcName = "YCFBamRamISOLang.readBuffByCode2Idx() ";
+		YCFSecISOLangBuff buff;
+		ArrayList<YCFSecISOLangBuff> filteredList = new ArrayList<YCFSecISOLangBuff>();
+		YCFSecISOLangBuff[] buffList = readDerivedByCode2Idx( Authorization,
 			ISO6391Code );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a007" ) ) {
-				filteredList.add( (CFSecISOLangBuff)buff );
+				filteredList.add( (YCFSecISOLangBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecISOLangBuff[0] ) );
+		return( filteredList.toArray( new YCFSecISOLangBuff[0] ) );
 	}
 
-	public void updateISOLang( CFSecAuthorization Authorization,
-		CFSecISOLangBuff Buff )
+	public void updateISOLang( YCFSecAuthorization Authorization,
+		YCFSecISOLangBuff Buff )
 	{
-		CFSecISOLangPKey pkey = schema.getFactoryISOLang().newPKey();
+		YCFSecISOLangPKey pkey = schema.getFactoryISOLang().newPKey();
 		pkey.setRequiredISOLangId( Buff.getRequiredISOLangId() );
-		CFSecISOLangBuff existing = dictByPKey.get( pkey );
+		YCFSecISOLangBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateISOLang",
 				"Existing record not found",
 				"ISOLang",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateISOLang",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFSecISOLangByCode3IdxKey existingKeyCode3Idx = schema.getFactoryISOLang().newCode3IdxKey();
+		YCFSecISOLangByCode3IdxKey existingKeyCode3Idx = schema.getFactoryISOLang().newCode3IdxKey();
 		existingKeyCode3Idx.setRequiredISO6392Code( existing.getRequiredISO6392Code() );
 
-		CFSecISOLangByCode3IdxKey newKeyCode3Idx = schema.getFactoryISOLang().newCode3IdxKey();
+		YCFSecISOLangByCode3IdxKey newKeyCode3Idx = schema.getFactoryISOLang().newCode3IdxKey();
 		newKeyCode3Idx.setRequiredISO6392Code( Buff.getRequiredISO6392Code() );
 
-		CFSecISOLangByCode2IdxKey existingKeyCode2Idx = schema.getFactoryISOLang().newCode2IdxKey();
+		YCFSecISOLangByCode2IdxKey existingKeyCode2Idx = schema.getFactoryISOLang().newCode2IdxKey();
 		existingKeyCode2Idx.setOptionalISO6391Code( existing.getOptionalISO6391Code() );
 
-		CFSecISOLangByCode2IdxKey newKeyCode2Idx = schema.getFactoryISOLang().newCode2IdxKey();
+		YCFSecISOLangByCode2IdxKey newKeyCode2Idx = schema.getFactoryISOLang().newCode2IdxKey();
 		newKeyCode2Idx.setOptionalISO6391Code( Buff.getOptionalISO6391Code() );
 
 		// Check unique indexes
 
 		if( ! existingKeyCode3Idx.equals( newKeyCode3Idx ) ) {
 			if( dictByCode3Idx.containsKey( newKeyCode3Idx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateISOLang",
 					"ISOLang6392Idx",
 					newKeyCode3Idx );
@@ -349,7 +349,7 @@ public class CFBamRamISOLangTable
 
 		// Update is valid
 
-		Map< CFSecISOLangPKey, CFSecISOLangBuff > subdict;
+		Map< YCFSecISOLangPKey, YCFSecISOLangBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -365,27 +365,27 @@ public class CFBamRamISOLangTable
 			subdict = dictByCode2Idx.get( newKeyCode2Idx );
 		}
 		else {
-			subdict = new HashMap< CFSecISOLangPKey, CFSecISOLangBuff >();
+			subdict = new HashMap< YCFSecISOLangPKey, YCFSecISOLangBuff >();
 			dictByCode2Idx.put( newKeyCode2Idx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteISOLang( CFSecAuthorization Authorization,
-		CFSecISOLangBuff Buff )
+	public void deleteISOLang( YCFSecAuthorization Authorization,
+		YCFSecISOLangBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamISOLangTable.deleteISOLang() ";
+		final String S_ProcName = "YCFBamRamISOLangTable.deleteISOLang() ";
 		String classCode;
-		CFSecISOLangPKey pkey = schema.getFactoryISOLang().newPKey();
+		YCFSecISOLangPKey pkey = schema.getFactoryISOLang().newPKey();
 		pkey.setRequiredISOLangId( Buff.getRequiredISOLangId() );
-		CFSecISOLangBuff existing = dictByPKey.get( pkey );
+		YCFSecISOLangBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteISOLang",
 				pkey );
 		}
@@ -396,16 +396,16 @@ public class CFBamRamISOLangTable
 			schema.getTableISOCtryLang().deleteISOCtryLangByLangIdx( Authorization,
 						existing.getRequiredISOLangId() );
 		}
-		CFSecISOLangByCode3IdxKey keyCode3Idx = schema.getFactoryISOLang().newCode3IdxKey();
+		YCFSecISOLangByCode3IdxKey keyCode3Idx = schema.getFactoryISOLang().newCode3IdxKey();
 		keyCode3Idx.setRequiredISO6392Code( existing.getRequiredISO6392Code() );
 
-		CFSecISOLangByCode2IdxKey keyCode2Idx = schema.getFactoryISOLang().newCode2IdxKey();
+		YCFSecISOLangByCode2IdxKey keyCode2Idx = schema.getFactoryISOLang().newCode2IdxKey();
 		keyCode2Idx.setOptionalISO6391Code( existing.getOptionalISO6391Code() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFSecISOLangPKey, CFSecISOLangBuff > subdict;
+		Map< YCFSecISOLangPKey, YCFSecISOLangBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -415,32 +415,32 @@ public class CFBamRamISOLangTable
 		subdict.remove( pkey );
 
 	}
-	public void deleteISOLangByIdIdx( CFSecAuthorization Authorization,
+	public void deleteISOLangByIdIdx( YCFSecAuthorization Authorization,
 		short argISOLangId )
 	{
-		CFSecISOLangPKey key = schema.getFactoryISOLang().newPKey();
+		YCFSecISOLangPKey key = schema.getFactoryISOLang().newPKey();
 		key.setRequiredISOLangId( argISOLangId );
 		deleteISOLangByIdIdx( Authorization, key );
 	}
 
-	public void deleteISOLangByIdIdx( CFSecAuthorization Authorization,
-		CFSecISOLangPKey argKey )
+	public void deleteISOLangByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecISOLangPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFSecISOLangBuff cur;
-		LinkedList<CFSecISOLangBuff> matchSet = new LinkedList<CFSecISOLangBuff>();
-		Iterator<CFSecISOLangBuff> values = dictByPKey.values().iterator();
+		YCFSecISOLangBuff cur;
+		LinkedList<YCFSecISOLangBuff> matchSet = new LinkedList<YCFSecISOLangBuff>();
+		Iterator<YCFSecISOLangBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOLangBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOLangBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOLang().readDerivedByIdIdx( Authorization,
@@ -449,32 +449,32 @@ public class CFBamRamISOLangTable
 		}
 	}
 
-	public void deleteISOLangByCode3Idx( CFSecAuthorization Authorization,
+	public void deleteISOLangByCode3Idx( YCFSecAuthorization Authorization,
 		String argISO6392Code )
 	{
-		CFSecISOLangByCode3IdxKey key = schema.getFactoryISOLang().newCode3IdxKey();
+		YCFSecISOLangByCode3IdxKey key = schema.getFactoryISOLang().newCode3IdxKey();
 		key.setRequiredISO6392Code( argISO6392Code );
 		deleteISOLangByCode3Idx( Authorization, key );
 	}
 
-	public void deleteISOLangByCode3Idx( CFSecAuthorization Authorization,
-		CFSecISOLangByCode3IdxKey argKey )
+	public void deleteISOLangByCode3Idx( YCFSecAuthorization Authorization,
+		YCFSecISOLangByCode3IdxKey argKey )
 	{
-		CFSecISOLangBuff cur;
+		YCFSecISOLangBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecISOLangBuff> matchSet = new LinkedList<CFSecISOLangBuff>();
-		Iterator<CFSecISOLangBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecISOLangBuff> matchSet = new LinkedList<YCFSecISOLangBuff>();
+		Iterator<YCFSecISOLangBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOLangBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOLangBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOLang().readDerivedByIdIdx( Authorization,
@@ -483,18 +483,18 @@ public class CFBamRamISOLangTable
 		}
 	}
 
-	public void deleteISOLangByCode2Idx( CFSecAuthorization Authorization,
+	public void deleteISOLangByCode2Idx( YCFSecAuthorization Authorization,
 		String argISO6391Code )
 	{
-		CFSecISOLangByCode2IdxKey key = schema.getFactoryISOLang().newCode2IdxKey();
+		YCFSecISOLangByCode2IdxKey key = schema.getFactoryISOLang().newCode2IdxKey();
 		key.setOptionalISO6391Code( argISO6391Code );
 		deleteISOLangByCode2Idx( Authorization, key );
 	}
 
-	public void deleteISOLangByCode2Idx( CFSecAuthorization Authorization,
-		CFSecISOLangByCode2IdxKey argKey )
+	public void deleteISOLangByCode2Idx( YCFSecAuthorization Authorization,
+		YCFSecISOLangByCode2IdxKey argKey )
 	{
-		CFSecISOLangBuff cur;
+		YCFSecISOLangBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalISO6391Code() != null ) {
 			anyNotNull = true;
@@ -502,15 +502,15 @@ public class CFBamRamISOLangTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecISOLangBuff> matchSet = new LinkedList<CFSecISOLangBuff>();
-		Iterator<CFSecISOLangBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecISOLangBuff> matchSet = new LinkedList<YCFSecISOLangBuff>();
+		Iterator<YCFSecISOLangBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOLangBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOLangBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOLang().readDerivedByIdIdx( Authorization,

@@ -1,17 +1,17 @@
-// Description: Java 11 Object interface for CFBam Value.
+// Description: Java 11 Object interface for YCFBam Value.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,31 +45,31 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamValueObj
-	extends ICFLibAnyObj
+public interface IYCFBamValueObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -81,9 +81,9 @@ public interface ICFBamValueObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -94,9 +94,9 @@ public interface ICFBamValueObj
 	/**
 	 *	Realise this instance of a Value.
 	 *
-	 *	@return	CFBamValueObj instance which should be subsequently referenced.
+	 *	@return	YCFBamValueObj instance which should be subsequently referenced.
 	 */
-	ICFBamValueObj realise();
+	IYCFBamValueObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -108,113 +108,113 @@ public interface ICFBamValueObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFBamValueObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFBamValueObj the reference to the cached or read (realised) instance.
 	 */
-	ICFBamValueObj read();
+	IYCFBamValueObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFBamValueObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFBamValueObj the reference to the cached or read (realised) instance.
 	 */
-	ICFBamValueObj read( boolean forceRead );
+	IYCFBamValueObj read( boolean forceRead );
 
 	/**
 	 *	Move this object up in the chain and refresh the cache.
 	 *
-	 *	@return	ICFBamValueObj the reference to the moved and refreshed instance.
+	 *	@return	IYCFBamValueObj the reference to the moved and refreshed instance.
 	 */
-	ICFBamValueObj moveUp();
+	IYCFBamValueObj moveUp();
 
 	/**
 	 *	Move this object down in the chain and refresh the cache.
 	 *
-	 *	@return	ICFBamValueObj the reference to the moved and refreshed instance.
+	 *	@return	IYCFBamValueObj the reference to the moved and refreshed instance.
 	 */
-	ICFBamValueObj moveDown();
+	IYCFBamValueObj moveDown();
 
 	/**
 	 *	Initialize and return a locked edition of this Value instance.
 	 *
-	 *	@return	The newly locked ICFBamValueEditObj edition of this instance.
+	 *	@return	The newly locked IYCFBamValueEditObj edition of this instance.
 	 */
-	ICFBamValueEditObj beginEdit();
+	IYCFBamValueEditObj beginEdit();
 
 	/**
 	 *	End this edition of this Value instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this Value instance.
 	 *
-	 *	@return	The ICFBamValueEditObj edition of this instance.
+	 *	@return	The IYCFBamValueEditObj edition of this instance.
 	 */
-	ICFBamValueEditObj getEdit();
+	IYCFBamValueEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this Value instance as a ICFBamValueEditObj.
+	 *	Get the current edition of this Value instance as a IYCFBamValueEditObj.
 	 *
-	 *	@return	The ICFBamValueEditObj edition of this instance.
+	 *	@return	The IYCFBamValueEditObj edition of this instance.
 	 */
-	ICFBamValueEditObj getEditAsValue();
+	IYCFBamValueEditObj getEditAsValue();
 
 	/**
-	 *	Get the ICFBamValueTableObj table cache which manages this instance.
+	 *	Get the IYCFBamValueTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFBamValueTableObj table cache which manages this instance.
+	 *	@return	IYCFBamValueTableObj table cache which manages this instance.
 	 */
-	ICFBamValueTableObj getValueTable();
+	IYCFBamValueTableObj getValueTable();
 
 	/**
-	 *	Get the ICFBamSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFBamSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFBamSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFBamSchemaObj schema cache which manages this instance.
 	 */
-	ICFBamSchemaObj getSchema();
+	IYCFBamSchemaObj getSchema();
 
 	/**
-	 *	Get the CFBamValueBuff instance which currently backs this instance.
+	 *	Get the YCFBamValueBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFBamValueBuff instance which currently backs this object.
+	 *	@return	YCFBamValueBuff instance which currently backs this object.
 	 */
-	CFBamValueBuff getBuff();
+	YCFBamValueBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFBamValueBuff value );
+	void setBuff( YCFBamValueBuff value );
 
 	/**
-	 *	Get the CFBamValueBuff instance which currently backs this instance.
+	 *	Get the YCFBamValueBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFBamValueBuff instance which currently backs this object.
+	 *	@return	YCFBamValueBuff instance which currently backs this object.
 	 */
-	CFBamValueBuff getValueBuff();
+	YCFBamValueBuff getValueBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFBamValuePKey primary key for this instance.
+	 *	@return	YCFBamValuePKey primary key for this instance.
 	 */
-	CFBamValuePKey getPKey();
+	YCFBamValuePKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFBamValuePKey primary key value for this instance.
+	 *	@param YCFBamValuePKey primary key value for this instance.
 	 */
-	void setPKey( CFBamValuePKey value );
+	void setPKey( YCFBamValuePKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -360,109 +360,109 @@ public interface ICFBamValueObj
 	Long getOptionalNextId();
 
 	/**
-	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *	Get the required IYCFBamSchema.CodeVisibilityEnum attribute CodeVis.
 	 *
-	 *	@return	The required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *	@return	The required IYCFBamSchema.CodeVisibilityEnum attribute CodeVis.
 	 */
-	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+	IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
 
 	/**
-	 *	Get the required ICFBamTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFBamTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFBamTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFBamTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
-	 *	Get the required ICFBamScopeObj instance referenced by the Scope key.
+	 *	Get the required IYCFBamScopeObj instance referenced by the Scope key.
 	 *
-	 *	@return	The required ICFBamScopeObj instance referenced by the Scope key.
+	 *	@return	The required IYCFBamScopeObj instance referenced by the Scope key.
 	 */
-	ICFBamScopeObj getRequiredContainerScope();
+	IYCFBamScopeObj getRequiredContainerScope();
 
 	/**
-	 *	Get the required ICFBamScopeObj instance referenced by the Scope key.
+	 *	Get the required IYCFBamScopeObj instance referenced by the Scope key.
 	 *
-	 *	@return	The required ICFBamScopeObj instance referenced by the Scope key.
+	 *	@return	The required IYCFBamScopeObj instance referenced by the Scope key.
 	 */
-	ICFBamScopeObj getRequiredContainerScope( boolean forceRead );
+	IYCFBamScopeObj getRequiredContainerScope( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Get the optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@return	The optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	@return	The optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupDefSchema();
+	IYCFBamSchemaDefObj getOptionalLookupDefSchema();
 
 	/**
-	 *	Get the optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Get the optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@return	The optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	@return	The optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead );
+	IYCFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamTableColObj array of instances referenced by the RefTableCol key.
+	 *	Get the array of optional IYCFBamTableColObj array of instances referenced by the RefTableCol key.
 	 *
-	 *	@return	The optional ICFBamTableColObj[] array of instances referenced by the RefTableCol key.
+	 *	@return	The optional IYCFBamTableColObj[] array of instances referenced by the RefTableCol key.
 	 */
-	List<ICFBamTableColObj> getOptionalChildrenRefTableCol();
+	List<IYCFBamTableColObj> getOptionalChildrenRefTableCol();
 
 	/**
-	 *	Get the array of optional ICFBamTableColObj array of instances referenced by the RefTableCol key.
+	 *	Get the array of optional IYCFBamTableColObj array of instances referenced by the RefTableCol key.
 	 *
-	 *	@return	The optional ICFBamTableColObj[] array of instances referenced by the RefTableCol key.
+	 *	@return	The optional IYCFBamTableColObj[] array of instances referenced by the RefTableCol key.
 	 */
-	List<ICFBamTableColObj> getOptionalChildrenRefTableCol( boolean forceRead );
+	List<IYCFBamTableColObj> getOptionalChildrenRefTableCol( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamIndexColObj array of instances referenced by the RefIndexCol key.
+	 *	Get the array of optional IYCFBamIndexColObj array of instances referenced by the RefIndexCol key.
 	 *
-	 *	@return	The optional ICFBamIndexColObj[] array of instances referenced by the RefIndexCol key.
+	 *	@return	The optional IYCFBamIndexColObj[] array of instances referenced by the RefIndexCol key.
 	 */
-	List<ICFBamIndexColObj> getOptionalChildrenRefIndexCol();
+	List<IYCFBamIndexColObj> getOptionalChildrenRefIndexCol();
 
 	/**
-	 *	Get the array of optional ICFBamIndexColObj array of instances referenced by the RefIndexCol key.
+	 *	Get the array of optional IYCFBamIndexColObj array of instances referenced by the RefIndexCol key.
 	 *
-	 *	@return	The optional ICFBamIndexColObj[] array of instances referenced by the RefIndexCol key.
+	 *	@return	The optional IYCFBamIndexColObj[] array of instances referenced by the RefIndexCol key.
 	 */
-	List<ICFBamIndexColObj> getOptionalChildrenRefIndexCol( boolean forceRead );
+	List<IYCFBamIndexColObj> getOptionalChildrenRefIndexCol( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamValueObj instance referenced by the Prev key.
+	 *	Get the optional IYCFBamValueObj instance referenced by the Prev key.
 	 *
-	 *	@return	The optional ICFBamValueObj instance referenced by the Prev key.
+	 *	@return	The optional IYCFBamValueObj instance referenced by the Prev key.
 	 */
-	ICFBamValueObj getOptionalLookupPrev();
+	IYCFBamValueObj getOptionalLookupPrev();
 
 	/**
-	 *	Get the optional ICFBamValueObj instance referenced by the Prev key.
+	 *	Get the optional IYCFBamValueObj instance referenced by the Prev key.
 	 *
-	 *	@return	The optional ICFBamValueObj instance referenced by the Prev key.
+	 *	@return	The optional IYCFBamValueObj instance referenced by the Prev key.
 	 */
-	ICFBamValueObj getOptionalLookupPrev( boolean forceRead );
+	IYCFBamValueObj getOptionalLookupPrev( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamValueObj instance referenced by the Next key.
+	 *	Get the optional IYCFBamValueObj instance referenced by the Next key.
 	 *
-	 *	@return	The optional ICFBamValueObj instance referenced by the Next key.
+	 *	@return	The optional IYCFBamValueObj instance referenced by the Next key.
 	 */
-	ICFBamValueObj getOptionalLookupNext();
+	IYCFBamValueObj getOptionalLookupNext();
 
 	/**
-	 *	Get the optional ICFBamValueObj instance referenced by the Next key.
+	 *	Get the optional IYCFBamValueObj instance referenced by the Next key.
 	 *
-	 *	@return	The optional ICFBamValueObj instance referenced by the Next key.
+	 *	@return	The optional IYCFBamValueObj instance referenced by the Next key.
 	 */
-	ICFBamValueObj getOptionalLookupNext( boolean forceRead );
+	IYCFBamValueObj getOptionalLookupNext( boolean forceRead );
 
 	/**
 	 *	Internal use only.
@@ -474,11 +474,11 @@ public interface ICFBamValueObj
 	 */
 	void copyBuffToPKey();
 
-	List<ICFBamIndexObj> getAffectedIndexes();
-	List<ICFBamRelationObj> getAffectedRelations();
-	List<ICFBamIndexObj> getAffectedUniqueIndexes();
-	List<ICFBamRelationObj> getColumnInMemberRelations();
-	List<ICFBamRelationObj> getColumnInComponentsRelations();
+	List<IYCFBamIndexObj> getAffectedIndexes();
+	List<IYCFBamRelationObj> getAffectedRelations();
+	List<IYCFBamIndexObj> getAffectedUniqueIndexes();
+	List<IYCFBamRelationObj> getColumnInMemberRelations();
+	List<IYCFBamRelationObj> getColumnInComponentsRelations();
 	boolean getGenerateId();
 
 }

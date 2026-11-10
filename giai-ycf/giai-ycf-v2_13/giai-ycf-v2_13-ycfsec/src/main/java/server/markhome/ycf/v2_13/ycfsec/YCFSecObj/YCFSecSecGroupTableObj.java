@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFSec.
+// Description: Java 11 Table Object implementation for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,55 +26,55 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecSecGroupTableObj
-	implements ICFSecSecGroupTableObj
+public class YCFSecSecGroupTableObj
+	implements IYCFSecSecGroupTableObj
 {
-	protected ICFSecSchemaObj schema;
-	private Map<CFSecSecGroupPKey, ICFSecSecGroupObj> members;
-	private Map<CFSecSecGroupPKey, ICFSecSecGroupObj> allSecGroup;
-	private Map< CFSecSecGroupByClusterIdxKey,
-		Map<CFSecSecGroupPKey, ICFSecSecGroupObj > > indexByClusterIdx;
-	private Map< CFSecSecGroupByClusterVisIdxKey,
-		Map<CFSecSecGroupPKey, ICFSecSecGroupObj > > indexByClusterVisIdx;
-	private Map< CFSecSecGroupByUNameIdxKey,
-		ICFSecSecGroupObj > indexByUNameIdx;
+	protected IYCFSecSchemaObj schema;
+	private Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj> members;
+	private Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj> allSecGroup;
+	private Map< YCFSecSecGroupByClusterIdxKey,
+		Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj > > indexByClusterIdx;
+	private Map< YCFSecSecGroupByClusterVisIdxKey,
+		Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj > > indexByClusterVisIdx;
+	private Map< YCFSecSecGroupByUNameIdxKey,
+		IYCFSecSecGroupObj > indexByUNameIdx;
 	public static String TABLE_NAME = "SecGroup";
 	public static String TABLE_DBNAME = "secgrp";
 
-	public CFSecSecGroupTableObj() {
+	public YCFSecSecGroupTableObj() {
 		schema = null;
-		members = new HashMap<CFSecSecGroupPKey, ICFSecSecGroupObj>();
+		members = new HashMap<YCFSecSecGroupPKey, IYCFSecSecGroupObj>();
 		allSecGroup = null;
 		indexByClusterIdx = null;
 		indexByClusterVisIdx = null;
 		indexByUNameIdx = null;
 	}
 
-	public CFSecSecGroupTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFSecSchemaObj)argSchema;
-		members = new HashMap<CFSecSecGroupPKey, ICFSecSecGroupObj>();
+	public YCFSecSecGroupTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFSecSchemaObj)argSchema;
+		members = new HashMap<YCFSecSecGroupPKey, IYCFSecSecGroupObj>();
 		allSecGroup = null;
 		indexByClusterIdx = null;
 		indexByClusterVisIdx = null;
 		indexByUNameIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFSecSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFSecSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -95,9 +95,9 @@ public class CFSecSecGroupTableObj
 		indexByClusterIdx = null;
 		indexByClusterVisIdx = null;
 		indexByUNameIdx = null;
-		List<ICFSecSecGroupObj> toForget = new LinkedList<ICFSecSecGroupObj>();
-		ICFSecSecGroupObj cur = null;
-		Iterator<ICFSecSecGroupObj> iter = members.values().iterator();
+		List<IYCFSecSecGroupObj> toForget = new LinkedList<IYCFSecSecGroupObj>();
+		IYCFSecSecGroupObj cur = null;
+		Iterator<IYCFSecSecGroupObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -115,10 +115,10 @@ public class CFSecSecGroupTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecSecGroupObj.
+	 *	YCFSecSecGroupObj.
 	 */
-	public ICFSecSecGroupObj newInstance() {
-		ICFSecSecGroupObj inst = new CFSecSecGroupObj( schema );
+	public IYCFSecSecGroupObj newInstance() {
+		IYCFSecSecGroupObj inst = new YCFSecSecGroupObj( schema );
 		return( inst );
 	}
 
@@ -129,19 +129,19 @@ public class CFSecSecGroupTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecSecGroupObj.
+	 *	YCFSecSecGroupObj.
 	 */
-	public ICFSecSecGroupEditObj newEditInstance( ICFSecSecGroupObj orig ) {
-		ICFSecSecGroupEditObj edit = new CFSecSecGroupEditObj( orig );
+	public IYCFSecSecGroupEditObj newEditInstance( IYCFSecSecGroupObj orig ) {
+		IYCFSecSecGroupEditObj edit = new YCFSecSecGroupEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecSecGroupObj realiseSecGroup( ICFSecSecGroupObj Obj ) {
-		ICFSecSecGroupObj obj = Obj;
-		CFSecSecGroupPKey pkey = obj.getPKey();
-		ICFSecSecGroupObj keepObj = null;
+	public IYCFSecSecGroupObj realiseSecGroup( IYCFSecSecGroupObj Obj ) {
+		IYCFSecSecGroupObj obj = Obj;
+		YCFSecSecGroupPKey pkey = obj.getPKey();
+		IYCFSecSecGroupObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecSecGroupObj existingObj = members.get( pkey );
+			IYCFSecSecGroupObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -152,10 +152,10 @@ public class CFSecSecGroupTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByClusterIdx != null ) {
-				CFSecSecGroupByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
+				YCFSecSecGroupByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecSecGroupPKey, ICFSecSecGroupObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.remove( keepObj.getPKey() );
 					if( mapClusterIdx.size() <= 0 ) {
@@ -165,11 +165,11 @@ public class CFSecSecGroupTableObj
 			}
 
 			if( indexByClusterVisIdx != null ) {
-				CFSecSecGroupByClusterVisIdxKey keyClusterVisIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
+				YCFSecSecGroupByClusterVisIdxKey keyClusterVisIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
 				keyClusterVisIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyClusterVisIdx.setRequiredIsVisible( keepObj.getRequiredIsVisible() );
-				Map<CFSecSecGroupPKey, ICFSecSecGroupObj > mapClusterVisIdx = indexByClusterVisIdx.get( keyClusterVisIdx );
+				Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj > mapClusterVisIdx = indexByClusterVisIdx.get( keyClusterVisIdx );
 				if( mapClusterVisIdx != null ) {
 					mapClusterVisIdx.remove( keepObj.getPKey() );
 					if( mapClusterVisIdx.size() <= 0 ) {
@@ -179,8 +179,8 @@ public class CFSecSecGroupTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFSecSecGroupByUNameIdxKey keyUNameIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
+				YCFSecSecGroupByUNameIdxKey keyUNameIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
 				keyUNameIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.remove( keyUNameIdx );
@@ -190,29 +190,29 @@ public class CFSecSecGroupTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByClusterIdx != null ) {
-				CFSecSecGroupByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
+				YCFSecSecGroupByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecSecGroupPKey, ICFSecSecGroupObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByClusterVisIdx != null ) {
-				CFSecSecGroupByClusterVisIdxKey keyClusterVisIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
+				YCFSecSecGroupByClusterVisIdxKey keyClusterVisIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
 				keyClusterVisIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyClusterVisIdx.setRequiredIsVisible( keepObj.getRequiredIsVisible() );
-				Map<CFSecSecGroupPKey, ICFSecSecGroupObj > mapClusterVisIdx = indexByClusterVisIdx.get( keyClusterVisIdx );
+				Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj > mapClusterVisIdx = indexByClusterVisIdx.get( keyClusterVisIdx );
 				if( mapClusterVisIdx != null ) {
 					mapClusterVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFSecSecGroupByUNameIdxKey keyUNameIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
+				YCFSecSecGroupByUNameIdxKey keyUNameIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
 				keyUNameIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
@@ -233,29 +233,29 @@ public class CFSecSecGroupTableObj
 			}
 
 			if( indexByClusterIdx != null ) {
-				CFSecSecGroupByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
+				YCFSecSecGroupByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecSecGroupPKey, ICFSecSecGroupObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByClusterVisIdx != null ) {
-				CFSecSecGroupByClusterVisIdxKey keyClusterVisIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
+				YCFSecSecGroupByClusterVisIdxKey keyClusterVisIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
 				keyClusterVisIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyClusterVisIdx.setRequiredIsVisible( keepObj.getRequiredIsVisible() );
-				Map<CFSecSecGroupPKey, ICFSecSecGroupObj > mapClusterVisIdx = indexByClusterVisIdx.get( keyClusterVisIdx );
+				Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj > mapClusterVisIdx = indexByClusterVisIdx.get( keyClusterVisIdx );
 				if( mapClusterVisIdx != null ) {
 					mapClusterVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFSecSecGroupByUNameIdxKey keyUNameIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
+				YCFSecSecGroupByUNameIdxKey keyUNameIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
 				keyUNameIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
@@ -265,10 +265,10 @@ public class CFSecSecGroupTableObj
 		return( keepObj );
 	}
 
-	public ICFSecSecGroupObj createSecGroup( ICFSecSecGroupObj Obj ) {
-		ICFSecSecGroupObj obj = Obj;
-		CFSecSecGroupBuff buff = obj.getSecGroupBuff();
-		((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().createSecGroup(
+	public IYCFSecSecGroupObj createSecGroup( IYCFSecSecGroupObj Obj ) {
+		IYCFSecSecGroupObj obj = Obj;
+		YCFSecSecGroupBuff buff = obj.getSecGroupBuff();
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().createSecGroup(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -277,58 +277,58 @@ public class CFSecSecGroupTableObj
 		return( obj );
 	}
 
-	public ICFSecSecGroupObj readSecGroup( CFSecSecGroupPKey pkey ) {
+	public IYCFSecSecGroupObj readSecGroup( YCFSecSecGroupPKey pkey ) {
 		return( readSecGroup( pkey, false ) );
 	}
 
-	public ICFSecSecGroupObj readSecGroup( CFSecSecGroupPKey pkey, boolean forceRead ) {
-		ICFSecSecGroupObj obj = null;
+	public IYCFSecSecGroupObj readSecGroup( YCFSecSecGroupPKey pkey, boolean forceRead ) {
+		IYCFSecSecGroupObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecSecGroupBuff readBuff = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecSecGroupBuff readBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredClusterId(),
 				pkey.getRequiredSecGroupId() );
 			if( readBuff != null ) {
 				obj = schema.getSecGroupTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecSecGroupObj)obj.realise();
+				obj = (IYCFSecSecGroupObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecSecGroupObj readCachedSecGroup( CFSecSecGroupPKey pkey ) {
-		ICFSecSecGroupObj obj = null;
+	public IYCFSecSecGroupObj readCachedSecGroup( YCFSecSecGroupPKey pkey ) {
+		IYCFSecSecGroupObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeSecGroup( ICFSecSecGroupObj obj )
+	public void reallyDeepDisposeSecGroup( IYCFSecSecGroupObj obj )
 	{
-		final String S_ProcName = "CFSecSecGroupTableObj.reallyDeepDisposeSecGroup() ";
+		final String S_ProcName = "YCFSecSecGroupTableObj.reallyDeepDisposeSecGroup() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecSecGroupPKey pkey = obj.getPKey();
-		ICFSecSecGroupObj existing = readCachedSecGroup( pkey );
+		YCFSecSecGroupPKey pkey = obj.getPKey();
+		IYCFSecSecGroupObj existing = readCachedSecGroup( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecSecGroupByClusterIdxKey keyClusterIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
+		YCFSecSecGroupByClusterIdxKey keyClusterIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecSecGroupByClusterVisIdxKey keyClusterVisIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
+		YCFSecSecGroupByClusterVisIdxKey keyClusterVisIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
 		keyClusterVisIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyClusterVisIdx.setRequiredIsVisible( existing.getRequiredIsVisible() );
 
-		CFSecSecGroupByUNameIdxKey keyUNameIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
+		YCFSecSecGroupByUNameIdxKey keyUNameIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
 		keyUNameIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
@@ -366,57 +366,57 @@ public class CFSecSecGroupTableObj
 
 
 	}
-	public void deepDisposeSecGroup( CFSecSecGroupPKey pkey ) {
-		ICFSecSecGroupObj obj = readCachedSecGroup( pkey );
+	public void deepDisposeSecGroup( YCFSecSecGroupPKey pkey ) {
+		IYCFSecSecGroupObj obj = readCachedSecGroup( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecSecGroupObj lockSecGroup( CFSecSecGroupPKey pkey ) {
-		ICFSecSecGroupObj locked = null;
-		CFSecSecGroupBuff lockBuff = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecSecGroupObj lockSecGroup( YCFSecSecGroupPKey pkey ) {
+		IYCFSecSecGroupObj locked = null;
+		YCFSecSecGroupBuff lockBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getSecGroupTableObj().newInstance();
-			locked.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
+			locked.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecSecGroupObj)locked.realise();
+			locked = (IYCFSecSecGroupObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockSecGroup", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockSecGroup", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecSecGroupObj> readAllSecGroup() {
+	public List<IYCFSecSecGroupObj> readAllSecGroup() {
 		return( readAllSecGroup( false ) );
 	}
 
-	public List<ICFSecSecGroupObj> readAllSecGroup( boolean forceRead ) {
+	public List<IYCFSecSecGroupObj> readAllSecGroup( boolean forceRead ) {
 		final String S_ProcName = "readAllSecGroup";
 		if( ( allSecGroup == null ) || forceRead ) {
-			Map<CFSecSecGroupPKey, ICFSecSecGroupObj> map = new HashMap<CFSecSecGroupPKey,ICFSecSecGroupObj>();
+			Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj> map = new HashMap<YCFSecSecGroupPKey,IYCFSecSecGroupObj>();
 			allSecGroup = map;
-			CFSecSecGroupBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().readAllDerived( schema.getAuthorization() );
-			CFSecSecGroupBuff buff;
-			ICFSecSecGroupObj obj;
+			YCFSecSecGroupBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().readAllDerived( schema.getAuthorization() );
+			YCFSecSecGroupBuff buff;
+			IYCFSecSecGroupObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecGroupObj realised = (ICFSecSecGroupObj)obj.realise();
+				IYCFSecSecGroupObj realised = (IYCFSecSecGroupObj)obj.realise();
 			}
 		}
 		int len = allSecGroup.size();
-		ICFSecSecGroupObj arr[] = new ICFSecSecGroupObj[len];
-		Iterator<ICFSecSecGroupObj> valIter = allSecGroup.values().iterator();
+		IYCFSecSecGroupObj arr[] = new IYCFSecSecGroupObj[len];
+		Iterator<IYCFSecSecGroupObj> valIter = allSecGroup.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -424,20 +424,20 @@ public class CFSecSecGroupTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecGroupObj> arrayList = new ArrayList<ICFSecSecGroupObj>(len);
+		ArrayList<IYCFSecSecGroupObj> arrayList = new ArrayList<IYCFSecSecGroupObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecGroupObj> cmp = new Comparator<ICFSecSecGroupObj>() {
-			public int compare( ICFSecSecGroupObj lhs, ICFSecSecGroupObj rhs ) {
+		Comparator<IYCFSecSecGroupObj> cmp = new Comparator<IYCFSecSecGroupObj>() {
+			public int compare( IYCFSecSecGroupObj lhs, IYCFSecSecGroupObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -450,31 +450,31 @@ public class CFSecSecGroupTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecGroupObj> sortedList = arrayList;
+		List<IYCFSecSecGroupObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecGroupObj> readCachedAllSecGroup() {
+	public List<IYCFSecSecGroupObj> readCachedAllSecGroup() {
 		final String S_ProcName = "readCachedAllSecGroup";
-		ArrayList<ICFSecSecGroupObj> arrayList = new ArrayList<ICFSecSecGroupObj>();
+		ArrayList<IYCFSecSecGroupObj> arrayList = new ArrayList<IYCFSecSecGroupObj>();
 		if( allSecGroup != null ) {
 			int len = allSecGroup.size();
-			ICFSecSecGroupObj arr[] = new ICFSecSecGroupObj[len];
-			Iterator<ICFSecSecGroupObj> valIter = allSecGroup.values().iterator();
+			IYCFSecSecGroupObj arr[] = new IYCFSecSecGroupObj[len];
+			Iterator<IYCFSecSecGroupObj> valIter = allSecGroup.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -482,7 +482,7 @@ public class CFSecSecGroupTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -493,8 +493,8 @@ public class CFSecSecGroupTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecSecGroupObj> cmp = new Comparator<ICFSecSecGroupObj>() {
-			public int compare( ICFSecSecGroupObj lhs, ICFSecSecGroupObj rhs ) {
+		Comparator<IYCFSecSecGroupObj> cmp = new Comparator<IYCFSecSecGroupObj>() {
+			public int compare( IYCFSecSecGroupObj lhs, IYCFSecSecGroupObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -507,8 +507,8 @@ public class CFSecSecGroupTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -518,7 +518,7 @@ public class CFSecSecGroupTableObj
 		return( arrayList );
 	}
 
-	public ICFSecSecGroupObj readSecGroupByIdIdx( long ClusterId,
+	public IYCFSecSecGroupObj readSecGroupByIdIdx( long ClusterId,
 		int SecGroupId )
 	{
 		return( readSecGroupByIdIdx( ClusterId,
@@ -526,61 +526,61 @@ public class CFSecSecGroupTableObj
 			false ) );
 	}
 
-	public ICFSecSecGroupObj readSecGroupByIdIdx( long ClusterId,
+	public IYCFSecSecGroupObj readSecGroupByIdIdx( long ClusterId,
 		int SecGroupId, boolean forceRead )
 	{
-		CFSecSecGroupPKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey();
+		YCFSecSecGroupPKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecGroupId( SecGroupId );
-		ICFSecSecGroupObj obj = readSecGroup( pkey, forceRead );
+		IYCFSecSecGroupObj obj = readSecGroup( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFSecSecGroupObj> readSecGroupByClusterIdx( long ClusterId )
+	public List<IYCFSecSecGroupObj> readSecGroupByClusterIdx( long ClusterId )
 	{
 		return( readSecGroupByClusterIdx( ClusterId,
 			false ) );
 	}
 
-	public List<ICFSecSecGroupObj> readSecGroupByClusterIdx( long ClusterId,
+	public List<IYCFSecSecGroupObj> readSecGroupByClusterIdx( long ClusterId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecGroupByClusterIdx";
-		CFSecSecGroupByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
+		YCFSecSecGroupByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		Map<CFSecSecGroupPKey, ICFSecSecGroupObj> dict;
+		Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj> dict;
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecSecGroupByClusterIdxKey,
-				Map< CFSecSecGroupPKey, ICFSecSecGroupObj > >();
+			indexByClusterIdx = new HashMap< YCFSecSecGroupByClusterIdxKey,
+				Map< YCFSecSecGroupPKey, IYCFSecSecGroupObj > >();
 		}
 		if( ( ! forceRead ) && indexByClusterIdx.containsKey( key ) ) {
 			dict = indexByClusterIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecGroupPKey, ICFSecSecGroupObj>();
-			ICFSecSecGroupObj obj;
-			CFSecSecGroupBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().readDerivedByClusterIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecGroupPKey, IYCFSecSecGroupObj>();
+			IYCFSecSecGroupObj obj;
+			YCFSecSecGroupBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().readDerivedByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			CFSecSecGroupBuff buff;
+			YCFSecSecGroupBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecGroupTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecGroupObj realised = (ICFSecSecGroupObj)obj.realise();
+				IYCFSecSecGroupObj realised = (IYCFSecSecGroupObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClusterIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecGroupObj arr[] = new ICFSecSecGroupObj[len];
-		Iterator<ICFSecSecGroupObj> valIter = dict.values().iterator();
+		IYCFSecSecGroupObj arr[] = new IYCFSecSecGroupObj[len];
+		Iterator<IYCFSecSecGroupObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -588,20 +588,20 @@ public class CFSecSecGroupTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecGroupObj> arrayList = new ArrayList<ICFSecSecGroupObj>(len);
+		ArrayList<IYCFSecSecGroupObj> arrayList = new ArrayList<IYCFSecSecGroupObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecGroupObj> cmp = new Comparator<ICFSecSecGroupObj>() {
-			public int compare( ICFSecSecGroupObj lhs, ICFSecSecGroupObj rhs ) {
+		Comparator<IYCFSecSecGroupObj> cmp = new Comparator<IYCFSecSecGroupObj>() {
+			public int compare( IYCFSecSecGroupObj lhs, IYCFSecSecGroupObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -614,19 +614,19 @@ public class CFSecSecGroupTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecGroupObj> sortedList = arrayList;
+		List<IYCFSecSecGroupObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
+	public List<IYCFSecSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible )
 	{
 		return( readSecGroupByClusterVisIdx( ClusterId,
@@ -634,48 +634,48 @@ public class CFSecSecGroupTableObj
 			false ) );
 	}
 
-	public List<ICFSecSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
+	public List<IYCFSecSecGroupObj> readSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecGroupByClusterVisIdx";
-		CFSecSecGroupByClusterVisIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
+		YCFSecSecGroupByClusterVisIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredIsVisible( IsVisible );
-		Map<CFSecSecGroupPKey, ICFSecSecGroupObj> dict;
+		Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj> dict;
 		if( indexByClusterVisIdx == null ) {
-			indexByClusterVisIdx = new HashMap< CFSecSecGroupByClusterVisIdxKey,
-				Map< CFSecSecGroupPKey, ICFSecSecGroupObj > >();
+			indexByClusterVisIdx = new HashMap< YCFSecSecGroupByClusterVisIdxKey,
+				Map< YCFSecSecGroupPKey, IYCFSecSecGroupObj > >();
 		}
 		if( ( ! forceRead ) && indexByClusterVisIdx.containsKey( key ) ) {
 			dict = indexByClusterVisIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecGroupPKey, ICFSecSecGroupObj>();
-			ICFSecSecGroupObj obj;
-			CFSecSecGroupBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().readDerivedByClusterVisIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecGroupPKey, IYCFSecSecGroupObj>();
+			IYCFSecSecGroupObj obj;
+			YCFSecSecGroupBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().readDerivedByClusterVisIdx( schema.getAuthorization(),
 				ClusterId,
 				IsVisible );
-			CFSecSecGroupBuff buff;
+			YCFSecSecGroupBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecGroupTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecGroupObj realised = (ICFSecSecGroupObj)obj.realise();
+				IYCFSecSecGroupObj realised = (IYCFSecSecGroupObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClusterVisIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecGroupObj arr[] = new ICFSecSecGroupObj[len];
-		Iterator<ICFSecSecGroupObj> valIter = dict.values().iterator();
+		IYCFSecSecGroupObj arr[] = new IYCFSecSecGroupObj[len];
+		Iterator<IYCFSecSecGroupObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -683,20 +683,20 @@ public class CFSecSecGroupTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecGroupObj> arrayList = new ArrayList<ICFSecSecGroupObj>(len);
+		ArrayList<IYCFSecSecGroupObj> arrayList = new ArrayList<IYCFSecSecGroupObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecGroupObj> cmp = new Comparator<ICFSecSecGroupObj>() {
-			public int compare( ICFSecSecGroupObj lhs, ICFSecSecGroupObj rhs ) {
+		Comparator<IYCFSecSecGroupObj> cmp = new Comparator<IYCFSecSecGroupObj>() {
+			public int compare( IYCFSecSecGroupObj lhs, IYCFSecSecGroupObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -709,19 +709,19 @@ public class CFSecSecGroupTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecGroupObj> sortedList = arrayList;
+		List<IYCFSecSecGroupObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecSecGroupObj readSecGroupByUNameIdx( long ClusterId,
+	public IYCFSecSecGroupObj readSecGroupByUNameIdx( long ClusterId,
 		String Name )
 	{
 		return( readSecGroupByUNameIdx( ClusterId,
@@ -729,64 +729,64 @@ public class CFSecSecGroupTableObj
 			false ) );
 	}
 
-	public ICFSecSecGroupObj readSecGroupByUNameIdx( long ClusterId,
+	public IYCFSecSecGroupObj readSecGroupByUNameIdx( long ClusterId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFSecSecGroupByUNameIdxKey,
-				ICFSecSecGroupObj >();
+			indexByUNameIdx = new HashMap< YCFSecSecGroupByUNameIdxKey,
+				IYCFSecSecGroupObj >();
 		}
-		CFSecSecGroupByUNameIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
+		YCFSecSecGroupByUNameIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredName( Name );
-		ICFSecSecGroupObj obj = null;
+		IYCFSecSecGroupObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFSecSecGroupBuff buff = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFSecSecGroupBuff buff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().readDerivedByUNameIdx( schema.getAuthorization(),
 				ClusterId,
 				Name );
 			if( buff != null ) {
 				obj = schema.getSecGroupTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecSecGroupObj)obj.realise();
+				obj = (IYCFSecSecGroupObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecSecGroupObj readCachedSecGroupByIdIdx( long ClusterId,
+	public IYCFSecSecGroupObj readCachedSecGroupByIdIdx( long ClusterId,
 		int SecGroupId )
 	{
-		ICFSecSecGroupObj obj = null;
-		CFSecSecGroupPKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey();
+		IYCFSecSecGroupObj obj = null;
+		YCFSecSecGroupPKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecGroupId( SecGroupId );
 		obj = readCachedSecGroup( pkey );
 		return( obj );
 	}
 
-	public List<ICFSecSecGroupObj> readCachedSecGroupByClusterIdx( long ClusterId )
+	public List<IYCFSecSecGroupObj> readCachedSecGroupByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "readCachedSecGroupByClusterIdx";
-		CFSecSecGroupByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
+		YCFSecSecGroupByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		ArrayList<ICFSecSecGroupObj> arrayList = new ArrayList<ICFSecSecGroupObj>();
+		ArrayList<IYCFSecSecGroupObj> arrayList = new ArrayList<IYCFSecSecGroupObj>();
 		if( indexByClusterIdx != null ) {
-			Map<CFSecSecGroupPKey, ICFSecSecGroupObj> dict;
+			Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj> dict;
 			if( indexByClusterIdx.containsKey( key ) ) {
 				dict = indexByClusterIdx.get( key );
 				int len = dict.size();
-				ICFSecSecGroupObj arr[] = new ICFSecSecGroupObj[len];
-				Iterator<ICFSecSecGroupObj> valIter = dict.values().iterator();
+				IYCFSecSecGroupObj arr[] = new IYCFSecSecGroupObj[len];
+				Iterator<IYCFSecSecGroupObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -794,7 +794,7 @@ public class CFSecSecGroupTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -807,8 +807,8 @@ public class CFSecSecGroupTableObj
 			}
 		}
 		else {
-			ICFSecSecGroupObj obj;
-			Iterator<ICFSecSecGroupObj> valIter = members.values().iterator();
+			IYCFSecSecGroupObj obj;
+			Iterator<IYCFSecSecGroupObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -818,8 +818,8 @@ public class CFSecSecGroupTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecGroupObj> cmp = new Comparator<ICFSecSecGroupObj>() {
-			public int compare( ICFSecSecGroupObj lhs, ICFSecSecGroupObj rhs ) {
+		Comparator<IYCFSecSecGroupObj> cmp = new Comparator<IYCFSecSecGroupObj>() {
+			public int compare( IYCFSecSecGroupObj lhs, IYCFSecSecGroupObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -832,8 +832,8 @@ public class CFSecSecGroupTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -843,27 +843,27 @@ public class CFSecSecGroupTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecSecGroupObj> readCachedSecGroupByClusterVisIdx( long ClusterId,
+	public List<IYCFSecSecGroupObj> readCachedSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible )
 	{
 		final String S_ProcName = "readCachedSecGroupByClusterVisIdx";
-		CFSecSecGroupByClusterVisIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
+		YCFSecSecGroupByClusterVisIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredIsVisible( IsVisible );
-		ArrayList<ICFSecSecGroupObj> arrayList = new ArrayList<ICFSecSecGroupObj>();
+		ArrayList<IYCFSecSecGroupObj> arrayList = new ArrayList<IYCFSecSecGroupObj>();
 		if( indexByClusterVisIdx != null ) {
-			Map<CFSecSecGroupPKey, ICFSecSecGroupObj> dict;
+			Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj> dict;
 			if( indexByClusterVisIdx.containsKey( key ) ) {
 				dict = indexByClusterVisIdx.get( key );
 				int len = dict.size();
-				ICFSecSecGroupObj arr[] = new ICFSecSecGroupObj[len];
-				Iterator<ICFSecSecGroupObj> valIter = dict.values().iterator();
+				IYCFSecSecGroupObj arr[] = new IYCFSecSecGroupObj[len];
+				Iterator<IYCFSecSecGroupObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -871,7 +871,7 @@ public class CFSecSecGroupTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -884,8 +884,8 @@ public class CFSecSecGroupTableObj
 			}
 		}
 		else {
-			ICFSecSecGroupObj obj;
-			Iterator<ICFSecSecGroupObj> valIter = members.values().iterator();
+			IYCFSecSecGroupObj obj;
+			Iterator<IYCFSecSecGroupObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -895,8 +895,8 @@ public class CFSecSecGroupTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecGroupObj> cmp = new Comparator<ICFSecSecGroupObj>() {
-			public int compare( ICFSecSecGroupObj lhs, ICFSecSecGroupObj rhs ) {
+		Comparator<IYCFSecSecGroupObj> cmp = new Comparator<IYCFSecSecGroupObj>() {
+			public int compare( IYCFSecSecGroupObj lhs, IYCFSecSecGroupObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -909,8 +909,8 @@ public class CFSecSecGroupTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -920,11 +920,11 @@ public class CFSecSecGroupTableObj
 		return( arrayList );
 	}
 
-	public ICFSecSecGroupObj readCachedSecGroupByUNameIdx( long ClusterId,
+	public IYCFSecSecGroupObj readCachedSecGroupByUNameIdx( long ClusterId,
 		String Name )
 	{
-		ICFSecSecGroupObj obj = null;
-		CFSecSecGroupByUNameIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
+		IYCFSecSecGroupObj obj = null;
+		YCFSecSecGroupByUNameIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredName( Name );
 		if( indexByUNameIdx != null ) {
@@ -932,7 +932,7 @@ public class CFSecSecGroupTableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecSecGroupObj> valIter = members.values().iterator();
+				Iterator<IYCFSecSecGroupObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -944,7 +944,7 @@ public class CFSecSecGroupTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecSecGroupObj> valIter = members.values().iterator();
+			Iterator<IYCFSecSecGroupObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -960,7 +960,7 @@ public class CFSecSecGroupTableObj
 	public void deepDisposeSecGroupByIdIdx( long ClusterId,
 		int SecGroupId )
 	{
-		ICFSecSecGroupObj obj = readCachedSecGroupByIdIdx( ClusterId,
+		IYCFSecSecGroupObj obj = readCachedSecGroupByIdIdx( ClusterId,
 				SecGroupId );
 		if( obj != null ) {
 			obj.forget();
@@ -970,10 +970,10 @@ public class CFSecSecGroupTableObj
 	public void deepDisposeSecGroupByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "deepDisposeSecGroupByClusterIdx";
-		ICFSecSecGroupObj obj;
-		List<ICFSecSecGroupObj> arrayList = readCachedSecGroupByClusterIdx( ClusterId );
+		IYCFSecSecGroupObj obj;
+		List<IYCFSecSecGroupObj> arrayList = readCachedSecGroupByClusterIdx( ClusterId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecGroupObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecGroupObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -987,11 +987,11 @@ public class CFSecSecGroupTableObj
 		boolean IsVisible )
 	{
 		final String S_ProcName = "deepDisposeSecGroupByClusterVisIdx";
-		ICFSecSecGroupObj obj;
-		List<ICFSecSecGroupObj> arrayList = readCachedSecGroupByClusterVisIdx( ClusterId,
+		IYCFSecSecGroupObj obj;
+		List<IYCFSecSecGroupObj> arrayList = readCachedSecGroupByClusterVisIdx( ClusterId,
 				IsVisible );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecGroupObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecGroupObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1004,25 +1004,25 @@ public class CFSecSecGroupTableObj
 	public void deepDisposeSecGroupByUNameIdx( long ClusterId,
 		String Name )
 	{
-		ICFSecSecGroupObj obj = readCachedSecGroupByUNameIdx( ClusterId,
+		IYCFSecSecGroupObj obj = readCachedSecGroupByUNameIdx( ClusterId,
 				Name );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecSecGroupObj updateSecGroup( ICFSecSecGroupObj Obj ) {
-		ICFSecSecGroupObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().updateSecGroup( schema.getAuthorization(),
+	public IYCFSecSecGroupObj updateSecGroup( IYCFSecSecGroupObj Obj ) {
+		IYCFSecSecGroupObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().updateSecGroup( schema.getAuthorization(),
 			Obj.getSecGroupBuff() );
-		obj = (ICFSecSecGroupObj)Obj.realise();
+		obj = (IYCFSecSecGroupObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteSecGroup( ICFSecSecGroupObj Obj ) {
-		ICFSecSecGroupObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroup( schema.getAuthorization(),
+	public void deleteSecGroup( IYCFSecSecGroupObj Obj ) {
+		IYCFSecSecGroupObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroup( schema.getAuthorization(),
 			obj.getSecGroupBuff() );
 		Obj.forget();
 	}
@@ -1030,15 +1030,15 @@ public class CFSecSecGroupTableObj
 	public void deleteSecGroupByIdIdx( long ClusterId,
 		int SecGroupId )
 	{
-		CFSecSecGroupPKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey();
+		YCFSecSecGroupPKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecGroupId( SecGroupId );
-		ICFSecSecGroupObj obj = readSecGroup( pkey );
+		IYCFSecSecGroupObj obj = readSecGroup( pkey );
 		if( obj != null ) {
-			ICFSecSecGroupEditObj editObj = (ICFSecSecGroupEditObj)obj.getEdit();
+			IYCFSecSecGroupEditObj editObj = (IYCFSecSecGroupEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecSecGroupEditObj)obj.beginEdit();
+				editObj = (IYCFSecSecGroupEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1063,19 +1063,19 @@ public class CFSecSecGroupTableObj
 
 	public void deleteSecGroupByClusterIdx( long ClusterId )
 	{
-		CFSecSecGroupByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
+		YCFSecSecGroupByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecSecGroupByClusterIdxKey,
-				Map< CFSecSecGroupPKey, ICFSecSecGroupObj > >();
+			indexByClusterIdx = new HashMap< YCFSecSecGroupByClusterIdxKey,
+				Map< YCFSecSecGroupPKey, IYCFSecSecGroupObj > >();
 		}
 		if( indexByClusterIdx.containsKey( key ) ) {
-			Map<CFSecSecGroupPKey, ICFSecSecGroupObj> dict = indexByClusterIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByClusterIdx( schema.getAuthorization(),
+			Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj> dict = indexByClusterIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			Iterator<ICFSecSecGroupObj> iter = dict.values().iterator();
-			ICFSecSecGroupObj obj;
-			List<ICFSecSecGroupObj> toForget = new LinkedList<ICFSecSecGroupObj>();
+			Iterator<IYCFSecSecGroupObj> iter = dict.values().iterator();
+			IYCFSecSecGroupObj obj;
+			List<IYCFSecSecGroupObj> toForget = new LinkedList<IYCFSecSecGroupObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1088,7 +1088,7 @@ public class CFSecSecGroupTableObj
 			indexByClusterIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByClusterIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByClusterIdx( schema.getAuthorization(),
 				ClusterId );
 		}
 		deepDisposeSecGroupByClusterIdx( ClusterId );
@@ -1097,21 +1097,21 @@ public class CFSecSecGroupTableObj
 	public void deleteSecGroupByClusterVisIdx( long ClusterId,
 		boolean IsVisible )
 	{
-		CFSecSecGroupByClusterVisIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
+		YCFSecSecGroupByClusterVisIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newClusterVisIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredIsVisible( IsVisible );
 		if( indexByClusterVisIdx == null ) {
-			indexByClusterVisIdx = new HashMap< CFSecSecGroupByClusterVisIdxKey,
-				Map< CFSecSecGroupPKey, ICFSecSecGroupObj > >();
+			indexByClusterVisIdx = new HashMap< YCFSecSecGroupByClusterVisIdxKey,
+				Map< YCFSecSecGroupPKey, IYCFSecSecGroupObj > >();
 		}
 		if( indexByClusterVisIdx.containsKey( key ) ) {
-			Map<CFSecSecGroupPKey, ICFSecSecGroupObj> dict = indexByClusterVisIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByClusterVisIdx( schema.getAuthorization(),
+			Map<YCFSecSecGroupPKey, IYCFSecSecGroupObj> dict = indexByClusterVisIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByClusterVisIdx( schema.getAuthorization(),
 				ClusterId,
 				IsVisible );
-			Iterator<ICFSecSecGroupObj> iter = dict.values().iterator();
-			ICFSecSecGroupObj obj;
-			List<ICFSecSecGroupObj> toForget = new LinkedList<ICFSecSecGroupObj>();
+			Iterator<IYCFSecSecGroupObj> iter = dict.values().iterator();
+			IYCFSecSecGroupObj obj;
+			List<IYCFSecSecGroupObj> toForget = new LinkedList<IYCFSecSecGroupObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1124,7 +1124,7 @@ public class CFSecSecGroupTableObj
 			indexByClusterVisIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByClusterVisIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByClusterVisIdx( schema.getAuthorization(),
 				ClusterId,
 				IsVisible );
 		}
@@ -1136,22 +1136,22 @@ public class CFSecSecGroupTableObj
 		String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFSecSecGroupByUNameIdxKey,
-				ICFSecSecGroupObj >();
+			indexByUNameIdx = new HashMap< YCFSecSecGroupByUNameIdxKey,
+				IYCFSecSecGroupObj >();
 		}
-		CFSecSecGroupByUNameIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
+		YCFSecSecGroupByUNameIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroup().newUNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredName( Name );
-		ICFSecSecGroupObj obj = null;
+		IYCFSecSecGroupObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByUNameIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByUNameIdx( schema.getAuthorization(),
 				ClusterId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByUNameIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroup().deleteSecGroupByUNameIdx( schema.getAuthorization(),
 				ClusterId,
 				Name );
 		}

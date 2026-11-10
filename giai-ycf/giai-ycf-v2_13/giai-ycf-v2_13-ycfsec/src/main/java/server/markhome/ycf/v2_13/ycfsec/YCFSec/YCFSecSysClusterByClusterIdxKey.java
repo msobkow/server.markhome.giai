@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SysCluster by ClusterIdx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,16 +36,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecSysClusterByClusterIdxKey
+public class YCFSecSysClusterByClusterIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredClusterId;
-	public CFSecSysClusterByClusterIdxKey() {
-		requiredClusterId = CFSecSysClusterBuff.CLUSTERID_INIT_VALUE;
+	public YCFSecSysClusterByClusterIdxKey() {
+		requiredClusterId = YCFSecSysClusterBuff.CLUSTERID_INIT_VALUE;
 	}
 
 	public long getRequiredClusterId() {
@@ -53,13 +53,13 @@ public class CFSecSysClusterByClusterIdxKey
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFSecSysClusterBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSysClusterBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFSecSysClusterBuff.CLUSTERID_MIN_VALUE );
+				YCFSecSysClusterBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -68,15 +68,15 @@ public class CFSecSysClusterByClusterIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSysClusterByClusterIdxKey ) {
-			CFSecSysClusterByClusterIdxKey rhs = (CFSecSysClusterByClusterIdxKey)obj;
+		else if( obj instanceof YCFSecSysClusterByClusterIdxKey ) {
+			YCFSecSysClusterByClusterIdxKey rhs = (YCFSecSysClusterByClusterIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSysClusterBuff ) {
-			CFSecSysClusterBuff rhs = (CFSecSysClusterBuff)obj;
+		else if( obj instanceof YCFSecSysClusterBuff ) {
+			YCFSecSysClusterBuff rhs = (YCFSecSysClusterBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -97,8 +97,8 @@ public class CFSecSysClusterByClusterIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecSysClusterByClusterIdxKey ) {
-			CFSecSysClusterByClusterIdxKey rhs = (CFSecSysClusterByClusterIdxKey)obj;
+		else if( obj instanceof YCFSecSysClusterByClusterIdxKey ) {
+			YCFSecSysClusterByClusterIdxKey rhs = (YCFSecSysClusterByClusterIdxKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -107,8 +107,8 @@ public class CFSecSysClusterByClusterIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSysClusterBuff ) {
-			CFSecSysClusterBuff rhs = (CFSecSysClusterBuff)obj;
+		else if( obj instanceof YCFSecSysClusterBuff ) {
+			YCFSecSysClusterBuff rhs = (YCFSecSysClusterBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -118,7 +118,7 @@ public class CFSecSysClusterByClusterIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -127,7 +127,7 @@ public class CFSecSysClusterByClusterIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecSysClusterByClusterIdx"
+		String ret = "<YCFSecSysClusterByClusterIdx"
 			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
 			+ "/>";
 		return( ret );

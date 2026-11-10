@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for ToolSet.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,81 +36,81 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbToolSetFactory implementation for ToolSet
+	 *	YCFGenKbToolSetFactory implementation for ToolSet
 	 */
-public class CFGenKbToolSetDefaultFactory
-	implements ICFGenKbToolSetFactory
+public class YCFGenKbToolSetDefaultFactory
+	implements IYCFGenKbToolSetFactory
 {
-	public CFGenKbToolSetDefaultFactory() {
+	public YCFGenKbToolSetDefaultFactory() {
 	}
 
-	public CFGenKbToolSetPKey newPKey() {
-		CFGenKbToolSetPKey pkey =
-			new CFGenKbToolSetPKey();
+	public YCFGenKbToolSetPKey newPKey() {
+		YCFGenKbToolSetPKey pkey =
+			new YCFGenKbToolSetPKey();
 		return( pkey );
 	}
 
-	public CFGenKbToolSetByNameIdxKey newNameIdxKey() {
-		CFGenKbToolSetByNameIdxKey key =
-			new CFGenKbToolSetByNameIdxKey();
+	public YCFGenKbToolSetByNameIdxKey newNameIdxKey() {
+		YCFGenKbToolSetByNameIdxKey key =
+			new YCFGenKbToolSetByNameIdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolSetByTool0IdxKey newTool0IdxKey() {
-		CFGenKbToolSetByTool0IdxKey key =
-			new CFGenKbToolSetByTool0IdxKey();
+	public YCFGenKbToolSetByTool0IdxKey newTool0IdxKey() {
+		YCFGenKbToolSetByTool0IdxKey key =
+			new YCFGenKbToolSetByTool0IdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolSetByTool1IdxKey newTool1IdxKey() {
-		CFGenKbToolSetByTool1IdxKey key =
-			new CFGenKbToolSetByTool1IdxKey();
+	public YCFGenKbToolSetByTool1IdxKey newTool1IdxKey() {
+		YCFGenKbToolSetByTool1IdxKey key =
+			new YCFGenKbToolSetByTool1IdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolSetByTool2IdxKey newTool2IdxKey() {
-		CFGenKbToolSetByTool2IdxKey key =
-			new CFGenKbToolSetByTool2IdxKey();
+	public YCFGenKbToolSetByTool2IdxKey newTool2IdxKey() {
+		YCFGenKbToolSetByTool2IdxKey key =
+			new YCFGenKbToolSetByTool2IdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolSetByTool3IdxKey newTool3IdxKey() {
-		CFGenKbToolSetByTool3IdxKey key =
-			new CFGenKbToolSetByTool3IdxKey();
+	public YCFGenKbToolSetByTool3IdxKey newTool3IdxKey() {
+		YCFGenKbToolSetByTool3IdxKey key =
+			new YCFGenKbToolSetByTool3IdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolSetByTool4IdxKey newTool4IdxKey() {
-		CFGenKbToolSetByTool4IdxKey key =
-			new CFGenKbToolSetByTool4IdxKey();
+	public YCFGenKbToolSetByTool4IdxKey newTool4IdxKey() {
+		YCFGenKbToolSetByTool4IdxKey key =
+			new YCFGenKbToolSetByTool4IdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolSetByTool5IdxKey newTool5IdxKey() {
-		CFGenKbToolSetByTool5IdxKey key =
-			new CFGenKbToolSetByTool5IdxKey();
+	public YCFGenKbToolSetByTool5IdxKey newTool5IdxKey() {
+		YCFGenKbToolSetByTool5IdxKey key =
+			new YCFGenKbToolSetByTool5IdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolSetByTool6IdxKey newTool6IdxKey() {
-		CFGenKbToolSetByTool6IdxKey key =
-			new CFGenKbToolSetByTool6IdxKey();
+	public YCFGenKbToolSetByTool6IdxKey newTool6IdxKey() {
+		YCFGenKbToolSetByTool6IdxKey key =
+			new YCFGenKbToolSetByTool6IdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolSetByTool7IdxKey newTool7IdxKey() {
-		CFGenKbToolSetByTool7IdxKey key =
-			new CFGenKbToolSetByTool7IdxKey();
+	public YCFGenKbToolSetByTool7IdxKey newTool7IdxKey() {
+		YCFGenKbToolSetByTool7IdxKey key =
+			new YCFGenKbToolSetByTool7IdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolSetBuff newBuff() {
-		CFGenKbToolSetBuff buff =
-			new CFGenKbToolSetBuff();
+	public YCFGenKbToolSetBuff newBuff() {
+		YCFGenKbToolSetBuff buff =
+			new YCFGenKbToolSetBuff();
 		return( buff );
 	}
 }

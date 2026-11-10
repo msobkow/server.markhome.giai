@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a RuleType by NameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbRuleTypeByNameIdxKey
+public class YCFGenKbRuleTypeByNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String requiredName;
-	public CFGenKbRuleTypeByNameIdxKey() {
-		requiredName = new String( CFGenKbRuleTypeBuff.NAME_INIT_VALUE );
+	public YCFGenKbRuleTypeByNameIdxKey() {
+		requiredName = new String( YCFGenKbRuleTypeBuff.NAME_INIT_VALUE );
 	}
 
 	public String getRequiredName() {
@@ -55,13 +55,13 @@ public class CFGenKbRuleTypeByNameIdxKey
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -75,15 +75,15 @@ public class CFGenKbRuleTypeByNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbRuleTypeByNameIdxKey ) {
-			CFGenKbRuleTypeByNameIdxKey rhs = (CFGenKbRuleTypeByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleTypeByNameIdxKey ) {
+			YCFGenKbRuleTypeByNameIdxKey rhs = (YCFGenKbRuleTypeByNameIdxKey)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbRuleTypeBuff ) {
-			CFGenKbRuleTypeBuff rhs = (CFGenKbRuleTypeBuff)obj;
+		else if( obj instanceof YCFGenKbRuleTypeBuff ) {
+			YCFGenKbRuleTypeBuff rhs = (YCFGenKbRuleTypeBuff)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
@@ -106,8 +106,8 @@ public class CFGenKbRuleTypeByNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbRuleTypeByNameIdxKey ) {
-			CFGenKbRuleTypeByNameIdxKey rhs = (CFGenKbRuleTypeByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleTypeByNameIdxKey ) {
+			YCFGenKbRuleTypeByNameIdxKey rhs = (YCFGenKbRuleTypeByNameIdxKey)obj;
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
 				if( cmp != 0 ) {
@@ -116,8 +116,8 @@ public class CFGenKbRuleTypeByNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbRuleTypeBuff ) {
-			CFGenKbRuleTypeBuff rhs = (CFGenKbRuleTypeBuff)obj;
+		else if( obj instanceof YCFGenKbRuleTypeBuff ) {
+			YCFGenKbRuleTypeBuff rhs = (YCFGenKbRuleTypeBuff)obj;
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
 				if( cmp != 0 ) {
@@ -127,7 +127,7 @@ public class CFGenKbRuleTypeByNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -136,8 +136,8 @@ public class CFGenKbRuleTypeByNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbRuleTypeByNameIdx"
-			+ " RequiredName=" + "\"" + CFGenKbSchema.xmlEncodeString( getRequiredName() ) + "\""
+		String ret = "<YCFGenKbRuleTypeByNameIdx"
+			+ " RequiredName=" + "\"" + YCFGenKbSchema.xmlEncodeString( getRequiredName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

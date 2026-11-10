@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for IndexCol.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamIndexColTable database interface for IndexCol
+ *	YCFBamIndexColTable database interface for IndexCol
  */
-public interface ICFBamIndexColTable
+public interface IYCFBamIndexColTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createIndexCol( CFSecAuthorization Authorization,
-		CFBamIndexColBuff Buff );
+	void createIndexCol( YCFSecAuthorization Authorization,
+		YCFBamIndexColBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateIndexCol( CFSecAuthorization Authorization,
-		CFBamIndexColBuff Buff );
+	void updateIndexCol( YCFSecAuthorization Authorization,
+		YCFBamIndexColBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteIndexCol( CFSecAuthorization Authorization,
-		CFBamIndexColBuff Buff );
+	void deleteIndexCol( YCFSecAuthorization Authorization,
+		YCFBamIndexColBuff Buff );
 	/**
 	 *	Delete the IndexCol instance identified by the primary key attributes.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argId	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByIdIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -121,8 +121,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteIndexColByIdIdx( CFSecAuthorization Authorization,
-		CFBamIndexColPKey argKey );
+	void deleteIndexColByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColPKey argKey );
 	/**
 	 *	Delete the IndexCol instances identified by the key UNameIdx.
 	 *
@@ -134,7 +134,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argName	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByUNameIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argIndexId,
 		String argName );
@@ -146,8 +146,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexColByUNameIdx( CFSecAuthorization Authorization,
-		CFBamIndexColByUNameIdxKey argKey );
+	void deleteIndexColByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColByUNameIdxKey argKey );
 	/**
 	 *	Delete the IndexCol instances identified by the key IdxColTenantIdx.
 	 *
@@ -155,7 +155,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argTenantId	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByIdxColTenantIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByIdxColTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -165,8 +165,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexColByIdxColTenantIdx( CFSecAuthorization Authorization,
-		CFBamIndexColByIdxColTenantIdxKey argKey );
+	void deleteIndexColByIdxColTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColByIdxColTenantIdxKey argKey );
 	/**
 	 *	Delete the IndexCol instances identified by the key IndexIdx.
 	 *
@@ -176,7 +176,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argIndexId	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByIndexIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByIndexIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argIndexId );
 
@@ -187,8 +187,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexColByIndexIdx( CFSecAuthorization Authorization,
-		CFBamIndexColByIndexIdxKey argKey );
+	void deleteIndexColByIndexIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColByIndexIdxKey argKey );
 	/**
 	 *	Delete the IndexCol instances identified by the key DefSchemaIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argDefSchemaId	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -209,8 +209,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexColByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamIndexColByDefSchemaIdxKey argKey );
+	void deleteIndexColByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the IndexCol instances identified by the key ColIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argColumnId	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByColIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByColIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argColumnId );
 
@@ -231,8 +231,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexColByColIdx( CFSecAuthorization Authorization,
-		CFBamIndexColByColIdxKey argKey );
+	void deleteIndexColByColIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColByColIdxKey argKey );
 	/**
 	 *	Delete the IndexCol instances identified by the key PrevIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argPrevId	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByPrevIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByPrevIdx( YCFSecAuthorization Authorization,
 		Long argPrevTenantId,
 		Long argPrevId );
 
@@ -253,8 +253,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexColByPrevIdx( CFSecAuthorization Authorization,
-		CFBamIndexColByPrevIdxKey argKey );
+	void deleteIndexColByPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColByPrevIdxKey argKey );
 	/**
 	 *	Delete the IndexCol instances identified by the key NextIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argNextId	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByNextIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByNextIdx( YCFSecAuthorization Authorization,
 		Long argNextTenantId,
 		Long argNextId );
 
@@ -275,8 +275,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexColByNextIdx( CFSecAuthorization Authorization,
-		CFBamIndexColByNextIdxKey argKey );
+	void deleteIndexColByNextIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColByNextIdxKey argKey );
 	/**
 	 *	Delete the IndexCol instances identified by the key IdxPrevIdx.
 	 *
@@ -288,7 +288,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argPrevId	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByIdxPrevIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByIdxPrevIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argIndexId,
 		Long argPrevId );
@@ -300,8 +300,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexColByIdxPrevIdx( CFSecAuthorization Authorization,
-		CFBamIndexColByIdxPrevIdxKey argKey );
+	void deleteIndexColByIdxPrevIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColByIdxPrevIdxKey argKey );
 	/**
 	 *	Delete the IndexCol instances identified by the key IdxNextIdx.
 	 *
@@ -313,7 +313,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argNextId	The IndexCol key attribute of the instance generating the id.
 	 */
-	void deleteIndexColByIdxNextIdx( CFSecAuthorization Authorization,
+	void deleteIndexColByIdxNextIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argIndexId,
 		Long argNextId );
@@ -325,8 +325,8 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexColByIdxNextIdx( CFSecAuthorization Authorization,
-		CFBamIndexColByIdxNextIdxKey argKey );
+	void deleteIndexColByIdxNextIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexColByIdxNextIdxKey argKey );
 
 
 	/**
@@ -339,8 +339,8 @@ public interface ICFBamIndexColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexColBuff readDerived( CFSecAuthorization Authorization,
-		CFBamIndexColPKey PKey );
+	YCFBamIndexColBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamIndexColPKey PKey );
 
 	/**
 	 *	Lock the derived IndexCol buffer instance by primary key.
@@ -352,8 +352,8 @@ public interface ICFBamIndexColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexColBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamIndexColPKey PKey );
+	YCFBamIndexColBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamIndexColPKey PKey );
 
 	/**
 	 *	Read all IndexCol instances.
@@ -362,7 +362,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamIndexColBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamIndexColBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived IndexCol buffer instance identified by the unique key IdIdx.
@@ -376,7 +376,7 @@ public interface ICFBamIndexColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexColBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -394,7 +394,7 @@ public interface ICFBamIndexColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexColBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId,
 		String Name );
@@ -408,7 +408,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexColBuff[] readDerivedByIdxColTenantIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readDerivedByIdxColTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -422,7 +422,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexColBuff[] readDerivedByIndexIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readDerivedByIndexIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId );
 
@@ -437,7 +437,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexColBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -452,7 +452,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexColBuff[] readDerivedByColIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readDerivedByColIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ColumnId );
 
@@ -467,7 +467,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexColBuff[] readDerivedByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readDerivedByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -482,7 +482,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexColBuff[] readDerivedByNextIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readDerivedByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -499,7 +499,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexColBuff[] readDerivedByIdxPrevIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readDerivedByIdxPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId,
 		Long PrevId );
@@ -517,7 +517,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexColBuff[] readDerivedByIdxNextIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readDerivedByIdxNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId,
 		Long NextId );
@@ -532,10 +532,10 @@ public interface ICFBamIndexColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff readBuff( CFSecAuthorization Authorization,
-		CFBamIndexColPKey PKey );
+	YCFBamIndexColBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamIndexColPKey PKey );
 
 	/**
 	 *	Lock the specific IndexCol buffer instance identified by the primary key.
@@ -547,10 +547,10 @@ public interface ICFBamIndexColTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamIndexColPKey PKey );
+	YCFBamIndexColBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamIndexColPKey PKey );
 
 	/**
 	 *	Read all the specific IndexCol buffer instances.
@@ -559,7 +559,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return All the specific IndexCol instances in the database accessible for the Authorization.
 	 */
-	CFBamIndexColBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamIndexColBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific IndexCol buffer instance identified by the unique key IdIdx.
@@ -573,9 +573,9 @@ public interface ICFBamIndexColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -593,9 +593,9 @@ public interface ICFBamIndexColTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId,
 		String Name );
@@ -609,9 +609,9 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff[] readBuffByIdxColTenantIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readBuffByIdxColTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -625,9 +625,9 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff[] readBuffByIndexIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readBuffByIndexIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId );
 
@@ -642,9 +642,9 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -659,9 +659,9 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff[] readBuffByColIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readBuffByColIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ColumnId );
 
@@ -676,9 +676,9 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff[] readBuffByPrevIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readBuffByPrevIdx( YCFSecAuthorization Authorization,
 		Long PrevTenantId,
 		Long PrevId );
 
@@ -693,9 +693,9 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff[] readBuffByNextIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readBuffByNextIdx( YCFSecAuthorization Authorization,
 		Long NextTenantId,
 		Long NextId );
 
@@ -712,9 +712,9 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff[] readBuffByIdxPrevIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readBuffByIdxPrevIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId,
 		Long PrevId );
@@ -732,9 +732,9 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexColBuff[] readBuffByIdxNextIdx( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff[] readBuffByIdxNextIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId,
 		Long NextId );
@@ -744,7 +744,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamIndexColBuff moveBuffUp( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff moveBuffUp( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -754,7 +754,7 @@ public interface ICFBamIndexColTable
 	 *
 	 *	@return	The refreshed buffer after it has been moved
 	 */
-	CFBamIndexColBuff moveBuffDown( CFSecAuthorization Authorization,
+	YCFBamIndexColBuff moveBuffDown( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id,
 		int revision );
@@ -762,7 +762,7 @@ public interface ICFBamIndexColTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

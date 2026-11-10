@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for SecSession.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,57 +36,57 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbSecSessionFactory implementation for SecSession
+	 *	YCFGenKbSecSessionFactory implementation for SecSession
 	 */
-public class CFGenKbSecSessionDefaultFactory
-	implements ICFGenKbSecSessionFactory
+public class YCFGenKbSecSessionDefaultFactory
+	implements IYCFGenKbSecSessionFactory
 {
-	public CFGenKbSecSessionDefaultFactory() {
+	public YCFGenKbSecSessionDefaultFactory() {
 	}
 
-	public CFGenKbSecSessionPKey newPKey() {
-		CFGenKbSecSessionPKey pkey =
-			new CFGenKbSecSessionPKey();
+	public YCFGenKbSecSessionPKey newPKey() {
+		YCFGenKbSecSessionPKey pkey =
+			new YCFGenKbSecSessionPKey();
 		return( pkey );
 	}
 
-	public CFGenKbSecSessionBySecUserIdxKey newSecUserIdxKey() {
-		CFGenKbSecSessionBySecUserIdxKey key =
-			new CFGenKbSecSessionBySecUserIdxKey();
+	public YCFGenKbSecSessionBySecUserIdxKey newSecUserIdxKey() {
+		YCFGenKbSecSessionBySecUserIdxKey key =
+			new YCFGenKbSecSessionBySecUserIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecSessionBySecDevIdxKey newSecDevIdxKey() {
-		CFGenKbSecSessionBySecDevIdxKey key =
-			new CFGenKbSecSessionBySecDevIdxKey();
+	public YCFGenKbSecSessionBySecDevIdxKey newSecDevIdxKey() {
+		YCFGenKbSecSessionBySecDevIdxKey key =
+			new YCFGenKbSecSessionBySecDevIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecSessionByStartIdxKey newStartIdxKey() {
-		CFGenKbSecSessionByStartIdxKey key =
-			new CFGenKbSecSessionByStartIdxKey();
+	public YCFGenKbSecSessionByStartIdxKey newStartIdxKey() {
+		YCFGenKbSecSessionByStartIdxKey key =
+			new YCFGenKbSecSessionByStartIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecSessionByFinishIdxKey newFinishIdxKey() {
-		CFGenKbSecSessionByFinishIdxKey key =
-			new CFGenKbSecSessionByFinishIdxKey();
+	public YCFGenKbSecSessionByFinishIdxKey newFinishIdxKey() {
+		YCFGenKbSecSessionByFinishIdxKey key =
+			new YCFGenKbSecSessionByFinishIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecSessionBySecProxyIdxKey newSecProxyIdxKey() {
-		CFGenKbSecSessionBySecProxyIdxKey key =
-			new CFGenKbSecSessionBySecProxyIdxKey();
+	public YCFGenKbSecSessionBySecProxyIdxKey newSecProxyIdxKey() {
+		YCFGenKbSecSessionBySecProxyIdxKey key =
+			new YCFGenKbSecSessionBySecProxyIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecSessionBuff newBuff() {
-		CFGenKbSecSessionBuff buff =
-			new CFGenKbSecSessionBuff();
+	public YCFGenKbSecSessionBuff newBuff() {
+		YCFGenKbSecSessionBuff buff =
+			new YCFGenKbSecSessionBuff();
 		return( buff );
 	}
 }

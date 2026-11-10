@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.dbutil;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil;
 
 import java.io.Serializable;
 import java.security.MessageDigest;
@@ -40,7 +40,7 @@ import jakarta.persistence.Embeddable;
  * @author msobkow
  */
 @Embeddable
-public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> implements Serializable {
+public class YCFLibDbKeyHash512 extends YCFLibDbKeyHashBase<YCFLibDbKeyHash512> implements Serializable {
 
   static final long serialVersionUID = 202505130953L;
   static final public  int HASH_LENGTH = 64; // hash size in bytes
@@ -85,7 +85,7 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
     }
   }
 
-  // @Convert(converter = CFLibDbKeyHash512Converter.class)
+  // @Convert(converter = YCFLibDbKeyHash512Converter.class)
   @Column(name = "bytes", nullable = false)
   protected byte[] bytes;
 
@@ -108,44 +108,44 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
     return b;
   }
 
-  public static CFLibDbKeyHash512 fromHex(String string) {
+  public static YCFLibDbKeyHash512 fromHex(String string) {
     byte[] b = sbytesFromHex(string);
-    CFLibDbKeyHash512 h = new CFLibDbKeyHash512();
+    YCFLibDbKeyHash512 h = new YCFLibDbKeyHash512();
     h.bytes = b;
     return h;
   }
 
-  public static Comparator<CFLibDbKeyHash512> getComparator() {
+  public static Comparator<YCFLibDbKeyHash512> getComparator() {
 
-    return new Comparator<CFLibDbKeyHash512>() {
+    return new Comparator<YCFLibDbKeyHash512>() {
       @Override
-      public int compare(CFLibDbKeyHash512 a, CFLibDbKeyHash512 b) {
+      public int compare(YCFLibDbKeyHash512 a, YCFLibDbKeyHash512 b) {
         return compareOrdered(a, b);
       }
     };
   }
 
-  public CFLibDbKeyHash512() {
+  public YCFLibDbKeyHash512() {
     super();
   }
 
   /**
    * This is the hex code of the underlying ID. THIS IS NOT A HASHING FUNCTION.
    */
-  public CFLibDbKeyHash512(String hexId) {
+  public YCFLibDbKeyHash512(String hexId) {
     super(hexId);
   }
 
-  public CFLibDbKeyHash512(byte[] anId) {
+  public YCFLibDbKeyHash512(byte[] anId) {
     super(anId);
   }
 
-  public CFLibDbKeyHash512(CFLibDbKeyHash512 otherKey) {
+  public YCFLibDbKeyHash512(YCFLibDbKeyHash512 otherKey) {
     super(otherKey);
   }
 
-  public static CFLibDbKeyHash512 fromInt(int v) {
-    CFLibDbKeyHash512 h = nullGet();
+  public static YCFLibDbKeyHash512 fromInt(int v) {
+    YCFLibDbKeyHash512 h = nullGet();
     h.bytes[3] = (byte) (v & 0xFF);
     h.bytes[2] = (byte) ((v >> 8) & 0xFF);
     h.bytes[1] = (byte) ((v >> 16) & 0xFF);
@@ -153,11 +153,11 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
     return h;
   }
 
-  public CFLibDbKeyHash512(int notUsed) {
+  public YCFLibDbKeyHash512(int notUsed) {
     super(notUsed);
   }
 
-  public static final boolean isNull(CFLibDbKeyHash512 anId) {
+  public static final boolean isNull(YCFLibDbKeyHash512 anId) {
     return anId == null || anId.isNull();
   }
 
@@ -169,8 +169,8 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
   /**
    * Get a new hash object with the key set to all 0s
    */
-  static public CFLibDbKeyHash512 nullGet() {
-    CFLibDbKeyHash512 k = new CFLibDbKeyHash512();
+  static public YCFLibDbKeyHash512 nullGet() {
+    YCFLibDbKeyHash512 k = new YCFLibDbKeyHash512();
     k.bytes = new byte[HASH_LENGTH];
     return k;
   }
@@ -202,7 +202,7 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
       System.arraycopy(newBytes, offset, bytes, 0, Math.min(HASH_LENGTH,length));
   }
 
-  static public int compareOrdered(CFLibDbKeyHash512 h1, CFLibDbKeyHash512 h2) {
+  static public int compareOrdered(YCFLibDbKeyHash512 h1, YCFLibDbKeyHash512 h2) {
     if (h1 == null) {
       if (h2 == null) {
         return 0;
@@ -227,61 +227,61 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
     return 0;
   }
 
-  public static CFLibDbKeyHash512 hash(String text) {
+  public static YCFLibDbKeyHash512 hash(String text) {
     if (text != null) {
       try {
         MessageDigest md = MessageDigest.getInstance(HASH_ALGO);
         byte[] buf = text.getBytes("UTF-8");
         md.update(buf);
 
-        return new CFLibDbKeyHash512(md.digest());
+        return new YCFLibDbKeyHash512(md.digest());
       }
       catch (Exception ex) {
       }
     }
-    return new CFLibDbKeyHash512(0);
+    return new YCFLibDbKeyHash512(0);
   }
 
-  public static CFLibDbKeyHash512 hash(byte[] payload) {
+  public static YCFLibDbKeyHash512 hash(byte[] payload) {
     try {
       MessageDigest md = MessageDigest.getInstance(HASH_ALGO);
       md.update(payload);
 
-      return new CFLibDbKeyHash512(md.digest());
+      return new YCFLibDbKeyHash512(md.digest());
     }
     catch (Exception ex) {
     }
-    return new CFLibDbKeyHash512(0);
+    return new YCFLibDbKeyHash512(0);
   }
 
-  public static CFLibDbKeyHash512 hash(byte[]... payload) {
+  public static YCFLibDbKeyHash512 hash(byte[]... payload) {
     try {
       MessageDigest md = MessageDigest.getInstance(HASH_ALGO);
       for (byte[] bs : payload) {
         md.update(bs);
       }
 
-      return new CFLibDbKeyHash512(md.digest());
+      return new YCFLibDbKeyHash512(md.digest());
     }
     catch (Exception ex) {
     }
-    return new CFLibDbKeyHash512(0);
+    return new YCFLibDbKeyHash512(0);
   }
 
-  public static CFLibDbKeyHash512 hash(CFLibDbKeyHash512... payload) {
+  public static YCFLibDbKeyHash512 hash(YCFLibDbKeyHash512... payload) {
     try {
       MessageDigest md = MessageDigest.getInstance(HASH_ALGO);
-      for (CFLibDbKeyHash512 k : payload) {
+      for (YCFLibDbKeyHash512 k : payload) {
         md.update(k.bytes);
       }
-      return new CFLibDbKeyHash512(md.digest());
+      return new YCFLibDbKeyHash512(md.digest());
     }
     catch (Exception ex) {
     }
-    return new CFLibDbKeyHash512(0);
+    return new YCFLibDbKeyHash512(0);
   }
 
-  public static CFLibDbKeyHash512 hash(int[] payload) {
+  public static YCFLibDbKeyHash512 hash(int[] payload) {
     try {
       MessageDigest md = MessageDigest.getInstance(HASH_ALGO);
       for (int x : payload) {
@@ -291,19 +291,19 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
         md.update((byte) (x & 255));
       }
 
-      return new CFLibDbKeyHash512(md.digest());
+      return new YCFLibDbKeyHash512(md.digest());
     }
     catch (Exception ex) {
     }
-    return new CFLibDbKeyHash512(0);
+    return new YCFLibDbKeyHash512(0);
   }
 
   @Override
-  public CFLibDbKeyHash512 deepClone() {
-    return new CFLibDbKeyHash512(this);
+  public YCFLibDbKeyHash512 deepClone() {
+    return new YCFLibDbKeyHash512(this);
   }
 
-  static public CFLibDbKeyHash512 fromHexQuick(String string) {
+  static public YCFLibDbKeyHash512 fromHexQuick(String string) {
     if (string == null) {
       return null;
     }
@@ -329,21 +329,21 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
     }
   }
 
-  public static final CFLibDbKeyHash512[] toCFLibDbKeyHash512(String[] ids) {
+  public static final YCFLibDbKeyHash512[] toYCFLibDbKeyHash512(String[] ids) {
     if (ids == null) {
       return null;
     }
     if (ids.length == 0) {
-      return new CFLibDbKeyHash512[0];
+      return new YCFLibDbKeyHash512[0];
     }
-    CFLibDbKeyHash512[] r = new CFLibDbKeyHash512[ids.length];
+    YCFLibDbKeyHash512[] r = new YCFLibDbKeyHash512[ids.length];
     for (int i = 0; i < ids.length; i++) {
-      r[i] = new CFLibDbKeyHash512(ids[i]);
+      r[i] = new YCFLibDbKeyHash512(ids[i]);
     }
     return r;
   }
 
-  public static final List<CFLibDbKeyHash512> toCFLibDbKeyHash512List(String[] ids) {
+  public static final List<YCFLibDbKeyHash512> toYCFLibDbKeyHash512List(String[] ids) {
 
     if (ids == null) {
       return null;
@@ -351,15 +351,15 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
     if (ids.length == 0) {
       return Collections.emptyList();
     }
-    List<CFLibDbKeyHash512> r = new ArrayList<CFLibDbKeyHash512>(ids.length);
+    List<YCFLibDbKeyHash512> r = new ArrayList<YCFLibDbKeyHash512>(ids.length);
     for (int i = 0; i < ids.length; i++) {
-      r.add(new CFLibDbKeyHash512(ids[i]));
+      r.add(new YCFLibDbKeyHash512(ids[i]));
     }
     return r;
 
   }
 
-  public static final Set<CFLibDbKeyHash512> toCFLibDbKeyHash512Set(String[] ids) {
+  public static final Set<YCFLibDbKeyHash512> toYCFLibDbKeyHash512Set(String[] ids) {
 
     if (ids == null) {
       return null;
@@ -367,9 +367,9 @@ public class CFLibDbKeyHash512 extends CFLibDbKeyHashBase<CFLibDbKeyHash512> imp
     if (ids.length == 0) {
       return Collections.emptySet();
     }
-    Set<CFLibDbKeyHash512> r = new HashSet<CFLibDbKeyHash512>(ids.length);
+    Set<YCFLibDbKeyHash512> r = new HashSet<YCFLibDbKeyHash512>(ids.length);
     for (int i = 0; i < ids.length; i++) {
-      r.add(new CFLibDbKeyHash512(ids[i]));
+      r.add(new YCFLibDbKeyHash512(ids[i]));
     }
     return r;
 

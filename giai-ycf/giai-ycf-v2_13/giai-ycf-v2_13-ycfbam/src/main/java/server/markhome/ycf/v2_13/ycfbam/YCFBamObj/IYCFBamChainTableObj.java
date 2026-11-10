@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamChainTableObj
+public interface IYCFBamChainTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamChainTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamChainObj newInstance();
+	IYCFBamChainObj newInstance();
 
 	/**
 	 *	Instantiate a new Chain edition of the specified Chain instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamChainEditObj newEditInstance( ICFBamChainObj orig );
+	IYCFBamChainEditObj newEditInstance( IYCFBamChainObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamChainObj realiseChain( ICFBamChainObj Obj );
+	IYCFBamChainObj realiseChain( IYCFBamChainObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamChainObj createChain( ICFBamChainObj Obj );
+	IYCFBamChainObj createChain( IYCFBamChainObj Obj );
 
 	/**
 	 *	Read a Chain-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamChainTableObj
 	 *	@return	The Chain-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamChainObj readChain( CFBamChainPKey pkey );
+	IYCFBamChainObj readChain( YCFBamChainPKey pkey );
 
 	/**
 	 *	Read a Chain-derived instance by it's primary key.
@@ -113,142 +113,142 @@ public interface ICFBamChainTableObj
 	 *	@return	The Chain-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamChainObj readChain( CFBamChainPKey pkey,
+	IYCFBamChainObj readChain( YCFBamChainPKey pkey,
 		boolean forceRead );
 
-	ICFBamChainObj readCachedChain( CFBamChainPKey pkey );
+	IYCFBamChainObj readCachedChain( YCFBamChainPKey pkey );
 
-	public void reallyDeepDisposeChain( ICFBamChainObj obj );
+	public void reallyDeepDisposeChain( IYCFBamChainObj obj );
 
-	void deepDisposeChain( CFBamChainPKey pkey );
+	void deepDisposeChain( YCFBamChainPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamChainObj lockChain( CFBamChainPKey pkey );
+	IYCFBamChainObj lockChain( YCFBamChainPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the Chain-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamChainObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamChainObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamChainObj> readAllChain();
+	List<IYCFBamChainObj> readAllChain();
 
 	/**
 	 *	Return a sorted map of all the Chain-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamChainObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamChainObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamChainObj> readAllChain( boolean forceRead );
+	List<IYCFBamChainObj> readAllChain( boolean forceRead );
 
-	List<ICFBamChainObj> readCachedAllChain();
+	List<IYCFBamChainObj> readCachedAllChain();
 
 	/**
-	 *	Get the CFBamChainObj instance for the primary key attributes.
+	 *	Get the YCFBamChainObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamChainObj cached instance for the primary key, or
+	 *	@return	YCFBamChainObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamChainObj readChainByIdIdx( long TenantId,
+	IYCFBamChainObj readChainByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamChainObj instance for the primary key attributes.
+	 *	Get the YCFBamChainObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamChainObj refreshed instance for the primary key, or
+	 *	@return	YCFBamChainObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamChainObj readChainByIdIdx( long TenantId,
+	IYCFBamChainObj readChainByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByTenantIdx( long TenantId );
+	List<IYCFBamChainObj> readChainByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByTenantIdx( long TenantId,
+	List<IYCFBamChainObj> readChainByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate ChainTableIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate ChainTableIdx key.
 	 *
 	 *	@param	argTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate ChainTableIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate ChainTableIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByChainTableIdx( long TenantId,
+	List<IYCFBamChainObj> readChainByChainTableIdx( long TenantId,
 		long TableId );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate ChainTableIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate ChainTableIdx key.
 	 *
 	 *	@param	argTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate ChainTableIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate ChainTableIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByChainTableIdx( long TenantId,
+	List<IYCFBamChainObj> readChainByChainTableIdx( long TenantId,
 		long TableId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamChainObj> readChainByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamChainObj> readChainByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamChainObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamChainObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The Chain key attribute of the instance generating the id.
 	 *
@@ -256,15 +256,15 @@ public interface ICFBamChainTableObj
 	 *
 	 *	@param	argName	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamChainObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamChainObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamChainObj readChainByUNameIdx(long TenantId,
+	IYCFBamChainObj readChainByUNameIdx(long TenantId,
 		long TableId,
 		String Name );
 
 	/**
-	 *	Get the CFBamChainObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamChainObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The Chain key attribute of the instance generating the id.
 	 *
@@ -272,87 +272,87 @@ public interface ICFBamChainTableObj
 	 *
 	 *	@param	argName	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamChainObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamChainObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamChainObj readChainByUNameIdx(long TenantId,
+	IYCFBamChainObj readChainByUNameIdx(long TenantId,
 		long TableId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate PrevRelIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate PrevRelIdx key.
 	 *
 	 *	@param	argPrevRelationTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevRelationId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate PrevRelIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate PrevRelIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByPrevRelIdx( long PrevRelationTenantId,
+	List<IYCFBamChainObj> readChainByPrevRelIdx( long PrevRelationTenantId,
 		long PrevRelationId );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate PrevRelIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate PrevRelIdx key.
 	 *
 	 *	@param	argPrevRelationTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevRelationId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate PrevRelIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate PrevRelIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByPrevRelIdx( long PrevRelationTenantId,
+	List<IYCFBamChainObj> readChainByPrevRelIdx( long PrevRelationTenantId,
 		long PrevRelationId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate NextRelIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate NextRelIdx key.
 	 *
 	 *	@param	argNextRelationTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextRelationId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate NextRelIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate NextRelIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByNextRelIdx( long NextRelationTenantId,
+	List<IYCFBamChainObj> readChainByNextRelIdx( long NextRelationTenantId,
 		long NextRelationId );
 
 	/**
-	 *	Get the map of CFBamChainObj instances sorted by their primary keys for the duplicate NextRelIdx key.
+	 *	Get the map of YCFBamChainObj instances sorted by their primary keys for the duplicate NextRelIdx key.
 	 *
 	 *	@param	argNextRelationTenantId	The Chain key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextRelationId	The Chain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamChainObj cached instances sorted by their primary keys for the duplicate NextRelIdx key,
+	 *	@return	List of YCFBamChainObj cached instances sorted by their primary keys for the duplicate NextRelIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamChainObj> readChainByNextRelIdx( long NextRelationTenantId,
+	List<IYCFBamChainObj> readChainByNextRelIdx( long NextRelationTenantId,
 		long NextRelationId,
 		boolean forceRead );
 
-	ICFBamChainObj readCachedChainByIdIdx( long TenantId,
+	IYCFBamChainObj readCachedChainByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFBamChainObj> readCachedChainByTenantIdx( long TenantId );
+	List<IYCFBamChainObj> readCachedChainByTenantIdx( long TenantId );
 
-	List<ICFBamChainObj> readCachedChainByChainTableIdx( long TenantId,
+	List<IYCFBamChainObj> readCachedChainByChainTableIdx( long TenantId,
 		long TableId );
 
-	List<ICFBamChainObj> readCachedChainByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamChainObj> readCachedChainByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	ICFBamChainObj readCachedChainByUNameIdx( long TenantId,
+	IYCFBamChainObj readCachedChainByUNameIdx( long TenantId,
 		long TableId,
 		String Name );
 
-	List<ICFBamChainObj> readCachedChainByPrevRelIdx( long PrevRelationTenantId,
+	List<IYCFBamChainObj> readCachedChainByPrevRelIdx( long PrevRelationTenantId,
 		long PrevRelationId );
 
-	List<ICFBamChainObj> readCachedChainByNextRelIdx( long NextRelationTenantId,
+	List<IYCFBamChainObj> readCachedChainByNextRelIdx( long NextRelationTenantId,
 		long NextRelationId );
 
 	void deepDisposeChainByIdIdx( long TenantId,
@@ -379,12 +379,12 @@ public interface ICFBamChainTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamChainObj updateChain( ICFBamChainObj Obj );
+	IYCFBamChainObj updateChain( IYCFBamChainObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteChain( ICFBamChainObj Obj );
+	void deleteChain( IYCFBamChainObj Obj );
 
 	/**
 	 *	Internal use only.

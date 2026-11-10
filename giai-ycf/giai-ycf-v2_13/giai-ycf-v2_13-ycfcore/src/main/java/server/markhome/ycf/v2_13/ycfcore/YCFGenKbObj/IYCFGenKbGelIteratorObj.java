@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelIterator.
+// Description: Java 11 Object interface for YCFGenKb GelIterator.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,44 +27,44 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
 
-public interface ICFGenKbGelIteratorObj
-	extends ICFGenKbGelInstructionObj
+public interface IYCFGenKbGelIteratorObj
+	extends IYCFGenKbGelInstructionObj
 {
 	/**
-	 *	Get the current edition of this GelIterator instance as a ICFGenKbGelIteratorEditObj.
+	 *	Get the current edition of this GelIterator instance as a IYCFGenKbGelIteratorEditObj.
 	 *
-	 *	@return	The ICFGenKbGelIteratorEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelIteratorEditObj edition of this instance.
 	 */
-	ICFGenKbGelIteratorEditObj getEditAsGelIterator();
+	IYCFGenKbGelIteratorEditObj getEditAsGelIterator();
 
 	/**
-	 *	Get the ICFGenKbGelIteratorTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelIteratorTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelIteratorTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelIteratorTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelIteratorTableObj getGelIteratorTable();
+	IYCFGenKbGelIteratorTableObj getGelIteratorTable();
 
 	/**
-	 *	Get the CFGenKbGelIteratorBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelIteratorBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelIteratorBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelIteratorBuff instance which currently backs this object.
 	 */
-	CFGenKbGelIteratorBuff getGelIteratorBuff();
+	YCFGenKbGelIteratorBuff getGelIteratorBuff();
 
 	/**
 	 *	Get the required String attribute IteratorName.

@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb DefClass.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb DefClass.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbDefClassEditObj
-	extends ICFGenKbDefClassObj
+public interface IYCFGenKbDefClassEditObj
+	extends IYCFGenKbDefClassObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbDefClassObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbDefClassObj.
 	 */
-	ICFGenKbDefClassObj getOrig();
+	IYCFGenKbDefClassObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbDefClassObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbDefClassObj.
 	 */
-	ICFGenKbDefClassObj getOrigAsDefClass();
+	IYCFGenKbDefClassObj getOrigAsDefClass();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbDefClassEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbDefClassObj create();
+	IYCFGenKbDefClassObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbDefClassEditObj update();
+	YCFGenKbDefClassEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbDefClassEditObj deleteInstance();
+	YCFGenKbDefClassEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -90,16 +90,16 @@ public interface ICFGenKbDefClassEditObj
 	void setRequiredName( String value );
 
 	/**
-	 *	Get the ICFGenKbDefClassObj instance referenced by the BaseDefClass key.
+	 *	Get the IYCFGenKbDefClassObj instance referenced by the BaseDefClass key.
 	 *
-	 *	@return	The ICFGenKbDefClassObj instance referenced by the BaseDefClass key.
+	 *	@return	The IYCFGenKbDefClassObj instance referenced by the BaseDefClass key.
 	 */
-	ICFGenKbDefClassObj getOptionalParentBaseDefClass();
+	IYCFGenKbDefClassObj getOptionalParentBaseDefClass();
 
 	/**
-	 *	Set the ICFGenKbDefClassObj instance referenced by the BaseDefClass key.
+	 *	Set the IYCFGenKbDefClassObj instance referenced by the BaseDefClass key.
 	 *
-	 *	@param	value	the ICFGenKbDefClassObj instance to be referenced by the BaseDefClass key.
+	 *	@param	value	the IYCFGenKbDefClassObj instance to be referenced by the BaseDefClass key.
 	 */
-	void setOptionalParentBaseDefClass( ICFGenKbDefClassObj value );
+	void setOptionalParentBaseDefClass( IYCFGenKbDefClassObj value );
 }

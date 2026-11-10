@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Binding for ISOTZone Column TZHourOffset.
+// Description: Java 11 MssYCF Binding for ISOTZone Column TZHourOffset.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,88 +27,88 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.math.*;
 import java.sql.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 import org.apache.commons.codec.binary.Base64;
 
 /**
- *	CFBamMssCFBindISOTZoneTZHourOffset binds ISOTZone.TZHourOffset
- *	as an instance of MssCFGenBindObj.
+ *	YCFBamMssYCFBindISOTZoneTZHourOffset binds ISOTZone.TZHourOffset
+ *	as an instance of MssYCFGenBindObj.
  */
-public class CFBamMssCFBindISOTZoneTZHourOffset
-	extends MssCFGenBindObj
+public class YCFBamMssYCFBindISOTZoneTZHourOffset
+	extends MssYCFGenBindObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFBindISOTZoneTZHourOffset() {
+	public YCFBamMssYCFBindISOTZoneTZHourOffset() {
 		super();
 	}
 
-	public CFBamMssCFBindISOTZoneTZHourOffset( MssCFEngine argEngine ) {
+	public YCFBamMssYCFBindISOTZoneTZHourOffset( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
 			"ISOTZone",
 			"TZHourOffset" );
 	}
-	public Object getValueObject( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindISOTZoneTZHourOffset.getValueObject() ";
+	public Object getValueObject( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindISOTZoneTZHourOffset.getValueObject() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
 		}
 
 		short tZHourOffset;
-		if( genDef instanceof ICFBamISOTZoneObj ) {
-			tZHourOffset = ((ICFBamISOTZoneObj)genDef).getRequiredTZHourOffset();
+		if( genDef instanceof IYCFBamISOTZoneObj ) {
+			tZHourOffset = ((IYCFBamISOTZoneObj)genDef).getRequiredTZHourOffset();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamISOTZoneObj" );
+				"IYCFBamISOTZoneObj" );
 		}
 
 		return( tZHourOffset );
 	}
 
-	public String expandBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindISOTZoneTZHourOffset.expandBody() ";
+	public String expandBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindISOTZoneTZHourOffset.expandBody() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
@@ -116,16 +116,16 @@ public class CFBamMssCFBindISOTZoneTZHourOffset
 
 		String ret;
 
-		if( genDef instanceof ICFBamISOTZoneObj ) {
-			short tZHourOffset = ((ICFBamISOTZoneObj)genDef).getRequiredTZHourOffset();
+		if( genDef instanceof IYCFBamISOTZoneObj ) {
+			short tZHourOffset = ((IYCFBamISOTZoneObj)genDef).getRequiredTZHourOffset();
 			ret = Short.toString( tZHourOffset );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamISOTZoneObj" );
+				"IYCFBamISOTZoneObj" );
 		}
 
 		return( ret );

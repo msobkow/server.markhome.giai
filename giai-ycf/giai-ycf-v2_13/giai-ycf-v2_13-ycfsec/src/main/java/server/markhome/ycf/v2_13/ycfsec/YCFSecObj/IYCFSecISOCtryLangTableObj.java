@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOCtryLangTableObj
+public interface IYCFSecISOCtryLangTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecISOCtryLangTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecISOCtryLangObj newInstance();
+	IYCFSecISOCtryLangObj newInstance();
 
 	/**
 	 *	Instantiate a new ISOCtryLang edition of the specified ISOCtryLang instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecISOCtryLangEditObj newEditInstance( ICFSecISOCtryLangObj orig );
+	IYCFSecISOCtryLangEditObj newEditInstance( IYCFSecISOCtryLangObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryLangObj realiseISOCtryLang( ICFSecISOCtryLangObj Obj );
+	IYCFSecISOCtryLangObj realiseISOCtryLang( IYCFSecISOCtryLangObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryLangObj createISOCtryLang( ICFSecISOCtryLangObj Obj );
+	IYCFSecISOCtryLangObj createISOCtryLang( IYCFSecISOCtryLangObj Obj );
 
 	/**
 	 *	Read a ISOCtryLang-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecISOCtryLangTableObj
 	 *	@return	The ISOCtryLang-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOCtryLangObj readISOCtryLang( CFSecISOCtryLangPKey pkey );
+	IYCFSecISOCtryLangObj readISOCtryLang( YCFSecISOCtryLangPKey pkey );
 
 	/**
 	 *	Read a ISOCtryLang-derived instance by it's primary key.
@@ -90,113 +90,113 @@ public interface ICFSecISOCtryLangTableObj
 	 *	@return	The ISOCtryLang-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOCtryLangObj readISOCtryLang( CFSecISOCtryLangPKey pkey,
+	IYCFSecISOCtryLangObj readISOCtryLang( YCFSecISOCtryLangPKey pkey,
 		boolean forceRead );
 
-	ICFSecISOCtryLangObj readCachedISOCtryLang( CFSecISOCtryLangPKey pkey );
+	IYCFSecISOCtryLangObj readCachedISOCtryLang( YCFSecISOCtryLangPKey pkey );
 
-	public void reallyDeepDisposeISOCtryLang( ICFSecISOCtryLangObj obj );
+	public void reallyDeepDisposeISOCtryLang( IYCFSecISOCtryLangObj obj );
 
-	void deepDisposeISOCtryLang( CFSecISOCtryLangPKey pkey );
+	void deepDisposeISOCtryLang( YCFSecISOCtryLangPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryLangObj lockISOCtryLang( CFSecISOCtryLangPKey pkey );
+	IYCFSecISOCtryLangObj lockISOCtryLang( YCFSecISOCtryLangPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ISOCtryLang-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOCtryLangObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOCtryLangObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOCtryLangObj> readAllISOCtryLang();
+	List<IYCFSecISOCtryLangObj> readAllISOCtryLang();
 
 	/**
 	 *	Return a sorted map of all the ISOCtryLang-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOCtryLangObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOCtryLangObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOCtryLangObj> readAllISOCtryLang( boolean forceRead );
+	List<IYCFSecISOCtryLangObj> readAllISOCtryLang( boolean forceRead );
 
-	List<ICFSecISOCtryLangObj> readCachedAllISOCtryLang();
+	List<IYCFSecISOCtryLangObj> readCachedAllISOCtryLang();
 
 	/**
-	 *	Get the CFSecISOCtryLangObj instance for the primary key attributes.
+	 *	Get the YCFSecISOCtryLangObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOCtryId	The ISOCtryLang key attribute of the instance generating the id.
 	 *
 	 *	@param	argISOLangId	The ISOCtryLang key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryLangObj cached instance for the primary key, or
+	 *	@return	YCFSecISOCtryLangObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryLangObj readISOCtryLangByIdIdx( short ISOCtryId,
+	IYCFSecISOCtryLangObj readISOCtryLangByIdIdx( short ISOCtryId,
 		short ISOLangId );
 
 	/**
-	 *	Get the CFSecISOCtryLangObj instance for the primary key attributes.
+	 *	Get the YCFSecISOCtryLangObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOCtryId	The ISOCtryLang key attribute of the instance generating the id.
 	 *
 	 *	@param	argISOLangId	The ISOCtryLang key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryLangObj refreshed instance for the primary key, or
+	 *	@return	YCFSecISOCtryLangObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryLangObj readISOCtryLangByIdIdx( short ISOCtryId,
+	IYCFSecISOCtryLangObj readISOCtryLangByIdIdx( short ISOCtryId,
 		short ISOLangId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecISOCtryLangObj instances sorted by their primary keys for the duplicate CtryIdx key.
+	 *	Get the map of YCFSecISOCtryLangObj instances sorted by their primary keys for the duplicate CtryIdx key.
 	 *
 	 *	@param	argISOCtryId	The ISOCtryLang key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOCtryLangObj cached instances sorted by their primary keys for the duplicate CtryIdx key,
+	 *	@return	List of YCFSecISOCtryLangObj cached instances sorted by their primary keys for the duplicate CtryIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOCtryLangObj> readISOCtryLangByCtryIdx( short ISOCtryId );
+	List<IYCFSecISOCtryLangObj> readISOCtryLangByCtryIdx( short ISOCtryId );
 
 	/**
-	 *	Get the map of CFSecISOCtryLangObj instances sorted by their primary keys for the duplicate CtryIdx key.
+	 *	Get the map of YCFSecISOCtryLangObj instances sorted by their primary keys for the duplicate CtryIdx key.
 	 *
 	 *	@param	argISOCtryId	The ISOCtryLang key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOCtryLangObj cached instances sorted by their primary keys for the duplicate CtryIdx key,
+	 *	@return	List of YCFSecISOCtryLangObj cached instances sorted by their primary keys for the duplicate CtryIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOCtryLangObj> readISOCtryLangByCtryIdx( short ISOCtryId,
+	List<IYCFSecISOCtryLangObj> readISOCtryLangByCtryIdx( short ISOCtryId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecISOCtryLangObj instances sorted by their primary keys for the duplicate LangIdx key.
+	 *	Get the map of YCFSecISOCtryLangObj instances sorted by their primary keys for the duplicate LangIdx key.
 	 *
 	 *	@param	argISOLangId	The ISOCtryLang key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOCtryLangObj cached instances sorted by their primary keys for the duplicate LangIdx key,
+	 *	@return	List of YCFSecISOCtryLangObj cached instances sorted by their primary keys for the duplicate LangIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOCtryLangObj> readISOCtryLangByLangIdx( short ISOLangId );
+	List<IYCFSecISOCtryLangObj> readISOCtryLangByLangIdx( short ISOLangId );
 
 	/**
-	 *	Get the map of CFSecISOCtryLangObj instances sorted by their primary keys for the duplicate LangIdx key.
+	 *	Get the map of YCFSecISOCtryLangObj instances sorted by their primary keys for the duplicate LangIdx key.
 	 *
 	 *	@param	argISOLangId	The ISOCtryLang key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOCtryLangObj cached instances sorted by their primary keys for the duplicate LangIdx key,
+	 *	@return	List of YCFSecISOCtryLangObj cached instances sorted by their primary keys for the duplicate LangIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOCtryLangObj> readISOCtryLangByLangIdx( short ISOLangId,
+	List<IYCFSecISOCtryLangObj> readISOCtryLangByLangIdx( short ISOLangId,
 		boolean forceRead );
 
-	ICFSecISOCtryLangObj readCachedISOCtryLangByIdIdx( short ISOCtryId,
+	IYCFSecISOCtryLangObj readCachedISOCtryLangByIdIdx( short ISOCtryId,
 		short ISOLangId );
 
-	List<ICFSecISOCtryLangObj> readCachedISOCtryLangByCtryIdx( short ISOCtryId );
+	List<IYCFSecISOCtryLangObj> readCachedISOCtryLangByCtryIdx( short ISOCtryId );
 
-	List<ICFSecISOCtryLangObj> readCachedISOCtryLangByLangIdx( short ISOLangId );
+	List<IYCFSecISOCtryLangObj> readCachedISOCtryLangByLangIdx( short ISOLangId );
 
 	void deepDisposeISOCtryLangByIdIdx( short ISOCtryId,
 		short ISOLangId );
@@ -208,12 +208,12 @@ public interface ICFSecISOCtryLangTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryLangObj updateISOCtryLang( ICFSecISOCtryLangObj Obj );
+	IYCFSecISOCtryLangObj updateISOCtryLang( IYCFSecISOCtryLangObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteISOCtryLang( ICFSecISOCtryLangObj Obj );
+	void deleteISOCtryLang( IYCFSecISOCtryLangObj Obj );
 
 	/**
 	 *	Internal use only.

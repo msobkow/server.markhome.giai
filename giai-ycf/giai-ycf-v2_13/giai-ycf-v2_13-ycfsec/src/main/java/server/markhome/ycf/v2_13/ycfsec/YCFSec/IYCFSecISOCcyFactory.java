@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for ISOCcy.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,13 +35,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 /*
- *	CFSecISOCcyFactory interface for ISOCcy
+ *	YCFSecISOCcyFactory interface for ISOCcy
  */
-public interface ICFSecISOCcyFactory
+public interface IYCFSecISOCcyFactory
 {
 
 	/**
@@ -49,41 +49,41 @@ public interface ICFSecISOCcyFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOCcyPKey newPKey();
+	YCFSecISOCcyPKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for ISOCcy instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOCcyHPKey newHPKey();
+	YCFSecISOCcyHPKey newHPKey();
 
 	/**
 	 *	Allocate a CcyCdIdx key over ISOCcy instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOCcyByCcyCdIdxKey newCcyCdIdxKey();
+	YCFSecISOCcyByCcyCdIdxKey newCcyCdIdxKey();
 
 	/**
 	 *	Allocate a CcyNmIdx key over ISOCcy instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOCcyByCcyNmIdxKey newCcyNmIdxKey();
+	YCFSecISOCcyByCcyNmIdxKey newCcyNmIdxKey();
 
 	/**
 	 *	Allocate a ISOCcy instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOCcyBuff newBuff();
+	YCFSecISOCcyBuff newBuff();
 
 	/**
 	 *	Allocate a ISOCcy history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecISOCcyHBuff newHBuff();
+	YCFSecISOCcyHBuff newHBuff();
 
 }

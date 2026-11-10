@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a Cluster history buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,12 +36,12 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecClusterHBuff
+public class YCFSecClusterHBuff
 
-	extends CFSecHPKey	implements Comparable<Object>,
+	extends YCFSecHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final long ID_INIT_VALUE = 0L;
@@ -52,15 +52,15 @@ public class CFSecClusterHBuff
 	protected long requiredId;
 	protected String requiredFullDomName;
 	protected String requiredDescription;
-	public CFSecClusterHBuff() {
+	public YCFSecClusterHBuff() {
 		super();
-		requiredId = CFSecClusterBuff.ID_INIT_VALUE;
-		requiredFullDomName = new String( CFSecClusterBuff.FULLDOMNAME_INIT_VALUE );
-		requiredDescription = new String( CFSecClusterBuff.DESCRIPTION_INIT_VALUE );
+		requiredId = YCFSecClusterBuff.ID_INIT_VALUE;
+		requiredFullDomName = new String( YCFSecClusterBuff.FULLDOMNAME_INIT_VALUE );
+		requiredDescription = new String( YCFSecClusterBuff.DESCRIPTION_INIT_VALUE );
 	}
 
 	public String getClassCode() {
-		return( CFSecClusterBuff.CLASS_CODE );
+		return( YCFSecClusterBuff.CLASS_CODE );
 	}
 
 	public long getRequiredId() {
@@ -68,13 +68,13 @@ public class CFSecClusterHBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFSecClusterBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecClusterBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFSecClusterBuff.ID_MIN_VALUE );
+				YCFSecClusterBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -85,13 +85,13 @@ public class CFSecClusterHBuff
 
 	public void setRequiredFullDomName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredFullDomName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredFullDomName",
 				1,
 				"value.length()",
@@ -107,13 +107,13 @@ public class CFSecClusterHBuff
 
 	public void setRequiredDescription( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredDescription",
 				1,
 				"value" );
 		}
 		if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDescription",
 				1,
 				"value.length()",
@@ -127,8 +127,8 @@ public class CFSecClusterHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecClusterHBuff ) {
-			CFSecClusterHBuff rhs = (CFSecClusterHBuff)obj;
+		else if( obj instanceof YCFSecClusterHBuff ) {
+			YCFSecClusterHBuff rhs = (YCFSecClusterHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -143,8 +143,8 @@ public class CFSecClusterHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecClusterBuff ) {
-			CFSecClusterBuff rhs = (CFSecClusterBuff)obj;
+		else if( obj instanceof YCFSecClusterBuff ) {
+			YCFSecClusterBuff rhs = (YCFSecClusterBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -159,22 +159,22 @@ public class CFSecClusterHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecClusterByUDomNameIdxKey ) {
-			CFSecClusterByUDomNameIdxKey rhs = (CFSecClusterByUDomNameIdxKey)obj;
+		else if( obj instanceof YCFSecClusterByUDomNameIdxKey ) {
+			YCFSecClusterByUDomNameIdxKey rhs = (YCFSecClusterByUDomNameIdxKey)obj;
 			if( ! getRequiredFullDomName().equals( rhs.getRequiredFullDomName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecClusterByUDescrIdxKey ) {
-			CFSecClusterByUDescrIdxKey rhs = (CFSecClusterByUDescrIdxKey)obj;
+		else if( obj instanceof YCFSecClusterByUDescrIdxKey ) {
+			YCFSecClusterByUDescrIdxKey rhs = (YCFSecClusterByUDescrIdxKey)obj;
 			if( ! getRequiredDescription().equals( rhs.getRequiredDescription() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecClusterHPKey ) {
-			CFSecClusterHPKey rhs = (CFSecClusterHPKey)obj;
+		else if( obj instanceof YCFSecClusterHPKey ) {
+			YCFSecClusterHPKey rhs = (YCFSecClusterHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -235,8 +235,8 @@ public class CFSecClusterHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -294,8 +294,8 @@ public class CFSecClusterHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecClusterPKey ) {
-			CFSecClusterPKey rhs = (CFSecClusterPKey)obj;
+		else if( obj instanceof YCFSecClusterPKey ) {
+			YCFSecClusterPKey rhs = (YCFSecClusterPKey)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -322,16 +322,16 @@ public class CFSecClusterHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecClusterBuff ) {
-			CFSecClusterBuff rhs = (CFSecClusterBuff)obj;
+		else if( obj instanceof YCFSecClusterBuff ) {
+			YCFSecClusterBuff rhs = (YCFSecClusterBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecClusterByUDomNameIdxKey ) {
-			CFSecClusterByUDomNameIdxKey rhs = (CFSecClusterByUDomNameIdxKey)obj;
+		else if( obj instanceof YCFSecClusterByUDomNameIdxKey ) {
+			YCFSecClusterByUDomNameIdxKey rhs = (YCFSecClusterByUDomNameIdxKey)obj;
 
 			{
 				int cmp = getRequiredFullDomName().compareTo( rhs.getRequiredFullDomName() );
@@ -340,8 +340,8 @@ public class CFSecClusterHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecClusterByUDescrIdxKey ) {
-			CFSecClusterByUDescrIdxKey rhs = (CFSecClusterByUDescrIdxKey)obj;
+		else if( obj instanceof YCFSecClusterByUDescrIdxKey ) {
+			YCFSecClusterByUDescrIdxKey rhs = (YCFSecClusterByUDescrIdxKey)obj;
 
 			{
 				int cmp = getRequiredDescription().compareTo( rhs.getRequiredDescription() );
@@ -350,8 +350,8 @@ public class CFSecClusterHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecClusterHBuff ) {
-			CFSecClusterHBuff rhs = (CFSecClusterHBuff)obj;
+		else if( obj instanceof YCFSecClusterHBuff ) {
+			YCFSecClusterHBuff rhs = (YCFSecClusterHBuff)obj;
 
 			int retval = 0;
 			{
@@ -506,8 +506,8 @@ public class CFSecClusterHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecClusterHPKey ) {
-			CFSecClusterHPKey rhs = (CFSecClusterHPKey)obj;
+		else if( obj instanceof YCFSecClusterHPKey ) {
+			YCFSecClusterHPKey rhs = (YCFSecClusterHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -582,8 +582,8 @@ public class CFSecClusterHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecClusterPKey ) {
-			CFSecClusterPKey rhs = (CFSecClusterPKey)obj;
+		else if( obj instanceof YCFSecClusterPKey ) {
+			YCFSecClusterPKey rhs = (YCFSecClusterPKey)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -592,8 +592,8 @@ public class CFSecClusterHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -611,22 +611,22 @@ public class CFSecClusterHBuff
 		}
 	}
 
-	public void set( CFSecClusterBuff src ) {
+	public void set( YCFSecClusterBuff src ) {
 		setClusterBuff( src );
 	}
 
-	public void setClusterBuff( CFSecClusterBuff src ) {
+	public void setClusterBuff( YCFSecClusterBuff src ) {
 		setRequiredId( src.getRequiredId() );
 		setRequiredFullDomName( src.getRequiredFullDomName() );
 		setRequiredDescription( src.getRequiredDescription() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecClusterHBuff src ) {
+	public void set( YCFSecClusterHBuff src ) {
 		setClusterBuff( src );
 	}
 
-	public void setClusterBuff( CFSecClusterHBuff src ) {
+	public void setClusterBuff( YCFSecClusterHBuff src ) {
 		setRequiredId( src.getRequiredId() );
 		setRequiredFullDomName( src.getRequiredFullDomName() );
 		setRequiredDescription( src.getRequiredDescription() );

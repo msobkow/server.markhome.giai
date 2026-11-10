@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelError.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelErrorTable database interface for GelError
+ *	YCFGenKbGelErrorTable database interface for GelError
  */
-public interface ICFGenKbGelErrorTable
+public interface IYCFGenKbGelErrorTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelError( CFGenKbAuthorization Authorization,
-		CFGenKbGelErrorBuff Buff );
+	void createGelError( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelErrorBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelError( CFGenKbAuthorization Authorization,
-		CFGenKbGelErrorBuff Buff );
+	void updateGelError( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelErrorBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelError( CFGenKbAuthorization Authorization,
-		CFGenKbGelErrorBuff Buff );
+	void deleteGelError( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelErrorBuff Buff );
 	/**
 	 *	Delete the GelError instance identified by the primary key attributes.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	argGelInstId	The GelError key attribute of the instance generating the id.
 	 */
-	void deleteGelErrorByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelErrorByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelErrorByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelErrorByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelError instances identified by the key TenantIdx.
 	 *
@@ -111,7 +111,7 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	argTenantId	The GelError key attribute of the instance generating the id.
 	 */
-	void deleteGelErrorByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelErrorByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -121,8 +121,8 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelErrorByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelErrorByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelError instances identified by the key GelCacheIdx.
 	 *
@@ -132,7 +132,7 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	argGelCacheId	The GelError key attribute of the instance generating the id.
 	 */
-	void deleteGelErrorByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelErrorByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -143,8 +143,8 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelErrorByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelErrorByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelError instances identified by the key ChainIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelError key attribute of the instance generating the id.
 	 */
-	void deleteGelErrorByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelErrorByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -168,8 +168,8 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelErrorByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelErrorByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -182,8 +182,8 @@ public interface ICFGenKbGelErrorTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelErrorBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelErrorBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelError buffer instance by primary key.
@@ -195,8 +195,8 @@ public interface ICFGenKbGelErrorTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelErrorBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelErrorBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelError instances.
@@ -205,7 +205,7 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelErrorBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelErrorBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelError buffer instance identified by the unique key PIdx.
@@ -221,7 +221,7 @@ public interface ICFGenKbGelErrorTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelErrorBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelErrorBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -235,7 +235,7 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelErrorBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelErrorBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -249,7 +249,7 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelErrorBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelErrorBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -266,7 +266,7 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelErrorBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelErrorBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -281,10 +281,10 @@ public interface ICFGenKbGelErrorTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelErrorBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelErrorBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelError buffer instance identified by the primary key.
@@ -296,10 +296,10 @@ public interface ICFGenKbGelErrorTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelErrorBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelErrorBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelError buffer instances.
@@ -308,7 +308,7 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@return All the specific GelError instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelErrorBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelErrorBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelError buffer instance identified by the unique key PIdx.
@@ -324,9 +324,9 @@ public interface ICFGenKbGelErrorTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelErrorBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelErrorBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -340,9 +340,9 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelErrorBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelErrorBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -356,9 +356,9 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelErrorBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelErrorBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -375,9 +375,9 @@ public interface ICFGenKbGelErrorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelErrorBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelErrorBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -385,7 +385,7 @@ public interface ICFGenKbGelErrorTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

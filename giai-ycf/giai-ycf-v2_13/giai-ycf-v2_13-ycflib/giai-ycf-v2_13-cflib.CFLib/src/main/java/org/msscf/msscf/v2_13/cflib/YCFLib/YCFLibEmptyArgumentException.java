@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,17 +21,17 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
-public class CFLibEmptyArgumentException extends CFLibArgumentException {
+public class YCFLibEmptyArgumentException extends YCFLibArgumentException {
 
-	public CFLibEmptyArgumentException(
+	public YCFLibEmptyArgumentException(
 		String msg )
 	{
 		super( msg );
 	}
 
-	public CFLibEmptyArgumentException(
+	public YCFLibEmptyArgumentException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -39,7 +39,7 @@ public class CFLibEmptyArgumentException extends CFLibArgumentException {
 		super( throwingClass, methName, msg );
 	}
 
-	public CFLibEmptyArgumentException(
+	public YCFLibEmptyArgumentException(
 		Class throwingClass,
 		String methName,
 		String msg,
@@ -48,7 +48,7 @@ public class CFLibEmptyArgumentException extends CFLibArgumentException {
 		super( throwingClass, methName, msg, th );
 	}
 
-	public CFLibEmptyArgumentException(
+	public YCFLibEmptyArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -58,7 +58,7 @@ public class CFLibEmptyArgumentException extends CFLibArgumentException {
 		super( throwingClass, methName, argNo, argName, msg );
 	}
 
-	public CFLibEmptyArgumentException(
+	public YCFLibEmptyArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -69,7 +69,7 @@ public class CFLibEmptyArgumentException extends CFLibArgumentException {
 		super( throwingClass, methName, argNo, argName, msg, th );
 	}
 
-	public CFLibEmptyArgumentException(
+	public YCFLibEmptyArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -79,7 +79,7 @@ public class CFLibEmptyArgumentException extends CFLibArgumentException {
 			"is null or empty" );
 	}
 
-	public CFLibEmptyArgumentException(
+	public YCFLibEmptyArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,

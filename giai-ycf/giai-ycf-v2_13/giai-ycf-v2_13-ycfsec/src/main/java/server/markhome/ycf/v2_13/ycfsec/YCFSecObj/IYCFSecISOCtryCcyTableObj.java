@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOCtryCcyTableObj
+public interface IYCFSecISOCtryCcyTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecISOCtryCcyTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecISOCtryCcyObj newInstance();
+	IYCFSecISOCtryCcyObj newInstance();
 
 	/**
 	 *	Instantiate a new ISOCtryCcy edition of the specified ISOCtryCcy instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecISOCtryCcyEditObj newEditInstance( ICFSecISOCtryCcyObj orig );
+	IYCFSecISOCtryCcyEditObj newEditInstance( IYCFSecISOCtryCcyObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryCcyObj realiseISOCtryCcy( ICFSecISOCtryCcyObj Obj );
+	IYCFSecISOCtryCcyObj realiseISOCtryCcy( IYCFSecISOCtryCcyObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryCcyObj createISOCtryCcy( ICFSecISOCtryCcyObj Obj );
+	IYCFSecISOCtryCcyObj createISOCtryCcy( IYCFSecISOCtryCcyObj Obj );
 
 	/**
 	 *	Read a ISOCtryCcy-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecISOCtryCcyTableObj
 	 *	@return	The ISOCtryCcy-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOCtryCcyObj readISOCtryCcy( CFSecISOCtryCcyPKey pkey );
+	IYCFSecISOCtryCcyObj readISOCtryCcy( YCFSecISOCtryCcyPKey pkey );
 
 	/**
 	 *	Read a ISOCtryCcy-derived instance by it's primary key.
@@ -90,113 +90,113 @@ public interface ICFSecISOCtryCcyTableObj
 	 *	@return	The ISOCtryCcy-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOCtryCcyObj readISOCtryCcy( CFSecISOCtryCcyPKey pkey,
+	IYCFSecISOCtryCcyObj readISOCtryCcy( YCFSecISOCtryCcyPKey pkey,
 		boolean forceRead );
 
-	ICFSecISOCtryCcyObj readCachedISOCtryCcy( CFSecISOCtryCcyPKey pkey );
+	IYCFSecISOCtryCcyObj readCachedISOCtryCcy( YCFSecISOCtryCcyPKey pkey );
 
-	public void reallyDeepDisposeISOCtryCcy( ICFSecISOCtryCcyObj obj );
+	public void reallyDeepDisposeISOCtryCcy( IYCFSecISOCtryCcyObj obj );
 
-	void deepDisposeISOCtryCcy( CFSecISOCtryCcyPKey pkey );
+	void deepDisposeISOCtryCcy( YCFSecISOCtryCcyPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryCcyObj lockISOCtryCcy( CFSecISOCtryCcyPKey pkey );
+	IYCFSecISOCtryCcyObj lockISOCtryCcy( YCFSecISOCtryCcyPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ISOCtryCcy-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOCtryCcyObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOCtryCcyObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOCtryCcyObj> readAllISOCtryCcy();
+	List<IYCFSecISOCtryCcyObj> readAllISOCtryCcy();
 
 	/**
 	 *	Return a sorted map of all the ISOCtryCcy-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOCtryCcyObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOCtryCcyObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOCtryCcyObj> readAllISOCtryCcy( boolean forceRead );
+	List<IYCFSecISOCtryCcyObj> readAllISOCtryCcy( boolean forceRead );
 
-	List<ICFSecISOCtryCcyObj> readCachedAllISOCtryCcy();
+	List<IYCFSecISOCtryCcyObj> readCachedAllISOCtryCcy();
 
 	/**
-	 *	Get the CFSecISOCtryCcyObj instance for the primary key attributes.
+	 *	Get the YCFSecISOCtryCcyObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOCtryId	The ISOCtryCcy key attribute of the instance generating the id.
 	 *
 	 *	@param	argISOCcyId	The ISOCtryCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryCcyObj cached instance for the primary key, or
+	 *	@return	YCFSecISOCtryCcyObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryCcyObj readISOCtryCcyByIdIdx( short ISOCtryId,
+	IYCFSecISOCtryCcyObj readISOCtryCcyByIdIdx( short ISOCtryId,
 		short ISOCcyId );
 
 	/**
-	 *	Get the CFSecISOCtryCcyObj instance for the primary key attributes.
+	 *	Get the YCFSecISOCtryCcyObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOCtryId	The ISOCtryCcy key attribute of the instance generating the id.
 	 *
 	 *	@param	argISOCcyId	The ISOCtryCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryCcyObj refreshed instance for the primary key, or
+	 *	@return	YCFSecISOCtryCcyObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryCcyObj readISOCtryCcyByIdIdx( short ISOCtryId,
+	IYCFSecISOCtryCcyObj readISOCtryCcyByIdIdx( short ISOCtryId,
 		short ISOCcyId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecISOCtryCcyObj instances sorted by their primary keys for the duplicate CtryIdx key.
+	 *	Get the map of YCFSecISOCtryCcyObj instances sorted by their primary keys for the duplicate CtryIdx key.
 	 *
 	 *	@param	argISOCtryId	The ISOCtryCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOCtryCcyObj cached instances sorted by their primary keys for the duplicate CtryIdx key,
+	 *	@return	List of YCFSecISOCtryCcyObj cached instances sorted by their primary keys for the duplicate CtryIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOCtryCcyObj> readISOCtryCcyByCtryIdx( short ISOCtryId );
+	List<IYCFSecISOCtryCcyObj> readISOCtryCcyByCtryIdx( short ISOCtryId );
 
 	/**
-	 *	Get the map of CFSecISOCtryCcyObj instances sorted by their primary keys for the duplicate CtryIdx key.
+	 *	Get the map of YCFSecISOCtryCcyObj instances sorted by their primary keys for the duplicate CtryIdx key.
 	 *
 	 *	@param	argISOCtryId	The ISOCtryCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOCtryCcyObj cached instances sorted by their primary keys for the duplicate CtryIdx key,
+	 *	@return	List of YCFSecISOCtryCcyObj cached instances sorted by their primary keys for the duplicate CtryIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOCtryCcyObj> readISOCtryCcyByCtryIdx( short ISOCtryId,
+	List<IYCFSecISOCtryCcyObj> readISOCtryCcyByCtryIdx( short ISOCtryId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecISOCtryCcyObj instances sorted by their primary keys for the duplicate CcyIdx key.
+	 *	Get the map of YCFSecISOCtryCcyObj instances sorted by their primary keys for the duplicate CcyIdx key.
 	 *
 	 *	@param	argISOCcyId	The ISOCtryCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOCtryCcyObj cached instances sorted by their primary keys for the duplicate CcyIdx key,
+	 *	@return	List of YCFSecISOCtryCcyObj cached instances sorted by their primary keys for the duplicate CcyIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOCtryCcyObj> readISOCtryCcyByCcyIdx( short ISOCcyId );
+	List<IYCFSecISOCtryCcyObj> readISOCtryCcyByCcyIdx( short ISOCcyId );
 
 	/**
-	 *	Get the map of CFSecISOCtryCcyObj instances sorted by their primary keys for the duplicate CcyIdx key.
+	 *	Get the map of YCFSecISOCtryCcyObj instances sorted by their primary keys for the duplicate CcyIdx key.
 	 *
 	 *	@param	argISOCcyId	The ISOCtryCcy key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOCtryCcyObj cached instances sorted by their primary keys for the duplicate CcyIdx key,
+	 *	@return	List of YCFSecISOCtryCcyObj cached instances sorted by their primary keys for the duplicate CcyIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOCtryCcyObj> readISOCtryCcyByCcyIdx( short ISOCcyId,
+	List<IYCFSecISOCtryCcyObj> readISOCtryCcyByCcyIdx( short ISOCcyId,
 		boolean forceRead );
 
-	ICFSecISOCtryCcyObj readCachedISOCtryCcyByIdIdx( short ISOCtryId,
+	IYCFSecISOCtryCcyObj readCachedISOCtryCcyByIdIdx( short ISOCtryId,
 		short ISOCcyId );
 
-	List<ICFSecISOCtryCcyObj> readCachedISOCtryCcyByCtryIdx( short ISOCtryId );
+	List<IYCFSecISOCtryCcyObj> readCachedISOCtryCcyByCtryIdx( short ISOCtryId );
 
-	List<ICFSecISOCtryCcyObj> readCachedISOCtryCcyByCcyIdx( short ISOCcyId );
+	List<IYCFSecISOCtryCcyObj> readCachedISOCtryCcyByCcyIdx( short ISOCcyId );
 
 	void deepDisposeISOCtryCcyByIdIdx( short ISOCtryId,
 		short ISOCcyId );
@@ -208,12 +208,12 @@ public interface ICFSecISOCtryCcyTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryCcyObj updateISOCtryCcy( ICFSecISOCtryCcyObj Obj );
+	IYCFSecISOCtryCcyObj updateISOCtryCcy( IYCFSecISOCtryCcyObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteISOCtryCcy( ICFSecISOCtryCcyObj Obj );
+	void deleteISOCtryCcy( IYCFSecISOCtryCcyObj Obj );
 
 	/**
 	 *	Internal use only.

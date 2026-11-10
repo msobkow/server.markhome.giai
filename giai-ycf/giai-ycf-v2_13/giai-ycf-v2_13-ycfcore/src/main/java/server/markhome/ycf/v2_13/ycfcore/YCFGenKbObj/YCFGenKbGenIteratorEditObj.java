@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb GenIterator.
+// Description: Java 11 edit object instance implementation for YCFGenKb GenIterator.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,39 +27,39 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGenIteratorEditObj
-	extends CFGenKbGenItemEditObj
+public class YCFGenKbGenIteratorEditObj
+	extends YCFGenKbGenItemEditObj
 
-	implements ICFGenKbGenIteratorEditObj
+	implements IYCFGenKbGenIteratorEditObj
 {
 
-	public CFGenKbGenIteratorEditObj( ICFGenKbGenIteratorObj argOrig ) {
+	public YCFGenKbGenIteratorEditObj( IYCFGenKbGenIteratorObj argOrig ) {
 		super( argOrig );
 	}
 
 	public String getClassCode() {
-		return( CFGenKbGenIteratorObj.CLASS_CODE );
+		return( YCFGenKbGenIteratorObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "GenIterator" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -69,14 +69,14 @@ public class CFGenKbGenIteratorEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -87,10 +87,10 @@ public class CFGenKbGenIteratorEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -99,11 +99,11 @@ public class CFGenKbGenIteratorEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -127,13 +127,13 @@ public class CFGenKbGenIteratorEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -145,9 +145,9 @@ public class CFGenKbGenIteratorEditObj
 		return( qualName );
 	}
 
-	public ICFGenKbGenItemObj realise() {
+	public IYCFGenKbGenItemObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbGenIteratorObj retobj = getSchema().getGenIteratorTableObj().realiseGenIterator( (ICFGenKbGenIteratorObj)this );
+		IYCFGenKbGenIteratorObj retobj = getSchema().getGenIteratorTableObj().realiseGenIterator( (IYCFGenKbGenIteratorObj)this );
 		return( retobj );
 	}
 
@@ -155,67 +155,67 @@ public class CFGenKbGenIteratorEditObj
 		getOrigAsGenIterator().forget();
 	}
 
-	public ICFGenKbGenItemObj create() {
+	public IYCFGenKbGenItemObj create() {
 		copyBuffToOrig();
-		ICFGenKbGenIteratorObj retobj = ((ICFGenKbSchemaObj)getOrigAsGenIterator().getSchema()).getGenIteratorTableObj().createGenIterator( getOrigAsGenIterator() );
+		IYCFGenKbGenIteratorObj retobj = ((IYCFGenKbSchemaObj)getOrigAsGenIterator().getSchema()).getGenIteratorTableObj().createGenIterator( getOrigAsGenIterator() );
 		if( retobj == getOrigAsGenIterator() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbGenItemEditObj update() {
-		getSchema().getGenIteratorTableObj().updateGenIterator( (ICFGenKbGenIteratorObj)this );
+	public YCFGenKbGenItemEditObj update() {
+		getSchema().getGenIteratorTableObj().updateGenIterator( (IYCFGenKbGenIteratorObj)this );
 		return( null );
 	}
 
-	public CFGenKbGenItemEditObj deleteInstance() {
+	public YCFGenKbGenItemEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getGenIteratorTableObj().deleteGenIterator( getOrigAsGenIterator() );
 		return( null );
 	}
 
-	public ICFGenKbGenIteratorTableObj getGenIteratorTable() {
+	public IYCFGenKbGenIteratorTableObj getGenIteratorTable() {
 		return( orig.getSchema().getGenIteratorTableObj() );
 	}
 
-	public ICFGenKbGenIteratorEditObj getEditAsGenIterator() {
-		return( (ICFGenKbGenIteratorEditObj)this );
+	public IYCFGenKbGenIteratorEditObj getEditAsGenIterator() {
+		return( (IYCFGenKbGenIteratorEditObj)this );
 	}
 
-	public ICFGenKbGenIteratorObj getOrigAsGenIterator() {
-		return( (ICFGenKbGenIteratorObj)orig );
+	public IYCFGenKbGenIteratorObj getOrigAsGenIterator() {
+		return( (IYCFGenKbGenIteratorObj)orig );
 	}
 
-	public CFGenKbGenItemBuff getBuff() {
+	public YCFGenKbGenItemBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsGenIterator().getSchema().getBackingStore()).getFactoryGenIterator().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsGenIterator().getSchema().getBackingStore()).getFactoryGenIterator().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGenItemBuff value ) {
+	public void setBuff( YCFGenKbGenItemBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 		}
 	}
 
-	public CFGenKbGenIteratorBuff getGenIteratorBuff() {
-		return( (CFGenKbGenIteratorBuff)getBuff() );
+	public YCFGenKbGenIteratorBuff getGenIteratorBuff() {
+		return( (YCFGenKbGenIteratorBuff)getBuff() );
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbGenIteratorBuff origBuff = getOrigAsGenIterator().getGenIteratorBuff();
-		CFGenKbGenIteratorBuff myBuff = getGenIteratorBuff();
+		YCFGenKbGenIteratorBuff origBuff = getOrigAsGenIterator().getGenIteratorBuff();
+		YCFGenKbGenIteratorBuff myBuff = getGenIteratorBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbGenIteratorBuff origBuff = getOrigAsGenIterator().getGenIteratorBuff();
-		CFGenKbGenIteratorBuff myBuff = getGenIteratorBuff();
+		YCFGenKbGenIteratorBuff origBuff = getOrigAsGenIterator().getGenIteratorBuff();
+		YCFGenKbGenIteratorBuff myBuff = getGenIteratorBuff();
 		myBuff.set( origBuff );
 	}
 }

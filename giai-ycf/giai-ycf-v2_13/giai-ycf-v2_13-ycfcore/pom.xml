@@ -2,17 +2,17 @@
   <modelVersion>4.1.0</modelVersion>
 
   <parent>
-    <groupId>org.msscf.msscf</groupId>
-    <artifactId>org.msscf.msscf.v2_13</artifactId>
+    <groupId>giai-ycf</groupId>
+    <artifactId>giai-ycf-v2_13</artifactId>
     <version>2.13.42-alpha17-202611140000</version>
   </parent>
 
-  <groupId>org.msscf.msscf.v2_13</groupId>
-  <artifactId>org.msscf.msscf.v2_13.cfcore</artifactId>
+  <groupId>giai-ycf-v2_13</groupId>
+  <artifactId>giai-ycf-v2_13-ycfcore</artifactId>
   <version>2.13.42-alpha17-202611140000</version>
-  <name>org.msscf.msscf.msscf.v2_13.cfcore</name>
+  <name>server.markhome.giai.msscf.v2_13.ycfcore</name>
   <description>MSS Code Factory CFCore 2.13 Generation Knowledgebase</description>
-  <url>https://msscode.com/msscf/</url>
+  <url>https://msobkow.github.io/ycf/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,8 +22,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cflib.CFLib</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycflib.CFLib</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
   </dependencies>

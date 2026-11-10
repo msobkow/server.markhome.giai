@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFBam URLProtocol.
+// Description: Java 11 Object interface for YCFBam URLProtocol.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,31 +26,31 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamURLProtocolObj
-	extends ICFIntURLProtocolObj
+public interface IYCFBamURLProtocolObj
+	extends IYCFIntURLProtocolObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -62,9 +62,9 @@ public interface ICFBamURLProtocolObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -75,9 +75,9 @@ public interface ICFBamURLProtocolObj
 	/**
 	 *	Realise this instance of a URLProtocol.
 	 *
-	 *	@return	CFIntURLProtocolObj instance which should be subsequently referenced.
+	 *	@return	YCFIntURLProtocolObj instance which should be subsequently referenced.
 	 */
-	ICFIntURLProtocolObj realise();
+	IYCFIntURLProtocolObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -89,83 +89,83 @@ public interface ICFBamURLProtocolObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntURLProtocolObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntURLProtocolObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntURLProtocolObj read();
+	IYCFIntURLProtocolObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntURLProtocolObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntURLProtocolObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntURLProtocolObj read( boolean forceRead );
+	IYCFIntURLProtocolObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this URLProtocol instance.
 	 *
-	 *	@return	The newly locked ICFIntURLProtocolEditObj edition of this instance.
+	 *	@return	The newly locked IYCFIntURLProtocolEditObj edition of this instance.
 	 */
-	ICFIntURLProtocolEditObj beginEdit();
+	IYCFIntURLProtocolEditObj beginEdit();
 
 	/**
 	 *	End this edition of this URLProtocol instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this URLProtocol instance.
 	 *
-	 *	@return	The ICFIntURLProtocolEditObj edition of this instance.
+	 *	@return	The IYCFIntURLProtocolEditObj edition of this instance.
 	 */
-	ICFIntURLProtocolEditObj getEdit();
+	IYCFIntURLProtocolEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this URLProtocol instance as a ICFIntURLProtocolEditObj.
+	 *	Get the current edition of this URLProtocol instance as a IYCFIntURLProtocolEditObj.
 	 *
-	 *	@return	The ICFIntURLProtocolEditObj edition of this instance.
+	 *	@return	The IYCFIntURLProtocolEditObj edition of this instance.
 	 */
-	ICFIntURLProtocolEditObj getEditAsURLProtocol();
+	IYCFIntURLProtocolEditObj getEditAsURLProtocol();
 
 	/**
-	 *	Get the ICFIntURLProtocolTableObj table cache which manages this instance.
+	 *	Get the IYCFIntURLProtocolTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFIntURLProtocolTableObj table cache which manages this instance.
+	 *	@return	IYCFIntURLProtocolTableObj table cache which manages this instance.
 	 */
-	ICFIntURLProtocolTableObj getURLProtocolTable();
+	IYCFIntURLProtocolTableObj getURLProtocolTable();
 
 	/**
-	 *	Get the ICFIntSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFIntSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFIntSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFIntSchemaObj schema cache which manages this instance.
 	 */
-	ICFIntSchemaObj getSchema();
+	IYCFIntSchemaObj getSchema();
 
 	/**
-	 *	Get the CFIntURLProtocolBuff instance which currently backs this instance.
+	 *	Get the YCFIntURLProtocolBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntURLProtocolBuff instance which currently backs this object.
+	 *	@return	YCFIntURLProtocolBuff instance which currently backs this object.
 	 */
-	CFIntURLProtocolBuff getBuff();
+	YCFIntURLProtocolBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFIntURLProtocolBuff value );
+	void setBuff( YCFIntURLProtocolBuff value );
 
 	/**
-	 *	Get the CFIntURLProtocolBuff instance which currently backs this instance.
+	 *	Get the YCFIntURLProtocolBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntURLProtocolBuff instance which currently backs this object.
+	 *	@return	YCFIntURLProtocolBuff instance which currently backs this object.
 	 */
-	CFIntURLProtocolBuff getURLProtocolBuff();
+	YCFIntURLProtocolBuff getURLProtocolBuff();
 
 	/**
 	 *	Is this a new instance?

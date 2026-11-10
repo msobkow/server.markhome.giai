@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for SecGroupForm.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbSecGroupFormTable database interface for SecGroupForm
+ *	YCFGenKbSecGroupFormTable database interface for SecGroupForm
  */
-public interface ICFGenKbSecGroupFormTable
+public interface IYCFGenKbSecGroupFormTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecGroupForm( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormBuff Buff );
+	void createSecGroupForm( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecGroupForm( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormBuff Buff );
+	void updateSecGroupForm( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecGroupForm( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormBuff Buff );
+	void deleteSecGroupForm( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormBuff Buff );
 	/**
 	 *	Delete the SecGroupForm instance identified by the primary key attributes.
 	 *
@@ -88,7 +88,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argSecGroupFormId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupFormByIdIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		long argSecGroupFormId );
 
@@ -99,8 +99,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecGroupFormByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey argKey );
+	void deleteSecGroupFormByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key ClusterIdx.
 	 *
@@ -108,7 +108,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argClusterId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByClusterIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupFormByClusterIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -118,8 +118,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByClusterIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByClusterIdxKey argKey );
+	void deleteSecGroupFormByClusterIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByClusterIdxKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key GroupIdx.
 	 *
@@ -129,7 +129,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argSecGroupId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByGroupIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupFormByGroupIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId );
 
@@ -140,8 +140,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByGroupIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByGroupIdxKey argKey );
+	void deleteSecGroupFormByGroupIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByGroupIdxKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key AppIdx.
 	 *
@@ -151,7 +151,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argSecAppId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByAppIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupFormByAppIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecAppId );
 
@@ -162,8 +162,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByAppIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByAppIdxKey argKey );
+	void deleteSecGroupFormByAppIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByAppIdxKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key FormIdx.
 	 *
@@ -173,7 +173,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argSecFormId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByFormIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupFormByFormIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecFormId );
 
@@ -184,8 +184,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByFormIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByFormIdxKey argKey );
+	void deleteSecGroupFormByFormIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByFormIdxKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key UFormIdx.
 	 *
@@ -197,7 +197,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argSecFormId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByUFormIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupFormByUFormIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId,
 		int argSecFormId );
@@ -209,8 +209,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByUFormIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormByUFormIdxKey argKey );
+	void deleteSecGroupFormByUFormIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormByUFormIdxKey argKey );
 
 
 	/**
@@ -223,8 +223,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecGroupFormBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey PKey );
+	YCFGenKbSecGroupFormBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey PKey );
 
 	/**
 	 *	Lock the derived SecGroupForm buffer instance by primary key.
@@ -236,8 +236,8 @@ public interface ICFGenKbSecGroupFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecGroupFormBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey PKey );
+	YCFGenKbSecGroupFormBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey PKey );
 
 	/**
 	 *	Read all SecGroupForm instances.
@@ -246,7 +246,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecGroupFormBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbSecGroupFormBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecGroupForm buffer instance identified by the unique key IdIdx.
@@ -260,7 +260,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecGroupFormBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		long SecGroupFormId );
 
@@ -273,7 +273,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecGroupFormBuff[] readDerivedByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] readDerivedByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -287,7 +287,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecGroupFormBuff[] readDerivedByGroupIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] readDerivedByGroupIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -302,7 +302,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecGroupFormBuff[] readDerivedByAppIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] readDerivedByAppIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId );
 
@@ -317,7 +317,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecGroupFormBuff[] readDerivedByFormIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] readDerivedByFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecFormId );
 
@@ -335,7 +335,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecGroupFormBuff readDerivedByUFormIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff readDerivedByUFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		int SecFormId );
@@ -350,10 +350,10 @@ public interface ICFGenKbSecGroupFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey PKey );
+	YCFGenKbSecGroupFormBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey PKey );
 
 	/**
 	 *	Lock the specific SecGroupForm buffer instance identified by the primary key.
@@ -365,10 +365,10 @@ public interface ICFGenKbSecGroupFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupFormPKey PKey );
+	YCFGenKbSecGroupFormBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupFormPKey PKey );
 
 	/**
 	 *	Read all the specific SecGroupForm buffer instances.
@@ -377,7 +377,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return All the specific SecGroupForm instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSecGroupFormBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbSecGroupFormBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific SecGroupForm buffer instances.
@@ -386,7 +386,7 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return All the specific SecGroupForm instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSecGroupFormBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		Long priorClusterId,
 		Long priorSecGroupFormId );
 
@@ -402,9 +402,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		long SecGroupFormId );
 
@@ -417,9 +417,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff[] readBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] readBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -433,9 +433,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff[] readBuffByGroupIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] readBuffByGroupIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -450,9 +450,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff[] readBuffByAppIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] readBuffByAppIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId );
 
@@ -467,9 +467,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff[] readBuffByFormIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] readBuffByFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecFormId );
 
@@ -487,9 +487,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff readBuffByUFormIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff readBuffByUFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		int SecFormId );
@@ -503,9 +503,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff[] pageBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] pageBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Long priorSecGroupFormId );
@@ -521,9 +521,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff[] pageBuffByGroupIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] pageBuffByGroupIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		Long priorClusterId,
@@ -540,9 +540,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff[] pageBuffByAppIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] pageBuffByAppIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId,
 		Long priorClusterId,
@@ -559,9 +559,9 @@ public interface ICFGenKbSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupFormBuff[] pageBuffByFormIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupFormBuff[] pageBuffByFormIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecFormId,
 		Long priorClusterId,
@@ -570,7 +570,7 @@ public interface ICFGenKbSecGroupFormTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

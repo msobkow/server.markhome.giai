@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for SubProject.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,16 +35,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSubProjectTable database interface for SubProject
+ *	YCFIntSubProjectTable database interface for SubProject
  */
-public interface ICFIntSubProjectTable
+public interface IYCFIntSubProjectTable
 {
 
 	/**
@@ -55,8 +55,8 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSubProject( CFSecAuthorization Authorization,
-		CFIntSubProjectBuff Buff );
+	void createSubProject( YCFSecAuthorization Authorization,
+		YCFIntSubProjectBuff Buff );
 
 
 	/**
@@ -67,8 +67,8 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSubProject( CFSecAuthorization Authorization,
-		CFIntSubProjectBuff Buff );
+	void updateSubProject( YCFSecAuthorization Authorization,
+		YCFIntSubProjectBuff Buff );
 
 
 	/**
@@ -78,8 +78,8 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSubProject( CFSecAuthorization Authorization,
-		CFIntSubProjectBuff Buff );
+	void deleteSubProject( YCFSecAuthorization Authorization,
+		YCFIntSubProjectBuff Buff );
 	/**
 	 *	Delete the SubProject instance identified by the primary key attributes.
 	 *
@@ -89,7 +89,7 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	argId	The SubProject key attribute of the instance generating the id.
 	 */
-	void deleteSubProjectByIdIdx( CFSecAuthorization Authorization,
+	void deleteSubProjectByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -100,8 +100,8 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSubProjectByIdIdx( CFSecAuthorization Authorization,
-		CFIntSubProjectPKey argKey );
+	void deleteSubProjectByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntSubProjectPKey argKey );
 	/**
 	 *	Delete the SubProject instances identified by the key TenantIdx.
 	 *
@@ -109,7 +109,7 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	argTenantId	The SubProject key attribute of the instance generating the id.
 	 */
-	void deleteSubProjectByTenantIdx( CFSecAuthorization Authorization,
+	void deleteSubProjectByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -119,8 +119,8 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSubProjectByTenantIdx( CFSecAuthorization Authorization,
-		CFIntSubProjectByTenantIdxKey argKey );
+	void deleteSubProjectByTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntSubProjectByTenantIdxKey argKey );
 	/**
 	 *	Delete the SubProject instances identified by the key TopProjectIdx.
 	 *
@@ -130,7 +130,7 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	argTopProjectId	The SubProject key attribute of the instance generating the id.
 	 */
-	void deleteSubProjectByTopProjectIdx( CFSecAuthorization Authorization,
+	void deleteSubProjectByTopProjectIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopProjectId );
 
@@ -141,8 +141,8 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSubProjectByTopProjectIdx( CFSecAuthorization Authorization,
-		CFIntSubProjectByTopProjectIdxKey argKey );
+	void deleteSubProjectByTopProjectIdx( YCFSecAuthorization Authorization,
+		YCFIntSubProjectByTopProjectIdxKey argKey );
 	/**
 	 *	Delete the SubProject instances identified by the key NameIdx.
 	 *
@@ -154,7 +154,7 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	argName	The SubProject key attribute of the instance generating the id.
 	 */
-	void deleteSubProjectByNameIdx( CFSecAuthorization Authorization,
+	void deleteSubProjectByNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopProjectId,
 		String argName );
@@ -166,8 +166,8 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSubProjectByNameIdx( CFSecAuthorization Authorization,
-		CFIntSubProjectByNameIdxKey argKey );
+	void deleteSubProjectByNameIdx( YCFSecAuthorization Authorization,
+		YCFIntSubProjectByNameIdxKey argKey );
 
 
 	/**
@@ -180,8 +180,8 @@ public interface ICFIntSubProjectTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntSubProjectBuff readDerived( CFSecAuthorization Authorization,
-		CFIntSubProjectPKey PKey );
+	YCFIntSubProjectBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntSubProjectPKey PKey );
 
 	/**
 	 *	Lock the derived SubProject buffer instance by primary key.
@@ -193,8 +193,8 @@ public interface ICFIntSubProjectTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntSubProjectBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntSubProjectPKey PKey );
+	YCFIntSubProjectBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntSubProjectPKey PKey );
 
 	/**
 	 *	Read all SubProject instances.
@@ -203,7 +203,7 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFIntSubProjectBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFIntSubProjectBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SubProject buffer instance identified by the unique key IdIdx.
@@ -217,7 +217,7 @@ public interface ICFIntSubProjectTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntSubProjectBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFIntSubProjectBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -230,7 +230,7 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntSubProjectBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntSubProjectBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -244,7 +244,7 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntSubProjectBuff[] readDerivedByTopProjectIdx( CFSecAuthorization Authorization,
+	YCFIntSubProjectBuff[] readDerivedByTopProjectIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopProjectId );
 
@@ -262,7 +262,7 @@ public interface ICFIntSubProjectTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntSubProjectBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	YCFIntSubProjectBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopProjectId,
 		String Name );
@@ -277,10 +277,10 @@ public interface ICFIntSubProjectTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntSubProjectBuff readBuff( CFSecAuthorization Authorization,
-		CFIntSubProjectPKey PKey );
+	YCFIntSubProjectBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntSubProjectPKey PKey );
 
 	/**
 	 *	Lock the specific SubProject buffer instance identified by the primary key.
@@ -292,10 +292,10 @@ public interface ICFIntSubProjectTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntSubProjectBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntSubProjectPKey PKey );
+	YCFIntSubProjectBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntSubProjectPKey PKey );
 
 	/**
 	 *	Read all the specific SubProject buffer instances.
@@ -304,7 +304,7 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@return All the specific SubProject instances in the database accessible for the Authorization.
 	 */
-	CFIntSubProjectBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFIntSubProjectBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific SubProject buffer instance identified by the unique key IdIdx.
@@ -318,9 +318,9 @@ public interface ICFIntSubProjectTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntSubProjectBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFIntSubProjectBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -333,9 +333,9 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntSubProjectBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntSubProjectBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -349,9 +349,9 @@ public interface ICFIntSubProjectTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntSubProjectBuff[] readBuffByTopProjectIdx( CFSecAuthorization Authorization,
+	YCFIntSubProjectBuff[] readBuffByTopProjectIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopProjectId );
 
@@ -369,9 +369,9 @@ public interface ICFIntSubProjectTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntSubProjectBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	YCFIntSubProjectBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopProjectId,
 		String Name );
@@ -379,7 +379,7 @@ public interface ICFIntSubProjectTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -2,17 +2,17 @@
 // Description: Java 11 Default Factory implementation for RelationCol.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,101 +54,101 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 	/*
-	 *	CFBamRelationColFactory implementation for RelationCol
+	 *	YCFBamRelationColFactory implementation for RelationCol
 	 */
-public class CFBamRelationColDefaultFactory
-	implements ICFBamRelationColFactory
+public class YCFBamRelationColDefaultFactory
+	implements IYCFBamRelationColFactory
 {
-	public CFBamRelationColDefaultFactory() {
+	public YCFBamRelationColDefaultFactory() {
 	}
 
-	public CFBamRelationColPKey newPKey() {
-		CFBamRelationColPKey pkey =
-			new CFBamRelationColPKey();
+	public YCFBamRelationColPKey newPKey() {
+		YCFBamRelationColPKey pkey =
+			new YCFBamRelationColPKey();
 		return( pkey );
 	}
 
-	public CFBamRelationColHPKey newHPKey() {
-		CFBamRelationColHPKey hpkey =
-			new CFBamRelationColHPKey();
+	public YCFBamRelationColHPKey newHPKey() {
+		YCFBamRelationColHPKey hpkey =
+			new YCFBamRelationColHPKey();
 		return( hpkey );
 	}
 
-	public CFBamRelationColByUNameIdxKey newUNameIdxKey() {
-		CFBamRelationColByUNameIdxKey key =
-			new CFBamRelationColByUNameIdxKey();
+	public YCFBamRelationColByUNameIdxKey newUNameIdxKey() {
+		YCFBamRelationColByUNameIdxKey key =
+			new YCFBamRelationColByUNameIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColByRelColTenantIdxKey newRelColTenantIdxKey() {
-		CFBamRelationColByRelColTenantIdxKey key =
-			new CFBamRelationColByRelColTenantIdxKey();
+	public YCFBamRelationColByRelColTenantIdxKey newRelColTenantIdxKey() {
+		YCFBamRelationColByRelColTenantIdxKey key =
+			new YCFBamRelationColByRelColTenantIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColByRelationIdxKey newRelationIdxKey() {
-		CFBamRelationColByRelationIdxKey key =
-			new CFBamRelationColByRelationIdxKey();
+	public YCFBamRelationColByRelationIdxKey newRelationIdxKey() {
+		YCFBamRelationColByRelationIdxKey key =
+			new YCFBamRelationColByRelationIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColByDefSchemaIdxKey newDefSchemaIdxKey() {
-		CFBamRelationColByDefSchemaIdxKey key =
-			new CFBamRelationColByDefSchemaIdxKey();
+	public YCFBamRelationColByDefSchemaIdxKey newDefSchemaIdxKey() {
+		YCFBamRelationColByDefSchemaIdxKey key =
+			new YCFBamRelationColByDefSchemaIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColByFromColIdxKey newFromColIdxKey() {
-		CFBamRelationColByFromColIdxKey key =
-			new CFBamRelationColByFromColIdxKey();
+	public YCFBamRelationColByFromColIdxKey newFromColIdxKey() {
+		YCFBamRelationColByFromColIdxKey key =
+			new YCFBamRelationColByFromColIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColByToColIdxKey newToColIdxKey() {
-		CFBamRelationColByToColIdxKey key =
-			new CFBamRelationColByToColIdxKey();
+	public YCFBamRelationColByToColIdxKey newToColIdxKey() {
+		YCFBamRelationColByToColIdxKey key =
+			new YCFBamRelationColByToColIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColByPrevIdxKey newPrevIdxKey() {
-		CFBamRelationColByPrevIdxKey key =
-			new CFBamRelationColByPrevIdxKey();
+	public YCFBamRelationColByPrevIdxKey newPrevIdxKey() {
+		YCFBamRelationColByPrevIdxKey key =
+			new YCFBamRelationColByPrevIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColByNextIdxKey newNextIdxKey() {
-		CFBamRelationColByNextIdxKey key =
-			new CFBamRelationColByNextIdxKey();
+	public YCFBamRelationColByNextIdxKey newNextIdxKey() {
+		YCFBamRelationColByNextIdxKey key =
+			new YCFBamRelationColByNextIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColByRelPrevIdxKey newRelPrevIdxKey() {
-		CFBamRelationColByRelPrevIdxKey key =
-			new CFBamRelationColByRelPrevIdxKey();
+	public YCFBamRelationColByRelPrevIdxKey newRelPrevIdxKey() {
+		YCFBamRelationColByRelPrevIdxKey key =
+			new YCFBamRelationColByRelPrevIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColByRelNextIdxKey newRelNextIdxKey() {
-		CFBamRelationColByRelNextIdxKey key =
-			new CFBamRelationColByRelNextIdxKey();
+	public YCFBamRelationColByRelNextIdxKey newRelNextIdxKey() {
+		YCFBamRelationColByRelNextIdxKey key =
+			new YCFBamRelationColByRelNextIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationColBuff newBuff() {
-		CFBamRelationColBuff buff =
-			new CFBamRelationColBuff();
+	public YCFBamRelationColBuff newBuff() {
+		YCFBamRelationColBuff buff =
+			new YCFBamRelationColBuff();
 		return( buff );
 	}
 
-	public CFBamRelationColHBuff newHBuff() {
-		CFBamRelationColHBuff hbuff =
-			new CFBamRelationColHBuff();
+	public YCFBamRelationColHBuff newHBuff() {
+		YCFBamRelationColHBuff hbuff =
+			new YCFBamRelationColHBuff();
 		return( hbuff );
 	}
 }

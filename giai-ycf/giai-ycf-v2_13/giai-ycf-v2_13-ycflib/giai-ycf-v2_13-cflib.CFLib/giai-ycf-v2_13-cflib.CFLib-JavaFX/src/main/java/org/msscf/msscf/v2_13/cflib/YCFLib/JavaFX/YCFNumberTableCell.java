@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,22 +21,22 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.Format;
 import javafx.scene.control.TableCell;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
-public class CFNumberTableCell<T>
+public class YCFNumberTableCell<T>
 extends TableCell<T,BigDecimal>
 {
 	protected int digits;
 	protected int precis;
 
-	public CFNumberTableCell( int argDigits, int argPrecision ) {
+	public YCFNumberTableCell( int argDigits, int argPrecision ) {
 		super();
 		setDigits( argDigits );
 		setPrecision( argPrecision );
@@ -49,7 +49,7 @@ extends TableCell<T,BigDecimal>
 			setStyle( "" );
 		}
 		else {
-			Format fmt = CFLibBigDecimalUtil.getNumberFormat( getClass().getName(), digits, precis );
+			Format fmt = YCFLibBigDecimalUtil.getNumberFormat( getClass().getName(), digits, precis );
 			String cellText = fmt.format( item );
 			setText( cellText );
 			setStyle( "-fx-alignment: CENTER-RIGHT" );
@@ -63,20 +63,20 @@ extends TableCell<T,BigDecimal>
 	public void setDigits( int argDigits ) {
 		final String S_ProcName = "setDigits";
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					1,
 					"argDigits",
 					argDigits,
 					1 );
 		}
-		else if( argDigits > CFLibBigDecimalUtil.MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( argDigits > YCFLibBigDecimalUtil.MAX_DIGITS ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"argDigits",
 				argDigits,
-				CFLibBigDecimalUtil.MAX_DIGITS );
+				YCFLibBigDecimalUtil.MAX_DIGITS );
 		}
 		digits = argDigits;
 	}
@@ -88,24 +88,24 @@ extends TableCell<T,BigDecimal>
 	public void setPrecision( int argPrecis ) {
 		final String S_ProcName = "setPrecision";
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
 				0 );
 		}
-		else if( argPrecis > CFLibBigDecimalUtil.MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( argPrecis > YCFLibBigDecimalUtil.MAX_PRECISION ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
-				CFLibBigDecimalUtil.MAX_PRECISION );
+				YCFLibBigDecimalUtil.MAX_PRECISION );
 		}
 
 		if( argPrecis >= digits ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"argPrecis",
@@ -119,39 +119,39 @@ extends TableCell<T,BigDecimal>
 	public void setDigitsAndPrecision( int argDigits, int argPrecis ) {
 		final String S_ProcName = "setDigitsAndPrecision";
 		if( argDigits < 1 ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					1,
 					"argDigits",
 					argDigits,
 					1 );
 		}
-		else if( argDigits > CFLibBigDecimalUtil.MAX_DIGITS ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( argDigits > YCFLibBigDecimalUtil.MAX_DIGITS ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"argDigits",
 				argDigits,
-				CFLibBigDecimalUtil.MAX_DIGITS );
+				YCFLibBigDecimalUtil.MAX_DIGITS );
 		}
 		if( argPrecis < 0 ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
 				0 );
 		}
-		else if( argPrecis > CFLibBigDecimalUtil.MAX_PRECISION ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( argPrecis > YCFLibBigDecimalUtil.MAX_PRECISION ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"argPrecis",
 				argPrecis,
-				CFLibBigDecimalUtil.MAX_PRECISION );
+				YCFLibBigDecimalUtil.MAX_PRECISION );
 		}
 		if( argPrecis >= argDigits ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				S_ProcName,
 				1,
 				"argPrecis",

@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ISOTZone by OffsetIdx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,18 +36,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecISOTZoneByOffsetIdxKey
+public class YCFSecISOTZoneByOffsetIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected short requiredTZHourOffset;
 	protected short requiredTZMinOffset;
-	public CFSecISOTZoneByOffsetIdxKey() {
-		requiredTZHourOffset = CFSecISOTZoneBuff.TZHOUROFFSET_INIT_VALUE;
-		requiredTZMinOffset = CFSecISOTZoneBuff.TZMINOFFSET_INIT_VALUE;
+	public YCFSecISOTZoneByOffsetIdxKey() {
+		requiredTZHourOffset = YCFSecISOTZoneBuff.TZHOUROFFSET_INIT_VALUE;
+		requiredTZMinOffset = YCFSecISOTZoneBuff.TZMINOFFSET_INIT_VALUE;
 	}
 
 	public short getRequiredTZHourOffset() {
@@ -55,21 +55,21 @@ public class CFSecISOTZoneByOffsetIdxKey
 	}
 
 	public void setRequiredTZHourOffset( short value ) {
-		if( value < CFSecISOTZoneBuff.TZHOUROFFSET_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecISOTZoneBuff.TZHOUROFFSET_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZHourOffset",
 				1,
 				"value",
 				value,
-				CFSecISOTZoneBuff.TZHOUROFFSET_MIN_VALUE );
+				YCFSecISOTZoneBuff.TZHOUROFFSET_MIN_VALUE );
 		}
-		if( value > CFSecISOTZoneBuff.TZHOUROFFSET_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFSecISOTZoneBuff.TZHOUROFFSET_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredTZHourOffset",
 				1,
 				"value",
 				value,
-				CFSecISOTZoneBuff.TZHOUROFFSET_MAX_VALUE );
+				YCFSecISOTZoneBuff.TZHOUROFFSET_MAX_VALUE );
 		}
 		requiredTZHourOffset = value;
 	}
@@ -79,21 +79,21 @@ public class CFSecISOTZoneByOffsetIdxKey
 	}
 
 	public void setRequiredTZMinOffset( short value ) {
-		if( value < CFSecISOTZoneBuff.TZMINOFFSET_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecISOTZoneBuff.TZMINOFFSET_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZMinOffset",
 				1,
 				"value",
 				value,
-				CFSecISOTZoneBuff.TZMINOFFSET_MIN_VALUE );
+				YCFSecISOTZoneBuff.TZMINOFFSET_MIN_VALUE );
 		}
-		if( value > CFSecISOTZoneBuff.TZMINOFFSET_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFSecISOTZoneBuff.TZMINOFFSET_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredTZMinOffset",
 				1,
 				"value",
 				value,
-				CFSecISOTZoneBuff.TZMINOFFSET_MAX_VALUE );
+				YCFSecISOTZoneBuff.TZMINOFFSET_MAX_VALUE );
 		}
 		requiredTZMinOffset = value;
 	}
@@ -102,8 +102,8 @@ public class CFSecISOTZoneByOffsetIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecISOTZoneByOffsetIdxKey ) {
-			CFSecISOTZoneByOffsetIdxKey rhs = (CFSecISOTZoneByOffsetIdxKey)obj;
+		else if( obj instanceof YCFSecISOTZoneByOffsetIdxKey ) {
+			YCFSecISOTZoneByOffsetIdxKey rhs = (YCFSecISOTZoneByOffsetIdxKey)obj;
 			if( getRequiredTZHourOffset() != rhs.getRequiredTZHourOffset() ) {
 				return( false );
 			}
@@ -112,8 +112,8 @@ public class CFSecISOTZoneByOffsetIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOTZoneBuff ) {
-			CFSecISOTZoneBuff rhs = (CFSecISOTZoneBuff)obj;
+		else if( obj instanceof YCFSecISOTZoneBuff ) {
+			YCFSecISOTZoneBuff rhs = (YCFSecISOTZoneBuff)obj;
 			if( getRequiredTZHourOffset() != rhs.getRequiredTZHourOffset() ) {
 				return( false );
 			}
@@ -138,8 +138,8 @@ public class CFSecISOTZoneByOffsetIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecISOTZoneByOffsetIdxKey ) {
-			CFSecISOTZoneByOffsetIdxKey rhs = (CFSecISOTZoneByOffsetIdxKey)obj;
+		else if( obj instanceof YCFSecISOTZoneByOffsetIdxKey ) {
+			YCFSecISOTZoneByOffsetIdxKey rhs = (YCFSecISOTZoneByOffsetIdxKey)obj;
 			if( getRequiredTZHourOffset() < rhs.getRequiredTZHourOffset() ) {
 				return( -1 );
 			}
@@ -154,8 +154,8 @@ public class CFSecISOTZoneByOffsetIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOTZoneBuff ) {
-			CFSecISOTZoneBuff rhs = (CFSecISOTZoneBuff)obj;
+		else if( obj instanceof YCFSecISOTZoneBuff ) {
+			YCFSecISOTZoneBuff rhs = (YCFSecISOTZoneBuff)obj;
 			if( getRequiredTZHourOffset() < rhs.getRequiredTZHourOffset() ) {
 				return( -1 );
 			}
@@ -171,7 +171,7 @@ public class CFSecISOTZoneByOffsetIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -180,7 +180,7 @@ public class CFSecISOTZoneByOffsetIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecISOTZoneByOffsetIdx"
+		String ret = "<YCFSecISOTZoneByOffsetIdx"
 			+ " RequiredTZHourOffset=" + "\"" + Short.toString( getRequiredTZHourOffset() ) + "\""
 			+ " RequiredTZMinOffset=" + "\"" + Short.toString( getRequiredTZMinOffset() ) + "\""
 			+ "/>";

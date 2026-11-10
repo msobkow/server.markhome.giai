@@ -1,17 +1,17 @@
-// Description: Java 11 Object interface for CFBam EnumTag.
+// Description: Java 11 Object interface for YCFBam EnumTag.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,31 +45,31 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamEnumTagObj
-	extends ICFLibAnyObj
+public interface IYCFBamEnumTagObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -81,9 +81,9 @@ public interface ICFBamEnumTagObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -94,9 +94,9 @@ public interface ICFBamEnumTagObj
 	/**
 	 *	Realise this instance of a EnumTag.
 	 *
-	 *	@return	CFBamEnumTagObj instance which should be subsequently referenced.
+	 *	@return	YCFBamEnumTagObj instance which should be subsequently referenced.
 	 */
-	ICFBamEnumTagObj realise();
+	IYCFBamEnumTagObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -108,113 +108,113 @@ public interface ICFBamEnumTagObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFBamEnumTagObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFBamEnumTagObj the reference to the cached or read (realised) instance.
 	 */
-	ICFBamEnumTagObj read();
+	IYCFBamEnumTagObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFBamEnumTagObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFBamEnumTagObj the reference to the cached or read (realised) instance.
 	 */
-	ICFBamEnumTagObj read( boolean forceRead );
+	IYCFBamEnumTagObj read( boolean forceRead );
 
 	/**
 	 *	Move this object up in the chain and refresh the cache.
 	 *
-	 *	@return	ICFBamEnumTagObj the reference to the moved and refreshed instance.
+	 *	@return	IYCFBamEnumTagObj the reference to the moved and refreshed instance.
 	 */
-	ICFBamEnumTagObj moveUp();
+	IYCFBamEnumTagObj moveUp();
 
 	/**
 	 *	Move this object down in the chain and refresh the cache.
 	 *
-	 *	@return	ICFBamEnumTagObj the reference to the moved and refreshed instance.
+	 *	@return	IYCFBamEnumTagObj the reference to the moved and refreshed instance.
 	 */
-	ICFBamEnumTagObj moveDown();
+	IYCFBamEnumTagObj moveDown();
 
 	/**
 	 *	Initialize and return a locked edition of this EnumTag instance.
 	 *
-	 *	@return	The newly locked ICFBamEnumTagEditObj edition of this instance.
+	 *	@return	The newly locked IYCFBamEnumTagEditObj edition of this instance.
 	 */
-	ICFBamEnumTagEditObj beginEdit();
+	IYCFBamEnumTagEditObj beginEdit();
 
 	/**
 	 *	End this edition of this EnumTag instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this EnumTag instance.
 	 *
-	 *	@return	The ICFBamEnumTagEditObj edition of this instance.
+	 *	@return	The IYCFBamEnumTagEditObj edition of this instance.
 	 */
-	ICFBamEnumTagEditObj getEdit();
+	IYCFBamEnumTagEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this EnumTag instance as a ICFBamEnumTagEditObj.
+	 *	Get the current edition of this EnumTag instance as a IYCFBamEnumTagEditObj.
 	 *
-	 *	@return	The ICFBamEnumTagEditObj edition of this instance.
+	 *	@return	The IYCFBamEnumTagEditObj edition of this instance.
 	 */
-	ICFBamEnumTagEditObj getEditAsEnumTag();
+	IYCFBamEnumTagEditObj getEditAsEnumTag();
 
 	/**
-	 *	Get the ICFBamEnumTagTableObj table cache which manages this instance.
+	 *	Get the IYCFBamEnumTagTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFBamEnumTagTableObj table cache which manages this instance.
+	 *	@return	IYCFBamEnumTagTableObj table cache which manages this instance.
 	 */
-	ICFBamEnumTagTableObj getEnumTagTable();
+	IYCFBamEnumTagTableObj getEnumTagTable();
 
 	/**
-	 *	Get the ICFBamSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFBamSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFBamSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFBamSchemaObj schema cache which manages this instance.
 	 */
-	ICFBamSchemaObj getSchema();
+	IYCFBamSchemaObj getSchema();
 
 	/**
-	 *	Get the CFBamEnumTagBuff instance which currently backs this instance.
+	 *	Get the YCFBamEnumTagBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFBamEnumTagBuff instance which currently backs this object.
+	 *	@return	YCFBamEnumTagBuff instance which currently backs this object.
 	 */
-	CFBamEnumTagBuff getBuff();
+	YCFBamEnumTagBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFBamEnumTagBuff value );
+	void setBuff( YCFBamEnumTagBuff value );
 
 	/**
-	 *	Get the CFBamEnumTagBuff instance which currently backs this instance.
+	 *	Get the YCFBamEnumTagBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFBamEnumTagBuff instance which currently backs this object.
+	 *	@return	YCFBamEnumTagBuff instance which currently backs this object.
 	 */
-	CFBamEnumTagBuff getEnumTagBuff();
+	YCFBamEnumTagBuff getEnumTagBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFBamEnumTagPKey primary key for this instance.
+	 *	@return	YCFBamEnumTagPKey primary key for this instance.
 	 */
-	CFBamEnumTagPKey getPKey();
+	YCFBamEnumTagPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFBamEnumTagPKey primary key value for this instance.
+	 *	@param YCFBamEnumTagPKey primary key value for this instance.
 	 */
-	void setPKey( CFBamEnumTagPKey value );
+	void setPKey( YCFBamEnumTagPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -311,74 +311,74 @@ public interface ICFBamEnumTagObj
 	Long getOptionalNextId();
 
 	/**
-	 *	Get the required ICFBamTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFBamTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFBamTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFBamTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
-	 *	Get the required ICFBamEnumDefObj instance referenced by the EnumDef key.
+	 *	Get the required IYCFBamEnumDefObj instance referenced by the EnumDef key.
 	 *
-	 *	@return	The required ICFBamEnumDefObj instance referenced by the EnumDef key.
+	 *	@return	The required IYCFBamEnumDefObj instance referenced by the EnumDef key.
 	 */
-	ICFBamEnumDefObj getRequiredContainerEnumDef();
+	IYCFBamEnumDefObj getRequiredContainerEnumDef();
 
 	/**
-	 *	Get the required ICFBamEnumDefObj instance referenced by the EnumDef key.
+	 *	Get the required IYCFBamEnumDefObj instance referenced by the EnumDef key.
 	 *
-	 *	@return	The required ICFBamEnumDefObj instance referenced by the EnumDef key.
+	 *	@return	The required IYCFBamEnumDefObj instance referenced by the EnumDef key.
 	 */
-	ICFBamEnumDefObj getRequiredContainerEnumDef( boolean forceRead );
+	IYCFBamEnumDefObj getRequiredContainerEnumDef( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Get the optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@return	The optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	@return	The optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupDefSchema();
+	IYCFBamSchemaDefObj getOptionalLookupDefSchema();
 
 	/**
-	 *	Get the optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Get the optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@return	The optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	@return	The optional IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead );
+	IYCFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamEnumTagObj instance referenced by the Prev key.
+	 *	Get the optional IYCFBamEnumTagObj instance referenced by the Prev key.
 	 *
-	 *	@return	The optional ICFBamEnumTagObj instance referenced by the Prev key.
+	 *	@return	The optional IYCFBamEnumTagObj instance referenced by the Prev key.
 	 */
-	ICFBamEnumTagObj getOptionalLookupPrev();
+	IYCFBamEnumTagObj getOptionalLookupPrev();
 
 	/**
-	 *	Get the optional ICFBamEnumTagObj instance referenced by the Prev key.
+	 *	Get the optional IYCFBamEnumTagObj instance referenced by the Prev key.
 	 *
-	 *	@return	The optional ICFBamEnumTagObj instance referenced by the Prev key.
+	 *	@return	The optional IYCFBamEnumTagObj instance referenced by the Prev key.
 	 */
-	ICFBamEnumTagObj getOptionalLookupPrev( boolean forceRead );
+	IYCFBamEnumTagObj getOptionalLookupPrev( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFBamEnumTagObj instance referenced by the Next key.
+	 *	Get the optional IYCFBamEnumTagObj instance referenced by the Next key.
 	 *
-	 *	@return	The optional ICFBamEnumTagObj instance referenced by the Next key.
+	 *	@return	The optional IYCFBamEnumTagObj instance referenced by the Next key.
 	 */
-	ICFBamEnumTagObj getOptionalLookupNext();
+	IYCFBamEnumTagObj getOptionalLookupNext();
 
 	/**
-	 *	Get the optional ICFBamEnumTagObj instance referenced by the Next key.
+	 *	Get the optional IYCFBamEnumTagObj instance referenced by the Next key.
 	 *
-	 *	@return	The optional ICFBamEnumTagObj instance referenced by the Next key.
+	 *	@return	The optional IYCFBamEnumTagObj instance referenced by the Next key.
 	 */
-	ICFBamEnumTagObj getOptionalLookupNext( boolean forceRead );
+	IYCFBamEnumTagObj getOptionalLookupNext( boolean forceRead );
 
 	/**
 	 *	Internal use only.

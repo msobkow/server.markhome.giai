@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GenItem.
+// Description: Java 11 base object instance implementation for YCFGenKb GenItem.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,35 +27,35 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGenItemObj
-	implements ICFGenKbGenItemObj
+public class YCFGenKbGenItemObj
+	implements IYCFGenKbGenItemObj
 {
 	public final static String CLASS_CODE = "a920";
 	protected boolean isNew;
-	protected ICFGenKbGenItemEditObj edit;
-	protected ICFGenKbSchemaObj schema;
-	protected CFGenKbGenItemPKey pKey;
-	protected CFGenKbGenItemBuff buff;
-	protected ICFGenKbTenantObj requiredOwnerTenant;
-	protected ICFGenKbRuleCartObj requiredContainerCartridge;
-	protected ICFGenKbRuleTypeObj requiredLookupRuleType;
-	protected ICFGenKbToolSetObj requiredLookupToolSet;
-	protected ICFGenKbDefClassObj optionalLookupScopeDef;
-	protected ICFGenKbDefClassObj requiredLookupGenDef;
-	protected ICFGenKbGelExecutableObj optionalComponentsGelExec;
-	protected ICFGenKbGenItemObj optionalLookupProbe;
+	protected IYCFGenKbGenItemEditObj edit;
+	protected IYCFGenKbSchemaObj schema;
+	protected YCFGenKbGenItemPKey pKey;
+	protected YCFGenKbGenItemBuff buff;
+	protected IYCFGenKbTenantObj requiredOwnerTenant;
+	protected IYCFGenKbRuleCartObj requiredContainerCartridge;
+	protected IYCFGenKbRuleTypeObj requiredLookupRuleType;
+	protected IYCFGenKbToolSetObj requiredLookupToolSet;
+	protected IYCFGenKbDefClassObj optionalLookupScopeDef;
+	protected IYCFGenKbDefClassObj requiredLookupGenDef;
+	protected IYCFGenKbGelExecutableObj optionalComponentsGelExec;
+	protected IYCFGenKbGenItemObj optionalLookupProbe;
 
-	public CFGenKbGenItemObj() {
+	public YCFGenKbGenItemObj() {
 		getPKey().setClassCode( getClassCode() );
 		isNew = true;
 		requiredOwnerTenant = null;
@@ -67,7 +67,7 @@ public class CFGenKbGenItemObj
 		optionalLookupProbe = null;
 	}
 
-	public CFGenKbGenItemObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGenItemObj( IYCFGenKbSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -89,13 +89,13 @@ public class CFGenKbGenItemObj
 		return( "GenItem" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFGenKbRuleCartObj scope = getRequiredContainerCartridge();
+	public IYCFLibAnyObj getScope() {
+		IYCFGenKbRuleCartObj scope = getRequiredContainerCartridge();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFGenKbRuleCartObj scope = getRequiredContainerCartridge();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFGenKbRuleCartObj scope = getRequiredContainerCartridge();
 		return( scope );
 	}
 
@@ -105,14 +105,14 @@ public class CFGenKbGenItemObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -123,10 +123,10 @@ public class CFGenKbGenItemObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -135,20 +135,20 @@ public class CFGenKbGenItemObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -172,13 +172,13 @@ public class CFGenKbGenItemObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -192,13 +192,13 @@ public class CFGenKbGenItemObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -210,50 +210,50 @@ public class CFGenKbGenItemObj
 		return( fullName );
 	}
 
-	public ICFGenKbGenItemObj realise() {
-		ICFGenKbGenItemObj retobj = ((ICFGenKbSchemaObj)schema).getGenItemTableObj().realiseGenItem(
-			(ICFGenKbGenItemObj)this );
-		return( (ICFGenKbGenItemObj)retobj );
+	public IYCFGenKbGenItemObj realise() {
+		IYCFGenKbGenItemObj retobj = ((IYCFGenKbSchemaObj)schema).getGenItemTableObj().realiseGenItem(
+			(IYCFGenKbGenItemObj)this );
+		return( (IYCFGenKbGenItemObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGenItemTableObj().reallyDeepDisposeGenItem( (ICFGenKbGenItemObj)this );
+		((IYCFGenKbSchemaObj)schema).getGenItemTableObj().reallyDeepDisposeGenItem( (IYCFGenKbGenItemObj)this );
 	}
 
-	public ICFGenKbGenItemObj read() {
-		ICFGenKbGenItemObj retobj = ((ICFGenKbSchemaObj)schema).getGenItemTableObj().readGenItemByItemIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGenItemObj read() {
+		IYCFGenKbGenItemObj retobj = ((IYCFGenKbSchemaObj)schema).getGenItemTableObj().readGenItemByItemIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredCartridgeId(),
 			getPKey().getRequiredItemId(), false );
-		return( (ICFGenKbGenItemObj)retobj );
+		return( (IYCFGenKbGenItemObj)retobj );
 	}
 
-	public ICFGenKbGenItemObj read( boolean forceRead ) {
-		ICFGenKbGenItemObj retobj = ((ICFGenKbSchemaObj)schema).getGenItemTableObj().readGenItemByItemIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGenItemObj read( boolean forceRead ) {
+		IYCFGenKbGenItemObj retobj = ((IYCFGenKbSchemaObj)schema).getGenItemTableObj().readGenItemByItemIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredCartridgeId(),
 			getPKey().getRequiredItemId(), forceRead );
-		return( (ICFGenKbGenItemObj)retobj );
+		return( (IYCFGenKbGenItemObj)retobj );
 	}
 
-	public ICFGenKbGenItemTableObj getGenItemTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGenItemTableObj() );
+	public IYCFGenKbGenItemTableObj getGenItemTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGenItemTableObj() );
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
+	public void setSchema( IYCFGenKbSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFGenKbGenItemBuff getBuff() {
+	public YCFGenKbGenItemBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGenItem().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGenItem().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGenItem().readDerivedByItemIdIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGenItem().readDerivedByItemIdIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredCartridgeId(),
 						getPKey().getRequiredItemId() );
@@ -265,13 +265,13 @@ public class CFGenKbGenItemObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGenItemBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGenItemBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGenItemBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGenItemBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGenItemBuff" );
+				"YCFGenKbGenItemBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -284,18 +284,18 @@ public class CFGenKbGenItemObj
 		optionalLookupProbe = null;
 	}
 
-	public CFGenKbGenItemBuff getGenItemBuff() {
-		return( (CFGenKbGenItemBuff)getBuff() );
+	public YCFGenKbGenItemBuff getGenItemBuff() {
+		return( (YCFGenKbGenItemBuff)getBuff() );
 	}
 
-	public CFGenKbGenItemPKey getPKey() {
+	public YCFGenKbGenItemPKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGenItem().newPKey();
+			pKey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGenItem().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFGenKbGenItemPKey value ) {
+	public void setPKey( YCFGenKbGenItemPKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -310,31 +310,31 @@ public class CFGenKbGenItemObj
 		isNew = value;
 	}
 
-	public ICFGenKbGenItemEditObj beginEdit() {
+	public IYCFGenKbGenItemEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGenItemObj lockobj;
+		IYCFGenKbGenItemObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGenItemObj)this;
+			lockobj = (IYCFGenKbGenItemObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGenItemTableObj().lockGenItem( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGenItemTableObj().lockGenItem( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGenItemTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGenItemEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGenItemTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGenItemEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFGenKbGenItemEditObj getEdit() {
+	public IYCFGenKbGenItemEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFGenKbGenItemEditObj getEditAsGenItem() {
-		return( (ICFGenKbGenItemEditObj)edit );
+	public IYCFGenKbGenItemEditObj getEditAsGenItem() {
+		return( (IYCFGenKbGenItemEditObj)edit );
 	}
 
 	public long getRequiredTenantId() {
@@ -393,99 +393,99 @@ public class CFGenKbGenItemObj
 		return( getGenItemBuff().getOptionalProbeGenItemId() );
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant() {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( ( requiredOwnerTenant == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredOwnerTenant = ((ICFGenKbSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
+				requiredOwnerTenant = ((IYCFGenKbSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
 			}
 		}
 		return( requiredOwnerTenant );
 	}
 
-	public ICFGenKbRuleCartObj getRequiredContainerCartridge() {
+	public IYCFGenKbRuleCartObj getRequiredContainerCartridge() {
 		return( getRequiredContainerCartridge( false ) );
 	}
 
-	public ICFGenKbRuleCartObj getRequiredContainerCartridge( boolean forceRead ) {
+	public IYCFGenKbRuleCartObj getRequiredContainerCartridge( boolean forceRead ) {
 		if( ( requiredContainerCartridge == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerCartridge = ((ICFGenKbSchemaObj)schema).getRuleCartTableObj().readRuleCartByIdIdx( getPKey().getRequiredTenantId(),
+				requiredContainerCartridge = ((IYCFGenKbSchemaObj)schema).getRuleCartTableObj().readRuleCartByIdIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredCartridgeId(), forceRead );
 			}
 		}
 		return( requiredContainerCartridge );
 	}
 
-	public ICFGenKbRuleTypeObj getRequiredLookupRuleType() {
+	public IYCFGenKbRuleTypeObj getRequiredLookupRuleType() {
 		return( getRequiredLookupRuleType( false ) );
 	}
 
-	public ICFGenKbRuleTypeObj getRequiredLookupRuleType( boolean forceRead ) {
+	public IYCFGenKbRuleTypeObj getRequiredLookupRuleType( boolean forceRead ) {
 		if( ( requiredLookupRuleType == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredLookupRuleType = ((ICFGenKbSchemaObj)schema).getRuleTypeTableObj().readRuleTypeByIdIdx( getGenItemBuff().getRequiredRuleTypeId(), forceRead );
+				requiredLookupRuleType = ((IYCFGenKbSchemaObj)schema).getRuleTypeTableObj().readRuleTypeByIdIdx( getGenItemBuff().getRequiredRuleTypeId(), forceRead );
 			}
 		}
 		return( requiredLookupRuleType );
 	}
 
-	public ICFGenKbToolSetObj getRequiredLookupToolSet() {
+	public IYCFGenKbToolSetObj getRequiredLookupToolSet() {
 		return( getRequiredLookupToolSet( false ) );
 	}
 
-	public ICFGenKbToolSetObj getRequiredLookupToolSet( boolean forceRead ) {
+	public IYCFGenKbToolSetObj getRequiredLookupToolSet( boolean forceRead ) {
 		if( ( requiredLookupToolSet == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredLookupToolSet = ((ICFGenKbSchemaObj)schema).getToolSetTableObj().readToolSetByIdIdx( getGenItemBuff().getRequiredToolSetId(), forceRead );
+				requiredLookupToolSet = ((IYCFGenKbSchemaObj)schema).getToolSetTableObj().readToolSetByIdIdx( getGenItemBuff().getRequiredToolSetId(), forceRead );
 			}
 		}
 		return( requiredLookupToolSet );
 	}
 
-	public ICFGenKbDefClassObj getOptionalLookupScopeDef() {
+	public IYCFGenKbDefClassObj getOptionalLookupScopeDef() {
 		return( getOptionalLookupScopeDef( false ) );
 	}
 
-	public ICFGenKbDefClassObj getOptionalLookupScopeDef( boolean forceRead ) {
+	public IYCFGenKbDefClassObj getOptionalLookupScopeDef( boolean forceRead ) {
 		if( ( optionalLookupScopeDef == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenItemBuff().getOptionalScopeDefId() == null ) {
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalLookupScopeDef = ((ICFGenKbSchemaObj)schema).getDefClassTableObj().readDefClassByIdIdx( getGenItemBuff().getOptionalScopeDefId(), forceRead );
+				optionalLookupScopeDef = ((IYCFGenKbSchemaObj)schema).getDefClassTableObj().readDefClassByIdIdx( getGenItemBuff().getOptionalScopeDefId(), forceRead );
 			}
 		}
 		return( optionalLookupScopeDef );
 	}
 
-	public ICFGenKbDefClassObj getRequiredLookupGenDef() {
+	public IYCFGenKbDefClassObj getRequiredLookupGenDef() {
 		return( getRequiredLookupGenDef( false ) );
 	}
 
-	public ICFGenKbDefClassObj getRequiredLookupGenDef( boolean forceRead ) {
+	public IYCFGenKbDefClassObj getRequiredLookupGenDef( boolean forceRead ) {
 		if( ( requiredLookupGenDef == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredLookupGenDef = ((ICFGenKbSchemaObj)schema).getDefClassTableObj().readDefClassByIdIdx( getGenItemBuff().getRequiredGenDefId(), forceRead );
+				requiredLookupGenDef = ((IYCFGenKbSchemaObj)schema).getDefClassTableObj().readDefClassByIdIdx( getGenItemBuff().getRequiredGenDefId(), forceRead );
 			}
 		}
 		return( requiredLookupGenDef );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsGelExec() {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsGelExec() {
 		return( getOptionalComponentsGelExec( false ) );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsGelExec( boolean forceRead ) {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsGelExec( boolean forceRead ) {
 		if( ( optionalComponentsGelExec == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenItemBuff().getOptionalGelExecutableTenantId() == null ) {
@@ -498,7 +498,7 @@ public class CFGenKbGenItemObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalComponentsGelExec = ((ICFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenItemBuff().getOptionalGelExecutableTenantId(),
+				optionalComponentsGelExec = ((IYCFGenKbSchemaObj)schema).getGelExecutableTableObj().readGelExecutableByPIdx( getGenItemBuff().getOptionalGelExecutableTenantId(),
 					getGenItemBuff().getOptionalGelExecutableGelCacheId(),
 					getGenItemBuff().getOptionalGelExecutableId(), forceRead );
 			}
@@ -506,11 +506,11 @@ public class CFGenKbGenItemObj
 		return( optionalComponentsGelExec );
 	}
 
-	public ICFGenKbGenItemObj getOptionalLookupProbe() {
+	public IYCFGenKbGenItemObj getOptionalLookupProbe() {
 		return( getOptionalLookupProbe( false ) );
 	}
 
-	public ICFGenKbGenItemObj getOptionalLookupProbe( boolean forceRead ) {
+	public IYCFGenKbGenItemObj getOptionalLookupProbe( boolean forceRead ) {
 		if( ( optionalLookupProbe == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGenItemBuff().getOptionalProbeTenantId() == null ) {
@@ -523,7 +523,7 @@ public class CFGenKbGenItemObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalLookupProbe = ((ICFGenKbSchemaObj)schema).getGenItemTableObj().readGenItemByItemIdIdx( getGenItemBuff().getOptionalProbeTenantId(),
+				optionalLookupProbe = ((IYCFGenKbSchemaObj)schema).getGenItemTableObj().readGenItemByItemIdIdx( getGenItemBuff().getOptionalProbeTenantId(),
 					getGenItemBuff().getOptionalProbeCartridgeId(),
 					getGenItemBuff().getOptionalProbeGenItemId(), forceRead );
 			}

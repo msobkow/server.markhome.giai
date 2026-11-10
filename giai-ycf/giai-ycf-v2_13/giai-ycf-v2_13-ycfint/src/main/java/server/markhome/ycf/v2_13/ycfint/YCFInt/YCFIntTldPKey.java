@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a Tld primary key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,26 +36,26 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFIntTldPKey Primary Key for Tld
+ *	YCFIntTldPKey Primary Key for Tld
 
  *		requiredTenantId	Required object attribute TenantId.
  *		requiredId	Required object attribute Id. */
-public class CFIntTldPKey
+public class YCFIntTldPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected long requiredTenantId;
 	protected long requiredId;
-	public CFIntTldPKey() {
-		requiredTenantId = CFIntTldBuff.TENANTID_INIT_VALUE;
-		requiredId = CFIntTldBuff.ID_INIT_VALUE;
+	public YCFIntTldPKey() {
+		requiredTenantId = YCFIntTldBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFIntTldBuff.ID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -63,13 +63,13 @@ public class CFIntTldPKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntTldBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTldBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntTldBuff.TENANTID_MIN_VALUE );
+				YCFIntTldBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -79,13 +79,13 @@ public class CFIntTldPKey
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFIntTldBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTldBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFIntTldBuff.ID_MIN_VALUE );
+				YCFIntTldBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -94,8 +94,8 @@ public class CFIntTldPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntTldHPKey ) {
-			CFIntTldHPKey rhs = (CFIntTldHPKey)obj;
+		else if( obj instanceof YCFIntTldHPKey ) {
+			YCFIntTldHPKey rhs = (YCFIntTldHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -104,8 +104,8 @@ public class CFIntTldPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTldPKey ) {
-			CFIntTldPKey rhs = (CFIntTldPKey)obj;
+		else if( obj instanceof YCFIntTldPKey ) {
+			YCFIntTldPKey rhs = (YCFIntTldPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -114,8 +114,8 @@ public class CFIntTldPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTldHBuff ) {
-			CFIntTldHBuff rhs = (CFIntTldHBuff)obj;
+		else if( obj instanceof YCFIntTldHBuff ) {
+			YCFIntTldHBuff rhs = (YCFIntTldHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -124,8 +124,8 @@ public class CFIntTldPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTldBuff ) {
-			CFIntTldBuff rhs = (CFIntTldBuff)obj;
+		else if( obj instanceof YCFIntTldBuff ) {
+			YCFIntTldBuff rhs = (YCFIntTldBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -150,8 +150,8 @@ public class CFIntTldPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntTldHPKey ) {
-			CFIntTldHPKey rhs = (CFIntTldHPKey)obj;
+		else if( obj instanceof YCFIntTldHPKey ) {
+			YCFIntTldHPKey rhs = (YCFIntTldHPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -166,8 +166,8 @@ public class CFIntTldPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTldPKey ) {
-			CFIntTldPKey rhs = (CFIntTldPKey)obj;
+		else if( obj instanceof YCFIntTldPKey ) {
+			YCFIntTldPKey rhs = (YCFIntTldPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -182,8 +182,8 @@ public class CFIntTldPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTldBuff ) {
-			CFIntTldBuff rhs = (CFIntTldBuff)obj;
+		else if( obj instanceof YCFIntTldBuff ) {
+			YCFIntTldBuff rhs = (YCFIntTldBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -198,8 +198,8 @@ public class CFIntTldPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTldHBuff ) {
-			CFIntTldHBuff rhs = (CFIntTldHBuff)obj;
+		else if( obj instanceof YCFIntTldHBuff ) {
+			YCFIntTldHBuff rhs = (YCFIntTldHBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -215,16 +215,16 @@ public class CFIntTldPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFIntTldPKey, CFIntTldBuff" );
+				"YCFIntTldPKey, YCFIntTldBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFIntTldPKey"
+		String ret = "<YCFIntTldPKey"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
 			+ "/>";

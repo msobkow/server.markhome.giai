@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for SecDevice.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,14 +35,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSecDeviceTable database interface for SecDevice
+ *	YCFSecSecDeviceTable database interface for SecDevice
  */
-public interface ICFSecSecDeviceTable
+public interface IYCFSecSecDeviceTable
 {
 
 	/**
@@ -53,8 +53,8 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecDevice( CFSecAuthorization Authorization,
-		CFSecSecDeviceBuff Buff );
+	void createSecDevice( YCFSecAuthorization Authorization,
+		YCFSecSecDeviceBuff Buff );
 
 
 	/**
@@ -65,8 +65,8 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecDevice( CFSecAuthorization Authorization,
-		CFSecSecDeviceBuff Buff );
+	void updateSecDevice( YCFSecAuthorization Authorization,
+		YCFSecSecDeviceBuff Buff );
 
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecDevice( CFSecAuthorization Authorization,
-		CFSecSecDeviceBuff Buff );
+	void deleteSecDevice( YCFSecAuthorization Authorization,
+		YCFSecSecDeviceBuff Buff );
 	/**
 	 *	Delete the SecDevice instance identified by the primary key attributes.
 	 *
@@ -87,7 +87,7 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@param	argDevName	The SecDevice key attribute of the instance generating the id.
 	 */
-	void deleteSecDeviceByIdIdx( CFSecAuthorization Authorization,
+	void deleteSecDeviceByIdIdx( YCFSecAuthorization Authorization,
 		UUID argSecUserId,
 		String argDevName );
 
@@ -98,8 +98,8 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecDeviceByIdIdx( CFSecAuthorization Authorization,
-		CFSecSecDevicePKey argKey );
+	void deleteSecDeviceByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecSecDevicePKey argKey );
 	/**
 	 *	Delete the SecDevice instances identified by the key NameIdx.
 	 *
@@ -109,7 +109,7 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@param	argDevName	The SecDevice key attribute of the instance generating the id.
 	 */
-	void deleteSecDeviceByNameIdx( CFSecAuthorization Authorization,
+	void deleteSecDeviceByNameIdx( YCFSecAuthorization Authorization,
 		UUID argSecUserId,
 		String argDevName );
 
@@ -120,8 +120,8 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecDeviceByNameIdx( CFSecAuthorization Authorization,
-		CFSecSecDeviceByNameIdxKey argKey );
+	void deleteSecDeviceByNameIdx( YCFSecAuthorization Authorization,
+		YCFSecSecDeviceByNameIdxKey argKey );
 	/**
 	 *	Delete the SecDevice instances identified by the key UserIdx.
 	 *
@@ -129,7 +129,7 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@param	argSecUserId	The SecDevice key attribute of the instance generating the id.
 	 */
-	void deleteSecDeviceByUserIdx( CFSecAuthorization Authorization,
+	void deleteSecDeviceByUserIdx( YCFSecAuthorization Authorization,
 		UUID argSecUserId );
 
 	/**
@@ -139,8 +139,8 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecDeviceByUserIdx( CFSecAuthorization Authorization,
-		CFSecSecDeviceByUserIdxKey argKey );
+	void deleteSecDeviceByUserIdx( YCFSecAuthorization Authorization,
+		YCFSecSecDeviceByUserIdxKey argKey );
 
 
 	/**
@@ -153,8 +153,8 @@ public interface ICFSecSecDeviceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecDeviceBuff readDerived( CFSecAuthorization Authorization,
-		CFSecSecDevicePKey PKey );
+	YCFSecSecDeviceBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecSecDevicePKey PKey );
 
 	/**
 	 *	Lock the derived SecDevice buffer instance by primary key.
@@ -166,8 +166,8 @@ public interface ICFSecSecDeviceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecDeviceBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecSecDevicePKey PKey );
+	YCFSecSecDeviceBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecSecDevicePKey PKey );
 
 	/**
 	 *	Read all SecDevice instances.
@@ -176,7 +176,7 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecSecDeviceBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecSecDeviceBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecDevice buffer instance identified by the unique key IdIdx.
@@ -190,7 +190,7 @@ public interface ICFSecSecDeviceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecDeviceBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecDeviceBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId,
 		String DevName );
 
@@ -206,7 +206,7 @@ public interface ICFSecSecDeviceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecDeviceBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	YCFSecSecDeviceBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId,
 		String DevName );
 
@@ -219,7 +219,7 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecDeviceBuff[] readDerivedByUserIdx( CFSecAuthorization Authorization,
+	YCFSecSecDeviceBuff[] readDerivedByUserIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -232,10 +232,10 @@ public interface ICFSecSecDeviceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecDeviceBuff readBuff( CFSecAuthorization Authorization,
-		CFSecSecDevicePKey PKey );
+	YCFSecSecDeviceBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecSecDevicePKey PKey );
 
 	/**
 	 *	Lock the specific SecDevice buffer instance identified by the primary key.
@@ -247,10 +247,10 @@ public interface ICFSecSecDeviceTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecDeviceBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecSecDevicePKey PKey );
+	YCFSecSecDeviceBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecSecDevicePKey PKey );
 
 	/**
 	 *	Read all the specific SecDevice buffer instances.
@@ -259,7 +259,7 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@return All the specific SecDevice instances in the database accessible for the Authorization.
 	 */
-	CFSecSecDeviceBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecSecDeviceBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific SecDevice buffer instances.
@@ -268,7 +268,7 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@return All the specific SecDevice instances in the database accessible for the Authorization.
 	 */
-	CFSecSecDeviceBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	YCFSecSecDeviceBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		UUID priorSecUserId,
 		String priorDevName );
 
@@ -284,9 +284,9 @@ public interface ICFSecSecDeviceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecDeviceBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecDeviceBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId,
 		String DevName );
 
@@ -302,9 +302,9 @@ public interface ICFSecSecDeviceTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecDeviceBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	YCFSecSecDeviceBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId,
 		String DevName );
 
@@ -317,9 +317,9 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecDeviceBuff[] readBuffByUserIdx( CFSecAuthorization Authorization,
+	YCFSecSecDeviceBuff[] readBuffByUserIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -331,9 +331,9 @@ public interface ICFSecSecDeviceTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecDeviceBuff[] pageBuffByUserIdx( CFSecAuthorization Authorization,
+	YCFSecSecDeviceBuff[] pageBuffByUserIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId,
 		UUID priorSecUserId,
 		String priorDevName );
@@ -341,7 +341,7 @@ public interface ICFSecSecDeviceTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

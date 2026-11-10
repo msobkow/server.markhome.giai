@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for HostNode.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,86 +28,86 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamHostNodeTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamHostNodeTable in-memory RAM DbIO implementation
  *	for HostNode.
  */
-public class CFGenKbRamHostNodeTable
-	implements ICFGenKbHostNodeTable
+public class YCFGenKbRamHostNodeTable
+	implements IYCFGenKbHostNodeTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbHostNodePKey,
-				CFGenKbHostNodeBuff > dictByPKey
-		= new HashMap< CFGenKbHostNodePKey,
-				CFGenKbHostNodeBuff >();
-	private Map< CFGenKbHostNodeByClusterIdxKey,
-				Map< CFGenKbHostNodePKey,
-					CFGenKbHostNodeBuff >> dictByClusterIdx
-		= new HashMap< CFGenKbHostNodeByClusterIdxKey,
-				Map< CFGenKbHostNodePKey,
-					CFGenKbHostNodeBuff >>();
-	private Map< CFGenKbHostNodeByUDescrIdxKey,
-			CFGenKbHostNodeBuff > dictByUDescrIdx
-		= new HashMap< CFGenKbHostNodeByUDescrIdxKey,
-			CFGenKbHostNodeBuff >();
-	private Map< CFGenKbHostNodeByHostNameIdxKey,
-			CFGenKbHostNodeBuff > dictByHostNameIdx
-		= new HashMap< CFGenKbHostNodeByHostNameIdxKey,
-			CFGenKbHostNodeBuff >();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbHostNodePKey,
+				YCFGenKbHostNodeBuff > dictByPKey
+		= new HashMap< YCFGenKbHostNodePKey,
+				YCFGenKbHostNodeBuff >();
+	private Map< YCFGenKbHostNodeByClusterIdxKey,
+				Map< YCFGenKbHostNodePKey,
+					YCFGenKbHostNodeBuff >> dictByClusterIdx
+		= new HashMap< YCFGenKbHostNodeByClusterIdxKey,
+				Map< YCFGenKbHostNodePKey,
+					YCFGenKbHostNodeBuff >>();
+	private Map< YCFGenKbHostNodeByUDescrIdxKey,
+			YCFGenKbHostNodeBuff > dictByUDescrIdx
+		= new HashMap< YCFGenKbHostNodeByUDescrIdxKey,
+			YCFGenKbHostNodeBuff >();
+	private Map< YCFGenKbHostNodeByHostNameIdxKey,
+			YCFGenKbHostNodeBuff > dictByHostNameIdx
+		= new HashMap< YCFGenKbHostNodeByHostNameIdxKey,
+			YCFGenKbHostNodeBuff >();
 
-	public CFGenKbRamHostNodeTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamHostNodeTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createHostNode( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeBuff Buff )
+	public void createHostNode( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeBuff Buff )
 	{
 		final String S_ProcName = "createHostNode";
-		CFGenKbHostNodePKey pkey = schema.getFactoryHostNode().newPKey();
+		YCFGenKbHostNodePKey pkey = schema.getFactoryHostNode().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
-		pkey.setRequiredHostNodeId( ((CFGenKbRamClusterTable)schema.getTableCluster()).nextHostNodeIdGen( Authorization,
+		pkey.setRequiredHostNodeId( ((YCFGenKbRamClusterTable)schema.getTableCluster()).nextHostNodeIdGen( Authorization,
 			Buff.getRequiredClusterId() ) );
 		Buff.setRequiredClusterId( pkey.getRequiredClusterId() );
 		Buff.setRequiredHostNodeId( pkey.getRequiredHostNodeId() );
-		CFGenKbHostNodeByClusterIdxKey keyClusterIdx = schema.getFactoryHostNode().newClusterIdxKey();
+		YCFGenKbHostNodeByClusterIdxKey keyClusterIdx = schema.getFactoryHostNode().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFGenKbHostNodeByUDescrIdxKey keyUDescrIdx = schema.getFactoryHostNode().newUDescrIdxKey();
+		YCFGenKbHostNodeByUDescrIdxKey keyUDescrIdx = schema.getFactoryHostNode().newUDescrIdxKey();
 		keyUDescrIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyUDescrIdx.setRequiredDescription( Buff.getRequiredDescription() );
 
-		CFGenKbHostNodeByHostNameIdxKey keyHostNameIdx = schema.getFactoryHostNode().newHostNameIdxKey();
+		YCFGenKbHostNodeByHostNameIdxKey keyHostNameIdx = schema.getFactoryHostNode().newHostNameIdxKey();
 		keyHostNameIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyHostNameIdx.setRequiredHostName( Buff.getRequiredHostName() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUDescrIdx.containsKey( keyUDescrIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"HostNodeUDescrIdx",
 				keyUDescrIdx );
 		}
 
 		if( dictByHostNameIdx.containsKey( keyHostNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"HostNodeUHostNameIdx",
 				keyHostNameIdx );
@@ -122,7 +122,7 @@ public class CFGenKbRamHostNodeTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"HostNodeCluster",
@@ -136,12 +136,12 @@ public class CFGenKbRamHostNodeTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFGenKbHostNodePKey, CFGenKbHostNodeBuff > subdictClusterIdx;
+		Map< YCFGenKbHostNodePKey, YCFGenKbHostNodeBuff > subdictClusterIdx;
 		if( dictByClusterIdx.containsKey( keyClusterIdx ) ) {
 			subdictClusterIdx = dictByClusterIdx.get( keyClusterIdx );
 		}
 		else {
-			subdictClusterIdx = new HashMap< CFGenKbHostNodePKey, CFGenKbHostNodeBuff >();
+			subdictClusterIdx = new HashMap< YCFGenKbHostNodePKey, YCFGenKbHostNodeBuff >();
 			dictByClusterIdx.put( keyClusterIdx, subdictClusterIdx );
 		}
 		subdictClusterIdx.put( pkey, Buff );
@@ -152,14 +152,14 @@ public class CFGenKbRamHostNodeTable
 
 	}
 
-	public CFGenKbHostNodeBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey PKey )
+	public YCFGenKbHostNodeBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readDerived";
-		CFGenKbHostNodePKey key = schema.getFactoryHostNode().newPKey();
+		final String S_ProcName = "YCFGenKbRamHostNode.readDerived";
+		YCFGenKbHostNodePKey key = schema.getFactoryHostNode().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredHostNodeId( PKey.getRequiredHostNodeId() );
-		CFGenKbHostNodeBuff buff;
+		YCFGenKbHostNodeBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -169,14 +169,14 @@ public class CFGenKbRamHostNodeTable
 		return( buff );
 	}
 
-	public CFGenKbHostNodeBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey PKey )
+	public YCFGenKbHostNodeBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readDerived";
-		CFGenKbHostNodePKey key = schema.getFactoryHostNode().newPKey();
+		final String S_ProcName = "YCFGenKbRamHostNode.readDerived";
+		YCFGenKbHostNodePKey key = schema.getFactoryHostNode().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredHostNodeId( PKey.getRequiredHostNodeId() );
-		CFGenKbHostNodeBuff buff;
+		YCFGenKbHostNodeBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -186,10 +186,10 @@ public class CFGenKbRamHostNodeTable
 		return( buff );
 	}
 
-	public CFGenKbHostNodeBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamHostNode.readAllDerived";
-		CFGenKbHostNodeBuff[] retList = new CFGenKbHostNodeBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbHostNodeBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbHostNodeBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamHostNode.readAllDerived";
+		YCFGenKbHostNodeBuff[] retList = new YCFGenKbHostNodeBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbHostNodeBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -197,43 +197,43 @@ public class CFGenKbRamHostNodeTable
 		return( retList );
 	}
 
-	public CFGenKbHostNodeBuff[] readDerivedByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff[] readDerivedByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readDerivedByClusterIdx";
-		CFGenKbHostNodeByClusterIdxKey key = schema.getFactoryHostNode().newClusterIdxKey();
+		final String S_ProcName = "YCFGenKbRamHostNode.readDerivedByClusterIdx";
+		YCFGenKbHostNodeByClusterIdxKey key = schema.getFactoryHostNode().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 
-		CFGenKbHostNodeBuff[] recArray;
+		YCFGenKbHostNodeBuff[] recArray;
 		if( dictByClusterIdx.containsKey( key ) ) {
-			Map< CFGenKbHostNodePKey, CFGenKbHostNodeBuff > subdictClusterIdx
+			Map< YCFGenKbHostNodePKey, YCFGenKbHostNodeBuff > subdictClusterIdx
 				= dictByClusterIdx.get( key );
-			recArray = new CFGenKbHostNodeBuff[ subdictClusterIdx.size() ];
-			Iterator< CFGenKbHostNodeBuff > iter = subdictClusterIdx.values().iterator();
+			recArray = new YCFGenKbHostNodeBuff[ subdictClusterIdx.size() ];
+			Iterator< YCFGenKbHostNodeBuff > iter = subdictClusterIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbHostNodePKey, CFGenKbHostNodeBuff > subdictClusterIdx
-				= new HashMap< CFGenKbHostNodePKey, CFGenKbHostNodeBuff >();
+			Map< YCFGenKbHostNodePKey, YCFGenKbHostNodeBuff > subdictClusterIdx
+				= new HashMap< YCFGenKbHostNodePKey, YCFGenKbHostNodeBuff >();
 			dictByClusterIdx.put( key, subdictClusterIdx );
-			recArray = new CFGenKbHostNodeBuff[0];
+			recArray = new YCFGenKbHostNodeBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbHostNodeBuff readDerivedByUDescrIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff readDerivedByUDescrIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String Description )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readDerivedByUDescrIdx";
-		CFGenKbHostNodeByUDescrIdxKey key = schema.getFactoryHostNode().newUDescrIdxKey();
+		final String S_ProcName = "YCFGenKbRamHostNode.readDerivedByUDescrIdx";
+		YCFGenKbHostNodeByUDescrIdxKey key = schema.getFactoryHostNode().newUDescrIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredDescription( Description );
 
-		CFGenKbHostNodeBuff buff;
+		YCFGenKbHostNodeBuff buff;
 		if( dictByUDescrIdx.containsKey( key ) ) {
 			buff = dictByUDescrIdx.get( key );
 		}
@@ -243,16 +243,16 @@ public class CFGenKbRamHostNodeTable
 		return( buff );
 	}
 
-	public CFGenKbHostNodeBuff readDerivedByHostNameIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff readDerivedByHostNameIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String HostName )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readDerivedByHostNameIdx";
-		CFGenKbHostNodeByHostNameIdxKey key = schema.getFactoryHostNode().newHostNameIdxKey();
+		final String S_ProcName = "YCFGenKbRamHostNode.readDerivedByHostNameIdx";
+		YCFGenKbHostNodeByHostNameIdxKey key = schema.getFactoryHostNode().newHostNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostName( HostName );
 
-		CFGenKbHostNodeBuff buff;
+		YCFGenKbHostNodeBuff buff;
 		if( dictByHostNameIdx.containsKey( key ) ) {
 			buff = dictByHostNameIdx.get( key );
 		}
@@ -262,16 +262,16 @@ public class CFGenKbRamHostNodeTable
 		return( buff );
 	}
 
-	public CFGenKbHostNodeBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readDerivedByIdIdx() ";
-		CFGenKbHostNodePKey key = schema.getFactoryHostNode().newPKey();
+		final String S_ProcName = "YCFGenKbRamHostNode.readDerivedByIdIdx() ";
+		YCFGenKbHostNodePKey key = schema.getFactoryHostNode().newPKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 
-		CFGenKbHostNodeBuff buff;
+		YCFGenKbHostNodeBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -281,41 +281,41 @@ public class CFGenKbRamHostNodeTable
 		return( buff );
 	}
 
-	public CFGenKbHostNodeBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey PKey )
+	public YCFGenKbHostNodeBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readBuff";
-		CFGenKbHostNodeBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamHostNode.readBuff";
+		YCFGenKbHostNodeBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a902" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbHostNodeBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey PKey )
+	public YCFGenKbHostNodeBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbHostNodeBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbHostNodeBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a902" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbHostNodeBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbHostNodeBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readAllBuff";
-		CFGenKbHostNodeBuff buff;
-		ArrayList<CFGenKbHostNodeBuff> filteredList = new ArrayList<CFGenKbHostNodeBuff>();
-		CFGenKbHostNodeBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamHostNode.readAllBuff";
+		YCFGenKbHostNodeBuff buff;
+		ArrayList<YCFGenKbHostNodeBuff> filteredList = new ArrayList<YCFGenKbHostNodeBuff>();
+		YCFGenKbHostNodeBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a902" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbHostNodeBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbHostNodeBuff[0] ) );
 	}
 
 	/**
@@ -325,73 +325,73 @@ public class CFGenKbRamHostNodeTable
 	 *
 	 *	@return All the specific HostNode instances in the database accessible for the Authorization.
 	 */
-	public CFGenKbHostNodeBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		Long priorClusterId,
 		Long priorHostNodeId )
 	{
 		final String S_ProcName = "pageAllBuff";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public CFGenKbHostNodeBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readBuffByIdIdx() ";
-		CFGenKbHostNodeBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamHostNode.readBuffByIdIdx() ";
+		YCFGenKbHostNodeBuff buff = readDerivedByIdIdx( Authorization,
 			ClusterId,
 			HostNodeId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a902" ) ) {
-			return( (CFGenKbHostNodeBuff)buff );
+			return( (YCFGenKbHostNodeBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbHostNodeBuff[] readBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff[] readBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readBuffByClusterIdx() ";
-		CFGenKbHostNodeBuff buff;
-		ArrayList<CFGenKbHostNodeBuff> filteredList = new ArrayList<CFGenKbHostNodeBuff>();
-		CFGenKbHostNodeBuff[] buffList = readDerivedByClusterIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamHostNode.readBuffByClusterIdx() ";
+		YCFGenKbHostNodeBuff buff;
+		ArrayList<YCFGenKbHostNodeBuff> filteredList = new ArrayList<YCFGenKbHostNodeBuff>();
+		YCFGenKbHostNodeBuff[] buffList = readDerivedByClusterIdx( Authorization,
 			ClusterId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a902" ) ) {
-				filteredList.add( (CFGenKbHostNodeBuff)buff );
+				filteredList.add( (YCFGenKbHostNodeBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbHostNodeBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbHostNodeBuff[0] ) );
 	}
 
-	public CFGenKbHostNodeBuff readBuffByUDescrIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff readBuffByUDescrIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String Description )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readBuffByUDescrIdx() ";
-		CFGenKbHostNodeBuff buff = readDerivedByUDescrIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamHostNode.readBuffByUDescrIdx() ";
+		YCFGenKbHostNodeBuff buff = readDerivedByUDescrIdx( Authorization,
 			ClusterId,
 			Description );
 		if( ( buff != null ) && buff.getClassCode().equals( "a902" ) ) {
-			return( (CFGenKbHostNodeBuff)buff );
+			return( (YCFGenKbHostNodeBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbHostNodeBuff readBuffByHostNameIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff readBuffByHostNameIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String HostName )
 	{
-		final String S_ProcName = "CFGenKbRamHostNode.readBuffByHostNameIdx() ";
-		CFGenKbHostNodeBuff buff = readDerivedByHostNameIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamHostNode.readBuffByHostNameIdx() ";
+		YCFGenKbHostNodeBuff buff = readDerivedByHostNameIdx( Authorization,
 			ClusterId,
 			HostName );
 		if( ( buff != null ) && buff.getClassCode().equals( "a902" ) ) {
-			return( (CFGenKbHostNodeBuff)buff );
+			return( (YCFGenKbHostNodeBuff)buff );
 		}
 		else {
 			return( null );
@@ -407,56 +407,56 @@ public class CFGenKbRamHostNodeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbHostNodeBuff[] pageBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbHostNodeBuff[] pageBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Long priorHostNodeId )
 	{
 		final String S_ProcName = "pageBuffByClusterIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateHostNode( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeBuff Buff )
+	public void updateHostNode( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeBuff Buff )
 	{
-		CFGenKbHostNodePKey pkey = schema.getFactoryHostNode().newPKey();
+		YCFGenKbHostNodePKey pkey = schema.getFactoryHostNode().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredHostNodeId( Buff.getRequiredHostNodeId() );
-		CFGenKbHostNodeBuff existing = dictByPKey.get( pkey );
+		YCFGenKbHostNodeBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateHostNode",
 				"Existing record not found",
 				"HostNode",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateHostNode",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFGenKbHostNodeByClusterIdxKey existingKeyClusterIdx = schema.getFactoryHostNode().newClusterIdxKey();
+		YCFGenKbHostNodeByClusterIdxKey existingKeyClusterIdx = schema.getFactoryHostNode().newClusterIdxKey();
 		existingKeyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFGenKbHostNodeByClusterIdxKey newKeyClusterIdx = schema.getFactoryHostNode().newClusterIdxKey();
+		YCFGenKbHostNodeByClusterIdxKey newKeyClusterIdx = schema.getFactoryHostNode().newClusterIdxKey();
 		newKeyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFGenKbHostNodeByUDescrIdxKey existingKeyUDescrIdx = schema.getFactoryHostNode().newUDescrIdxKey();
+		YCFGenKbHostNodeByUDescrIdxKey existingKeyUDescrIdx = schema.getFactoryHostNode().newUDescrIdxKey();
 		existingKeyUDescrIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyUDescrIdx.setRequiredDescription( existing.getRequiredDescription() );
 
-		CFGenKbHostNodeByUDescrIdxKey newKeyUDescrIdx = schema.getFactoryHostNode().newUDescrIdxKey();
+		YCFGenKbHostNodeByUDescrIdxKey newKeyUDescrIdx = schema.getFactoryHostNode().newUDescrIdxKey();
 		newKeyUDescrIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyUDescrIdx.setRequiredDescription( Buff.getRequiredDescription() );
 
-		CFGenKbHostNodeByHostNameIdxKey existingKeyHostNameIdx = schema.getFactoryHostNode().newHostNameIdxKey();
+		YCFGenKbHostNodeByHostNameIdxKey existingKeyHostNameIdx = schema.getFactoryHostNode().newHostNameIdxKey();
 		existingKeyHostNameIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyHostNameIdx.setRequiredHostName( existing.getRequiredHostName() );
 
-		CFGenKbHostNodeByHostNameIdxKey newKeyHostNameIdx = schema.getFactoryHostNode().newHostNameIdxKey();
+		YCFGenKbHostNodeByHostNameIdxKey newKeyHostNameIdx = schema.getFactoryHostNode().newHostNameIdxKey();
 		newKeyHostNameIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyHostNameIdx.setRequiredHostName( Buff.getRequiredHostName() );
 
@@ -464,7 +464,7 @@ public class CFGenKbRamHostNodeTable
 
 		if( ! existingKeyUDescrIdx.equals( newKeyUDescrIdx ) ) {
 			if( dictByUDescrIdx.containsKey( newKeyUDescrIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateHostNode",
 					"HostNodeUDescrIdx",
 					newKeyUDescrIdx );
@@ -473,7 +473,7 @@ public class CFGenKbRamHostNodeTable
 
 		if( ! existingKeyHostNameIdx.equals( newKeyHostNameIdx ) ) {
 			if( dictByHostNameIdx.containsKey( newKeyHostNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateHostNode",
 					"HostNodeUHostNameIdx",
 					newKeyHostNameIdx );
@@ -489,7 +489,7 @@ public class CFGenKbRamHostNodeTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateHostNode",
 						"Container",
 						"HostNodeCluster",
@@ -501,7 +501,7 @@ public class CFGenKbRamHostNodeTable
 
 		// Update is valid
 
-		Map< CFGenKbHostNodePKey, CFGenKbHostNodeBuff > subdict;
+		Map< YCFGenKbHostNodePKey, YCFGenKbHostNodeBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -514,7 +514,7 @@ public class CFGenKbRamHostNodeTable
 			subdict = dictByClusterIdx.get( newKeyClusterIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbHostNodePKey, CFGenKbHostNodeBuff >();
+			subdict = new HashMap< YCFGenKbHostNodePKey, YCFGenKbHostNodeBuff >();
 			dictByClusterIdx.put( newKeyClusterIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -527,39 +527,39 @@ public class CFGenKbRamHostNodeTable
 
 	}
 
-	public void deleteHostNode( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeBuff Buff )
+	public void deleteHostNode( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamHostNodeTable.deleteHostNode() ";
+		final String S_ProcName = "YCFGenKbRamHostNodeTable.deleteHostNode() ";
 		String classCode;
-		CFGenKbHostNodePKey pkey = schema.getFactoryHostNode().newPKey();
+		YCFGenKbHostNodePKey pkey = schema.getFactoryHostNode().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredHostNodeId( Buff.getRequiredHostNodeId() );
-		CFGenKbHostNodeBuff existing = dictByPKey.get( pkey );
+		YCFGenKbHostNodeBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteHostNode",
 				pkey );
 		}
-		CFGenKbHostNodeByClusterIdxKey keyClusterIdx = schema.getFactoryHostNode().newClusterIdxKey();
+		YCFGenKbHostNodeByClusterIdxKey keyClusterIdx = schema.getFactoryHostNode().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFGenKbHostNodeByUDescrIdxKey keyUDescrIdx = schema.getFactoryHostNode().newUDescrIdxKey();
+		YCFGenKbHostNodeByUDescrIdxKey keyUDescrIdx = schema.getFactoryHostNode().newUDescrIdxKey();
 		keyUDescrIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUDescrIdx.setRequiredDescription( existing.getRequiredDescription() );
 
-		CFGenKbHostNodeByHostNameIdxKey keyHostNameIdx = schema.getFactoryHostNode().newHostNameIdxKey();
+		YCFGenKbHostNodeByHostNameIdxKey keyHostNameIdx = schema.getFactoryHostNode().newHostNameIdxKey();
 		keyHostNameIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyHostNameIdx.setRequiredHostName( existing.getRequiredHostName() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbHostNodePKey, CFGenKbHostNodeBuff > subdict;
+		Map< YCFGenKbHostNodePKey, YCFGenKbHostNodeBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -571,18 +571,18 @@ public class CFGenKbRamHostNodeTable
 		dictByHostNameIdx.remove( keyHostNameIdx );
 
 	}
-	public void deleteHostNodeByIdIdx( CFGenKbAuthorization Authorization,
+	public void deleteHostNodeByIdIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		long argHostNodeId )
 	{
-		CFGenKbHostNodePKey key = schema.getFactoryHostNode().newPKey();
+		YCFGenKbHostNodePKey key = schema.getFactoryHostNode().newPKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredHostNodeId( argHostNodeId );
 		deleteHostNodeByIdIdx( Authorization, key );
 	}
 
-	public void deleteHostNodeByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodePKey argKey )
+	public void deleteHostNodeByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodePKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -590,16 +590,16 @@ public class CFGenKbRamHostNodeTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbHostNodeBuff cur;
-		LinkedList<CFGenKbHostNodeBuff> matchSet = new LinkedList<CFGenKbHostNodeBuff>();
-		Iterator<CFGenKbHostNodeBuff> values = dictByPKey.values().iterator();
+		YCFGenKbHostNodeBuff cur;
+		LinkedList<YCFGenKbHostNodeBuff> matchSet = new LinkedList<YCFGenKbHostNodeBuff>();
+		Iterator<YCFGenKbHostNodeBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbHostNodeBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbHostNodeBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableHostNode().readDerivedByIdIdx( Authorization,
@@ -609,32 +609,32 @@ public class CFGenKbRamHostNodeTable
 		}
 	}
 
-	public void deleteHostNodeByClusterIdx( CFGenKbAuthorization Authorization,
+	public void deleteHostNodeByClusterIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId )
 	{
-		CFGenKbHostNodeByClusterIdxKey key = schema.getFactoryHostNode().newClusterIdxKey();
+		YCFGenKbHostNodeByClusterIdxKey key = schema.getFactoryHostNode().newClusterIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		deleteHostNodeByClusterIdx( Authorization, key );
 	}
 
-	public void deleteHostNodeByClusterIdx( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeByClusterIdxKey argKey )
+	public void deleteHostNodeByClusterIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeByClusterIdxKey argKey )
 	{
-		CFGenKbHostNodeBuff cur;
+		YCFGenKbHostNodeBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbHostNodeBuff> matchSet = new LinkedList<CFGenKbHostNodeBuff>();
-		Iterator<CFGenKbHostNodeBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbHostNodeBuff> matchSet = new LinkedList<YCFGenKbHostNodeBuff>();
+		Iterator<YCFGenKbHostNodeBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbHostNodeBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbHostNodeBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableHostNode().readDerivedByIdIdx( Authorization,
@@ -644,35 +644,35 @@ public class CFGenKbRamHostNodeTable
 		}
 	}
 
-	public void deleteHostNodeByUDescrIdx( CFGenKbAuthorization Authorization,
+	public void deleteHostNodeByUDescrIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		String argDescription )
 	{
-		CFGenKbHostNodeByUDescrIdxKey key = schema.getFactoryHostNode().newUDescrIdxKey();
+		YCFGenKbHostNodeByUDescrIdxKey key = schema.getFactoryHostNode().newUDescrIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredDescription( argDescription );
 		deleteHostNodeByUDescrIdx( Authorization, key );
 	}
 
-	public void deleteHostNodeByUDescrIdx( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeByUDescrIdxKey argKey )
+	public void deleteHostNodeByUDescrIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeByUDescrIdxKey argKey )
 	{
-		CFGenKbHostNodeBuff cur;
+		YCFGenKbHostNodeBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbHostNodeBuff> matchSet = new LinkedList<CFGenKbHostNodeBuff>();
-		Iterator<CFGenKbHostNodeBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbHostNodeBuff> matchSet = new LinkedList<YCFGenKbHostNodeBuff>();
+		Iterator<YCFGenKbHostNodeBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbHostNodeBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbHostNodeBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableHostNode().readDerivedByIdIdx( Authorization,
@@ -682,35 +682,35 @@ public class CFGenKbRamHostNodeTable
 		}
 	}
 
-	public void deleteHostNodeByHostNameIdx( CFGenKbAuthorization Authorization,
+	public void deleteHostNodeByHostNameIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		String argHostName )
 	{
-		CFGenKbHostNodeByHostNameIdxKey key = schema.getFactoryHostNode().newHostNameIdxKey();
+		YCFGenKbHostNodeByHostNameIdxKey key = schema.getFactoryHostNode().newHostNameIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredHostName( argHostName );
 		deleteHostNodeByHostNameIdx( Authorization, key );
 	}
 
-	public void deleteHostNodeByHostNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbHostNodeByHostNameIdxKey argKey )
+	public void deleteHostNodeByHostNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbHostNodeByHostNameIdxKey argKey )
 	{
-		CFGenKbHostNodeBuff cur;
+		YCFGenKbHostNodeBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbHostNodeBuff> matchSet = new LinkedList<CFGenKbHostNodeBuff>();
-		Iterator<CFGenKbHostNodeBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbHostNodeBuff> matchSet = new LinkedList<YCFGenKbHostNodeBuff>();
+		Iterator<YCFGenKbHostNodeBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbHostNodeBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbHostNodeBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableHostNode().readDerivedByIdIdx( Authorization,

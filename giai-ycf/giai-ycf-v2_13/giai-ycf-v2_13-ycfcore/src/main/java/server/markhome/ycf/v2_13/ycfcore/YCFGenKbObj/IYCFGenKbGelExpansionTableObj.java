@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelExpansionTableObj
+public interface IYCFGenKbGelExpansionTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelExpansionTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelExpansionObj newInstance();
+	IYCFGenKbGelExpansionObj newInstance();
 
 	/**
 	 *	Instantiate a new GelExpansion edition of the specified GelExpansion instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelExpansionEditObj newEditInstance( ICFGenKbGelExpansionObj orig );
+	IYCFGenKbGelExpansionEditObj newEditInstance( IYCFGenKbGelExpansionObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelExpansionObj realiseGelExpansion( ICFGenKbGelExpansionObj Obj );
+	IYCFGenKbGelExpansionObj realiseGelExpansion( IYCFGenKbGelExpansionObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelExpansionObj createGelExpansion( ICFGenKbGelExpansionObj Obj );
+	IYCFGenKbGelExpansionObj createGelExpansion( IYCFGenKbGelExpansionObj Obj );
 
 	/**
 	 *	Read a GelExpansion-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelExpansionTableObj
 	 *	@return	The GelExpansion-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelExpansionObj readGelExpansion( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelExpansionObj readGelExpansion( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelExpansion-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelExpansionTableObj
 	 *	@return	The GelExpansion-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelExpansionObj readGelExpansion( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelExpansionObj readGelExpansion( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelExpansionObj readCachedGelExpansion( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelExpansionObj readCachedGelExpansion( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelExpansion( ICFGenKbGelExpansionObj obj );
+	public void reallyDeepDisposeGelExpansion( IYCFGenKbGelExpansionObj obj );
 
-	void deepDisposeGelExpansion( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelExpansion( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelExpansionObj lockGelExpansion( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelExpansionObj lockGelExpansion( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelExpansion-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelExpansionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelExpansionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelExpansionObj> readAllGelExpansion();
+	List<IYCFGenKbGelExpansionObj> readAllGelExpansion();
 
 	/**
 	 *	Return a sorted map of all the GelExpansion-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelExpansionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelExpansionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelExpansionObj> readAllGelExpansion( boolean forceRead );
+	List<IYCFGenKbGelExpansionObj> readAllGelExpansion( boolean forceRead );
 
-	List<ICFGenKbGelExpansionObj> readCachedAllGelExpansion();
+	List<IYCFGenKbGelExpansionObj> readCachedAllGelExpansion();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelExpansion key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelExpansionTableObj
 	 *
 	 *	@param	argGelInstId	The GelExpansion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelExpansionObj readGelExpansionByPIdx( long TenantId,
+	IYCFGenKbGelExpansionObj readGelExpansionByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelExpansion key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelExpansionTableObj
 	 *
 	 *	@param	argGelInstId	The GelExpansion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelExpansionObj readGelExpansionByPIdx( long TenantId,
+	IYCFGenKbGelExpansionObj readGelExpansionByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelExpansion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExpansionObj> readGelExpansionByTenantIdx( long TenantId );
+	List<IYCFGenKbGelExpansionObj> readGelExpansionByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelExpansionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelExpansionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelExpansion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExpansionObj> readGelExpansionByTenantIdx( long TenantId,
+	List<IYCFGenKbGelExpansionObj> readGelExpansionByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelExpansion key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelExpansion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExpansionObj> readGelExpansionByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelExpansionObj> readGelExpansionByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelExpansionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelExpansionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelExpansion key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelExpansion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExpansionObj> readGelExpansionByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelExpansionObj> readGelExpansionByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelExpansion key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelExpansionTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelExpansion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExpansionObj> readGelExpansionByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelExpansionObj> readGelExpansionByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelExpansionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelExpansionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelExpansion key attribute of the instance generating the id.
 	 *
@@ -229,24 +229,24 @@ public interface ICFGenKbGelExpansionTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelExpansion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelExpansionObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelExpansionObj> readGelExpansionByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelExpansionObj> readGelExpansionByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
-	ICFGenKbGelExpansionObj readCachedGelExpansionByPIdx( long TenantId,
+	IYCFGenKbGelExpansionObj readCachedGelExpansionByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelExpansionObj> readCachedGelExpansionByTenantIdx( long TenantId );
+	List<IYCFGenKbGelExpansionObj> readCachedGelExpansionByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelExpansionObj> readCachedGelExpansionByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelExpansionObj> readCachedGelExpansionByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelExpansionObj> readCachedGelExpansionByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelExpansionObj> readCachedGelExpansionByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
@@ -266,12 +266,12 @@ public interface ICFGenKbGelExpansionTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelExpansionObj updateGelExpansion( ICFGenKbGelExpansionObj Obj );
+	IYCFGenKbGelExpansionObj updateGelExpansion( IYCFGenKbGelExpansionObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelExpansion( ICFGenKbGelExpansionObj Obj );
+	void deleteGelExpansion( IYCFGenKbGelExpansionObj Obj );
 
 	/**
 	 *	Internal use only.

@@ -1,15 +1,15 @@
-// Description: Java 11 implementation of a CFSec schema pool.
+// Description: Java 11 implementation of a YCFSec schema pool.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,38 +26,38 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecSchemaPool
+public class YCFSecSchemaPool
 {
 
-	protected volatile static CFSecSchemaPool schemaPool = null;
+	protected volatile static YCFSecSchemaPool schemaPool = null;
 	protected String jndiName = null;
-	protected CFSecConfigurationFile configFile = null;
-	protected LinkedList<ICFSecSchema> instances = new LinkedList<ICFSecSchema>();
-	public CFSecSchemaPool() {
+	protected YCFSecConfigurationFile configFile = null;
+	protected LinkedList<IYCFSecSchema> instances = new LinkedList<IYCFSecSchema>();
+	public YCFSecSchemaPool() {
 	}
 
-	public static CFSecSchemaPool getSchemaPool() {
+	public static YCFSecSchemaPool getSchemaPool() {
 		return( schemaPool );
 	}
 
-	public static void setSchemaPool( CFSecSchemaPool pool ) {
+	public static void setSchemaPool( YCFSecSchemaPool pool ) {
 		if( schemaPool == null ) {
 			schemaPool = pool;
 		}
 
 	}
 
-	public CFSecConfigurationFile getConfigurationFile() {
+	public YCFSecConfigurationFile getConfigurationFile() {
 		return( configFile );
 	}
 
-	public void setConfigurationFile( CFSecConfigurationFile value ) {
+	public void setConfigurationFile( YCFSecConfigurationFile value ) {
 		
 		configFile = value;
 	}
@@ -67,12 +67,12 @@ public class CFSecSchemaPool
 	 *	Retrieve an entry from the pool with a previously
 	 *	established database connection.
 	 */
-	public synchronized ICFSecSchema getInstance() {
-		ICFSecSchema retInst = null;
+	public synchronized IYCFSecSchema getInstance() {
+		IYCFSecSchema retInst = null;
 		if( instances != null ) {
 			if( instances.isEmpty() ) {
 				retInst = newInstance();
-				retInst.setConfigurationFile( (CFSecConfigurationFile)getConfigurationFile() );
+				retInst.setConfigurationFile( (YCFSecConfigurationFile)getConfigurationFile() );
 				retInst.setJndiName( getJndiName() );
 				retInst.connect();
 			}
@@ -89,7 +89,7 @@ public class CFSecSchemaPool
 	/**
 	 *	Return an entry to the pool.
 	 */
-	public synchronized void releaseInstance( ICFSecSchema inst ) {
+	public synchronized void releaseInstance( IYCFSecSchema inst ) {
 		if( inst == null ) {
 			return;
 		}
@@ -105,15 +105,15 @@ public class CFSecSchemaPool
 	 *	You need to overload the implementation of newInstance() to return
 	 *	connected instances of your backing store.
 	 */
-	public ICFSecSchema newInstance() {
-		ICFSecSchema retInst = new CFSecSchema();
+	public IYCFSecSchema newInstance() {
+		IYCFSecSchema retInst = new YCFSecSchema();
 		return( retInst );
 	}
 
 	/**
 	 *	Overload disposeInstance().
 	 */
-	public void disposeInstance( ICFSecSchema inst ) {
+	public void disposeInstance( IYCFSecSchema inst ) {
 		try {
 			inst.disconnect( false );
 		}

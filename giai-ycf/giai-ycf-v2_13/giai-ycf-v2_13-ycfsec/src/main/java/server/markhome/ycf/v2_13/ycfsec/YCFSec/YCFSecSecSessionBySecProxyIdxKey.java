@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SecSession by SecProxyIdx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,15 +36,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecSecSessionBySecProxyIdxKey
+public class YCFSecSecSessionBySecProxyIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected UUID optionalSecProxyId;
-	public CFSecSecSessionBySecProxyIdxKey() {
+	public YCFSecSecSessionBySecProxyIdxKey() {
 		optionalSecProxyId = null;
 	}
 
@@ -65,8 +65,8 @@ public class CFSecSecSessionBySecProxyIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSecSessionBySecProxyIdxKey ) {
-			CFSecSecSessionBySecProxyIdxKey rhs = (CFSecSecSessionBySecProxyIdxKey)obj;
+		else if( obj instanceof YCFSecSecSessionBySecProxyIdxKey ) {
+			YCFSecSecSessionBySecProxyIdxKey rhs = (YCFSecSecSessionBySecProxyIdxKey)obj;
 			if( getOptionalSecProxyId() != null ) {
 				if( rhs.getOptionalSecProxyId() != null ) {
 					if( ! getOptionalSecProxyId().equals( rhs.getOptionalSecProxyId() ) ) {
@@ -81,8 +81,8 @@ public class CFSecSecSessionBySecProxyIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecSessionBuff ) {
-			CFSecSecSessionBuff rhs = (CFSecSecSessionBuff)obj;
+		else if( obj instanceof YCFSecSecSessionBuff ) {
+			YCFSecSecSessionBuff rhs = (YCFSecSecSessionBuff)obj;
 			if( getOptionalSecProxyId() != null ) {
 				if( rhs.getOptionalSecProxyId() != null ) {
 					if( ! getOptionalSecProxyId().equals( rhs.getOptionalSecProxyId() ) ) {
@@ -114,8 +114,8 @@ public class CFSecSecSessionBySecProxyIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecSecSessionBySecProxyIdxKey ) {
-			CFSecSecSessionBySecProxyIdxKey rhs = (CFSecSecSessionBySecProxyIdxKey)obj;
+		else if( obj instanceof YCFSecSecSessionBySecProxyIdxKey ) {
+			YCFSecSecSessionBySecProxyIdxKey rhs = (YCFSecSecSessionBySecProxyIdxKey)obj;
 			if( getOptionalSecProxyId() != null ) {
 				if( rhs.getOptionalSecProxyId() != null ) {
 					int cmp = getOptionalSecProxyId().compareTo( rhs.getOptionalSecProxyId() );
@@ -134,8 +134,8 @@ public class CFSecSecSessionBySecProxyIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecSessionBuff ) {
-			CFSecSecSessionBuff rhs = (CFSecSecSessionBuff)obj;
+		else if( obj instanceof YCFSecSecSessionBuff ) {
+			YCFSecSecSessionBuff rhs = (YCFSecSecSessionBuff)obj;
 			if( getOptionalSecProxyId() != null ) {
 				if( rhs.getOptionalSecProxyId() != null ) {
 					int cmp = getOptionalSecProxyId().compareTo( rhs.getOptionalSecProxyId() );
@@ -155,7 +155,7 @@ public class CFSecSecSessionBySecProxyIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -164,7 +164,7 @@ public class CFSecSecSessionBySecProxyIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecSecSessionBySecProxyIdx"
+		String ret = "<YCFSecSecSessionBySecProxyIdx"
 			+ " OptionalSecProxyId=" + ( ( getOptionalSecProxyId() == null ) ? "null" : "\"" + getOptionalSecProxyId().toString() + "\"" )
 			+ "/>";
 		return( ret );

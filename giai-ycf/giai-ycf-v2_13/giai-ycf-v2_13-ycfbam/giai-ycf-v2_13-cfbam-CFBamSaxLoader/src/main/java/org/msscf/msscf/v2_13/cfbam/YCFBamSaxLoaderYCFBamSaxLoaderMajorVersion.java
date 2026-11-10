@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for MajorVersion
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,23 +35,23 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSaxLoaderMajorVersionParse XML SAX Element Handler implementation
+ *	YCFBamSaxLoaderMajorVersionParse XML SAX Element Handler implementation
  *	for MajorVersion.
  */
-public class CFBamSaxLoaderMajorVersion
-	extends CFLibXmlCoreElementHandler
+public class YCFBamSaxLoaderMajorVersion
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamSaxLoaderMajorVersion( CFBamSaxLoader saxLoader ) {
+	public YCFBamSaxLoaderMajorVersion( YCFBamSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -63,16 +63,16 @@ public class CFBamSaxLoaderMajorVersion
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFBamMajorVersionObj origBuff = null;
-		ICFBamMajorVersionEditObj editBuff = null;
+		IYCFBamMajorVersionObj origBuff = null;
+		IYCFBamMajorVersionEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// MajorVersion Attributes
 		String attrName = null;
 		String attrDescription = null;
 		// MajorVersion References
-		ICFBamTenantObj refTenant = null;
-		ICFBamSubProjectObj refParentSPrj = null;
+		IYCFBamTenantObj refTenant = null;
+		IYCFBamSubProjectObj refParentSPrj = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -81,25 +81,25 @@ public class CFBamSaxLoaderMajorVersion
 		try {
 			assert qName.equals( "MajorVersion" );
 
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFBamMajorVersionObj)schemaObj.getMajorVersionTableObj().newInstance();
-			editBuff = (ICFBamMajorVersionEditObj)origBuff.beginEdit();
+			origBuff = (IYCFBamMajorVersionObj)schemaObj.getMajorVersionTableObj().newInstance();
+			editBuff = (IYCFBamMajorVersionEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -107,7 +107,7 @@ public class CFBamSaxLoaderMajorVersion
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -116,7 +116,7 @@ public class CFBamSaxLoaderMajorVersion
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -125,7 +125,7 @@ public class CFBamSaxLoaderMajorVersion
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -136,7 +136,7 @@ public class CFBamSaxLoaderMajorVersion
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -145,14 +145,14 @@ public class CFBamSaxLoaderMajorVersion
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "Description", attrDescription );
@@ -175,7 +175,7 @@ public class CFBamSaxLoaderMajorVersion
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -187,42 +187,42 @@ public class CFBamSaxLoaderMajorVersion
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamSubProjectObj ) {
-				refParentSPrj = (ICFBamSubProjectObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamSubProjectObj ) {
+				refParentSPrj = (IYCFBamSubProjectObj) scopeObj;
 				editBuff.setRequiredContainerParentSPrj( refParentSPrj );
-				refTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamSubProjectObj" );
+					"IYCFBamSubProjectObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
 				}
 			}
 
-			CFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getMajorVersionLoaderBehaviour();
-			ICFBamMajorVersionEditObj editMajorVersion = null;
-			ICFBamMajorVersionObj origMajorVersion = (ICFBamMajorVersionObj)schemaObj.getMajorVersionTableObj().readMajorVersionByNameIdx( refTenant.getRequiredId(),
+			YCFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getMajorVersionLoaderBehaviour();
+			IYCFBamMajorVersionEditObj editMajorVersion = null;
+			IYCFBamMajorVersionObj origMajorVersion = (IYCFBamMajorVersionObj)schemaObj.getMajorVersionTableObj().readMajorVersionByNameIdx( refTenant.getRequiredId(),
 			refParentSPrj.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origMajorVersion == null ) {
@@ -233,12 +233,12 @@ public class CFBamSaxLoaderMajorVersion
 					case Insert:
 						break;
 					case Update:
-						editMajorVersion = (ICFBamMajorVersionEditObj)origMajorVersion.beginEdit();
+						editMajorVersion = (IYCFBamMajorVersionEditObj)origMajorVersion.beginEdit();
 						editMajorVersion.setRequiredName( editBuff.getRequiredName() );
 						editMajorVersion.setOptionalDescription( editBuff.getOptionalDescription() );
 						break;
 					case Replace:
-						editMajorVersion = (ICFBamMajorVersionEditObj)origMajorVersion.beginEdit();
+						editMajorVersion = (IYCFBamMajorVersionEditObj)origMajorVersion.beginEdit();
 						editMajorVersion.deleteInstance();
 						editMajorVersion = null;
 						origMajorVersion = null;
@@ -252,7 +252,7 @@ public class CFBamSaxLoaderMajorVersion
 					editMajorVersion.update();
 				}
 				else {
-					origMajorVersion = (ICFBamMajorVersionObj)editMajorVersion.create();
+					origMajorVersion = (IYCFBamMajorVersionObj)editMajorVersion.create();
 				}
 				editMajorVersion = null;
 			}

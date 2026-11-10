@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Iterator for TopDomain Relationship License.
+// Description: Java 11 MssYCF Iterator for TopDomain Relationship License.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.io.*;
 import java.lang.reflect.*;
@@ -36,32 +36,32 @@ import java.sql.*;
 import java.rmi.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /**
- *	CFBamMssCFIterateTopDomainLicense binds TopDomain.License
- *	as an instance of MssCFGenIteratorObj.
+ *	YCFBamMssYCFIterateTopDomainLicense binds TopDomain.License
+ *	as an instance of MssYCFGenIteratorObj.
  */
-public class CFBamMssCFIterateTopDomainLicense
-	extends MssCFGenIteratorObj
+public class YCFBamMssYCFIterateTopDomainLicense
+	extends MssYCFGenIteratorObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFIterateTopDomainLicense() {
+	public YCFBamMssYCFIterateTopDomainLicense() {
 		super();
 	}
 
-	public CFBamMssCFIterateTopDomainLicense( MssCFEngine argEngine ) {
+	public YCFBamMssYCFIterateTopDomainLicense( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
@@ -70,38 +70,38 @@ public class CFBamMssCFIterateTopDomainLicense
 			"License" );
 	}
 
-	public ListIterator<ICFLibAnyObj> enumerateDetails( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFIterateTopDomainLicense.enumerateDetails() ";
+	public ListIterator<IYCFLibAnyObj> enumerateDetails( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFIterateTopDomainLicense.enumerateDetails() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext.getGenDef()" );
 		}
 
-		List<ICFLibAnyObj> list = new LinkedList<ICFLibAnyObj>();
+		List<IYCFLibAnyObj> list = new LinkedList<IYCFLibAnyObj>();
 
-		if( genDef instanceof ICFBamTopDomainObj ) {
-			Iterator<ICFIntLicenseObj> elements = ((ICFBamTopDomainObj)genDef).getOptionalComponentsLicense().iterator();
+		if( genDef instanceof IYCFBamTopDomainObj ) {
+			Iterator<IYCFIntLicenseObj> elements = ((IYCFBamTopDomainObj)genDef).getOptionalComponentsLicense().iterator();
 			while( elements.hasNext() ) {
 				list.add( elements.next() );
 			}
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamTopDomainObj" );
+				"IYCFBamTopDomainObj" );
 		}
 
 		return( list.listIterator() );

@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb GelBuiltin.
+// Description: Java 11 edit object instance implementation for YCFGenKb GelBuiltin.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,39 +27,39 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGelBuiltinEditObj
-	extends CFGenKbGelInstructionEditObj
+public class YCFGenKbGelBuiltinEditObj
+	extends YCFGenKbGelInstructionEditObj
 
-	implements ICFGenKbGelBuiltinEditObj
+	implements IYCFGenKbGelBuiltinEditObj
 {
 
-	public CFGenKbGelBuiltinEditObj( ICFGenKbGelBuiltinObj argOrig ) {
+	public YCFGenKbGelBuiltinEditObj( IYCFGenKbGelBuiltinObj argOrig ) {
 		super( argOrig );
 	}
 
 	public String getClassCode() {
-		return( CFGenKbGelBuiltinObj.CLASS_CODE );
+		return( YCFGenKbGelBuiltinObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "GelBuiltin" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -70,14 +70,14 @@ public class CFGenKbGelBuiltinEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -88,10 +88,10 @@ public class CFGenKbGelBuiltinEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -100,11 +100,11 @@ public class CFGenKbGelBuiltinEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -128,13 +128,13 @@ public class CFGenKbGelBuiltinEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -146,9 +146,9 @@ public class CFGenKbGelBuiltinEditObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
+	public IYCFGenKbGelInstructionObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbGelBuiltinObj retobj = getSchema().getGelBuiltinTableObj().realiseGelBuiltin( (ICFGenKbGelBuiltinObj)this );
+		IYCFGenKbGelBuiltinObj retobj = getSchema().getGelBuiltinTableObj().realiseGelBuiltin( (IYCFGenKbGelBuiltinObj)this );
 		return( retobj );
 	}
 
@@ -156,67 +156,67 @@ public class CFGenKbGelBuiltinEditObj
 		getOrigAsGelBuiltin().forget();
 	}
 
-	public ICFGenKbGelInstructionObj create() {
+	public IYCFGenKbGelInstructionObj create() {
 		copyBuffToOrig();
-		ICFGenKbGelBuiltinObj retobj = ((ICFGenKbSchemaObj)getOrigAsGelBuiltin().getSchema()).getGelBuiltinTableObj().createGelBuiltin( getOrigAsGelBuiltin() );
+		IYCFGenKbGelBuiltinObj retobj = ((IYCFGenKbSchemaObj)getOrigAsGelBuiltin().getSchema()).getGelBuiltinTableObj().createGelBuiltin( getOrigAsGelBuiltin() );
 		if( retobj == getOrigAsGelBuiltin() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbGelInstructionEditObj update() {
-		getSchema().getGelBuiltinTableObj().updateGelBuiltin( (ICFGenKbGelBuiltinObj)this );
+	public YCFGenKbGelInstructionEditObj update() {
+		getSchema().getGelBuiltinTableObj().updateGelBuiltin( (IYCFGenKbGelBuiltinObj)this );
 		return( null );
 	}
 
-	public CFGenKbGelInstructionEditObj deleteInstance() {
+	public YCFGenKbGelInstructionEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getGelBuiltinTableObj().deleteGelBuiltin( getOrigAsGelBuiltin() );
 		return( null );
 	}
 
-	public ICFGenKbGelBuiltinTableObj getGelBuiltinTable() {
+	public IYCFGenKbGelBuiltinTableObj getGelBuiltinTable() {
 		return( orig.getSchema().getGelBuiltinTableObj() );
 	}
 
-	public ICFGenKbGelBuiltinEditObj getEditAsGelBuiltin() {
-		return( (ICFGenKbGelBuiltinEditObj)this );
+	public IYCFGenKbGelBuiltinEditObj getEditAsGelBuiltin() {
+		return( (IYCFGenKbGelBuiltinEditObj)this );
 	}
 
-	public ICFGenKbGelBuiltinObj getOrigAsGelBuiltin() {
-		return( (ICFGenKbGelBuiltinObj)orig );
+	public IYCFGenKbGelBuiltinObj getOrigAsGelBuiltin() {
+		return( (IYCFGenKbGelBuiltinObj)orig );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsGelBuiltin().getSchema().getBackingStore()).getFactoryGelBuiltin().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsGelBuiltin().getSchema().getBackingStore()).getFactoryGelBuiltin().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 		}
 	}
 
-	public CFGenKbGelBuiltinBuff getGelBuiltinBuff() {
-		return( (CFGenKbGelBuiltinBuff)getBuff() );
+	public YCFGenKbGelBuiltinBuff getGelBuiltinBuff() {
+		return( (YCFGenKbGelBuiltinBuff)getBuff() );
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbGelBuiltinBuff origBuff = getOrigAsGelBuiltin().getGelBuiltinBuff();
-		CFGenKbGelBuiltinBuff myBuff = getGelBuiltinBuff();
+		YCFGenKbGelBuiltinBuff origBuff = getOrigAsGelBuiltin().getGelBuiltinBuff();
+		YCFGenKbGelBuiltinBuff myBuff = getGelBuiltinBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbGelBuiltinBuff origBuff = getOrigAsGelBuiltin().getGelBuiltinBuff();
-		CFGenKbGelBuiltinBuff myBuff = getGelBuiltinBuff();
+		YCFGenKbGelBuiltinBuff origBuff = getOrigAsGelBuiltin().getGelBuiltinBuff();
+		YCFGenKbGelBuiltinBuff myBuff = getGelBuiltinBuff();
 		myBuff.set( origBuff );
 	}
 }

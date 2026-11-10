@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFInt.
+// Description: Java 11 Table Object interface for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,22 +26,22 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntTopDomainTableObj
+public interface IYCFIntTopDomainTableObj
 {
-	ICFIntSchemaObj getSchema();
-	void setSchema( ICFIntSchemaObj value );
+	IYCFIntSchemaObj getSchema();
+	void setSchema( IYCFIntSchemaObj value );
 
 	void minimizeMemory();
 
@@ -55,24 +55,24 @@ public interface ICFIntTopDomainTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFIntTopDomainObj newInstance();
+	IYCFIntTopDomainObj newInstance();
 
 	/**
 	 *	Instantiate a new TopDomain edition of the specified TopDomain instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFIntTopDomainEditObj newEditInstance( ICFIntTopDomainObj orig );
+	IYCFIntTopDomainEditObj newEditInstance( IYCFIntTopDomainObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTopDomainObj realiseTopDomain( ICFIntTopDomainObj Obj );
+	IYCFIntTopDomainObj realiseTopDomain( IYCFIntTopDomainObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTopDomainObj createTopDomain( ICFIntTopDomainObj Obj );
+	IYCFIntTopDomainObj createTopDomain( IYCFIntTopDomainObj Obj );
 
 	/**
 	 *	Read a TopDomain-derived instance by it's primary key.
@@ -82,7 +82,7 @@ public interface ICFIntTopDomainTableObj
 	 *	@return	The TopDomain-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntTopDomainObj readTopDomain( CFIntTopDomainPKey pkey );
+	IYCFIntTopDomainObj readTopDomain( YCFIntTopDomainPKey pkey );
 
 	/**
 	 *	Read a TopDomain-derived instance by it's primary key.
@@ -92,115 +92,115 @@ public interface ICFIntTopDomainTableObj
 	 *	@return	The TopDomain-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntTopDomainObj readTopDomain( CFIntTopDomainPKey pkey,
+	IYCFIntTopDomainObj readTopDomain( YCFIntTopDomainPKey pkey,
 		boolean forceRead );
 
-	ICFIntTopDomainObj readCachedTopDomain( CFIntTopDomainPKey pkey );
+	IYCFIntTopDomainObj readCachedTopDomain( YCFIntTopDomainPKey pkey );
 
-	public void reallyDeepDisposeTopDomain( ICFIntTopDomainObj obj );
+	public void reallyDeepDisposeTopDomain( IYCFIntTopDomainObj obj );
 
-	void deepDisposeTopDomain( CFIntTopDomainPKey pkey );
+	void deepDisposeTopDomain( YCFIntTopDomainPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTopDomainObj lockTopDomain( CFIntTopDomainPKey pkey );
+	IYCFIntTopDomainObj lockTopDomain( YCFIntTopDomainPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the TopDomain-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntTopDomainObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntTopDomainObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntTopDomainObj> readAllTopDomain();
+	List<IYCFIntTopDomainObj> readAllTopDomain();
 
 	/**
 	 *	Return a sorted map of all the TopDomain-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntTopDomainObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntTopDomainObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntTopDomainObj> readAllTopDomain( boolean forceRead );
+	List<IYCFIntTopDomainObj> readAllTopDomain( boolean forceRead );
 
-	List<ICFIntTopDomainObj> readCachedAllTopDomain();
+	List<IYCFIntTopDomainObj> readCachedAllTopDomain();
 
 	/**
-	 *	Get the CFIntTopDomainObj instance for the primary key attributes.
+	 *	Get the YCFIntTopDomainObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TopDomain key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The TopDomain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTopDomainObj cached instance for the primary key, or
+	 *	@return	YCFIntTopDomainObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTopDomainObj readTopDomainByIdIdx( long TenantId,
+	IYCFIntTopDomainObj readTopDomainByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFIntTopDomainObj instance for the primary key attributes.
+	 *	Get the YCFIntTopDomainObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The TopDomain key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The TopDomain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTopDomainObj refreshed instance for the primary key, or
+	 *	@return	YCFIntTopDomainObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTopDomainObj readTopDomainByIdIdx( long TenantId,
+	IYCFIntTopDomainObj readTopDomainByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntTopDomainObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntTopDomainObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The TopDomain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTopDomainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntTopDomainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTopDomainObj> readTopDomainByTenantIdx( long TenantId );
+	List<IYCFIntTopDomainObj> readTopDomainByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFIntTopDomainObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntTopDomainObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The TopDomain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTopDomainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntTopDomainObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTopDomainObj> readTopDomainByTenantIdx( long TenantId,
+	List<IYCFIntTopDomainObj> readTopDomainByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntTopDomainObj instances sorted by their primary keys for the duplicate TldIdx key.
+	 *	Get the map of YCFIntTopDomainObj instances sorted by their primary keys for the duplicate TldIdx key.
 	 *
 	 *	@param	argTenantId	The TopDomain key attribute of the instance generating the id.
 	 *
 	 *	@param	argTldId	The TopDomain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTopDomainObj cached instances sorted by their primary keys for the duplicate TldIdx key,
+	 *	@return	List of YCFIntTopDomainObj cached instances sorted by their primary keys for the duplicate TldIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTopDomainObj> readTopDomainByTldIdx( long TenantId,
+	List<IYCFIntTopDomainObj> readTopDomainByTldIdx( long TenantId,
 		long TldId );
 
 	/**
-	 *	Get the map of CFIntTopDomainObj instances sorted by their primary keys for the duplicate TldIdx key.
+	 *	Get the map of YCFIntTopDomainObj instances sorted by their primary keys for the duplicate TldIdx key.
 	 *
 	 *	@param	argTenantId	The TopDomain key attribute of the instance generating the id.
 	 *
 	 *	@param	argTldId	The TopDomain key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTopDomainObj cached instances sorted by their primary keys for the duplicate TldIdx key,
+	 *	@return	List of YCFIntTopDomainObj cached instances sorted by their primary keys for the duplicate TldIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTopDomainObj> readTopDomainByTldIdx( long TenantId,
+	List<IYCFIntTopDomainObj> readTopDomainByTldIdx( long TenantId,
 		long TldId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFIntTopDomainObj instance for the unique NameIdx key.
+	 *	Get the YCFIntTopDomainObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The TopDomain key attribute of the instance generating the id.
 	 *
@@ -208,15 +208,15 @@ public interface ICFIntTopDomainTableObj
 	 *
 	 *	@param	argName	The TopDomain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTopDomainObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFIntTopDomainObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTopDomainObj readTopDomainByNameIdx(long TenantId,
+	IYCFIntTopDomainObj readTopDomainByNameIdx(long TenantId,
 		long TldId,
 		String Name );
 
 	/**
-	 *	Get the CFIntTopDomainObj instance for the unique NameIdx key.
+	 *	Get the YCFIntTopDomainObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The TopDomain key attribute of the instance generating the id.
 	 *
@@ -224,23 +224,23 @@ public interface ICFIntTopDomainTableObj
 	 *
 	 *	@param	argName	The TopDomain key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTopDomainObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFIntTopDomainObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTopDomainObj readTopDomainByNameIdx(long TenantId,
+	IYCFIntTopDomainObj readTopDomainByNameIdx(long TenantId,
 		long TldId,
 		String Name,
 		boolean forceRead );
 
-	ICFIntTopDomainObj readCachedTopDomainByIdIdx( long TenantId,
+	IYCFIntTopDomainObj readCachedTopDomainByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFIntTopDomainObj> readCachedTopDomainByTenantIdx( long TenantId );
+	List<IYCFIntTopDomainObj> readCachedTopDomainByTenantIdx( long TenantId );
 
-	List<ICFIntTopDomainObj> readCachedTopDomainByTldIdx( long TenantId,
+	List<IYCFIntTopDomainObj> readCachedTopDomainByTldIdx( long TenantId,
 		long TldId );
 
-	ICFIntTopDomainObj readCachedTopDomainByNameIdx( long TenantId,
+	IYCFIntTopDomainObj readCachedTopDomainByNameIdx( long TenantId,
 		long TldId,
 		String Name );
 
@@ -259,12 +259,12 @@ public interface ICFIntTopDomainTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTopDomainObj updateTopDomain( ICFIntTopDomainObj Obj );
+	IYCFIntTopDomainObj updateTopDomain( IYCFIntTopDomainObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteTopDomain( ICFIntTopDomainObj Obj );
+	void deleteTopDomain( IYCFIntTopDomainObj Obj );
 
 	/**
 	 *	Internal use only.

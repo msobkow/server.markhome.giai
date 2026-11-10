@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFSec.
+// Description: Java 11 Table Object implementation for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,38 +26,38 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecSecGroupFormTableObj
-	implements ICFSecSecGroupFormTableObj
+public class YCFSecSecGroupFormTableObj
+	implements IYCFSecSecGroupFormTableObj
 {
-	protected ICFSecSchemaObj schema;
-	private Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> members;
-	private Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> allSecGroupForm;
-	private Map< CFSecSecGroupFormByClusterIdxKey,
-		Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > > indexByClusterIdx;
-	private Map< CFSecSecGroupFormByGroupIdxKey,
-		Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > > indexByGroupIdx;
-	private Map< CFSecSecGroupFormByAppIdxKey,
-		Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > > indexByAppIdx;
-	private Map< CFSecSecGroupFormByFormIdxKey,
-		Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > > indexByFormIdx;
-	private Map< CFSecSecGroupFormByUFormIdxKey,
-		ICFSecSecGroupFormObj > indexByUFormIdx;
+	protected IYCFSecSchemaObj schema;
+	private Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> members;
+	private Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> allSecGroupForm;
+	private Map< YCFSecSecGroupFormByClusterIdxKey,
+		Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > > indexByClusterIdx;
+	private Map< YCFSecSecGroupFormByGroupIdxKey,
+		Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > > indexByGroupIdx;
+	private Map< YCFSecSecGroupFormByAppIdxKey,
+		Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > > indexByAppIdx;
+	private Map< YCFSecSecGroupFormByFormIdxKey,
+		Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > > indexByFormIdx;
+	private Map< YCFSecSecGroupFormByUFormIdxKey,
+		IYCFSecSecGroupFormObj > indexByUFormIdx;
 	public static String TABLE_NAME = "SecGroupForm";
 	public static String TABLE_DBNAME = "secgrpfrm";
 
-	public CFSecSecGroupFormTableObj() {
+	public YCFSecSecGroupFormTableObj() {
 		schema = null;
-		members = new HashMap<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj>();
+		members = new HashMap<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj>();
 		allSecGroupForm = null;
 		indexByClusterIdx = null;
 		indexByGroupIdx = null;
@@ -66,9 +66,9 @@ public class CFSecSecGroupFormTableObj
 		indexByUFormIdx = null;
 	}
 
-	public CFSecSecGroupFormTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFSecSchemaObj)argSchema;
-		members = new HashMap<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj>();
+	public YCFSecSecGroupFormTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFSecSchemaObj)argSchema;
+		members = new HashMap<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj>();
 		allSecGroupForm = null;
 		indexByClusterIdx = null;
 		indexByGroupIdx = null;
@@ -77,12 +77,12 @@ public class CFSecSecGroupFormTableObj
 		indexByUFormIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFSecSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFSecSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -105,9 +105,9 @@ public class CFSecSecGroupFormTableObj
 		indexByAppIdx = null;
 		indexByFormIdx = null;
 		indexByUFormIdx = null;
-		List<ICFSecSecGroupFormObj> toForget = new LinkedList<ICFSecSecGroupFormObj>();
-		ICFSecSecGroupFormObj cur = null;
-		Iterator<ICFSecSecGroupFormObj> iter = members.values().iterator();
+		List<IYCFSecSecGroupFormObj> toForget = new LinkedList<IYCFSecSecGroupFormObj>();
+		IYCFSecSecGroupFormObj cur = null;
+		Iterator<IYCFSecSecGroupFormObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -125,10 +125,10 @@ public class CFSecSecGroupFormTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecSecGroupFormObj.
+	 *	YCFSecSecGroupFormObj.
 	 */
-	public ICFSecSecGroupFormObj newInstance() {
-		ICFSecSecGroupFormObj inst = new CFSecSecGroupFormObj( schema );
+	public IYCFSecSecGroupFormObj newInstance() {
+		IYCFSecSecGroupFormObj inst = new YCFSecSecGroupFormObj( schema );
 		return( inst );
 	}
 
@@ -139,19 +139,19 @@ public class CFSecSecGroupFormTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecSecGroupFormObj.
+	 *	YCFSecSecGroupFormObj.
 	 */
-	public ICFSecSecGroupFormEditObj newEditInstance( ICFSecSecGroupFormObj orig ) {
-		ICFSecSecGroupFormEditObj edit = new CFSecSecGroupFormEditObj( orig );
+	public IYCFSecSecGroupFormEditObj newEditInstance( IYCFSecSecGroupFormObj orig ) {
+		IYCFSecSecGroupFormEditObj edit = new YCFSecSecGroupFormEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecSecGroupFormObj realiseSecGroupForm( ICFSecSecGroupFormObj Obj ) {
-		ICFSecSecGroupFormObj obj = Obj;
-		CFSecSecGroupFormPKey pkey = obj.getPKey();
-		ICFSecSecGroupFormObj keepObj = null;
+	public IYCFSecSecGroupFormObj realiseSecGroupForm( IYCFSecSecGroupFormObj Obj ) {
+		IYCFSecSecGroupFormObj obj = Obj;
+		YCFSecSecGroupFormPKey pkey = obj.getPKey();
+		IYCFSecSecGroupFormObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecSecGroupFormObj existingObj = members.get( pkey );
+			IYCFSecSecGroupFormObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -162,10 +162,10 @@ public class CFSecSecGroupFormTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByClusterIdx != null ) {
-				CFSecSecGroupFormByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
+				YCFSecSecGroupFormByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.remove( keepObj.getPKey() );
 					if( mapClusterIdx.size() <= 0 ) {
@@ -175,11 +175,11 @@ public class CFSecSecGroupFormTableObj
 			}
 
 			if( indexByGroupIdx != null ) {
-				CFSecSecGroupFormByGroupIdxKey keyGroupIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
+				YCFSecSecGroupFormByGroupIdxKey keyGroupIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
 				keyGroupIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyGroupIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
 				if( mapGroupIdx != null ) {
 					mapGroupIdx.remove( keepObj.getPKey() );
 					if( mapGroupIdx.size() <= 0 ) {
@@ -189,11 +189,11 @@ public class CFSecSecGroupFormTableObj
 			}
 
 			if( indexByAppIdx != null ) {
-				CFSecSecGroupFormByAppIdxKey keyAppIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
+				YCFSecSecGroupFormByAppIdxKey keyAppIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
 				keyAppIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyAppIdx.setRequiredSecAppId( keepObj.getRequiredSecAppId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapAppIdx = indexByAppIdx.get( keyAppIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapAppIdx = indexByAppIdx.get( keyAppIdx );
 				if( mapAppIdx != null ) {
 					mapAppIdx.remove( keepObj.getPKey() );
 					if( mapAppIdx.size() <= 0 ) {
@@ -203,11 +203,11 @@ public class CFSecSecGroupFormTableObj
 			}
 
 			if( indexByFormIdx != null ) {
-				CFSecSecGroupFormByFormIdxKey keyFormIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
+				YCFSecSecGroupFormByFormIdxKey keyFormIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
 				keyFormIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyFormIdx.setRequiredSecFormId( keepObj.getRequiredSecFormId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapFormIdx = indexByFormIdx.get( keyFormIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapFormIdx = indexByFormIdx.get( keyFormIdx );
 				if( mapFormIdx != null ) {
 					mapFormIdx.remove( keepObj.getPKey() );
 					if( mapFormIdx.size() <= 0 ) {
@@ -217,8 +217,8 @@ public class CFSecSecGroupFormTableObj
 			}
 
 			if( indexByUFormIdx != null ) {
-				CFSecSecGroupFormByUFormIdxKey keyUFormIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
+				YCFSecSecGroupFormByUFormIdxKey keyUFormIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
 				keyUFormIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUFormIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
 				keyUFormIdx.setRequiredSecFormId( keepObj.getRequiredSecFormId() );
@@ -229,51 +229,51 @@ public class CFSecSecGroupFormTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByClusterIdx != null ) {
-				CFSecSecGroupFormByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
+				YCFSecSecGroupFormByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByGroupIdx != null ) {
-				CFSecSecGroupFormByGroupIdxKey keyGroupIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
+				YCFSecSecGroupFormByGroupIdxKey keyGroupIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
 				keyGroupIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyGroupIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
 				if( mapGroupIdx != null ) {
 					mapGroupIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByAppIdx != null ) {
-				CFSecSecGroupFormByAppIdxKey keyAppIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
+				YCFSecSecGroupFormByAppIdxKey keyAppIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
 				keyAppIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyAppIdx.setRequiredSecAppId( keepObj.getRequiredSecAppId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapAppIdx = indexByAppIdx.get( keyAppIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapAppIdx = indexByAppIdx.get( keyAppIdx );
 				if( mapAppIdx != null ) {
 					mapAppIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByFormIdx != null ) {
-				CFSecSecGroupFormByFormIdxKey keyFormIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
+				YCFSecSecGroupFormByFormIdxKey keyFormIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
 				keyFormIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyFormIdx.setRequiredSecFormId( keepObj.getRequiredSecFormId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapFormIdx = indexByFormIdx.get( keyFormIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapFormIdx = indexByFormIdx.get( keyFormIdx );
 				if( mapFormIdx != null ) {
 					mapFormIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUFormIdx != null ) {
-				CFSecSecGroupFormByUFormIdxKey keyUFormIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
+				YCFSecSecGroupFormByUFormIdxKey keyUFormIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
 				keyUFormIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUFormIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
 				keyUFormIdx.setRequiredSecFormId( keepObj.getRequiredSecFormId() );
@@ -295,51 +295,51 @@ public class CFSecSecGroupFormTableObj
 			}
 
 			if( indexByClusterIdx != null ) {
-				CFSecSecGroupFormByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
+				YCFSecSecGroupFormByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByGroupIdx != null ) {
-				CFSecSecGroupFormByGroupIdxKey keyGroupIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
+				YCFSecSecGroupFormByGroupIdxKey keyGroupIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
 				keyGroupIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyGroupIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
 				if( mapGroupIdx != null ) {
 					mapGroupIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByAppIdx != null ) {
-				CFSecSecGroupFormByAppIdxKey keyAppIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
+				YCFSecSecGroupFormByAppIdxKey keyAppIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
 				keyAppIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyAppIdx.setRequiredSecAppId( keepObj.getRequiredSecAppId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapAppIdx = indexByAppIdx.get( keyAppIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapAppIdx = indexByAppIdx.get( keyAppIdx );
 				if( mapAppIdx != null ) {
 					mapAppIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByFormIdx != null ) {
-				CFSecSecGroupFormByFormIdxKey keyFormIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
+				YCFSecSecGroupFormByFormIdxKey keyFormIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
 				keyFormIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyFormIdx.setRequiredSecFormId( keepObj.getRequiredSecFormId() );
-				Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > mapFormIdx = indexByFormIdx.get( keyFormIdx );
+				Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > mapFormIdx = indexByFormIdx.get( keyFormIdx );
 				if( mapFormIdx != null ) {
 					mapFormIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUFormIdx != null ) {
-				CFSecSecGroupFormByUFormIdxKey keyUFormIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
+				YCFSecSecGroupFormByUFormIdxKey keyUFormIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
 				keyUFormIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUFormIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
 				keyUFormIdx.setRequiredSecFormId( keepObj.getRequiredSecFormId() );
@@ -350,10 +350,10 @@ public class CFSecSecGroupFormTableObj
 		return( keepObj );
 	}
 
-	public ICFSecSecGroupFormObj createSecGroupForm( ICFSecSecGroupFormObj Obj ) {
-		ICFSecSecGroupFormObj obj = Obj;
-		CFSecSecGroupFormBuff buff = obj.getSecGroupFormBuff();
-		((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().createSecGroupForm(
+	public IYCFSecSecGroupFormObj createSecGroupForm( IYCFSecSecGroupFormObj Obj ) {
+		IYCFSecSecGroupFormObj obj = Obj;
+		YCFSecSecGroupFormBuff buff = obj.getSecGroupFormBuff();
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().createSecGroupForm(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -362,66 +362,66 @@ public class CFSecSecGroupFormTableObj
 		return( obj );
 	}
 
-	public ICFSecSecGroupFormObj readSecGroupForm( CFSecSecGroupFormPKey pkey ) {
+	public IYCFSecSecGroupFormObj readSecGroupForm( YCFSecSecGroupFormPKey pkey ) {
 		return( readSecGroupForm( pkey, false ) );
 	}
 
-	public ICFSecSecGroupFormObj readSecGroupForm( CFSecSecGroupFormPKey pkey, boolean forceRead ) {
-		ICFSecSecGroupFormObj obj = null;
+	public IYCFSecSecGroupFormObj readSecGroupForm( YCFSecSecGroupFormPKey pkey, boolean forceRead ) {
+		IYCFSecSecGroupFormObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecSecGroupFormBuff readBuff = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecSecGroupFormBuff readBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredClusterId(),
 				pkey.getRequiredSecGroupFormId() );
 			if( readBuff != null ) {
 				obj = schema.getSecGroupFormTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecSecGroupFormObj)obj.realise();
+				obj = (IYCFSecSecGroupFormObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecSecGroupFormObj readCachedSecGroupForm( CFSecSecGroupFormPKey pkey ) {
-		ICFSecSecGroupFormObj obj = null;
+	public IYCFSecSecGroupFormObj readCachedSecGroupForm( YCFSecSecGroupFormPKey pkey ) {
+		IYCFSecSecGroupFormObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeSecGroupForm( ICFSecSecGroupFormObj obj )
+	public void reallyDeepDisposeSecGroupForm( IYCFSecSecGroupFormObj obj )
 	{
-		final String S_ProcName = "CFSecSecGroupFormTableObj.reallyDeepDisposeSecGroupForm() ";
+		final String S_ProcName = "YCFSecSecGroupFormTableObj.reallyDeepDisposeSecGroupForm() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecSecGroupFormPKey pkey = obj.getPKey();
-		ICFSecSecGroupFormObj existing = readCachedSecGroupForm( pkey );
+		YCFSecSecGroupFormPKey pkey = obj.getPKey();
+		IYCFSecSecGroupFormObj existing = readCachedSecGroupForm( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecSecGroupFormByClusterIdxKey keyClusterIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
+		YCFSecSecGroupFormByClusterIdxKey keyClusterIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecSecGroupFormByGroupIdxKey keyGroupIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
+		YCFSecSecGroupFormByGroupIdxKey keyGroupIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
 		keyGroupIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyGroupIdx.setRequiredSecGroupId( existing.getRequiredSecGroupId() );
 
-		CFSecSecGroupFormByAppIdxKey keyAppIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
+		YCFSecSecGroupFormByAppIdxKey keyAppIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
 		keyAppIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyAppIdx.setRequiredSecAppId( existing.getRequiredSecAppId() );
 
-		CFSecSecGroupFormByFormIdxKey keyFormIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
+		YCFSecSecGroupFormByFormIdxKey keyFormIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
 		keyFormIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyFormIdx.setRequiredSecFormId( existing.getRequiredSecFormId() );
 
-		CFSecSecGroupFormByUFormIdxKey keyUFormIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
+		YCFSecSecGroupFormByUFormIdxKey keyUFormIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
 		keyUFormIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUFormIdx.setRequiredSecGroupId( existing.getRequiredSecGroupId() );
 		keyUFormIdx.setRequiredSecFormId( existing.getRequiredSecFormId() );
@@ -470,57 +470,57 @@ public class CFSecSecGroupFormTableObj
 
 
 	}
-	public void deepDisposeSecGroupForm( CFSecSecGroupFormPKey pkey ) {
-		ICFSecSecGroupFormObj obj = readCachedSecGroupForm( pkey );
+	public void deepDisposeSecGroupForm( YCFSecSecGroupFormPKey pkey ) {
+		IYCFSecSecGroupFormObj obj = readCachedSecGroupForm( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecSecGroupFormObj lockSecGroupForm( CFSecSecGroupFormPKey pkey ) {
-		ICFSecSecGroupFormObj locked = null;
-		CFSecSecGroupFormBuff lockBuff = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecSecGroupFormObj lockSecGroupForm( YCFSecSecGroupFormPKey pkey ) {
+		IYCFSecSecGroupFormObj locked = null;
+		YCFSecSecGroupFormBuff lockBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getSecGroupFormTableObj().newInstance();
-			locked.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+			locked.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecSecGroupFormObj)locked.realise();
+			locked = (IYCFSecSecGroupFormObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockSecGroupForm", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockSecGroupForm", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecSecGroupFormObj> readAllSecGroupForm() {
+	public List<IYCFSecSecGroupFormObj> readAllSecGroupForm() {
 		return( readAllSecGroupForm( false ) );
 	}
 
-	public List<ICFSecSecGroupFormObj> readAllSecGroupForm( boolean forceRead ) {
+	public List<IYCFSecSecGroupFormObj> readAllSecGroupForm( boolean forceRead ) {
 		final String S_ProcName = "readAllSecGroupForm";
 		if( ( allSecGroupForm == null ) || forceRead ) {
-			Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> map = new HashMap<CFSecSecGroupFormPKey,ICFSecSecGroupFormObj>();
+			Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> map = new HashMap<YCFSecSecGroupFormPKey,IYCFSecSecGroupFormObj>();
 			allSecGroupForm = map;
-			CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readAllDerived( schema.getAuthorization() );
-			CFSecSecGroupFormBuff buff;
-			ICFSecSecGroupFormObj obj;
+			YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readAllDerived( schema.getAuthorization() );
+			YCFSecSecGroupFormBuff buff;
+			IYCFSecSecGroupFormObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecGroupFormObj realised = (ICFSecSecGroupFormObj)obj.realise();
+				IYCFSecSecGroupFormObj realised = (IYCFSecSecGroupFormObj)obj.realise();
 			}
 		}
 		int len = allSecGroupForm.size();
-		ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-		Iterator<ICFSecSecGroupFormObj> valIter = allSecGroupForm.values().iterator();
+		IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+		Iterator<IYCFSecSecGroupFormObj> valIter = allSecGroupForm.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -528,20 +528,20 @@ public class CFSecSecGroupFormTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>(len);
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -554,31 +554,31 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecGroupFormObj> sortedList = arrayList;
+		List<IYCFSecSecGroupFormObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecGroupFormObj> readCachedAllSecGroupForm() {
+	public List<IYCFSecSecGroupFormObj> readCachedAllSecGroupForm() {
 		final String S_ProcName = "readCachedAllSecGroupForm";
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>();
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>();
 		if( allSecGroupForm != null ) {
 			int len = allSecGroupForm.size();
-			ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-			Iterator<ICFSecSecGroupFormObj> valIter = allSecGroupForm.values().iterator();
+			IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+			Iterator<IYCFSecSecGroupFormObj> valIter = allSecGroupForm.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -586,7 +586,7 @@ public class CFSecSecGroupFormTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -597,8 +597,8 @@ public class CFSecSecGroupFormTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -611,8 +611,8 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -625,33 +625,33 @@ public class CFSecSecGroupFormTableObj
 	/**
 	 *	Return a sorted map of a page of the SecGroupForm-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecGroupFormObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecGroupFormObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	public List<ICFSecSecGroupFormObj> pageAllSecGroupForm(Long priorClusterId,
+	public List<IYCFSecSecGroupFormObj> pageAllSecGroupForm(Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageAllSecGroupForm";
-		Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> map = new HashMap<CFSecSecGroupFormPKey,ICFSecSecGroupFormObj>();
-		CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageAllBuff( schema.getAuthorization(),
+		Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> map = new HashMap<YCFSecSecGroupFormPKey,IYCFSecSecGroupFormObj>();
+		YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageAllBuff( schema.getAuthorization(),
 			priorClusterId,
 			priorSecGroupFormId );
-		CFSecSecGroupFormBuff buff;
-		ICFSecSecGroupFormObj obj;
-		ICFSecSecGroupFormObj realised;
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>( buffList.length );
+		YCFSecSecGroupFormBuff buff;
+		IYCFSecSecGroupFormObj obj;
+		IYCFSecSecGroupFormObj realised;
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>( buffList.length );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 			obj.setBuff( buff );
-			realised = (ICFSecSecGroupFormObj)obj.realise();
+			realised = (IYCFSecSecGroupFormObj)obj.realise();
 			arrayList.add( realised );
 		}
 		return( arrayList );
 	}
 
-	public ICFSecSecGroupFormObj readSecGroupFormByIdIdx( long ClusterId,
+	public IYCFSecSecGroupFormObj readSecGroupFormByIdIdx( long ClusterId,
 		long SecGroupFormId )
 	{
 		return( readSecGroupFormByIdIdx( ClusterId,
@@ -659,61 +659,61 @@ public class CFSecSecGroupFormTableObj
 			false ) );
 	}
 
-	public ICFSecSecGroupFormObj readSecGroupFormByIdIdx( long ClusterId,
+	public IYCFSecSecGroupFormObj readSecGroupFormByIdIdx( long ClusterId,
 		long SecGroupFormId, boolean forceRead )
 	{
-		CFSecSecGroupFormPKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey();
+		YCFSecSecGroupFormPKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecGroupFormId( SecGroupFormId );
-		ICFSecSecGroupFormObj obj = readSecGroupForm( pkey, forceRead );
+		IYCFSecSecGroupFormObj obj = readSecGroupForm( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFSecSecGroupFormObj> readSecGroupFormByClusterIdx( long ClusterId )
+	public List<IYCFSecSecGroupFormObj> readSecGroupFormByClusterIdx( long ClusterId )
 	{
 		return( readSecGroupFormByClusterIdx( ClusterId,
 			false ) );
 	}
 
-	public List<ICFSecSecGroupFormObj> readSecGroupFormByClusterIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readSecGroupFormByClusterIdx( long ClusterId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecGroupFormByClusterIdx";
-		CFSecSecGroupFormByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
+		YCFSecSecGroupFormByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict;
+		Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict;
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecSecGroupFormByClusterIdxKey,
-				Map< CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > >();
+			indexByClusterIdx = new HashMap< YCFSecSecGroupFormByClusterIdxKey,
+				Map< YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > >();
 		}
 		if( ( ! forceRead ) && indexByClusterIdx.containsKey( key ) ) {
 			dict = indexByClusterIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj>();
-			ICFSecSecGroupFormObj obj;
-			CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByClusterIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj>();
+			IYCFSecSecGroupFormObj obj;
+			YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			CFSecSecGroupFormBuff buff;
+			YCFSecSecGroupFormBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecGroupFormTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecGroupFormObj realised = (ICFSecSecGroupFormObj)obj.realise();
+				IYCFSecSecGroupFormObj realised = (IYCFSecSecGroupFormObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClusterIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-		Iterator<ICFSecSecGroupFormObj> valIter = dict.values().iterator();
+		IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+		Iterator<IYCFSecSecGroupFormObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -721,20 +721,20 @@ public class CFSecSecGroupFormTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>(len);
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -747,19 +747,19 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecGroupFormObj> sortedList = arrayList;
+		List<IYCFSecSecGroupFormObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecGroupFormObj> readSecGroupFormByGroupIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readSecGroupFormByGroupIdx( long ClusterId,
 		int SecGroupId )
 	{
 		return( readSecGroupFormByGroupIdx( ClusterId,
@@ -767,48 +767,48 @@ public class CFSecSecGroupFormTableObj
 			false ) );
 	}
 
-	public List<ICFSecSecGroupFormObj> readSecGroupFormByGroupIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readSecGroupFormByGroupIdx( long ClusterId,
 		int SecGroupId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecGroupFormByGroupIdx";
-		CFSecSecGroupFormByGroupIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
+		YCFSecSecGroupFormByGroupIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
-		Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict;
+		Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict;
 		if( indexByGroupIdx == null ) {
-			indexByGroupIdx = new HashMap< CFSecSecGroupFormByGroupIdxKey,
-				Map< CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > >();
+			indexByGroupIdx = new HashMap< YCFSecSecGroupFormByGroupIdxKey,
+				Map< YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > >();
 		}
 		if( ( ! forceRead ) && indexByGroupIdx.containsKey( key ) ) {
 			dict = indexByGroupIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj>();
-			ICFSecSecGroupFormObj obj;
-			CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByGroupIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj>();
+			IYCFSecSecGroupFormObj obj;
+			YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByGroupIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId );
-			CFSecSecGroupFormBuff buff;
+			YCFSecSecGroupFormBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecGroupFormTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecGroupFormObj realised = (ICFSecSecGroupFormObj)obj.realise();
+				IYCFSecSecGroupFormObj realised = (IYCFSecSecGroupFormObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByGroupIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-		Iterator<ICFSecSecGroupFormObj> valIter = dict.values().iterator();
+		IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+		Iterator<IYCFSecSecGroupFormObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -816,20 +816,20 @@ public class CFSecSecGroupFormTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>(len);
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -842,19 +842,19 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecGroupFormObj> sortedList = arrayList;
+		List<IYCFSecSecGroupFormObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecGroupFormObj> readSecGroupFormByAppIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readSecGroupFormByAppIdx( long ClusterId,
 		int SecAppId )
 	{
 		return( readSecGroupFormByAppIdx( ClusterId,
@@ -862,48 +862,48 @@ public class CFSecSecGroupFormTableObj
 			false ) );
 	}
 
-	public List<ICFSecSecGroupFormObj> readSecGroupFormByAppIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readSecGroupFormByAppIdx( long ClusterId,
 		int SecAppId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecGroupFormByAppIdx";
-		CFSecSecGroupFormByAppIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
+		YCFSecSecGroupFormByAppIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
-		Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict;
+		Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict;
 		if( indexByAppIdx == null ) {
-			indexByAppIdx = new HashMap< CFSecSecGroupFormByAppIdxKey,
-				Map< CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > >();
+			indexByAppIdx = new HashMap< YCFSecSecGroupFormByAppIdxKey,
+				Map< YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > >();
 		}
 		if( ( ! forceRead ) && indexByAppIdx.containsKey( key ) ) {
 			dict = indexByAppIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj>();
-			ICFSecSecGroupFormObj obj;
-			CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByAppIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj>();
+			IYCFSecSecGroupFormObj obj;
+			YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByAppIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId );
-			CFSecSecGroupFormBuff buff;
+			YCFSecSecGroupFormBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecGroupFormTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecGroupFormObj realised = (ICFSecSecGroupFormObj)obj.realise();
+				IYCFSecSecGroupFormObj realised = (IYCFSecSecGroupFormObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByAppIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-		Iterator<ICFSecSecGroupFormObj> valIter = dict.values().iterator();
+		IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+		Iterator<IYCFSecSecGroupFormObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -911,20 +911,20 @@ public class CFSecSecGroupFormTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>(len);
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -937,19 +937,19 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecGroupFormObj> sortedList = arrayList;
+		List<IYCFSecSecGroupFormObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecGroupFormObj> readSecGroupFormByFormIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readSecGroupFormByFormIdx( long ClusterId,
 		int SecFormId )
 	{
 		return( readSecGroupFormByFormIdx( ClusterId,
@@ -957,48 +957,48 @@ public class CFSecSecGroupFormTableObj
 			false ) );
 	}
 
-	public List<ICFSecSecGroupFormObj> readSecGroupFormByFormIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readSecGroupFormByFormIdx( long ClusterId,
 		int SecFormId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecGroupFormByFormIdx";
-		CFSecSecGroupFormByFormIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
+		YCFSecSecGroupFormByFormIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecFormId( SecFormId );
-		Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict;
+		Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict;
 		if( indexByFormIdx == null ) {
-			indexByFormIdx = new HashMap< CFSecSecGroupFormByFormIdxKey,
-				Map< CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > >();
+			indexByFormIdx = new HashMap< YCFSecSecGroupFormByFormIdxKey,
+				Map< YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > >();
 		}
 		if( ( ! forceRead ) && indexByFormIdx.containsKey( key ) ) {
 			dict = indexByFormIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj>();
-			ICFSecSecGroupFormObj obj;
-			CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByFormIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj>();
+			IYCFSecSecGroupFormObj obj;
+			YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByFormIdx( schema.getAuthorization(),
 				ClusterId,
 				SecFormId );
-			CFSecSecGroupFormBuff buff;
+			YCFSecSecGroupFormBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecGroupFormTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecGroupFormObj realised = (ICFSecSecGroupFormObj)obj.realise();
+				IYCFSecSecGroupFormObj realised = (IYCFSecSecGroupFormObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByFormIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-		Iterator<ICFSecSecGroupFormObj> valIter = dict.values().iterator();
+		IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+		Iterator<IYCFSecSecGroupFormObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1006,20 +1006,20 @@ public class CFSecSecGroupFormTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>(len);
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1032,19 +1032,19 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecGroupFormObj> sortedList = arrayList;
+		List<IYCFSecSecGroupFormObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecSecGroupFormObj readSecGroupFormByUFormIdx( long ClusterId,
+	public IYCFSecSecGroupFormObj readSecGroupFormByUFormIdx( long ClusterId,
 		int SecGroupId,
 		int SecFormId )
 	{
@@ -1054,67 +1054,67 @@ public class CFSecSecGroupFormTableObj
 			false ) );
 	}
 
-	public ICFSecSecGroupFormObj readSecGroupFormByUFormIdx( long ClusterId,
+	public IYCFSecSecGroupFormObj readSecGroupFormByUFormIdx( long ClusterId,
 		int SecGroupId,
 		int SecFormId, boolean forceRead )
 	{
 		if( indexByUFormIdx == null ) {
-			indexByUFormIdx = new HashMap< CFSecSecGroupFormByUFormIdxKey,
-				ICFSecSecGroupFormObj >();
+			indexByUFormIdx = new HashMap< YCFSecSecGroupFormByUFormIdxKey,
+				IYCFSecSecGroupFormObj >();
 		}
-		CFSecSecGroupFormByUFormIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
+		YCFSecSecGroupFormByUFormIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 		key.setRequiredSecFormId( SecFormId );
-		ICFSecSecGroupFormObj obj = null;
+		IYCFSecSecGroupFormObj obj = null;
 		if( ( ! forceRead ) && indexByUFormIdx.containsKey( key ) ) {
 			obj = indexByUFormIdx.get( key );
 		}
 		else {
-			CFSecSecGroupFormBuff buff = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByUFormIdx( schema.getAuthorization(),
+			YCFSecSecGroupFormBuff buff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().readDerivedByUFormIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId,
 				SecFormId );
 			if( buff != null ) {
 				obj = schema.getSecGroupFormTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecSecGroupFormObj)obj.realise();
+				obj = (IYCFSecSecGroupFormObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecSecGroupFormObj readCachedSecGroupFormByIdIdx( long ClusterId,
+	public IYCFSecSecGroupFormObj readCachedSecGroupFormByIdIdx( long ClusterId,
 		long SecGroupFormId )
 	{
-		ICFSecSecGroupFormObj obj = null;
-		CFSecSecGroupFormPKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey();
+		IYCFSecSecGroupFormObj obj = null;
+		YCFSecSecGroupFormPKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecGroupFormId( SecGroupFormId );
 		obj = readCachedSecGroupForm( pkey );
 		return( obj );
 	}
 
-	public List<ICFSecSecGroupFormObj> readCachedSecGroupFormByClusterIdx( long ClusterId )
+	public List<IYCFSecSecGroupFormObj> readCachedSecGroupFormByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "readCachedSecGroupFormByClusterIdx";
-		CFSecSecGroupFormByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
+		YCFSecSecGroupFormByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>();
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>();
 		if( indexByClusterIdx != null ) {
-			Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict;
+			Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict;
 			if( indexByClusterIdx.containsKey( key ) ) {
 				dict = indexByClusterIdx.get( key );
 				int len = dict.size();
-				ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-				Iterator<ICFSecSecGroupFormObj> valIter = dict.values().iterator();
+				IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+				Iterator<IYCFSecSecGroupFormObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1122,7 +1122,7 @@ public class CFSecSecGroupFormTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1135,8 +1135,8 @@ public class CFSecSecGroupFormTableObj
 			}
 		}
 		else {
-			ICFSecSecGroupFormObj obj;
-			Iterator<ICFSecSecGroupFormObj> valIter = members.values().iterator();
+			IYCFSecSecGroupFormObj obj;
+			Iterator<IYCFSecSecGroupFormObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1146,8 +1146,8 @@ public class CFSecSecGroupFormTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1160,8 +1160,8 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1171,27 +1171,27 @@ public class CFSecSecGroupFormTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecSecGroupFormObj> readCachedSecGroupFormByGroupIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readCachedSecGroupFormByGroupIdx( long ClusterId,
 		int SecGroupId )
 	{
 		final String S_ProcName = "readCachedSecGroupFormByGroupIdx";
-		CFSecSecGroupFormByGroupIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
+		YCFSecSecGroupFormByGroupIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>();
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>();
 		if( indexByGroupIdx != null ) {
-			Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict;
+			Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict;
 			if( indexByGroupIdx.containsKey( key ) ) {
 				dict = indexByGroupIdx.get( key );
 				int len = dict.size();
-				ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-				Iterator<ICFSecSecGroupFormObj> valIter = dict.values().iterator();
+				IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+				Iterator<IYCFSecSecGroupFormObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1199,7 +1199,7 @@ public class CFSecSecGroupFormTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1212,8 +1212,8 @@ public class CFSecSecGroupFormTableObj
 			}
 		}
 		else {
-			ICFSecSecGroupFormObj obj;
-			Iterator<ICFSecSecGroupFormObj> valIter = members.values().iterator();
+			IYCFSecSecGroupFormObj obj;
+			Iterator<IYCFSecSecGroupFormObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1223,8 +1223,8 @@ public class CFSecSecGroupFormTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1237,8 +1237,8 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1248,27 +1248,27 @@ public class CFSecSecGroupFormTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecSecGroupFormObj> readCachedSecGroupFormByAppIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readCachedSecGroupFormByAppIdx( long ClusterId,
 		int SecAppId )
 	{
 		final String S_ProcName = "readCachedSecGroupFormByAppIdx";
-		CFSecSecGroupFormByAppIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
+		YCFSecSecGroupFormByAppIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>();
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>();
 		if( indexByAppIdx != null ) {
-			Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict;
+			Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict;
 			if( indexByAppIdx.containsKey( key ) ) {
 				dict = indexByAppIdx.get( key );
 				int len = dict.size();
-				ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-				Iterator<ICFSecSecGroupFormObj> valIter = dict.values().iterator();
+				IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+				Iterator<IYCFSecSecGroupFormObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1276,7 +1276,7 @@ public class CFSecSecGroupFormTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1289,8 +1289,8 @@ public class CFSecSecGroupFormTableObj
 			}
 		}
 		else {
-			ICFSecSecGroupFormObj obj;
-			Iterator<ICFSecSecGroupFormObj> valIter = members.values().iterator();
+			IYCFSecSecGroupFormObj obj;
+			Iterator<IYCFSecSecGroupFormObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1300,8 +1300,8 @@ public class CFSecSecGroupFormTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1314,8 +1314,8 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1325,27 +1325,27 @@ public class CFSecSecGroupFormTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecSecGroupFormObj> readCachedSecGroupFormByFormIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> readCachedSecGroupFormByFormIdx( long ClusterId,
 		int SecFormId )
 	{
 		final String S_ProcName = "readCachedSecGroupFormByFormIdx";
-		CFSecSecGroupFormByFormIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
+		YCFSecSecGroupFormByFormIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecFormId( SecFormId );
-		ArrayList<ICFSecSecGroupFormObj> arrayList = new ArrayList<ICFSecSecGroupFormObj>();
+		ArrayList<IYCFSecSecGroupFormObj> arrayList = new ArrayList<IYCFSecSecGroupFormObj>();
 		if( indexByFormIdx != null ) {
-			Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict;
+			Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict;
 			if( indexByFormIdx.containsKey( key ) ) {
 				dict = indexByFormIdx.get( key );
 				int len = dict.size();
-				ICFSecSecGroupFormObj arr[] = new ICFSecSecGroupFormObj[len];
-				Iterator<ICFSecSecGroupFormObj> valIter = dict.values().iterator();
+				IYCFSecSecGroupFormObj arr[] = new IYCFSecSecGroupFormObj[len];
+				Iterator<IYCFSecSecGroupFormObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1353,7 +1353,7 @@ public class CFSecSecGroupFormTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1366,8 +1366,8 @@ public class CFSecSecGroupFormTableObj
 			}
 		}
 		else {
-			ICFSecSecGroupFormObj obj;
-			Iterator<ICFSecSecGroupFormObj> valIter = members.values().iterator();
+			IYCFSecSecGroupFormObj obj;
+			Iterator<IYCFSecSecGroupFormObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1377,8 +1377,8 @@ public class CFSecSecGroupFormTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecGroupFormObj> cmp = new Comparator<ICFSecSecGroupFormObj>() {
-			public int compare( ICFSecSecGroupFormObj lhs, ICFSecSecGroupFormObj rhs ) {
+		Comparator<IYCFSecSecGroupFormObj> cmp = new Comparator<IYCFSecSecGroupFormObj>() {
+			public int compare( IYCFSecSecGroupFormObj lhs, IYCFSecSecGroupFormObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1391,8 +1391,8 @@ public class CFSecSecGroupFormTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
-					CFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
+					YCFSecSecGroupFormPKey lhsPKey = lhs.getPKey();
+					YCFSecSecGroupFormPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1402,12 +1402,12 @@ public class CFSecSecGroupFormTableObj
 		return( arrayList );
 	}
 
-	public ICFSecSecGroupFormObj readCachedSecGroupFormByUFormIdx( long ClusterId,
+	public IYCFSecSecGroupFormObj readCachedSecGroupFormByUFormIdx( long ClusterId,
 		int SecGroupId,
 		int SecFormId )
 	{
-		ICFSecSecGroupFormObj obj = null;
-		CFSecSecGroupFormByUFormIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
+		IYCFSecSecGroupFormObj obj = null;
+		YCFSecSecGroupFormByUFormIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 		key.setRequiredSecFormId( SecFormId );
@@ -1416,7 +1416,7 @@ public class CFSecSecGroupFormTableObj
 				obj = indexByUFormIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecSecGroupFormObj> valIter = members.values().iterator();
+				Iterator<IYCFSecSecGroupFormObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1428,7 +1428,7 @@ public class CFSecSecGroupFormTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecSecGroupFormObj> valIter = members.values().iterator();
+			Iterator<IYCFSecSecGroupFormObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1444,7 +1444,7 @@ public class CFSecSecGroupFormTableObj
 	public void deepDisposeSecGroupFormByIdIdx( long ClusterId,
 		long SecGroupFormId )
 	{
-		ICFSecSecGroupFormObj obj = readCachedSecGroupFormByIdIdx( ClusterId,
+		IYCFSecSecGroupFormObj obj = readCachedSecGroupFormByIdIdx( ClusterId,
 				SecGroupFormId );
 		if( obj != null ) {
 			obj.forget();
@@ -1454,10 +1454,10 @@ public class CFSecSecGroupFormTableObj
 	public void deepDisposeSecGroupFormByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "deepDisposeSecGroupFormByClusterIdx";
-		ICFSecSecGroupFormObj obj;
-		List<ICFSecSecGroupFormObj> arrayList = readCachedSecGroupFormByClusterIdx( ClusterId );
+		IYCFSecSecGroupFormObj obj;
+		List<IYCFSecSecGroupFormObj> arrayList = readCachedSecGroupFormByClusterIdx( ClusterId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecGroupFormObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecGroupFormObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1471,11 +1471,11 @@ public class CFSecSecGroupFormTableObj
 		int SecGroupId )
 	{
 		final String S_ProcName = "deepDisposeSecGroupFormByGroupIdx";
-		ICFSecSecGroupFormObj obj;
-		List<ICFSecSecGroupFormObj> arrayList = readCachedSecGroupFormByGroupIdx( ClusterId,
+		IYCFSecSecGroupFormObj obj;
+		List<IYCFSecSecGroupFormObj> arrayList = readCachedSecGroupFormByGroupIdx( ClusterId,
 				SecGroupId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecGroupFormObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecGroupFormObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1489,11 +1489,11 @@ public class CFSecSecGroupFormTableObj
 		int SecAppId )
 	{
 		final String S_ProcName = "deepDisposeSecGroupFormByAppIdx";
-		ICFSecSecGroupFormObj obj;
-		List<ICFSecSecGroupFormObj> arrayList = readCachedSecGroupFormByAppIdx( ClusterId,
+		IYCFSecSecGroupFormObj obj;
+		List<IYCFSecSecGroupFormObj> arrayList = readCachedSecGroupFormByAppIdx( ClusterId,
 				SecAppId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecGroupFormObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecGroupFormObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1507,11 +1507,11 @@ public class CFSecSecGroupFormTableObj
 		int SecFormId )
 	{
 		final String S_ProcName = "deepDisposeSecGroupFormByFormIdx";
-		ICFSecSecGroupFormObj obj;
-		List<ICFSecSecGroupFormObj> arrayList = readCachedSecGroupFormByFormIdx( ClusterId,
+		IYCFSecSecGroupFormObj obj;
+		List<IYCFSecSecGroupFormObj> arrayList = readCachedSecGroupFormByFormIdx( ClusterId,
 				SecFormId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecGroupFormObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecGroupFormObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1525,7 +1525,7 @@ public class CFSecSecGroupFormTableObj
 		int SecGroupId,
 		int SecFormId )
 	{
-		ICFSecSecGroupFormObj obj = readCachedSecGroupFormByUFormIdx( ClusterId,
+		IYCFSecSecGroupFormObj obj = readCachedSecGroupFormByUFormIdx( ClusterId,
 				SecGroupId,
 				SecFormId );
 		if( obj != null ) {
@@ -1542,26 +1542,26 @@ public class CFSecSecGroupFormTableObj
 	 *	@return	A List of SecGroupForm-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecGroupFormObj> pageSecGroupFormByClusterIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> pageSecGroupFormByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageSecGroupFormByClusterIdx";
-		CFSecSecGroupFormByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
+		YCFSecSecGroupFormByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		List<ICFSecSecGroupFormObj> retList = new LinkedList<ICFSecSecGroupFormObj>();
-		ICFSecSecGroupFormObj obj;
-		CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageBuffByClusterIdx( schema.getAuthorization(),
+		List<IYCFSecSecGroupFormObj> retList = new LinkedList<IYCFSecSecGroupFormObj>();
+		IYCFSecSecGroupFormObj obj;
+		YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageBuffByClusterIdx( schema.getAuthorization(),
 				ClusterId,
 			priorClusterId,
 			priorSecGroupFormId );
-		CFSecSecGroupFormBuff buff;
+		YCFSecSecGroupFormBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecGroupFormTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecGroupFormObj realised = (ICFSecSecGroupFormObj)obj.realise();
+			IYCFSecSecGroupFormObj realised = (IYCFSecSecGroupFormObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1578,29 +1578,29 @@ public class CFSecSecGroupFormTableObj
 	 *	@return	A List of SecGroupForm-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecGroupFormObj> pageSecGroupFormByGroupIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> pageSecGroupFormByGroupIdx( long ClusterId,
 		int SecGroupId,
 		Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageSecGroupFormByGroupIdx";
-		CFSecSecGroupFormByGroupIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
+		YCFSecSecGroupFormByGroupIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
-		List<ICFSecSecGroupFormObj> retList = new LinkedList<ICFSecSecGroupFormObj>();
-		ICFSecSecGroupFormObj obj;
-		CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageBuffByGroupIdx( schema.getAuthorization(),
+		List<IYCFSecSecGroupFormObj> retList = new LinkedList<IYCFSecSecGroupFormObj>();
+		IYCFSecSecGroupFormObj obj;
+		YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageBuffByGroupIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId,
 			priorClusterId,
 			priorSecGroupFormId );
-		CFSecSecGroupFormBuff buff;
+		YCFSecSecGroupFormBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecGroupFormTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecGroupFormObj realised = (ICFSecSecGroupFormObj)obj.realise();
+			IYCFSecSecGroupFormObj realised = (IYCFSecSecGroupFormObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1617,29 +1617,29 @@ public class CFSecSecGroupFormTableObj
 	 *	@return	A List of SecGroupForm-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecGroupFormObj> pageSecGroupFormByAppIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> pageSecGroupFormByAppIdx( long ClusterId,
 		int SecAppId,
 		Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageSecGroupFormByAppIdx";
-		CFSecSecGroupFormByAppIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
+		YCFSecSecGroupFormByAppIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
-		List<ICFSecSecGroupFormObj> retList = new LinkedList<ICFSecSecGroupFormObj>();
-		ICFSecSecGroupFormObj obj;
-		CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageBuffByAppIdx( schema.getAuthorization(),
+		List<IYCFSecSecGroupFormObj> retList = new LinkedList<IYCFSecSecGroupFormObj>();
+		IYCFSecSecGroupFormObj obj;
+		YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageBuffByAppIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId,
 			priorClusterId,
 			priorSecGroupFormId );
-		CFSecSecGroupFormBuff buff;
+		YCFSecSecGroupFormBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecGroupFormTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecGroupFormObj realised = (ICFSecSecGroupFormObj)obj.realise();
+			IYCFSecSecGroupFormObj realised = (IYCFSecSecGroupFormObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1656,46 +1656,46 @@ public class CFSecSecGroupFormTableObj
 	 *	@return	A List of SecGroupForm-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecGroupFormObj> pageSecGroupFormByFormIdx( long ClusterId,
+	public List<IYCFSecSecGroupFormObj> pageSecGroupFormByFormIdx( long ClusterId,
 		int SecFormId,
 		Long priorClusterId,
 		Long priorSecGroupFormId )
 	{
 		final String S_ProcName = "pageSecGroupFormByFormIdx";
-		CFSecSecGroupFormByFormIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
+		YCFSecSecGroupFormByFormIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecFormId( SecFormId );
-		List<ICFSecSecGroupFormObj> retList = new LinkedList<ICFSecSecGroupFormObj>();
-		ICFSecSecGroupFormObj obj;
-		CFSecSecGroupFormBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageBuffByFormIdx( schema.getAuthorization(),
+		List<IYCFSecSecGroupFormObj> retList = new LinkedList<IYCFSecSecGroupFormObj>();
+		IYCFSecSecGroupFormObj obj;
+		YCFSecSecGroupFormBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().pageBuffByFormIdx( schema.getAuthorization(),
 				ClusterId,
 				SecFormId,
 			priorClusterId,
 			priorSecGroupFormId );
-		CFSecSecGroupFormBuff buff;
+		YCFSecSecGroupFormBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecGroupFormTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecGroupFormObj realised = (ICFSecSecGroupFormObj)obj.realise();
+			IYCFSecSecGroupFormObj realised = (IYCFSecSecGroupFormObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
 	}
 
-	public ICFSecSecGroupFormObj updateSecGroupForm( ICFSecSecGroupFormObj Obj ) {
-		ICFSecSecGroupFormObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().updateSecGroupForm( schema.getAuthorization(),
+	public IYCFSecSecGroupFormObj updateSecGroupForm( IYCFSecSecGroupFormObj Obj ) {
+		IYCFSecSecGroupFormObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().updateSecGroupForm( schema.getAuthorization(),
 			Obj.getSecGroupFormBuff() );
-		obj = (ICFSecSecGroupFormObj)Obj.realise();
+		obj = (IYCFSecSecGroupFormObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteSecGroupForm( ICFSecSecGroupFormObj Obj ) {
-		ICFSecSecGroupFormObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupForm( schema.getAuthorization(),
+	public void deleteSecGroupForm( IYCFSecSecGroupFormObj Obj ) {
+		IYCFSecSecGroupFormObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupForm( schema.getAuthorization(),
 			obj.getSecGroupFormBuff() );
 		Obj.forget();
 	}
@@ -1703,15 +1703,15 @@ public class CFSecSecGroupFormTableObj
 	public void deleteSecGroupFormByIdIdx( long ClusterId,
 		long SecGroupFormId )
 	{
-		CFSecSecGroupFormPKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey();
+		YCFSecSecGroupFormPKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecGroupFormId( SecGroupFormId );
-		ICFSecSecGroupFormObj obj = readSecGroupForm( pkey );
+		IYCFSecSecGroupFormObj obj = readSecGroupForm( pkey );
 		if( obj != null ) {
-			ICFSecSecGroupFormEditObj editObj = (ICFSecSecGroupFormEditObj)obj.getEdit();
+			IYCFSecSecGroupFormEditObj editObj = (IYCFSecSecGroupFormEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecSecGroupFormEditObj)obj.beginEdit();
+				editObj = (IYCFSecSecGroupFormEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1736,19 +1736,19 @@ public class CFSecSecGroupFormTableObj
 
 	public void deleteSecGroupFormByClusterIdx( long ClusterId )
 	{
-		CFSecSecGroupFormByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
+		YCFSecSecGroupFormByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecSecGroupFormByClusterIdxKey,
-				Map< CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > >();
+			indexByClusterIdx = new HashMap< YCFSecSecGroupFormByClusterIdxKey,
+				Map< YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > >();
 		}
 		if( indexByClusterIdx.containsKey( key ) ) {
-			Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict = indexByClusterIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByClusterIdx( schema.getAuthorization(),
+			Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict = indexByClusterIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			Iterator<ICFSecSecGroupFormObj> iter = dict.values().iterator();
-			ICFSecSecGroupFormObj obj;
-			List<ICFSecSecGroupFormObj> toForget = new LinkedList<ICFSecSecGroupFormObj>();
+			Iterator<IYCFSecSecGroupFormObj> iter = dict.values().iterator();
+			IYCFSecSecGroupFormObj obj;
+			List<IYCFSecSecGroupFormObj> toForget = new LinkedList<IYCFSecSecGroupFormObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1761,7 +1761,7 @@ public class CFSecSecGroupFormTableObj
 			indexByClusterIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByClusterIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByClusterIdx( schema.getAuthorization(),
 				ClusterId );
 		}
 		deepDisposeSecGroupFormByClusterIdx( ClusterId );
@@ -1770,21 +1770,21 @@ public class CFSecSecGroupFormTableObj
 	public void deleteSecGroupFormByGroupIdx( long ClusterId,
 		int SecGroupId )
 	{
-		CFSecSecGroupFormByGroupIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
+		YCFSecSecGroupFormByGroupIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newGroupIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 		if( indexByGroupIdx == null ) {
-			indexByGroupIdx = new HashMap< CFSecSecGroupFormByGroupIdxKey,
-				Map< CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > >();
+			indexByGroupIdx = new HashMap< YCFSecSecGroupFormByGroupIdxKey,
+				Map< YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > >();
 		}
 		if( indexByGroupIdx.containsKey( key ) ) {
-			Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict = indexByGroupIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByGroupIdx( schema.getAuthorization(),
+			Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict = indexByGroupIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByGroupIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId );
-			Iterator<ICFSecSecGroupFormObj> iter = dict.values().iterator();
-			ICFSecSecGroupFormObj obj;
-			List<ICFSecSecGroupFormObj> toForget = new LinkedList<ICFSecSecGroupFormObj>();
+			Iterator<IYCFSecSecGroupFormObj> iter = dict.values().iterator();
+			IYCFSecSecGroupFormObj obj;
+			List<IYCFSecSecGroupFormObj> toForget = new LinkedList<IYCFSecSecGroupFormObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1797,7 +1797,7 @@ public class CFSecSecGroupFormTableObj
 			indexByGroupIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByGroupIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByGroupIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId );
 		}
@@ -1808,21 +1808,21 @@ public class CFSecSecGroupFormTableObj
 	public void deleteSecGroupFormByAppIdx( long ClusterId,
 		int SecAppId )
 	{
-		CFSecSecGroupFormByAppIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
+		YCFSecSecGroupFormByAppIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
 		if( indexByAppIdx == null ) {
-			indexByAppIdx = new HashMap< CFSecSecGroupFormByAppIdxKey,
-				Map< CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > >();
+			indexByAppIdx = new HashMap< YCFSecSecGroupFormByAppIdxKey,
+				Map< YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > >();
 		}
 		if( indexByAppIdx.containsKey( key ) ) {
-			Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict = indexByAppIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByAppIdx( schema.getAuthorization(),
+			Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict = indexByAppIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByAppIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId );
-			Iterator<ICFSecSecGroupFormObj> iter = dict.values().iterator();
-			ICFSecSecGroupFormObj obj;
-			List<ICFSecSecGroupFormObj> toForget = new LinkedList<ICFSecSecGroupFormObj>();
+			Iterator<IYCFSecSecGroupFormObj> iter = dict.values().iterator();
+			IYCFSecSecGroupFormObj obj;
+			List<IYCFSecSecGroupFormObj> toForget = new LinkedList<IYCFSecSecGroupFormObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1835,7 +1835,7 @@ public class CFSecSecGroupFormTableObj
 			indexByAppIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByAppIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByAppIdx( schema.getAuthorization(),
 				ClusterId,
 				SecAppId );
 		}
@@ -1846,21 +1846,21 @@ public class CFSecSecGroupFormTableObj
 	public void deleteSecGroupFormByFormIdx( long ClusterId,
 		int SecFormId )
 	{
-		CFSecSecGroupFormByFormIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
+		YCFSecSecGroupFormByFormIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newFormIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecFormId( SecFormId );
 		if( indexByFormIdx == null ) {
-			indexByFormIdx = new HashMap< CFSecSecGroupFormByFormIdxKey,
-				Map< CFSecSecGroupFormPKey, ICFSecSecGroupFormObj > >();
+			indexByFormIdx = new HashMap< YCFSecSecGroupFormByFormIdxKey,
+				Map< YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj > >();
 		}
 		if( indexByFormIdx.containsKey( key ) ) {
-			Map<CFSecSecGroupFormPKey, ICFSecSecGroupFormObj> dict = indexByFormIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByFormIdx( schema.getAuthorization(),
+			Map<YCFSecSecGroupFormPKey, IYCFSecSecGroupFormObj> dict = indexByFormIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByFormIdx( schema.getAuthorization(),
 				ClusterId,
 				SecFormId );
-			Iterator<ICFSecSecGroupFormObj> iter = dict.values().iterator();
-			ICFSecSecGroupFormObj obj;
-			List<ICFSecSecGroupFormObj> toForget = new LinkedList<ICFSecSecGroupFormObj>();
+			Iterator<IYCFSecSecGroupFormObj> iter = dict.values().iterator();
+			IYCFSecSecGroupFormObj obj;
+			List<IYCFSecSecGroupFormObj> toForget = new LinkedList<IYCFSecSecGroupFormObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1873,7 +1873,7 @@ public class CFSecSecGroupFormTableObj
 			indexByFormIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByFormIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByFormIdx( schema.getAuthorization(),
 				ClusterId,
 				SecFormId );
 		}
@@ -1886,24 +1886,24 @@ public class CFSecSecGroupFormTableObj
 		int SecFormId )
 	{
 		if( indexByUFormIdx == null ) {
-			indexByUFormIdx = new HashMap< CFSecSecGroupFormByUFormIdxKey,
-				ICFSecSecGroupFormObj >();
+			indexByUFormIdx = new HashMap< YCFSecSecGroupFormByUFormIdxKey,
+				IYCFSecSecGroupFormObj >();
 		}
-		CFSecSecGroupFormByUFormIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
+		YCFSecSecGroupFormByUFormIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecGroupForm().newUFormIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 		key.setRequiredSecFormId( SecFormId );
-		ICFSecSecGroupFormObj obj = null;
+		IYCFSecSecGroupFormObj obj = null;
 		if( indexByUFormIdx.containsKey( key ) ) {
 			obj = indexByUFormIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByUFormIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByUFormIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId,
 				SecFormId );
 			obj.forget();
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByUFormIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecGroupForm().deleteSecGroupFormByUFormIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId,
 				SecFormId );

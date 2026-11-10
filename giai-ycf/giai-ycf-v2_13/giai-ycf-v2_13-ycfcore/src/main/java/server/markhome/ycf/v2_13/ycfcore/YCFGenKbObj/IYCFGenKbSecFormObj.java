@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb SecForm.
+// Description: Java 11 Object interface for YCFGenKb SecForm.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecFormObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbSecFormObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	ICFGenKbSecUserObj getCreatedBy();
+	IYCFGenKbSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -59,9 +59,9 @@ public interface ICFGenKbSecFormObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	ICFGenKbSecUserObj getUpdatedBy();
+	IYCFGenKbSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -72,9 +72,9 @@ public interface ICFGenKbSecFormObj
 	/**
 	 *	Realise this instance of a SecForm.
 	 *
-	 *	@return	CFGenKbSecFormObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbSecFormObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbSecFormObj realise();
+	IYCFGenKbSecFormObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -86,99 +86,99 @@ public interface ICFGenKbSecFormObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSecFormObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSecFormObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSecFormObj read();
+	IYCFGenKbSecFormObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSecFormObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSecFormObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSecFormObj read( boolean forceRead );
+	IYCFGenKbSecFormObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SecForm instance.
 	 *
-	 *	@return	The newly locked ICFGenKbSecFormEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbSecFormEditObj edition of this instance.
 	 */
-	ICFGenKbSecFormEditObj beginEdit();
+	IYCFGenKbSecFormEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SecForm instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SecForm instance.
 	 *
-	 *	@return	The ICFGenKbSecFormEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSecFormEditObj edition of this instance.
 	 */
-	ICFGenKbSecFormEditObj getEdit();
+	IYCFGenKbSecFormEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SecForm instance as a ICFGenKbSecFormEditObj.
+	 *	Get the current edition of this SecForm instance as a IYCFGenKbSecFormEditObj.
 	 *
-	 *	@return	The ICFGenKbSecFormEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSecFormEditObj edition of this instance.
 	 */
-	ICFGenKbSecFormEditObj getEditAsSecForm();
+	IYCFGenKbSecFormEditObj getEditAsSecForm();
 
 	/**
-	 *	Get the ICFGenKbSecFormTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbSecFormTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSecFormTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbSecFormTableObj table cache which manages this instance.
 	 */
-	ICFGenKbSecFormTableObj getSecFormTable();
+	IYCFGenKbSecFormTableObj getSecFormTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbSecFormBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSecFormBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSecFormBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSecFormBuff instance which currently backs this object.
 	 */
-	CFGenKbSecFormBuff getBuff();
+	YCFGenKbSecFormBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbSecFormBuff value );
+	void setBuff( YCFGenKbSecFormBuff value );
 
 	/**
-	 *	Get the CFGenKbSecFormBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSecFormBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSecFormBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSecFormBuff instance which currently backs this object.
 	 */
-	CFGenKbSecFormBuff getSecFormBuff();
+	YCFGenKbSecFormBuff getSecFormBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbSecFormPKey primary key for this instance.
+	 *	@return	YCFGenKbSecFormPKey primary key for this instance.
 	 */
-	CFGenKbSecFormPKey getPKey();
+	YCFGenKbSecFormPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbSecFormPKey primary key value for this instance.
+	 *	@param YCFGenKbSecFormPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbSecFormPKey value );
+	void setPKey( YCFGenKbSecFormPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -226,32 +226,32 @@ public interface ICFGenKbSecFormObj
 	String getRequiredJEEServletMapName();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredOwnerCluster();
+	IYCFGenKbClusterObj getRequiredOwnerCluster();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredOwnerCluster( boolean forceRead );
+	IYCFGenKbClusterObj getRequiredOwnerCluster( boolean forceRead );
 
 	/**
-	 *	Get the required ICFGenKbSecAppObj instance referenced by the Application key.
+	 *	Get the required IYCFGenKbSecAppObj instance referenced by the Application key.
 	 *
-	 *	@return	The required ICFGenKbSecAppObj instance referenced by the Application key.
+	 *	@return	The required IYCFGenKbSecAppObj instance referenced by the Application key.
 	 */
-	ICFGenKbSecAppObj getRequiredContainerApplication();
+	IYCFGenKbSecAppObj getRequiredContainerApplication();
 
 	/**
-	 *	Get the required ICFGenKbSecAppObj instance referenced by the Application key.
+	 *	Get the required IYCFGenKbSecAppObj instance referenced by the Application key.
 	 *
-	 *	@return	The required ICFGenKbSecAppObj instance referenced by the Application key.
+	 *	@return	The required IYCFGenKbSecAppObj instance referenced by the Application key.
 	 */
-	ICFGenKbSecAppObj getRequiredContainerApplication( boolean forceRead );
+	IYCFGenKbSecAppObj getRequiredContainerApplication( boolean forceRead );
 
 	/**
 	 *	Internal use only.

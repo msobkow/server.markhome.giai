@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb GelSequence.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb GelSequence.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,52 +27,52 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelSequenceEditObj
-	extends ICFGenKbGelSequenceObj,
-		ICFGenKbGelInstructionEditObj
+public interface IYCFGenKbGelSequenceEditObj
+	extends IYCFGenKbGelSequenceObj,
+		IYCFGenKbGelInstructionEditObj
 {
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbGelSequenceObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbGelSequenceObj.
 	 */
-	ICFGenKbGelSequenceObj getOrigAsGelSequence();
+	IYCFGenKbGelSequenceObj getOrigAsGelSequence();
 
 	/**
-	 *	Get the ICFGenKbGelCallObj instance referenced by the FirstInst key.
+	 *	Get the IYCFGenKbGelCallObj instance referenced by the FirstInst key.
 	 *
-	 *	@return	The ICFGenKbGelCallObj instance referenced by the FirstInst key.
+	 *	@return	The IYCFGenKbGelCallObj instance referenced by the FirstInst key.
 	 */
-	ICFGenKbGelCallObj getOptionalLookupFirstInst();
+	IYCFGenKbGelCallObj getOptionalLookupFirstInst();
 
 	/**
-	 *	Set the ICFGenKbGelCallObj instance referenced by the FirstInst key.
+	 *	Set the IYCFGenKbGelCallObj instance referenced by the FirstInst key.
 	 *
-	 *	@param	value	the ICFGenKbGelCallObj instance to be referenced by the FirstInst key.
+	 *	@param	value	the IYCFGenKbGelCallObj instance to be referenced by the FirstInst key.
 	 */
-	void setOptionalLookupFirstInst( ICFGenKbGelCallObj value );
+	void setOptionalLookupFirstInst( IYCFGenKbGelCallObj value );
 
 	/**
-	 *	Get the ICFGenKbGelCallObj instance referenced by the LastInst key.
+	 *	Get the IYCFGenKbGelCallObj instance referenced by the LastInst key.
 	 *
-	 *	@return	The ICFGenKbGelCallObj instance referenced by the LastInst key.
+	 *	@return	The IYCFGenKbGelCallObj instance referenced by the LastInst key.
 	 */
-	ICFGenKbGelCallObj getOptionalLookupLastInst();
+	IYCFGenKbGelCallObj getOptionalLookupLastInst();
 
 	/**
-	 *	Set the ICFGenKbGelCallObj instance referenced by the LastInst key.
+	 *	Set the IYCFGenKbGelCallObj instance referenced by the LastInst key.
 	 *
-	 *	@param	value	the ICFGenKbGelCallObj instance to be referenced by the LastInst key.
+	 *	@param	value	the IYCFGenKbGelCallObj instance to be referenced by the LastInst key.
 	 */
-	void setOptionalLookupLastInst( ICFGenKbGelCallObj value );
+	void setOptionalLookupLastInst( IYCFGenKbGelCallObj value );
 }

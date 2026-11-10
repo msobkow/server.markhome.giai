@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,42 +23,42 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
-public class MSSBamCFGenBindBaseModelAtomClass
-	extends MssCFGenBindObj
+public class MSSBamYCFGenBindBaseModelAtomClass
+	extends MssYCFGenBindObj
 {
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
-	public MSSBamCFGenBindBaseModelAtomClass() {
+	public MSSBamYCFGenBindBaseModelAtomClass() {
 		super();
 	}
 
-	public MSSBamCFGenBindBaseModelAtomClass(
-		MSSBamCFEngine argSchema,
+	public MSSBamYCFGenBindBaseModelAtomClass(
+		MSSBamYCFEngine argSchema,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -67,12 +67,12 @@ public class MSSBamCFGenBindBaseModelAtomClass
 		super( argSchema, toolset, scopeDefClassName, genDefClassName, itemName);
 	}
 
-	public String expandBody( MssCFGenContext genContext ) {
-		ICFLibAnyObj genDef;
+	public String expandBody( MssYCFGenContext genContext ) {
+		IYCFLibAnyObj genDef;
 		final String S_ProcName = "expandBody";
 
 		if (genContext == null) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
@@ -80,7 +80,7 @@ public class MSSBamCFGenBindBaseModelAtomClass
 
 		genDef = genContext.getGenDef();
 		if (genDef == null) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"genContext.GenDef" );
@@ -90,137 +90,137 @@ public class MSSBamCFGenBindBaseModelAtomClass
 		return( ret );
 	}
 
-	private String recurseExpandBody( ICFLibAnyObj genDef )
+	private String recurseExpandBody( IYCFLibAnyObj genDef )
 	{
 		String		ret = null;
 		final String S_ProcName = "recurseExpandBody";
 
-		if( genDef instanceof ICFBamAtomObj ) {
-			if( genDef instanceof ICFBamBlobDefObj ) {
+		if( genDef instanceof IYCFBamAtomObj ) {
+			if( genDef instanceof IYCFBamBlobDefObj ) {
 				ret = "BlobDef";
 			}
-			else if( genDef instanceof ICFBamBoolDefObj ) {
+			else if( genDef instanceof IYCFBamBoolDefObj ) {
 				ret = "BoolDef";
 			}
-			else if (genDef instanceof ICFBamId16GenObj) {
+			else if (genDef instanceof IYCFBamId16GenObj) {
 				ret = "Id16Gen";
 			}
-			else if (genDef instanceof ICFBamId32GenObj) {
+			else if (genDef instanceof IYCFBamId32GenObj) {
 				ret = "Id32Gen";
 			}
-			else if (genDef instanceof ICFBamId64GenObj) {
+			else if (genDef instanceof IYCFBamId64GenObj) {
 				ret = "Id64Gen";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash128GenObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash128GenObj) {
 				ret = "DbKeyHash128Gen";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash160GenObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash160GenObj) {
 				ret = "DbKeyHash160Gen";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash224GenObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash224GenObj) {
 				ret = "DbKeyHash224Gen";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash256GenObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash256GenObj) {
 				ret = "DbKeyHash256Gen";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash384GenObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash384GenObj) {
 				ret = "DbKeyHash384Gen";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash512GenObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash512GenObj) {
 				ret = "DbKeyHash512Gen";
 			}
-			else if (genDef instanceof ICFBamUuid6GenObj) {
+			else if (genDef instanceof IYCFBamUuid6GenObj) {
 				ret = "Uuid6Gen";
 			}
-			else if (genDef instanceof ICFBamUuidGenObj) {
+			else if (genDef instanceof IYCFBamUuidGenObj) {
 				ret = "UuidGen";
 			}
-			else if (genDef instanceof ICFBamEnumDefObj) {
+			else if (genDef instanceof IYCFBamEnumDefObj) {
 				ret = "EnumDef";
 			}
-			else if (genDef instanceof ICFBamUInt16DefObj) {
+			else if (genDef instanceof IYCFBamUInt16DefObj) {
 				ret = "UInt16Def";
 			}
-			else if (genDef instanceof ICFBamUInt32DefObj) {
+			else if (genDef instanceof IYCFBamUInt32DefObj) {
 				ret = "UInt32Def";
 			}
-			else if (genDef instanceof ICFBamUInt64DefObj) {
+			else if (genDef instanceof IYCFBamUInt64DefObj) {
 				ret = "UInt64Def";
 			}
-			else if (genDef instanceof ICFBamInt16DefObj) {
+			else if (genDef instanceof IYCFBamInt16DefObj) {
 				ret = "Int16Def";
 			}
-			else if( genDef instanceof ICFBamInt32DefObj ) {
+			else if( genDef instanceof IYCFBamInt32DefObj ) {
 				ret = "Int32Def";
 			}
-			else if( genDef instanceof ICFBamInt64DefObj ) {
+			else if( genDef instanceof IYCFBamInt64DefObj ) {
 				ret = "Int64Def";
 			}
-			else if( genDef instanceof ICFBamFloatDefObj ) {
+			else if( genDef instanceof IYCFBamFloatDefObj ) {
 				ret = "FloatDef";
 			}
-			else if( genDef instanceof ICFBamDoubleDefObj ) {
+			else if( genDef instanceof IYCFBamDoubleDefObj ) {
 				ret = "DoubleDef";
 			}
-			else if( genDef instanceof ICFBamNumberDefObj ) {
+			else if( genDef instanceof IYCFBamNumberDefObj ) {
 				ret = "NumberDef";
 			}
-			else if (genDef instanceof ICFBamNmTokensDefObj)
+			else if (genDef instanceof IYCFBamNmTokensDefObj)
 			{
 				ret = "NmTokensDef";
 			}
-			else if (genDef instanceof ICFBamNmTokenDefObj) {
+			else if (genDef instanceof IYCFBamNmTokenDefObj) {
 				ret = "NmTokenDef";
 			}
-			else if (genDef instanceof ICFBamTokenDefObj) {
+			else if (genDef instanceof IYCFBamTokenDefObj) {
 				ret = "TokenDef";
 			}
-			else if (genDef instanceof ICFBamStringDefObj) {
+			else if (genDef instanceof IYCFBamStringDefObj) {
 				ret = "StringDef";
 			}
-			else if( genDef instanceof ICFBamTextDefObj ) {
+			else if( genDef instanceof IYCFBamTextDefObj ) {
 				ret = "TextDef";
 			}
-			else if( genDef instanceof ICFBamDateDefObj ) {
+			else if( genDef instanceof IYCFBamDateDefObj ) {
 				ret = "DateDef";
 			}
-			else if( genDef instanceof ICFBamTimeDefObj ) {
+			else if( genDef instanceof IYCFBamTimeDefObj ) {
 				ret = "TimeDef";
 			}
-			else if( genDef instanceof ICFBamTimestampDefObj ) {
+			else if( genDef instanceof IYCFBamTimestampDefObj ) {
 				ret = "TimestampDef";
 			}
-			else if (genDef instanceof ICFBamTZDateDefObj) {
+			else if (genDef instanceof IYCFBamTZDateDefObj) {
 				ret = "TZDateDef";
 			}
-			else if (genDef instanceof ICFBamTZTimeDefObj) {
+			else if (genDef instanceof IYCFBamTZTimeDefObj) {
 				ret = "TZTimeDef";
 			}
-			else if (genDef instanceof ICFBamTZTimestampDefObj) {
+			else if (genDef instanceof IYCFBamTZTimestampDefObj) {
 				ret = "TZTimestampDef";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash128DefObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash128DefObj) {
 				ret = "DbKeyHash128Def";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash160DefObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash160DefObj) {
 				ret = "DbKeyHash160Def";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash224DefObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash224DefObj) {
 				ret = "DbKeyHash224Def";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash256DefObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash256DefObj) {
 				ret = "DbKeyHash256Def";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash384DefObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash384DefObj) {
 				ret = "DbKeyHash384Def";
 			}
-			else if (genDef instanceof ICFBamDbKeyHash512DefObj) {
+			else if (genDef instanceof IYCFBamDbKeyHash512DefObj) {
 				ret = "DbKeyHash512Def";
 			}
-			else if (genDef instanceof ICFBamUuid6DefObj) {
+			else if (genDef instanceof IYCFBamUuid6DefObj) {
 				ret = "Uuid6Def";
 			}
-			else if( genDef instanceof ICFBamUuidDefObj ) {
+			else if( genDef instanceof IYCFBamUuidDefObj ) {
 				ret = "UuidDef";
 			}
 			else
@@ -230,16 +230,16 @@ public class MSSBamCFGenBindBaseModelAtomClass
 					+ " is not recognized");
 			}
 		}
-		else if( genDef instanceof ICFBamTableColObj ) {
-			ICFLibAnyObj dataDef = ((ICFBamTableColObj)genDef).getRequiredParentDataType();
+		else if( genDef instanceof IYCFBamTableColObj ) {
+			IYCFLibAnyObj dataDef = ((IYCFBamTableColObj)genDef).getRequiredParentDataType();
 			if (dataDef == null)
 			{
 				throw new RuntimeException(S_ProcName + "TableColDef.getLookupData() is null");
 			}
 			ret = recurseExpandBody( dataDef );
 		}
-		else if( genDef instanceof ICFBamIndexColObj ) {
-			ICFLibAnyObj dataDef = ((ICFBamIndexColObj)genDef).getRequiredLookupColumn();
+		else if( genDef instanceof IYCFBamIndexColObj ) {
+			IYCFLibAnyObj dataDef = ((IYCFBamIndexColObj)genDef).getRequiredLookupColumn();
 			if (dataDef == null)
 			{
 				throw new RuntimeException(S_ProcName + "IndexColDef.getRequiredLookupColumn() is null");

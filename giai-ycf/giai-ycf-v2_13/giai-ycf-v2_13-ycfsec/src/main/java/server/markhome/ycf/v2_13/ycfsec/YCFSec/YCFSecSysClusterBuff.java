@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SysCluster buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,10 +36,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecSysClusterBuff
+public class YCFSecSysClusterBuff
 {
 	public final static String CLASS_CODE = "a014";
 	public static final int SINGLETONID_INIT_VALUE = 1;
@@ -50,9 +50,9 @@ public class CFSecSysClusterBuff
 	protected int requiredSingletonId;
 	protected long requiredClusterId;
 	protected int requiredRevision;
-	public CFSecSysClusterBuff() {
-		requiredSingletonId = CFSecSysClusterBuff.SINGLETONID_INIT_VALUE;
-		requiredClusterId = CFSecSysClusterBuff.CLUSTERID_INIT_VALUE;
+	public YCFSecSysClusterBuff() {
+		requiredSingletonId = YCFSecSysClusterBuff.SINGLETONID_INIT_VALUE;
+		requiredClusterId = YCFSecSysClusterBuff.CLUSTERID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -64,21 +64,21 @@ public class CFSecSysClusterBuff
 	}
 
 	public void setRequiredSingletonId( int value ) {
-		if( value < CFSecSysClusterBuff.SINGLETONID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSysClusterBuff.SINGLETONID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSingletonId",
 				1,
 				"value",
 				value,
-				CFSecSysClusterBuff.SINGLETONID_MIN_VALUE );
+				YCFSecSysClusterBuff.SINGLETONID_MIN_VALUE );
 		}
-		if( value > CFSecSysClusterBuff.SINGLETONID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFSecSysClusterBuff.SINGLETONID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredSingletonId",
 				1,
 				"value",
 				value,
-				CFSecSysClusterBuff.SINGLETONID_MAX_VALUE );
+				YCFSecSysClusterBuff.SINGLETONID_MAX_VALUE );
 		}
 		requiredSingletonId = value;
 	}
@@ -88,13 +88,13 @@ public class CFSecSysClusterBuff
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFSecSysClusterBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSysClusterBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFSecSysClusterBuff.CLUSTERID_MIN_VALUE );
+				YCFSecSysClusterBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -111,8 +111,8 @@ public class CFSecSysClusterBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSysClusterBuff ) {
-			CFSecSysClusterBuff rhs = (CFSecSysClusterBuff)obj;
+		else if( obj instanceof YCFSecSysClusterBuff ) {
+			YCFSecSysClusterBuff rhs = (YCFSecSysClusterBuff)obj;
 			if( getRequiredSingletonId() != rhs.getRequiredSingletonId() ) {
 				return( false );
 			}
@@ -121,15 +121,15 @@ public class CFSecSysClusterBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSysClusterPKey ) {
-			CFSecSysClusterPKey rhs = (CFSecSysClusterPKey)obj;
+		else if( obj instanceof YCFSecSysClusterPKey ) {
+			YCFSecSysClusterPKey rhs = (YCFSecSysClusterPKey)obj;
 			if( getRequiredSingletonId() != rhs.getRequiredSingletonId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSysClusterHBuff ) {
-			CFSecSysClusterHBuff rhs = (CFSecSysClusterHBuff)obj;
+		else if( obj instanceof YCFSecSysClusterHBuff ) {
+			YCFSecSysClusterHBuff rhs = (YCFSecSysClusterHBuff)obj;
 			if( getRequiredSingletonId() != rhs.getRequiredSingletonId() ) {
 				return( false );
 			}
@@ -138,15 +138,15 @@ public class CFSecSysClusterBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSysClusterHPKey ) {
-			CFSecSysClusterHPKey rhs = (CFSecSysClusterHPKey)obj;
+		else if( obj instanceof YCFSecSysClusterHPKey ) {
+			YCFSecSysClusterHPKey rhs = (YCFSecSysClusterHPKey)obj;
 			if( getRequiredSingletonId() != rhs.getRequiredSingletonId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSysClusterByClusterIdxKey ) {
-			CFSecSysClusterByClusterIdxKey rhs = (CFSecSysClusterByClusterIdxKey)obj;
+		else if( obj instanceof YCFSecSysClusterByClusterIdxKey ) {
+			YCFSecSysClusterByClusterIdxKey rhs = (YCFSecSysClusterByClusterIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -169,8 +169,8 @@ public class CFSecSysClusterBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecSysClusterBuff ) {
-			CFSecSysClusterBuff rhs = (CFSecSysClusterBuff)obj;
+		else if( obj instanceof YCFSecSysClusterBuff ) {
+			YCFSecSysClusterBuff rhs = (YCFSecSysClusterBuff)obj;
 			int retval = 0;
 			if( getRequiredSingletonId() < rhs.getRequiredSingletonId() ) {
 				return( -1 );
@@ -186,8 +186,8 @@ public class CFSecSysClusterBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSysClusterPKey ) {
-			CFSecSysClusterPKey rhs = (CFSecSysClusterPKey)obj;
+		else if( obj instanceof YCFSecSysClusterPKey ) {
+			YCFSecSysClusterPKey rhs = (YCFSecSysClusterPKey)obj;
 			if( getRequiredSingletonId() < rhs.getRequiredSingletonId() ) {
 				return( -1 );
 			}
@@ -196,8 +196,8 @@ public class CFSecSysClusterBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSysClusterHPKey ) {
-			CFSecSysClusterHPKey rhs = (CFSecSysClusterHPKey)obj;
+		else if( obj instanceof YCFSecSysClusterHPKey ) {
+			YCFSecSysClusterHPKey rhs = (YCFSecSysClusterHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -216,8 +216,8 @@ public class CFSecSysClusterBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSysClusterHBuff ) {
-			CFSecSysClusterHBuff rhs = (CFSecSysClusterHBuff)obj;
+		else if( obj instanceof YCFSecSysClusterHBuff ) {
+			YCFSecSysClusterHBuff rhs = (YCFSecSysClusterHBuff)obj;
 			int retval = 0;
 			if( getRequiredSingletonId() < rhs.getRequiredSingletonId() ) {
 				return( -1 );
@@ -233,8 +233,8 @@ public class CFSecSysClusterBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSysClusterByClusterIdxKey ) {
-			CFSecSysClusterByClusterIdxKey rhs = (CFSecSysClusterByClusterIdxKey)obj;
+		else if( obj instanceof YCFSecSysClusterByClusterIdxKey ) {
+			YCFSecSysClusterByClusterIdxKey rhs = (YCFSecSysClusterByClusterIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -244,7 +244,7 @@ public class CFSecSysClusterBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -252,21 +252,21 @@ public class CFSecSysClusterBuff
 		}
 	}
 
-	public void set( CFSecSysClusterBuff src ) {
+	public void set( YCFSecSysClusterBuff src ) {
 		setSysClusterBuff( src );
 	}
 
-	public void setSysClusterBuff( CFSecSysClusterBuff src ) {
+	public void setSysClusterBuff( YCFSecSysClusterBuff src ) {
 		setRequiredSingletonId( src.getRequiredSingletonId() );
 		setRequiredClusterId( src.getRequiredClusterId() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecSysClusterHBuff src ) {
+	public void set( YCFSecSysClusterHBuff src ) {
 		setSysClusterBuff( src );
 	}
 
-	public void setSysClusterBuff( CFSecSysClusterHBuff src ) {
+	public void setSysClusterBuff( YCFSecSysClusterHBuff src ) {
 		setRequiredSingletonId( src.getRequiredSingletonId() );
 		setRequiredClusterId( src.getRequiredClusterId() );
 	}

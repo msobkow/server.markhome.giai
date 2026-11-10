@@ -2,17 +2,17 @@
 // Description: Java 11 in-memory RAM DbIO implementation for ServerObjFunc.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,64 +46,64 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamServerObjFuncTable in-memory RAM DbIO implementation
+ *	YCFBamRamServerObjFuncTable in-memory RAM DbIO implementation
  *	for ServerObjFunc.
  */
-public class CFBamRamServerObjFuncTable
-	implements ICFBamServerObjFuncTable
+public class YCFBamRamServerObjFuncTable
+	implements IYCFBamServerObjFuncTable
 {
-	private ICFBamSchema schema;
-	private Map< CFBamScopePKey,
-				CFBamServerObjFuncBuff > dictByPKey
-		= new HashMap< CFBamScopePKey,
-				CFBamServerObjFuncBuff >();
-	private Map< CFBamServerObjFuncByRetTblIdxKey,
-				Map< CFBamScopePKey,
-					CFBamServerObjFuncBuff >> dictByRetTblIdx
-		= new HashMap< CFBamServerObjFuncByRetTblIdxKey,
-				Map< CFBamScopePKey,
-					CFBamServerObjFuncBuff >>();
+	private IYCFBamSchema schema;
+	private Map< YCFBamScopePKey,
+				YCFBamServerObjFuncBuff > dictByPKey
+		= new HashMap< YCFBamScopePKey,
+				YCFBamServerObjFuncBuff >();
+	private Map< YCFBamServerObjFuncByRetTblIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamServerObjFuncBuff >> dictByRetTblIdx
+		= new HashMap< YCFBamServerObjFuncByRetTblIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamServerObjFuncBuff >>();
 
-	public CFBamRamServerObjFuncTable( ICFBamSchema argSchema ) {
+	public YCFBamRamServerObjFuncTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createServerObjFunc( CFSecAuthorization Authorization,
-		CFBamServerObjFuncBuff Buff )
+	public void createServerObjFunc( YCFSecAuthorization Authorization,
+		YCFBamServerObjFuncBuff Buff )
 	{
 		final String S_ProcName = "createServerObjFunc";
 		schema.getTableServerMethod().createServerMethod( Authorization,
 			Buff );
-		CFBamScopePKey pkey = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = schema.getFactoryScope().newPKey();
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamServerObjFuncByRetTblIdxKey keyRetTblIdx = schema.getFactoryServerObjFunc().newRetTblIdxKey();
+		YCFBamServerObjFuncByRetTblIdxKey keyRetTblIdx = schema.getFactoryServerObjFunc().newRetTblIdxKey();
 		keyRetTblIdx.setOptionalRetTenantId( Buff.getOptionalRetTenantId() );
 		keyRetTblIdx.setOptionalRetTableId( Buff.getOptionalRetTableId() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		// Validate foreign keys
@@ -117,7 +117,7 @@ public class CFBamRamServerObjFuncTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Superclass",
 						"SuperClass",
@@ -131,26 +131,26 @@ public class CFBamRamServerObjFuncTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamServerObjFuncBuff > subdictRetTblIdx;
+		Map< YCFBamScopePKey, YCFBamServerObjFuncBuff > subdictRetTblIdx;
 		if( dictByRetTblIdx.containsKey( keyRetTblIdx ) ) {
 			subdictRetTblIdx = dictByRetTblIdx.get( keyRetTblIdx );
 		}
 		else {
-			subdictRetTblIdx = new HashMap< CFBamScopePKey, CFBamServerObjFuncBuff >();
+			subdictRetTblIdx = new HashMap< YCFBamScopePKey, YCFBamServerObjFuncBuff >();
 			dictByRetTblIdx.put( keyRetTblIdx, subdictRetTblIdx );
 		}
 		subdictRetTblIdx.put( pkey, Buff );
 
 	}
 
-	public CFBamServerObjFuncBuff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamServerObjFuncBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamServerObjFunc.readDerived";
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		final String S_ProcName = "YCFBamRamServerObjFunc.readDerived";
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamServerObjFuncBuff buff;
+		YCFBamServerObjFuncBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -160,14 +160,14 @@ public class CFBamRamServerObjFuncTable
 		return( buff );
 	}
 
-	public CFBamServerObjFuncBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamServerObjFuncBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamServerObjFunc.readDerived";
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		final String S_ProcName = "YCFBamRamServerObjFunc.readDerived";
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamServerObjFuncBuff buff;
+		YCFBamServerObjFuncBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -177,10 +177,10 @@ public class CFBamRamServerObjFuncTable
 		return( buff );
 	}
 
-	public CFBamServerObjFuncBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamServerObjFunc.readAllDerived";
-		CFBamServerObjFuncBuff[] retList = new CFBamServerObjFuncBuff[ dictByPKey.values().size() ];
-		Iterator< CFBamServerObjFuncBuff > iter = dictByPKey.values().iterator();
+	public YCFBamServerObjFuncBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamServerObjFunc.readAllDerived";
+		YCFBamServerObjFuncBuff[] retList = new YCFBamServerObjFuncBuff[ dictByPKey.values().size() ];
+		Iterator< YCFBamServerObjFuncBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -188,80 +188,80 @@ public class CFBamRamServerObjFuncTable
 		return( retList );
 	}
 
-	public CFBamServerObjFuncBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamScope.readDerivedByTenantIdx";
-		CFBamScopeBuff buffList[] = schema.getTableScope().readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamScope.readDerivedByTenantIdx";
+		YCFBamScopeBuff buffList[] = schema.getTableScope().readDerivedByTenantIdx( Authorization,
 			TenantId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamScopeBuff buff;
-			ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
+			YCFBamScopeBuff buff;
+			ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamServerObjFuncBuff ) ) {
-					filteredList.add( (CFBamServerObjFuncBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamServerObjFuncBuff ) ) {
+					filteredList.add( (YCFBamServerObjFuncBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+			return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 		}
 	}
 
-	public CFBamServerObjFuncBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readDerivedByUNameIdx";
-		CFBamServerMethodBuff buff = schema.getTableServerMethod().readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readDerivedByUNameIdx";
+		YCFBamServerMethodBuff buff = schema.getTableServerMethod().readDerivedByUNameIdx( Authorization,
 			TenantId,
 			TableId,
 			Name );
 		if( buff == null ) {
 			return( null );
 		}
-		else if( buff instanceof CFBamServerObjFuncBuff ) {
-			return( (CFBamServerObjFuncBuff)buff );
+		else if( buff instanceof YCFBamServerObjFuncBuff ) {
+			return( (YCFBamServerObjFuncBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamServerObjFuncBuff[] readDerivedByMethTableIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readDerivedByMethTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethTableIdx";
-		CFBamServerMethodBuff buffList[] = schema.getTableServerMethod().readDerivedByMethTableIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readDerivedByMethTableIdx";
+		YCFBamServerMethodBuff buffList[] = schema.getTableServerMethod().readDerivedByMethTableIdx( Authorization,
 			TenantId,
 			TableId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamServerMethodBuff buff;
-			ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
+			YCFBamServerMethodBuff buff;
+			ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamServerObjFuncBuff ) ) {
-					filteredList.add( (CFBamServerObjFuncBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamServerObjFuncBuff ) ) {
+					filteredList.add( (YCFBamServerObjFuncBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+			return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 		}
 	}
 
-	public CFBamServerObjFuncBuff[] readDerivedByMethTableVisIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readDerivedByMethTableVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethTableVisIdx";
-		CFBamServerMethodBuff buffList[] = schema.getTableServerMethod().readDerivedByMethTableVisIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readDerivedByMethTableVisIdx";
+		YCFBamServerMethodBuff buffList[] = schema.getTableServerMethod().readDerivedByMethTableVisIdx( Authorization,
 			TenantId,
 			TableId,
 			CodeVis );
@@ -269,103 +269,103 @@ public class CFBamRamServerObjFuncTable
 			return( null );
 		}
 		else {
-			CFBamServerMethodBuff buff;
-			ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
+			YCFBamServerMethodBuff buff;
+			ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamServerObjFuncBuff ) ) {
-					filteredList.add( (CFBamServerObjFuncBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamServerObjFuncBuff ) ) {
+					filteredList.add( (YCFBamServerObjFuncBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+			return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 		}
 	}
 
-	public CFBamServerObjFuncBuff[] readDerivedByMethCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public YCFBamServerObjFuncBuff[] readDerivedByMethCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readDerivedByMethCodeVisIdx";
-		CFBamServerMethodBuff buffList[] = schema.getTableServerMethod().readDerivedByMethCodeVisIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readDerivedByMethCodeVisIdx";
+		YCFBamServerMethodBuff buffList[] = schema.getTableServerMethod().readDerivedByMethCodeVisIdx( Authorization,
 			CodeVis );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamServerMethodBuff buff;
-			ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
+			YCFBamServerMethodBuff buff;
+			ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamServerObjFuncBuff ) ) {
-					filteredList.add( (CFBamServerObjFuncBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamServerObjFuncBuff ) ) {
+					filteredList.add( (YCFBamServerObjFuncBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+			return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 		}
 	}
 
-	public CFBamServerObjFuncBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readDerivedByDefSchemaIdx";
-		CFBamServerMethodBuff buffList[] = schema.getTableServerMethod().readDerivedByDefSchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readDerivedByDefSchemaIdx";
+		YCFBamServerMethodBuff buffList[] = schema.getTableServerMethod().readDerivedByDefSchemaIdx( Authorization,
 			DefSchemaTenantId,
 			DefSchemaId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamServerMethodBuff buff;
-			ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
+			YCFBamServerMethodBuff buff;
+			ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamServerObjFuncBuff ) ) {
-					filteredList.add( (CFBamServerObjFuncBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamServerObjFuncBuff ) ) {
+					filteredList.add( (YCFBamServerObjFuncBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+			return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 		}
 	}
 
-	public CFBamServerObjFuncBuff[] readDerivedByRetTblIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readDerivedByRetTblIdx( YCFSecAuthorization Authorization,
 		Long RetTenantId,
 		Long RetTableId )
 	{
-		final String S_ProcName = "CFBamRamServerObjFunc.readDerivedByRetTblIdx";
-		CFBamServerObjFuncByRetTblIdxKey key = schema.getFactoryServerObjFunc().newRetTblIdxKey();
+		final String S_ProcName = "YCFBamRamServerObjFunc.readDerivedByRetTblIdx";
+		YCFBamServerObjFuncByRetTblIdxKey key = schema.getFactoryServerObjFunc().newRetTblIdxKey();
 		key.setOptionalRetTenantId( RetTenantId );
 		key.setOptionalRetTableId( RetTableId );
 
-		CFBamServerObjFuncBuff[] recArray;
+		YCFBamServerObjFuncBuff[] recArray;
 		if( dictByRetTblIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamServerObjFuncBuff > subdictRetTblIdx
+			Map< YCFBamScopePKey, YCFBamServerObjFuncBuff > subdictRetTblIdx
 				= dictByRetTblIdx.get( key );
-			recArray = new CFBamServerObjFuncBuff[ subdictRetTblIdx.size() ];
-			Iterator< CFBamServerObjFuncBuff > iter = subdictRetTblIdx.values().iterator();
+			recArray = new YCFBamServerObjFuncBuff[ subdictRetTblIdx.size() ];
+			Iterator< YCFBamServerObjFuncBuff > iter = subdictRetTblIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamServerObjFuncBuff > subdictRetTblIdx
-				= new HashMap< CFBamScopePKey, CFBamServerObjFuncBuff >();
+			Map< YCFBamScopePKey, YCFBamServerObjFuncBuff > subdictRetTblIdx
+				= new HashMap< YCFBamScopePKey, YCFBamServerObjFuncBuff >();
 			dictByRetTblIdx.put( key, subdictRetTblIdx );
-			recArray = new CFBamServerObjFuncBuff[0];
+			recArray = new YCFBamServerObjFuncBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamServerObjFuncBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamScope.readDerivedByIdIdx() ";
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		final String S_ProcName = "YCFBamRamScope.readDerivedByIdIdx() ";
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFBamServerObjFuncBuff buff;
+		YCFBamServerObjFuncBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -375,187 +375,187 @@ public class CFBamRamServerObjFuncTable
 		return( buff );
 	}
 
-	public CFBamServerObjFuncBuff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamServerObjFuncBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamServerObjFunc.readBuff";
-		CFBamServerObjFuncBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamServerObjFunc.readBuff";
+		YCFBamServerObjFuncBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a805" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamServerObjFuncBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamServerObjFuncBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFBamServerObjFuncBuff buff = readDerived( Authorization, PKey );
+		YCFBamServerObjFuncBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a805" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamServerObjFuncBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFBamServerObjFuncBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamServerObjFunc.readAllBuff";
-		CFBamServerObjFuncBuff buff;
-		ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
-		CFBamServerObjFuncBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamServerObjFunc.readAllBuff";
+		YCFBamServerObjFuncBuff buff;
+		ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
+		YCFBamServerObjFuncBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+		return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 	}
 
-	public CFBamServerObjFuncBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamScope.readBuffByIdIdx() ";
-		CFBamServerObjFuncBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamScope.readBuffByIdIdx() ";
+		YCFBamServerObjFuncBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a801" ) ) {
-			return( (CFBamServerObjFuncBuff)buff );
+			return( (YCFBamServerObjFuncBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamServerObjFuncBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamScope.readBuffByTenantIdx() ";
-		CFBamServerObjFuncBuff buff;
-		ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
-		CFBamServerObjFuncBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamScope.readBuffByTenantIdx() ";
+		YCFBamServerObjFuncBuff buff;
+		ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
+		YCFBamServerObjFuncBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a801" ) ) {
-				filteredList.add( (CFBamServerObjFuncBuff)buff );
+				filteredList.add( (YCFBamServerObjFuncBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+		return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 	}
 
-	public CFBamServerObjFuncBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readBuffByUNameIdx() ";
-		CFBamServerObjFuncBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readBuffByUNameIdx() ";
+		YCFBamServerObjFuncBuff buff = readDerivedByUNameIdx( Authorization,
 			TenantId,
 			TableId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
-			return( (CFBamServerObjFuncBuff)buff );
+			return( (YCFBamServerObjFuncBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamServerObjFuncBuff[] readBuffByMethTableIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readBuffByMethTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readBuffByMethTableIdx() ";
-		CFBamServerObjFuncBuff buff;
-		ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
-		CFBamServerObjFuncBuff[] buffList = readDerivedByMethTableIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readBuffByMethTableIdx() ";
+		YCFBamServerObjFuncBuff buff;
+		ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
+		YCFBamServerObjFuncBuff[] buffList = readDerivedByMethTableIdx( Authorization,
 			TenantId,
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
-				filteredList.add( (CFBamServerObjFuncBuff)buff );
+				filteredList.add( (YCFBamServerObjFuncBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+		return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 	}
 
-	public CFBamServerObjFuncBuff[] readBuffByMethTableVisIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readBuffByMethTableVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readBuffByMethTableVisIdx() ";
-		CFBamServerObjFuncBuff buff;
-		ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
-		CFBamServerObjFuncBuff[] buffList = readDerivedByMethTableVisIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readBuffByMethTableVisIdx() ";
+		YCFBamServerObjFuncBuff buff;
+		ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
+		YCFBamServerObjFuncBuff[] buffList = readDerivedByMethTableVisIdx( Authorization,
 			TenantId,
 			TableId,
 			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
-				filteredList.add( (CFBamServerObjFuncBuff)buff );
+				filteredList.add( (YCFBamServerObjFuncBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+		return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 	}
 
-	public CFBamServerObjFuncBuff[] readBuffByMethCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public YCFBamServerObjFuncBuff[] readBuffByMethCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readBuffByMethCodeVisIdx() ";
-		CFBamServerObjFuncBuff buff;
-		ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
-		CFBamServerObjFuncBuff[] buffList = readDerivedByMethCodeVisIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readBuffByMethCodeVisIdx() ";
+		YCFBamServerObjFuncBuff buff;
+		ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
+		YCFBamServerObjFuncBuff[] buffList = readDerivedByMethCodeVisIdx( Authorization,
 			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
-				filteredList.add( (CFBamServerObjFuncBuff)buff );
+				filteredList.add( (YCFBamServerObjFuncBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+		return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 	}
 
-	public CFBamServerObjFuncBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamServerMethod.readBuffByDefSchemaIdx() ";
-		CFBamServerObjFuncBuff buff;
-		ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
-		CFBamServerObjFuncBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerMethod.readBuffByDefSchemaIdx() ";
+		YCFBamServerObjFuncBuff buff;
+		ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
+		YCFBamServerObjFuncBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
 			DefSchemaTenantId,
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a804" ) ) {
-				filteredList.add( (CFBamServerObjFuncBuff)buff );
+				filteredList.add( (YCFBamServerObjFuncBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+		return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 	}
 
-	public CFBamServerObjFuncBuff[] readBuffByRetTblIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] readBuffByRetTblIdx( YCFSecAuthorization Authorization,
 		Long RetTenantId,
 		Long RetTableId )
 	{
-		final String S_ProcName = "CFBamRamServerObjFunc.readBuffByRetTblIdx() ";
-		CFBamServerObjFuncBuff buff;
-		ArrayList<CFBamServerObjFuncBuff> filteredList = new ArrayList<CFBamServerObjFuncBuff>();
-		CFBamServerObjFuncBuff[] buffList = readDerivedByRetTblIdx( Authorization,
+		final String S_ProcName = "YCFBamRamServerObjFunc.readBuffByRetTblIdx() ";
+		YCFBamServerObjFuncBuff buff;
+		ArrayList<YCFBamServerObjFuncBuff> filteredList = new ArrayList<YCFBamServerObjFuncBuff>();
+		YCFBamServerObjFuncBuff[] buffList = readDerivedByRetTblIdx( Authorization,
 			RetTenantId,
 			RetTableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a805" ) ) {
-				filteredList.add( (CFBamServerObjFuncBuff)buff );
+				filteredList.add( (YCFBamServerObjFuncBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamServerObjFuncBuff[0] ) );
+		return( filteredList.toArray( new YCFBamServerObjFuncBuff[0] ) );
 	}
 
 	/**
@@ -569,16 +569,16 @@ public class CFBamRamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamServerObjFuncBuff[] pageBuffByMethTableIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] pageBuffByMethTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByMethTableIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -594,17 +594,17 @@ public class CFBamRamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamServerObjFuncBuff[] pageBuffByMethTableVisIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] pageBuffByMethTableVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByMethTableVisIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -616,15 +616,15 @@ public class CFBamRamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamServerObjFuncBuff[] pageBuffByMethCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+	public YCFBamServerObjFuncBuff[] pageBuffByMethCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByMethCodeVisIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -638,16 +638,16 @@ public class CFBamRamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamServerObjFuncBuff[] pageBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] pageBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByDefSchemaIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -661,39 +661,39 @@ public class CFBamRamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamServerObjFuncBuff[] pageBuffByRetTblIdx( CFSecAuthorization Authorization,
+	public YCFBamServerObjFuncBuff[] pageBuffByRetTblIdx( YCFSecAuthorization Authorization,
 		Long RetTenantId,
 		Long RetTableId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByRetTblIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateServerObjFunc( CFSecAuthorization Authorization,
-		CFBamServerObjFuncBuff Buff )
+	public void updateServerObjFunc( YCFSecAuthorization Authorization,
+		YCFBamServerObjFuncBuff Buff )
 	{
 		schema.getTableServerMethod().updateServerMethod( Authorization,
 			Buff );
-		CFBamScopePKey pkey = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = schema.getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamServerObjFuncBuff existing = dictByPKey.get( pkey );
+		YCFBamServerObjFuncBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateServerObjFunc",
 				"Existing record not found",
 				"ServerObjFunc",
 				pkey );
 		}
-		CFBamServerObjFuncByRetTblIdxKey existingKeyRetTblIdx = schema.getFactoryServerObjFunc().newRetTblIdxKey();
+		YCFBamServerObjFuncByRetTblIdxKey existingKeyRetTblIdx = schema.getFactoryServerObjFunc().newRetTblIdxKey();
 		existingKeyRetTblIdx.setOptionalRetTenantId( existing.getOptionalRetTenantId() );
 		existingKeyRetTblIdx.setOptionalRetTableId( existing.getOptionalRetTableId() );
 
-		CFBamServerObjFuncByRetTblIdxKey newKeyRetTblIdx = schema.getFactoryServerObjFunc().newRetTblIdxKey();
+		YCFBamServerObjFuncByRetTblIdxKey newKeyRetTblIdx = schema.getFactoryServerObjFunc().newRetTblIdxKey();
 		newKeyRetTblIdx.setOptionalRetTenantId( Buff.getOptionalRetTenantId() );
 		newKeyRetTblIdx.setOptionalRetTableId( Buff.getOptionalRetTableId() );
 
@@ -709,7 +709,7 @@ public class CFBamRamServerObjFuncTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateServerObjFunc",
 						"Superclass",
 						"SuperClass",
@@ -721,7 +721,7 @@ public class CFBamRamServerObjFuncTable
 
 		// Update is valid
 
-		Map< CFBamScopePKey, CFBamServerObjFuncBuff > subdict;
+		Map< YCFBamScopePKey, YCFBamServerObjFuncBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -734,28 +734,28 @@ public class CFBamRamServerObjFuncTable
 			subdict = dictByRetTblIdx.get( newKeyRetTblIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamServerObjFuncBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamServerObjFuncBuff >();
 			dictByRetTblIdx.put( newKeyRetTblIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteServerObjFunc( CFSecAuthorization Authorization,
-		CFBamServerObjFuncBuff Buff )
+	public void deleteServerObjFunc( YCFSecAuthorization Authorization,
+		YCFBamServerObjFuncBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamServerObjFuncTable.deleteServerObjFunc() ";
+		final String S_ProcName = "YCFBamRamServerObjFuncTable.deleteServerObjFunc() ";
 		String classCode;
-		CFBamScopePKey pkey = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = schema.getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamServerObjFuncBuff existing = dictByPKey.get( pkey );
+		YCFBamServerObjFuncBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteServerObjFunc",
 				pkey );
 		}
@@ -768,14 +768,14 @@ public class CFBamRamServerObjFuncTable
 						existing.getRequiredTenantId(),
 						existing.getRequiredId() );
 		}
-		CFBamServerObjFuncByRetTblIdxKey keyRetTblIdx = schema.getFactoryServerObjFunc().newRetTblIdxKey();
+		YCFBamServerObjFuncByRetTblIdxKey keyRetTblIdx = schema.getFactoryServerObjFunc().newRetTblIdxKey();
 		keyRetTblIdx.setOptionalRetTenantId( existing.getOptionalRetTenantId() );
 		keyRetTblIdx.setOptionalRetTableId( existing.getOptionalRetTableId() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFBamScopePKey, CFBamServerObjFuncBuff > subdict;
+		Map< YCFBamScopePKey, YCFBamServerObjFuncBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -785,20 +785,20 @@ public class CFBamRamServerObjFuncTable
 		schema.getTableServerMethod().deleteServerMethod( Authorization,
 			Buff );
 	}
-	public void deleteServerObjFuncByRetTblIdx( CFSecAuthorization Authorization,
+	public void deleteServerObjFuncByRetTblIdx( YCFSecAuthorization Authorization,
 		Long argRetTenantId,
 		Long argRetTableId )
 	{
-		CFBamServerObjFuncByRetTblIdxKey key = schema.getFactoryServerObjFunc().newRetTblIdxKey();
+		YCFBamServerObjFuncByRetTblIdxKey key = schema.getFactoryServerObjFunc().newRetTblIdxKey();
 		key.setOptionalRetTenantId( argRetTenantId );
 		key.setOptionalRetTableId( argRetTableId );
 		deleteServerObjFuncByRetTblIdx( Authorization, key );
 	}
 
-	public void deleteServerObjFuncByRetTblIdx( CFSecAuthorization Authorization,
-		CFBamServerObjFuncByRetTblIdxKey argKey )
+	public void deleteServerObjFuncByRetTblIdx( YCFSecAuthorization Authorization,
+		YCFBamServerObjFuncByRetTblIdxKey argKey )
 	{
-		CFBamServerObjFuncBuff cur;
+		YCFBamServerObjFuncBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalRetTenantId() != null ) {
 			anyNotNull = true;
@@ -809,15 +809,15 @@ public class CFBamRamServerObjFuncTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamServerObjFuncBuff> matchSet = new LinkedList<CFBamServerObjFuncBuff>();
-		Iterator<CFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamServerObjFuncBuff> matchSet = new LinkedList<YCFBamServerObjFuncBuff>();
+		Iterator<YCFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,
@@ -827,22 +827,22 @@ public class CFBamRamServerObjFuncTable
 		}
 	}
 
-	public void deleteServerObjFuncByUNameIdx( CFSecAuthorization Authorization,
+	public void deleteServerObjFuncByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
 		String argName )
 	{
-		CFBamServerMethodByUNameIdxKey key = schema.getFactoryServerMethod().newUNameIdxKey();
+		YCFBamServerMethodByUNameIdxKey key = schema.getFactoryServerMethod().newUNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTableId( argTableId );
 		key.setRequiredName( argName );
 		deleteServerObjFuncByUNameIdx( Authorization, key );
 	}
 
-	public void deleteServerObjFuncByUNameIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByUNameIdxKey argKey )
+	public void deleteServerObjFuncByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByUNameIdxKey argKey )
 	{
-		CFBamServerObjFuncBuff cur;
+		YCFBamServerObjFuncBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -850,15 +850,15 @@ public class CFBamRamServerObjFuncTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamServerObjFuncBuff> matchSet = new LinkedList<CFBamServerObjFuncBuff>();
-		Iterator<CFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamServerObjFuncBuff> matchSet = new LinkedList<YCFBamServerObjFuncBuff>();
+		Iterator<YCFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,
@@ -868,35 +868,35 @@ public class CFBamRamServerObjFuncTable
 		}
 	}
 
-	public void deleteServerObjFuncByMethTableIdx( CFSecAuthorization Authorization,
+	public void deleteServerObjFuncByMethTableIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId )
 	{
-		CFBamServerMethodByMethTableIdxKey key = schema.getFactoryServerMethod().newMethTableIdxKey();
+		YCFBamServerMethodByMethTableIdxKey key = schema.getFactoryServerMethod().newMethTableIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTableId( argTableId );
 		deleteServerObjFuncByMethTableIdx( Authorization, key );
 	}
 
-	public void deleteServerObjFuncByMethTableIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByMethTableIdxKey argKey )
+	public void deleteServerObjFuncByMethTableIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByMethTableIdxKey argKey )
 	{
-		CFBamServerObjFuncBuff cur;
+		YCFBamServerObjFuncBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamServerObjFuncBuff> matchSet = new LinkedList<CFBamServerObjFuncBuff>();
-		Iterator<CFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamServerObjFuncBuff> matchSet = new LinkedList<YCFBamServerObjFuncBuff>();
+		Iterator<YCFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,
@@ -906,22 +906,22 @@ public class CFBamRamServerObjFuncTable
 		}
 	}
 
-	public void deleteServerObjFuncByMethTableVisIdx( CFSecAuthorization Authorization,
+	public void deleteServerObjFuncByMethTableVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamServerMethodByMethTableVisIdxKey key = schema.getFactoryServerMethod().newMethTableVisIdxKey();
+		YCFBamServerMethodByMethTableVisIdxKey key = schema.getFactoryServerMethod().newMethTableVisIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTableId( argTableId );
 		key.setRequiredCodeVis( argCodeVis );
 		deleteServerObjFuncByMethTableVisIdx( Authorization, key );
 	}
 
-	public void deleteServerObjFuncByMethTableVisIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByMethTableVisIdxKey argKey )
+	public void deleteServerObjFuncByMethTableVisIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByMethTableVisIdxKey argKey )
 	{
-		CFBamServerObjFuncBuff cur;
+		YCFBamServerObjFuncBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -929,15 +929,15 @@ public class CFBamRamServerObjFuncTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamServerObjFuncBuff> matchSet = new LinkedList<CFBamServerObjFuncBuff>();
-		Iterator<CFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamServerObjFuncBuff> matchSet = new LinkedList<YCFBamServerObjFuncBuff>();
+		Iterator<YCFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,
@@ -947,32 +947,32 @@ public class CFBamRamServerObjFuncTable
 		}
 	}
 
-	public void deleteServerObjFuncByMethCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	public void deleteServerObjFuncByMethCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamServerMethodByMethCodeVisIdxKey key = schema.getFactoryServerMethod().newMethCodeVisIdxKey();
+		YCFBamServerMethodByMethCodeVisIdxKey key = schema.getFactoryServerMethod().newMethCodeVisIdxKey();
 		key.setRequiredCodeVis( argCodeVis );
 		deleteServerObjFuncByMethCodeVisIdx( Authorization, key );
 	}
 
-	public void deleteServerObjFuncByMethCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByMethCodeVisIdxKey argKey )
+	public void deleteServerObjFuncByMethCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByMethCodeVisIdxKey argKey )
 	{
-		CFBamServerObjFuncBuff cur;
+		YCFBamServerObjFuncBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamServerObjFuncBuff> matchSet = new LinkedList<CFBamServerObjFuncBuff>();
-		Iterator<CFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamServerObjFuncBuff> matchSet = new LinkedList<YCFBamServerObjFuncBuff>();
+		Iterator<YCFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,
@@ -982,20 +982,20 @@ public class CFBamRamServerObjFuncTable
 		}
 	}
 
-	public void deleteServerObjFuncByDefSchemaIdx( CFSecAuthorization Authorization,
+	public void deleteServerObjFuncByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId )
 	{
-		CFBamServerMethodByDefSchemaIdxKey key = schema.getFactoryServerMethod().newDefSchemaIdxKey();
+		YCFBamServerMethodByDefSchemaIdxKey key = schema.getFactoryServerMethod().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteServerObjFuncByDefSchemaIdx( Authorization, key );
 	}
 
-	public void deleteServerObjFuncByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByDefSchemaIdxKey argKey )
+	public void deleteServerObjFuncByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByDefSchemaIdxKey argKey )
 	{
-		CFBamServerObjFuncBuff cur;
+		YCFBamServerObjFuncBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalDefSchemaTenantId() != null ) {
 			anyNotNull = true;
@@ -1006,15 +1006,15 @@ public class CFBamRamServerObjFuncTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamServerObjFuncBuff> matchSet = new LinkedList<CFBamServerObjFuncBuff>();
-		Iterator<CFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamServerObjFuncBuff> matchSet = new LinkedList<YCFBamServerObjFuncBuff>();
+		Iterator<YCFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,
@@ -1024,18 +1024,18 @@ public class CFBamRamServerObjFuncTable
 		}
 	}
 
-	public void deleteServerObjFuncByIdIdx( CFSecAuthorization Authorization,
+	public void deleteServerObjFuncByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deleteServerObjFuncByIdIdx( Authorization, key );
 	}
 
-	public void deleteServerObjFuncByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey )
+	public void deleteServerObjFuncByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -1043,16 +1043,16 @@ public class CFBamRamServerObjFuncTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFBamServerObjFuncBuff cur;
-		LinkedList<CFBamServerObjFuncBuff> matchSet = new LinkedList<CFBamServerObjFuncBuff>();
-		Iterator<CFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
+		YCFBamServerObjFuncBuff cur;
+		LinkedList<YCFBamServerObjFuncBuff> matchSet = new LinkedList<YCFBamServerObjFuncBuff>();
+		Iterator<YCFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,
@@ -1062,32 +1062,32 @@ public class CFBamRamServerObjFuncTable
 		}
 	}
 
-	public void deleteServerObjFuncByTenantIdx( CFSecAuthorization Authorization,
+	public void deleteServerObjFuncByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFBamScopeByTenantIdxKey key = schema.getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = schema.getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteServerObjFuncByTenantIdx( Authorization, key );
 	}
 
-	public void deleteServerObjFuncByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey )
+	public void deleteServerObjFuncByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey )
 	{
-		CFBamServerObjFuncBuff cur;
+		YCFBamServerObjFuncBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamServerObjFuncBuff> matchSet = new LinkedList<CFBamServerObjFuncBuff>();
-		Iterator<CFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamServerObjFuncBuff> matchSet = new LinkedList<YCFBamServerObjFuncBuff>();
+		Iterator<YCFBamServerObjFuncBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamServerObjFuncBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableServerObjFunc().readDerivedByIdIdx( Authorization,

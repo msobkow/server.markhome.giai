@@ -2,17 +2,17 @@
 // Description: Java 11 Default Factory implementation for Relation.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,89 +54,89 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 	/*
-	 *	CFBamRelationFactory implementation for Relation
+	 *	YCFBamRelationFactory implementation for Relation
 	 */
-public class CFBamRelationDefaultFactory
-	implements ICFBamRelationFactory
+public class YCFBamRelationDefaultFactory
+	implements IYCFBamRelationFactory
 {
-	public CFBamRelationDefaultFactory() {
+	public YCFBamRelationDefaultFactory() {
 	}
 
-	public CFBamRelationByUNameIdxKey newUNameIdxKey() {
-		CFBamRelationByUNameIdxKey key =
-			new CFBamRelationByUNameIdxKey();
+	public YCFBamRelationByUNameIdxKey newUNameIdxKey() {
+		YCFBamRelationByUNameIdxKey key =
+			new YCFBamRelationByUNameIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationByRelnTenantIdxKey newRelnTenantIdxKey() {
-		CFBamRelationByRelnTenantIdxKey key =
-			new CFBamRelationByRelnTenantIdxKey();
+	public YCFBamRelationByRelnTenantIdxKey newRelnTenantIdxKey() {
+		YCFBamRelationByRelnTenantIdxKey key =
+			new YCFBamRelationByRelnTenantIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationByRelTableIdxKey newRelTableIdxKey() {
-		CFBamRelationByRelTableIdxKey key =
-			new CFBamRelationByRelTableIdxKey();
+	public YCFBamRelationByRelTableIdxKey newRelTableIdxKey() {
+		YCFBamRelationByRelTableIdxKey key =
+			new YCFBamRelationByRelTableIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationByCodeVisIdxKey newCodeVisIdxKey() {
-		CFBamRelationByCodeVisIdxKey key =
-			new CFBamRelationByCodeVisIdxKey();
+	public YCFBamRelationByCodeVisIdxKey newCodeVisIdxKey() {
+		YCFBamRelationByCodeVisIdxKey key =
+			new YCFBamRelationByCodeVisIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationByTableCodeVisIdxKey newTableCodeVisIdxKey() {
-		CFBamRelationByTableCodeVisIdxKey key =
-			new CFBamRelationByTableCodeVisIdxKey();
+	public YCFBamRelationByTableCodeVisIdxKey newTableCodeVisIdxKey() {
+		YCFBamRelationByTableCodeVisIdxKey key =
+			new YCFBamRelationByTableCodeVisIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationByDefSchemaIdxKey newDefSchemaIdxKey() {
-		CFBamRelationByDefSchemaIdxKey key =
-			new CFBamRelationByDefSchemaIdxKey();
+	public YCFBamRelationByDefSchemaIdxKey newDefSchemaIdxKey() {
+		YCFBamRelationByDefSchemaIdxKey key =
+			new YCFBamRelationByDefSchemaIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationByFromKeyIdxKey newFromKeyIdxKey() {
-		CFBamRelationByFromKeyIdxKey key =
-			new CFBamRelationByFromKeyIdxKey();
+	public YCFBamRelationByFromKeyIdxKey newFromKeyIdxKey() {
+		YCFBamRelationByFromKeyIdxKey key =
+			new YCFBamRelationByFromKeyIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationByToTblIdxKey newToTblIdxKey() {
-		CFBamRelationByToTblIdxKey key =
-			new CFBamRelationByToTblIdxKey();
+	public YCFBamRelationByToTblIdxKey newToTblIdxKey() {
+		YCFBamRelationByToTblIdxKey key =
+			new YCFBamRelationByToTblIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationByToKeyIdxKey newToKeyIdxKey() {
-		CFBamRelationByToKeyIdxKey key =
-			new CFBamRelationByToKeyIdxKey();
+	public YCFBamRelationByToKeyIdxKey newToKeyIdxKey() {
+		YCFBamRelationByToKeyIdxKey key =
+			new YCFBamRelationByToKeyIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationByNarrowedIdxKey newNarrowedIdxKey() {
-		CFBamRelationByNarrowedIdxKey key =
-			new CFBamRelationByNarrowedIdxKey();
+	public YCFBamRelationByNarrowedIdxKey newNarrowedIdxKey() {
+		YCFBamRelationByNarrowedIdxKey key =
+			new YCFBamRelationByNarrowedIdxKey();
 		return( key );
 	}
 
-	public CFBamRelationBuff newBuff() {
-		CFBamRelationBuff buff =
-			new CFBamRelationBuff();
+	public YCFBamRelationBuff newBuff() {
+		YCFBamRelationBuff buff =
+			new YCFBamRelationBuff();
 		return( buff );
 	}
 
-	public CFBamRelationHBuff newHBuff() {
-		CFBamRelationHBuff hbuff =
-			new CFBamRelationHBuff();
+	public YCFBamRelationHBuff newHBuff() {
+		YCFBamRelationHBuff hbuff =
+			new YCFBamRelationHBuff();
 		return( hbuff );
 	}
 }

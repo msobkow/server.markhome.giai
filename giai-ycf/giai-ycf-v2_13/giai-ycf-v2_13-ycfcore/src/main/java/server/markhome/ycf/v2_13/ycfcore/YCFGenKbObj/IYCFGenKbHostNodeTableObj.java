@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbHostNodeTableObj
+public interface IYCFGenKbHostNodeTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbHostNodeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbHostNodeObj newInstance();
+	IYCFGenKbHostNodeObj newInstance();
 
 	/**
 	 *	Instantiate a new HostNode edition of the specified HostNode instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbHostNodeEditObj newEditInstance( ICFGenKbHostNodeObj orig );
+	IYCFGenKbHostNodeEditObj newEditInstance( IYCFGenKbHostNodeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbHostNodeObj realiseHostNode( ICFGenKbHostNodeObj Obj );
+	IYCFGenKbHostNodeObj realiseHostNode( IYCFGenKbHostNodeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbHostNodeObj createHostNode( ICFGenKbHostNodeObj Obj );
+	IYCFGenKbHostNodeObj createHostNode( IYCFGenKbHostNodeObj Obj );
 
 	/**
 	 *	Read a HostNode-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbHostNodeTableObj
 	 *	@return	The HostNode-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbHostNodeObj readHostNode( CFGenKbHostNodePKey pkey );
+	IYCFGenKbHostNodeObj readHostNode( YCFGenKbHostNodePKey pkey );
 
 	/**
 	 *	Read a HostNode-derived instance by it's primary key.
@@ -91,158 +91,158 @@ public interface ICFGenKbHostNodeTableObj
 	 *	@return	The HostNode-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbHostNodeObj readHostNode( CFGenKbHostNodePKey pkey,
+	IYCFGenKbHostNodeObj readHostNode( YCFGenKbHostNodePKey pkey,
 		boolean forceRead );
 
-	ICFGenKbHostNodeObj readCachedHostNode( CFGenKbHostNodePKey pkey );
+	IYCFGenKbHostNodeObj readCachedHostNode( YCFGenKbHostNodePKey pkey );
 
-	public void reallyDeepDisposeHostNode( ICFGenKbHostNodeObj obj );
+	public void reallyDeepDisposeHostNode( IYCFGenKbHostNodeObj obj );
 
-	void deepDisposeHostNode( CFGenKbHostNodePKey pkey );
+	void deepDisposeHostNode( YCFGenKbHostNodePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbHostNodeObj lockHostNode( CFGenKbHostNodePKey pkey );
+	IYCFGenKbHostNodeObj lockHostNode( YCFGenKbHostNodePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the HostNode-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbHostNodeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbHostNodeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbHostNodeObj> readAllHostNode();
+	List<IYCFGenKbHostNodeObj> readAllHostNode();
 
 	/**
 	 *	Return a sorted map of all the HostNode-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbHostNodeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbHostNodeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbHostNodeObj> readAllHostNode( boolean forceRead );
+	List<IYCFGenKbHostNodeObj> readAllHostNode( boolean forceRead );
 
-	List<ICFGenKbHostNodeObj> readCachedAllHostNode();
+	List<IYCFGenKbHostNodeObj> readCachedAllHostNode();
 
 	/**
 	 *	Return a sorted map of a page of the HostNode-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbHostNodeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbHostNodeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbHostNodeObj> pageAllHostNode(Long priorClusterId,
+	List<IYCFGenKbHostNodeObj> pageAllHostNode(Long priorClusterId,
 		Long priorHostNodeId );
 
 	/**
-	 *	Get the CFGenKbHostNodeObj instance for the primary key attributes.
+	 *	Get the YCFGenKbHostNodeObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argHostNodeId	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbHostNodeObj cached instance for the primary key, or
+	 *	@return	YCFGenKbHostNodeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbHostNodeObj readHostNodeByIdIdx( long ClusterId,
+	IYCFGenKbHostNodeObj readHostNodeByIdIdx( long ClusterId,
 		long HostNodeId );
 
 	/**
-	 *	Get the CFGenKbHostNodeObj instance for the primary key attributes.
+	 *	Get the YCFGenKbHostNodeObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argHostNodeId	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbHostNodeObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbHostNodeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbHostNodeObj readHostNodeByIdIdx( long ClusterId,
+	IYCFGenKbHostNodeObj readHostNodeByIdIdx( long ClusterId,
 		long HostNodeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbHostNodeObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbHostNodeObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbHostNodeObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbHostNodeObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbHostNodeObj> readHostNodeByClusterIdx( long ClusterId );
+	List<IYCFGenKbHostNodeObj> readHostNodeByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFGenKbHostNodeObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbHostNodeObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbHostNodeObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbHostNodeObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbHostNodeObj> readHostNodeByClusterIdx( long ClusterId,
+	List<IYCFGenKbHostNodeObj> readHostNodeByClusterIdx( long ClusterId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbHostNodeObj instance for the unique UDescrIdx key.
+	 *	Get the YCFGenKbHostNodeObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argDescription	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbHostNodeObj cached instance for the unique UDescrIdx key, or
+	 *	@return	YCFGenKbHostNodeObj cached instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbHostNodeObj readHostNodeByUDescrIdx(long ClusterId,
+	IYCFGenKbHostNodeObj readHostNodeByUDescrIdx(long ClusterId,
 		String Description );
 
 	/**
-	 *	Get the CFGenKbHostNodeObj instance for the unique UDescrIdx key.
+	 *	Get the YCFGenKbHostNodeObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argDescription	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbHostNodeObj refreshed instance for the unique UDescrIdx key, or
+	 *	@return	YCFGenKbHostNodeObj refreshed instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbHostNodeObj readHostNodeByUDescrIdx(long ClusterId,
+	IYCFGenKbHostNodeObj readHostNodeByUDescrIdx(long ClusterId,
 		String Description,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbHostNodeObj instance for the unique HostNameIdx key.
+	 *	Get the YCFGenKbHostNodeObj instance for the unique HostNameIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argHostName	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbHostNodeObj cached instance for the unique HostNameIdx key, or
+	 *	@return	YCFGenKbHostNodeObj cached instance for the unique HostNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbHostNodeObj readHostNodeByHostNameIdx(long ClusterId,
+	IYCFGenKbHostNodeObj readHostNodeByHostNameIdx(long ClusterId,
 		String HostName );
 
 	/**
-	 *	Get the CFGenKbHostNodeObj instance for the unique HostNameIdx key.
+	 *	Get the YCFGenKbHostNodeObj instance for the unique HostNameIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argHostName	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbHostNodeObj refreshed instance for the unique HostNameIdx key, or
+	 *	@return	YCFGenKbHostNodeObj refreshed instance for the unique HostNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbHostNodeObj readHostNodeByHostNameIdx(long ClusterId,
+	IYCFGenKbHostNodeObj readHostNodeByHostNameIdx(long ClusterId,
 		String HostName,
 		boolean forceRead );
 
-	ICFGenKbHostNodeObj readCachedHostNodeByIdIdx( long ClusterId,
+	IYCFGenKbHostNodeObj readCachedHostNodeByIdIdx( long ClusterId,
 		long HostNodeId );
 
-	List<ICFGenKbHostNodeObj> readCachedHostNodeByClusterIdx( long ClusterId );
+	List<IYCFGenKbHostNodeObj> readCachedHostNodeByClusterIdx( long ClusterId );
 
-	ICFGenKbHostNodeObj readCachedHostNodeByUDescrIdx( long ClusterId,
+	IYCFGenKbHostNodeObj readCachedHostNodeByUDescrIdx( long ClusterId,
 		String Description );
 
-	ICFGenKbHostNodeObj readCachedHostNodeByHostNameIdx( long ClusterId,
+	IYCFGenKbHostNodeObj readCachedHostNodeByHostNameIdx( long ClusterId,
 		String HostName );
 
 	void deepDisposeHostNodeByIdIdx( long ClusterId,
@@ -265,19 +265,19 @@ public interface ICFGenKbHostNodeTableObj
 	 *	@return	A List of HostNode-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFGenKbHostNodeObj> pageHostNodeByClusterIdx( long ClusterId,
+	List<IYCFGenKbHostNodeObj> pageHostNodeByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Long priorHostNodeId );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbHostNodeObj updateHostNode( ICFGenKbHostNodeObj Obj );
+	IYCFGenKbHostNodeObj updateHostNode( IYCFGenKbHostNodeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteHostNode( ICFGenKbHostNodeObj Obj );
+	void deleteHostNode( IYCFGenKbHostNodeObj Obj );
 
 	/**
 	 *	Internal use only.

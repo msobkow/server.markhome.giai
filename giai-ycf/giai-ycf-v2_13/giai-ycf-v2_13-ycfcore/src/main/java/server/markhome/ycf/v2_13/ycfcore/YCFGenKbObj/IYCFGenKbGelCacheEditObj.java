@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb GelCache.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb GelCache.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,34 +27,34 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGelCacheEditObj
-	extends ICFGenKbGelCacheObj
+public interface IYCFGenKbGelCacheEditObj
+	extends IYCFGenKbGelCacheObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbGelCacheObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbGelCacheObj.
 	 */
-	ICFGenKbGelCacheObj getOrig();
+	IYCFGenKbGelCacheObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbGelCacheObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbGelCacheObj.
 	 */
-	ICFGenKbGelCacheObj getOrigAsGelCache();
+	IYCFGenKbGelCacheObj getOrigAsGelCache();
 
 	/*
 	 *	create() may return a different instance than the
@@ -65,17 +65,17 @@ public interface ICFGenKbGelCacheEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbGelCacheObj create();
+	IYCFGenKbGelCacheObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbGelCacheEditObj update();
+	YCFGenKbGelCacheEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbGelCacheEditObj deleteInstance();
+	YCFGenKbGelCacheEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute CacheName.
@@ -92,16 +92,16 @@ public interface ICFGenKbGelCacheEditObj
 	void setRequiredCacheName( String value );
 
 	/**
-	 *	Get the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant();
+	IYCFGenKbTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Set the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFGenKbTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFGenKbTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredOwnerTenant( ICFGenKbTenantObj value );
+	void setRequiredOwnerTenant( IYCFGenKbTenantObj value );
 }

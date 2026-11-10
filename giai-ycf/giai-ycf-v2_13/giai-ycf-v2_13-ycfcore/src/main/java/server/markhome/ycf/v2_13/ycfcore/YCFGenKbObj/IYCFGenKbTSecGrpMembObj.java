@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb TSecGrpMemb.
+// Description: Java 11 Object interface for YCFGenKb TSecGrpMemb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbTSecGrpMembObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbTSecGrpMembObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	ICFGenKbSecUserObj getCreatedBy();
+	IYCFGenKbSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -59,9 +59,9 @@ public interface ICFGenKbTSecGrpMembObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	ICFGenKbSecUserObj getUpdatedBy();
+	IYCFGenKbSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -72,9 +72,9 @@ public interface ICFGenKbTSecGrpMembObj
 	/**
 	 *	Realise this instance of a TSecGrpMemb.
 	 *
-	 *	@return	CFGenKbTSecGrpMembObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbTSecGrpMembObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbTSecGrpMembObj realise();
+	IYCFGenKbTSecGrpMembObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -86,99 +86,99 @@ public interface ICFGenKbTSecGrpMembObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbTSecGrpMembObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbTSecGrpMembObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbTSecGrpMembObj read();
+	IYCFGenKbTSecGrpMembObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbTSecGrpMembObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbTSecGrpMembObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbTSecGrpMembObj read( boolean forceRead );
+	IYCFGenKbTSecGrpMembObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this TSecGrpMemb instance.
 	 *
-	 *	@return	The newly locked ICFGenKbTSecGrpMembEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbTSecGrpMembEditObj edition of this instance.
 	 */
-	ICFGenKbTSecGrpMembEditObj beginEdit();
+	IYCFGenKbTSecGrpMembEditObj beginEdit();
 
 	/**
 	 *	End this edition of this TSecGrpMemb instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this TSecGrpMemb instance.
 	 *
-	 *	@return	The ICFGenKbTSecGrpMembEditObj edition of this instance.
+	 *	@return	The IYCFGenKbTSecGrpMembEditObj edition of this instance.
 	 */
-	ICFGenKbTSecGrpMembEditObj getEdit();
+	IYCFGenKbTSecGrpMembEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this TSecGrpMemb instance as a ICFGenKbTSecGrpMembEditObj.
+	 *	Get the current edition of this TSecGrpMemb instance as a IYCFGenKbTSecGrpMembEditObj.
 	 *
-	 *	@return	The ICFGenKbTSecGrpMembEditObj edition of this instance.
+	 *	@return	The IYCFGenKbTSecGrpMembEditObj edition of this instance.
 	 */
-	ICFGenKbTSecGrpMembEditObj getEditAsTSecGrpMemb();
+	IYCFGenKbTSecGrpMembEditObj getEditAsTSecGrpMemb();
 
 	/**
-	 *	Get the ICFGenKbTSecGrpMembTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbTSecGrpMembTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbTSecGrpMembTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbTSecGrpMembTableObj table cache which manages this instance.
 	 */
-	ICFGenKbTSecGrpMembTableObj getTSecGrpMembTable();
+	IYCFGenKbTSecGrpMembTableObj getTSecGrpMembTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbTSecGrpMembBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbTSecGrpMembBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbTSecGrpMembBuff instance which currently backs this object.
+	 *	@return	YCFGenKbTSecGrpMembBuff instance which currently backs this object.
 	 */
-	CFGenKbTSecGrpMembBuff getBuff();
+	YCFGenKbTSecGrpMembBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbTSecGrpMembBuff value );
+	void setBuff( YCFGenKbTSecGrpMembBuff value );
 
 	/**
-	 *	Get the CFGenKbTSecGrpMembBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbTSecGrpMembBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbTSecGrpMembBuff instance which currently backs this object.
+	 *	@return	YCFGenKbTSecGrpMembBuff instance which currently backs this object.
 	 */
-	CFGenKbTSecGrpMembBuff getTSecGrpMembBuff();
+	YCFGenKbTSecGrpMembBuff getTSecGrpMembBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbTSecGrpMembPKey primary key for this instance.
+	 *	@return	YCFGenKbTSecGrpMembPKey primary key for this instance.
 	 */
-	CFGenKbTSecGrpMembPKey getPKey();
+	YCFGenKbTSecGrpMembPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbTSecGrpMembPKey primary key value for this instance.
+	 *	@param YCFGenKbTSecGrpMembPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbTSecGrpMembPKey value );
+	void setPKey( YCFGenKbTSecGrpMembPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -226,46 +226,46 @@ public interface ICFGenKbTSecGrpMembObj
 	UUID getRequiredSecUserId();
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant();
+	IYCFGenKbTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
-	 *	Get the required ICFGenKbTSecGroupObj instance referenced by the Group key.
+	 *	Get the required IYCFGenKbTSecGroupObj instance referenced by the Group key.
 	 *
-	 *	@return	The required ICFGenKbTSecGroupObj instance referenced by the Group key.
+	 *	@return	The required IYCFGenKbTSecGroupObj instance referenced by the Group key.
 	 */
-	ICFGenKbTSecGroupObj getRequiredContainerGroup();
+	IYCFGenKbTSecGroupObj getRequiredContainerGroup();
 
 	/**
-	 *	Get the required ICFGenKbTSecGroupObj instance referenced by the Group key.
+	 *	Get the required IYCFGenKbTSecGroupObj instance referenced by the Group key.
 	 *
-	 *	@return	The required ICFGenKbTSecGroupObj instance referenced by the Group key.
+	 *	@return	The required IYCFGenKbTSecGroupObj instance referenced by the Group key.
 	 */
-	ICFGenKbTSecGroupObj getRequiredContainerGroup( boolean forceRead );
+	IYCFGenKbTSecGroupObj getRequiredContainerGroup( boolean forceRead );
 
 	/**
-	 *	Get the required ICFGenKbSecUserObj instance referenced by the User key.
+	 *	Get the required IYCFGenKbSecUserObj instance referenced by the User key.
 	 *
-	 *	@return	The required ICFGenKbSecUserObj instance referenced by the User key.
+	 *	@return	The required IYCFGenKbSecUserObj instance referenced by the User key.
 	 */
-	ICFGenKbSecUserObj getRequiredParentUser();
+	IYCFGenKbSecUserObj getRequiredParentUser();
 
 	/**
-	 *	Get the required ICFGenKbSecUserObj instance referenced by the User key.
+	 *	Get the required IYCFGenKbSecUserObj instance referenced by the User key.
 	 *
-	 *	@return	The required ICFGenKbSecUserObj instance referenced by the User key.
+	 *	@return	The required IYCFGenKbSecUserObj instance referenced by the User key.
 	 */
-	ICFGenKbSecUserObj getRequiredParentUser( boolean forceRead );
+	IYCFGenKbSecUserObj getRequiredParentUser( boolean forceRead );
 
 	/**
 	 *	Internal use only.

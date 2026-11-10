@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for TopProject.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,19 +35,19 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamTopProjectTable database interface for TopProject
+ *	YCFBamTopProjectTable database interface for TopProject
  */
-public interface ICFBamTopProjectTable
-extends ICFIntTopProjectTable
+public interface IYCFBamTopProjectTable
+extends IYCFIntTopProjectTable
 {
 
 	/**
@@ -58,8 +58,8 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createTopProject( CFSecAuthorization Authorization,
-		CFIntTopProjectBuff Buff );
+	void createTopProject( YCFSecAuthorization Authorization,
+		YCFIntTopProjectBuff Buff );
 
 
 	/**
@@ -70,8 +70,8 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateTopProject( CFSecAuthorization Authorization,
-		CFIntTopProjectBuff Buff );
+	void updateTopProject( YCFSecAuthorization Authorization,
+		YCFIntTopProjectBuff Buff );
 
 
 	/**
@@ -81,8 +81,8 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteTopProject( CFSecAuthorization Authorization,
-		CFIntTopProjectBuff Buff );
+	void deleteTopProject( YCFSecAuthorization Authorization,
+		YCFIntTopProjectBuff Buff );
 	/**
 	 *	Delete the TopProject instance identified by the primary key attributes.
 	 *
@@ -92,7 +92,7 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	argId	The TopProject key attribute of the instance generating the id.
 	 */
-	void deleteTopProjectByIdIdx( CFSecAuthorization Authorization,
+	void deleteTopProjectByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -103,8 +103,8 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteTopProjectByIdIdx( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey argKey );
+	void deleteTopProjectByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey argKey );
 	/**
 	 *	Delete the TopProject instances identified by the key TenantIdx.
 	 *
@@ -112,7 +112,7 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	argTenantId	The TopProject key attribute of the instance generating the id.
 	 */
-	void deleteTopProjectByTenantIdx( CFSecAuthorization Authorization,
+	void deleteTopProjectByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -122,8 +122,8 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTopProjectByTenantIdx( CFSecAuthorization Authorization,
-		CFIntTopProjectByTenantIdxKey argKey );
+	void deleteTopProjectByTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntTopProjectByTenantIdxKey argKey );
 	/**
 	 *	Delete the TopProject instances identified by the key TopDomainIdx.
 	 *
@@ -133,7 +133,7 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	argTopDomainId	The TopProject key attribute of the instance generating the id.
 	 */
-	void deleteTopProjectByTopDomainIdx( CFSecAuthorization Authorization,
+	void deleteTopProjectByTopDomainIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopDomainId );
 
@@ -144,8 +144,8 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTopProjectByTopDomainIdx( CFSecAuthorization Authorization,
-		CFIntTopProjectByTopDomainIdxKey argKey );
+	void deleteTopProjectByTopDomainIdx( YCFSecAuthorization Authorization,
+		YCFIntTopProjectByTopDomainIdxKey argKey );
 	/**
 	 *	Delete the TopProject instances identified by the key NameIdx.
 	 *
@@ -157,7 +157,7 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	argName	The TopProject key attribute of the instance generating the id.
 	 */
-	void deleteTopProjectByNameIdx( CFSecAuthorization Authorization,
+	void deleteTopProjectByNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopDomainId,
 		String argName );
@@ -169,8 +169,8 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTopProjectByNameIdx( CFSecAuthorization Authorization,
-		CFIntTopProjectByNameIdxKey argKey );
+	void deleteTopProjectByNameIdx( YCFSecAuthorization Authorization,
+		YCFIntTopProjectByNameIdxKey argKey );
 
 
 	/**
@@ -183,8 +183,8 @@ extends ICFIntTopProjectTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTopProjectBuff readDerived( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey PKey );
+	YCFIntTopProjectBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey PKey );
 
 	/**
 	 *	Lock the derived TopProject buffer instance by primary key.
@@ -196,8 +196,8 @@ extends ICFIntTopProjectTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTopProjectBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey PKey );
+	YCFIntTopProjectBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey PKey );
 
 	/**
 	 *	Read all TopProject instances.
@@ -206,7 +206,7 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFIntTopProjectBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFIntTopProjectBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived TopProject buffer instance identified by the unique key IdIdx.
@@ -220,7 +220,7 @@ extends ICFIntTopProjectTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTopProjectBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFIntTopProjectBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -233,7 +233,7 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntTopProjectBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntTopProjectBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -247,7 +247,7 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntTopProjectBuff[] readDerivedByTopDomainIdx( CFSecAuthorization Authorization,
+	YCFIntTopProjectBuff[] readDerivedByTopDomainIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId );
 
@@ -265,7 +265,7 @@ extends ICFIntTopProjectTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntTopProjectBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	YCFIntTopProjectBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId,
 		String Name );
@@ -280,10 +280,10 @@ extends ICFIntTopProjectTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopProjectBuff readBuff( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey PKey );
+	YCFIntTopProjectBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey PKey );
 
 	/**
 	 *	Lock the specific TopProject buffer instance identified by the primary key.
@@ -295,10 +295,10 @@ extends ICFIntTopProjectTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopProjectBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey PKey );
+	YCFIntTopProjectBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey PKey );
 
 	/**
 	 *	Read all the specific TopProject buffer instances.
@@ -307,7 +307,7 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@return All the specific TopProject instances in the database accessible for the Authorization.
 	 */
-	CFIntTopProjectBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFIntTopProjectBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific TopProject buffer instance identified by the unique key IdIdx.
@@ -321,9 +321,9 @@ extends ICFIntTopProjectTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopProjectBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFIntTopProjectBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -336,9 +336,9 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopProjectBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntTopProjectBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -352,9 +352,9 @@ extends ICFIntTopProjectTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopProjectBuff[] readBuffByTopDomainIdx( CFSecAuthorization Authorization,
+	YCFIntTopProjectBuff[] readBuffByTopDomainIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId );
 
@@ -372,9 +372,9 @@ extends ICFIntTopProjectTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntTopProjectBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	YCFIntTopProjectBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId,
 		String Name );
@@ -382,7 +382,7 @@ extends ICFIntTopProjectTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

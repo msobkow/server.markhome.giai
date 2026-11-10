@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a Value buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,12 +55,12 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamValueBuff
+public class YCFBamValueBuff
 {
 	public final static String CLASS_CODE = "a80c";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -79,7 +79,7 @@ public class CFBamValueBuff
 	public static final long PREVID_INIT_VALUE = 0L;
 	public static final long NEXTTENANTID_INIT_VALUE = 0L;
 	public static final long NEXTID_INIT_VALUE = 0L;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = CFBamSchema.ordinalToCodeVisibilityEnum( 0 );
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = YCFBamSchema.ordinalToCodeVisibilityEnum( 0 );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long SCOPEID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
@@ -89,11 +89,11 @@ public class CFBamValueBuff
 	public static final long PREVID_MIN_VALUE = 0L;
 	public static final long NEXTTENANTID_MIN_VALUE = 0L;
 	public static final long NEXTID_MIN_VALUE = 0L;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = ICFBamSchema.CodeVisibilityEnum.Public;
-	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = ICFBamSchema.CodeVisibilityEnum.Private;
-	protected UUID createdByUserId = CFBamValueBuff.INIT_CREATEDBY;
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = IYCFBamSchema.CodeVisibilityEnum.Public;
+	public static final IYCFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = IYCFBamSchema.CodeVisibilityEnum.Private;
+	protected UUID createdByUserId = YCFBamValueBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFBamValueBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFBamValueBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected long requiredTenantId;
 	protected long requiredScopeId;
@@ -113,28 +113,28 @@ public class CFBamValueBuff
 	protected Long optionalPrevId;
 	protected Long optionalNextTenantId;
 	protected Long optionalNextId;
-	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
+	protected IYCFBamSchema.CodeVisibilityEnum requiredCodeVis;
 	protected int requiredRevision;
-	public CFBamValueBuff() {
-		requiredTenantId = CFBamValueBuff.TENANTID_INIT_VALUE;
-		requiredScopeId = CFBamValueBuff.SCOPEID_INIT_VALUE;
-		requiredId = CFBamValueBuff.ID_INIT_VALUE;
+	public YCFBamValueBuff() {
+		requiredTenantId = YCFBamValueBuff.TENANTID_INIT_VALUE;
+		requiredScopeId = YCFBamValueBuff.SCOPEID_INIT_VALUE;
+		requiredId = YCFBamValueBuff.ID_INIT_VALUE;
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
-		requiredName = new String( CFBamValueBuff.NAME_INIT_VALUE );
+		requiredName = new String( YCFBamValueBuff.NAME_INIT_VALUE );
 		optionalShortName = null;
 		optionalLabel = null;
 		optionalShortDescription = null;
 		optionalDescription = null;
 		optionalDefaultXmlValue = null;
-		requiredIsNullable = CFBamValueBuff.ISNULLABLE_INIT_VALUE;
+		requiredIsNullable = YCFBamValueBuff.ISNULLABLE_INIT_VALUE;
 		optionalGenerateId = null;
-		requiredImplementsPolymorph = CFBamValueBuff.IMPLEMENTSPOLYMORPH_INIT_VALUE;
+		requiredImplementsPolymorph = YCFBamValueBuff.IMPLEMENTSPOLYMORPH_INIT_VALUE;
 		optionalPrevTenantId = null;
 		optionalPrevId = null;
 		optionalNextTenantId = null;
 		optionalNextId = null;
-		requiredCodeVis = CFBamValueBuff.CODEVIS_INIT_VALUE;
+		requiredCodeVis = YCFBamValueBuff.CODEVIS_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -177,13 +177,13 @@ public class CFBamValueBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFBamValueBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamValueBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFBamValueBuff.TENANTID_MIN_VALUE );
+				YCFBamValueBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -193,13 +193,13 @@ public class CFBamValueBuff
 	}
 
 	public void setRequiredScopeId( long value ) {
-		if( value < CFBamValueBuff.SCOPEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamValueBuff.SCOPEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredScopeId",
 				1,
 				"value",
 				value,
-				CFBamValueBuff.SCOPEID_MIN_VALUE );
+				YCFBamValueBuff.SCOPEID_MIN_VALUE );
 		}
 		requiredScopeId = value;
 	}
@@ -209,13 +209,13 @@ public class CFBamValueBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFBamValueBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamValueBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFBamValueBuff.ID_MIN_VALUE );
+				YCFBamValueBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -228,13 +228,13 @@ public class CFBamValueBuff
 		if( value == null ) {
 			optionalDefSchemaTenantId = null;
 		}
-		else if( value < CFBamValueBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamValueBuff.DEFSCHEMATENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaTenantId",
 				1,
 				"value",
 				value,
-				CFBamValueBuff.DEFSCHEMATENANTID_MIN_VALUE );
+				YCFBamValueBuff.DEFSCHEMATENANTID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaTenantId = value;
@@ -249,13 +249,13 @@ public class CFBamValueBuff
 		if( value == null ) {
 			optionalDefSchemaId = null;
 		}
-		else if( value < CFBamValueBuff.DEFSCHEMAID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamValueBuff.DEFSCHEMAID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalDefSchemaId",
 				1,
 				"value",
 				value,
-				CFBamValueBuff.DEFSCHEMAID_MIN_VALUE );
+				YCFBamValueBuff.DEFSCHEMAID_MIN_VALUE );
 		}
 		else {
 			optionalDefSchemaId = value;
@@ -268,13 +268,13 @@ public class CFBamValueBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -293,7 +293,7 @@ public class CFBamValueBuff
 			optionalShortName = null;
 		}
 		else if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortName",
 				1,
 				"value.length()",
@@ -314,7 +314,7 @@ public class CFBamValueBuff
 			optionalLabel = null;
 		}
 		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalLabel",
 				1,
 				"value.length()",
@@ -335,7 +335,7 @@ public class CFBamValueBuff
 			optionalShortDescription = null;
 		}
 		else if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalShortDescription",
 				1,
 				"value.length()",
@@ -356,7 +356,7 @@ public class CFBamValueBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1023 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -377,7 +377,7 @@ public class CFBamValueBuff
 			optionalDefaultXmlValue = null;
 		}
 		else if( value.length() > 1023 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDefaultXmlValue",
 				1,
 				"value.length()",
@@ -421,13 +421,13 @@ public class CFBamValueBuff
 		if( value == null ) {
 			optionalPrevTenantId = null;
 		}
-		else if( value < CFBamValueBuff.PREVTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamValueBuff.PREVTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrevTenantId",
 				1,
 				"value",
 				value,
-				CFBamValueBuff.PREVTENANTID_MIN_VALUE );
+				YCFBamValueBuff.PREVTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalPrevTenantId = value;
@@ -442,13 +442,13 @@ public class CFBamValueBuff
 		if( value == null ) {
 			optionalPrevId = null;
 		}
-		else if( value < CFBamValueBuff.PREVID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamValueBuff.PREVID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalPrevId",
 				1,
 				"value",
 				value,
-				CFBamValueBuff.PREVID_MIN_VALUE );
+				YCFBamValueBuff.PREVID_MIN_VALUE );
 		}
 		else {
 			optionalPrevId = value;
@@ -463,13 +463,13 @@ public class CFBamValueBuff
 		if( value == null ) {
 			optionalNextTenantId = null;
 		}
-		else if( value < CFBamValueBuff.NEXTTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamValueBuff.NEXTTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNextTenantId",
 				1,
 				"value",
 				value,
-				CFBamValueBuff.NEXTTENANTID_MIN_VALUE );
+				YCFBamValueBuff.NEXTTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalNextTenantId = value;
@@ -484,26 +484,26 @@ public class CFBamValueBuff
 		if( value == null ) {
 			optionalNextId = null;
 		}
-		else if( value < CFBamValueBuff.NEXTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamValueBuff.NEXTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalNextId",
 				1,
 				"value",
 				value,
-				CFBamValueBuff.NEXTID_MIN_VALUE );
+				YCFBamValueBuff.NEXTID_MIN_VALUE );
 		}
 		else {
 			optionalNextId = value;
 		}
 	}
 
-	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+	public IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
 		return( requiredCodeVis );
 	}
 
-	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+	public void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredCodeVis",
 				1,
 				"value" );
@@ -523,8 +523,8 @@ public class CFBamValueBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamValueBuff ) {
-			CFBamValueBuff rhs = (CFBamValueBuff)obj;
+		else if( obj instanceof YCFBamValueBuff ) {
+			YCFBamValueBuff rhs = (YCFBamValueBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -704,8 +704,8 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValuePKey ) {
-			CFBamValuePKey rhs = (CFBamValuePKey)obj;
+		else if( obj instanceof YCFBamValuePKey ) {
+			YCFBamValuePKey rhs = (YCFBamValuePKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -714,8 +714,8 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueHBuff ) {
-			CFBamValueHBuff rhs = (CFBamValueHBuff)obj;
+		else if( obj instanceof YCFBamValueHBuff ) {
+			YCFBamValueHBuff rhs = (YCFBamValueHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -883,8 +883,8 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueHPKey ) {
-			CFBamValueHPKey rhs = (CFBamValueHPKey)obj;
+		else if( obj instanceof YCFBamValueHPKey ) {
+			YCFBamValueHPKey rhs = (YCFBamValueHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -893,8 +893,8 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByUNameIdxKey ) {
-			CFBamValueByUNameIdxKey rhs = (CFBamValueByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamValueByUNameIdxKey ) {
+			YCFBamValueByUNameIdxKey rhs = (YCFBamValueByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -906,15 +906,15 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByValTentIdxKey ) {
-			CFBamValueByValTentIdxKey rhs = (CFBamValueByValTentIdxKey)obj;
+		else if( obj instanceof YCFBamValueByValTentIdxKey ) {
+			YCFBamValueByValTentIdxKey rhs = (YCFBamValueByValTentIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByScopeIdxKey ) {
-			CFBamValueByScopeIdxKey rhs = (CFBamValueByScopeIdxKey)obj;
+		else if( obj instanceof YCFBamValueByScopeIdxKey ) {
+			YCFBamValueByScopeIdxKey rhs = (YCFBamValueByScopeIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -923,8 +923,8 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByDefSchemaIdxKey ) {
-			CFBamValueByDefSchemaIdxKey rhs = (CFBamValueByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamValueByDefSchemaIdxKey ) {
+			YCFBamValueByDefSchemaIdxKey rhs = (YCFBamValueByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
 				if( rhs.getOptionalDefSchemaTenantId() != null ) {
 					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
@@ -951,8 +951,8 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByPrevIdxKey ) {
-			CFBamValueByPrevIdxKey rhs = (CFBamValueByPrevIdxKey)obj;
+		else if( obj instanceof YCFBamValueByPrevIdxKey ) {
+			YCFBamValueByPrevIdxKey rhs = (YCFBamValueByPrevIdxKey)obj;
 			if( getOptionalPrevTenantId() != null ) {
 				if( rhs.getOptionalPrevTenantId() != null ) {
 					if( ! getOptionalPrevTenantId().equals( rhs.getOptionalPrevTenantId() ) ) {
@@ -979,8 +979,8 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByNextIdxKey ) {
-			CFBamValueByNextIdxKey rhs = (CFBamValueByNextIdxKey)obj;
+		else if( obj instanceof YCFBamValueByNextIdxKey ) {
+			YCFBamValueByNextIdxKey rhs = (YCFBamValueByNextIdxKey)obj;
 			if( getOptionalNextTenantId() != null ) {
 				if( rhs.getOptionalNextTenantId() != null ) {
 					if( ! getOptionalNextTenantId().equals( rhs.getOptionalNextTenantId() ) ) {
@@ -1007,8 +1007,8 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByContPrevIdxKey ) {
-			CFBamValueByContPrevIdxKey rhs = (CFBamValueByContPrevIdxKey)obj;
+		else if( obj instanceof YCFBamValueByContPrevIdxKey ) {
+			YCFBamValueByContPrevIdxKey rhs = (YCFBamValueByContPrevIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -1029,8 +1029,8 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByContNextIdxKey ) {
-			CFBamValueByContNextIdxKey rhs = (CFBamValueByContNextIdxKey)obj;
+		else if( obj instanceof YCFBamValueByContNextIdxKey ) {
+			YCFBamValueByContNextIdxKey rhs = (YCFBamValueByContNextIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -1051,15 +1051,15 @@ public class CFBamValueBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByCodeVisIdxKey ) {
-			CFBamValueByCodeVisIdxKey rhs = (CFBamValueByCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamValueByCodeVisIdxKey ) {
+			YCFBamValueByCodeVisIdxKey rhs = (YCFBamValueByCodeVisIdxKey)obj;
 			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueByScopeCodeVisIdxKey ) {
-			CFBamValueByScopeCodeVisIdxKey rhs = (CFBamValueByScopeCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamValueByScopeCodeVisIdxKey ) {
+			YCFBamValueByScopeCodeVisIdxKey rhs = (YCFBamValueByScopeCodeVisIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -1152,8 +1152,8 @@ public class CFBamValueBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamValueBuff ) {
-			CFBamValueBuff rhs = (CFBamValueBuff)obj;
+		else if( obj instanceof YCFBamValueBuff ) {
+			YCFBamValueBuff rhs = (YCFBamValueBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -1440,8 +1440,8 @@ public class CFBamValueBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamValuePKey ) {
-			CFBamValuePKey rhs = (CFBamValuePKey)obj;
+		else if( obj instanceof YCFBamValuePKey ) {
+			YCFBamValuePKey rhs = (YCFBamValuePKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -1456,8 +1456,8 @@ public class CFBamValueBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamValueHPKey ) {
-			CFBamValueHPKey rhs = (CFBamValueHPKey)obj;
+		else if( obj instanceof YCFBamValueHPKey ) {
+			YCFBamValueHPKey rhs = (YCFBamValueHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -1482,8 +1482,8 @@ public class CFBamValueBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamValueHBuff ) {
-			CFBamValueHBuff rhs = (CFBamValueHBuff)obj;
+		else if( obj instanceof YCFBamValueHBuff ) {
+			YCFBamValueHBuff rhs = (YCFBamValueHBuff)obj;
 			int retval = 0;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1749,8 +1749,8 @@ public class CFBamValueBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByUNameIdxKey ) {
-			CFBamValueByUNameIdxKey rhs = (CFBamValueByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamValueByUNameIdxKey ) {
+			YCFBamValueByUNameIdxKey rhs = (YCFBamValueByUNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1771,8 +1771,8 @@ public class CFBamValueBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByValTentIdxKey ) {
-			CFBamValueByValTentIdxKey rhs = (CFBamValueByValTentIdxKey)obj;
+		else if( obj instanceof YCFBamValueByValTentIdxKey ) {
+			YCFBamValueByValTentIdxKey rhs = (YCFBamValueByValTentIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1781,8 +1781,8 @@ public class CFBamValueBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByScopeIdxKey ) {
-			CFBamValueByScopeIdxKey rhs = (CFBamValueByScopeIdxKey)obj;
+		else if( obj instanceof YCFBamValueByScopeIdxKey ) {
+			YCFBamValueByScopeIdxKey rhs = (YCFBamValueByScopeIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1797,8 +1797,8 @@ public class CFBamValueBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByDefSchemaIdxKey ) {
-			CFBamValueByDefSchemaIdxKey rhs = (CFBamValueByDefSchemaIdxKey)obj;
+		else if( obj instanceof YCFBamValueByDefSchemaIdxKey ) {
+			YCFBamValueByDefSchemaIdxKey rhs = (YCFBamValueByDefSchemaIdxKey)obj;
 
 			if( getOptionalDefSchemaTenantId() != null ) {
 				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
@@ -1837,8 +1837,8 @@ public class CFBamValueBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByPrevIdxKey ) {
-			CFBamValueByPrevIdxKey rhs = (CFBamValueByPrevIdxKey)obj;
+		else if( obj instanceof YCFBamValueByPrevIdxKey ) {
+			YCFBamValueByPrevIdxKey rhs = (YCFBamValueByPrevIdxKey)obj;
 
 			if( getOptionalPrevTenantId() != null ) {
 				Long lhsPrevTenantId = getOptionalPrevTenantId();
@@ -1877,8 +1877,8 @@ public class CFBamValueBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByNextIdxKey ) {
-			CFBamValueByNextIdxKey rhs = (CFBamValueByNextIdxKey)obj;
+		else if( obj instanceof YCFBamValueByNextIdxKey ) {
+			YCFBamValueByNextIdxKey rhs = (YCFBamValueByNextIdxKey)obj;
 
 			if( getOptionalNextTenantId() != null ) {
 				Long lhsNextTenantId = getOptionalNextTenantId();
@@ -1917,8 +1917,8 @@ public class CFBamValueBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByContPrevIdxKey ) {
-			CFBamValueByContPrevIdxKey rhs = (CFBamValueByContPrevIdxKey)obj;
+		else if( obj instanceof YCFBamValueByContPrevIdxKey ) {
+			YCFBamValueByContPrevIdxKey rhs = (YCFBamValueByContPrevIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1951,8 +1951,8 @@ public class CFBamValueBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByContNextIdxKey ) {
-			CFBamValueByContNextIdxKey rhs = (CFBamValueByContNextIdxKey)obj;
+		else if( obj instanceof YCFBamValueByContNextIdxKey ) {
+			YCFBamValueByContNextIdxKey rhs = (YCFBamValueByContNextIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -1985,8 +1985,8 @@ public class CFBamValueBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByCodeVisIdxKey ) {
-			CFBamValueByCodeVisIdxKey rhs = (CFBamValueByCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamValueByCodeVisIdxKey ) {
+			YCFBamValueByCodeVisIdxKey rhs = (YCFBamValueByCodeVisIdxKey)obj;
 
 			{
 				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
@@ -1995,8 +1995,8 @@ public class CFBamValueBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamValueByScopeCodeVisIdxKey ) {
-			CFBamValueByScopeCodeVisIdxKey rhs = (CFBamValueByScopeCodeVisIdxKey)obj;
+		else if( obj instanceof YCFBamValueByScopeCodeVisIdxKey ) {
+			YCFBamValueByScopeCodeVisIdxKey rhs = (YCFBamValueByScopeCodeVisIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -2018,7 +2018,7 @@ public class CFBamValueBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -2026,11 +2026,11 @@ public class CFBamValueBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
+	public void set( YCFBamValueBuff src ) {
 		setValueBuff( src );
 	}
 
-	public void setValueBuff( CFBamValueBuff src ) {
+	public void setValueBuff( YCFBamValueBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setCreatedByUserId( src.getCreatedByUserId() );
@@ -2057,11 +2057,11 @@ public class CFBamValueBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
+	public void set( YCFBamValueHBuff src ) {
 		setValueBuff( src );
 	}
 
-	public void setValueBuff( CFBamValueHBuff src ) {
+	public void setValueBuff( YCFBamValueHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredScopeId( src.getRequiredScopeId() );

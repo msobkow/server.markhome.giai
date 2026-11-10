@@ -1,15 +1,15 @@
-// Description: Java 11 configuration file for a CFSec schema.
+// Description: Java 11 configuration file for a YCFSec schema.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.io.*;
 import java.lang.reflect.*;
@@ -35,10 +35,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecConfigurationFile
+public class YCFSecConfigurationFile
 {
 	protected String fileName = null;
 	protected Properties props = new Properties();
@@ -50,7 +50,7 @@ public class CFSecConfigurationFile
 	protected String dbDatabase = null;	protected String dbUserName = null;
 	protected String dbPassword = null;
 
-	public CFSecConfigurationFile() {
+	public YCFSecConfigurationFile() {
 	}
 	public String getFileName() {
 		return( fileName );
@@ -90,7 +90,7 @@ public class CFSecConfigurationFile
 			doSave = true;
 		}
 		catch( IOException e ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				"load",
 				"IOException " + e.getMessage(),
 				e );
@@ -103,11 +103,11 @@ public class CFSecConfigurationFile
 	public void save() {
 		try {
 			FileWriter writer = new FileWriter( fileName );
-			props.store( writer, "CFSecConfigurationFile" );
+			props.store( writer, "YCFSecConfigurationFile" );
 			writer.close();
 		}
 		catch( IOException e ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				"save",
 				"IOException " + e.getMessage(),
 				e );

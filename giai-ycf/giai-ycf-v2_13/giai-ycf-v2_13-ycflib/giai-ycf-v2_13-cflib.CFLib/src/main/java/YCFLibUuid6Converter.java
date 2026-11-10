@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,21 +21,21 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibUuid6;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibUuid6;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 @Converter(autoApply = true)
-public class CFLibUuid6Converter implements AttributeConverter<CFLibUuid6, byte[]> {
+public class YCFLibUuid6Converter implements AttributeConverter<YCFLibUuid6, byte[]> {
     
     @Override
-    public byte[] convertToDatabaseColumn(CFLibUuid6 attribute) {
+    public byte[] convertToDatabaseColumn(YCFLibUuid6 attribute) {
         return attribute != null ? attribute.getBytes() : null;
     }
 
     @Override
-    public CFLibUuid6 convertToEntityAttribute(byte[] dbData) {
-        return dbData != null ? new CFLibUuid6(dbData) : null;
+    public YCFLibUuid6 convertToEntityAttribute(byte[] dbData) {
+        return dbData != null ? new YCFLibUuid6(dbData) : null;
     }
 }

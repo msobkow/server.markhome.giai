@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for GenItem.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,81 +36,81 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbGenItemFactory implementation for GenItem
+	 *	YCFGenKbGenItemFactory implementation for GenItem
 	 */
-public class CFGenKbGenItemDefaultFactory
-	implements ICFGenKbGenItemFactory
+public class YCFGenKbGenItemDefaultFactory
+	implements IYCFGenKbGenItemFactory
 {
-	public CFGenKbGenItemDefaultFactory() {
+	public YCFGenKbGenItemDefaultFactory() {
 	}
 
-	public CFGenKbGenItemPKey newPKey() {
-		CFGenKbGenItemPKey pkey =
-			new CFGenKbGenItemPKey();
+	public YCFGenKbGenItemPKey newPKey() {
+		YCFGenKbGenItemPKey pkey =
+			new YCFGenKbGenItemPKey();
 		return( pkey );
 	}
 
-	public CFGenKbGenItemByTenantIdxKey newTenantIdxKey() {
-		CFGenKbGenItemByTenantIdxKey key =
-			new CFGenKbGenItemByTenantIdxKey();
+	public YCFGenKbGenItemByTenantIdxKey newTenantIdxKey() {
+		YCFGenKbGenItemByTenantIdxKey key =
+			new YCFGenKbGenItemByTenantIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGenItemByCartIdxKey newCartIdxKey() {
-		CFGenKbGenItemByCartIdxKey key =
-			new CFGenKbGenItemByCartIdxKey();
+	public YCFGenKbGenItemByCartIdxKey newCartIdxKey() {
+		YCFGenKbGenItemByCartIdxKey key =
+			new YCFGenKbGenItemByCartIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGenItemByRuleTypeIdxKey newRuleTypeIdxKey() {
-		CFGenKbGenItemByRuleTypeIdxKey key =
-			new CFGenKbGenItemByRuleTypeIdxKey();
+	public YCFGenKbGenItemByRuleTypeIdxKey newRuleTypeIdxKey() {
+		YCFGenKbGenItemByRuleTypeIdxKey key =
+			new YCFGenKbGenItemByRuleTypeIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGenItemByToolSetIdxKey newToolSetIdxKey() {
-		CFGenKbGenItemByToolSetIdxKey key =
-			new CFGenKbGenItemByToolSetIdxKey();
+	public YCFGenKbGenItemByToolSetIdxKey newToolSetIdxKey() {
+		YCFGenKbGenItemByToolSetIdxKey key =
+			new YCFGenKbGenItemByToolSetIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGenItemByScopeIdxKey newScopeIdxKey() {
-		CFGenKbGenItemByScopeIdxKey key =
-			new CFGenKbGenItemByScopeIdxKey();
+	public YCFGenKbGenItemByScopeIdxKey newScopeIdxKey() {
+		YCFGenKbGenItemByScopeIdxKey key =
+			new YCFGenKbGenItemByScopeIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGenItemByGenDefIdxKey newGenDefIdxKey() {
-		CFGenKbGenItemByGenDefIdxKey key =
-			new CFGenKbGenItemByGenDefIdxKey();
+	public YCFGenKbGenItemByGenDefIdxKey newGenDefIdxKey() {
+		YCFGenKbGenItemByGenDefIdxKey key =
+			new YCFGenKbGenItemByGenDefIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGenItemByAltIdxKey newAltIdxKey() {
-		CFGenKbGenItemByAltIdxKey key =
-			new CFGenKbGenItemByAltIdxKey();
+	public YCFGenKbGenItemByAltIdxKey newAltIdxKey() {
+		YCFGenKbGenItemByAltIdxKey key =
+			new YCFGenKbGenItemByAltIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGenItemByGelExecIdxKey newGelExecIdxKey() {
-		CFGenKbGenItemByGelExecIdxKey key =
-			new CFGenKbGenItemByGelExecIdxKey();
+	public YCFGenKbGenItemByGelExecIdxKey newGelExecIdxKey() {
+		YCFGenKbGenItemByGelExecIdxKey key =
+			new YCFGenKbGenItemByGelExecIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGenItemByProbeIdxKey newProbeIdxKey() {
-		CFGenKbGenItemByProbeIdxKey key =
-			new CFGenKbGenItemByProbeIdxKey();
+	public YCFGenKbGenItemByProbeIdxKey newProbeIdxKey() {
+		YCFGenKbGenItemByProbeIdxKey key =
+			new YCFGenKbGenItemByProbeIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGenItemBuff newBuff() {
-		CFGenKbGenItemBuff buff =
-			new CFGenKbGenItemBuff();
+	public YCFGenKbGenItemBuff newBuff() {
+		YCFGenKbGenItemBuff buff =
+			new YCFGenKbGenItemBuff();
 		return( buff );
 	}
 }

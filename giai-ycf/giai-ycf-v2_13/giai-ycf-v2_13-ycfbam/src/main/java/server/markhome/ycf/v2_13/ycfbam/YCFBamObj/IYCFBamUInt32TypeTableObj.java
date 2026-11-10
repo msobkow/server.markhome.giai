@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamUInt32TypeTableObj
+public interface IYCFBamUInt32TypeTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamUInt32TypeObj newInstance();
+	IYCFBamUInt32TypeObj newInstance();
 
 	/**
 	 *	Instantiate a new UInt32Type edition of the specified UInt32Type instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamUInt32TypeEditObj newEditInstance( ICFBamUInt32TypeObj orig );
+	IYCFBamUInt32TypeEditObj newEditInstance( IYCFBamUInt32TypeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamUInt32TypeObj realiseUInt32Type( ICFBamUInt32TypeObj Obj );
+	IYCFBamUInt32TypeObj realiseUInt32Type( IYCFBamUInt32TypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamUInt32TypeObj createUInt32Type( ICFBamUInt32TypeObj Obj );
+	IYCFBamUInt32TypeObj createUInt32Type( IYCFBamUInt32TypeObj Obj );
 
 	/**
 	 *	Read a UInt32Type-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamUInt32TypeTableObj
 	 *	@return	The UInt32Type-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamUInt32TypeObj readUInt32Type( CFBamValuePKey pkey );
+	IYCFBamUInt32TypeObj readUInt32Type( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a UInt32Type-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamUInt32TypeTableObj
 	 *	@return	The UInt32Type-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamUInt32TypeObj readUInt32Type( CFBamValuePKey pkey,
+	IYCFBamUInt32TypeObj readUInt32Type( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamUInt32TypeObj readCachedUInt32Type( CFBamValuePKey pkey );
+	IYCFBamUInt32TypeObj readCachedUInt32Type( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeUInt32Type( ICFBamUInt32TypeObj obj );
+	public void reallyDeepDisposeUInt32Type( IYCFBamUInt32TypeObj obj );
 
-	void deepDisposeUInt32Type( CFBamValuePKey pkey );
+	void deepDisposeUInt32Type( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamUInt32TypeObj lockUInt32Type( CFBamValuePKey pkey );
+	IYCFBamUInt32TypeObj lockUInt32Type( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the UInt32Type-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamUInt32TypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamUInt32TypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readAllUInt32Type();
+	List<IYCFBamUInt32TypeObj> readAllUInt32Type();
 
 	/**
 	 *	Return a sorted map of all the UInt32Type-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamUInt32TypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamUInt32TypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readAllUInt32Type( boolean forceRead );
+	List<IYCFBamUInt32TypeObj> readAllUInt32Type( boolean forceRead );
 
-	List<ICFBamUInt32TypeObj> readCachedAllUInt32Type();
+	List<IYCFBamUInt32TypeObj> readCachedAllUInt32Type();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamUInt32TypeObj readUInt32TypeByIdIdx( long TenantId,
+	IYCFBamUInt32TypeObj readUInt32TypeByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamUInt32TypeObj readUInt32TypeByIdIdx( long TenantId,
+	IYCFBamUInt32TypeObj readUInt32TypeByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@param	argName	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamUInt32TypeObj readUInt32TypeByUNameIdx( long TenantId,
+	IYCFBamUInt32TypeObj readUInt32TypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@param	argName	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamUInt32TypeObj readUInt32TypeByUNameIdx( long TenantId,
+	IYCFBamUInt32TypeObj readUInt32TypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByValTentIdx( long TenantId );
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByValTentIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByScopeIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByScopeIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByNextIdx( Long NextTenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByNextIdx( Long NextTenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@param	argPrevId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByContPrevIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@param	argPrevId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByContPrevIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@param	argNextId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByContNextIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@param	argNextId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByContNextIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@param	argCodeVis	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
@@ -446,77 +446,77 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@param	argCodeVis	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeBySchemaIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	/**
-	 *	Get the map of CFBamUInt32TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamUInt32TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The UInt32Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamUInt32TypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUInt32TypeObj> readUInt32TypeBySchemaIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readUInt32TypeBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead );
 
-	ICFBamUInt32TypeObj readCachedUInt32TypeByIdIdx( long TenantId,
+	IYCFBamUInt32TypeObj readCachedUInt32TypeByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamUInt32TypeObj readCachedUInt32TypeByUNameIdx( long TenantId,
+	IYCFBamUInt32TypeObj readCachedUInt32TypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeByValTentIdx( long TenantId );
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeByValTentIdx( long TenantId );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeByScopeIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeByNextIdx( Long NextTenantId,
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeByContPrevIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeByContNextIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamUInt32TypeObj> readCachedUInt32TypeBySchemaIdx( long TenantId,
+	List<IYCFBamUInt32TypeObj> readCachedUInt32TypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	void deepDisposeUInt32TypeByIdIdx( long TenantId,
@@ -548,11 +548,11 @@ public interface ICFBamUInt32TypeTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeUInt32TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeUInt32TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeUInt32TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeUInt32TypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -560,12 +560,12 @@ public interface ICFBamUInt32TypeTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamUInt32TypeObj updateUInt32Type( ICFBamUInt32TypeObj Obj );
+	IYCFBamUInt32TypeObj updateUInt32Type( IYCFBamUInt32TypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteUInt32Type( ICFBamUInt32TypeObj Obj );
+	void deleteUInt32Type( IYCFBamUInt32TypeObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -668,7 +668,7 @@ public interface ICFBamUInt32TypeTableObj
 	 *
 	 *	@param	argCodeVis	The UInt32Type key attribute of the instance generating the id.
 	 */
-	void deleteUInt32TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteUInt32TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -681,7 +681,7 @@ public interface ICFBamUInt32TypeTableObj
 	 */
 	void deleteUInt32TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -694,16 +694,16 @@ public interface ICFBamUInt32TypeTableObj
 		long SchemaDefId );
 
 	/**
-	 *	Move the CFBamUInt32TypeObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamUInt32TypeObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamUInt32TypeObj refreshed cache instance.
+	 *	@return	YCFBamUInt32TypeObj refreshed cache instance.
 	 */
-	ICFBamUInt32TypeObj moveUpUInt32Type( ICFBamUInt32TypeObj Obj );
+	IYCFBamUInt32TypeObj moveUpUInt32Type( IYCFBamUInt32TypeObj Obj );
 
 	/**
-	 *	Move the CFBamUInt32TypeObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamUInt32TypeObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamUInt32TypeObj refreshed cache instance.
+	 *	@return	YCFBamUInt32TypeObj refreshed cache instance.
 	 */
-	ICFBamUInt32TypeObj moveDownUInt32Type( ICFBamUInt32TypeObj Obj );
+	IYCFBamUInt32TypeObj moveDownUInt32Type( IYCFBamUInt32TypeObj Obj );
 }

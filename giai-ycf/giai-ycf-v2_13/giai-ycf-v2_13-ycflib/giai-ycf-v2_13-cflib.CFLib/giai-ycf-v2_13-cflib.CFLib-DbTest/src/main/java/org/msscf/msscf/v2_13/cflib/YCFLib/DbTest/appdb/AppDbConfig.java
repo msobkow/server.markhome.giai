@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,7 +20,7 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.appdb;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.appdb;
 import javax.sql.DataSource;
 
 import jakarta.persistence.EntityManagerFactory;
@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.DbTest;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.DbTest;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,10 +43,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Configuration
-@EntityScan(basePackages = "org.msscf.msscf.v2_13.cflib.CFLib.DbTest.appdb")
+@EntityScan(basePackages = "org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.appdb")
 @EnableTransactionManagement
 @EnableJpaRepositories(
-    basePackages = "org.msscf.msscf.v2_13.cflib.CFLib.DbTest.appdb",
+    basePackages = "org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.appdb",
     entityManagerFactoryRef = "appEntityManagerFactory",
     transactionManagerRef = "appTransactionManager"
 )public class AppDbConfig {
@@ -205,7 +205,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
                 // Configure EntityManagerFactoryBean
                 LocalContainerEntityManagerFactoryBean emfBean = new LocalContainerEntityManagerFactoryBean();
                 emfBean.setDataSource(appDataSource);
-                emfBean.setPackagesToScan("org.msscf.msscf.v2_13.cflib.CFLib.DbTest.appdb");
+                emfBean.setPackagesToScan("org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.appdb");
                 emfBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
                 emfBean.setJpaProperties(appJpaProperties);
                 emfBean.setPersistenceUnitName("AppDbPU");

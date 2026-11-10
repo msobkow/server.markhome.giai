@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ISOCtryCcy history buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,12 +36,12 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecISOCtryCcyHBuff
+public class YCFSecISOCtryCcyHBuff
 
-	extends CFSecHPKey	implements Comparable<Object>,
+	extends YCFSecHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final short ISOCTRYID_INIT_VALUE = (short)0;
@@ -51,14 +51,14 @@ public class CFSecISOCtryCcyHBuff
 
 	protected short requiredISOCtryId;
 	protected short requiredISOCcyId;
-	public CFSecISOCtryCcyHBuff() {
+	public YCFSecISOCtryCcyHBuff() {
 		super();
-		requiredISOCtryId = CFSecISOCtryCcyBuff.ISOCTRYID_INIT_VALUE;
-		requiredISOCcyId = CFSecISOCtryCcyBuff.ISOCCYID_INIT_VALUE;
+		requiredISOCtryId = YCFSecISOCtryCcyBuff.ISOCTRYID_INIT_VALUE;
+		requiredISOCcyId = YCFSecISOCtryCcyBuff.ISOCCYID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
-		return( CFSecISOCtryCcyBuff.CLASS_CODE );
+		return( YCFSecISOCtryCcyBuff.CLASS_CODE );
 	}
 
 	public short getRequiredISOCtryId() {
@@ -66,13 +66,13 @@ public class CFSecISOCtryCcyHBuff
 	}
 
 	public void setRequiredISOCtryId( short value ) {
-		if( value < CFSecISOCtryCcyBuff.ISOCTRYID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecISOCtryCcyBuff.ISOCTRYID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
 				1,
 				"value",
 				value,
-				CFSecISOCtryCcyBuff.ISOCTRYID_MIN_VALUE );
+				YCFSecISOCtryCcyBuff.ISOCTRYID_MIN_VALUE );
 		}
 		requiredISOCtryId = value;
 	}
@@ -82,13 +82,13 @@ public class CFSecISOCtryCcyHBuff
 	}
 
 	public void setRequiredISOCcyId( short value ) {
-		if( value < CFSecISOCtryCcyBuff.ISOCCYID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecISOCtryCcyBuff.ISOCCYID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCcyId",
 				1,
 				"value",
 				value,
-				CFSecISOCtryCcyBuff.ISOCCYID_MIN_VALUE );
+				YCFSecISOCtryCcyBuff.ISOCCYID_MIN_VALUE );
 		}
 		requiredISOCcyId = value;
 	}
@@ -97,8 +97,8 @@ public class CFSecISOCtryCcyHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecISOCtryCcyHBuff ) {
-			CFSecISOCtryCcyHBuff rhs = (CFSecISOCtryCcyHBuff)obj;
+		else if( obj instanceof YCFSecISOCtryCcyHBuff ) {
+			YCFSecISOCtryCcyHBuff rhs = (YCFSecISOCtryCcyHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -110,8 +110,8 @@ public class CFSecISOCtryCcyHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryCcyBuff ) {
-			CFSecISOCtryCcyBuff rhs = (CFSecISOCtryCcyBuff)obj;
+		else if( obj instanceof YCFSecISOCtryCcyBuff ) {
+			YCFSecISOCtryCcyBuff rhs = (YCFSecISOCtryCcyBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -123,22 +123,22 @@ public class CFSecISOCtryCcyHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryCcyByCtryIdxKey ) {
-			CFSecISOCtryCcyByCtryIdxKey rhs = (CFSecISOCtryCcyByCtryIdxKey)obj;
+		else if( obj instanceof YCFSecISOCtryCcyByCtryIdxKey ) {
+			YCFSecISOCtryCcyByCtryIdxKey rhs = (YCFSecISOCtryCcyByCtryIdxKey)obj;
 			if( getRequiredISOCtryId() != rhs.getRequiredISOCtryId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryCcyByCcyIdxKey ) {
-			CFSecISOCtryCcyByCcyIdxKey rhs = (CFSecISOCtryCcyByCcyIdxKey)obj;
+		else if( obj instanceof YCFSecISOCtryCcyByCcyIdxKey ) {
+			YCFSecISOCtryCcyByCcyIdxKey rhs = (YCFSecISOCtryCcyByCcyIdxKey)obj;
 			if( getRequiredISOCcyId() != rhs.getRequiredISOCcyId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryCcyHPKey ) {
-			CFSecISOCtryCcyHPKey rhs = (CFSecISOCtryCcyHPKey)obj;
+		else if( obj instanceof YCFSecISOCtryCcyHPKey ) {
+			YCFSecISOCtryCcyHPKey rhs = (YCFSecISOCtryCcyHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -202,8 +202,8 @@ public class CFSecISOCtryCcyHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -261,8 +261,8 @@ public class CFSecISOCtryCcyHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCtryCcyPKey ) {
-			CFSecISOCtryCcyPKey rhs = (CFSecISOCtryCcyPKey)obj;
+		else if( obj instanceof YCFSecISOCtryCcyPKey ) {
+			YCFSecISOCtryCcyPKey rhs = (YCFSecISOCtryCcyPKey)obj;
 			if( getRequiredISOCtryId() != rhs.getRequiredISOCtryId() ) {
 				return( false );
 			}
@@ -287,16 +287,16 @@ public class CFSecISOCtryCcyHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecISOCtryCcyBuff ) {
-			CFSecISOCtryCcyBuff rhs = (CFSecISOCtryCcyBuff)obj;
+		else if( obj instanceof YCFSecISOCtryCcyBuff ) {
+			YCFSecISOCtryCcyBuff rhs = (YCFSecISOCtryCcyBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryCcyByCtryIdxKey ) {
-			CFSecISOCtryCcyByCtryIdxKey rhs = (CFSecISOCtryCcyByCtryIdxKey)obj;
+		else if( obj instanceof YCFSecISOCtryCcyByCtryIdxKey ) {
+			YCFSecISOCtryCcyByCtryIdxKey rhs = (YCFSecISOCtryCcyByCtryIdxKey)obj;
 
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
@@ -305,8 +305,8 @@ public class CFSecISOCtryCcyHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryCcyByCcyIdxKey ) {
-			CFSecISOCtryCcyByCcyIdxKey rhs = (CFSecISOCtryCcyByCcyIdxKey)obj;
+		else if( obj instanceof YCFSecISOCtryCcyByCcyIdxKey ) {
+			YCFSecISOCtryCcyByCcyIdxKey rhs = (YCFSecISOCtryCcyByCcyIdxKey)obj;
 
 			if( getRequiredISOCcyId() < rhs.getRequiredISOCcyId() ) {
 				return( -1 );
@@ -315,8 +315,8 @@ public class CFSecISOCtryCcyHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryCcyHBuff ) {
-			CFSecISOCtryCcyHBuff rhs = (CFSecISOCtryCcyHBuff)obj;
+		else if( obj instanceof YCFSecISOCtryCcyHBuff ) {
+			YCFSecISOCtryCcyHBuff rhs = (YCFSecISOCtryCcyHBuff)obj;
 
 			int retval = 0;
 			{
@@ -465,8 +465,8 @@ public class CFSecISOCtryCcyHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryCcyHPKey ) {
-			CFSecISOCtryCcyHPKey rhs = (CFSecISOCtryCcyHPKey)obj;
+		else if( obj instanceof YCFSecISOCtryCcyHPKey ) {
+			YCFSecISOCtryCcyHPKey rhs = (YCFSecISOCtryCcyHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -547,8 +547,8 @@ public class CFSecISOCtryCcyHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCtryCcyPKey ) {
-			CFSecISOCtryCcyPKey rhs = (CFSecISOCtryCcyPKey)obj;
+		else if( obj instanceof YCFSecISOCtryCcyPKey ) {
+			YCFSecISOCtryCcyPKey rhs = (YCFSecISOCtryCcyPKey)obj;
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
 			}
@@ -563,8 +563,8 @@ public class CFSecISOCtryCcyHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -582,21 +582,21 @@ public class CFSecISOCtryCcyHBuff
 		}
 	}
 
-	public void set( CFSecISOCtryCcyBuff src ) {
+	public void set( YCFSecISOCtryCcyBuff src ) {
 		setISOCtryCcyBuff( src );
 	}
 
-	public void setISOCtryCcyBuff( CFSecISOCtryCcyBuff src ) {
+	public void setISOCtryCcyBuff( YCFSecISOCtryCcyBuff src ) {
 		setRequiredISOCtryId( src.getRequiredISOCtryId() );
 		setRequiredISOCcyId( src.getRequiredISOCcyId() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecISOCtryCcyHBuff src ) {
+	public void set( YCFSecISOCtryCcyHBuff src ) {
 		setISOCtryCcyBuff( src );
 	}
 
-	public void setISOCtryCcyBuff( CFSecISOCtryCcyHBuff src ) {
+	public void setISOCtryCcyBuff( YCFSecISOCtryCcyHBuff src ) {
 		setRequiredISOCtryId( src.getRequiredISOCtryId() );
 		setRequiredISOCcyId( src.getRequiredISOCcyId() );
 		setRequiredRevision( src.getRequiredRevision() );

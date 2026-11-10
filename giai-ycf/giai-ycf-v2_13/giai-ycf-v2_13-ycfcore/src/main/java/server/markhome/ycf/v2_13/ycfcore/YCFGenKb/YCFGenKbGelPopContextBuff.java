@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelPop buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelPopContextBuff
-	extends CFGenKbGelInstructionBuff
+public class YCFGenKbGelPopContextBuff
+	extends YCFGenKbGelInstructionBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -63,11 +63,11 @@ public class CFGenKbGelPopContextBuff
 	protected Long optionalRemainderTenantId;
 	protected long requiredRemainderGelCacheId;
 	protected Long optionalRemainderInstId;
-	public CFGenKbGelPopContextBuff() {
+	public YCFGenKbGelPopContextBuff() {
 		super();
-		requiredGoalTypeName = new String( CFGenKbGelPopContextBuff.GOALTYPENAME_INIT_VALUE );
+		requiredGoalTypeName = new String( YCFGenKbGelPopContextBuff.GOALTYPENAME_INIT_VALUE );
 		optionalRemainderTenantId = null;
-		requiredRemainderGelCacheId = CFGenKbGelPopContextBuff.REMAINDERGELCACHEID_INIT_VALUE;
+		requiredRemainderGelCacheId = YCFGenKbGelPopContextBuff.REMAINDERGELCACHEID_INIT_VALUE;
 		optionalRemainderInstId = null;
 	}
 
@@ -81,13 +81,13 @@ public class CFGenKbGelPopContextBuff
 
 	public void setRequiredGoalTypeName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredGoalTypeName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredGoalTypeName",
 				1,
 				"value.length()",
@@ -105,13 +105,13 @@ public class CFGenKbGelPopContextBuff
 		if( value == null ) {
 			optionalRemainderTenantId = null;
 		}
-		else if( value < CFGenKbGelPopContextBuff.REMAINDERTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelPopContextBuff.REMAINDERTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelPopContextBuff.REMAINDERTENANTID_MIN_VALUE );
+				YCFGenKbGelPopContextBuff.REMAINDERTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderTenantId = value;
@@ -123,13 +123,13 @@ public class CFGenKbGelPopContextBuff
 	}
 
 	public void setRequiredRemainderGelCacheId( long value ) {
-		if( value < CFGenKbGelPopContextBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelPopContextBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredRemainderGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelPopContextBuff.REMAINDERGELCACHEID_MIN_VALUE );
+				YCFGenKbGelPopContextBuff.REMAINDERGELCACHEID_MIN_VALUE );
 		}
 		requiredRemainderGelCacheId = value;
 	}
@@ -142,13 +142,13 @@ public class CFGenKbGelPopContextBuff
 		if( value == null ) {
 			optionalRemainderInstId = null;
 		}
-		else if( value < CFGenKbGelPopContextBuff.REMAINDERINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelPopContextBuff.REMAINDERINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelPopContextBuff.REMAINDERINSTID_MIN_VALUE );
+				YCFGenKbGelPopContextBuff.REMAINDERINSTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderInstId = value;
@@ -159,8 +159,8 @@ public class CFGenKbGelPopContextBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelPopContextBuff ) {
-			CFGenKbGelPopContextBuff rhs = (CFGenKbGelPopContextBuff)obj;
+		else if( obj instanceof YCFGenKbGelPopContextBuff ) {
+			YCFGenKbGelPopContextBuff rhs = (YCFGenKbGelPopContextBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -202,8 +202,8 @@ public class CFGenKbGelPopContextBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -215,8 +215,8 @@ public class CFGenKbGelPopContextBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelPopContextByRemainderIdxKey ) {
-			CFGenKbGelPopContextByRemainderIdxKey rhs = (CFGenKbGelPopContextByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelPopContextByRemainderIdxKey ) {
+			YCFGenKbGelPopContextByRemainderIdxKey rhs = (YCFGenKbGelPopContextByRemainderIdxKey)obj;
 			if( getOptionalRemainderTenantId() != null ) {
 				if( rhs.getOptionalRemainderTenantId() != null ) {
 					if( ! getOptionalRemainderTenantId().equals( rhs.getOptionalRemainderTenantId() ) ) {
@@ -271,8 +271,8 @@ public class CFGenKbGelPopContextBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelPopContextBuff ) {
-			CFGenKbGelPopContextBuff rhs = (CFGenKbGelPopContextBuff)obj;
+		else if( obj instanceof YCFGenKbGelPopContextBuff ) {
+			YCFGenKbGelPopContextBuff rhs = (YCFGenKbGelPopContextBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -327,8 +327,8 @@ public class CFGenKbGelPopContextBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -349,8 +349,8 @@ public class CFGenKbGelPopContextBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelPopContextByRemainderIdxKey ) {
-			CFGenKbGelPopContextByRemainderIdxKey rhs = (CFGenKbGelPopContextByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelPopContextByRemainderIdxKey ) {
+			YCFGenKbGelPopContextByRemainderIdxKey rhs = (YCFGenKbGelPopContextByRemainderIdxKey)obj;
 
 			if( getOptionalRemainderTenantId() != null ) {
 				Long lhsRemainderTenantId = getOptionalRemainderTenantId();
@@ -401,20 +401,20 @@ public class CFGenKbGelPopContextBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelPopContextBuff ) {
-			setGelPopBuff((CFGenKbGelPopContextBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelPopContextBuff ) {
+			setGelPopBuff((YCFGenKbGelPopContextBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelPopBuff" );
+				"YCFGenKbGelPopBuff" );
 		}
 	}
 
-	public void setGelPopBuff( CFGenKbGelPopContextBuff src ) {
+	public void setGelPopBuff( YCFGenKbGelPopContextBuff src ) {
 		super.setGelInstructionBuff( src );
 		setRequiredGoalTypeName( src.getRequiredGoalTypeName() );
 		setOptionalRemainderTenantId( src.getOptionalRemainderTenantId() );

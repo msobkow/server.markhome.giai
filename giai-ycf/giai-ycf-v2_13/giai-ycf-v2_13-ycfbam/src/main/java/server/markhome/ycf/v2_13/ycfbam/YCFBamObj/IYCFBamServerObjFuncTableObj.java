@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamServerObjFuncTableObj
+public interface IYCFBamServerObjFuncTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamServerObjFuncTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamServerObjFuncObj newInstance();
+	IYCFBamServerObjFuncObj newInstance();
 
 	/**
 	 *	Instantiate a new ServerObjFunc edition of the specified ServerObjFunc instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamServerObjFuncEditObj newEditInstance( ICFBamServerObjFuncObj orig );
+	IYCFBamServerObjFuncEditObj newEditInstance( IYCFBamServerObjFuncObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamServerObjFuncObj realiseServerObjFunc( ICFBamServerObjFuncObj Obj );
+	IYCFBamServerObjFuncObj realiseServerObjFunc( IYCFBamServerObjFuncObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamServerObjFuncObj createServerObjFunc( ICFBamServerObjFuncObj Obj );
+	IYCFBamServerObjFuncObj createServerObjFunc( IYCFBamServerObjFuncObj Obj );
 
 	/**
 	 *	Read a ServerObjFunc-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamServerObjFuncTableObj
 	 *	@return	The ServerObjFunc-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamServerObjFuncObj readServerObjFunc( CFBamScopePKey pkey );
+	IYCFBamServerObjFuncObj readServerObjFunc( YCFBamScopePKey pkey );
 
 	/**
 	 *	Read a ServerObjFunc-derived instance by it's primary key.
@@ -113,88 +113,88 @@ public interface ICFBamServerObjFuncTableObj
 	 *	@return	The ServerObjFunc-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamServerObjFuncObj readServerObjFunc( CFBamScopePKey pkey,
+	IYCFBamServerObjFuncObj readServerObjFunc( YCFBamScopePKey pkey,
 		boolean forceRead );
 
-	ICFBamServerObjFuncObj readCachedServerObjFunc( CFBamScopePKey pkey );
+	IYCFBamServerObjFuncObj readCachedServerObjFunc( YCFBamScopePKey pkey );
 
-	public void reallyDeepDisposeServerObjFunc( ICFBamServerObjFuncObj obj );
+	public void reallyDeepDisposeServerObjFunc( IYCFBamServerObjFuncObj obj );
 
-	void deepDisposeServerObjFunc( CFBamScopePKey pkey );
+	void deepDisposeServerObjFunc( YCFBamScopePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamServerObjFuncObj lockServerObjFunc( CFBamScopePKey pkey );
+	IYCFBamServerObjFuncObj lockServerObjFunc( YCFBamScopePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ServerObjFunc-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamServerObjFuncObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamServerObjFuncObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readAllServerObjFunc();
+	List<IYCFBamServerObjFuncObj> readAllServerObjFunc();
 
 	/**
 	 *	Return a sorted map of all the ServerObjFunc-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamServerObjFuncObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamServerObjFuncObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readAllServerObjFunc( boolean forceRead );
+	List<IYCFBamServerObjFuncObj> readAllServerObjFunc( boolean forceRead );
 
-	List<ICFBamServerObjFuncObj> readCachedAllServerObjFunc();
+	List<IYCFBamServerObjFuncObj> readCachedAllServerObjFunc();
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj cached instance for the primary key, or
+	 *	@return	YCFBamScopeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamServerObjFuncObj readServerObjFuncByIdIdx( long TenantId,
+	IYCFBamServerObjFuncObj readServerObjFuncByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj refreshed instance for the primary key, or
+	 *	@return	YCFBamScopeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamServerObjFuncObj readServerObjFuncByIdIdx( long TenantId,
+	IYCFBamServerObjFuncObj readServerObjFuncByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByTenantIdx( long TenantId );
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamServerObjFuncObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamServerObjFuncObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByTenantIdx( long TenantId,
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamServerMethodObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamServerMethodObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
@@ -202,15 +202,15 @@ public interface ICFBamServerObjFuncTableObj
 	 *
 	 *	@param	argName	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamServerMethodObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamServerMethodObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamServerObjFuncObj readServerObjFuncByUNameIdx( long TenantId,
+	IYCFBamServerObjFuncObj readServerObjFuncByUNameIdx( long TenantId,
 		long TableId,
 		String Name );
 
 	/**
-	 *	Get the CFBamServerMethodObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamServerMethodObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
@@ -218,59 +218,43 @@ public interface ICFBamServerObjFuncTableObj
 	 *
 	 *	@param	argName	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamServerMethodObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamServerMethodObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamServerObjFuncObj readServerObjFuncByUNameIdx( long TenantId,
+	IYCFBamServerObjFuncObj readServerObjFuncByUNameIdx( long TenantId,
 		long TableId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamServerMethodObj instances sorted by their primary keys for the duplicate MethTableIdx key.
+	 *	Get the map of YCFBamServerMethodObj instances sorted by their primary keys for the duplicate MethTableIdx key.
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethTableIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethTableIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByMethTableIdx( long TenantId,
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByMethTableIdx( long TenantId,
 		long TableId );
 
 	/**
-	 *	Get the map of CFBamServerObjFuncObj instances sorted by their primary keys for the duplicate MethTableIdx key.
+	 *	Get the map of YCFBamServerObjFuncObj instances sorted by their primary keys for the duplicate MethTableIdx key.
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethTableIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethTableIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByMethTableIdx( long TenantId,
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByMethTableIdx( long TenantId,
 		long TableId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamServerMethodObj instances sorted by their primary keys for the duplicate MethTableVisIdx key.
-	 *
-	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
-	 *
-	 *	@param	argTableId	The ServerObjFunc key attribute of the instance generating the id.
-	 *
-	 *	@param	argCodeVis	The ServerObjFunc key attribute of the instance generating the id.
-	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethTableVisIdx key,
-	 *		which may be an empty set.
-	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByMethTableVisIdx( long TenantId,
-		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
-
-	/**
-	 *	Get the map of CFBamServerObjFuncObj instances sorted by their primary keys for the duplicate MethTableVisIdx key.
+	 *	Get the map of YCFBamServerMethodObj instances sorted by their primary keys for the duplicate MethTableVisIdx key.
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
@@ -278,111 +262,127 @@ public interface ICFBamServerObjFuncTableObj
 	 *
 	 *	@param	argCodeVis	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethTableVisIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethTableVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByMethTableVisIdx( long TenantId,
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByMethTableVisIdx( long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
-		boolean forceRead );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamServerMethodObj instances sorted by their primary keys for the duplicate MethCodeVisIdx key.
+	 *	Get the map of YCFBamServerObjFuncObj instances sorted by their primary keys for the duplicate MethTableVisIdx key.
+	 *
+	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
 	 *	@param	argCodeVis	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethCodeVisIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethTableVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
-
-	/**
-	 *	Get the map of CFBamServerObjFuncObj instances sorted by their primary keys for the duplicate MethCodeVisIdx key.
-	 *
-	 *	@param	argCodeVis	The ServerObjFunc key attribute of the instance generating the id.
-	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethCodeVisIdx key,
-	 *		which may be an empty set.
-	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByMethTableVisIdx( long TenantId,
+		long TableId,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamServerMethodObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamServerMethodObj instances sorted by their primary keys for the duplicate MethCodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The ServerObjFunc key attribute of the instance generating the id.
+	 *
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByMethCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of YCFBamServerObjFuncObj instances sorted by their primary keys for the duplicate MethCodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The ServerObjFunc key attribute of the instance generating the id.
+	 *
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate MethCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByMethCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of YCFBamServerMethodObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamServerObjFuncObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamServerObjFuncObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamServerObjFuncObj instances sorted by their primary keys for the duplicate RetTblIdx key.
+	 *	Get the map of YCFBamServerObjFuncObj instances sorted by their primary keys for the duplicate RetTblIdx key.
 	 *
 	 *	@param	argRetTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
 	 *	@param	argRetTableId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate RetTblIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate RetTblIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByRetTblIdx( Long RetTenantId,
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByRetTblIdx( Long RetTenantId,
 		Long RetTableId );
 
 	/**
-	 *	Get the map of CFBamServerObjFuncObj instances sorted by their primary keys for the duplicate RetTblIdx key.
+	 *	Get the map of YCFBamServerObjFuncObj instances sorted by their primary keys for the duplicate RetTblIdx key.
 	 *
 	 *	@param	argRetTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
 	 *	@param	argRetTableId	The ServerObjFunc key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate RetTblIdx key,
+	 *	@return	List of YCFBamServerObjFuncObj cached instances sorted by their primary keys for the duplicate RetTblIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamServerObjFuncObj> readServerObjFuncByRetTblIdx( Long RetTenantId,
+	List<IYCFBamServerObjFuncObj> readServerObjFuncByRetTblIdx( Long RetTenantId,
 		Long RetTableId,
 		boolean forceRead );
 
-	ICFBamServerObjFuncObj readCachedServerObjFuncByIdIdx( long TenantId,
+	IYCFBamServerObjFuncObj readCachedServerObjFuncByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFBamServerObjFuncObj> readCachedServerObjFuncByTenantIdx( long TenantId );
+	List<IYCFBamServerObjFuncObj> readCachedServerObjFuncByTenantIdx( long TenantId );
 
-	ICFBamServerObjFuncObj readCachedServerObjFuncByUNameIdx( long TenantId,
+	IYCFBamServerObjFuncObj readCachedServerObjFuncByUNameIdx( long TenantId,
 		long TableId,
 		String Name );
 
-	List<ICFBamServerObjFuncObj> readCachedServerObjFuncByMethTableIdx( long TenantId,
+	List<IYCFBamServerObjFuncObj> readCachedServerObjFuncByMethTableIdx( long TenantId,
 		long TableId );
 
-	List<ICFBamServerObjFuncObj> readCachedServerObjFuncByMethTableVisIdx( long TenantId,
+	List<IYCFBamServerObjFuncObj> readCachedServerObjFuncByMethTableVisIdx( long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamServerObjFuncObj> readCachedServerObjFuncByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamServerObjFuncObj> readCachedServerObjFuncByMethCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamServerObjFuncObj> readCachedServerObjFuncByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamServerObjFuncObj> readCachedServerObjFuncByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamServerObjFuncObj> readCachedServerObjFuncByRetTblIdx( Long RetTenantId,
+	List<IYCFBamServerObjFuncObj> readCachedServerObjFuncByRetTblIdx( Long RetTenantId,
 		Long RetTableId );
 
 	void deepDisposeServerObjFuncByIdIdx( long TenantId,
@@ -399,9 +399,9 @@ public interface ICFBamServerObjFuncTableObj
 
 	void deepDisposeServerObjFuncByMethTableVisIdx( long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	void deepDisposeServerObjFuncByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeServerObjFuncByMethCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeServerObjFuncByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
@@ -412,12 +412,12 @@ public interface ICFBamServerObjFuncTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamServerObjFuncObj updateServerObjFunc( ICFBamServerObjFuncObj Obj );
+	IYCFBamServerObjFuncObj updateServerObjFunc( IYCFBamServerObjFuncObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteServerObjFunc( ICFBamServerObjFuncObj Obj );
+	void deleteServerObjFunc( IYCFBamServerObjFuncObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -470,14 +470,14 @@ public interface ICFBamServerObjFuncTableObj
 	 */
 	void deleteServerObjFuncByMethTableVisIdx( long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
 	 *
 	 *	@param	argCodeVis	The ServerObjFunc key attribute of the instance generating the id.
 	 */
-	void deleteServerObjFuncByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteServerObjFuncByMethCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

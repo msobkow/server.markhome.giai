@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,35 +23,35 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
 import java.util.ArrayList;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.ICFSecTenantObj;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.IYCFSecTenantObj;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
-public class MSSBamCFGelCompiler
-extends MssCFGelCompiler
+public class MSSBamYCFGelCompiler
+extends MssYCFGelCompiler
 {
 	public final static String	_BUILTIN_PROJECTNAME = "ProjectName";
 	public final static String _BUILTIN_JAVAPACKAGE = "JavaPackage";
@@ -66,19 +66,19 @@ extends MssCFGelCompiler
 	public final static String _BUILTIN_SCHEMATWEAK = "schematweak";
 	public final static String _BUILTIN_TABLETWEAK = "tabletweak";
 	public final static String _BUILTIN_INDEXTWEAK = "indextweak";
-	protected static String codeFactoryVersion = MSSBamCFEngine.LinkVersion;
+	protected static String codeFactoryVersion = MSSBamYCFEngine.LinkVersion;
 
 	/**
 	 *	Construct an instance.  Only invoked to create binding entries.
 	 */
-	public MSSBamCFGelCompiler( MSSBamCFEngine engine )	{
+	public MSSBamYCFGelCompiler( MSSBamYCFEngine engine )	{
 		super( engine );
 	}
 
 	public static void setCodeFactoryVersion( String value ) {
 		final String S_ProcName = "setCodeFactoryVersion";
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibEmptyArgumentException( MSSBamCFGelCompiler.class,
+			throw new YCFLibEmptyArgumentException( MSSBamYCFGelCompiler.class,
 				S_ProcName,
 				1,
 				"value" );
@@ -90,35 +90,35 @@ extends MssCFGelCompiler
 		return( codeFactoryVersion );
 	}
 
-	protected class MssCFBuiltinCodeFactoryVersion
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinCodeFactoryVersion
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinCodeFactoryVersion( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinCodeFactoryVersion( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			String retval = MSSBamCFGelCompiler.getCodeFactoryVersion();
+		public String expand( MssYCFGenContext genContext ) {
+			String retval = MSSBamYCFGelCompiler.getCodeFactoryVersion();
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinProjectName
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinProjectName
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinProjectName( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinProjectName( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = null;
-			ICFLibAnyObj anobj = genContext.getGenDef();
-			ICFBamSchemaDefObj schema = MSSBamCFAnyObj.getSchema( anobj );
-			ICFLibAnyObj project = MSSBamCFAnyObj.getProject( schema );
-			if( ( project != null ) && ( project instanceof ICFBamTopProjectObj ) ) {
+			IYCFLibAnyObj anobj = genContext.getGenDef();
+			IYCFBamSchemaDefObj schema = MSSBamYCFAnyObj.getSchema( anobj );
+			IYCFLibAnyObj project = MSSBamYCFAnyObj.getProject( schema );
+			if( ( project != null ) && ( project instanceof IYCFBamTopProjectObj ) ) {
 				retval = project.getObjName();
 			}
-			else if( ( project != null ) && ( project instanceof ICFBamSubProjectObj ) ) {
+			else if( ( project != null ) && ( project instanceof IYCFBamSubProjectObj ) ) {
 				retval = project.getObjName();
 			}
 			else {
@@ -128,50 +128,50 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinDefProjectName
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinDefProjectName
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinDefProjectName( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinDefProjectName( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String retval = null;
-			ICFLibAnyObj anobj = genContext.getGenDef();
-			ICFLibAnyObj project = MSSBamCFAnyObj.getDefProject( anobj );
-			if( ( project != null ) && ( project instanceof ICFBamTopProjectObj ) ) {
+			IYCFLibAnyObj anobj = genContext.getGenDef();
+			IYCFLibAnyObj project = MSSBamYCFAnyObj.getDefProject( anobj );
+			if( ( project != null ) && ( project instanceof IYCFBamTopProjectObj ) ) {
 				retval = project.getObjName();
 			}
-			else if( ( project != null ) && ( project instanceof ICFBamSubProjectObj ) ) {
+			else if( ( project != null ) && ( project instanceof IYCFBamSubProjectObj ) ) {
 				retval = project.getObjName();
 			}
 			return retval;
 		}
 	}
 
-	protected class MssCFBuiltinJavaDefPackage
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinJavaDefPackage
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinJavaDefPackage( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinJavaDefPackage( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String ret = null;
-			ICFLibAnyObj genObj;
-			MssCFGenContext fileContext = genContext.getGenFileContext();
+			IYCFLibAnyObj genObj;
+			MssYCFGenContext fileContext = genContext.getGenFileContext();
 			if( fileContext != null) {
-				genObj = (ICFLibAnyObj)(fileContext.getGenDef());
+				genObj = (IYCFLibAnyObj)(fileContext.getGenDef());
 			}
 			else {
-				genObj = (ICFLibAnyObj)genContext.getGenDef();
+				genObj = (IYCFLibAnyObj)genContext.getGenDef();
 			}
 
 			if (genObj != null) {
-				ICFLibAnyObj projectDef = MSSBamCFAnyObj.getDefProject(genObj);
+				IYCFLibAnyObj projectDef = MSSBamYCFAnyObj.getDefProject(genObj);
 				if (projectDef != null) {
-					String projectDotName = MSSBamCFAnyObj.getModelName(projectDef);
-					String versionString = MSSBamCFAnyObj.getVersionString(genObj);
+					String projectDotName = MSSBamYCFAnyObj.getModelName(projectDef);
+					String versionString = MSSBamYCFAnyObj.getVersionString(genObj);
 					if ((versionString != null) && (versionString.length() > 0)) {
 						switch (versionString.charAt(0)) {
 							case '0':
@@ -218,88 +218,88 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinJavaPackage
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinJavaPackage
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinJavaPackage( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinJavaPackage( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			ICFBamSchemaDefObj manufacturingSchema = MSSBamCFGenContext.getManufacturingSchema();
-			ICFBamMinorVersionObj minorVersion = null;
-			ICFBamMajorVersionObj majorVersion = null;
-			ICFBamSubProjectObj subProject = null;
-			ICFBamTopProjectObj topProject = null;
-			ICFBamTopDomainObj topDomain = null;
-			ICFBamTldObj tld = null;
+		public String expand( MssYCFGenContext genContext ) {
+			IYCFBamSchemaDefObj manufacturingSchema = MSSBamYCFGenContext.getManufacturingSchema();
+			IYCFBamMinorVersionObj minorVersion = null;
+			IYCFBamMajorVersionObj majorVersion = null;
+			IYCFBamSubProjectObj subProject = null;
+			IYCFBamTopProjectObj topProject = null;
+			IYCFBamTopDomainObj topDomain = null;
+			IYCFBamTldObj tld = null;
 
 			String ret = null;
-			ICFLibAnyObj scopeDef = manufacturingSchema.getObjScope();
+			IYCFLibAnyObj scopeDef = manufacturingSchema.getObjScope();
 			while (scopeDef != null) {
-				if (scopeDef instanceof ICFBamMajorVersionObj) {
+				if (scopeDef instanceof IYCFBamMajorVersionObj) {
 					if (majorVersion == null) {
-						majorVersion = (ICFBamMajorVersionObj)scopeDef;
+						majorVersion = (IYCFBamMajorVersionObj)scopeDef;
 					}
 					else {
-						throw new CFLibRuntimeException("MssCFBuiltinJavaPackage.expand() - Found multiple major version objects in scope chain.");
+						throw new YCFLibRuntimeException("MssYCFBuiltinJavaPackage.expand() - Found multiple major version objects in scope chain.");
 					}
 					scopeDef = scopeDef.getObjScope();
 				}
-				else if (scopeDef instanceof ICFBamMinorVersionObj) {
+				else if (scopeDef instanceof IYCFBamMinorVersionObj) {
 					if (minorVersion == null) {
-						minorVersion = (ICFBamMinorVersionObj)scopeDef;
+						minorVersion = (IYCFBamMinorVersionObj)scopeDef;
 					}
 					else {
-						throw new CFLibRuntimeException("MssCFBuiltinJavaPackage.expand() - Found multiple minor version objects in scope chain.");
+						throw new YCFLibRuntimeException("MssYCFBuiltinJavaPackage.expand() - Found multiple minor version objects in scope chain.");
 					}
 					scopeDef = scopeDef.getObjScope();
 				}
-				else if (scopeDef instanceof ICFBamSubProjectObj) {
+				else if (scopeDef instanceof IYCFBamSubProjectObj) {
 					if (subProject == null) {
-						subProject = (ICFBamSubProjectObj)scopeDef;
+						subProject = (IYCFBamSubProjectObj)scopeDef;
 					}
 					else {
-						throw new CFLibRuntimeException("MssCFBuiltinJavaPackage.expand() - Found multiple sub-project objects in scope chain.");
+						throw new YCFLibRuntimeException("MssYCFBuiltinJavaPackage.expand() - Found multiple sub-project objects in scope chain.");
 					}
 					scopeDef = scopeDef.getObjScope();
 				}
-				else if (scopeDef instanceof ICFBamTopProjectObj) {
+				else if (scopeDef instanceof IYCFBamTopProjectObj) {
 					if (topProject == null) {
-						topProject = (ICFBamTopProjectObj)scopeDef;
+						topProject = (IYCFBamTopProjectObj)scopeDef;
 					}
 					else {
-						throw new CFLibRuntimeException("MssCFBuiltinJavaPackage.expand() - Found multiple top-project objects in scope chain.");
+						throw new YCFLibRuntimeException("MssYCFBuiltinJavaPackage.expand() - Found multiple top-project objects in scope chain.");
 					}
 					scopeDef = scopeDef.getObjScope();
 				}
-				else if (scopeDef instanceof ICFBamTopDomainObj) {
+				else if (scopeDef instanceof IYCFBamTopDomainObj) {
 					if (topDomain == null) {
-						topDomain = (ICFBamTopDomainObj)scopeDef;
+						topDomain = (IYCFBamTopDomainObj)scopeDef;
 					}
 					else {
-						throw new CFLibRuntimeException("MssCFBuiltinJavaPackage.expand() - Found multiple top-domain objects in scope chain.");
+						throw new YCFLibRuntimeException("MssYCFBuiltinJavaPackage.expand() - Found multiple top-domain objects in scope chain.");
 					}
 					scopeDef = scopeDef.getObjScope();
 				}
-				else if (scopeDef instanceof ICFBamTldObj) {
+				else if (scopeDef instanceof IYCFBamTldObj) {
 					if (tld == null) {
-						tld = (ICFBamTldObj)scopeDef;
+						tld = (IYCFBamTldObj)scopeDef;
 					}
 					else {
-						throw new CFLibRuntimeException("MssCFBuiltinJavaPackage.expand() - Found multiple TLD objects in scope chain.");
+						throw new YCFLibRuntimeException("MssYCFBuiltinJavaPackage.expand() - Found multiple TLD objects in scope chain.");
 					}
 					scopeDef = null;
 				}
-				else if (scopeDef instanceof ICFSecTenantObj) {
+				else if (scopeDef instanceof IYCFSecTenantObj) {
 					scopeDef = null;
 				}
 			}
 			if (tld == null) {
-				throw new CFLibRuntimeException("MssCFBuiltinJavaPackage.expand() - Failed to find TLD object in scope chain.");
+				throw new YCFLibRuntimeException("MssYCFBuiltinJavaPackage.expand() - Failed to find TLD object in scope chain.");
 			}
 			if (topDomain == null) {
-				throw new CFLibRuntimeException("MssCFBuiltinJavaPackage.expand() - Failed to find top-domain object in scope chain.");
+				throw new YCFLibRuntimeException("MssYCFBuiltinJavaPackage.expand() - Failed to find top-domain object in scope chain.");
 			}
 			String versionString;
 			if (majorVersion != null) {
@@ -328,22 +328,22 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinGenPackage
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenPackage
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenPackage( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinGenPackage( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String ret = null;
-			MssCFGenContext fileContext = genContext.getGenFileContext();
+			MssYCFGenContext fileContext = genContext.getGenFileContext();
 			if( fileContext != null ) {
-				ICFLibAnyObj tmp = (ICFLibAnyObj)(fileContext.getGenDef());
+				IYCFLibAnyObj tmp = (IYCFLibAnyObj)(fileContext.getGenDef());
 				if( tmp != null ) {
-					ICFLibAnyObj pkg = MSSBamCFAnyObj.getPackage(tmp);
+					IYCFLibAnyObj pkg = MSSBamYCFAnyObj.getPackage(tmp);
 					if( pkg != null ) {
-						ret = MSSBamCFAnyObj.getModelName( pkg );
+						ret = MSSBamYCFAnyObj.getModelName( pkg );
 					}
 				}
 			}
@@ -351,22 +351,22 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinGenBasePackage
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenBasePackage
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenBasePackage( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinGenBasePackage( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String ret = null;
-			MssCFGenContext fileContext = genContext.getGenFileContext();
+			MssYCFGenContext fileContext = genContext.getGenFileContext();
 			if( fileContext != null ) {
-				ICFLibAnyObj tmp = (ICFLibAnyObj)(fileContext.getGenDef());
+				IYCFLibAnyObj tmp = (IYCFLibAnyObj)(fileContext.getGenDef());
 				if( tmp != null ) {
-					ICFLibAnyObj pkg = MSSBamCFAnyObj.getPackage(tmp);
+					IYCFLibAnyObj pkg = MSSBamYCFAnyObj.getPackage(tmp);
 					if( pkg != null ) {
-						String pkgName = MSSBamCFAnyObj.getModelName( pkg );
+						String pkgName = MSSBamYCFAnyObj.getModelName( pkg );
 						if( pkgName != null ) {
 							String basePackageName = genContext.getGenBasePackageName();
 							if( ( basePackageName != null ) && ( basePackageName.length() > 0 ) ) {
@@ -383,27 +383,27 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinGenFullPackage
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenFullPackage
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenFullPackage( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinGenFullPackage( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
-			final String S_ProcName = "MssCFBuiltingGenFullPackage.expand() ";
+		public String expand( MssYCFGenContext genContext ) {
+			final String S_ProcName = "MssYCFBuiltingGenFullPackage.expand() ";
 			String ret = null;
-			ICFLibAnyObj genDef;
-			MssCFGenContext fileContext = genContext.getGenFileContext();
+			IYCFLibAnyObj genDef;
+			MssYCFGenContext fileContext = genContext.getGenFileContext();
 			if( fileContext != null ) {
-				genDef = (ICFLibAnyObj)(fileContext.getGenDef());
+				genDef = (IYCFLibAnyObj)(fileContext.getGenDef());
 			}
 			else {
-				genDef = (ICFLibAnyObj)genContext.getGenDef();
+				genDef = (IYCFLibAnyObj)genContext.getGenDef();
 			}
-			ICFLibAnyObj pkg = MSSBamCFAnyObj.getPackage(genDef);
+			IYCFLibAnyObj pkg = MSSBamYCFAnyObj.getPackage(genDef);
 			if( pkg != null ) {
-				String pkgName = MSSBamCFAnyObj.getFullName( pkg );
+				String pkgName = MSSBamYCFAnyObj.getFullName( pkg );
 				if( pkgName == null ) {
 					throw new RuntimeException( S_ProcName +  "GetFullName() returned null" );
 				}
@@ -425,16 +425,16 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinGenPackageDir
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenPackageDir
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenPackageDir( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinGenPackageDir( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String ret = null;
-			MssCFGenContext fileContext = genContext.getGenFileContext();
+			MssYCFGenContext fileContext = genContext.getGenFileContext();
 			if( fileContext != null ) {
 				String basePackageName = genContext.getGenBasePackageName();
 				if( ( basePackageName != null ) && ( basePackageName.length() > 0 ) ) {
@@ -470,24 +470,24 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinGenPackageFullDir
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinGenPackageFullDir
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinGenPackageFullDir( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinGenPackageFullDir( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String ret = null;
-			MssCFGenContext fileContext = genContext.getGenFileContext();
+			MssYCFGenContext fileContext = genContext.getGenFileContext();
 			if( fileContext != null ) {
-				ICFLibAnyObj tmp = (ICFLibAnyObj)(fileContext.getGenDef());
+				IYCFLibAnyObj tmp = (IYCFLibAnyObj)(fileContext.getGenDef());
 				if( tmp != null ) {
-					ICFLibAnyObj pkg = MSSBamCFAnyObj.getPackage(tmp);
+					IYCFLibAnyObj pkg = MSSBamYCFAnyObj.getPackage(tmp);
 					if( pkg != null ) {
-						String pkgDir = MSSBamCFAnyObj.getModelName( pkg );
+						String pkgDir = MSSBamYCFAnyObj.getModelName( pkg );
 						if( pkgDir != null ) {
-							if( tmp instanceof ICFBamSchemaObj ) {
+							if( tmp instanceof IYCFBamSchemaObj ) {
 								String		schemaPkg = ret + "." + tmp.getObjName().toLowerCase();
 								pkgDir = schemaPkg;
 							}
@@ -519,24 +519,24 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinSchemaHostName
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinSchemaHostName
+	extends YCFGenKbGelBuiltinObj
 	{
-		public MssCFBuiltinSchemaHostName( ICFGenKbSchemaObj schemaObj ) {
+		public MssYCFBuiltinSchemaHostName( IYCFGenKbSchemaObj schemaObj ) {
 			super( schemaObj );
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String ret = null;
-//			MssCFGenContext fileContext = genContext.getGenFileContext();
+//			MssYCFGenContext fileContext = genContext.getGenFileContext();
 //			if( fileContext != null ) {
-				ICFLibAnyObj tmp = (ICFLibAnyObj)(genContext.getGenDef());
+				IYCFLibAnyObj tmp = (IYCFLibAnyObj)(genContext.getGenDef());
 				if( tmp != null ) {
-					while ((tmp != null) && !(tmp instanceof ICFBamSchemaDefObj)) {
+					while ((tmp != null) && !(tmp instanceof IYCFBamSchemaDefObj)) {
 						tmp = tmp.getObjScope();
 					}
-					if ((tmp != null) && (tmp instanceof ICFBamSchemaDefObj)) {
-						ICFBamSchemaDefObj schemaDef = (ICFBamSchemaDefObj)tmp;
+					if ((tmp != null) && (tmp instanceof IYCFBamSchemaDefObj)) {
+						IYCFBamSchemaDefObj schemaDef = (IYCFBamSchemaDefObj)tmp;
 						ret = schemaDef.getRequiredContainerMinorVersion().getRequiredContainerParentMajVer().getRequiredContainerParentSPrj().getRequiredContainerParentTPrj().getRequiredName()
 							+ "." + schemaDef.getRequiredContainerMinorVersion().getRequiredContainerParentMajVer().getRequiredContainerParentSPrj().getRequiredContainerParentTPrj().getRequiredContainerParentSDom().getRequiredName()
 						    + "." + schemaDef.getRequiredContainerMinorVersion().getRequiredContainerParentMajVer().getRequiredContainerParentSPrj().getRequiredContainerParentTPrj().getRequiredContainerParentSDom().getRequiredContainerParentTld().getRequiredName();
@@ -550,27 +550,27 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinSchemaTweak
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinSchemaTweak
+	extends YCFGenKbGelBuiltinObj
 	{
 		protected final String tweakName;
 
-		public MssCFBuiltinSchemaTweak( ICFGenKbSchemaObj schemaObj, String tweakName ) {
+		public MssYCFBuiltinSchemaTweak( IYCFGenKbSchemaObj schemaObj, String tweakName ) {
 			super( schemaObj );
 			this.tweakName = tweakName;
-			if (schemaObj instanceof MSSBamCFEngine) {
-				((MSSBamCFEngine)schemaObj).defineSchemaTweakName(tweakName);
+			if (schemaObj instanceof MSSBamYCFEngine) {
+				((MSSBamYCFEngine)schemaObj).defineSchemaTweakName(tweakName);
 			}
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String ret = null;
 
-			ICFLibAnyObj genDef;
+			IYCFLibAnyObj genDef;
 			final String S_ProcName = "expandSchemaTweak";
 
 			if (genContext == null) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					1,
 					"genContext" );
@@ -578,28 +578,28 @@ extends MssCFGelCompiler
 
 			genDef = genContext.getGenDef();
 			if (genDef == null) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"genContext.GenDef" );
 			}
 
-			if( ! ( genDef instanceof ICFBamSchemaDefObj ) ) {
-				throw new CFLibUnsupportedClassException( getClass(),
+			if( ! ( genDef instanceof IYCFBamSchemaDefObj ) ) {
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"genContext.GenDef",
 					genDef,
-					"ICFBamSchemaDefObj" );
+					"IYCFBamSchemaDefObj" );
 			}
 
-			ArrayList<ICFBamSchemaTweakObj> arrTweaks = new ArrayList<>();
+			ArrayList<IYCFBamSchemaTweakObj> arrTweaks = new ArrayList<>();
 
-			ICFBamSchemaDefObj schema = (ICFBamSchemaDefObj)genDef;
-			for (ICFBamSchemaRefObj refSchema : schema.getOptionalComponentsSchemaRefs()) {
-				ICFBamSchemaDefObj forSchema = refSchema.getOptionalLookupRefSchema();
+			IYCFBamSchemaDefObj schema = (IYCFBamSchemaDefObj)genDef;
+			for (IYCFBamSchemaRefObj refSchema : schema.getOptionalComponentsSchemaRefs()) {
+				IYCFBamSchemaDefObj forSchema = refSchema.getOptionalLookupRefSchema();
 				if (forSchema != null) {
-					for (ICFBamTweakObj tweak : forSchema.getOptionalComponentsTweaks()) {
-						ICFBamSchemaTweakObj rtweak = (ICFBamSchemaTweakObj)tweak;
+					for (IYCFBamTweakObj tweak : forSchema.getOptionalComponentsTweaks()) {
+						IYCFBamSchemaTweakObj rtweak = (IYCFBamSchemaTweakObj)tweak;
 						if (rtweak.getRequiredName().equals(tweakName)) {
 							if (!arrTweaks.contains(rtweak)) {
 								arrTweaks.add(rtweak);
@@ -608,8 +608,8 @@ extends MssCFGelCompiler
 					}
 				}
 			}
-			for (ICFBamTweakObj tweak : schema.getOptionalComponentsTweaks()) {
-				ICFBamSchemaTweakObj rtweak = (ICFBamSchemaTweakObj)tweak;
+			for (IYCFBamTweakObj tweak : schema.getOptionalComponentsTweaks()) {
+				IYCFBamSchemaTweakObj rtweak = (IYCFBamSchemaTweakObj)tweak;
 				if (rtweak.getRequiredName().equals(tweakName)) {
 					if (!arrTweaks.contains(rtweak)) {
 						arrTweaks.add(rtweak);
@@ -618,7 +618,7 @@ extends MssCFGelCompiler
 			}
 
 			StringBuilder buff = new StringBuilder();
-			for (ICFBamSchemaTweakObj tweak: arrTweaks) {
+			for (IYCFBamSchemaTweakObj tweak: arrTweaks) {
 				if (tweak.getRequiredReplacesInherited()) {
 					buff.setLength(0);
 				}
@@ -632,7 +632,7 @@ extends MssCFGelCompiler
 				execName.append( "::" );
 				execName.append( tweakName );
 				try {
-					ICFGenKbGelExecutableObj bin = genContext.getGenEngine().getGelCompiler().compileExecutable( execName.toString(), buff.toString(), null );
+					IYCFGenKbGelExecutableObj bin = genContext.getGenEngine().getGelCompiler().compileExecutable( execName.toString(), buff.toString(), null );
 					ret = bin.expand( genContext );
 				}
 				catch (Throwable th) {
@@ -648,27 +648,27 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinTableTweak
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinTableTweak
+	extends YCFGenKbGelBuiltinObj
 	{
 		protected final String tweakName;
 
-		public MssCFBuiltinTableTweak( ICFGenKbSchemaObj schemaObj, String tweakName ) {
+		public MssYCFBuiltinTableTweak( IYCFGenKbSchemaObj schemaObj, String tweakName ) {
 			super( schemaObj );
 			this.tweakName = tweakName;
-			if (schemaObj instanceof MSSBamCFEngine) {
-				((MSSBamCFEngine)schemaObj).defineTableTweakName(tweakName);
+			if (schemaObj instanceof MSSBamYCFEngine) {
+				((MSSBamYCFEngine)schemaObj).defineTableTweakName(tweakName);
 			}
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String ret = null;
 
-			ICFLibAnyObj genDef;
+			IYCFLibAnyObj genDef;
 			final String S_ProcName = "expandTableTweak";
 
 			if (genContext == null) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					1,
 					"genContext" );
@@ -676,26 +676,26 @@ extends MssCFGelCompiler
 
 			genDef = genContext.getGenDef();
 			if (genDef == null) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"genContext.GenDef" );
 			}
 
-			if( ! ( genDef instanceof ICFBamTableObj ) ) {
-				throw new CFLibUnsupportedClassException( getClass(),
+			if( ! ( genDef instanceof IYCFBamTableObj ) ) {
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"genContext.GenDef",
 					genDef,
-					"ICFBamTableObj" );
+					"IYCFBamTableObj" );
 			}
 
-			ArrayList<ICFBamTableTweakObj> arrTweaks = new ArrayList<>();
+			ArrayList<IYCFBamTableTweakObj> arrTweaks = new ArrayList<>();
 
-			ICFBamTableObj table = (ICFBamTableObj)genDef;
+			IYCFBamTableObj table = (IYCFBamTableObj)genDef;
 			while (table != null) {
-				for (ICFBamTweakObj tweak : table.getOptionalComponentsTweaks()) {
-					ICFBamTableTweakObj rtweak = (ICFBamTableTweakObj)tweak;
+				for (IYCFBamTweakObj tweak : table.getOptionalComponentsTweaks()) {
+					IYCFBamTableTweakObj rtweak = (IYCFBamTableTweakObj)tweak;
 					if (rtweak.getRequiredName().equals(tweakName)) {
 						if (!arrTweaks.contains(rtweak)) {
 							arrTweaks.add(0,rtweak);
@@ -703,8 +703,8 @@ extends MssCFGelCompiler
 					}
 				}
 				if (table.getOptionalDefSchemaTenantId() != null && table.getOptionalDefSchemaId() != null) {
-					ICFBamSchemaDefObj schemaDef = table.getSchema().getSchemaDefTableObj().readSchemaDefByIdIdx(table.getOptionalDefSchemaTenantId(), table.getOptionalDefSchemaId());
-					for( ICFBamTableObj curTable : schemaDef.getOptionalComponentsTables()) {
+					IYCFBamSchemaDefObj schemaDef = table.getSchema().getSchemaDefTableObj().readSchemaDefByIdIdx(table.getOptionalDefSchemaTenantId(), table.getOptionalDefSchemaId());
+					for( IYCFBamTableObj curTable : schemaDef.getOptionalComponentsTables()) {
 						if (curTable.getRequiredName().equals(table.getRequiredName())) {
 							table = curTable;
 							break;
@@ -717,7 +717,7 @@ extends MssCFGelCompiler
 			}
 
 			StringBuilder buff = new StringBuilder();
-			for (ICFBamTableTweakObj tweak: arrTweaks) {
+			for (IYCFBamTableTweakObj tweak: arrTweaks) {
 				if (tweak.getRequiredReplacesInherited()) {
 					buff.setLength(0);
 				}
@@ -731,7 +731,7 @@ extends MssCFGelCompiler
 				execName.append( "::" );
 				execName.append( tweakName );
 				try {
-					ICFGenKbGelExecutableObj bin = genContext.getGenEngine().getGelCompiler().compileExecutable( execName.toString(), buff.toString(), null );
+					IYCFGenKbGelExecutableObj bin = genContext.getGenEngine().getGelCompiler().compileExecutable( execName.toString(), buff.toString(), null );
 					ret = bin.expand( genContext );
 				}
 				catch (Throwable th) {
@@ -747,27 +747,27 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected class MssCFBuiltinIndexTweak
-	extends CFGenKbGelBuiltinObj
+	protected class MssYCFBuiltinIndexTweak
+	extends YCFGenKbGelBuiltinObj
 	{
 		protected final String tweakName;
 
-		public MssCFBuiltinIndexTweak( ICFGenKbSchemaObj schemaObj, String tweakName ) {
+		public MssYCFBuiltinIndexTweak( IYCFGenKbSchemaObj schemaObj, String tweakName ) {
 			super( schemaObj );
 			this.tweakName = tweakName;
-			if (schemaObj instanceof MSSBamCFEngine) {
-				((MSSBamCFEngine)schemaObj).defineIndexTweakName(tweakName);
+			if (schemaObj instanceof MSSBamYCFEngine) {
+				((MSSBamYCFEngine)schemaObj).defineIndexTweakName(tweakName);
 			}
 		}
 
-		public String expand( MssCFGenContext genContext ) {
+		public String expand( MssYCFGenContext genContext ) {
 			String ret = null;
 
-			ICFLibAnyObj genDef;
+			IYCFLibAnyObj genDef;
 			final String S_ProcName = "expandIndexTweak";
 
 			if (genContext == null) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					1,
 					"genContext" );
@@ -775,36 +775,36 @@ extends MssCFGelCompiler
 
 			genDef = genContext.getGenDef();
 			if (genDef == null) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"genContext.GenDef" );
 			}
 
-			if( ! ( genDef instanceof ICFBamIndexObj ) ) {
-				throw new CFLibUnsupportedClassException( getClass(),
+			if( ! ( genDef instanceof IYCFBamIndexObj ) ) {
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"genContext.GenDef",
 					genDef,
-					"ICFBamIndexObj" );
+					"IYCFBamIndexObj" );
 			}
 
-			ArrayList<ICFBamIndexTweakObj> arrTweaks = new ArrayList<>();
+			ArrayList<IYCFBamIndexTweakObj> arrTweaks = new ArrayList<>();
 
-			ICFBamIndexObj index = (ICFBamIndexObj)genDef;
+			IYCFBamIndexObj index = (IYCFBamIndexObj)genDef;
 			while (index != null) {
-				for (ICFBamTweakObj tweak : index.getOptionalComponentsTweaks()) {
-					ICFBamIndexTweakObj rtweak = (ICFBamIndexTweakObj)tweak;
+				for (IYCFBamTweakObj tweak : index.getOptionalComponentsTweaks()) {
+					IYCFBamIndexTweakObj rtweak = (IYCFBamIndexTweakObj)tweak;
 					if (rtweak.getRequiredName().equals(tweakName)) {
 						if (!arrTweaks.contains(rtweak)) {
 							arrTweaks.add(0,rtweak);
 						}
 					}
 				}
-				ICFBamTableObj table = null;
+				IYCFBamTableObj table = null;
 				if (index.getOptionalDefSchemaTenantId() != null && index.getOptionalDefSchemaId() != null) {
-					ICFBamSchemaDefObj schemaDef = index.getSchema().getSchemaDefTableObj().readSchemaDefByIdIdx(index.getOptionalDefSchemaTenantId().longValue(), index.getOptionalDefSchemaId().longValue());
-					for( ICFBamTableObj curTable : schemaDef.getOptionalComponentsTables()) {
+					IYCFBamSchemaDefObj schemaDef = index.getSchema().getSchemaDefTableObj().readSchemaDefByIdIdx(index.getOptionalDefSchemaTenantId().longValue(), index.getOptionalDefSchemaId().longValue());
+					for( IYCFBamTableObj curTable : schemaDef.getOptionalComponentsTables()) {
 						if (index.getRequiredContainerTable().getRequiredName().equals(curTable.getRequiredName())) {
 							table = curTable;
 							break;
@@ -812,7 +812,7 @@ extends MssCFGelCompiler
 					}
 				}
 				if (table != null) {
-					for( ICFBamIndexObj curIndex: table.getOptionalComponentsIndex()) {
+					for( IYCFBamIndexObj curIndex: table.getOptionalComponentsIndex()) {
 						if (index.getRequiredName().equals(curIndex.getRequiredName())) {
 							index = curIndex;
 							break;
@@ -828,7 +828,7 @@ extends MssCFGelCompiler
 			}
 
 			StringBuilder buff = new StringBuilder();
-			for (ICFBamIndexTweakObj tweak: arrTweaks) {
+			for (IYCFBamIndexTweakObj tweak: arrTweaks) {
 				if (tweak.getRequiredReplacesInherited()) {
 					buff.setLength(0);
 				}
@@ -842,7 +842,7 @@ extends MssCFGelCompiler
 				execName.append( "::" );
 				execName.append( tweakName );
 				try {
-					ICFGenKbGelExecutableObj bin = genContext.getGenEngine().getGelCompiler().compileExecutable( execName.toString(), buff.toString(), null );
+					IYCFGenKbGelExecutableObj bin = genContext.getGenEngine().getGelCompiler().compileExecutable( execName.toString(), buff.toString(), null );
 					ret = bin.expand( genContext );
 				}
 				catch (Throwable th) {
@@ -858,10 +858,10 @@ extends MssCFGelCompiler
 		}
 	}
 
-	protected ICFGenKbGelInstructionObj compileMacro( String macro )
+	protected IYCFGenKbGelInstructionObj compileMacro( String macro )
 	{
 		boolean noSuperCompiler = true;
-		ICFGenKbGelInstructionObj ret = null;
+		IYCFGenKbGelInstructionObj ret = null;
 
 		if( macro == null ) {
 			ret = super.compileMacro( "" );
@@ -884,21 +884,21 @@ extends MssCFGelCompiler
 				afterKeyword = "";
 			}
 			if (!afterKeyword.isEmpty() && !afterKeyword.isBlank()) {
-				ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinSchemaTweak( genEngine, afterKeyword ); 
-				ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+				IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinSchemaTweak( genEngine, afterKeyword ); 
+				IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 				builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 				builtinEdit.setRequiredContainerGelCache( myGelCache );
 				builtinEdit.setRequiredSourceText( macro );
-				builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+				builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 				ret = builtinObj;
 			}
 			else {
-				ICFGenKbGelErrorObj errObj = new CFGenKbGelErrorObj(genEngine);
-				ICFGenKbGelErrorEditObj errEdit = (ICFGenKbGelErrorEditObj)errObj.beginEdit();
+				IYCFGenKbGelErrorObj errObj = new YCFGenKbGelErrorObj(genEngine);
+				IYCFGenKbGelErrorEditObj errEdit = (IYCFGenKbGelErrorEditObj)errObj.beginEdit();
 				errEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 				errEdit.setRequiredContainerGelCache( myGelCache );
 				errEdit.setRequiredSourceText( macro );
-				errObj = (ICFGenKbGelErrorObj)errEdit.create();
+				errObj = (IYCFGenKbGelErrorObj)errEdit.create();
 				ret = errObj;
 			}
 		}
@@ -920,21 +920,21 @@ extends MssCFGelCompiler
 				afterKeyword = "";
 			}
 			if (!afterKeyword.isEmpty() && !afterKeyword.isBlank()) {
-				ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinTableTweak( genEngine, afterKeyword ); 
-				ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+				IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinTableTweak( genEngine, afterKeyword ); 
+				IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 				builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 				builtinEdit.setRequiredContainerGelCache( myGelCache );
 				builtinEdit.setRequiredSourceText( macro );
-				builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+				builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 				ret = builtinObj;
 			}
 			else {
-				ICFGenKbGelErrorObj errObj = new CFGenKbGelErrorObj(genEngine);
-				ICFGenKbGelErrorEditObj errEdit = (ICFGenKbGelErrorEditObj)errObj.beginEdit();
+				IYCFGenKbGelErrorObj errObj = new YCFGenKbGelErrorObj(genEngine);
+				IYCFGenKbGelErrorEditObj errEdit = (IYCFGenKbGelErrorEditObj)errObj.beginEdit();
 				errEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 				errEdit.setRequiredContainerGelCache( myGelCache );
 				errEdit.setRequiredSourceText( macro );
-				errObj = (ICFGenKbGelErrorObj)errEdit.create();
+				errObj = (IYCFGenKbGelErrorObj)errEdit.create();
 				ret = errObj;
 			}
 		}
@@ -956,112 +956,112 @@ extends MssCFGelCompiler
 				afterKeyword = "";
 			}
 			if (!afterKeyword.isEmpty() && !afterKeyword.isBlank()) {
-				ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinIndexTweak( genEngine, afterKeyword ); 
-				ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+				IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinIndexTweak( genEngine, afterKeyword ); 
+				IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 				builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 				builtinEdit.setRequiredContainerGelCache( myGelCache );
 				builtinEdit.setRequiredSourceText( macro );
-				builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+				builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 				ret = builtinObj;
 			}
 			else {
-				ICFGenKbGelErrorObj errObj = new CFGenKbGelErrorObj(genEngine);
-				ICFGenKbGelErrorEditObj errEdit = (ICFGenKbGelErrorEditObj)errObj.beginEdit();
+				IYCFGenKbGelErrorObj errObj = new YCFGenKbGelErrorObj(genEngine);
+				IYCFGenKbGelErrorEditObj errEdit = (IYCFGenKbGelErrorEditObj)errObj.beginEdit();
 				errEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 				errEdit.setRequiredContainerGelCache( myGelCache );
 				errEdit.setRequiredSourceText( macro );
-				errObj = (ICFGenKbGelErrorObj)errEdit.create();
+				errObj = (IYCFGenKbGelErrorObj)errEdit.create();
 				ret = errObj;
 			}
 		}
 		else if( macro.equals( _BUILTIN_CODEFACTORYVERSION ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinCodeFactoryVersion( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinCodeFactoryVersion( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_PROJECTNAME ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinProjectName( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinProjectName( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else if (macro.equals(_BUILTIN_JAVAPACKAGE)) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinJavaPackage( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinJavaPackage( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else if (macro.equals(_BUILTIN_JAVADEFPACKAGE)) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinJavaDefPackage( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinJavaDefPackage( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else if (macro.equals(_BUILTIN_GENPACKAGE)) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenPackage( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenPackage( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENBASEPACKAGE ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenBasePackage( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenBasePackage( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENFULLPACKAGE ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenFullPackage( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenFullPackage( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENPACKAGEDIR ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenPackageDir( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenPackageDir( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_GENPACKAGEFULLDIR ) ) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinGenPackageFullDir( genEngine ); 
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinGenPackageFullDir( genEngine ); 
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else if( macro.equals( _BUILTIN_SCHEMAHOSTNAME )) {
-			ICFGenKbGelBuiltinObj builtinObj = new MssCFBuiltinSchemaHostName(genEngine);
-			ICFGenKbGelBuiltinEditObj builtinEdit = (ICFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
+			IYCFGenKbGelBuiltinObj builtinObj = new MssYCFBuiltinSchemaHostName(genEngine);
+			IYCFGenKbGelBuiltinEditObj builtinEdit = (IYCFGenKbGelBuiltinEditObj)builtinObj.beginEdit();
 			builtinEdit.setRequiredOwnerTenant( myGelCache.getRequiredOwnerTenant() );
 			builtinEdit.setRequiredContainerGelCache( myGelCache );
 			builtinEdit.setRequiredSourceText( macro );
-			builtinObj = (ICFGenKbGelBuiltinObj)builtinEdit.create();
+			builtinObj = (IYCFGenKbGelBuiltinObj)builtinEdit.create();
 			ret = builtinObj;
 		}
 		else {

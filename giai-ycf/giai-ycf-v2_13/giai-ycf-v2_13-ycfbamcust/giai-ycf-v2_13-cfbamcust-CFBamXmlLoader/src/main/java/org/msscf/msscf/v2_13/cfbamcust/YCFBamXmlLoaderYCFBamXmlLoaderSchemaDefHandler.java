@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustXmlLoader
+ *	MSS Code Factory YCFBam 2.13 CustXmlLoader
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,39 +23,39 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader;
+package org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamXmlLoaderSchemaDefParse XML SAX Element Handler implementation
+ *	YCFBamXmlLoaderSchemaDefParse XML SAX Element Handler implementation
  *	for SchemaDef.
  */
-public class CFBamXmlLoaderSchemaDefHandler
-	extends CFLibXmlCoreElementHandler
+public class YCFBamXmlLoaderSchemaDefHandler
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamXmlLoaderSchemaDefHandler( CFBamXmlLoader saxLoader ) {
+	public YCFBamXmlLoaderSchemaDefHandler( YCFBamXmlLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -71,7 +71,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 			String	attrId = null;
 			// Scope Attributes
 			// Scope References
-			ICFBamTenantObj refTenant = null;
+			IYCFBamTenantObj refTenant = null;
 			// SchemaDef Attributes
 			String	attrName = null;
 			String	attrDbName = null;
@@ -95,8 +95,8 @@ public class CFBamXmlLoaderSchemaDefHandler
 			String	attrServerXFaceLicenseCode = null;
 			String	attrServerXFaceLicenseName = null;
 			// SchemaDef References
-			ICFBamMinorVersionObj refMinorVersion = null;
-			ICFBamTenantObj refCTenant = null;
+			IYCFBamMinorVersionObj refMinorVersion = null;
+			IYCFBamTenantObj refCTenant = null;
 			// Attribute Extraction
 			String	attrLocalName;
 			int		numAttrs;
@@ -106,24 +106,24 @@ public class CFBamXmlLoaderSchemaDefHandler
 
 			assert qName.equals( "SchemaDef" );
 
-			CFBamXmlLoader saxLoader = (CFBamXmlLoader)getParser();
+			YCFBamXmlLoader saxLoader = (YCFBamXmlLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			ICFBamSchemaDefEditObj editBuff = (ICFBamSchemaDefEditObj)schemaObj.getSchemaDefTableObj().newInstance().beginEdit();
+			IYCFBamSchemaDefEditObj editBuff = (IYCFBamSchemaDefEditObj)schemaObj.getSchemaDefTableObj().newInstance().beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -131,7 +131,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -140,7 +140,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -149,7 +149,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "DbName" ) ) {
 					if( attrDbName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -158,7 +158,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ShortName" ) ) {
 					if( attrShortName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -167,7 +167,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "Label" ) ) {
 					if( attrLabel != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -176,7 +176,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ShortDescription" ) ) {
 					if( attrShortDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -185,7 +185,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -194,7 +194,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "CopyrightPeriod" ) ) {
 					if( attrCopyrightPeriod != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -203,7 +203,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "CopyrightHolder" ) ) {
 					if( attrCopyrightHolder != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -212,7 +212,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "AuthorEMail" ) ) {
 					if( attrAuthorEMail != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -221,7 +221,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ProjectURL" ) ) {
 					if( attrProjectURL != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -230,7 +230,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "PublishURI" ) ) {
 					if( attrPublishURI != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -239,7 +239,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "CommonLicenseCode" ) ) {
 					if( attrCommonLicenseCode != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -248,7 +248,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "CommonLicenseName" ) ) {
 					if( attrCommonLicenseName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -257,7 +257,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ClientImplLicenseCode" ) ) {
 					if( attrClientImplLicenseCode != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -266,7 +266,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ClientImplLicenseName" ) ) {
 					if( attrClientImplLicenseName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -275,7 +275,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ClientXFaceLicenseCode" ) ) {
 					if( attrClientXFaceLicenseCode != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -284,7 +284,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ClientXFaceLicenseName" ) ) {
 					if( attrClientXFaceLicenseName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -293,7 +293,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ServerImplLicenseCode" ) ) {
 					if( attrServerImplLicenseCode != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -302,7 +302,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ServerImplLicenseName" ) ) {
 					if( attrServerImplLicenseName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -311,7 +311,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ServerXFaceLicenseCode" ) ) {
 					if( attrServerXFaceLicenseCode != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -320,7 +320,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				}
 				else if( attrLocalName.equals( "ServerXFaceLicenseName" ) ) {
 					if( attrServerXFaceLicenseName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -331,7 +331,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -340,56 +340,56 @@ public class CFBamXmlLoaderSchemaDefHandler
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 			if( attrCopyrightPeriod == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"CopyrightPeriod" );
 			}
 			if( attrCopyrightHolder == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"CopyrightHolder" );
 			}
 			if( attrAuthorEMail == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"AuthorEMail" );
 			}
 			if( attrProjectURL == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"ProjectURL" );
 			}
 			if( attrPublishURI == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"PublishURI" );
 			}
 			if( attrCommonLicenseCode == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"CommonLicenseCode" );
 			}
 			if( attrCommonLicenseName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"CommonLicenseName" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "DbName", attrDbName );
@@ -469,7 +469,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -481,33 +481,33 @@ public class CFBamXmlLoaderSchemaDefHandler
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamMinorVersionObj ) {
-				refMinorVersion = (ICFBamMinorVersionObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamMinorVersionObj ) {
+				refMinorVersion = (IYCFBamMinorVersionObj) scopeObj;
 				editBuff.setRequiredContainerMinorVersion( refMinorVersion );
-				refCTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerCTenant();
+				refCTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerCTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamDomainObj" );
+					"IYCFBamDomainObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refCTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refCTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refCTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerCTenant( refCTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<CTenant>" );
@@ -516,11 +516,11 @@ public class CFBamXmlLoaderSchemaDefHandler
 
 			refTenant = refCTenant;
 
-			ICFBamSchemaDefObj origSchemaDef = schemaObj.getSchemaDefTableObj().readSchemaDefByUNameIdx( refMinorVersion.getRequiredTenantId(),
+			IYCFBamSchemaDefObj origSchemaDef = schemaObj.getSchemaDefTableObj().readSchemaDefByUNameIdx( refMinorVersion.getRequiredTenantId(),
 				refMinorVersion.getRequiredId(),
 				attrName );
 			if( origSchemaDef == null ) {
-				origSchemaDef = (ICFBamSchemaDefObj)editBuff.create();
+				origSchemaDef = (IYCFBamSchemaDefObj)editBuff.create();
 				editBuff = null;
 				curContext.putNamedValue( "ProcessSchema", "true" );
 			}
@@ -550,13 +550,13 @@ public class CFBamXmlLoaderSchemaDefHandler
 
 		assert qName.equals( "SchemaDef" );
 
-		CFLibXmlCoreContext curContext = getParser().getCurContext();
-		if( ! CFBamXmlLoader.getProcessSchema( curContext ) ) {
+		YCFLibXmlCoreContext curContext = getParser().getCurContext();
+		if( ! YCFBamXmlLoader.getProcessSchema( curContext ) ) {
 			return;
 		}
 
-		CFLibXmlCoreContext parentContext = curContext.getPrevContext();
-		ICFBamSchemaDefObj schemaDef = (ICFBamSchemaDefObj)( curContext.getNamedValue( "Object" ) );
+		YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
+		IYCFBamSchemaDefObj schemaDef = (IYCFBamSchemaDefObj)( curContext.getNamedValue( "Object" ) );
 
 		if( ( schemaDef.getRequiredCommonLicenseCode() == null )
 			|| ( schemaDef.getRequiredCommonLicenseCode().length() <= 0 )
@@ -565,7 +565,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 			|| ( schemaDef.getRequiredCommonLicenseText() == null )
 			|| ( schemaDef.getRequiredCommonLicenseText().length() <= 0 ) )
 		{
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"SchemaDef \"" + schemaDef.getObjName() + "\" must specify all three common license attributes - CommonLicenseCode, CommonLicenseName, and the element CommonLicense" );
 		}
@@ -581,7 +581,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				|| ( schemaDef.getOptionalClientImplLicenseText() == null )
 				|| ( schemaDef.getOptionalClientImplLicenseText().length() <= 0 ) )
 			{
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 						S_ProcName,
 						"SchemaDef \"" + schemaDef.getObjName() + "\" must specify all three ClientImpl license attributes or none of them - ClientImplLicenseCode, ClientImplLicenseName, and the element ClientImplLicense" );
 			}
@@ -598,7 +598,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				|| ( schemaDef.getOptionalClientXFaceLicenseText() == null )
 				|| ( schemaDef.getOptionalClientXFaceLicenseText().length() <= 0 ) )
 			{
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 						S_ProcName,
 						"SchemaDef \"" + schemaDef.getObjName() + "\" must specify all three ClientXFace license attributes or none of them - ClientXFaceLicenseCode, ClientXFaceLicenseName, and the element ClientXFaceLicense" );
 			}
@@ -615,7 +615,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				|| ( schemaDef.getOptionalServerImplLicenseText() == null )
 				|| ( schemaDef.getOptionalServerImplLicenseText().length() <= 0 ) )
 			{
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 						S_ProcName,
 						"SchemaDef \"" + schemaDef.getObjName() + "\" must specify all three ServerImpl license attributes or none of them - ServerImplLicenseCode, ServerImplLicenseName, and the element ServerImplLicense" );
 			}
@@ -632,7 +632,7 @@ public class CFBamXmlLoaderSchemaDefHandler
 				|| ( schemaDef.getOptionalServerXFaceLicenseText() == null )
 				|| ( schemaDef.getOptionalServerXFaceLicenseText().length() <= 0 ) )
 			{
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 						S_ProcName,
 						"SchemaDef \"" + schemaDef.getObjName() + "\" must specify all three ServerXFace license attributes or none of them - ServerXFaceLicenseCode, ServerXFaceLicenseName, and the element ServerXFaceLicense" );
 			}

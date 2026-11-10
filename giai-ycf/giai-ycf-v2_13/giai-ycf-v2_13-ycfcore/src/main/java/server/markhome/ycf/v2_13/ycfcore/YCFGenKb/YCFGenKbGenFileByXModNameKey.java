@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenFile by XModName index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenFileByXModNameKey
+public class YCFGenKbGenFileByXModNameKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalModuleNameTenantId;
 	protected Long optionalModuleNameGelCacheId;
 	protected Long optionalModuleNameGelId;
-	public CFGenKbGenFileByXModNameKey() {
+	public YCFGenKbGenFileByXModNameKey() {
 		optionalModuleNameTenantId = null;
 		optionalModuleNameGelCacheId = null;
 		optionalModuleNameGelId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGenFileByXModNameKey
 		if( value == null ) {
 			optionalModuleNameTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.MODULENAMETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.MODULENAMETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalModuleNameTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.MODULENAMETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.MODULENAMETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalModuleNameTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGenFileByXModNameKey
 		if( value == null ) {
 			optionalModuleNameGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.MODULENAMEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.MODULENAMEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalModuleNameGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.MODULENAMEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.MODULENAMEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalModuleNameGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGenFileByXModNameKey
 		if( value == null ) {
 			optionalModuleNameGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.MODULENAMEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.MODULENAMEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalModuleNameGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.MODULENAMEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.MODULENAMEGELID_MIN_VALUE );
 		}
 		else {
 			optionalModuleNameGelId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGenFileByXModNameKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenFileByXModNameKey ) {
-			CFGenKbGenFileByXModNameKey rhs = (CFGenKbGenFileByXModNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXModNameKey ) {
+			YCFGenKbGenFileByXModNameKey rhs = (YCFGenKbGenFileByXModNameKey)obj;
 			if( getOptionalModuleNameTenantId() != null ) {
 				if( rhs.getOptionalModuleNameTenantId() != null ) {
 					if( ! getOptionalModuleNameTenantId().equals( rhs.getOptionalModuleNameTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGenFileByXModNameKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			if( getOptionalModuleNameTenantId() != null ) {
 				if( rhs.getOptionalModuleNameTenantId() != null ) {
 					if( ! getOptionalModuleNameTenantId().equals( rhs.getOptionalModuleNameTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGenFileByXModNameKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXModNameKey ) {
-			CFGenKbGenFileByXModNameKey rhs = (CFGenKbGenFileByXModNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXModNameKey ) {
+			YCFGenKbGenFileByXModNameKey rhs = (YCFGenKbGenFileByXModNameKey)obj;
 			if( getOptionalModuleNameTenantId() != null ) {
 				Long lhsModuleNameTenantId = getOptionalModuleNameTenantId();
 				if( rhs.getOptionalModuleNameTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGenFileByXModNameKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			if( getOptionalModuleNameTenantId() != null ) {
 				Long lhsModuleNameTenantId = getOptionalModuleNameTenantId();
 				if( rhs.getOptionalModuleNameTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGenFileByXModNameKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGenFileByXModNameKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenFileByXModName"
+		String ret = "<YCFGenKbGenFileByXModName"
 			+ " OptionalModuleNameTenantId=" + ( ( getOptionalModuleNameTenantId() == null ) ? "null" : "\"" + getOptionalModuleNameTenantId().toString() + "\"" )
 			+ " OptionalModuleNameGelCacheId=" + ( ( getOptionalModuleNameGelCacheId() == null ) ? "null" : "\"" + getOptionalModuleNameGelCacheId().toString() + "\"" )
 			+ " OptionalModuleNameGelId=" + ( ( getOptionalModuleNameGelId() == null ) ? "null" : "\"" + getOptionalModuleNameGelId().toString() + "\"" )

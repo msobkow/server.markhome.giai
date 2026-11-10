@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for SecGrpMemb.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,17 +35,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSecGrpMembTable database interface for SecGrpMemb
+ *	YCFIntSecGrpMembTable database interface for SecGrpMemb
  */
-public interface ICFIntSecGrpMembTable
-extends ICFSecSecGrpMembTable
+public interface IYCFIntSecGrpMembTable
+extends IYCFSecSecGrpMembTable
 {
 
 	/**
@@ -56,8 +56,8 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecGrpMemb( CFSecAuthorization Authorization,
-		CFSecSecGrpMembBuff Buff );
+	void createSecGrpMemb( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembBuff Buff );
 
 
 	/**
@@ -68,8 +68,8 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecGrpMemb( CFSecAuthorization Authorization,
-		CFSecSecGrpMembBuff Buff );
+	void updateSecGrpMemb( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembBuff Buff );
 
 
 	/**
@@ -79,8 +79,8 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecGrpMemb( CFSecAuthorization Authorization,
-		CFSecSecGrpMembBuff Buff );
+	void deleteSecGrpMemb( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembBuff Buff );
 	/**
 	 *	Delete the SecGrpMemb instance identified by the primary key attributes.
 	 *
@@ -90,7 +90,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argSecGrpMembId	The SecGrpMemb key attribute of the instance generating the id.
 	 */
-	void deleteSecGrpMembByIdIdx( CFSecAuthorization Authorization,
+	void deleteSecGrpMembByIdIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argSecGrpMembId );
 
@@ -101,8 +101,8 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecGrpMembByIdIdx( CFSecAuthorization Authorization,
-		CFSecSecGrpMembPKey argKey );
+	void deleteSecGrpMembByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembPKey argKey );
 	/**
 	 *	Delete the SecGrpMemb instances identified by the key ClusterIdx.
 	 *
@@ -110,7 +110,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argClusterId	The SecGrpMemb key attribute of the instance generating the id.
 	 */
-	void deleteSecGrpMembByClusterIdx( CFSecAuthorization Authorization,
+	void deleteSecGrpMembByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -120,8 +120,8 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGrpMembByClusterIdx( CFSecAuthorization Authorization,
-		CFSecSecGrpMembByClusterIdxKey argKey );
+	void deleteSecGrpMembByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembByClusterIdxKey argKey );
 	/**
 	 *	Delete the SecGrpMemb instances identified by the key GroupIdx.
 	 *
@@ -131,7 +131,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argSecGroupId	The SecGrpMemb key attribute of the instance generating the id.
 	 */
-	void deleteSecGrpMembByGroupIdx( CFSecAuthorization Authorization,
+	void deleteSecGrpMembByGroupIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId );
 
@@ -142,8 +142,8 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGrpMembByGroupIdx( CFSecAuthorization Authorization,
-		CFSecSecGrpMembByGroupIdxKey argKey );
+	void deleteSecGrpMembByGroupIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembByGroupIdxKey argKey );
 	/**
 	 *	Delete the SecGrpMemb instances identified by the key UserIdx.
 	 *
@@ -151,7 +151,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argSecUserId	The SecGrpMemb key attribute of the instance generating the id.
 	 */
-	void deleteSecGrpMembByUserIdx( CFSecAuthorization Authorization,
+	void deleteSecGrpMembByUserIdx( YCFSecAuthorization Authorization,
 		UUID argSecUserId );
 
 	/**
@@ -161,8 +161,8 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGrpMembByUserIdx( CFSecAuthorization Authorization,
-		CFSecSecGrpMembByUserIdxKey argKey );
+	void deleteSecGrpMembByUserIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembByUserIdxKey argKey );
 	/**
 	 *	Delete the SecGrpMemb instances identified by the key UUserIdx.
 	 *
@@ -174,7 +174,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argSecUserId	The SecGrpMemb key attribute of the instance generating the id.
 	 */
-	void deleteSecGrpMembByUUserIdx( CFSecAuthorization Authorization,
+	void deleteSecGrpMembByUUserIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId,
 		UUID argSecUserId );
@@ -186,8 +186,8 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGrpMembByUUserIdx( CFSecAuthorization Authorization,
-		CFSecSecGrpMembByUUserIdxKey argKey );
+	void deleteSecGrpMembByUUserIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembByUUserIdxKey argKey );
 
 
 	/**
@@ -200,8 +200,8 @@ extends ICFSecSecGrpMembTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGrpMembBuff readDerived( CFSecAuthorization Authorization,
-		CFSecSecGrpMembPKey PKey );
+	YCFSecSecGrpMembBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembPKey PKey );
 
 	/**
 	 *	Lock the derived SecGrpMemb buffer instance by primary key.
@@ -213,8 +213,8 @@ extends ICFSecSecGrpMembTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGrpMembBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecSecGrpMembPKey PKey );
+	YCFSecSecGrpMembBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembPKey PKey );
 
 	/**
 	 *	Read all SecGrpMemb instances.
@@ -223,7 +223,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecSecGrpMembBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecSecGrpMembBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecGrpMemb buffer instance identified by the unique key IdIdx.
@@ -237,7 +237,7 @@ extends ICFSecSecGrpMembTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGrpMembBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long SecGrpMembId );
 
@@ -250,7 +250,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecGrpMembBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -264,7 +264,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecGrpMembBuff[] readDerivedByGroupIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] readDerivedByGroupIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -277,7 +277,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecGrpMembBuff[] readDerivedByUserIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] readDerivedByUserIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -294,7 +294,7 @@ extends ICFSecSecGrpMembTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGrpMembBuff readDerivedByUUserIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff readDerivedByUUserIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		UUID SecUserId );
@@ -309,10 +309,10 @@ extends ICFSecSecGrpMembTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff readBuff( CFSecAuthorization Authorization,
-		CFSecSecGrpMembPKey PKey );
+	YCFSecSecGrpMembBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembPKey PKey );
 
 	/**
 	 *	Lock the specific SecGrpMemb buffer instance identified by the primary key.
@@ -324,10 +324,10 @@ extends ICFSecSecGrpMembTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecSecGrpMembPKey PKey );
+	YCFSecSecGrpMembBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecSecGrpMembPKey PKey );
 
 	/**
 	 *	Read all the specific SecGrpMemb buffer instances.
@@ -336,7 +336,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return All the specific SecGrpMemb instances in the database accessible for the Authorization.
 	 */
-	CFSecSecGrpMembBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecSecGrpMembBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific SecGrpMemb buffer instances.
@@ -345,7 +345,7 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return All the specific SecGrpMemb instances in the database accessible for the Authorization.
 	 */
-	CFSecSecGrpMembBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		Long priorClusterId,
 		Long priorSecGrpMembId );
 
@@ -361,9 +361,9 @@ extends ICFSecSecGrpMembTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long SecGrpMembId );
 
@@ -376,9 +376,9 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -392,9 +392,9 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff[] readBuffByGroupIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] readBuffByGroupIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -407,9 +407,9 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff[] readBuffByUserIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] readBuffByUserIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -426,9 +426,9 @@ extends ICFSecSecGrpMembTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff readBuffByUUserIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff readBuffByUUserIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		UUID SecUserId );
@@ -442,9 +442,9 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff[] pageBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] pageBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Long priorSecGrpMembId );
@@ -460,9 +460,9 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff[] pageBuffByGroupIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] pageBuffByGroupIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		Long priorClusterId,
@@ -477,9 +477,9 @@ extends ICFSecSecGrpMembTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGrpMembBuff[] pageBuffByUserIdx( CFSecAuthorization Authorization,
+	YCFSecSecGrpMembBuff[] pageBuffByUserIdx( YCFSecAuthorization Authorization,
 		UUID SecUserId,
 		Long priorClusterId,
 		Long priorSecGrpMembId );
@@ -487,7 +487,7 @@ extends ICFSecSecGrpMembTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

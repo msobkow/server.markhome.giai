@@ -1,15 +1,15 @@
-// Description: Java 11 edit object instance implementation for CFBam HostNode.
+// Description: Java 11 edit object instance implementation for YCFBam HostNode.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,41 +26,41 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamHostNodeEditObj
-	implements ICFBamHostNodeEditObj
+public class YCFBamHostNodeEditObj
+	implements IYCFBamHostNodeEditObj
 {
-	protected ICFSecHostNodeObj orig;
-	protected CFSecHostNodeBuff buff;
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
-	protected ICFSecClusterObj requiredContainerCluster;
+	protected IYCFSecHostNodeObj orig;
+	protected YCFSecHostNodeBuff buff;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
+	protected IYCFSecClusterObj requiredContainerCluster;
 
-	public CFBamHostNodeEditObj( ICFSecHostNodeObj argOrig ) {
+	public YCFBamHostNodeEditObj( IYCFSecHostNodeObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFSecHostNodeBuff origBuff = orig.getBuff();
+		YCFSecHostNodeBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredContainerCluster = null;
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFSecHostNodeBuff buff = getBuff();
-			createdBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFSecHostNodeBuff buff = getBuff();
+			createdBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -69,10 +69,10 @@ public class CFBamHostNodeEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFSecHostNodeBuff buff = getBuff();
-			updatedBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFSecHostNodeBuff buff = getBuff();
+			updatedBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -81,7 +81,7 @@ public class CFBamHostNodeEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFSecSecUserObj value ) {
+	public void setCreatedBy( IYCFSecSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -92,7 +92,7 @@ public class CFBamHostNodeEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFSecSecUserObj value ) {
+	public void setUpdatedBy( IYCFSecSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -104,20 +104,20 @@ public class CFBamHostNodeEditObj
 	}
 
 	public String getClassCode() {
-		return( CFBamHostNodeObj.CLASS_CODE );
+		return( YCFBamHostNodeObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "HostNode" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
@@ -127,14 +127,14 @@ public class CFBamHostNodeEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -145,10 +145,10 @@ public class CFBamHostNodeEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -157,20 +157,20 @@ public class CFBamHostNodeEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -194,13 +194,13 @@ public class CFBamHostNodeEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -214,13 +214,13 @@ public class CFBamHostNodeEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -232,9 +232,9 @@ public class CFBamHostNodeEditObj
 		return( fullName );
 	}
 
-	public ICFSecHostNodeObj realise() {
+	public IYCFSecHostNodeObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFSecHostNodeObj retobj = getSchema().getHostNodeTableObj().realiseHostNode( (ICFBamHostNodeObj)this );
+		IYCFSecHostNodeObj retobj = getSchema().getHostNodeTableObj().realiseHostNode( (IYCFBamHostNodeObj)this );
 		return( retobj );
 	}
 
@@ -242,10 +242,10 @@ public class CFBamHostNodeEditObj
 		getOrigAsHostNode().forget();
 	}
 
-	public ICFSecHostNodeObj read() {
-		ICFSecHostNodeObj retval = getOrigAsHostNode().read();
+	public IYCFSecHostNodeObj read() {
+		IYCFSecHostNodeObj retval = getOrigAsHostNode().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -253,10 +253,10 @@ public class CFBamHostNodeEditObj
 		return( retval );
 	}
 
-	public ICFSecHostNodeObj read( boolean forceRead ) {
-		ICFSecHostNodeObj retval = getOrigAsHostNode().read( forceRead );
+	public IYCFSecHostNodeObj read( boolean forceRead ) {
+		IYCFSecHostNodeObj retval = getOrigAsHostNode().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -264,84 +264,84 @@ public class CFBamHostNodeEditObj
 		return( retval );
 	}
 
-	public ICFSecHostNodeObj create() {
+	public IYCFSecHostNodeObj create() {
 		copyBuffToOrig();
-		ICFSecHostNodeObj retobj = ((ICFBamSchemaObj)getOrigAsHostNode().getSchema()).getHostNodeTableObj().createHostNode( getOrigAsHostNode() );
+		IYCFSecHostNodeObj retobj = ((IYCFBamSchemaObj)getOrigAsHostNode().getSchema()).getHostNodeTableObj().createHostNode( getOrigAsHostNode() );
 		if( retobj == getOrigAsHostNode() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFSecHostNodeEditObj update() {
-		getSchema().getHostNodeTableObj().updateHostNode( (ICFSecHostNodeObj)this );
+	public YCFSecHostNodeEditObj update() {
+		getSchema().getHostNodeTableObj().updateHostNode( (IYCFSecHostNodeObj)this );
 		return( null );
 	}
 
-	public CFSecHostNodeEditObj deleteInstance() {
+	public YCFSecHostNodeEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getHostNodeTableObj().deleteHostNode( getOrigAsHostNode() );
 		return( null );
 	}
 
-	public ICFSecHostNodeTableObj getHostNodeTable() {
+	public IYCFSecHostNodeTableObj getHostNodeTable() {
 		return( orig.getSchema().getHostNodeTableObj() );
 	}
 
-	public ICFSecHostNodeEditObj getEdit() {
-		return( (ICFSecHostNodeEditObj)this );
+	public IYCFSecHostNodeEditObj getEdit() {
+		return( (IYCFSecHostNodeEditObj)this );
 	}
 
-	public ICFSecHostNodeEditObj getEditAsHostNode() {
-		return( (ICFSecHostNodeEditObj)this );
+	public IYCFSecHostNodeEditObj getEditAsHostNode() {
+		return( (IYCFSecHostNodeEditObj)this );
 	}
 
-	public ICFSecHostNodeEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFSecHostNodeEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFSecHostNodeObj getOrig() {
+	public IYCFSecHostNodeObj getOrig() {
 		return( orig );
 	}
 
-	public ICFSecHostNodeObj getOrigAsHostNode() {
-		return( (ICFSecHostNodeObj)orig );
+	public IYCFSecHostNodeObj getOrigAsHostNode() {
+		return( (IYCFSecHostNodeObj)orig );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFSecHostNodeBuff getBuff() {
+	public YCFSecHostNodeBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsHostNode().getSchema().getBackingStore()).getFactoryHostNode().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsHostNode().getSchema().getBackingStore()).getFactoryHostNode().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFSecHostNodeBuff value ) {
+	public void setBuff( YCFSecHostNodeBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredContainerCluster = null;
 		}
 	}
 
-	public CFSecHostNodeBuff getHostNodeBuff() {
-		return( (CFSecHostNodeBuff)getBuff() );
+	public YCFSecHostNodeBuff getHostNodeBuff() {
+		return( (YCFSecHostNodeBuff)getBuff() );
 	}
 
-	public CFSecHostNodePKey getPKey() {
+	public YCFSecHostNodePKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFSecHostNodePKey value ) {
+	public void setPKey( YCFSecHostNodePKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -382,15 +382,15 @@ public class CFBamHostNodeEditObj
 		}
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster() {
+	public IYCFSecClusterObj getRequiredContainerCluster() {
 		return( getRequiredContainerCluster( false ) );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
+	public IYCFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
 		if( forceRead || ( requiredContainerCluster == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFSecClusterObj obj = ((ICFBamSchemaObj)getOrigAsHostNode().getSchema()).getClusterTableObj().readClusterByIdIdx( getPKey().getRequiredClusterId() );
+				IYCFSecClusterObj obj = ((IYCFBamSchemaObj)getOrigAsHostNode().getSchema()).getClusterTableObj().readClusterByIdIdx( getPKey().getRequiredClusterId() );
 				requiredContainerCluster = obj;
 				if( obj != null ) {
 					getHostNodeBuff().setRequiredClusterId( obj.getRequiredId() );
@@ -401,7 +401,7 @@ public class CFBamHostNodeEditObj
 		return( requiredContainerCluster );
 	}
 
-	public void setRequiredContainerCluster( ICFSecClusterObj value ) {
+	public void setRequiredContainerCluster( IYCFSecClusterObj value ) {
 			if( buff == null ) {
 				getHostNodeBuff();
 			}
@@ -412,17 +412,17 @@ public class CFBamHostNodeEditObj
 			requiredContainerCluster = value;
 	}
 
-	public List<ICFSecServiceObj> getOptionalComponentsService() {
-		List<ICFSecServiceObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsHostNode().getSchema()).getServiceTableObj().readServiceByHostIdx( getPKey().getRequiredClusterId(),
+	public List<IYCFSecServiceObj> getOptionalComponentsService() {
+		List<IYCFSecServiceObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsHostNode().getSchema()).getServiceTableObj().readServiceByHostIdx( getPKey().getRequiredClusterId(),
 					getPKey().getRequiredHostNodeId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFSecServiceObj> getOptionalComponentsService( boolean forceRead ) {
-		List<ICFSecServiceObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsHostNode().getSchema()).getServiceTableObj().readServiceByHostIdx( getPKey().getRequiredClusterId(),
+	public List<IYCFSecServiceObj> getOptionalComponentsService( boolean forceRead ) {
+		List<IYCFSecServiceObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsHostNode().getSchema()).getServiceTableObj().readServiceByHostIdx( getPKey().getRequiredClusterId(),
 					getPKey().getRequiredHostNodeId(),
 			forceRead );
 		return( retval );
@@ -439,14 +439,14 @@ public class CFBamHostNodeEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFSecHostNodeBuff origBuff = getOrigAsHostNode().getHostNodeBuff();
-		CFSecHostNodeBuff myBuff = getHostNodeBuff();
+		YCFSecHostNodeBuff origBuff = getOrigAsHostNode().getHostNodeBuff();
+		YCFSecHostNodeBuff myBuff = getHostNodeBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFSecHostNodeBuff origBuff = getOrigAsHostNode().getHostNodeBuff();
-		CFSecHostNodeBuff myBuff = getHostNodeBuff();
+		YCFSecHostNodeBuff origBuff = getOrigAsHostNode().getHostNodeBuff();
+		YCFSecHostNodeBuff myBuff = getHostNodeBuff();
 		myBuff.set( origBuff );
 	}
 }

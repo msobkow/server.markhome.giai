@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam TokenDef.
+// Description: Java 11 edit object instance implementation for YCFBam TokenDef.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,43 +45,43 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamTokenDefEditObj
-	extends CFBamAtomEditObj
+public class YCFBamTokenDefEditObj
+	extends YCFBamAtomEditObj
 
-	implements ICFBamTokenDefEditObj
+	implements IYCFBamTokenDefEditObj
 {
 
-	public CFBamTokenDefEditObj( ICFBamTokenDefObj argOrig ) {
+	public YCFBamTokenDefEditObj( IYCFBamTokenDefObj argOrig ) {
 		super( argOrig );
 	}
 
 	public String getClassCode() {
-		return( CFBamTokenDefObj.CLASS_CODE );
+		return( YCFBamTokenDefObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "TokenDef" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -91,14 +91,14 @@ public class CFBamTokenDefEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -109,10 +109,10 @@ public class CFBamTokenDefEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -121,11 +121,11 @@ public class CFBamTokenDefEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -149,16 +149,16 @@ public class CFBamTokenDefEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -170,9 +170,9 @@ public class CFBamTokenDefEditObj
 		return( qualName );
 	}
 
-	public ICFBamValueObj realise() {
+	public IYCFBamValueObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamTokenDefObj retobj = getSchema().getTokenDefTableObj().realiseTokenDef( (ICFBamTokenDefObj)this );
+		IYCFBamTokenDefObj retobj = getSchema().getTokenDefTableObj().realiseTokenDef( (IYCFBamTokenDefObj)this );
 		return( retobj );
 	}
 
@@ -180,68 +180,68 @@ public class CFBamTokenDefEditObj
 		getOrigAsTokenDef().forget();
 	}
 
-	public ICFBamValueObj moveUp() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveUp() {
+		throw new YCFLibUsageException( getClass(),
 			"moveUp",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj moveDown() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveDown() {
+		throw new YCFLibUsageException( getClass(),
 			"moveDown",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj create() {
+	public IYCFBamValueObj create() {
 		copyBuffToOrig();
-		ICFBamTokenDefObj retobj = ((ICFBamSchemaObj)getOrigAsTokenDef().getSchema()).getTokenDefTableObj().createTokenDef( getOrigAsTokenDef() );
+		IYCFBamTokenDefObj retobj = ((IYCFBamSchemaObj)getOrigAsTokenDef().getSchema()).getTokenDefTableObj().createTokenDef( getOrigAsTokenDef() );
 		if( retobj == getOrigAsTokenDef() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamValueEditObj update() {
-		getSchema().getTokenDefTableObj().updateTokenDef( (ICFBamTokenDefObj)this );
+	public YCFBamValueEditObj update() {
+		getSchema().getTokenDefTableObj().updateTokenDef( (IYCFBamTokenDefObj)this );
 		return( null );
 	}
 
-	public CFBamValueEditObj deleteInstance() {
+	public YCFBamValueEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getTokenDefTableObj().deleteTokenDef( getOrigAsTokenDef() );
 		return( null );
 	}
 
-	public ICFBamTokenDefTableObj getTokenDefTable() {
+	public IYCFBamTokenDefTableObj getTokenDefTable() {
 		return( orig.getSchema().getTokenDefTableObj() );
 	}
 
-	public ICFBamTokenDefEditObj getEditAsTokenDef() {
-		return( (ICFBamTokenDefEditObj)this );
+	public IYCFBamTokenDefEditObj getEditAsTokenDef() {
+		return( (IYCFBamTokenDefEditObj)this );
 	}
 
-	public ICFBamTokenDefObj getOrigAsTokenDef() {
-		return( (ICFBamTokenDefObj)orig );
+	public IYCFBamTokenDefObj getOrigAsTokenDef() {
+		return( (IYCFBamTokenDefObj)orig );
 	}
 
-	public CFBamValueBuff getBuff() {
+	public YCFBamValueBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsTokenDef().getSchema().getBackingStore()).getFactoryTokenDef().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsTokenDef().getSchema().getBackingStore()).getFactoryTokenDef().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamValueBuff value ) {
+	public void setBuff( YCFBamValueBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 		}
 	}
 
-	public CFBamTokenDefBuff getTokenDefBuff() {
-		return( (CFBamTokenDefBuff)getBuff() );
+	public YCFBamTokenDefBuff getTokenDefBuff() {
+		return( (YCFBamTokenDefBuff)getBuff() );
 	}
 
 	public int getRequiredMaxLen() {
@@ -265,14 +265,14 @@ public class CFBamTokenDefEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamTokenDefBuff origBuff = getOrigAsTokenDef().getTokenDefBuff();
-		CFBamTokenDefBuff myBuff = getTokenDefBuff();
+		YCFBamTokenDefBuff origBuff = getOrigAsTokenDef().getTokenDefBuff();
+		YCFBamTokenDefBuff myBuff = getTokenDefBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamTokenDefBuff origBuff = getOrigAsTokenDef().getTokenDefBuff();
-		CFBamTokenDefBuff myBuff = getTokenDefBuff();
+		YCFBamTokenDefBuff origBuff = getOrigAsTokenDef().getTokenDefBuff();
+		YCFBamTokenDefBuff myBuff = getTokenDefBuff();
 		myBuff.set( origBuff );
 	}
 }

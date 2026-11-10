@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamClearSubDep3TableObj
+public interface IYCFBamClearSubDep3TableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamClearSubDep3TableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamClearSubDep3Obj newInstance();
+	IYCFBamClearSubDep3Obj newInstance();
 
 	/**
 	 *	Instantiate a new ClearSubDep3 edition of the specified ClearSubDep3 instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamClearSubDep3EditObj newEditInstance( ICFBamClearSubDep3Obj orig );
+	IYCFBamClearSubDep3EditObj newEditInstance( IYCFBamClearSubDep3Obj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamClearSubDep3Obj realiseClearSubDep3( ICFBamClearSubDep3Obj Obj );
+	IYCFBamClearSubDep3Obj realiseClearSubDep3( IYCFBamClearSubDep3Obj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamClearSubDep3Obj createClearSubDep3( ICFBamClearSubDep3Obj Obj );
+	IYCFBamClearSubDep3Obj createClearSubDep3( IYCFBamClearSubDep3Obj Obj );
 
 	/**
 	 *	Read a ClearSubDep3-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamClearSubDep3TableObj
 	 *	@return	The ClearSubDep3-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamClearSubDep3Obj readClearSubDep3( CFBamScopePKey pkey );
+	IYCFBamClearSubDep3Obj readClearSubDep3( YCFBamScopePKey pkey );
 
 	/**
 	 *	Read a ClearSubDep3-derived instance by it's primary key.
@@ -113,169 +113,169 @@ public interface ICFBamClearSubDep3TableObj
 	 *	@return	The ClearSubDep3-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamClearSubDep3Obj readClearSubDep3( CFBamScopePKey pkey,
+	IYCFBamClearSubDep3Obj readClearSubDep3( YCFBamScopePKey pkey,
 		boolean forceRead );
 
-	ICFBamClearSubDep3Obj readCachedClearSubDep3( CFBamScopePKey pkey );
+	IYCFBamClearSubDep3Obj readCachedClearSubDep3( YCFBamScopePKey pkey );
 
-	public void reallyDeepDisposeClearSubDep3( ICFBamClearSubDep3Obj obj );
+	public void reallyDeepDisposeClearSubDep3( IYCFBamClearSubDep3Obj obj );
 
-	void deepDisposeClearSubDep3( CFBamScopePKey pkey );
+	void deepDisposeClearSubDep3( YCFBamScopePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamClearSubDep3Obj lockClearSubDep3( CFBamScopePKey pkey );
+	IYCFBamClearSubDep3Obj lockClearSubDep3( YCFBamScopePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ClearSubDep3-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamClearSubDep3Obj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamClearSubDep3Obj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readAllClearSubDep3();
+	List<IYCFBamClearSubDep3Obj> readAllClearSubDep3();
 
 	/**
 	 *	Return a sorted map of all the ClearSubDep3-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamClearSubDep3Obj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamClearSubDep3Obj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readAllClearSubDep3( boolean forceRead );
+	List<IYCFBamClearSubDep3Obj> readAllClearSubDep3( boolean forceRead );
 
-	List<ICFBamClearSubDep3Obj> readCachedAllClearSubDep3();
+	List<IYCFBamClearSubDep3Obj> readCachedAllClearSubDep3();
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj cached instance for the primary key, or
+	 *	@return	YCFBamScopeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamClearSubDep3Obj readClearSubDep3ByIdIdx( long TenantId,
+	IYCFBamClearSubDep3Obj readClearSubDep3ByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj refreshed instance for the primary key, or
+	 *	@return	YCFBamScopeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamClearSubDep3Obj readClearSubDep3ByIdIdx( long TenantId,
+	IYCFBamClearSubDep3Obj readClearSubDep3ByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readClearSubDep3ByTenantIdx( long TenantId );
+	List<IYCFBamClearSubDep3Obj> readClearSubDep3ByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readClearSubDep3ByTenantIdx( long TenantId,
+	List<IYCFBamClearSubDep3Obj> readClearSubDep3ByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamClearDepObj instances sorted by their primary keys for the duplicate ClearDepIdx key.
+	 *	Get the map of YCFBamClearDepObj instances sorted by their primary keys for the duplicate ClearDepIdx key.
 	 *
 	 *	@param	argTenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate ClearDepIdx key,
+	 *	@return	List of YCFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate ClearDepIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readClearSubDep3ByClearDepIdx( long TenantId,
+	List<IYCFBamClearSubDep3Obj> readClearSubDep3ByClearDepIdx( long TenantId,
 		long RelationId );
 
 	/**
-	 *	Get the map of CFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate ClearDepIdx key.
+	 *	Get the map of YCFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate ClearDepIdx key.
 	 *
 	 *	@param	argTenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate ClearDepIdx key,
+	 *	@return	List of YCFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate ClearDepIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readClearSubDep3ByClearDepIdx( long TenantId,
+	List<IYCFBamClearSubDep3Obj> readClearSubDep3ByClearDepIdx( long TenantId,
 		long RelationId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamClearDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamClearDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readClearSubDep3ByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamClearSubDep3Obj> readClearSubDep3ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readClearSubDep3ByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamClearSubDep3Obj> readClearSubDep3ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate ClearSubDep2Idx key.
+	 *	Get the map of YCFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate ClearSubDep2Idx key.
 	 *
 	 *	@param	argClearSubDep2TenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
 	 *	@param	argClearSubDep2Id	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate ClearSubDep2Idx key,
+	 *	@return	List of YCFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate ClearSubDep2Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readClearSubDep3ByClearSubDep2Idx( long ClearSubDep2TenantId,
+	List<IYCFBamClearSubDep3Obj> readClearSubDep3ByClearSubDep2Idx( long ClearSubDep2TenantId,
 		long ClearSubDep2Id );
 
 	/**
-	 *	Get the map of CFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate ClearSubDep2Idx key.
+	 *	Get the map of YCFBamClearSubDep3Obj instances sorted by their primary keys for the duplicate ClearSubDep2Idx key.
 	 *
 	 *	@param	argClearSubDep2TenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
 	 *	@param	argClearSubDep2Id	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate ClearSubDep2Idx key,
+	 *	@return	List of YCFBamClearSubDep3Obj cached instances sorted by their primary keys for the duplicate ClearSubDep2Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearSubDep3Obj> readClearSubDep3ByClearSubDep2Idx( long ClearSubDep2TenantId,
+	List<IYCFBamClearSubDep3Obj> readClearSubDep3ByClearSubDep2Idx( long ClearSubDep2TenantId,
 		long ClearSubDep2Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamClearSubDep3Obj instance for the unique UNameIdx key.
+	 *	Get the YCFBamClearSubDep3Obj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClearSubDep2TenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
@@ -283,15 +283,15 @@ public interface ICFBamClearSubDep3TableObj
 	 *
 	 *	@param	argName	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamClearSubDep3Obj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamClearSubDep3Obj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamClearSubDep3Obj readClearSubDep3ByUNameIdx(long ClearSubDep2TenantId,
+	IYCFBamClearSubDep3Obj readClearSubDep3ByUNameIdx(long ClearSubDep2TenantId,
 		long ClearSubDep2Id,
 		String Name );
 
 	/**
-	 *	Get the CFBamClearSubDep3Obj instance for the unique UNameIdx key.
+	 *	Get the YCFBamClearSubDep3Obj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClearSubDep2TenantId	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
@@ -299,29 +299,29 @@ public interface ICFBamClearSubDep3TableObj
 	 *
 	 *	@param	argName	The ClearSubDep3 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamClearSubDep3Obj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamClearSubDep3Obj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamClearSubDep3Obj readClearSubDep3ByUNameIdx(long ClearSubDep2TenantId,
+	IYCFBamClearSubDep3Obj readClearSubDep3ByUNameIdx(long ClearSubDep2TenantId,
 		long ClearSubDep2Id,
 		String Name,
 		boolean forceRead );
 
-	ICFBamClearSubDep3Obj readCachedClearSubDep3ByIdIdx( long TenantId,
+	IYCFBamClearSubDep3Obj readCachedClearSubDep3ByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFBamClearSubDep3Obj> readCachedClearSubDep3ByTenantIdx( long TenantId );
+	List<IYCFBamClearSubDep3Obj> readCachedClearSubDep3ByTenantIdx( long TenantId );
 
-	List<ICFBamClearSubDep3Obj> readCachedClearSubDep3ByClearDepIdx( long TenantId,
+	List<IYCFBamClearSubDep3Obj> readCachedClearSubDep3ByClearDepIdx( long TenantId,
 		long RelationId );
 
-	List<ICFBamClearSubDep3Obj> readCachedClearSubDep3ByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamClearSubDep3Obj> readCachedClearSubDep3ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamClearSubDep3Obj> readCachedClearSubDep3ByClearSubDep2Idx( long ClearSubDep2TenantId,
+	List<IYCFBamClearSubDep3Obj> readCachedClearSubDep3ByClearSubDep2Idx( long ClearSubDep2TenantId,
 		long ClearSubDep2Id );
 
-	ICFBamClearSubDep3Obj readCachedClearSubDep3ByUNameIdx( long ClearSubDep2TenantId,
+	IYCFBamClearSubDep3Obj readCachedClearSubDep3ByUNameIdx( long ClearSubDep2TenantId,
 		long ClearSubDep2Id,
 		String Name );
 
@@ -346,12 +346,12 @@ public interface ICFBamClearSubDep3TableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamClearSubDep3Obj updateClearSubDep3( ICFBamClearSubDep3Obj Obj );
+	IYCFBamClearSubDep3Obj updateClearSubDep3( IYCFBamClearSubDep3Obj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteClearSubDep3( ICFBamClearSubDep3Obj Obj );
+	void deleteClearSubDep3( IYCFBamClearSubDep3Obj Obj );
 
 	/**
 	 *	Internal use only.

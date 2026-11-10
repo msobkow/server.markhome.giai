@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object implementation for CFGenKb.
+// Description: Java 11 Table Object implementation for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,51 +27,51 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbClusterTableObj
-	implements ICFGenKbClusterTableObj
+public class YCFGenKbClusterTableObj
+	implements IYCFGenKbClusterTableObj
 {
-	protected ICFGenKbSchemaObj schema;
-	private Map<CFGenKbClusterPKey, ICFGenKbClusterObj> members;
-	private Map<CFGenKbClusterPKey, ICFGenKbClusterObj> allCluster;
-	private Map< CFGenKbClusterByUDomNameIdxKey,
-		ICFGenKbClusterObj > indexByUDomNameIdx;
-	private Map< CFGenKbClusterByUDescrIdxKey,
-		ICFGenKbClusterObj > indexByUDescrIdx;
+	protected IYCFGenKbSchemaObj schema;
+	private Map<YCFGenKbClusterPKey, IYCFGenKbClusterObj> members;
+	private Map<YCFGenKbClusterPKey, IYCFGenKbClusterObj> allCluster;
+	private Map< YCFGenKbClusterByUDomNameIdxKey,
+		IYCFGenKbClusterObj > indexByUDomNameIdx;
+	private Map< YCFGenKbClusterByUDescrIdxKey,
+		IYCFGenKbClusterObj > indexByUDescrIdx;
 	public static String TABLE_NAME = "Cluster";
 	public static String TABLE_DBNAME = "clus";
 
-	public CFGenKbClusterTableObj() {
+	public YCFGenKbClusterTableObj() {
 		schema = null;
-		members = new HashMap<CFGenKbClusterPKey, ICFGenKbClusterObj>();
+		members = new HashMap<YCFGenKbClusterPKey, IYCFGenKbClusterObj>();
 		allCluster = null;
 		indexByUDomNameIdx = null;
 		indexByUDescrIdx = null;
 	}
 
-	public CFGenKbClusterTableObj( ICFGenKbSchemaObj argSchema ) {
-		schema = (ICFGenKbSchemaObj)argSchema;
-		members = new HashMap<CFGenKbClusterPKey, ICFGenKbClusterObj>();
+	public YCFGenKbClusterTableObj( IYCFGenKbSchemaObj argSchema ) {
+		schema = (IYCFGenKbSchemaObj)argSchema;
+		members = new HashMap<YCFGenKbClusterPKey, IYCFGenKbClusterObj>();
 		allCluster = null;
 		indexByUDomNameIdx = null;
 		indexByUDescrIdx = null;
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
-		schema = (ICFGenKbSchemaObj)value;
+	public void setSchema( IYCFGenKbSchemaObj value ) {
+		schema = (IYCFGenKbSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -91,9 +91,9 @@ public class CFGenKbClusterTableObj
 		allCluster = null;
 		indexByUDomNameIdx = null;
 		indexByUDescrIdx = null;
-		List<ICFGenKbClusterObj> toForget = new LinkedList<ICFGenKbClusterObj>();
-		ICFGenKbClusterObj cur = null;
-		Iterator<ICFGenKbClusterObj> iter = members.values().iterator();
+		List<IYCFGenKbClusterObj> toForget = new LinkedList<IYCFGenKbClusterObj>();
+		IYCFGenKbClusterObj cur = null;
+		Iterator<IYCFGenKbClusterObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -111,10 +111,10 @@ public class CFGenKbClusterTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbClusterObj.
+	 *	YCFGenKbClusterObj.
 	 */
-	public ICFGenKbClusterObj newInstance() {
-		ICFGenKbClusterObj inst = new CFGenKbClusterObj( schema );
+	public IYCFGenKbClusterObj newInstance() {
+		IYCFGenKbClusterObj inst = new YCFGenKbClusterObj( schema );
 		return( inst );
 	}
 
@@ -125,19 +125,19 @@ public class CFGenKbClusterTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbClusterObj.
+	 *	YCFGenKbClusterObj.
 	 */
-	public ICFGenKbClusterEditObj newEditInstance( ICFGenKbClusterObj orig ) {
-		ICFGenKbClusterEditObj edit = new CFGenKbClusterEditObj( orig );
+	public IYCFGenKbClusterEditObj newEditInstance( IYCFGenKbClusterObj orig ) {
+		IYCFGenKbClusterEditObj edit = new YCFGenKbClusterEditObj( orig );
 		return( edit );
 	}
 
-	public ICFGenKbClusterObj realiseCluster( ICFGenKbClusterObj Obj ) {
-		ICFGenKbClusterObj obj = Obj;
-		CFGenKbClusterPKey pkey = obj.getPKey();
-		ICFGenKbClusterObj keepObj = null;
+	public IYCFGenKbClusterObj realiseCluster( IYCFGenKbClusterObj Obj ) {
+		IYCFGenKbClusterObj obj = Obj;
+		YCFGenKbClusterPKey pkey = obj.getPKey();
+		IYCFGenKbClusterObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFGenKbClusterObj existingObj = members.get( pkey );
+			IYCFGenKbClusterObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -148,15 +148,15 @@ public class CFGenKbClusterTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByUDomNameIdx != null ) {
-				CFGenKbClusterByUDomNameIdxKey keyUDomNameIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
+				YCFGenKbClusterByUDomNameIdxKey keyUDomNameIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
 				keyUDomNameIdx.setRequiredFullDomName( keepObj.getRequiredFullDomName() );
 				indexByUDomNameIdx.remove( keyUDomNameIdx );
 			}
 
 			if( indexByUDescrIdx != null ) {
-				CFGenKbClusterByUDescrIdxKey keyUDescrIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
+				YCFGenKbClusterByUDescrIdxKey keyUDescrIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
 				keyUDescrIdx.setRequiredDescription( keepObj.getRequiredDescription() );
 				indexByUDescrIdx.remove( keyUDescrIdx );
 			}
@@ -165,15 +165,15 @@ public class CFGenKbClusterTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByUDomNameIdx != null ) {
-				CFGenKbClusterByUDomNameIdxKey keyUDomNameIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
+				YCFGenKbClusterByUDomNameIdxKey keyUDomNameIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
 				keyUDomNameIdx.setRequiredFullDomName( keepObj.getRequiredFullDomName() );
 				indexByUDomNameIdx.put( keyUDomNameIdx, keepObj );
 			}
 
 			if( indexByUDescrIdx != null ) {
-				CFGenKbClusterByUDescrIdxKey keyUDescrIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
+				YCFGenKbClusterByUDescrIdxKey keyUDescrIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
 				keyUDescrIdx.setRequiredDescription( keepObj.getRequiredDescription() );
 				indexByUDescrIdx.put( keyUDescrIdx, keepObj );
 			}
@@ -193,15 +193,15 @@ public class CFGenKbClusterTableObj
 			}
 
 			if( indexByUDomNameIdx != null ) {
-				CFGenKbClusterByUDomNameIdxKey keyUDomNameIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
+				YCFGenKbClusterByUDomNameIdxKey keyUDomNameIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
 				keyUDomNameIdx.setRequiredFullDomName( keepObj.getRequiredFullDomName() );
 				indexByUDomNameIdx.put( keyUDomNameIdx, keepObj );
 			}
 
 			if( indexByUDescrIdx != null ) {
-				CFGenKbClusterByUDescrIdxKey keyUDescrIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
+				YCFGenKbClusterByUDescrIdxKey keyUDescrIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
 				keyUDescrIdx.setRequiredDescription( keepObj.getRequiredDescription() );
 				indexByUDescrIdx.put( keyUDescrIdx, keepObj );
 			}
@@ -210,10 +210,10 @@ public class CFGenKbClusterTableObj
 		return( keepObj );
 	}
 
-	public ICFGenKbClusterObj createCluster( ICFGenKbClusterObj Obj ) {
-		ICFGenKbClusterObj obj = Obj;
-		CFGenKbClusterBuff buff = obj.getClusterBuff();
-		((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().createCluster(
+	public IYCFGenKbClusterObj createCluster( IYCFGenKbClusterObj Obj ) {
+		IYCFGenKbClusterObj obj = Obj;
+		YCFGenKbClusterBuff buff = obj.getClusterBuff();
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().createCluster(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -222,59 +222,59 @@ public class CFGenKbClusterTableObj
 		return( obj );
 	}
 
-	public ICFGenKbClusterObj readCluster( CFGenKbClusterPKey pkey ) {
+	public IYCFGenKbClusterObj readCluster( YCFGenKbClusterPKey pkey ) {
 		return( readCluster( pkey, false ) );
 	}
 
-	public ICFGenKbClusterObj readCluster( CFGenKbClusterPKey pkey, boolean forceRead ) {
-		ICFGenKbClusterObj obj = null;
+	public IYCFGenKbClusterObj readCluster( YCFGenKbClusterPKey pkey, boolean forceRead ) {
+		IYCFGenKbClusterObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFGenKbClusterBuff readBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFGenKbClusterBuff readBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getClusterTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFGenKbClusterObj)obj.realise();
+				obj = (IYCFGenKbClusterObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbClusterObj readCachedCluster( CFGenKbClusterPKey pkey ) {
-		ICFGenKbClusterObj obj = null;
+	public IYCFGenKbClusterObj readCachedCluster( YCFGenKbClusterPKey pkey ) {
+		IYCFGenKbClusterObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeCluster( ICFGenKbClusterObj obj )
+	public void reallyDeepDisposeCluster( IYCFGenKbClusterObj obj )
 	{
-		final String S_ProcName = "CFGenKbClusterTableObj.reallyDeepDisposeCluster() ";
+		final String S_ProcName = "YCFGenKbClusterTableObj.reallyDeepDisposeCluster() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFGenKbClusterPKey pkey = obj.getPKey();
-		ICFGenKbClusterObj existing = readCachedCluster( pkey );
+		YCFGenKbClusterPKey pkey = obj.getPKey();
+		IYCFGenKbClusterObj existing = readCachedCluster( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFGenKbClusterByUDomNameIdxKey keyUDomNameIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
+		YCFGenKbClusterByUDomNameIdxKey keyUDomNameIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
 		keyUDomNameIdx.setRequiredFullDomName( existing.getRequiredFullDomName() );
 
-		CFGenKbClusterByUDescrIdxKey keyUDescrIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
+		YCFGenKbClusterByUDescrIdxKey keyUDescrIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
 		keyUDescrIdx.setRequiredDescription( existing.getRequiredDescription() );
 
 
-		ICFGenKbSecGroupObj objDelSecGroupForms;
-		List<ICFGenKbSecGroupObj> arrDelSecGroupForms = schema.getSecGroupTableObj().readCachedSecGroupByClusterIdx( existing.getRequiredId() );
-		Iterator<ICFGenKbSecGroupObj> iterDelSecGroupForms = arrDelSecGroupForms.iterator();
+		IYCFGenKbSecGroupObj objDelSecGroupForms;
+		List<IYCFGenKbSecGroupObj> arrDelSecGroupForms = schema.getSecGroupTableObj().readCachedSecGroupByClusterIdx( existing.getRequiredId() );
+		Iterator<IYCFGenKbSecGroupObj> iterDelSecGroupForms = arrDelSecGroupForms.iterator();
 		while( iterDelSecGroupForms.hasNext() ) {
 			objDelSecGroupForms = iterDelSecGroupForms.next();
 			if( objDelSecGroupForms != null ) {
@@ -282,9 +282,9 @@ public class CFGenKbClusterTableObj
 							objDelSecGroupForms.getRequiredSecGroupId() );
 			}
 		}
-		ICFGenKbSecGroupObj objDelSecGrpIncByGroup;
-		List<ICFGenKbSecGroupObj> arrDelSecGrpIncByGroup = schema.getSecGroupTableObj().readCachedSecGroupByClusterIdx( existing.getRequiredId() );
-		Iterator<ICFGenKbSecGroupObj> iterDelSecGrpIncByGroup = arrDelSecGrpIncByGroup.iterator();
+		IYCFGenKbSecGroupObj objDelSecGrpIncByGroup;
+		List<IYCFGenKbSecGroupObj> arrDelSecGrpIncByGroup = schema.getSecGroupTableObj().readCachedSecGroupByClusterIdx( existing.getRequiredId() );
+		Iterator<IYCFGenKbSecGroupObj> iterDelSecGrpIncByGroup = arrDelSecGrpIncByGroup.iterator();
 		while( iterDelSecGrpIncByGroup.hasNext() ) {
 			objDelSecGrpIncByGroup = iterDelSecGrpIncByGroup.next();
 			if( objDelSecGrpIncByGroup != null ) {
@@ -292,9 +292,9 @@ public class CFGenKbClusterTableObj
 							objDelSecGrpIncByGroup.getRequiredSecGroupId() );
 			}
 		}
-		ICFGenKbSecGroupObj objDelSecGrpMembs;
-		List<ICFGenKbSecGroupObj> arrDelSecGrpMembs = schema.getSecGroupTableObj().readCachedSecGroupByClusterIdx( existing.getRequiredId() );
-		Iterator<ICFGenKbSecGroupObj> iterDelSecGrpMembs = arrDelSecGrpMembs.iterator();
+		IYCFGenKbSecGroupObj objDelSecGrpMembs;
+		List<IYCFGenKbSecGroupObj> arrDelSecGrpMembs = schema.getSecGroupTableObj().readCachedSecGroupByClusterIdx( existing.getRequiredId() );
+		Iterator<IYCFGenKbSecGroupObj> iterDelSecGrpMembs = arrDelSecGrpMembs.iterator();
 		while( iterDelSecGrpMembs.hasNext() ) {
 			objDelSecGrpMembs = iterDelSecGrpMembs.next();
 			if( objDelSecGrpMembs != null ) {
@@ -302,9 +302,9 @@ public class CFGenKbClusterTableObj
 							objDelSecGrpMembs.getRequiredSecGroupId() );
 			}
 		}
-		ICFGenKbSecGroupObj objDelSecGrpIncs;
-		List<ICFGenKbSecGroupObj> arrDelSecGrpIncs = schema.getSecGroupTableObj().readCachedSecGroupByClusterIdx( existing.getRequiredId() );
-		Iterator<ICFGenKbSecGroupObj> iterDelSecGrpIncs = arrDelSecGrpIncs.iterator();
+		IYCFGenKbSecGroupObj objDelSecGrpIncs;
+		List<IYCFGenKbSecGroupObj> arrDelSecGrpIncs = schema.getSecGroupTableObj().readCachedSecGroupByClusterIdx( existing.getRequiredId() );
+		Iterator<IYCFGenKbSecGroupObj> iterDelSecGrpIncs = arrDelSecGrpIncs.iterator();
 		while( iterDelSecGrpIncs.hasNext() ) {
 			objDelSecGrpIncs = iterDelSecGrpIncs.next();
 			if( objDelSecGrpIncs != null ) {
@@ -313,9 +313,9 @@ public class CFGenKbClusterTableObj
 			}
 		}
 					schema.getSecGroupTableObj().deepDisposeSecGroupByClusterIdx( existing.getRequiredId() );
-		ICFGenKbSecAppObj objDelSecAppForms;
-		List<ICFGenKbSecAppObj> arrDelSecAppForms = schema.getSecAppTableObj().readCachedSecAppByClusterIdx( existing.getRequiredId() );
-		Iterator<ICFGenKbSecAppObj> iterDelSecAppForms = arrDelSecAppForms.iterator();
+		IYCFGenKbSecAppObj objDelSecAppForms;
+		List<IYCFGenKbSecAppObj> arrDelSecAppForms = schema.getSecAppTableObj().readCachedSecAppByClusterIdx( existing.getRequiredId() );
+		Iterator<IYCFGenKbSecAppObj> iterDelSecAppForms = arrDelSecAppForms.iterator();
 		while( iterDelSecAppForms.hasNext() ) {
 			objDelSecAppForms = iterDelSecAppForms.next();
 			if( objDelSecAppForms != null ) {
@@ -337,57 +337,57 @@ public class CFGenKbClusterTableObj
 
 
 	}
-	public void deepDisposeCluster( CFGenKbClusterPKey pkey ) {
-		ICFGenKbClusterObj obj = readCachedCluster( pkey );
+	public void deepDisposeCluster( YCFGenKbClusterPKey pkey ) {
+		IYCFGenKbClusterObj obj = readCachedCluster( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFGenKbClusterObj lockCluster( CFGenKbClusterPKey pkey ) {
-		ICFGenKbClusterObj locked = null;
-		CFGenKbClusterBuff lockBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFGenKbClusterObj lockCluster( YCFGenKbClusterPKey pkey ) {
+		IYCFGenKbClusterObj locked = null;
+		YCFGenKbClusterBuff lockBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getClusterTableObj().newInstance();
-			locked.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
+			locked.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFGenKbClusterObj)locked.realise();
+			locked = (IYCFGenKbClusterObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockCluster", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockCluster", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFGenKbClusterObj> readAllCluster() {
+	public List<IYCFGenKbClusterObj> readAllCluster() {
 		return( readAllCluster( false ) );
 	}
 
-	public List<ICFGenKbClusterObj> readAllCluster( boolean forceRead ) {
+	public List<IYCFGenKbClusterObj> readAllCluster( boolean forceRead ) {
 		final String S_ProcName = "readAllCluster";
 		if( ( allCluster == null ) || forceRead ) {
-			Map<CFGenKbClusterPKey, ICFGenKbClusterObj> map = new HashMap<CFGenKbClusterPKey,ICFGenKbClusterObj>();
+			Map<YCFGenKbClusterPKey, IYCFGenKbClusterObj> map = new HashMap<YCFGenKbClusterPKey,IYCFGenKbClusterObj>();
 			allCluster = map;
-			CFGenKbClusterBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().readAllDerived( schema.getAuthorization() );
-			CFGenKbClusterBuff buff;
-			ICFGenKbClusterObj obj;
+			YCFGenKbClusterBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().readAllDerived( schema.getAuthorization() );
+			YCFGenKbClusterBuff buff;
+			IYCFGenKbClusterObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbClusterObj realised = (ICFGenKbClusterObj)obj.realise();
+				IYCFGenKbClusterObj realised = (IYCFGenKbClusterObj)obj.realise();
 			}
 		}
 		int len = allCluster.size();
-		ICFGenKbClusterObj arr[] = new ICFGenKbClusterObj[len];
-		Iterator<ICFGenKbClusterObj> valIter = allCluster.values().iterator();
+		IYCFGenKbClusterObj arr[] = new IYCFGenKbClusterObj[len];
+		Iterator<IYCFGenKbClusterObj> valIter = allCluster.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -395,20 +395,20 @@ public class CFGenKbClusterTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbClusterObj> arrayList = new ArrayList<ICFGenKbClusterObj>(len);
+		ArrayList<IYCFGenKbClusterObj> arrayList = new ArrayList<IYCFGenKbClusterObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbClusterObj> cmp = new Comparator<ICFGenKbClusterObj>() {
-			public int compare( ICFGenKbClusterObj lhs, ICFGenKbClusterObj rhs ) {
+		Comparator<IYCFGenKbClusterObj> cmp = new Comparator<IYCFGenKbClusterObj>() {
+			public int compare( IYCFGenKbClusterObj lhs, IYCFGenKbClusterObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -421,31 +421,31 @@ public class CFGenKbClusterTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbClusterPKey lhsPKey = lhs.getPKey();
-					CFGenKbClusterPKey rhsPKey = rhs.getPKey();
+					YCFGenKbClusterPKey lhsPKey = lhs.getPKey();
+					YCFGenKbClusterPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbClusterObj> sortedList = arrayList;
+		List<IYCFGenKbClusterObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbClusterObj> readCachedAllCluster() {
+	public List<IYCFGenKbClusterObj> readCachedAllCluster() {
 		final String S_ProcName = "readCachedAllCluster";
-		ArrayList<ICFGenKbClusterObj> arrayList = new ArrayList<ICFGenKbClusterObj>();
+		ArrayList<IYCFGenKbClusterObj> arrayList = new ArrayList<IYCFGenKbClusterObj>();
 		if( allCluster != null ) {
 			int len = allCluster.size();
-			ICFGenKbClusterObj arr[] = new ICFGenKbClusterObj[len];
-			Iterator<ICFGenKbClusterObj> valIter = allCluster.values().iterator();
+			IYCFGenKbClusterObj arr[] = new IYCFGenKbClusterObj[len];
+			Iterator<IYCFGenKbClusterObj> valIter = allCluster.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -453,7 +453,7 @@ public class CFGenKbClusterTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -464,8 +464,8 @@ public class CFGenKbClusterTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFGenKbClusterObj> cmp = new Comparator<ICFGenKbClusterObj>() {
-			public int compare( ICFGenKbClusterObj lhs, ICFGenKbClusterObj rhs ) {
+		Comparator<IYCFGenKbClusterObj> cmp = new Comparator<IYCFGenKbClusterObj>() {
+			public int compare( IYCFGenKbClusterObj lhs, IYCFGenKbClusterObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -478,8 +478,8 @@ public class CFGenKbClusterTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbClusterPKey lhsPKey = lhs.getPKey();
-					CFGenKbClusterPKey rhsPKey = rhs.getPKey();
+					YCFGenKbClusterPKey lhsPKey = lhs.getPKey();
+					YCFGenKbClusterPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -492,126 +492,126 @@ public class CFGenKbClusterTableObj
 	/**
 	 *	Return a sorted map of a page of the Cluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	public List<ICFGenKbClusterObj> pageAllCluster(Long priorId )
+	public List<IYCFGenKbClusterObj> pageAllCluster(Long priorId )
 	{
 		final String S_ProcName = "pageAllCluster";
-		Map<CFGenKbClusterPKey, ICFGenKbClusterObj> map = new HashMap<CFGenKbClusterPKey,ICFGenKbClusterObj>();
-		CFGenKbClusterBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().pageAllBuff( schema.getAuthorization(),
+		Map<YCFGenKbClusterPKey, IYCFGenKbClusterObj> map = new HashMap<YCFGenKbClusterPKey,IYCFGenKbClusterObj>();
+		YCFGenKbClusterBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().pageAllBuff( schema.getAuthorization(),
 			priorId );
-		CFGenKbClusterBuff buff;
-		ICFGenKbClusterObj obj;
-		ICFGenKbClusterObj realised;
-		ArrayList<ICFGenKbClusterObj> arrayList = new ArrayList<ICFGenKbClusterObj>( buffList.length );
+		YCFGenKbClusterBuff buff;
+		IYCFGenKbClusterObj obj;
+		IYCFGenKbClusterObj realised;
+		ArrayList<IYCFGenKbClusterObj> arrayList = new ArrayList<IYCFGenKbClusterObj>( buffList.length );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = newInstance();
-			obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
+			obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
 			obj.setBuff( buff );
-			realised = (ICFGenKbClusterObj)obj.realise();
+			realised = (IYCFGenKbClusterObj)obj.realise();
 			arrayList.add( realised );
 		}
 		return( arrayList );
 	}
 
-	public ICFGenKbClusterObj readClusterByIdIdx( long Id )
+	public IYCFGenKbClusterObj readClusterByIdIdx( long Id )
 	{
 		return( readClusterByIdIdx( Id,
 			false ) );
 	}
 
-	public ICFGenKbClusterObj readClusterByIdIdx( long Id, boolean forceRead )
+	public IYCFGenKbClusterObj readClusterByIdIdx( long Id, boolean forceRead )
 	{
-		CFGenKbClusterPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey();
+		YCFGenKbClusterPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey();
 		pkey.setRequiredId( Id );
-		ICFGenKbClusterObj obj = readCluster( pkey, forceRead );
+		IYCFGenKbClusterObj obj = readCluster( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFGenKbClusterObj readClusterByUDomNameIdx( String FullDomName )
+	public IYCFGenKbClusterObj readClusterByUDomNameIdx( String FullDomName )
 	{
 		return( readClusterByUDomNameIdx( FullDomName,
 			false ) );
 	}
 
-	public ICFGenKbClusterObj readClusterByUDomNameIdx( String FullDomName, boolean forceRead )
+	public IYCFGenKbClusterObj readClusterByUDomNameIdx( String FullDomName, boolean forceRead )
 	{
 		if( indexByUDomNameIdx == null ) {
-			indexByUDomNameIdx = new HashMap< CFGenKbClusterByUDomNameIdxKey,
-				ICFGenKbClusterObj >();
+			indexByUDomNameIdx = new HashMap< YCFGenKbClusterByUDomNameIdxKey,
+				IYCFGenKbClusterObj >();
 		}
-		CFGenKbClusterByUDomNameIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
+		YCFGenKbClusterByUDomNameIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
 		key.setRequiredFullDomName( FullDomName );
-		ICFGenKbClusterObj obj = null;
+		IYCFGenKbClusterObj obj = null;
 		if( ( ! forceRead ) && indexByUDomNameIdx.containsKey( key ) ) {
 			obj = indexByUDomNameIdx.get( key );
 		}
 		else {
-			CFGenKbClusterBuff buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().readDerivedByUDomNameIdx( schema.getAuthorization(),
+			YCFGenKbClusterBuff buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().readDerivedByUDomNameIdx( schema.getAuthorization(),
 				FullDomName );
 			if( buff != null ) {
 				obj = schema.getClusterTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFGenKbClusterObj)obj.realise();
+				obj = (IYCFGenKbClusterObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbClusterObj readClusterByUDescrIdx( String Description )
+	public IYCFGenKbClusterObj readClusterByUDescrIdx( String Description )
 	{
 		return( readClusterByUDescrIdx( Description,
 			false ) );
 	}
 
-	public ICFGenKbClusterObj readClusterByUDescrIdx( String Description, boolean forceRead )
+	public IYCFGenKbClusterObj readClusterByUDescrIdx( String Description, boolean forceRead )
 	{
 		if( indexByUDescrIdx == null ) {
-			indexByUDescrIdx = new HashMap< CFGenKbClusterByUDescrIdxKey,
-				ICFGenKbClusterObj >();
+			indexByUDescrIdx = new HashMap< YCFGenKbClusterByUDescrIdxKey,
+				IYCFGenKbClusterObj >();
 		}
-		CFGenKbClusterByUDescrIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
+		YCFGenKbClusterByUDescrIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
 		key.setRequiredDescription( Description );
-		ICFGenKbClusterObj obj = null;
+		IYCFGenKbClusterObj obj = null;
 		if( ( ! forceRead ) && indexByUDescrIdx.containsKey( key ) ) {
 			obj = indexByUDescrIdx.get( key );
 		}
 		else {
-			CFGenKbClusterBuff buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().readDerivedByUDescrIdx( schema.getAuthorization(),
+			YCFGenKbClusterBuff buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().readDerivedByUDescrIdx( schema.getAuthorization(),
 				Description );
 			if( buff != null ) {
 				obj = schema.getClusterTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFGenKbClusterObj)obj.realise();
+				obj = (IYCFGenKbClusterObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbClusterObj readCachedClusterByIdIdx( long Id )
+	public IYCFGenKbClusterObj readCachedClusterByIdIdx( long Id )
 	{
-		ICFGenKbClusterObj obj = null;
-		CFGenKbClusterPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey();
+		IYCFGenKbClusterObj obj = null;
+		YCFGenKbClusterPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey();
 		pkey.setRequiredId( Id );
 		obj = readCachedCluster( pkey );
 		return( obj );
 	}
 
-	public ICFGenKbClusterObj readCachedClusterByUDomNameIdx( String FullDomName )
+	public IYCFGenKbClusterObj readCachedClusterByUDomNameIdx( String FullDomName )
 	{
-		ICFGenKbClusterObj obj = null;
-		CFGenKbClusterByUDomNameIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
+		IYCFGenKbClusterObj obj = null;
+		YCFGenKbClusterByUDomNameIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
 		key.setRequiredFullDomName( FullDomName );
 		if( indexByUDomNameIdx != null ) {
 			if( indexByUDomNameIdx.containsKey( key ) ) {
 				obj = indexByUDomNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFGenKbClusterObj> valIter = members.values().iterator();
+				Iterator<IYCFGenKbClusterObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -623,7 +623,7 @@ public class CFGenKbClusterTableObj
 			}
 		}
 		else {
-			Iterator<ICFGenKbClusterObj> valIter = members.values().iterator();
+			Iterator<IYCFGenKbClusterObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -636,17 +636,17 @@ public class CFGenKbClusterTableObj
 		return( obj );
 	}
 
-	public ICFGenKbClusterObj readCachedClusterByUDescrIdx( String Description )
+	public IYCFGenKbClusterObj readCachedClusterByUDescrIdx( String Description )
 	{
-		ICFGenKbClusterObj obj = null;
-		CFGenKbClusterByUDescrIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
+		IYCFGenKbClusterObj obj = null;
+		YCFGenKbClusterByUDescrIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
 		key.setRequiredDescription( Description );
 		if( indexByUDescrIdx != null ) {
 			if( indexByUDescrIdx.containsKey( key ) ) {
 				obj = indexByUDescrIdx.get( key );
 			}
 			else {
-				Iterator<ICFGenKbClusterObj> valIter = members.values().iterator();
+				Iterator<IYCFGenKbClusterObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -658,7 +658,7 @@ public class CFGenKbClusterTableObj
 			}
 		}
 		else {
-			Iterator<ICFGenKbClusterObj> valIter = members.values().iterator();
+			Iterator<IYCFGenKbClusterObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -673,7 +673,7 @@ public class CFGenKbClusterTableObj
 
 	public void deepDisposeClusterByIdIdx( long Id )
 	{
-		ICFGenKbClusterObj obj = readCachedClusterByIdIdx( Id );
+		IYCFGenKbClusterObj obj = readCachedClusterByIdIdx( Id );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -681,7 +681,7 @@ public class CFGenKbClusterTableObj
 
 	public void deepDisposeClusterByUDomNameIdx( String FullDomName )
 	{
-		ICFGenKbClusterObj obj = readCachedClusterByUDomNameIdx( FullDomName );
+		IYCFGenKbClusterObj obj = readCachedClusterByUDomNameIdx( FullDomName );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -689,38 +689,38 @@ public class CFGenKbClusterTableObj
 
 	public void deepDisposeClusterByUDescrIdx( String Description )
 	{
-		ICFGenKbClusterObj obj = readCachedClusterByUDescrIdx( Description );
+		IYCFGenKbClusterObj obj = readCachedClusterByUDescrIdx( Description );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFGenKbClusterObj updateCluster( ICFGenKbClusterObj Obj ) {
-		ICFGenKbClusterObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().updateCluster( schema.getAuthorization(),
+	public IYCFGenKbClusterObj updateCluster( IYCFGenKbClusterObj Obj ) {
+		IYCFGenKbClusterObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().updateCluster( schema.getAuthorization(),
 			Obj.getClusterBuff() );
-		obj = (ICFGenKbClusterObj)Obj.realise();
+		obj = (IYCFGenKbClusterObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteCluster( ICFGenKbClusterObj Obj ) {
-		ICFGenKbClusterObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteCluster( schema.getAuthorization(),
+	public void deleteCluster( IYCFGenKbClusterObj Obj ) {
+		IYCFGenKbClusterObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteCluster( schema.getAuthorization(),
 			obj.getClusterBuff() );
 		Obj.forget();
 	}
 
 	public void deleteClusterByIdIdx( long Id )
 	{
-		CFGenKbClusterPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey();
+		YCFGenKbClusterPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newPKey();
 		pkey.setRequiredId( Id );
-		ICFGenKbClusterObj obj = readCluster( pkey );
+		IYCFGenKbClusterObj obj = readCluster( pkey );
 		if( obj != null ) {
-			ICFGenKbClusterEditObj editObj = (ICFGenKbClusterEditObj)obj.getEdit();
+			IYCFGenKbClusterEditObj editObj = (IYCFGenKbClusterEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFGenKbClusterEditObj)obj.beginEdit();
+				editObj = (IYCFGenKbClusterEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -745,20 +745,20 @@ public class CFGenKbClusterTableObj
 	public void deleteClusterByUDomNameIdx( String FullDomName )
 	{
 		if( indexByUDomNameIdx == null ) {
-			indexByUDomNameIdx = new HashMap< CFGenKbClusterByUDomNameIdxKey,
-				ICFGenKbClusterObj >();
+			indexByUDomNameIdx = new HashMap< YCFGenKbClusterByUDomNameIdxKey,
+				IYCFGenKbClusterObj >();
 		}
-		CFGenKbClusterByUDomNameIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
+		YCFGenKbClusterByUDomNameIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDomNameIdxKey();
 		key.setRequiredFullDomName( FullDomName );
-		ICFGenKbClusterObj obj = null;
+		IYCFGenKbClusterObj obj = null;
 		if( indexByUDomNameIdx.containsKey( key ) ) {
 			obj = indexByUDomNameIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteClusterByUDomNameIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteClusterByUDomNameIdx( schema.getAuthorization(),
 				FullDomName );
 			obj.forget();
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteClusterByUDomNameIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteClusterByUDomNameIdx( schema.getAuthorization(),
 				FullDomName );
 		}
 		deepDisposeClusterByUDomNameIdx( FullDomName );
@@ -767,33 +767,33 @@ public class CFGenKbClusterTableObj
 	public void deleteClusterByUDescrIdx( String Description )
 	{
 		if( indexByUDescrIdx == null ) {
-			indexByUDescrIdx = new HashMap< CFGenKbClusterByUDescrIdxKey,
-				ICFGenKbClusterObj >();
+			indexByUDescrIdx = new HashMap< YCFGenKbClusterByUDescrIdxKey,
+				IYCFGenKbClusterObj >();
 		}
-		CFGenKbClusterByUDescrIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
+		YCFGenKbClusterByUDescrIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryCluster().newUDescrIdxKey();
 		key.setRequiredDescription( Description );
-		ICFGenKbClusterObj obj = null;
+		IYCFGenKbClusterObj obj = null;
 		if( indexByUDescrIdx.containsKey( key ) ) {
 			obj = indexByUDescrIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteClusterByUDescrIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteClusterByUDescrIdx( schema.getAuthorization(),
 				Description );
 			obj.forget();
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteClusterByUDescrIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableCluster().deleteClusterByUDescrIdx( schema.getAuthorization(),
 				Description );
 		}
 		deepDisposeClusterByUDescrIdx( Description );
 	}
 
-	public ICFGenKbClusterObj getSystemCluster() {
+	public IYCFGenKbClusterObj getSystemCluster() {
 		boolean transactionStarted = schema.beginTransaction();
-		ICFGenKbClusterObj clusterObj;
+		IYCFGenKbClusterObj clusterObj;
 		try {
 			clusterObj = readClusterByUDomNameIdx( "system" );
 			if( clusterObj == null ) {
 				clusterObj = newInstance();
-				ICFGenKbClusterEditObj clusterEdit = clusterObj.beginEdit();
+				IYCFGenKbClusterEditObj clusterEdit = clusterObj.beginEdit();
 				clusterEdit.setRequiredFullDomName( "system" );
 				clusterObj = clusterEdit.create();
 			}

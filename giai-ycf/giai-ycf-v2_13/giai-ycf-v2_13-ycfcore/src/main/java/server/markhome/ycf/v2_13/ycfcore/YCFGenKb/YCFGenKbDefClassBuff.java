@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a DefClass buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbDefClassBuff
+public class YCFGenKbDefClassBuff
 {
 	public final static String CLASS_CODE = "a914";
 	public static final short ID_INIT_VALUE = (short)0;
@@ -54,9 +54,9 @@ public class CFGenKbDefClassBuff
 	protected String requiredName;
 	protected Short optionalBaseId;
 	protected int requiredRevision;
-	public CFGenKbDefClassBuff() {
-		requiredId = CFGenKbDefClassBuff.ID_INIT_VALUE;
-		requiredName = new String( CFGenKbDefClassBuff.NAME_INIT_VALUE );
+	public YCFGenKbDefClassBuff() {
+		requiredId = YCFGenKbDefClassBuff.ID_INIT_VALUE;
+		requiredName = new String( YCFGenKbDefClassBuff.NAME_INIT_VALUE );
 		optionalBaseId = null;
 	}
 
@@ -69,21 +69,21 @@ public class CFGenKbDefClassBuff
 	}
 
 	public void setRequiredId( short value ) {
-		if( value < CFGenKbDefClassBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbDefClassBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbDefClassBuff.ID_MIN_VALUE );
+				YCFGenKbDefClassBuff.ID_MIN_VALUE );
 		}
-		if( value > CFGenKbDefClassBuff.ID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbDefClassBuff.ID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbDefClassBuff.ID_MAX_VALUE );
+				YCFGenKbDefClassBuff.ID_MAX_VALUE );
 		}
 		requiredId = value;
 	}
@@ -94,13 +94,13 @@ public class CFGenKbDefClassBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -118,21 +118,21 @@ public class CFGenKbDefClassBuff
 		if( value == null ) {
 			optionalBaseId = null;
 		}
-		else if( value < CFGenKbDefClassBuff.BASEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbDefClassBuff.BASEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBaseId",
 				1,
 				"value",
 				value,
-				CFGenKbDefClassBuff.BASEID_MIN_VALUE );
+				YCFGenKbDefClassBuff.BASEID_MIN_VALUE );
 		}
-		else if( value > CFGenKbDefClassBuff.BASEID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFGenKbDefClassBuff.BASEID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalBaseId",
 				1,
 				"value",
 				value,
-				CFGenKbDefClassBuff.BASEID_MAX_VALUE );
+				YCFGenKbDefClassBuff.BASEID_MAX_VALUE );
 		}
 		else {
 			optionalBaseId = value;
@@ -151,8 +151,8 @@ public class CFGenKbDefClassBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbDefClassBuff ) {
-			CFGenKbDefClassBuff rhs = (CFGenKbDefClassBuff)obj;
+		else if( obj instanceof YCFGenKbDefClassBuff ) {
+			YCFGenKbDefClassBuff rhs = (YCFGenKbDefClassBuff)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -173,22 +173,22 @@ public class CFGenKbDefClassBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbDefClassPKey ) {
-			CFGenKbDefClassPKey rhs = (CFGenKbDefClassPKey)obj;
+		else if( obj instanceof YCFGenKbDefClassPKey ) {
+			YCFGenKbDefClassPKey rhs = (YCFGenKbDefClassPKey)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbDefClassByNameIdxKey ) {
-			CFGenKbDefClassByNameIdxKey rhs = (CFGenKbDefClassByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbDefClassByNameIdxKey ) {
+			YCFGenKbDefClassByNameIdxKey rhs = (YCFGenKbDefClassByNameIdxKey)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbDefClassByBaseIdxKey ) {
-			CFGenKbDefClassByBaseIdxKey rhs = (CFGenKbDefClassByBaseIdxKey)obj;
+		else if( obj instanceof YCFGenKbDefClassByBaseIdxKey ) {
+			YCFGenKbDefClassByBaseIdxKey rhs = (YCFGenKbDefClassByBaseIdxKey)obj;
 			if( getOptionalBaseId() != null ) {
 				if( rhs.getOptionalBaseId() != null ) {
 					if( ! getOptionalBaseId().equals( rhs.getOptionalBaseId() ) ) {
@@ -228,8 +228,8 @@ public class CFGenKbDefClassBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbDefClassBuff ) {
-			CFGenKbDefClassBuff rhs = (CFGenKbDefClassBuff)obj;
+		else if( obj instanceof YCFGenKbDefClassBuff ) {
+			YCFGenKbDefClassBuff rhs = (YCFGenKbDefClassBuff)obj;
 			int retval = 0;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
@@ -263,8 +263,8 @@ public class CFGenKbDefClassBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbDefClassPKey ) {
-			CFGenKbDefClassPKey rhs = (CFGenKbDefClassPKey)obj;
+		else if( obj instanceof YCFGenKbDefClassPKey ) {
+			YCFGenKbDefClassPKey rhs = (YCFGenKbDefClassPKey)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -273,8 +273,8 @@ public class CFGenKbDefClassBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbDefClassByNameIdxKey ) {
-			CFGenKbDefClassByNameIdxKey rhs = (CFGenKbDefClassByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbDefClassByNameIdxKey ) {
+			YCFGenKbDefClassByNameIdxKey rhs = (YCFGenKbDefClassByNameIdxKey)obj;
 
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
@@ -283,8 +283,8 @@ public class CFGenKbDefClassBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbDefClassByBaseIdxKey ) {
-			CFGenKbDefClassByBaseIdxKey rhs = (CFGenKbDefClassByBaseIdxKey)obj;
+		else if( obj instanceof YCFGenKbDefClassByBaseIdxKey ) {
+			YCFGenKbDefClassByBaseIdxKey rhs = (YCFGenKbDefClassByBaseIdxKey)obj;
 
 			if( getOptionalBaseId() != null ) {
 				Short lhsBaseId = getOptionalBaseId();
@@ -306,7 +306,7 @@ public class CFGenKbDefClassBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -314,11 +314,11 @@ public class CFGenKbDefClassBuff
 		}
 	}
 
-	public void set( CFGenKbDefClassBuff src ) {
+	public void set( YCFGenKbDefClassBuff src ) {
 		setDefClassBuff( src );
 	}
 
-	public void setDefClassBuff( CFGenKbDefClassBuff src ) {
+	public void setDefClassBuff( YCFGenKbDefClassBuff src ) {
 		setRequiredId( src.getRequiredId() );
 		setRequiredName( src.getRequiredName() );
 		setOptionalBaseId( src.getOptionalBaseId() );

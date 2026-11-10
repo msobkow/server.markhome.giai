@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a HostNode by HostNameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,18 +36,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecHostNodeByHostNameIdxKey
+public class YCFSecHostNodeByHostNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredClusterId;
 	protected String requiredHostName;
-	public CFSecHostNodeByHostNameIdxKey() {
-		requiredClusterId = CFSecHostNodeBuff.CLUSTERID_INIT_VALUE;
-		requiredHostName = new String( CFSecHostNodeBuff.HOSTNAME_INIT_VALUE );
+	public YCFSecHostNodeByHostNameIdxKey() {
+		requiredClusterId = YCFSecHostNodeBuff.CLUSTERID_INIT_VALUE;
+		requiredHostName = new String( YCFSecHostNodeBuff.HOSTNAME_INIT_VALUE );
 	}
 
 	public long getRequiredClusterId() {
@@ -55,13 +55,13 @@ public class CFSecHostNodeByHostNameIdxKey
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFSecHostNodeBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecHostNodeBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFSecHostNodeBuff.CLUSTERID_MIN_VALUE );
+				YCFSecHostNodeBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -72,13 +72,13 @@ public class CFSecHostNodeByHostNameIdxKey
 
 	public void setRequiredHostName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredHostName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredHostName",
 				1,
 				"value.length()",
@@ -92,8 +92,8 @@ public class CFSecHostNodeByHostNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecHostNodeByHostNameIdxKey ) {
-			CFSecHostNodeByHostNameIdxKey rhs = (CFSecHostNodeByHostNameIdxKey)obj;
+		else if( obj instanceof YCFSecHostNodeByHostNameIdxKey ) {
+			YCFSecHostNodeByHostNameIdxKey rhs = (YCFSecHostNodeByHostNameIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -102,8 +102,8 @@ public class CFSecHostNodeByHostNameIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHostNodeBuff ) {
-			CFSecHostNodeBuff rhs = (CFSecHostNodeBuff)obj;
+		else if( obj instanceof YCFSecHostNodeBuff ) {
+			YCFSecHostNodeBuff rhs = (YCFSecHostNodeBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -130,8 +130,8 @@ public class CFSecHostNodeByHostNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecHostNodeByHostNameIdxKey ) {
-			CFSecHostNodeByHostNameIdxKey rhs = (CFSecHostNodeByHostNameIdxKey)obj;
+		else if( obj instanceof YCFSecHostNodeByHostNameIdxKey ) {
+			YCFSecHostNodeByHostNameIdxKey rhs = (YCFSecHostNodeByHostNameIdxKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -146,8 +146,8 @@ public class CFSecHostNodeByHostNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHostNodeBuff ) {
-			CFSecHostNodeBuff rhs = (CFSecHostNodeBuff)obj;
+		else if( obj instanceof YCFSecHostNodeBuff ) {
+			YCFSecHostNodeBuff rhs = (YCFSecHostNodeBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -163,7 +163,7 @@ public class CFSecHostNodeByHostNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -172,9 +172,9 @@ public class CFSecHostNodeByHostNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecHostNodeByHostNameIdx"
+		String ret = "<YCFSecHostNodeByHostNameIdx"
 			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
-			+ " RequiredHostName=" + "\"" + CFSecSchema.xmlEncodeString( getRequiredHostName() ) + "\""
+			+ " RequiredHostName=" + "\"" + YCFSecSchema.xmlEncodeString( getRequiredHostName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

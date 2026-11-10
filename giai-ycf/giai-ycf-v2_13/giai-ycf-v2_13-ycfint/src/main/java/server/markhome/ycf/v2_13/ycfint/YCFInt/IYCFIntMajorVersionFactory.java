@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for MajorVersion.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,14 +35,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 /*
- *	CFIntMajorVersionFactory interface for MajorVersion
+ *	YCFIntMajorVersionFactory interface for MajorVersion
  */
-public interface ICFIntMajorVersionFactory
+public interface IYCFIntMajorVersionFactory
 {
 
 	/**
@@ -50,48 +50,48 @@ public interface ICFIntMajorVersionFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMajorVersionPKey newPKey();
+	YCFIntMajorVersionPKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for MajorVersion instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMajorVersionHPKey newHPKey();
+	YCFIntMajorVersionHPKey newHPKey();
 
 	/**
 	 *	Allocate a TenantIdx key over MajorVersion instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMajorVersionByTenantIdxKey newTenantIdxKey();
+	YCFIntMajorVersionByTenantIdxKey newTenantIdxKey();
 
 	/**
 	 *	Allocate a SubProjectIdx key over MajorVersion instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMajorVersionBySubProjectIdxKey newSubProjectIdxKey();
+	YCFIntMajorVersionBySubProjectIdxKey newSubProjectIdxKey();
 
 	/**
 	 *	Allocate a NameIdx key over MajorVersion instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMajorVersionByNameIdxKey newNameIdxKey();
+	YCFIntMajorVersionByNameIdxKey newNameIdxKey();
 
 	/**
 	 *	Allocate a MajorVersion instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMajorVersionBuff newBuff();
+	YCFIntMajorVersionBuff newBuff();
 
 	/**
 	 *	Allocate a MajorVersion history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntMajorVersionHBuff newHBuff();
+	YCFIntMajorVersionHBuff newHBuff();
 
 }

@@ -1,15 +1,15 @@
-// Description: Java 11 Schema Pooled Object implementation for CFSec.
+// Description: Java 11 Schema Pooled Object implementation for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,12 +26,12 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 /**
  *	A pooled schema object does not disconnect the backing
@@ -39,10 +39,10 @@ import org.msscf.msscf.v2_13.cfsec.CFSec.*;
  *	comes from a connection pool that is reused across requests,
  *	rather than being owned by the SchemaPooledObj.
  */
-public class CFSecSchemaPooledObj
-	extends CFSecSchemaObj
+public class YCFSecSchemaPooledObj
+	extends YCFSecSchemaObj
 {
-	public CFSecSchemaPooledObj() {
+	public YCFSecSchemaPooledObj() {
 		super();
 	}
 
@@ -57,7 +57,7 @@ public class CFSecSchemaPooledObj
 
 	public void disconnect( boolean doCommit ) {
 		final String S_ProcName = "disconnect";
-		throw new CFLibUsageException( getClass(),
+		throw new YCFLibUsageException( getClass(),
 			S_ProcName,
 			"Schema objects over pooled storage cannot be explicitly disconnected" );
 	}
@@ -78,10 +78,10 @@ public class CFSecSchemaPooledObj
 			}
 			UUID secSessionId = authorization.getSecSessionId();
 			if( secSessionId != null ) {
-				ICFSecSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
+				IYCFSecSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
 				if( secSession != null ) {
 					if( secSession.getOptionalFinish() == null ) {
-						ICFSecSecSessionEditObj editSecSession = secSession.beginEdit();
+						IYCFSecSecSessionEditObj editSecSession = secSession.beginEdit();
 						editSecSession.setOptionalFinish( Calendar.getInstance() );
 						editSecSession.update();
 						editSecSession = null;

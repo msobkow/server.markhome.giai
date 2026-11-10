@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,45 +23,45 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
-public class MSSBamCFGenIterateTableDeepSubClasses
-	extends MssCFGenIteratorObj
+public class MSSBamYCFGenIterateTableDeepSubClasses
+	extends MssYCFGenIteratorObj
 {
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
-	public MSSBamCFGenIterateTableDeepSubClasses() {
+	public MSSBamYCFGenIterateTableDeepSubClasses() {
 		super();
 	}
 
-	public MSSBamCFGenIterateTableDeepSubClasses(
-		MSSBamCFEngine argSchema,
+	public MSSBamYCFGenIterateTableDeepSubClasses(
+		MSSBamYCFEngine argSchema,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -70,26 +70,26 @@ public class MSSBamCFGenIterateTableDeepSubClasses
 		super( argSchema, toolset, scopeDefClassName, genDefClassName, itemName, "Table");
 	}
 
-	protected void walkSubClasses( List<ICFLibAnyObj> list, ICFBamTableObj tableObj ) {
-		List<ICFBamRelationObj> reverseRelations = tableObj.getOptionalChildrenReverseRelations();
-		ICFBamRelationObj relation;
-		Iterator<ICFBamRelationObj> almostDone = reverseRelations.iterator();
+	protected void walkSubClasses( List<IYCFLibAnyObj> list, IYCFBamTableObj tableObj ) {
+		List<IYCFBamRelationObj> reverseRelations = tableObj.getOptionalChildrenReverseRelations();
+		IYCFBamRelationObj relation;
+		Iterator<IYCFBamRelationObj> almostDone = reverseRelations.iterator();
 		while (almostDone.hasNext()) {
 			relation = almostDone.next();
-			if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+			if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 				list.add( relation.getRequiredContainerFromTable() );
 				walkSubClasses( list, relation.getRequiredContainerFromTable() );
 			}
 		}
 	}
 
-	public ListIterator<ICFLibAnyObj> enumerateDetails( MssCFGenContext genContext)
+	public ListIterator<IYCFLibAnyObj> enumerateDetails( MssYCFGenContext genContext)
 	{
-		ICFLibAnyObj genDef;
+		IYCFLibAnyObj genDef;
 		final String S_ProcName = "enumerateDetails";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
@@ -97,22 +97,22 @@ public class MSSBamCFGenIterateTableDeepSubClasses
 
 		genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"genContext.GenDef" );
 		}
 
-		if( ! (genDef instanceof ICFBamTableObj) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+		if( ! (genDef instanceof IYCFBamTableObj) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.GenDef",
 				genDef,
-				"ICFBamTableObj" );
+				"IYCFBamTableObj" );
 		}
 
-		ICFBamTableObj tableObj = (ICFBamTableObj)genDef;
-		List<ICFLibAnyObj> list = new LinkedList<ICFLibAnyObj>();
+		IYCFBamTableObj tableObj = (IYCFBamTableObj)genDef;
+		List<IYCFLibAnyObj> list = new LinkedList<IYCFLibAnyObj>();
 		walkSubClasses( list, tableObj );
 
 		return (list.listIterator());

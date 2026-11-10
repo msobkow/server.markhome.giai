@@ -1,15 +1,15 @@
-// Description: Java 11 base object instance implementation for CFSec HostNode.
+// Description: Java 11 base object instance implementation for YCFSec HostNode.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,35 +26,35 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecHostNodeObj
-	implements ICFSecHostNodeObj
+public class YCFSecHostNodeObj
+	implements IYCFSecHostNodeObj
 {
 	public final static String CLASS_CODE = "a002";
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
 	protected boolean isNew;
-	protected ICFSecHostNodeEditObj edit;
-	protected ICFSecSchemaObj schema;
-	protected CFSecHostNodePKey pKey;
-	protected CFSecHostNodeBuff buff;
-	protected ICFSecClusterObj requiredContainerCluster;
+	protected IYCFSecHostNodeEditObj edit;
+	protected IYCFSecSchemaObj schema;
+	protected YCFSecHostNodePKey pKey;
+	protected YCFSecHostNodeBuff buff;
+	protected IYCFSecClusterObj requiredContainerCluster;
 
-	public CFSecHostNodeObj() {
+	public YCFSecHostNodeObj() {
 		isNew = true;
 		requiredContainerCluster = null;
 	}
 
-	public CFSecHostNodeObj( ICFSecSchemaObj argSchema ) {
+	public YCFSecHostNodeObj( IYCFSecSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -69,13 +69,13 @@ public class CFSecHostNodeObj
 		return( "HostNode" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
@@ -85,14 +85,14 @@ public class CFSecHostNodeObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFSecClusterObj ) {
+				if( container instanceof IYCFSecClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFSecTenantObj ) {
+				else if( container instanceof IYCFSecTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -103,10 +103,10 @@ public class CFSecHostNodeObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFSecClusterObj ) {
+				if( container instanceof IYCFSecClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFSecTenantObj ) {
+				else if( container instanceof IYCFSecTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -115,20 +115,20 @@ public class CFSecHostNodeObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -152,13 +152,13 @@ public class CFSecHostNodeObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -172,13 +172,13 @@ public class CFSecHostNodeObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -190,48 +190,48 @@ public class CFSecHostNodeObj
 		return( fullName );
 	}
 
-	public ICFSecHostNodeObj realise() {
-		ICFSecHostNodeObj retobj = ((ICFSecSchemaObj)schema).getHostNodeTableObj().realiseHostNode(
-			(ICFSecHostNodeObj)this );
-		return( (ICFSecHostNodeObj)retobj );
+	public IYCFSecHostNodeObj realise() {
+		IYCFSecHostNodeObj retobj = ((IYCFSecSchemaObj)schema).getHostNodeTableObj().realiseHostNode(
+			(IYCFSecHostNodeObj)this );
+		return( (IYCFSecHostNodeObj)retobj );
 	}
 
 	public void forget() {
-		((ICFSecSchemaObj)schema).getHostNodeTableObj().reallyDeepDisposeHostNode( (ICFSecHostNodeObj)this );
+		((IYCFSecSchemaObj)schema).getHostNodeTableObj().reallyDeepDisposeHostNode( (IYCFSecHostNodeObj)this );
 	}
 
-	public ICFSecHostNodeObj read() {
-		ICFSecHostNodeObj retobj = ((ICFSecSchemaObj)schema).getHostNodeTableObj().readHostNodeByIdIdx( getPKey().getRequiredClusterId(),
+	public IYCFSecHostNodeObj read() {
+		IYCFSecHostNodeObj retobj = ((IYCFSecSchemaObj)schema).getHostNodeTableObj().readHostNodeByIdIdx( getPKey().getRequiredClusterId(),
 			getPKey().getRequiredHostNodeId(), false );
-		return( (ICFSecHostNodeObj)retobj );
+		return( (IYCFSecHostNodeObj)retobj );
 	}
 
-	public ICFSecHostNodeObj read( boolean forceRead ) {
-		ICFSecHostNodeObj retobj = ((ICFSecSchemaObj)schema).getHostNodeTableObj().readHostNodeByIdIdx( getPKey().getRequiredClusterId(),
+	public IYCFSecHostNodeObj read( boolean forceRead ) {
+		IYCFSecHostNodeObj retobj = ((IYCFSecSchemaObj)schema).getHostNodeTableObj().readHostNodeByIdIdx( getPKey().getRequiredClusterId(),
 			getPKey().getRequiredHostNodeId(), forceRead );
-		return( (ICFSecHostNodeObj)retobj );
+		return( (IYCFSecHostNodeObj)retobj );
 	}
 
-	public ICFSecHostNodeTableObj getHostNodeTable() {
-		return( ((ICFSecSchemaObj)schema).getHostNodeTableObj() );
+	public IYCFSecHostNodeTableObj getHostNodeTable() {
+		return( ((IYCFSecSchemaObj)schema).getHostNodeTableObj() );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
+	public void setSchema( IYCFSecSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFSecHostNodeBuff getBuff() {
+	public YCFSecHostNodeBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newBuff();
+				buff = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByIdIdx( ((ICFSecSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFSecSchema)schema.getBackingStore()).getTableHostNode().readDerivedByIdIdx( ((IYCFSecSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredClusterId(),
 						getPKey().getRequiredHostNodeId() );
 				if( buff != null ) {
@@ -242,31 +242,31 @@ public class CFSecHostNodeObj
 		return( buff );
 	}
 
-	public void setBuff( CFSecHostNodeBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFSecHostNodeBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFSecHostNodeBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFSecHostNodeBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFSecHostNodeBuff" );
+				"YCFSecHostNodeBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
 		requiredContainerCluster = null;
 	}
 
-	public CFSecHostNodeBuff getHostNodeBuff() {
-		return( (CFSecHostNodeBuff)getBuff() );
+	public YCFSecHostNodeBuff getHostNodeBuff() {
+		return( (YCFSecHostNodeBuff)getBuff() );
 	}
 
-	public CFSecHostNodePKey getPKey() {
+	public YCFSecHostNodePKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey();
+			pKey = ((IYCFSecSchema)schema.getBackingStore()).getFactoryHostNode().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFSecHostNodePKey value ) {
+	public void setPKey( YCFSecHostNodePKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -281,37 +281,37 @@ public class CFSecHostNodeObj
 		isNew = value;
 	}
 
-	public ICFSecHostNodeEditObj beginEdit() {
+	public IYCFSecHostNodeEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFSecHostNodeObj lockobj;
+		IYCFSecHostNodeObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFSecHostNodeObj)this;
+			lockobj = (IYCFSecHostNodeObj)this;
 		}
 		else {
-			lockobj = ((ICFSecSchemaObj)schema).getHostNodeTableObj().lockHostNode( getPKey() );
+			lockobj = ((IYCFSecSchemaObj)schema).getHostNodeTableObj().lockHostNode( getPKey() );
 		}
-		edit = ((ICFSecSchemaObj)schema).getHostNodeTableObj().newEditInstance( lockobj );
-		return( (ICFSecHostNodeEditObj)edit );
+		edit = ((IYCFSecSchemaObj)schema).getHostNodeTableObj().newEditInstance( lockobj );
+		return( (IYCFSecHostNodeEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFSecHostNodeEditObj getEdit() {
+	public IYCFSecHostNodeEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFSecHostNodeEditObj getEditAsHostNode() {
-		return( (ICFSecHostNodeEditObj)edit );
+	public IYCFSecHostNodeEditObj getEditAsHostNode() {
+		return( (IYCFSecHostNodeEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFSecHostNodeBuff buff = getBuff();
-			createdBy = ((ICFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFSecHostNodeBuff buff = getBuff();
+			createdBy = ((IYCFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -320,10 +320,10 @@ public class CFSecHostNodeObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFSecHostNodeBuff buff = getBuff();
-			updatedBy = ((ICFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFSecHostNodeBuff buff = getBuff();
+			updatedBy = ((IYCFSecSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -348,31 +348,31 @@ public class CFSecHostNodeObj
 		return( getHostNodeBuff().getRequiredHostName() );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster() {
+	public IYCFSecClusterObj getRequiredContainerCluster() {
 		return( getRequiredContainerCluster( false ) );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
+	public IYCFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
 		if( ( requiredContainerCluster == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerCluster = ((ICFSecSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getPKey().getRequiredClusterId(), forceRead );
+				requiredContainerCluster = ((IYCFSecSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getPKey().getRequiredClusterId(), forceRead );
 			}
 		}
 		return( requiredContainerCluster );
 	}
 
-	public List<ICFSecServiceObj> getOptionalComponentsService() {
-		List<ICFSecServiceObj> retval;
-		retval = ((ICFSecSchemaObj)schema).getServiceTableObj().readServiceByHostIdx( getPKey().getRequiredClusterId(),
+	public List<IYCFSecServiceObj> getOptionalComponentsService() {
+		List<IYCFSecServiceObj> retval;
+		retval = ((IYCFSecSchemaObj)schema).getServiceTableObj().readServiceByHostIdx( getPKey().getRequiredClusterId(),
 					getPKey().getRequiredHostNodeId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFSecServiceObj> getOptionalComponentsService( boolean forceRead ) {
-		List<ICFSecServiceObj> retval;
-		retval = ((ICFSecSchemaObj)schema).getServiceTableObj().readServiceByHostIdx( getPKey().getRequiredClusterId(),
+	public List<IYCFSecServiceObj> getOptionalComponentsService( boolean forceRead ) {
+		List<IYCFSecServiceObj> retval;
+		retval = ((IYCFSecSchemaObj)schema).getServiceTableObj().readServiceByHostIdx( getPKey().getRequiredClusterId(),
 					getPKey().getRequiredHostNodeId(),
 			forceRead );
 		return( retval );

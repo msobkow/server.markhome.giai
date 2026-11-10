@@ -1,15 +1,15 @@
-// Description: Java 11 edit object instance implementation for CFInt Tld.
+// Description: Java 11 edit object instance implementation for YCFInt Tld.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,39 +26,39 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntTldEditObj
-	implements ICFIntTldEditObj
+public class YCFIntTldEditObj
+	implements IYCFIntTldEditObj
 {
-	protected ICFIntTldObj orig;
-	protected CFIntTldBuff buff;
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
-	protected ICFSecTenantObj requiredContainerTenant;
+	protected IYCFIntTldObj orig;
+	protected YCFIntTldBuff buff;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
+	protected IYCFSecTenantObj requiredContainerTenant;
 
-	public CFIntTldEditObj( ICFIntTldObj argOrig ) {
+	public YCFIntTldEditObj( IYCFIntTldObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFIntTldBuff origBuff = orig.getBuff();
+		YCFIntTldBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredContainerTenant = null;
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFIntTldBuff buff = getBuff();
-			createdBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFIntTldBuff buff = getBuff();
+			createdBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -67,10 +67,10 @@ public class CFIntTldEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFIntTldBuff buff = getBuff();
-			updatedBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFIntTldBuff buff = getBuff();
+			updatedBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -79,7 +79,7 @@ public class CFIntTldEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFSecSecUserObj value ) {
+	public void setCreatedBy( IYCFSecSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -90,7 +90,7 @@ public class CFIntTldEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFSecSecUserObj value ) {
+	public void setUpdatedBy( IYCFSecSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -102,18 +102,18 @@ public class CFIntTldEditObj
 	}
 
 	public String getClassCode() {
-		return( CFIntTldObj.CLASS_CODE );
+		return( YCFIntTldObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "Tld" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( getRequiredContainerTenant() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( getRequiredContainerTenant() );
 	}
 
@@ -123,14 +123,14 @@ public class CFIntTldEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -141,10 +141,10 @@ public class CFIntTldEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -153,20 +153,20 @@ public class CFIntTldEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -177,7 +177,7 @@ public class CFIntTldEditObj
 			remainingName = null;
 		}
 		if( subObj == null ) {
-			subObj = ((ICFIntSchemaObj)getSchema()).getTopDomainTableObj().readTopDomainByNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFIntSchemaObj)getSchema()).getTopDomainTableObj().readTopDomainByNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
@@ -195,16 +195,16 @@ public class CFIntTldEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFIntTenantObj ) {
+			else if( container instanceof IYCFIntTenantObj ) {
 				container = null;
 			}
 			else {
@@ -218,13 +218,13 @@ public class CFIntTldEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -236,9 +236,9 @@ public class CFIntTldEditObj
 		return( fullName );
 	}
 
-	public ICFIntTldObj realise() {
+	public IYCFIntTldObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFIntTldObj retobj = getSchema().getTldTableObj().realiseTld( (ICFIntTldObj)this );
+		IYCFIntTldObj retobj = getSchema().getTldTableObj().realiseTld( (IYCFIntTldObj)this );
 		return( retobj );
 	}
 
@@ -246,10 +246,10 @@ public class CFIntTldEditObj
 		getOrigAsTld().forget();
 	}
 
-	public ICFIntTldObj read() {
-		ICFIntTldObj retval = getOrigAsTld().read();
+	public IYCFIntTldObj read() {
+		IYCFIntTldObj retval = getOrigAsTld().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -257,10 +257,10 @@ public class CFIntTldEditObj
 		return( retval );
 	}
 
-	public ICFIntTldObj read( boolean forceRead ) {
-		ICFIntTldObj retval = getOrigAsTld().read( forceRead );
+	public IYCFIntTldObj read( boolean forceRead ) {
+		IYCFIntTldObj retval = getOrigAsTld().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -268,84 +268,84 @@ public class CFIntTldEditObj
 		return( retval );
 	}
 
-	public ICFIntTldObj create() {
+	public IYCFIntTldObj create() {
 		copyBuffToOrig();
-		ICFIntTldObj retobj = ((ICFIntSchemaObj)getOrigAsTld().getSchema()).getTldTableObj().createTld( getOrigAsTld() );
+		IYCFIntTldObj retobj = ((IYCFIntSchemaObj)getOrigAsTld().getSchema()).getTldTableObj().createTld( getOrigAsTld() );
 		if( retobj == getOrigAsTld() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFIntTldEditObj update() {
-		getSchema().getTldTableObj().updateTld( (ICFIntTldObj)this );
+	public YCFIntTldEditObj update() {
+		getSchema().getTldTableObj().updateTld( (IYCFIntTldObj)this );
 		return( null );
 	}
 
-	public CFIntTldEditObj deleteInstance() {
+	public YCFIntTldEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getTldTableObj().deleteTld( getOrigAsTld() );
 		return( null );
 	}
 
-	public ICFIntTldTableObj getTldTable() {
+	public IYCFIntTldTableObj getTldTable() {
 		return( orig.getSchema().getTldTableObj() );
 	}
 
-	public ICFIntTldEditObj getEdit() {
-		return( (ICFIntTldEditObj)this );
+	public IYCFIntTldEditObj getEdit() {
+		return( (IYCFIntTldEditObj)this );
 	}
 
-	public ICFIntTldEditObj getEditAsTld() {
-		return( (ICFIntTldEditObj)this );
+	public IYCFIntTldEditObj getEditAsTld() {
+		return( (IYCFIntTldEditObj)this );
 	}
 
-	public ICFIntTldEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFIntTldEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFIntTldObj getOrig() {
+	public IYCFIntTldObj getOrig() {
 		return( orig );
 	}
 
-	public ICFIntTldObj getOrigAsTld() {
-		return( (ICFIntTldObj)orig );
+	public IYCFIntTldObj getOrigAsTld() {
+		return( (IYCFIntTldObj)orig );
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFIntTldBuff getBuff() {
+	public YCFIntTldBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFIntSchema)getOrigAsTld().getSchema().getBackingStore()).getFactoryTld().newBuff();
+			buff = ((IYCFIntSchema)getOrigAsTld().getSchema().getBackingStore()).getFactoryTld().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFIntTldBuff value ) {
+	public void setBuff( YCFIntTldBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredContainerTenant = null;
 		}
 	}
 
-	public CFIntTldBuff getTldBuff() {
-		return( (CFIntTldBuff)getBuff() );
+	public YCFIntTldBuff getTldBuff() {
+		return( (YCFIntTldBuff)getBuff() );
 	}
 
-	public CFIntTldPKey getPKey() {
+	public YCFIntTldPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFIntTldPKey value ) {
+	public void setPKey( YCFIntTldPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -386,15 +386,15 @@ public class CFIntTldEditObj
 		}
 	}
 
-	public ICFSecTenantObj getRequiredContainerTenant() {
+	public IYCFSecTenantObj getRequiredContainerTenant() {
 		return( getRequiredContainerTenant( false ) );
 	}
 
-	public ICFSecTenantObj getRequiredContainerTenant( boolean forceRead ) {
+	public IYCFSecTenantObj getRequiredContainerTenant( boolean forceRead ) {
 		if( forceRead || ( requiredContainerTenant == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFSecTenantObj obj = ((ICFIntSchemaObj)getOrigAsTld().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
+				IYCFSecTenantObj obj = ((IYCFIntSchemaObj)getOrigAsTld().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
 				requiredContainerTenant = obj;
 				if( obj != null ) {
 					getTldBuff().setRequiredTenantId( obj.getRequiredId() );
@@ -405,7 +405,7 @@ public class CFIntTldEditObj
 		return( requiredContainerTenant );
 	}
 
-	public void setRequiredContainerTenant( ICFSecTenantObj value ) {
+	public void setRequiredContainerTenant( IYCFSecTenantObj value ) {
 			if( buff == null ) {
 				getTldBuff();
 			}
@@ -416,17 +416,17 @@ public class CFIntTldEditObj
 			requiredContainerTenant = value;
 	}
 
-	public List<ICFIntTopDomainObj> getOptionalComponentsTopDomain() {
-		List<ICFIntTopDomainObj> retval;
-		retval = ((ICFIntSchemaObj)getOrigAsTld().getSchema()).getTopDomainTableObj().readTopDomainByTldIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFIntTopDomainObj> getOptionalComponentsTopDomain() {
+		List<IYCFIntTopDomainObj> retval;
+		retval = ((IYCFIntSchemaObj)getOrigAsTld().getSchema()).getTopDomainTableObj().readTopDomainByTldIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFIntTopDomainObj> getOptionalComponentsTopDomain( boolean forceRead ) {
-		List<ICFIntTopDomainObj> retval;
-		retval = ((ICFIntSchemaObj)getOrigAsTld().getSchema()).getTopDomainTableObj().readTopDomainByTldIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFIntTopDomainObj> getOptionalComponentsTopDomain( boolean forceRead ) {
+		List<IYCFIntTopDomainObj> retval;
+		retval = ((IYCFIntSchemaObj)getOrigAsTld().getSchema()).getTopDomainTableObj().readTopDomainByTldIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
@@ -443,14 +443,14 @@ public class CFIntTldEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFIntTldBuff origBuff = getOrigAsTld().getTldBuff();
-		CFIntTldBuff myBuff = getTldBuff();
+		YCFIntTldBuff origBuff = getOrigAsTld().getTldBuff();
+		YCFIntTldBuff myBuff = getTldBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFIntTldBuff origBuff = getOrigAsTld().getTldBuff();
-		CFIntTldBuff myBuff = getTldBuff();
+		YCFIntTldBuff origBuff = getOrigAsTld().getTldBuff();
+		YCFIntTldBuff myBuff = getTldBuff();
 		myBuff.set( origBuff );
 	}
 }

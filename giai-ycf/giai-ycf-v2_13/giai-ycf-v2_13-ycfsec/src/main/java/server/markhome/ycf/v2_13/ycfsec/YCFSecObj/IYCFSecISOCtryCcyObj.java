@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFSec ISOCtryCcy.
+// Description: Java 11 Object interface for YCFSec ISOCtryCcy.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,27 +26,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOCtryCcyObj
-	extends ICFLibAnyObj
+public interface IYCFSecISOCtryCcyObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -58,9 +58,9 @@ public interface ICFSecISOCtryCcyObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -71,9 +71,9 @@ public interface ICFSecISOCtryCcyObj
 	/**
 	 *	Realise this instance of a ISOCtryCcy.
 	 *
-	 *	@return	CFSecISOCtryCcyObj instance which should be subsequently referenced.
+	 *	@return	YCFSecISOCtryCcyObj instance which should be subsequently referenced.
 	 */
-	ICFSecISOCtryCcyObj realise();
+	IYCFSecISOCtryCcyObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -85,99 +85,99 @@ public interface ICFSecISOCtryCcyObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecISOCtryCcyObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecISOCtryCcyObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecISOCtryCcyObj read();
+	IYCFSecISOCtryCcyObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecISOCtryCcyObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecISOCtryCcyObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecISOCtryCcyObj read( boolean forceRead );
+	IYCFSecISOCtryCcyObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this ISOCtryCcy instance.
 	 *
-	 *	@return	The newly locked ICFSecISOCtryCcyEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecISOCtryCcyEditObj edition of this instance.
 	 */
-	ICFSecISOCtryCcyEditObj beginEdit();
+	IYCFSecISOCtryCcyEditObj beginEdit();
 
 	/**
 	 *	End this edition of this ISOCtryCcy instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this ISOCtryCcy instance.
 	 *
-	 *	@return	The ICFSecISOCtryCcyEditObj edition of this instance.
+	 *	@return	The IYCFSecISOCtryCcyEditObj edition of this instance.
 	 */
-	ICFSecISOCtryCcyEditObj getEdit();
+	IYCFSecISOCtryCcyEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this ISOCtryCcy instance as a ICFSecISOCtryCcyEditObj.
+	 *	Get the current edition of this ISOCtryCcy instance as a IYCFSecISOCtryCcyEditObj.
 	 *
-	 *	@return	The ICFSecISOCtryCcyEditObj edition of this instance.
+	 *	@return	The IYCFSecISOCtryCcyEditObj edition of this instance.
 	 */
-	ICFSecISOCtryCcyEditObj getEditAsISOCtryCcy();
+	IYCFSecISOCtryCcyEditObj getEditAsISOCtryCcy();
 
 	/**
-	 *	Get the ICFSecISOCtryCcyTableObj table cache which manages this instance.
+	 *	Get the IYCFSecISOCtryCcyTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecISOCtryCcyTableObj table cache which manages this instance.
+	 *	@return	IYCFSecISOCtryCcyTableObj table cache which manages this instance.
 	 */
-	ICFSecISOCtryCcyTableObj getISOCtryCcyTable();
+	IYCFSecISOCtryCcyTableObj getISOCtryCcyTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecISOCtryCcyBuff instance which currently backs this instance.
+	 *	Get the YCFSecISOCtryCcyBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecISOCtryCcyBuff instance which currently backs this object.
+	 *	@return	YCFSecISOCtryCcyBuff instance which currently backs this object.
 	 */
-	CFSecISOCtryCcyBuff getBuff();
+	YCFSecISOCtryCcyBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecISOCtryCcyBuff value );
+	void setBuff( YCFSecISOCtryCcyBuff value );
 
 	/**
-	 *	Get the CFSecISOCtryCcyBuff instance which currently backs this instance.
+	 *	Get the YCFSecISOCtryCcyBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecISOCtryCcyBuff instance which currently backs this object.
+	 *	@return	YCFSecISOCtryCcyBuff instance which currently backs this object.
 	 */
-	CFSecISOCtryCcyBuff getISOCtryCcyBuff();
+	YCFSecISOCtryCcyBuff getISOCtryCcyBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFSecISOCtryCcyPKey primary key for this instance.
+	 *	@return	YCFSecISOCtryCcyPKey primary key for this instance.
 	 */
-	CFSecISOCtryCcyPKey getPKey();
+	YCFSecISOCtryCcyPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFSecISOCtryCcyPKey primary key value for this instance.
+	 *	@param YCFSecISOCtryCcyPKey primary key value for this instance.
 	 */
-	void setPKey( CFSecISOCtryCcyPKey value );
+	void setPKey( YCFSecISOCtryCcyPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -211,32 +211,32 @@ public interface ICFSecISOCtryCcyObj
 	short getRequiredISOCcyId();
 
 	/**
-	 *	Get the required ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	Get the required IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 *
-	 *	@return	The required ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	@return	The required IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 */
-	ICFSecISOCtryObj getRequiredContainerCtry();
+	IYCFSecISOCtryObj getRequiredContainerCtry();
 
 	/**
-	 *	Get the required ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	Get the required IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 *
-	 *	@return	The required ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	@return	The required IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 */
-	ICFSecISOCtryObj getRequiredContainerCtry( boolean forceRead );
+	IYCFSecISOCtryObj getRequiredContainerCtry( boolean forceRead );
 
 	/**
-	 *	Get the required ICFSecISOCcyObj instance referenced by the Ccy key.
+	 *	Get the required IYCFSecISOCcyObj instance referenced by the Ccy key.
 	 *
-	 *	@return	The required ICFSecISOCcyObj instance referenced by the Ccy key.
+	 *	@return	The required IYCFSecISOCcyObj instance referenced by the Ccy key.
 	 */
-	ICFSecISOCcyObj getRequiredParentCcy();
+	IYCFSecISOCcyObj getRequiredParentCcy();
 
 	/**
-	 *	Get the required ICFSecISOCcyObj instance referenced by the Ccy key.
+	 *	Get the required IYCFSecISOCcyObj instance referenced by the Ccy key.
 	 *
-	 *	@return	The required ICFSecISOCcyObj instance referenced by the Ccy key.
+	 *	@return	The required IYCFSecISOCcyObj instance referenced by the Ccy key.
 	 */
-	ICFSecISOCcyObj getRequiredParentCcy( boolean forceRead );
+	IYCFSecISOCcyObj getRequiredParentCcy( boolean forceRead );
 
 	/**
 	 *	Internal use only.

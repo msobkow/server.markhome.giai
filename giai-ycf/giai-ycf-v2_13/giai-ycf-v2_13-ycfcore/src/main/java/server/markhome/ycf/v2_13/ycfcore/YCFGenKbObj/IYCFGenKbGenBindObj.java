@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GenBind.
+// Description: Java 11 Object interface for YCFGenKb GenBind.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,42 +27,42 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGenBindObj
-	extends ICFGenKbGenItemObj
+public interface IYCFGenKbGenBindObj
+	extends IYCFGenKbGenItemObj
 {
 	/**
-	 *	Get the current edition of this GenBind instance as a ICFGenKbGenBindEditObj.
+	 *	Get the current edition of this GenBind instance as a IYCFGenKbGenBindEditObj.
 	 *
-	 *	@return	The ICFGenKbGenBindEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGenBindEditObj edition of this instance.
 	 */
-	ICFGenKbGenBindEditObj getEditAsGenBind();
+	IYCFGenKbGenBindEditObj getEditAsGenBind();
 
 	/**
-	 *	Get the ICFGenKbGenBindTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGenBindTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGenBindTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGenBindTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGenBindTableObj getGenBindTable();
+	IYCFGenKbGenBindTableObj getGenBindTable();
 
 	/**
-	 *	Get the CFGenKbGenBindBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGenBindBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGenBindBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGenBindBuff instance which currently backs this object.
 	 */
-	CFGenKbGenBindBuff getGenBindBuff();
+	YCFGenKbGenBindBuff getGenBindBuff();
 
 }

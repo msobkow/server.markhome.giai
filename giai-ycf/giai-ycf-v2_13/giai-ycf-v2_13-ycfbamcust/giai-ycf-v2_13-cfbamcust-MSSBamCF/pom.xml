@@ -2,17 +2,17 @@
   <modelVersion>4.1.0</modelVersion>
 
   <parent>
-    <groupId>org.msscf.msscf</groupId>
-    <artifactId>org.msscf.msscf.v2_13</artifactId>
+    <groupId>giai-ycf</groupId>
+    <artifactId>giai-ycf-v2_13</artifactId>
     <version>2.13.42-alpha17-202611140000</version>
   </parent>
 
-  <groupId>org.msscf.msscf.v2_13</groupId>
-  <artifactId>org.msscf.msscf.v2_13.cfbamcust.MSSBamCF</artifactId>
+  <groupId>giai-ycf-v2_13</groupId>
+  <artifactId>giai-ycf-v2_13-ycfbamcust.MSSBamCF</artifactId>
   <version>2.13.42-alpha17-202611140000</version>
-  <name>org.msscf.msscf.v2_13.cfbamcust.MSSBamCF</name>
+  <name>server.markhome.giai.v2_13.ycfbamcust.MSSBamCF</name>
   <description>msscf MSSBamCF 2.13 CFBam custom hooks for CFCore extensions</description>
-  <url>https://msscode.com/msscf/</url>
+  <url>https://msobkow.github.io/ycf/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,33 +22,33 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cflib.CFLib</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycflib.CFLib</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfcore</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfcore</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfbam</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfbam</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfsec</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfsec</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfint</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfint</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfbam.CFBamMssCF</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfbam.CFBamMssCF</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
   </dependencies>

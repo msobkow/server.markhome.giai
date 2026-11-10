@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,45 +23,45 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.ICFBamRelationObj;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.ICFBamSchemaDefObj;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.ICFBamSchemaRefObj;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.ICFBamTableObj;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.IYCFBamRelationObj;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.IYCFBamSchemaDefObj;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.IYCFBamSchemaRefObj;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.IYCFBamTableObj;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
 
-public class MSSBamCFGenReferencePopManufacturingSchema
-	extends MssCFGenReferenceObj
+public class MSSBamYCFGenReferencePopManufacturingSchema
+	extends MssYCFGenReferenceObj
 {
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
-	public MSSBamCFGenReferencePopManufacturingSchema() {
+	public MSSBamYCFGenReferencePopManufacturingSchema() {
 		super();
 	}
 
-	public MSSBamCFGenReferencePopManufacturingSchema(
-		MSSBamCFEngine argSchema,
+	public MSSBamYCFGenReferencePopManufacturingSchema(
+		MSSBamYCFEngine argSchema,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -70,12 +70,12 @@ public class MSSBamCFGenReferencePopManufacturingSchema
 		super(argSchema, toolset, scopeDefClassName, genDefClassName, itemName, "SchemaDef");
 	}
 
-	public ICFLibAnyObj dereference( MssCFGenContext genContext) {
-		ICFLibAnyObj genDef;
+	public IYCFLibAnyObj dereference( MssYCFGenContext genContext) {
+		IYCFLibAnyObj genDef;
 		final String S_ProcName = "expandBody";
 
 		if (genContext == null) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
@@ -83,14 +83,14 @@ public class MSSBamCFGenReferencePopManufacturingSchema
 
 		genDef = genContext.getGenDef();
 		if (genDef == null) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"genContext.GenDef" );
 		}
 
-		ICFBamSchemaDefObj popSchema = MSSBamCFGenContext.popManufacturingSchema();
-		MssCFEngine.popContext();
+		IYCFBamSchemaDefObj popSchema = MSSBamYCFGenContext.popManufacturingSchema();
+		MssYCFEngine.popContext();
 
 		return( popSchema );
 	}

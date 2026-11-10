@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for URLProtocol
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,21 +35,21 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSaxLoaderURLProtocolParse XML SAX Element Handler implementation
+ *	YCFIntSaxLoaderURLProtocolParse XML SAX Element Handler implementation
  *	for URLProtocol.
  */
-public class CFIntSaxLoaderURLProtocol
-	extends CFLibXmlCoreElementHandler
+public class YCFIntSaxLoaderURLProtocol
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFIntSaxLoaderURLProtocol( CFIntSaxLoader saxLoader ) {
+	public YCFIntSaxLoaderURLProtocol( YCFIntSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -61,8 +61,8 @@ public class CFIntSaxLoaderURLProtocol
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFIntURLProtocolObj origBuff = null;
-		ICFIntURLProtocolEditObj editBuff = null;
+		IYCFIntURLProtocolObj origBuff = null;
+		IYCFIntURLProtocolEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// URLProtocol Attributes
@@ -78,25 +78,25 @@ public class CFIntSaxLoaderURLProtocol
 		try {
 			assert qName.equals( "URLProtocol" );
 
-			CFIntSaxLoader saxLoader = (CFIntSaxLoader)getParser();
+			YCFIntSaxLoader saxLoader = (YCFIntSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFIntURLProtocolObj)schemaObj.getURLProtocolTableObj().newInstance();
-			editBuff = (ICFIntURLProtocolEditObj)origBuff.beginEdit();
+			origBuff = (IYCFIntURLProtocolObj)schemaObj.getURLProtocolTableObj().newInstance();
+			editBuff = (IYCFIntURLProtocolEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -104,7 +104,7 @@ public class CFIntSaxLoaderURLProtocol
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -113,7 +113,7 @@ public class CFIntSaxLoaderURLProtocol
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -122,7 +122,7 @@ public class CFIntSaxLoaderURLProtocol
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -131,7 +131,7 @@ public class CFIntSaxLoaderURLProtocol
 				}
 				else if( attrLocalName.equals( "IsSecure" ) ) {
 					if( attrIsSecure != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -142,7 +142,7 @@ public class CFIntSaxLoaderURLProtocol
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -151,26 +151,26 @@ public class CFIntSaxLoaderURLProtocol
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 			if( attrDescription == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Description" );
 			}
 			if( ( attrIsSecure == null ) || ( attrIsSecure.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"IsSecure" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "Description", attrDescription );
@@ -200,7 +200,7 @@ public class CFIntSaxLoaderURLProtocol
 				natIsSecure = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected IsSecure value, must be one of true, false, yes, no, 1, or 0, not \"" + attrIsSecure + "\"" );
 			}
@@ -208,7 +208,7 @@ public class CFIntSaxLoaderURLProtocol
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -217,9 +217,9 @@ public class CFIntSaxLoaderURLProtocol
 				scopeObj = null;
 			}
 
-			CFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getURLProtocolLoaderBehaviour();
-			ICFIntURLProtocolEditObj editURLProtocol = null;
-			ICFIntURLProtocolObj origURLProtocol = (ICFIntURLProtocolObj)schemaObj.getURLProtocolTableObj().readURLProtocolByUNameIdx( editBuff.getRequiredName() );
+			YCFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getURLProtocolLoaderBehaviour();
+			IYCFIntURLProtocolEditObj editURLProtocol = null;
+			IYCFIntURLProtocolObj origURLProtocol = (IYCFIntURLProtocolObj)schemaObj.getURLProtocolTableObj().readURLProtocolByUNameIdx( editBuff.getRequiredName() );
 			if( origURLProtocol == null ) {
 				editURLProtocol = editBuff;
 			}
@@ -228,13 +228,13 @@ public class CFIntSaxLoaderURLProtocol
 					case Insert:
 						break;
 					case Update:
-						editURLProtocol = (ICFIntURLProtocolEditObj)origURLProtocol.beginEdit();
+						editURLProtocol = (IYCFIntURLProtocolEditObj)origURLProtocol.beginEdit();
 						editURLProtocol.setRequiredName( editBuff.getRequiredName() );
 						editURLProtocol.setRequiredDescription( editBuff.getRequiredDescription() );
 						editURLProtocol.setRequiredIsSecure( editBuff.getRequiredIsSecure() );
 						break;
 					case Replace:
-						editURLProtocol = (ICFIntURLProtocolEditObj)origURLProtocol.beginEdit();
+						editURLProtocol = (IYCFIntURLProtocolEditObj)origURLProtocol.beginEdit();
 						editURLProtocol.deleteInstance();
 						editURLProtocol = null;
 						origURLProtocol = null;
@@ -248,7 +248,7 @@ public class CFIntSaxLoaderURLProtocol
 					editURLProtocol.update();
 				}
 				else {
-					origURLProtocol = (ICFIntURLProtocolObj)editURLProtocol.create();
+					origURLProtocol = (IYCFIntURLProtocolObj)editURLProtocol.create();
 				}
 				editURLProtocol = null;
 			}

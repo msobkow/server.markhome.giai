@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb TSecGrpMemb.
+// Description: Java 11 edit object instance implementation for YCFGenKb TSecGrpMemb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,41 +27,41 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbTSecGrpMembEditObj
-	implements ICFGenKbTSecGrpMembEditObj
+public class YCFGenKbTSecGrpMembEditObj
+	implements IYCFGenKbTSecGrpMembEditObj
 {
-	protected ICFGenKbTSecGrpMembObj orig;
-	protected CFGenKbTSecGrpMembBuff buff;
-	protected ICFGenKbSecUserObj createdBy = null;
-	protected ICFGenKbSecUserObj updatedBy = null;
-	protected ICFGenKbTenantObj requiredOwnerTenant;
-	protected ICFGenKbTSecGroupObj requiredContainerGroup;
-	protected ICFGenKbSecUserObj requiredParentUser;
+	protected IYCFGenKbTSecGrpMembObj orig;
+	protected YCFGenKbTSecGrpMembBuff buff;
+	protected IYCFGenKbSecUserObj createdBy = null;
+	protected IYCFGenKbSecUserObj updatedBy = null;
+	protected IYCFGenKbTenantObj requiredOwnerTenant;
+	protected IYCFGenKbTSecGroupObj requiredContainerGroup;
+	protected IYCFGenKbSecUserObj requiredParentUser;
 
-	public CFGenKbTSecGrpMembEditObj( ICFGenKbTSecGrpMembObj argOrig ) {
+	public YCFGenKbTSecGrpMembEditObj( IYCFGenKbTSecGrpMembObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFGenKbTSecGrpMembBuff origBuff = orig.getBuff();
+		YCFGenKbTSecGrpMembBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 		requiredOwnerTenant = null;
 		requiredContainerGroup = null;
 		requiredParentUser = null;
 	}
 
-	public ICFGenKbSecUserObj getCreatedBy() {
+	public IYCFGenKbSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFGenKbTSecGrpMembBuff buff = getBuff();
-			createdBy = ((ICFGenKbSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFGenKbTSecGrpMembBuff buff = getBuff();
+			createdBy = ((IYCFGenKbSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -70,10 +70,10 @@ public class CFGenKbTSecGrpMembEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFGenKbSecUserObj getUpdatedBy() {
+	public IYCFGenKbSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFGenKbTSecGrpMembBuff buff = getBuff();
-			updatedBy = ((ICFGenKbSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFGenKbTSecGrpMembBuff buff = getBuff();
+			updatedBy = ((IYCFGenKbSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -82,7 +82,7 @@ public class CFGenKbTSecGrpMembEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFGenKbSecUserObj value ) {
+	public void setCreatedBy( IYCFGenKbSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -93,7 +93,7 @@ public class CFGenKbTSecGrpMembEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFGenKbSecUserObj value ) {
+	public void setUpdatedBy( IYCFGenKbSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -105,20 +105,20 @@ public class CFGenKbTSecGrpMembEditObj
 	}
 
 	public String getClassCode() {
-		return( CFGenKbTSecGrpMembObj.CLASS_CODE );
+		return( YCFGenKbTSecGrpMembObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "TSecGrpMemb" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFGenKbTSecGroupObj scope = getRequiredContainerGroup();
+	public IYCFLibAnyObj getScope() {
+		IYCFGenKbTSecGroupObj scope = getRequiredContainerGroup();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFGenKbTSecGroupObj scope = getRequiredContainerGroup();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFGenKbTSecGroupObj scope = getRequiredContainerGroup();
 		return( scope );
 	}
 
@@ -129,14 +129,14 @@ public class CFGenKbTSecGrpMembEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -147,10 +147,10 @@ public class CFGenKbTSecGrpMembEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -159,20 +159,20 @@ public class CFGenKbTSecGrpMembEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -196,13 +196,13 @@ public class CFGenKbTSecGrpMembEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -216,13 +216,13 @@ public class CFGenKbTSecGrpMembEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -234,9 +234,9 @@ public class CFGenKbTSecGrpMembEditObj
 		return( fullName );
 	}
 
-	public ICFGenKbTSecGrpMembObj realise() {
+	public IYCFGenKbTSecGrpMembObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbTSecGrpMembObj retobj = getSchema().getTSecGrpMembTableObj().realiseTSecGrpMemb( (ICFGenKbTSecGrpMembObj)this );
+		IYCFGenKbTSecGrpMembObj retobj = getSchema().getTSecGrpMembTableObj().realiseTSecGrpMemb( (IYCFGenKbTSecGrpMembObj)this );
 		return( retobj );
 	}
 
@@ -244,10 +244,10 @@ public class CFGenKbTSecGrpMembEditObj
 		getOrigAsTSecGrpMemb().forget();
 	}
 
-	public ICFGenKbTSecGrpMembObj read() {
-		ICFGenKbTSecGrpMembObj retval = getOrigAsTSecGrpMemb().read();
+	public IYCFGenKbTSecGrpMembObj read() {
+		IYCFGenKbTSecGrpMembObj retval = getOrigAsTSecGrpMemb().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -255,10 +255,10 @@ public class CFGenKbTSecGrpMembEditObj
 		return( retval );
 	}
 
-	public ICFGenKbTSecGrpMembObj read( boolean forceRead ) {
-		ICFGenKbTSecGrpMembObj retval = getOrigAsTSecGrpMemb().read( forceRead );
+	public IYCFGenKbTSecGrpMembObj read( boolean forceRead ) {
+		IYCFGenKbTSecGrpMembObj retval = getOrigAsTSecGrpMemb().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -266,69 +266,69 @@ public class CFGenKbTSecGrpMembEditObj
 		return( retval );
 	}
 
-	public ICFGenKbTSecGrpMembObj create() {
+	public IYCFGenKbTSecGrpMembObj create() {
 		copyBuffToOrig();
-		ICFGenKbTSecGrpMembObj retobj = ((ICFGenKbSchemaObj)getOrigAsTSecGrpMemb().getSchema()).getTSecGrpMembTableObj().createTSecGrpMemb( getOrigAsTSecGrpMemb() );
+		IYCFGenKbTSecGrpMembObj retobj = ((IYCFGenKbSchemaObj)getOrigAsTSecGrpMemb().getSchema()).getTSecGrpMembTableObj().createTSecGrpMemb( getOrigAsTSecGrpMemb() );
 		if( retobj == getOrigAsTSecGrpMemb() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbTSecGrpMembEditObj update() {
-		getSchema().getTSecGrpMembTableObj().updateTSecGrpMemb( (ICFGenKbTSecGrpMembObj)this );
+	public YCFGenKbTSecGrpMembEditObj update() {
+		getSchema().getTSecGrpMembTableObj().updateTSecGrpMemb( (IYCFGenKbTSecGrpMembObj)this );
 		return( null );
 	}
 
-	public CFGenKbTSecGrpMembEditObj deleteInstance() {
+	public YCFGenKbTSecGrpMembEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getTSecGrpMembTableObj().deleteTSecGrpMemb( getOrigAsTSecGrpMemb() );
 		return( null );
 	}
 
-	public ICFGenKbTSecGrpMembTableObj getTSecGrpMembTable() {
+	public IYCFGenKbTSecGrpMembTableObj getTSecGrpMembTable() {
 		return( orig.getSchema().getTSecGrpMembTableObj() );
 	}
 
-	public ICFGenKbTSecGrpMembEditObj getEdit() {
-		return( (ICFGenKbTSecGrpMembEditObj)this );
+	public IYCFGenKbTSecGrpMembEditObj getEdit() {
+		return( (IYCFGenKbTSecGrpMembEditObj)this );
 	}
 
-	public ICFGenKbTSecGrpMembEditObj getEditAsTSecGrpMemb() {
-		return( (ICFGenKbTSecGrpMembEditObj)this );
+	public IYCFGenKbTSecGrpMembEditObj getEditAsTSecGrpMemb() {
+		return( (IYCFGenKbTSecGrpMembEditObj)this );
 	}
 
-	public ICFGenKbTSecGrpMembEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFGenKbTSecGrpMembEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFGenKbTSecGrpMembObj getOrig() {
+	public IYCFGenKbTSecGrpMembObj getOrig() {
 		return( orig );
 	}
 
-	public ICFGenKbTSecGrpMembObj getOrigAsTSecGrpMemb() {
-		return( (ICFGenKbTSecGrpMembObj)orig );
+	public IYCFGenKbTSecGrpMembObj getOrigAsTSecGrpMemb() {
+		return( (IYCFGenKbTSecGrpMembObj)orig );
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFGenKbTSecGrpMembBuff getBuff() {
+	public YCFGenKbTSecGrpMembBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsTSecGrpMemb().getSchema().getBackingStore()).getFactoryTSecGrpMemb().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsTSecGrpMemb().getSchema().getBackingStore()).getFactoryTSecGrpMemb().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbTSecGrpMembBuff value ) {
+	public void setBuff( YCFGenKbTSecGrpMembBuff value ) {
 		if( buff != value ) {
 			buff = value;
 			requiredOwnerTenant = null;
@@ -337,15 +337,15 @@ public class CFGenKbTSecGrpMembEditObj
 		}
 	}
 
-	public CFGenKbTSecGrpMembBuff getTSecGrpMembBuff() {
-		return( (CFGenKbTSecGrpMembBuff)getBuff() );
+	public YCFGenKbTSecGrpMembBuff getTSecGrpMembBuff() {
+		return( (YCFGenKbTSecGrpMembBuff)getBuff() );
 	}
 
-	public CFGenKbTSecGrpMembPKey getPKey() {
+	public YCFGenKbTSecGrpMembPKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFGenKbTSecGrpMembPKey value ) {
+	public void setPKey( YCFGenKbTSecGrpMembPKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -374,22 +374,22 @@ public class CFGenKbTSecGrpMembEditObj
 		return( getTSecGrpMembBuff().getRequiredSecUserId() );
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant() {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( forceRead || ( requiredOwnerTenant == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFGenKbTenantObj obj = ((ICFGenKbSchemaObj)getOrigAsTSecGrpMemb().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
+				IYCFGenKbTenantObj obj = ((IYCFGenKbSchemaObj)getOrigAsTSecGrpMemb().getSchema()).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId() );
 				requiredOwnerTenant = obj;
 			}
 		}
 		return( requiredOwnerTenant );
 	}
 
-	public void setRequiredOwnerTenant( ICFGenKbTenantObj value ) {
+	public void setRequiredOwnerTenant( IYCFGenKbTenantObj value ) {
 			if( buff == null ) {
 				getTSecGrpMembBuff();
 			}
@@ -400,15 +400,15 @@ public class CFGenKbTSecGrpMembEditObj
 			requiredOwnerTenant = value;
 	}
 
-	public ICFGenKbTSecGroupObj getRequiredContainerGroup() {
+	public IYCFGenKbTSecGroupObj getRequiredContainerGroup() {
 		return( getRequiredContainerGroup( false ) );
 	}
 
-	public ICFGenKbTSecGroupObj getRequiredContainerGroup( boolean forceRead ) {
+	public IYCFGenKbTSecGroupObj getRequiredContainerGroup( boolean forceRead ) {
 		if( forceRead || ( requiredContainerGroup == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFGenKbTSecGroupObj obj = ((ICFGenKbSchemaObj)getOrigAsTSecGrpMemb().getSchema()).getTSecGroupTableObj().readTSecGroupByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFGenKbTSecGroupObj obj = ((IYCFGenKbSchemaObj)getOrigAsTSecGrpMemb().getSchema()).getTSecGroupTableObj().readTSecGroupByIdIdx( getPKey().getRequiredTenantId(),
 					getTSecGrpMembBuff().getRequiredTSecGroupId() );
 				requiredContainerGroup = obj;
 				if( obj != null ) {
@@ -421,7 +421,7 @@ public class CFGenKbTSecGrpMembEditObj
 		return( requiredContainerGroup );
 	}
 
-	public void setRequiredContainerGroup( ICFGenKbTSecGroupObj value ) {
+	public void setRequiredContainerGroup( IYCFGenKbTSecGroupObj value ) {
 			if( buff == null ) {
 				getTSecGrpMembBuff();
 			}
@@ -433,22 +433,22 @@ public class CFGenKbTSecGrpMembEditObj
 			requiredContainerGroup = value;
 	}
 
-	public ICFGenKbSecUserObj getRequiredParentUser() {
+	public IYCFGenKbSecUserObj getRequiredParentUser() {
 		return( getRequiredParentUser( false ) );
 	}
 
-	public ICFGenKbSecUserObj getRequiredParentUser( boolean forceRead ) {
+	public IYCFGenKbSecUserObj getRequiredParentUser( boolean forceRead ) {
 		if( forceRead || ( requiredParentUser == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFGenKbSecUserObj obj = ((ICFGenKbSchemaObj)getOrigAsTSecGrpMemb().getSchema()).getSecUserTableObj().readSecUserByIdIdx( getTSecGrpMembBuff().getRequiredSecUserId() );
+				IYCFGenKbSecUserObj obj = ((IYCFGenKbSchemaObj)getOrigAsTSecGrpMemb().getSchema()).getSecUserTableObj().readSecUserByIdIdx( getTSecGrpMembBuff().getRequiredSecUserId() );
 				requiredParentUser = obj;
 			}
 		}
 		return( requiredParentUser );
 	}
 
-	public void setRequiredParentUser( ICFGenKbSecUserObj value ) {
+	public void setRequiredParentUser( IYCFGenKbSecUserObj value ) {
 			if( buff == null ) {
 				getTSecGrpMembBuff();
 			}
@@ -471,14 +471,14 @@ public class CFGenKbTSecGrpMembEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbTSecGrpMembBuff origBuff = getOrigAsTSecGrpMemb().getTSecGrpMembBuff();
-		CFGenKbTSecGrpMembBuff myBuff = getTSecGrpMembBuff();
+		YCFGenKbTSecGrpMembBuff origBuff = getOrigAsTSecGrpMemb().getTSecGrpMembBuff();
+		YCFGenKbTSecGrpMembBuff myBuff = getTSecGrpMembBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbTSecGrpMembBuff origBuff = getOrigAsTSecGrpMemb().getTSecGrpMembBuff();
-		CFGenKbTSecGrpMembBuff myBuff = getTSecGrpMembBuff();
+		YCFGenKbTSecGrpMembBuff origBuff = getOrigAsTSecGrpMemb().getTSecGrpMembBuff();
+		YCFGenKbTSecGrpMembBuff myBuff = getTSecGrpMembBuff();
 		myBuff.set( origBuff );
 	}
 }

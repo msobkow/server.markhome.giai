@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,55 +26,55 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamISOCcyTableObj
-	implements ICFBamISOCcyTableObj
+public class YCFBamISOCcyTableObj
+	implements IYCFBamISOCcyTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFSecISOCcyPKey, ICFSecISOCcyObj> members;
-	private Map<CFSecISOCcyPKey, ICFSecISOCcyObj> allISOCcy;
-	private Map< CFSecISOCcyByCcyCdIdxKey,
-		ICFSecISOCcyObj > indexByCcyCdIdx;
-	private Map< CFSecISOCcyByCcyNmIdxKey,
-		ICFSecISOCcyObj > indexByCcyNmIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFSecISOCcyPKey, IYCFSecISOCcyObj> members;
+	private Map<YCFSecISOCcyPKey, IYCFSecISOCcyObj> allISOCcy;
+	private Map< YCFSecISOCcyByCcyCdIdxKey,
+		IYCFSecISOCcyObj > indexByCcyCdIdx;
+	private Map< YCFSecISOCcyByCcyNmIdxKey,
+		IYCFSecISOCcyObj > indexByCcyNmIdx;
 	public static String TABLE_NAME = "ISOCcy";
 	public static String TABLE_DBNAME = "iso_ccy";
 
-	public CFBamISOCcyTableObj() {
+	public YCFBamISOCcyTableObj() {
 		schema = null;
-		members = new HashMap<CFSecISOCcyPKey, ICFSecISOCcyObj>();
+		members = new HashMap<YCFSecISOCcyPKey, IYCFSecISOCcyObj>();
 		allISOCcy = null;
 		indexByCcyCdIdx = null;
 		indexByCcyNmIdx = null;
 	}
 
-	public CFBamISOCcyTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFSecISOCcyPKey, ICFSecISOCcyObj>();
+	public YCFBamISOCcyTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFSecISOCcyPKey, IYCFSecISOCcyObj>();
 		allISOCcy = null;
 		indexByCcyCdIdx = null;
 		indexByCcyNmIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -94,9 +94,9 @@ public class CFBamISOCcyTableObj
 		allISOCcy = null;
 		indexByCcyCdIdx = null;
 		indexByCcyNmIdx = null;
-		List<ICFSecISOCcyObj> toForget = new LinkedList<ICFSecISOCcyObj>();
-		ICFSecISOCcyObj cur = null;
-		Iterator<ICFSecISOCcyObj> iter = members.values().iterator();
+		List<IYCFSecISOCcyObj> toForget = new LinkedList<IYCFSecISOCcyObj>();
+		IYCFSecISOCcyObj cur = null;
+		Iterator<IYCFSecISOCcyObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -114,10 +114,10 @@ public class CFBamISOCcyTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamISOCcyObj.
+	 *	YCFBamISOCcyObj.
 	 */
-	public ICFSecISOCcyObj newInstance() {
-		ICFSecISOCcyObj inst = new CFBamISOCcyObj( schema );
+	public IYCFSecISOCcyObj newInstance() {
+		IYCFSecISOCcyObj inst = new YCFBamISOCcyObj( schema );
 		return( inst );
 	}
 
@@ -128,19 +128,19 @@ public class CFBamISOCcyTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamISOCcyObj.
+	 *	YCFBamISOCcyObj.
 	 */
-	public ICFSecISOCcyEditObj newEditInstance( ICFSecISOCcyObj orig ) {
-		ICFSecISOCcyEditObj edit = new CFBamISOCcyEditObj( orig );
+	public IYCFSecISOCcyEditObj newEditInstance( IYCFSecISOCcyObj orig ) {
+		IYCFSecISOCcyEditObj edit = new YCFBamISOCcyEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecISOCcyObj realiseISOCcy( ICFSecISOCcyObj Obj ) {
-		ICFSecISOCcyObj obj = Obj;
-		CFSecISOCcyPKey pkey = obj.getPKey();
-		ICFSecISOCcyObj keepObj = null;
+	public IYCFSecISOCcyObj realiseISOCcy( IYCFSecISOCcyObj Obj ) {
+		IYCFSecISOCcyObj obj = Obj;
+		YCFSecISOCcyPKey pkey = obj.getPKey();
+		IYCFSecISOCcyObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecISOCcyObj existingObj = members.get( pkey );
+			IYCFSecISOCcyObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -151,15 +151,15 @@ public class CFBamISOCcyTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByCcyCdIdx != null ) {
-				CFSecISOCcyByCcyCdIdxKey keyCcyCdIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
+				YCFSecISOCcyByCcyCdIdxKey keyCcyCdIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
 				keyCcyCdIdx.setRequiredISOCode( keepObj.getRequiredISOCode() );
 				indexByCcyCdIdx.remove( keyCcyCdIdx );
 			}
 
 			if( indexByCcyNmIdx != null ) {
-				CFSecISOCcyByCcyNmIdxKey keyCcyNmIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
+				YCFSecISOCcyByCcyNmIdxKey keyCcyNmIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
 				keyCcyNmIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByCcyNmIdx.remove( keyCcyNmIdx );
 			}
@@ -168,15 +168,15 @@ public class CFBamISOCcyTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByCcyCdIdx != null ) {
-				CFSecISOCcyByCcyCdIdxKey keyCcyCdIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
+				YCFSecISOCcyByCcyCdIdxKey keyCcyCdIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
 				keyCcyCdIdx.setRequiredISOCode( keepObj.getRequiredISOCode() );
 				indexByCcyCdIdx.put( keyCcyCdIdx, keepObj );
 			}
 
 			if( indexByCcyNmIdx != null ) {
-				CFSecISOCcyByCcyNmIdxKey keyCcyNmIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
+				YCFSecISOCcyByCcyNmIdxKey keyCcyNmIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
 				keyCcyNmIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByCcyNmIdx.put( keyCcyNmIdx, keepObj );
 			}
@@ -196,15 +196,15 @@ public class CFBamISOCcyTableObj
 			}
 
 			if( indexByCcyCdIdx != null ) {
-				CFSecISOCcyByCcyCdIdxKey keyCcyCdIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
+				YCFSecISOCcyByCcyCdIdxKey keyCcyCdIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
 				keyCcyCdIdx.setRequiredISOCode( keepObj.getRequiredISOCode() );
 				indexByCcyCdIdx.put( keyCcyCdIdx, keepObj );
 			}
 
 			if( indexByCcyNmIdx != null ) {
-				CFSecISOCcyByCcyNmIdxKey keyCcyNmIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
+				YCFSecISOCcyByCcyNmIdxKey keyCcyNmIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
 				keyCcyNmIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByCcyNmIdx.put( keyCcyNmIdx, keepObj );
 			}
@@ -213,10 +213,10 @@ public class CFBamISOCcyTableObj
 		return( keepObj );
 	}
 
-	public ICFSecISOCcyObj createISOCcy( ICFSecISOCcyObj Obj ) {
-		ICFSecISOCcyObj obj = Obj;
-		CFSecISOCcyBuff buff = obj.getISOCcyBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().createISOCcy(
+	public IYCFSecISOCcyObj createISOCcy( IYCFSecISOCcyObj Obj ) {
+		IYCFSecISOCcyObj obj = Obj;
+		YCFSecISOCcyBuff buff = obj.getISOCcyBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().createISOCcy(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -225,53 +225,53 @@ public class CFBamISOCcyTableObj
 		return( obj );
 	}
 
-	public ICFSecISOCcyObj readISOCcy( CFSecISOCcyPKey pkey ) {
+	public IYCFSecISOCcyObj readISOCcy( YCFSecISOCcyPKey pkey ) {
 		return( readISOCcy( pkey, false ) );
 	}
 
-	public ICFSecISOCcyObj readISOCcy( CFSecISOCcyPKey pkey, boolean forceRead ) {
-		ICFSecISOCcyObj obj = null;
+	public IYCFSecISOCcyObj readISOCcy( YCFSecISOCcyPKey pkey, boolean forceRead ) {
+		IYCFSecISOCcyObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecISOCcyBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecISOCcyBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredISOCcyId() );
 			if( readBuff != null ) {
 				obj = schema.getISOCcyTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecISOCcyObj)obj.realise();
+				obj = (IYCFSecISOCcyObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecISOCcyObj readCachedISOCcy( CFSecISOCcyPKey pkey ) {
-		ICFSecISOCcyObj obj = null;
+	public IYCFSecISOCcyObj readCachedISOCcy( YCFSecISOCcyPKey pkey ) {
+		IYCFSecISOCcyObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeISOCcy( ICFSecISOCcyObj obj )
+	public void reallyDeepDisposeISOCcy( IYCFSecISOCcyObj obj )
 	{
-		final String S_ProcName = "CFBamISOCcyTableObj.reallyDeepDisposeISOCcy() ";
+		final String S_ProcName = "YCFBamISOCcyTableObj.reallyDeepDisposeISOCcy() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecISOCcyPKey pkey = obj.getPKey();
-		ICFSecISOCcyObj existing = readCachedISOCcy( pkey );
+		YCFSecISOCcyPKey pkey = obj.getPKey();
+		IYCFSecISOCcyObj existing = readCachedISOCcy( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecISOCcyByCcyCdIdxKey keyCcyCdIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
+		YCFSecISOCcyByCcyCdIdxKey keyCcyCdIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
 		keyCcyCdIdx.setRequiredISOCode( existing.getRequiredISOCode() );
 
-		CFSecISOCcyByCcyNmIdxKey keyCcyNmIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
+		YCFSecISOCcyByCcyNmIdxKey keyCcyNmIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
 		keyCcyNmIdx.setRequiredName( existing.getRequiredName() );
 
 
@@ -287,57 +287,57 @@ public class CFBamISOCcyTableObj
 
 
 	}
-	public void deepDisposeISOCcy( CFSecISOCcyPKey pkey ) {
-		ICFSecISOCcyObj obj = readCachedISOCcy( pkey );
+	public void deepDisposeISOCcy( YCFSecISOCcyPKey pkey ) {
+		IYCFSecISOCcyObj obj = readCachedISOCcy( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecISOCcyObj lockISOCcy( CFSecISOCcyPKey pkey ) {
-		ICFSecISOCcyObj locked = null;
-		CFSecISOCcyBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecISOCcyObj lockISOCcy( YCFSecISOCcyPKey pkey ) {
+		IYCFSecISOCcyObj locked = null;
+		YCFSecISOCcyBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getISOCcyTableObj().newInstance();
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecISOCcyObj)locked.realise();
+			locked = (IYCFSecISOCcyObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockISOCcy", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockISOCcy", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecISOCcyObj> readAllISOCcy() {
+	public List<IYCFSecISOCcyObj> readAllISOCcy() {
 		return( readAllISOCcy( false ) );
 	}
 
-	public List<ICFSecISOCcyObj> readAllISOCcy( boolean forceRead ) {
+	public List<IYCFSecISOCcyObj> readAllISOCcy( boolean forceRead ) {
 		final String S_ProcName = "readAllISOCcy";
 		if( ( allISOCcy == null ) || forceRead ) {
-			Map<CFSecISOCcyPKey, ICFSecISOCcyObj> map = new HashMap<CFSecISOCcyPKey,ICFSecISOCcyObj>();
+			Map<YCFSecISOCcyPKey, IYCFSecISOCcyObj> map = new HashMap<YCFSecISOCcyPKey,IYCFSecISOCcyObj>();
 			allISOCcy = map;
-			CFSecISOCcyBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().readAllDerived( schema.getAuthorization() );
-			CFSecISOCcyBuff buff;
-			ICFSecISOCcyObj obj;
+			YCFSecISOCcyBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().readAllDerived( schema.getAuthorization() );
+			YCFSecISOCcyBuff buff;
+			IYCFSecISOCcyObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
 				obj.setBuff( buff );
-				ICFSecISOCcyObj realised = (ICFSecISOCcyObj)obj.realise();
+				IYCFSecISOCcyObj realised = (IYCFSecISOCcyObj)obj.realise();
 			}
 		}
 		int len = allISOCcy.size();
-		ICFSecISOCcyObj arr[] = new ICFSecISOCcyObj[len];
-		Iterator<ICFSecISOCcyObj> valIter = allISOCcy.values().iterator();
+		IYCFSecISOCcyObj arr[] = new IYCFSecISOCcyObj[len];
+		Iterator<IYCFSecISOCcyObj> valIter = allISOCcy.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -345,20 +345,20 @@ public class CFBamISOCcyTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecISOCcyObj> arrayList = new ArrayList<ICFSecISOCcyObj>(len);
+		ArrayList<IYCFSecISOCcyObj> arrayList = new ArrayList<IYCFSecISOCcyObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecISOCcyObj> cmp = new Comparator<ICFSecISOCcyObj>() {
-			public int compare( ICFSecISOCcyObj lhs, ICFSecISOCcyObj rhs ) {
+		Comparator<IYCFSecISOCcyObj> cmp = new Comparator<IYCFSecISOCcyObj>() {
+			public int compare( IYCFSecISOCcyObj lhs, IYCFSecISOCcyObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -371,31 +371,31 @@ public class CFBamISOCcyTableObj
 					return( 1 );
 				}
 				else {
-					CFSecISOCcyPKey lhsPKey = lhs.getPKey();
-					CFSecISOCcyPKey rhsPKey = rhs.getPKey();
+					YCFSecISOCcyPKey lhsPKey = lhs.getPKey();
+					YCFSecISOCcyPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecISOCcyObj> sortedList = arrayList;
+		List<IYCFSecISOCcyObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecISOCcyObj> readCachedAllISOCcy() {
+	public List<IYCFSecISOCcyObj> readCachedAllISOCcy() {
 		final String S_ProcName = "readCachedAllISOCcy";
-		ArrayList<ICFSecISOCcyObj> arrayList = new ArrayList<ICFSecISOCcyObj>();
+		ArrayList<IYCFSecISOCcyObj> arrayList = new ArrayList<IYCFSecISOCcyObj>();
 		if( allISOCcy != null ) {
 			int len = allISOCcy.size();
-			ICFSecISOCcyObj arr[] = new ICFSecISOCcyObj[len];
-			Iterator<ICFSecISOCcyObj> valIter = allISOCcy.values().iterator();
+			IYCFSecISOCcyObj arr[] = new IYCFSecISOCcyObj[len];
+			Iterator<IYCFSecISOCcyObj> valIter = allISOCcy.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -403,7 +403,7 @@ public class CFBamISOCcyTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -414,8 +414,8 @@ public class CFBamISOCcyTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecISOCcyObj> cmp = new Comparator<ICFSecISOCcyObj>() {
-			public int compare( ICFSecISOCcyObj lhs, ICFSecISOCcyObj rhs ) {
+		Comparator<IYCFSecISOCcyObj> cmp = new Comparator<IYCFSecISOCcyObj>() {
+			public int compare( IYCFSecISOCcyObj lhs, IYCFSecISOCcyObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -428,8 +428,8 @@ public class CFBamISOCcyTableObj
 					return( 1 );
 				}
 				else {
-					CFSecISOCcyPKey lhsPKey = lhs.getPKey();
-					CFSecISOCcyPKey rhsPKey = rhs.getPKey();
+					YCFSecISOCcyPKey lhsPKey = lhs.getPKey();
+					YCFSecISOCcyPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -439,102 +439,102 @@ public class CFBamISOCcyTableObj
 		return( arrayList );
 	}
 
-	public ICFSecISOCcyObj readISOCcyByIdIdx( short ISOCcyId )
+	public IYCFSecISOCcyObj readISOCcyByIdIdx( short ISOCcyId )
 	{
 		return( readISOCcyByIdIdx( ISOCcyId,
 			false ) );
 	}
 
-	public ICFSecISOCcyObj readISOCcyByIdIdx( short ISOCcyId, boolean forceRead )
+	public IYCFSecISOCcyObj readISOCcyByIdIdx( short ISOCcyId, boolean forceRead )
 	{
-		CFSecISOCcyPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey();
+		YCFSecISOCcyPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey();
 		pkey.setRequiredISOCcyId( ISOCcyId );
-		ICFSecISOCcyObj obj = readISOCcy( pkey, forceRead );
+		IYCFSecISOCcyObj obj = readISOCcy( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFSecISOCcyObj readISOCcyByCcyCdIdx( String ISOCode )
+	public IYCFSecISOCcyObj readISOCcyByCcyCdIdx( String ISOCode )
 	{
 		return( readISOCcyByCcyCdIdx( ISOCode,
 			false ) );
 	}
 
-	public ICFSecISOCcyObj readISOCcyByCcyCdIdx( String ISOCode, boolean forceRead )
+	public IYCFSecISOCcyObj readISOCcyByCcyCdIdx( String ISOCode, boolean forceRead )
 	{
 		if( indexByCcyCdIdx == null ) {
-			indexByCcyCdIdx = new HashMap< CFSecISOCcyByCcyCdIdxKey,
-				ICFSecISOCcyObj >();
+			indexByCcyCdIdx = new HashMap< YCFSecISOCcyByCcyCdIdxKey,
+				IYCFSecISOCcyObj >();
 		}
-		CFSecISOCcyByCcyCdIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
+		YCFSecISOCcyByCcyCdIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
 		key.setRequiredISOCode( ISOCode );
-		ICFSecISOCcyObj obj = null;
+		IYCFSecISOCcyObj obj = null;
 		if( ( ! forceRead ) && indexByCcyCdIdx.containsKey( key ) ) {
 			obj = indexByCcyCdIdx.get( key );
 		}
 		else {
-			CFSecISOCcyBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().readDerivedByCcyCdIdx( schema.getAuthorization(),
+			YCFSecISOCcyBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().readDerivedByCcyCdIdx( schema.getAuthorization(),
 				ISOCode );
 			if( buff != null ) {
 				obj = schema.getISOCcyTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecISOCcyObj)obj.realise();
+				obj = (IYCFSecISOCcyObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecISOCcyObj readISOCcyByCcyNmIdx( String Name )
+	public IYCFSecISOCcyObj readISOCcyByCcyNmIdx( String Name )
 	{
 		return( readISOCcyByCcyNmIdx( Name,
 			false ) );
 	}
 
-	public ICFSecISOCcyObj readISOCcyByCcyNmIdx( String Name, boolean forceRead )
+	public IYCFSecISOCcyObj readISOCcyByCcyNmIdx( String Name, boolean forceRead )
 	{
 		if( indexByCcyNmIdx == null ) {
-			indexByCcyNmIdx = new HashMap< CFSecISOCcyByCcyNmIdxKey,
-				ICFSecISOCcyObj >();
+			indexByCcyNmIdx = new HashMap< YCFSecISOCcyByCcyNmIdxKey,
+				IYCFSecISOCcyObj >();
 		}
-		CFSecISOCcyByCcyNmIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
+		YCFSecISOCcyByCcyNmIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
 		key.setRequiredName( Name );
-		ICFSecISOCcyObj obj = null;
+		IYCFSecISOCcyObj obj = null;
 		if( ( ! forceRead ) && indexByCcyNmIdx.containsKey( key ) ) {
 			obj = indexByCcyNmIdx.get( key );
 		}
 		else {
-			CFSecISOCcyBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().readDerivedByCcyNmIdx( schema.getAuthorization(),
+			YCFSecISOCcyBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().readDerivedByCcyNmIdx( schema.getAuthorization(),
 				Name );
 			if( buff != null ) {
 				obj = schema.getISOCcyTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecISOCcyObj)obj.realise();
+				obj = (IYCFSecISOCcyObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecISOCcyObj readCachedISOCcyByIdIdx( short ISOCcyId )
+	public IYCFSecISOCcyObj readCachedISOCcyByIdIdx( short ISOCcyId )
 	{
-		ICFSecISOCcyObj obj = null;
-		CFSecISOCcyPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey();
+		IYCFSecISOCcyObj obj = null;
+		YCFSecISOCcyPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey();
 		pkey.setRequiredISOCcyId( ISOCcyId );
 		obj = readCachedISOCcy( pkey );
 		return( obj );
 	}
 
-	public ICFSecISOCcyObj readCachedISOCcyByCcyCdIdx( String ISOCode )
+	public IYCFSecISOCcyObj readCachedISOCcyByCcyCdIdx( String ISOCode )
 	{
-		ICFSecISOCcyObj obj = null;
-		CFSecISOCcyByCcyCdIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
+		IYCFSecISOCcyObj obj = null;
+		YCFSecISOCcyByCcyCdIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
 		key.setRequiredISOCode( ISOCode );
 		if( indexByCcyCdIdx != null ) {
 			if( indexByCcyCdIdx.containsKey( key ) ) {
 				obj = indexByCcyCdIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecISOCcyObj> valIter = members.values().iterator();
+				Iterator<IYCFSecISOCcyObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -546,7 +546,7 @@ public class CFBamISOCcyTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecISOCcyObj> valIter = members.values().iterator();
+			Iterator<IYCFSecISOCcyObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -559,17 +559,17 @@ public class CFBamISOCcyTableObj
 		return( obj );
 	}
 
-	public ICFSecISOCcyObj readCachedISOCcyByCcyNmIdx( String Name )
+	public IYCFSecISOCcyObj readCachedISOCcyByCcyNmIdx( String Name )
 	{
-		ICFSecISOCcyObj obj = null;
-		CFSecISOCcyByCcyNmIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
+		IYCFSecISOCcyObj obj = null;
+		YCFSecISOCcyByCcyNmIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
 		key.setRequiredName( Name );
 		if( indexByCcyNmIdx != null ) {
 			if( indexByCcyNmIdx.containsKey( key ) ) {
 				obj = indexByCcyNmIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecISOCcyObj> valIter = members.values().iterator();
+				Iterator<IYCFSecISOCcyObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -581,7 +581,7 @@ public class CFBamISOCcyTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecISOCcyObj> valIter = members.values().iterator();
+			Iterator<IYCFSecISOCcyObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -596,7 +596,7 @@ public class CFBamISOCcyTableObj
 
 	public void deepDisposeISOCcyByIdIdx( short ISOCcyId )
 	{
-		ICFSecISOCcyObj obj = readCachedISOCcyByIdIdx( ISOCcyId );
+		IYCFSecISOCcyObj obj = readCachedISOCcyByIdIdx( ISOCcyId );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -604,7 +604,7 @@ public class CFBamISOCcyTableObj
 
 	public void deepDisposeISOCcyByCcyCdIdx( String ISOCode )
 	{
-		ICFSecISOCcyObj obj = readCachedISOCcyByCcyCdIdx( ISOCode );
+		IYCFSecISOCcyObj obj = readCachedISOCcyByCcyCdIdx( ISOCode );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -612,38 +612,38 @@ public class CFBamISOCcyTableObj
 
 	public void deepDisposeISOCcyByCcyNmIdx( String Name )
 	{
-		ICFSecISOCcyObj obj = readCachedISOCcyByCcyNmIdx( Name );
+		IYCFSecISOCcyObj obj = readCachedISOCcyByCcyNmIdx( Name );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecISOCcyObj updateISOCcy( ICFSecISOCcyObj Obj ) {
-		ICFSecISOCcyObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().updateISOCcy( schema.getAuthorization(),
+	public IYCFSecISOCcyObj updateISOCcy( IYCFSecISOCcyObj Obj ) {
+		IYCFSecISOCcyObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().updateISOCcy( schema.getAuthorization(),
 			Obj.getISOCcyBuff() );
-		obj = (ICFSecISOCcyObj)Obj.realise();
+		obj = (IYCFSecISOCcyObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteISOCcy( ICFSecISOCcyObj Obj ) {
-		ICFSecISOCcyObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcy( schema.getAuthorization(),
+	public void deleteISOCcy( IYCFSecISOCcyObj Obj ) {
+		IYCFSecISOCcyObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcy( schema.getAuthorization(),
 			obj.getISOCcyBuff() );
 		Obj.forget();
 	}
 
 	public void deleteISOCcyByIdIdx( short ISOCcyId )
 	{
-		CFSecISOCcyPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey();
+		YCFSecISOCcyPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newPKey();
 		pkey.setRequiredISOCcyId( ISOCcyId );
-		ICFSecISOCcyObj obj = readISOCcy( pkey );
+		IYCFSecISOCcyObj obj = readISOCcy( pkey );
 		if( obj != null ) {
-			ICFSecISOCcyEditObj editObj = (ICFSecISOCcyEditObj)obj.getEdit();
+			IYCFSecISOCcyEditObj editObj = (IYCFSecISOCcyEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecISOCcyEditObj)obj.beginEdit();
+				editObj = (IYCFSecISOCcyEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -668,20 +668,20 @@ public class CFBamISOCcyTableObj
 	public void deleteISOCcyByCcyCdIdx( String ISOCode )
 	{
 		if( indexByCcyCdIdx == null ) {
-			indexByCcyCdIdx = new HashMap< CFSecISOCcyByCcyCdIdxKey,
-				ICFSecISOCcyObj >();
+			indexByCcyCdIdx = new HashMap< YCFSecISOCcyByCcyCdIdxKey,
+				IYCFSecISOCcyObj >();
 		}
-		CFSecISOCcyByCcyCdIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
+		YCFSecISOCcyByCcyCdIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyCdIdxKey();
 		key.setRequiredISOCode( ISOCode );
-		ICFSecISOCcyObj obj = null;
+		IYCFSecISOCcyObj obj = null;
 		if( indexByCcyCdIdx.containsKey( key ) ) {
 			obj = indexByCcyCdIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcyByCcyCdIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcyByCcyCdIdx( schema.getAuthorization(),
 				ISOCode );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcyByCcyCdIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcyByCcyCdIdx( schema.getAuthorization(),
 				ISOCode );
 		}
 		deepDisposeISOCcyByCcyCdIdx( ISOCode );
@@ -690,20 +690,20 @@ public class CFBamISOCcyTableObj
 	public void deleteISOCcyByCcyNmIdx( String Name )
 	{
 		if( indexByCcyNmIdx == null ) {
-			indexByCcyNmIdx = new HashMap< CFSecISOCcyByCcyNmIdxKey,
-				ICFSecISOCcyObj >();
+			indexByCcyNmIdx = new HashMap< YCFSecISOCcyByCcyNmIdxKey,
+				IYCFSecISOCcyObj >();
 		}
-		CFSecISOCcyByCcyNmIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
+		YCFSecISOCcyByCcyNmIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryISOCcy().newCcyNmIdxKey();
 		key.setRequiredName( Name );
-		ICFSecISOCcyObj obj = null;
+		IYCFSecISOCcyObj obj = null;
 		if( indexByCcyNmIdx.containsKey( key ) ) {
 			obj = indexByCcyNmIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcyByCcyNmIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcyByCcyNmIdx( schema.getAuthorization(),
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcyByCcyNmIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableISOCcy().deleteISOCcyByCcyNmIdx( schema.getAuthorization(),
 				Name );
 		}
 		deepDisposeISOCcyByCcyNmIdx( Name );

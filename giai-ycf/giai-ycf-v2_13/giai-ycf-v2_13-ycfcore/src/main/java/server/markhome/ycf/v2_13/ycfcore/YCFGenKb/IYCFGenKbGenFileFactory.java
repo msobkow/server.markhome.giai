@@ -2,11 +2,11 @@
 // Description: Java 11 Factory interface for GenFile.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,15 +36,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGenFileFactory interface for GenFile
+ *	YCFGenKbGenFileFactory interface for GenFile
  */
-public interface ICFGenKbGenFileFactory
+public interface IYCFGenKbGenFileFactory
 {
 
 	/**
@@ -52,55 +52,55 @@ public interface ICFGenKbGenFileFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenFileByXSrcBundleKey newXSrcBundleKey();
+	YCFGenKbGenFileByXSrcBundleKey newXSrcBundleKey();
 
 	/**
 	 *	Allocate a XModName key over GenFile instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenFileByXModNameKey newXModNameKey();
+	YCFGenKbGenFileByXModNameKey newXModNameKey();
 
 	/**
 	 *	Allocate a XBasePkg key over GenFile instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenFileByXBasePkgKey newXBasePkgKey();
+	YCFGenKbGenFileByXBasePkgKey newXBasePkgKey();
 
 	/**
 	 *	Allocate a XSubPkg key over GenFile instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenFileByXSubPkgKey newXSubPkgKey();
+	YCFGenKbGenFileByXSubPkgKey newXSubPkgKey();
 
 	/**
 	 *	Allocate a XExpClsName key over GenFile instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenFileByXExpClsNameKey newXExpClsNameKey();
+	YCFGenKbGenFileByXExpClsNameKey newXExpClsNameKey();
 
 	/**
 	 *	Allocate a XExpKeyName key over GenFile instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenFileByXExpKeyNameKey newXExpKeyNameKey();
+	YCFGenKbGenFileByXExpKeyNameKey newXExpKeyNameKey();
 
 	/**
 	 *	Allocate a XExpFileName key over GenFile instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenFileByXExpFileNameKey newXExpFileNameKey();
+	YCFGenKbGenFileByXExpFileNameKey newXExpFileNameKey();
 
 	/**
 	 *	Allocate a GenFile instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenFileBuff newBuff();
+	YCFGenKbGenFileBuff newBuff();
 
 }

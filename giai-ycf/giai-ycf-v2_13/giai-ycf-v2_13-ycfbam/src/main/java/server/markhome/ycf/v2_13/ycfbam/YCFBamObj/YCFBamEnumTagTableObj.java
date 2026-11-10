@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,44 +45,44 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamEnumTagTableObj
-	implements ICFBamEnumTagTableObj
+public class YCFBamEnumTagTableObj
+	implements IYCFBamEnumTagTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFBamEnumTagPKey, ICFBamEnumTagObj> members;
-	private Map<CFBamEnumTagPKey, ICFBamEnumTagObj> allEnumTag;
-	private Map< CFBamEnumTagByEnumTagTenantIdxKey,
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj > > indexByEnumTagTenantIdx;
-	private Map< CFBamEnumTagByEnumIdxKey,
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj > > indexByEnumIdx;
-	private Map< CFBamEnumTagByDefSchemaIdxKey,
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj > > indexByDefSchemaIdx;
-	private Map< CFBamEnumTagByEnumNameIdxKey,
-		ICFBamEnumTagObj > indexByEnumNameIdx;
-	private Map< CFBamEnumTagByPrevIdxKey,
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj > > indexByPrevIdx;
-	private Map< CFBamEnumTagByNextIdxKey,
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj > > indexByNextIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> members;
+	private Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> allEnumTag;
+	private Map< YCFBamEnumTagByEnumTagTenantIdxKey,
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > > indexByEnumTagTenantIdx;
+	private Map< YCFBamEnumTagByEnumIdxKey,
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > > indexByEnumIdx;
+	private Map< YCFBamEnumTagByDefSchemaIdxKey,
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > > indexByDefSchemaIdx;
+	private Map< YCFBamEnumTagByEnumNameIdxKey,
+		IYCFBamEnumTagObj > indexByEnumNameIdx;
+	private Map< YCFBamEnumTagByPrevIdxKey,
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > > indexByPrevIdx;
+	private Map< YCFBamEnumTagByNextIdxKey,
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > > indexByNextIdx;
 	public static String TABLE_NAME = "EnumTag";
 	public static String TABLE_DBNAME = "enum_tag";
 
-	public CFBamEnumTagTableObj() {
+	public YCFBamEnumTagTableObj() {
 		schema = null;
-		members = new HashMap<CFBamEnumTagPKey, ICFBamEnumTagObj>();
+		members = new HashMap<YCFBamEnumTagPKey, IYCFBamEnumTagObj>();
 		allEnumTag = null;
 		indexByEnumTagTenantIdx = null;
 		indexByEnumIdx = null;
@@ -92,9 +92,9 @@ public class CFBamEnumTagTableObj
 		indexByNextIdx = null;
 	}
 
-	public CFBamEnumTagTableObj( ICFBamSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFBamEnumTagPKey, ICFBamEnumTagObj>();
+	public YCFBamEnumTagTableObj( IYCFBamSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFBamEnumTagPKey, IYCFBamEnumTagObj>();
 		allEnumTag = null;
 		indexByEnumTagTenantIdx = null;
 		indexByEnumIdx = null;
@@ -104,12 +104,12 @@ public class CFBamEnumTagTableObj
 		indexByNextIdx = null;
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFBamSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFBamSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -121,7 +121,7 @@ public class CFBamEnumTagTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamSchemaDefObj.class );
+		return( IYCFBamSchemaDefObj.class );
 	}
 
 
@@ -133,9 +133,9 @@ public class CFBamEnumTagTableObj
 		indexByEnumNameIdx = null;
 		indexByPrevIdx = null;
 		indexByNextIdx = null;
-		List<ICFBamEnumTagObj> toForget = new LinkedList<ICFBamEnumTagObj>();
-		ICFBamEnumTagObj cur = null;
-		Iterator<ICFBamEnumTagObj> iter = members.values().iterator();
+		List<IYCFBamEnumTagObj> toForget = new LinkedList<IYCFBamEnumTagObj>();
+		IYCFBamEnumTagObj cur = null;
+		Iterator<IYCFBamEnumTagObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -153,10 +153,10 @@ public class CFBamEnumTagTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamEnumTagObj.
+	 *	YCFBamEnumTagObj.
 	 */
-	public ICFBamEnumTagObj newInstance() {
-		ICFBamEnumTagObj inst = new CFBamEnumTagObj( schema );
+	public IYCFBamEnumTagObj newInstance() {
+		IYCFBamEnumTagObj inst = new YCFBamEnumTagObj( schema );
 		return( inst );
 	}
 
@@ -167,19 +167,19 @@ public class CFBamEnumTagTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamEnumTagObj.
+	 *	YCFBamEnumTagObj.
 	 */
-	public ICFBamEnumTagEditObj newEditInstance( ICFBamEnumTagObj orig ) {
-		ICFBamEnumTagEditObj edit = new CFBamEnumTagEditObj( orig );
+	public IYCFBamEnumTagEditObj newEditInstance( IYCFBamEnumTagObj orig ) {
+		IYCFBamEnumTagEditObj edit = new YCFBamEnumTagEditObj( orig );
 		return( edit );
 	}
 
-	public ICFBamEnumTagObj realiseEnumTag( ICFBamEnumTagObj Obj ) {
-		ICFBamEnumTagObj obj = Obj;
-		CFBamEnumTagPKey pkey = obj.getPKey();
-		ICFBamEnumTagObj keepObj = null;
+	public IYCFBamEnumTagObj realiseEnumTag( IYCFBamEnumTagObj Obj ) {
+		IYCFBamEnumTagObj obj = Obj;
+		YCFBamEnumTagPKey pkey = obj.getPKey();
+		IYCFBamEnumTagObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFBamEnumTagObj existingObj = members.get( pkey );
+			IYCFBamEnumTagObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -190,10 +190,10 @@ public class CFBamEnumTagTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByEnumTagTenantIdx != null ) {
-				CFBamEnumTagByEnumTagTenantIdxKey keyEnumTagTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
+				YCFBamEnumTagByEnumTagTenantIdxKey keyEnumTagTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
 				keyEnumTagTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapEnumTagTenantIdx = indexByEnumTagTenantIdx.get( keyEnumTagTenantIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapEnumTagTenantIdx = indexByEnumTagTenantIdx.get( keyEnumTagTenantIdx );
 				if( mapEnumTagTenantIdx != null ) {
 					mapEnumTagTenantIdx.remove( keepObj.getPKey() );
 					if( mapEnumTagTenantIdx.size() <= 0 ) {
@@ -203,11 +203,11 @@ public class CFBamEnumTagTableObj
 			}
 
 			if( indexByEnumIdx != null ) {
-				CFBamEnumTagByEnumIdxKey keyEnumIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
+				YCFBamEnumTagByEnumIdxKey keyEnumIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
 				keyEnumIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyEnumIdx.setRequiredEnumId( keepObj.getRequiredEnumId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapEnumIdx = indexByEnumIdx.get( keyEnumIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapEnumIdx = indexByEnumIdx.get( keyEnumIdx );
 				if( mapEnumIdx != null ) {
 					mapEnumIdx.remove( keepObj.getPKey() );
 					if( mapEnumIdx.size() <= 0 ) {
@@ -217,11 +217,11 @@ public class CFBamEnumTagTableObj
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamEnumTagByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
+				YCFBamEnumTagByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.remove( keepObj.getPKey() );
 					if( mapDefSchemaIdx.size() <= 0 ) {
@@ -231,8 +231,8 @@ public class CFBamEnumTagTableObj
 			}
 
 			if( indexByEnumNameIdx != null ) {
-				CFBamEnumTagByEnumNameIdxKey keyEnumNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
+				YCFBamEnumTagByEnumNameIdxKey keyEnumNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
 				keyEnumNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyEnumNameIdx.setRequiredEnumId( keepObj.getRequiredEnumId() );
 				keyEnumNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -240,11 +240,11 @@ public class CFBamEnumTagTableObj
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamEnumTagByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
+				YCFBamEnumTagByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.remove( keepObj.getPKey() );
 					if( mapPrevIdx.size() <= 0 ) {
@@ -254,11 +254,11 @@ public class CFBamEnumTagTableObj
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamEnumTagByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
+				YCFBamEnumTagByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.remove( keepObj.getPKey() );
 					if( mapNextIdx.size() <= 0 ) {
@@ -271,40 +271,40 @@ public class CFBamEnumTagTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByEnumTagTenantIdx != null ) {
-				CFBamEnumTagByEnumTagTenantIdxKey keyEnumTagTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
+				YCFBamEnumTagByEnumTagTenantIdxKey keyEnumTagTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
 				keyEnumTagTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapEnumTagTenantIdx = indexByEnumTagTenantIdx.get( keyEnumTagTenantIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapEnumTagTenantIdx = indexByEnumTagTenantIdx.get( keyEnumTagTenantIdx );
 				if( mapEnumTagTenantIdx != null ) {
 					mapEnumTagTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByEnumIdx != null ) {
-				CFBamEnumTagByEnumIdxKey keyEnumIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
+				YCFBamEnumTagByEnumIdxKey keyEnumIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
 				keyEnumIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyEnumIdx.setRequiredEnumId( keepObj.getRequiredEnumId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapEnumIdx = indexByEnumIdx.get( keyEnumIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapEnumIdx = indexByEnumIdx.get( keyEnumIdx );
 				if( mapEnumIdx != null ) {
 					mapEnumIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamEnumTagByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
+				YCFBamEnumTagByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByEnumNameIdx != null ) {
-				CFBamEnumTagByEnumNameIdxKey keyEnumNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
+				YCFBamEnumTagByEnumNameIdxKey keyEnumNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
 				keyEnumNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyEnumNameIdx.setRequiredEnumId( keepObj.getRequiredEnumId() );
 				keyEnumNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -312,22 +312,22 @@ public class CFBamEnumTagTableObj
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamEnumTagByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
+				YCFBamEnumTagByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamEnumTagByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
+				YCFBamEnumTagByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -348,40 +348,40 @@ public class CFBamEnumTagTableObj
 			}
 
 			if( indexByEnumTagTenantIdx != null ) {
-				CFBamEnumTagByEnumTagTenantIdxKey keyEnumTagTenantIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
+				YCFBamEnumTagByEnumTagTenantIdxKey keyEnumTagTenantIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
 				keyEnumTagTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapEnumTagTenantIdx = indexByEnumTagTenantIdx.get( keyEnumTagTenantIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapEnumTagTenantIdx = indexByEnumTagTenantIdx.get( keyEnumTagTenantIdx );
 				if( mapEnumTagTenantIdx != null ) {
 					mapEnumTagTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByEnumIdx != null ) {
-				CFBamEnumTagByEnumIdxKey keyEnumIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
+				YCFBamEnumTagByEnumIdxKey keyEnumIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
 				keyEnumIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyEnumIdx.setRequiredEnumId( keepObj.getRequiredEnumId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapEnumIdx = indexByEnumIdx.get( keyEnumIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapEnumIdx = indexByEnumIdx.get( keyEnumIdx );
 				if( mapEnumIdx != null ) {
 					mapEnumIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamEnumTagByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
+				YCFBamEnumTagByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByEnumNameIdx != null ) {
-				CFBamEnumTagByEnumNameIdxKey keyEnumNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
+				YCFBamEnumTagByEnumNameIdxKey keyEnumNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
 				keyEnumNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyEnumNameIdx.setRequiredEnumId( keepObj.getRequiredEnumId() );
 				keyEnumNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -389,22 +389,22 @@ public class CFBamEnumTagTableObj
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamEnumTagByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
+				YCFBamEnumTagByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamEnumTagByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
+				YCFBamEnumTagByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamEnumTagPKey, ICFBamEnumTagObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -414,15 +414,15 @@ public class CFBamEnumTagTableObj
 		return( keepObj );
 	}
 
-	public ICFBamEnumTagObj createEnumTag( ICFBamEnumTagObj Obj ) {
-		ICFBamEnumTagObj obj = Obj;
-		CFBamEnumTagBuff buff = obj.getEnumTagBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().createEnumTag(
+	public IYCFBamEnumTagObj createEnumTag( IYCFBamEnumTagObj Obj ) {
+		IYCFBamEnumTagObj obj = Obj;
+		YCFBamEnumTagBuff buff = obj.getEnumTagBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().createEnumTag(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		obj = obj.realise();
-		ICFBamEnumTagObj prev = obj.getOptionalLookupPrev();
+		IYCFBamEnumTagObj prev = obj.getOptionalLookupPrev();
 		if( prev != null ) {
 			prev.read( true );
 		}
@@ -430,71 +430,71 @@ public class CFBamEnumTagTableObj
 		return( obj );
 	}
 
-	public ICFBamEnumTagObj readEnumTag( CFBamEnumTagPKey pkey ) {
+	public IYCFBamEnumTagObj readEnumTag( YCFBamEnumTagPKey pkey ) {
 		return( readEnumTag( pkey, false ) );
 	}
 
-	public ICFBamEnumTagObj readEnumTag( CFBamEnumTagPKey pkey, boolean forceRead ) {
-		ICFBamEnumTagObj obj = null;
+	public IYCFBamEnumTagObj readEnumTag( YCFBamEnumTagPKey pkey, boolean forceRead ) {
+		IYCFBamEnumTagObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFBamEnumTagBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFBamEnumTagBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getEnumTagTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFBamEnumTagObj)obj.realise();
+				obj = (IYCFBamEnumTagObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamEnumTagObj readCachedEnumTag( CFBamEnumTagPKey pkey ) {
-		ICFBamEnumTagObj obj = null;
+	public IYCFBamEnumTagObj readCachedEnumTag( YCFBamEnumTagPKey pkey ) {
+		IYCFBamEnumTagObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeEnumTag( ICFBamEnumTagObj obj )
+	public void reallyDeepDisposeEnumTag( IYCFBamEnumTagObj obj )
 	{
-		final String S_ProcName = "CFBamEnumTagTableObj.reallyDeepDisposeEnumTag() ";
+		final String S_ProcName = "YCFBamEnumTagTableObj.reallyDeepDisposeEnumTag() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFBamEnumTagPKey pkey = obj.getPKey();
-		ICFBamEnumTagObj existing = readCachedEnumTag( pkey );
+		YCFBamEnumTagPKey pkey = obj.getPKey();
+		IYCFBamEnumTagObj existing = readCachedEnumTag( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFBamEnumTagByEnumTagTenantIdxKey keyEnumTagTenantIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
+		YCFBamEnumTagByEnumTagTenantIdxKey keyEnumTagTenantIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
 		keyEnumTagTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFBamEnumTagByEnumIdxKey keyEnumIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
+		YCFBamEnumTagByEnumIdxKey keyEnumIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
 		keyEnumIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyEnumIdx.setRequiredEnumId( existing.getRequiredEnumId() );
 
-		CFBamEnumTagByDefSchemaIdxKey keyDefSchemaIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
+		YCFBamEnumTagByDefSchemaIdxKey keyDefSchemaIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamEnumTagByEnumNameIdxKey keyEnumNameIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
+		YCFBamEnumTagByEnumNameIdxKey keyEnumNameIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
 		keyEnumNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyEnumNameIdx.setRequiredEnumId( existing.getRequiredEnumId() );
 		keyEnumNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamEnumTagByPrevIdxKey keyPrevIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
+		YCFBamEnumTagByPrevIdxKey keyPrevIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
 		keyPrevIdx.setOptionalPrevTenantId( existing.getOptionalPrevTenantId() );
 		keyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamEnumTagByNextIdxKey keyNextIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
+		YCFBamEnumTagByNextIdxKey keyNextIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
 		keyNextIdx.setOptionalNextTenantId( existing.getOptionalNextTenantId() );
 		keyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
@@ -551,57 +551,57 @@ public class CFBamEnumTagTableObj
 
 
 	}
-	public void deepDisposeEnumTag( CFBamEnumTagPKey pkey ) {
-		ICFBamEnumTagObj obj = readCachedEnumTag( pkey );
+	public void deepDisposeEnumTag( YCFBamEnumTagPKey pkey ) {
+		IYCFBamEnumTagObj obj = readCachedEnumTag( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFBamEnumTagObj lockEnumTag( CFBamEnumTagPKey pkey ) {
-		ICFBamEnumTagObj locked = null;
-		CFBamEnumTagBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFBamEnumTagObj lockEnumTag( YCFBamEnumTagPKey pkey ) {
+		IYCFBamEnumTagObj locked = null;
+		YCFBamEnumTagBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getEnumTagTableObj().newInstance();
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFBamEnumTagObj)locked.realise();
+			locked = (IYCFBamEnumTagObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockEnumTag", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockEnumTag", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFBamEnumTagObj> readAllEnumTag() {
+	public List<IYCFBamEnumTagObj> readAllEnumTag() {
 		return( readAllEnumTag( false ) );
 	}
 
-	public List<ICFBamEnumTagObj> readAllEnumTag( boolean forceRead ) {
+	public List<IYCFBamEnumTagObj> readAllEnumTag( boolean forceRead ) {
 		final String S_ProcName = "readAllEnumTag";
 		if( ( allEnumTag == null ) || forceRead ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> map = new HashMap<CFBamEnumTagPKey,ICFBamEnumTagObj>();
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> map = new HashMap<YCFBamEnumTagPKey,IYCFBamEnumTagObj>();
 			allEnumTag = map;
-			CFBamEnumTagBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().readAllDerived( schema.getAuthorization() );
-			CFBamEnumTagBuff buff;
-			ICFBamEnumTagObj obj;
+			YCFBamEnumTagBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().readAllDerived( schema.getAuthorization() );
+			YCFBamEnumTagBuff buff;
+			IYCFBamEnumTagObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 				obj.setBuff( buff );
-				ICFBamEnumTagObj realised = (ICFBamEnumTagObj)obj.realise();
+				IYCFBamEnumTagObj realised = (IYCFBamEnumTagObj)obj.realise();
 			}
 		}
 		int len = allEnumTag.size();
-		ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-		Iterator<ICFBamEnumTagObj> valIter = allEnumTag.values().iterator();
+		IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+		Iterator<IYCFBamEnumTagObj> valIter = allEnumTag.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -609,20 +609,20 @@ public class CFBamEnumTagTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>(len);
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -635,31 +635,31 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamEnumTagObj> sortedList = arrayList;
+		List<IYCFBamEnumTagObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamEnumTagObj> readCachedAllEnumTag() {
+	public List<IYCFBamEnumTagObj> readCachedAllEnumTag() {
 		final String S_ProcName = "readCachedAllEnumTag";
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>();
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>();
 		if( allEnumTag != null ) {
 			int len = allEnumTag.size();
-			ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-			Iterator<ICFBamEnumTagObj> valIter = allEnumTag.values().iterator();
+			IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+			Iterator<IYCFBamEnumTagObj> valIter = allEnumTag.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -667,7 +667,7 @@ public class CFBamEnumTagTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -678,8 +678,8 @@ public class CFBamEnumTagTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -692,8 +692,8 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -703,7 +703,7 @@ public class CFBamEnumTagTableObj
 		return( arrayList );
 	}
 
-	public ICFBamEnumTagObj readEnumTagByIdIdx( long TenantId,
+	public IYCFBamEnumTagObj readEnumTagByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readEnumTagByIdIdx( TenantId,
@@ -711,61 +711,61 @@ public class CFBamEnumTagTableObj
 			false ) );
 	}
 
-	public ICFBamEnumTagObj readEnumTagByIdIdx( long TenantId,
+	public IYCFBamEnumTagObj readEnumTagByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFBamEnumTagPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey();
+		YCFBamEnumTagPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamEnumTagObj obj = readEnumTag( pkey, forceRead );
+		IYCFBamEnumTagObj obj = readEnumTag( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByEnumTagTenantIdx( long TenantId )
+	public List<IYCFBamEnumTagObj> readEnumTagByEnumTagTenantIdx( long TenantId )
 	{
 		return( readEnumTagByEnumTagTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByEnumTagTenantIdx( long TenantId,
+	public List<IYCFBamEnumTagObj> readEnumTagByEnumTagTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readEnumTagByEnumTagTenantIdx";
-		CFBamEnumTagByEnumTagTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
+		YCFBamEnumTagByEnumTagTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 		if( indexByEnumTagTenantIdx == null ) {
-			indexByEnumTagTenantIdx = new HashMap< CFBamEnumTagByEnumTagTenantIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByEnumTagTenantIdx = new HashMap< YCFBamEnumTagByEnumTagTenantIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( ( ! forceRead ) && indexByEnumTagTenantIdx.containsKey( key ) ) {
 			dict = indexByEnumTagTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamEnumTagPKey, ICFBamEnumTagObj>();
-			ICFBamEnumTagObj obj;
-			CFBamEnumTagBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByEnumTagTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamEnumTagPKey, IYCFBamEnumTagObj>();
+			IYCFBamEnumTagObj obj;
+			YCFBamEnumTagBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByEnumTagTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamEnumTagBuff buff;
+			YCFBamEnumTagBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getEnumTagTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 				obj.setBuff( buff );
-				ICFBamEnumTagObj realised = (ICFBamEnumTagObj)obj.realise();
+				IYCFBamEnumTagObj realised = (IYCFBamEnumTagObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByEnumTagTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-		Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+		IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+		Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -773,20 +773,20 @@ public class CFBamEnumTagTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>(len);
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -799,19 +799,19 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamEnumTagObj> sortedList = arrayList;
+		List<IYCFBamEnumTagObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByEnumIdx( long TenantId,
+	public List<IYCFBamEnumTagObj> readEnumTagByEnumIdx( long TenantId,
 		long EnumId )
 	{
 		return( readEnumTagByEnumIdx( TenantId,
@@ -819,48 +819,48 @@ public class CFBamEnumTagTableObj
 			false ) );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByEnumIdx( long TenantId,
+	public List<IYCFBamEnumTagObj> readEnumTagByEnumIdx( long TenantId,
 		long EnumId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readEnumTagByEnumIdx";
-		CFBamEnumTagByEnumIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
+		YCFBamEnumTagByEnumIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredEnumId( EnumId );
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 		if( indexByEnumIdx == null ) {
-			indexByEnumIdx = new HashMap< CFBamEnumTagByEnumIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByEnumIdx = new HashMap< YCFBamEnumTagByEnumIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( ( ! forceRead ) && indexByEnumIdx.containsKey( key ) ) {
 			dict = indexByEnumIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamEnumTagPKey, ICFBamEnumTagObj>();
-			ICFBamEnumTagObj obj;
-			CFBamEnumTagBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByEnumIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamEnumTagPKey, IYCFBamEnumTagObj>();
+			IYCFBamEnumTagObj obj;
+			YCFBamEnumTagBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByEnumIdx( schema.getAuthorization(),
 				TenantId,
 				EnumId );
-			CFBamEnumTagBuff buff;
+			YCFBamEnumTagBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getEnumTagTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 				obj.setBuff( buff );
-				ICFBamEnumTagObj realised = (ICFBamEnumTagObj)obj.realise();
+				IYCFBamEnumTagObj realised = (IYCFBamEnumTagObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByEnumIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-		Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+		IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+		Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -868,20 +868,20 @@ public class CFBamEnumTagTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>(len);
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -894,19 +894,19 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamEnumTagObj> sortedList = arrayList;
+		List<IYCFBamEnumTagObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamEnumTagObj> readEnumTagByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		return( readEnumTagByDefSchemaIdx( DefSchemaTenantId,
@@ -914,48 +914,48 @@ public class CFBamEnumTagTableObj
 			false ) );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamEnumTagObj> readEnumTagByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readEnumTagByDefSchemaIdx";
-		CFBamEnumTagByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
+		YCFBamEnumTagByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamEnumTagByDefSchemaIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamEnumTagByDefSchemaIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( ( ! forceRead ) && indexByDefSchemaIdx.containsKey( key ) ) {
 			dict = indexByDefSchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamEnumTagPKey, ICFBamEnumTagObj>();
-			ICFBamEnumTagObj obj;
-			CFBamEnumTagBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByDefSchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamEnumTagPKey, IYCFBamEnumTagObj>();
+			IYCFBamEnumTagObj obj;
+			YCFBamEnumTagBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			CFBamEnumTagBuff buff;
+			YCFBamEnumTagBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getEnumTagTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 				obj.setBuff( buff );
-				ICFBamEnumTagObj realised = (ICFBamEnumTagObj)obj.realise();
+				IYCFBamEnumTagObj realised = (IYCFBamEnumTagObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDefSchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-		Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+		IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+		Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -963,20 +963,20 @@ public class CFBamEnumTagTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>(len);
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -989,19 +989,19 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamEnumTagObj> sortedList = arrayList;
+		List<IYCFBamEnumTagObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamEnumTagObj readEnumTagByEnumNameIdx( long TenantId,
+	public IYCFBamEnumTagObj readEnumTagByEnumNameIdx( long TenantId,
 		long EnumId,
 		String Name )
 	{
@@ -1011,38 +1011,38 @@ public class CFBamEnumTagTableObj
 			false ) );
 	}
 
-	public ICFBamEnumTagObj readEnumTagByEnumNameIdx( long TenantId,
+	public IYCFBamEnumTagObj readEnumTagByEnumNameIdx( long TenantId,
 		long EnumId,
 		String Name, boolean forceRead )
 	{
 		if( indexByEnumNameIdx == null ) {
-			indexByEnumNameIdx = new HashMap< CFBamEnumTagByEnumNameIdxKey,
-				ICFBamEnumTagObj >();
+			indexByEnumNameIdx = new HashMap< YCFBamEnumTagByEnumNameIdxKey,
+				IYCFBamEnumTagObj >();
 		}
-		CFBamEnumTagByEnumNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
+		YCFBamEnumTagByEnumNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredEnumId( EnumId );
 		key.setRequiredName( Name );
-		ICFBamEnumTagObj obj = null;
+		IYCFBamEnumTagObj obj = null;
 		if( ( ! forceRead ) && indexByEnumNameIdx.containsKey( key ) ) {
 			obj = indexByEnumNameIdx.get( key );
 		}
 		else {
-			CFBamEnumTagBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByEnumNameIdx( schema.getAuthorization(),
+			YCFBamEnumTagBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByEnumNameIdx( schema.getAuthorization(),
 				TenantId,
 				EnumId,
 				Name );
 			if( buff != null ) {
 				obj = schema.getEnumTagTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFBamEnumTagObj)obj.realise();
+				obj = (IYCFBamEnumTagObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamEnumTagObj> readEnumTagByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		return( readEnumTagByPrevIdx( PrevTenantId,
@@ -1050,48 +1050,48 @@ public class CFBamEnumTagTableObj
 			false ) );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamEnumTagObj> readEnumTagByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readEnumTagByPrevIdx";
-		CFBamEnumTagByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
+		YCFBamEnumTagByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamEnumTagByPrevIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByPrevIdx = new HashMap< YCFBamEnumTagByPrevIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( ( ! forceRead ) && indexByPrevIdx.containsKey( key ) ) {
 			dict = indexByPrevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamEnumTagPKey, ICFBamEnumTagObj>();
-			ICFBamEnumTagObj obj;
-			CFBamEnumTagBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByPrevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamEnumTagPKey, IYCFBamEnumTagObj>();
+			IYCFBamEnumTagObj obj;
+			YCFBamEnumTagBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			CFBamEnumTagBuff buff;
+			YCFBamEnumTagBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getEnumTagTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 				obj.setBuff( buff );
-				ICFBamEnumTagObj realised = (ICFBamEnumTagObj)obj.realise();
+				IYCFBamEnumTagObj realised = (IYCFBamEnumTagObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByPrevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-		Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+		IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+		Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1099,20 +1099,20 @@ public class CFBamEnumTagTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>(len);
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1125,19 +1125,19 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamEnumTagObj> sortedList = arrayList;
+		List<IYCFBamEnumTagObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByNextIdx( Long NextTenantId,
+	public List<IYCFBamEnumTagObj> readEnumTagByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		return( readEnumTagByNextIdx( NextTenantId,
@@ -1145,48 +1145,48 @@ public class CFBamEnumTagTableObj
 			false ) );
 	}
 
-	public List<ICFBamEnumTagObj> readEnumTagByNextIdx( Long NextTenantId,
+	public List<IYCFBamEnumTagObj> readEnumTagByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readEnumTagByNextIdx";
-		CFBamEnumTagByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
+		YCFBamEnumTagByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+		Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamEnumTagByNextIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByNextIdx = new HashMap< YCFBamEnumTagByNextIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( ( ! forceRead ) && indexByNextIdx.containsKey( key ) ) {
 			dict = indexByNextIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamEnumTagPKey, ICFBamEnumTagObj>();
-			ICFBamEnumTagObj obj;
-			CFBamEnumTagBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByNextIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamEnumTagPKey, IYCFBamEnumTagObj>();
+			IYCFBamEnumTagObj obj;
+			YCFBamEnumTagBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().readDerivedByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			CFBamEnumTagBuff buff;
+			YCFBamEnumTagBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getEnumTagTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 				obj.setBuff( buff );
-				ICFBamEnumTagObj realised = (ICFBamEnumTagObj)obj.realise();
+				IYCFBamEnumTagObj realised = (IYCFBamEnumTagObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByNextIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-		Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+		IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+		Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1194,20 +1194,20 @@ public class CFBamEnumTagTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>(len);
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1220,48 +1220,48 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamEnumTagObj> sortedList = arrayList;
+		List<IYCFBamEnumTagObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamEnumTagObj readCachedEnumTagByIdIdx( long TenantId,
+	public IYCFBamEnumTagObj readCachedEnumTagByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamEnumTagObj obj = null;
-		CFBamEnumTagPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey();
+		IYCFBamEnumTagObj obj = null;
+		YCFBamEnumTagPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedEnumTag( pkey );
 		return( obj );
 	}
 
-	public List<ICFBamEnumTagObj> readCachedEnumTagByEnumTagTenantIdx( long TenantId )
+	public List<IYCFBamEnumTagObj> readCachedEnumTagByEnumTagTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedEnumTagByEnumTagTenantIdx";
-		CFBamEnumTagByEnumTagTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
+		YCFBamEnumTagByEnumTagTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>();
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>();
 		if( indexByEnumTagTenantIdx != null ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 			if( indexByEnumTagTenantIdx.containsKey( key ) ) {
 				dict = indexByEnumTagTenantIdx.get( key );
 				int len = dict.size();
-				ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-				Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+				IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+				Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1269,7 +1269,7 @@ public class CFBamEnumTagTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1282,8 +1282,8 @@ public class CFBamEnumTagTableObj
 			}
 		}
 		else {
-			ICFBamEnumTagObj obj;
-			Iterator<ICFBamEnumTagObj> valIter = members.values().iterator();
+			IYCFBamEnumTagObj obj;
+			Iterator<IYCFBamEnumTagObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1293,8 +1293,8 @@ public class CFBamEnumTagTableObj
 				}
 			}
 		}
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1307,8 +1307,8 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1318,27 +1318,27 @@ public class CFBamEnumTagTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamEnumTagObj> readCachedEnumTagByEnumIdx( long TenantId,
+	public List<IYCFBamEnumTagObj> readCachedEnumTagByEnumIdx( long TenantId,
 		long EnumId )
 	{
 		final String S_ProcName = "readCachedEnumTagByEnumIdx";
-		CFBamEnumTagByEnumIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
+		YCFBamEnumTagByEnumIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredEnumId( EnumId );
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>();
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>();
 		if( indexByEnumIdx != null ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 			if( indexByEnumIdx.containsKey( key ) ) {
 				dict = indexByEnumIdx.get( key );
 				int len = dict.size();
-				ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-				Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+				IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+				Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1346,7 +1346,7 @@ public class CFBamEnumTagTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1359,8 +1359,8 @@ public class CFBamEnumTagTableObj
 			}
 		}
 		else {
-			ICFBamEnumTagObj obj;
-			Iterator<ICFBamEnumTagObj> valIter = members.values().iterator();
+			IYCFBamEnumTagObj obj;
+			Iterator<IYCFBamEnumTagObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1370,8 +1370,8 @@ public class CFBamEnumTagTableObj
 				}
 			}
 		}
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1384,8 +1384,8 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1395,27 +1395,27 @@ public class CFBamEnumTagTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamEnumTagObj> readCachedEnumTagByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamEnumTagObj> readCachedEnumTagByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "readCachedEnumTagByDefSchemaIdx";
-		CFBamEnumTagByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
+		YCFBamEnumTagByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>();
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>();
 		if( indexByDefSchemaIdx != null ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 			if( indexByDefSchemaIdx.containsKey( key ) ) {
 				dict = indexByDefSchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-				Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+				IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+				Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1423,7 +1423,7 @@ public class CFBamEnumTagTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1436,8 +1436,8 @@ public class CFBamEnumTagTableObj
 			}
 		}
 		else {
-			ICFBamEnumTagObj obj;
-			Iterator<ICFBamEnumTagObj> valIter = members.values().iterator();
+			IYCFBamEnumTagObj obj;
+			Iterator<IYCFBamEnumTagObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1447,8 +1447,8 @@ public class CFBamEnumTagTableObj
 				}
 			}
 		}
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1461,8 +1461,8 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1472,12 +1472,12 @@ public class CFBamEnumTagTableObj
 		return( arrayList );
 	}
 
-	public ICFBamEnumTagObj readCachedEnumTagByEnumNameIdx( long TenantId,
+	public IYCFBamEnumTagObj readCachedEnumTagByEnumNameIdx( long TenantId,
 		long EnumId,
 		String Name )
 	{
-		ICFBamEnumTagObj obj = null;
-		CFBamEnumTagByEnumNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
+		IYCFBamEnumTagObj obj = null;
+		YCFBamEnumTagByEnumNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredEnumId( EnumId );
 		key.setRequiredName( Name );
@@ -1486,7 +1486,7 @@ public class CFBamEnumTagTableObj
 				obj = indexByEnumNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFBamEnumTagObj> valIter = members.values().iterator();
+				Iterator<IYCFBamEnumTagObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1498,7 +1498,7 @@ public class CFBamEnumTagTableObj
 			}
 		}
 		else {
-			Iterator<ICFBamEnumTagObj> valIter = members.values().iterator();
+			Iterator<IYCFBamEnumTagObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1511,27 +1511,27 @@ public class CFBamEnumTagTableObj
 		return( obj );
 	}
 
-	public List<ICFBamEnumTagObj> readCachedEnumTagByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamEnumTagObj> readCachedEnumTagByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		final String S_ProcName = "readCachedEnumTagByPrevIdx";
-		CFBamEnumTagByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
+		YCFBamEnumTagByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>();
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>();
 		if( indexByPrevIdx != null ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 			if( indexByPrevIdx.containsKey( key ) ) {
 				dict = indexByPrevIdx.get( key );
 				int len = dict.size();
-				ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-				Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+				IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+				Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1539,7 +1539,7 @@ public class CFBamEnumTagTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1552,8 +1552,8 @@ public class CFBamEnumTagTableObj
 			}
 		}
 		else {
-			ICFBamEnumTagObj obj;
-			Iterator<ICFBamEnumTagObj> valIter = members.values().iterator();
+			IYCFBamEnumTagObj obj;
+			Iterator<IYCFBamEnumTagObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1563,8 +1563,8 @@ public class CFBamEnumTagTableObj
 				}
 			}
 		}
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1577,8 +1577,8 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1588,27 +1588,27 @@ public class CFBamEnumTagTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamEnumTagObj> readCachedEnumTagByNextIdx( Long NextTenantId,
+	public List<IYCFBamEnumTagObj> readCachedEnumTagByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		final String S_ProcName = "readCachedEnumTagByNextIdx";
-		CFBamEnumTagByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
+		YCFBamEnumTagByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		ArrayList<ICFBamEnumTagObj> arrayList = new ArrayList<ICFBamEnumTagObj>();
+		ArrayList<IYCFBamEnumTagObj> arrayList = new ArrayList<IYCFBamEnumTagObj>();
 		if( indexByNextIdx != null ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict;
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict;
 			if( indexByNextIdx.containsKey( key ) ) {
 				dict = indexByNextIdx.get( key );
 				int len = dict.size();
-				ICFBamEnumTagObj arr[] = new ICFBamEnumTagObj[len];
-				Iterator<ICFBamEnumTagObj> valIter = dict.values().iterator();
+				IYCFBamEnumTagObj arr[] = new IYCFBamEnumTagObj[len];
+				Iterator<IYCFBamEnumTagObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1616,7 +1616,7 @@ public class CFBamEnumTagTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1629,8 +1629,8 @@ public class CFBamEnumTagTableObj
 			}
 		}
 		else {
-			ICFBamEnumTagObj obj;
-			Iterator<ICFBamEnumTagObj> valIter = members.values().iterator();
+			IYCFBamEnumTagObj obj;
+			Iterator<IYCFBamEnumTagObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1640,8 +1640,8 @@ public class CFBamEnumTagTableObj
 				}
 			}
 		}
-		Comparator<ICFBamEnumTagObj> cmp = new Comparator<ICFBamEnumTagObj>() {
-			public int compare( ICFBamEnumTagObj lhs, ICFBamEnumTagObj rhs ) {
+		Comparator<IYCFBamEnumTagObj> cmp = new Comparator<IYCFBamEnumTagObj>() {
+			public int compare( IYCFBamEnumTagObj lhs, IYCFBamEnumTagObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1654,8 +1654,8 @@ public class CFBamEnumTagTableObj
 					return( 1 );
 				}
 				else {
-					CFBamEnumTagPKey lhsPKey = lhs.getPKey();
-					CFBamEnumTagPKey rhsPKey = rhs.getPKey();
+					YCFBamEnumTagPKey lhsPKey = lhs.getPKey();
+					YCFBamEnumTagPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1668,7 +1668,7 @@ public class CFBamEnumTagTableObj
 	public void deepDisposeEnumTagByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamEnumTagObj obj = readCachedEnumTagByIdIdx( TenantId,
+		IYCFBamEnumTagObj obj = readCachedEnumTagByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -1678,10 +1678,10 @@ public class CFBamEnumTagTableObj
 	public void deepDisposeEnumTagByEnumTagTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeEnumTagByEnumTagTenantIdx";
-		ICFBamEnumTagObj obj;
-		List<ICFBamEnumTagObj> arrayList = readCachedEnumTagByEnumTagTenantIdx( TenantId );
+		IYCFBamEnumTagObj obj;
+		List<IYCFBamEnumTagObj> arrayList = readCachedEnumTagByEnumTagTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamEnumTagObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamEnumTagObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1695,11 +1695,11 @@ public class CFBamEnumTagTableObj
 		long EnumId )
 	{
 		final String S_ProcName = "deepDisposeEnumTagByEnumIdx";
-		ICFBamEnumTagObj obj;
-		List<ICFBamEnumTagObj> arrayList = readCachedEnumTagByEnumIdx( TenantId,
+		IYCFBamEnumTagObj obj;
+		List<IYCFBamEnumTagObj> arrayList = readCachedEnumTagByEnumIdx( TenantId,
 				EnumId );
 		if( arrayList != null )  {
-			Iterator<ICFBamEnumTagObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamEnumTagObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1713,11 +1713,11 @@ public class CFBamEnumTagTableObj
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "deepDisposeEnumTagByDefSchemaIdx";
-		ICFBamEnumTagObj obj;
-		List<ICFBamEnumTagObj> arrayList = readCachedEnumTagByDefSchemaIdx( DefSchemaTenantId,
+		IYCFBamEnumTagObj obj;
+		List<IYCFBamEnumTagObj> arrayList = readCachedEnumTagByDefSchemaIdx( DefSchemaTenantId,
 				DefSchemaId );
 		if( arrayList != null )  {
-			Iterator<ICFBamEnumTagObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamEnumTagObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1731,7 +1731,7 @@ public class CFBamEnumTagTableObj
 		long EnumId,
 		String Name )
 	{
-		ICFBamEnumTagObj obj = readCachedEnumTagByEnumNameIdx( TenantId,
+		IYCFBamEnumTagObj obj = readCachedEnumTagByEnumNameIdx( TenantId,
 				EnumId,
 				Name );
 		if( obj != null ) {
@@ -1743,11 +1743,11 @@ public class CFBamEnumTagTableObj
 		Long PrevId )
 	{
 		final String S_ProcName = "deepDisposeEnumTagByPrevIdx";
-		ICFBamEnumTagObj obj;
-		List<ICFBamEnumTagObj> arrayList = readCachedEnumTagByPrevIdx( PrevTenantId,
+		IYCFBamEnumTagObj obj;
+		List<IYCFBamEnumTagObj> arrayList = readCachedEnumTagByPrevIdx( PrevTenantId,
 				PrevId );
 		if( arrayList != null )  {
-			Iterator<ICFBamEnumTagObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamEnumTagObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1761,11 +1761,11 @@ public class CFBamEnumTagTableObj
 		Long NextId )
 	{
 		final String S_ProcName = "deepDisposeEnumTagByNextIdx";
-		ICFBamEnumTagObj obj;
-		List<ICFBamEnumTagObj> arrayList = readCachedEnumTagByNextIdx( NextTenantId,
+		IYCFBamEnumTagObj obj;
+		List<IYCFBamEnumTagObj> arrayList = readCachedEnumTagByNextIdx( NextTenantId,
 				NextId );
 		if( arrayList != null )  {
-			Iterator<ICFBamEnumTagObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamEnumTagObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1775,20 +1775,20 @@ public class CFBamEnumTagTableObj
 		}
 	}
 
-	public ICFBamEnumTagObj updateEnumTag( ICFBamEnumTagObj Obj ) {
-		ICFBamEnumTagObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().updateEnumTag( schema.getAuthorization(),
+	public IYCFBamEnumTagObj updateEnumTag( IYCFBamEnumTagObj Obj ) {
+		IYCFBamEnumTagObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().updateEnumTag( schema.getAuthorization(),
 			Obj.getEnumTagBuff() );
-		obj = (ICFBamEnumTagObj)Obj.realise();
+		obj = (IYCFBamEnumTagObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteEnumTag( ICFBamEnumTagObj Obj ) {
-		ICFBamEnumTagObj obj = Obj;
-		ICFBamEnumTagObj prev = obj.getOptionalLookupPrev();
-		ICFBamEnumTagObj next = obj.getOptionalLookupNext();
-		((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTag( schema.getAuthorization(),
+	public void deleteEnumTag( IYCFBamEnumTagObj Obj ) {
+		IYCFBamEnumTagObj obj = Obj;
+		IYCFBamEnumTagObj prev = obj.getOptionalLookupPrev();
+		IYCFBamEnumTagObj next = obj.getOptionalLookupNext();
+		((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTag( schema.getAuthorization(),
 			obj.getEnumTagBuff() );
 		Obj.forget();
 		if( prev != null ) {
@@ -1802,15 +1802,15 @@ public class CFBamEnumTagTableObj
 	public void deleteEnumTagByIdIdx( long TenantId,
 		long Id )
 	{
-		CFBamEnumTagPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey();
+		YCFBamEnumTagPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamEnumTagObj obj = readEnumTag( pkey );
+		IYCFBamEnumTagObj obj = readEnumTag( pkey );
 		if( obj != null ) {
-			ICFBamEnumTagEditObj editObj = (ICFBamEnumTagEditObj)obj.getEdit();
+			IYCFBamEnumTagEditObj editObj = (IYCFBamEnumTagEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFBamEnumTagEditObj)obj.beginEdit();
+				editObj = (IYCFBamEnumTagEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1835,19 +1835,19 @@ public class CFBamEnumTagTableObj
 
 	public void deleteEnumTagByEnumTagTenantIdx( long TenantId )
 	{
-		CFBamEnumTagByEnumTagTenantIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
+		YCFBamEnumTagByEnumTagTenantIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumTagTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByEnumTagTenantIdx == null ) {
-			indexByEnumTagTenantIdx = new HashMap< CFBamEnumTagByEnumTagTenantIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByEnumTagTenantIdx = new HashMap< YCFBamEnumTagByEnumTagTenantIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( indexByEnumTagTenantIdx.containsKey( key ) ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict = indexByEnumTagTenantIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumTagTenantIdx( schema.getAuthorization(),
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict = indexByEnumTagTenantIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumTagTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamEnumTagObj> iter = dict.values().iterator();
-			ICFBamEnumTagObj obj;
-			List<ICFBamEnumTagObj> toForget = new LinkedList<ICFBamEnumTagObj>();
+			Iterator<IYCFBamEnumTagObj> iter = dict.values().iterator();
+			IYCFBamEnumTagObj obj;
+			List<IYCFBamEnumTagObj> toForget = new LinkedList<IYCFBamEnumTagObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1860,7 +1860,7 @@ public class CFBamEnumTagTableObj
 			indexByEnumTagTenantIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumTagTenantIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumTagTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeEnumTagByEnumTagTenantIdx( TenantId );
@@ -1869,21 +1869,21 @@ public class CFBamEnumTagTableObj
 	public void deleteEnumTagByEnumIdx( long TenantId,
 		long EnumId )
 	{
-		CFBamEnumTagByEnumIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
+		YCFBamEnumTagByEnumIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredEnumId( EnumId );
 		if( indexByEnumIdx == null ) {
-			indexByEnumIdx = new HashMap< CFBamEnumTagByEnumIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByEnumIdx = new HashMap< YCFBamEnumTagByEnumIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( indexByEnumIdx.containsKey( key ) ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict = indexByEnumIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumIdx( schema.getAuthorization(),
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict = indexByEnumIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumIdx( schema.getAuthorization(),
 				TenantId,
 				EnumId );
-			Iterator<ICFBamEnumTagObj> iter = dict.values().iterator();
-			ICFBamEnumTagObj obj;
-			List<ICFBamEnumTagObj> toForget = new LinkedList<ICFBamEnumTagObj>();
+			Iterator<IYCFBamEnumTagObj> iter = dict.values().iterator();
+			IYCFBamEnumTagObj obj;
+			List<IYCFBamEnumTagObj> toForget = new LinkedList<IYCFBamEnumTagObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1896,7 +1896,7 @@ public class CFBamEnumTagTableObj
 			indexByEnumIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumIdx( schema.getAuthorization(),
 				TenantId,
 				EnumId );
 		}
@@ -1907,21 +1907,21 @@ public class CFBamEnumTagTableObj
 	public void deleteEnumTagByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		CFBamEnumTagByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
+		YCFBamEnumTagByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamEnumTagByDefSchemaIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamEnumTagByDefSchemaIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( indexByDefSchemaIdx.containsKey( key ) ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict = indexByDefSchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByDefSchemaIdx( schema.getAuthorization(),
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict = indexByDefSchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			Iterator<ICFBamEnumTagObj> iter = dict.values().iterator();
-			ICFBamEnumTagObj obj;
-			List<ICFBamEnumTagObj> toForget = new LinkedList<ICFBamEnumTagObj>();
+			Iterator<IYCFBamEnumTagObj> iter = dict.values().iterator();
+			IYCFBamEnumTagObj obj;
+			List<IYCFBamEnumTagObj> toForget = new LinkedList<IYCFBamEnumTagObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1934,7 +1934,7 @@ public class CFBamEnumTagTableObj
 			indexByDefSchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByDefSchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
 		}
@@ -1947,24 +1947,24 @@ public class CFBamEnumTagTableObj
 		String Name )
 	{
 		if( indexByEnumNameIdx == null ) {
-			indexByEnumNameIdx = new HashMap< CFBamEnumTagByEnumNameIdxKey,
-				ICFBamEnumTagObj >();
+			indexByEnumNameIdx = new HashMap< YCFBamEnumTagByEnumNameIdxKey,
+				IYCFBamEnumTagObj >();
 		}
-		CFBamEnumTagByEnumNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
+		YCFBamEnumTagByEnumNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newEnumNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredEnumId( EnumId );
 		key.setRequiredName( Name );
-		ICFBamEnumTagObj obj = null;
+		IYCFBamEnumTagObj obj = null;
 		if( indexByEnumNameIdx.containsKey( key ) ) {
 			obj = indexByEnumNameIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumNameIdx( schema.getAuthorization(),
 				TenantId,
 				EnumId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByEnumNameIdx( schema.getAuthorization(),
 				TenantId,
 				EnumId,
 				Name );
@@ -1977,21 +1977,21 @@ public class CFBamEnumTagTableObj
 	public void deleteEnumTagByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
-		CFBamEnumTagByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
+		YCFBamEnumTagByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamEnumTagByPrevIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByPrevIdx = new HashMap< YCFBamEnumTagByPrevIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( indexByPrevIdx.containsKey( key ) ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict = indexByPrevIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByPrevIdx( schema.getAuthorization(),
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict = indexByPrevIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			Iterator<ICFBamEnumTagObj> iter = dict.values().iterator();
-			ICFBamEnumTagObj obj;
-			List<ICFBamEnumTagObj> toForget = new LinkedList<ICFBamEnumTagObj>();
+			Iterator<IYCFBamEnumTagObj> iter = dict.values().iterator();
+			IYCFBamEnumTagObj obj;
+			List<IYCFBamEnumTagObj> toForget = new LinkedList<IYCFBamEnumTagObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2004,7 +2004,7 @@ public class CFBamEnumTagTableObj
 			indexByPrevIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByPrevIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
 		}
@@ -2015,21 +2015,21 @@ public class CFBamEnumTagTableObj
 	public void deleteEnumTagByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
-		CFBamEnumTagByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
+		YCFBamEnumTagByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamEnumTagByNextIdxKey,
-				Map< CFBamEnumTagPKey, ICFBamEnumTagObj > >();
+			indexByNextIdx = new HashMap< YCFBamEnumTagByNextIdxKey,
+				Map< YCFBamEnumTagPKey, IYCFBamEnumTagObj > >();
 		}
 		if( indexByNextIdx.containsKey( key ) ) {
-			Map<CFBamEnumTagPKey, ICFBamEnumTagObj> dict = indexByNextIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByNextIdx( schema.getAuthorization(),
+			Map<YCFBamEnumTagPKey, IYCFBamEnumTagObj> dict = indexByNextIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			Iterator<ICFBamEnumTagObj> iter = dict.values().iterator();
-			ICFBamEnumTagObj obj;
-			List<ICFBamEnumTagObj> toForget = new LinkedList<ICFBamEnumTagObj>();
+			Iterator<IYCFBamEnumTagObj> iter = dict.values().iterator();
+			IYCFBamEnumTagObj obj;
+			List<IYCFBamEnumTagObj> toForget = new LinkedList<IYCFBamEnumTagObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2042,7 +2042,7 @@ public class CFBamEnumTagTableObj
 			indexByNextIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByNextIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().deleteEnumTagByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
 		}
@@ -2051,61 +2051,61 @@ public class CFBamEnumTagTableObj
 	}
 
 	/**
-	 *	Move the CFBamEnumTagObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamEnumTagObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamEnumTagObj refreshed cache instance.
+	 *	@return	YCFBamEnumTagObj refreshed cache instance.
 	 */
-	public ICFBamEnumTagObj moveUpEnumTag( ICFBamEnumTagObj Obj ) {
-		ICFBamEnumTagObj obj = null;
+	public IYCFBamEnumTagObj moveUpEnumTag( IYCFBamEnumTagObj Obj ) {
+		IYCFBamEnumTagObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveUpEnumTag",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamEnumTagBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().moveBuffUp( schema.getAuthorization(),
+		YCFBamEnumTagBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().moveBuffUp( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getEnumTagTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamEnumTagObj)obj.realise();
-			ICFBamEnumTagObj prev = obj.getOptionalLookupPrev( true );
-			ICFBamEnumTagObj next = obj.getOptionalLookupNext( true );
+			obj = (IYCFBamEnumTagObj)obj.realise();
+			IYCFBamEnumTagObj prev = obj.getOptionalLookupPrev( true );
+			IYCFBamEnumTagObj next = obj.getOptionalLookupNext( true );
 			if( next != null ) {
-				ICFBamEnumTagObj gnext = next.getOptionalLookupNext( true );
+				IYCFBamEnumTagObj gnext = next.getOptionalLookupNext( true );
 			}
 		}
 		return( obj );
 	}
 
 	/**
-	 *	Move the CFBamEnumTagObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamEnumTagObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamEnumTagObj refreshed cache instance.
+	 *	@return	YCFBamEnumTagObj refreshed cache instance.
 	 */
-	public ICFBamEnumTagObj moveDownEnumTag( ICFBamEnumTagObj Obj ) {
-		ICFBamEnumTagObj obj = null;
+	public IYCFBamEnumTagObj moveDownEnumTag( IYCFBamEnumTagObj Obj ) {
+		IYCFBamEnumTagObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveDownEnumTag",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamEnumTagBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableEnumTag().moveBuffDown( schema.getAuthorization(),
+		YCFBamEnumTagBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableEnumTag().moveBuffDown( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getEnumTagTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryEnumTag().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamEnumTagObj)obj.realise();
-			ICFBamEnumTagObj prev = obj.getOptionalLookupPrev( true );
+			obj = (IYCFBamEnumTagObj)obj.realise();
+			IYCFBamEnumTagObj prev = obj.getOptionalLookupPrev( true );
 			if( prev != null ) {
-				ICFBamEnumTagObj gprev = prev.getOptionalLookupPrev( true );
+				IYCFBamEnumTagObj gprev = prev.getOptionalLookupPrev( true );
 			}
-			ICFBamEnumTagObj next = obj.getOptionalLookupNext( true );
+			IYCFBamEnumTagObj next = obj.getOptionalLookupNext( true );
 		}
 		return( obj );
 	}

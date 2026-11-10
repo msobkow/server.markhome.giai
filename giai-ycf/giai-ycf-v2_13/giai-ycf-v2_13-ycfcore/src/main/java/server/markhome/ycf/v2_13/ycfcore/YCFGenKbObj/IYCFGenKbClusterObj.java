@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb Cluster.
+// Description: Java 11 Object interface for YCFGenKb Cluster.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbClusterObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbClusterObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	ICFGenKbSecUserObj getCreatedBy();
+	IYCFGenKbSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -59,9 +59,9 @@ public interface ICFGenKbClusterObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	ICFGenKbSecUserObj getUpdatedBy();
+	IYCFGenKbSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -72,9 +72,9 @@ public interface ICFGenKbClusterObj
 	/**
 	 *	Realise this instance of a Cluster.
 	 *
-	 *	@return	CFGenKbClusterObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbClusterObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbClusterObj realise();
+	IYCFGenKbClusterObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -86,99 +86,99 @@ public interface ICFGenKbClusterObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbClusterObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbClusterObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbClusterObj read();
+	IYCFGenKbClusterObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbClusterObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbClusterObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbClusterObj read( boolean forceRead );
+	IYCFGenKbClusterObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this Cluster instance.
 	 *
-	 *	@return	The newly locked ICFGenKbClusterEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbClusterEditObj edition of this instance.
 	 */
-	ICFGenKbClusterEditObj beginEdit();
+	IYCFGenKbClusterEditObj beginEdit();
 
 	/**
 	 *	End this edition of this Cluster instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this Cluster instance.
 	 *
-	 *	@return	The ICFGenKbClusterEditObj edition of this instance.
+	 *	@return	The IYCFGenKbClusterEditObj edition of this instance.
 	 */
-	ICFGenKbClusterEditObj getEdit();
+	IYCFGenKbClusterEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this Cluster instance as a ICFGenKbClusterEditObj.
+	 *	Get the current edition of this Cluster instance as a IYCFGenKbClusterEditObj.
 	 *
-	 *	@return	The ICFGenKbClusterEditObj edition of this instance.
+	 *	@return	The IYCFGenKbClusterEditObj edition of this instance.
 	 */
-	ICFGenKbClusterEditObj getEditAsCluster();
+	IYCFGenKbClusterEditObj getEditAsCluster();
 
 	/**
-	 *	Get the ICFGenKbClusterTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbClusterTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbClusterTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbClusterTableObj table cache which manages this instance.
 	 */
-	ICFGenKbClusterTableObj getClusterTable();
+	IYCFGenKbClusterTableObj getClusterTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbClusterBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbClusterBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbClusterBuff instance which currently backs this object.
+	 *	@return	YCFGenKbClusterBuff instance which currently backs this object.
 	 */
-	CFGenKbClusterBuff getBuff();
+	YCFGenKbClusterBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbClusterBuff value );
+	void setBuff( YCFGenKbClusterBuff value );
 
 	/**
-	 *	Get the CFGenKbClusterBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbClusterBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbClusterBuff instance which currently backs this object.
+	 *	@return	YCFGenKbClusterBuff instance which currently backs this object.
 	 */
-	CFGenKbClusterBuff getClusterBuff();
+	YCFGenKbClusterBuff getClusterBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbClusterPKey primary key for this instance.
+	 *	@return	YCFGenKbClusterPKey primary key for this instance.
 	 */
-	CFGenKbClusterPKey getPKey();
+	YCFGenKbClusterPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbClusterPKey primary key value for this instance.
+	 *	@param YCFGenKbClusterPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbClusterPKey value );
+	void setPKey( YCFGenKbClusterPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -219,74 +219,74 @@ public interface ICFGenKbClusterObj
 	String getRequiredDescription();
 
 	/**
-	 *	Get the array of optional ICFGenKbHostNodeObj array of instances referenced by the HostNode key.
+	 *	Get the array of optional IYCFGenKbHostNodeObj array of instances referenced by the HostNode key.
 	 *
-	 *	@return	The optional ICFGenKbHostNodeObj[] array of instances referenced by the HostNode key.
+	 *	@return	The optional IYCFGenKbHostNodeObj[] array of instances referenced by the HostNode key.
 	 */
-	List<ICFGenKbHostNodeObj> getOptionalComponentsHostNode();
+	List<IYCFGenKbHostNodeObj> getOptionalComponentsHostNode();
 
 	/**
-	 *	Get the array of optional ICFGenKbHostNodeObj array of instances referenced by the HostNode key.
+	 *	Get the array of optional IYCFGenKbHostNodeObj array of instances referenced by the HostNode key.
 	 *
-	 *	@return	The optional ICFGenKbHostNodeObj[] array of instances referenced by the HostNode key.
+	 *	@return	The optional IYCFGenKbHostNodeObj[] array of instances referenced by the HostNode key.
 	 */
-	List<ICFGenKbHostNodeObj> getOptionalComponentsHostNode( boolean forceRead );
+	List<IYCFGenKbHostNodeObj> getOptionalComponentsHostNode( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbTenantObj array of instances referenced by the Tenant key.
+	 *	Get the array of optional IYCFGenKbTenantObj array of instances referenced by the Tenant key.
 	 *
-	 *	@return	The optional ICFGenKbTenantObj[] array of instances referenced by the Tenant key.
+	 *	@return	The optional IYCFGenKbTenantObj[] array of instances referenced by the Tenant key.
 	 */
-	List<ICFGenKbTenantObj> getOptionalComponentsTenant();
+	List<IYCFGenKbTenantObj> getOptionalComponentsTenant();
 
 	/**
-	 *	Get the array of optional ICFGenKbTenantObj array of instances referenced by the Tenant key.
+	 *	Get the array of optional IYCFGenKbTenantObj array of instances referenced by the Tenant key.
 	 *
-	 *	@return	The optional ICFGenKbTenantObj[] array of instances referenced by the Tenant key.
+	 *	@return	The optional IYCFGenKbTenantObj[] array of instances referenced by the Tenant key.
 	 */
-	List<ICFGenKbTenantObj> getOptionalComponentsTenant( boolean forceRead );
+	List<IYCFGenKbTenantObj> getOptionalComponentsTenant( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbSecAppObj array of instances referenced by the SecApp key.
+	 *	Get the array of optional IYCFGenKbSecAppObj array of instances referenced by the SecApp key.
 	 *
-	 *	@return	The optional ICFGenKbSecAppObj[] array of instances referenced by the SecApp key.
+	 *	@return	The optional IYCFGenKbSecAppObj[] array of instances referenced by the SecApp key.
 	 */
-	List<ICFGenKbSecAppObj> getOptionalComponentsSecApp();
+	List<IYCFGenKbSecAppObj> getOptionalComponentsSecApp();
 
 	/**
-	 *	Get the array of optional ICFGenKbSecAppObj array of instances referenced by the SecApp key.
+	 *	Get the array of optional IYCFGenKbSecAppObj array of instances referenced by the SecApp key.
 	 *
-	 *	@return	The optional ICFGenKbSecAppObj[] array of instances referenced by the SecApp key.
+	 *	@return	The optional IYCFGenKbSecAppObj[] array of instances referenced by the SecApp key.
 	 */
-	List<ICFGenKbSecAppObj> getOptionalComponentsSecApp( boolean forceRead );
+	List<IYCFGenKbSecAppObj> getOptionalComponentsSecApp( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbSecGroupObj array of instances referenced by the SecGroup key.
+	 *	Get the array of optional IYCFGenKbSecGroupObj array of instances referenced by the SecGroup key.
 	 *
-	 *	@return	The optional ICFGenKbSecGroupObj[] array of instances referenced by the SecGroup key.
+	 *	@return	The optional IYCFGenKbSecGroupObj[] array of instances referenced by the SecGroup key.
 	 */
-	List<ICFGenKbSecGroupObj> getOptionalComponentsSecGroup();
+	List<IYCFGenKbSecGroupObj> getOptionalComponentsSecGroup();
 
 	/**
-	 *	Get the array of optional ICFGenKbSecGroupObj array of instances referenced by the SecGroup key.
+	 *	Get the array of optional IYCFGenKbSecGroupObj array of instances referenced by the SecGroup key.
 	 *
-	 *	@return	The optional ICFGenKbSecGroupObj[] array of instances referenced by the SecGroup key.
+	 *	@return	The optional IYCFGenKbSecGroupObj[] array of instances referenced by the SecGroup key.
 	 */
-	List<ICFGenKbSecGroupObj> getOptionalComponentsSecGroup( boolean forceRead );
+	List<IYCFGenKbSecGroupObj> getOptionalComponentsSecGroup( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbSysClusterObj array of instances referenced by the SysCluster key.
+	 *	Get the array of optional IYCFGenKbSysClusterObj array of instances referenced by the SysCluster key.
 	 *
-	 *	@return	The optional ICFGenKbSysClusterObj[] array of instances referenced by the SysCluster key.
+	 *	@return	The optional IYCFGenKbSysClusterObj[] array of instances referenced by the SysCluster key.
 	 */
-	List<ICFGenKbSysClusterObj> getOptionalComponentsSysCluster();
+	List<IYCFGenKbSysClusterObj> getOptionalComponentsSysCluster();
 
 	/**
-	 *	Get the array of optional ICFGenKbSysClusterObj array of instances referenced by the SysCluster key.
+	 *	Get the array of optional IYCFGenKbSysClusterObj array of instances referenced by the SysCluster key.
 	 *
-	 *	@return	The optional ICFGenKbSysClusterObj[] array of instances referenced by the SysCluster key.
+	 *	@return	The optional IYCFGenKbSysClusterObj[] array of instances referenced by the SysCluster key.
 	 */
-	List<ICFGenKbSysClusterObj> getOptionalComponentsSysCluster( boolean forceRead );
+	List<IYCFGenKbSysClusterObj> getOptionalComponentsSysCluster( boolean forceRead );
 
 	/**
 	 *	Internal use only.

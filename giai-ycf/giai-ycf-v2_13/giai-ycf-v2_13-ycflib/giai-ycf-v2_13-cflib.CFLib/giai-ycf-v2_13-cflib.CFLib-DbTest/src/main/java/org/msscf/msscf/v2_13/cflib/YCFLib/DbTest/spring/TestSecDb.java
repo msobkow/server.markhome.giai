@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,17 +20,17 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.spring;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.spring;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbManager;
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbManagerService;
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbSession;
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbSessionService;
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbUser;
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbUserService;
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash256;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbManager;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbManagerService;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbSession;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbSessionService;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbUser;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbUserService;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash256;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
@@ -67,8 +67,8 @@ public class TestSecDb {
         StringBuffer responseMessage = new StringBuffer();
         try {
             LocalDateTime now = LocalDateTime.now();
-            CFLibDbKeyHash256 adminpid = new CFLibDbKeyHash256("0123456789abcdef");
-            CFLibDbKeyHash256 mgrpid = new CFLibDbKeyHash256("fedcba9876543210");
+            YCFLibDbKeyHash256 adminpid = new YCFLibDbKeyHash256("0123456789abcdef");
+            YCFLibDbKeyHash256 mgrpid = new YCFLibDbKeyHash256("fedcba9876543210");
             SecDbManager manager = (SecDbManager)secDbManagerService.find(mgrpid);
             if (manager == null) {
                 manager = new SecDbManager(mgrpid, "system", "admin", "1", "System Administration", "1",

@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for ServerObjFunc.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamServerObjFuncTable database interface for ServerObjFunc
+ *	YCFBamServerObjFuncTable database interface for ServerObjFunc
  */
-public interface ICFBamServerObjFuncTable
+public interface IYCFBamServerObjFuncTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createServerObjFunc( CFSecAuthorization Authorization,
-		CFBamServerObjFuncBuff Buff );
+	void createServerObjFunc( YCFSecAuthorization Authorization,
+		YCFBamServerObjFuncBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateServerObjFunc( CFSecAuthorization Authorization,
-		CFBamServerObjFuncBuff Buff );
+	void updateServerObjFunc( YCFSecAuthorization Authorization,
+		YCFBamServerObjFuncBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteServerObjFunc( CFSecAuthorization Authorization,
-		CFBamServerObjFuncBuff Buff );
+	void deleteServerObjFunc( YCFSecAuthorization Authorization,
+		YCFBamServerObjFuncBuff Buff );
 	/**
 	 *	Delete the ServerObjFunc instances identified by the key RetTblIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argRetTableId	The ServerObjFunc key attribute of the instance generating the id.
 	 */
-	void deleteServerObjFuncByRetTblIdx( CFSecAuthorization Authorization,
+	void deleteServerObjFuncByRetTblIdx( YCFSecAuthorization Authorization,
 		Long argRetTenantId,
 		Long argRetTableId );
 
@@ -121,8 +121,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServerObjFuncByRetTblIdx( CFSecAuthorization Authorization,
-		CFBamServerObjFuncByRetTblIdxKey argKey );
+	void deleteServerObjFuncByRetTblIdx( YCFSecAuthorization Authorization,
+		YCFBamServerObjFuncByRetTblIdxKey argKey );
 	/**
 	 *	Delete the ServerObjFunc instances identified by the key UNameIdx.
 	 *
@@ -134,7 +134,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argName	The ServerObjFunc key attribute of the instance generating the id.
 	 */
-	void deleteServerObjFuncByUNameIdx( CFSecAuthorization Authorization,
+	void deleteServerObjFuncByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
 		String argName );
@@ -146,8 +146,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServerObjFuncByUNameIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByUNameIdxKey argKey );
+	void deleteServerObjFuncByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByUNameIdxKey argKey );
 	/**
 	 *	Delete the ServerObjFunc instances identified by the key MethTableIdx.
 	 *
@@ -157,7 +157,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argTableId	The ServerObjFunc key attribute of the instance generating the id.
 	 */
-	void deleteServerObjFuncByMethTableIdx( CFSecAuthorization Authorization,
+	void deleteServerObjFuncByMethTableIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId );
 
@@ -168,8 +168,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServerObjFuncByMethTableIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByMethTableIdxKey argKey );
+	void deleteServerObjFuncByMethTableIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByMethTableIdxKey argKey );
 	/**
 	 *	Delete the ServerObjFunc instances identified by the key MethTableVisIdx.
 	 *
@@ -181,10 +181,10 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argCodeVis	The ServerObjFunc key attribute of the instance generating the id.
 	 */
-	void deleteServerObjFuncByMethTableVisIdx( CFSecAuthorization Authorization,
+	void deleteServerObjFuncByMethTableVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the ServerObjFunc instances identified by the key MethTableVisIdx.
@@ -193,8 +193,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServerObjFuncByMethTableVisIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByMethTableVisIdxKey argKey );
+	void deleteServerObjFuncByMethTableVisIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByMethTableVisIdxKey argKey );
 	/**
 	 *	Delete the ServerObjFunc instances identified by the key MethCodeVisIdx.
 	 *
@@ -202,8 +202,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argCodeVis	The ServerObjFunc key attribute of the instance generating the id.
 	 */
-	void deleteServerObjFuncByMethCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteServerObjFuncByMethCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the ServerObjFunc instances identified by the key MethCodeVisIdx.
@@ -212,8 +212,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServerObjFuncByMethCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByMethCodeVisIdxKey argKey );
+	void deleteServerObjFuncByMethCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByMethCodeVisIdxKey argKey );
 	/**
 	 *	Delete the ServerObjFunc instances identified by the key DefSchemaIdx.
 	 *
@@ -223,7 +223,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argDefSchemaId	The ServerObjFunc key attribute of the instance generating the id.
 	 */
-	void deleteServerObjFuncByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteServerObjFuncByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -234,8 +234,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServerObjFuncByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamServerMethodByDefSchemaIdxKey argKey );
+	void deleteServerObjFuncByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamServerMethodByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the ServerObjFunc instance identified by the primary key attributes.
 	 *
@@ -245,7 +245,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argId	The ServerObjFunc key attribute of the instance generating the id.
 	 */
-	void deleteServerObjFuncByIdIdx( CFSecAuthorization Authorization,
+	void deleteServerObjFuncByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -256,8 +256,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteServerObjFuncByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey );
+	void deleteServerObjFuncByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey );
 	/**
 	 *	Delete the ServerObjFunc instances identified by the key TenantIdx.
 	 *
@@ -265,7 +265,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argTenantId	The ServerObjFunc key attribute of the instance generating the id.
 	 */
-	void deleteServerObjFuncByTenantIdx( CFSecAuthorization Authorization,
+	void deleteServerObjFuncByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -275,8 +275,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServerObjFuncByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey );
+	void deleteServerObjFuncByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey );
 
 
 	/**
@@ -289,8 +289,8 @@ public interface ICFBamServerObjFuncTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamServerObjFuncBuff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamServerObjFuncBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the derived ServerObjFunc buffer instance by primary key.
@@ -302,8 +302,8 @@ public interface ICFBamServerObjFuncTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamServerObjFuncBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamServerObjFuncBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all ServerObjFunc instances.
@@ -312,7 +312,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamServerObjFuncBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamServerObjFuncBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived ServerObjFunc buffer instance identified by the unique key IdIdx.
@@ -326,7 +326,7 @@ public interface ICFBamServerObjFuncTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamServerObjFuncBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -339,7 +339,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamServerObjFuncBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -356,7 +356,7 @@ public interface ICFBamServerObjFuncTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamServerObjFuncBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name );
@@ -372,7 +372,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamServerObjFuncBuff[] readDerivedByMethTableIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readDerivedByMethTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -389,10 +389,10 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamServerObjFuncBuff[] readDerivedByMethTableVisIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readDerivedByMethTableVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived ServerObjFunc buffer instances identified by the duplicate key MethCodeVisIdx.
@@ -403,8 +403,8 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamServerObjFuncBuff[] readDerivedByMethCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamServerObjFuncBuff[] readDerivedByMethCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived ServerObjFunc buffer instances identified by the duplicate key DefSchemaIdx.
@@ -417,7 +417,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamServerObjFuncBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -432,7 +432,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamServerObjFuncBuff[] readDerivedByRetTblIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readDerivedByRetTblIdx( YCFSecAuthorization Authorization,
 		Long RetTenantId,
 		Long RetTableId );
 
@@ -446,10 +446,10 @@ public interface ICFBamServerObjFuncTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamServerObjFuncBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the specific ServerObjFunc buffer instance identified by the primary key.
@@ -461,10 +461,10 @@ public interface ICFBamServerObjFuncTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamServerObjFuncBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all the specific ServerObjFunc buffer instances.
@@ -473,7 +473,7 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return All the specific ServerObjFunc instances in the database accessible for the Authorization.
 	 */
-	CFBamServerObjFuncBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamServerObjFuncBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific ServerObjFunc buffer instance identified by the unique key IdIdx.
@@ -487,9 +487,9 @@ public interface ICFBamServerObjFuncTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -502,9 +502,9 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -521,9 +521,9 @@ public interface ICFBamServerObjFuncTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name );
@@ -539,9 +539,9 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff[] readBuffByMethTableIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readBuffByMethTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -558,12 +558,12 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff[] readBuffByMethTableVisIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readBuffByMethTableVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific ServerObjFunc buffer instances identified by the duplicate key MethCodeVisIdx.
@@ -574,10 +574,10 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff[] readBuffByMethCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamServerObjFuncBuff[] readBuffByMethCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific ServerObjFunc buffer instances identified by the duplicate key DefSchemaIdx.
@@ -590,9 +590,9 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -607,16 +607,16 @@ public interface ICFBamServerObjFuncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamServerObjFuncBuff[] readBuffByRetTblIdx( CFSecAuthorization Authorization,
+	YCFBamServerObjFuncBuff[] readBuffByRetTblIdx( YCFSecAuthorization Authorization,
 		Long RetTenantId,
 		Long RetTableId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

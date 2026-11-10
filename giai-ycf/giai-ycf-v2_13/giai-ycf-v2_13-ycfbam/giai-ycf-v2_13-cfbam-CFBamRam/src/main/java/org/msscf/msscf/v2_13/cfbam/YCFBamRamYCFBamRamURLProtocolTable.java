@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for URLProtocol.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,71 +27,71 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamURLProtocolTable in-memory RAM DbIO implementation
+ *	YCFBamRamURLProtocolTable in-memory RAM DbIO implementation
  *	for URLProtocol.
  */
-public class CFBamRamURLProtocolTable
-	implements ICFBamURLProtocolTable
+public class YCFBamRamURLProtocolTable
+	implements IYCFBamURLProtocolTable
 {
-	private ICFBamSchema schema;
-	private Map< CFIntURLProtocolPKey,
-				CFIntURLProtocolBuff > dictByPKey
-		= new HashMap< CFIntURLProtocolPKey,
-				CFIntURLProtocolBuff >();
-	private Map< CFIntURLProtocolByUNameIdxKey,
-			CFIntURLProtocolBuff > dictByUNameIdx
-		= new HashMap< CFIntURLProtocolByUNameIdxKey,
-			CFIntURLProtocolBuff >();
-	private Map< CFIntURLProtocolByIsSecureIdxKey,
-				Map< CFIntURLProtocolPKey,
-					CFIntURLProtocolBuff >> dictByIsSecureIdx
-		= new HashMap< CFIntURLProtocolByIsSecureIdxKey,
-				Map< CFIntURLProtocolPKey,
-					CFIntURLProtocolBuff >>();
+	private IYCFBamSchema schema;
+	private Map< YCFIntURLProtocolPKey,
+				YCFIntURLProtocolBuff > dictByPKey
+		= new HashMap< YCFIntURLProtocolPKey,
+				YCFIntURLProtocolBuff >();
+	private Map< YCFIntURLProtocolByUNameIdxKey,
+			YCFIntURLProtocolBuff > dictByUNameIdx
+		= new HashMap< YCFIntURLProtocolByUNameIdxKey,
+			YCFIntURLProtocolBuff >();
+	private Map< YCFIntURLProtocolByIsSecureIdxKey,
+				Map< YCFIntURLProtocolPKey,
+					YCFIntURLProtocolBuff >> dictByIsSecureIdx
+		= new HashMap< YCFIntURLProtocolByIsSecureIdxKey,
+				Map< YCFIntURLProtocolPKey,
+					YCFIntURLProtocolBuff >>();
 
-	public CFBamRamURLProtocolTable( ICFBamSchema argSchema ) {
+	public YCFBamRamURLProtocolTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createURLProtocol( CFSecAuthorization Authorization,
-		CFIntURLProtocolBuff Buff )
+	public void createURLProtocol( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolBuff Buff )
 	{
 		final String S_ProcName = "createURLProtocol";
-		CFIntURLProtocolPKey pkey = schema.getFactoryURLProtocol().newPKey();
+		YCFIntURLProtocolPKey pkey = schema.getFactoryURLProtocol().newPKey();
 		pkey.setRequiredURLProtocolId( schema.nextURLProtocolIdGen() );
 		Buff.setRequiredURLProtocolId( pkey.getRequiredURLProtocolId() );
-		CFIntURLProtocolByUNameIdxKey keyUNameIdx = schema.getFactoryURLProtocol().newUNameIdxKey();
+		YCFIntURLProtocolByUNameIdxKey keyUNameIdx = schema.getFactoryURLProtocol().newUNameIdxKey();
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx = schema.getFactoryURLProtocol().newIsSecureIdxKey();
+		YCFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx = schema.getFactoryURLProtocol().newIsSecureIdxKey();
 		keyIsSecureIdx.setRequiredIsSecure( Buff.getRequiredIsSecure() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUNameIdx.containsKey( keyUNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"URLProtocolUNameIdx",
 				keyUNameIdx );
@@ -105,25 +105,25 @@ public class CFBamRamURLProtocolTable
 
 		dictByUNameIdx.put( keyUNameIdx, Buff );
 
-		Map< CFIntURLProtocolPKey, CFIntURLProtocolBuff > subdictIsSecureIdx;
+		Map< YCFIntURLProtocolPKey, YCFIntURLProtocolBuff > subdictIsSecureIdx;
 		if( dictByIsSecureIdx.containsKey( keyIsSecureIdx ) ) {
 			subdictIsSecureIdx = dictByIsSecureIdx.get( keyIsSecureIdx );
 		}
 		else {
-			subdictIsSecureIdx = new HashMap< CFIntURLProtocolPKey, CFIntURLProtocolBuff >();
+			subdictIsSecureIdx = new HashMap< YCFIntURLProtocolPKey, YCFIntURLProtocolBuff >();
 			dictByIsSecureIdx.put( keyIsSecureIdx, subdictIsSecureIdx );
 		}
 		subdictIsSecureIdx.put( pkey, Buff );
 
 	}
 
-	public CFIntURLProtocolBuff readDerived( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey PKey )
+	public YCFIntURLProtocolBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readDerived";
-		CFIntURLProtocolPKey key = schema.getFactoryURLProtocol().newPKey();
+		final String S_ProcName = "YCFBamRamURLProtocol.readDerived";
+		YCFIntURLProtocolPKey key = schema.getFactoryURLProtocol().newPKey();
 		key.setRequiredURLProtocolId( PKey.getRequiredURLProtocolId() );
-		CFIntURLProtocolBuff buff;
+		YCFIntURLProtocolBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -133,13 +133,13 @@ public class CFBamRamURLProtocolTable
 		return( buff );
 	}
 
-	public CFIntURLProtocolBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey PKey )
+	public YCFIntURLProtocolBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readDerived";
-		CFIntURLProtocolPKey key = schema.getFactoryURLProtocol().newPKey();
+		final String S_ProcName = "YCFBamRamURLProtocol.readDerived";
+		YCFIntURLProtocolPKey key = schema.getFactoryURLProtocol().newPKey();
 		key.setRequiredURLProtocolId( PKey.getRequiredURLProtocolId() );
-		CFIntURLProtocolBuff buff;
+		YCFIntURLProtocolBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -149,10 +149,10 @@ public class CFBamRamURLProtocolTable
 		return( buff );
 	}
 
-	public CFIntURLProtocolBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamURLProtocol.readAllDerived";
-		CFIntURLProtocolBuff[] retList = new CFIntURLProtocolBuff[ dictByPKey.values().size() ];
-		Iterator< CFIntURLProtocolBuff > iter = dictByPKey.values().iterator();
+	public YCFIntURLProtocolBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamURLProtocol.readAllDerived";
+		YCFIntURLProtocolBuff[] retList = new YCFIntURLProtocolBuff[ dictByPKey.values().size() ];
+		Iterator< YCFIntURLProtocolBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -160,14 +160,14 @@ public class CFBamRamURLProtocolTable
 		return( retList );
 	}
 
-	public CFIntURLProtocolBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFIntURLProtocolBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readDerivedByUNameIdx";
-		CFIntURLProtocolByUNameIdxKey key = schema.getFactoryURLProtocol().newUNameIdxKey();
+		final String S_ProcName = "YCFBamRamURLProtocol.readDerivedByUNameIdx";
+		YCFIntURLProtocolByUNameIdxKey key = schema.getFactoryURLProtocol().newUNameIdxKey();
 		key.setRequiredName( Name );
 
-		CFIntURLProtocolBuff buff;
+		YCFIntURLProtocolBuff buff;
 		if( dictByUNameIdx.containsKey( key ) ) {
 			buff = dictByUNameIdx.get( key );
 		}
@@ -177,41 +177,41 @@ public class CFBamRamURLProtocolTable
 		return( buff );
 	}
 
-	public CFIntURLProtocolBuff[] readDerivedByIsSecureIdx( CFSecAuthorization Authorization,
+	public YCFIntURLProtocolBuff[] readDerivedByIsSecureIdx( YCFSecAuthorization Authorization,
 		boolean IsSecure )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readDerivedByIsSecureIdx";
-		CFIntURLProtocolByIsSecureIdxKey key = schema.getFactoryURLProtocol().newIsSecureIdxKey();
+		final String S_ProcName = "YCFBamRamURLProtocol.readDerivedByIsSecureIdx";
+		YCFIntURLProtocolByIsSecureIdxKey key = schema.getFactoryURLProtocol().newIsSecureIdxKey();
 		key.setRequiredIsSecure( IsSecure );
 
-		CFIntURLProtocolBuff[] recArray;
+		YCFIntURLProtocolBuff[] recArray;
 		if( dictByIsSecureIdx.containsKey( key ) ) {
-			Map< CFIntURLProtocolPKey, CFIntURLProtocolBuff > subdictIsSecureIdx
+			Map< YCFIntURLProtocolPKey, YCFIntURLProtocolBuff > subdictIsSecureIdx
 				= dictByIsSecureIdx.get( key );
-			recArray = new CFIntURLProtocolBuff[ subdictIsSecureIdx.size() ];
-			Iterator< CFIntURLProtocolBuff > iter = subdictIsSecureIdx.values().iterator();
+			recArray = new YCFIntURLProtocolBuff[ subdictIsSecureIdx.size() ];
+			Iterator< YCFIntURLProtocolBuff > iter = subdictIsSecureIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFIntURLProtocolPKey, CFIntURLProtocolBuff > subdictIsSecureIdx
-				= new HashMap< CFIntURLProtocolPKey, CFIntURLProtocolBuff >();
+			Map< YCFIntURLProtocolPKey, YCFIntURLProtocolBuff > subdictIsSecureIdx
+				= new HashMap< YCFIntURLProtocolPKey, YCFIntURLProtocolBuff >();
 			dictByIsSecureIdx.put( key, subdictIsSecureIdx );
-			recArray = new CFIntURLProtocolBuff[0];
+			recArray = new YCFIntURLProtocolBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFIntURLProtocolBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntURLProtocolBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		int URLProtocolId )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readDerivedByIdIdx() ";
-		CFIntURLProtocolPKey key = schema.getFactoryURLProtocol().newPKey();
+		final String S_ProcName = "YCFBamRamURLProtocol.readDerivedByIdIdx() ";
+		YCFIntURLProtocolPKey key = schema.getFactoryURLProtocol().newPKey();
 		key.setRequiredURLProtocolId( URLProtocolId );
 
-		CFIntURLProtocolBuff buff;
+		YCFIntURLProtocolBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -221,124 +221,124 @@ public class CFBamRamURLProtocolTable
 		return( buff );
 	}
 
-	public CFIntURLProtocolBuff readBuff( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey PKey )
+	public YCFIntURLProtocolBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readBuff";
-		CFIntURLProtocolBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamURLProtocol.readBuff";
+		YCFIntURLProtocolBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a109" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntURLProtocolBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey PKey )
+	public YCFIntURLProtocolBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFIntURLProtocolBuff buff = readDerived( Authorization, PKey );
+		YCFIntURLProtocolBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a109" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntURLProtocolBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFIntURLProtocolBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readAllBuff";
-		CFIntURLProtocolBuff buff;
-		ArrayList<CFIntURLProtocolBuff> filteredList = new ArrayList<CFIntURLProtocolBuff>();
-		CFIntURLProtocolBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamURLProtocol.readAllBuff";
+		YCFIntURLProtocolBuff buff;
+		ArrayList<YCFIntURLProtocolBuff> filteredList = new ArrayList<YCFIntURLProtocolBuff>();
+		YCFIntURLProtocolBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a109" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntURLProtocolBuff[0] ) );
+		return( filteredList.toArray( new YCFIntURLProtocolBuff[0] ) );
 	}
 
-	public CFIntURLProtocolBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntURLProtocolBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		int URLProtocolId )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readBuffByIdIdx() ";
-		CFIntURLProtocolBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamURLProtocol.readBuffByIdIdx() ";
+		YCFIntURLProtocolBuff buff = readDerivedByIdIdx( Authorization,
 			URLProtocolId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a109" ) ) {
-			return( (CFIntURLProtocolBuff)buff );
+			return( (YCFIntURLProtocolBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFIntURLProtocolBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFIntURLProtocolBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readBuffByUNameIdx() ";
-		CFIntURLProtocolBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamURLProtocol.readBuffByUNameIdx() ";
+		YCFIntURLProtocolBuff buff = readDerivedByUNameIdx( Authorization,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a109" ) ) {
-			return( (CFIntURLProtocolBuff)buff );
+			return( (YCFIntURLProtocolBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFIntURLProtocolBuff[] readBuffByIsSecureIdx( CFSecAuthorization Authorization,
+	public YCFIntURLProtocolBuff[] readBuffByIsSecureIdx( YCFSecAuthorization Authorization,
 		boolean IsSecure )
 	{
-		final String S_ProcName = "CFBamRamURLProtocol.readBuffByIsSecureIdx() ";
-		CFIntURLProtocolBuff buff;
-		ArrayList<CFIntURLProtocolBuff> filteredList = new ArrayList<CFIntURLProtocolBuff>();
-		CFIntURLProtocolBuff[] buffList = readDerivedByIsSecureIdx( Authorization,
+		final String S_ProcName = "YCFBamRamURLProtocol.readBuffByIsSecureIdx() ";
+		YCFIntURLProtocolBuff buff;
+		ArrayList<YCFIntURLProtocolBuff> filteredList = new ArrayList<YCFIntURLProtocolBuff>();
+		YCFIntURLProtocolBuff[] buffList = readDerivedByIsSecureIdx( Authorization,
 			IsSecure );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a109" ) ) {
-				filteredList.add( (CFIntURLProtocolBuff)buff );
+				filteredList.add( (YCFIntURLProtocolBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntURLProtocolBuff[0] ) );
+		return( filteredList.toArray( new YCFIntURLProtocolBuff[0] ) );
 	}
 
-	public void updateURLProtocol( CFSecAuthorization Authorization,
-		CFIntURLProtocolBuff Buff )
+	public void updateURLProtocol( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolBuff Buff )
 	{
-		CFIntURLProtocolPKey pkey = schema.getFactoryURLProtocol().newPKey();
+		YCFIntURLProtocolPKey pkey = schema.getFactoryURLProtocol().newPKey();
 		pkey.setRequiredURLProtocolId( Buff.getRequiredURLProtocolId() );
-		CFIntURLProtocolBuff existing = dictByPKey.get( pkey );
+		YCFIntURLProtocolBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateURLProtocol",
 				"Existing record not found",
 				"URLProtocol",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateURLProtocol",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntURLProtocolByUNameIdxKey existingKeyUNameIdx = schema.getFactoryURLProtocol().newUNameIdxKey();
+		YCFIntURLProtocolByUNameIdxKey existingKeyUNameIdx = schema.getFactoryURLProtocol().newUNameIdxKey();
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntURLProtocolByUNameIdxKey newKeyUNameIdx = schema.getFactoryURLProtocol().newUNameIdxKey();
+		YCFIntURLProtocolByUNameIdxKey newKeyUNameIdx = schema.getFactoryURLProtocol().newUNameIdxKey();
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFIntURLProtocolByIsSecureIdxKey existingKeyIsSecureIdx = schema.getFactoryURLProtocol().newIsSecureIdxKey();
+		YCFIntURLProtocolByIsSecureIdxKey existingKeyIsSecureIdx = schema.getFactoryURLProtocol().newIsSecureIdxKey();
 		existingKeyIsSecureIdx.setRequiredIsSecure( existing.getRequiredIsSecure() );
 
-		CFIntURLProtocolByIsSecureIdxKey newKeyIsSecureIdx = schema.getFactoryURLProtocol().newIsSecureIdxKey();
+		YCFIntURLProtocolByIsSecureIdxKey newKeyIsSecureIdx = schema.getFactoryURLProtocol().newIsSecureIdxKey();
 		newKeyIsSecureIdx.setRequiredIsSecure( Buff.getRequiredIsSecure() );
 
 		// Check unique indexes
 
 		if( ! existingKeyUNameIdx.equals( newKeyUNameIdx ) ) {
 			if( dictByUNameIdx.containsKey( newKeyUNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateURLProtocol",
 					"URLProtocolUNameIdx",
 					newKeyUNameIdx );
@@ -349,7 +349,7 @@ public class CFBamRamURLProtocolTable
 
 		// Update is valid
 
-		Map< CFIntURLProtocolPKey, CFIntURLProtocolBuff > subdict;
+		Map< YCFIntURLProtocolPKey, YCFIntURLProtocolBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -365,40 +365,40 @@ public class CFBamRamURLProtocolTable
 			subdict = dictByIsSecureIdx.get( newKeyIsSecureIdx );
 		}
 		else {
-			subdict = new HashMap< CFIntURLProtocolPKey, CFIntURLProtocolBuff >();
+			subdict = new HashMap< YCFIntURLProtocolPKey, YCFIntURLProtocolBuff >();
 			dictByIsSecureIdx.put( newKeyIsSecureIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteURLProtocol( CFSecAuthorization Authorization,
-		CFIntURLProtocolBuff Buff )
+	public void deleteURLProtocol( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamURLProtocolTable.deleteURLProtocol() ";
+		final String S_ProcName = "YCFBamRamURLProtocolTable.deleteURLProtocol() ";
 		String classCode;
-		CFIntURLProtocolPKey pkey = schema.getFactoryURLProtocol().newPKey();
+		YCFIntURLProtocolPKey pkey = schema.getFactoryURLProtocol().newPKey();
 		pkey.setRequiredURLProtocolId( Buff.getRequiredURLProtocolId() );
-		CFIntURLProtocolBuff existing = dictByPKey.get( pkey );
+		YCFIntURLProtocolBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteURLProtocol",
 				pkey );
 		}
-		CFIntURLProtocolByUNameIdxKey keyUNameIdx = schema.getFactoryURLProtocol().newUNameIdxKey();
+		YCFIntURLProtocolByUNameIdxKey keyUNameIdx = schema.getFactoryURLProtocol().newUNameIdxKey();
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx = schema.getFactoryURLProtocol().newIsSecureIdxKey();
+		YCFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx = schema.getFactoryURLProtocol().newIsSecureIdxKey();
 		keyIsSecureIdx.setRequiredIsSecure( existing.getRequiredIsSecure() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFIntURLProtocolPKey, CFIntURLProtocolBuff > subdict;
+		Map< YCFIntURLProtocolPKey, YCFIntURLProtocolBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -408,32 +408,32 @@ public class CFBamRamURLProtocolTable
 		subdict.remove( pkey );
 
 	}
-	public void deleteURLProtocolByIdIdx( CFSecAuthorization Authorization,
+	public void deleteURLProtocolByIdIdx( YCFSecAuthorization Authorization,
 		int argURLProtocolId )
 	{
-		CFIntURLProtocolPKey key = schema.getFactoryURLProtocol().newPKey();
+		YCFIntURLProtocolPKey key = schema.getFactoryURLProtocol().newPKey();
 		key.setRequiredURLProtocolId( argURLProtocolId );
 		deleteURLProtocolByIdIdx( Authorization, key );
 	}
 
-	public void deleteURLProtocolByIdIdx( CFSecAuthorization Authorization,
-		CFIntURLProtocolPKey argKey )
+	public void deleteURLProtocolByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFIntURLProtocolBuff cur;
-		LinkedList<CFIntURLProtocolBuff> matchSet = new LinkedList<CFIntURLProtocolBuff>();
-		Iterator<CFIntURLProtocolBuff> values = dictByPKey.values().iterator();
+		YCFIntURLProtocolBuff cur;
+		LinkedList<YCFIntURLProtocolBuff> matchSet = new LinkedList<YCFIntURLProtocolBuff>();
+		Iterator<YCFIntURLProtocolBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntURLProtocolBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntURLProtocolBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableURLProtocol().readDerivedByIdIdx( Authorization,
@@ -442,32 +442,32 @@ public class CFBamRamURLProtocolTable
 		}
 	}
 
-	public void deleteURLProtocolByUNameIdx( CFSecAuthorization Authorization,
+	public void deleteURLProtocolByUNameIdx( YCFSecAuthorization Authorization,
 		String argName )
 	{
-		CFIntURLProtocolByUNameIdxKey key = schema.getFactoryURLProtocol().newUNameIdxKey();
+		YCFIntURLProtocolByUNameIdxKey key = schema.getFactoryURLProtocol().newUNameIdxKey();
 		key.setRequiredName( argName );
 		deleteURLProtocolByUNameIdx( Authorization, key );
 	}
 
-	public void deleteURLProtocolByUNameIdx( CFSecAuthorization Authorization,
-		CFIntURLProtocolByUNameIdxKey argKey )
+	public void deleteURLProtocolByUNameIdx( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolByUNameIdxKey argKey )
 	{
-		CFIntURLProtocolBuff cur;
+		YCFIntURLProtocolBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntURLProtocolBuff> matchSet = new LinkedList<CFIntURLProtocolBuff>();
-		Iterator<CFIntURLProtocolBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntURLProtocolBuff> matchSet = new LinkedList<YCFIntURLProtocolBuff>();
+		Iterator<YCFIntURLProtocolBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntURLProtocolBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntURLProtocolBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableURLProtocol().readDerivedByIdIdx( Authorization,
@@ -476,32 +476,32 @@ public class CFBamRamURLProtocolTable
 		}
 	}
 
-	public void deleteURLProtocolByIsSecureIdx( CFSecAuthorization Authorization,
+	public void deleteURLProtocolByIsSecureIdx( YCFSecAuthorization Authorization,
 		boolean argIsSecure )
 	{
-		CFIntURLProtocolByIsSecureIdxKey key = schema.getFactoryURLProtocol().newIsSecureIdxKey();
+		YCFIntURLProtocolByIsSecureIdxKey key = schema.getFactoryURLProtocol().newIsSecureIdxKey();
 		key.setRequiredIsSecure( argIsSecure );
 		deleteURLProtocolByIsSecureIdx( Authorization, key );
 	}
 
-	public void deleteURLProtocolByIsSecureIdx( CFSecAuthorization Authorization,
-		CFIntURLProtocolByIsSecureIdxKey argKey )
+	public void deleteURLProtocolByIsSecureIdx( YCFSecAuthorization Authorization,
+		YCFIntURLProtocolByIsSecureIdxKey argKey )
 	{
-		CFIntURLProtocolBuff cur;
+		YCFIntURLProtocolBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntURLProtocolBuff> matchSet = new LinkedList<CFIntURLProtocolBuff>();
-		Iterator<CFIntURLProtocolBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntURLProtocolBuff> matchSet = new LinkedList<YCFIntURLProtocolBuff>();
+		Iterator<YCFIntURLProtocolBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntURLProtocolBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntURLProtocolBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableURLProtocol().readDerivedByIdIdx( Authorization,

@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for SecForm.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,74 +27,74 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamSecFormTable in-memory RAM DbIO implementation
+ *	YCFBamRamSecFormTable in-memory RAM DbIO implementation
  *	for SecForm.
  */
-public class CFBamRamSecFormTable
-	implements ICFBamSecFormTable
+public class YCFBamRamSecFormTable
+	implements IYCFBamSecFormTable
 {
-	private ICFBamSchema schema;
-	private Map< CFSecSecFormPKey,
-				CFSecSecFormBuff > dictByPKey
-		= new HashMap< CFSecSecFormPKey,
-				CFSecSecFormBuff >();
-	private Map< CFSecSecFormByClusterIdxKey,
-				Map< CFSecSecFormPKey,
-					CFSecSecFormBuff >> dictByClusterIdx
-		= new HashMap< CFSecSecFormByClusterIdxKey,
-				Map< CFSecSecFormPKey,
-					CFSecSecFormBuff >>();
-	private Map< CFSecSecFormBySecAppIdxKey,
-				Map< CFSecSecFormPKey,
-					CFSecSecFormBuff >> dictBySecAppIdx
-		= new HashMap< CFSecSecFormBySecAppIdxKey,
-				Map< CFSecSecFormPKey,
-					CFSecSecFormBuff >>();
-	private Map< CFSecSecFormByUJEEServletIdxKey,
-			CFSecSecFormBuff > dictByUJEEServletIdx
-		= new HashMap< CFSecSecFormByUJEEServletIdxKey,
-			CFSecSecFormBuff >();
+	private IYCFBamSchema schema;
+	private Map< YCFSecSecFormPKey,
+				YCFSecSecFormBuff > dictByPKey
+		= new HashMap< YCFSecSecFormPKey,
+				YCFSecSecFormBuff >();
+	private Map< YCFSecSecFormByClusterIdxKey,
+				Map< YCFSecSecFormPKey,
+					YCFSecSecFormBuff >> dictByClusterIdx
+		= new HashMap< YCFSecSecFormByClusterIdxKey,
+				Map< YCFSecSecFormPKey,
+					YCFSecSecFormBuff >>();
+	private Map< YCFSecSecFormBySecAppIdxKey,
+				Map< YCFSecSecFormPKey,
+					YCFSecSecFormBuff >> dictBySecAppIdx
+		= new HashMap< YCFSecSecFormBySecAppIdxKey,
+				Map< YCFSecSecFormPKey,
+					YCFSecSecFormBuff >>();
+	private Map< YCFSecSecFormByUJEEServletIdxKey,
+			YCFSecSecFormBuff > dictByUJEEServletIdx
+		= new HashMap< YCFSecSecFormByUJEEServletIdxKey,
+			YCFSecSecFormBuff >();
 
-	public CFBamRamSecFormTable( ICFBamSchema argSchema ) {
+	public YCFBamRamSecFormTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createSecForm( CFSecAuthorization Authorization,
-		CFSecSecFormBuff Buff )
+	public void createSecForm( YCFSecAuthorization Authorization,
+		YCFSecSecFormBuff Buff )
 	{
 		final String S_ProcName = "createSecForm";
-		CFSecSecFormPKey pkey = schema.getFactorySecForm().newPKey();
+		YCFSecSecFormPKey pkey = schema.getFactorySecForm().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
-		pkey.setRequiredSecFormId( ((CFBamRamClusterTable)schema.getTableCluster()).nextSecFormIdGen( Authorization,
+		pkey.setRequiredSecFormId( ((YCFBamRamClusterTable)schema.getTableCluster()).nextSecFormIdGen( Authorization,
 			Buff.getRequiredClusterId() ) );
 		Buff.setRequiredClusterId( pkey.getRequiredClusterId() );
 		Buff.setRequiredSecFormId( pkey.getRequiredSecFormId() );
-		CFSecSecFormByClusterIdxKey keyClusterIdx = schema.getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey keyClusterIdx = schema.getFactorySecForm().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFSecSecFormBySecAppIdxKey keySecAppIdx = schema.getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey keySecAppIdx = schema.getFactorySecForm().newSecAppIdxKey();
 		keySecAppIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keySecAppIdx.setRequiredSecAppId( Buff.getRequiredSecAppId() );
 
-		CFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx = schema.getFactorySecForm().newUJEEServletIdxKey();
+		YCFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx = schema.getFactorySecForm().newUJEEServletIdxKey();
 		keyUJEEServletIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyUJEEServletIdx.setRequiredSecAppId( Buff.getRequiredSecAppId() );
 		keyUJEEServletIdx.setRequiredJEEServletMapName( Buff.getRequiredJEEServletMapName() );
@@ -102,11 +102,11 @@ public class CFBamRamSecFormTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUJEEServletIdx.containsKey( keyUJEEServletIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"SecFormUJEEServletIdx",
 				keyUJEEServletIdx );
@@ -121,7 +121,7 @@ public class CFBamRamSecFormTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Owner",
 						"SecFormCluster",
@@ -140,7 +140,7 @@ public class CFBamRamSecFormTable
 						Buff.getRequiredClusterId(),
 						Buff.getRequiredSecAppId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"SecFormApplication",
@@ -154,22 +154,22 @@ public class CFBamRamSecFormTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFSecSecFormPKey, CFSecSecFormBuff > subdictClusterIdx;
+		Map< YCFSecSecFormPKey, YCFSecSecFormBuff > subdictClusterIdx;
 		if( dictByClusterIdx.containsKey( keyClusterIdx ) ) {
 			subdictClusterIdx = dictByClusterIdx.get( keyClusterIdx );
 		}
 		else {
-			subdictClusterIdx = new HashMap< CFSecSecFormPKey, CFSecSecFormBuff >();
+			subdictClusterIdx = new HashMap< YCFSecSecFormPKey, YCFSecSecFormBuff >();
 			dictByClusterIdx.put( keyClusterIdx, subdictClusterIdx );
 		}
 		subdictClusterIdx.put( pkey, Buff );
 
-		Map< CFSecSecFormPKey, CFSecSecFormBuff > subdictSecAppIdx;
+		Map< YCFSecSecFormPKey, YCFSecSecFormBuff > subdictSecAppIdx;
 		if( dictBySecAppIdx.containsKey( keySecAppIdx ) ) {
 			subdictSecAppIdx = dictBySecAppIdx.get( keySecAppIdx );
 		}
 		else {
-			subdictSecAppIdx = new HashMap< CFSecSecFormPKey, CFSecSecFormBuff >();
+			subdictSecAppIdx = new HashMap< YCFSecSecFormPKey, YCFSecSecFormBuff >();
 			dictBySecAppIdx.put( keySecAppIdx, subdictSecAppIdx );
 		}
 		subdictSecAppIdx.put( pkey, Buff );
@@ -178,14 +178,14 @@ public class CFBamRamSecFormTable
 
 	}
 
-	public CFSecSecFormBuff readDerived( CFSecAuthorization Authorization,
-		CFSecSecFormPKey PKey )
+	public YCFSecSecFormBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readDerived";
-		CFSecSecFormPKey key = schema.getFactorySecForm().newPKey();
+		final String S_ProcName = "YCFBamRamSecForm.readDerived";
+		YCFSecSecFormPKey key = schema.getFactorySecForm().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredSecFormId( PKey.getRequiredSecFormId() );
-		CFSecSecFormBuff buff;
+		YCFSecSecFormBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -195,14 +195,14 @@ public class CFBamRamSecFormTable
 		return( buff );
 	}
 
-	public CFSecSecFormBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecSecFormPKey PKey )
+	public YCFSecSecFormBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readDerived";
-		CFSecSecFormPKey key = schema.getFactorySecForm().newPKey();
+		final String S_ProcName = "YCFBamRamSecForm.readDerived";
+		YCFSecSecFormPKey key = schema.getFactorySecForm().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredSecFormId( PKey.getRequiredSecFormId() );
-		CFSecSecFormBuff buff;
+		YCFSecSecFormBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -212,10 +212,10 @@ public class CFBamRamSecFormTable
 		return( buff );
 	}
 
-	public CFSecSecFormBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamSecForm.readAllDerived";
-		CFSecSecFormBuff[] retList = new CFSecSecFormBuff[ dictByPKey.values().size() ];
-		Iterator< CFSecSecFormBuff > iter = dictByPKey.values().iterator();
+	public YCFSecSecFormBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamSecForm.readAllDerived";
+		YCFSecSecFormBuff[] retList = new YCFSecSecFormBuff[ dictByPKey.values().size() ];
+		Iterator< YCFSecSecFormBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -223,74 +223,74 @@ public class CFBamRamSecFormTable
 		return( retList );
 	}
 
-	public CFSecSecFormBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readDerivedByClusterIdx";
-		CFSecSecFormByClusterIdxKey key = schema.getFactorySecForm().newClusterIdxKey();
+		final String S_ProcName = "YCFBamRamSecForm.readDerivedByClusterIdx";
+		YCFSecSecFormByClusterIdxKey key = schema.getFactorySecForm().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 
-		CFSecSecFormBuff[] recArray;
+		YCFSecSecFormBuff[] recArray;
 		if( dictByClusterIdx.containsKey( key ) ) {
-			Map< CFSecSecFormPKey, CFSecSecFormBuff > subdictClusterIdx
+			Map< YCFSecSecFormPKey, YCFSecSecFormBuff > subdictClusterIdx
 				= dictByClusterIdx.get( key );
-			recArray = new CFSecSecFormBuff[ subdictClusterIdx.size() ];
-			Iterator< CFSecSecFormBuff > iter = subdictClusterIdx.values().iterator();
+			recArray = new YCFSecSecFormBuff[ subdictClusterIdx.size() ];
+			Iterator< YCFSecSecFormBuff > iter = subdictClusterIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecSecFormPKey, CFSecSecFormBuff > subdictClusterIdx
-				= new HashMap< CFSecSecFormPKey, CFSecSecFormBuff >();
+			Map< YCFSecSecFormPKey, YCFSecSecFormBuff > subdictClusterIdx
+				= new HashMap< YCFSecSecFormPKey, YCFSecSecFormBuff >();
 			dictByClusterIdx.put( key, subdictClusterIdx );
-			recArray = new CFSecSecFormBuff[0];
+			recArray = new YCFSecSecFormBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecSecFormBuff[] readDerivedBySecAppIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff[] readDerivedBySecAppIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readDerivedBySecAppIdx";
-		CFSecSecFormBySecAppIdxKey key = schema.getFactorySecForm().newSecAppIdxKey();
+		final String S_ProcName = "YCFBamRamSecForm.readDerivedBySecAppIdx";
+		YCFSecSecFormBySecAppIdxKey key = schema.getFactorySecForm().newSecAppIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
 
-		CFSecSecFormBuff[] recArray;
+		YCFSecSecFormBuff[] recArray;
 		if( dictBySecAppIdx.containsKey( key ) ) {
-			Map< CFSecSecFormPKey, CFSecSecFormBuff > subdictSecAppIdx
+			Map< YCFSecSecFormPKey, YCFSecSecFormBuff > subdictSecAppIdx
 				= dictBySecAppIdx.get( key );
-			recArray = new CFSecSecFormBuff[ subdictSecAppIdx.size() ];
-			Iterator< CFSecSecFormBuff > iter = subdictSecAppIdx.values().iterator();
+			recArray = new YCFSecSecFormBuff[ subdictSecAppIdx.size() ];
+			Iterator< YCFSecSecFormBuff > iter = subdictSecAppIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecSecFormPKey, CFSecSecFormBuff > subdictSecAppIdx
-				= new HashMap< CFSecSecFormPKey, CFSecSecFormBuff >();
+			Map< YCFSecSecFormPKey, YCFSecSecFormBuff > subdictSecAppIdx
+				= new HashMap< YCFSecSecFormPKey, YCFSecSecFormBuff >();
 			dictBySecAppIdx.put( key, subdictSecAppIdx );
-			recArray = new CFSecSecFormBuff[0];
+			recArray = new YCFSecSecFormBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecSecFormBuff readDerivedByUJEEServletIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff readDerivedByUJEEServletIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId,
 		String JEEServletMapName )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readDerivedByUJEEServletIdx";
-		CFSecSecFormByUJEEServletIdxKey key = schema.getFactorySecForm().newUJEEServletIdxKey();
+		final String S_ProcName = "YCFBamRamSecForm.readDerivedByUJEEServletIdx";
+		YCFSecSecFormByUJEEServletIdxKey key = schema.getFactorySecForm().newUJEEServletIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
 		key.setRequiredJEEServletMapName( JEEServletMapName );
 
-		CFSecSecFormBuff buff;
+		YCFSecSecFormBuff buff;
 		if( dictByUJEEServletIdx.containsKey( key ) ) {
 			buff = dictByUJEEServletIdx.get( key );
 		}
@@ -300,16 +300,16 @@ public class CFBamRamSecFormTable
 		return( buff );
 	}
 
-	public CFSecSecFormBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecFormId )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readDerivedByIdIdx() ";
-		CFSecSecFormPKey key = schema.getFactorySecForm().newPKey();
+		final String S_ProcName = "YCFBamRamSecForm.readDerivedByIdIdx() ";
+		YCFSecSecFormPKey key = schema.getFactorySecForm().newPKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecFormId( SecFormId );
 
-		CFSecSecFormBuff buff;
+		YCFSecSecFormBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -319,41 +319,41 @@ public class CFBamRamSecFormTable
 		return( buff );
 	}
 
-	public CFSecSecFormBuff readBuff( CFSecAuthorization Authorization,
-		CFSecSecFormPKey PKey )
+	public YCFSecSecFormBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readBuff";
-		CFSecSecFormBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamSecForm.readBuff";
+		YCFSecSecFormBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a00b" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecSecFormBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecSecFormPKey PKey )
+	public YCFSecSecFormBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFSecSecFormBuff buff = readDerived( Authorization, PKey );
+		YCFSecSecFormBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a00b" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecSecFormBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFSecSecFormBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readAllBuff";
-		CFSecSecFormBuff buff;
-		ArrayList<CFSecSecFormBuff> filteredList = new ArrayList<CFSecSecFormBuff>();
-		CFSecSecFormBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamSecForm.readAllBuff";
+		YCFSecSecFormBuff buff;
+		ArrayList<YCFSecSecFormBuff> filteredList = new ArrayList<YCFSecSecFormBuff>();
+		YCFSecSecFormBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a00b" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecSecFormBuff[0] ) );
+		return( filteredList.toArray( new YCFSecSecFormBuff[0] ) );
 	}
 
 	/**
@@ -363,78 +363,78 @@ public class CFBamRamSecFormTable
 	 *
 	 *	@return All the specific SecForm instances in the database accessible for the Authorization.
 	 */
-	public CFSecSecFormBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		Long priorClusterId,
 		Integer priorSecFormId )
 	{
 		final String S_ProcName = "pageAllBuff";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public CFSecSecFormBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecFormId )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readBuffByIdIdx() ";
-		CFSecSecFormBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamSecForm.readBuffByIdIdx() ";
+		YCFSecSecFormBuff buff = readDerivedByIdIdx( Authorization,
 			ClusterId,
 			SecFormId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a00b" ) ) {
-			return( (CFSecSecFormBuff)buff );
+			return( (YCFSecSecFormBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecSecFormBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readBuffByClusterIdx() ";
-		CFSecSecFormBuff buff;
-		ArrayList<CFSecSecFormBuff> filteredList = new ArrayList<CFSecSecFormBuff>();
-		CFSecSecFormBuff[] buffList = readDerivedByClusterIdx( Authorization,
+		final String S_ProcName = "YCFBamRamSecForm.readBuffByClusterIdx() ";
+		YCFSecSecFormBuff buff;
+		ArrayList<YCFSecSecFormBuff> filteredList = new ArrayList<YCFSecSecFormBuff>();
+		YCFSecSecFormBuff[] buffList = readDerivedByClusterIdx( Authorization,
 			ClusterId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a00b" ) ) {
-				filteredList.add( (CFSecSecFormBuff)buff );
+				filteredList.add( (YCFSecSecFormBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecSecFormBuff[0] ) );
+		return( filteredList.toArray( new YCFSecSecFormBuff[0] ) );
 	}
 
-	public CFSecSecFormBuff[] readBuffBySecAppIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff[] readBuffBySecAppIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readBuffBySecAppIdx() ";
-		CFSecSecFormBuff buff;
-		ArrayList<CFSecSecFormBuff> filteredList = new ArrayList<CFSecSecFormBuff>();
-		CFSecSecFormBuff[] buffList = readDerivedBySecAppIdx( Authorization,
+		final String S_ProcName = "YCFBamRamSecForm.readBuffBySecAppIdx() ";
+		YCFSecSecFormBuff buff;
+		ArrayList<YCFSecSecFormBuff> filteredList = new ArrayList<YCFSecSecFormBuff>();
+		YCFSecSecFormBuff[] buffList = readDerivedBySecAppIdx( Authorization,
 			ClusterId,
 			SecAppId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a00b" ) ) {
-				filteredList.add( (CFSecSecFormBuff)buff );
+				filteredList.add( (YCFSecSecFormBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecSecFormBuff[0] ) );
+		return( filteredList.toArray( new YCFSecSecFormBuff[0] ) );
 	}
 
-	public CFSecSecFormBuff readBuffByUJEEServletIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff readBuffByUJEEServletIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId,
 		String JEEServletMapName )
 	{
-		final String S_ProcName = "CFBamRamSecForm.readBuffByUJEEServletIdx() ";
-		CFSecSecFormBuff buff = readDerivedByUJEEServletIdx( Authorization,
+		final String S_ProcName = "YCFBamRamSecForm.readBuffByUJEEServletIdx() ";
+		YCFSecSecFormBuff buff = readDerivedByUJEEServletIdx( Authorization,
 			ClusterId,
 			SecAppId,
 			JEEServletMapName );
 		if( ( buff != null ) && buff.getClassCode().equals( "a00b" ) ) {
-			return( (CFSecSecFormBuff)buff );
+			return( (YCFSecSecFormBuff)buff );
 		}
 		else {
 			return( null );
@@ -450,15 +450,15 @@ public class CFBamRamSecFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFSecSecFormBuff[] pageBuffByClusterIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff[] pageBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Integer priorSecFormId )
 	{
 		final String S_ProcName = "pageBuffByClusterIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -472,58 +472,58 @@ public class CFBamRamSecFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFSecSecFormBuff[] pageBuffBySecAppIdx( CFSecAuthorization Authorization,
+	public YCFSecSecFormBuff[] pageBuffBySecAppIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId,
 		Long priorClusterId,
 		Integer priorSecFormId )
 	{
 		final String S_ProcName = "pageBuffBySecAppIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateSecForm( CFSecAuthorization Authorization,
-		CFSecSecFormBuff Buff )
+	public void updateSecForm( YCFSecAuthorization Authorization,
+		YCFSecSecFormBuff Buff )
 	{
-		CFSecSecFormPKey pkey = schema.getFactorySecForm().newPKey();
+		YCFSecSecFormPKey pkey = schema.getFactorySecForm().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredSecFormId( Buff.getRequiredSecFormId() );
-		CFSecSecFormBuff existing = dictByPKey.get( pkey );
+		YCFSecSecFormBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateSecForm",
 				"Existing record not found",
 				"SecForm",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateSecForm",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFSecSecFormByClusterIdxKey existingKeyClusterIdx = schema.getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey existingKeyClusterIdx = schema.getFactorySecForm().newClusterIdxKey();
 		existingKeyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecSecFormByClusterIdxKey newKeyClusterIdx = schema.getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey newKeyClusterIdx = schema.getFactorySecForm().newClusterIdxKey();
 		newKeyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFSecSecFormBySecAppIdxKey existingKeySecAppIdx = schema.getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey existingKeySecAppIdx = schema.getFactorySecForm().newSecAppIdxKey();
 		existingKeySecAppIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeySecAppIdx.setRequiredSecAppId( existing.getRequiredSecAppId() );
 
-		CFSecSecFormBySecAppIdxKey newKeySecAppIdx = schema.getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey newKeySecAppIdx = schema.getFactorySecForm().newSecAppIdxKey();
 		newKeySecAppIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeySecAppIdx.setRequiredSecAppId( Buff.getRequiredSecAppId() );
 
-		CFSecSecFormByUJEEServletIdxKey existingKeyUJEEServletIdx = schema.getFactorySecForm().newUJEEServletIdxKey();
+		YCFSecSecFormByUJEEServletIdxKey existingKeyUJEEServletIdx = schema.getFactorySecForm().newUJEEServletIdxKey();
 		existingKeyUJEEServletIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyUJEEServletIdx.setRequiredSecAppId( existing.getRequiredSecAppId() );
 		existingKeyUJEEServletIdx.setRequiredJEEServletMapName( existing.getRequiredJEEServletMapName() );
 
-		CFSecSecFormByUJEEServletIdxKey newKeyUJEEServletIdx = schema.getFactorySecForm().newUJEEServletIdxKey();
+		YCFSecSecFormByUJEEServletIdxKey newKeyUJEEServletIdx = schema.getFactorySecForm().newUJEEServletIdxKey();
 		newKeyUJEEServletIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyUJEEServletIdx.setRequiredSecAppId( Buff.getRequiredSecAppId() );
 		newKeyUJEEServletIdx.setRequiredJEEServletMapName( Buff.getRequiredJEEServletMapName() );
@@ -532,7 +532,7 @@ public class CFBamRamSecFormTable
 
 		if( ! existingKeyUJEEServletIdx.equals( newKeyUJEEServletIdx ) ) {
 			if( dictByUJEEServletIdx.containsKey( newKeyUJEEServletIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateSecForm",
 					"SecFormUJEEServletIdx",
 					newKeyUJEEServletIdx );
@@ -548,7 +548,7 @@ public class CFBamRamSecFormTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSecForm",
 						"Owner",
 						"SecFormCluster",
@@ -566,7 +566,7 @@ public class CFBamRamSecFormTable
 						Buff.getRequiredClusterId(),
 						Buff.getRequiredSecAppId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSecForm",
 						"Container",
 						"SecFormApplication",
@@ -578,7 +578,7 @@ public class CFBamRamSecFormTable
 
 		// Update is valid
 
-		Map< CFSecSecFormPKey, CFSecSecFormBuff > subdict;
+		Map< YCFSecSecFormPKey, YCFSecSecFormBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -591,7 +591,7 @@ public class CFBamRamSecFormTable
 			subdict = dictByClusterIdx.get( newKeyClusterIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecSecFormPKey, CFSecSecFormBuff >();
+			subdict = new HashMap< YCFSecSecFormPKey, YCFSecSecFormBuff >();
 			dictByClusterIdx.put( newKeyClusterIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -604,7 +604,7 @@ public class CFBamRamSecFormTable
 			subdict = dictBySecAppIdx.get( newKeySecAppIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecSecFormPKey, CFSecSecFormBuff >();
+			subdict = new HashMap< YCFSecSecFormPKey, YCFSecSecFormBuff >();
 			dictBySecAppIdx.put( newKeySecAppIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -614,32 +614,32 @@ public class CFBamRamSecFormTable
 
 	}
 
-	public void deleteSecForm( CFSecAuthorization Authorization,
-		CFSecSecFormBuff Buff )
+	public void deleteSecForm( YCFSecAuthorization Authorization,
+		YCFSecSecFormBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamSecFormTable.deleteSecForm() ";
+		final String S_ProcName = "YCFBamRamSecFormTable.deleteSecForm() ";
 		String classCode;
-		CFSecSecFormPKey pkey = schema.getFactorySecForm().newPKey();
+		YCFSecSecFormPKey pkey = schema.getFactorySecForm().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredSecFormId( Buff.getRequiredSecFormId() );
-		CFSecSecFormBuff existing = dictByPKey.get( pkey );
+		YCFSecSecFormBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteSecForm",
 				pkey );
 		}
-		CFSecSecFormByClusterIdxKey keyClusterIdx = schema.getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey keyClusterIdx = schema.getFactorySecForm().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecSecFormBySecAppIdxKey keySecAppIdx = schema.getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey keySecAppIdx = schema.getFactorySecForm().newSecAppIdxKey();
 		keySecAppIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keySecAppIdx.setRequiredSecAppId( existing.getRequiredSecAppId() );
 
-		CFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx = schema.getFactorySecForm().newUJEEServletIdxKey();
+		YCFSecSecFormByUJEEServletIdxKey keyUJEEServletIdx = schema.getFactorySecForm().newUJEEServletIdxKey();
 		keyUJEEServletIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUJEEServletIdx.setRequiredSecAppId( existing.getRequiredSecAppId() );
 		keyUJEEServletIdx.setRequiredJEEServletMapName( existing.getRequiredJEEServletMapName() );
@@ -647,7 +647,7 @@ public class CFBamRamSecFormTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFSecSecFormPKey, CFSecSecFormBuff > subdict;
+		Map< YCFSecSecFormPKey, YCFSecSecFormBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -660,18 +660,18 @@ public class CFBamRamSecFormTable
 		dictByUJEEServletIdx.remove( keyUJEEServletIdx );
 
 	}
-	public void deleteSecFormByIdIdx( CFSecAuthorization Authorization,
+	public void deleteSecFormByIdIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecFormId )
 	{
-		CFSecSecFormPKey key = schema.getFactorySecForm().newPKey();
+		YCFSecSecFormPKey key = schema.getFactorySecForm().newPKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredSecFormId( argSecFormId );
 		deleteSecFormByIdIdx( Authorization, key );
 	}
 
-	public void deleteSecFormByIdIdx( CFSecAuthorization Authorization,
-		CFSecSecFormPKey argKey )
+	public void deleteSecFormByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecSecFormPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -679,16 +679,16 @@ public class CFBamRamSecFormTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFSecSecFormBuff cur;
-		LinkedList<CFSecSecFormBuff> matchSet = new LinkedList<CFSecSecFormBuff>();
-		Iterator<CFSecSecFormBuff> values = dictByPKey.values().iterator();
+		YCFSecSecFormBuff cur;
+		LinkedList<YCFSecSecFormBuff> matchSet = new LinkedList<YCFSecSecFormBuff>();
+		Iterator<YCFSecSecFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecSecFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecSecFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecForm().readDerivedByIdIdx( Authorization,
@@ -698,32 +698,32 @@ public class CFBamRamSecFormTable
 		}
 	}
 
-	public void deleteSecFormByClusterIdx( CFSecAuthorization Authorization,
+	public void deleteSecFormByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId )
 	{
-		CFSecSecFormByClusterIdxKey key = schema.getFactorySecForm().newClusterIdxKey();
+		YCFSecSecFormByClusterIdxKey key = schema.getFactorySecForm().newClusterIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		deleteSecFormByClusterIdx( Authorization, key );
 	}
 
-	public void deleteSecFormByClusterIdx( CFSecAuthorization Authorization,
-		CFSecSecFormByClusterIdxKey argKey )
+	public void deleteSecFormByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecSecFormByClusterIdxKey argKey )
 	{
-		CFSecSecFormBuff cur;
+		YCFSecSecFormBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecSecFormBuff> matchSet = new LinkedList<CFSecSecFormBuff>();
-		Iterator<CFSecSecFormBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecSecFormBuff> matchSet = new LinkedList<YCFSecSecFormBuff>();
+		Iterator<YCFSecSecFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecSecFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecSecFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecForm().readDerivedByIdIdx( Authorization,
@@ -733,35 +733,35 @@ public class CFBamRamSecFormTable
 		}
 	}
 
-	public void deleteSecFormBySecAppIdx( CFSecAuthorization Authorization,
+	public void deleteSecFormBySecAppIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecAppId )
 	{
-		CFSecSecFormBySecAppIdxKey key = schema.getFactorySecForm().newSecAppIdxKey();
+		YCFSecSecFormBySecAppIdxKey key = schema.getFactorySecForm().newSecAppIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredSecAppId( argSecAppId );
 		deleteSecFormBySecAppIdx( Authorization, key );
 	}
 
-	public void deleteSecFormBySecAppIdx( CFSecAuthorization Authorization,
-		CFSecSecFormBySecAppIdxKey argKey )
+	public void deleteSecFormBySecAppIdx( YCFSecAuthorization Authorization,
+		YCFSecSecFormBySecAppIdxKey argKey )
 	{
-		CFSecSecFormBuff cur;
+		YCFSecSecFormBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecSecFormBuff> matchSet = new LinkedList<CFSecSecFormBuff>();
-		Iterator<CFSecSecFormBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecSecFormBuff> matchSet = new LinkedList<YCFSecSecFormBuff>();
+		Iterator<YCFSecSecFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecSecFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecSecFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecForm().readDerivedByIdIdx( Authorization,
@@ -771,22 +771,22 @@ public class CFBamRamSecFormTable
 		}
 	}
 
-	public void deleteSecFormByUJEEServletIdx( CFSecAuthorization Authorization,
+	public void deleteSecFormByUJEEServletIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecAppId,
 		String argJEEServletMapName )
 	{
-		CFSecSecFormByUJEEServletIdxKey key = schema.getFactorySecForm().newUJEEServletIdxKey();
+		YCFSecSecFormByUJEEServletIdxKey key = schema.getFactorySecForm().newUJEEServletIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredSecAppId( argSecAppId );
 		key.setRequiredJEEServletMapName( argJEEServletMapName );
 		deleteSecFormByUJEEServletIdx( Authorization, key );
 	}
 
-	public void deleteSecFormByUJEEServletIdx( CFSecAuthorization Authorization,
-		CFSecSecFormByUJEEServletIdxKey argKey )
+	public void deleteSecFormByUJEEServletIdx( YCFSecAuthorization Authorization,
+		YCFSecSecFormByUJEEServletIdxKey argKey )
 	{
-		CFSecSecFormBuff cur;
+		YCFSecSecFormBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -794,15 +794,15 @@ public class CFBamRamSecFormTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecSecFormBuff> matchSet = new LinkedList<CFSecSecFormBuff>();
-		Iterator<CFSecSecFormBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecSecFormBuff> matchSet = new LinkedList<YCFSecSecFormBuff>();
+		Iterator<YCFSecSecFormBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecSecFormBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecSecFormBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecForm().readDerivedByIdIdx( Authorization,

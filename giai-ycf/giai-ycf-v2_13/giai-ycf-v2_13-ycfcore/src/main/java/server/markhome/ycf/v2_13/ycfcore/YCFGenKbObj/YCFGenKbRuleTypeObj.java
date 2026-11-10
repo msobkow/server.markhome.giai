@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb RuleType.
+// Description: Java 11 base object instance implementation for YCFGenKb RuleType.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,31 +27,31 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbRuleTypeObj
-	implements ICFGenKbRuleTypeObj
+public class YCFGenKbRuleTypeObj
+	implements IYCFGenKbRuleTypeObj
 {
 	public final static String CLASS_CODE = "a926";
 	protected boolean isNew;
-	protected ICFGenKbRuleTypeEditObj edit;
-	protected ICFGenKbSchemaObj schema;
-	protected CFGenKbRuleTypePKey pKey;
-	protected CFGenKbRuleTypeBuff buff;
+	protected IYCFGenKbRuleTypeEditObj edit;
+	protected IYCFGenKbSchemaObj schema;
+	protected YCFGenKbRuleTypePKey pKey;
+	protected YCFGenKbRuleTypeBuff buff;
 
-	public CFGenKbRuleTypeObj() {
+	public YCFGenKbRuleTypeObj() {
 		isNew = true;
 	}
 
-	public CFGenKbRuleTypeObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbRuleTypeObj( IYCFGenKbSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -65,11 +65,11 @@ public class CFGenKbRuleTypeObj
 		return( "RuleType" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -79,14 +79,14 @@ public class CFGenKbRuleTypeObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -97,10 +97,10 @@ public class CFGenKbRuleTypeObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -109,20 +109,20 @@ public class CFGenKbRuleTypeObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -146,13 +146,13 @@ public class CFGenKbRuleTypeObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -166,13 +166,13 @@ public class CFGenKbRuleTypeObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -184,46 +184,46 @@ public class CFGenKbRuleTypeObj
 		return( fullName );
 	}
 
-	public ICFGenKbRuleTypeObj realise() {
-		ICFGenKbRuleTypeObj retobj = ((ICFGenKbSchemaObj)schema).getRuleTypeTableObj().realiseRuleType(
-			(ICFGenKbRuleTypeObj)this );
-		return( (ICFGenKbRuleTypeObj)retobj );
+	public IYCFGenKbRuleTypeObj realise() {
+		IYCFGenKbRuleTypeObj retobj = ((IYCFGenKbSchemaObj)schema).getRuleTypeTableObj().realiseRuleType(
+			(IYCFGenKbRuleTypeObj)this );
+		return( (IYCFGenKbRuleTypeObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getRuleTypeTableObj().reallyDeepDisposeRuleType( (ICFGenKbRuleTypeObj)this );
+		((IYCFGenKbSchemaObj)schema).getRuleTypeTableObj().reallyDeepDisposeRuleType( (IYCFGenKbRuleTypeObj)this );
 	}
 
-	public ICFGenKbRuleTypeObj read() {
-		ICFGenKbRuleTypeObj retobj = ((ICFGenKbSchemaObj)schema).getRuleTypeTableObj().readRuleTypeByIdIdx( getPKey().getRequiredId(), false );
-		return( (ICFGenKbRuleTypeObj)retobj );
+	public IYCFGenKbRuleTypeObj read() {
+		IYCFGenKbRuleTypeObj retobj = ((IYCFGenKbSchemaObj)schema).getRuleTypeTableObj().readRuleTypeByIdIdx( getPKey().getRequiredId(), false );
+		return( (IYCFGenKbRuleTypeObj)retobj );
 	}
 
-	public ICFGenKbRuleTypeObj read( boolean forceRead ) {
-		ICFGenKbRuleTypeObj retobj = ((ICFGenKbSchemaObj)schema).getRuleTypeTableObj().readRuleTypeByIdIdx( getPKey().getRequiredId(), forceRead );
-		return( (ICFGenKbRuleTypeObj)retobj );
+	public IYCFGenKbRuleTypeObj read( boolean forceRead ) {
+		IYCFGenKbRuleTypeObj retobj = ((IYCFGenKbSchemaObj)schema).getRuleTypeTableObj().readRuleTypeByIdIdx( getPKey().getRequiredId(), forceRead );
+		return( (IYCFGenKbRuleTypeObj)retobj );
 	}
 
-	public ICFGenKbRuleTypeTableObj getRuleTypeTable() {
-		return( ((ICFGenKbSchemaObj)schema).getRuleTypeTableObj() );
+	public IYCFGenKbRuleTypeTableObj getRuleTypeTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getRuleTypeTableObj() );
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
+	public void setSchema( IYCFGenKbSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFGenKbRuleTypeBuff getBuff() {
+	public YCFGenKbRuleTypeBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableRuleType().readDerivedByIdIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableRuleType().readDerivedByIdIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredId() );
 				if( buff != null ) {
 					copyBuffToPKey();
@@ -233,30 +233,30 @@ public class CFGenKbRuleTypeObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbRuleTypeBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbRuleTypeBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbRuleTypeBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbRuleTypeBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbRuleTypeBuff" );
+				"YCFGenKbRuleTypeBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
 	}
 
-	public CFGenKbRuleTypeBuff getRuleTypeBuff() {
-		return( (CFGenKbRuleTypeBuff)getBuff() );
+	public YCFGenKbRuleTypeBuff getRuleTypeBuff() {
+		return( (YCFGenKbRuleTypeBuff)getBuff() );
 	}
 
-	public CFGenKbRuleTypePKey getPKey() {
+	public YCFGenKbRuleTypePKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey();
+			pKey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryRuleType().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFGenKbRuleTypePKey value ) {
+	public void setPKey( YCFGenKbRuleTypePKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -271,31 +271,31 @@ public class CFGenKbRuleTypeObj
 		isNew = value;
 	}
 
-	public ICFGenKbRuleTypeEditObj beginEdit() {
+	public IYCFGenKbRuleTypeEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbRuleTypeObj lockobj;
+		IYCFGenKbRuleTypeObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbRuleTypeObj)this;
+			lockobj = (IYCFGenKbRuleTypeObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getRuleTypeTableObj().lockRuleType( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getRuleTypeTableObj().lockRuleType( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getRuleTypeTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbRuleTypeEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getRuleTypeTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbRuleTypeEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFGenKbRuleTypeEditObj getEdit() {
+	public IYCFGenKbRuleTypeEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFGenKbRuleTypeEditObj getEditAsRuleType() {
-		return( (ICFGenKbRuleTypeEditObj)edit );
+	public IYCFGenKbRuleTypeEditObj getEditAsRuleType() {
+		return( (IYCFGenKbRuleTypeEditObj)edit );
 	}
 
 	public short getRequiredId() {

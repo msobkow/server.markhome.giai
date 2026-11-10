@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a TSecGroup by TenantVisIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,18 +37,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbTSecGroupByTenantVisIdxKey
+public class YCFGenKbTSecGroupByTenantVisIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected boolean requiredIsVisible;
-	public CFGenKbTSecGroupByTenantVisIdxKey() {
-		requiredTenantId = CFGenKbTSecGroupBuff.TENANTID_INIT_VALUE;
-		requiredIsVisible = CFGenKbTSecGroupBuff.ISVISIBLE_INIT_VALUE;
+	public YCFGenKbTSecGroupByTenantVisIdxKey() {
+		requiredTenantId = YCFGenKbTSecGroupBuff.TENANTID_INIT_VALUE;
+		requiredIsVisible = YCFGenKbTSecGroupBuff.ISVISIBLE_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -56,13 +56,13 @@ public class CFGenKbTSecGroupByTenantVisIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbTSecGroupBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbTSecGroupBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbTSecGroupBuff.TENANTID_MIN_VALUE );
+				YCFGenKbTSecGroupBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -79,8 +79,8 @@ public class CFGenKbTSecGroupByTenantVisIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbTSecGroupByTenantVisIdxKey ) {
-			CFGenKbTSecGroupByTenantVisIdxKey rhs = (CFGenKbTSecGroupByTenantVisIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGroupByTenantVisIdxKey ) {
+			YCFGenKbTSecGroupByTenantVisIdxKey rhs = (YCFGenKbTSecGroupByTenantVisIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -89,8 +89,8 @@ public class CFGenKbTSecGroupByTenantVisIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTSecGroupBuff ) {
-			CFGenKbTSecGroupBuff rhs = (CFGenKbTSecGroupBuff)obj;
+		else if( obj instanceof YCFGenKbTSecGroupBuff ) {
+			YCFGenKbTSecGroupBuff rhs = (YCFGenKbTSecGroupBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -120,8 +120,8 @@ public class CFGenKbTSecGroupByTenantVisIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbTSecGroupByTenantVisIdxKey ) {
-			CFGenKbTSecGroupByTenantVisIdxKey rhs = (CFGenKbTSecGroupByTenantVisIdxKey)obj;
+		else if( obj instanceof YCFGenKbTSecGroupByTenantVisIdxKey ) {
+			YCFGenKbTSecGroupByTenantVisIdxKey rhs = (YCFGenKbTSecGroupByTenantVisIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -140,8 +140,8 @@ public class CFGenKbTSecGroupByTenantVisIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTSecGroupBuff ) {
-			CFGenKbTSecGroupBuff rhs = (CFGenKbTSecGroupBuff)obj;
+		else if( obj instanceof YCFGenKbTSecGroupBuff ) {
+			YCFGenKbTSecGroupBuff rhs = (YCFGenKbTSecGroupBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -161,7 +161,7 @@ public class CFGenKbTSecGroupByTenantVisIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -170,7 +170,7 @@ public class CFGenKbTSecGroupByTenantVisIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbTSecGroupByTenantVisIdx"
+		String ret = "<YCFGenKbTSecGroupByTenantVisIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredIsVisible=" + (( getRequiredIsVisible() ) ? "\"true\"" : "\"false\"" )
 			+ "/>";

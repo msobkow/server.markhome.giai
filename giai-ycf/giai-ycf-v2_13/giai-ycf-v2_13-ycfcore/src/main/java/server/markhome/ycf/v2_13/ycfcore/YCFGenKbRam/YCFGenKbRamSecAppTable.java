@@ -2,11 +2,11 @@
 // Description: Java 11 in-memory RAM DbIO implementation for SecApp.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,71 +28,71 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbRam;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /*
- *	CFGenKbRamSecAppTable in-memory RAM DbIO implementation
+ *	YCFGenKbRamSecAppTable in-memory RAM DbIO implementation
  *	for SecApp.
  */
-public class CFGenKbRamSecAppTable
-	implements ICFGenKbSecAppTable
+public class YCFGenKbRamSecAppTable
+	implements IYCFGenKbSecAppTable
 {
-	private ICFGenKbSchema schema;
-	private Map< CFGenKbSecAppPKey,
-				CFGenKbSecAppBuff > dictByPKey
-		= new HashMap< CFGenKbSecAppPKey,
-				CFGenKbSecAppBuff >();
-	private Map< CFGenKbSecAppByClusterIdxKey,
-				Map< CFGenKbSecAppPKey,
-					CFGenKbSecAppBuff >> dictByClusterIdx
-		= new HashMap< CFGenKbSecAppByClusterIdxKey,
-				Map< CFGenKbSecAppPKey,
-					CFGenKbSecAppBuff >>();
-	private Map< CFGenKbSecAppByUJEEMountIdxKey,
-			CFGenKbSecAppBuff > dictByUJEEMountIdx
-		= new HashMap< CFGenKbSecAppByUJEEMountIdxKey,
-			CFGenKbSecAppBuff >();
+	private IYCFGenKbSchema schema;
+	private Map< YCFGenKbSecAppPKey,
+				YCFGenKbSecAppBuff > dictByPKey
+		= new HashMap< YCFGenKbSecAppPKey,
+				YCFGenKbSecAppBuff >();
+	private Map< YCFGenKbSecAppByClusterIdxKey,
+				Map< YCFGenKbSecAppPKey,
+					YCFGenKbSecAppBuff >> dictByClusterIdx
+		= new HashMap< YCFGenKbSecAppByClusterIdxKey,
+				Map< YCFGenKbSecAppPKey,
+					YCFGenKbSecAppBuff >>();
+	private Map< YCFGenKbSecAppByUJEEMountIdxKey,
+			YCFGenKbSecAppBuff > dictByUJEEMountIdx
+		= new HashMap< YCFGenKbSecAppByUJEEMountIdxKey,
+			YCFGenKbSecAppBuff >();
 
-	public CFGenKbRamSecAppTable( ICFGenKbSchema argSchema ) {
+	public YCFGenKbRamSecAppTable( IYCFGenKbSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createSecApp( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppBuff Buff )
+	public void createSecApp( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppBuff Buff )
 	{
 		final String S_ProcName = "createSecApp";
-		CFGenKbSecAppPKey pkey = schema.getFactorySecApp().newPKey();
+		YCFGenKbSecAppPKey pkey = schema.getFactorySecApp().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
-		pkey.setRequiredSecAppId( ((CFGenKbRamClusterTable)schema.getTableCluster()).nextSecAppIdGen( Authorization,
+		pkey.setRequiredSecAppId( ((YCFGenKbRamClusterTable)schema.getTableCluster()).nextSecAppIdGen( Authorization,
 			Buff.getRequiredClusterId() ) );
 		Buff.setRequiredClusterId( pkey.getRequiredClusterId() );
 		Buff.setRequiredSecAppId( pkey.getRequiredSecAppId() );
-		CFGenKbSecAppByClusterIdxKey keyClusterIdx = schema.getFactorySecApp().newClusterIdxKey();
+		YCFGenKbSecAppByClusterIdxKey keyClusterIdx = schema.getFactorySecApp().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFGenKbSecAppByUJEEMountIdxKey keyUJEEMountIdx = schema.getFactorySecApp().newUJEEMountIdxKey();
+		YCFGenKbSecAppByUJEEMountIdxKey keyUJEEMountIdx = schema.getFactorySecApp().newUJEEMountIdxKey();
 		keyUJEEMountIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyUJEEMountIdx.setRequiredJEEMountName( Buff.getRequiredJEEMountName() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUJEEMountIdx.containsKey( keyUJEEMountIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"SecAppUJEEMountIdx",
 				keyUJEEMountIdx );
@@ -107,7 +107,7 @@ public class CFGenKbRamSecAppTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"SecAppCluster",
@@ -121,12 +121,12 @@ public class CFGenKbRamSecAppTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFGenKbSecAppPKey, CFGenKbSecAppBuff > subdictClusterIdx;
+		Map< YCFGenKbSecAppPKey, YCFGenKbSecAppBuff > subdictClusterIdx;
 		if( dictByClusterIdx.containsKey( keyClusterIdx ) ) {
 			subdictClusterIdx = dictByClusterIdx.get( keyClusterIdx );
 		}
 		else {
-			subdictClusterIdx = new HashMap< CFGenKbSecAppPKey, CFGenKbSecAppBuff >();
+			subdictClusterIdx = new HashMap< YCFGenKbSecAppPKey, YCFGenKbSecAppBuff >();
 			dictByClusterIdx.put( keyClusterIdx, subdictClusterIdx );
 		}
 		subdictClusterIdx.put( pkey, Buff );
@@ -135,14 +135,14 @@ public class CFGenKbRamSecAppTable
 
 	}
 
-	public CFGenKbSecAppBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey PKey )
+	public YCFGenKbSecAppBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readDerived";
-		CFGenKbSecAppPKey key = schema.getFactorySecApp().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecApp.readDerived";
+		YCFGenKbSecAppPKey key = schema.getFactorySecApp().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredSecAppId( PKey.getRequiredSecAppId() );
-		CFGenKbSecAppBuff buff;
+		YCFGenKbSecAppBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -152,14 +152,14 @@ public class CFGenKbRamSecAppTable
 		return( buff );
 	}
 
-	public CFGenKbSecAppBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey PKey )
+	public YCFGenKbSecAppBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readDerived";
-		CFGenKbSecAppPKey key = schema.getFactorySecApp().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecApp.readDerived";
+		YCFGenKbSecAppPKey key = schema.getFactorySecApp().newPKey();
 		key.setRequiredClusterId( PKey.getRequiredClusterId() );
 		key.setRequiredSecAppId( PKey.getRequiredSecAppId() );
-		CFGenKbSecAppBuff buff;
+		YCFGenKbSecAppBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -169,10 +169,10 @@ public class CFGenKbRamSecAppTable
 		return( buff );
 	}
 
-	public CFGenKbSecAppBuff[] readAllDerived( CFGenKbAuthorization Authorization ) {
-		final String S_ProcName = "CFGenKbRamSecApp.readAllDerived";
-		CFGenKbSecAppBuff[] retList = new CFGenKbSecAppBuff[ dictByPKey.values().size() ];
-		Iterator< CFGenKbSecAppBuff > iter = dictByPKey.values().iterator();
+	public YCFGenKbSecAppBuff[] readAllDerived( YCFGenKbAuthorization Authorization ) {
+		final String S_ProcName = "YCFGenKbRamSecApp.readAllDerived";
+		YCFGenKbSecAppBuff[] retList = new YCFGenKbSecAppBuff[ dictByPKey.values().size() ];
+		Iterator< YCFGenKbSecAppBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -180,43 +180,43 @@ public class CFGenKbRamSecAppTable
 		return( retList );
 	}
 
-	public CFGenKbSecAppBuff[] readDerivedByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecAppBuff[] readDerivedByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readDerivedByClusterIdx";
-		CFGenKbSecAppByClusterIdxKey key = schema.getFactorySecApp().newClusterIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecApp.readDerivedByClusterIdx";
+		YCFGenKbSecAppByClusterIdxKey key = schema.getFactorySecApp().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 
-		CFGenKbSecAppBuff[] recArray;
+		YCFGenKbSecAppBuff[] recArray;
 		if( dictByClusterIdx.containsKey( key ) ) {
-			Map< CFGenKbSecAppPKey, CFGenKbSecAppBuff > subdictClusterIdx
+			Map< YCFGenKbSecAppPKey, YCFGenKbSecAppBuff > subdictClusterIdx
 				= dictByClusterIdx.get( key );
-			recArray = new CFGenKbSecAppBuff[ subdictClusterIdx.size() ];
-			Iterator< CFGenKbSecAppBuff > iter = subdictClusterIdx.values().iterator();
+			recArray = new YCFGenKbSecAppBuff[ subdictClusterIdx.size() ];
+			Iterator< YCFGenKbSecAppBuff > iter = subdictClusterIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFGenKbSecAppPKey, CFGenKbSecAppBuff > subdictClusterIdx
-				= new HashMap< CFGenKbSecAppPKey, CFGenKbSecAppBuff >();
+			Map< YCFGenKbSecAppPKey, YCFGenKbSecAppBuff > subdictClusterIdx
+				= new HashMap< YCFGenKbSecAppPKey, YCFGenKbSecAppBuff >();
 			dictByClusterIdx.put( key, subdictClusterIdx );
-			recArray = new CFGenKbSecAppBuff[0];
+			recArray = new YCFGenKbSecAppBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFGenKbSecAppBuff readDerivedByUJEEMountIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecAppBuff readDerivedByUJEEMountIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String JEEMountName )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readDerivedByUJEEMountIdx";
-		CFGenKbSecAppByUJEEMountIdxKey key = schema.getFactorySecApp().newUJEEMountIdxKey();
+		final String S_ProcName = "YCFGenKbRamSecApp.readDerivedByUJEEMountIdx";
+		YCFGenKbSecAppByUJEEMountIdxKey key = schema.getFactorySecApp().newUJEEMountIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredJEEMountName( JEEMountName );
 
-		CFGenKbSecAppBuff buff;
+		YCFGenKbSecAppBuff buff;
 		if( dictByUJEEMountIdx.containsKey( key ) ) {
 			buff = dictByUJEEMountIdx.get( key );
 		}
@@ -226,16 +226,16 @@ public class CFGenKbRamSecAppTable
 		return( buff );
 	}
 
-	public CFGenKbSecAppBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecAppBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readDerivedByIdIdx() ";
-		CFGenKbSecAppPKey key = schema.getFactorySecApp().newPKey();
+		final String S_ProcName = "YCFGenKbRamSecApp.readDerivedByIdIdx() ";
+		YCFGenKbSecAppPKey key = schema.getFactorySecApp().newPKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecAppId( SecAppId );
 
-		CFGenKbSecAppBuff buff;
+		YCFGenKbSecAppBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -245,41 +245,41 @@ public class CFGenKbRamSecAppTable
 		return( buff );
 	}
 
-	public CFGenKbSecAppBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey PKey )
+	public YCFGenKbSecAppBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey PKey )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readBuff";
-		CFGenKbSecAppBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFGenKbRamSecApp.readBuff";
+		YCFGenKbSecAppBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a903" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSecAppBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey PKey )
+	public YCFGenKbSecAppBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFGenKbSecAppBuff buff = readDerived( Authorization, PKey );
+		YCFGenKbSecAppBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a903" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFGenKbSecAppBuff[] readAllBuff( CFGenKbAuthorization Authorization )
+	public YCFGenKbSecAppBuff[] readAllBuff( YCFGenKbAuthorization Authorization )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readAllBuff";
-		CFGenKbSecAppBuff buff;
-		ArrayList<CFGenKbSecAppBuff> filteredList = new ArrayList<CFGenKbSecAppBuff>();
-		CFGenKbSecAppBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFGenKbRamSecApp.readAllBuff";
+		YCFGenKbSecAppBuff buff;
+		ArrayList<YCFGenKbSecAppBuff> filteredList = new ArrayList<YCFGenKbSecAppBuff>();
+		YCFGenKbSecAppBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a903" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecAppBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecAppBuff[0] ) );
 	}
 
 	/**
@@ -289,57 +289,57 @@ public class CFGenKbRamSecAppTable
 	 *
 	 *	@return All the specific SecApp instances in the database accessible for the Authorization.
 	 */
-	public CFGenKbSecAppBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecAppBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		Long priorClusterId,
 		Integer priorSecAppId )
 	{
 		final String S_ProcName = "pageAllBuff";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public CFGenKbSecAppBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecAppBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecAppId )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readBuffByIdIdx() ";
-		CFGenKbSecAppBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecApp.readBuffByIdIdx() ";
+		YCFGenKbSecAppBuff buff = readDerivedByIdIdx( Authorization,
 			ClusterId,
 			SecAppId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a903" ) ) {
-			return( (CFGenKbSecAppBuff)buff );
+			return( (YCFGenKbSecAppBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFGenKbSecAppBuff[] readBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecAppBuff[] readBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readBuffByClusterIdx() ";
-		CFGenKbSecAppBuff buff;
-		ArrayList<CFGenKbSecAppBuff> filteredList = new ArrayList<CFGenKbSecAppBuff>();
-		CFGenKbSecAppBuff[] buffList = readDerivedByClusterIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecApp.readBuffByClusterIdx() ";
+		YCFGenKbSecAppBuff buff;
+		ArrayList<YCFGenKbSecAppBuff> filteredList = new ArrayList<YCFGenKbSecAppBuff>();
+		YCFGenKbSecAppBuff[] buffList = readDerivedByClusterIdx( Authorization,
 			ClusterId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a903" ) ) {
-				filteredList.add( (CFGenKbSecAppBuff)buff );
+				filteredList.add( (YCFGenKbSecAppBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFGenKbSecAppBuff[0] ) );
+		return( filteredList.toArray( new YCFGenKbSecAppBuff[0] ) );
 	}
 
-	public CFGenKbSecAppBuff readBuffByUJEEMountIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecAppBuff readBuffByUJEEMountIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String JEEMountName )
 	{
-		final String S_ProcName = "CFGenKbRamSecApp.readBuffByUJEEMountIdx() ";
-		CFGenKbSecAppBuff buff = readDerivedByUJEEMountIdx( Authorization,
+		final String S_ProcName = "YCFGenKbRamSecApp.readBuffByUJEEMountIdx() ";
+		YCFGenKbSecAppBuff buff = readDerivedByUJEEMountIdx( Authorization,
 			ClusterId,
 			JEEMountName );
 		if( ( buff != null ) && buff.getClassCode().equals( "a903" ) ) {
-			return( (CFGenKbSecAppBuff)buff );
+			return( (YCFGenKbSecAppBuff)buff );
 		}
 		else {
 			return( null );
@@ -355,48 +355,48 @@ public class CFGenKbRamSecAppTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFGenKbSecAppBuff[] pageBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	public YCFGenKbSecAppBuff[] pageBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Integer priorSecAppId )
 	{
 		final String S_ProcName = "pageBuffByClusterIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateSecApp( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppBuff Buff )
+	public void updateSecApp( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppBuff Buff )
 	{
-		CFGenKbSecAppPKey pkey = schema.getFactorySecApp().newPKey();
+		YCFGenKbSecAppPKey pkey = schema.getFactorySecApp().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredSecAppId( Buff.getRequiredSecAppId() );
-		CFGenKbSecAppBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSecAppBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateSecApp",
 				"Existing record not found",
 				"SecApp",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateSecApp",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFGenKbSecAppByClusterIdxKey existingKeyClusterIdx = schema.getFactorySecApp().newClusterIdxKey();
+		YCFGenKbSecAppByClusterIdxKey existingKeyClusterIdx = schema.getFactorySecApp().newClusterIdxKey();
 		existingKeyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFGenKbSecAppByClusterIdxKey newKeyClusterIdx = schema.getFactorySecApp().newClusterIdxKey();
+		YCFGenKbSecAppByClusterIdxKey newKeyClusterIdx = schema.getFactorySecApp().newClusterIdxKey();
 		newKeyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFGenKbSecAppByUJEEMountIdxKey existingKeyUJEEMountIdx = schema.getFactorySecApp().newUJEEMountIdxKey();
+		YCFGenKbSecAppByUJEEMountIdxKey existingKeyUJEEMountIdx = schema.getFactorySecApp().newUJEEMountIdxKey();
 		existingKeyUJEEMountIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyUJEEMountIdx.setRequiredJEEMountName( existing.getRequiredJEEMountName() );
 
-		CFGenKbSecAppByUJEEMountIdxKey newKeyUJEEMountIdx = schema.getFactorySecApp().newUJEEMountIdxKey();
+		YCFGenKbSecAppByUJEEMountIdxKey newKeyUJEEMountIdx = schema.getFactorySecApp().newUJEEMountIdxKey();
 		newKeyUJEEMountIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyUJEEMountIdx.setRequiredJEEMountName( Buff.getRequiredJEEMountName() );
 
@@ -404,7 +404,7 @@ public class CFGenKbRamSecAppTable
 
 		if( ! existingKeyUJEEMountIdx.equals( newKeyUJEEMountIdx ) ) {
 			if( dictByUJEEMountIdx.containsKey( newKeyUJEEMountIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateSecApp",
 					"SecAppUJEEMountIdx",
 					newKeyUJEEMountIdx );
@@ -420,7 +420,7 @@ public class CFGenKbRamSecAppTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSecApp",
 						"Container",
 						"SecAppCluster",
@@ -432,7 +432,7 @@ public class CFGenKbRamSecAppTable
 
 		// Update is valid
 
-		Map< CFGenKbSecAppPKey, CFGenKbSecAppBuff > subdict;
+		Map< YCFGenKbSecAppPKey, YCFGenKbSecAppBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -445,7 +445,7 @@ public class CFGenKbRamSecAppTable
 			subdict = dictByClusterIdx.get( newKeyClusterIdx );
 		}
 		else {
-			subdict = new HashMap< CFGenKbSecAppPKey, CFGenKbSecAppBuff >();
+			subdict = new HashMap< YCFGenKbSecAppPKey, YCFGenKbSecAppBuff >();
 			dictByClusterIdx.put( newKeyClusterIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -455,38 +455,38 @@ public class CFGenKbRamSecAppTable
 
 	}
 
-	public void deleteSecApp( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppBuff Buff )
+	public void deleteSecApp( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppBuff Buff )
 	{
-		final String S_ProcName = "CFGenKbRamSecAppTable.deleteSecApp() ";
+		final String S_ProcName = "YCFGenKbRamSecAppTable.deleteSecApp() ";
 		String classCode;
-		CFGenKbSecAppPKey pkey = schema.getFactorySecApp().newPKey();
+		YCFGenKbSecAppPKey pkey = schema.getFactorySecApp().newPKey();
 		pkey.setRequiredClusterId( Buff.getRequiredClusterId() );
 		pkey.setRequiredSecAppId( Buff.getRequiredSecAppId() );
-		CFGenKbSecAppBuff existing = dictByPKey.get( pkey );
+		YCFGenKbSecAppBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteSecApp",
 				pkey );
 		}
 					schema.getTableSecForm().deleteSecFormBySecAppIdx( Authorization,
 						existing.getRequiredClusterId(),
 						existing.getRequiredSecAppId() );
-		CFGenKbSecAppByClusterIdxKey keyClusterIdx = schema.getFactorySecApp().newClusterIdxKey();
+		YCFGenKbSecAppByClusterIdxKey keyClusterIdx = schema.getFactorySecApp().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFGenKbSecAppByUJEEMountIdxKey keyUJEEMountIdx = schema.getFactorySecApp().newUJEEMountIdxKey();
+		YCFGenKbSecAppByUJEEMountIdxKey keyUJEEMountIdx = schema.getFactorySecApp().newUJEEMountIdxKey();
 		keyUJEEMountIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUJEEMountIdx.setRequiredJEEMountName( existing.getRequiredJEEMountName() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFGenKbSecAppPKey, CFGenKbSecAppBuff > subdict;
+		Map< YCFGenKbSecAppPKey, YCFGenKbSecAppBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -496,18 +496,18 @@ public class CFGenKbRamSecAppTable
 		dictByUJEEMountIdx.remove( keyUJEEMountIdx );
 
 	}
-	public void deleteSecAppByIdIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecAppByIdIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecAppId )
 	{
-		CFGenKbSecAppPKey key = schema.getFactorySecApp().newPKey();
+		YCFGenKbSecAppPKey key = schema.getFactorySecApp().newPKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredSecAppId( argSecAppId );
 		deleteSecAppByIdIdx( Authorization, key );
 	}
 
-	public void deleteSecAppByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppPKey argKey )
+	public void deleteSecAppByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -515,16 +515,16 @@ public class CFGenKbRamSecAppTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFGenKbSecAppBuff cur;
-		LinkedList<CFGenKbSecAppBuff> matchSet = new LinkedList<CFGenKbSecAppBuff>();
-		Iterator<CFGenKbSecAppBuff> values = dictByPKey.values().iterator();
+		YCFGenKbSecAppBuff cur;
+		LinkedList<YCFGenKbSecAppBuff> matchSet = new LinkedList<YCFGenKbSecAppBuff>();
+		Iterator<YCFGenKbSecAppBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecAppBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecAppBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecApp().readDerivedByIdIdx( Authorization,
@@ -534,32 +534,32 @@ public class CFGenKbRamSecAppTable
 		}
 	}
 
-	public void deleteSecAppByClusterIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecAppByClusterIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId )
 	{
-		CFGenKbSecAppByClusterIdxKey key = schema.getFactorySecApp().newClusterIdxKey();
+		YCFGenKbSecAppByClusterIdxKey key = schema.getFactorySecApp().newClusterIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		deleteSecAppByClusterIdx( Authorization, key );
 	}
 
-	public void deleteSecAppByClusterIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppByClusterIdxKey argKey )
+	public void deleteSecAppByClusterIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppByClusterIdxKey argKey )
 	{
-		CFGenKbSecAppBuff cur;
+		YCFGenKbSecAppBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecAppBuff> matchSet = new LinkedList<CFGenKbSecAppBuff>();
-		Iterator<CFGenKbSecAppBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecAppBuff> matchSet = new LinkedList<YCFGenKbSecAppBuff>();
+		Iterator<YCFGenKbSecAppBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecAppBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecAppBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecApp().readDerivedByIdIdx( Authorization,
@@ -569,35 +569,35 @@ public class CFGenKbRamSecAppTable
 		}
 	}
 
-	public void deleteSecAppByUJEEMountIdx( CFGenKbAuthorization Authorization,
+	public void deleteSecAppByUJEEMountIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		String argJEEMountName )
 	{
-		CFGenKbSecAppByUJEEMountIdxKey key = schema.getFactorySecApp().newUJEEMountIdxKey();
+		YCFGenKbSecAppByUJEEMountIdxKey key = schema.getFactorySecApp().newUJEEMountIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredJEEMountName( argJEEMountName );
 		deleteSecAppByUJEEMountIdx( Authorization, key );
 	}
 
-	public void deleteSecAppByUJEEMountIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecAppByUJEEMountIdxKey argKey )
+	public void deleteSecAppByUJEEMountIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecAppByUJEEMountIdxKey argKey )
 	{
-		CFGenKbSecAppBuff cur;
+		YCFGenKbSecAppBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFGenKbSecAppBuff> matchSet = new LinkedList<CFGenKbSecAppBuff>();
-		Iterator<CFGenKbSecAppBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFGenKbSecAppBuff> matchSet = new LinkedList<YCFGenKbSecAppBuff>();
+		Iterator<YCFGenKbSecAppBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFGenKbSecAppBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFGenKbSecAppBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSecApp().readDerivedByIdIdx( Authorization,

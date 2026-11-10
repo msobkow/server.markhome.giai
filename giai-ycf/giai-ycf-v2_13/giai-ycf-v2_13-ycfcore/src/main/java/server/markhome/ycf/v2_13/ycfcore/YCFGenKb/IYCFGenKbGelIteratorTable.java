@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelIterator.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelIteratorTable database interface for GelIterator
+ *	YCFGenKbGelIteratorTable database interface for GelIterator
  */
-public interface ICFGenKbGelIteratorTable
+public interface IYCFGenKbGelIteratorTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelIterator( CFGenKbAuthorization Authorization,
-		CFGenKbGelIteratorBuff Buff );
+	void createGelIterator( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelIteratorBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelIterator( CFGenKbAuthorization Authorization,
-		CFGenKbGelIteratorBuff Buff );
+	void updateGelIterator( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelIteratorBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelIterator( CFGenKbAuthorization Authorization,
-		CFGenKbGelIteratorBuff Buff );
+	void deleteGelIterator( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelIteratorBuff Buff );
 	/**
 	 *	Delete the GelIterator instances identified by the key BeforeIdx.
 	 *
@@ -86,7 +86,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argExpandBefore	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByBeforeIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByBeforeIdx( YCFGenKbAuthorization Authorization,
 		String argExpandBefore );
 
 	/**
@@ -96,8 +96,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelIteratorByBeforeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelIteratorByBeforeIdxKey argKey );
+	void deleteGelIteratorByBeforeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelIteratorByBeforeIdxKey argKey );
 	/**
 	 *	Delete the GelIterator instances identified by the key FirstIdx.
 	 *
@@ -105,7 +105,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argExpandFirst	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByFirstIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByFirstIdx( YCFGenKbAuthorization Authorization,
 		String argExpandFirst );
 
 	/**
@@ -115,8 +115,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelIteratorByFirstIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelIteratorByFirstIdxKey argKey );
+	void deleteGelIteratorByFirstIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelIteratorByFirstIdxKey argKey );
 	/**
 	 *	Delete the GelIterator instances identified by the key EachIdx.
 	 *
@@ -124,7 +124,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argExpandEach	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByEachIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByEachIdx( YCFGenKbAuthorization Authorization,
 		String argExpandEach );
 
 	/**
@@ -134,8 +134,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelIteratorByEachIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelIteratorByEachIdxKey argKey );
+	void deleteGelIteratorByEachIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelIteratorByEachIdxKey argKey );
 	/**
 	 *	Delete the GelIterator instances identified by the key LastIdx.
 	 *
@@ -143,7 +143,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argExpandLast	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByLastIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByLastIdx( YCFGenKbAuthorization Authorization,
 		String argExpandLast );
 
 	/**
@@ -153,8 +153,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelIteratorByLastIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelIteratorByLastIdxKey argKey );
+	void deleteGelIteratorByLastIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelIteratorByLastIdxKey argKey );
 	/**
 	 *	Delete the GelIterator instances identified by the key LoneIdx.
 	 *
@@ -162,7 +162,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argExpandLone	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByLoneIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByLoneIdx( YCFGenKbAuthorization Authorization,
 		String argExpandLone );
 
 	/**
@@ -172,8 +172,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelIteratorByLoneIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelIteratorByLoneIdxKey argKey );
+	void deleteGelIteratorByLoneIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelIteratorByLoneIdxKey argKey );
 	/**
 	 *	Delete the GelIterator instances identified by the key EmptyIdx.
 	 *
@@ -181,7 +181,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argExpandEmpty	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByEmptyIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByEmptyIdx( YCFGenKbAuthorization Authorization,
 		String argExpandEmpty );
 
 	/**
@@ -191,8 +191,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelIteratorByEmptyIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelIteratorByEmptyIdxKey argKey );
+	void deleteGelIteratorByEmptyIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelIteratorByEmptyIdxKey argKey );
 	/**
 	 *	Delete the GelIterator instance identified by the primary key attributes.
 	 *
@@ -204,7 +204,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argGelInstId	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -216,8 +216,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelIteratorByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelIteratorByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelIterator instances identified by the key TenantIdx.
 	 *
@@ -225,7 +225,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argTenantId	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -235,8 +235,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelIteratorByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelIteratorByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelIterator instances identified by the key GelCacheIdx.
 	 *
@@ -246,7 +246,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argGelCacheId	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -257,8 +257,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelIteratorByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelIteratorByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelIterator instances identified by the key ChainIdx.
 	 *
@@ -270,7 +270,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelIterator key attribute of the instance generating the id.
 	 */
-	void deleteGelIteratorByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelIteratorByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -282,8 +282,8 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelIteratorByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelIteratorByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -296,8 +296,8 @@ public interface ICFGenKbGelIteratorTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelIteratorBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelIteratorBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelIterator buffer instance by primary key.
@@ -309,8 +309,8 @@ public interface ICFGenKbGelIteratorTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelIteratorBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelIteratorBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelIterator instances.
@@ -319,7 +319,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelIteratorBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelIterator buffer instance identified by the unique key PIdx.
@@ -335,7 +335,7 @@ public interface ICFGenKbGelIteratorTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelIteratorBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -349,7 +349,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -363,7 +363,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -380,7 +380,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -394,7 +394,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readDerivedByBeforeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readDerivedByBeforeIdx( YCFGenKbAuthorization Authorization,
 		String ExpandBefore );
 
 	/**
@@ -406,7 +406,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readDerivedByFirstIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readDerivedByFirstIdx( YCFGenKbAuthorization Authorization,
 		String ExpandFirst );
 
 	/**
@@ -418,7 +418,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readDerivedByEachIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readDerivedByEachIdx( YCFGenKbAuthorization Authorization,
 		String ExpandEach );
 
 	/**
@@ -430,7 +430,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readDerivedByLastIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readDerivedByLastIdx( YCFGenKbAuthorization Authorization,
 		String ExpandLast );
 
 	/**
@@ -442,7 +442,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readDerivedByLoneIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readDerivedByLoneIdx( YCFGenKbAuthorization Authorization,
 		String ExpandLone );
 
 	/**
@@ -454,7 +454,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelIteratorBuff[] readDerivedByEmptyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readDerivedByEmptyIdx( YCFGenKbAuthorization Authorization,
 		String ExpandEmpty );
 
 	/**
@@ -467,10 +467,10 @@ public interface ICFGenKbGelIteratorTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelIteratorBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelIterator buffer instance identified by the primary key.
@@ -482,10 +482,10 @@ public interface ICFGenKbGelIteratorTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelIteratorBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelIterator buffer instances.
@@ -494,7 +494,7 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return All the specific GelIterator instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelIteratorBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelIteratorBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelIterator buffer instance identified by the unique key PIdx.
@@ -510,9 +510,9 @@ public interface ICFGenKbGelIteratorTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -526,9 +526,9 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -542,9 +542,9 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -561,9 +561,9 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -577,9 +577,9 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff[] readBuffByBeforeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readBuffByBeforeIdx( YCFGenKbAuthorization Authorization,
 		String ExpandBefore );
 
 	/**
@@ -591,9 +591,9 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff[] readBuffByFirstIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readBuffByFirstIdx( YCFGenKbAuthorization Authorization,
 		String ExpandFirst );
 
 	/**
@@ -605,9 +605,9 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff[] readBuffByEachIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readBuffByEachIdx( YCFGenKbAuthorization Authorization,
 		String ExpandEach );
 
 	/**
@@ -619,9 +619,9 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff[] readBuffByLastIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readBuffByLastIdx( YCFGenKbAuthorization Authorization,
 		String ExpandLast );
 
 	/**
@@ -633,9 +633,9 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff[] readBuffByLoneIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readBuffByLoneIdx( YCFGenKbAuthorization Authorization,
 		String ExpandLone );
 
 	/**
@@ -647,15 +647,15 @@ public interface ICFGenKbGelIteratorTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelIteratorBuff[] readBuffByEmptyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelIteratorBuff[] readBuffByEmptyIdx( YCFGenKbAuthorization Authorization,
 		String ExpandEmpty );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

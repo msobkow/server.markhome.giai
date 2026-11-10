@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelExpansion.
+// Description: Java 11 Object interface for YCFGenKb GelExpansion.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,44 +27,44 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
 
-public interface ICFGenKbGelExpansionObj
-	extends ICFGenKbGelInstructionObj
+public interface IYCFGenKbGelExpansionObj
+	extends IYCFGenKbGelInstructionObj
 {
 	/**
-	 *	Get the current edition of this GelExpansion instance as a ICFGenKbGelExpansionEditObj.
+	 *	Get the current edition of this GelExpansion instance as a IYCFGenKbGelExpansionEditObj.
 	 *
-	 *	@return	The ICFGenKbGelExpansionEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelExpansionEditObj edition of this instance.
 	 */
-	ICFGenKbGelExpansionEditObj getEditAsGelExpansion();
+	IYCFGenKbGelExpansionEditObj getEditAsGelExpansion();
 
 	/**
-	 *	Get the ICFGenKbGelExpansionTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelExpansionTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelExpansionTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelExpansionTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelExpansionTableObj getGelExpansionTable();
+	IYCFGenKbGelExpansionTableObj getGelExpansionTable();
 
 	/**
-	 *	Get the CFGenKbGelExpansionBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelExpansionBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelExpansionBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelExpansionBuff instance which currently backs this object.
 	 */
-	CFGenKbGelExpansionBuff getGelExpansionBuff();
+	YCFGenKbGelExpansionBuff getGelExpansionBuff();
 
 	/**
 	 *	Get the required String attribute MacroName.

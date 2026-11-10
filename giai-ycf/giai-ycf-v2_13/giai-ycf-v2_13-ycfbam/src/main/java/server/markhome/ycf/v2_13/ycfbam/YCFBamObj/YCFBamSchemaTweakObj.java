@@ -1,17 +1,17 @@
-// Description: Java 11 base object instance implementation for CFBam SchemaTweak.
+// Description: Java 11 base object instance implementation for YCFBam SchemaTweak.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,33 +45,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamSchemaTweakObj
-	extends CFBamTweakObj
-	implements ICFBamSchemaTweakObj
+public class YCFBamSchemaTweakObj
+	extends YCFBamTweakObj
+	implements IYCFBamSchemaTweakObj
 {
 	public final static String CLASS_CODE = "a80a";
-	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
+	protected IYCFBamSchemaDefObj requiredContainerSchemaDef;
 
-	public CFBamSchemaTweakObj() {
+	public YCFBamSchemaTweakObj() {
 		super();
 		requiredContainerSchemaDef = null;
 	}
 
-	public CFBamSchemaTweakObj( ICFBamSchemaObj argSchema ) {
+	public YCFBamSchemaTweakObj( IYCFBamSchemaObj argSchema ) {
 		super( argSchema );
 		requiredContainerSchemaDef = null;
 	}
@@ -84,13 +84,13 @@ public class CFBamSchemaTweakObj
 		return( "SchemaTweak" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
 		return( scope );
 	}
 
@@ -100,14 +100,14 @@ public class CFBamSchemaTweakObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -118,10 +118,10 @@ public class CFBamSchemaTweakObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -130,11 +130,11 @@ public class CFBamSchemaTweakObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -158,16 +158,16 @@ public class CFBamSchemaTweakObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -179,40 +179,40 @@ public class CFBamSchemaTweakObj
 		return( qualName );
 	}
 
-	public ICFBamTweakObj realise() {
-		ICFBamSchemaTweakObj retobj = ((ICFBamSchemaObj)schema).getSchemaTweakTableObj().realiseSchemaTweak(
-			(ICFBamSchemaTweakObj)this );
-		return( (ICFBamTweakObj)retobj );
+	public IYCFBamTweakObj realise() {
+		IYCFBamSchemaTweakObj retobj = ((IYCFBamSchemaObj)schema).getSchemaTweakTableObj().realiseSchemaTweak(
+			(IYCFBamSchemaTweakObj)this );
+		return( (IYCFBamTweakObj)retobj );
 	}
 
 	public void forget() {
-		((ICFBamSchemaObj)schema).getSchemaTweakTableObj().reallyDeepDisposeSchemaTweak( (ICFBamSchemaTweakObj)this );
+		((IYCFBamSchemaObj)schema).getSchemaTweakTableObj().reallyDeepDisposeSchemaTweak( (IYCFBamSchemaTweakObj)this );
 	}
 
-	public ICFBamTweakObj read() {
-		ICFBamSchemaTweakObj retobj = ((ICFBamSchemaObj)schema).getSchemaTweakTableObj().readSchemaTweakByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFBamTweakObj read() {
+		IYCFBamSchemaTweakObj retobj = ((IYCFBamSchemaObj)schema).getSchemaTweakTableObj().readSchemaTweakByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), false );
-		return( (ICFBamTweakObj)retobj );
+		return( (IYCFBamTweakObj)retobj );
 	}
 
-	public ICFBamTweakObj read( boolean forceRead ) {
-		ICFBamSchemaTweakObj retobj = ((ICFBamSchemaObj)schema).getSchemaTweakTableObj().readSchemaTweakByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFBamTweakObj read( boolean forceRead ) {
+		IYCFBamSchemaTweakObj retobj = ((IYCFBamSchemaObj)schema).getSchemaTweakTableObj().readSchemaTweakByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), forceRead );
-		return( (ICFBamTweakObj)retobj );
+		return( (IYCFBamTweakObj)retobj );
 	}
 
-	public ICFBamSchemaTweakTableObj getSchemaTweakTable() {
-		return( ((ICFBamSchemaObj)schema).getSchemaTweakTableObj() );
+	public IYCFBamSchemaTweakTableObj getSchemaTweakTable() {
+		return( ((IYCFBamSchemaObj)schema).getSchemaTweakTableObj() );
 	}
 
-	public CFBamTweakBuff getBuff() {
+	public YCFBamTweakBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFBamSchema)schema.getBackingStore()).getFactorySchemaTweak().newBuff();
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getFactorySchemaTweak().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFBamSchema)schema.getBackingStore()).getTableSchemaTweak().readDerivedByIdIdx( ((ICFBamSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getTableSchemaTweak().readDerivedByIdIdx( ((IYCFBamSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredId() );
 				if( buff != null ) {
@@ -223,13 +223,13 @@ public class CFBamSchemaTweakObj
 		return( buff );
 	}
 
-	public void setBuff( CFBamTweakBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFBamSchemaTweakBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFBamTweakBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFBamSchemaTweakBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFBamSchemaTweakBuff" );
+				"YCFBamSchemaTweakBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -239,33 +239,33 @@ public class CFBamSchemaTweakObj
 		requiredContainerSchemaDef = null;
 	}
 
-	public CFBamSchemaTweakBuff getSchemaTweakBuff() {
-		return( (CFBamSchemaTweakBuff)getBuff() );
+	public YCFBamSchemaTweakBuff getSchemaTweakBuff() {
+		return( (YCFBamSchemaTweakBuff)getBuff() );
 	}
 
-	public ICFBamTweakEditObj beginEdit() {
+	public IYCFBamTweakEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFBamSchemaTweakObj lockobj;
+		IYCFBamSchemaTweakObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFBamSchemaTweakObj)this;
+			lockobj = (IYCFBamSchemaTweakObj)this;
 		}
 		else {
-			lockobj = ((ICFBamSchemaObj)schema).getSchemaTweakTableObj().lockSchemaTweak( getPKey() );
+			lockobj = ((IYCFBamSchemaObj)schema).getSchemaTweakTableObj().lockSchemaTweak( getPKey() );
 		}
-		edit = ((ICFBamSchemaObj)schema).getSchemaTweakTableObj().newEditInstance( lockobj );
-		return( (ICFBamTweakEditObj)edit );
+		edit = ((IYCFBamSchemaObj)schema).getSchemaTweakTableObj().newEditInstance( lockobj );
+		return( (IYCFBamTweakEditObj)edit );
 	}
 
-	public ICFBamSchemaTweakEditObj getEditAsSchemaTweak() {
-		return( (ICFBamSchemaTweakEditObj)edit );
+	public IYCFBamSchemaTweakEditObj getEditAsSchemaTweak() {
+		return( (IYCFBamSchemaTweakEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFBamTweakBuff buff = getBuff();
-			createdBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFBamTweakBuff buff = getBuff();
+			createdBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -274,10 +274,10 @@ public class CFBamSchemaTweakObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFBamTweakBuff buff = getBuff();
-			updatedBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFBamTweakBuff buff = getBuff();
+			updatedBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -290,15 +290,15 @@ public class CFBamSchemaTweakObj
 		return( getSchemaTweakBuff().getRequiredSchemaDefId() );
 	}
 
-	public ICFBamSchemaDefObj getRequiredContainerSchemaDef() {
+	public IYCFBamSchemaDefObj getRequiredContainerSchemaDef() {
 		return( getRequiredContainerSchemaDef( false ) );
 	}
 
-	public ICFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead ) {
+	public IYCFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead ) {
 		if( ( requiredContainerSchemaDef == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerSchemaDef = ((ICFBamSchemaObj)schema).getSchemaDefTableObj().readSchemaDefByIdIdx( getPKey().getRequiredTenantId(),
+				requiredContainerSchemaDef = ((IYCFBamSchemaObj)schema).getSchemaDefTableObj().readSchemaDefByIdIdx( getPKey().getRequiredTenantId(),
 					getSchemaTweakBuff().getRequiredSchemaDefId(), forceRead );
 			}
 		}

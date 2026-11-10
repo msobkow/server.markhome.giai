@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,25 +21,25 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class CFLibFiringList
-extends ArrayList<CFLibFireOnInstanceOf>
+public class YCFLibFiringList
+extends ArrayList<YCFLibFireOnInstanceOf>
 {
-    public CFLibFiringList() {
+    public YCFLibFiringList() {
     	super();
     }
 
-    public void fireOnInstanceOf( ICFLibAnyObj obj ) {
+    public void fireOnInstanceOf( IYCFLibAnyObj obj ) {
     	if( obj == null ) {
     		return;
     	}
     	if( ! isEmpty() ) {
-	    	CFLibFireOnInstanceOf curToFire;
-	    	Iterator<CFLibFireOnInstanceOf> iterToFire = iterator();
+	    	YCFLibFireOnInstanceOf curToFire;
+	    	Iterator<YCFLibFireOnInstanceOf> iterToFire = iterator();
 	    	while( iterToFire.hasNext() ) {
 	    		curToFire = iterToFire.next();
 	    		if( curToFire != null ) {

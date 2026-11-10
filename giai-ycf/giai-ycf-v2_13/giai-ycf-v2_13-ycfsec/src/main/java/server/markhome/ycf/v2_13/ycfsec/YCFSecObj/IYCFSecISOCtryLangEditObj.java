@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFSec ISOCtryLang.
+// Description: Java 11 Instance Edit Object interface for YCFSec ISOCtryLang.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,32 +26,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOCtryLangEditObj
-	extends ICFSecISOCtryLangObj
+public interface IYCFSecISOCtryLangEditObj
+	extends IYCFSecISOCtryLangObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFSecISOCtryLangObj.
+	 *	@return The original, non-modifiable instance as a base IYCFSecISOCtryLangObj.
 	 */
-	ICFSecISOCtryLangObj getOrig();
+	IYCFSecISOCtryLangObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFSecISOCtryLangObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFSecISOCtryLangObj.
 	 */
-	ICFSecISOCtryLangObj getOrigAsISOCtryLang();
+	IYCFSecISOCtryLangObj getOrigAsISOCtryLang();
 
 	/*
 	 *	create() may return a different instance than the
@@ -62,52 +62,52 @@ public interface ICFSecISOCtryLangEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFSecISOCtryLangObj create();
+	IYCFSecISOCtryLangObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFSecISOCtryLangEditObj update();
+	YCFSecISOCtryLangEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFSecISOCtryLangEditObj deleteInstance();
+	YCFSecISOCtryLangEditObj deleteInstance();
 
 	/**
-	 *	Get the ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	Get the IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 *
-	 *	@return	The ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	@return	The IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 */
-	ICFSecISOCtryObj getRequiredContainerCtry();
+	IYCFSecISOCtryObj getRequiredContainerCtry();
 
 	/**
-	 *	Set the ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	Set the IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 *
-	 *	@param	value	the ICFSecISOCtryObj instance to be referenced by the Ctry key.
+	 *	@param	value	the IYCFSecISOCtryObj instance to be referenced by the Ctry key.
 	 */
-	void setRequiredContainerCtry( ICFSecISOCtryObj value );
+	void setRequiredContainerCtry( IYCFSecISOCtryObj value );
 
 	/**
-	 *	Get the ICFSecISOLangObj instance referenced by the Lang key.
+	 *	Get the IYCFSecISOLangObj instance referenced by the Lang key.
 	 *
-	 *	@return	The ICFSecISOLangObj instance referenced by the Lang key.
+	 *	@return	The IYCFSecISOLangObj instance referenced by the Lang key.
 	 */
-	ICFSecISOLangObj getRequiredParentLang();
+	IYCFSecISOLangObj getRequiredParentLang();
 
 	/**
-	 *	Set the ICFSecISOLangObj instance referenced by the Lang key.
+	 *	Set the IYCFSecISOLangObj instance referenced by the Lang key.
 	 *
-	 *	@param	value	the ICFSecISOLangObj instance to be referenced by the Lang key.
+	 *	@param	value	the IYCFSecISOLangObj instance to be referenced by the Lang key.
 	 */
-	void setRequiredParentLang( ICFSecISOLangObj value );
+	void setRequiredParentLang( IYCFSecISOLangObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFSecSecUserObj value );
+	void setCreatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -119,9 +119,9 @@ public interface ICFSecISOCtryLangEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFSecSecUserObj value );
+	void setUpdatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

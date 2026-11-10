@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,48 +23,48 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import org.msscf.msscf.v2_13.cfbam.CFBam.ICFBamSchema;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.IYCFBamSchema;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
-public class MSSBamCFModelValidator
+public class MSSBamYCFModelValidator
 {
 	protected boolean modelIsValid = true;
 	protected StringBuffer log = new StringBuffer();
 
-	public MSSBamCFModelValidator() {
+	public MSSBamYCFModelValidator() {
 	}
 
 	public String getValidationResults() {
 		return( log.toString() );
 	}
 
-	public boolean validateSchemaDef( ICFBamSchemaDefObj schema ) {
+	public boolean validateSchemaDef( IYCFBamSchemaDefObj schema ) {
 		modelIsValid = true;
 		log = new StringBuffer();
 
@@ -109,18 +109,18 @@ public class MSSBamCFModelValidator
 		return( modelIsValid );
 	}
 
-	public void propagateNameChanges( ICFBamSchemaDefObj schema ) {
+	public void propagateNameChanges( IYCFBamSchemaDefObj schema ) {
 		propagateTypesAreNotNull( schema );
 		propagateTableColumnNameChanges( schema );
 		propagateIndexColumnNameChanges( schema );
 	}
 
-	protected void validateDbNamesNotOverloaded( ICFBamSchemaDefObj schema ) {
-		HashMap<String,ICFBamScopeObj> map = new HashMap<String,ICFBamScopeObj>();
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
+	protected void validateDbNamesNotOverloaded( IYCFBamSchemaDefObj schema ) {
+		HashMap<String,IYCFBamScopeObj> map = new HashMap<String,IYCFBamScopeObj>();
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
 		String name;
-		ICFBamScopeObj dup;
+		IYCFBamScopeObj dup;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -137,8 +137,8 @@ public class MSSBamCFModelValidator
 				map.put( name,  table );
 			}
 		}
-		Iterator<ICFBamIndexObj> indexIter;
-		ICFBamIndexObj index;
+		Iterator<IYCFBamIndexObj> indexIter;
+		IYCFBamIndexObj index;
 		tableIter = schema.getOptionalComponentsTables().iterator();
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -159,8 +159,8 @@ public class MSSBamCFModelValidator
 				}
 			}
 		}
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
 		tableIter = schema.getOptionalComponentsTables().iterator();
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -189,7 +189,7 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateSchemaLicenses( ICFBamSchemaDefObj schema ) {
+	protected void validateSchemaLicenses( IYCFBamSchemaDefObj schema ) {
 		boolean valid = true;
 
 		if( schema.getRequiredCommonLicenseCode().length() < 3 ) {
@@ -307,33 +307,33 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateSlices( ICFBamSchemaDefObj schema ) {
-		HashMap<Short,ICFBamValueObj> map = new HashMap<Short,ICFBamValueObj>();
+	protected void validateSlices( IYCFBamSchemaDefObj schema ) {
+		HashMap<Short,IYCFBamValueObj> map = new HashMap<Short,IYCFBamValueObj>();
 		boolean valid = true;
-		Iterator<ICFBamValueObj> typeIter = schema.getOptionalComponentsTypes().iterator();
-		ICFBamValueObj type;
-		ICFBamValueObj dup;
-		ICFBamId16GenObj id16gen;
-		ICFBamId32GenObj id32gen;
-		ICFBamId64GenObj id64gen;
-		ICFBamUuidGenObj uuidgen;
+		Iterator<IYCFBamValueObj> typeIter = schema.getOptionalComponentsTypes().iterator();
+		IYCFBamValueObj type;
+		IYCFBamValueObj dup;
+		IYCFBamId16GenObj id16gen;
+		IYCFBamId32GenObj id32gen;
+		IYCFBamId64GenObj id64gen;
+		IYCFBamUuidGenObj uuidgen;
 		Short slice;
 		while( typeIter.hasNext() ) {
 			type = typeIter.next();
-			if( type instanceof ICFBamId16GenObj ) {
-				id16gen = (ICFBamId16GenObj)type;
+			if( type instanceof IYCFBamId16GenObj ) {
+				id16gen = (IYCFBamId16GenObj)type;
 				slice = Short.valueOf( id16gen.getRequiredSlice() );
 			}
-			else if( type instanceof ICFBamId32GenObj ) {
-				id32gen = (ICFBamId32GenObj)type;
+			else if( type instanceof IYCFBamId32GenObj ) {
+				id32gen = (IYCFBamId32GenObj)type;
 				slice = Short.valueOf( id32gen.getRequiredSlice() );
 			}
-			else if( type instanceof ICFBamId64GenObj ) {
-				id64gen = (ICFBamId64GenObj)type;
+			else if( type instanceof IYCFBamId64GenObj ) {
+				id64gen = (IYCFBamId64GenObj)type;
 				slice = Short.valueOf( id64gen.getRequiredSlice() );
 			}
-			else if( type instanceof ICFBamUuidGenObj ) {
-				uuidgen = (ICFBamUuidGenObj)type;
+			else if( type instanceof IYCFBamUuidGenObj ) {
+				uuidgen = (IYCFBamUuidGenObj)type;
 				slice = Short.valueOf( uuidgen.getRequiredSlice() );
 			}
 			else {
@@ -358,11 +358,11 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateClassCodes( ICFBamSchemaDefObj schema ) {
-		HashMap<String,ICFBamTableObj> map = new HashMap<String,ICFBamTableObj>();
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamTableObj dup;
+	protected void validateClassCodes( IYCFBamSchemaDefObj schema ) {
+		HashMap<String,IYCFBamTableObj> map = new HashMap<String,IYCFBamTableObj>();
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamTableObj dup;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -383,9 +383,9 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateTablesHavePrimaryIndexes( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
+	protected void validateTablesHavePrimaryIndexes( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -402,10 +402,10 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validatePrimaryIndexesAreUnique( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamIndexObj index;
+	protected void validatePrimaryIndexesAreUnique( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamIndexObj index;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -425,12 +425,12 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateTablesIsServerOnlySetByBaseTable( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamRelationObj superRelation;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
+	protected void validateTablesIsServerOnlySetByBaseTable( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamRelationObj superRelation;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
 		
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
@@ -439,7 +439,7 @@ public class MSSBamCFModelValidator
 			relationIter = table.getOptionalComponentsRelation().iterator();
 			while( ( superRelation == null ) && relationIter.hasNext() ) {
 				relation = relationIter.next();
-				if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+				if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 					superRelation = relation;
 				}
 			}
@@ -456,7 +456,7 @@ public class MSSBamCFModelValidator
 		}
 	}
 	
-	protected boolean validateTableHierarchyIsMutableUsage( ICFBamTableObj table, boolean inheritsChain, boolean inheritsMutable ) {
+	protected boolean validateTableHierarchyIsMutableUsage( IYCFBamTableObj table, boolean inheritsChain, boolean inheritsMutable ) {
 		boolean newInheritsMutable;
 		boolean newInheritsChain;
 		if( table.getOptionalComponentsChains().isEmpty() ) {
@@ -493,13 +493,13 @@ public class MSSBamCFModelValidator
 				newInheritsMutable = inheritsMutable;
 			}
 		}
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamTableObj subclassTable;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamTableObj subclassTable;
 		relationIter = table.getOptionalChildrenReverseRelations().iterator();
 		while( relationIter.hasNext() ) {
 			relation = relationIter.next();
-			if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+			if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 				subclassTable = relation.getRequiredContainerFromTable();
 				if( ! validateTableHierarchyIsMutableUsage( subclassTable, newInheritsChain, newInheritsMutable ) ) {
 					return( false );
@@ -509,12 +509,12 @@ public class MSSBamCFModelValidator
 		return( true );
 	}
 
-	protected void validateTablesIsMutableUsage( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamRelationObj superRelation;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
+	protected void validateTablesIsMutableUsage( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamRelationObj superRelation;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
 
 		// We only want to process base tables, and then navigate their subclass hierarchies
 		boolean valid = true;
@@ -526,7 +526,7 @@ public class MSSBamCFModelValidator
 			relationIter = table.getOptionalComponentsRelation().iterator();
 			while( ( superRelation == null ) && relationIter.hasNext() ) {
 				relation = relationIter.next();
-				if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+				if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 					superRelation = relation;
 				}
 			}
@@ -544,12 +544,12 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateIndexesHaveColumns( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamIndexObj index;
-		Iterator<ICFBamIndexObj> indexIter;
-		Iterator<ICFBamIndexColObj> colIter;
+	protected void validateIndexesHaveColumns( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamIndexObj index;
+		Iterator<IYCFBamIndexObj> indexIter;
+		Iterator<IYCFBamIndexColObj> colIter;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -571,13 +571,13 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validatePrimaryIndexColumnsAreRequired( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamIndexObj index;
-		Iterator<ICFBamIndexColObj> colIter;
-		ICFBamIndexColObj col;
-		ICFBamValueObj tableCol;
+	protected void validatePrimaryIndexColumnsAreRequired( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamIndexObj index;
+		Iterator<IYCFBamIndexColObj> colIter;
+		IYCFBamIndexColObj col;
+		IYCFBamValueObj tableCol;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -602,22 +602,22 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateIndexNamesNotOverloaded( ICFBamSchemaDefObj schema ) {
-		LinkedList<ICFBamTableObj> tableStack;
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
-		HashMap<String,ICFBamIndexObj> map;
-		ICFBamIndexObj dup;
-		Iterator<ICFBamIndexObj> indexIter;
-		ICFBamIndexObj index;
+	protected void validateIndexNamesNotOverloaded( IYCFBamSchemaDefObj schema ) {
+		LinkedList<IYCFBamTableObj> tableStack;
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
+		HashMap<String,IYCFBamIndexObj> map;
+		IYCFBamIndexObj dup;
+		Iterator<IYCFBamIndexObj> indexIter;
+		IYCFBamIndexObj index;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
-			tableStack = new LinkedList<ICFBamTableObj>();
+			tableStack = new LinkedList<IYCFBamTableObj>();
 			tableStack.add( table );
 			worktable = table;
 			while( worktable != null ) {
@@ -625,7 +625,7 @@ public class MSSBamCFModelValidator
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( ( superRelation == null ) && relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = relation;
 					}
 				}
@@ -637,7 +637,7 @@ public class MSSBamCFModelValidator
 					worktable = null;
 				}
 			}
-			map = new HashMap<String,ICFBamIndexObj>();
+			map = new HashMap<String,IYCFBamIndexObj>();
 			while( tableStack.size() > 0 ) {
 				worktable = tableStack.getLast();
 				tableStack.removeLast();
@@ -663,23 +663,23 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateIndexShortNamesNotOverloaded( ICFBamSchemaDefObj schema ) {
-		LinkedList<ICFBamTableObj> tableStack;
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
-		HashMap<String,ICFBamIndexObj> map;
-		ICFBamIndexObj dup;
-		Iterator<ICFBamIndexObj> indexIter;
-		ICFBamIndexObj index;
+	protected void validateIndexShortNamesNotOverloaded( IYCFBamSchemaDefObj schema ) {
+		LinkedList<IYCFBamTableObj> tableStack;
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
+		HashMap<String,IYCFBamIndexObj> map;
+		IYCFBamIndexObj dup;
+		Iterator<IYCFBamIndexObj> indexIter;
+		IYCFBamIndexObj index;
 		String shortName;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
-			tableStack = new LinkedList<ICFBamTableObj>();
+			tableStack = new LinkedList<IYCFBamTableObj>();
 			tableStack.add( table );
 			worktable = table;
 			while( worktable != null ) {
@@ -687,7 +687,7 @@ public class MSSBamCFModelValidator
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( ( superRelation == null ) && relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = relation;
 					}
 				}
@@ -699,7 +699,7 @@ public class MSSBamCFModelValidator
 					worktable = null;
 				}
 			}
-			map = new HashMap<String,ICFBamIndexObj>();
+			map = new HashMap<String,IYCFBamIndexObj>();
 			while( tableStack.size() > 0 ) {
 				worktable = tableStack.getLast();
 				tableStack.removeLast();
@@ -731,23 +731,23 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateIndexSuffixesNotOverloaded( ICFBamSchemaDefObj schema ) {
-		LinkedList<ICFBamTableObj> tableStack;
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
-		HashMap<String,ICFBamIndexObj> map;
-		ICFBamIndexObj dup;
-		Iterator<ICFBamIndexObj> indexIter;
-		ICFBamIndexObj index;
+	protected void validateIndexSuffixesNotOverloaded( IYCFBamSchemaDefObj schema ) {
+		LinkedList<IYCFBamTableObj> tableStack;
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
+		HashMap<String,IYCFBamIndexObj> map;
+		IYCFBamIndexObj dup;
+		Iterator<IYCFBamIndexObj> indexIter;
+		IYCFBamIndexObj index;
 		String suffix;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
-			tableStack = new LinkedList<ICFBamTableObj>();
+			tableStack = new LinkedList<IYCFBamTableObj>();
 			tableStack.add( table );
 			worktable = table;
 			while( worktable != null ) {
@@ -755,7 +755,7 @@ public class MSSBamCFModelValidator
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( ( superRelation == null ) && relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = relation;
 					}
 				}
@@ -767,7 +767,7 @@ public class MSSBamCFModelValidator
 					worktable = null;
 				}
 			}
-			map = new HashMap<String,ICFBamIndexObj>();
+			map = new HashMap<String,IYCFBamIndexObj>();
 			while( tableStack.size() > 0 ) {
 				worktable = tableStack.getLast();
 				tableStack.removeLast();
@@ -799,24 +799,24 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateColumnNamesNotOverloaded( ICFBamSchemaDefObj schema ) {
-		LinkedList<ICFBamTableObj> tableStack;
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamIndexColObj> indexColIter;
-		Iterator<ICFBamValueObj> colIter;
-		ICFBamValueObj col;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
-		HashMap<String,ICFBamValueObj> map;
-		ICFBamValueObj dup;
+	protected void validateColumnNamesNotOverloaded( IYCFBamSchemaDefObj schema ) {
+		LinkedList<IYCFBamTableObj> tableStack;
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamIndexColObj> indexColIter;
+		Iterator<IYCFBamValueObj> colIter;
+		IYCFBamValueObj col;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
+		HashMap<String,IYCFBamValueObj> map;
+		IYCFBamValueObj dup;
 		boolean notInPrimaryIndex;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
-			tableStack = new LinkedList<ICFBamTableObj>();
+			tableStack = new LinkedList<IYCFBamTableObj>();
 			tableStack.add( table );
 			worktable = table;
 			while( worktable != null ) {
@@ -824,7 +824,7 @@ public class MSSBamCFModelValidator
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( ( superRelation == null ) && relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = relation;
 					}
 				}
@@ -836,7 +836,7 @@ public class MSSBamCFModelValidator
 					worktable = null;
 				}
 			}
-			map = new HashMap<String,ICFBamValueObj>();
+			map = new HashMap<String,IYCFBamValueObj>();
 			while( tableStack.size() > 0 ) {
 				worktable = tableStack.getLast();
 				tableStack.removeLast();
@@ -871,25 +871,25 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateColumnShortNamesNotOverloaded( ICFBamSchemaDefObj schema ) {
-		LinkedList<ICFBamTableObj> tableStack;
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamIndexColObj> indexColIter;
-		Iterator<ICFBamValueObj> colIter;
-		ICFBamValueObj col;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
-		HashMap<String,ICFBamValueObj> map;
-		ICFBamValueObj dup;
+	protected void validateColumnShortNamesNotOverloaded( IYCFBamSchemaDefObj schema ) {
+		LinkedList<IYCFBamTableObj> tableStack;
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamIndexColObj> indexColIter;
+		Iterator<IYCFBamValueObj> colIter;
+		IYCFBamValueObj col;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
+		HashMap<String,IYCFBamValueObj> map;
+		IYCFBamValueObj dup;
 		String colShortName;
 		boolean notInPrimaryIndex;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
-			tableStack = new LinkedList<ICFBamTableObj>();
+			tableStack = new LinkedList<IYCFBamTableObj>();
 			tableStack.add( table );
 			worktable = table;
 			while( worktable != null ) {
@@ -897,7 +897,7 @@ public class MSSBamCFModelValidator
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( ( superRelation == null ) && relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = relation;
 					}
 				}
@@ -909,7 +909,7 @@ public class MSSBamCFModelValidator
 					worktable = null;
 				}
 			}
-			map = new HashMap<String,ICFBamValueObj>();
+			map = new HashMap<String,IYCFBamValueObj>();
 			while( tableStack.size() > 0 ) {
 				worktable = tableStack.getLast();
 				tableStack.removeLast();
@@ -948,26 +948,26 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateColumnDbNamesNotOverloaded( ICFBamSchemaDefObj schema ) {
+	protected void validateColumnDbNamesNotOverloaded( IYCFBamSchemaDefObj schema ) {
 		final String S_ProcName = "validateColumnDbNamesNotOverloaded";
-		LinkedList<ICFBamTableObj> tableStack;
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamIndexColObj> indexColIter;
-		Iterator<ICFBamValueObj> colIter;
-		ICFBamValueObj col;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
-		HashMap<String,ICFBamValueObj> map;
-		ICFBamValueObj dup;
+		LinkedList<IYCFBamTableObj> tableStack;
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamIndexColObj> indexColIter;
+		Iterator<IYCFBamValueObj> colIter;
+		IYCFBamValueObj col;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
+		HashMap<String,IYCFBamValueObj> map;
+		IYCFBamValueObj dup;
 		String colDbName;
 		boolean notInPrimaryIndex;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
-			tableStack = new LinkedList<ICFBamTableObj>();
+			tableStack = new LinkedList<IYCFBamTableObj>();
 			tableStack.add( table );
 			worktable = table;
 			while( worktable != null ) {
@@ -975,7 +975,7 @@ public class MSSBamCFModelValidator
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( ( superRelation == null ) && relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = relation;
 					}
 				}
@@ -987,108 +987,108 @@ public class MSSBamCFModelValidator
 					worktable = null;
 				}
 			}
-			map = new HashMap<String,ICFBamValueObj>();
+			map = new HashMap<String,IYCFBamValueObj>();
 			while( tableStack.size() > 0 ) {
 				worktable = tableStack.getLast();
 				tableStack.removeLast();
 				colIter = worktable.getOptionalComponentsColumns().iterator();
 				while( colIter.hasNext() ) {
 					col = colIter.next();
-					if( col instanceof ICFBamTableColObj ) {
-						colDbName = ((ICFBamTableColObj)col).getOptionalDbName();
+					if( col instanceof IYCFBamTableColObj ) {
+						colDbName = ((IYCFBamTableColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamBlobColObj ) {
-						colDbName = ((ICFBamBlobColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamBlobColObj ) {
+						colDbName = ((IYCFBamBlobColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamBoolColObj ) {
-						colDbName = ((ICFBamBoolColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamBoolColObj ) {
+						colDbName = ((IYCFBamBoolColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamInt16ColObj ) {
-						colDbName = ((ICFBamInt16ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamInt16ColObj ) {
+						colDbName = ((IYCFBamInt16ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamInt32ColObj ) {
-						colDbName = ((ICFBamInt32ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamInt32ColObj ) {
+						colDbName = ((IYCFBamInt32ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamInt64ColObj ) {
-						colDbName = ((ICFBamInt64ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamInt64ColObj ) {
+						colDbName = ((IYCFBamInt64ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamUInt16ColObj ) {
-						colDbName = ((ICFBamUInt16ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamUInt16ColObj ) {
+						colDbName = ((IYCFBamUInt16ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamUInt32ColObj ) {
-						colDbName = ((ICFBamUInt32ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamUInt32ColObj ) {
+						colDbName = ((IYCFBamUInt32ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamUInt64ColObj ) {
-						colDbName = ((ICFBamUInt64ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamUInt64ColObj ) {
+						colDbName = ((IYCFBamUInt64ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamFloatColObj ) {
-						colDbName = ((ICFBamFloatColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamFloatColObj ) {
+						colDbName = ((IYCFBamFloatColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamDoubleColObj ) {
-						colDbName = ((ICFBamDoubleColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamDoubleColObj ) {
+						colDbName = ((IYCFBamDoubleColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamNumberColObj ) {
-						colDbName = ((ICFBamNumberColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamNumberColObj ) {
+						colDbName = ((IYCFBamNumberColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamStringColObj ) {
-						colDbName = ((ICFBamStringColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamStringColObj ) {
+						colDbName = ((IYCFBamStringColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamTextColObj ) {
-						colDbName = ((ICFBamTextColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamTextColObj ) {
+						colDbName = ((IYCFBamTextColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamTokenColObj ) {
-						colDbName = ((ICFBamTokenColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamTokenColObj ) {
+						colDbName = ((IYCFBamTokenColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamNmTokenColObj ) {
-						colDbName = ((ICFBamNmTokenColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamNmTokenColObj ) {
+						colDbName = ((IYCFBamNmTokenColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamNmTokensColObj ) {
-						colDbName = ((ICFBamNmTokensColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamNmTokensColObj ) {
+						colDbName = ((IYCFBamNmTokensColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamDateColObj ) {
-						colDbName = ((ICFBamDateColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamDateColObj ) {
+						colDbName = ((IYCFBamDateColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamTimeColObj ) {
-						colDbName = ((ICFBamTimeColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamTimeColObj ) {
+						colDbName = ((IYCFBamTimeColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamTimestampColObj ) {
-						colDbName = ((ICFBamTimestampColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamTimestampColObj ) {
+						colDbName = ((IYCFBamTimestampColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamTZDateColObj ) {
-						colDbName = ((ICFBamTZDateColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamTZDateColObj ) {
+						colDbName = ((IYCFBamTZDateColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamTZTimeColObj ) {
-						colDbName = ((ICFBamTZTimeColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamTZTimeColObj ) {
+						colDbName = ((IYCFBamTZTimeColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamTZTimestampColObj ) {
-						colDbName = ((ICFBamTZTimestampColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamTZTimestampColObj ) {
+						colDbName = ((IYCFBamTZTimestampColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamUuidColObj ) {
-						colDbName = ((ICFBamUuidColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamUuidColObj ) {
+						colDbName = ((IYCFBamUuidColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamUuid6ColObj ) {
-						colDbName = ((ICFBamUuid6ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamUuid6ColObj ) {
+						colDbName = ((IYCFBamUuid6ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamDbKeyHash128ColObj ) {
-						colDbName = ((ICFBamDbKeyHash128ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamDbKeyHash128ColObj ) {
+						colDbName = ((IYCFBamDbKeyHash128ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamDbKeyHash160ColObj ) {
-						colDbName = ((ICFBamDbKeyHash160ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamDbKeyHash160ColObj ) {
+						colDbName = ((IYCFBamDbKeyHash160ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamDbKeyHash224ColObj ) {
-						colDbName = ((ICFBamDbKeyHash224ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamDbKeyHash224ColObj ) {
+						colDbName = ((IYCFBamDbKeyHash224ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamDbKeyHash256ColObj ) {
-						colDbName = ((ICFBamDbKeyHash256ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamDbKeyHash256ColObj ) {
+						colDbName = ((IYCFBamDbKeyHash256ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamDbKeyHash384ColObj ) {
-						colDbName = ((ICFBamDbKeyHash384ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamDbKeyHash384ColObj ) {
+						colDbName = ((IYCFBamDbKeyHash384ColObj)col).getOptionalDbName();
 					}
-					else if( col instanceof ICFBamDbKeyHash512ColObj ) {
-						colDbName = ((ICFBamDbKeyHash512ColObj)col).getOptionalDbName();
+					else if( col instanceof IYCFBamDbKeyHash512ColObj ) {
+						colDbName = ((IYCFBamDbKeyHash512ColObj)col).getOptionalDbName();
 					}
 					else {
-						throw new CFLibUnsupportedClassException( getClass(),
+						throw new YCFLibUnsupportedClassException( getClass(),
 							S_ProcName,
 							"col",
 							col,
@@ -1125,20 +1125,20 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateColumnsImplementsPolymorphAndIsPolymorph( ICFBamSchemaDefObj schema ) {
-		LinkedList<ICFBamTableObj> tableStack;
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamValueObj> colIter;
-		ICFBamValueObj col;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
+	protected void validateColumnsImplementsPolymorphAndIsPolymorph( IYCFBamSchemaDefObj schema ) {
+		LinkedList<IYCFBamTableObj> tableStack;
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamValueObj> colIter;
+		IYCFBamValueObj col;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
-			tableStack = new LinkedList<ICFBamTableObj>();
+			tableStack = new LinkedList<IYCFBamTableObj>();
 			tableStack.add( table );
 			worktable = table;
 			while( worktable != null ) {
@@ -1146,7 +1146,7 @@ public class MSSBamCFModelValidator
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( ( superRelation == null ) && relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = relation;
 					}
 				}
@@ -1160,8 +1160,8 @@ public class MSSBamCFModelValidator
 			}
 			String colName;
 			String polyName;
-			ICFLibAnyObj polyObj;
-			ICFBamStringDefObj stringDef;
+			IYCFLibAnyObj polyObj;
+			IYCFBamStringDefObj stringDef;
 			while( tableStack.size() > 0 ) {
 				worktable = tableStack.getLast();
 				tableStack.removeLast();
@@ -1173,8 +1173,8 @@ public class MSSBamCFModelValidator
 						polyName = colName + "Str";
 						polyObj = worktable.getNamedObject( polyName );
 						if( polyObj != null ) {
-							if( polyObj instanceof ICFBamStringDefObj ) {
-								stringDef = (ICFBamStringDefObj)polyObj;
+							if( polyObj instanceof IYCFBamStringDefObj ) {
+								stringDef = (IYCFBamStringDefObj)polyObj;
 								if( ! stringDef.getRequiredIsPolymorph() ) {
 									log.append( "ERROR: Table \"" + worktable.getObjName() + "\" column \"" + col.getObjName() + "\" specifies ImplementsPolymorph, but the resolved named StringDef doesn't have IsPolymorph set.\n" );
 									valid = false;
@@ -1201,11 +1201,11 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateRelationsHaveLinkages( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamRelationObj relation;
-		Iterator<ICFBamRelationObj> relationIter;
+	protected void validateRelationsHaveLinkages( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamRelationObj relation;
+		Iterator<IYCFBamRelationObj> relationIter;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -1238,20 +1238,20 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateRelationNamesNotOverloaded( ICFBamSchemaDefObj schema ) {
-		LinkedList<ICFBamTableObj> tableStack;
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
-		HashMap<String,ICFBamRelationObj> map;
-		ICFBamRelationObj dup;
+	protected void validateRelationNamesNotOverloaded( IYCFBamSchemaDefObj schema ) {
+		LinkedList<IYCFBamTableObj> tableStack;
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
+		HashMap<String,IYCFBamRelationObj> map;
+		IYCFBamRelationObj dup;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
-			tableStack = new LinkedList<ICFBamTableObj>();
+			tableStack = new LinkedList<IYCFBamTableObj>();
 			tableStack.add( table );
 			worktable = table;
 			while( worktable != null ) {
@@ -1259,7 +1259,7 @@ public class MSSBamCFModelValidator
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( ( superRelation == null ) && relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = relation;
 					}
 				}
@@ -1271,14 +1271,14 @@ public class MSSBamCFModelValidator
 					worktable = null;
 				}
 			}
-			map = new HashMap<String,ICFBamRelationObj>();
+			map = new HashMap<String,IYCFBamRelationObj>();
 			while( tableStack.size() > 0 ) {
 				worktable = tableStack.getLast();
 				tableStack.removeLast();
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() != ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() != IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						if( map.containsKey( relation.getObjName() ) ) {
 							dup = map.get( relation.getObjName() );
 							log.append( "ERROR: Table \"" + worktable.getObjName() + "\" relation \"" + relation.getObjName() + "\" overloads the name of the relationship \"" + dup.getRequiredContainerFromTable().getObjName() + "." + dup.getObjName() +"\"\n" );
@@ -1299,21 +1299,21 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateRelationSuffixesNotOverloaded( ICFBamSchemaDefObj schema ) {
-		LinkedList<ICFBamTableObj> tableStack;
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
-		HashMap<String,ICFBamRelationObj> map;
-		ICFBamRelationObj dup;
+	protected void validateRelationSuffixesNotOverloaded( IYCFBamSchemaDefObj schema ) {
+		LinkedList<IYCFBamTableObj> tableStack;
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
+		HashMap<String,IYCFBamRelationObj> map;
+		IYCFBamRelationObj dup;
 		String suffix;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
-			tableStack = new LinkedList<ICFBamTableObj>();
+			tableStack = new LinkedList<IYCFBamTableObj>();
 			tableStack.add( table );
 			worktable = table;
 			while( worktable != null ) {
@@ -1321,7 +1321,7 @@ public class MSSBamCFModelValidator
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( ( superRelation == null ) && relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = relation;
 					}
 				}
@@ -1333,14 +1333,14 @@ public class MSSBamCFModelValidator
 					worktable = null;
 				}
 			}
-			map = new HashMap<String,ICFBamRelationObj>();
+			map = new HashMap<String,IYCFBamRelationObj>();
 			while( tableStack.size() > 0 ) {
 				worktable = tableStack.getLast();
 				tableStack.removeLast();
 				relationIter = worktable.getOptionalComponentsRelation().iterator();
 				while( relationIter.hasNext() ) {
 					relation = relationIter.next();
-					if( relation.getRequiredRelationType() != ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( relation.getRequiredRelationType() != IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						suffix = relation.getOptionalSuffix();
 						if( ( suffix == null ) || ( suffix.length() <= 0 ) ) {
 							suffix = relation.getObjName();
@@ -1365,12 +1365,12 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateOnlyOneSuperclassPerTable( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamRelationObj relation;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj superclassRelation = null;
+	protected void validateOnlyOneSuperclassPerTable( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamRelationObj relation;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj superclassRelation = null;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -1378,7 +1378,7 @@ public class MSSBamCFModelValidator
 			relationIter = table.getOptionalComponentsRelation().iterator();
 			while( relationIter.hasNext() ) {
 				relation = relationIter.next();
-				if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+				if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 					if( superclassRelation != null ) {
 						log.append( "ERROR: Table \"" + table.getObjName() + "\" relation \"" + relation.getObjName() + "\" is a Superclass relation, but \"" + superclassRelation.getObjName() + "\" has already been defined as the Superclass relation\n" );
 						valid = false;
@@ -1397,12 +1397,12 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateRelationsHaveColumns( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamRelationObj relation;
-		Iterator<ICFBamRelationObj> relationIter;
-		Iterator<ICFBamRelationColObj> colIter;
+	protected void validateRelationsHaveColumns( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamRelationObj relation;
+		Iterator<IYCFBamRelationObj> relationIter;
+		Iterator<IYCFBamRelationColObj> colIter;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -1424,23 +1424,23 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateRelationsSpecifyAllFromColumns( ICFBamSchemaDefObj schema ) {
-		HashMap<String,ICFBamIndexColObj> map;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamRelationObj relation;
-		Iterator<ICFBamRelationObj> relationIter;
-		Iterator<ICFBamRelationColObj> colIter;
-		ICFBamRelationColObj relationCol;
-		ICFBamIndexColObj indexCol;
-		Iterator<ICFBamIndexColObj> indexColIter;
+	protected void validateRelationsSpecifyAllFromColumns( IYCFBamSchemaDefObj schema ) {
+		HashMap<String,IYCFBamIndexColObj> map;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamRelationObj relation;
+		Iterator<IYCFBamRelationObj> relationIter;
+		Iterator<IYCFBamRelationColObj> colIter;
+		IYCFBamRelationColObj relationCol;
+		IYCFBamIndexColObj indexCol;
+		Iterator<IYCFBamIndexColObj> indexColIter;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
 			relationIter = table.getOptionalComponentsRelation().iterator();
 			while( relationIter.hasNext() ) {
 				relation = relationIter.next();
-				map = new HashMap<String,ICFBamIndexColObj>();
+				map = new HashMap<String,IYCFBamIndexColObj>();
 				colIter = relation.getOptionalComponentsColumns().iterator();
 				while( colIter.hasNext() ) {
 					relationCol = colIter.next();
@@ -1471,23 +1471,23 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateRelationsSpecifyAllToColumns( ICFBamSchemaDefObj schema ) {
-		HashMap<String,ICFBamIndexColObj> map;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamRelationObj relation;
-		Iterator<ICFBamRelationObj> relationIter;
-		Iterator<ICFBamRelationColObj> colIter;
-		ICFBamRelationColObj relationCol;
-		ICFBamIndexColObj indexCol;
-		Iterator<ICFBamIndexColObj> indexColIter;
+	protected void validateRelationsSpecifyAllToColumns( IYCFBamSchemaDefObj schema ) {
+		HashMap<String,IYCFBamIndexColObj> map;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamRelationObj relation;
+		Iterator<IYCFBamRelationObj> relationIter;
+		Iterator<IYCFBamRelationColObj> colIter;
+		IYCFBamRelationColObj relationCol;
+		IYCFBamIndexColObj indexCol;
+		Iterator<IYCFBamIndexColObj> indexColIter;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
 			relationIter = table.getOptionalComponentsRelation().iterator();
 			while( relationIter.hasNext() ) {
 				relation = relationIter.next();
-				map = new HashMap<String,ICFBamIndexColObj>();
+				map = new HashMap<String,IYCFBamIndexColObj>();
 				colIter = relation.getOptionalComponentsColumns().iterator();
 				while( colIter.hasNext() ) {
 					relationCol = colIter.next();
@@ -1518,11 +1518,11 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateRelationAllowAddendumOnlySetByXmlContainers( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamRelationObj relation;
-		Iterator<ICFBamRelationObj> relationIter;
+	protected void validateRelationAllowAddendumOnlySetByXmlContainers( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamRelationObj relation;
+		Iterator<IYCFBamRelationObj> relationIter;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -1543,11 +1543,11 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateRelationColumnCountsMatchIndexes( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		ICFBamRelationObj relation;
-		Iterator<ICFBamRelationObj> relationIter;
+	protected void validateRelationColumnCountsMatchIndexes( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		IYCFBamRelationObj relation;
+		Iterator<IYCFBamRelationObj> relationIter;
 		boolean valid = true;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
@@ -1572,19 +1572,19 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void validateChains( ICFBamSchemaDefObj schema ) {
-		ICFBamTableObj worktable;
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamChainObj> chainIter;
-		ICFBamChainObj chain;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		ICFBamRelationObj superRelation;
-		ICFBamRelationObj prevRelation;
-		ICFBamRelationObj nextRelation;
-		Iterator<ICFBamRelationColObj> relationColIter;
-		ICFBamRelationColObj relationCol;
+	protected void validateChains( IYCFBamSchemaDefObj schema ) {
+		IYCFBamTableObj worktable;
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamChainObj> chainIter;
+		IYCFBamChainObj chain;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		IYCFBamRelationObj superRelation;
+		IYCFBamRelationObj prevRelation;
+		IYCFBamRelationObj nextRelation;
+		Iterator<IYCFBamRelationColObj> relationColIter;
+		IYCFBamRelationColObj relationCol;
 		String fromColName;
 		String toColName;
 		boolean valid = true;
@@ -1603,7 +1603,7 @@ public class MSSBamCFModelValidator
 					relationIter = worktable.getOptionalComponentsRelation().iterator();
 					while( ( superRelation == null ) && relationIter.hasNext() ) {
 						relation = relationIter.next();
-						if( relation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+						if( relation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 							superRelation = relation;
 						}
 					}
@@ -1715,13 +1715,13 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void propagateTypesAreNotNull( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamValueObj> typeIter = schema.getOptionalComponentsTypes().iterator();
-		ICFBamValueObj type;
-		ICFBamValueEditObj editType;
+	protected void propagateTypesAreNotNull( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamValueObj> typeIter = schema.getOptionalComponentsTypes().iterator();
+		IYCFBamValueObj type;
+		IYCFBamValueEditObj editType;
 		while( typeIter.hasNext() ) {
 			type = typeIter.next();
-			if( type instanceof ICFBamBlobTypeObj ) {
+			if( type instanceof IYCFBamBlobTypeObj ) {
 				if( ! type.getRequiredIsNullable() ) {
 					editType = type.beginEdit();
 					editType.setRequiredIsNullable( true );
@@ -1740,15 +1740,15 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void propagateTableColumnNameChanges( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamIndexObj> indexIter;
-		ICFBamIndexObj index;
-		Iterator<ICFBamIndexColObj> indexColIter;
-		ICFBamIndexColObj indexCol;
-		ICFBamIndexColEditObj editIndexCol;
-		ICFBamValueObj column;
+	protected void propagateTableColumnNameChanges( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamIndexObj> indexIter;
+		IYCFBamIndexObj index;
+		Iterator<IYCFBamIndexColObj> indexColIter;
+		IYCFBamIndexColObj indexCol;
+		IYCFBamIndexColEditObj editIndexCol;
+		IYCFBamValueObj column;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
 			indexIter = table.getOptionalComponentsIndex().iterator();
@@ -1802,15 +1802,15 @@ public class MSSBamCFModelValidator
 		}
 	}
 
-	protected void propagateIndexColumnNameChanges( ICFBamSchemaDefObj schema ) {
-		Iterator<ICFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
-		ICFBamTableObj table;
-		Iterator<ICFBamRelationObj> relationIter;
-		ICFBamRelationObj relation;
-		Iterator<ICFBamRelationColObj> relationColIter;
-		ICFBamRelationColObj relationCol;
-		ICFBamRelationColEditObj editRelationCol;
-		ICFBamIndexColObj fromColumn;
+	protected void propagateIndexColumnNameChanges( IYCFBamSchemaDefObj schema ) {
+		Iterator<IYCFBamTableObj> tableIter = schema.getOptionalComponentsTables().iterator();
+		IYCFBamTableObj table;
+		Iterator<IYCFBamRelationObj> relationIter;
+		IYCFBamRelationObj relation;
+		Iterator<IYCFBamRelationColObj> relationColIter;
+		IYCFBamRelationColObj relationCol;
+		IYCFBamRelationColEditObj editRelationCol;
+		IYCFBamIndexColObj fromColumn;
 		while( tableIter.hasNext() ) {
 			table = tableIter.next();
 			relationIter = table.getOptionalComponentsRelation().iterator();

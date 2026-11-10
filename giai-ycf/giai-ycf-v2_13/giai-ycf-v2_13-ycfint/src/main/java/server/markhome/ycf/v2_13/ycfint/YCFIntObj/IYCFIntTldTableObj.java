@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFInt.
+// Description: Java 11 Table Object interface for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,22 +26,22 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntTldTableObj
+public interface IYCFIntTldTableObj
 {
-	ICFIntSchemaObj getSchema();
-	void setSchema( ICFIntSchemaObj value );
+	IYCFIntSchemaObj getSchema();
+	void setSchema( IYCFIntSchemaObj value );
 
 	void minimizeMemory();
 
@@ -55,24 +55,24 @@ public interface ICFIntTldTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFIntTldObj newInstance();
+	IYCFIntTldObj newInstance();
 
 	/**
 	 *	Instantiate a new Tld edition of the specified Tld instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFIntTldEditObj newEditInstance( ICFIntTldObj orig );
+	IYCFIntTldEditObj newEditInstance( IYCFIntTldObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTldObj realiseTld( ICFIntTldObj Obj );
+	IYCFIntTldObj realiseTld( IYCFIntTldObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTldObj createTld( ICFIntTldObj Obj );
+	IYCFIntTldObj createTld( IYCFIntTldObj Obj );
 
 	/**
 	 *	Read a Tld-derived instance by it's primary key.
@@ -82,7 +82,7 @@ public interface ICFIntTldTableObj
 	 *	@return	The Tld-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntTldObj readTld( CFIntTldPKey pkey );
+	IYCFIntTldObj readTld( YCFIntTldPKey pkey );
 
 	/**
 	 *	Read a Tld-derived instance by it's primary key.
@@ -92,119 +92,119 @@ public interface ICFIntTldTableObj
 	 *	@return	The Tld-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntTldObj readTld( CFIntTldPKey pkey,
+	IYCFIntTldObj readTld( YCFIntTldPKey pkey,
 		boolean forceRead );
 
-	ICFIntTldObj readCachedTld( CFIntTldPKey pkey );
+	IYCFIntTldObj readCachedTld( YCFIntTldPKey pkey );
 
-	public void reallyDeepDisposeTld( ICFIntTldObj obj );
+	public void reallyDeepDisposeTld( IYCFIntTldObj obj );
 
-	void deepDisposeTld( CFIntTldPKey pkey );
+	void deepDisposeTld( YCFIntTldPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTldObj lockTld( CFIntTldPKey pkey );
+	IYCFIntTldObj lockTld( YCFIntTldPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the Tld-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntTldObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntTldObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntTldObj> readAllTld();
+	List<IYCFIntTldObj> readAllTld();
 
 	/**
 	 *	Return a sorted map of all the Tld-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntTldObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntTldObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntTldObj> readAllTld( boolean forceRead );
+	List<IYCFIntTldObj> readAllTld( boolean forceRead );
 
-	List<ICFIntTldObj> readCachedAllTld();
+	List<IYCFIntTldObj> readCachedAllTld();
 
 	/**
-	 *	Get the CFIntTldObj instance for the primary key attributes.
+	 *	Get the YCFIntTldObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The Tld key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The Tld key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTldObj cached instance for the primary key, or
+	 *	@return	YCFIntTldObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTldObj readTldByIdIdx( long TenantId,
+	IYCFIntTldObj readTldByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFIntTldObj instance for the primary key attributes.
+	 *	Get the YCFIntTldObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The Tld key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The Tld key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTldObj refreshed instance for the primary key, or
+	 *	@return	YCFIntTldObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTldObj readTldByIdIdx( long TenantId,
+	IYCFIntTldObj readTldByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntTldObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntTldObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The Tld key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTldObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntTldObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTldObj> readTldByTenantIdx( long TenantId );
+	List<IYCFIntTldObj> readTldByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFIntTldObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntTldObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The Tld key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntTldObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntTldObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntTldObj> readTldByTenantIdx( long TenantId,
+	List<IYCFIntTldObj> readTldByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFIntTldObj instance for the unique NameIdx key.
+	 *	Get the YCFIntTldObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The Tld key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The Tld key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTldObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFIntTldObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTldObj readTldByNameIdx(long TenantId,
+	IYCFIntTldObj readTldByNameIdx(long TenantId,
 		String Name );
 
 	/**
-	 *	Get the CFIntTldObj instance for the unique NameIdx key.
+	 *	Get the YCFIntTldObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The Tld key attribute of the instance generating the id.
 	 *
 	 *	@param	argName	The Tld key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntTldObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFIntTldObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntTldObj readTldByNameIdx(long TenantId,
+	IYCFIntTldObj readTldByNameIdx(long TenantId,
 		String Name,
 		boolean forceRead );
 
-	ICFIntTldObj readCachedTldByIdIdx( long TenantId,
+	IYCFIntTldObj readCachedTldByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFIntTldObj> readCachedTldByTenantIdx( long TenantId );
+	List<IYCFIntTldObj> readCachedTldByTenantIdx( long TenantId );
 
-	ICFIntTldObj readCachedTldByNameIdx( long TenantId,
+	IYCFIntTldObj readCachedTldByNameIdx( long TenantId,
 		String Name );
 
 	void deepDisposeTldByIdIdx( long TenantId,
@@ -218,12 +218,12 @@ public interface ICFIntTldTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntTldObj updateTld( ICFIntTldObj Obj );
+	IYCFIntTldObj updateTld( IYCFIntTldObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteTld( ICFIntTldObj Obj );
+	void deleteTld( IYCFIntTldObj Obj );
 
 	/**
 	 *	Internal use only.

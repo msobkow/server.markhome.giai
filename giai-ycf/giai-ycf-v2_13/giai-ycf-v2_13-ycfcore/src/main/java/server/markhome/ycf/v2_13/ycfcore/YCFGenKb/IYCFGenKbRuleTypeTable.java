@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for RuleType.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbRuleTypeTable database interface for RuleType
+ *	YCFGenKbRuleTypeTable database interface for RuleType
  */
-public interface ICFGenKbRuleTypeTable
+public interface IYCFGenKbRuleTypeTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbRuleTypeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createRuleType( CFGenKbAuthorization Authorization,
-		CFGenKbRuleTypeBuff Buff );
+	void createRuleType( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleTypeBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbRuleTypeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateRuleType( CFGenKbAuthorization Authorization,
-		CFGenKbRuleTypeBuff Buff );
+	void updateRuleType( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleTypeBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbRuleTypeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteRuleType( CFGenKbAuthorization Authorization,
-		CFGenKbRuleTypeBuff Buff );
+	void deleteRuleType( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleTypeBuff Buff );
 	/**
 	 *	Delete the RuleType instance identified by the primary key attributes.
 	 *
@@ -86,7 +86,7 @@ public interface ICFGenKbRuleTypeTable
 	 *
 	 *	@param	argId	The RuleType key attribute of the instance generating the id.
 	 */
-	void deleteRuleTypeByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteRuleTypeByIdIdx( YCFGenKbAuthorization Authorization,
 		short argId );
 
 	/**
@@ -96,8 +96,8 @@ public interface ICFGenKbRuleTypeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteRuleTypeByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbRuleTypePKey argKey );
+	void deleteRuleTypeByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleTypePKey argKey );
 	/**
 	 *	Delete the RuleType instances identified by the key NameIdx.
 	 *
@@ -105,7 +105,7 @@ public interface ICFGenKbRuleTypeTable
 	 *
 	 *	@param	argName	The RuleType key attribute of the instance generating the id.
 	 */
-	void deleteRuleTypeByNameIdx( CFGenKbAuthorization Authorization,
+	void deleteRuleTypeByNameIdx( YCFGenKbAuthorization Authorization,
 		String argName );
 
 	/**
@@ -115,8 +115,8 @@ public interface ICFGenKbRuleTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRuleTypeByNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbRuleTypeByNameIdxKey argKey );
+	void deleteRuleTypeByNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleTypeByNameIdxKey argKey );
 
 
 	/**
@@ -129,8 +129,8 @@ public interface ICFGenKbRuleTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbRuleTypeBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbRuleTypePKey PKey );
+	YCFGenKbRuleTypeBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleTypePKey PKey );
 
 	/**
 	 *	Lock the derived RuleType buffer instance by primary key.
@@ -142,8 +142,8 @@ public interface ICFGenKbRuleTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbRuleTypeBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbRuleTypePKey PKey );
+	YCFGenKbRuleTypeBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleTypePKey PKey );
 
 	/**
 	 *	Read all RuleType instances.
@@ -152,7 +152,7 @@ public interface ICFGenKbRuleTypeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbRuleTypeBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbRuleTypeBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived RuleType buffer instance identified by the unique key IdIdx.
@@ -164,7 +164,7 @@ public interface ICFGenKbRuleTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbRuleTypeBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleTypeBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		short Id );
 
 	/**
@@ -177,7 +177,7 @@ public interface ICFGenKbRuleTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbRuleTypeBuff readDerivedByNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleTypeBuff readDerivedByNameIdx( YCFGenKbAuthorization Authorization,
 		String Name );
 
 	/**
@@ -190,10 +190,10 @@ public interface ICFGenKbRuleTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbRuleTypeBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbRuleTypePKey PKey );
+	YCFGenKbRuleTypeBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleTypePKey PKey );
 
 	/**
 	 *	Lock the specific RuleType buffer instance identified by the primary key.
@@ -205,10 +205,10 @@ public interface ICFGenKbRuleTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbRuleTypeBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbRuleTypePKey PKey );
+	YCFGenKbRuleTypeBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbRuleTypePKey PKey );
 
 	/**
 	 *	Read all the specific RuleType buffer instances.
@@ -217,7 +217,7 @@ public interface ICFGenKbRuleTypeTable
 	 *
 	 *	@return All the specific RuleType instances in the database accessible for the Authorization.
 	 */
-	CFGenKbRuleTypeBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbRuleTypeBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific RuleType buffer instance identified by the unique key IdIdx.
@@ -229,9 +229,9 @@ public interface ICFGenKbRuleTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbRuleTypeBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleTypeBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		short Id );
 
 	/**
@@ -244,15 +244,15 @@ public interface ICFGenKbRuleTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbRuleTypeBuff readBuffByNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbRuleTypeBuff readBuffByNameIdx( YCFGenKbAuthorization Authorization,
 		String Name );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

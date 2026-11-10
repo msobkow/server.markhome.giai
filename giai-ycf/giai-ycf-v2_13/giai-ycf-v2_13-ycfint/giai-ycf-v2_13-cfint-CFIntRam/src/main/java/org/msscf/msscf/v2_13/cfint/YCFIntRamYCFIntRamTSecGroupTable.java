@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for TSecGroup.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,83 +27,83 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntRam;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntRamTSecGroupTable in-memory RAM DbIO implementation
+ *	YCFIntRamTSecGroupTable in-memory RAM DbIO implementation
  *	for TSecGroup.
  */
-public class CFIntRamTSecGroupTable
-	implements ICFIntTSecGroupTable
+public class YCFIntRamTSecGroupTable
+	implements IYCFIntTSecGroupTable
 {
-	private ICFIntSchema schema;
-	private Map< CFSecTSecGroupPKey,
-				CFSecTSecGroupBuff > dictByPKey
-		= new HashMap< CFSecTSecGroupPKey,
-				CFSecTSecGroupBuff >();
-	private Map< CFSecTSecGroupByTenantIdxKey,
-				Map< CFSecTSecGroupPKey,
-					CFSecTSecGroupBuff >> dictByTenantIdx
-		= new HashMap< CFSecTSecGroupByTenantIdxKey,
-				Map< CFSecTSecGroupPKey,
-					CFSecTSecGroupBuff >>();
-	private Map< CFSecTSecGroupByTenantVisIdxKey,
-				Map< CFSecTSecGroupPKey,
-					CFSecTSecGroupBuff >> dictByTenantVisIdx
-		= new HashMap< CFSecTSecGroupByTenantVisIdxKey,
-				Map< CFSecTSecGroupPKey,
-					CFSecTSecGroupBuff >>();
-	private Map< CFSecTSecGroupByUNameIdxKey,
-			CFSecTSecGroupBuff > dictByUNameIdx
-		= new HashMap< CFSecTSecGroupByUNameIdxKey,
-			CFSecTSecGroupBuff >();
+	private IYCFIntSchema schema;
+	private Map< YCFSecTSecGroupPKey,
+				YCFSecTSecGroupBuff > dictByPKey
+		= new HashMap< YCFSecTSecGroupPKey,
+				YCFSecTSecGroupBuff >();
+	private Map< YCFSecTSecGroupByTenantIdxKey,
+				Map< YCFSecTSecGroupPKey,
+					YCFSecTSecGroupBuff >> dictByTenantIdx
+		= new HashMap< YCFSecTSecGroupByTenantIdxKey,
+				Map< YCFSecTSecGroupPKey,
+					YCFSecTSecGroupBuff >>();
+	private Map< YCFSecTSecGroupByTenantVisIdxKey,
+				Map< YCFSecTSecGroupPKey,
+					YCFSecTSecGroupBuff >> dictByTenantVisIdx
+		= new HashMap< YCFSecTSecGroupByTenantVisIdxKey,
+				Map< YCFSecTSecGroupPKey,
+					YCFSecTSecGroupBuff >>();
+	private Map< YCFSecTSecGroupByUNameIdxKey,
+			YCFSecTSecGroupBuff > dictByUNameIdx
+		= new HashMap< YCFSecTSecGroupByUNameIdxKey,
+			YCFSecTSecGroupBuff >();
 
-	public CFIntRamTSecGroupTable( ICFIntSchema argSchema ) {
+	public YCFIntRamTSecGroupTable( IYCFIntSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createTSecGroup( CFSecAuthorization Authorization,
-		CFSecTSecGroupBuff Buff )
+	public void createTSecGroup( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupBuff Buff )
 	{
 		final String S_ProcName = "createTSecGroup";
-		CFSecTSecGroupPKey pkey = schema.getFactoryTSecGroup().newPKey();
+		YCFSecTSecGroupPKey pkey = schema.getFactoryTSecGroup().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
-		pkey.setRequiredTSecGroupId( ((CFIntRamTenantTable)schema.getTableTenant()).nextTSecGroupIdGen( Authorization,
+		pkey.setRequiredTSecGroupId( ((YCFIntRamTenantTable)schema.getTableTenant()).nextTSecGroupIdGen( Authorization,
 			Buff.getRequiredTenantId() ) );
 		Buff.setRequiredTenantId( pkey.getRequiredTenantId() );
 		Buff.setRequiredTSecGroupId( pkey.getRequiredTSecGroupId() );
-		CFSecTSecGroupByTenantIdxKey keyTenantIdx = schema.getFactoryTSecGroup().newTenantIdxKey();
+		YCFSecTSecGroupByTenantIdxKey keyTenantIdx = schema.getFactoryTSecGroup().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFSecTSecGroupByTenantVisIdxKey keyTenantVisIdx = schema.getFactoryTSecGroup().newTenantVisIdxKey();
+		YCFSecTSecGroupByTenantVisIdxKey keyTenantVisIdx = schema.getFactoryTSecGroup().newTenantVisIdxKey();
 		keyTenantVisIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyTenantVisIdx.setRequiredIsVisible( Buff.getRequiredIsVisible() );
 
-		CFSecTSecGroupByUNameIdxKey keyUNameIdx = schema.getFactoryTSecGroup().newUNameIdxKey();
+		YCFSecTSecGroupByUNameIdxKey keyUNameIdx = schema.getFactoryTSecGroup().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUNameIdx.containsKey( keyUNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"TSecGroupUNameIdx",
 				keyUNameIdx );
@@ -118,7 +118,7 @@ public class CFIntRamTSecGroupTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"TSecGroupTenant",
@@ -132,22 +132,22 @@ public class CFIntRamTSecGroupTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFSecTSecGroupPKey, CFSecTSecGroupBuff > subdictTenantIdx;
+		Map< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff > subdictTenantIdx;
 		if( dictByTenantIdx.containsKey( keyTenantIdx ) ) {
 			subdictTenantIdx = dictByTenantIdx.get( keyTenantIdx );
 		}
 		else {
-			subdictTenantIdx = new HashMap< CFSecTSecGroupPKey, CFSecTSecGroupBuff >();
+			subdictTenantIdx = new HashMap< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff >();
 			dictByTenantIdx.put( keyTenantIdx, subdictTenantIdx );
 		}
 		subdictTenantIdx.put( pkey, Buff );
 
-		Map< CFSecTSecGroupPKey, CFSecTSecGroupBuff > subdictTenantVisIdx;
+		Map< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff > subdictTenantVisIdx;
 		if( dictByTenantVisIdx.containsKey( keyTenantVisIdx ) ) {
 			subdictTenantVisIdx = dictByTenantVisIdx.get( keyTenantVisIdx );
 		}
 		else {
-			subdictTenantVisIdx = new HashMap< CFSecTSecGroupPKey, CFSecTSecGroupBuff >();
+			subdictTenantVisIdx = new HashMap< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff >();
 			dictByTenantVisIdx.put( keyTenantVisIdx, subdictTenantVisIdx );
 		}
 		subdictTenantVisIdx.put( pkey, Buff );
@@ -156,14 +156,14 @@ public class CFIntRamTSecGroupTable
 
 	}
 
-	public CFSecTSecGroupBuff readDerived( CFSecAuthorization Authorization,
-		CFSecTSecGroupPKey PKey )
+	public YCFSecTSecGroupBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupPKey PKey )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readDerived";
-		CFSecTSecGroupPKey key = schema.getFactoryTSecGroup().newPKey();
+		final String S_ProcName = "YCFIntRamTSecGroup.readDerived";
+		YCFSecTSecGroupPKey key = schema.getFactoryTSecGroup().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredTSecGroupId( PKey.getRequiredTSecGroupId() );
-		CFSecTSecGroupBuff buff;
+		YCFSecTSecGroupBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -173,14 +173,14 @@ public class CFIntRamTSecGroupTable
 		return( buff );
 	}
 
-	public CFSecTSecGroupBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecTSecGroupPKey PKey )
+	public YCFSecTSecGroupBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupPKey PKey )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readDerived";
-		CFSecTSecGroupPKey key = schema.getFactoryTSecGroup().newPKey();
+		final String S_ProcName = "YCFIntRamTSecGroup.readDerived";
+		YCFSecTSecGroupPKey key = schema.getFactoryTSecGroup().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredTSecGroupId( PKey.getRequiredTSecGroupId() );
-		CFSecTSecGroupBuff buff;
+		YCFSecTSecGroupBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -190,10 +190,10 @@ public class CFIntRamTSecGroupTable
 		return( buff );
 	}
 
-	public CFSecTSecGroupBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFIntRamTSecGroup.readAllDerived";
-		CFSecTSecGroupBuff[] retList = new CFSecTSecGroupBuff[ dictByPKey.values().size() ];
-		Iterator< CFSecTSecGroupBuff > iter = dictByPKey.values().iterator();
+	public YCFSecTSecGroupBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFIntRamTSecGroup.readAllDerived";
+		YCFSecTSecGroupBuff[] retList = new YCFSecTSecGroupBuff[ dictByPKey.values().size() ];
+		Iterator< YCFSecTSecGroupBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -201,72 +201,72 @@ public class CFIntRamTSecGroupTable
 		return( retList );
 	}
 
-	public CFSecTSecGroupBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	public YCFSecTSecGroupBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readDerivedByTenantIdx";
-		CFSecTSecGroupByTenantIdxKey key = schema.getFactoryTSecGroup().newTenantIdxKey();
+		final String S_ProcName = "YCFIntRamTSecGroup.readDerivedByTenantIdx";
+		YCFSecTSecGroupByTenantIdxKey key = schema.getFactoryTSecGroup().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 
-		CFSecTSecGroupBuff[] recArray;
+		YCFSecTSecGroupBuff[] recArray;
 		if( dictByTenantIdx.containsKey( key ) ) {
-			Map< CFSecTSecGroupPKey, CFSecTSecGroupBuff > subdictTenantIdx
+			Map< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff > subdictTenantIdx
 				= dictByTenantIdx.get( key );
-			recArray = new CFSecTSecGroupBuff[ subdictTenantIdx.size() ];
-			Iterator< CFSecTSecGroupBuff > iter = subdictTenantIdx.values().iterator();
+			recArray = new YCFSecTSecGroupBuff[ subdictTenantIdx.size() ];
+			Iterator< YCFSecTSecGroupBuff > iter = subdictTenantIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecTSecGroupPKey, CFSecTSecGroupBuff > subdictTenantIdx
-				= new HashMap< CFSecTSecGroupPKey, CFSecTSecGroupBuff >();
+			Map< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff > subdictTenantIdx
+				= new HashMap< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff >();
 			dictByTenantIdx.put( key, subdictTenantIdx );
-			recArray = new CFSecTSecGroupBuff[0];
+			recArray = new YCFSecTSecGroupBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecTSecGroupBuff[] readDerivedByTenantVisIdx( CFSecAuthorization Authorization,
+	public YCFSecTSecGroupBuff[] readDerivedByTenantVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		boolean IsVisible )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readDerivedByTenantVisIdx";
-		CFSecTSecGroupByTenantVisIdxKey key = schema.getFactoryTSecGroup().newTenantVisIdxKey();
+		final String S_ProcName = "YCFIntRamTSecGroup.readDerivedByTenantVisIdx";
+		YCFSecTSecGroupByTenantVisIdxKey key = schema.getFactoryTSecGroup().newTenantVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredIsVisible( IsVisible );
 
-		CFSecTSecGroupBuff[] recArray;
+		YCFSecTSecGroupBuff[] recArray;
 		if( dictByTenantVisIdx.containsKey( key ) ) {
-			Map< CFSecTSecGroupPKey, CFSecTSecGroupBuff > subdictTenantVisIdx
+			Map< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff > subdictTenantVisIdx
 				= dictByTenantVisIdx.get( key );
-			recArray = new CFSecTSecGroupBuff[ subdictTenantVisIdx.size() ];
-			Iterator< CFSecTSecGroupBuff > iter = subdictTenantVisIdx.values().iterator();
+			recArray = new YCFSecTSecGroupBuff[ subdictTenantVisIdx.size() ];
+			Iterator< YCFSecTSecGroupBuff > iter = subdictTenantVisIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecTSecGroupPKey, CFSecTSecGroupBuff > subdictTenantVisIdx
-				= new HashMap< CFSecTSecGroupPKey, CFSecTSecGroupBuff >();
+			Map< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff > subdictTenantVisIdx
+				= new HashMap< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff >();
 			dictByTenantVisIdx.put( key, subdictTenantVisIdx );
-			recArray = new CFSecTSecGroupBuff[0];
+			recArray = new YCFSecTSecGroupBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecTSecGroupBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFSecTSecGroupBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String Name )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readDerivedByUNameIdx";
-		CFSecTSecGroupByUNameIdxKey key = schema.getFactoryTSecGroup().newUNameIdxKey();
+		final String S_ProcName = "YCFIntRamTSecGroup.readDerivedByUNameIdx";
+		YCFSecTSecGroupByUNameIdxKey key = schema.getFactoryTSecGroup().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredName( Name );
 
-		CFSecTSecGroupBuff buff;
+		YCFSecTSecGroupBuff buff;
 		if( dictByUNameIdx.containsKey( key ) ) {
 			buff = dictByUNameIdx.get( key );
 		}
@@ -276,16 +276,16 @@ public class CFIntRamTSecGroupTable
 		return( buff );
 	}
 
-	public CFSecTSecGroupBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecTSecGroupBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		int TSecGroupId )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readDerivedByIdIdx() ";
-		CFSecTSecGroupPKey key = schema.getFactoryTSecGroup().newPKey();
+		final String S_ProcName = "YCFIntRamTSecGroup.readDerivedByIdIdx() ";
+		YCFSecTSecGroupPKey key = schema.getFactoryTSecGroup().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTSecGroupId( TSecGroupId );
 
-		CFSecTSecGroupBuff buff;
+		YCFSecTSecGroupBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -295,150 +295,150 @@ public class CFIntRamTSecGroupTable
 		return( buff );
 	}
 
-	public CFSecTSecGroupBuff readBuff( CFSecAuthorization Authorization,
-		CFSecTSecGroupPKey PKey )
+	public YCFSecTSecGroupBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupPKey PKey )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readBuff";
-		CFSecTSecGroupBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFIntRamTSecGroup.readBuff";
+		YCFSecTSecGroupBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a016" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecTSecGroupBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecTSecGroupPKey PKey )
+	public YCFSecTSecGroupBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFSecTSecGroupBuff buff = readDerived( Authorization, PKey );
+		YCFSecTSecGroupBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a016" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecTSecGroupBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFSecTSecGroupBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readAllBuff";
-		CFSecTSecGroupBuff buff;
-		ArrayList<CFSecTSecGroupBuff> filteredList = new ArrayList<CFSecTSecGroupBuff>();
-		CFSecTSecGroupBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFIntRamTSecGroup.readAllBuff";
+		YCFSecTSecGroupBuff buff;
+		ArrayList<YCFSecTSecGroupBuff> filteredList = new ArrayList<YCFSecTSecGroupBuff>();
+		YCFSecTSecGroupBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a016" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecTSecGroupBuff[0] ) );
+		return( filteredList.toArray( new YCFSecTSecGroupBuff[0] ) );
 	}
 
-	public CFSecTSecGroupBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecTSecGroupBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		int TSecGroupId )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readBuffByIdIdx() ";
-		CFSecTSecGroupBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFIntRamTSecGroup.readBuffByIdIdx() ";
+		YCFSecTSecGroupBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			TSecGroupId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a016" ) ) {
-			return( (CFSecTSecGroupBuff)buff );
+			return( (YCFSecTSecGroupBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecTSecGroupBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	public YCFSecTSecGroupBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readBuffByTenantIdx() ";
-		CFSecTSecGroupBuff buff;
-		ArrayList<CFSecTSecGroupBuff> filteredList = new ArrayList<CFSecTSecGroupBuff>();
-		CFSecTSecGroupBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFIntRamTSecGroup.readBuffByTenantIdx() ";
+		YCFSecTSecGroupBuff buff;
+		ArrayList<YCFSecTSecGroupBuff> filteredList = new ArrayList<YCFSecTSecGroupBuff>();
+		YCFSecTSecGroupBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a016" ) ) {
-				filteredList.add( (CFSecTSecGroupBuff)buff );
+				filteredList.add( (YCFSecTSecGroupBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecTSecGroupBuff[0] ) );
+		return( filteredList.toArray( new YCFSecTSecGroupBuff[0] ) );
 	}
 
-	public CFSecTSecGroupBuff[] readBuffByTenantVisIdx( CFSecAuthorization Authorization,
+	public YCFSecTSecGroupBuff[] readBuffByTenantVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		boolean IsVisible )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readBuffByTenantVisIdx() ";
-		CFSecTSecGroupBuff buff;
-		ArrayList<CFSecTSecGroupBuff> filteredList = new ArrayList<CFSecTSecGroupBuff>();
-		CFSecTSecGroupBuff[] buffList = readDerivedByTenantVisIdx( Authorization,
+		final String S_ProcName = "YCFIntRamTSecGroup.readBuffByTenantVisIdx() ";
+		YCFSecTSecGroupBuff buff;
+		ArrayList<YCFSecTSecGroupBuff> filteredList = new ArrayList<YCFSecTSecGroupBuff>();
+		YCFSecTSecGroupBuff[] buffList = readDerivedByTenantVisIdx( Authorization,
 			TenantId,
 			IsVisible );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a016" ) ) {
-				filteredList.add( (CFSecTSecGroupBuff)buff );
+				filteredList.add( (YCFSecTSecGroupBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecTSecGroupBuff[0] ) );
+		return( filteredList.toArray( new YCFSecTSecGroupBuff[0] ) );
 	}
 
-	public CFSecTSecGroupBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFSecTSecGroupBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String Name )
 	{
-		final String S_ProcName = "CFIntRamTSecGroup.readBuffByUNameIdx() ";
-		CFSecTSecGroupBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFIntRamTSecGroup.readBuffByUNameIdx() ";
+		YCFSecTSecGroupBuff buff = readDerivedByUNameIdx( Authorization,
 			TenantId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a016" ) ) {
-			return( (CFSecTSecGroupBuff)buff );
+			return( (YCFSecTSecGroupBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public void updateTSecGroup( CFSecAuthorization Authorization,
-		CFSecTSecGroupBuff Buff )
+	public void updateTSecGroup( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupBuff Buff )
 	{
-		CFSecTSecGroupPKey pkey = schema.getFactoryTSecGroup().newPKey();
+		YCFSecTSecGroupPKey pkey = schema.getFactoryTSecGroup().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredTSecGroupId( Buff.getRequiredTSecGroupId() );
-		CFSecTSecGroupBuff existing = dictByPKey.get( pkey );
+		YCFSecTSecGroupBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateTSecGroup",
 				"Existing record not found",
 				"TSecGroup",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateTSecGroup",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFSecTSecGroupByTenantIdxKey existingKeyTenantIdx = schema.getFactoryTSecGroup().newTenantIdxKey();
+		YCFSecTSecGroupByTenantIdxKey existingKeyTenantIdx = schema.getFactoryTSecGroup().newTenantIdxKey();
 		existingKeyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFSecTSecGroupByTenantIdxKey newKeyTenantIdx = schema.getFactoryTSecGroup().newTenantIdxKey();
+		YCFSecTSecGroupByTenantIdxKey newKeyTenantIdx = schema.getFactoryTSecGroup().newTenantIdxKey();
 		newKeyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFSecTSecGroupByTenantVisIdxKey existingKeyTenantVisIdx = schema.getFactoryTSecGroup().newTenantVisIdxKey();
+		YCFSecTSecGroupByTenantVisIdxKey existingKeyTenantVisIdx = schema.getFactoryTSecGroup().newTenantVisIdxKey();
 		existingKeyTenantVisIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyTenantVisIdx.setRequiredIsVisible( existing.getRequiredIsVisible() );
 
-		CFSecTSecGroupByTenantVisIdxKey newKeyTenantVisIdx = schema.getFactoryTSecGroup().newTenantVisIdxKey();
+		YCFSecTSecGroupByTenantVisIdxKey newKeyTenantVisIdx = schema.getFactoryTSecGroup().newTenantVisIdxKey();
 		newKeyTenantVisIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyTenantVisIdx.setRequiredIsVisible( Buff.getRequiredIsVisible() );
 
-		CFSecTSecGroupByUNameIdxKey existingKeyUNameIdx = schema.getFactoryTSecGroup().newUNameIdxKey();
+		YCFSecTSecGroupByUNameIdxKey existingKeyUNameIdx = schema.getFactoryTSecGroup().newUNameIdxKey();
 		existingKeyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFSecTSecGroupByUNameIdxKey newKeyUNameIdx = schema.getFactoryTSecGroup().newUNameIdxKey();
+		YCFSecTSecGroupByUNameIdxKey newKeyUNameIdx = schema.getFactoryTSecGroup().newUNameIdxKey();
 		newKeyUNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
@@ -446,7 +446,7 @@ public class CFIntRamTSecGroupTable
 
 		if( ! existingKeyUNameIdx.equals( newKeyUNameIdx ) ) {
 			if( dictByUNameIdx.containsKey( newKeyUNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateTSecGroup",
 					"TSecGroupUNameIdx",
 					newKeyUNameIdx );
@@ -462,7 +462,7 @@ public class CFIntRamTSecGroupTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateTSecGroup",
 						"Container",
 						"TSecGroupTenant",
@@ -474,7 +474,7 @@ public class CFIntRamTSecGroupTable
 
 		// Update is valid
 
-		Map< CFSecTSecGroupPKey, CFSecTSecGroupBuff > subdict;
+		Map< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -487,7 +487,7 @@ public class CFIntRamTSecGroupTable
 			subdict = dictByTenantIdx.get( newKeyTenantIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecTSecGroupPKey, CFSecTSecGroupBuff >();
+			subdict = new HashMap< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff >();
 			dictByTenantIdx.put( newKeyTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -500,7 +500,7 @@ public class CFIntRamTSecGroupTable
 			subdict = dictByTenantVisIdx.get( newKeyTenantVisIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecTSecGroupPKey, CFSecTSecGroupBuff >();
+			subdict = new HashMap< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff >();
 			dictByTenantVisIdx.put( newKeyTenantVisIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -510,21 +510,21 @@ public class CFIntRamTSecGroupTable
 
 	}
 
-	public void deleteTSecGroup( CFSecAuthorization Authorization,
-		CFSecTSecGroupBuff Buff )
+	public void deleteTSecGroup( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupBuff Buff )
 	{
-		final String S_ProcName = "CFIntRamTSecGroupTable.deleteTSecGroup() ";
+		final String S_ProcName = "YCFIntRamTSecGroupTable.deleteTSecGroup() ";
 		String classCode;
-		CFSecTSecGroupPKey pkey = schema.getFactoryTSecGroup().newPKey();
+		YCFSecTSecGroupPKey pkey = schema.getFactoryTSecGroup().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredTSecGroupId( Buff.getRequiredTSecGroupId() );
-		CFSecTSecGroupBuff existing = dictByPKey.get( pkey );
+		YCFSecTSecGroupBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteTSecGroup",
 				pkey );
 		}
@@ -537,21 +537,21 @@ public class CFIntRamTSecGroupTable
 					schema.getTableTSecGrpInc().deleteTSecGrpIncByGroupIdx( Authorization,
 						existing.getRequiredTenantId(),
 						existing.getRequiredTSecGroupId() );
-		CFSecTSecGroupByTenantIdxKey keyTenantIdx = schema.getFactoryTSecGroup().newTenantIdxKey();
+		YCFSecTSecGroupByTenantIdxKey keyTenantIdx = schema.getFactoryTSecGroup().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFSecTSecGroupByTenantVisIdxKey keyTenantVisIdx = schema.getFactoryTSecGroup().newTenantVisIdxKey();
+		YCFSecTSecGroupByTenantVisIdxKey keyTenantVisIdx = schema.getFactoryTSecGroup().newTenantVisIdxKey();
 		keyTenantVisIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyTenantVisIdx.setRequiredIsVisible( existing.getRequiredIsVisible() );
 
-		CFSecTSecGroupByUNameIdxKey keyUNameIdx = schema.getFactoryTSecGroup().newUNameIdxKey();
+		YCFSecTSecGroupByUNameIdxKey keyUNameIdx = schema.getFactoryTSecGroup().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFSecTSecGroupPKey, CFSecTSecGroupBuff > subdict;
+		Map< YCFSecTSecGroupPKey, YCFSecTSecGroupBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -564,18 +564,18 @@ public class CFIntRamTSecGroupTable
 		dictByUNameIdx.remove( keyUNameIdx );
 
 	}
-	public void deleteTSecGroupByIdIdx( CFSecAuthorization Authorization,
+	public void deleteTSecGroupByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		int argTSecGroupId )
 	{
-		CFSecTSecGroupPKey key = schema.getFactoryTSecGroup().newPKey();
+		YCFSecTSecGroupPKey key = schema.getFactoryTSecGroup().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTSecGroupId( argTSecGroupId );
 		deleteTSecGroupByIdIdx( Authorization, key );
 	}
 
-	public void deleteTSecGroupByIdIdx( CFSecAuthorization Authorization,
-		CFSecTSecGroupPKey argKey )
+	public void deleteTSecGroupByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -583,16 +583,16 @@ public class CFIntRamTSecGroupTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFSecTSecGroupBuff cur;
-		LinkedList<CFSecTSecGroupBuff> matchSet = new LinkedList<CFSecTSecGroupBuff>();
-		Iterator<CFSecTSecGroupBuff> values = dictByPKey.values().iterator();
+		YCFSecTSecGroupBuff cur;
+		LinkedList<YCFSecTSecGroupBuff> matchSet = new LinkedList<YCFSecTSecGroupBuff>();
+		Iterator<YCFSecTSecGroupBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecTSecGroupBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecTSecGroupBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTSecGroup().readDerivedByIdIdx( Authorization,
@@ -602,32 +602,32 @@ public class CFIntRamTSecGroupTable
 		}
 	}
 
-	public void deleteTSecGroupByTenantIdx( CFSecAuthorization Authorization,
+	public void deleteTSecGroupByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFSecTSecGroupByTenantIdxKey key = schema.getFactoryTSecGroup().newTenantIdxKey();
+		YCFSecTSecGroupByTenantIdxKey key = schema.getFactoryTSecGroup().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteTSecGroupByTenantIdx( Authorization, key );
 	}
 
-	public void deleteTSecGroupByTenantIdx( CFSecAuthorization Authorization,
-		CFSecTSecGroupByTenantIdxKey argKey )
+	public void deleteTSecGroupByTenantIdx( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupByTenantIdxKey argKey )
 	{
-		CFSecTSecGroupBuff cur;
+		YCFSecTSecGroupBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecTSecGroupBuff> matchSet = new LinkedList<CFSecTSecGroupBuff>();
-		Iterator<CFSecTSecGroupBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecTSecGroupBuff> matchSet = new LinkedList<YCFSecTSecGroupBuff>();
+		Iterator<YCFSecTSecGroupBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecTSecGroupBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecTSecGroupBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTSecGroup().readDerivedByIdIdx( Authorization,
@@ -637,35 +637,35 @@ public class CFIntRamTSecGroupTable
 		}
 	}
 
-	public void deleteTSecGroupByTenantVisIdx( CFSecAuthorization Authorization,
+	public void deleteTSecGroupByTenantVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		boolean argIsVisible )
 	{
-		CFSecTSecGroupByTenantVisIdxKey key = schema.getFactoryTSecGroup().newTenantVisIdxKey();
+		YCFSecTSecGroupByTenantVisIdxKey key = schema.getFactoryTSecGroup().newTenantVisIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredIsVisible( argIsVisible );
 		deleteTSecGroupByTenantVisIdx( Authorization, key );
 	}
 
-	public void deleteTSecGroupByTenantVisIdx( CFSecAuthorization Authorization,
-		CFSecTSecGroupByTenantVisIdxKey argKey )
+	public void deleteTSecGroupByTenantVisIdx( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupByTenantVisIdxKey argKey )
 	{
-		CFSecTSecGroupBuff cur;
+		YCFSecTSecGroupBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecTSecGroupBuff> matchSet = new LinkedList<CFSecTSecGroupBuff>();
-		Iterator<CFSecTSecGroupBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecTSecGroupBuff> matchSet = new LinkedList<YCFSecTSecGroupBuff>();
+		Iterator<YCFSecTSecGroupBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecTSecGroupBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecTSecGroupBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTSecGroup().readDerivedByIdIdx( Authorization,
@@ -675,35 +675,35 @@ public class CFIntRamTSecGroupTable
 		}
 	}
 
-	public void deleteTSecGroupByUNameIdx( CFSecAuthorization Authorization,
+	public void deleteTSecGroupByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		String argName )
 	{
-		CFSecTSecGroupByUNameIdxKey key = schema.getFactoryTSecGroup().newUNameIdxKey();
+		YCFSecTSecGroupByUNameIdxKey key = schema.getFactoryTSecGroup().newUNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredName( argName );
 		deleteTSecGroupByUNameIdx( Authorization, key );
 	}
 
-	public void deleteTSecGroupByUNameIdx( CFSecAuthorization Authorization,
-		CFSecTSecGroupByUNameIdxKey argKey )
+	public void deleteTSecGroupByUNameIdx( YCFSecAuthorization Authorization,
+		YCFSecTSecGroupByUNameIdxKey argKey )
 	{
-		CFSecTSecGroupBuff cur;
+		YCFSecTSecGroupBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecTSecGroupBuff> matchSet = new LinkedList<CFSecTSecGroupBuff>();
-		Iterator<CFSecTSecGroupBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecTSecGroupBuff> matchSet = new LinkedList<YCFSecTSecGroupBuff>();
+		Iterator<YCFSecTSecGroupBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecTSecGroupBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecTSecGroupBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTSecGroup().readDerivedByIdIdx( Authorization,

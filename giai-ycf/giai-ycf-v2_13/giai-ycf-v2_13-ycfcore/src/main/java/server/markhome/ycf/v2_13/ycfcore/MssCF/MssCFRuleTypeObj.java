@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -29,19 +29,19 @@ import java.net.*;
 import java.security.cert.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFRuleTypeObj
-extends CFGenKbRuleTypeObj
+public class MssYCFRuleTypeObj
+extends YCFGenKbRuleTypeObj
 {
-	public MssCFRuleTypeObj()
+	public MssYCFRuleTypeObj()
 	{
 		super();
 	}
 
-	public MssCFRuleTypeObj(MssCFEngine schema)
+	public MssYCFRuleTypeObj(MssYCFEngine schema)
 	{
 		super( schema );
 	}

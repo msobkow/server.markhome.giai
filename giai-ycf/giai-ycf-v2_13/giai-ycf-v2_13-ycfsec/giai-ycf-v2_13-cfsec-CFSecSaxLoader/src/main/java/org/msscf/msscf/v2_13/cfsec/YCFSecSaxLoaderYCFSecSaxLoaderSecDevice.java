@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for SecDevice
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,19 +35,19 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSaxLoaderSecDeviceParse XML SAX Element Handler implementation
+ *	YCFSecSaxLoaderSecDeviceParse XML SAX Element Handler implementation
  *	for SecDevice.
  */
-public class CFSecSaxLoaderSecDevice
-	extends CFLibXmlCoreElementHandler
+public class YCFSecSaxLoaderSecDevice
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFSecSaxLoaderSecDevice( CFSecSaxLoader saxLoader ) {
+	public YCFSecSaxLoaderSecDevice( YCFSecSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -59,14 +59,14 @@ public class CFSecSaxLoaderSecDevice
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFSecSecDeviceObj origBuff = null;
-		ICFSecSecDeviceEditObj editBuff = null;
+		IYCFSecSecDeviceObj origBuff = null;
+		IYCFSecSecDeviceEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// SecDevice Attributes
 		String attrPubKey = null;
 		// SecDevice References
-		ICFSecSecUserObj refSecUser = null;
+		IYCFSecSecUserObj refSecUser = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -75,25 +75,25 @@ public class CFSecSaxLoaderSecDevice
 		try {
 			assert qName.equals( "SecDevice" );
 
-			CFSecSaxLoader saxLoader = (CFSecSaxLoader)getParser();
+			YCFSecSaxLoader saxLoader = (YCFSecSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFSecSecDeviceObj)schemaObj.getSecDeviceTableObj().newInstance();
-			editBuff = (ICFSecSecDeviceEditObj)origBuff.beginEdit();
+			origBuff = (IYCFSecSecDeviceObj)schemaObj.getSecDeviceTableObj().newInstance();
+			editBuff = (IYCFSecSecDeviceEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -101,7 +101,7 @@ public class CFSecSaxLoaderSecDevice
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -110,7 +110,7 @@ public class CFSecSaxLoaderSecDevice
 				}
 				else if( attrLocalName.equals( "PubKey" ) ) {
 					if( attrPubKey != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -121,7 +121,7 @@ public class CFSecSaxLoaderSecDevice
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -131,7 +131,7 @@ public class CFSecSaxLoaderSecDevice
 			// Ensure that required attributes have values
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "PubKey", attrPubKey );
 
@@ -150,7 +150,7 @@ public class CFSecSaxLoaderSecDevice
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -162,26 +162,26 @@ public class CFSecSaxLoaderSecDevice
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFSecSecUserObj ) {
-				refSecUser = (ICFSecSecUserObj) scopeObj;
+			else if( scopeObj instanceof IYCFSecSecUserObj ) {
+				refSecUser = (IYCFSecSecUserObj) scopeObj;
 				editBuff.setRequiredContainerSecUser( refSecUser );
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFSecSecUserObj" );
+					"IYCFSecSecUserObj" );
 			}
 
-			CFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecDeviceLoaderBehaviour();
-			ICFSecSecDeviceEditObj editSecDevice = null;
-			ICFSecSecDeviceObj origSecDevice = (ICFSecSecDeviceObj)schemaObj.getSecDeviceTableObj().readSecDeviceByNameIdx( refSecUser.getRequiredSecUserId(),
+			YCFSecSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getSecDeviceLoaderBehaviour();
+			IYCFSecSecDeviceEditObj editSecDevice = null;
+			IYCFSecSecDeviceObj origSecDevice = (IYCFSecSecDeviceObj)schemaObj.getSecDeviceTableObj().readSecDeviceByNameIdx( refSecUser.getRequiredSecUserId(),
 			editBuff.getRequiredDevName() );
 			if( origSecDevice == null ) {
 				editSecDevice = editBuff;
@@ -191,11 +191,11 @@ public class CFSecSaxLoaderSecDevice
 					case Insert:
 						break;
 					case Update:
-						editSecDevice = (ICFSecSecDeviceEditObj)origSecDevice.beginEdit();
+						editSecDevice = (IYCFSecSecDeviceEditObj)origSecDevice.beginEdit();
 						editSecDevice.setOptionalPubKey( editBuff.getOptionalPubKey() );
 						break;
 					case Replace:
-						editSecDevice = (ICFSecSecDeviceEditObj)origSecDevice.beginEdit();
+						editSecDevice = (IYCFSecSecDeviceEditObj)origSecDevice.beginEdit();
 						editSecDevice.deleteInstance();
 						editSecDevice = null;
 						origSecDevice = null;
@@ -209,7 +209,7 @@ public class CFSecSaxLoaderSecDevice
 					editSecDevice.update();
 				}
 				else {
-					origSecDevice = (ICFSecSecDeviceObj)editSecDevice.create();
+					origSecDevice = (IYCFSecSecDeviceObj)editSecDevice.create();
 				}
 				editSecDevice = null;
 			}

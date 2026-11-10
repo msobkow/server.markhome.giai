@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustXmlLoader
+ *	MSS Code Factory YCFBam 2.13 CustXmlLoader
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,44 +23,44 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader;
+package org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader;
 
 import java.util.Iterator;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 import org.xml.sax.*;
 
-import org.msscf.msscf.v2_13.cfbam.CFBam.ICFBamSchema;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.IYCFBamSchema;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamXmlLoaderDelDepParse XML SAX Element Handler implementation
+ *	YCFBamXmlLoaderDelDepParse XML SAX Element Handler implementation
  *	for DelDep.
  */
-public class CFBamXmlLoaderDelDepHandler
-	extends CFLibXmlCoreElementHandler
+public class YCFBamXmlLoaderDelDepHandler
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamXmlLoaderDelDepHandler( CFBamXmlLoader saxLoader ) {
+	public YCFBamXmlLoaderDelDepHandler( YCFBamXmlLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -86,17 +86,17 @@ public class CFBamXmlLoaderDelDepHandler
 
 			assert qName.equals( "DelDep" );
 
-			CFBamXmlLoader saxLoader = (CFBamXmlLoader)getParser();
+			YCFBamXmlLoader saxLoader = (YCFBamXmlLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
@@ -108,7 +108,7 @@ public class CFBamXmlLoaderDelDepHandler
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -117,7 +117,7 @@ public class CFBamXmlLoaderDelDepHandler
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -126,7 +126,7 @@ public class CFBamXmlLoaderDelDepHandler
 				}
 				else if( attrLocalName.equals( "DelDepChain" ) ) {
 					if( attrDelDepChain != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -137,7 +137,7 @@ public class CFBamXmlLoaderDelDepHandler
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						saxLoader.getLocationInfo(),
 						attrLocalName );
@@ -146,22 +146,22 @@ public class CFBamXmlLoaderDelDepHandler
 
 			// Ensure that required attributes have values
 			if( ( attrName == null ) || ( attrName.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			if( ( attrDelDepChain == null ) || ( attrDelDepChain.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"DelDepChain" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = saxLoader.getCurContext();
-			if( ! CFBamXmlLoader.getProcessSchema( curContext ) ) {
+			YCFLibXmlCoreContext curContext = saxLoader.getCurContext();
+			if( ! YCFBamXmlLoader.getProcessSchema( curContext ) ) {
 				return;
 			}
 
@@ -169,29 +169,29 @@ public class CFBamXmlLoaderDelDepHandler
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "DelDepChain", attrDelDepChain );
 
-			if( ! CFBamXmlLoader.getProcessSchema( curContext ) ) {
+			if( ! YCFBamXmlLoader.getProcessSchema( curContext ) ) {
 				return;
 			}
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
-			ICFBamTableObj fromTable;
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			IYCFBamTableObj fromTable;
 			if( parentContext != null ) {
-				fromTable = (ICFBamTableObj)parentContext.getNamedValue( "Object" );
+				fromTable = (IYCFBamTableObj)parentContext.getNamedValue( "Object" );
 			}
 			else {
 				fromTable = null;
 			}
 			if( fromTable == null ) {
-				throw new CFLibRuntimeException( getClass(),
+				throw new YCFLibRuntimeException( getClass(),
 					S_ProcName,
 					saxLoader.getLocationInfo() + " PrevContext.Object is null, Table is required" );
 			}
 
-			ICFBamRelationTableObj relationTable = schemaObj.getRelationTableObj();
+			IYCFBamRelationTableObj relationTable = schemaObj.getRelationTableObj();
 
 			int firstDot;
 
-			ICFBamTableObj curTable = fromTable;
+			IYCFBamTableObj curTable = fromTable;
 			firstDot = attrDelDepChain.indexOf( '.' );
 			String nextRelationName;
 			String remainder;
@@ -203,9 +203,9 @@ public class CFBamXmlLoaderDelDepHandler
 				nextRelationName = attrDelDepChain;
 				remainder = null;
 			}
-			ICFBamRelationObj resolvedRelation = resolveInheritedRelation( relationTable, curTable, nextRelationName );
+			IYCFBamRelationObj resolvedRelation = resolveInheritedRelation( relationTable, curTable, nextRelationName );
 			if( resolvedRelation == null ) {
-				throw new CFLibRuntimeException( getClass(),
+				throw new YCFLibRuntimeException( getClass(),
 						S_ProcName,
 						saxLoader.getLocationInfo() + "Relation \""
 							+ nextRelationName
@@ -215,13 +215,13 @@ public class CFBamXmlLoaderDelDepHandler
 							+ curTable.getRequiredName()
 							+ "\"" );
 			}
-			ICFBamDelTopDepObj origTopDep = schemaObj.getDelTopDepTableObj().newInstance();
-			ICFBamDelTopDepEditObj editTopDep = (ICFBamDelTopDepEditObj)origTopDep.beginEdit();
+			IYCFBamDelTopDepObj origTopDep = schemaObj.getDelTopDepTableObj().newInstance();
+			IYCFBamDelTopDepEditObj editTopDep = (IYCFBamDelTopDepEditObj)origTopDep.beginEdit();
 			editTopDep.setRequiredOwnerTenant( fromTable.getRequiredOwnerTenant() );
 			editTopDep.setRequiredContainerTable( fromTable );
 			editTopDep.setRequiredName( attrName );
 			editTopDep.setRequiredLookupRelation( resolvedRelation );
-			origTopDep = (ICFBamDelTopDepObj)editTopDep.create();
+			origTopDep = (IYCFBamDelTopDepObj)editTopDep.create();
 
 			curContext.putNamedValue( "Object", origTopDep );
 
@@ -238,7 +238,7 @@ public class CFBamXmlLoaderDelDepHandler
 				}
 				resolvedRelation = resolveInheritedRelation( relationTable, curTable, nextRelationName );
 				if( resolvedRelation == null ) {
-					throw new CFLibRuntimeException( getClass(),
+					throw new YCFLibRuntimeException( getClass(),
 							S_ProcName,
 							saxLoader.getLocationInfo() + "Relation \""
 								+ nextRelationName
@@ -248,13 +248,13 @@ public class CFBamXmlLoaderDelDepHandler
 								+ curTable.getRequiredName()
 								+ "\"" );
 				}
-				ICFBamDelSubDep1Obj origSubDep1 = schemaObj.getDelSubDep1TableObj().newInstance();
-				ICFBamDelSubDep1EditObj editSubDep1 = (ICFBamDelSubDep1EditObj)origSubDep1.beginEdit();
+				IYCFBamDelSubDep1Obj origSubDep1 = schemaObj.getDelSubDep1TableObj().newInstance();
+				IYCFBamDelSubDep1EditObj editSubDep1 = (IYCFBamDelSubDep1EditObj)origSubDep1.beginEdit();
 				editSubDep1.setRequiredOwnerTenant( fromTable.getRequiredOwnerTenant() );
 				editSubDep1.setRequiredContainerDelTopDep( origTopDep );
 				editSubDep1.setRequiredName( resolvedRelation.getRequiredName() );
 				editSubDep1.setRequiredLookupRelation( resolvedRelation );
-				origSubDep1 = (ICFBamDelSubDep1Obj)editSubDep1.create();
+				origSubDep1 = (IYCFBamDelSubDep1Obj)editSubDep1.create();
 
 				if( remainder != null ) {
 					curTable = origSubDep1.getRequiredLookupRelation().getRequiredLookupToTable();
@@ -269,7 +269,7 @@ public class CFBamXmlLoaderDelDepHandler
 					}
 					resolvedRelation = resolveInheritedRelation( relationTable, curTable, nextRelationName );
 					if( resolvedRelation == null ) {
-						throw new CFLibRuntimeException( getClass(),
+						throw new YCFLibRuntimeException( getClass(),
 								S_ProcName,
 								saxLoader.getLocationInfo() + "Relation \""
 									+ nextRelationName
@@ -279,19 +279,19 @@ public class CFBamXmlLoaderDelDepHandler
 									+ curTable.getRequiredName()
 									+ "\"" );
 					}
-					ICFBamDelSubDep2Obj origSubDep2 = schemaObj.getDelSubDep2TableObj().newInstance();
-					ICFBamDelSubDep2EditObj editSubDep2 = (ICFBamDelSubDep2EditObj)origSubDep2.beginEdit();
+					IYCFBamDelSubDep2Obj origSubDep2 = schemaObj.getDelSubDep2TableObj().newInstance();
+					IYCFBamDelSubDep2EditObj editSubDep2 = (IYCFBamDelSubDep2EditObj)origSubDep2.beginEdit();
 					editSubDep2.setRequiredOwnerTenant( fromTable.getRequiredOwnerTenant() );
 					editSubDep2.setRequiredContainerDelSubDep1( origSubDep1 );
 					editSubDep2.setRequiredName( resolvedRelation.getRequiredName() );
 					editSubDep2.setRequiredLookupRelation( resolvedRelation );
-					origSubDep2 = (ICFBamDelSubDep2Obj)editSubDep2.create();
+					origSubDep2 = (IYCFBamDelSubDep2Obj)editSubDep2.create();
 
 					if( remainder != null ) {
 						curTable = origSubDep2.getRequiredLookupRelation().getRequiredLookupToTable();
 						firstDot = remainder.indexOf( '.' );
 						if( firstDot > 0 ) {
-							throw new CFLibRuntimeException( getClass(),
+							throw new YCFLibRuntimeException( getClass(),
 								S_ProcName,
 								saxLoader.getLocationInfo() + "Relation DelDepChain is invalid -- only 4 levels of indirection are supported" );
 						}
@@ -301,7 +301,7 @@ public class CFBamXmlLoaderDelDepHandler
 						}
 						resolvedRelation = resolveInheritedRelation( relationTable, curTable, nextRelationName );
 						if( resolvedRelation == null ) {
-							throw new CFLibRuntimeException( getClass(),
+							throw new YCFLibRuntimeException( getClass(),
 									S_ProcName,
 									saxLoader.getLocationInfo() + "Relation \""
 										+ nextRelationName
@@ -311,13 +311,13 @@ public class CFBamXmlLoaderDelDepHandler
 										+ curTable.getRequiredName()
 										+ "\"" );
 						}
-						ICFBamDelSubDep3Obj origSubDep3 = schemaObj.getDelSubDep3TableObj().newInstance();
-						ICFBamDelSubDep3EditObj editSubDep3 = (ICFBamDelSubDep3EditObj)origSubDep3.beginEdit();
+						IYCFBamDelSubDep3Obj origSubDep3 = schemaObj.getDelSubDep3TableObj().newInstance();
+						IYCFBamDelSubDep3EditObj editSubDep3 = (IYCFBamDelSubDep3EditObj)origSubDep3.beginEdit();
 						editSubDep3.setRequiredOwnerTenant( fromTable.getRequiredOwnerTenant() );
 						editSubDep3.setRequiredContainerDelSubDep2( origSubDep2 );
 						editSubDep3.setRequiredName( resolvedRelation.getRequiredName() );
 						editSubDep3.setRequiredLookupRelation( resolvedRelation );
-						origSubDep3 = (ICFBamDelSubDep3Obj)editSubDep3.create();
+						origSubDep3 = (IYCFBamDelSubDep3Obj)editSubDep3.create();
 					}
 				}
 			}
@@ -332,21 +332,21 @@ public class CFBamXmlLoaderDelDepHandler
 		}
 	}
 
-	protected ICFBamRelationObj resolveInheritedRelation( ICFBamRelationTableObj relationTable, ICFBamTableObj tbl, String relName ) {
-		ICFBamRelationObj curRelation;
-		ICFBamRelationObj superRelation;
-		ICFBamRelationObj retval = null;
-		ICFBamTableObj curTable = tbl;
+	protected IYCFBamRelationObj resolveInheritedRelation( IYCFBamRelationTableObj relationTable, IYCFBamTableObj tbl, String relName ) {
+		IYCFBamRelationObj curRelation;
+		IYCFBamRelationObj superRelation;
+		IYCFBamRelationObj retval = null;
+		IYCFBamTableObj curTable = tbl;
 		while( ( retval == null ) && ( curTable != null ) ) {
 			retval = relationTable.readRelationByUNameIdx( curTable.getRequiredTenantId(),
 					curTable.getRequiredId(),
 					relName );
 			if( retval == null ) {
-				Iterator<ICFBamRelationObj> relIter = curTable.getOptionalComponentsRelation().iterator();
+				Iterator<IYCFBamRelationObj> relIter = curTable.getOptionalComponentsRelation().iterator();
 				superRelation = null;
 				while( ( superRelation == null ) && relIter.hasNext() ) {
 					curRelation = relIter.next();
-					if( curRelation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+					if( curRelation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 						superRelation = curRelation;
 					}
 				}

@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object implementation for CFGenKb.
+// Description: Java 11 Table Object implementation for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,51 +27,51 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbToolTableObj
-	implements ICFGenKbToolTableObj
+public class YCFGenKbToolTableObj
+	implements IYCFGenKbToolTableObj
 {
-	protected ICFGenKbSchemaObj schema;
-	private Map<CFGenKbToolPKey, ICFGenKbToolObj> members;
-	private Map<CFGenKbToolPKey, ICFGenKbToolObj> allTool;
-	private Map< CFGenKbToolByNameIdxKey,
-		ICFGenKbToolObj > indexByNameIdx;
-	private Map< CFGenKbToolByReplacesIdxKey,
-		Map<CFGenKbToolPKey, ICFGenKbToolObj > > indexByReplacesIdx;
+	protected IYCFGenKbSchemaObj schema;
+	private Map<YCFGenKbToolPKey, IYCFGenKbToolObj> members;
+	private Map<YCFGenKbToolPKey, IYCFGenKbToolObj> allTool;
+	private Map< YCFGenKbToolByNameIdxKey,
+		IYCFGenKbToolObj > indexByNameIdx;
+	private Map< YCFGenKbToolByReplacesIdxKey,
+		Map<YCFGenKbToolPKey, IYCFGenKbToolObj > > indexByReplacesIdx;
 	public static String TABLE_NAME = "Tool";
 	public static String TABLE_DBNAME = "kbtool";
 
-	public CFGenKbToolTableObj() {
+	public YCFGenKbToolTableObj() {
 		schema = null;
-		members = new HashMap<CFGenKbToolPKey, ICFGenKbToolObj>();
+		members = new HashMap<YCFGenKbToolPKey, IYCFGenKbToolObj>();
 		allTool = null;
 		indexByNameIdx = null;
 		indexByReplacesIdx = null;
 	}
 
-	public CFGenKbToolTableObj( ICFGenKbSchemaObj argSchema ) {
-		schema = (ICFGenKbSchemaObj)argSchema;
-		members = new HashMap<CFGenKbToolPKey, ICFGenKbToolObj>();
+	public YCFGenKbToolTableObj( IYCFGenKbSchemaObj argSchema ) {
+		schema = (IYCFGenKbSchemaObj)argSchema;
+		members = new HashMap<YCFGenKbToolPKey, IYCFGenKbToolObj>();
 		allTool = null;
 		indexByNameIdx = null;
 		indexByReplacesIdx = null;
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
-		schema = (ICFGenKbSchemaObj)value;
+	public void setSchema( IYCFGenKbSchemaObj value ) {
+		schema = (IYCFGenKbSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -91,9 +91,9 @@ public class CFGenKbToolTableObj
 		allTool = null;
 		indexByNameIdx = null;
 		indexByReplacesIdx = null;
-		List<ICFGenKbToolObj> toForget = new LinkedList<ICFGenKbToolObj>();
-		ICFGenKbToolObj cur = null;
-		Iterator<ICFGenKbToolObj> iter = members.values().iterator();
+		List<IYCFGenKbToolObj> toForget = new LinkedList<IYCFGenKbToolObj>();
+		IYCFGenKbToolObj cur = null;
+		Iterator<IYCFGenKbToolObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -111,10 +111,10 @@ public class CFGenKbToolTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbToolObj.
+	 *	YCFGenKbToolObj.
 	 */
-	public ICFGenKbToolObj newInstance() {
-		ICFGenKbToolObj inst = new CFGenKbToolObj( schema );
+	public IYCFGenKbToolObj newInstance() {
+		IYCFGenKbToolObj inst = new YCFGenKbToolObj( schema );
 		return( inst );
 	}
 
@@ -125,19 +125,19 @@ public class CFGenKbToolTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbToolObj.
+	 *	YCFGenKbToolObj.
 	 */
-	public ICFGenKbToolEditObj newEditInstance( ICFGenKbToolObj orig ) {
-		ICFGenKbToolEditObj edit = new CFGenKbToolEditObj( orig );
+	public IYCFGenKbToolEditObj newEditInstance( IYCFGenKbToolObj orig ) {
+		IYCFGenKbToolEditObj edit = new YCFGenKbToolEditObj( orig );
 		return( edit );
 	}
 
-	public ICFGenKbToolObj realiseTool( ICFGenKbToolObj Obj ) {
-		ICFGenKbToolObj obj = Obj;
-		CFGenKbToolPKey pkey = obj.getPKey();
-		ICFGenKbToolObj keepObj = null;
+	public IYCFGenKbToolObj realiseTool( IYCFGenKbToolObj Obj ) {
+		IYCFGenKbToolObj obj = Obj;
+		YCFGenKbToolPKey pkey = obj.getPKey();
+		IYCFGenKbToolObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFGenKbToolObj existingObj = members.get( pkey );
+			IYCFGenKbToolObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -148,17 +148,17 @@ public class CFGenKbToolTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByNameIdx != null ) {
-				CFGenKbToolByNameIdxKey keyNameIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
+				YCFGenKbToolByNameIdxKey keyNameIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByNameIdx.remove( keyNameIdx );
 			}
 
 			if( indexByReplacesIdx != null ) {
-				CFGenKbToolByReplacesIdxKey keyReplacesIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
+				YCFGenKbToolByReplacesIdxKey keyReplacesIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
 				keyReplacesIdx.setOptionalReplacesId( keepObj.getOptionalReplacesId() );
-				Map<CFGenKbToolPKey, ICFGenKbToolObj > mapReplacesIdx = indexByReplacesIdx.get( keyReplacesIdx );
+				Map<YCFGenKbToolPKey, IYCFGenKbToolObj > mapReplacesIdx = indexByReplacesIdx.get( keyReplacesIdx );
 				if( mapReplacesIdx != null ) {
 					mapReplacesIdx.remove( keepObj.getPKey() );
 					if( mapReplacesIdx.size() <= 0 ) {
@@ -171,17 +171,17 @@ public class CFGenKbToolTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByNameIdx != null ) {
-				CFGenKbToolByNameIdxKey keyNameIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
+				YCFGenKbToolByNameIdxKey keyNameIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByNameIdx.put( keyNameIdx, keepObj );
 			}
 
 			if( indexByReplacesIdx != null ) {
-				CFGenKbToolByReplacesIdxKey keyReplacesIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
+				YCFGenKbToolByReplacesIdxKey keyReplacesIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
 				keyReplacesIdx.setOptionalReplacesId( keepObj.getOptionalReplacesId() );
-				Map<CFGenKbToolPKey, ICFGenKbToolObj > mapReplacesIdx = indexByReplacesIdx.get( keyReplacesIdx );
+				Map<YCFGenKbToolPKey, IYCFGenKbToolObj > mapReplacesIdx = indexByReplacesIdx.get( keyReplacesIdx );
 				if( mapReplacesIdx != null ) {
 					mapReplacesIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -202,17 +202,17 @@ public class CFGenKbToolTableObj
 			}
 
 			if( indexByNameIdx != null ) {
-				CFGenKbToolByNameIdxKey keyNameIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
+				YCFGenKbToolByNameIdxKey keyNameIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByNameIdx.put( keyNameIdx, keepObj );
 			}
 
 			if( indexByReplacesIdx != null ) {
-				CFGenKbToolByReplacesIdxKey keyReplacesIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
+				YCFGenKbToolByReplacesIdxKey keyReplacesIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
 				keyReplacesIdx.setOptionalReplacesId( keepObj.getOptionalReplacesId() );
-				Map<CFGenKbToolPKey, ICFGenKbToolObj > mapReplacesIdx = indexByReplacesIdx.get( keyReplacesIdx );
+				Map<YCFGenKbToolPKey, IYCFGenKbToolObj > mapReplacesIdx = indexByReplacesIdx.get( keyReplacesIdx );
 				if( mapReplacesIdx != null ) {
 					mapReplacesIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -222,10 +222,10 @@ public class CFGenKbToolTableObj
 		return( keepObj );
 	}
 
-	public ICFGenKbToolObj createTool( ICFGenKbToolObj Obj ) {
-		ICFGenKbToolObj obj = Obj;
-		CFGenKbToolBuff buff = obj.getToolBuff();
-		((ICFGenKbSchema)schema.getBackingStore()).getTableTool().createTool(
+	public IYCFGenKbToolObj createTool( IYCFGenKbToolObj Obj ) {
+		IYCFGenKbToolObj obj = Obj;
+		YCFGenKbToolBuff buff = obj.getToolBuff();
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().createTool(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -234,53 +234,53 @@ public class CFGenKbToolTableObj
 		return( obj );
 	}
 
-	public ICFGenKbToolObj readTool( CFGenKbToolPKey pkey ) {
+	public IYCFGenKbToolObj readTool( YCFGenKbToolPKey pkey ) {
 		return( readTool( pkey, false ) );
 	}
 
-	public ICFGenKbToolObj readTool( CFGenKbToolPKey pkey, boolean forceRead ) {
-		ICFGenKbToolObj obj = null;
+	public IYCFGenKbToolObj readTool( YCFGenKbToolPKey pkey, boolean forceRead ) {
+		IYCFGenKbToolObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFGenKbToolBuff readBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableTool().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFGenKbToolBuff readBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getToolTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFGenKbToolObj)obj.realise();
+				obj = (IYCFGenKbToolObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbToolObj readCachedTool( CFGenKbToolPKey pkey ) {
-		ICFGenKbToolObj obj = null;
+	public IYCFGenKbToolObj readCachedTool( YCFGenKbToolPKey pkey ) {
+		IYCFGenKbToolObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeTool( ICFGenKbToolObj obj )
+	public void reallyDeepDisposeTool( IYCFGenKbToolObj obj )
 	{
-		final String S_ProcName = "CFGenKbToolTableObj.reallyDeepDisposeTool() ";
+		final String S_ProcName = "YCFGenKbToolTableObj.reallyDeepDisposeTool() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFGenKbToolPKey pkey = obj.getPKey();
-		ICFGenKbToolObj existing = readCachedTool( pkey );
+		YCFGenKbToolPKey pkey = obj.getPKey();
+		IYCFGenKbToolObj existing = readCachedTool( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFGenKbToolByNameIdxKey keyNameIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
+		YCFGenKbToolByNameIdxKey keyNameIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFGenKbToolByReplacesIdxKey keyReplacesIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
+		YCFGenKbToolByReplacesIdxKey keyReplacesIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
 		keyReplacesIdx.setOptionalReplacesId( existing.getOptionalReplacesId() );
 
 
@@ -300,57 +300,57 @@ public class CFGenKbToolTableObj
 
 
 	}
-	public void deepDisposeTool( CFGenKbToolPKey pkey ) {
-		ICFGenKbToolObj obj = readCachedTool( pkey );
+	public void deepDisposeTool( YCFGenKbToolPKey pkey ) {
+		IYCFGenKbToolObj obj = readCachedTool( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFGenKbToolObj lockTool( CFGenKbToolPKey pkey ) {
-		ICFGenKbToolObj locked = null;
-		CFGenKbToolBuff lockBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableTool().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFGenKbToolObj lockTool( YCFGenKbToolPKey pkey ) {
+		IYCFGenKbToolObj locked = null;
+		YCFGenKbToolBuff lockBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getToolTableObj().newInstance();
-			locked.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
+			locked.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFGenKbToolObj)locked.realise();
+			locked = (IYCFGenKbToolObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockTool", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockTool", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFGenKbToolObj> readAllTool() {
+	public List<IYCFGenKbToolObj> readAllTool() {
 		return( readAllTool( false ) );
 	}
 
-	public List<ICFGenKbToolObj> readAllTool( boolean forceRead ) {
+	public List<IYCFGenKbToolObj> readAllTool( boolean forceRead ) {
 		final String S_ProcName = "readAllTool";
 		if( ( allTool == null ) || forceRead ) {
-			Map<CFGenKbToolPKey, ICFGenKbToolObj> map = new HashMap<CFGenKbToolPKey,ICFGenKbToolObj>();
+			Map<YCFGenKbToolPKey, IYCFGenKbToolObj> map = new HashMap<YCFGenKbToolPKey,IYCFGenKbToolObj>();
 			allTool = map;
-			CFGenKbToolBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableTool().readAllDerived( schema.getAuthorization() );
-			CFGenKbToolBuff buff;
-			ICFGenKbToolObj obj;
+			YCFGenKbToolBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().readAllDerived( schema.getAuthorization() );
+			YCFGenKbToolBuff buff;
+			IYCFGenKbToolObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbToolObj realised = (ICFGenKbToolObj)obj.realise();
+				IYCFGenKbToolObj realised = (IYCFGenKbToolObj)obj.realise();
 			}
 		}
 		int len = allTool.size();
-		ICFGenKbToolObj arr[] = new ICFGenKbToolObj[len];
-		Iterator<ICFGenKbToolObj> valIter = allTool.values().iterator();
+		IYCFGenKbToolObj arr[] = new IYCFGenKbToolObj[len];
+		Iterator<IYCFGenKbToolObj> valIter = allTool.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -358,20 +358,20 @@ public class CFGenKbToolTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbToolObj> arrayList = new ArrayList<ICFGenKbToolObj>(len);
+		ArrayList<IYCFGenKbToolObj> arrayList = new ArrayList<IYCFGenKbToolObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbToolObj> cmp = new Comparator<ICFGenKbToolObj>() {
-			public int compare( ICFGenKbToolObj lhs, ICFGenKbToolObj rhs ) {
+		Comparator<IYCFGenKbToolObj> cmp = new Comparator<IYCFGenKbToolObj>() {
+			public int compare( IYCFGenKbToolObj lhs, IYCFGenKbToolObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -384,31 +384,31 @@ public class CFGenKbToolTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbToolPKey lhsPKey = lhs.getPKey();
-					CFGenKbToolPKey rhsPKey = rhs.getPKey();
+					YCFGenKbToolPKey lhsPKey = lhs.getPKey();
+					YCFGenKbToolPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbToolObj> sortedList = arrayList;
+		List<IYCFGenKbToolObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbToolObj> readCachedAllTool() {
+	public List<IYCFGenKbToolObj> readCachedAllTool() {
 		final String S_ProcName = "readCachedAllTool";
-		ArrayList<ICFGenKbToolObj> arrayList = new ArrayList<ICFGenKbToolObj>();
+		ArrayList<IYCFGenKbToolObj> arrayList = new ArrayList<IYCFGenKbToolObj>();
 		if( allTool != null ) {
 			int len = allTool.size();
-			ICFGenKbToolObj arr[] = new ICFGenKbToolObj[len];
-			Iterator<ICFGenKbToolObj> valIter = allTool.values().iterator();
+			IYCFGenKbToolObj arr[] = new IYCFGenKbToolObj[len];
+			Iterator<IYCFGenKbToolObj> valIter = allTool.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -416,7 +416,7 @@ public class CFGenKbToolTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -427,8 +427,8 @@ public class CFGenKbToolTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFGenKbToolObj> cmp = new Comparator<ICFGenKbToolObj>() {
-			public int compare( ICFGenKbToolObj lhs, ICFGenKbToolObj rhs ) {
+		Comparator<IYCFGenKbToolObj> cmp = new Comparator<IYCFGenKbToolObj>() {
+			public int compare( IYCFGenKbToolObj lhs, IYCFGenKbToolObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -441,8 +441,8 @@ public class CFGenKbToolTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbToolPKey lhsPKey = lhs.getPKey();
-					CFGenKbToolPKey rhsPKey = rhs.getPKey();
+					YCFGenKbToolPKey lhsPKey = lhs.getPKey();
+					YCFGenKbToolPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -452,96 +452,96 @@ public class CFGenKbToolTableObj
 		return( arrayList );
 	}
 
-	public ICFGenKbToolObj readToolByIdIdx( short Id )
+	public IYCFGenKbToolObj readToolByIdIdx( short Id )
 	{
 		return( readToolByIdIdx( Id,
 			false ) );
 	}
 
-	public ICFGenKbToolObj readToolByIdIdx( short Id, boolean forceRead )
+	public IYCFGenKbToolObj readToolByIdIdx( short Id, boolean forceRead )
 	{
-		CFGenKbToolPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey();
+		YCFGenKbToolPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey();
 		pkey.setRequiredId( Id );
-		ICFGenKbToolObj obj = readTool( pkey, forceRead );
+		IYCFGenKbToolObj obj = readTool( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFGenKbToolObj readToolByNameIdx( String Name )
+	public IYCFGenKbToolObj readToolByNameIdx( String Name )
 	{
 		return( readToolByNameIdx( Name,
 			false ) );
 	}
 
-	public ICFGenKbToolObj readToolByNameIdx( String Name, boolean forceRead )
+	public IYCFGenKbToolObj readToolByNameIdx( String Name, boolean forceRead )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFGenKbToolByNameIdxKey,
-				ICFGenKbToolObj >();
+			indexByNameIdx = new HashMap< YCFGenKbToolByNameIdxKey,
+				IYCFGenKbToolObj >();
 		}
-		CFGenKbToolByNameIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
+		YCFGenKbToolByNameIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
 		key.setRequiredName( Name );
-		ICFGenKbToolObj obj = null;
+		IYCFGenKbToolObj obj = null;
 		if( ( ! forceRead ) && indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
 		}
 		else {
-			CFGenKbToolBuff buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableTool().readDerivedByNameIdx( schema.getAuthorization(),
+			YCFGenKbToolBuff buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().readDerivedByNameIdx( schema.getAuthorization(),
 				Name );
 			if( buff != null ) {
 				obj = schema.getToolTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFGenKbToolObj)obj.realise();
+				obj = (IYCFGenKbToolObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFGenKbToolObj> readToolByReplacesIdx( Short ReplacesId )
+	public List<IYCFGenKbToolObj> readToolByReplacesIdx( Short ReplacesId )
 	{
 		return( readToolByReplacesIdx( ReplacesId,
 			false ) );
 	}
 
-	public List<ICFGenKbToolObj> readToolByReplacesIdx( Short ReplacesId,
+	public List<IYCFGenKbToolObj> readToolByReplacesIdx( Short ReplacesId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readToolByReplacesIdx";
-		CFGenKbToolByReplacesIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
+		YCFGenKbToolByReplacesIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
 		key.setOptionalReplacesId( ReplacesId );
-		Map<CFGenKbToolPKey, ICFGenKbToolObj> dict;
+		Map<YCFGenKbToolPKey, IYCFGenKbToolObj> dict;
 		if( indexByReplacesIdx == null ) {
-			indexByReplacesIdx = new HashMap< CFGenKbToolByReplacesIdxKey,
-				Map< CFGenKbToolPKey, ICFGenKbToolObj > >();
+			indexByReplacesIdx = new HashMap< YCFGenKbToolByReplacesIdxKey,
+				Map< YCFGenKbToolPKey, IYCFGenKbToolObj > >();
 		}
 		if( ( ! forceRead ) && indexByReplacesIdx.containsKey( key ) ) {
 			dict = indexByReplacesIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbToolPKey, ICFGenKbToolObj>();
-			ICFGenKbToolObj obj;
-			CFGenKbToolBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableTool().readDerivedByReplacesIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbToolPKey, IYCFGenKbToolObj>();
+			IYCFGenKbToolObj obj;
+			YCFGenKbToolBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().readDerivedByReplacesIdx( schema.getAuthorization(),
 				ReplacesId );
-			CFGenKbToolBuff buff;
+			YCFGenKbToolBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getToolTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbToolObj realised = (ICFGenKbToolObj)obj.realise();
+				IYCFGenKbToolObj realised = (IYCFGenKbToolObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByReplacesIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbToolObj arr[] = new ICFGenKbToolObj[len];
-		Iterator<ICFGenKbToolObj> valIter = dict.values().iterator();
+		IYCFGenKbToolObj arr[] = new IYCFGenKbToolObj[len];
+		Iterator<IYCFGenKbToolObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -549,20 +549,20 @@ public class CFGenKbToolTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbToolObj> arrayList = new ArrayList<ICFGenKbToolObj>(len);
+		ArrayList<IYCFGenKbToolObj> arrayList = new ArrayList<IYCFGenKbToolObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbToolObj> cmp = new Comparator<ICFGenKbToolObj>() {
-			public int compare( ICFGenKbToolObj lhs, ICFGenKbToolObj rhs ) {
+		Comparator<IYCFGenKbToolObj> cmp = new Comparator<IYCFGenKbToolObj>() {
+			public int compare( IYCFGenKbToolObj lhs, IYCFGenKbToolObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -575,38 +575,38 @@ public class CFGenKbToolTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbToolPKey lhsPKey = lhs.getPKey();
-					CFGenKbToolPKey rhsPKey = rhs.getPKey();
+					YCFGenKbToolPKey lhsPKey = lhs.getPKey();
+					YCFGenKbToolPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbToolObj> sortedList = arrayList;
+		List<IYCFGenKbToolObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFGenKbToolObj readCachedToolByIdIdx( short Id )
+	public IYCFGenKbToolObj readCachedToolByIdIdx( short Id )
 	{
-		ICFGenKbToolObj obj = null;
-		CFGenKbToolPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey();
+		IYCFGenKbToolObj obj = null;
+		YCFGenKbToolPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey();
 		pkey.setRequiredId( Id );
 		obj = readCachedTool( pkey );
 		return( obj );
 	}
 
-	public ICFGenKbToolObj readCachedToolByNameIdx( String Name )
+	public IYCFGenKbToolObj readCachedToolByNameIdx( String Name )
 	{
-		ICFGenKbToolObj obj = null;
-		CFGenKbToolByNameIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
+		IYCFGenKbToolObj obj = null;
+		YCFGenKbToolByNameIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
 		key.setRequiredName( Name );
 		if( indexByNameIdx != null ) {
 			if( indexByNameIdx.containsKey( key ) ) {
 				obj = indexByNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFGenKbToolObj> valIter = members.values().iterator();
+				Iterator<IYCFGenKbToolObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -618,7 +618,7 @@ public class CFGenKbToolTableObj
 			}
 		}
 		else {
-			Iterator<ICFGenKbToolObj> valIter = members.values().iterator();
+			Iterator<IYCFGenKbToolObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -631,25 +631,25 @@ public class CFGenKbToolTableObj
 		return( obj );
 	}
 
-	public List<ICFGenKbToolObj> readCachedToolByReplacesIdx( Short ReplacesId )
+	public List<IYCFGenKbToolObj> readCachedToolByReplacesIdx( Short ReplacesId )
 	{
 		final String S_ProcName = "readCachedToolByReplacesIdx";
-		CFGenKbToolByReplacesIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
+		YCFGenKbToolByReplacesIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
 		key.setOptionalReplacesId( ReplacesId );
-		ArrayList<ICFGenKbToolObj> arrayList = new ArrayList<ICFGenKbToolObj>();
+		ArrayList<IYCFGenKbToolObj> arrayList = new ArrayList<IYCFGenKbToolObj>();
 		if( indexByReplacesIdx != null ) {
-			Map<CFGenKbToolPKey, ICFGenKbToolObj> dict;
+			Map<YCFGenKbToolPKey, IYCFGenKbToolObj> dict;
 			if( indexByReplacesIdx.containsKey( key ) ) {
 				dict = indexByReplacesIdx.get( key );
 				int len = dict.size();
-				ICFGenKbToolObj arr[] = new ICFGenKbToolObj[len];
-				Iterator<ICFGenKbToolObj> valIter = dict.values().iterator();
+				IYCFGenKbToolObj arr[] = new IYCFGenKbToolObj[len];
+				Iterator<IYCFGenKbToolObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -657,7 +657,7 @@ public class CFGenKbToolTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -670,8 +670,8 @@ public class CFGenKbToolTableObj
 			}
 		}
 		else {
-			ICFGenKbToolObj obj;
-			Iterator<ICFGenKbToolObj> valIter = members.values().iterator();
+			IYCFGenKbToolObj obj;
+			Iterator<IYCFGenKbToolObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -681,8 +681,8 @@ public class CFGenKbToolTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbToolObj> cmp = new Comparator<ICFGenKbToolObj>() {
-			public int compare( ICFGenKbToolObj lhs, ICFGenKbToolObj rhs ) {
+		Comparator<IYCFGenKbToolObj> cmp = new Comparator<IYCFGenKbToolObj>() {
+			public int compare( IYCFGenKbToolObj lhs, IYCFGenKbToolObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -695,8 +695,8 @@ public class CFGenKbToolTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbToolPKey lhsPKey = lhs.getPKey();
-					CFGenKbToolPKey rhsPKey = rhs.getPKey();
+					YCFGenKbToolPKey lhsPKey = lhs.getPKey();
+					YCFGenKbToolPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -708,7 +708,7 @@ public class CFGenKbToolTableObj
 
 	public void deepDisposeToolByIdIdx( short Id )
 	{
-		ICFGenKbToolObj obj = readCachedToolByIdIdx( Id );
+		IYCFGenKbToolObj obj = readCachedToolByIdIdx( Id );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -716,7 +716,7 @@ public class CFGenKbToolTableObj
 
 	public void deepDisposeToolByNameIdx( String Name )
 	{
-		ICFGenKbToolObj obj = readCachedToolByNameIdx( Name );
+		IYCFGenKbToolObj obj = readCachedToolByNameIdx( Name );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -725,10 +725,10 @@ public class CFGenKbToolTableObj
 	public void deepDisposeToolByReplacesIdx( Short ReplacesId )
 	{
 		final String S_ProcName = "deepDisposeToolByReplacesIdx";
-		ICFGenKbToolObj obj;
-		List<ICFGenKbToolObj> arrayList = readCachedToolByReplacesIdx( ReplacesId );
+		IYCFGenKbToolObj obj;
+		List<IYCFGenKbToolObj> arrayList = readCachedToolByReplacesIdx( ReplacesId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbToolObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbToolObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -738,32 +738,32 @@ public class CFGenKbToolTableObj
 		}
 	}
 
-	public ICFGenKbToolObj updateTool( ICFGenKbToolObj Obj ) {
-		ICFGenKbToolObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableTool().updateTool( schema.getAuthorization(),
+	public IYCFGenKbToolObj updateTool( IYCFGenKbToolObj Obj ) {
+		IYCFGenKbToolObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().updateTool( schema.getAuthorization(),
 			Obj.getToolBuff() );
-		obj = (ICFGenKbToolObj)Obj.realise();
+		obj = (IYCFGenKbToolObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteTool( ICFGenKbToolObj Obj ) {
-		ICFGenKbToolObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableTool().deleteTool( schema.getAuthorization(),
+	public void deleteTool( IYCFGenKbToolObj Obj ) {
+		IYCFGenKbToolObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().deleteTool( schema.getAuthorization(),
 			obj.getToolBuff() );
 		Obj.forget();
 	}
 
 	public void deleteToolByIdIdx( short Id )
 	{
-		CFGenKbToolPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey();
+		YCFGenKbToolPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newPKey();
 		pkey.setRequiredId( Id );
-		ICFGenKbToolObj obj = readTool( pkey );
+		IYCFGenKbToolObj obj = readTool( pkey );
 		if( obj != null ) {
-			ICFGenKbToolEditObj editObj = (ICFGenKbToolEditObj)obj.getEdit();
+			IYCFGenKbToolEditObj editObj = (IYCFGenKbToolEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFGenKbToolEditObj)obj.beginEdit();
+				editObj = (IYCFGenKbToolEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -788,20 +788,20 @@ public class CFGenKbToolTableObj
 	public void deleteToolByNameIdx( String Name )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFGenKbToolByNameIdxKey,
-				ICFGenKbToolObj >();
+			indexByNameIdx = new HashMap< YCFGenKbToolByNameIdxKey,
+				IYCFGenKbToolObj >();
 		}
-		CFGenKbToolByNameIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
+		YCFGenKbToolByNameIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newNameIdxKey();
 		key.setRequiredName( Name );
-		ICFGenKbToolObj obj = null;
+		IYCFGenKbToolObj obj = null;
 		if( indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableTool().deleteToolByNameIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().deleteToolByNameIdx( schema.getAuthorization(),
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableTool().deleteToolByNameIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().deleteToolByNameIdx( schema.getAuthorization(),
 				Name );
 		}
 		deepDisposeToolByNameIdx( Name );
@@ -809,19 +809,19 @@ public class CFGenKbToolTableObj
 
 	public void deleteToolByReplacesIdx( Short ReplacesId )
 	{
-		CFGenKbToolByReplacesIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
+		YCFGenKbToolByReplacesIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryTool().newReplacesIdxKey();
 		key.setOptionalReplacesId( ReplacesId );
 		if( indexByReplacesIdx == null ) {
-			indexByReplacesIdx = new HashMap< CFGenKbToolByReplacesIdxKey,
-				Map< CFGenKbToolPKey, ICFGenKbToolObj > >();
+			indexByReplacesIdx = new HashMap< YCFGenKbToolByReplacesIdxKey,
+				Map< YCFGenKbToolPKey, IYCFGenKbToolObj > >();
 		}
 		if( indexByReplacesIdx.containsKey( key ) ) {
-			Map<CFGenKbToolPKey, ICFGenKbToolObj> dict = indexByReplacesIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableTool().deleteToolByReplacesIdx( schema.getAuthorization(),
+			Map<YCFGenKbToolPKey, IYCFGenKbToolObj> dict = indexByReplacesIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().deleteToolByReplacesIdx( schema.getAuthorization(),
 				ReplacesId );
-			Iterator<ICFGenKbToolObj> iter = dict.values().iterator();
-			ICFGenKbToolObj obj;
-			List<ICFGenKbToolObj> toForget = new LinkedList<ICFGenKbToolObj>();
+			Iterator<IYCFGenKbToolObj> iter = dict.values().iterator();
+			IYCFGenKbToolObj obj;
+			List<IYCFGenKbToolObj> toForget = new LinkedList<IYCFGenKbToolObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -834,7 +834,7 @@ public class CFGenKbToolTableObj
 			indexByReplacesIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableTool().deleteToolByReplacesIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableTool().deleteToolByReplacesIdx( schema.getAuthorization(),
 				ReplacesId );
 		}
 		deepDisposeToolByReplacesIdx( ReplacesId );

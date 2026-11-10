@@ -1,11 +1,11 @@
-// Description: Java 11 CFGenKb Table Permissions Interface.
+// Description: Java 11 YCFGenKb Table Permissions Interface.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,1325 +35,1325 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbTablePerms
+public interface IYCFGenKbTablePerms
 {
 	/**
 	 *	Is the session allowed to create Cluster instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateCluster( CFGenKbAuthorization Authorization );
+	boolean allowCreateCluster( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read Cluster instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadCluster( CFGenKbAuthorization Authorization );
+	boolean allowReadCluster( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update Cluster instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateCluster( CFGenKbAuthorization Authorization );
+	boolean allowUpdateCluster( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete Cluster instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteCluster( CFGenKbAuthorization Authorization );
+	boolean allowDeleteCluster( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create DefClass instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateDefClass( CFGenKbAuthorization Authorization );
+	boolean allowCreateDefClass( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read DefClass instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadDefClass( CFGenKbAuthorization Authorization );
+	boolean allowReadDefClass( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update DefClass instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateDefClass( CFGenKbAuthorization Authorization );
+	boolean allowUpdateDefClass( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete DefClass instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteDefClass( CFGenKbAuthorization Authorization );
+	boolean allowDeleteDefClass( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelBoilerplate instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelBoilerplate( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelBoilerplate( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelBoilerplate instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelBoilerplate( CFGenKbAuthorization Authorization );
+	boolean allowReadGelBoilerplate( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelBoilerplate instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelBoilerplate( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelBoilerplate( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelBoilerplate instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelBoilerplate( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelBoilerplate( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelBuiltin instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelBuiltin( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelBuiltin( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelBuiltin instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelBuiltin( CFGenKbAuthorization Authorization );
+	boolean allowReadGelBuiltin( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelBuiltin instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelBuiltin( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelBuiltin( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelBuiltin instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelBuiltin( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelBuiltin( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelCache instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelCache( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelCache( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelCache instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelCache( CFGenKbAuthorization Authorization );
+	boolean allowReadGelCache( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelCache instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelCache( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelCache( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelCache instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelCache( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelCache( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelCall instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelCall( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelCall( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelCall instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelCall( CFGenKbAuthorization Authorization );
+	boolean allowReadGelCall( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelCall instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelCall( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelCall( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelCall instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelCall( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelCall( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelConstrain instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelConstrain( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelConstrain( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelConstrain instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelConstrain( CFGenKbAuthorization Authorization );
+	boolean allowReadGelConstrain( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelConstrain instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelConstrain( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelConstrain( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelConstrain instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelConstrain( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelConstrain( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelCounter instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelCounter( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelCounter( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelCounter instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelCounter( CFGenKbAuthorization Authorization );
+	boolean allowReadGelCounter( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelCounter instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelCounter( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelCounter( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelCounter instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelCounter( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelCounter( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelError instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelError( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelError( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelError instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelError( CFGenKbAuthorization Authorization );
+	boolean allowReadGelError( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelError instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelError( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelError( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelError instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelError( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelError( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelExecutable instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelExecutable( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelExecutable( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelExecutable instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelExecutable( CFGenKbAuthorization Authorization );
+	boolean allowReadGelExecutable( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelExecutable instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelExecutable( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelExecutable( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelExecutable instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelExecutable( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelExecutable( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelExpansion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelExpansion( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelExpansion( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelExpansion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelExpansion( CFGenKbAuthorization Authorization );
+	boolean allowReadGelExpansion( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelExpansion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelExpansion( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelExpansion( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelExpansion instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelExpansion( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelExpansion( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelInstruction instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelInstruction( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelInstruction( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelInstruction instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelInstruction( CFGenKbAuthorization Authorization );
+	boolean allowReadGelInstruction( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelInstruction instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelInstruction( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelInstruction( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelInstruction instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelInstruction( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelInstruction( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelIterator instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelIterator( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelIterator( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelIterator instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelIterator( CFGenKbAuthorization Authorization );
+	boolean allowReadGelIterator( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelIterator instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelIterator( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelIterator( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelIterator instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelIterator( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelIterator( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelModifier instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelModifier( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelModifier( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelModifier instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelModifier( CFGenKbAuthorization Authorization );
+	boolean allowReadGelModifier( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelModifier instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelModifier( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelModifier( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelModifier instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelModifier( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelModifier( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelPop instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelPop( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelPop( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelPop instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelPop( CFGenKbAuthorization Authorization );
+	boolean allowReadGelPop( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelPop instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelPop( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelPop( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelPop instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelPop( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelPop( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelPrefixLine instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelPrefixLine( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelPrefixLine( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelPrefixLine instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelPrefixLine( CFGenKbAuthorization Authorization );
+	boolean allowReadGelPrefixLine( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelPrefixLine instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelPrefixLine( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelPrefixLine( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelPrefixLine instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelPrefixLine( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelPrefixLine( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelReference instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelReference( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelReference( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelReference instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelReference( CFGenKbAuthorization Authorization );
+	boolean allowReadGelReference( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelReference instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelReference( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelReference( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelReference instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelReference( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelReference( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelSequence instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelSequence( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelSequence( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelSequence instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelSequence( CFGenKbAuthorization Authorization );
+	boolean allowReadGelSequence( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelSequence instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelSequence( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelSequence( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelSequence instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelSequence( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelSequence( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelSpread instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelSpread( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelSpread( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelSpread instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelSpread( CFGenKbAuthorization Authorization );
+	boolean allowReadGelSpread( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelSpread instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelSpread( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelSpread( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelSpread instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelSpread( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelSpread( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelSwitch instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelSwitch( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelSwitch( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelSwitch instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelSwitch( CFGenKbAuthorization Authorization );
+	boolean allowReadGelSwitch( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelSwitch instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelSwitch( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelSwitch( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelSwitch instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelSwitch( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelSwitch( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GelSwitchLimb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGelSwitchLimb( CFGenKbAuthorization Authorization );
+	boolean allowCreateGelSwitchLimb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GelSwitchLimb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGelSwitchLimb( CFGenKbAuthorization Authorization );
+	boolean allowReadGelSwitchLimb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GelSwitchLimb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGelSwitchLimb( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGelSwitchLimb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GelSwitchLimb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGelSwitchLimb( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGelSwitchLimb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GenBind instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGenBind( CFGenKbAuthorization Authorization );
+	boolean allowCreateGenBind( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GenBind instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGenBind( CFGenKbAuthorization Authorization );
+	boolean allowReadGenBind( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GenBind instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGenBind( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGenBind( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GenBind instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGenBind( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGenBind( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GenFile instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGenFile( CFGenKbAuthorization Authorization );
+	boolean allowCreateGenFile( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GenFile instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGenFile( CFGenKbAuthorization Authorization );
+	boolean allowReadGenFile( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GenFile instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGenFile( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGenFile( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GenFile instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGenFile( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGenFile( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GenItem instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGenItem( CFGenKbAuthorization Authorization );
+	boolean allowCreateGenItem( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GenItem instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGenItem( CFGenKbAuthorization Authorization );
+	boolean allowReadGenItem( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GenItem instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGenItem( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGenItem( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GenItem instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGenItem( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGenItem( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GenIterator instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGenIterator( CFGenKbAuthorization Authorization );
+	boolean allowCreateGenIterator( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GenIterator instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGenIterator( CFGenKbAuthorization Authorization );
+	boolean allowReadGenIterator( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GenIterator instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGenIterator( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGenIterator( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GenIterator instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGenIterator( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGenIterator( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GenReference instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGenReference( CFGenKbAuthorization Authorization );
+	boolean allowCreateGenReference( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GenReference instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGenReference( CFGenKbAuthorization Authorization );
+	boolean allowReadGenReference( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GenReference instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGenReference( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGenReference( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GenReference instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGenReference( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGenReference( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GenRule instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGenRule( CFGenKbAuthorization Authorization );
+	boolean allowCreateGenRule( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GenRule instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGenRule( CFGenKbAuthorization Authorization );
+	boolean allowReadGenRule( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GenRule instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGenRule( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGenRule( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GenRule instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGenRule( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGenRule( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create GenTrunc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateGenTrunc( CFGenKbAuthorization Authorization );
+	boolean allowCreateGenTrunc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read GenTrunc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadGenTrunc( CFGenKbAuthorization Authorization );
+	boolean allowReadGenTrunc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update GenTrunc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateGenTrunc( CFGenKbAuthorization Authorization );
+	boolean allowUpdateGenTrunc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete GenTrunc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteGenTrunc( CFGenKbAuthorization Authorization );
+	boolean allowDeleteGenTrunc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create HostNode instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateHostNode( CFGenKbAuthorization Authorization );
+	boolean allowCreateHostNode( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read HostNode instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadHostNode( CFGenKbAuthorization Authorization );
+	boolean allowReadHostNode( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update HostNode instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateHostNode( CFGenKbAuthorization Authorization );
+	boolean allowUpdateHostNode( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete HostNode instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteHostNode( CFGenKbAuthorization Authorization );
+	boolean allowDeleteHostNode( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create RuleCart instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateRuleCart( CFGenKbAuthorization Authorization );
+	boolean allowCreateRuleCart( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read RuleCart instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadRuleCart( CFGenKbAuthorization Authorization );
+	boolean allowReadRuleCart( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update RuleCart instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateRuleCart( CFGenKbAuthorization Authorization );
+	boolean allowUpdateRuleCart( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete RuleCart instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteRuleCart( CFGenKbAuthorization Authorization );
+	boolean allowDeleteRuleCart( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create RuleType instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateRuleType( CFGenKbAuthorization Authorization );
+	boolean allowCreateRuleType( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read RuleType instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadRuleType( CFGenKbAuthorization Authorization );
+	boolean allowReadRuleType( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update RuleType instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateRuleType( CFGenKbAuthorization Authorization );
+	boolean allowUpdateRuleType( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete RuleType instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteRuleType( CFGenKbAuthorization Authorization );
+	boolean allowDeleteRuleType( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SecApp instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSecApp( CFGenKbAuthorization Authorization );
+	boolean allowCreateSecApp( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SecApp instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSecApp( CFGenKbAuthorization Authorization );
+	boolean allowReadSecApp( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SecApp instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSecApp( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSecApp( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SecApp instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSecApp( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSecApp( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SecDevice instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSecDevice( CFGenKbAuthorization Authorization );
+	boolean allowCreateSecDevice( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SecDevice instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSecDevice( CFGenKbAuthorization Authorization );
+	boolean allowReadSecDevice( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SecDevice instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSecDevice( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSecDevice( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SecDevice instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSecDevice( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSecDevice( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SecForm instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSecForm( CFGenKbAuthorization Authorization );
+	boolean allowCreateSecForm( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SecForm instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSecForm( CFGenKbAuthorization Authorization );
+	boolean allowReadSecForm( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SecForm instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSecForm( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSecForm( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SecForm instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSecForm( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSecForm( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SecGroup instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSecGroup( CFGenKbAuthorization Authorization );
+	boolean allowCreateSecGroup( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SecGroup instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSecGroup( CFGenKbAuthorization Authorization );
+	boolean allowReadSecGroup( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SecGroup instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSecGroup( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSecGroup( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SecGroup instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSecGroup( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSecGroup( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SecGroupForm instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSecGroupForm( CFGenKbAuthorization Authorization );
+	boolean allowCreateSecGroupForm( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SecGroupForm instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSecGroupForm( CFGenKbAuthorization Authorization );
+	boolean allowReadSecGroupForm( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SecGroupForm instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSecGroupForm( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSecGroupForm( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SecGroupForm instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSecGroupForm( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSecGroupForm( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SecGrpInc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSecGrpInc( CFGenKbAuthorization Authorization );
+	boolean allowCreateSecGrpInc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SecGrpInc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSecGrpInc( CFGenKbAuthorization Authorization );
+	boolean allowReadSecGrpInc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SecGrpInc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSecGrpInc( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSecGrpInc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SecGrpInc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSecGrpInc( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSecGrpInc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SecGrpMemb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSecGrpMemb( CFGenKbAuthorization Authorization );
+	boolean allowCreateSecGrpMemb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SecGrpMemb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSecGrpMemb( CFGenKbAuthorization Authorization );
+	boolean allowReadSecGrpMemb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SecGrpMemb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSecGrpMemb( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSecGrpMemb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SecGrpMemb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSecGrpMemb( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSecGrpMemb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SecSession instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSecSession( CFGenKbAuthorization Authorization );
+	boolean allowCreateSecSession( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SecSession instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSecSession( CFGenKbAuthorization Authorization );
+	boolean allowReadSecSession( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SecSession instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSecSession( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSecSession( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SecSession instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSecSession( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSecSession( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SecUser instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSecUser( CFGenKbAuthorization Authorization );
+	boolean allowCreateSecUser( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SecUser instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSecUser( CFGenKbAuthorization Authorization );
+	boolean allowReadSecUser( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SecUser instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSecUser( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSecUser( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SecUser instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSecUser( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSecUser( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create SysCluster instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateSysCluster( CFGenKbAuthorization Authorization );
+	boolean allowCreateSysCluster( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read SysCluster instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadSysCluster( CFGenKbAuthorization Authorization );
+	boolean allowReadSysCluster( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update SysCluster instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateSysCluster( CFGenKbAuthorization Authorization );
+	boolean allowUpdateSysCluster( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete SysCluster instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteSysCluster( CFGenKbAuthorization Authorization );
+	boolean allowDeleteSysCluster( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create TSecGroup instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateTSecGroup( CFGenKbAuthorization Authorization );
+	boolean allowCreateTSecGroup( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read TSecGroup instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadTSecGroup( CFGenKbAuthorization Authorization );
+	boolean allowReadTSecGroup( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update TSecGroup instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateTSecGroup( CFGenKbAuthorization Authorization );
+	boolean allowUpdateTSecGroup( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete TSecGroup instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteTSecGroup( CFGenKbAuthorization Authorization );
+	boolean allowDeleteTSecGroup( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create TSecGrpInc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateTSecGrpInc( CFGenKbAuthorization Authorization );
+	boolean allowCreateTSecGrpInc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read TSecGrpInc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadTSecGrpInc( CFGenKbAuthorization Authorization );
+	boolean allowReadTSecGrpInc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update TSecGrpInc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateTSecGrpInc( CFGenKbAuthorization Authorization );
+	boolean allowUpdateTSecGrpInc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete TSecGrpInc instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteTSecGrpInc( CFGenKbAuthorization Authorization );
+	boolean allowDeleteTSecGrpInc( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create TSecGrpMemb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateTSecGrpMemb( CFGenKbAuthorization Authorization );
+	boolean allowCreateTSecGrpMemb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read TSecGrpMemb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadTSecGrpMemb( CFGenKbAuthorization Authorization );
+	boolean allowReadTSecGrpMemb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update TSecGrpMemb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateTSecGrpMemb( CFGenKbAuthorization Authorization );
+	boolean allowUpdateTSecGrpMemb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete TSecGrpMemb instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteTSecGrpMemb( CFGenKbAuthorization Authorization );
+	boolean allowDeleteTSecGrpMemb( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create Tenant instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateTenant( CFGenKbAuthorization Authorization );
+	boolean allowCreateTenant( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read Tenant instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadTenant( CFGenKbAuthorization Authorization );
+	boolean allowReadTenant( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update Tenant instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateTenant( CFGenKbAuthorization Authorization );
+	boolean allowUpdateTenant( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete Tenant instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteTenant( CFGenKbAuthorization Authorization );
+	boolean allowDeleteTenant( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create Tool instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateTool( CFGenKbAuthorization Authorization );
+	boolean allowCreateTool( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read Tool instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadTool( CFGenKbAuthorization Authorization );
+	boolean allowReadTool( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update Tool instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateTool( CFGenKbAuthorization Authorization );
+	boolean allowUpdateTool( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete Tool instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteTool( CFGenKbAuthorization Authorization );
+	boolean allowDeleteTool( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create ToolSet instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowCreateToolSet( CFGenKbAuthorization Authorization );
+	boolean allowCreateToolSet( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to read ToolSet instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowReadToolSet( CFGenKbAuthorization Authorization );
+	boolean allowReadToolSet( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to update ToolSet instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowUpdateToolSet( CFGenKbAuthorization Authorization );
+	boolean allowUpdateToolSet( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to delete ToolSet instances?
 	 *
 	 *	@param	Authorization	The session authorization information.
 	 */
-	boolean allowDeleteToolSet( CFGenKbAuthorization Authorization );
+	boolean allowDeleteToolSet( YCFGenKbAuthorization Authorization );
 }

@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for RoleDef.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRoleDefTable database interface for RoleDef
+ *	YCFBamRoleDefTable database interface for RoleDef
  */
-public interface ICFBamRoleDefTable
+public interface IYCFBamRoleDefTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createRoleDef( CFSecAuthorization Authorization,
-		CFBamRoleDefBuff Buff );
+	void createRoleDef( YCFSecAuthorization Authorization,
+		YCFBamRoleDefBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateRoleDef( CFSecAuthorization Authorization,
-		CFBamRoleDefBuff Buff );
+	void updateRoleDef( YCFSecAuthorization Authorization,
+		YCFBamRoleDefBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteRoleDef( CFSecAuthorization Authorization,
-		CFBamRoleDefBuff Buff );
+	void deleteRoleDef( YCFSecAuthorization Authorization,
+		YCFBamRoleDefBuff Buff );
 	/**
 	 *	Delete the RoleDef instance identified by the primary key attributes.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argId	The RoleDef key attribute of the instance generating the id.
 	 */
-	void deleteRoleDefByIdIdx( CFSecAuthorization Authorization,
+	void deleteRoleDefByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -121,8 +121,8 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteRoleDefByIdIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey argKey );
+	void deleteRoleDefByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey argKey );
 	/**
 	 *	Delete the RoleDef instances identified by the key UNameIdx.
 	 *
@@ -134,7 +134,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argName	The RoleDef key attribute of the instance generating the id.
 	 */
-	void deleteRoleDefByUNameIdx( CFSecAuthorization Authorization,
+	void deleteRoleDefByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -146,8 +146,8 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRoleDefByUNameIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByUNameIdxKey argKey );
+	void deleteRoleDefByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByUNameIdxKey argKey );
 	/**
 	 *	Delete the RoleDef instances identified by the key UDefIdx.
 	 *
@@ -163,7 +163,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argName	The RoleDef key attribute of the instance generating the id.
 	 */
-	void deleteRoleDefByUDefIdx( CFSecAuthorization Authorization,
+	void deleteRoleDefByUDefIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argDefSchemaTenantId,
@@ -177,8 +177,8 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRoleDefByUDefIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByUDefIdxKey argKey );
+	void deleteRoleDefByUDefIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByUDefIdxKey argKey );
 	/**
 	 *	Delete the RoleDef instances identified by the key RoleDefTentIdx.
 	 *
@@ -186,7 +186,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 */
-	void deleteRoleDefByRoleDefTentIdx( CFSecAuthorization Authorization,
+	void deleteRoleDefByRoleDefTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -196,8 +196,8 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRoleDefByRoleDefTentIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByRoleDefTentIdxKey argKey );
+	void deleteRoleDefByRoleDefTentIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByRoleDefTentIdxKey argKey );
 	/**
 	 *	Delete the RoleDef instances identified by the key ScopeIdx.
 	 *
@@ -207,7 +207,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argScopeId	The RoleDef key attribute of the instance generating the id.
 	 */
-	void deleteRoleDefByScopeIdx( CFSecAuthorization Authorization,
+	void deleteRoleDefByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -218,8 +218,8 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRoleDefByScopeIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByScopeIdxKey argKey );
+	void deleteRoleDefByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByScopeIdxKey argKey );
 	/**
 	 *	Delete the RoleDef instances identified by the key DefSchemaIdx.
 	 *
@@ -229,7 +229,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argDefSchemaId	The RoleDef key attribute of the instance generating the id.
 	 */
-	void deleteRoleDefByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteRoleDefByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -240,8 +240,8 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRoleDefByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByDefSchemaIdxKey argKey );
+	void deleteRoleDefByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByDefSchemaIdxKey argKey );
 
 
 	/**
@@ -254,8 +254,8 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamRoleDefBuff readDerived( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey );
+	YCFBamRoleDefBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey );
 
 	/**
 	 *	Lock the derived RoleDef buffer instance by primary key.
@@ -267,8 +267,8 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamRoleDefBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey );
+	YCFBamRoleDefBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey );
 
 	/**
 	 *	Read all RoleDef instances.
@@ -277,7 +277,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamRoleDefBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamRoleDefBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived RoleDef buffer instance identified by the unique key IdIdx.
@@ -291,7 +291,7 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamRoleDefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -309,7 +309,7 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamRoleDefBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -332,7 +332,7 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamRoleDefBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff readDerivedByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
@@ -348,7 +348,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRoleDefBuff[] readDerivedByRoleDefTentIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff[] readDerivedByRoleDefTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -362,7 +362,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRoleDefBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -377,7 +377,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRoleDefBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -391,10 +391,10 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRoleDefBuff readBuff( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey );
+	YCFBamRoleDefBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey );
 
 	/**
 	 *	Lock the specific RoleDef buffer instance identified by the primary key.
@@ -406,10 +406,10 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRoleDefBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey );
+	YCFBamRoleDefBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey );
 
 	/**
 	 *	Read all the specific RoleDef buffer instances.
@@ -418,7 +418,7 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@return All the specific RoleDef instances in the database accessible for the Authorization.
 	 */
-	CFBamRoleDefBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamRoleDefBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific RoleDef buffer instance identified by the unique key IdIdx.
@@ -432,9 +432,9 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRoleDefBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -452,9 +452,9 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRoleDefBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -477,9 +477,9 @@ public interface ICFBamRoleDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRoleDefBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff readBuffByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
@@ -495,9 +495,9 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRoleDefBuff[] readBuffByRoleDefTentIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff[] readBuffByRoleDefTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -511,9 +511,9 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRoleDefBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -528,16 +528,16 @@ public interface ICFBamRoleDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRoleDefBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamRoleDefBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.xml;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -31,18 +31,18 @@ import javax.xml.XMLConstants;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.ICFLibMessageLog;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.IYCFLibMessageLog;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.CFLibNullArgumentException;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.YCFLibNullArgumentException;
 
 /**
  *	An XmlCoreSaxParser is an abstract JAXP DefaultHandler
  *	specialized for SAX2 parsing. 
  */
-public abstract class CFLibXmlCoreSaxParser extends CFLibXmlCoreParser {
+public abstract class YCFLibXmlCoreSaxParser extends YCFLibXmlCoreParser {
 
 //	Instance Attributes
 
@@ -56,7 +56,7 @@ public abstract class CFLibXmlCoreSaxParser extends CFLibXmlCoreParser {
 	/**
 	 *	Construct a default parser.
 	 */
-	public CFLibXmlCoreSaxParser() {
+	public YCFLibXmlCoreSaxParser() {
 		super();
 	}
 
@@ -66,7 +66,7 @@ public abstract class CFLibXmlCoreSaxParser extends CFLibXmlCoreParser {
 	 *
 	 *	@param	jLogger - Log4J Logger
 	 */
-	public CFLibXmlCoreSaxParser( ICFLibMessageLog jLogger ) {
+	public YCFLibXmlCoreSaxParser( IYCFLibMessageLog jLogger ) {
 		super( jLogger );
 	}
 
@@ -126,18 +126,18 @@ public abstract class CFLibXmlCoreSaxParser extends CFLibXmlCoreParser {
     			nested = e;
     		}
     		if( getLog() != null ) {
-    			getLog().message( "CFLibXmlCoreSaxParser.initParser() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
+    			getLog().message( "YCFLibXmlCoreSaxParser.initParser() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
     		}
     		else {
-    			System.err.append( "CFLibXmlCoreSaxParser.initParser() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
+    			System.err.append( "YCFLibXmlCoreSaxParser.initParser() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
     		}
         }
         catch (Exception e) {
         	if( getLog() != null ) {
-        		getLog().message( "CFLibXmlCoreSaxParser.initParser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
+        		getLog().message( "YCFLibXmlCoreSaxParser.initParser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
         	}
         	else {
-	    		System.err.append( "CFLibXmlCoreSaxParser.initParser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
+	    		System.err.append( "YCFLibXmlCoreSaxParser.initParser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
 	    	}
         }
     }
@@ -165,26 +165,26 @@ public abstract class CFLibXmlCoreSaxParser extends CFLibXmlCoreParser {
     			nested = e;
     		}
     		if( getLog() != null ) {
-    			getLog().message( "CFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
+    			getLog().message( "YCFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
     		}
     		else {
-    			System.err.append( "ERROR: CFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
+    			System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
     		}
         }
 		catch( FileNotFoundException e ) {
 			if( getLog() != null ) {
-				getLog().message( "CFLibXmlCoreSaxParser.parse() Could not find file \"" + uri + "\"\n" );
+				getLog().message( "YCFLibXmlCoreSaxParser.parse() Could not find file \"" + uri + "\"\n" );
 			}
 			else {
-				System.err.append( "ERROR: CFLibXmlCoreSaxParser.parse() Could not find file \"" + uri + "\"\n" );
+				System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parse() Could not find file \"" + uri + "\"\n" );
 			}
 		}
 		catch (Exception e) {
 			if( getLog() != null ) {
-				getLog().message( "CFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
+				getLog().message( "YCFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
 			}
 			else {
-				System.err.append( "ERROR: CFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
+				System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
 			}
 		}
 	}
@@ -202,7 +202,7 @@ public abstract class CFLibXmlCoreSaxParser extends CFLibXmlCoreParser {
 	public void parseStringContents( String str ) {
 		final String S_ProcName = "parseStringContents";
 		if( str == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"str" );
@@ -232,10 +232,10 @@ public abstract class CFLibXmlCoreSaxParser extends CFLibXmlCoreParser {
     			nested = e;
     		}
     		if( getLog() != null ) {
-    			getLog().message( "CFLibXmlCoreSaxParser.parse() Ignored SAXParseException exception " + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
+    			getLog().message( "YCFLibXmlCoreSaxParser.parse() Ignored SAXParseException exception " + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
     		}
     		else {
-    			System.err.append( "ERROR: CFLibXmlCoreSaxParser.parse() Ignored SAXParseException exception " + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
+    			System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parse() Ignored SAXParseException exception " + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
     		}
         }
         catch (SAXException e) {
@@ -245,18 +245,18 @@ public abstract class CFLibXmlCoreSaxParser extends CFLibXmlCoreParser {
     			nested = e;
     		}
     		if( getLog() != null ) {
-    			getLog().message( "CFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
+    			getLog().message( "YCFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
     		}
     		else {
-    			System.err.append( "ERROR: CFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
+    			System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getName() + " " + nested.getMessage() + "\n" );
     		}
         }
 		catch (Exception e) {
 			if( getLog() != null ) {
-				getLog().message( "CFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
+				getLog().message( "YCFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
 			}
 			else {
-				System.err.append( "ERROR: CFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
+				System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getName() + " " + e.getMessage() + "\n" );
 			}
 		}
 	}

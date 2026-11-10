@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamNmTokensDefTableObj
+public interface IYCFBamNmTokensDefTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamNmTokensDefObj newInstance();
+	IYCFBamNmTokensDefObj newInstance();
 
 	/**
 	 *	Instantiate a new NmTokensDef edition of the specified NmTokensDef instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamNmTokensDefEditObj newEditInstance( ICFBamNmTokensDefObj orig );
+	IYCFBamNmTokensDefEditObj newEditInstance( IYCFBamNmTokensDefObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamNmTokensDefObj realiseNmTokensDef( ICFBamNmTokensDefObj Obj );
+	IYCFBamNmTokensDefObj realiseNmTokensDef( IYCFBamNmTokensDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamNmTokensDefObj createNmTokensDef( ICFBamNmTokensDefObj Obj );
+	IYCFBamNmTokensDefObj createNmTokensDef( IYCFBamNmTokensDefObj Obj );
 
 	/**
 	 *	Read a NmTokensDef-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamNmTokensDefTableObj
 	 *	@return	The NmTokensDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamNmTokensDefObj readNmTokensDef( CFBamValuePKey pkey );
+	IYCFBamNmTokensDefObj readNmTokensDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a NmTokensDef-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamNmTokensDefTableObj
 	 *	@return	The NmTokensDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamNmTokensDefObj readNmTokensDef( CFBamValuePKey pkey,
+	IYCFBamNmTokensDefObj readNmTokensDef( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamNmTokensDefObj readCachedNmTokensDef( CFBamValuePKey pkey );
+	IYCFBamNmTokensDefObj readCachedNmTokensDef( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeNmTokensDef( ICFBamNmTokensDefObj obj );
+	public void reallyDeepDisposeNmTokensDef( IYCFBamNmTokensDefObj obj );
 
-	void deepDisposeNmTokensDef( CFBamValuePKey pkey );
+	void deepDisposeNmTokensDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamNmTokensDefObj lockNmTokensDef( CFBamValuePKey pkey );
+	IYCFBamNmTokensDefObj lockNmTokensDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the NmTokensDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamNmTokensDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamNmTokensDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readAllNmTokensDef();
+	List<IYCFBamNmTokensDefObj> readAllNmTokensDef();
 
 	/**
 	 *	Return a sorted map of all the NmTokensDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamNmTokensDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamNmTokensDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readAllNmTokensDef( boolean forceRead );
+	List<IYCFBamNmTokensDefObj> readAllNmTokensDef( boolean forceRead );
 
-	List<ICFBamNmTokensDefObj> readCachedAllNmTokensDef();
+	List<IYCFBamNmTokensDefObj> readCachedAllNmTokensDef();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamNmTokensDefObj readNmTokensDefByIdIdx( long TenantId,
+	IYCFBamNmTokensDefObj readNmTokensDefByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamNmTokensDefObj readNmTokensDefByIdIdx( long TenantId,
+	IYCFBamNmTokensDefObj readNmTokensDefByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@param	argName	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamNmTokensDefObj readNmTokensDefByUNameIdx( long TenantId,
+	IYCFBamNmTokensDefObj readNmTokensDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@param	argName	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamNmTokensDefObj readNmTokensDefByUNameIdx( long TenantId,
+	IYCFBamNmTokensDefObj readNmTokensDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByValTentIdx( long TenantId );
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByValTentIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByScopeIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByScopeIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamNmTokensDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamNmTokensDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamNmTokensDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamNmTokensDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByNextIdx( Long NextTenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamNmTokensDefObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamNmTokensDefObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByNextIdx( Long NextTenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@param	argPrevId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByContPrevIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@param	argPrevId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByContPrevIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@param	argNextId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByContNextIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@param	argNextId	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByContNextIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamNmTokensDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamNmTokensDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@param	argCodeVis	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamNmTokensDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The NmTokensDef key attribute of the instance generating the id.
 	 *
@@ -446,48 +446,48 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@param	argCodeVis	The NmTokensDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamNmTokensDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamNmTokensDefObj> readNmTokensDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readNmTokensDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
-	ICFBamNmTokensDefObj readCachedNmTokensDefByIdIdx( long TenantId,
+	IYCFBamNmTokensDefObj readCachedNmTokensDefByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamNmTokensDefObj readCachedNmTokensDefByUNameIdx( long TenantId,
+	IYCFBamNmTokensDefObj readCachedNmTokensDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamNmTokensDefObj> readCachedNmTokensDefByValTentIdx( long TenantId );
+	List<IYCFBamNmTokensDefObj> readCachedNmTokensDefByValTentIdx( long TenantId );
 
-	List<ICFBamNmTokensDefObj> readCachedNmTokensDefByScopeIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readCachedNmTokensDefByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamNmTokensDefObj> readCachedNmTokensDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamNmTokensDefObj> readCachedNmTokensDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamNmTokensDefObj> readCachedNmTokensDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamNmTokensDefObj> readCachedNmTokensDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamNmTokensDefObj> readCachedNmTokensDefByNextIdx( Long NextTenantId,
+	List<IYCFBamNmTokensDefObj> readCachedNmTokensDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamNmTokensDefObj> readCachedNmTokensDefByContPrevIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readCachedNmTokensDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamNmTokensDefObj> readCachedNmTokensDefByContNextIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readCachedNmTokensDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamNmTokensDefObj> readCachedNmTokensDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamNmTokensDefObj> readCachedNmTokensDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamNmTokensDefObj> readCachedNmTokensDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamNmTokensDefObj> readCachedNmTokensDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeNmTokensDefByIdIdx( long TenantId,
 		long Id );
@@ -518,21 +518,21 @@ public interface ICFBamNmTokensDefTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeNmTokensDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeNmTokensDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeNmTokensDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamNmTokensDefObj updateNmTokensDef( ICFBamNmTokensDefObj Obj );
+	IYCFBamNmTokensDefObj updateNmTokensDef( IYCFBamNmTokensDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteNmTokensDef( ICFBamNmTokensDefObj Obj );
+	void deleteNmTokensDef( IYCFBamNmTokensDefObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -635,7 +635,7 @@ public interface ICFBamNmTokensDefTableObj
 	 *
 	 *	@param	argCodeVis	The NmTokensDef key attribute of the instance generating the id.
 	 */
-	void deleteNmTokensDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteNmTokensDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -648,19 +648,19 @@ public interface ICFBamNmTokensDefTableObj
 	 */
 	void deleteNmTokensDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Move the CFBamNmTokensDefObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamNmTokensDefObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamNmTokensDefObj refreshed cache instance.
+	 *	@return	YCFBamNmTokensDefObj refreshed cache instance.
 	 */
-	ICFBamNmTokensDefObj moveUpNmTokensDef( ICFBamNmTokensDefObj Obj );
+	IYCFBamNmTokensDefObj moveUpNmTokensDef( IYCFBamNmTokensDefObj Obj );
 
 	/**
-	 *	Move the CFBamNmTokensDefObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamNmTokensDefObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamNmTokensDefObj refreshed cache instance.
+	 *	@return	YCFBamNmTokensDefObj refreshed cache instance.
 	 */
-	ICFBamNmTokensDefObj moveDownNmTokensDef( ICFBamNmTokensDefObj Obj );
+	IYCFBamNmTokensDefObj moveDownNmTokensDef( IYCFBamNmTokensDefObj Obj );
 }

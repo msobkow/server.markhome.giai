@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Iterator for Tenant Relationship TSecGroup.
+// Description: Java 11 MssYCF Iterator for Tenant Relationship TSecGroup.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.io.*;
 import java.lang.reflect.*;
@@ -36,32 +36,32 @@ import java.sql.*;
 import java.rmi.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /**
- *	CFBamMssCFIterateTenantTSecGroup binds Tenant.TSecGroup
- *	as an instance of MssCFGenIteratorObj.
+ *	YCFBamMssYCFIterateTenantTSecGroup binds Tenant.TSecGroup
+ *	as an instance of MssYCFGenIteratorObj.
  */
-public class CFBamMssCFIterateTenantTSecGroup
-	extends MssCFGenIteratorObj
+public class YCFBamMssYCFIterateTenantTSecGroup
+	extends MssYCFGenIteratorObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFIterateTenantTSecGroup() {
+	public YCFBamMssYCFIterateTenantTSecGroup() {
 		super();
 	}
 
-	public CFBamMssCFIterateTenantTSecGroup( MssCFEngine argEngine ) {
+	public YCFBamMssYCFIterateTenantTSecGroup( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
@@ -70,38 +70,38 @@ public class CFBamMssCFIterateTenantTSecGroup
 			"TSecGroup" );
 	}
 
-	public ListIterator<ICFLibAnyObj> enumerateDetails( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFIterateTenantTSecGroup.enumerateDetails() ";
+	public ListIterator<IYCFLibAnyObj> enumerateDetails( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFIterateTenantTSecGroup.enumerateDetails() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext.getGenDef()" );
 		}
 
-		List<ICFLibAnyObj> list = new LinkedList<ICFLibAnyObj>();
+		List<IYCFLibAnyObj> list = new LinkedList<IYCFLibAnyObj>();
 
-		if( genDef instanceof ICFBamTenantObj ) {
-			Iterator<ICFSecTSecGroupObj> elements = ((ICFBamTenantObj)genDef).getOptionalComponentsTSecGroup().iterator();
+		if( genDef instanceof IYCFBamTenantObj ) {
+			Iterator<IYCFSecTSecGroupObj> elements = ((IYCFBamTenantObj)genDef).getOptionalComponentsTSecGroup().iterator();
 			while( elements.hasNext() ) {
 				list.add( elements.next() );
 			}
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamTenantObj" );
+				"IYCFBamTenantObj" );
 		}
 
 		return( list.listIterator() );

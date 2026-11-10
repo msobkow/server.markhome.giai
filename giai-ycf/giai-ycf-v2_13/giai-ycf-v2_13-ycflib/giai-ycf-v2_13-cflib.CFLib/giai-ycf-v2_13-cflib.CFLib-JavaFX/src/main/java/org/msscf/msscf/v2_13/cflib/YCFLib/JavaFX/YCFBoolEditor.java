@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.io.InputStream;
 
@@ -31,15 +31,15 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFBoolEditor
+public class YCFBoolEditor
 extends Button
 {
-	public final static String FALSE_ICON_RESOURCE = "/org.msscf.msscf.v2_13.cflib.CFLib/JavaFX/images/BoolFalse.gif";
-	public final static String TRUE_ICON_RESOURCE = "/org.msscf.msscf.v2_13.cflib.CFLib/JavaFX/images/BoolTrue.gif";
-	public final static String NULL_ICON_RESOURCE = "/org.msscf.msscf.v2_13.cflib.CFLib/JavaFX/images/BoolNull.gif";
+	public final static String FALSE_ICON_RESOURCE = "/org.mssycf.mssycf.v2_13.ycflib.YCFLib/JavaFX/images/BoolFalse.gif";
+	public final static String TRUE_ICON_RESOURCE = "/org.mssycf.mssycf.v2_13.ycflib.YCFLib/JavaFX/images/BoolTrue.gif";
+	public final static String NULL_ICON_RESOURCE = "/org.mssycf.mssycf.v2_13.ycflib.YCFLib/JavaFX/images/BoolNull.gif";
 	public final static Boolean S_FALSE = Boolean.valueOf( false );
 	public final static Boolean S_TRUE = Boolean.valueOf( true );
 	
@@ -68,9 +68,9 @@ extends Button
 	public Image getFalseImage() {
 		final String S_ProcName="getFalseImage";
 		if( falseImage == null ) {
-			InputStream stream = CFBoolEditor.class.getResourceAsStream( FALSE_ICON_RESOURCE );
+			InputStream stream = YCFBoolEditor.class.getResourceAsStream( FALSE_ICON_RESOURCE );
 			if( stream == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resource " + FALSE_ICON_RESOURCE );
@@ -83,9 +83,9 @@ extends Button
 	public Image getTrueImage() {
 		final String S_ProcName="getTrueImage";
 		if( trueImage == null ) {
-			InputStream stream = CFBoolEditor.class.getResourceAsStream( TRUE_ICON_RESOURCE );
+			InputStream stream = YCFBoolEditor.class.getResourceAsStream( TRUE_ICON_RESOURCE );
 			if( stream == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resource " + TRUE_ICON_RESOURCE );
@@ -98,9 +98,9 @@ extends Button
 	public Image getNullImage() {
 		final String S_ProcName="getNullImage";
 		if( nullImage == null ) {
-			InputStream stream = CFBoolEditor.class.getResourceAsStream( NULL_ICON_RESOURCE );
+			InputStream stream = YCFBoolEditor.class.getResourceAsStream( NULL_ICON_RESOURCE );
 			if( stream == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resource " + NULL_ICON_RESOURCE );
@@ -110,7 +110,7 @@ extends Button
 		return( nullImage );
 	}
 	
-	public CFBoolEditor() {
+	public YCFBoolEditor() {
 		super();
 		value = S_FALSE;
 		setGraphic( new ImageView( getFalseImage() ) );

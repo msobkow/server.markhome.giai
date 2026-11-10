@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustXmlLoader
+ *	MSS Code Factory YCFBam 2.13 CustXmlLoader
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,45 +23,45 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader;
+package org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamXmlLoaderSubProjectParse XML SAX Element Handler implementation
+ *	YCFBamXmlLoaderSubProjectParse XML SAX Element Handler implementation
  *	for SubProject.
  */
-public class CFBamXmlLoaderSubProjectHandler
-	extends CFLibXmlCoreElementHandler
+public class YCFBamXmlLoaderSubProjectHandler
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamXmlLoaderSubProjectHandler( CFBamXmlLoader saxLoader ) {
+	public YCFBamXmlLoaderSubProjectHandler( YCFBamXmlLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -78,7 +78,7 @@ public class CFBamXmlLoaderSubProjectHandler
 			// Domain Attributes
 			String	attrDescription = null;
 			// Domain References
-			ICFBamTenantObj refTenant = null;
+			IYCFBamTenantObj refTenant = null;
 			// ProjectBase Attributes
 			// ProjectBase References
 			// RealProject Attributes
@@ -86,7 +86,7 @@ public class CFBamXmlLoaderSubProjectHandler
 			// SubProject Attributes
 			String	attrName = null;
 			// SubProject References
-			ICFBamTopProjectObj refParentProject = null;
+			IYCFBamTopProjectObj refParentProject = null;
 			// Attribute Extraction
 			String	attrLocalName;
 			int		numAttrs;
@@ -96,24 +96,24 @@ public class CFBamXmlLoaderSubProjectHandler
 
 			assert qName.equals( "SubProject" );
 
-			CFBamXmlLoader saxLoader = (CFBamXmlLoader)getParser();
+			YCFBamXmlLoader saxLoader = (YCFBamXmlLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			ICFBamSubProjectEditObj editBuff = (ICFBamSubProjectEditObj)schemaObj.getSubProjectTableObj().newInstance().beginEdit();
+			IYCFBamSubProjectEditObj editBuff = (IYCFBamSubProjectEditObj)schemaObj.getSubProjectTableObj().newInstance().beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -121,7 +121,7 @@ public class CFBamXmlLoaderSubProjectHandler
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -130,7 +130,7 @@ public class CFBamXmlLoaderSubProjectHandler
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -139,7 +139,7 @@ public class CFBamXmlLoaderSubProjectHandler
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -150,7 +150,7 @@ public class CFBamXmlLoaderSubProjectHandler
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -159,14 +159,14 @@ public class CFBamXmlLoaderSubProjectHandler
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Description", attrDescription );
 			curContext.putNamedValue( "Name", attrName );
@@ -189,7 +189,7 @@ public class CFBamXmlLoaderSubProjectHandler
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -201,41 +201,41 @@ public class CFBamXmlLoaderSubProjectHandler
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamTopProjectObj ) {
-				refParentProject = (ICFBamTopProjectObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamTopProjectObj ) {
+				refParentProject = (IYCFBamTopProjectObj) scopeObj;
 				editBuff.setRequiredContainerParentTPrj( refParentProject );
-				refTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamTopProjectObj" );
+					"IYCFBamTopProjectObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
 				}
 			}
 
-			ICFBamSubProjectEditObj editSubProject = null;
-			ICFBamSubProjectObj origSubProject = (ICFBamSubProjectObj)schemaObj.getSubProjectTableObj().readSubProjectByNameIdx( refParentProject.getRequiredTenantId(),
+			IYCFBamSubProjectEditObj editSubProject = null;
+			IYCFBamSubProjectObj origSubProject = (IYCFBamSubProjectObj)schemaObj.getSubProjectTableObj().readSubProjectByNameIdx( refParentProject.getRequiredTenantId(),
 			refParentProject.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origSubProject == null ) {
@@ -247,7 +247,7 @@ public class CFBamXmlLoaderSubProjectHandler
 					editSubProject.update();
 				}
 				else {
-					origSubProject = (ICFBamSubProjectObj)editSubProject.create();
+					origSubProject = (IYCFBamSubProjectObj)editSubProject.create();
 				}
 				editSubProject = null;
 			}

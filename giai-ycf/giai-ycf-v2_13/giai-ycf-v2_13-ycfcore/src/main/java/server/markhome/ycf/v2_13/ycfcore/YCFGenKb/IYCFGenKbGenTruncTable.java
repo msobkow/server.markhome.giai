@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GenTrunc.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGenTruncTable database interface for GenTrunc
+ *	YCFGenKbGenTruncTable database interface for GenTrunc
  */
-public interface ICFGenKbGenTruncTable
+public interface IYCFGenKbGenTruncTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGenTrunc( CFGenKbAuthorization Authorization,
-		CFGenKbGenTruncBuff Buff );
+	void createGenTrunc( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenTruncBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGenTrunc( CFGenKbAuthorization Authorization,
-		CFGenKbGenTruncBuff Buff );
+	void updateGenTrunc( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenTruncBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGenTrunc( CFGenKbAuthorization Authorization,
-		CFGenKbGenTruncBuff Buff );
+	void deleteGenTrunc( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenTruncBuff Buff );
 	/**
 	 *	Delete the GenTrunc instances identified by the key BodyIdx.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argBodyGelId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByBodyIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByBodyIdx( YCFGenKbAuthorization Authorization,
 		Long argBodyTenantId,
 		Long argBodyGelCacheId,
 		Long argBodyGelId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByBodyIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenRuleByBodyIdxKey argKey );
+	void deleteGenTruncByBodyIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenRuleByBodyIdxKey argKey );
 	/**
 	 *	Delete the GenTrunc instance identified by the primary key attributes.
 	 *
@@ -115,7 +115,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argItemId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByItemIdIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argCartridgeId,
 		long argItemId );
@@ -127,8 +127,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGenTruncByItemIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey argKey );
+	void deleteGenTruncByItemIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey argKey );
 	/**
 	 *	Delete the GenTrunc instances identified by the key TenantIdx.
 	 *
@@ -136,7 +136,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argTenantId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -146,8 +146,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByTenantIdxKey argKey );
+	void deleteGenTruncByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByTenantIdxKey argKey );
 	/**
 	 *	Delete the GenTrunc instances identified by the key CartIdx.
 	 *
@@ -157,7 +157,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argCartridgeId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByCartIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByCartIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argCartridgeId );
 
@@ -168,8 +168,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByCartIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByCartIdxKey argKey );
+	void deleteGenTruncByCartIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByCartIdxKey argKey );
 	/**
 	 *	Delete the GenTrunc instances identified by the key RuleTypeIdx.
 	 *
@@ -177,7 +177,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argRuleTypeId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short argRuleTypeId );
 
 	/**
@@ -187,8 +187,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByRuleTypeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByRuleTypeIdxKey argKey );
+	void deleteGenTruncByRuleTypeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByRuleTypeIdxKey argKey );
 	/**
 	 *	Delete the GenTrunc instances identified by the key ToolSetIdx.
 	 *
@@ -196,7 +196,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argToolSetId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByToolSetIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short argToolSetId );
 
 	/**
@@ -206,8 +206,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByToolSetIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByToolSetIdxKey argKey );
+	void deleteGenTruncByToolSetIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByToolSetIdxKey argKey );
 	/**
 	 *	Delete the GenTrunc instances identified by the key ScopeIdx.
 	 *
@@ -215,7 +215,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argScopeDefId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByScopeIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short argScopeDefId );
 
 	/**
@@ -225,8 +225,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByScopeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByScopeIdxKey argKey );
+	void deleteGenTruncByScopeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByScopeIdxKey argKey );
 	/**
 	 *	Delete the GenTrunc instances identified by the key GenDefIdx.
 	 *
@@ -234,7 +234,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argGenDefId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByGenDefIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short argGenDefId );
 
 	/**
@@ -244,8 +244,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByGenDefIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByGenDefIdxKey argKey );
+	void deleteGenTruncByGenDefIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByGenDefIdxKey argKey );
 	/**
 	 *	Delete the GenTrunc instances identified by the key AltIdx.
 	 *
@@ -259,7 +259,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argGenDefId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByAltIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByAltIdx( YCFGenKbAuthorization Authorization,
 		String argName,
 		short argToolSetId,
 		Short argScopeDefId,
@@ -272,8 +272,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByAltIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByAltIdxKey argKey );
+	void deleteGenTruncByAltIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByAltIdxKey argKey );
 	/**
 	 *	Delete the GenTrunc instances identified by the key GelExecIdx.
 	 *
@@ -285,7 +285,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argGelExecutableId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByGelExecIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long argGelExecutableTenantId,
 		Long argGelExecutableGelCacheId,
 		Long argGelExecutableId );
@@ -297,8 +297,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByGelExecIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByGelExecIdxKey argKey );
+	void deleteGenTruncByGelExecIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByGelExecIdxKey argKey );
 	/**
 	 *	Delete the GenTrunc instances identified by the key ProbeIdx.
 	 *
@@ -310,7 +310,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argProbeGenItemId	The GenTrunc key attribute of the instance generating the id.
 	 */
-	void deleteGenTruncByProbeIdx( CFGenKbAuthorization Authorization,
+	void deleteGenTruncByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long argProbeTenantId,
 		Long argProbeCartridgeId,
 		Long argProbeGenItemId );
@@ -322,8 +322,8 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGenTruncByProbeIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemByProbeIdxKey argKey );
+	void deleteGenTruncByProbeIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemByProbeIdxKey argKey );
 
 
 	/**
@@ -336,8 +336,8 @@ public interface ICFGenKbGenTruncTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenTruncBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenTruncBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Lock the derived GenTrunc buffer instance by primary key.
@@ -349,8 +349,8 @@ public interface ICFGenKbGenTruncTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenTruncBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenTruncBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Read all GenTrunc instances.
@@ -359,7 +359,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGenTruncBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GenTrunc buffer instance identified by the unique key ItemIdIdx.
@@ -375,7 +375,7 @@ public interface ICFGenKbGenTruncTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenTruncBuff readDerivedByItemIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff readDerivedByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId,
 		long ItemId );
@@ -389,7 +389,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -403,7 +403,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readDerivedByCartIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readDerivedByCartIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId );
 
@@ -416,7 +416,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readDerivedByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readDerivedByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short RuleTypeId );
 
 	/**
@@ -428,7 +428,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readDerivedByToolSetIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readDerivedByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short ToolSetId );
 
 	/**
@@ -440,7 +440,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readDerivedByScopeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readDerivedByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short ScopeDefId );
 
 	/**
@@ -452,7 +452,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readDerivedByGenDefIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readDerivedByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short GenDefId );
 
 	/**
@@ -471,7 +471,7 @@ public interface ICFGenKbGenTruncTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGenTruncBuff readDerivedByAltIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff readDerivedByAltIdx( YCFGenKbAuthorization Authorization,
 		String Name,
 		short ToolSetId,
 		Short ScopeDefId,
@@ -490,7 +490,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readDerivedByGelExecIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readDerivedByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
@@ -508,7 +508,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readDerivedByProbeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readDerivedByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
@@ -526,7 +526,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGenTruncBuff[] readDerivedByBodyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readDerivedByBodyIdx( YCFGenKbAuthorization Authorization,
 		Long BodyTenantId,
 		Long BodyGelCacheId,
 		Long BodyGelId );
@@ -541,10 +541,10 @@ public interface ICFGenKbGenTruncTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenTruncBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Lock the specific GenTrunc buffer instance identified by the primary key.
@@ -556,10 +556,10 @@ public interface ICFGenKbGenTruncTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGenItemPKey PKey );
+	YCFGenKbGenTruncBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGenItemPKey PKey );
 
 	/**
 	 *	Read all the specific GenTrunc buffer instances.
@@ -568,7 +568,7 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return All the specific GenTrunc instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGenTruncBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGenTruncBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GenTrunc buffer instance identified by the unique key ItemIdIdx.
@@ -584,9 +584,9 @@ public interface ICFGenKbGenTruncTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff readBuffByItemIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff readBuffByItemIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId,
 		long ItemId );
@@ -600,9 +600,9 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -616,9 +616,9 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff[] readBuffByCartIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readBuffByCartIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long CartridgeId );
 
@@ -631,9 +631,9 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff[] readBuffByRuleTypeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readBuffByRuleTypeIdx( YCFGenKbAuthorization Authorization,
 		short RuleTypeId );
 
 	/**
@@ -645,9 +645,9 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff[] readBuffByToolSetIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readBuffByToolSetIdx( YCFGenKbAuthorization Authorization,
 		short ToolSetId );
 
 	/**
@@ -659,9 +659,9 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff[] readBuffByScopeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readBuffByScopeIdx( YCFGenKbAuthorization Authorization,
 		Short ScopeDefId );
 
 	/**
@@ -673,9 +673,9 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff[] readBuffByGenDefIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readBuffByGenDefIdx( YCFGenKbAuthorization Authorization,
 		short GenDefId );
 
 	/**
@@ -694,9 +694,9 @@ public interface ICFGenKbGenTruncTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff readBuffByAltIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff readBuffByAltIdx( YCFGenKbAuthorization Authorization,
 		String Name,
 		short ToolSetId,
 		Short ScopeDefId,
@@ -715,9 +715,9 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff[] readBuffByGelExecIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readBuffByGelExecIdx( YCFGenKbAuthorization Authorization,
 		Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
@@ -735,9 +735,9 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff[] readBuffByProbeIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readBuffByProbeIdx( YCFGenKbAuthorization Authorization,
 		Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
@@ -755,9 +755,9 @@ public interface ICFGenKbGenTruncTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGenTruncBuff[] readBuffByBodyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGenTruncBuff[] readBuffByBodyIdx( YCFGenKbAuthorization Authorization,
 		Long BodyTenantId,
 		Long BodyGelCacheId,
 		Long BodyGelId );
@@ -765,7 +765,7 @@ public interface ICFGenKbGenTruncTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

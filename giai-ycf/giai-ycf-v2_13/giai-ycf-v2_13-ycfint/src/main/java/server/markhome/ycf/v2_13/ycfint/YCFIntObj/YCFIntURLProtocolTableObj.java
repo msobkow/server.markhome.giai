@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFInt.
+// Description: Java 11 Table Object implementation for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,53 +26,53 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntURLProtocolTableObj
-	implements ICFIntURLProtocolTableObj
+public class YCFIntURLProtocolTableObj
+	implements IYCFIntURLProtocolTableObj
 {
-	protected ICFIntSchemaObj schema;
-	private Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj> members;
-	private Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj> allURLProtocol;
-	private Map< CFIntURLProtocolByUNameIdxKey,
-		ICFIntURLProtocolObj > indexByUNameIdx;
-	private Map< CFIntURLProtocolByIsSecureIdxKey,
-		Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj > > indexByIsSecureIdx;
+	protected IYCFIntSchemaObj schema;
+	private Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj> members;
+	private Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj> allURLProtocol;
+	private Map< YCFIntURLProtocolByUNameIdxKey,
+		IYCFIntURLProtocolObj > indexByUNameIdx;
+	private Map< YCFIntURLProtocolByIsSecureIdxKey,
+		Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj > > indexByIsSecureIdx;
 	public static String TABLE_NAME = "URLProtocol";
 	public static String TABLE_DBNAME = "urlproto";
 
-	public CFIntURLProtocolTableObj() {
+	public YCFIntURLProtocolTableObj() {
 		schema = null;
-		members = new HashMap<CFIntURLProtocolPKey, ICFIntURLProtocolObj>();
+		members = new HashMap<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj>();
 		allURLProtocol = null;
 		indexByUNameIdx = null;
 		indexByIsSecureIdx = null;
 	}
 
-	public CFIntURLProtocolTableObj( ICFIntSchemaObj argSchema ) {
-		schema = (ICFIntSchemaObj)argSchema;
-		members = new HashMap<CFIntURLProtocolPKey, ICFIntURLProtocolObj>();
+	public YCFIntURLProtocolTableObj( IYCFIntSchemaObj argSchema ) {
+		schema = (IYCFIntSchemaObj)argSchema;
+		members = new HashMap<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj>();
 		allURLProtocol = null;
 		indexByUNameIdx = null;
 		indexByIsSecureIdx = null;
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
-		schema = (ICFIntSchemaObj)value;
+	public void setSchema( IYCFIntSchemaObj value ) {
+		schema = (IYCFIntSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -92,9 +92,9 @@ public class CFIntURLProtocolTableObj
 		allURLProtocol = null;
 		indexByUNameIdx = null;
 		indexByIsSecureIdx = null;
-		List<ICFIntURLProtocolObj> toForget = new LinkedList<ICFIntURLProtocolObj>();
-		ICFIntURLProtocolObj cur = null;
-		Iterator<ICFIntURLProtocolObj> iter = members.values().iterator();
+		List<IYCFIntURLProtocolObj> toForget = new LinkedList<IYCFIntURLProtocolObj>();
+		IYCFIntURLProtocolObj cur = null;
+		Iterator<IYCFIntURLProtocolObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -112,10 +112,10 @@ public class CFIntURLProtocolTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntURLProtocolObj.
+	 *	YCFIntURLProtocolObj.
 	 */
-	public ICFIntURLProtocolObj newInstance() {
-		ICFIntURLProtocolObj inst = new CFIntURLProtocolObj( schema );
+	public IYCFIntURLProtocolObj newInstance() {
+		IYCFIntURLProtocolObj inst = new YCFIntURLProtocolObj( schema );
 		return( inst );
 	}
 
@@ -126,19 +126,19 @@ public class CFIntURLProtocolTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntURLProtocolObj.
+	 *	YCFIntURLProtocolObj.
 	 */
-	public ICFIntURLProtocolEditObj newEditInstance( ICFIntURLProtocolObj orig ) {
-		ICFIntURLProtocolEditObj edit = new CFIntURLProtocolEditObj( orig );
+	public IYCFIntURLProtocolEditObj newEditInstance( IYCFIntURLProtocolObj orig ) {
+		IYCFIntURLProtocolEditObj edit = new YCFIntURLProtocolEditObj( orig );
 		return( edit );
 	}
 
-	public ICFIntURLProtocolObj realiseURLProtocol( ICFIntURLProtocolObj Obj ) {
-		ICFIntURLProtocolObj obj = Obj;
-		CFIntURLProtocolPKey pkey = obj.getPKey();
-		ICFIntURLProtocolObj keepObj = null;
+	public IYCFIntURLProtocolObj realiseURLProtocol( IYCFIntURLProtocolObj Obj ) {
+		IYCFIntURLProtocolObj obj = Obj;
+		YCFIntURLProtocolPKey pkey = obj.getPKey();
+		IYCFIntURLProtocolObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFIntURLProtocolObj existingObj = members.get( pkey );
+			IYCFIntURLProtocolObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -149,17 +149,17 @@ public class CFIntURLProtocolTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByUNameIdx != null ) {
-				CFIntURLProtocolByUNameIdxKey keyUNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
+				YCFIntURLProtocolByUNameIdxKey keyUNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.remove( keyUNameIdx );
 			}
 
 			if( indexByIsSecureIdx != null ) {
-				CFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
+				YCFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
 				keyIsSecureIdx.setRequiredIsSecure( keepObj.getRequiredIsSecure() );
-				Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj > mapIsSecureIdx = indexByIsSecureIdx.get( keyIsSecureIdx );
+				Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj > mapIsSecureIdx = indexByIsSecureIdx.get( keyIsSecureIdx );
 				if( mapIsSecureIdx != null ) {
 					mapIsSecureIdx.remove( keepObj.getPKey() );
 					if( mapIsSecureIdx.size() <= 0 ) {
@@ -172,17 +172,17 @@ public class CFIntURLProtocolTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByUNameIdx != null ) {
-				CFIntURLProtocolByUNameIdxKey keyUNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
+				YCFIntURLProtocolByUNameIdxKey keyUNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
 			}
 
 			if( indexByIsSecureIdx != null ) {
-				CFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
+				YCFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
 				keyIsSecureIdx.setRequiredIsSecure( keepObj.getRequiredIsSecure() );
-				Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj > mapIsSecureIdx = indexByIsSecureIdx.get( keyIsSecureIdx );
+				Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj > mapIsSecureIdx = indexByIsSecureIdx.get( keyIsSecureIdx );
 				if( mapIsSecureIdx != null ) {
 					mapIsSecureIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -203,17 +203,17 @@ public class CFIntURLProtocolTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFIntURLProtocolByUNameIdxKey keyUNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
+				YCFIntURLProtocolByUNameIdxKey keyUNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
 			}
 
 			if( indexByIsSecureIdx != null ) {
-				CFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
+				YCFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
 				keyIsSecureIdx.setRequiredIsSecure( keepObj.getRequiredIsSecure() );
-				Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj > mapIsSecureIdx = indexByIsSecureIdx.get( keyIsSecureIdx );
+				Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj > mapIsSecureIdx = indexByIsSecureIdx.get( keyIsSecureIdx );
 				if( mapIsSecureIdx != null ) {
 					mapIsSecureIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -223,10 +223,10 @@ public class CFIntURLProtocolTableObj
 		return( keepObj );
 	}
 
-	public ICFIntURLProtocolObj createURLProtocol( ICFIntURLProtocolObj Obj ) {
-		ICFIntURLProtocolObj obj = Obj;
-		CFIntURLProtocolBuff buff = obj.getURLProtocolBuff();
-		((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().createURLProtocol(
+	public IYCFIntURLProtocolObj createURLProtocol( IYCFIntURLProtocolObj Obj ) {
+		IYCFIntURLProtocolObj obj = Obj;
+		YCFIntURLProtocolBuff buff = obj.getURLProtocolBuff();
+		((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().createURLProtocol(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -235,53 +235,53 @@ public class CFIntURLProtocolTableObj
 		return( obj );
 	}
 
-	public ICFIntURLProtocolObj readURLProtocol( CFIntURLProtocolPKey pkey ) {
+	public IYCFIntURLProtocolObj readURLProtocol( YCFIntURLProtocolPKey pkey ) {
 		return( readURLProtocol( pkey, false ) );
 	}
 
-	public ICFIntURLProtocolObj readURLProtocol( CFIntURLProtocolPKey pkey, boolean forceRead ) {
-		ICFIntURLProtocolObj obj = null;
+	public IYCFIntURLProtocolObj readURLProtocol( YCFIntURLProtocolPKey pkey, boolean forceRead ) {
+		IYCFIntURLProtocolObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFIntURLProtocolBuff readBuff = ((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFIntURLProtocolBuff readBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredURLProtocolId() );
 			if( readBuff != null ) {
 				obj = schema.getURLProtocolTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFIntURLProtocolObj)obj.realise();
+				obj = (IYCFIntURLProtocolObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntURLProtocolObj readCachedURLProtocol( CFIntURLProtocolPKey pkey ) {
-		ICFIntURLProtocolObj obj = null;
+	public IYCFIntURLProtocolObj readCachedURLProtocol( YCFIntURLProtocolPKey pkey ) {
+		IYCFIntURLProtocolObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeURLProtocol( ICFIntURLProtocolObj obj )
+	public void reallyDeepDisposeURLProtocol( IYCFIntURLProtocolObj obj )
 	{
-		final String S_ProcName = "CFIntURLProtocolTableObj.reallyDeepDisposeURLProtocol() ";
+		final String S_ProcName = "YCFIntURLProtocolTableObj.reallyDeepDisposeURLProtocol() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFIntURLProtocolPKey pkey = obj.getPKey();
-		ICFIntURLProtocolObj existing = readCachedURLProtocol( pkey );
+		YCFIntURLProtocolPKey pkey = obj.getPKey();
+		IYCFIntURLProtocolObj existing = readCachedURLProtocol( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFIntURLProtocolByUNameIdxKey keyUNameIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
+		YCFIntURLProtocolByUNameIdxKey keyUNameIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
+		YCFIntURLProtocolByIsSecureIdxKey keyIsSecureIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
 		keyIsSecureIdx.setRequiredIsSecure( existing.getRequiredIsSecure() );
 
 
@@ -301,57 +301,57 @@ public class CFIntURLProtocolTableObj
 
 
 	}
-	public void deepDisposeURLProtocol( CFIntURLProtocolPKey pkey ) {
-		ICFIntURLProtocolObj obj = readCachedURLProtocol( pkey );
+	public void deepDisposeURLProtocol( YCFIntURLProtocolPKey pkey ) {
+		IYCFIntURLProtocolObj obj = readCachedURLProtocol( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFIntURLProtocolObj lockURLProtocol( CFIntURLProtocolPKey pkey ) {
-		ICFIntURLProtocolObj locked = null;
-		CFIntURLProtocolBuff lockBuff = ((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFIntURLProtocolObj lockURLProtocol( YCFIntURLProtocolPKey pkey ) {
+		IYCFIntURLProtocolObj locked = null;
+		YCFIntURLProtocolBuff lockBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getURLProtocolTableObj().newInstance();
-			locked.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
+			locked.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFIntURLProtocolObj)locked.realise();
+			locked = (IYCFIntURLProtocolObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockURLProtocol", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockURLProtocol", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFIntURLProtocolObj> readAllURLProtocol() {
+	public List<IYCFIntURLProtocolObj> readAllURLProtocol() {
 		return( readAllURLProtocol( false ) );
 	}
 
-	public List<ICFIntURLProtocolObj> readAllURLProtocol( boolean forceRead ) {
+	public List<IYCFIntURLProtocolObj> readAllURLProtocol( boolean forceRead ) {
 		final String S_ProcName = "readAllURLProtocol";
 		if( ( allURLProtocol == null ) || forceRead ) {
-			Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj> map = new HashMap<CFIntURLProtocolPKey,ICFIntURLProtocolObj>();
+			Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj> map = new HashMap<YCFIntURLProtocolPKey,IYCFIntURLProtocolObj>();
 			allURLProtocol = map;
-			CFIntURLProtocolBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().readAllDerived( schema.getAuthorization() );
-			CFIntURLProtocolBuff buff;
-			ICFIntURLProtocolObj obj;
+			YCFIntURLProtocolBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().readAllDerived( schema.getAuthorization() );
+			YCFIntURLProtocolBuff buff;
+			IYCFIntURLProtocolObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
 				obj.setBuff( buff );
-				ICFIntURLProtocolObj realised = (ICFIntURLProtocolObj)obj.realise();
+				IYCFIntURLProtocolObj realised = (IYCFIntURLProtocolObj)obj.realise();
 			}
 		}
 		int len = allURLProtocol.size();
-		ICFIntURLProtocolObj arr[] = new ICFIntURLProtocolObj[len];
-		Iterator<ICFIntURLProtocolObj> valIter = allURLProtocol.values().iterator();
+		IYCFIntURLProtocolObj arr[] = new IYCFIntURLProtocolObj[len];
+		Iterator<IYCFIntURLProtocolObj> valIter = allURLProtocol.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -359,20 +359,20 @@ public class CFIntURLProtocolTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntURLProtocolObj> arrayList = new ArrayList<ICFIntURLProtocolObj>(len);
+		ArrayList<IYCFIntURLProtocolObj> arrayList = new ArrayList<IYCFIntURLProtocolObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntURLProtocolObj> cmp = new Comparator<ICFIntURLProtocolObj>() {
-			public int compare( ICFIntURLProtocolObj lhs, ICFIntURLProtocolObj rhs ) {
+		Comparator<IYCFIntURLProtocolObj> cmp = new Comparator<IYCFIntURLProtocolObj>() {
+			public int compare( IYCFIntURLProtocolObj lhs, IYCFIntURLProtocolObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -385,31 +385,31 @@ public class CFIntURLProtocolTableObj
 					return( 1 );
 				}
 				else {
-					CFIntURLProtocolPKey lhsPKey = lhs.getPKey();
-					CFIntURLProtocolPKey rhsPKey = rhs.getPKey();
+					YCFIntURLProtocolPKey lhsPKey = lhs.getPKey();
+					YCFIntURLProtocolPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntURLProtocolObj> sortedList = arrayList;
+		List<IYCFIntURLProtocolObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFIntURLProtocolObj> readCachedAllURLProtocol() {
+	public List<IYCFIntURLProtocolObj> readCachedAllURLProtocol() {
 		final String S_ProcName = "readCachedAllURLProtocol";
-		ArrayList<ICFIntURLProtocolObj> arrayList = new ArrayList<ICFIntURLProtocolObj>();
+		ArrayList<IYCFIntURLProtocolObj> arrayList = new ArrayList<IYCFIntURLProtocolObj>();
 		if( allURLProtocol != null ) {
 			int len = allURLProtocol.size();
-			ICFIntURLProtocolObj arr[] = new ICFIntURLProtocolObj[len];
-			Iterator<ICFIntURLProtocolObj> valIter = allURLProtocol.values().iterator();
+			IYCFIntURLProtocolObj arr[] = new IYCFIntURLProtocolObj[len];
+			Iterator<IYCFIntURLProtocolObj> valIter = allURLProtocol.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -417,7 +417,7 @@ public class CFIntURLProtocolTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -428,8 +428,8 @@ public class CFIntURLProtocolTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFIntURLProtocolObj> cmp = new Comparator<ICFIntURLProtocolObj>() {
-			public int compare( ICFIntURLProtocolObj lhs, ICFIntURLProtocolObj rhs ) {
+		Comparator<IYCFIntURLProtocolObj> cmp = new Comparator<IYCFIntURLProtocolObj>() {
+			public int compare( IYCFIntURLProtocolObj lhs, IYCFIntURLProtocolObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -442,8 +442,8 @@ public class CFIntURLProtocolTableObj
 					return( 1 );
 				}
 				else {
-					CFIntURLProtocolPKey lhsPKey = lhs.getPKey();
-					CFIntURLProtocolPKey rhsPKey = rhs.getPKey();
+					YCFIntURLProtocolPKey lhsPKey = lhs.getPKey();
+					YCFIntURLProtocolPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -453,96 +453,96 @@ public class CFIntURLProtocolTableObj
 		return( arrayList );
 	}
 
-	public ICFIntURLProtocolObj readURLProtocolByIdIdx( int URLProtocolId )
+	public IYCFIntURLProtocolObj readURLProtocolByIdIdx( int URLProtocolId )
 	{
 		return( readURLProtocolByIdIdx( URLProtocolId,
 			false ) );
 	}
 
-	public ICFIntURLProtocolObj readURLProtocolByIdIdx( int URLProtocolId, boolean forceRead )
+	public IYCFIntURLProtocolObj readURLProtocolByIdIdx( int URLProtocolId, boolean forceRead )
 	{
-		CFIntURLProtocolPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey();
+		YCFIntURLProtocolPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey();
 		pkey.setRequiredURLProtocolId( URLProtocolId );
-		ICFIntURLProtocolObj obj = readURLProtocol( pkey, forceRead );
+		IYCFIntURLProtocolObj obj = readURLProtocol( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFIntURLProtocolObj readURLProtocolByUNameIdx( String Name )
+	public IYCFIntURLProtocolObj readURLProtocolByUNameIdx( String Name )
 	{
 		return( readURLProtocolByUNameIdx( Name,
 			false ) );
 	}
 
-	public ICFIntURLProtocolObj readURLProtocolByUNameIdx( String Name, boolean forceRead )
+	public IYCFIntURLProtocolObj readURLProtocolByUNameIdx( String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFIntURLProtocolByUNameIdxKey,
-				ICFIntURLProtocolObj >();
+			indexByUNameIdx = new HashMap< YCFIntURLProtocolByUNameIdxKey,
+				IYCFIntURLProtocolObj >();
 		}
-		CFIntURLProtocolByUNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
+		YCFIntURLProtocolByUNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
 		key.setRequiredName( Name );
-		ICFIntURLProtocolObj obj = null;
+		IYCFIntURLProtocolObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFIntURLProtocolBuff buff = ((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFIntURLProtocolBuff buff = ((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().readDerivedByUNameIdx( schema.getAuthorization(),
 				Name );
 			if( buff != null ) {
 				obj = schema.getURLProtocolTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFIntURLProtocolObj)obj.realise();
+				obj = (IYCFIntURLProtocolObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFIntURLProtocolObj> readURLProtocolByIsSecureIdx( boolean IsSecure )
+	public List<IYCFIntURLProtocolObj> readURLProtocolByIsSecureIdx( boolean IsSecure )
 	{
 		return( readURLProtocolByIsSecureIdx( IsSecure,
 			false ) );
 	}
 
-	public List<ICFIntURLProtocolObj> readURLProtocolByIsSecureIdx( boolean IsSecure,
+	public List<IYCFIntURLProtocolObj> readURLProtocolByIsSecureIdx( boolean IsSecure,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readURLProtocolByIsSecureIdx";
-		CFIntURLProtocolByIsSecureIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
+		YCFIntURLProtocolByIsSecureIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
 		key.setRequiredIsSecure( IsSecure );
-		Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj> dict;
+		Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj> dict;
 		if( indexByIsSecureIdx == null ) {
-			indexByIsSecureIdx = new HashMap< CFIntURLProtocolByIsSecureIdxKey,
-				Map< CFIntURLProtocolPKey, ICFIntURLProtocolObj > >();
+			indexByIsSecureIdx = new HashMap< YCFIntURLProtocolByIsSecureIdxKey,
+				Map< YCFIntURLProtocolPKey, IYCFIntURLProtocolObj > >();
 		}
 		if( ( ! forceRead ) && indexByIsSecureIdx.containsKey( key ) ) {
 			dict = indexByIsSecureIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFIntURLProtocolPKey, ICFIntURLProtocolObj>();
-			ICFIntURLProtocolObj obj;
-			CFIntURLProtocolBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().readDerivedByIsSecureIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj>();
+			IYCFIntURLProtocolObj obj;
+			YCFIntURLProtocolBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().readDerivedByIsSecureIdx( schema.getAuthorization(),
 				IsSecure );
-			CFIntURLProtocolBuff buff;
+			YCFIntURLProtocolBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getURLProtocolTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey() );
 				obj.setBuff( buff );
-				ICFIntURLProtocolObj realised = (ICFIntURLProtocolObj)obj.realise();
+				IYCFIntURLProtocolObj realised = (IYCFIntURLProtocolObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByIsSecureIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFIntURLProtocolObj arr[] = new ICFIntURLProtocolObj[len];
-		Iterator<ICFIntURLProtocolObj> valIter = dict.values().iterator();
+		IYCFIntURLProtocolObj arr[] = new IYCFIntURLProtocolObj[len];
+		Iterator<IYCFIntURLProtocolObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -550,20 +550,20 @@ public class CFIntURLProtocolTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntURLProtocolObj> arrayList = new ArrayList<ICFIntURLProtocolObj>(len);
+		ArrayList<IYCFIntURLProtocolObj> arrayList = new ArrayList<IYCFIntURLProtocolObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntURLProtocolObj> cmp = new Comparator<ICFIntURLProtocolObj>() {
-			public int compare( ICFIntURLProtocolObj lhs, ICFIntURLProtocolObj rhs ) {
+		Comparator<IYCFIntURLProtocolObj> cmp = new Comparator<IYCFIntURLProtocolObj>() {
+			public int compare( IYCFIntURLProtocolObj lhs, IYCFIntURLProtocolObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -576,38 +576,38 @@ public class CFIntURLProtocolTableObj
 					return( 1 );
 				}
 				else {
-					CFIntURLProtocolPKey lhsPKey = lhs.getPKey();
-					CFIntURLProtocolPKey rhsPKey = rhs.getPKey();
+					YCFIntURLProtocolPKey lhsPKey = lhs.getPKey();
+					YCFIntURLProtocolPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntURLProtocolObj> sortedList = arrayList;
+		List<IYCFIntURLProtocolObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFIntURLProtocolObj readCachedURLProtocolByIdIdx( int URLProtocolId )
+	public IYCFIntURLProtocolObj readCachedURLProtocolByIdIdx( int URLProtocolId )
 	{
-		ICFIntURLProtocolObj obj = null;
-		CFIntURLProtocolPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey();
+		IYCFIntURLProtocolObj obj = null;
+		YCFIntURLProtocolPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey();
 		pkey.setRequiredURLProtocolId( URLProtocolId );
 		obj = readCachedURLProtocol( pkey );
 		return( obj );
 	}
 
-	public ICFIntURLProtocolObj readCachedURLProtocolByUNameIdx( String Name )
+	public IYCFIntURLProtocolObj readCachedURLProtocolByUNameIdx( String Name )
 	{
-		ICFIntURLProtocolObj obj = null;
-		CFIntURLProtocolByUNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
+		IYCFIntURLProtocolObj obj = null;
+		YCFIntURLProtocolByUNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
 		key.setRequiredName( Name );
 		if( indexByUNameIdx != null ) {
 			if( indexByUNameIdx.containsKey( key ) ) {
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFIntURLProtocolObj> valIter = members.values().iterator();
+				Iterator<IYCFIntURLProtocolObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -619,7 +619,7 @@ public class CFIntURLProtocolTableObj
 			}
 		}
 		else {
-			Iterator<ICFIntURLProtocolObj> valIter = members.values().iterator();
+			Iterator<IYCFIntURLProtocolObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -632,25 +632,25 @@ public class CFIntURLProtocolTableObj
 		return( obj );
 	}
 
-	public List<ICFIntURLProtocolObj> readCachedURLProtocolByIsSecureIdx( boolean IsSecure )
+	public List<IYCFIntURLProtocolObj> readCachedURLProtocolByIsSecureIdx( boolean IsSecure )
 	{
 		final String S_ProcName = "readCachedURLProtocolByIsSecureIdx";
-		CFIntURLProtocolByIsSecureIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
+		YCFIntURLProtocolByIsSecureIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
 		key.setRequiredIsSecure( IsSecure );
-		ArrayList<ICFIntURLProtocolObj> arrayList = new ArrayList<ICFIntURLProtocolObj>();
+		ArrayList<IYCFIntURLProtocolObj> arrayList = new ArrayList<IYCFIntURLProtocolObj>();
 		if( indexByIsSecureIdx != null ) {
-			Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj> dict;
+			Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj> dict;
 			if( indexByIsSecureIdx.containsKey( key ) ) {
 				dict = indexByIsSecureIdx.get( key );
 				int len = dict.size();
-				ICFIntURLProtocolObj arr[] = new ICFIntURLProtocolObj[len];
-				Iterator<ICFIntURLProtocolObj> valIter = dict.values().iterator();
+				IYCFIntURLProtocolObj arr[] = new IYCFIntURLProtocolObj[len];
+				Iterator<IYCFIntURLProtocolObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -658,7 +658,7 @@ public class CFIntURLProtocolTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -671,8 +671,8 @@ public class CFIntURLProtocolTableObj
 			}
 		}
 		else {
-			ICFIntURLProtocolObj obj;
-			Iterator<ICFIntURLProtocolObj> valIter = members.values().iterator();
+			IYCFIntURLProtocolObj obj;
+			Iterator<IYCFIntURLProtocolObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -682,8 +682,8 @@ public class CFIntURLProtocolTableObj
 				}
 			}
 		}
-		Comparator<ICFIntURLProtocolObj> cmp = new Comparator<ICFIntURLProtocolObj>() {
-			public int compare( ICFIntURLProtocolObj lhs, ICFIntURLProtocolObj rhs ) {
+		Comparator<IYCFIntURLProtocolObj> cmp = new Comparator<IYCFIntURLProtocolObj>() {
+			public int compare( IYCFIntURLProtocolObj lhs, IYCFIntURLProtocolObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -696,8 +696,8 @@ public class CFIntURLProtocolTableObj
 					return( 1 );
 				}
 				else {
-					CFIntURLProtocolPKey lhsPKey = lhs.getPKey();
-					CFIntURLProtocolPKey rhsPKey = rhs.getPKey();
+					YCFIntURLProtocolPKey lhsPKey = lhs.getPKey();
+					YCFIntURLProtocolPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -709,7 +709,7 @@ public class CFIntURLProtocolTableObj
 
 	public void deepDisposeURLProtocolByIdIdx( int URLProtocolId )
 	{
-		ICFIntURLProtocolObj obj = readCachedURLProtocolByIdIdx( URLProtocolId );
+		IYCFIntURLProtocolObj obj = readCachedURLProtocolByIdIdx( URLProtocolId );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -717,7 +717,7 @@ public class CFIntURLProtocolTableObj
 
 	public void deepDisposeURLProtocolByUNameIdx( String Name )
 	{
-		ICFIntURLProtocolObj obj = readCachedURLProtocolByUNameIdx( Name );
+		IYCFIntURLProtocolObj obj = readCachedURLProtocolByUNameIdx( Name );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -726,10 +726,10 @@ public class CFIntURLProtocolTableObj
 	public void deepDisposeURLProtocolByIsSecureIdx( boolean IsSecure )
 	{
 		final String S_ProcName = "deepDisposeURLProtocolByIsSecureIdx";
-		ICFIntURLProtocolObj obj;
-		List<ICFIntURLProtocolObj> arrayList = readCachedURLProtocolByIsSecureIdx( IsSecure );
+		IYCFIntURLProtocolObj obj;
+		List<IYCFIntURLProtocolObj> arrayList = readCachedURLProtocolByIsSecureIdx( IsSecure );
 		if( arrayList != null )  {
-			Iterator<ICFIntURLProtocolObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFIntURLProtocolObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -739,32 +739,32 @@ public class CFIntURLProtocolTableObj
 		}
 	}
 
-	public ICFIntURLProtocolObj updateURLProtocol( ICFIntURLProtocolObj Obj ) {
-		ICFIntURLProtocolObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().updateURLProtocol( schema.getAuthorization(),
+	public IYCFIntURLProtocolObj updateURLProtocol( IYCFIntURLProtocolObj Obj ) {
+		IYCFIntURLProtocolObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().updateURLProtocol( schema.getAuthorization(),
 			Obj.getURLProtocolBuff() );
-		obj = (ICFIntURLProtocolObj)Obj.realise();
+		obj = (IYCFIntURLProtocolObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteURLProtocol( ICFIntURLProtocolObj Obj ) {
-		ICFIntURLProtocolObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocol( schema.getAuthorization(),
+	public void deleteURLProtocol( IYCFIntURLProtocolObj Obj ) {
+		IYCFIntURLProtocolObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocol( schema.getAuthorization(),
 			obj.getURLProtocolBuff() );
 		Obj.forget();
 	}
 
 	public void deleteURLProtocolByIdIdx( int URLProtocolId )
 	{
-		CFIntURLProtocolPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey();
+		YCFIntURLProtocolPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey();
 		pkey.setRequiredURLProtocolId( URLProtocolId );
-		ICFIntURLProtocolObj obj = readURLProtocol( pkey );
+		IYCFIntURLProtocolObj obj = readURLProtocol( pkey );
 		if( obj != null ) {
-			ICFIntURLProtocolEditObj editObj = (ICFIntURLProtocolEditObj)obj.getEdit();
+			IYCFIntURLProtocolEditObj editObj = (IYCFIntURLProtocolEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFIntURLProtocolEditObj)obj.beginEdit();
+				editObj = (IYCFIntURLProtocolEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -789,20 +789,20 @@ public class CFIntURLProtocolTableObj
 	public void deleteURLProtocolByUNameIdx( String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFIntURLProtocolByUNameIdxKey,
-				ICFIntURLProtocolObj >();
+			indexByUNameIdx = new HashMap< YCFIntURLProtocolByUNameIdxKey,
+				IYCFIntURLProtocolObj >();
 		}
-		CFIntURLProtocolByUNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
+		YCFIntURLProtocolByUNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newUNameIdxKey();
 		key.setRequiredName( Name );
-		ICFIntURLProtocolObj obj = null;
+		IYCFIntURLProtocolObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocolByUNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocolByUNameIdx( schema.getAuthorization(),
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocolByUNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocolByUNameIdx( schema.getAuthorization(),
 				Name );
 		}
 		deepDisposeURLProtocolByUNameIdx( Name );
@@ -810,19 +810,19 @@ public class CFIntURLProtocolTableObj
 
 	public void deleteURLProtocolByIsSecureIdx( boolean IsSecure )
 	{
-		CFIntURLProtocolByIsSecureIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
+		YCFIntURLProtocolByIsSecureIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newIsSecureIdxKey();
 		key.setRequiredIsSecure( IsSecure );
 		if( indexByIsSecureIdx == null ) {
-			indexByIsSecureIdx = new HashMap< CFIntURLProtocolByIsSecureIdxKey,
-				Map< CFIntURLProtocolPKey, ICFIntURLProtocolObj > >();
+			indexByIsSecureIdx = new HashMap< YCFIntURLProtocolByIsSecureIdxKey,
+				Map< YCFIntURLProtocolPKey, IYCFIntURLProtocolObj > >();
 		}
 		if( indexByIsSecureIdx.containsKey( key ) ) {
-			Map<CFIntURLProtocolPKey, ICFIntURLProtocolObj> dict = indexByIsSecureIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocolByIsSecureIdx( schema.getAuthorization(),
+			Map<YCFIntURLProtocolPKey, IYCFIntURLProtocolObj> dict = indexByIsSecureIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocolByIsSecureIdx( schema.getAuthorization(),
 				IsSecure );
-			Iterator<ICFIntURLProtocolObj> iter = dict.values().iterator();
-			ICFIntURLProtocolObj obj;
-			List<ICFIntURLProtocolObj> toForget = new LinkedList<ICFIntURLProtocolObj>();
+			Iterator<IYCFIntURLProtocolObj> iter = dict.values().iterator();
+			IYCFIntURLProtocolObj obj;
+			List<IYCFIntURLProtocolObj> toForget = new LinkedList<IYCFIntURLProtocolObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -835,7 +835,7 @@ public class CFIntURLProtocolTableObj
 			indexByIsSecureIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocolByIsSecureIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().deleteURLProtocolByIsSecureIdx( schema.getAuthorization(),
 				IsSecure );
 		}
 		deepDisposeURLProtocolByIsSecureIdx( IsSecure );

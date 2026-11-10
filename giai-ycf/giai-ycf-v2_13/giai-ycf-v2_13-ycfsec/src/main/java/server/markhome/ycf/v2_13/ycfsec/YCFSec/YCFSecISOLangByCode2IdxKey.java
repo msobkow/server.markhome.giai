@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ISOLang by Code2Idx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,15 +36,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecISOLangByCode2IdxKey
+public class YCFSecISOLangByCode2IdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String optionalISO6391Code;
-	public CFSecISOLangByCode2IdxKey() {
+	public YCFSecISOLangByCode2IdxKey() {
 		optionalISO6391Code = null;
 	}
 
@@ -57,7 +57,7 @@ public class CFSecISOLangByCode2IdxKey
 			optionalISO6391Code = null;
 		}
 		else if( value.length() > 2 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalISO6391Code",
 				1,
 				"value.length()",
@@ -73,8 +73,8 @@ public class CFSecISOLangByCode2IdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecISOLangByCode2IdxKey ) {
-			CFSecISOLangByCode2IdxKey rhs = (CFSecISOLangByCode2IdxKey)obj;
+		else if( obj instanceof YCFSecISOLangByCode2IdxKey ) {
+			YCFSecISOLangByCode2IdxKey rhs = (YCFSecISOLangByCode2IdxKey)obj;
 			if( getOptionalISO6391Code() != null ) {
 				if( rhs.getOptionalISO6391Code() != null ) {
 					if( ! getOptionalISO6391Code().equals( rhs.getOptionalISO6391Code() ) ) {
@@ -89,8 +89,8 @@ public class CFSecISOLangByCode2IdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOLangBuff ) {
-			CFSecISOLangBuff rhs = (CFSecISOLangBuff)obj;
+		else if( obj instanceof YCFSecISOLangBuff ) {
+			YCFSecISOLangBuff rhs = (YCFSecISOLangBuff)obj;
 			if( getOptionalISO6391Code() != null ) {
 				if( rhs.getOptionalISO6391Code() != null ) {
 					if( ! getOptionalISO6391Code().equals( rhs.getOptionalISO6391Code() ) ) {
@@ -122,8 +122,8 @@ public class CFSecISOLangByCode2IdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecISOLangByCode2IdxKey ) {
-			CFSecISOLangByCode2IdxKey rhs = (CFSecISOLangByCode2IdxKey)obj;
+		else if( obj instanceof YCFSecISOLangByCode2IdxKey ) {
+			YCFSecISOLangByCode2IdxKey rhs = (YCFSecISOLangByCode2IdxKey)obj;
 			if( getOptionalISO6391Code() != null ) {
 				if( rhs.getOptionalISO6391Code() != null ) {
 					int cmp = getOptionalISO6391Code().compareTo( rhs.getOptionalISO6391Code() );
@@ -142,8 +142,8 @@ public class CFSecISOLangByCode2IdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOLangBuff ) {
-			CFSecISOLangBuff rhs = (CFSecISOLangBuff)obj;
+		else if( obj instanceof YCFSecISOLangBuff ) {
+			YCFSecISOLangBuff rhs = (YCFSecISOLangBuff)obj;
 			if( getOptionalISO6391Code() != null ) {
 				if( rhs.getOptionalISO6391Code() != null ) {
 					int cmp = getOptionalISO6391Code().compareTo( rhs.getOptionalISO6391Code() );
@@ -163,7 +163,7 @@ public class CFSecISOLangByCode2IdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -172,8 +172,8 @@ public class CFSecISOLangByCode2IdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecISOLangByCode2Idx"
-			+ " OptionalISO6391Code=" + ( ( getOptionalISO6391Code() == null ) ? "null" : "\"" + CFSecSchema.xmlEncodeString( getOptionalISO6391Code() ) + "\"" )
+		String ret = "<YCFSecISOLangByCode2Idx"
+			+ " OptionalISO6391Code=" + ( ( getOptionalISO6391Code() == null ) ? "null" : "\"" + YCFSecSchema.xmlEncodeString( getOptionalISO6391Code() ) + "\"" )
 			+ "/>";
 		return( ret );
 	}

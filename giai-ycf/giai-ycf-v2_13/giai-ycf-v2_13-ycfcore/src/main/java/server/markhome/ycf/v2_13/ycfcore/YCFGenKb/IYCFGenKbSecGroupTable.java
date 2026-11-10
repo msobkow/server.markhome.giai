@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for SecGroup.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbSecGroupTable database interface for SecGroup
+ *	YCFGenKbSecGroupTable database interface for SecGroup
  */
-public interface ICFGenKbSecGroupTable
+public interface IYCFGenKbSecGroupTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecGroup( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupBuff Buff );
+	void createSecGroup( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecGroup( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupBuff Buff );
+	void updateSecGroup( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecGroup( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupBuff Buff );
+	void deleteSecGroup( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupBuff Buff );
 	/**
 	 *	Delete the SecGroup instance identified by the primary key attributes.
 	 *
@@ -88,7 +88,7 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	argSecGroupId	The SecGroup key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupByIdIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId );
 
@@ -99,8 +99,8 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecGroupByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupPKey argKey );
+	void deleteSecGroupByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupPKey argKey );
 	/**
 	 *	Delete the SecGroup instances identified by the key ClusterIdx.
 	 *
@@ -108,7 +108,7 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupByClusterIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupByClusterIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -118,8 +118,8 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupByClusterIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupByClusterIdxKey argKey );
+	void deleteSecGroupByClusterIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupByClusterIdxKey argKey );
 	/**
 	 *	Delete the SecGroup instances identified by the key ClusterVisIdx.
 	 *
@@ -129,7 +129,7 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	argIsVisible	The SecGroup key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupByClusterVisIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupByClusterVisIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		boolean argIsVisible );
 
@@ -140,8 +140,8 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupByClusterVisIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupByClusterVisIdxKey argKey );
+	void deleteSecGroupByClusterVisIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupByClusterVisIdxKey argKey );
 	/**
 	 *	Delete the SecGroup instances identified by the key UNameIdx.
 	 *
@@ -151,7 +151,7 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	argName	The SecGroup key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupByUNameIdx( CFGenKbAuthorization Authorization,
+	void deleteSecGroupByUNameIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId,
 		String argName );
 
@@ -162,8 +162,8 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupByUNameIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupByUNameIdxKey argKey );
+	void deleteSecGroupByUNameIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupByUNameIdxKey argKey );
 
 
 	/**
@@ -176,8 +176,8 @@ public interface ICFGenKbSecGroupTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecGroupBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupPKey PKey );
+	YCFGenKbSecGroupBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupPKey PKey );
 
 	/**
 	 *	Lock the derived SecGroup buffer instance by primary key.
@@ -189,8 +189,8 @@ public interface ICFGenKbSecGroupTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecGroupBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupPKey PKey );
+	YCFGenKbSecGroupBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupPKey PKey );
 
 	/**
 	 *	Read all SecGroup instances.
@@ -199,7 +199,7 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecGroupBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbSecGroupBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecGroup buffer instance identified by the unique key IdIdx.
@@ -213,7 +213,7 @@ public interface ICFGenKbSecGroupTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecGroupBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -226,7 +226,7 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecGroupBuff[] readDerivedByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupBuff[] readDerivedByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -240,7 +240,7 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecGroupBuff[] readDerivedByClusterVisIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupBuff[] readDerivedByClusterVisIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		boolean IsVisible );
 
@@ -256,7 +256,7 @@ public interface ICFGenKbSecGroupTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecGroupBuff readDerivedByUNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupBuff readDerivedByUNameIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String Name );
 
@@ -270,10 +270,10 @@ public interface ICFGenKbSecGroupTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupPKey PKey );
+	YCFGenKbSecGroupBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupPKey PKey );
 
 	/**
 	 *	Lock the specific SecGroup buffer instance identified by the primary key.
@@ -285,10 +285,10 @@ public interface ICFGenKbSecGroupTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecGroupPKey PKey );
+	YCFGenKbSecGroupBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecGroupPKey PKey );
 
 	/**
 	 *	Read all the specific SecGroup buffer instances.
@@ -297,7 +297,7 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@return All the specific SecGroup instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSecGroupBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbSecGroupBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific SecGroup buffer instance identified by the unique key IdIdx.
@@ -311,9 +311,9 @@ public interface ICFGenKbSecGroupTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -326,9 +326,9 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupBuff[] readBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupBuff[] readBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -342,9 +342,9 @@ public interface ICFGenKbSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupBuff[] readBuffByClusterVisIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupBuff[] readBuffByClusterVisIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		boolean IsVisible );
 
@@ -360,16 +360,16 @@ public interface ICFGenKbSecGroupTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecGroupBuff readBuffByUNameIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecGroupBuff readBuffByUNameIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId,
 		String Name );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

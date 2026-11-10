@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenFile by XSrcBundle index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenFileByXSrcBundleKey
+public class YCFGenKbGenFileByXSrcBundleKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalSourceBundleTenantId;
 	protected Long optionalSourceBundleGelCacheId;
 	protected Long optionalSourceBundleGelId;
-	public CFGenKbGenFileByXSrcBundleKey() {
+	public YCFGenKbGenFileByXSrcBundleKey() {
 		optionalSourceBundleTenantId = null;
 		optionalSourceBundleGelCacheId = null;
 		optionalSourceBundleGelId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGenFileByXSrcBundleKey
 		if( value == null ) {
 			optionalSourceBundleTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SOURCEBUNDLETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SOURCEBUNDLETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSourceBundleTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SOURCEBUNDLETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SOURCEBUNDLETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalSourceBundleTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGenFileByXSrcBundleKey
 		if( value == null ) {
 			optionalSourceBundleGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SOURCEBUNDLEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SOURCEBUNDLEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSourceBundleGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SOURCEBUNDLEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SOURCEBUNDLEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalSourceBundleGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGenFileByXSrcBundleKey
 		if( value == null ) {
 			optionalSourceBundleGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SOURCEBUNDLEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SOURCEBUNDLEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSourceBundleGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SOURCEBUNDLEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SOURCEBUNDLEGELID_MIN_VALUE );
 		}
 		else {
 			optionalSourceBundleGelId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGenFileByXSrcBundleKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenFileByXSrcBundleKey ) {
-			CFGenKbGenFileByXSrcBundleKey rhs = (CFGenKbGenFileByXSrcBundleKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXSrcBundleKey ) {
+			YCFGenKbGenFileByXSrcBundleKey rhs = (YCFGenKbGenFileByXSrcBundleKey)obj;
 			if( getOptionalSourceBundleTenantId() != null ) {
 				if( rhs.getOptionalSourceBundleTenantId() != null ) {
 					if( ! getOptionalSourceBundleTenantId().equals( rhs.getOptionalSourceBundleTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGenFileByXSrcBundleKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			if( getOptionalSourceBundleTenantId() != null ) {
 				if( rhs.getOptionalSourceBundleTenantId() != null ) {
 					if( ! getOptionalSourceBundleTenantId().equals( rhs.getOptionalSourceBundleTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGenFileByXSrcBundleKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXSrcBundleKey ) {
-			CFGenKbGenFileByXSrcBundleKey rhs = (CFGenKbGenFileByXSrcBundleKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXSrcBundleKey ) {
+			YCFGenKbGenFileByXSrcBundleKey rhs = (YCFGenKbGenFileByXSrcBundleKey)obj;
 			if( getOptionalSourceBundleTenantId() != null ) {
 				Long lhsSourceBundleTenantId = getOptionalSourceBundleTenantId();
 				if( rhs.getOptionalSourceBundleTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGenFileByXSrcBundleKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			if( getOptionalSourceBundleTenantId() != null ) {
 				Long lhsSourceBundleTenantId = getOptionalSourceBundleTenantId();
 				if( rhs.getOptionalSourceBundleTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGenFileByXSrcBundleKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGenFileByXSrcBundleKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenFileByXSrcBundle"
+		String ret = "<YCFGenKbGenFileByXSrcBundle"
 			+ " OptionalSourceBundleTenantId=" + ( ( getOptionalSourceBundleTenantId() == null ) ? "null" : "\"" + getOptionalSourceBundleTenantId().toString() + "\"" )
 			+ " OptionalSourceBundleGelCacheId=" + ( ( getOptionalSourceBundleGelCacheId() == null ) ? "null" : "\"" + getOptionalSourceBundleGelCacheId().toString() + "\"" )
 			+ " OptionalSourceBundleGelId=" + ( ( getOptionalSourceBundleGelId() == null ) ? "null" : "\"" + getOptionalSourceBundleGelId().toString() + "\"" )

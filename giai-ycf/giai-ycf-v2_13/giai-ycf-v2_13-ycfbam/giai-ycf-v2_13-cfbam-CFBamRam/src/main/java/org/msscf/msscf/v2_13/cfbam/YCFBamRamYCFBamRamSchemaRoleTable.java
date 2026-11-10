@@ -2,17 +2,17 @@
 // Description: Java 11 in-memory RAM DbIO implementation for SchemaRole.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,76 +46,76 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamSchemaRoleTable in-memory RAM DbIO implementation
+ *	YCFBamRamSchemaRoleTable in-memory RAM DbIO implementation
  *	for SchemaRole.
  */
-public class CFBamRamSchemaRoleTable
-	implements ICFBamSchemaRoleTable
+public class YCFBamRamSchemaRoleTable
+	implements IYCFBamSchemaRoleTable
 {
-	private ICFBamSchema schema;
-	private Map< CFBamRoleDefPKey,
-				CFBamSchemaRoleBuff > dictByPKey
-		= new HashMap< CFBamRoleDefPKey,
-				CFBamSchemaRoleBuff >();
-	private Map< CFBamSchemaRoleBySchemaIdxKey,
-				Map< CFBamRoleDefPKey,
-					CFBamSchemaRoleBuff >> dictBySchemaIdx
-		= new HashMap< CFBamSchemaRoleBySchemaIdxKey,
-				Map< CFBamRoleDefPKey,
-					CFBamSchemaRoleBuff >>();
-	private Map< CFBamSchemaRoleByRoleScopeIdxKey,
-				Map< CFBamRoleDefPKey,
-					CFBamSchemaRoleBuff >> dictByRoleScopeIdx
-		= new HashMap< CFBamSchemaRoleByRoleScopeIdxKey,
-				Map< CFBamRoleDefPKey,
-					CFBamSchemaRoleBuff >>();
-	private Map< CFBamSchemaRoleBySchRoleScpIdxKey,
-				Map< CFBamRoleDefPKey,
-					CFBamSchemaRoleBuff >> dictBySchRoleScpIdx
-		= new HashMap< CFBamSchemaRoleBySchRoleScpIdxKey,
-				Map< CFBamRoleDefPKey,
-					CFBamSchemaRoleBuff >>();
+	private IYCFBamSchema schema;
+	private Map< YCFBamRoleDefPKey,
+				YCFBamSchemaRoleBuff > dictByPKey
+		= new HashMap< YCFBamRoleDefPKey,
+				YCFBamSchemaRoleBuff >();
+	private Map< YCFBamSchemaRoleBySchemaIdxKey,
+				Map< YCFBamRoleDefPKey,
+					YCFBamSchemaRoleBuff >> dictBySchemaIdx
+		= new HashMap< YCFBamSchemaRoleBySchemaIdxKey,
+				Map< YCFBamRoleDefPKey,
+					YCFBamSchemaRoleBuff >>();
+	private Map< YCFBamSchemaRoleByRoleScopeIdxKey,
+				Map< YCFBamRoleDefPKey,
+					YCFBamSchemaRoleBuff >> dictByRoleScopeIdx
+		= new HashMap< YCFBamSchemaRoleByRoleScopeIdxKey,
+				Map< YCFBamRoleDefPKey,
+					YCFBamSchemaRoleBuff >>();
+	private Map< YCFBamSchemaRoleBySchRoleScpIdxKey,
+				Map< YCFBamRoleDefPKey,
+					YCFBamSchemaRoleBuff >> dictBySchRoleScpIdx
+		= new HashMap< YCFBamSchemaRoleBySchRoleScpIdxKey,
+				Map< YCFBamRoleDefPKey,
+					YCFBamSchemaRoleBuff >>();
 
-	public CFBamRamSchemaRoleTable( ICFBamSchema argSchema ) {
+	public YCFBamRamSchemaRoleTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createSchemaRole( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBuff Buff )
+	public void createSchemaRole( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBuff Buff )
 	{
 		final String S_ProcName = "createSchemaRole";
 		schema.getTableRoleDef().createRoleDef( Authorization,
 			Buff );
-		CFBamRoleDefPKey pkey = schema.getFactoryRoleDef().newPKey();
+		YCFBamRoleDefPKey pkey = schema.getFactoryRoleDef().newPKey();
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamSchemaRoleBySchemaIdxKey keySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
+		YCFBamSchemaRoleBySchemaIdxKey keySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
 		keySchemaIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
-		CFBamSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		YCFBamSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
 		keyRoleScopeIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
 
-		CFBamSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		YCFBamSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
 		keySchRoleScpIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keySchRoleScpIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 		keySchRoleScpIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
@@ -123,7 +123,7 @@ public class CFBamRamSchemaRoleTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		// Validate foreign keys
@@ -137,7 +137,7 @@ public class CFBamRamSchemaRoleTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Superclass",
 						"SuperClass",
@@ -156,7 +156,7 @@ public class CFBamRamSchemaRoleTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredSchemaDefId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"Schema",
@@ -170,46 +170,46 @@ public class CFBamRamSchemaRoleTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictSchemaIdx;
+		Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdictSchemaIdx;
 		if( dictBySchemaIdx.containsKey( keySchemaIdx ) ) {
 			subdictSchemaIdx = dictBySchemaIdx.get( keySchemaIdx );
 		}
 		else {
-			subdictSchemaIdx = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			subdictSchemaIdx = new HashMap< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff >();
 			dictBySchemaIdx.put( keySchemaIdx, subdictSchemaIdx );
 		}
 		subdictSchemaIdx.put( pkey, Buff );
 
-		Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictRoleScopeIdx;
+		Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdictRoleScopeIdx;
 		if( dictByRoleScopeIdx.containsKey( keyRoleScopeIdx ) ) {
 			subdictRoleScopeIdx = dictByRoleScopeIdx.get( keyRoleScopeIdx );
 		}
 		else {
-			subdictRoleScopeIdx = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			subdictRoleScopeIdx = new HashMap< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff >();
 			dictByRoleScopeIdx.put( keyRoleScopeIdx, subdictRoleScopeIdx );
 		}
 		subdictRoleScopeIdx.put( pkey, Buff );
 
-		Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictSchRoleScpIdx;
+		Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdictSchRoleScpIdx;
 		if( dictBySchRoleScpIdx.containsKey( keySchRoleScpIdx ) ) {
 			subdictSchRoleScpIdx = dictBySchRoleScpIdx.get( keySchRoleScpIdx );
 		}
 		else {
-			subdictSchRoleScpIdx = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			subdictSchRoleScpIdx = new HashMap< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff >();
 			dictBySchRoleScpIdx.put( keySchRoleScpIdx, subdictSchRoleScpIdx );
 		}
 		subdictSchRoleScpIdx.put( pkey, Buff );
 
 	}
 
-	public CFBamSchemaRoleBuff readDerived( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey )
+	public YCFBamSchemaRoleBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readDerived";
-		CFBamRoleDefPKey key = schema.getFactoryRoleDef().newPKey();
+		final String S_ProcName = "YCFBamRamSchemaRole.readDerived";
+		YCFBamRoleDefPKey key = schema.getFactoryRoleDef().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamSchemaRoleBuff buff;
+		YCFBamSchemaRoleBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -219,14 +219,14 @@ public class CFBamRamSchemaRoleTable
 		return( buff );
 	}
 
-	public CFBamSchemaRoleBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey )
+	public YCFBamSchemaRoleBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readDerived";
-		CFBamRoleDefPKey key = schema.getFactoryRoleDef().newPKey();
+		final String S_ProcName = "YCFBamRamSchemaRole.readDerived";
+		YCFBamRoleDefPKey key = schema.getFactoryRoleDef().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamSchemaRoleBuff buff;
+		YCFBamSchemaRoleBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -236,10 +236,10 @@ public class CFBamRamSchemaRoleTable
 		return( buff );
 	}
 
-	public CFBamSchemaRoleBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamSchemaRole.readAllDerived";
-		CFBamSchemaRoleBuff[] retList = new CFBamSchemaRoleBuff[ dictByPKey.values().size() ];
-		Iterator< CFBamSchemaRoleBuff > iter = dictByPKey.values().iterator();
+	public YCFBamSchemaRoleBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamSchemaRole.readAllDerived";
+		YCFBamSchemaRoleBuff[] retList = new YCFBamSchemaRoleBuff[ dictByPKey.values().size() ];
+		Iterator< YCFBamSchemaRoleBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -247,36 +247,36 @@ public class CFBamRamSchemaRoleTable
 		return( retList );
 	}
 
-	public CFBamSchemaRoleBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readDerivedByUNameIdx";
-		CFBamRoleDefBuff buff = schema.getTableRoleDef().readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readDerivedByUNameIdx";
+		YCFBamRoleDefBuff buff = schema.getTableRoleDef().readDerivedByUNameIdx( Authorization,
 			TenantId,
 			ScopeId,
 			Name );
 		if( buff == null ) {
 			return( null );
 		}
-		else if( buff instanceof CFBamSchemaRoleBuff ) {
-			return( (CFBamSchemaRoleBuff)buff );
+		else if( buff instanceof YCFBamSchemaRoleBuff ) {
+			return( (YCFBamSchemaRoleBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaRoleBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff readDerivedByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readDerivedByUDefIdx";
-		CFBamRoleDefBuff buff = schema.getTableRoleDef().readDerivedByUDefIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readDerivedByUDefIdx";
+		YCFBamRoleDefBuff buff = schema.getTableRoleDef().readDerivedByUDefIdx( Authorization,
 			TenantId,
 			ScopeId,
 			DefSchemaTenantId,
@@ -285,181 +285,181 @@ public class CFBamRamSchemaRoleTable
 		if( buff == null ) {
 			return( null );
 		}
-		else if( buff instanceof CFBamSchemaRoleBuff ) {
-			return( (CFBamSchemaRoleBuff)buff );
+		else if( buff instanceof YCFBamSchemaRoleBuff ) {
+			return( (YCFBamSchemaRoleBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaRoleBuff[] readDerivedByRoleDefTentIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readDerivedByRoleDefTentIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readDerivedByRoleDefTentIdx";
-		CFBamRoleDefBuff buffList[] = schema.getTableRoleDef().readDerivedByRoleDefTentIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readDerivedByRoleDefTentIdx";
+		YCFBamRoleDefBuff buffList[] = schema.getTableRoleDef().readDerivedByRoleDefTentIdx( Authorization,
 			TenantId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamRoleDefBuff buff;
-			ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
+			YCFBamRoleDefBuff buff;
+			ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamSchemaRoleBuff ) ) {
-					filteredList.add( (CFBamSchemaRoleBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamSchemaRoleBuff ) ) {
+					filteredList.add( (YCFBamSchemaRoleBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+			return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 		}
 	}
 
-	public CFBamSchemaRoleBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readDerivedByScopeIdx";
-		CFBamRoleDefBuff buffList[] = schema.getTableRoleDef().readDerivedByScopeIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readDerivedByScopeIdx";
+		YCFBamRoleDefBuff buffList[] = schema.getTableRoleDef().readDerivedByScopeIdx( Authorization,
 			TenantId,
 			ScopeId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamRoleDefBuff buff;
-			ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
+			YCFBamRoleDefBuff buff;
+			ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamSchemaRoleBuff ) ) {
-					filteredList.add( (CFBamSchemaRoleBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamSchemaRoleBuff ) ) {
+					filteredList.add( (YCFBamSchemaRoleBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+			return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 		}
 	}
 
-	public CFBamSchemaRoleBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readDerivedByDefSchemaIdx";
-		CFBamRoleDefBuff buffList[] = schema.getTableRoleDef().readDerivedByDefSchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readDerivedByDefSchemaIdx";
+		YCFBamRoleDefBuff buffList[] = schema.getTableRoleDef().readDerivedByDefSchemaIdx( Authorization,
 			DefSchemaTenantId,
 			DefSchemaId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamRoleDefBuff buff;
-			ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
+			YCFBamRoleDefBuff buff;
+			ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamSchemaRoleBuff ) ) {
-					filteredList.add( (CFBamSchemaRoleBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamSchemaRoleBuff ) ) {
+					filteredList.add( (YCFBamSchemaRoleBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+			return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 		}
 	}
 
-	public CFBamSchemaRoleBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readDerivedBySchemaIdx";
-		CFBamSchemaRoleBySchemaIdxKey key = schema.getFactorySchemaRole().newSchemaIdxKey();
+		final String S_ProcName = "YCFBamRamSchemaRole.readDerivedBySchemaIdx";
+		YCFBamSchemaRoleBySchemaIdxKey key = schema.getFactorySchemaRole().newSchemaIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSchemaDefId( SchemaDefId );
 
-		CFBamSchemaRoleBuff[] recArray;
+		YCFBamSchemaRoleBuff[] recArray;
 		if( dictBySchemaIdx.containsKey( key ) ) {
-			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictSchemaIdx
+			Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdictSchemaIdx
 				= dictBySchemaIdx.get( key );
-			recArray = new CFBamSchemaRoleBuff[ subdictSchemaIdx.size() ];
-			Iterator< CFBamSchemaRoleBuff > iter = subdictSchemaIdx.values().iterator();
+			recArray = new YCFBamSchemaRoleBuff[ subdictSchemaIdx.size() ];
+			Iterator< YCFBamSchemaRoleBuff > iter = subdictSchemaIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictSchemaIdx
-				= new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdictSchemaIdx
+				= new HashMap< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff >();
 			dictBySchemaIdx.put( key, subdictSchemaIdx );
-			recArray = new CFBamSchemaRoleBuff[0];
+			recArray = new YCFBamSchemaRoleBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamSchemaRoleBuff[] readDerivedByRoleScopeIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum RoleScope )
+	public YCFBamSchemaRoleBuff[] readDerivedByRoleScopeIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.RoleScopeEnum RoleScope )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readDerivedByRoleScopeIdx";
-		CFBamSchemaRoleByRoleScopeIdxKey key = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		final String S_ProcName = "YCFBamRamSchemaRole.readDerivedByRoleScopeIdx";
+		YCFBamSchemaRoleByRoleScopeIdxKey key = schema.getFactorySchemaRole().newRoleScopeIdxKey();
 		key.setRequiredRoleScope( RoleScope );
 
-		CFBamSchemaRoleBuff[] recArray;
+		YCFBamSchemaRoleBuff[] recArray;
 		if( dictByRoleScopeIdx.containsKey( key ) ) {
-			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictRoleScopeIdx
+			Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdictRoleScopeIdx
 				= dictByRoleScopeIdx.get( key );
-			recArray = new CFBamSchemaRoleBuff[ subdictRoleScopeIdx.size() ];
-			Iterator< CFBamSchemaRoleBuff > iter = subdictRoleScopeIdx.values().iterator();
+			recArray = new YCFBamSchemaRoleBuff[ subdictRoleScopeIdx.size() ];
+			Iterator< YCFBamSchemaRoleBuff > iter = subdictRoleScopeIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictRoleScopeIdx
-				= new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdictRoleScopeIdx
+				= new HashMap< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff >();
 			dictByRoleScopeIdx.put( key, subdictRoleScopeIdx );
-			recArray = new CFBamSchemaRoleBuff[0];
+			recArray = new YCFBamSchemaRoleBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamSchemaRoleBuff[] readDerivedBySchRoleScpIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readDerivedBySchRoleScpIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope )
+		IYCFBamSchema.RoleScopeEnum RoleScope )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readDerivedBySchRoleScpIdx";
-		CFBamSchemaRoleBySchRoleScpIdxKey key = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		final String S_ProcName = "YCFBamRamSchemaRole.readDerivedBySchRoleScpIdx";
+		YCFBamSchemaRoleBySchRoleScpIdxKey key = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSchemaDefId( SchemaDefId );
 		key.setRequiredRoleScope( RoleScope );
 
-		CFBamSchemaRoleBuff[] recArray;
+		YCFBamSchemaRoleBuff[] recArray;
 		if( dictBySchRoleScpIdx.containsKey( key ) ) {
-			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictSchRoleScpIdx
+			Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdictSchRoleScpIdx
 				= dictBySchRoleScpIdx.get( key );
-			recArray = new CFBamSchemaRoleBuff[ subdictSchRoleScpIdx.size() ];
-			Iterator< CFBamSchemaRoleBuff > iter = subdictSchRoleScpIdx.values().iterator();
+			recArray = new YCFBamSchemaRoleBuff[ subdictSchRoleScpIdx.size() ];
+			Iterator< YCFBamSchemaRoleBuff > iter = subdictSchRoleScpIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdictSchRoleScpIdx
-				= new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdictSchRoleScpIdx
+				= new HashMap< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff >();
 			dictBySchRoleScpIdx.put( key, subdictSchRoleScpIdx );
-			recArray = new CFBamSchemaRoleBuff[0];
+			recArray = new YCFBamSchemaRoleBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamSchemaRoleBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readDerivedByIdIdx() ";
-		CFBamRoleDefPKey key = schema.getFactoryRoleDef().newPKey();
+		final String S_ProcName = "YCFBamRamRoleDef.readDerivedByIdIdx() ";
+		YCFBamRoleDefPKey key = schema.getFactoryRoleDef().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFBamSchemaRoleBuff buff;
+		YCFBamSchemaRoleBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -469,209 +469,209 @@ public class CFBamRamSchemaRoleTable
 		return( buff );
 	}
 
-	public CFBamSchemaRoleBuff readBuff( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey )
+	public YCFBamSchemaRoleBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readBuff";
-		CFBamSchemaRoleBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamSchemaRole.readBuff";
+		YCFBamSchemaRoleBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a88e" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamSchemaRoleBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey )
+	public YCFBamSchemaRoleBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFBamSchemaRoleBuff buff = readDerived( Authorization, PKey );
+		YCFBamSchemaRoleBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a88e" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamSchemaRoleBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFBamSchemaRoleBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readAllBuff";
-		CFBamSchemaRoleBuff buff;
-		ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
-		CFBamSchemaRoleBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamSchemaRole.readAllBuff";
+		YCFBamSchemaRoleBuff buff;
+		ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
+		YCFBamSchemaRoleBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a88e" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 	}
 
-	public CFBamSchemaRoleBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readBuffByIdIdx() ";
-		CFBamSchemaRoleBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readBuffByIdIdx() ";
+		YCFBamSchemaRoleBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a88d" ) ) {
-			return( (CFBamSchemaRoleBuff)buff );
+			return( (YCFBamSchemaRoleBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaRoleBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readBuffByUNameIdx() ";
-		CFBamSchemaRoleBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readBuffByUNameIdx() ";
+		YCFBamSchemaRoleBuff buff = readDerivedByUNameIdx( Authorization,
 			TenantId,
 			ScopeId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a88d" ) ) {
-			return( (CFBamSchemaRoleBuff)buff );
+			return( (YCFBamSchemaRoleBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaRoleBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff readBuffByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readBuffByUDefIdx() ";
-		CFBamSchemaRoleBuff buff = readDerivedByUDefIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readBuffByUDefIdx() ";
+		YCFBamSchemaRoleBuff buff = readDerivedByUDefIdx( Authorization,
 			TenantId,
 			ScopeId,
 			DefSchemaTenantId,
 			DefSchemaId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a88d" ) ) {
-			return( (CFBamSchemaRoleBuff)buff );
+			return( (YCFBamSchemaRoleBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamSchemaRoleBuff[] readBuffByRoleDefTentIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readBuffByRoleDefTentIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readBuffByRoleDefTentIdx() ";
-		CFBamSchemaRoleBuff buff;
-		ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
-		CFBamSchemaRoleBuff[] buffList = readDerivedByRoleDefTentIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readBuffByRoleDefTentIdx() ";
+		YCFBamSchemaRoleBuff buff;
+		ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
+		YCFBamSchemaRoleBuff[] buffList = readDerivedByRoleDefTentIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a88d" ) ) {
-				filteredList.add( (CFBamSchemaRoleBuff)buff );
+				filteredList.add( (YCFBamSchemaRoleBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 	}
 
-	public CFBamSchemaRoleBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readBuffByScopeIdx() ";
-		CFBamSchemaRoleBuff buff;
-		ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
-		CFBamSchemaRoleBuff[] buffList = readDerivedByScopeIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readBuffByScopeIdx() ";
+		YCFBamSchemaRoleBuff buff;
+		ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
+		YCFBamSchemaRoleBuff[] buffList = readDerivedByScopeIdx( Authorization,
 			TenantId,
 			ScopeId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a88d" ) ) {
-				filteredList.add( (CFBamSchemaRoleBuff)buff );
+				filteredList.add( (YCFBamSchemaRoleBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 	}
 
-	public CFBamSchemaRoleBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamRoleDef.readBuffByDefSchemaIdx() ";
-		CFBamSchemaRoleBuff buff;
-		ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
-		CFBamSchemaRoleBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRoleDef.readBuffByDefSchemaIdx() ";
+		YCFBamSchemaRoleBuff buff;
+		ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
+		YCFBamSchemaRoleBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
 			DefSchemaTenantId,
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a88d" ) ) {
-				filteredList.add( (CFBamSchemaRoleBuff)buff );
+				filteredList.add( (YCFBamSchemaRoleBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 	}
 
-	public CFBamSchemaRoleBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readBuffBySchemaIdx() ";
-		CFBamSchemaRoleBuff buff;
-		ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
-		CFBamSchemaRoleBuff[] buffList = readDerivedBySchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamSchemaRole.readBuffBySchemaIdx() ";
+		YCFBamSchemaRoleBuff buff;
+		ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
+		YCFBamSchemaRoleBuff[] buffList = readDerivedBySchemaIdx( Authorization,
 			TenantId,
 			SchemaDefId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a88e" ) ) {
-				filteredList.add( (CFBamSchemaRoleBuff)buff );
+				filteredList.add( (YCFBamSchemaRoleBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 	}
 
-	public CFBamSchemaRoleBuff[] readBuffByRoleScopeIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum RoleScope )
+	public YCFBamSchemaRoleBuff[] readBuffByRoleScopeIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.RoleScopeEnum RoleScope )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readBuffByRoleScopeIdx() ";
-		CFBamSchemaRoleBuff buff;
-		ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
-		CFBamSchemaRoleBuff[] buffList = readDerivedByRoleScopeIdx( Authorization,
+		final String S_ProcName = "YCFBamRamSchemaRole.readBuffByRoleScopeIdx() ";
+		YCFBamSchemaRoleBuff buff;
+		ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
+		YCFBamSchemaRoleBuff[] buffList = readDerivedByRoleScopeIdx( Authorization,
 			RoleScope );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a88e" ) ) {
-				filteredList.add( (CFBamSchemaRoleBuff)buff );
+				filteredList.add( (YCFBamSchemaRoleBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 	}
 
-	public CFBamSchemaRoleBuff[] readBuffBySchRoleScpIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] readBuffBySchRoleScpIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope )
+		IYCFBamSchema.RoleScopeEnum RoleScope )
 	{
-		final String S_ProcName = "CFBamRamSchemaRole.readBuffBySchRoleScpIdx() ";
-		CFBamSchemaRoleBuff buff;
-		ArrayList<CFBamSchemaRoleBuff> filteredList = new ArrayList<CFBamSchemaRoleBuff>();
-		CFBamSchemaRoleBuff[] buffList = readDerivedBySchRoleScpIdx( Authorization,
+		final String S_ProcName = "YCFBamRamSchemaRole.readBuffBySchRoleScpIdx() ";
+		YCFBamSchemaRoleBuff buff;
+		ArrayList<YCFBamSchemaRoleBuff> filteredList = new ArrayList<YCFBamSchemaRoleBuff>();
+		YCFBamSchemaRoleBuff[] buffList = readDerivedBySchRoleScpIdx( Authorization,
 			TenantId,
 			SchemaDefId,
 			RoleScope );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a88e" ) ) {
-				filteredList.add( (CFBamSchemaRoleBuff)buff );
+				filteredList.add( (YCFBamSchemaRoleBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamSchemaRoleBuff[0] ) );
+		return( filteredList.toArray( new YCFBamSchemaRoleBuff[0] ) );
 	}
 
 	/**
@@ -685,16 +685,16 @@ public class CFBamRamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamSchemaRoleBuff[] pageBuffBySchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] pageBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffBySchemaIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -706,15 +706,15 @@ public class CFBamRamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamSchemaRoleBuff[] pageBuffByRoleScopeIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum RoleScope,
+	public YCFBamSchemaRoleBuff[] pageBuffByRoleScopeIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.RoleScopeEnum RoleScope,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByRoleScopeIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -730,55 +730,55 @@ public class CFBamRamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamSchemaRoleBuff[] pageBuffBySchRoleScpIdx( CFSecAuthorization Authorization,
+	public YCFBamSchemaRoleBuff[] pageBuffBySchRoleScpIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope,
+		IYCFBamSchema.RoleScopeEnum RoleScope,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffBySchRoleScpIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateSchemaRole( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBuff Buff )
+	public void updateSchemaRole( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBuff Buff )
 	{
 		schema.getTableRoleDef().updateRoleDef( Authorization,
 			Buff );
-		CFBamRoleDefPKey pkey = schema.getFactoryRoleDef().newPKey();
+		YCFBamRoleDefPKey pkey = schema.getFactoryRoleDef().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamSchemaRoleBuff existing = dictByPKey.get( pkey );
+		YCFBamSchemaRoleBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateSchemaRole",
 				"Existing record not found",
 				"SchemaRole",
 				pkey );
 		}
-		CFBamSchemaRoleBySchemaIdxKey existingKeySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
+		YCFBamSchemaRoleBySchemaIdxKey existingKeySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
 		existingKeySchemaIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
-		CFBamSchemaRoleBySchemaIdxKey newKeySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
+		YCFBamSchemaRoleBySchemaIdxKey newKeySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
 		newKeySchemaIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeySchemaIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 
-		CFBamSchemaRoleByRoleScopeIdxKey existingKeyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		YCFBamSchemaRoleByRoleScopeIdxKey existingKeyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
 		existingKeyRoleScopeIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
 
-		CFBamSchemaRoleByRoleScopeIdxKey newKeyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		YCFBamSchemaRoleByRoleScopeIdxKey newKeyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
 		newKeyRoleScopeIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
 
-		CFBamSchemaRoleBySchRoleScpIdxKey existingKeySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		YCFBamSchemaRoleBySchRoleScpIdxKey existingKeySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
 		existingKeySchRoleScpIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeySchRoleScpIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 		existingKeySchRoleScpIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
 
-		CFBamSchemaRoleBySchRoleScpIdxKey newKeySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		YCFBamSchemaRoleBySchRoleScpIdxKey newKeySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
 		newKeySchRoleScpIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeySchRoleScpIdx.setRequiredSchemaDefId( Buff.getRequiredSchemaDefId() );
 		newKeySchRoleScpIdx.setRequiredRoleScope( Buff.getRequiredRoleScope() );
@@ -795,7 +795,7 @@ public class CFBamRamSchemaRoleTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSchemaRole",
 						"Superclass",
 						"SuperClass",
@@ -813,7 +813,7 @@ public class CFBamRamSchemaRoleTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredSchemaDefId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateSchemaRole",
 						"Container",
 						"Schema",
@@ -825,7 +825,7 @@ public class CFBamRamSchemaRoleTable
 
 		// Update is valid
 
-		Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdict;
+		Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -838,7 +838,7 @@ public class CFBamRamSchemaRoleTable
 			subdict = dictBySchemaIdx.get( newKeySchemaIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			subdict = new HashMap< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff >();
 			dictBySchemaIdx.put( newKeySchemaIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -851,7 +851,7 @@ public class CFBamRamSchemaRoleTable
 			subdict = dictByRoleScopeIdx.get( newKeyRoleScopeIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			subdict = new HashMap< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff >();
 			dictByRoleScopeIdx.put( newKeyRoleScopeIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -864,39 +864,39 @@ public class CFBamRamSchemaRoleTable
 			subdict = dictBySchRoleScpIdx.get( newKeySchRoleScpIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamRoleDefPKey, CFBamSchemaRoleBuff >();
+			subdict = new HashMap< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff >();
 			dictBySchRoleScpIdx.put( newKeySchRoleScpIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteSchemaRole( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBuff Buff )
+	public void deleteSchemaRole( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamSchemaRoleTable.deleteSchemaRole() ";
+		final String S_ProcName = "YCFBamRamSchemaRoleTable.deleteSchemaRole() ";
 		String classCode;
-		CFBamRoleDefPKey pkey = schema.getFactoryRoleDef().newPKey();
+		YCFBamRoleDefPKey pkey = schema.getFactoryRoleDef().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamSchemaRoleBuff existing = dictByPKey.get( pkey );
+		YCFBamSchemaRoleBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteSchemaRole",
 				pkey );
 		}
-		CFBamSchemaRoleBySchemaIdxKey keySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
+		YCFBamSchemaRoleBySchemaIdxKey keySchemaIdx = schema.getFactorySchemaRole().newSchemaIdxKey();
 		keySchemaIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keySchemaIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 
-		CFBamSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		YCFBamSchemaRoleByRoleScopeIdxKey keyRoleScopeIdx = schema.getFactorySchemaRole().newRoleScopeIdxKey();
 		keyRoleScopeIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
 
-		CFBamSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		YCFBamSchemaRoleBySchRoleScpIdxKey keySchRoleScpIdx = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
 		keySchRoleScpIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keySchRoleScpIdx.setRequiredSchemaDefId( existing.getRequiredSchemaDefId() );
 		keySchRoleScpIdx.setRequiredRoleScope( existing.getRequiredRoleScope() );
@@ -904,7 +904,7 @@ public class CFBamRamSchemaRoleTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFBamRoleDefPKey, CFBamSchemaRoleBuff > subdict;
+		Map< YCFBamRoleDefPKey, YCFBamSchemaRoleBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -920,35 +920,35 @@ public class CFBamRamSchemaRoleTable
 		schema.getTableRoleDef().deleteRoleDef( Authorization,
 			Buff );
 	}
-	public void deleteSchemaRoleBySchemaIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaRoleBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId )
 	{
-		CFBamSchemaRoleBySchemaIdxKey key = schema.getFactorySchemaRole().newSchemaIdxKey();
+		YCFBamSchemaRoleBySchemaIdxKey key = schema.getFactorySchemaRole().newSchemaIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredSchemaDefId( argSchemaDefId );
 		deleteSchemaRoleBySchemaIdx( Authorization, key );
 	}
 
-	public void deleteSchemaRoleBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBySchemaIdxKey argKey )
+	public void deleteSchemaRoleBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBySchemaIdxKey argKey )
 	{
-		CFBamSchemaRoleBuff cur;
+		YCFBamSchemaRoleBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
-		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaRoleBuff> matchSet = new LinkedList<YCFBamSchemaRoleBuff>();
+		Iterator<YCFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
@@ -958,32 +958,32 @@ public class CFBamRamSchemaRoleTable
 		}
 	}
 
-	public void deleteSchemaRoleByRoleScopeIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum argRoleScope )
+	public void deleteSchemaRoleByRoleScopeIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.RoleScopeEnum argRoleScope )
 	{
-		CFBamSchemaRoleByRoleScopeIdxKey key = schema.getFactorySchemaRole().newRoleScopeIdxKey();
+		YCFBamSchemaRoleByRoleScopeIdxKey key = schema.getFactorySchemaRole().newRoleScopeIdxKey();
 		key.setRequiredRoleScope( argRoleScope );
 		deleteSchemaRoleByRoleScopeIdx( Authorization, key );
 	}
 
-	public void deleteSchemaRoleByRoleScopeIdx( CFSecAuthorization Authorization,
-		CFBamSchemaRoleByRoleScopeIdxKey argKey )
+	public void deleteSchemaRoleByRoleScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleByRoleScopeIdxKey argKey )
 	{
-		CFBamSchemaRoleBuff cur;
+		YCFBamSchemaRoleBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
-		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaRoleBuff> matchSet = new LinkedList<YCFBamSchemaRoleBuff>();
+		Iterator<YCFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
@@ -993,22 +993,22 @@ public class CFBamRamSchemaRoleTable
 		}
 	}
 
-	public void deleteSchemaRoleBySchRoleScpIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaRoleBySchRoleScpIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId,
-		ICFBamSchema.RoleScopeEnum argRoleScope )
+		IYCFBamSchema.RoleScopeEnum argRoleScope )
 	{
-		CFBamSchemaRoleBySchRoleScpIdxKey key = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
+		YCFBamSchemaRoleBySchRoleScpIdxKey key = schema.getFactorySchemaRole().newSchRoleScpIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredSchemaDefId( argSchemaDefId );
 		key.setRequiredRoleScope( argRoleScope );
 		deleteSchemaRoleBySchRoleScpIdx( Authorization, key );
 	}
 
-	public void deleteSchemaRoleBySchRoleScpIdx( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBySchRoleScpIdxKey argKey )
+	public void deleteSchemaRoleBySchRoleScpIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBySchRoleScpIdxKey argKey )
 	{
-		CFBamSchemaRoleBuff cur;
+		YCFBamSchemaRoleBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -1016,15 +1016,15 @@ public class CFBamRamSchemaRoleTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
-		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaRoleBuff> matchSet = new LinkedList<YCFBamSchemaRoleBuff>();
+		Iterator<YCFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
@@ -1034,18 +1034,18 @@ public class CFBamRamSchemaRoleTable
 		}
 	}
 
-	public void deleteSchemaRoleByIdIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaRoleByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFBamRoleDefPKey key = schema.getFactoryRoleDef().newPKey();
+		YCFBamRoleDefPKey key = schema.getFactoryRoleDef().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deleteSchemaRoleByIdIdx( Authorization, key );
 	}
 
-	public void deleteSchemaRoleByIdIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey argKey )
+	public void deleteSchemaRoleByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -1053,16 +1053,16 @@ public class CFBamRamSchemaRoleTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFBamSchemaRoleBuff cur;
-		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
-		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		YCFBamSchemaRoleBuff cur;
+		LinkedList<YCFBamSchemaRoleBuff> matchSet = new LinkedList<YCFBamSchemaRoleBuff>();
+		Iterator<YCFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
@@ -1072,22 +1072,22 @@ public class CFBamRamSchemaRoleTable
 		}
 	}
 
-	public void deleteSchemaRoleByUNameIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaRoleByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName )
 	{
-		CFBamRoleDefByUNameIdxKey key = schema.getFactoryRoleDef().newUNameIdxKey();
+		YCFBamRoleDefByUNameIdxKey key = schema.getFactoryRoleDef().newUNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredScopeId( argScopeId );
 		key.setRequiredName( argName );
 		deleteSchemaRoleByUNameIdx( Authorization, key );
 	}
 
-	public void deleteSchemaRoleByUNameIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByUNameIdxKey argKey )
+	public void deleteSchemaRoleByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByUNameIdxKey argKey )
 	{
-		CFBamSchemaRoleBuff cur;
+		YCFBamSchemaRoleBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -1095,15 +1095,15 @@ public class CFBamRamSchemaRoleTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
-		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaRoleBuff> matchSet = new LinkedList<YCFBamSchemaRoleBuff>();
+		Iterator<YCFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
@@ -1113,14 +1113,14 @@ public class CFBamRamSchemaRoleTable
 		}
 	}
 
-	public void deleteSchemaRoleByUDefIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaRoleByUDefIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId,
 		String argName )
 	{
-		CFBamRoleDefByUDefIdxKey key = schema.getFactoryRoleDef().newUDefIdxKey();
+		YCFBamRoleDefByUDefIdxKey key = schema.getFactoryRoleDef().newUDefIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredScopeId( argScopeId );
 		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
@@ -1129,10 +1129,10 @@ public class CFBamRamSchemaRoleTable
 		deleteSchemaRoleByUDefIdx( Authorization, key );
 	}
 
-	public void deleteSchemaRoleByUDefIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByUDefIdxKey argKey )
+	public void deleteSchemaRoleByUDefIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByUDefIdxKey argKey )
 	{
-		CFBamSchemaRoleBuff cur;
+		YCFBamSchemaRoleBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -1146,15 +1146,15 @@ public class CFBamRamSchemaRoleTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
-		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaRoleBuff> matchSet = new LinkedList<YCFBamSchemaRoleBuff>();
+		Iterator<YCFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
@@ -1164,32 +1164,32 @@ public class CFBamRamSchemaRoleTable
 		}
 	}
 
-	public void deleteSchemaRoleByRoleDefTentIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaRoleByRoleDefTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFBamRoleDefByRoleDefTentIdxKey key = schema.getFactoryRoleDef().newRoleDefTentIdxKey();
+		YCFBamRoleDefByRoleDefTentIdxKey key = schema.getFactoryRoleDef().newRoleDefTentIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteSchemaRoleByRoleDefTentIdx( Authorization, key );
 	}
 
-	public void deleteSchemaRoleByRoleDefTentIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByRoleDefTentIdxKey argKey )
+	public void deleteSchemaRoleByRoleDefTentIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByRoleDefTentIdxKey argKey )
 	{
-		CFBamSchemaRoleBuff cur;
+		YCFBamSchemaRoleBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
-		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaRoleBuff> matchSet = new LinkedList<YCFBamSchemaRoleBuff>();
+		Iterator<YCFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
@@ -1199,35 +1199,35 @@ public class CFBamRamSchemaRoleTable
 		}
 	}
 
-	public void deleteSchemaRoleByScopeIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaRoleByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId )
 	{
-		CFBamRoleDefByScopeIdxKey key = schema.getFactoryRoleDef().newScopeIdxKey();
+		YCFBamRoleDefByScopeIdxKey key = schema.getFactoryRoleDef().newScopeIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredScopeId( argScopeId );
 		deleteSchemaRoleByScopeIdx( Authorization, key );
 	}
 
-	public void deleteSchemaRoleByScopeIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByScopeIdxKey argKey )
+	public void deleteSchemaRoleByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByScopeIdxKey argKey )
 	{
-		CFBamSchemaRoleBuff cur;
+		YCFBamSchemaRoleBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
-		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaRoleBuff> matchSet = new LinkedList<YCFBamSchemaRoleBuff>();
+		Iterator<YCFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,
@@ -1237,20 +1237,20 @@ public class CFBamRamSchemaRoleTable
 		}
 	}
 
-	public void deleteSchemaRoleByDefSchemaIdx( CFSecAuthorization Authorization,
+	public void deleteSchemaRoleByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId )
 	{
-		CFBamRoleDefByDefSchemaIdxKey key = schema.getFactoryRoleDef().newDefSchemaIdxKey();
+		YCFBamRoleDefByDefSchemaIdxKey key = schema.getFactoryRoleDef().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteSchemaRoleByDefSchemaIdx( Authorization, key );
 	}
 
-	public void deleteSchemaRoleByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByDefSchemaIdxKey argKey )
+	public void deleteSchemaRoleByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByDefSchemaIdxKey argKey )
 	{
-		CFBamSchemaRoleBuff cur;
+		YCFBamSchemaRoleBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalDefSchemaTenantId() != null ) {
 			anyNotNull = true;
@@ -1261,15 +1261,15 @@ public class CFBamRamSchemaRoleTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamSchemaRoleBuff> matchSet = new LinkedList<CFBamSchemaRoleBuff>();
-		Iterator<CFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamSchemaRoleBuff> matchSet = new LinkedList<YCFBamSchemaRoleBuff>();
+		Iterator<YCFBamSchemaRoleBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamSchemaRoleBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableSchemaRole().readDerivedByIdIdx( Authorization,

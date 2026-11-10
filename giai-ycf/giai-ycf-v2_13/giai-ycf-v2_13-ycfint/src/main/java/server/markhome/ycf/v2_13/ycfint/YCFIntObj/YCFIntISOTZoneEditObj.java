@@ -1,15 +1,15 @@
-// Description: Java 11 edit object instance implementation for CFInt ISOTZone.
+// Description: Java 11 edit object instance implementation for YCFInt ISOTZone.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,37 +26,37 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntISOTZoneEditObj
-	implements ICFIntISOTZoneEditObj
+public class YCFIntISOTZoneEditObj
+	implements IYCFIntISOTZoneEditObj
 {
-	protected ICFSecISOTZoneObj orig;
-	protected CFSecISOTZoneBuff buff;
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
+	protected IYCFSecISOTZoneObj orig;
+	protected YCFSecISOTZoneBuff buff;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
 
-	public CFIntISOTZoneEditObj( ICFSecISOTZoneObj argOrig ) {
+	public YCFIntISOTZoneEditObj( IYCFSecISOTZoneObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFSecISOTZoneBuff origBuff = orig.getBuff();
+		YCFSecISOTZoneBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFSecISOTZoneBuff buff = getBuff();
-			createdBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFSecISOTZoneBuff buff = getBuff();
+			createdBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -65,10 +65,10 @@ public class CFIntISOTZoneEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFSecISOTZoneBuff buff = getBuff();
-			updatedBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFSecISOTZoneBuff buff = getBuff();
+			updatedBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -77,7 +77,7 @@ public class CFIntISOTZoneEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFSecSecUserObj value ) {
+	public void setCreatedBy( IYCFSecSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -88,7 +88,7 @@ public class CFIntISOTZoneEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFSecSecUserObj value ) {
+	public void setUpdatedBy( IYCFSecSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -100,18 +100,18 @@ public class CFIntISOTZoneEditObj
 	}
 
 	public String getClassCode() {
-		return( CFIntISOTZoneObj.CLASS_CODE );
+		return( YCFIntISOTZoneObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "ISOTZone" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -121,14 +121,14 @@ public class CFIntISOTZoneEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -139,10 +139,10 @@ public class CFIntISOTZoneEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -151,20 +151,20 @@ public class CFIntISOTZoneEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -188,13 +188,13 @@ public class CFIntISOTZoneEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -208,13 +208,13 @@ public class CFIntISOTZoneEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -226,9 +226,9 @@ public class CFIntISOTZoneEditObj
 		return( fullName );
 	}
 
-	public ICFSecISOTZoneObj realise() {
+	public IYCFSecISOTZoneObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFSecISOTZoneObj retobj = getSchema().getISOTZoneTableObj().realiseISOTZone( (ICFIntISOTZoneObj)this );
+		IYCFSecISOTZoneObj retobj = getSchema().getISOTZoneTableObj().realiseISOTZone( (IYCFIntISOTZoneObj)this );
 		return( retobj );
 	}
 
@@ -236,10 +236,10 @@ public class CFIntISOTZoneEditObj
 		getOrigAsISOTZone().forget();
 	}
 
-	public ICFSecISOTZoneObj read() {
-		ICFSecISOTZoneObj retval = getOrigAsISOTZone().read();
+	public IYCFSecISOTZoneObj read() {
+		IYCFSecISOTZoneObj retval = getOrigAsISOTZone().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -247,10 +247,10 @@ public class CFIntISOTZoneEditObj
 		return( retval );
 	}
 
-	public ICFSecISOTZoneObj read( boolean forceRead ) {
-		ICFSecISOTZoneObj retval = getOrigAsISOTZone().read( forceRead );
+	public IYCFSecISOTZoneObj read( boolean forceRead ) {
+		IYCFSecISOTZoneObj retval = getOrigAsISOTZone().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -258,83 +258,83 @@ public class CFIntISOTZoneEditObj
 		return( retval );
 	}
 
-	public ICFSecISOTZoneObj create() {
+	public IYCFSecISOTZoneObj create() {
 		copyBuffToOrig();
-		ICFSecISOTZoneObj retobj = ((ICFIntSchemaObj)getOrigAsISOTZone().getSchema()).getISOTZoneTableObj().createISOTZone( getOrigAsISOTZone() );
+		IYCFSecISOTZoneObj retobj = ((IYCFIntSchemaObj)getOrigAsISOTZone().getSchema()).getISOTZoneTableObj().createISOTZone( getOrigAsISOTZone() );
 		if( retobj == getOrigAsISOTZone() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFSecISOTZoneEditObj update() {
-		getSchema().getISOTZoneTableObj().updateISOTZone( (ICFSecISOTZoneObj)this );
+	public YCFSecISOTZoneEditObj update() {
+		getSchema().getISOTZoneTableObj().updateISOTZone( (IYCFSecISOTZoneObj)this );
 		return( null );
 	}
 
-	public CFSecISOTZoneEditObj deleteInstance() {
+	public YCFSecISOTZoneEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getISOTZoneTableObj().deleteISOTZone( getOrigAsISOTZone() );
 		return( null );
 	}
 
-	public ICFSecISOTZoneTableObj getISOTZoneTable() {
+	public IYCFSecISOTZoneTableObj getISOTZoneTable() {
 		return( orig.getSchema().getISOTZoneTableObj() );
 	}
 
-	public ICFSecISOTZoneEditObj getEdit() {
-		return( (ICFSecISOTZoneEditObj)this );
+	public IYCFSecISOTZoneEditObj getEdit() {
+		return( (IYCFSecISOTZoneEditObj)this );
 	}
 
-	public ICFSecISOTZoneEditObj getEditAsISOTZone() {
-		return( (ICFSecISOTZoneEditObj)this );
+	public IYCFSecISOTZoneEditObj getEditAsISOTZone() {
+		return( (IYCFSecISOTZoneEditObj)this );
 	}
 
-	public ICFSecISOTZoneEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFSecISOTZoneEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFSecISOTZoneObj getOrig() {
+	public IYCFSecISOTZoneObj getOrig() {
 		return( orig );
 	}
 
-	public ICFSecISOTZoneObj getOrigAsISOTZone() {
-		return( (ICFSecISOTZoneObj)orig );
+	public IYCFSecISOTZoneObj getOrigAsISOTZone() {
+		return( (IYCFSecISOTZoneObj)orig );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFSecISOTZoneBuff getBuff() {
+	public YCFSecISOTZoneBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFIntSchema)getOrigAsISOTZone().getSchema().getBackingStore()).getFactoryISOTZone().newBuff();
+			buff = ((IYCFIntSchema)getOrigAsISOTZone().getSchema().getBackingStore()).getFactoryISOTZone().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFSecISOTZoneBuff value ) {
+	public void setBuff( YCFSecISOTZoneBuff value ) {
 		if( buff != value ) {
 			buff = value;
 		}
 	}
 
-	public CFSecISOTZoneBuff getISOTZoneBuff() {
-		return( (CFSecISOTZoneBuff)getBuff() );
+	public YCFSecISOTZoneBuff getISOTZoneBuff() {
+		return( (YCFSecISOTZoneBuff)getBuff() );
 	}
 
-	public CFSecISOTZonePKey getPKey() {
+	public YCFSecISOTZonePKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFSecISOTZonePKey value ) {
+	public void setPKey( YCFSecISOTZonePKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -420,14 +420,14 @@ public class CFIntISOTZoneEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFSecISOTZoneBuff origBuff = getOrigAsISOTZone().getISOTZoneBuff();
-		CFSecISOTZoneBuff myBuff = getISOTZoneBuff();
+		YCFSecISOTZoneBuff origBuff = getOrigAsISOTZone().getISOTZoneBuff();
+		YCFSecISOTZoneBuff myBuff = getISOTZoneBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFSecISOTZoneBuff origBuff = getOrigAsISOTZone().getISOTZoneBuff();
-		CFSecISOTZoneBuff myBuff = getISOTZoneBuff();
+		YCFSecISOTZoneBuff origBuff = getOrigAsISOTZone().getISOTZoneBuff();
+		YCFSecISOTZoneBuff myBuff = getISOTZoneBuff();
 		myBuff.set( origBuff );
 	}
 }

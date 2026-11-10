@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for DelSubDep3.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamDelSubDep3Table database interface for DelSubDep3
+ *	YCFBamDelSubDep3Table database interface for DelSubDep3
  */
-public interface ICFBamDelSubDep3Table
+public interface IYCFBamDelSubDep3Table
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createDelSubDep3( CFSecAuthorization Authorization,
-		CFBamDelSubDep3Buff Buff );
+	void createDelSubDep3( YCFSecAuthorization Authorization,
+		YCFBamDelSubDep3Buff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateDelSubDep3( CFSecAuthorization Authorization,
-		CFBamDelSubDep3Buff Buff );
+	void updateDelSubDep3( YCFSecAuthorization Authorization,
+		YCFBamDelSubDep3Buff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteDelSubDep3( CFSecAuthorization Authorization,
-		CFBamDelSubDep3Buff Buff );
+	void deleteDelSubDep3( YCFSecAuthorization Authorization,
+		YCFBamDelSubDep3Buff Buff );
 	/**
 	 *	Delete the DelSubDep3 instances identified by the key DelSubDep2Idx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argDelSubDep2Id	The DelSubDep3 key attribute of the instance generating the id.
 	 */
-	void deleteDelSubDep3ByDelSubDep2Idx( CFSecAuthorization Authorization,
+	void deleteDelSubDep3ByDelSubDep2Idx( YCFSecAuthorization Authorization,
 		long argDelSubDep2TenantId,
 		long argDelSubDep2Id );
 
@@ -121,8 +121,8 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDelSubDep3ByDelSubDep2Idx( CFSecAuthorization Authorization,
-		CFBamDelSubDep3ByDelSubDep2IdxKey argKey );
+	void deleteDelSubDep3ByDelSubDep2Idx( YCFSecAuthorization Authorization,
+		YCFBamDelSubDep3ByDelSubDep2IdxKey argKey );
 	/**
 	 *	Delete the DelSubDep3 instances identified by the key UNameIdx.
 	 *
@@ -134,7 +134,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argName	The DelSubDep3 key attribute of the instance generating the id.
 	 */
-	void deleteDelSubDep3ByUNameIdx( CFSecAuthorization Authorization,
+	void deleteDelSubDep3ByUNameIdx( YCFSecAuthorization Authorization,
 		long argDelSubDep2TenantId,
 		long argDelSubDep2Id,
 		String argName );
@@ -146,8 +146,8 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDelSubDep3ByUNameIdx( CFSecAuthorization Authorization,
-		CFBamDelSubDep3ByUNameIdxKey argKey );
+	void deleteDelSubDep3ByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamDelSubDep3ByUNameIdxKey argKey );
 	/**
 	 *	Delete the DelSubDep3 instances identified by the key DefSchemaIdx.
 	 *
@@ -157,7 +157,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argDefSchemaId	The DelSubDep3 key attribute of the instance generating the id.
 	 */
-	void deleteDelSubDep3ByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteDelSubDep3ByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -168,8 +168,8 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDelSubDep3ByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamDelDepByDefSchemaIdxKey argKey );
+	void deleteDelSubDep3ByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamDelDepByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the DelSubDep3 instances identified by the key DelDepIdx.
 	 *
@@ -179,7 +179,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argRelationId	The DelSubDep3 key attribute of the instance generating the id.
 	 */
-	void deleteDelSubDep3ByDelDepIdx( CFSecAuthorization Authorization,
+	void deleteDelSubDep3ByDelDepIdx( YCFSecAuthorization Authorization,
 		long argRelationTenantId,
 		long argRelationId );
 
@@ -190,8 +190,8 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDelSubDep3ByDelDepIdx( CFSecAuthorization Authorization,
-		CFBamDelDepByDelDepIdxKey argKey );
+	void deleteDelSubDep3ByDelDepIdx( YCFSecAuthorization Authorization,
+		YCFBamDelDepByDelDepIdxKey argKey );
 	/**
 	 *	Delete the DelSubDep3 instance identified by the primary key attributes.
 	 *
@@ -201,7 +201,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argId	The DelSubDep3 key attribute of the instance generating the id.
 	 */
-	void deleteDelSubDep3ByIdIdx( CFSecAuthorization Authorization,
+	void deleteDelSubDep3ByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -212,8 +212,8 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteDelSubDep3ByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey );
+	void deleteDelSubDep3ByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey );
 	/**
 	 *	Delete the DelSubDep3 instances identified by the key TenantIdx.
 	 *
@@ -221,7 +221,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argTenantId	The DelSubDep3 key attribute of the instance generating the id.
 	 */
-	void deleteDelSubDep3ByTenantIdx( CFSecAuthorization Authorization,
+	void deleteDelSubDep3ByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -231,8 +231,8 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteDelSubDep3ByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey );
+	void deleteDelSubDep3ByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey );
 
 
 	/**
@@ -245,8 +245,8 @@ public interface ICFBamDelSubDep3Table
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDelSubDep3Buff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamDelSubDep3Buff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the derived DelSubDep3 buffer instance by primary key.
@@ -258,8 +258,8 @@ public interface ICFBamDelSubDep3Table
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDelSubDep3Buff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamDelSubDep3Buff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all DelSubDep3 instances.
@@ -268,7 +268,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamDelSubDep3Buff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamDelSubDep3Buff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived DelSubDep3 buffer instance identified by the unique key IdIdx.
@@ -282,7 +282,7 @@ public interface ICFBamDelSubDep3Table
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDelSubDep3Buff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -295,7 +295,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDelSubDep3Buff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -309,7 +309,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDelSubDep3Buff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -324,7 +324,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDelSubDep3Buff[] readDerivedByDelDepIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff[] readDerivedByDelDepIdx( YCFSecAuthorization Authorization,
 		long RelationTenantId,
 		long RelationId );
 
@@ -339,7 +339,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamDelSubDep3Buff[] readDerivedByDelSubDep2Idx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff[] readDerivedByDelSubDep2Idx( YCFSecAuthorization Authorization,
 		long DelSubDep2TenantId,
 		long DelSubDep2Id );
 
@@ -357,7 +357,7 @@ public interface ICFBamDelSubDep3Table
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamDelSubDep3Buff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long DelSubDep2TenantId,
 		long DelSubDep2Id,
 		String Name );
@@ -372,10 +372,10 @@ public interface ICFBamDelSubDep3Table
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDelSubDep3Buff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamDelSubDep3Buff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the specific DelSubDep3 buffer instance identified by the primary key.
@@ -387,10 +387,10 @@ public interface ICFBamDelSubDep3Table
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDelSubDep3Buff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamDelSubDep3Buff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all the specific DelSubDep3 buffer instances.
@@ -399,7 +399,7 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return All the specific DelSubDep3 instances in the database accessible for the Authorization.
 	 */
-	CFBamDelSubDep3Buff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamDelSubDep3Buff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific DelSubDep3 buffer instance identified by the unique key IdIdx.
@@ -413,9 +413,9 @@ public interface ICFBamDelSubDep3Table
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDelSubDep3Buff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -428,9 +428,9 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDelSubDep3Buff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -444,9 +444,9 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDelSubDep3Buff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -461,9 +461,9 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDelSubDep3Buff[] readBuffByDelDepIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff[] readBuffByDelDepIdx( YCFSecAuthorization Authorization,
 		long RelationTenantId,
 		long RelationId );
 
@@ -478,9 +478,9 @@ public interface ICFBamDelSubDep3Table
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDelSubDep3Buff[] readBuffByDelSubDep2Idx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff[] readBuffByDelSubDep2Idx( YCFSecAuthorization Authorization,
 		long DelSubDep2TenantId,
 		long DelSubDep2Id );
 
@@ -498,9 +498,9 @@ public interface ICFBamDelSubDep3Table
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamDelSubDep3Buff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamDelSubDep3Buff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long DelSubDep2TenantId,
 		long DelSubDep2Id,
 		String Name );
@@ -508,7 +508,7 @@ public interface ICFBamDelSubDep3Table
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

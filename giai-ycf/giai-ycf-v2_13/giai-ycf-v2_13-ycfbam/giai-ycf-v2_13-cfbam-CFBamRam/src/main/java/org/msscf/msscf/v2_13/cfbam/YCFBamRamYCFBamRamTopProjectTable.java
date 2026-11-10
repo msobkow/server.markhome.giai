@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for TopProject.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,74 +27,74 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamTopProjectTable in-memory RAM DbIO implementation
+ *	YCFBamRamTopProjectTable in-memory RAM DbIO implementation
  *	for TopProject.
  */
-public class CFBamRamTopProjectTable
-	implements ICFBamTopProjectTable
+public class YCFBamRamTopProjectTable
+	implements IYCFBamTopProjectTable
 {
-	private ICFBamSchema schema;
-	private Map< CFIntTopProjectPKey,
-				CFIntTopProjectBuff > dictByPKey
-		= new HashMap< CFIntTopProjectPKey,
-				CFIntTopProjectBuff >();
-	private Map< CFIntTopProjectByTenantIdxKey,
-				Map< CFIntTopProjectPKey,
-					CFIntTopProjectBuff >> dictByTenantIdx
-		= new HashMap< CFIntTopProjectByTenantIdxKey,
-				Map< CFIntTopProjectPKey,
-					CFIntTopProjectBuff >>();
-	private Map< CFIntTopProjectByTopDomainIdxKey,
-				Map< CFIntTopProjectPKey,
-					CFIntTopProjectBuff >> dictByTopDomainIdx
-		= new HashMap< CFIntTopProjectByTopDomainIdxKey,
-				Map< CFIntTopProjectPKey,
-					CFIntTopProjectBuff >>();
-	private Map< CFIntTopProjectByNameIdxKey,
-			CFIntTopProjectBuff > dictByNameIdx
-		= new HashMap< CFIntTopProjectByNameIdxKey,
-			CFIntTopProjectBuff >();
+	private IYCFBamSchema schema;
+	private Map< YCFIntTopProjectPKey,
+				YCFIntTopProjectBuff > dictByPKey
+		= new HashMap< YCFIntTopProjectPKey,
+				YCFIntTopProjectBuff >();
+	private Map< YCFIntTopProjectByTenantIdxKey,
+				Map< YCFIntTopProjectPKey,
+					YCFIntTopProjectBuff >> dictByTenantIdx
+		= new HashMap< YCFIntTopProjectByTenantIdxKey,
+				Map< YCFIntTopProjectPKey,
+					YCFIntTopProjectBuff >>();
+	private Map< YCFIntTopProjectByTopDomainIdxKey,
+				Map< YCFIntTopProjectPKey,
+					YCFIntTopProjectBuff >> dictByTopDomainIdx
+		= new HashMap< YCFIntTopProjectByTopDomainIdxKey,
+				Map< YCFIntTopProjectPKey,
+					YCFIntTopProjectBuff >>();
+	private Map< YCFIntTopProjectByNameIdxKey,
+			YCFIntTopProjectBuff > dictByNameIdx
+		= new HashMap< YCFIntTopProjectByNameIdxKey,
+			YCFIntTopProjectBuff >();
 
-	public CFBamRamTopProjectTable( ICFBamSchema argSchema ) {
+	public YCFBamRamTopProjectTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createTopProject( CFSecAuthorization Authorization,
-		CFIntTopProjectBuff Buff )
+	public void createTopProject( YCFSecAuthorization Authorization,
+		YCFIntTopProjectBuff Buff )
 	{
 		final String S_ProcName = "createTopProject";
-		CFIntTopProjectPKey pkey = schema.getFactoryTopProject().newPKey();
+		YCFIntTopProjectPKey pkey = schema.getFactoryTopProject().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
-		pkey.setRequiredId( ((CFBamRamTenantTable)schema.getTableTenant()).nextTopProjectIdGen( Authorization,
+		pkey.setRequiredId( ((YCFBamRamTenantTable)schema.getTableTenant()).nextTopProjectIdGen( Authorization,
 			Buff.getRequiredTenantId() ) );
 		Buff.setRequiredTenantId( pkey.getRequiredTenantId() );
 		Buff.setRequiredId( pkey.getRequiredId() );
-		CFIntTopProjectByTenantIdxKey keyTenantIdx = schema.getFactoryTopProject().newTenantIdxKey();
+		YCFIntTopProjectByTenantIdxKey keyTenantIdx = schema.getFactoryTopProject().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntTopProjectByTopDomainIdxKey keyTopDomainIdx = schema.getFactoryTopProject().newTopDomainIdxKey();
+		YCFIntTopProjectByTopDomainIdxKey keyTopDomainIdx = schema.getFactoryTopProject().newTopDomainIdxKey();
 		keyTopDomainIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyTopDomainIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 
-		CFIntTopProjectByNameIdxKey keyNameIdx = schema.getFactoryTopProject().newNameIdxKey();
+		YCFIntTopProjectByNameIdxKey keyNameIdx = schema.getFactoryTopProject().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyNameIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 		keyNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -102,11 +102,11 @@ public class CFBamRamTopProjectTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByNameIdx.containsKey( keyNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"TopProjectNameIdx",
 				keyNameIdx );
@@ -121,7 +121,7 @@ public class CFBamRamTopProjectTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Owner",
 						"Tenant",
@@ -140,7 +140,7 @@ public class CFBamRamTopProjectTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredTopDomainId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"ParentTopDomain",
@@ -154,22 +154,22 @@ public class CFBamRamTopProjectTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFIntTopProjectPKey, CFIntTopProjectBuff > subdictTenantIdx;
+		Map< YCFIntTopProjectPKey, YCFIntTopProjectBuff > subdictTenantIdx;
 		if( dictByTenantIdx.containsKey( keyTenantIdx ) ) {
 			subdictTenantIdx = dictByTenantIdx.get( keyTenantIdx );
 		}
 		else {
-			subdictTenantIdx = new HashMap< CFIntTopProjectPKey, CFIntTopProjectBuff >();
+			subdictTenantIdx = new HashMap< YCFIntTopProjectPKey, YCFIntTopProjectBuff >();
 			dictByTenantIdx.put( keyTenantIdx, subdictTenantIdx );
 		}
 		subdictTenantIdx.put( pkey, Buff );
 
-		Map< CFIntTopProjectPKey, CFIntTopProjectBuff > subdictTopDomainIdx;
+		Map< YCFIntTopProjectPKey, YCFIntTopProjectBuff > subdictTopDomainIdx;
 		if( dictByTopDomainIdx.containsKey( keyTopDomainIdx ) ) {
 			subdictTopDomainIdx = dictByTopDomainIdx.get( keyTopDomainIdx );
 		}
 		else {
-			subdictTopDomainIdx = new HashMap< CFIntTopProjectPKey, CFIntTopProjectBuff >();
+			subdictTopDomainIdx = new HashMap< YCFIntTopProjectPKey, YCFIntTopProjectBuff >();
 			dictByTopDomainIdx.put( keyTopDomainIdx, subdictTopDomainIdx );
 		}
 		subdictTopDomainIdx.put( pkey, Buff );
@@ -178,14 +178,14 @@ public class CFBamRamTopProjectTable
 
 	}
 
-	public CFIntTopProjectBuff readDerived( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey PKey )
+	public YCFIntTopProjectBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readDerived";
-		CFIntTopProjectPKey key = schema.getFactoryTopProject().newPKey();
+		final String S_ProcName = "YCFBamRamTopProject.readDerived";
+		YCFIntTopProjectPKey key = schema.getFactoryTopProject().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFIntTopProjectBuff buff;
+		YCFIntTopProjectBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -195,14 +195,14 @@ public class CFBamRamTopProjectTable
 		return( buff );
 	}
 
-	public CFIntTopProjectBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey PKey )
+	public YCFIntTopProjectBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readDerived";
-		CFIntTopProjectPKey key = schema.getFactoryTopProject().newPKey();
+		final String S_ProcName = "YCFBamRamTopProject.readDerived";
+		YCFIntTopProjectPKey key = schema.getFactoryTopProject().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFIntTopProjectBuff buff;
+		YCFIntTopProjectBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -212,10 +212,10 @@ public class CFBamRamTopProjectTable
 		return( buff );
 	}
 
-	public CFIntTopProjectBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamTopProject.readAllDerived";
-		CFIntTopProjectBuff[] retList = new CFIntTopProjectBuff[ dictByPKey.values().size() ];
-		Iterator< CFIntTopProjectBuff > iter = dictByPKey.values().iterator();
+	public YCFIntTopProjectBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamTopProject.readAllDerived";
+		YCFIntTopProjectBuff[] retList = new YCFIntTopProjectBuff[ dictByPKey.values().size() ];
+		Iterator< YCFIntTopProjectBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -223,74 +223,74 @@ public class CFBamRamTopProjectTable
 		return( retList );
 	}
 
-	public CFIntTopProjectBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	public YCFIntTopProjectBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readDerivedByTenantIdx";
-		CFIntTopProjectByTenantIdxKey key = schema.getFactoryTopProject().newTenantIdxKey();
+		final String S_ProcName = "YCFBamRamTopProject.readDerivedByTenantIdx";
+		YCFIntTopProjectByTenantIdxKey key = schema.getFactoryTopProject().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 
-		CFIntTopProjectBuff[] recArray;
+		YCFIntTopProjectBuff[] recArray;
 		if( dictByTenantIdx.containsKey( key ) ) {
-			Map< CFIntTopProjectPKey, CFIntTopProjectBuff > subdictTenantIdx
+			Map< YCFIntTopProjectPKey, YCFIntTopProjectBuff > subdictTenantIdx
 				= dictByTenantIdx.get( key );
-			recArray = new CFIntTopProjectBuff[ subdictTenantIdx.size() ];
-			Iterator< CFIntTopProjectBuff > iter = subdictTenantIdx.values().iterator();
+			recArray = new YCFIntTopProjectBuff[ subdictTenantIdx.size() ];
+			Iterator< YCFIntTopProjectBuff > iter = subdictTenantIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFIntTopProjectPKey, CFIntTopProjectBuff > subdictTenantIdx
-				= new HashMap< CFIntTopProjectPKey, CFIntTopProjectBuff >();
+			Map< YCFIntTopProjectPKey, YCFIntTopProjectBuff > subdictTenantIdx
+				= new HashMap< YCFIntTopProjectPKey, YCFIntTopProjectBuff >();
 			dictByTenantIdx.put( key, subdictTenantIdx );
-			recArray = new CFIntTopProjectBuff[0];
+			recArray = new YCFIntTopProjectBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFIntTopProjectBuff[] readDerivedByTopDomainIdx( CFSecAuthorization Authorization,
+	public YCFIntTopProjectBuff[] readDerivedByTopDomainIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readDerivedByTopDomainIdx";
-		CFIntTopProjectByTopDomainIdxKey key = schema.getFactoryTopProject().newTopDomainIdxKey();
+		final String S_ProcName = "YCFBamRamTopProject.readDerivedByTopDomainIdx";
+		YCFIntTopProjectByTopDomainIdxKey key = schema.getFactoryTopProject().newTopDomainIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 
-		CFIntTopProjectBuff[] recArray;
+		YCFIntTopProjectBuff[] recArray;
 		if( dictByTopDomainIdx.containsKey( key ) ) {
-			Map< CFIntTopProjectPKey, CFIntTopProjectBuff > subdictTopDomainIdx
+			Map< YCFIntTopProjectPKey, YCFIntTopProjectBuff > subdictTopDomainIdx
 				= dictByTopDomainIdx.get( key );
-			recArray = new CFIntTopProjectBuff[ subdictTopDomainIdx.size() ];
-			Iterator< CFIntTopProjectBuff > iter = subdictTopDomainIdx.values().iterator();
+			recArray = new YCFIntTopProjectBuff[ subdictTopDomainIdx.size() ];
+			Iterator< YCFIntTopProjectBuff > iter = subdictTopDomainIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFIntTopProjectPKey, CFIntTopProjectBuff > subdictTopDomainIdx
-				= new HashMap< CFIntTopProjectPKey, CFIntTopProjectBuff >();
+			Map< YCFIntTopProjectPKey, YCFIntTopProjectBuff > subdictTopDomainIdx
+				= new HashMap< YCFIntTopProjectPKey, YCFIntTopProjectBuff >();
 			dictByTopDomainIdx.put( key, subdictTopDomainIdx );
-			recArray = new CFIntTopProjectBuff[0];
+			recArray = new YCFIntTopProjectBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFIntTopProjectBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	public YCFIntTopProjectBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readDerivedByNameIdx";
-		CFIntTopProjectByNameIdxKey key = schema.getFactoryTopProject().newNameIdxKey();
+		final String S_ProcName = "YCFBamRamTopProject.readDerivedByNameIdx";
+		YCFIntTopProjectByNameIdxKey key = schema.getFactoryTopProject().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		key.setRequiredName( Name );
 
-		CFIntTopProjectBuff buff;
+		YCFIntTopProjectBuff buff;
 		if( dictByNameIdx.containsKey( key ) ) {
 			buff = dictByNameIdx.get( key );
 		}
@@ -300,16 +300,16 @@ public class CFBamRamTopProjectTable
 		return( buff );
 	}
 
-	public CFIntTopProjectBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntTopProjectBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readDerivedByIdIdx() ";
-		CFIntTopProjectPKey key = schema.getFactoryTopProject().newPKey();
+		final String S_ProcName = "YCFBamRamTopProject.readDerivedByIdIdx() ";
+		YCFIntTopProjectPKey key = schema.getFactoryTopProject().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFIntTopProjectBuff buff;
+		YCFIntTopProjectBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -319,153 +319,153 @@ public class CFBamRamTopProjectTable
 		return( buff );
 	}
 
-	public CFIntTopProjectBuff readBuff( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey PKey )
+	public YCFIntTopProjectBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey PKey )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readBuff";
-		CFIntTopProjectBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamTopProject.readBuff";
+		YCFIntTopProjectBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a108" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntTopProjectBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey PKey )
+	public YCFIntTopProjectBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFIntTopProjectBuff buff = readDerived( Authorization, PKey );
+		YCFIntTopProjectBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a108" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntTopProjectBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFIntTopProjectBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readAllBuff";
-		CFIntTopProjectBuff buff;
-		ArrayList<CFIntTopProjectBuff> filteredList = new ArrayList<CFIntTopProjectBuff>();
-		CFIntTopProjectBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamTopProject.readAllBuff";
+		YCFIntTopProjectBuff buff;
+		ArrayList<YCFIntTopProjectBuff> filteredList = new ArrayList<YCFIntTopProjectBuff>();
+		YCFIntTopProjectBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a108" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntTopProjectBuff[0] ) );
+		return( filteredList.toArray( new YCFIntTopProjectBuff[0] ) );
 	}
 
-	public CFIntTopProjectBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntTopProjectBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readBuffByIdIdx() ";
-		CFIntTopProjectBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTopProject.readBuffByIdIdx() ";
+		YCFIntTopProjectBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a108" ) ) {
-			return( (CFIntTopProjectBuff)buff );
+			return( (YCFIntTopProjectBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFIntTopProjectBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	public YCFIntTopProjectBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readBuffByTenantIdx() ";
-		CFIntTopProjectBuff buff;
-		ArrayList<CFIntTopProjectBuff> filteredList = new ArrayList<CFIntTopProjectBuff>();
-		CFIntTopProjectBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTopProject.readBuffByTenantIdx() ";
+		YCFIntTopProjectBuff buff;
+		ArrayList<YCFIntTopProjectBuff> filteredList = new ArrayList<YCFIntTopProjectBuff>();
+		YCFIntTopProjectBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a108" ) ) {
-				filteredList.add( (CFIntTopProjectBuff)buff );
+				filteredList.add( (YCFIntTopProjectBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntTopProjectBuff[0] ) );
+		return( filteredList.toArray( new YCFIntTopProjectBuff[0] ) );
 	}
 
-	public CFIntTopProjectBuff[] readBuffByTopDomainIdx( CFSecAuthorization Authorization,
+	public YCFIntTopProjectBuff[] readBuffByTopDomainIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readBuffByTopDomainIdx() ";
-		CFIntTopProjectBuff buff;
-		ArrayList<CFIntTopProjectBuff> filteredList = new ArrayList<CFIntTopProjectBuff>();
-		CFIntTopProjectBuff[] buffList = readDerivedByTopDomainIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTopProject.readBuffByTopDomainIdx() ";
+		YCFIntTopProjectBuff buff;
+		ArrayList<YCFIntTopProjectBuff> filteredList = new ArrayList<YCFIntTopProjectBuff>();
+		YCFIntTopProjectBuff[] buffList = readDerivedByTopDomainIdx( Authorization,
 			TenantId,
 			TopDomainId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a108" ) ) {
-				filteredList.add( (CFIntTopProjectBuff)buff );
+				filteredList.add( (YCFIntTopProjectBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntTopProjectBuff[0] ) );
+		return( filteredList.toArray( new YCFIntTopProjectBuff[0] ) );
 	}
 
-	public CFIntTopProjectBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	public YCFIntTopProjectBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamTopProject.readBuffByNameIdx() ";
-		CFIntTopProjectBuff buff = readDerivedByNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamTopProject.readBuffByNameIdx() ";
+		YCFIntTopProjectBuff buff = readDerivedByNameIdx( Authorization,
 			TenantId,
 			TopDomainId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a108" ) ) {
-			return( (CFIntTopProjectBuff)buff );
+			return( (YCFIntTopProjectBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public void updateTopProject( CFSecAuthorization Authorization,
-		CFIntTopProjectBuff Buff )
+	public void updateTopProject( YCFSecAuthorization Authorization,
+		YCFIntTopProjectBuff Buff )
 	{
-		CFIntTopProjectPKey pkey = schema.getFactoryTopProject().newPKey();
+		YCFIntTopProjectPKey pkey = schema.getFactoryTopProject().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFIntTopProjectBuff existing = dictByPKey.get( pkey );
+		YCFIntTopProjectBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateTopProject",
 				"Existing record not found",
 				"TopProject",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateTopProject",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntTopProjectByTenantIdxKey existingKeyTenantIdx = schema.getFactoryTopProject().newTenantIdxKey();
+		YCFIntTopProjectByTenantIdxKey existingKeyTenantIdx = schema.getFactoryTopProject().newTenantIdxKey();
 		existingKeyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntTopProjectByTenantIdxKey newKeyTenantIdx = schema.getFactoryTopProject().newTenantIdxKey();
+		YCFIntTopProjectByTenantIdxKey newKeyTenantIdx = schema.getFactoryTopProject().newTenantIdxKey();
 		newKeyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntTopProjectByTopDomainIdxKey existingKeyTopDomainIdx = schema.getFactoryTopProject().newTopDomainIdxKey();
+		YCFIntTopProjectByTopDomainIdxKey existingKeyTopDomainIdx = schema.getFactoryTopProject().newTopDomainIdxKey();
 		existingKeyTopDomainIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyTopDomainIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 
-		CFIntTopProjectByTopDomainIdxKey newKeyTopDomainIdx = schema.getFactoryTopProject().newTopDomainIdxKey();
+		YCFIntTopProjectByTopDomainIdxKey newKeyTopDomainIdx = schema.getFactoryTopProject().newTopDomainIdxKey();
 		newKeyTopDomainIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyTopDomainIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 
-		CFIntTopProjectByNameIdxKey existingKeyNameIdx = schema.getFactoryTopProject().newNameIdxKey();
+		YCFIntTopProjectByNameIdxKey existingKeyNameIdx = schema.getFactoryTopProject().newNameIdxKey();
 		existingKeyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyNameIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 		existingKeyNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntTopProjectByNameIdxKey newKeyNameIdx = schema.getFactoryTopProject().newNameIdxKey();
+		YCFIntTopProjectByNameIdxKey newKeyNameIdx = schema.getFactoryTopProject().newNameIdxKey();
 		newKeyNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyNameIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 		newKeyNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -474,7 +474,7 @@ public class CFBamRamTopProjectTable
 
 		if( ! existingKeyNameIdx.equals( newKeyNameIdx ) ) {
 			if( dictByNameIdx.containsKey( newKeyNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateTopProject",
 					"TopProjectNameIdx",
 					newKeyNameIdx );
@@ -490,7 +490,7 @@ public class CFBamRamTopProjectTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateTopProject",
 						"Owner",
 						"Tenant",
@@ -508,7 +508,7 @@ public class CFBamRamTopProjectTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredTopDomainId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateTopProject",
 						"Container",
 						"ParentTopDomain",
@@ -520,7 +520,7 @@ public class CFBamRamTopProjectTable
 
 		// Update is valid
 
-		Map< CFIntTopProjectPKey, CFIntTopProjectBuff > subdict;
+		Map< YCFIntTopProjectPKey, YCFIntTopProjectBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -533,7 +533,7 @@ public class CFBamRamTopProjectTable
 			subdict = dictByTenantIdx.get( newKeyTenantIdx );
 		}
 		else {
-			subdict = new HashMap< CFIntTopProjectPKey, CFIntTopProjectBuff >();
+			subdict = new HashMap< YCFIntTopProjectPKey, YCFIntTopProjectBuff >();
 			dictByTenantIdx.put( newKeyTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -546,7 +546,7 @@ public class CFBamRamTopProjectTable
 			subdict = dictByTopDomainIdx.get( newKeyTopDomainIdx );
 		}
 		else {
-			subdict = new HashMap< CFIntTopProjectPKey, CFIntTopProjectBuff >();
+			subdict = new HashMap< YCFIntTopProjectPKey, YCFIntTopProjectBuff >();
 			dictByTopDomainIdx.put( newKeyTopDomainIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -556,35 +556,35 @@ public class CFBamRamTopProjectTable
 
 	}
 
-	public void deleteTopProject( CFSecAuthorization Authorization,
-		CFIntTopProjectBuff Buff )
+	public void deleteTopProject( YCFSecAuthorization Authorization,
+		YCFIntTopProjectBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamTopProjectTable.deleteTopProject() ";
+		final String S_ProcName = "YCFBamRamTopProjectTable.deleteTopProject() ";
 		String classCode;
-		CFIntTopProjectPKey pkey = schema.getFactoryTopProject().newPKey();
+		YCFIntTopProjectPKey pkey = schema.getFactoryTopProject().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFIntTopProjectBuff existing = dictByPKey.get( pkey );
+		YCFIntTopProjectBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteTopProject",
 				pkey );
 		}
 					schema.getTableSubProject().deleteSubProjectByTopProjectIdx( Authorization,
 						existing.getRequiredTenantId(),
 						existing.getRequiredId() );
-		CFIntTopProjectByTenantIdxKey keyTenantIdx = schema.getFactoryTopProject().newTenantIdxKey();
+		YCFIntTopProjectByTenantIdxKey keyTenantIdx = schema.getFactoryTopProject().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntTopProjectByTopDomainIdxKey keyTopDomainIdx = schema.getFactoryTopProject().newTopDomainIdxKey();
+		YCFIntTopProjectByTopDomainIdxKey keyTopDomainIdx = schema.getFactoryTopProject().newTopDomainIdxKey();
 		keyTopDomainIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyTopDomainIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 
-		CFIntTopProjectByNameIdxKey keyNameIdx = schema.getFactoryTopProject().newNameIdxKey();
+		YCFIntTopProjectByNameIdxKey keyNameIdx = schema.getFactoryTopProject().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyNameIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
@@ -592,7 +592,7 @@ public class CFBamRamTopProjectTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFIntTopProjectPKey, CFIntTopProjectBuff > subdict;
+		Map< YCFIntTopProjectPKey, YCFIntTopProjectBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -605,18 +605,18 @@ public class CFBamRamTopProjectTable
 		dictByNameIdx.remove( keyNameIdx );
 
 	}
-	public void deleteTopProjectByIdIdx( CFSecAuthorization Authorization,
+	public void deleteTopProjectByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFIntTopProjectPKey key = schema.getFactoryTopProject().newPKey();
+		YCFIntTopProjectPKey key = schema.getFactoryTopProject().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deleteTopProjectByIdIdx( Authorization, key );
 	}
 
-	public void deleteTopProjectByIdIdx( CFSecAuthorization Authorization,
-		CFIntTopProjectPKey argKey )
+	public void deleteTopProjectByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntTopProjectPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -624,16 +624,16 @@ public class CFBamRamTopProjectTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFIntTopProjectBuff cur;
-		LinkedList<CFIntTopProjectBuff> matchSet = new LinkedList<CFIntTopProjectBuff>();
-		Iterator<CFIntTopProjectBuff> values = dictByPKey.values().iterator();
+		YCFIntTopProjectBuff cur;
+		LinkedList<YCFIntTopProjectBuff> matchSet = new LinkedList<YCFIntTopProjectBuff>();
+		Iterator<YCFIntTopProjectBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntTopProjectBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntTopProjectBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTopProject().readDerivedByIdIdx( Authorization,
@@ -643,32 +643,32 @@ public class CFBamRamTopProjectTable
 		}
 	}
 
-	public void deleteTopProjectByTenantIdx( CFSecAuthorization Authorization,
+	public void deleteTopProjectByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFIntTopProjectByTenantIdxKey key = schema.getFactoryTopProject().newTenantIdxKey();
+		YCFIntTopProjectByTenantIdxKey key = schema.getFactoryTopProject().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteTopProjectByTenantIdx( Authorization, key );
 	}
 
-	public void deleteTopProjectByTenantIdx( CFSecAuthorization Authorization,
-		CFIntTopProjectByTenantIdxKey argKey )
+	public void deleteTopProjectByTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntTopProjectByTenantIdxKey argKey )
 	{
-		CFIntTopProjectBuff cur;
+		YCFIntTopProjectBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntTopProjectBuff> matchSet = new LinkedList<CFIntTopProjectBuff>();
-		Iterator<CFIntTopProjectBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntTopProjectBuff> matchSet = new LinkedList<YCFIntTopProjectBuff>();
+		Iterator<YCFIntTopProjectBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntTopProjectBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntTopProjectBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTopProject().readDerivedByIdIdx( Authorization,
@@ -678,35 +678,35 @@ public class CFBamRamTopProjectTable
 		}
 	}
 
-	public void deleteTopProjectByTopDomainIdx( CFSecAuthorization Authorization,
+	public void deleteTopProjectByTopDomainIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopDomainId )
 	{
-		CFIntTopProjectByTopDomainIdxKey key = schema.getFactoryTopProject().newTopDomainIdxKey();
+		YCFIntTopProjectByTopDomainIdxKey key = schema.getFactoryTopProject().newTopDomainIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTopDomainId( argTopDomainId );
 		deleteTopProjectByTopDomainIdx( Authorization, key );
 	}
 
-	public void deleteTopProjectByTopDomainIdx( CFSecAuthorization Authorization,
-		CFIntTopProjectByTopDomainIdxKey argKey )
+	public void deleteTopProjectByTopDomainIdx( YCFSecAuthorization Authorization,
+		YCFIntTopProjectByTopDomainIdxKey argKey )
 	{
-		CFIntTopProjectBuff cur;
+		YCFIntTopProjectBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntTopProjectBuff> matchSet = new LinkedList<CFIntTopProjectBuff>();
-		Iterator<CFIntTopProjectBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntTopProjectBuff> matchSet = new LinkedList<YCFIntTopProjectBuff>();
+		Iterator<YCFIntTopProjectBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntTopProjectBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntTopProjectBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTopProject().readDerivedByIdIdx( Authorization,
@@ -716,22 +716,22 @@ public class CFBamRamTopProjectTable
 		}
 	}
 
-	public void deleteTopProjectByNameIdx( CFSecAuthorization Authorization,
+	public void deleteTopProjectByNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopDomainId,
 		String argName )
 	{
-		CFIntTopProjectByNameIdxKey key = schema.getFactoryTopProject().newNameIdxKey();
+		YCFIntTopProjectByNameIdxKey key = schema.getFactoryTopProject().newNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTopDomainId( argTopDomainId );
 		key.setRequiredName( argName );
 		deleteTopProjectByNameIdx( Authorization, key );
 	}
 
-	public void deleteTopProjectByNameIdx( CFSecAuthorization Authorization,
-		CFIntTopProjectByNameIdxKey argKey )
+	public void deleteTopProjectByNameIdx( YCFSecAuthorization Authorization,
+		YCFIntTopProjectByNameIdxKey argKey )
 	{
-		CFIntTopProjectBuff cur;
+		YCFIntTopProjectBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -739,15 +739,15 @@ public class CFBamRamTopProjectTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntTopProjectBuff> matchSet = new LinkedList<CFIntTopProjectBuff>();
-		Iterator<CFIntTopProjectBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntTopProjectBuff> matchSet = new LinkedList<YCFIntTopProjectBuff>();
+		Iterator<YCFIntTopProjectBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntTopProjectBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntTopProjectBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTopProject().readDerivedByIdIdx( Authorization,

@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamRelationColTableObj
+public interface IYCFBamRelationColTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamRelationColTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamRelationColObj newInstance();
+	IYCFBamRelationColObj newInstance();
 
 	/**
 	 *	Instantiate a new RelationCol edition of the specified RelationCol instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamRelationColEditObj newEditInstance( ICFBamRelationColObj orig );
+	IYCFBamRelationColEditObj newEditInstance( IYCFBamRelationColObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamRelationColObj realiseRelationCol( ICFBamRelationColObj Obj );
+	IYCFBamRelationColObj realiseRelationCol( IYCFBamRelationColObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamRelationColObj createRelationCol( ICFBamRelationColObj Obj );
+	IYCFBamRelationColObj createRelationCol( IYCFBamRelationColObj Obj );
 
 	/**
 	 *	Read a RelationCol-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamRelationColTableObj
 	 *	@return	The RelationCol-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamRelationColObj readRelationCol( CFBamRelationColPKey pkey );
+	IYCFBamRelationColObj readRelationCol( YCFBamRelationColPKey pkey );
 
 	/**
 	 *	Read a RelationCol-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamRelationColTableObj
 	 *	@return	The RelationCol-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamRelationColObj readRelationCol( CFBamRelationColPKey pkey,
+	IYCFBamRelationColObj readRelationCol( YCFBamRelationColPKey pkey,
 		boolean forceRead );
 
-	ICFBamRelationColObj readCachedRelationCol( CFBamRelationColPKey pkey );
+	IYCFBamRelationColObj readCachedRelationCol( YCFBamRelationColPKey pkey );
 
-	public void reallyDeepDisposeRelationCol( ICFBamRelationColObj obj );
+	public void reallyDeepDisposeRelationCol( IYCFBamRelationColObj obj );
 
-	void deepDisposeRelationCol( CFBamRelationColPKey pkey );
+	void deepDisposeRelationCol( YCFBamRelationColPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamRelationColObj lockRelationCol( CFBamRelationColPKey pkey );
+	IYCFBamRelationColObj lockRelationCol( YCFBamRelationColPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the RelationCol-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamRelationColObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamRelationColObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamRelationColObj> readAllRelationCol();
+	List<IYCFBamRelationColObj> readAllRelationCol();
 
 	/**
 	 *	Return a sorted map of all the RelationCol-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamRelationColObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamRelationColObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamRelationColObj> readAllRelationCol( boolean forceRead );
+	List<IYCFBamRelationColObj> readAllRelationCol( boolean forceRead );
 
-	List<ICFBamRelationColObj> readCachedAllRelationCol();
+	List<IYCFBamRelationColObj> readCachedAllRelationCol();
 
 	/**
-	 *	Get the CFBamRelationColObj instance for the primary key attributes.
+	 *	Get the YCFBamRelationColObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRelationColObj cached instance for the primary key, or
+	 *	@return	YCFBamRelationColObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRelationColObj readRelationColByIdIdx( long TenantId,
+	IYCFBamRelationColObj readRelationColByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamRelationColObj instance for the primary key attributes.
+	 *	Get the YCFBamRelationColObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRelationColObj refreshed instance for the primary key, or
+	 *	@return	YCFBamRelationColObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRelationColObj readRelationColByIdIdx( long TenantId,
+	IYCFBamRelationColObj readRelationColByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamRelationColObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamRelationColObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamRelationColTableObj
 	 *
 	 *	@param	argName	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRelationColObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamRelationColObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRelationColObj readRelationColByUNameIdx(long TenantId,
+	IYCFBamRelationColObj readRelationColByUNameIdx(long TenantId,
 		long RelationId,
 		String Name );
 
 	/**
-	 *	Get the CFBamRelationColObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamRelationColObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
@@ -197,199 +197,199 @@ public interface ICFBamRelationColTableObj
 	 *
 	 *	@param	argName	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRelationColObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamRelationColObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRelationColObj readRelationColByUNameIdx(long TenantId,
+	IYCFBamRelationColObj readRelationColByUNameIdx(long TenantId,
 		long RelationId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate RelColTenantIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate RelColTenantIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelColTenantIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelColTenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByRelColTenantIdx( long TenantId );
+	List<IYCFBamRelationColObj> readRelationColByRelColTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate RelColTenantIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate RelColTenantIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelColTenantIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelColTenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByRelColTenantIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByRelColTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate RelationIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate RelationIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelationIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelationIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByRelationIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByRelationIdx( long TenantId,
 		long RelationId );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate RelationIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate RelationIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelationIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelationIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByRelationIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByRelationIdx( long TenantId,
 		long RelationId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamRelationColObj> readRelationColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamRelationColObj> readRelationColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate FromColIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate FromColIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argFromColId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate FromColIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate FromColIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByFromColIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByFromColIdx( long TenantId,
 		long FromColId );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate FromColIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate FromColIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argFromColId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate FromColIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate FromColIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByFromColIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByFromColIdx( long TenantId,
 		long FromColId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate ToColIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate ToColIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argToColId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate ToColIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate ToColIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByToColIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByToColIdx( long TenantId,
 		long ToColId );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate ToColIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate ToColIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argToColId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate ToColIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate ToColIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByToColIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByToColIdx( long TenantId,
 		long ToColId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByPrevIdx( Long PrevTenantId,
+	List<IYCFBamRelationColObj> readRelationColByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByPrevIdx( Long PrevTenantId,
+	List<IYCFBamRelationColObj> readRelationColByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByNextIdx( Long NextTenantId,
+	List<IYCFBamRelationColObj> readRelationColByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByNextIdx( Long NextTenantId,
+	List<IYCFBamRelationColObj> readRelationColByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate RelPrevIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate RelPrevIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
@@ -397,15 +397,15 @@ public interface ICFBamRelationColTableObj
 	 *
 	 *	@param	argPrevId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelPrevIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByRelPrevIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByRelPrevIdx( long TenantId,
 		long RelationId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate RelPrevIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate RelPrevIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
@@ -413,16 +413,16 @@ public interface ICFBamRelationColTableObj
 	 *
 	 *	@param	argPrevId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelPrevIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByRelPrevIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByRelPrevIdx( long TenantId,
 		long RelationId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate RelNextIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate RelNextIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamRelationColTableObj
 	 *
 	 *	@param	argNextId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelNextIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByRelNextIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByRelNextIdx( long TenantId,
 		long RelationId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamRelationColObj instances sorted by their primary keys for the duplicate RelNextIdx key.
+	 *	Get the map of YCFBamRelationColObj instances sorted by their primary keys for the duplicate RelNextIdx key.
 	 *
 	 *	@param	argTenantId	The RelationCol key attribute of the instance generating the id.
 	 *
@@ -446,46 +446,46 @@ public interface ICFBamRelationColTableObj
 	 *
 	 *	@param	argNextId	The RelationCol key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelNextIdx key,
+	 *	@return	List of YCFBamRelationColObj cached instances sorted by their primary keys for the duplicate RelNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRelationColObj> readRelationColByRelNextIdx( long TenantId,
+	List<IYCFBamRelationColObj> readRelationColByRelNextIdx( long TenantId,
 		long RelationId,
 		Long NextId,
 		boolean forceRead );
 
-	ICFBamRelationColObj readCachedRelationColByIdIdx( long TenantId,
+	IYCFBamRelationColObj readCachedRelationColByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamRelationColObj readCachedRelationColByUNameIdx( long TenantId,
+	IYCFBamRelationColObj readCachedRelationColByUNameIdx( long TenantId,
 		long RelationId,
 		String Name );
 
-	List<ICFBamRelationColObj> readCachedRelationColByRelColTenantIdx( long TenantId );
+	List<IYCFBamRelationColObj> readCachedRelationColByRelColTenantIdx( long TenantId );
 
-	List<ICFBamRelationColObj> readCachedRelationColByRelationIdx( long TenantId,
+	List<IYCFBamRelationColObj> readCachedRelationColByRelationIdx( long TenantId,
 		long RelationId );
 
-	List<ICFBamRelationColObj> readCachedRelationColByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamRelationColObj> readCachedRelationColByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamRelationColObj> readCachedRelationColByFromColIdx( long TenantId,
+	List<IYCFBamRelationColObj> readCachedRelationColByFromColIdx( long TenantId,
 		long FromColId );
 
-	List<ICFBamRelationColObj> readCachedRelationColByToColIdx( long TenantId,
+	List<IYCFBamRelationColObj> readCachedRelationColByToColIdx( long TenantId,
 		long ToColId );
 
-	List<ICFBamRelationColObj> readCachedRelationColByPrevIdx( Long PrevTenantId,
+	List<IYCFBamRelationColObj> readCachedRelationColByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamRelationColObj> readCachedRelationColByNextIdx( Long NextTenantId,
+	List<IYCFBamRelationColObj> readCachedRelationColByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamRelationColObj> readCachedRelationColByRelPrevIdx( long TenantId,
+	List<IYCFBamRelationColObj> readCachedRelationColByRelPrevIdx( long TenantId,
 		long RelationId,
 		Long PrevId );
 
-	List<ICFBamRelationColObj> readCachedRelationColByRelNextIdx( long TenantId,
+	List<IYCFBamRelationColObj> readCachedRelationColByRelNextIdx( long TenantId,
 		long RelationId,
 		Long NextId );
 
@@ -527,12 +527,12 @@ public interface ICFBamRelationColTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamRelationColObj updateRelationCol( ICFBamRelationColObj Obj );
+	IYCFBamRelationColObj updateRelationCol( IYCFBamRelationColObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteRelationCol( ICFBamRelationColObj Obj );
+	void deleteRelationCol( IYCFBamRelationColObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -651,16 +651,16 @@ public interface ICFBamRelationColTableObj
 		Long NextId );
 
 	/**
-	 *	Move the CFBamRelationColObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamRelationColObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamRelationColObj refreshed cache instance.
+	 *	@return	YCFBamRelationColObj refreshed cache instance.
 	 */
-	ICFBamRelationColObj moveUpRelationCol( ICFBamRelationColObj Obj );
+	IYCFBamRelationColObj moveUpRelationCol( IYCFBamRelationColObj Obj );
 
 	/**
-	 *	Move the CFBamRelationColObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamRelationColObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamRelationColObj refreshed cache instance.
+	 *	@return	YCFBamRelationColObj refreshed cache instance.
 	 */
-	ICFBamRelationColObj moveDownRelationCol( ICFBamRelationColObj Obj );
+	IYCFBamRelationColObj moveDownRelationCol( IYCFBamRelationColObj Obj );
 }

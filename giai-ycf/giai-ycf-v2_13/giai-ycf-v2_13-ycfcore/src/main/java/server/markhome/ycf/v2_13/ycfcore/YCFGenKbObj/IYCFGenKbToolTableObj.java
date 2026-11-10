@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbToolTableObj
+public interface IYCFGenKbToolTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbToolTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbToolObj newInstance();
+	IYCFGenKbToolObj newInstance();
 
 	/**
 	 *	Instantiate a new Tool edition of the specified Tool instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbToolEditObj newEditInstance( ICFGenKbToolObj orig );
+	IYCFGenKbToolEditObj newEditInstance( IYCFGenKbToolObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbToolObj realiseTool( ICFGenKbToolObj Obj );
+	IYCFGenKbToolObj realiseTool( IYCFGenKbToolObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbToolObj createTool( ICFGenKbToolObj Obj );
+	IYCFGenKbToolObj createTool( IYCFGenKbToolObj Obj );
 
 	/**
 	 *	Read a Tool-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbToolTableObj
 	 *	@return	The Tool-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbToolObj readTool( CFGenKbToolPKey pkey );
+	IYCFGenKbToolObj readTool( YCFGenKbToolPKey pkey );
 
 	/**
 	 *	Read a Tool-derived instance by it's primary key.
@@ -91,106 +91,106 @@ public interface ICFGenKbToolTableObj
 	 *	@return	The Tool-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbToolObj readTool( CFGenKbToolPKey pkey,
+	IYCFGenKbToolObj readTool( YCFGenKbToolPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbToolObj readCachedTool( CFGenKbToolPKey pkey );
+	IYCFGenKbToolObj readCachedTool( YCFGenKbToolPKey pkey );
 
-	public void reallyDeepDisposeTool( ICFGenKbToolObj obj );
+	public void reallyDeepDisposeTool( IYCFGenKbToolObj obj );
 
-	void deepDisposeTool( CFGenKbToolPKey pkey );
+	void deepDisposeTool( YCFGenKbToolPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbToolObj lockTool( CFGenKbToolPKey pkey );
+	IYCFGenKbToolObj lockTool( YCFGenKbToolPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the Tool-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbToolObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbToolObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbToolObj> readAllTool();
+	List<IYCFGenKbToolObj> readAllTool();
 
 	/**
 	 *	Return a sorted map of all the Tool-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbToolObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbToolObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbToolObj> readAllTool( boolean forceRead );
+	List<IYCFGenKbToolObj> readAllTool( boolean forceRead );
 
-	List<ICFGenKbToolObj> readCachedAllTool();
+	List<IYCFGenKbToolObj> readCachedAllTool();
 
 	/**
-	 *	Get the CFGenKbToolObj instance for the primary key attributes.
+	 *	Get the YCFGenKbToolObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Tool key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbToolObj cached instance for the primary key, or
+	 *	@return	YCFGenKbToolObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbToolObj readToolByIdIdx( short Id );
+	IYCFGenKbToolObj readToolByIdIdx( short Id );
 
 	/**
-	 *	Get the CFGenKbToolObj instance for the primary key attributes.
+	 *	Get the YCFGenKbToolObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Tool key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbToolObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbToolObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbToolObj readToolByIdIdx( short Id,
+	IYCFGenKbToolObj readToolByIdIdx( short Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbToolObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbToolObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The Tool key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbToolObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbToolObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbToolObj readToolByNameIdx(String Name );
+	IYCFGenKbToolObj readToolByNameIdx(String Name );
 
 	/**
-	 *	Get the CFGenKbToolObj instance for the unique NameIdx key.
+	 *	Get the YCFGenKbToolObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The Tool key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbToolObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFGenKbToolObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbToolObj readToolByNameIdx(String Name,
+	IYCFGenKbToolObj readToolByNameIdx(String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbToolObj instances sorted by their primary keys for the duplicate ReplacesIdx key.
+	 *	Get the map of YCFGenKbToolObj instances sorted by their primary keys for the duplicate ReplacesIdx key.
 	 *
 	 *	@param	argReplacesId	The Tool key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolObj cached instances sorted by their primary keys for the duplicate ReplacesIdx key,
+	 *	@return	List of YCFGenKbToolObj cached instances sorted by their primary keys for the duplicate ReplacesIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolObj> readToolByReplacesIdx( Short ReplacesId );
+	List<IYCFGenKbToolObj> readToolByReplacesIdx( Short ReplacesId );
 
 	/**
-	 *	Get the map of CFGenKbToolObj instances sorted by their primary keys for the duplicate ReplacesIdx key.
+	 *	Get the map of YCFGenKbToolObj instances sorted by their primary keys for the duplicate ReplacesIdx key.
 	 *
 	 *	@param	argReplacesId	The Tool key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbToolObj cached instances sorted by their primary keys for the duplicate ReplacesIdx key,
+	 *	@return	List of YCFGenKbToolObj cached instances sorted by their primary keys for the duplicate ReplacesIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbToolObj> readToolByReplacesIdx( Short ReplacesId,
+	List<IYCFGenKbToolObj> readToolByReplacesIdx( Short ReplacesId,
 		boolean forceRead );
 
-	ICFGenKbToolObj readCachedToolByIdIdx( short Id );
+	IYCFGenKbToolObj readCachedToolByIdIdx( short Id );
 
-	ICFGenKbToolObj readCachedToolByNameIdx( String Name );
+	IYCFGenKbToolObj readCachedToolByNameIdx( String Name );
 
-	List<ICFGenKbToolObj> readCachedToolByReplacesIdx( Short ReplacesId );
+	List<IYCFGenKbToolObj> readCachedToolByReplacesIdx( Short ReplacesId );
 
 	void deepDisposeToolByIdIdx( short Id );
 
@@ -201,12 +201,12 @@ public interface ICFGenKbToolTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbToolObj updateTool( ICFGenKbToolObj Obj );
+	IYCFGenKbToolObj updateTool( IYCFGenKbToolObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteTool( ICFGenKbToolObj Obj );
+	void deleteTool( IYCFGenKbToolObj Obj );
 
 	/**
 	 *	Internal use only.

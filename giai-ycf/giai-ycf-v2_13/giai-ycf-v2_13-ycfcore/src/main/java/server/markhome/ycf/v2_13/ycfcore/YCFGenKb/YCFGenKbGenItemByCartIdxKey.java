@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenItem by CartIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,18 +37,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenItemByCartIdxKey
+public class YCFGenKbGenItemByCartIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected long requiredCartridgeId;
-	public CFGenKbGenItemByCartIdxKey() {
-		requiredTenantId = CFGenKbGenItemBuff.TENANTID_INIT_VALUE;
-		requiredCartridgeId = CFGenKbGenItemBuff.CARTRIDGEID_INIT_VALUE;
+	public YCFGenKbGenItemByCartIdxKey() {
+		requiredTenantId = YCFGenKbGenItemBuff.TENANTID_INIT_VALUE;
+		requiredCartridgeId = YCFGenKbGenItemBuff.CARTRIDGEID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -56,13 +56,13 @@ public class CFGenKbGenItemByCartIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbGenItemBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGenItemBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.TENANTID_MIN_VALUE );
+				YCFGenKbGenItemBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -72,13 +72,13 @@ public class CFGenKbGenItemByCartIdxKey
 	}
 
 	public void setRequiredCartridgeId( long value ) {
-		if( value < CFGenKbGenItemBuff.CARTRIDGEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGenItemBuff.CARTRIDGEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredCartridgeId",
 				1,
 				"value",
 				value,
-				CFGenKbGenItemBuff.CARTRIDGEID_MIN_VALUE );
+				YCFGenKbGenItemBuff.CARTRIDGEID_MIN_VALUE );
 		}
 		requiredCartridgeId = value;
 	}
@@ -87,8 +87,8 @@ public class CFGenKbGenItemByCartIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenItemByCartIdxKey ) {
-			CFGenKbGenItemByCartIdxKey rhs = (CFGenKbGenItemByCartIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByCartIdxKey ) {
+			YCFGenKbGenItemByCartIdxKey rhs = (YCFGenKbGenItemByCartIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -97,8 +97,8 @@ public class CFGenKbGenItemByCartIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -123,8 +123,8 @@ public class CFGenKbGenItemByCartIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenItemByCartIdxKey ) {
-			CFGenKbGenItemByCartIdxKey rhs = (CFGenKbGenItemByCartIdxKey)obj;
+		else if( obj instanceof YCFGenKbGenItemByCartIdxKey ) {
+			YCFGenKbGenItemByCartIdxKey rhs = (YCFGenKbGenItemByCartIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -139,8 +139,8 @@ public class CFGenKbGenItemByCartIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemBuff ) {
-			CFGenKbGenItemBuff rhs = (CFGenKbGenItemBuff)obj;
+		else if( obj instanceof YCFGenKbGenItemBuff ) {
+			YCFGenKbGenItemBuff rhs = (YCFGenKbGenItemBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -156,7 +156,7 @@ public class CFGenKbGenItemByCartIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -165,7 +165,7 @@ public class CFGenKbGenItemByCartIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenItemByCartIdx"
+		String ret = "<YCFGenKbGenItemByCartIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredCartridgeId=" + "\"" + Long.toString( getRequiredCartridgeId() ) + "\""
 			+ "/>";

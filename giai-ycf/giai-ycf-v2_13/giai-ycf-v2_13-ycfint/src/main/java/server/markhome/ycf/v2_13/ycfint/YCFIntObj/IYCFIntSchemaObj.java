@@ -1,15 +1,15 @@
-// Description: Java 11 Schema Object interface for CFInt.
+// Description: Java 11 Schema Object interface for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,81 +26,81 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntSchemaObj
-	extends ICFSecSchemaObj
+public interface IYCFIntSchemaObj
+	extends IYCFSecSchemaObj
 {
 	/**
 	 *	Get the License interface for the schema.
 	 *
-	 *	@return	The ICFIntLicenseTableObj interface implementation for the schema.
+	 *	@return	The IYCFIntLicenseTableObj interface implementation for the schema.
 	 */
-	ICFIntLicenseTableObj getLicenseTableObj();
+	IYCFIntLicenseTableObj getLicenseTableObj();
 
 	/**
 	 *	Get the MajorVersion interface for the schema.
 	 *
-	 *	@return	The ICFIntMajorVersionTableObj interface implementation for the schema.
+	 *	@return	The IYCFIntMajorVersionTableObj interface implementation for the schema.
 	 */
-	ICFIntMajorVersionTableObj getMajorVersionTableObj();
+	IYCFIntMajorVersionTableObj getMajorVersionTableObj();
 
 	/**
 	 *	Get the MimeType interface for the schema.
 	 *
-	 *	@return	The ICFIntMimeTypeTableObj interface implementation for the schema.
+	 *	@return	The IYCFIntMimeTypeTableObj interface implementation for the schema.
 	 */
-	ICFIntMimeTypeTableObj getMimeTypeTableObj();
+	IYCFIntMimeTypeTableObj getMimeTypeTableObj();
 
 	/**
 	 *	Get the MinorVersion interface for the schema.
 	 *
-	 *	@return	The ICFIntMinorVersionTableObj interface implementation for the schema.
+	 *	@return	The IYCFIntMinorVersionTableObj interface implementation for the schema.
 	 */
-	ICFIntMinorVersionTableObj getMinorVersionTableObj();
+	IYCFIntMinorVersionTableObj getMinorVersionTableObj();
 
 	/**
 	 *	Get the SubProject interface for the schema.
 	 *
-	 *	@return	The ICFIntSubProjectTableObj interface implementation for the schema.
+	 *	@return	The IYCFIntSubProjectTableObj interface implementation for the schema.
 	 */
-	ICFIntSubProjectTableObj getSubProjectTableObj();
+	IYCFIntSubProjectTableObj getSubProjectTableObj();
 
 	/**
 	 *	Get the Tld interface for the schema.
 	 *
-	 *	@return	The ICFIntTldTableObj interface implementation for the schema.
+	 *	@return	The IYCFIntTldTableObj interface implementation for the schema.
 	 */
-	ICFIntTldTableObj getTldTableObj();
+	IYCFIntTldTableObj getTldTableObj();
 
 	/**
 	 *	Get the TopDomain interface for the schema.
 	 *
-	 *	@return	The ICFIntTopDomainTableObj interface implementation for the schema.
+	 *	@return	The IYCFIntTopDomainTableObj interface implementation for the schema.
 	 */
-	ICFIntTopDomainTableObj getTopDomainTableObj();
+	IYCFIntTopDomainTableObj getTopDomainTableObj();
 
 	/**
 	 *	Get the TopProject interface for the schema.
 	 *
-	 *	@return	The ICFIntTopProjectTableObj interface implementation for the schema.
+	 *	@return	The IYCFIntTopProjectTableObj interface implementation for the schema.
 	 */
-	ICFIntTopProjectTableObj getTopProjectTableObj();
+	IYCFIntTopProjectTableObj getTopProjectTableObj();
 
 	/**
 	 *	Get the URLProtocol interface for the schema.
 	 *
-	 *	@return	The ICFIntURLProtocolTableObj interface implementation for the schema.
+	 *	@return	The IYCFIntURLProtocolTableObj interface implementation for the schema.
 	 */
-	ICFIntURLProtocolTableObj getURLProtocolTableObj();
+	IYCFIntURLProtocolTableObj getURLProtocolTableObj();
 }

@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for MajorVersion.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,72 +27,72 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntRam;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntRamMajorVersionTable in-memory RAM DbIO implementation
+ *	YCFIntRamMajorVersionTable in-memory RAM DbIO implementation
  *	for MajorVersion.
  */
-public class CFIntRamMajorVersionTable
-	implements ICFIntMajorVersionTable
+public class YCFIntRamMajorVersionTable
+	implements IYCFIntMajorVersionTable
 {
-	private ICFIntSchema schema;
-	private Map< CFIntMajorVersionPKey,
-				CFIntMajorVersionBuff > dictByPKey
-		= new HashMap< CFIntMajorVersionPKey,
-				CFIntMajorVersionBuff >();
-	private Map< CFIntMajorVersionByTenantIdxKey,
-				Map< CFIntMajorVersionPKey,
-					CFIntMajorVersionBuff >> dictByTenantIdx
-		= new HashMap< CFIntMajorVersionByTenantIdxKey,
-				Map< CFIntMajorVersionPKey,
-					CFIntMajorVersionBuff >>();
-	private Map< CFIntMajorVersionBySubProjectIdxKey,
-				Map< CFIntMajorVersionPKey,
-					CFIntMajorVersionBuff >> dictBySubProjectIdx
-		= new HashMap< CFIntMajorVersionBySubProjectIdxKey,
-				Map< CFIntMajorVersionPKey,
-					CFIntMajorVersionBuff >>();
-	private Map< CFIntMajorVersionByNameIdxKey,
-			CFIntMajorVersionBuff > dictByNameIdx
-		= new HashMap< CFIntMajorVersionByNameIdxKey,
-			CFIntMajorVersionBuff >();
+	private IYCFIntSchema schema;
+	private Map< YCFIntMajorVersionPKey,
+				YCFIntMajorVersionBuff > dictByPKey
+		= new HashMap< YCFIntMajorVersionPKey,
+				YCFIntMajorVersionBuff >();
+	private Map< YCFIntMajorVersionByTenantIdxKey,
+				Map< YCFIntMajorVersionPKey,
+					YCFIntMajorVersionBuff >> dictByTenantIdx
+		= new HashMap< YCFIntMajorVersionByTenantIdxKey,
+				Map< YCFIntMajorVersionPKey,
+					YCFIntMajorVersionBuff >>();
+	private Map< YCFIntMajorVersionBySubProjectIdxKey,
+				Map< YCFIntMajorVersionPKey,
+					YCFIntMajorVersionBuff >> dictBySubProjectIdx
+		= new HashMap< YCFIntMajorVersionBySubProjectIdxKey,
+				Map< YCFIntMajorVersionPKey,
+					YCFIntMajorVersionBuff >>();
+	private Map< YCFIntMajorVersionByNameIdxKey,
+			YCFIntMajorVersionBuff > dictByNameIdx
+		= new HashMap< YCFIntMajorVersionByNameIdxKey,
+			YCFIntMajorVersionBuff >();
 
-	public CFIntRamMajorVersionTable( ICFIntSchema argSchema ) {
+	public YCFIntRamMajorVersionTable( IYCFIntSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createMajorVersion( CFSecAuthorization Authorization,
-		CFIntMajorVersionBuff Buff )
+	public void createMajorVersion( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionBuff Buff )
 	{
 		final String S_ProcName = "createMajorVersion";
-		CFIntMajorVersionPKey pkey = schema.getFactoryMajorVersion().newPKey();
+		YCFIntMajorVersionPKey pkey = schema.getFactoryMajorVersion().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
-		pkey.setRequiredId( ((CFIntRamTenantTable)schema.getTableTenant()).nextMajorVersionIdGen( Authorization,
+		pkey.setRequiredId( ((YCFIntRamTenantTable)schema.getTableTenant()).nextMajorVersionIdGen( Authorization,
 			Buff.getRequiredTenantId() ) );
 		Buff.setRequiredTenantId( pkey.getRequiredTenantId() );
 		Buff.setRequiredId( pkey.getRequiredId() );
-		CFIntMajorVersionByTenantIdxKey keyTenantIdx = schema.getFactoryMajorVersion().newTenantIdxKey();
+		YCFIntMajorVersionByTenantIdxKey keyTenantIdx = schema.getFactoryMajorVersion().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntMajorVersionBySubProjectIdxKey keySubProjectIdx = schema.getFactoryMajorVersion().newSubProjectIdxKey();
+		YCFIntMajorVersionBySubProjectIdxKey keySubProjectIdx = schema.getFactoryMajorVersion().newSubProjectIdxKey();
 		keySubProjectIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keySubProjectIdx.setRequiredSubProjectId( Buff.getRequiredSubProjectId() );
 
-		CFIntMajorVersionByNameIdxKey keyNameIdx = schema.getFactoryMajorVersion().newNameIdxKey();
+		YCFIntMajorVersionByNameIdxKey keyNameIdx = schema.getFactoryMajorVersion().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyNameIdx.setRequiredSubProjectId( Buff.getRequiredSubProjectId() );
 		keyNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -100,11 +100,11 @@ public class CFIntRamMajorVersionTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByNameIdx.containsKey( keyNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"MajorVersionNameIdx",
 				keyNameIdx );
@@ -119,7 +119,7 @@ public class CFIntRamMajorVersionTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Owner",
 						"Tenant",
@@ -138,7 +138,7 @@ public class CFIntRamMajorVersionTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredSubProjectId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"ParentSubProject",
@@ -152,22 +152,22 @@ public class CFIntRamMajorVersionTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFIntMajorVersionPKey, CFIntMajorVersionBuff > subdictTenantIdx;
+		Map< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff > subdictTenantIdx;
 		if( dictByTenantIdx.containsKey( keyTenantIdx ) ) {
 			subdictTenantIdx = dictByTenantIdx.get( keyTenantIdx );
 		}
 		else {
-			subdictTenantIdx = new HashMap< CFIntMajorVersionPKey, CFIntMajorVersionBuff >();
+			subdictTenantIdx = new HashMap< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff >();
 			dictByTenantIdx.put( keyTenantIdx, subdictTenantIdx );
 		}
 		subdictTenantIdx.put( pkey, Buff );
 
-		Map< CFIntMajorVersionPKey, CFIntMajorVersionBuff > subdictSubProjectIdx;
+		Map< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff > subdictSubProjectIdx;
 		if( dictBySubProjectIdx.containsKey( keySubProjectIdx ) ) {
 			subdictSubProjectIdx = dictBySubProjectIdx.get( keySubProjectIdx );
 		}
 		else {
-			subdictSubProjectIdx = new HashMap< CFIntMajorVersionPKey, CFIntMajorVersionBuff >();
+			subdictSubProjectIdx = new HashMap< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff >();
 			dictBySubProjectIdx.put( keySubProjectIdx, subdictSubProjectIdx );
 		}
 		subdictSubProjectIdx.put( pkey, Buff );
@@ -176,14 +176,14 @@ public class CFIntRamMajorVersionTable
 
 	}
 
-	public CFIntMajorVersionBuff readDerived( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey PKey )
+	public YCFIntMajorVersionBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey PKey )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readDerived";
-		CFIntMajorVersionPKey key = schema.getFactoryMajorVersion().newPKey();
+		final String S_ProcName = "YCFIntRamMajorVersion.readDerived";
+		YCFIntMajorVersionPKey key = schema.getFactoryMajorVersion().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFIntMajorVersionBuff buff;
+		YCFIntMajorVersionBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -193,14 +193,14 @@ public class CFIntRamMajorVersionTable
 		return( buff );
 	}
 
-	public CFIntMajorVersionBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey PKey )
+	public YCFIntMajorVersionBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey PKey )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readDerived";
-		CFIntMajorVersionPKey key = schema.getFactoryMajorVersion().newPKey();
+		final String S_ProcName = "YCFIntRamMajorVersion.readDerived";
+		YCFIntMajorVersionPKey key = schema.getFactoryMajorVersion().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFIntMajorVersionBuff buff;
+		YCFIntMajorVersionBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -210,10 +210,10 @@ public class CFIntRamMajorVersionTable
 		return( buff );
 	}
 
-	public CFIntMajorVersionBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFIntRamMajorVersion.readAllDerived";
-		CFIntMajorVersionBuff[] retList = new CFIntMajorVersionBuff[ dictByPKey.values().size() ];
-		Iterator< CFIntMajorVersionBuff > iter = dictByPKey.values().iterator();
+	public YCFIntMajorVersionBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFIntRamMajorVersion.readAllDerived";
+		YCFIntMajorVersionBuff[] retList = new YCFIntMajorVersionBuff[ dictByPKey.values().size() ];
+		Iterator< YCFIntMajorVersionBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -221,74 +221,74 @@ public class CFIntRamMajorVersionTable
 		return( retList );
 	}
 
-	public CFIntMajorVersionBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	public YCFIntMajorVersionBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readDerivedByTenantIdx";
-		CFIntMajorVersionByTenantIdxKey key = schema.getFactoryMajorVersion().newTenantIdxKey();
+		final String S_ProcName = "YCFIntRamMajorVersion.readDerivedByTenantIdx";
+		YCFIntMajorVersionByTenantIdxKey key = schema.getFactoryMajorVersion().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 
-		CFIntMajorVersionBuff[] recArray;
+		YCFIntMajorVersionBuff[] recArray;
 		if( dictByTenantIdx.containsKey( key ) ) {
-			Map< CFIntMajorVersionPKey, CFIntMajorVersionBuff > subdictTenantIdx
+			Map< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff > subdictTenantIdx
 				= dictByTenantIdx.get( key );
-			recArray = new CFIntMajorVersionBuff[ subdictTenantIdx.size() ];
-			Iterator< CFIntMajorVersionBuff > iter = subdictTenantIdx.values().iterator();
+			recArray = new YCFIntMajorVersionBuff[ subdictTenantIdx.size() ];
+			Iterator< YCFIntMajorVersionBuff > iter = subdictTenantIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFIntMajorVersionPKey, CFIntMajorVersionBuff > subdictTenantIdx
-				= new HashMap< CFIntMajorVersionPKey, CFIntMajorVersionBuff >();
+			Map< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff > subdictTenantIdx
+				= new HashMap< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff >();
 			dictByTenantIdx.put( key, subdictTenantIdx );
-			recArray = new CFIntMajorVersionBuff[0];
+			recArray = new YCFIntMajorVersionBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFIntMajorVersionBuff[] readDerivedBySubProjectIdx( CFSecAuthorization Authorization,
+	public YCFIntMajorVersionBuff[] readDerivedBySubProjectIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SubProjectId )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readDerivedBySubProjectIdx";
-		CFIntMajorVersionBySubProjectIdxKey key = schema.getFactoryMajorVersion().newSubProjectIdxKey();
+		final String S_ProcName = "YCFIntRamMajorVersion.readDerivedBySubProjectIdx";
+		YCFIntMajorVersionBySubProjectIdxKey key = schema.getFactoryMajorVersion().newSubProjectIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSubProjectId( SubProjectId );
 
-		CFIntMajorVersionBuff[] recArray;
+		YCFIntMajorVersionBuff[] recArray;
 		if( dictBySubProjectIdx.containsKey( key ) ) {
-			Map< CFIntMajorVersionPKey, CFIntMajorVersionBuff > subdictSubProjectIdx
+			Map< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff > subdictSubProjectIdx
 				= dictBySubProjectIdx.get( key );
-			recArray = new CFIntMajorVersionBuff[ subdictSubProjectIdx.size() ];
-			Iterator< CFIntMajorVersionBuff > iter = subdictSubProjectIdx.values().iterator();
+			recArray = new YCFIntMajorVersionBuff[ subdictSubProjectIdx.size() ];
+			Iterator< YCFIntMajorVersionBuff > iter = subdictSubProjectIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFIntMajorVersionPKey, CFIntMajorVersionBuff > subdictSubProjectIdx
-				= new HashMap< CFIntMajorVersionPKey, CFIntMajorVersionBuff >();
+			Map< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff > subdictSubProjectIdx
+				= new HashMap< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff >();
 			dictBySubProjectIdx.put( key, subdictSubProjectIdx );
-			recArray = new CFIntMajorVersionBuff[0];
+			recArray = new YCFIntMajorVersionBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFIntMajorVersionBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	public YCFIntMajorVersionBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SubProjectId,
 		String Name )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readDerivedByNameIdx";
-		CFIntMajorVersionByNameIdxKey key = schema.getFactoryMajorVersion().newNameIdxKey();
+		final String S_ProcName = "YCFIntRamMajorVersion.readDerivedByNameIdx";
+		YCFIntMajorVersionByNameIdxKey key = schema.getFactoryMajorVersion().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSubProjectId( SubProjectId );
 		key.setRequiredName( Name );
 
-		CFIntMajorVersionBuff buff;
+		YCFIntMajorVersionBuff buff;
 		if( dictByNameIdx.containsKey( key ) ) {
 			buff = dictByNameIdx.get( key );
 		}
@@ -298,16 +298,16 @@ public class CFIntRamMajorVersionTable
 		return( buff );
 	}
 
-	public CFIntMajorVersionBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntMajorVersionBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readDerivedByIdIdx() ";
-		CFIntMajorVersionPKey key = schema.getFactoryMajorVersion().newPKey();
+		final String S_ProcName = "YCFIntRamMajorVersion.readDerivedByIdIdx() ";
+		YCFIntMajorVersionPKey key = schema.getFactoryMajorVersion().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFIntMajorVersionBuff buff;
+		YCFIntMajorVersionBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -317,153 +317,153 @@ public class CFIntRamMajorVersionTable
 		return( buff );
 	}
 
-	public CFIntMajorVersionBuff readBuff( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey PKey )
+	public YCFIntMajorVersionBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey PKey )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readBuff";
-		CFIntMajorVersionBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFIntRamMajorVersion.readBuff";
+		YCFIntMajorVersionBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a102" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntMajorVersionBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey PKey )
+	public YCFIntMajorVersionBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFIntMajorVersionBuff buff = readDerived( Authorization, PKey );
+		YCFIntMajorVersionBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a102" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntMajorVersionBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFIntMajorVersionBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readAllBuff";
-		CFIntMajorVersionBuff buff;
-		ArrayList<CFIntMajorVersionBuff> filteredList = new ArrayList<CFIntMajorVersionBuff>();
-		CFIntMajorVersionBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFIntRamMajorVersion.readAllBuff";
+		YCFIntMajorVersionBuff buff;
+		ArrayList<YCFIntMajorVersionBuff> filteredList = new ArrayList<YCFIntMajorVersionBuff>();
+		YCFIntMajorVersionBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a102" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntMajorVersionBuff[0] ) );
+		return( filteredList.toArray( new YCFIntMajorVersionBuff[0] ) );
 	}
 
-	public CFIntMajorVersionBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntMajorVersionBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readBuffByIdIdx() ";
-		CFIntMajorVersionBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFIntRamMajorVersion.readBuffByIdIdx() ";
+		YCFIntMajorVersionBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a102" ) ) {
-			return( (CFIntMajorVersionBuff)buff );
+			return( (YCFIntMajorVersionBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFIntMajorVersionBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	public YCFIntMajorVersionBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readBuffByTenantIdx() ";
-		CFIntMajorVersionBuff buff;
-		ArrayList<CFIntMajorVersionBuff> filteredList = new ArrayList<CFIntMajorVersionBuff>();
-		CFIntMajorVersionBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFIntRamMajorVersion.readBuffByTenantIdx() ";
+		YCFIntMajorVersionBuff buff;
+		ArrayList<YCFIntMajorVersionBuff> filteredList = new ArrayList<YCFIntMajorVersionBuff>();
+		YCFIntMajorVersionBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a102" ) ) {
-				filteredList.add( (CFIntMajorVersionBuff)buff );
+				filteredList.add( (YCFIntMajorVersionBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntMajorVersionBuff[0] ) );
+		return( filteredList.toArray( new YCFIntMajorVersionBuff[0] ) );
 	}
 
-	public CFIntMajorVersionBuff[] readBuffBySubProjectIdx( CFSecAuthorization Authorization,
+	public YCFIntMajorVersionBuff[] readBuffBySubProjectIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SubProjectId )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readBuffBySubProjectIdx() ";
-		CFIntMajorVersionBuff buff;
-		ArrayList<CFIntMajorVersionBuff> filteredList = new ArrayList<CFIntMajorVersionBuff>();
-		CFIntMajorVersionBuff[] buffList = readDerivedBySubProjectIdx( Authorization,
+		final String S_ProcName = "YCFIntRamMajorVersion.readBuffBySubProjectIdx() ";
+		YCFIntMajorVersionBuff buff;
+		ArrayList<YCFIntMajorVersionBuff> filteredList = new ArrayList<YCFIntMajorVersionBuff>();
+		YCFIntMajorVersionBuff[] buffList = readDerivedBySubProjectIdx( Authorization,
 			TenantId,
 			SubProjectId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a102" ) ) {
-				filteredList.add( (CFIntMajorVersionBuff)buff );
+				filteredList.add( (YCFIntMajorVersionBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntMajorVersionBuff[0] ) );
+		return( filteredList.toArray( new YCFIntMajorVersionBuff[0] ) );
 	}
 
-	public CFIntMajorVersionBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	public YCFIntMajorVersionBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SubProjectId,
 		String Name )
 	{
-		final String S_ProcName = "CFIntRamMajorVersion.readBuffByNameIdx() ";
-		CFIntMajorVersionBuff buff = readDerivedByNameIdx( Authorization,
+		final String S_ProcName = "YCFIntRamMajorVersion.readBuffByNameIdx() ";
+		YCFIntMajorVersionBuff buff = readDerivedByNameIdx( Authorization,
 			TenantId,
 			SubProjectId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a102" ) ) {
-			return( (CFIntMajorVersionBuff)buff );
+			return( (YCFIntMajorVersionBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public void updateMajorVersion( CFSecAuthorization Authorization,
-		CFIntMajorVersionBuff Buff )
+	public void updateMajorVersion( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionBuff Buff )
 	{
-		CFIntMajorVersionPKey pkey = schema.getFactoryMajorVersion().newPKey();
+		YCFIntMajorVersionPKey pkey = schema.getFactoryMajorVersion().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFIntMajorVersionBuff existing = dictByPKey.get( pkey );
+		YCFIntMajorVersionBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateMajorVersion",
 				"Existing record not found",
 				"MajorVersion",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateMajorVersion",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntMajorVersionByTenantIdxKey existingKeyTenantIdx = schema.getFactoryMajorVersion().newTenantIdxKey();
+		YCFIntMajorVersionByTenantIdxKey existingKeyTenantIdx = schema.getFactoryMajorVersion().newTenantIdxKey();
 		existingKeyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntMajorVersionByTenantIdxKey newKeyTenantIdx = schema.getFactoryMajorVersion().newTenantIdxKey();
+		YCFIntMajorVersionByTenantIdxKey newKeyTenantIdx = schema.getFactoryMajorVersion().newTenantIdxKey();
 		newKeyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntMajorVersionBySubProjectIdxKey existingKeySubProjectIdx = schema.getFactoryMajorVersion().newSubProjectIdxKey();
+		YCFIntMajorVersionBySubProjectIdxKey existingKeySubProjectIdx = schema.getFactoryMajorVersion().newSubProjectIdxKey();
 		existingKeySubProjectIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeySubProjectIdx.setRequiredSubProjectId( existing.getRequiredSubProjectId() );
 
-		CFIntMajorVersionBySubProjectIdxKey newKeySubProjectIdx = schema.getFactoryMajorVersion().newSubProjectIdxKey();
+		YCFIntMajorVersionBySubProjectIdxKey newKeySubProjectIdx = schema.getFactoryMajorVersion().newSubProjectIdxKey();
 		newKeySubProjectIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeySubProjectIdx.setRequiredSubProjectId( Buff.getRequiredSubProjectId() );
 
-		CFIntMajorVersionByNameIdxKey existingKeyNameIdx = schema.getFactoryMajorVersion().newNameIdxKey();
+		YCFIntMajorVersionByNameIdxKey existingKeyNameIdx = schema.getFactoryMajorVersion().newNameIdxKey();
 		existingKeyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyNameIdx.setRequiredSubProjectId( existing.getRequiredSubProjectId() );
 		existingKeyNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntMajorVersionByNameIdxKey newKeyNameIdx = schema.getFactoryMajorVersion().newNameIdxKey();
+		YCFIntMajorVersionByNameIdxKey newKeyNameIdx = schema.getFactoryMajorVersion().newNameIdxKey();
 		newKeyNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyNameIdx.setRequiredSubProjectId( Buff.getRequiredSubProjectId() );
 		newKeyNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -472,7 +472,7 @@ public class CFIntRamMajorVersionTable
 
 		if( ! existingKeyNameIdx.equals( newKeyNameIdx ) ) {
 			if( dictByNameIdx.containsKey( newKeyNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateMajorVersion",
 					"MajorVersionNameIdx",
 					newKeyNameIdx );
@@ -488,7 +488,7 @@ public class CFIntRamMajorVersionTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateMajorVersion",
 						"Owner",
 						"Tenant",
@@ -506,7 +506,7 @@ public class CFIntRamMajorVersionTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredSubProjectId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateMajorVersion",
 						"Container",
 						"ParentSubProject",
@@ -518,7 +518,7 @@ public class CFIntRamMajorVersionTable
 
 		// Update is valid
 
-		Map< CFIntMajorVersionPKey, CFIntMajorVersionBuff > subdict;
+		Map< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -531,7 +531,7 @@ public class CFIntRamMajorVersionTable
 			subdict = dictByTenantIdx.get( newKeyTenantIdx );
 		}
 		else {
-			subdict = new HashMap< CFIntMajorVersionPKey, CFIntMajorVersionBuff >();
+			subdict = new HashMap< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff >();
 			dictByTenantIdx.put( newKeyTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -544,7 +544,7 @@ public class CFIntRamMajorVersionTable
 			subdict = dictBySubProjectIdx.get( newKeySubProjectIdx );
 		}
 		else {
-			subdict = new HashMap< CFIntMajorVersionPKey, CFIntMajorVersionBuff >();
+			subdict = new HashMap< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff >();
 			dictBySubProjectIdx.put( newKeySubProjectIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -554,35 +554,35 @@ public class CFIntRamMajorVersionTable
 
 	}
 
-	public void deleteMajorVersion( CFSecAuthorization Authorization,
-		CFIntMajorVersionBuff Buff )
+	public void deleteMajorVersion( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionBuff Buff )
 	{
-		final String S_ProcName = "CFIntRamMajorVersionTable.deleteMajorVersion() ";
+		final String S_ProcName = "YCFIntRamMajorVersionTable.deleteMajorVersion() ";
 		String classCode;
-		CFIntMajorVersionPKey pkey = schema.getFactoryMajorVersion().newPKey();
+		YCFIntMajorVersionPKey pkey = schema.getFactoryMajorVersion().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFIntMajorVersionBuff existing = dictByPKey.get( pkey );
+		YCFIntMajorVersionBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteMajorVersion",
 				pkey );
 		}
 					schema.getTableMinorVersion().deleteMinorVersionByMajorVerIdx( Authorization,
 						existing.getRequiredTenantId(),
 						existing.getRequiredId() );
-		CFIntMajorVersionByTenantIdxKey keyTenantIdx = schema.getFactoryMajorVersion().newTenantIdxKey();
+		YCFIntMajorVersionByTenantIdxKey keyTenantIdx = schema.getFactoryMajorVersion().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntMajorVersionBySubProjectIdxKey keySubProjectIdx = schema.getFactoryMajorVersion().newSubProjectIdxKey();
+		YCFIntMajorVersionBySubProjectIdxKey keySubProjectIdx = schema.getFactoryMajorVersion().newSubProjectIdxKey();
 		keySubProjectIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keySubProjectIdx.setRequiredSubProjectId( existing.getRequiredSubProjectId() );
 
-		CFIntMajorVersionByNameIdxKey keyNameIdx = schema.getFactoryMajorVersion().newNameIdxKey();
+		YCFIntMajorVersionByNameIdxKey keyNameIdx = schema.getFactoryMajorVersion().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyNameIdx.setRequiredSubProjectId( existing.getRequiredSubProjectId() );
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
@@ -590,7 +590,7 @@ public class CFIntRamMajorVersionTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFIntMajorVersionPKey, CFIntMajorVersionBuff > subdict;
+		Map< YCFIntMajorVersionPKey, YCFIntMajorVersionBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -603,18 +603,18 @@ public class CFIntRamMajorVersionTable
 		dictByNameIdx.remove( keyNameIdx );
 
 	}
-	public void deleteMajorVersionByIdIdx( CFSecAuthorization Authorization,
+	public void deleteMajorVersionByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFIntMajorVersionPKey key = schema.getFactoryMajorVersion().newPKey();
+		YCFIntMajorVersionPKey key = schema.getFactoryMajorVersion().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deleteMajorVersionByIdIdx( Authorization, key );
 	}
 
-	public void deleteMajorVersionByIdIdx( CFSecAuthorization Authorization,
-		CFIntMajorVersionPKey argKey )
+	public void deleteMajorVersionByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -622,16 +622,16 @@ public class CFIntRamMajorVersionTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFIntMajorVersionBuff cur;
-		LinkedList<CFIntMajorVersionBuff> matchSet = new LinkedList<CFIntMajorVersionBuff>();
-		Iterator<CFIntMajorVersionBuff> values = dictByPKey.values().iterator();
+		YCFIntMajorVersionBuff cur;
+		LinkedList<YCFIntMajorVersionBuff> matchSet = new LinkedList<YCFIntMajorVersionBuff>();
+		Iterator<YCFIntMajorVersionBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMajorVersionBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMajorVersionBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMajorVersion().readDerivedByIdIdx( Authorization,
@@ -641,32 +641,32 @@ public class CFIntRamMajorVersionTable
 		}
 	}
 
-	public void deleteMajorVersionByTenantIdx( CFSecAuthorization Authorization,
+	public void deleteMajorVersionByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFIntMajorVersionByTenantIdxKey key = schema.getFactoryMajorVersion().newTenantIdxKey();
+		YCFIntMajorVersionByTenantIdxKey key = schema.getFactoryMajorVersion().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteMajorVersionByTenantIdx( Authorization, key );
 	}
 
-	public void deleteMajorVersionByTenantIdx( CFSecAuthorization Authorization,
-		CFIntMajorVersionByTenantIdxKey argKey )
+	public void deleteMajorVersionByTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionByTenantIdxKey argKey )
 	{
-		CFIntMajorVersionBuff cur;
+		YCFIntMajorVersionBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntMajorVersionBuff> matchSet = new LinkedList<CFIntMajorVersionBuff>();
-		Iterator<CFIntMajorVersionBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntMajorVersionBuff> matchSet = new LinkedList<YCFIntMajorVersionBuff>();
+		Iterator<YCFIntMajorVersionBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMajorVersionBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMajorVersionBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMajorVersion().readDerivedByIdIdx( Authorization,
@@ -676,35 +676,35 @@ public class CFIntRamMajorVersionTable
 		}
 	}
 
-	public void deleteMajorVersionBySubProjectIdx( CFSecAuthorization Authorization,
+	public void deleteMajorVersionBySubProjectIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSubProjectId )
 	{
-		CFIntMajorVersionBySubProjectIdxKey key = schema.getFactoryMajorVersion().newSubProjectIdxKey();
+		YCFIntMajorVersionBySubProjectIdxKey key = schema.getFactoryMajorVersion().newSubProjectIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredSubProjectId( argSubProjectId );
 		deleteMajorVersionBySubProjectIdx( Authorization, key );
 	}
 
-	public void deleteMajorVersionBySubProjectIdx( CFSecAuthorization Authorization,
-		CFIntMajorVersionBySubProjectIdxKey argKey )
+	public void deleteMajorVersionBySubProjectIdx( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionBySubProjectIdxKey argKey )
 	{
-		CFIntMajorVersionBuff cur;
+		YCFIntMajorVersionBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntMajorVersionBuff> matchSet = new LinkedList<CFIntMajorVersionBuff>();
-		Iterator<CFIntMajorVersionBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntMajorVersionBuff> matchSet = new LinkedList<YCFIntMajorVersionBuff>();
+		Iterator<YCFIntMajorVersionBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMajorVersionBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMajorVersionBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMajorVersion().readDerivedByIdIdx( Authorization,
@@ -714,22 +714,22 @@ public class CFIntRamMajorVersionTable
 		}
 	}
 
-	public void deleteMajorVersionByNameIdx( CFSecAuthorization Authorization,
+	public void deleteMajorVersionByNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSubProjectId,
 		String argName )
 	{
-		CFIntMajorVersionByNameIdxKey key = schema.getFactoryMajorVersion().newNameIdxKey();
+		YCFIntMajorVersionByNameIdxKey key = schema.getFactoryMajorVersion().newNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredSubProjectId( argSubProjectId );
 		key.setRequiredName( argName );
 		deleteMajorVersionByNameIdx( Authorization, key );
 	}
 
-	public void deleteMajorVersionByNameIdx( CFSecAuthorization Authorization,
-		CFIntMajorVersionByNameIdxKey argKey )
+	public void deleteMajorVersionByNameIdx( YCFSecAuthorization Authorization,
+		YCFIntMajorVersionByNameIdxKey argKey )
 	{
-		CFIntMajorVersionBuff cur;
+		YCFIntMajorVersionBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -737,15 +737,15 @@ public class CFIntRamMajorVersionTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntMajorVersionBuff> matchSet = new LinkedList<CFIntMajorVersionBuff>();
-		Iterator<CFIntMajorVersionBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntMajorVersionBuff> matchSet = new LinkedList<YCFIntMajorVersionBuff>();
+		Iterator<YCFIntMajorVersionBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntMajorVersionBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntMajorVersionBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableMajorVersion().readDerivedByIdIdx( Authorization,

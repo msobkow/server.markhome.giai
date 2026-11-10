@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for ISOCtryLang
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,23 +35,23 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSaxLoaderISOCtryLangParse XML SAX Element Handler implementation
+ *	YCFBamSaxLoaderISOCtryLangParse XML SAX Element Handler implementation
  *	for ISOCtryLang.
  */
-public class CFBamSaxLoaderISOCtryLang
-	extends CFLibXmlCoreElementHandler
+public class YCFBamSaxLoaderISOCtryLang
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamSaxLoaderISOCtryLang( CFBamSaxLoader saxLoader ) {
+	public YCFBamSaxLoaderISOCtryLang( YCFBamSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -63,15 +63,15 @@ public class CFBamSaxLoaderISOCtryLang
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFBamISOCtryLangObj origBuff = null;
-		ICFBamISOCtryLangEditObj editBuff = null;
+		IYCFBamISOCtryLangObj origBuff = null;
+		IYCFBamISOCtryLangEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// ISOCtryLang Attributes
 		String attrLang = null;
 		// ISOCtryLang References
-		ICFBamISOCtryObj refCtry = null;
-		ICFBamISOLangObj refLang = null;
+		IYCFBamISOCtryObj refCtry = null;
+		IYCFBamISOLangObj refLang = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -80,25 +80,25 @@ public class CFBamSaxLoaderISOCtryLang
 		try {
 			assert qName.equals( "ISOCtryLang" );
 
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFBamISOCtryLangObj)schemaObj.getISOCtryLangTableObj().newInstance();
-			editBuff = (ICFBamISOCtryLangEditObj)origBuff.beginEdit();
+			origBuff = (IYCFBamISOCtryLangObj)schemaObj.getISOCtryLangTableObj().newInstance();
+			editBuff = (IYCFBamISOCtryLangEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -106,7 +106,7 @@ public class CFBamSaxLoaderISOCtryLang
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -115,7 +115,7 @@ public class CFBamSaxLoaderISOCtryLang
 				}
 				else if( attrLocalName.equals( "Lang" ) ) {
 					if( attrLang != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -126,7 +126,7 @@ public class CFBamSaxLoaderISOCtryLang
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -135,14 +135,14 @@ public class CFBamSaxLoaderISOCtryLang
 
 			// Ensure that required attributes have values
 			if( ( attrLang == null ) || ( attrLang.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Lang" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Lang", attrLang );
 
@@ -158,7 +158,7 @@ public class CFBamSaxLoaderISOCtryLang
 			}
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -170,28 +170,28 @@ public class CFBamSaxLoaderISOCtryLang
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamISOCtryObj ) {
-				refCtry = (ICFBamISOCtryObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamISOCtryObj ) {
+				refCtry = (IYCFBamISOCtryObj) scopeObj;
 				editBuff.setRequiredContainerCtry( refCtry );
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamISOCtryObj" );
+					"IYCFBamISOCtryObj" );
 			}
 
 			// Lookup refLang by key name value attr
 			if( ( attrLang != null ) && ( attrLang.length() > 0 ) ) {
-				refLang = (ICFBamISOLangObj)schemaObj.getISOLangTableObj().readISOLangByCode3Idx( attrLang );
+				refLang = (IYCFBamISOLangObj)schemaObj.getISOLangTableObj().readISOLangByCode3Idx( attrLang );
 				if( refLang == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve Lang reference named \"" + attrLang + "\" to table ISOLang" );
@@ -202,9 +202,9 @@ public class CFBamSaxLoaderISOCtryLang
 			}
 			editBuff.setRequiredParentLang( refLang );
 
-			ICFBamISOCtryLangObj origISOCtryLang;
-			ICFBamISOCtryLangEditObj editISOCtryLang = editBuff;
-			origISOCtryLang = (ICFBamISOCtryLangObj)editISOCtryLang.create();
+			IYCFBamISOCtryLangObj origISOCtryLang;
+			IYCFBamISOCtryLangEditObj editISOCtryLang = editBuff;
+			origISOCtryLang = (IYCFBamISOCtryLangObj)editISOCtryLang.create();
 			editISOCtryLang = null;
 
 			curContext.putNamedValue( "Object", origISOCtryLang );

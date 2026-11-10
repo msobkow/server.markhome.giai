@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelCounter buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelCounterBuff
-	extends CFGenKbGelInstructionBuff
+public class YCFGenKbGelCounterBuff
+	extends YCFGenKbGelInstructionBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -54,9 +54,9 @@ public class CFGenKbGelCounterBuff
 	public static final long GELCACHEID_MIN_VALUE = 0L;
 	public static final long GELINSTID_MIN_VALUE = 0L;
 	protected String requiredCounterName;
-	public CFGenKbGelCounterBuff() {
+	public YCFGenKbGelCounterBuff() {
 		super();
-		requiredCounterName = new String( CFGenKbGelCounterBuff.COUNTERNAME_INIT_VALUE );
+		requiredCounterName = new String( YCFGenKbGelCounterBuff.COUNTERNAME_INIT_VALUE );
 	}
 
 	public String getClassCode() {
@@ -69,13 +69,13 @@ public class CFGenKbGelCounterBuff
 
 	public void setRequiredCounterName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredCounterName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredCounterName",
 				1,
 				"value.length()",
@@ -89,8 +89,8 @@ public class CFGenKbGelCounterBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelCounterBuff ) {
-			CFGenKbGelCounterBuff rhs = (CFGenKbGelCounterBuff)obj;
+		else if( obj instanceof YCFGenKbGelCounterBuff ) {
+			YCFGenKbGelCounterBuff rhs = (YCFGenKbGelCounterBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -105,8 +105,8 @@ public class CFGenKbGelCounterBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -136,8 +136,8 @@ public class CFGenKbGelCounterBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelCounterBuff ) {
-			CFGenKbGelCounterBuff rhs = (CFGenKbGelCounterBuff)obj;
+		else if( obj instanceof YCFGenKbGelCounterBuff ) {
+			YCFGenKbGelCounterBuff rhs = (YCFGenKbGelCounterBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -150,8 +150,8 @@ public class CFGenKbGelCounterBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -178,20 +178,20 @@ public class CFGenKbGelCounterBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelCounterBuff ) {
-			setGelCounterBuff( (CFGenKbGelCounterBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelCounterBuff ) {
+			setGelCounterBuff( (YCFGenKbGelCounterBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelCounterBuff" );
+				"YCFGenKbGelCounterBuff" );
 		}
 	}
 
-	public void setGelCounterBuff( CFGenKbGelCounterBuff src ) {
+	public void setGelCounterBuff( YCFGenKbGelCounterBuff src ) {
 		super.setGelInstructionBuff( src );
 		setRequiredCounterName( src.getRequiredCounterName() );
 	}

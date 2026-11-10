@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,44 +23,44 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
-public class MSSBamCFGenIterateComponentCandidates
-	extends MssCFGenIteratorObj
+public class MSSBamYCFGenIterateComponentCandidates
+	extends MssYCFGenIteratorObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public MSSBamCFGenIterateComponentCandidates() {
+	public MSSBamYCFGenIterateComponentCandidates() {
 		super();
 	}
 
-	public MSSBamCFGenIterateComponentCandidates(
-		MSSBamCFEngine argSchema,
+	public MSSBamYCFGenIterateComponentCandidates(
+		MSSBamYCFEngine argSchema,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -69,50 +69,50 @@ public class MSSBamCFGenIterateComponentCandidates
 		super( argSchema, toolset, scopeDefClassName, genDefClassName, itemName, "Table");
 	}
 
-	public static boolean derivesFrom( ICFBamTableObj obj, ICFBamTableObj target ) {
+	public static boolean derivesFrom( IYCFBamTableObj obj, IYCFBamTableObj target ) {
 		if( obj == target ) {
 			return( true );
 		}
 
-		ICFBamRelationObj superClassRelation = MSSBamCFTableObj.getSuperClassRelation( obj );
-		ICFBamTableObj cur;
+		IYCFBamRelationObj superClassRelation = MSSBamYCFTableObj.getSuperClassRelation( obj );
+		IYCFBamTableObj cur;
 		while( superClassRelation != null ) {
 			cur = superClassRelation.getRequiredLookupToTable();
 			if( cur == target ) {
 				return( true );
 			}
-			superClassRelation = MSSBamCFTableObj.getSuperClassRelation( cur );
+			superClassRelation = MSSBamYCFTableObj.getSuperClassRelation( cur );
 		}
 
 		return( false );
 	}
 
-	public static boolean canBeContainedBy( ICFBamTableObj container, ICFBamTableObj component ) {
+	public static boolean canBeContainedBy( IYCFBamTableObj container, IYCFBamTableObj component ) {
 		if( ! component.getRequiredIsInstantiable() ) {
 			return( false );
 		}
 
-		ICFBamRelationObj containerRelation = MSSBamCFTableObj.getInheritedContainerRelation( component );
+		IYCFBamRelationObj containerRelation = MSSBamYCFTableObj.getInheritedContainerRelation( component );
 		if( containerRelation == null ) {
 			return( false );
 		}
 
-		ICFBamTableObj containedBy = containerRelation.getRequiredLookupToTable();
+		IYCFBamTableObj containedBy = containerRelation.getRequiredLookupToTable();
 
 		boolean ret = derivesFrom( container, containedBy );
 		return( ret );
 	}
 
-	public static void addAndWalkSubClasses( List<ICFLibAnyObj> list,
-		ICFBamTableObj startTable,
-		ICFBamTableObj containedBy )
+	public static void addAndWalkSubClasses( List<IYCFLibAnyObj> list,
+		IYCFBamTableObj startTable,
+		IYCFBamTableObj containedBy )
 	{
 		if( canBeContainedBy( containedBy, startTable ) ) {
 			list.add( startTable );
 		}
 
-		ListIterator<ICFBamRelationObj> subClassRelations = MSSBamCFTableObj.getSubClassRelations( startTable ).listIterator();
-		ICFBamRelationObj subClassRelation = null;
+		ListIterator<IYCFBamRelationObj> subClassRelations = MSSBamYCFTableObj.getSubClassRelations( startTable ).listIterator();
+		IYCFBamRelationObj subClassRelation = null;
 		while( subClassRelations.hasNext() ) {
 			subClassRelation = subClassRelations.next();
 			// Note that the sub-class relations are reverse relations, so the meaning of
@@ -122,13 +122,13 @@ public class MSSBamCFGenIterateComponentCandidates
 		}
 	}
 
-	public ListIterator<ICFLibAnyObj> enumerateDetails( MssCFGenContext genContext)
+	public ListIterator<IYCFLibAnyObj> enumerateDetails( MssYCFGenContext genContext)
 	{
-		ICFLibAnyObj genDef;
+		IYCFLibAnyObj genDef;
 		final String S_ProcName = "enumerateDetails";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
@@ -136,24 +136,24 @@ public class MSSBamCFGenIterateComponentCandidates
 
 		genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"genContext.GenDef" );
 		}
 
-		if (!(genDef instanceof ICFBamRelationObj)) {
-			throw new CFLibUnsupportedClassException( getClass(),
+		if (!(genDef instanceof IYCFBamRelationObj)) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.GenDef",
 				genDef,
-				"ICFBamRelationObj" );
+				"IYCFBamRelationObj" );
 		}
 
-		ICFBamRelationObj relationDef = (ICFBamRelationObj)genDef;
-		ICFBamTableObj containedBy = relationDef.getRequiredContainerFromTable();
-		ICFBamTableObj startTable = relationDef.getRequiredLookupToTable();
-		List<ICFLibAnyObj> list = new LinkedList<ICFLibAnyObj>();
+		IYCFBamRelationObj relationDef = (IYCFBamRelationObj)genDef;
+		IYCFBamTableObj containedBy = relationDef.getRequiredContainerFromTable();
+		IYCFBamTableObj startTable = relationDef.getRequiredLookupToTable();
+		List<IYCFLibAnyObj> list = new LinkedList<IYCFLibAnyObj>();
 		addAndWalkSubClasses( list, startTable, containedBy );
 
 		return (list.listIterator());

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelCall by CacheIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,18 +37,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelCallByCacheIdxKey
+public class YCFGenKbGelCallByCacheIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected long requiredGelCacheId;
-	public CFGenKbGelCallByCacheIdxKey() {
-		requiredTenantId = CFGenKbGelCallBuff.TENANTID_INIT_VALUE;
-		requiredGelCacheId = CFGenKbGelCallBuff.GELCACHEID_INIT_VALUE;
+	public YCFGenKbGelCallByCacheIdxKey() {
+		requiredTenantId = YCFGenKbGelCallBuff.TENANTID_INIT_VALUE;
+		requiredGelCacheId = YCFGenKbGelCallBuff.GELCACHEID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -56,13 +56,13 @@ public class CFGenKbGelCallByCacheIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbGelCallBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelCallBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelCallBuff.TENANTID_MIN_VALUE );
+				YCFGenKbGelCallBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -72,13 +72,13 @@ public class CFGenKbGelCallByCacheIdxKey
 	}
 
 	public void setRequiredGelCacheId( long value ) {
-		if( value < CFGenKbGelCallBuff.GELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelCallBuff.GELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelCallBuff.GELCACHEID_MIN_VALUE );
+				YCFGenKbGelCallBuff.GELCACHEID_MIN_VALUE );
 		}
 		requiredGelCacheId = value;
 	}
@@ -87,8 +87,8 @@ public class CFGenKbGelCallByCacheIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelCallByCacheIdxKey ) {
-			CFGenKbGelCallByCacheIdxKey rhs = (CFGenKbGelCallByCacheIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelCallByCacheIdxKey ) {
+			YCFGenKbGelCallByCacheIdxKey rhs = (YCFGenKbGelCallByCacheIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -97,8 +97,8 @@ public class CFGenKbGelCallByCacheIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelCallBuff ) {
-			CFGenKbGelCallBuff rhs = (CFGenKbGelCallBuff)obj;
+		else if( obj instanceof YCFGenKbGelCallBuff ) {
+			YCFGenKbGelCallBuff rhs = (YCFGenKbGelCallBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -123,8 +123,8 @@ public class CFGenKbGelCallByCacheIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelCallByCacheIdxKey ) {
-			CFGenKbGelCallByCacheIdxKey rhs = (CFGenKbGelCallByCacheIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelCallByCacheIdxKey ) {
+			YCFGenKbGelCallByCacheIdxKey rhs = (YCFGenKbGelCallByCacheIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -139,8 +139,8 @@ public class CFGenKbGelCallByCacheIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelCallBuff ) {
-			CFGenKbGelCallBuff rhs = (CFGenKbGelCallBuff)obj;
+		else if( obj instanceof YCFGenKbGelCallBuff ) {
+			YCFGenKbGelCallBuff rhs = (YCFGenKbGelCallBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -156,7 +156,7 @@ public class CFGenKbGelCallByCacheIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -165,7 +165,7 @@ public class CFGenKbGelCallByCacheIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelCallByCacheIdx"
+		String ret = "<YCFGenKbGelCallByCacheIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredGelCacheId=" + "\"" + Long.toString( getRequiredGelCacheId() ) + "\""
 			+ "/>";

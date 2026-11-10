@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ISOCcy history primary key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,25 +36,25 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFSecISOCcyHPKey History Primary Key for ISOCcy
+ *	YCFSecISOCcyHPKey History Primary Key for ISOCcy
 
  *		requiredISOCcyId	Required object attribute ISOCcyId. */
-public class CFSecISOCcyHPKey
-	extends CFSecHPKey
+public class YCFSecISOCcyHPKey
+	extends YCFSecHPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected short requiredISOCcyId;
-	public CFSecISOCcyHPKey()
+	public YCFSecISOCcyHPKey()
 	{
 		super();
-		requiredISOCcyId = CFSecISOCcyBuff.ISOCCYID_INIT_VALUE;
+		requiredISOCcyId = YCFSecISOCcyBuff.ISOCCYID_INIT_VALUE;
 	}
 
 	public short getRequiredISOCcyId() {
@@ -62,13 +62,13 @@ public class CFSecISOCcyHPKey
 	}
 
 	public void setRequiredISOCcyId( short value ) {
-		if( value < CFSecISOCcyBuff.ISOCCYID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecISOCcyBuff.ISOCCYID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCcyId",
 				1,
 				"value",
 				value,
-				CFSecISOCcyBuff.ISOCCYID_MIN_VALUE );
+				YCFSecISOCcyBuff.ISOCCYID_MIN_VALUE );
 		}
 		requiredISOCcyId = value;
 	}
@@ -77,8 +77,8 @@ public class CFSecISOCcyHPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecISOCcyHPKey ) {
-			CFSecISOCcyHPKey rhs = (CFSecISOCcyHPKey)obj;
+		else if( obj instanceof YCFSecISOCcyHPKey ) {
+			YCFSecISOCcyHPKey rhs = (YCFSecISOCcyHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -139,8 +139,8 @@ public class CFSecISOCcyHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -198,15 +198,15 @@ public class CFSecISOCcyHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCcyPKey ) {
-			CFSecISOCcyPKey rhs = (CFSecISOCcyPKey)obj;
+		else if( obj instanceof YCFSecISOCcyPKey ) {
+			YCFSecISOCcyPKey rhs = (YCFSecISOCcyPKey)obj;
 			if( getRequiredISOCcyId() != rhs.getRequiredISOCcyId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCcyHBuff ) {
-			CFSecISOCcyHBuff rhs = (CFSecISOCcyHBuff)obj;
+		else if( obj instanceof YCFSecISOCcyHBuff ) {
+			YCFSecISOCcyHBuff rhs = (YCFSecISOCcyHBuff)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -270,8 +270,8 @@ public class CFSecISOCcyHPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOCcyBuff ) {
-			CFSecISOCcyBuff rhs = (CFSecISOCcyBuff)obj;
+		else if( obj instanceof YCFSecISOCcyBuff ) {
+			YCFSecISOCcyBuff rhs = (YCFSecISOCcyBuff)obj;
 			if( getRequiredISOCcyId() != rhs.getRequiredISOCcyId() ) {
 				return( false );
 			}
@@ -292,8 +292,8 @@ public class CFSecISOCcyHPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecISOCcyHBuff ) {
-			CFSecISOCcyHBuff rhs = (CFSecISOCcyHBuff)obj;
+		else if( obj instanceof YCFSecISOCcyHBuff ) {
+			YCFSecISOCcyHBuff rhs = (YCFSecISOCcyHBuff)obj;
 			int retval = 0;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
@@ -369,8 +369,8 @@ public class CFSecISOCcyHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCcyHPKey ) {
-			CFSecISOCcyHPKey rhs = (CFSecISOCcyHPKey)obj;
+		else if( obj instanceof YCFSecISOCcyHPKey ) {
+			YCFSecISOCcyHPKey rhs = (YCFSecISOCcyHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -445,8 +445,8 @@ public class CFSecISOCcyHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -515,8 +515,8 @@ public class CFSecISOCcyHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCcyPKey ) {
-			CFSecISOCcyPKey rhs = (CFSecISOCcyPKey)obj;
+		else if( obj instanceof YCFSecISOCcyPKey ) {
+			YCFSecISOCcyPKey rhs = (YCFSecISOCcyPKey)obj;
 			if( getRequiredISOCcyId() < rhs.getRequiredISOCcyId() ) {
 				return( -1 );
 			}
@@ -525,8 +525,8 @@ public class CFSecISOCcyHPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOCcyBuff ) {
-			CFSecISOCcyBuff rhs = (CFSecISOCcyBuff)obj;
+		else if( obj instanceof YCFSecISOCcyBuff ) {
+			YCFSecISOCcyBuff rhs = (YCFSecISOCcyBuff)obj;
 			if( getRequiredISOCcyId() < rhs.getRequiredISOCcyId() ) {
 				return( -1 );
 			}
@@ -536,16 +536,16 @@ public class CFSecISOCcyHPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFSecISOCcyHPKey, CFSecISOCcyPKey, CFSecISOCcyBuff" );
+				"YCFSecISOCcyHPKey, YCFSecISOCcyPKey, YCFSecISOCcyBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFSecISOCcyHPKey"
+		String ret = "<YCFSecISOCcyHPKey"
 			+ " RequiredISOCcyId=" + "\"" + Short.toString( getRequiredISOCcyId() ) + "\""
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
 			+ "/>";

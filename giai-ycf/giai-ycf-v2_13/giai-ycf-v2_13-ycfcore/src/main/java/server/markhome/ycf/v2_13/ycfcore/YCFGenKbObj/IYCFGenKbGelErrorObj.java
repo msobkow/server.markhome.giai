@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GelError.
+// Description: Java 11 Object interface for YCFGenKb GelError.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,44 +27,44 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public interface ICFGenKbGelErrorObj
-	extends ICFGenKbGelBoilerplateObj
+public interface IYCFGenKbGelErrorObj
+	extends IYCFGenKbGelBoilerplateObj
 {
 	/**
-	 *	Get the current edition of this GelError instance as a ICFGenKbGelErrorEditObj.
+	 *	Get the current edition of this GelError instance as a IYCFGenKbGelErrorEditObj.
 	 *
-	 *	@return	The ICFGenKbGelErrorEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGelErrorEditObj edition of this instance.
 	 */
-	ICFGenKbGelErrorEditObj getEditAsGelError();
+	IYCFGenKbGelErrorEditObj getEditAsGelError();
 
 	/**
-	 *	Get the ICFGenKbGelErrorTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGelErrorTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGelErrorTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGelErrorTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGelErrorTableObj getGelErrorTable();
+	IYCFGenKbGelErrorTableObj getGelErrorTable();
 
 	/**
-	 *	Get the CFGenKbGelErrorBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGelErrorBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGelErrorBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGelErrorBuff instance which currently backs this object.
 	 */
-	CFGenKbGelErrorBuff getGelErrorBuff();
+	YCFGenKbGelErrorBuff getGelErrorBuff();
 
 }

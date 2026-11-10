@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for GelIterator.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,57 +36,57 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbGelIteratorFactory implementation for GelIterator
+	 *	YCFGenKbGelIteratorFactory implementation for GelIterator
 	 */
-public class CFGenKbGelIteratorDefaultFactory
-	implements ICFGenKbGelIteratorFactory
+public class YCFGenKbGelIteratorDefaultFactory
+	implements IYCFGenKbGelIteratorFactory
 {
-	public CFGenKbGelIteratorDefaultFactory() {
+	public YCFGenKbGelIteratorDefaultFactory() {
 	}
 
-	public CFGenKbGelIteratorByBeforeIdxKey newBeforeIdxKey() {
-		CFGenKbGelIteratorByBeforeIdxKey key =
-			new CFGenKbGelIteratorByBeforeIdxKey();
+	public YCFGenKbGelIteratorByBeforeIdxKey newBeforeIdxKey() {
+		YCFGenKbGelIteratorByBeforeIdxKey key =
+			new YCFGenKbGelIteratorByBeforeIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelIteratorByFirstIdxKey newFirstIdxKey() {
-		CFGenKbGelIteratorByFirstIdxKey key =
-			new CFGenKbGelIteratorByFirstIdxKey();
+	public YCFGenKbGelIteratorByFirstIdxKey newFirstIdxKey() {
+		YCFGenKbGelIteratorByFirstIdxKey key =
+			new YCFGenKbGelIteratorByFirstIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelIteratorByEachIdxKey newEachIdxKey() {
-		CFGenKbGelIteratorByEachIdxKey key =
-			new CFGenKbGelIteratorByEachIdxKey();
+	public YCFGenKbGelIteratorByEachIdxKey newEachIdxKey() {
+		YCFGenKbGelIteratorByEachIdxKey key =
+			new YCFGenKbGelIteratorByEachIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelIteratorByLastIdxKey newLastIdxKey() {
-		CFGenKbGelIteratorByLastIdxKey key =
-			new CFGenKbGelIteratorByLastIdxKey();
+	public YCFGenKbGelIteratorByLastIdxKey newLastIdxKey() {
+		YCFGenKbGelIteratorByLastIdxKey key =
+			new YCFGenKbGelIteratorByLastIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelIteratorByLoneIdxKey newLoneIdxKey() {
-		CFGenKbGelIteratorByLoneIdxKey key =
-			new CFGenKbGelIteratorByLoneIdxKey();
+	public YCFGenKbGelIteratorByLoneIdxKey newLoneIdxKey() {
+		YCFGenKbGelIteratorByLoneIdxKey key =
+			new YCFGenKbGelIteratorByLoneIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelIteratorByEmptyIdxKey newEmptyIdxKey() {
-		CFGenKbGelIteratorByEmptyIdxKey key =
-			new CFGenKbGelIteratorByEmptyIdxKey();
+	public YCFGenKbGelIteratorByEmptyIdxKey newEmptyIdxKey() {
+		YCFGenKbGelIteratorByEmptyIdxKey key =
+			new YCFGenKbGelIteratorByEmptyIdxKey();
 		return( key );
 	}
 
-	public CFGenKbGelIteratorBuff newBuff() {
-		CFGenKbGelIteratorBuff buff =
-			new CFGenKbGelIteratorBuff();
+	public YCFGenKbGelIteratorBuff newBuff() {
+		YCFGenKbGelIteratorBuff buff =
+			new YCFGenKbGelIteratorBuff();
 		return( buff );
 	}
 }

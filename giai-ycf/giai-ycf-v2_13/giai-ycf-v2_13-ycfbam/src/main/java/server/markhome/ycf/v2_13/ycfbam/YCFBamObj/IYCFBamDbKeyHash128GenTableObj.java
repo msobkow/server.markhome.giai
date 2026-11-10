@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamDbKeyHash128GenTableObj
+public interface IYCFBamDbKeyHash128GenTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamDbKeyHash128GenObj newInstance();
+	IYCFBamDbKeyHash128GenObj newInstance();
 
 	/**
 	 *	Instantiate a new DbKeyHash128Gen edition of the specified DbKeyHash128Gen instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamDbKeyHash128GenEditObj newEditInstance( ICFBamDbKeyHash128GenObj orig );
+	IYCFBamDbKeyHash128GenEditObj newEditInstance( IYCFBamDbKeyHash128GenObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDbKeyHash128GenObj realiseDbKeyHash128Gen( ICFBamDbKeyHash128GenObj Obj );
+	IYCFBamDbKeyHash128GenObj realiseDbKeyHash128Gen( IYCFBamDbKeyHash128GenObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDbKeyHash128GenObj createDbKeyHash128Gen( ICFBamDbKeyHash128GenObj Obj );
+	IYCFBamDbKeyHash128GenObj createDbKeyHash128Gen( IYCFBamDbKeyHash128GenObj Obj );
 
 	/**
 	 *	Read a DbKeyHash128Gen-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *	@return	The DbKeyHash128Gen-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDbKeyHash128GenObj readDbKeyHash128Gen( CFBamValuePKey pkey );
+	IYCFBamDbKeyHash128GenObj readDbKeyHash128Gen( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a DbKeyHash128Gen-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *	@return	The DbKeyHash128Gen-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDbKeyHash128GenObj readDbKeyHash128Gen( CFBamValuePKey pkey,
+	IYCFBamDbKeyHash128GenObj readDbKeyHash128Gen( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamDbKeyHash128GenObj readCachedDbKeyHash128Gen( CFBamValuePKey pkey );
+	IYCFBamDbKeyHash128GenObj readCachedDbKeyHash128Gen( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeDbKeyHash128Gen( ICFBamDbKeyHash128GenObj obj );
+	public void reallyDeepDisposeDbKeyHash128Gen( IYCFBamDbKeyHash128GenObj obj );
 
-	void deepDisposeDbKeyHash128Gen( CFBamValuePKey pkey );
+	void deepDisposeDbKeyHash128Gen( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDbKeyHash128GenObj lockDbKeyHash128Gen( CFBamValuePKey pkey );
+	IYCFBamDbKeyHash128GenObj lockDbKeyHash128Gen( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the DbKeyHash128Gen-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDbKeyHash128GenObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDbKeyHash128GenObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readAllDbKeyHash128Gen();
+	List<IYCFBamDbKeyHash128GenObj> readAllDbKeyHash128Gen();
 
 	/**
 	 *	Return a sorted map of all the DbKeyHash128Gen-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDbKeyHash128GenObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDbKeyHash128GenObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readAllDbKeyHash128Gen( boolean forceRead );
+	List<IYCFBamDbKeyHash128GenObj> readAllDbKeyHash128Gen( boolean forceRead );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedAllDbKeyHash128Gen();
+	List<IYCFBamDbKeyHash128GenObj> readCachedAllDbKeyHash128Gen();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDbKeyHash128GenObj readDbKeyHash128GenByIdIdx( long TenantId,
+	IYCFBamDbKeyHash128GenObj readDbKeyHash128GenByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDbKeyHash128GenObj readDbKeyHash128GenByIdIdx( long TenantId,
+	IYCFBamDbKeyHash128GenObj readDbKeyHash128GenByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@param	argName	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDbKeyHash128GenObj readDbKeyHash128GenByUNameIdx( long TenantId,
+	IYCFBamDbKeyHash128GenObj readDbKeyHash128GenByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@param	argName	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDbKeyHash128GenObj readDbKeyHash128GenByUNameIdx( long TenantId,
+	IYCFBamDbKeyHash128GenObj readDbKeyHash128GenByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByValTentIdx( long TenantId );
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByValTentIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByScopeIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByScopeIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByNextIdx( Long NextTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByNextIdx( Long NextTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@param	argPrevId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByContPrevIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@param	argPrevId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByContPrevIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@param	argNextId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByContNextIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@param	argNextId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByContNextIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@param	argCodeVis	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
@@ -446,107 +446,107 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@param	argCodeVis	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamDbKeyHash128TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenBySchemaIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenBySchemaIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate DispIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate DispIdx key.
 	 *
 	 *	@param	argDispenserTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argDispenserId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate DispIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate DispIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByDispIdx( Long DispenserTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByDispIdx( Long DispenserTenantId,
 		Long DispenserId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate DispIdx key.
+	 *	Get the map of YCFBamDbKeyHash128GenObj instances sorted by their primary keys for the duplicate DispIdx key.
 	 *
 	 *	@param	argDispenserTenantId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
 	 *	@param	argDispenserId	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate DispIdx key,
+	 *	@return	List of YCFBamDbKeyHash128GenObj cached instances sorted by their primary keys for the duplicate DispIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash128GenObj> readDbKeyHash128GenByDispIdx( Long DispenserTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readDbKeyHash128GenByDispIdx( Long DispenserTenantId,
 		Long DispenserId,
 		boolean forceRead );
 
-	ICFBamDbKeyHash128GenObj readCachedDbKeyHash128GenByIdIdx( long TenantId,
+	IYCFBamDbKeyHash128GenObj readCachedDbKeyHash128GenByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamDbKeyHash128GenObj readCachedDbKeyHash128GenByUNameIdx( long TenantId,
+	IYCFBamDbKeyHash128GenObj readCachedDbKeyHash128GenByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByValTentIdx( long TenantId );
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByValTentIdx( long TenantId );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByScopeIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByNextIdx( Long NextTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByContPrevIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByContNextIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenBySchemaIdx( long TenantId,
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
-	List<ICFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByDispIdx( Long DispenserTenantId,
+	List<IYCFBamDbKeyHash128GenObj> readCachedDbKeyHash128GenByDispIdx( Long DispenserTenantId,
 		Long DispenserId );
 
 	void deepDisposeDbKeyHash128GenByIdIdx( long TenantId,
@@ -578,11 +578,11 @@ public interface ICFBamDbKeyHash128GenTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeDbKeyHash128GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeDbKeyHash128GenByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDbKeyHash128GenByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDbKeyHash128GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -593,12 +593,12 @@ public interface ICFBamDbKeyHash128GenTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDbKeyHash128GenObj updateDbKeyHash128Gen( ICFBamDbKeyHash128GenObj Obj );
+	IYCFBamDbKeyHash128GenObj updateDbKeyHash128Gen( IYCFBamDbKeyHash128GenObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteDbKeyHash128Gen( ICFBamDbKeyHash128GenObj Obj );
+	void deleteDbKeyHash128Gen( IYCFBamDbKeyHash128GenObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -701,7 +701,7 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 *
 	 *	@param	argCodeVis	The DbKeyHash128Gen key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash128GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteDbKeyHash128GenByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -714,7 +714,7 @@ public interface ICFBamDbKeyHash128GenTableObj
 	 */
 	void deleteDbKeyHash128GenByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -737,16 +737,16 @@ public interface ICFBamDbKeyHash128GenTableObj
 		Long DispenserId );
 
 	/**
-	 *	Move the CFBamDbKeyHash128GenObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamDbKeyHash128GenObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamDbKeyHash128GenObj refreshed cache instance.
+	 *	@return	YCFBamDbKeyHash128GenObj refreshed cache instance.
 	 */
-	ICFBamDbKeyHash128GenObj moveUpDbKeyHash128Gen( ICFBamDbKeyHash128GenObj Obj );
+	IYCFBamDbKeyHash128GenObj moveUpDbKeyHash128Gen( IYCFBamDbKeyHash128GenObj Obj );
 
 	/**
-	 *	Move the CFBamDbKeyHash128GenObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamDbKeyHash128GenObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamDbKeyHash128GenObj refreshed cache instance.
+	 *	@return	YCFBamDbKeyHash128GenObj refreshed cache instance.
 	 */
-	ICFBamDbKeyHash128GenObj moveDownDbKeyHash128Gen( ICFBamDbKeyHash128GenObj Obj );
+	IYCFBamDbKeyHash128GenObj moveDownDbKeyHash128Gen( IYCFBamDbKeyHash128GenObj Obj );
 }

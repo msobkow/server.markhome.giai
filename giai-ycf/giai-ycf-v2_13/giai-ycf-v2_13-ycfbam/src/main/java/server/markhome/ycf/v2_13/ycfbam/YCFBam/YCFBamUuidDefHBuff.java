@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a UuidDef history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamUuidDefHBuff
-	extends CFBamAtomHBuff
+public class YCFBamUuidDefHBuff
+	extends YCFBamAtomHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -71,13 +71,13 @@ public class CFBamUuidDefHBuff
 	public static final long ID_MIN_VALUE = 0L;
 
 	protected UUID optionalInitValue;
-	public CFBamUuidDefHBuff() {
+	public YCFBamUuidDefHBuff() {
 		super();
 		optionalInitValue = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamUuidDefBuff.CLASS_CODE );
+		return( YCFBamUuidDefBuff.CLASS_CODE );
 	}
 
 	public UUID getOptionalInitValue() {
@@ -97,8 +97,8 @@ public class CFBamUuidDefHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamUuidDefHBuff ) {
-			CFBamUuidDefHBuff rhs = (CFBamUuidDefHBuff)obj;
+		else if( obj instanceof YCFBamUuidDefHBuff ) {
+			YCFBamUuidDefHBuff rhs = (YCFBamUuidDefHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -122,8 +122,8 @@ public class CFBamUuidDefHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamUuidDefBuff ) {
-			CFBamUuidDefBuff rhs = (CFBamUuidDefBuff)obj;
+		else if( obj instanceof YCFBamUuidDefBuff ) {
+			YCFBamUuidDefBuff rhs = (YCFBamUuidDefBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -164,16 +164,16 @@ public class CFBamUuidDefHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamUuidDefBuff ) {
-			CFBamUuidDefBuff rhs = (CFBamUuidDefBuff)obj;
+		else if( obj instanceof YCFBamUuidDefBuff ) {
+			YCFBamUuidDefBuff rhs = (YCFBamUuidDefBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamUuidDefHBuff ) {
-			CFBamUuidDefHBuff rhs = (CFBamUuidDefHBuff)obj;
+		else if( obj instanceof YCFBamUuidDefHBuff ) {
+			YCFBamUuidDefHBuff rhs = (YCFBamUuidDefHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -546,38 +546,38 @@ public class CFBamUuidDefHBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamUuidDefBuff ) {
-			setUuidDefBuff( (CFBamUuidDefBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamUuidDefBuff ) {
+			setUuidDefBuff( (YCFBamUuidDefBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamUuidDefBuff" );
+				"YCFBamUuidDefBuff" );
 		}
 	}
 
-	public void setUuidDefBuff( CFBamUuidDefBuff src ) {
+	public void setUuidDefBuff( YCFBamUuidDefBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalInitValue( src.getOptionalInitValue() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamUuidDefHBuff ) {
-			setUuidDefBuff( (CFBamUuidDefHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamUuidDefHBuff ) {
+			setUuidDefBuff( (YCFBamUuidDefHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamUuidDefHBuff" );
+				"YCFBamUuidDefHBuff" );
 		}
 	}
 
-	public void setUuidDefBuff( CFBamUuidDefHBuff src ) {
+	public void setUuidDefBuff( YCFBamUuidDefHBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalInitValue( src.getOptionalInitValue() );
 	}

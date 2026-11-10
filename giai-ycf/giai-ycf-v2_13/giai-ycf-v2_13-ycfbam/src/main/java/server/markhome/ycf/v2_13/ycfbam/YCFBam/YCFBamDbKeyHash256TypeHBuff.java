@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a DbKeyHash256Type history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamDbKeyHash256TypeHBuff
-	extends CFBamDbKeyHash256DefHBuff
+public class YCFBamDbKeyHash256TypeHBuff
+	extends YCFBamDbKeyHash256DefHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -73,13 +73,13 @@ public class CFBamDbKeyHash256TypeHBuff
 	public static final long SCHEMADEFID_MIN_VALUE = 0L;
 
 	protected long requiredSchemaDefId;
-	public CFBamDbKeyHash256TypeHBuff() {
+	public YCFBamDbKeyHash256TypeHBuff() {
 		super();
-		requiredSchemaDefId = CFBamDbKeyHash256TypeBuff.SCHEMADEFID_INIT_VALUE;
+		requiredSchemaDefId = YCFBamDbKeyHash256TypeBuff.SCHEMADEFID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
-		return( CFBamDbKeyHash256TypeBuff.CLASS_CODE );
+		return( YCFBamDbKeyHash256TypeBuff.CLASS_CODE );
 	}
 
 	public long getRequiredSchemaDefId() {
@@ -87,13 +87,13 @@ public class CFBamDbKeyHash256TypeHBuff
 	}
 
 	public void setRequiredSchemaDefId( long value ) {
-		if( value < CFBamDbKeyHash256TypeBuff.SCHEMADEFID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamDbKeyHash256TypeBuff.SCHEMADEFID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSchemaDefId",
 				1,
 				"value",
 				value,
-				CFBamDbKeyHash256TypeBuff.SCHEMADEFID_MIN_VALUE );
+				YCFBamDbKeyHash256TypeBuff.SCHEMADEFID_MIN_VALUE );
 		}
 		requiredSchemaDefId = value;
 	}
@@ -102,8 +102,8 @@ public class CFBamDbKeyHash256TypeHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamDbKeyHash256TypeHBuff ) {
-			CFBamDbKeyHash256TypeHBuff rhs = (CFBamDbKeyHash256TypeHBuff)obj;
+		else if( obj instanceof YCFBamDbKeyHash256TypeHBuff ) {
+			YCFBamDbKeyHash256TypeHBuff rhs = (YCFBamDbKeyHash256TypeHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -118,8 +118,8 @@ public class CFBamDbKeyHash256TypeHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamDbKeyHash256TypeBuff ) {
-			CFBamDbKeyHash256TypeBuff rhs = (CFBamDbKeyHash256TypeBuff)obj;
+		else if( obj instanceof YCFBamDbKeyHash256TypeBuff ) {
+			YCFBamDbKeyHash256TypeBuff rhs = (YCFBamDbKeyHash256TypeBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -134,8 +134,8 @@ public class CFBamDbKeyHash256TypeHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamDbKeyHash256TypeBySchemaIdxKey ) {
-			CFBamDbKeyHash256TypeBySchemaIdxKey rhs = (CFBamDbKeyHash256TypeBySchemaIdxKey)obj;
+		else if( obj instanceof YCFBamDbKeyHash256TypeBySchemaIdxKey ) {
+			YCFBamDbKeyHash256TypeBySchemaIdxKey rhs = (YCFBamDbKeyHash256TypeBySchemaIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -159,16 +159,16 @@ public class CFBamDbKeyHash256TypeHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamDbKeyHash256TypeBuff ) {
-			CFBamDbKeyHash256TypeBuff rhs = (CFBamDbKeyHash256TypeBuff)obj;
+		else if( obj instanceof YCFBamDbKeyHash256TypeBuff ) {
+			YCFBamDbKeyHash256TypeBuff rhs = (YCFBamDbKeyHash256TypeBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamDbKeyHash256TypeBySchemaIdxKey ) {
-			CFBamDbKeyHash256TypeBySchemaIdxKey rhs = (CFBamDbKeyHash256TypeBySchemaIdxKey)obj;
+		else if( obj instanceof YCFBamDbKeyHash256TypeBySchemaIdxKey ) {
+			YCFBamDbKeyHash256TypeBySchemaIdxKey rhs = (YCFBamDbKeyHash256TypeBySchemaIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -183,8 +183,8 @@ public class CFBamDbKeyHash256TypeHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamDbKeyHash256TypeHBuff ) {
-			CFBamDbKeyHash256TypeHBuff rhs = (CFBamDbKeyHash256TypeHBuff)obj;
+		else if( obj instanceof YCFBamDbKeyHash256TypeHBuff ) {
+			YCFBamDbKeyHash256TypeHBuff rhs = (YCFBamDbKeyHash256TypeHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -563,38 +563,38 @@ public class CFBamDbKeyHash256TypeHBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamDbKeyHash256TypeBuff ) {
-			setDbKeyHash256TypeBuff( (CFBamDbKeyHash256TypeBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamDbKeyHash256TypeBuff ) {
+			setDbKeyHash256TypeBuff( (YCFBamDbKeyHash256TypeBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamDbKeyHash256TypeBuff" );
+				"YCFBamDbKeyHash256TypeBuff" );
 		}
 	}
 
-	public void setDbKeyHash256TypeBuff( CFBamDbKeyHash256TypeBuff src ) {
+	public void setDbKeyHash256TypeBuff( YCFBamDbKeyHash256TypeBuff src ) {
 		super.setDbKeyHash256DefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamDbKeyHash256TypeHBuff ) {
-			setDbKeyHash256TypeBuff( (CFBamDbKeyHash256TypeHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamDbKeyHash256TypeHBuff ) {
+			setDbKeyHash256TypeBuff( (YCFBamDbKeyHash256TypeHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamDbKeyHash256TypeHBuff" );
+				"YCFBamDbKeyHash256TypeHBuff" );
 		}
 	}
 
-	public void setDbKeyHash256TypeBuff( CFBamDbKeyHash256TypeHBuff src ) {
+	public void setDbKeyHash256TypeBuff( YCFBamDbKeyHash256TypeHBuff src ) {
 		super.setDbKeyHash256DefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 	}

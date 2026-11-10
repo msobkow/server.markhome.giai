@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFBam Cluster.
+// Description: Java 11 Object interface for YCFBam Cluster.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,32 +26,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamClusterObj
-	extends ICFSecClusterObj,
-		ICFIntClusterObj
+public interface IYCFBamClusterObj
+	extends IYCFSecClusterObj,
+		IYCFIntClusterObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -63,9 +63,9 @@ public interface ICFBamClusterObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -76,9 +76,9 @@ public interface ICFBamClusterObj
 	/**
 	 *	Realise this instance of a Cluster.
 	 *
-	 *	@return	CFSecClusterObj instance which should be subsequently referenced.
+	 *	@return	YCFSecClusterObj instance which should be subsequently referenced.
 	 */
-	ICFSecClusterObj realise();
+	IYCFSecClusterObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -90,83 +90,83 @@ public interface ICFBamClusterObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecClusterObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecClusterObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecClusterObj read();
+	IYCFSecClusterObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecClusterObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecClusterObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecClusterObj read( boolean forceRead );
+	IYCFSecClusterObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this Cluster instance.
 	 *
-	 *	@return	The newly locked ICFSecClusterEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecClusterEditObj edition of this instance.
 	 */
-	ICFSecClusterEditObj beginEdit();
+	IYCFSecClusterEditObj beginEdit();
 
 	/**
 	 *	End this edition of this Cluster instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this Cluster instance.
 	 *
-	 *	@return	The ICFSecClusterEditObj edition of this instance.
+	 *	@return	The IYCFSecClusterEditObj edition of this instance.
 	 */
-	ICFSecClusterEditObj getEdit();
+	IYCFSecClusterEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this Cluster instance as a ICFSecClusterEditObj.
+	 *	Get the current edition of this Cluster instance as a IYCFSecClusterEditObj.
 	 *
-	 *	@return	The ICFSecClusterEditObj edition of this instance.
+	 *	@return	The IYCFSecClusterEditObj edition of this instance.
 	 */
-	ICFSecClusterEditObj getEditAsCluster();
+	IYCFSecClusterEditObj getEditAsCluster();
 
 	/**
-	 *	Get the ICFSecClusterTableObj table cache which manages this instance.
+	 *	Get the IYCFSecClusterTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecClusterTableObj table cache which manages this instance.
+	 *	@return	IYCFSecClusterTableObj table cache which manages this instance.
 	 */
-	ICFSecClusterTableObj getClusterTable();
+	IYCFSecClusterTableObj getClusterTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecClusterBuff instance which currently backs this instance.
+	 *	Get the YCFSecClusterBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecClusterBuff instance which currently backs this object.
+	 *	@return	YCFSecClusterBuff instance which currently backs this object.
 	 */
-	CFSecClusterBuff getBuff();
+	YCFSecClusterBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecClusterBuff value );
+	void setBuff( YCFSecClusterBuff value );
 
 	/**
-	 *	Get the CFSecClusterBuff instance which currently backs this instance.
+	 *	Get the YCFSecClusterBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecClusterBuff instance which currently backs this object.
+	 *	@return	YCFSecClusterBuff instance which currently backs this object.
 	 */
-	CFSecClusterBuff getClusterBuff();
+	YCFSecClusterBuff getClusterBuff();
 
 	/**
 	 *	Is this a new instance?
@@ -207,74 +207,74 @@ public interface ICFBamClusterObj
 	String getRequiredDescription();
 
 	/**
-	 *	Get the array of optional ICFSecHostNodeObj array of instances referenced by the HostNode key.
+	 *	Get the array of optional IYCFSecHostNodeObj array of instances referenced by the HostNode key.
 	 *
-	 *	@return	The optional ICFSecHostNodeObj[] array of instances referenced by the HostNode key.
+	 *	@return	The optional IYCFSecHostNodeObj[] array of instances referenced by the HostNode key.
 	 */
-	List<ICFSecHostNodeObj> getOptionalComponentsHostNode();
+	List<IYCFSecHostNodeObj> getOptionalComponentsHostNode();
 
 	/**
-	 *	Get the array of optional ICFSecHostNodeObj array of instances referenced by the HostNode key.
+	 *	Get the array of optional IYCFSecHostNodeObj array of instances referenced by the HostNode key.
 	 *
-	 *	@return	The optional ICFSecHostNodeObj[] array of instances referenced by the HostNode key.
+	 *	@return	The optional IYCFSecHostNodeObj[] array of instances referenced by the HostNode key.
 	 */
-	List<ICFSecHostNodeObj> getOptionalComponentsHostNode( boolean forceRead );
+	List<IYCFSecHostNodeObj> getOptionalComponentsHostNode( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecTenantObj array of instances referenced by the Tenant key.
+	 *	Get the array of optional IYCFSecTenantObj array of instances referenced by the Tenant key.
 	 *
-	 *	@return	The optional ICFSecTenantObj[] array of instances referenced by the Tenant key.
+	 *	@return	The optional IYCFSecTenantObj[] array of instances referenced by the Tenant key.
 	 */
-	List<ICFSecTenantObj> getOptionalComponentsTenant();
+	List<IYCFSecTenantObj> getOptionalComponentsTenant();
 
 	/**
-	 *	Get the array of optional ICFSecTenantObj array of instances referenced by the Tenant key.
+	 *	Get the array of optional IYCFSecTenantObj array of instances referenced by the Tenant key.
 	 *
-	 *	@return	The optional ICFSecTenantObj[] array of instances referenced by the Tenant key.
+	 *	@return	The optional IYCFSecTenantObj[] array of instances referenced by the Tenant key.
 	 */
-	List<ICFSecTenantObj> getOptionalComponentsTenant( boolean forceRead );
+	List<IYCFSecTenantObj> getOptionalComponentsTenant( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecSecAppObj array of instances referenced by the SecApp key.
+	 *	Get the array of optional IYCFSecSecAppObj array of instances referenced by the SecApp key.
 	 *
-	 *	@return	The optional ICFSecSecAppObj[] array of instances referenced by the SecApp key.
+	 *	@return	The optional IYCFSecSecAppObj[] array of instances referenced by the SecApp key.
 	 */
-	List<ICFSecSecAppObj> getOptionalComponentsSecApp();
+	List<IYCFSecSecAppObj> getOptionalComponentsSecApp();
 
 	/**
-	 *	Get the array of optional ICFSecSecAppObj array of instances referenced by the SecApp key.
+	 *	Get the array of optional IYCFSecSecAppObj array of instances referenced by the SecApp key.
 	 *
-	 *	@return	The optional ICFSecSecAppObj[] array of instances referenced by the SecApp key.
+	 *	@return	The optional IYCFSecSecAppObj[] array of instances referenced by the SecApp key.
 	 */
-	List<ICFSecSecAppObj> getOptionalComponentsSecApp( boolean forceRead );
+	List<IYCFSecSecAppObj> getOptionalComponentsSecApp( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecSecGroupObj array of instances referenced by the SecGroup key.
+	 *	Get the array of optional IYCFSecSecGroupObj array of instances referenced by the SecGroup key.
 	 *
-	 *	@return	The optional ICFSecSecGroupObj[] array of instances referenced by the SecGroup key.
+	 *	@return	The optional IYCFSecSecGroupObj[] array of instances referenced by the SecGroup key.
 	 */
-	List<ICFSecSecGroupObj> getOptionalComponentsSecGroup();
+	List<IYCFSecSecGroupObj> getOptionalComponentsSecGroup();
 
 	/**
-	 *	Get the array of optional ICFSecSecGroupObj array of instances referenced by the SecGroup key.
+	 *	Get the array of optional IYCFSecSecGroupObj array of instances referenced by the SecGroup key.
 	 *
-	 *	@return	The optional ICFSecSecGroupObj[] array of instances referenced by the SecGroup key.
+	 *	@return	The optional IYCFSecSecGroupObj[] array of instances referenced by the SecGroup key.
 	 */
-	List<ICFSecSecGroupObj> getOptionalComponentsSecGroup( boolean forceRead );
+	List<IYCFSecSecGroupObj> getOptionalComponentsSecGroup( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFSecSysClusterObj array of instances referenced by the SysCluster key.
+	 *	Get the array of optional IYCFSecSysClusterObj array of instances referenced by the SysCluster key.
 	 *
-	 *	@return	The optional ICFSecSysClusterObj[] array of instances referenced by the SysCluster key.
+	 *	@return	The optional IYCFSecSysClusterObj[] array of instances referenced by the SysCluster key.
 	 */
-	List<ICFSecSysClusterObj> getOptionalComponentsSysCluster();
+	List<IYCFSecSysClusterObj> getOptionalComponentsSysCluster();
 
 	/**
-	 *	Get the array of optional ICFSecSysClusterObj array of instances referenced by the SysCluster key.
+	 *	Get the array of optional IYCFSecSysClusterObj array of instances referenced by the SysCluster key.
 	 *
-	 *	@return	The optional ICFSecSysClusterObj[] array of instances referenced by the SysCluster key.
+	 *	@return	The optional IYCFSecSysClusterObj[] array of instances referenced by the SysCluster key.
 	 */
-	List<ICFSecSysClusterObj> getOptionalComponentsSysCluster( boolean forceRead );
+	List<IYCFSecSysClusterObj> getOptionalComponentsSysCluster( boolean forceRead );
 
 	/**
 	 *	Internal use only.

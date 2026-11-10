@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -47,9 +47,9 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
 /**
  *	A ToolSetParser is a JAXP 1.3 Validating XML parser
@@ -58,24 +58,24 @@ import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
  *
  *	@see	http://generator.msobkow.com/xsd/genkb-1.0.6-toolset.
  */
-public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler {
+public class MssYCFToolSetParser extends MssYCFSaxParser implements ContentHandler {
 
 	/**
 	 *	The namespace URI of the supported schema
 	 */
-	public final static String	SCHEMA_XMLNS = "https://msobkow.github.io/msscf/2.0.13/cfgenkb-2.13-toolset";
+	public final static String	SCHEMA_XMLNS = "https://msobkow.github.io/mssycf/2.0.13/ycfgenkb-2.13-toolset";
 
 	/**
 	 *	The source for loading the supported schema
 	 */
-	public final static String	SCHEMA_URI = "https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd";
-	public final static String	SCHEMA_HTTPS_URI = "https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd";
-	public final static String	SCHEMA_ROOT_URI = "/xsd/cfgenkb-2.13-toolset.xsd";
+	public final static String	SCHEMA_URI = "https://msobkow.github.io/mssycf/2.0.13/xsd/ycfgenkb-2.13-toolset.xsd";
+	public final static String	SCHEMA_HTTPS_URI = "https://msobkow.github.io/mssycf/2.0.13/xsd/ycfgenkb-2.13-toolset.xsd";
+	public final static String	SCHEMA_ROOT_URI = "/xsd/ycfgenkb-2.13-toolset.xsd";
 
 	/**
 	 *	The RuleSetParser is reused.
 	 */
-	private MssCFRuleSetParser ruleSetParser = null;
+	private MssYCFRuleSetParser ruleSetParser = null;
 
 	/**
 	 *	The name of the ToolSet being processed.
@@ -90,11 +90,11 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 	 *
 	 *	@param	jLogger - Log4J Logger
 	 */
-	public MssCFToolSetParser( MssCFEngine engine, ICFLibMessageLog jLogger ) {
+	public MssYCFToolSetParser( MssYCFEngine engine, IYCFLibMessageLog jLogger ) {
 		super( engine, jLogger );
 		setRootElementHandler( new RootHandler( this ) );
 		initParser();
-		ruleSetParser = new MssCFRuleSetParser( engine, jLogger );
+		ruleSetParser = new MssYCFRuleSetParser( engine, jLogger );
 	}
 
 //	Accessors: CurToolSet
@@ -118,7 +118,7 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 	}
 
 
-	class RootHandler extends CFLibXmlCoreElementHandler {
+	class RootHandler extends YCFLibXmlCoreElementHandler {
 
 		/**
 		 *	Construct an XML Core Element Handler owned by the
@@ -129,7 +129,7 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 		 *
 		 *	@param	coreParser	The parser which owns this instance.
 		 */
-		public RootHandler( MssCFToolSetParser coreParser ) {
+		public RootHandler( MssYCFToolSetParser coreParser ) {
 			super( coreParser );
 			addElementHandler( "ToolSet", new ToolSetHandler( coreParser ) );
 		}
@@ -192,7 +192,7 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 	}
 
 
-	class ToolSetHandler extends CFLibXmlCoreElementHandler {
+	class ToolSetHandler extends YCFLibXmlCoreElementHandler {
 
 		/**
 		 *	Construct an XML Core Element Handler owned by the
@@ -203,7 +203,7 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 		 *
 		 *	@param	coreParser	The parser which owns this instance.
 		 */
-		public ToolSetHandler( MssCFToolSetParser coreParser ) {
+		public ToolSetHandler( MssYCFToolSetParser coreParser ) {
 			super( coreParser );
 			addElementHandler( "RuleSet", new RuleSetHandler( coreParser ) );
 		}
@@ -279,12 +279,12 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 
 			String useToolSet = getInternalToolSetName( attrName );
 
-			((MssCFToolSetParser)getParser()).setCurToolSet( useToolSet );
+			((MssYCFToolSetParser)getParser()).setCurToolSet( useToolSet );
 
 
 			StringBuffer buff;
 
-			ICFGenKbToolSetObj toolset = getEngine().getToolSetTableObj().readToolSetByNameIdx( useToolSet );
+			IYCFGenKbToolSetObj toolset = getEngine().getToolSetTableObj().readToolSetByNameIdx( useToolSet );
 			if( toolset != null ) {
 //				toolset.setToolSetIsSupportedValue( true );
 				buff = new StringBuffer( "\tEnabled ToolSet \"" );
@@ -328,7 +328,7 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 		}
 	}
 
-	class RuleSetHandler extends CFLibXmlCoreElementHandler {
+	class RuleSetHandler extends YCFLibXmlCoreElementHandler {
 
 		/**
 		 *	Construct an XML Core Element Handler owned by the
@@ -339,7 +339,7 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 		 *
 		 *	@param	coreParser	The parser which owns this instance.
 		 */
-		public RuleSetHandler( MssCFToolSetParser coreParser ) {
+		public RuleSetHandler( MssYCFToolSetParser coreParser ) {
 			super( coreParser );
 		}
 
@@ -429,19 +429,19 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 				catch( FileNotFoundException e ) {
 					ruleSetManifestXml = null;
 					getLog().message( "ERROR: \tCould not find RuleSet \"" + ruleSetName + "\"\n" );
-					CFLib.beep();
+					YCFLib.beep();
 					return;
 				}
 			}
 
 			try {
 				ruleSetParser.setLog( getLog() );
-				ruleSetParser.setDefaultToolSet( ((MssCFToolSetParser)getParser()).getCurToolSet() );
+				ruleSetParser.setDefaultToolSet( ((MssYCFToolSetParser)getParser()).getCurToolSet() );
 				ruleSetParser.parse( ruleSetManifestXml, ruleSetDocRoot );
 			}
 			catch( Exception e ) {
 				getLog().message( "ERROR: " + getLocationInfo() + "\tCould not load ToolSet \"" + attrName + "\"\n" );
-				CFLib.beep();
+				YCFLib.beep();
 			}
 			finally {
 				if( ruleSetManifestXml != null ) {
@@ -501,30 +501,30 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
     			nested = e;
     		}
     		if( getLog() != null ) {
-    			getLog().message( "CFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
+    			getLog().message( "YCFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
     		}
     		else {
-    			System.err.append( "ERROR: CFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
+    			System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
     		}
-    		CFLib.beep();
+    		YCFLib.beep();
         }
 		catch( FileNotFoundException e ) {
 			if( getLog() != null ) {
-				getLog().message( "CFLibXmlCoreSaxParser.parse() Could not find file \"" + uri + "\"\n" );
+				getLog().message( "YCFLibXmlCoreSaxParser.parse() Could not find file \"" + uri + "\"\n" );
 			}
 			else {
-				System.err.append( "ERROR: CFLibXmlCoreSaxParser.parse() Could not find file \"" + uri + "\"\n" );
+				System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parse() Could not find file \"" + uri + "\"\n" );
 			}
-    		CFLib.beep();
+    		YCFLib.beep();
 		}
 		catch (Exception e) {
 			if( getLog() != null ) {
-				getLog().message( "CFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getSimpleName() + " " + e.getMessage() + "\n" );
+				getLog().message( "YCFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getSimpleName() + " " + e.getMessage() + "\n" );
 			}
 			else {
-				System.err.append( "ERROR: CFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getSimpleName() + " " + e.getMessage() + "\n" );
+				System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getSimpleName() + " " + e.getMessage() + "\n" );
 			}
-    		CFLib.beep();
+    		YCFLib.beep();
 		}
 	}
 
@@ -543,12 +543,12 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
     			nested = e;
     		}
     		if( getLog() != null ) {
-    			getLog().message( "CFLibXmlCoreSaxParser.parse() Ignored SAXParseException exception " + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
+    			getLog().message( "YCFLibXmlCoreSaxParser.parse() Ignored SAXParseException exception " + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
     		}
     		else {
-    			System.err.append( "ERROR: CFLibXmlCoreSaxParser.parse() Ignored SAXParseException exception " + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
+    			System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parse() Ignored SAXParseException exception " + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
     		}
-    		CFLib.beep();
+    		YCFLib.beep();
         }
         catch (SAXException e) {
         	Exception nested;
@@ -557,21 +557,21 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
     			nested = e;
     		}
     		if( getLog() != null ) {
-    			getLog().message( "CFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
+    			getLog().message( "YCFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
     		}
     		else {
-    			System.err.append( "ERROR: CFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
+    			System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parse() Ignored exception " + getFormattedNearLocation() + nested.getClass().getSimpleName() + " " + nested.getMessage() + "\n" );
     		}
-    		CFLib.beep();
+    		YCFLib.beep();
         }
 		catch (Exception e) {
 			if( getLog() != null ) {
-				getLog().message( "CFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getSimpleName() + " " + e.getMessage() + "\n" );
+				getLog().message( "YCFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getSimpleName() + " " + e.getMessage() + "\n" );
 			}
 			else {
-				System.err.append( "ERROR: CFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getSimpleName() + " " + e.getMessage() + "\n" );
+				System.err.append( "ERROR: YCFLibXmlCoreSaxParser.parser() Ignored exception " + getFormattedNearLocation() + e.getClass().getSimpleName() + " " + e.getMessage() + "\n" );
 			}
-    		CFLib.beep();
+    		YCFLib.beep();
 		}
 	}
 }

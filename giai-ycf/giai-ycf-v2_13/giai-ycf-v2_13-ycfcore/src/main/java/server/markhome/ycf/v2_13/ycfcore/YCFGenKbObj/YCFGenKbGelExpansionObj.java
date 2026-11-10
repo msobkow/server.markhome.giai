@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GelExpansion.
+// Description: Java 11 base object instance implementation for YCFGenKb GelExpansion.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,28 +27,28 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
 
-public class CFGenKbGelExpansionObj
-	extends CFGenKbGelInstructionObj
-	implements ICFGenKbGelExpansionObj
+public class YCFGenKbGelExpansionObj
+	extends YCFGenKbGelInstructionObj
+	implements IYCFGenKbGelExpansionObj
 {
 	public final static String CLASS_CODE = "a92f";
 
-	public CFGenKbGelExpansionObj() {
+	public YCFGenKbGelExpansionObj() {
 		super();
 	}
 
-	public CFGenKbGelExpansionObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGelExpansionObj( IYCFGenKbSchemaObj argSchema ) {
 		super( argSchema );
 	}
 
@@ -60,11 +60,11 @@ public class CFGenKbGelExpansionObj
 		return( "GelExpansion" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -75,14 +75,14 @@ public class CFGenKbGelExpansionObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -93,10 +93,10 @@ public class CFGenKbGelExpansionObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -105,11 +105,11 @@ public class CFGenKbGelExpansionObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -133,13 +133,13 @@ public class CFGenKbGelExpansionObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -151,42 +151,42 @@ public class CFGenKbGelExpansionObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
-		ICFGenKbGelExpansionObj retobj = ((ICFGenKbSchemaObj)schema).getGelExpansionTableObj().realiseGelExpansion(
-			(ICFGenKbGelExpansionObj)this );
-		return( (ICFGenKbGelInstructionObj)retobj );
+	public IYCFGenKbGelInstructionObj realise() {
+		IYCFGenKbGelExpansionObj retobj = ((IYCFGenKbSchemaObj)schema).getGelExpansionTableObj().realiseGelExpansion(
+			(IYCFGenKbGelExpansionObj)this );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGelExpansionTableObj().reallyDeepDisposeGelExpansion( (ICFGenKbGelExpansionObj)this );
+		((IYCFGenKbSchemaObj)schema).getGelExpansionTableObj().reallyDeepDisposeGelExpansion( (IYCFGenKbGelExpansionObj)this );
 	}
 
-	public ICFGenKbGelInstructionObj read() {
-		ICFGenKbGelExpansionObj retobj = ((ICFGenKbSchemaObj)schema).getGelExpansionTableObj().readGelExpansionByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read() {
+		IYCFGenKbGelExpansionObj retobj = ((IYCFGenKbSchemaObj)schema).getGelExpansionTableObj().readGelExpansionByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), false );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelInstructionObj read( boolean forceRead ) {
-		ICFGenKbGelExpansionObj retobj = ((ICFGenKbSchemaObj)schema).getGelExpansionTableObj().readGelExpansionByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read( boolean forceRead ) {
+		IYCFGenKbGelExpansionObj retobj = ((IYCFGenKbSchemaObj)schema).getGelExpansionTableObj().readGelExpansionByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), forceRead );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelExpansionTableObj getGelExpansionTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGelExpansionTableObj() );
+	public IYCFGenKbGelExpansionTableObj getGelExpansionTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGelExpansionTableObj() );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelExpansion().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelExpansion().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelExpansion().readDerivedByPIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelExpansion().readDerivedByPIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredGelCacheId(),
 						getPKey().getRequiredGelInstId() );
@@ -198,13 +198,13 @@ public class CFGenKbGelExpansionObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGelExpansionBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGelExpansionBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGelExpansionBuff" );
+				"YCFGenKbGelExpansionBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -213,57 +213,57 @@ public class CFGenKbGelExpansionObj
 		optionalLookupChainInst = null;
 	}
 
-	public CFGenKbGelExpansionBuff getGelExpansionBuff() {
-		return( (CFGenKbGelExpansionBuff)getBuff() );
+	public YCFGenKbGelExpansionBuff getGelExpansionBuff() {
+		return( (YCFGenKbGelExpansionBuff)getBuff() );
 	}
 
-	public ICFGenKbGelInstructionEditObj beginEdit() {
+	public IYCFGenKbGelInstructionEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGelExpansionObj lockobj;
+		IYCFGenKbGelExpansionObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGelExpansionObj)this;
+			lockobj = (IYCFGenKbGelExpansionObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGelExpansionTableObj().lockGelExpansion( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGelExpansionTableObj().lockGelExpansion( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGelExpansionTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGelInstructionEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGelExpansionTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGelInstructionEditObj)edit );
 	}
 
-	public ICFGenKbGelExpansionEditObj getEditAsGelExpansion() {
-		return( (ICFGenKbGelExpansionEditObj)edit );
+	public IYCFGenKbGelExpansionEditObj getEditAsGelExpansion() {
+		return( (IYCFGenKbGelExpansionEditObj)edit );
 	}
 
 	public String getRequiredMacroName() {
 		return( getGelExpansionBuff().getRequiredMacroName() );
 	}
 
-	public String expand( MssCFGenContext genContext ) {
+	public String expand( MssYCFGenContext genContext ) {
 		String retval;
-		final String S_ProcName = "CFGenKbGelExpansion.expand() ";
-		ICFGenKbGenItemObj genItem = genContext.getGenEngine().findContextItem(genContext, getRequiredMacroName() );
+		final String S_ProcName = "YCFGenKbGelExpansion.expand() ";
+		IYCFGenKbGenItemObj genItem = genContext.getGenEngine().findContextItem(genContext, getRequiredMacroName() );
 		if( genItem != null ) {
-			if( genItem instanceof MssCFGenFileObj ) {
-				retval = ((MssCFGenFileObj)genItem).expandBody( genContext );
+			if( genItem instanceof MssYCFGenFileObj ) {
+				retval = ((MssYCFGenFileObj)genItem).expandBody( genContext );
 			}
-			else if( genItem instanceof MssCFGenRuleObj ) {
-				retval = ((MssCFGenRuleObj)genItem).expandBody( genContext );
+			else if( genItem instanceof MssYCFGenRuleObj ) {
+				retval = ((MssYCFGenRuleObj)genItem).expandBody( genContext );
 			}
-			else if (genItem instanceof MssCFGenTruncObj)
+			else if (genItem instanceof MssYCFGenTruncObj)
 			{
-				retval = ((MssCFGenTruncObj)genItem).expandBody( genContext );
+				retval = ((MssYCFGenTruncObj)genItem).expandBody( genContext );
 			}
-			else if (genItem instanceof MssCFGenBindObj)
+			else if (genItem instanceof MssYCFGenBindObj)
 			{
-				retval = ((MssCFGenBindObj)genItem).expandBody( genContext );
+				retval = ((MssYCFGenBindObj)genItem).expandBody( genContext );
 			}
-			else if( genItem instanceof MssCFGenReferenceObj ) {
+			else if( genItem instanceof MssYCFGenReferenceObj ) {
 				throw new RuntimeException(S_ProcName + "Cannot expand reference " + genItem.getRequiredName() + " directly");
 			}
-			else if( genItem instanceof MssCFGenIteratorObj ) {
-				retval = ((MssCFGenIteratorObj)genItem).expandBody( genContext );
+			else if( genItem instanceof MssYCFGenIteratorObj ) {
+				retval = ((MssYCFGenIteratorObj)genItem).expandBody( genContext );
 			}
 			else {
 				throw new RuntimeException( S_ProcName +  "Unsupported generation item class" );

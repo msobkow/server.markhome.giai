@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFSec.
+// Description: Java 11 Table Object implementation for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,38 +26,38 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecServiceTableObj
-	implements ICFSecServiceTableObj
+public class YCFSecServiceTableObj
+	implements IYCFSecServiceTableObj
 {
-	protected ICFSecSchemaObj schema;
-	private Map<CFSecServicePKey, ICFSecServiceObj> members;
-	private Map<CFSecServicePKey, ICFSecServiceObj> allService;
-	private Map< CFSecServiceByClusterIdxKey,
-		Map<CFSecServicePKey, ICFSecServiceObj > > indexByClusterIdx;
-	private Map< CFSecServiceByHostIdxKey,
-		Map<CFSecServicePKey, ICFSecServiceObj > > indexByHostIdx;
-	private Map< CFSecServiceByTypeIdxKey,
-		Map<CFSecServicePKey, ICFSecServiceObj > > indexByTypeIdx;
-	private Map< CFSecServiceByUTypeIdxKey,
-		ICFSecServiceObj > indexByUTypeIdx;
-	private Map< CFSecServiceByUHostPortIdxKey,
-		ICFSecServiceObj > indexByUHostPortIdx;
+	protected IYCFSecSchemaObj schema;
+	private Map<YCFSecServicePKey, IYCFSecServiceObj> members;
+	private Map<YCFSecServicePKey, IYCFSecServiceObj> allService;
+	private Map< YCFSecServiceByClusterIdxKey,
+		Map<YCFSecServicePKey, IYCFSecServiceObj > > indexByClusterIdx;
+	private Map< YCFSecServiceByHostIdxKey,
+		Map<YCFSecServicePKey, IYCFSecServiceObj > > indexByHostIdx;
+	private Map< YCFSecServiceByTypeIdxKey,
+		Map<YCFSecServicePKey, IYCFSecServiceObj > > indexByTypeIdx;
+	private Map< YCFSecServiceByUTypeIdxKey,
+		IYCFSecServiceObj > indexByUTypeIdx;
+	private Map< YCFSecServiceByUHostPortIdxKey,
+		IYCFSecServiceObj > indexByUHostPortIdx;
 	public static String TABLE_NAME = "Service";
 	public static String TABLE_DBNAME = "hostsvc";
 
-	public CFSecServiceTableObj() {
+	public YCFSecServiceTableObj() {
 		schema = null;
-		members = new HashMap<CFSecServicePKey, ICFSecServiceObj>();
+		members = new HashMap<YCFSecServicePKey, IYCFSecServiceObj>();
 		allService = null;
 		indexByClusterIdx = null;
 		indexByHostIdx = null;
@@ -66,9 +66,9 @@ public class CFSecServiceTableObj
 		indexByUHostPortIdx = null;
 	}
 
-	public CFSecServiceTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFSecSchemaObj)argSchema;
-		members = new HashMap<CFSecServicePKey, ICFSecServiceObj>();
+	public YCFSecServiceTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFSecSchemaObj)argSchema;
+		members = new HashMap<YCFSecServicePKey, IYCFSecServiceObj>();
 		allService = null;
 		indexByClusterIdx = null;
 		indexByHostIdx = null;
@@ -77,12 +77,12 @@ public class CFSecServiceTableObj
 		indexByUHostPortIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFSecSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFSecSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -105,9 +105,9 @@ public class CFSecServiceTableObj
 		indexByTypeIdx = null;
 		indexByUTypeIdx = null;
 		indexByUHostPortIdx = null;
-		List<ICFSecServiceObj> toForget = new LinkedList<ICFSecServiceObj>();
-		ICFSecServiceObj cur = null;
-		Iterator<ICFSecServiceObj> iter = members.values().iterator();
+		List<IYCFSecServiceObj> toForget = new LinkedList<IYCFSecServiceObj>();
+		IYCFSecServiceObj cur = null;
+		Iterator<IYCFSecServiceObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -125,10 +125,10 @@ public class CFSecServiceTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecServiceObj.
+	 *	YCFSecServiceObj.
 	 */
-	public ICFSecServiceObj newInstance() {
-		ICFSecServiceObj inst = new CFSecServiceObj( schema );
+	public IYCFSecServiceObj newInstance() {
+		IYCFSecServiceObj inst = new YCFSecServiceObj( schema );
 		return( inst );
 	}
 
@@ -139,19 +139,19 @@ public class CFSecServiceTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecServiceObj.
+	 *	YCFSecServiceObj.
 	 */
-	public ICFSecServiceEditObj newEditInstance( ICFSecServiceObj orig ) {
-		ICFSecServiceEditObj edit = new CFSecServiceEditObj( orig );
+	public IYCFSecServiceEditObj newEditInstance( IYCFSecServiceObj orig ) {
+		IYCFSecServiceEditObj edit = new YCFSecServiceEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecServiceObj realiseService( ICFSecServiceObj Obj ) {
-		ICFSecServiceObj obj = Obj;
-		CFSecServicePKey pkey = obj.getPKey();
-		ICFSecServiceObj keepObj = null;
+	public IYCFSecServiceObj realiseService( IYCFSecServiceObj Obj ) {
+		IYCFSecServiceObj obj = Obj;
+		YCFSecServicePKey pkey = obj.getPKey();
+		IYCFSecServiceObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecServiceObj existingObj = members.get( pkey );
+			IYCFSecServiceObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -162,10 +162,10 @@ public class CFSecServiceTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByClusterIdx != null ) {
-				CFSecServiceByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
+				YCFSecServiceByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecServicePKey, ICFSecServiceObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecServicePKey, IYCFSecServiceObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.remove( keepObj.getPKey() );
 					if( mapClusterIdx.size() <= 0 ) {
@@ -175,11 +175,11 @@ public class CFSecServiceTableObj
 			}
 
 			if( indexByHostIdx != null ) {
-				CFSecServiceByHostIdxKey keyHostIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
+				YCFSecServiceByHostIdxKey keyHostIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
 				keyHostIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyHostIdx.setRequiredHostNodeId( keepObj.getRequiredHostNodeId() );
-				Map<CFSecServicePKey, ICFSecServiceObj > mapHostIdx = indexByHostIdx.get( keyHostIdx );
+				Map<YCFSecServicePKey, IYCFSecServiceObj > mapHostIdx = indexByHostIdx.get( keyHostIdx );
 				if( mapHostIdx != null ) {
 					mapHostIdx.remove( keepObj.getPKey() );
 					if( mapHostIdx.size() <= 0 ) {
@@ -189,10 +189,10 @@ public class CFSecServiceTableObj
 			}
 
 			if( indexByTypeIdx != null ) {
-				CFSecServiceByTypeIdxKey keyTypeIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
+				YCFSecServiceByTypeIdxKey keyTypeIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
 				keyTypeIdx.setRequiredServiceTypeId( keepObj.getRequiredServiceTypeId() );
-				Map<CFSecServicePKey, ICFSecServiceObj > mapTypeIdx = indexByTypeIdx.get( keyTypeIdx );
+				Map<YCFSecServicePKey, IYCFSecServiceObj > mapTypeIdx = indexByTypeIdx.get( keyTypeIdx );
 				if( mapTypeIdx != null ) {
 					mapTypeIdx.remove( keepObj.getPKey() );
 					if( mapTypeIdx.size() <= 0 ) {
@@ -202,8 +202,8 @@ public class CFSecServiceTableObj
 			}
 
 			if( indexByUTypeIdx != null ) {
-				CFSecServiceByUTypeIdxKey keyUTypeIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
+				YCFSecServiceByUTypeIdxKey keyUTypeIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
 				keyUTypeIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUTypeIdx.setRequiredHostNodeId( keepObj.getRequiredHostNodeId() );
 				keyUTypeIdx.setRequiredServiceTypeId( keepObj.getRequiredServiceTypeId() );
@@ -211,8 +211,8 @@ public class CFSecServiceTableObj
 			}
 
 			if( indexByUHostPortIdx != null ) {
-				CFSecServiceByUHostPortIdxKey keyUHostPortIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
+				YCFSecServiceByUHostPortIdxKey keyUHostPortIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
 				keyUHostPortIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUHostPortIdx.setRequiredHostNodeId( keepObj.getRequiredHostNodeId() );
 				keyUHostPortIdx.setRequiredHostPort( keepObj.getRequiredHostPort() );
@@ -223,39 +223,39 @@ public class CFSecServiceTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByClusterIdx != null ) {
-				CFSecServiceByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
+				YCFSecServiceByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecServicePKey, ICFSecServiceObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecServicePKey, IYCFSecServiceObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByHostIdx != null ) {
-				CFSecServiceByHostIdxKey keyHostIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
+				YCFSecServiceByHostIdxKey keyHostIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
 				keyHostIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyHostIdx.setRequiredHostNodeId( keepObj.getRequiredHostNodeId() );
-				Map<CFSecServicePKey, ICFSecServiceObj > mapHostIdx = indexByHostIdx.get( keyHostIdx );
+				Map<YCFSecServicePKey, IYCFSecServiceObj > mapHostIdx = indexByHostIdx.get( keyHostIdx );
 				if( mapHostIdx != null ) {
 					mapHostIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByTypeIdx != null ) {
-				CFSecServiceByTypeIdxKey keyTypeIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
+				YCFSecServiceByTypeIdxKey keyTypeIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
 				keyTypeIdx.setRequiredServiceTypeId( keepObj.getRequiredServiceTypeId() );
-				Map<CFSecServicePKey, ICFSecServiceObj > mapTypeIdx = indexByTypeIdx.get( keyTypeIdx );
+				Map<YCFSecServicePKey, IYCFSecServiceObj > mapTypeIdx = indexByTypeIdx.get( keyTypeIdx );
 				if( mapTypeIdx != null ) {
 					mapTypeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUTypeIdx != null ) {
-				CFSecServiceByUTypeIdxKey keyUTypeIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
+				YCFSecServiceByUTypeIdxKey keyUTypeIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
 				keyUTypeIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUTypeIdx.setRequiredHostNodeId( keepObj.getRequiredHostNodeId() );
 				keyUTypeIdx.setRequiredServiceTypeId( keepObj.getRequiredServiceTypeId() );
@@ -263,8 +263,8 @@ public class CFSecServiceTableObj
 			}
 
 			if( indexByUHostPortIdx != null ) {
-				CFSecServiceByUHostPortIdxKey keyUHostPortIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
+				YCFSecServiceByUHostPortIdxKey keyUHostPortIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
 				keyUHostPortIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUHostPortIdx.setRequiredHostNodeId( keepObj.getRequiredHostNodeId() );
 				keyUHostPortIdx.setRequiredHostPort( keepObj.getRequiredHostPort() );
@@ -286,39 +286,39 @@ public class CFSecServiceTableObj
 			}
 
 			if( indexByClusterIdx != null ) {
-				CFSecServiceByClusterIdxKey keyClusterIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
+				YCFSecServiceByClusterIdxKey keyClusterIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFSecServicePKey, ICFSecServiceObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFSecServicePKey, IYCFSecServiceObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByHostIdx != null ) {
-				CFSecServiceByHostIdxKey keyHostIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
+				YCFSecServiceByHostIdxKey keyHostIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
 				keyHostIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyHostIdx.setRequiredHostNodeId( keepObj.getRequiredHostNodeId() );
-				Map<CFSecServicePKey, ICFSecServiceObj > mapHostIdx = indexByHostIdx.get( keyHostIdx );
+				Map<YCFSecServicePKey, IYCFSecServiceObj > mapHostIdx = indexByHostIdx.get( keyHostIdx );
 				if( mapHostIdx != null ) {
 					mapHostIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByTypeIdx != null ) {
-				CFSecServiceByTypeIdxKey keyTypeIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
+				YCFSecServiceByTypeIdxKey keyTypeIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
 				keyTypeIdx.setRequiredServiceTypeId( keepObj.getRequiredServiceTypeId() );
-				Map<CFSecServicePKey, ICFSecServiceObj > mapTypeIdx = indexByTypeIdx.get( keyTypeIdx );
+				Map<YCFSecServicePKey, IYCFSecServiceObj > mapTypeIdx = indexByTypeIdx.get( keyTypeIdx );
 				if( mapTypeIdx != null ) {
 					mapTypeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUTypeIdx != null ) {
-				CFSecServiceByUTypeIdxKey keyUTypeIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
+				YCFSecServiceByUTypeIdxKey keyUTypeIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
 				keyUTypeIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUTypeIdx.setRequiredHostNodeId( keepObj.getRequiredHostNodeId() );
 				keyUTypeIdx.setRequiredServiceTypeId( keepObj.getRequiredServiceTypeId() );
@@ -326,8 +326,8 @@ public class CFSecServiceTableObj
 			}
 
 			if( indexByUHostPortIdx != null ) {
-				CFSecServiceByUHostPortIdxKey keyUHostPortIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
+				YCFSecServiceByUHostPortIdxKey keyUHostPortIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
 				keyUHostPortIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUHostPortIdx.setRequiredHostNodeId( keepObj.getRequiredHostNodeId() );
 				keyUHostPortIdx.setRequiredHostPort( keepObj.getRequiredHostPort() );
@@ -338,10 +338,10 @@ public class CFSecServiceTableObj
 		return( keepObj );
 	}
 
-	public ICFSecServiceObj createService( ICFSecServiceObj Obj ) {
-		ICFSecServiceObj obj = Obj;
-		CFSecServiceBuff buff = obj.getServiceBuff();
-		((ICFSecSchema)schema.getBackingStore()).getTableService().createService(
+	public IYCFSecServiceObj createService( IYCFSecServiceObj Obj ) {
+		IYCFSecServiceObj obj = Obj;
+		YCFSecServiceBuff buff = obj.getServiceBuff();
+		((IYCFSecSchema)schema.getBackingStore()).getTableService().createService(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -350,66 +350,66 @@ public class CFSecServiceTableObj
 		return( obj );
 	}
 
-	public ICFSecServiceObj readService( CFSecServicePKey pkey ) {
+	public IYCFSecServiceObj readService( YCFSecServicePKey pkey ) {
 		return( readService( pkey, false ) );
 	}
 
-	public ICFSecServiceObj readService( CFSecServicePKey pkey, boolean forceRead ) {
-		ICFSecServiceObj obj = null;
+	public IYCFSecServiceObj readService( YCFSecServicePKey pkey, boolean forceRead ) {
+		IYCFSecServiceObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecServiceBuff readBuff = ((ICFSecSchema)schema.getBackingStore()).getTableService().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecServiceBuff readBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableService().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredClusterId(),
 				pkey.getRequiredServiceId() );
 			if( readBuff != null ) {
 				obj = schema.getServiceTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecServiceObj)obj.realise();
+				obj = (IYCFSecServiceObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecServiceObj readCachedService( CFSecServicePKey pkey ) {
-		ICFSecServiceObj obj = null;
+	public IYCFSecServiceObj readCachedService( YCFSecServicePKey pkey ) {
+		IYCFSecServiceObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeService( ICFSecServiceObj obj )
+	public void reallyDeepDisposeService( IYCFSecServiceObj obj )
 	{
-		final String S_ProcName = "CFSecServiceTableObj.reallyDeepDisposeService() ";
+		final String S_ProcName = "YCFSecServiceTableObj.reallyDeepDisposeService() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecServicePKey pkey = obj.getPKey();
-		ICFSecServiceObj existing = readCachedService( pkey );
+		YCFSecServicePKey pkey = obj.getPKey();
+		IYCFSecServiceObj existing = readCachedService( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecServiceByClusterIdxKey keyClusterIdx = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey keyClusterIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecServiceByHostIdxKey keyHostIdx = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey keyHostIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
 		keyHostIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyHostIdx.setRequiredHostNodeId( existing.getRequiredHostNodeId() );
 
-		CFSecServiceByTypeIdxKey keyTypeIdx = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey keyTypeIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
 		keyTypeIdx.setRequiredServiceTypeId( existing.getRequiredServiceTypeId() );
 
-		CFSecServiceByUTypeIdxKey keyUTypeIdx = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
+		YCFSecServiceByUTypeIdxKey keyUTypeIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
 		keyUTypeIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUTypeIdx.setRequiredHostNodeId( existing.getRequiredHostNodeId() );
 		keyUTypeIdx.setRequiredServiceTypeId( existing.getRequiredServiceTypeId() );
 
-		CFSecServiceByUHostPortIdxKey keyUHostPortIdx = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
+		YCFSecServiceByUHostPortIdxKey keyUHostPortIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
 		keyUHostPortIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUHostPortIdx.setRequiredHostNodeId( existing.getRequiredHostNodeId() );
 		keyUHostPortIdx.setRequiredHostPort( existing.getRequiredHostPort() );
@@ -453,57 +453,57 @@ public class CFSecServiceTableObj
 
 
 	}
-	public void deepDisposeService( CFSecServicePKey pkey ) {
-		ICFSecServiceObj obj = readCachedService( pkey );
+	public void deepDisposeService( YCFSecServicePKey pkey ) {
+		IYCFSecServiceObj obj = readCachedService( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecServiceObj lockService( CFSecServicePKey pkey ) {
-		ICFSecServiceObj locked = null;
-		CFSecServiceBuff lockBuff = ((ICFSecSchema)schema.getBackingStore()).getTableService().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecServiceObj lockService( YCFSecServicePKey pkey ) {
+		IYCFSecServiceObj locked = null;
+		YCFSecServiceBuff lockBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableService().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getServiceTableObj().newInstance();
-			locked.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+			locked.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecServiceObj)locked.realise();
+			locked = (IYCFSecServiceObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockService", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockService", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecServiceObj> readAllService() {
+	public List<IYCFSecServiceObj> readAllService() {
 		return( readAllService( false ) );
 	}
 
-	public List<ICFSecServiceObj> readAllService( boolean forceRead ) {
+	public List<IYCFSecServiceObj> readAllService( boolean forceRead ) {
 		final String S_ProcName = "readAllService";
 		if( ( allService == null ) || forceRead ) {
-			Map<CFSecServicePKey, ICFSecServiceObj> map = new HashMap<CFSecServicePKey,ICFSecServiceObj>();
+			Map<YCFSecServicePKey, IYCFSecServiceObj> map = new HashMap<YCFSecServicePKey,IYCFSecServiceObj>();
 			allService = map;
-			CFSecServiceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableService().readAllDerived( schema.getAuthorization() );
-			CFSecServiceBuff buff;
-			ICFSecServiceObj obj;
+			YCFSecServiceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableService().readAllDerived( schema.getAuthorization() );
+			YCFSecServiceBuff buff;
+			IYCFSecServiceObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 				obj.setBuff( buff );
-				ICFSecServiceObj realised = (ICFSecServiceObj)obj.realise();
+				IYCFSecServiceObj realised = (IYCFSecServiceObj)obj.realise();
 			}
 		}
 		int len = allService.size();
-		ICFSecServiceObj arr[] = new ICFSecServiceObj[len];
-		Iterator<ICFSecServiceObj> valIter = allService.values().iterator();
+		IYCFSecServiceObj arr[] = new IYCFSecServiceObj[len];
+		Iterator<IYCFSecServiceObj> valIter = allService.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -511,20 +511,20 @@ public class CFSecServiceTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecServiceObj> arrayList = new ArrayList<ICFSecServiceObj>(len);
+		ArrayList<IYCFSecServiceObj> arrayList = new ArrayList<IYCFSecServiceObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecServiceObj> cmp = new Comparator<ICFSecServiceObj>() {
-			public int compare( ICFSecServiceObj lhs, ICFSecServiceObj rhs ) {
+		Comparator<IYCFSecServiceObj> cmp = new Comparator<IYCFSecServiceObj>() {
+			public int compare( IYCFSecServiceObj lhs, IYCFSecServiceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -537,31 +537,31 @@ public class CFSecServiceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServicePKey lhsPKey = lhs.getPKey();
-					CFSecServicePKey rhsPKey = rhs.getPKey();
+					YCFSecServicePKey lhsPKey = lhs.getPKey();
+					YCFSecServicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecServiceObj> sortedList = arrayList;
+		List<IYCFSecServiceObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecServiceObj> readCachedAllService() {
+	public List<IYCFSecServiceObj> readCachedAllService() {
 		final String S_ProcName = "readCachedAllService";
-		ArrayList<ICFSecServiceObj> arrayList = new ArrayList<ICFSecServiceObj>();
+		ArrayList<IYCFSecServiceObj> arrayList = new ArrayList<IYCFSecServiceObj>();
 		if( allService != null ) {
 			int len = allService.size();
-			ICFSecServiceObj arr[] = new ICFSecServiceObj[len];
-			Iterator<ICFSecServiceObj> valIter = allService.values().iterator();
+			IYCFSecServiceObj arr[] = new IYCFSecServiceObj[len];
+			Iterator<IYCFSecServiceObj> valIter = allService.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -569,7 +569,7 @@ public class CFSecServiceTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -580,8 +580,8 @@ public class CFSecServiceTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecServiceObj> cmp = new Comparator<ICFSecServiceObj>() {
-			public int compare( ICFSecServiceObj lhs, ICFSecServiceObj rhs ) {
+		Comparator<IYCFSecServiceObj> cmp = new Comparator<IYCFSecServiceObj>() {
+			public int compare( IYCFSecServiceObj lhs, IYCFSecServiceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -594,8 +594,8 @@ public class CFSecServiceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServicePKey lhsPKey = lhs.getPKey();
-					CFSecServicePKey rhsPKey = rhs.getPKey();
+					YCFSecServicePKey lhsPKey = lhs.getPKey();
+					YCFSecServicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -608,33 +608,33 @@ public class CFSecServiceTableObj
 	/**
 	 *	Return a sorted map of a page of the Service-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecServiceObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecServiceObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	public List<ICFSecServiceObj> pageAllService(Long priorClusterId,
+	public List<IYCFSecServiceObj> pageAllService(Long priorClusterId,
 		Long priorServiceId )
 	{
 		final String S_ProcName = "pageAllService";
-		Map<CFSecServicePKey, ICFSecServiceObj> map = new HashMap<CFSecServicePKey,ICFSecServiceObj>();
-		CFSecServiceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableService().pageAllBuff( schema.getAuthorization(),
+		Map<YCFSecServicePKey, IYCFSecServiceObj> map = new HashMap<YCFSecServicePKey,IYCFSecServiceObj>();
+		YCFSecServiceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableService().pageAllBuff( schema.getAuthorization(),
 			priorClusterId,
 			priorServiceId );
-		CFSecServiceBuff buff;
-		ICFSecServiceObj obj;
-		ICFSecServiceObj realised;
-		ArrayList<ICFSecServiceObj> arrayList = new ArrayList<ICFSecServiceObj>( buffList.length );
+		YCFSecServiceBuff buff;
+		IYCFSecServiceObj obj;
+		IYCFSecServiceObj realised;
+		ArrayList<IYCFSecServiceObj> arrayList = new ArrayList<IYCFSecServiceObj>( buffList.length );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 			obj.setBuff( buff );
-			realised = (ICFSecServiceObj)obj.realise();
+			realised = (IYCFSecServiceObj)obj.realise();
 			arrayList.add( realised );
 		}
 		return( arrayList );
 	}
 
-	public ICFSecServiceObj readServiceByIdIdx( long ClusterId,
+	public IYCFSecServiceObj readServiceByIdIdx( long ClusterId,
 		long ServiceId )
 	{
 		return( readServiceByIdIdx( ClusterId,
@@ -642,61 +642,61 @@ public class CFSecServiceTableObj
 			false ) );
 	}
 
-	public ICFSecServiceObj readServiceByIdIdx( long ClusterId,
+	public IYCFSecServiceObj readServiceByIdIdx( long ClusterId,
 		long ServiceId, boolean forceRead )
 	{
-		CFSecServicePKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey();
+		YCFSecServicePKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredServiceId( ServiceId );
-		ICFSecServiceObj obj = readService( pkey, forceRead );
+		IYCFSecServiceObj obj = readService( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFSecServiceObj> readServiceByClusterIdx( long ClusterId )
+	public List<IYCFSecServiceObj> readServiceByClusterIdx( long ClusterId )
 	{
 		return( readServiceByClusterIdx( ClusterId,
 			false ) );
 	}
 
-	public List<ICFSecServiceObj> readServiceByClusterIdx( long ClusterId,
+	public List<IYCFSecServiceObj> readServiceByClusterIdx( long ClusterId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readServiceByClusterIdx";
-		CFSecServiceByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		Map<CFSecServicePKey, ICFSecServiceObj> dict;
+		Map<YCFSecServicePKey, IYCFSecServiceObj> dict;
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecServiceByClusterIdxKey,
-				Map< CFSecServicePKey, ICFSecServiceObj > >();
+			indexByClusterIdx = new HashMap< YCFSecServiceByClusterIdxKey,
+				Map< YCFSecServicePKey, IYCFSecServiceObj > >();
 		}
 		if( ( ! forceRead ) && indexByClusterIdx.containsKey( key ) ) {
 			dict = indexByClusterIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecServicePKey, ICFSecServiceObj>();
-			ICFSecServiceObj obj;
-			CFSecServiceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableService().readDerivedByClusterIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecServicePKey, IYCFSecServiceObj>();
+			IYCFSecServiceObj obj;
+			YCFSecServiceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableService().readDerivedByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			CFSecServiceBuff buff;
+			YCFSecServiceBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getServiceTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 				obj.setBuff( buff );
-				ICFSecServiceObj realised = (ICFSecServiceObj)obj.realise();
+				IYCFSecServiceObj realised = (IYCFSecServiceObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClusterIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecServiceObj arr[] = new ICFSecServiceObj[len];
-		Iterator<ICFSecServiceObj> valIter = dict.values().iterator();
+		IYCFSecServiceObj arr[] = new IYCFSecServiceObj[len];
+		Iterator<IYCFSecServiceObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -704,20 +704,20 @@ public class CFSecServiceTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecServiceObj> arrayList = new ArrayList<ICFSecServiceObj>(len);
+		ArrayList<IYCFSecServiceObj> arrayList = new ArrayList<IYCFSecServiceObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecServiceObj> cmp = new Comparator<ICFSecServiceObj>() {
-			public int compare( ICFSecServiceObj lhs, ICFSecServiceObj rhs ) {
+		Comparator<IYCFSecServiceObj> cmp = new Comparator<IYCFSecServiceObj>() {
+			public int compare( IYCFSecServiceObj lhs, IYCFSecServiceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -730,19 +730,19 @@ public class CFSecServiceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServicePKey lhsPKey = lhs.getPKey();
-					CFSecServicePKey rhsPKey = rhs.getPKey();
+					YCFSecServicePKey lhsPKey = lhs.getPKey();
+					YCFSecServicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecServiceObj> sortedList = arrayList;
+		List<IYCFSecServiceObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecServiceObj> readServiceByHostIdx( long ClusterId,
+	public List<IYCFSecServiceObj> readServiceByHostIdx( long ClusterId,
 		long HostNodeId )
 	{
 		return( readServiceByHostIdx( ClusterId,
@@ -750,48 +750,48 @@ public class CFSecServiceTableObj
 			false ) );
 	}
 
-	public List<ICFSecServiceObj> readServiceByHostIdx( long ClusterId,
+	public List<IYCFSecServiceObj> readServiceByHostIdx( long ClusterId,
 		long HostNodeId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readServiceByHostIdx";
-		CFSecServiceByHostIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
-		Map<CFSecServicePKey, ICFSecServiceObj> dict;
+		Map<YCFSecServicePKey, IYCFSecServiceObj> dict;
 		if( indexByHostIdx == null ) {
-			indexByHostIdx = new HashMap< CFSecServiceByHostIdxKey,
-				Map< CFSecServicePKey, ICFSecServiceObj > >();
+			indexByHostIdx = new HashMap< YCFSecServiceByHostIdxKey,
+				Map< YCFSecServicePKey, IYCFSecServiceObj > >();
 		}
 		if( ( ! forceRead ) && indexByHostIdx.containsKey( key ) ) {
 			dict = indexByHostIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecServicePKey, ICFSecServiceObj>();
-			ICFSecServiceObj obj;
-			CFSecServiceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableService().readDerivedByHostIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecServicePKey, IYCFSecServiceObj>();
+			IYCFSecServiceObj obj;
+			YCFSecServiceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableService().readDerivedByHostIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId );
-			CFSecServiceBuff buff;
+			YCFSecServiceBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getServiceTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 				obj.setBuff( buff );
-				ICFSecServiceObj realised = (ICFSecServiceObj)obj.realise();
+				IYCFSecServiceObj realised = (IYCFSecServiceObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByHostIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecServiceObj arr[] = new ICFSecServiceObj[len];
-		Iterator<ICFSecServiceObj> valIter = dict.values().iterator();
+		IYCFSecServiceObj arr[] = new IYCFSecServiceObj[len];
+		Iterator<IYCFSecServiceObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -799,20 +799,20 @@ public class CFSecServiceTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecServiceObj> arrayList = new ArrayList<ICFSecServiceObj>(len);
+		ArrayList<IYCFSecServiceObj> arrayList = new ArrayList<IYCFSecServiceObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecServiceObj> cmp = new Comparator<ICFSecServiceObj>() {
-			public int compare( ICFSecServiceObj lhs, ICFSecServiceObj rhs ) {
+		Comparator<IYCFSecServiceObj> cmp = new Comparator<IYCFSecServiceObj>() {
+			public int compare( IYCFSecServiceObj lhs, IYCFSecServiceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -825,63 +825,63 @@ public class CFSecServiceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServicePKey lhsPKey = lhs.getPKey();
-					CFSecServicePKey rhsPKey = rhs.getPKey();
+					YCFSecServicePKey lhsPKey = lhs.getPKey();
+					YCFSecServicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecServiceObj> sortedList = arrayList;
+		List<IYCFSecServiceObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecServiceObj> readServiceByTypeIdx( int ServiceTypeId )
+	public List<IYCFSecServiceObj> readServiceByTypeIdx( int ServiceTypeId )
 	{
 		return( readServiceByTypeIdx( ServiceTypeId,
 			false ) );
 	}
 
-	public List<ICFSecServiceObj> readServiceByTypeIdx( int ServiceTypeId,
+	public List<IYCFSecServiceObj> readServiceByTypeIdx( int ServiceTypeId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readServiceByTypeIdx";
-		CFSecServiceByTypeIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
 		key.setRequiredServiceTypeId( ServiceTypeId );
-		Map<CFSecServicePKey, ICFSecServiceObj> dict;
+		Map<YCFSecServicePKey, IYCFSecServiceObj> dict;
 		if( indexByTypeIdx == null ) {
-			indexByTypeIdx = new HashMap< CFSecServiceByTypeIdxKey,
-				Map< CFSecServicePKey, ICFSecServiceObj > >();
+			indexByTypeIdx = new HashMap< YCFSecServiceByTypeIdxKey,
+				Map< YCFSecServicePKey, IYCFSecServiceObj > >();
 		}
 		if( ( ! forceRead ) && indexByTypeIdx.containsKey( key ) ) {
 			dict = indexByTypeIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecServicePKey, ICFSecServiceObj>();
-			ICFSecServiceObj obj;
-			CFSecServiceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableService().readDerivedByTypeIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecServicePKey, IYCFSecServiceObj>();
+			IYCFSecServiceObj obj;
+			YCFSecServiceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableService().readDerivedByTypeIdx( schema.getAuthorization(),
 				ServiceTypeId );
-			CFSecServiceBuff buff;
+			YCFSecServiceBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getServiceTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 				obj.setBuff( buff );
-				ICFSecServiceObj realised = (ICFSecServiceObj)obj.realise();
+				IYCFSecServiceObj realised = (IYCFSecServiceObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTypeIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecServiceObj arr[] = new ICFSecServiceObj[len];
-		Iterator<ICFSecServiceObj> valIter = dict.values().iterator();
+		IYCFSecServiceObj arr[] = new IYCFSecServiceObj[len];
+		Iterator<IYCFSecServiceObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -889,20 +889,20 @@ public class CFSecServiceTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecServiceObj> arrayList = new ArrayList<ICFSecServiceObj>(len);
+		ArrayList<IYCFSecServiceObj> arrayList = new ArrayList<IYCFSecServiceObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecServiceObj> cmp = new Comparator<ICFSecServiceObj>() {
-			public int compare( ICFSecServiceObj lhs, ICFSecServiceObj rhs ) {
+		Comparator<IYCFSecServiceObj> cmp = new Comparator<IYCFSecServiceObj>() {
+			public int compare( IYCFSecServiceObj lhs, IYCFSecServiceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -915,19 +915,19 @@ public class CFSecServiceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServicePKey lhsPKey = lhs.getPKey();
-					CFSecServicePKey rhsPKey = rhs.getPKey();
+					YCFSecServicePKey lhsPKey = lhs.getPKey();
+					YCFSecServicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecServiceObj> sortedList = arrayList;
+		List<IYCFSecServiceObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecServiceObj readServiceByUTypeIdx( long ClusterId,
+	public IYCFSecServiceObj readServiceByUTypeIdx( long ClusterId,
 		long HostNodeId,
 		int ServiceTypeId )
 	{
@@ -937,38 +937,38 @@ public class CFSecServiceTableObj
 			false ) );
 	}
 
-	public ICFSecServiceObj readServiceByUTypeIdx( long ClusterId,
+	public IYCFSecServiceObj readServiceByUTypeIdx( long ClusterId,
 		long HostNodeId,
 		int ServiceTypeId, boolean forceRead )
 	{
 		if( indexByUTypeIdx == null ) {
-			indexByUTypeIdx = new HashMap< CFSecServiceByUTypeIdxKey,
-				ICFSecServiceObj >();
+			indexByUTypeIdx = new HashMap< YCFSecServiceByUTypeIdxKey,
+				IYCFSecServiceObj >();
 		}
-		CFSecServiceByUTypeIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
+		YCFSecServiceByUTypeIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 		key.setRequiredServiceTypeId( ServiceTypeId );
-		ICFSecServiceObj obj = null;
+		IYCFSecServiceObj obj = null;
 		if( ( ! forceRead ) && indexByUTypeIdx.containsKey( key ) ) {
 			obj = indexByUTypeIdx.get( key );
 		}
 		else {
-			CFSecServiceBuff buff = ((ICFSecSchema)schema.getBackingStore()).getTableService().readDerivedByUTypeIdx( schema.getAuthorization(),
+			YCFSecServiceBuff buff = ((IYCFSecSchema)schema.getBackingStore()).getTableService().readDerivedByUTypeIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId,
 				ServiceTypeId );
 			if( buff != null ) {
 				obj = schema.getServiceTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecServiceObj)obj.realise();
+				obj = (IYCFSecServiceObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecServiceObj readServiceByUHostPortIdx( long ClusterId,
+	public IYCFSecServiceObj readServiceByUHostPortIdx( long ClusterId,
 		long HostNodeId,
 		short HostPort )
 	{
@@ -978,67 +978,67 @@ public class CFSecServiceTableObj
 			false ) );
 	}
 
-	public ICFSecServiceObj readServiceByUHostPortIdx( long ClusterId,
+	public IYCFSecServiceObj readServiceByUHostPortIdx( long ClusterId,
 		long HostNodeId,
 		short HostPort, boolean forceRead )
 	{
 		if( indexByUHostPortIdx == null ) {
-			indexByUHostPortIdx = new HashMap< CFSecServiceByUHostPortIdxKey,
-				ICFSecServiceObj >();
+			indexByUHostPortIdx = new HashMap< YCFSecServiceByUHostPortIdxKey,
+				IYCFSecServiceObj >();
 		}
-		CFSecServiceByUHostPortIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
+		YCFSecServiceByUHostPortIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 		key.setRequiredHostPort( HostPort );
-		ICFSecServiceObj obj = null;
+		IYCFSecServiceObj obj = null;
 		if( ( ! forceRead ) && indexByUHostPortIdx.containsKey( key ) ) {
 			obj = indexByUHostPortIdx.get( key );
 		}
 		else {
-			CFSecServiceBuff buff = ((ICFSecSchema)schema.getBackingStore()).getTableService().readDerivedByUHostPortIdx( schema.getAuthorization(),
+			YCFSecServiceBuff buff = ((IYCFSecSchema)schema.getBackingStore()).getTableService().readDerivedByUHostPortIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId,
 				HostPort );
 			if( buff != null ) {
 				obj = schema.getServiceTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecServiceObj)obj.realise();
+				obj = (IYCFSecServiceObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecServiceObj readCachedServiceByIdIdx( long ClusterId,
+	public IYCFSecServiceObj readCachedServiceByIdIdx( long ClusterId,
 		long ServiceId )
 	{
-		ICFSecServiceObj obj = null;
-		CFSecServicePKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey();
+		IYCFSecServiceObj obj = null;
+		YCFSecServicePKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredServiceId( ServiceId );
 		obj = readCachedService( pkey );
 		return( obj );
 	}
 
-	public List<ICFSecServiceObj> readCachedServiceByClusterIdx( long ClusterId )
+	public List<IYCFSecServiceObj> readCachedServiceByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "readCachedServiceByClusterIdx";
-		CFSecServiceByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		ArrayList<ICFSecServiceObj> arrayList = new ArrayList<ICFSecServiceObj>();
+		ArrayList<IYCFSecServiceObj> arrayList = new ArrayList<IYCFSecServiceObj>();
 		if( indexByClusterIdx != null ) {
-			Map<CFSecServicePKey, ICFSecServiceObj> dict;
+			Map<YCFSecServicePKey, IYCFSecServiceObj> dict;
 			if( indexByClusterIdx.containsKey( key ) ) {
 				dict = indexByClusterIdx.get( key );
 				int len = dict.size();
-				ICFSecServiceObj arr[] = new ICFSecServiceObj[len];
-				Iterator<ICFSecServiceObj> valIter = dict.values().iterator();
+				IYCFSecServiceObj arr[] = new IYCFSecServiceObj[len];
+				Iterator<IYCFSecServiceObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1046,7 +1046,7 @@ public class CFSecServiceTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1059,8 +1059,8 @@ public class CFSecServiceTableObj
 			}
 		}
 		else {
-			ICFSecServiceObj obj;
-			Iterator<ICFSecServiceObj> valIter = members.values().iterator();
+			IYCFSecServiceObj obj;
+			Iterator<IYCFSecServiceObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1070,8 +1070,8 @@ public class CFSecServiceTableObj
 				}
 			}
 		}
-		Comparator<ICFSecServiceObj> cmp = new Comparator<ICFSecServiceObj>() {
-			public int compare( ICFSecServiceObj lhs, ICFSecServiceObj rhs ) {
+		Comparator<IYCFSecServiceObj> cmp = new Comparator<IYCFSecServiceObj>() {
+			public int compare( IYCFSecServiceObj lhs, IYCFSecServiceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1084,8 +1084,8 @@ public class CFSecServiceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServicePKey lhsPKey = lhs.getPKey();
-					CFSecServicePKey rhsPKey = rhs.getPKey();
+					YCFSecServicePKey lhsPKey = lhs.getPKey();
+					YCFSecServicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1095,27 +1095,27 @@ public class CFSecServiceTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecServiceObj> readCachedServiceByHostIdx( long ClusterId,
+	public List<IYCFSecServiceObj> readCachedServiceByHostIdx( long ClusterId,
 		long HostNodeId )
 	{
 		final String S_ProcName = "readCachedServiceByHostIdx";
-		CFSecServiceByHostIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
-		ArrayList<ICFSecServiceObj> arrayList = new ArrayList<ICFSecServiceObj>();
+		ArrayList<IYCFSecServiceObj> arrayList = new ArrayList<IYCFSecServiceObj>();
 		if( indexByHostIdx != null ) {
-			Map<CFSecServicePKey, ICFSecServiceObj> dict;
+			Map<YCFSecServicePKey, IYCFSecServiceObj> dict;
 			if( indexByHostIdx.containsKey( key ) ) {
 				dict = indexByHostIdx.get( key );
 				int len = dict.size();
-				ICFSecServiceObj arr[] = new ICFSecServiceObj[len];
-				Iterator<ICFSecServiceObj> valIter = dict.values().iterator();
+				IYCFSecServiceObj arr[] = new IYCFSecServiceObj[len];
+				Iterator<IYCFSecServiceObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1123,7 +1123,7 @@ public class CFSecServiceTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1136,8 +1136,8 @@ public class CFSecServiceTableObj
 			}
 		}
 		else {
-			ICFSecServiceObj obj;
-			Iterator<ICFSecServiceObj> valIter = members.values().iterator();
+			IYCFSecServiceObj obj;
+			Iterator<IYCFSecServiceObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1147,8 +1147,8 @@ public class CFSecServiceTableObj
 				}
 			}
 		}
-		Comparator<ICFSecServiceObj> cmp = new Comparator<ICFSecServiceObj>() {
-			public int compare( ICFSecServiceObj lhs, ICFSecServiceObj rhs ) {
+		Comparator<IYCFSecServiceObj> cmp = new Comparator<IYCFSecServiceObj>() {
+			public int compare( IYCFSecServiceObj lhs, IYCFSecServiceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1161,8 +1161,8 @@ public class CFSecServiceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServicePKey lhsPKey = lhs.getPKey();
-					CFSecServicePKey rhsPKey = rhs.getPKey();
+					YCFSecServicePKey lhsPKey = lhs.getPKey();
+					YCFSecServicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1172,25 +1172,25 @@ public class CFSecServiceTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecServiceObj> readCachedServiceByTypeIdx( int ServiceTypeId )
+	public List<IYCFSecServiceObj> readCachedServiceByTypeIdx( int ServiceTypeId )
 	{
 		final String S_ProcName = "readCachedServiceByTypeIdx";
-		CFSecServiceByTypeIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
 		key.setRequiredServiceTypeId( ServiceTypeId );
-		ArrayList<ICFSecServiceObj> arrayList = new ArrayList<ICFSecServiceObj>();
+		ArrayList<IYCFSecServiceObj> arrayList = new ArrayList<IYCFSecServiceObj>();
 		if( indexByTypeIdx != null ) {
-			Map<CFSecServicePKey, ICFSecServiceObj> dict;
+			Map<YCFSecServicePKey, IYCFSecServiceObj> dict;
 			if( indexByTypeIdx.containsKey( key ) ) {
 				dict = indexByTypeIdx.get( key );
 				int len = dict.size();
-				ICFSecServiceObj arr[] = new ICFSecServiceObj[len];
-				Iterator<ICFSecServiceObj> valIter = dict.values().iterator();
+				IYCFSecServiceObj arr[] = new IYCFSecServiceObj[len];
+				Iterator<IYCFSecServiceObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1198,7 +1198,7 @@ public class CFSecServiceTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1211,8 +1211,8 @@ public class CFSecServiceTableObj
 			}
 		}
 		else {
-			ICFSecServiceObj obj;
-			Iterator<ICFSecServiceObj> valIter = members.values().iterator();
+			IYCFSecServiceObj obj;
+			Iterator<IYCFSecServiceObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1222,8 +1222,8 @@ public class CFSecServiceTableObj
 				}
 			}
 		}
-		Comparator<ICFSecServiceObj> cmp = new Comparator<ICFSecServiceObj>() {
-			public int compare( ICFSecServiceObj lhs, ICFSecServiceObj rhs ) {
+		Comparator<IYCFSecServiceObj> cmp = new Comparator<IYCFSecServiceObj>() {
+			public int compare( IYCFSecServiceObj lhs, IYCFSecServiceObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1236,8 +1236,8 @@ public class CFSecServiceTableObj
 					return( 1 );
 				}
 				else {
-					CFSecServicePKey lhsPKey = lhs.getPKey();
-					CFSecServicePKey rhsPKey = rhs.getPKey();
+					YCFSecServicePKey lhsPKey = lhs.getPKey();
+					YCFSecServicePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1247,12 +1247,12 @@ public class CFSecServiceTableObj
 		return( arrayList );
 	}
 
-	public ICFSecServiceObj readCachedServiceByUTypeIdx( long ClusterId,
+	public IYCFSecServiceObj readCachedServiceByUTypeIdx( long ClusterId,
 		long HostNodeId,
 		int ServiceTypeId )
 	{
-		ICFSecServiceObj obj = null;
-		CFSecServiceByUTypeIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
+		IYCFSecServiceObj obj = null;
+		YCFSecServiceByUTypeIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 		key.setRequiredServiceTypeId( ServiceTypeId );
@@ -1261,7 +1261,7 @@ public class CFSecServiceTableObj
 				obj = indexByUTypeIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecServiceObj> valIter = members.values().iterator();
+				Iterator<IYCFSecServiceObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1273,7 +1273,7 @@ public class CFSecServiceTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecServiceObj> valIter = members.values().iterator();
+			Iterator<IYCFSecServiceObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1286,12 +1286,12 @@ public class CFSecServiceTableObj
 		return( obj );
 	}
 
-	public ICFSecServiceObj readCachedServiceByUHostPortIdx( long ClusterId,
+	public IYCFSecServiceObj readCachedServiceByUHostPortIdx( long ClusterId,
 		long HostNodeId,
 		short HostPort )
 	{
-		ICFSecServiceObj obj = null;
-		CFSecServiceByUHostPortIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
+		IYCFSecServiceObj obj = null;
+		YCFSecServiceByUHostPortIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 		key.setRequiredHostPort( HostPort );
@@ -1300,7 +1300,7 @@ public class CFSecServiceTableObj
 				obj = indexByUHostPortIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecServiceObj> valIter = members.values().iterator();
+				Iterator<IYCFSecServiceObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1312,7 +1312,7 @@ public class CFSecServiceTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecServiceObj> valIter = members.values().iterator();
+			Iterator<IYCFSecServiceObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1328,7 +1328,7 @@ public class CFSecServiceTableObj
 	public void deepDisposeServiceByIdIdx( long ClusterId,
 		long ServiceId )
 	{
-		ICFSecServiceObj obj = readCachedServiceByIdIdx( ClusterId,
+		IYCFSecServiceObj obj = readCachedServiceByIdIdx( ClusterId,
 				ServiceId );
 		if( obj != null ) {
 			obj.forget();
@@ -1338,10 +1338,10 @@ public class CFSecServiceTableObj
 	public void deepDisposeServiceByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "deepDisposeServiceByClusterIdx";
-		ICFSecServiceObj obj;
-		List<ICFSecServiceObj> arrayList = readCachedServiceByClusterIdx( ClusterId );
+		IYCFSecServiceObj obj;
+		List<IYCFSecServiceObj> arrayList = readCachedServiceByClusterIdx( ClusterId );
 		if( arrayList != null )  {
-			Iterator<ICFSecServiceObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecServiceObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1355,11 +1355,11 @@ public class CFSecServiceTableObj
 		long HostNodeId )
 	{
 		final String S_ProcName = "deepDisposeServiceByHostIdx";
-		ICFSecServiceObj obj;
-		List<ICFSecServiceObj> arrayList = readCachedServiceByHostIdx( ClusterId,
+		IYCFSecServiceObj obj;
+		List<IYCFSecServiceObj> arrayList = readCachedServiceByHostIdx( ClusterId,
 				HostNodeId );
 		if( arrayList != null )  {
-			Iterator<ICFSecServiceObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecServiceObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1372,10 +1372,10 @@ public class CFSecServiceTableObj
 	public void deepDisposeServiceByTypeIdx( int ServiceTypeId )
 	{
 		final String S_ProcName = "deepDisposeServiceByTypeIdx";
-		ICFSecServiceObj obj;
-		List<ICFSecServiceObj> arrayList = readCachedServiceByTypeIdx( ServiceTypeId );
+		IYCFSecServiceObj obj;
+		List<IYCFSecServiceObj> arrayList = readCachedServiceByTypeIdx( ServiceTypeId );
 		if( arrayList != null )  {
-			Iterator<ICFSecServiceObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecServiceObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1389,7 +1389,7 @@ public class CFSecServiceTableObj
 		long HostNodeId,
 		int ServiceTypeId )
 	{
-		ICFSecServiceObj obj = readCachedServiceByUTypeIdx( ClusterId,
+		IYCFSecServiceObj obj = readCachedServiceByUTypeIdx( ClusterId,
 				HostNodeId,
 				ServiceTypeId );
 		if( obj != null ) {
@@ -1401,7 +1401,7 @@ public class CFSecServiceTableObj
 		long HostNodeId,
 		short HostPort )
 	{
-		ICFSecServiceObj obj = readCachedServiceByUHostPortIdx( ClusterId,
+		IYCFSecServiceObj obj = readCachedServiceByUHostPortIdx( ClusterId,
 				HostNodeId,
 				HostPort );
 		if( obj != null ) {
@@ -1418,26 +1418,26 @@ public class CFSecServiceTableObj
 	 *	@return	A List of Service-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecServiceObj> pageServiceByClusterIdx( long ClusterId,
+	public List<IYCFSecServiceObj> pageServiceByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Long priorServiceId )
 	{
 		final String S_ProcName = "pageServiceByClusterIdx";
-		CFSecServiceByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		List<ICFSecServiceObj> retList = new LinkedList<ICFSecServiceObj>();
-		ICFSecServiceObj obj;
-		CFSecServiceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableService().pageBuffByClusterIdx( schema.getAuthorization(),
+		List<IYCFSecServiceObj> retList = new LinkedList<IYCFSecServiceObj>();
+		IYCFSecServiceObj obj;
+		YCFSecServiceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableService().pageBuffByClusterIdx( schema.getAuthorization(),
 				ClusterId,
 			priorClusterId,
 			priorServiceId );
-		CFSecServiceBuff buff;
+		YCFSecServiceBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getServiceTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 			obj.setBuff( buff );
-			ICFSecServiceObj realised = (ICFSecServiceObj)obj.realise();
+			IYCFSecServiceObj realised = (IYCFSecServiceObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1454,29 +1454,29 @@ public class CFSecServiceTableObj
 	 *	@return	A List of Service-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecServiceObj> pageServiceByHostIdx( long ClusterId,
+	public List<IYCFSecServiceObj> pageServiceByHostIdx( long ClusterId,
 		long HostNodeId,
 		Long priorClusterId,
 		Long priorServiceId )
 	{
 		final String S_ProcName = "pageServiceByHostIdx";
-		CFSecServiceByHostIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
-		List<ICFSecServiceObj> retList = new LinkedList<ICFSecServiceObj>();
-		ICFSecServiceObj obj;
-		CFSecServiceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableService().pageBuffByHostIdx( schema.getAuthorization(),
+		List<IYCFSecServiceObj> retList = new LinkedList<IYCFSecServiceObj>();
+		IYCFSecServiceObj obj;
+		YCFSecServiceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableService().pageBuffByHostIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId,
 			priorClusterId,
 			priorServiceId );
-		CFSecServiceBuff buff;
+		YCFSecServiceBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getServiceTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 			obj.setBuff( buff );
-			ICFSecServiceObj realised = (ICFSecServiceObj)obj.realise();
+			IYCFSecServiceObj realised = (IYCFSecServiceObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1491,43 +1491,43 @@ public class CFSecServiceTableObj
 	 *	@return	A List of Service-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecServiceObj> pageServiceByTypeIdx( int ServiceTypeId,
+	public List<IYCFSecServiceObj> pageServiceByTypeIdx( int ServiceTypeId,
 		Long priorClusterId,
 		Long priorServiceId )
 	{
 		final String S_ProcName = "pageServiceByTypeIdx";
-		CFSecServiceByTypeIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
 		key.setRequiredServiceTypeId( ServiceTypeId );
-		List<ICFSecServiceObj> retList = new LinkedList<ICFSecServiceObj>();
-		ICFSecServiceObj obj;
-		CFSecServiceBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableService().pageBuffByTypeIdx( schema.getAuthorization(),
+		List<IYCFSecServiceObj> retList = new LinkedList<IYCFSecServiceObj>();
+		IYCFSecServiceObj obj;
+		YCFSecServiceBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableService().pageBuffByTypeIdx( schema.getAuthorization(),
 				ServiceTypeId,
 			priorClusterId,
 			priorServiceId );
-		CFSecServiceBuff buff;
+		YCFSecServiceBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getServiceTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey() );
 			obj.setBuff( buff );
-			ICFSecServiceObj realised = (ICFSecServiceObj)obj.realise();
+			IYCFSecServiceObj realised = (IYCFSecServiceObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
 	}
 
-	public ICFSecServiceObj updateService( ICFSecServiceObj Obj ) {
-		ICFSecServiceObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableService().updateService( schema.getAuthorization(),
+	public IYCFSecServiceObj updateService( IYCFSecServiceObj Obj ) {
+		IYCFSecServiceObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableService().updateService( schema.getAuthorization(),
 			Obj.getServiceBuff() );
-		obj = (ICFSecServiceObj)Obj.realise();
+		obj = (IYCFSecServiceObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteService( ICFSecServiceObj Obj ) {
-		ICFSecServiceObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableService().deleteService( schema.getAuthorization(),
+	public void deleteService( IYCFSecServiceObj Obj ) {
+		IYCFSecServiceObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteService( schema.getAuthorization(),
 			obj.getServiceBuff() );
 		Obj.forget();
 	}
@@ -1535,15 +1535,15 @@ public class CFSecServiceTableObj
 	public void deleteServiceByIdIdx( long ClusterId,
 		long ServiceId )
 	{
-		CFSecServicePKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newPKey();
+		YCFSecServicePKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredServiceId( ServiceId );
-		ICFSecServiceObj obj = readService( pkey );
+		IYCFSecServiceObj obj = readService( pkey );
 		if( obj != null ) {
-			ICFSecServiceEditObj editObj = (ICFSecServiceEditObj)obj.getEdit();
+			IYCFSecServiceEditObj editObj = (IYCFSecServiceEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecServiceEditObj)obj.beginEdit();
+				editObj = (IYCFSecServiceEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1568,19 +1568,19 @@ public class CFSecServiceTableObj
 
 	public void deleteServiceByClusterIdx( long ClusterId )
 	{
-		CFSecServiceByClusterIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
+		YCFSecServiceByClusterIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFSecServiceByClusterIdxKey,
-				Map< CFSecServicePKey, ICFSecServiceObj > >();
+			indexByClusterIdx = new HashMap< YCFSecServiceByClusterIdxKey,
+				Map< YCFSecServicePKey, IYCFSecServiceObj > >();
 		}
 		if( indexByClusterIdx.containsKey( key ) ) {
-			Map<CFSecServicePKey, ICFSecServiceObj> dict = indexByClusterIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByClusterIdx( schema.getAuthorization(),
+			Map<YCFSecServicePKey, IYCFSecServiceObj> dict = indexByClusterIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			Iterator<ICFSecServiceObj> iter = dict.values().iterator();
-			ICFSecServiceObj obj;
-			List<ICFSecServiceObj> toForget = new LinkedList<ICFSecServiceObj>();
+			Iterator<IYCFSecServiceObj> iter = dict.values().iterator();
+			IYCFSecServiceObj obj;
+			List<IYCFSecServiceObj> toForget = new LinkedList<IYCFSecServiceObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1593,7 +1593,7 @@ public class CFSecServiceTableObj
 			indexByClusterIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByClusterIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByClusterIdx( schema.getAuthorization(),
 				ClusterId );
 		}
 		deepDisposeServiceByClusterIdx( ClusterId );
@@ -1602,21 +1602,21 @@ public class CFSecServiceTableObj
 	public void deleteServiceByHostIdx( long ClusterId,
 		long HostNodeId )
 	{
-		CFSecServiceByHostIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
+		YCFSecServiceByHostIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newHostIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 		if( indexByHostIdx == null ) {
-			indexByHostIdx = new HashMap< CFSecServiceByHostIdxKey,
-				Map< CFSecServicePKey, ICFSecServiceObj > >();
+			indexByHostIdx = new HashMap< YCFSecServiceByHostIdxKey,
+				Map< YCFSecServicePKey, IYCFSecServiceObj > >();
 		}
 		if( indexByHostIdx.containsKey( key ) ) {
-			Map<CFSecServicePKey, ICFSecServiceObj> dict = indexByHostIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByHostIdx( schema.getAuthorization(),
+			Map<YCFSecServicePKey, IYCFSecServiceObj> dict = indexByHostIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByHostIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId );
-			Iterator<ICFSecServiceObj> iter = dict.values().iterator();
-			ICFSecServiceObj obj;
-			List<ICFSecServiceObj> toForget = new LinkedList<ICFSecServiceObj>();
+			Iterator<IYCFSecServiceObj> iter = dict.values().iterator();
+			IYCFSecServiceObj obj;
+			List<IYCFSecServiceObj> toForget = new LinkedList<IYCFSecServiceObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1629,7 +1629,7 @@ public class CFSecServiceTableObj
 			indexByHostIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByHostIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByHostIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId );
 		}
@@ -1639,19 +1639,19 @@ public class CFSecServiceTableObj
 
 	public void deleteServiceByTypeIdx( int ServiceTypeId )
 	{
-		CFSecServiceByTypeIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
+		YCFSecServiceByTypeIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newTypeIdxKey();
 		key.setRequiredServiceTypeId( ServiceTypeId );
 		if( indexByTypeIdx == null ) {
-			indexByTypeIdx = new HashMap< CFSecServiceByTypeIdxKey,
-				Map< CFSecServicePKey, ICFSecServiceObj > >();
+			indexByTypeIdx = new HashMap< YCFSecServiceByTypeIdxKey,
+				Map< YCFSecServicePKey, IYCFSecServiceObj > >();
 		}
 		if( indexByTypeIdx.containsKey( key ) ) {
-			Map<CFSecServicePKey, ICFSecServiceObj> dict = indexByTypeIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByTypeIdx( schema.getAuthorization(),
+			Map<YCFSecServicePKey, IYCFSecServiceObj> dict = indexByTypeIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByTypeIdx( schema.getAuthorization(),
 				ServiceTypeId );
-			Iterator<ICFSecServiceObj> iter = dict.values().iterator();
-			ICFSecServiceObj obj;
-			List<ICFSecServiceObj> toForget = new LinkedList<ICFSecServiceObj>();
+			Iterator<IYCFSecServiceObj> iter = dict.values().iterator();
+			IYCFSecServiceObj obj;
+			List<IYCFSecServiceObj> toForget = new LinkedList<IYCFSecServiceObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1664,7 +1664,7 @@ public class CFSecServiceTableObj
 			indexByTypeIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByTypeIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByTypeIdx( schema.getAuthorization(),
 				ServiceTypeId );
 		}
 		deepDisposeServiceByTypeIdx( ServiceTypeId );
@@ -1675,24 +1675,24 @@ public class CFSecServiceTableObj
 		int ServiceTypeId )
 	{
 		if( indexByUTypeIdx == null ) {
-			indexByUTypeIdx = new HashMap< CFSecServiceByUTypeIdxKey,
-				ICFSecServiceObj >();
+			indexByUTypeIdx = new HashMap< YCFSecServiceByUTypeIdxKey,
+				IYCFSecServiceObj >();
 		}
-		CFSecServiceByUTypeIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
+		YCFSecServiceByUTypeIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUTypeIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 		key.setRequiredServiceTypeId( ServiceTypeId );
-		ICFSecServiceObj obj = null;
+		IYCFSecServiceObj obj = null;
 		if( indexByUTypeIdx.containsKey( key ) ) {
 			obj = indexByUTypeIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByUTypeIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByUTypeIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId,
 				ServiceTypeId );
 			obj.forget();
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByUTypeIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByUTypeIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId,
 				ServiceTypeId );
@@ -1707,24 +1707,24 @@ public class CFSecServiceTableObj
 		short HostPort )
 	{
 		if( indexByUHostPortIdx == null ) {
-			indexByUHostPortIdx = new HashMap< CFSecServiceByUHostPortIdxKey,
-				ICFSecServiceObj >();
+			indexByUHostPortIdx = new HashMap< YCFSecServiceByUHostPortIdxKey,
+				IYCFSecServiceObj >();
 		}
-		CFSecServiceByUHostPortIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
+		YCFSecServiceByUHostPortIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactoryService().newUHostPortIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredHostNodeId( HostNodeId );
 		key.setRequiredHostPort( HostPort );
-		ICFSecServiceObj obj = null;
+		IYCFSecServiceObj obj = null;
 		if( indexByUHostPortIdx.containsKey( key ) ) {
 			obj = indexByUHostPortIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByUHostPortIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByUHostPortIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId,
 				HostPort );
 			obj.forget();
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByUHostPortIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableService().deleteServiceByUHostPortIdx( schema.getAuthorization(),
 				ClusterId,
 				HostNodeId,
 				HostPort );

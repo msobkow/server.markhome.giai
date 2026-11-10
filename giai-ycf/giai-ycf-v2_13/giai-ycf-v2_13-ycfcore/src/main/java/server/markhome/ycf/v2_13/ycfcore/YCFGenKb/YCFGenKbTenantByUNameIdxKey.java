@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a Tenant by UNameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,18 +37,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbTenantByUNameIdxKey
+public class YCFGenKbTenantByUNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredClusterId;
 	protected String requiredTenantName;
-	public CFGenKbTenantByUNameIdxKey() {
-		requiredClusterId = CFGenKbTenantBuff.CLUSTERID_INIT_VALUE;
-		requiredTenantName = new String( CFGenKbTenantBuff.TENANTNAME_INIT_VALUE );
+	public YCFGenKbTenantByUNameIdxKey() {
+		requiredClusterId = YCFGenKbTenantBuff.CLUSTERID_INIT_VALUE;
+		requiredTenantName = new String( YCFGenKbTenantBuff.TENANTNAME_INIT_VALUE );
 	}
 
 	public long getRequiredClusterId() {
@@ -56,13 +56,13 @@ public class CFGenKbTenantByUNameIdxKey
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFGenKbTenantBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbTenantBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFGenKbTenantBuff.CLUSTERID_MIN_VALUE );
+				YCFGenKbTenantBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -73,13 +73,13 @@ public class CFGenKbTenantByUNameIdxKey
 
 	public void setRequiredTenantName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredTenantName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredTenantName",
 				1,
 				"value.length()",
@@ -93,8 +93,8 @@ public class CFGenKbTenantByUNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbTenantByUNameIdxKey ) {
-			CFGenKbTenantByUNameIdxKey rhs = (CFGenKbTenantByUNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbTenantByUNameIdxKey ) {
+			YCFGenKbTenantByUNameIdxKey rhs = (YCFGenKbTenantByUNameIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -103,8 +103,8 @@ public class CFGenKbTenantByUNameIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbTenantBuff ) {
-			CFGenKbTenantBuff rhs = (CFGenKbTenantBuff)obj;
+		else if( obj instanceof YCFGenKbTenantBuff ) {
+			YCFGenKbTenantBuff rhs = (YCFGenKbTenantBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -131,8 +131,8 @@ public class CFGenKbTenantByUNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbTenantByUNameIdxKey ) {
-			CFGenKbTenantByUNameIdxKey rhs = (CFGenKbTenantByUNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbTenantByUNameIdxKey ) {
+			YCFGenKbTenantByUNameIdxKey rhs = (YCFGenKbTenantByUNameIdxKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -147,8 +147,8 @@ public class CFGenKbTenantByUNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbTenantBuff ) {
-			CFGenKbTenantBuff rhs = (CFGenKbTenantBuff)obj;
+		else if( obj instanceof YCFGenKbTenantBuff ) {
+			YCFGenKbTenantBuff rhs = (YCFGenKbTenantBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -164,7 +164,7 @@ public class CFGenKbTenantByUNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -173,9 +173,9 @@ public class CFGenKbTenantByUNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbTenantByUNameIdx"
+		String ret = "<YCFGenKbTenantByUNameIdx"
 			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
-			+ " RequiredTenantName=" + "\"" + CFGenKbSchema.xmlEncodeString( getRequiredTenantName() ) + "\""
+			+ " RequiredTenantName=" + "\"" + YCFGenKbSchema.xmlEncodeString( getRequiredTenantName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

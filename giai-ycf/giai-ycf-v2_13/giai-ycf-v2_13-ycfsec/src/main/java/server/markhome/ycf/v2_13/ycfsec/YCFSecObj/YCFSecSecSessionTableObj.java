@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFSec.
+// Description: Java 11 Table Object implementation for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,38 +26,38 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecSecSessionTableObj
-	implements ICFSecSecSessionTableObj
+public class YCFSecSecSessionTableObj
+	implements IYCFSecSecSessionTableObj
 {
-	protected ICFSecSchemaObj schema;
-	private Map<CFSecSecSessionPKey, ICFSecSecSessionObj> members;
-	private Map<CFSecSecSessionPKey, ICFSecSecSessionObj> allSecSession;
-	private Map< CFSecSecSessionBySecUserIdxKey,
-		Map<CFSecSecSessionPKey, ICFSecSecSessionObj > > indexBySecUserIdx;
-	private Map< CFSecSecSessionBySecDevIdxKey,
-		Map<CFSecSecSessionPKey, ICFSecSecSessionObj > > indexBySecDevIdx;
-	private Map< CFSecSecSessionByStartIdxKey,
-		ICFSecSecSessionObj > indexByStartIdx;
-	private Map< CFSecSecSessionByFinishIdxKey,
-		Map<CFSecSecSessionPKey, ICFSecSecSessionObj > > indexByFinishIdx;
-	private Map< CFSecSecSessionBySecProxyIdxKey,
-		Map<CFSecSecSessionPKey, ICFSecSecSessionObj > > indexBySecProxyIdx;
+	protected IYCFSecSchemaObj schema;
+	private Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> members;
+	private Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> allSecSession;
+	private Map< YCFSecSecSessionBySecUserIdxKey,
+		Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > > indexBySecUserIdx;
+	private Map< YCFSecSecSessionBySecDevIdxKey,
+		Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > > indexBySecDevIdx;
+	private Map< YCFSecSecSessionByStartIdxKey,
+		IYCFSecSecSessionObj > indexByStartIdx;
+	private Map< YCFSecSecSessionByFinishIdxKey,
+		Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > > indexByFinishIdx;
+	private Map< YCFSecSecSessionBySecProxyIdxKey,
+		Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > > indexBySecProxyIdx;
 	public static String TABLE_NAME = "SecSession";
 	public static String TABLE_DBNAME = "secsess";
 
-	public CFSecSecSessionTableObj() {
+	public YCFSecSecSessionTableObj() {
 		schema = null;
-		members = new HashMap<CFSecSecSessionPKey, ICFSecSecSessionObj>();
+		members = new HashMap<YCFSecSecSessionPKey, IYCFSecSecSessionObj>();
 		allSecSession = null;
 		indexBySecUserIdx = null;
 		indexBySecDevIdx = null;
@@ -66,9 +66,9 @@ public class CFSecSecSessionTableObj
 		indexBySecProxyIdx = null;
 	}
 
-	public CFSecSecSessionTableObj( ICFSecSchemaObj argSchema ) {
-		schema = (ICFSecSchemaObj)argSchema;
-		members = new HashMap<CFSecSecSessionPKey, ICFSecSecSessionObj>();
+	public YCFSecSecSessionTableObj( IYCFSecSchemaObj argSchema ) {
+		schema = (IYCFSecSchemaObj)argSchema;
+		members = new HashMap<YCFSecSecSessionPKey, IYCFSecSecSessionObj>();
 		allSecSession = null;
 		indexBySecUserIdx = null;
 		indexBySecDevIdx = null;
@@ -77,12 +77,12 @@ public class CFSecSecSessionTableObj
 		indexBySecProxyIdx = null;
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
-		schema = (ICFSecSchemaObj)value;
+	public void setSchema( IYCFSecSchemaObj value ) {
+		schema = (IYCFSecSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -105,9 +105,9 @@ public class CFSecSecSessionTableObj
 		indexByStartIdx = null;
 		indexByFinishIdx = null;
 		indexBySecProxyIdx = null;
-		List<ICFSecSecSessionObj> toForget = new LinkedList<ICFSecSecSessionObj>();
-		ICFSecSecSessionObj cur = null;
-		Iterator<ICFSecSecSessionObj> iter = members.values().iterator();
+		List<IYCFSecSecSessionObj> toForget = new LinkedList<IYCFSecSecSessionObj>();
+		IYCFSecSecSessionObj cur = null;
+		Iterator<IYCFSecSecSessionObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -125,10 +125,10 @@ public class CFSecSecSessionTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecSecSessionObj.
+	 *	YCFSecSecSessionObj.
 	 */
-	public ICFSecSecSessionObj newInstance() {
-		ICFSecSecSessionObj inst = new CFSecSecSessionObj( schema );
+	public IYCFSecSecSessionObj newInstance() {
+		IYCFSecSecSessionObj inst = new YCFSecSecSessionObj( schema );
 		return( inst );
 	}
 
@@ -139,19 +139,19 @@ public class CFSecSecSessionTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFSecSecSessionObj.
+	 *	YCFSecSecSessionObj.
 	 */
-	public ICFSecSecSessionEditObj newEditInstance( ICFSecSecSessionObj orig ) {
-		ICFSecSecSessionEditObj edit = new CFSecSecSessionEditObj( orig );
+	public IYCFSecSecSessionEditObj newEditInstance( IYCFSecSecSessionObj orig ) {
+		IYCFSecSecSessionEditObj edit = new YCFSecSecSessionEditObj( orig );
 		return( edit );
 	}
 
-	public ICFSecSecSessionObj realiseSecSession( ICFSecSecSessionObj Obj ) {
-		ICFSecSecSessionObj obj = Obj;
-		CFSecSecSessionPKey pkey = obj.getPKey();
-		ICFSecSecSessionObj keepObj = null;
+	public IYCFSecSecSessionObj realiseSecSession( IYCFSecSecSessionObj Obj ) {
+		IYCFSecSecSessionObj obj = Obj;
+		YCFSecSecSessionPKey pkey = obj.getPKey();
+		IYCFSecSecSessionObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFSecSecSessionObj existingObj = members.get( pkey );
+			IYCFSecSecSessionObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -162,10 +162,10 @@ public class CFSecSecSessionTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexBySecUserIdx != null ) {
-				CFSecSecSessionBySecUserIdxKey keySecUserIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
+				YCFSecSecSessionBySecUserIdxKey keySecUserIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
 				keySecUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapSecUserIdx = indexBySecUserIdx.get( keySecUserIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapSecUserIdx = indexBySecUserIdx.get( keySecUserIdx );
 				if( mapSecUserIdx != null ) {
 					mapSecUserIdx.remove( keepObj.getPKey() );
 					if( mapSecUserIdx.size() <= 0 ) {
@@ -175,11 +175,11 @@ public class CFSecSecSessionTableObj
 			}
 
 			if( indexBySecDevIdx != null ) {
-				CFSecSecSessionBySecDevIdxKey keySecDevIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
+				YCFSecSecSessionBySecDevIdxKey keySecDevIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
 				keySecDevIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keySecDevIdx.setOptionalSecDevName( keepObj.getOptionalSecDevName() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapSecDevIdx = indexBySecDevIdx.get( keySecDevIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapSecDevIdx = indexBySecDevIdx.get( keySecDevIdx );
 				if( mapSecDevIdx != null ) {
 					mapSecDevIdx.remove( keepObj.getPKey() );
 					if( mapSecDevIdx.size() <= 0 ) {
@@ -189,19 +189,19 @@ public class CFSecSecSessionTableObj
 			}
 
 			if( indexByStartIdx != null ) {
-				CFSecSecSessionByStartIdxKey keyStartIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
+				YCFSecSecSessionByStartIdxKey keyStartIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
 				keyStartIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keyStartIdx.setRequiredStart( keepObj.getRequiredStart() );
 				indexByStartIdx.remove( keyStartIdx );
 			}
 
 			if( indexByFinishIdx != null ) {
-				CFSecSecSessionByFinishIdxKey keyFinishIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
+				YCFSecSecSessionByFinishIdxKey keyFinishIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
 				keyFinishIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keyFinishIdx.setOptionalFinish( keepObj.getOptionalFinish() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapFinishIdx = indexByFinishIdx.get( keyFinishIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapFinishIdx = indexByFinishIdx.get( keyFinishIdx );
 				if( mapFinishIdx != null ) {
 					mapFinishIdx.remove( keepObj.getPKey() );
 					if( mapFinishIdx.size() <= 0 ) {
@@ -211,10 +211,10 @@ public class CFSecSecSessionTableObj
 			}
 
 			if( indexBySecProxyIdx != null ) {
-				CFSecSecSessionBySecProxyIdxKey keySecProxyIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
+				YCFSecSecSessionBySecProxyIdxKey keySecProxyIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
 				keySecProxyIdx.setOptionalSecProxyId( keepObj.getOptionalSecProxyId() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapSecProxyIdx = indexBySecProxyIdx.get( keySecProxyIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapSecProxyIdx = indexBySecProxyIdx.get( keySecProxyIdx );
 				if( mapSecProxyIdx != null ) {
 					mapSecProxyIdx.remove( keepObj.getPKey() );
 					if( mapSecProxyIdx.size() <= 0 ) {
@@ -227,50 +227,50 @@ public class CFSecSecSessionTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexBySecUserIdx != null ) {
-				CFSecSecSessionBySecUserIdxKey keySecUserIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
+				YCFSecSecSessionBySecUserIdxKey keySecUserIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
 				keySecUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapSecUserIdx = indexBySecUserIdx.get( keySecUserIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapSecUserIdx = indexBySecUserIdx.get( keySecUserIdx );
 				if( mapSecUserIdx != null ) {
 					mapSecUserIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySecDevIdx != null ) {
-				CFSecSecSessionBySecDevIdxKey keySecDevIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
+				YCFSecSecSessionBySecDevIdxKey keySecDevIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
 				keySecDevIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keySecDevIdx.setOptionalSecDevName( keepObj.getOptionalSecDevName() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapSecDevIdx = indexBySecDevIdx.get( keySecDevIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapSecDevIdx = indexBySecDevIdx.get( keySecDevIdx );
 				if( mapSecDevIdx != null ) {
 					mapSecDevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByStartIdx != null ) {
-				CFSecSecSessionByStartIdxKey keyStartIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
+				YCFSecSecSessionByStartIdxKey keyStartIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
 				keyStartIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keyStartIdx.setRequiredStart( keepObj.getRequiredStart() );
 				indexByStartIdx.put( keyStartIdx, keepObj );
 			}
 
 			if( indexByFinishIdx != null ) {
-				CFSecSecSessionByFinishIdxKey keyFinishIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
+				YCFSecSecSessionByFinishIdxKey keyFinishIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
 				keyFinishIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keyFinishIdx.setOptionalFinish( keepObj.getOptionalFinish() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapFinishIdx = indexByFinishIdx.get( keyFinishIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapFinishIdx = indexByFinishIdx.get( keyFinishIdx );
 				if( mapFinishIdx != null ) {
 					mapFinishIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySecProxyIdx != null ) {
-				CFSecSecSessionBySecProxyIdxKey keySecProxyIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
+				YCFSecSecSessionBySecProxyIdxKey keySecProxyIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
 				keySecProxyIdx.setOptionalSecProxyId( keepObj.getOptionalSecProxyId() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapSecProxyIdx = indexBySecProxyIdx.get( keySecProxyIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapSecProxyIdx = indexBySecProxyIdx.get( keySecProxyIdx );
 				if( mapSecProxyIdx != null ) {
 					mapSecProxyIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -291,50 +291,50 @@ public class CFSecSecSessionTableObj
 			}
 
 			if( indexBySecUserIdx != null ) {
-				CFSecSecSessionBySecUserIdxKey keySecUserIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
+				YCFSecSecSessionBySecUserIdxKey keySecUserIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
 				keySecUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapSecUserIdx = indexBySecUserIdx.get( keySecUserIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapSecUserIdx = indexBySecUserIdx.get( keySecUserIdx );
 				if( mapSecUserIdx != null ) {
 					mapSecUserIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySecDevIdx != null ) {
-				CFSecSecSessionBySecDevIdxKey keySecDevIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
+				YCFSecSecSessionBySecDevIdxKey keySecDevIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
 				keySecDevIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keySecDevIdx.setOptionalSecDevName( keepObj.getOptionalSecDevName() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapSecDevIdx = indexBySecDevIdx.get( keySecDevIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapSecDevIdx = indexBySecDevIdx.get( keySecDevIdx );
 				if( mapSecDevIdx != null ) {
 					mapSecDevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByStartIdx != null ) {
-				CFSecSecSessionByStartIdxKey keyStartIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
+				YCFSecSecSessionByStartIdxKey keyStartIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
 				keyStartIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keyStartIdx.setRequiredStart( keepObj.getRequiredStart() );
 				indexByStartIdx.put( keyStartIdx, keepObj );
 			}
 
 			if( indexByFinishIdx != null ) {
-				CFSecSecSessionByFinishIdxKey keyFinishIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
+				YCFSecSecSessionByFinishIdxKey keyFinishIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
 				keyFinishIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
 				keyFinishIdx.setOptionalFinish( keepObj.getOptionalFinish() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapFinishIdx = indexByFinishIdx.get( keyFinishIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapFinishIdx = indexByFinishIdx.get( keyFinishIdx );
 				if( mapFinishIdx != null ) {
 					mapFinishIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySecProxyIdx != null ) {
-				CFSecSecSessionBySecProxyIdxKey keySecProxyIdx =
-					((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
+				YCFSecSecSessionBySecProxyIdxKey keySecProxyIdx =
+					((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
 				keySecProxyIdx.setOptionalSecProxyId( keepObj.getOptionalSecProxyId() );
-				Map<CFSecSecSessionPKey, ICFSecSecSessionObj > mapSecProxyIdx = indexBySecProxyIdx.get( keySecProxyIdx );
+				Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj > mapSecProxyIdx = indexBySecProxyIdx.get( keySecProxyIdx );
 				if( mapSecProxyIdx != null ) {
 					mapSecProxyIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -344,10 +344,10 @@ public class CFSecSecSessionTableObj
 		return( keepObj );
 	}
 
-	public ICFSecSecSessionObj createSecSession( ICFSecSecSessionObj Obj ) {
-		ICFSecSecSessionObj obj = Obj;
-		CFSecSecSessionBuff buff = obj.getSecSessionBuff();
-		((ICFSecSchema)schema.getBackingStore()).getTableSecSession().createSecSession(
+	public IYCFSecSecSessionObj createSecSession( IYCFSecSecSessionObj Obj ) {
+		IYCFSecSecSessionObj obj = Obj;
+		YCFSecSecSessionBuff buff = obj.getSecSessionBuff();
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().createSecSession(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -356,65 +356,65 @@ public class CFSecSecSessionTableObj
 		return( obj );
 	}
 
-	public ICFSecSecSessionObj readSecSession( CFSecSecSessionPKey pkey ) {
+	public IYCFSecSecSessionObj readSecSession( YCFSecSecSessionPKey pkey ) {
 		return( readSecSession( pkey, false ) );
 	}
 
-	public ICFSecSecSessionObj readSecSession( CFSecSecSessionPKey pkey, boolean forceRead ) {
-		ICFSecSecSessionObj obj = null;
+	public IYCFSecSecSessionObj readSecSession( YCFSecSecSessionPKey pkey, boolean forceRead ) {
+		IYCFSecSecSessionObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFSecSecSessionBuff readBuff = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFSecSecSessionBuff readBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredSecSessionId() );
 			if( readBuff != null ) {
 				obj = schema.getSecSessionTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFSecSecSessionObj)obj.realise();
+				obj = (IYCFSecSecSessionObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFSecSecSessionObj readCachedSecSession( CFSecSecSessionPKey pkey ) {
-		ICFSecSecSessionObj obj = null;
+	public IYCFSecSecSessionObj readCachedSecSession( YCFSecSecSessionPKey pkey ) {
+		IYCFSecSecSessionObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeSecSession( ICFSecSecSessionObj obj )
+	public void reallyDeepDisposeSecSession( IYCFSecSecSessionObj obj )
 	{
-		final String S_ProcName = "CFSecSecSessionTableObj.reallyDeepDisposeSecSession() ";
+		final String S_ProcName = "YCFSecSecSessionTableObj.reallyDeepDisposeSecSession() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFSecSecSessionPKey pkey = obj.getPKey();
-		ICFSecSecSessionObj existing = readCachedSecSession( pkey );
+		YCFSecSecSessionPKey pkey = obj.getPKey();
+		IYCFSecSecSessionObj existing = readCachedSecSession( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFSecSecSessionBySecUserIdxKey keySecUserIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
+		YCFSecSecSessionBySecUserIdxKey keySecUserIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
 		keySecUserIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 
-		CFSecSecSessionBySecDevIdxKey keySecDevIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
+		YCFSecSecSessionBySecDevIdxKey keySecDevIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
 		keySecDevIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 		keySecDevIdx.setOptionalSecDevName( existing.getOptionalSecDevName() );
 
-		CFSecSecSessionByStartIdxKey keyStartIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
+		YCFSecSecSessionByStartIdxKey keyStartIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
 		keyStartIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 		keyStartIdx.setRequiredStart( existing.getRequiredStart() );
 
-		CFSecSecSessionByFinishIdxKey keyFinishIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
+		YCFSecSecSessionByFinishIdxKey keyFinishIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
 		keyFinishIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 		keyFinishIdx.setOptionalFinish( existing.getOptionalFinish() );
 
-		CFSecSecSessionBySecProxyIdxKey keySecProxyIdx = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
+		YCFSecSecSessionBySecProxyIdxKey keySecProxyIdx = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
 		keySecProxyIdx.setOptionalSecProxyId( existing.getOptionalSecProxyId() );
 
 
@@ -461,57 +461,57 @@ public class CFSecSecSessionTableObj
 
 
 	}
-	public void deepDisposeSecSession( CFSecSecSessionPKey pkey ) {
-		ICFSecSecSessionObj obj = readCachedSecSession( pkey );
+	public void deepDisposeSecSession( YCFSecSecSessionPKey pkey ) {
+		IYCFSecSecSessionObj obj = readCachedSecSession( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFSecSecSessionObj lockSecSession( CFSecSecSessionPKey pkey ) {
-		ICFSecSecSessionObj locked = null;
-		CFSecSecSessionBuff lockBuff = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFSecSecSessionObj lockSecSession( YCFSecSecSessionPKey pkey ) {
+		IYCFSecSecSessionObj locked = null;
+		YCFSecSecSessionBuff lockBuff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getSecSessionTableObj().newInstance();
-			locked.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+			locked.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFSecSecSessionObj)locked.realise();
+			locked = (IYCFSecSecSessionObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockSecSession", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockSecSession", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFSecSecSessionObj> readAllSecSession() {
+	public List<IYCFSecSecSessionObj> readAllSecSession() {
 		return( readAllSecSession( false ) );
 	}
 
-	public List<ICFSecSecSessionObj> readAllSecSession( boolean forceRead ) {
+	public List<IYCFSecSecSessionObj> readAllSecSession( boolean forceRead ) {
 		final String S_ProcName = "readAllSecSession";
 		if( ( allSecSession == null ) || forceRead ) {
-			Map<CFSecSecSessionPKey, ICFSecSecSessionObj> map = new HashMap<CFSecSecSessionPKey,ICFSecSecSessionObj>();
+			Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> map = new HashMap<YCFSecSecSessionPKey,IYCFSecSecSessionObj>();
 			allSecSession = map;
-			CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().readAllDerived( schema.getAuthorization() );
-			CFSecSecSessionBuff buff;
-			ICFSecSecSessionObj obj;
+			YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().readAllDerived( schema.getAuthorization() );
+			YCFSecSecSessionBuff buff;
+			IYCFSecSecSessionObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecSessionObj realised = (ICFSecSecSessionObj)obj.realise();
+				IYCFSecSecSessionObj realised = (IYCFSecSecSessionObj)obj.realise();
 			}
 		}
 		int len = allSecSession.size();
-		ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-		Iterator<ICFSecSecSessionObj> valIter = allSecSession.values().iterator();
+		IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+		Iterator<IYCFSecSecSessionObj> valIter = allSecSession.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -519,20 +519,20 @@ public class CFSecSecSessionTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>(len);
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -545,31 +545,31 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecSessionObj> sortedList = arrayList;
+		List<IYCFSecSecSessionObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecSessionObj> readCachedAllSecSession() {
+	public List<IYCFSecSecSessionObj> readCachedAllSecSession() {
 		final String S_ProcName = "readCachedAllSecSession";
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>();
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>();
 		if( allSecSession != null ) {
 			int len = allSecSession.size();
-			ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-			Iterator<ICFSecSecSessionObj> valIter = allSecSession.values().iterator();
+			IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+			Iterator<IYCFSecSecSessionObj> valIter = allSecSession.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -577,7 +577,7 @@ public class CFSecSecSessionTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -588,8 +588,8 @@ public class CFSecSecSessionTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -602,8 +602,8 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -616,89 +616,89 @@ public class CFSecSecSessionTableObj
 	/**
 	 *	Return a sorted map of a page of the SecSession-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecSessionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecSessionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	public List<ICFSecSecSessionObj> pageAllSecSession(UUID priorSecSessionId )
+	public List<IYCFSecSecSessionObj> pageAllSecSession(UUID priorSecSessionId )
 	{
 		final String S_ProcName = "pageAllSecSession";
-		Map<CFSecSecSessionPKey, ICFSecSecSessionObj> map = new HashMap<CFSecSecSessionPKey,ICFSecSecSessionObj>();
-		CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().pageAllBuff( schema.getAuthorization(),
+		Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> map = new HashMap<YCFSecSecSessionPKey,IYCFSecSecSessionObj>();
+		YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().pageAllBuff( schema.getAuthorization(),
 			priorSecSessionId );
-		CFSecSecSessionBuff buff;
-		ICFSecSecSessionObj obj;
-		ICFSecSecSessionObj realised;
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>( buffList.length );
+		YCFSecSecSessionBuff buff;
+		IYCFSecSecSessionObj obj;
+		IYCFSecSecSessionObj realised;
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>( buffList.length );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 			obj.setBuff( buff );
-			realised = (ICFSecSecSessionObj)obj.realise();
+			realised = (IYCFSecSecSessionObj)obj.realise();
 			arrayList.add( realised );
 		}
 		return( arrayList );
 	}
 
-	public ICFSecSecSessionObj readSecSessionByIdIdx( UUID SecSessionId )
+	public IYCFSecSecSessionObj readSecSessionByIdIdx( UUID SecSessionId )
 	{
 		return( readSecSessionByIdIdx( SecSessionId,
 			false ) );
 	}
 
-	public ICFSecSecSessionObj readSecSessionByIdIdx( UUID SecSessionId, boolean forceRead )
+	public IYCFSecSecSessionObj readSecSessionByIdIdx( UUID SecSessionId, boolean forceRead )
 	{
-		CFSecSecSessionPKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey();
+		YCFSecSecSessionPKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey();
 		pkey.setRequiredSecSessionId( SecSessionId );
-		ICFSecSecSessionObj obj = readSecSession( pkey, forceRead );
+		IYCFSecSecSessionObj obj = readSecSession( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFSecSecSessionObj> readSecSessionBySecUserIdx( UUID SecUserId )
+	public List<IYCFSecSecSessionObj> readSecSessionBySecUserIdx( UUID SecUserId )
 	{
 		return( readSecSessionBySecUserIdx( SecUserId,
 			false ) );
 	}
 
-	public List<ICFSecSecSessionObj> readSecSessionBySecUserIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> readSecSessionBySecUserIdx( UUID SecUserId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecSessionBySecUserIdx";
-		CFSecSecSessionBySecUserIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
+		YCFSecSecSessionBySecUserIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
-		Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict;
+		Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict;
 		if( indexBySecUserIdx == null ) {
-			indexBySecUserIdx = new HashMap< CFSecSecSessionBySecUserIdxKey,
-				Map< CFSecSecSessionPKey, ICFSecSecSessionObj > >();
+			indexBySecUserIdx = new HashMap< YCFSecSecSessionBySecUserIdxKey,
+				Map< YCFSecSecSessionPKey, IYCFSecSecSessionObj > >();
 		}
 		if( ( ! forceRead ) && indexBySecUserIdx.containsKey( key ) ) {
 			dict = indexBySecUserIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecSessionPKey, ICFSecSecSessionObj>();
-			ICFSecSecSessionObj obj;
-			CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedBySecUserIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecSessionPKey, IYCFSecSecSessionObj>();
+			IYCFSecSecSessionObj obj;
+			YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedBySecUserIdx( schema.getAuthorization(),
 				SecUserId );
-			CFSecSecSessionBuff buff;
+			YCFSecSecSessionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecSessionTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecSessionObj realised = (ICFSecSecSessionObj)obj.realise();
+				IYCFSecSecSessionObj realised = (IYCFSecSecSessionObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexBySecUserIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-		Iterator<ICFSecSecSessionObj> valIter = dict.values().iterator();
+		IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+		Iterator<IYCFSecSecSessionObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -706,20 +706,20 @@ public class CFSecSecSessionTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>(len);
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -732,19 +732,19 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecSessionObj> sortedList = arrayList;
+		List<IYCFSecSecSessionObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecSessionObj> readSecSessionBySecDevIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> readSecSessionBySecDevIdx( UUID SecUserId,
 		String SecDevName )
 	{
 		return( readSecSessionBySecDevIdx( SecUserId,
@@ -752,48 +752,48 @@ public class CFSecSecSessionTableObj
 			false ) );
 	}
 
-	public List<ICFSecSecSessionObj> readSecSessionBySecDevIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> readSecSessionBySecDevIdx( UUID SecUserId,
 		String SecDevName,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecSessionBySecDevIdx";
-		CFSecSecSessionBySecDevIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
+		YCFSecSecSessionBySecDevIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setOptionalSecDevName( SecDevName );
-		Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict;
+		Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict;
 		if( indexBySecDevIdx == null ) {
-			indexBySecDevIdx = new HashMap< CFSecSecSessionBySecDevIdxKey,
-				Map< CFSecSecSessionPKey, ICFSecSecSessionObj > >();
+			indexBySecDevIdx = new HashMap< YCFSecSecSessionBySecDevIdxKey,
+				Map< YCFSecSecSessionPKey, IYCFSecSecSessionObj > >();
 		}
 		if( ( ! forceRead ) && indexBySecDevIdx.containsKey( key ) ) {
 			dict = indexBySecDevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecSessionPKey, ICFSecSecSessionObj>();
-			ICFSecSecSessionObj obj;
-			CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedBySecDevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecSessionPKey, IYCFSecSecSessionObj>();
+			IYCFSecSecSessionObj obj;
+			YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedBySecDevIdx( schema.getAuthorization(),
 				SecUserId,
 				SecDevName );
-			CFSecSecSessionBuff buff;
+			YCFSecSecSessionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecSessionTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecSessionObj realised = (ICFSecSecSessionObj)obj.realise();
+				IYCFSecSecSessionObj realised = (IYCFSecSecSessionObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexBySecDevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-		Iterator<ICFSecSecSessionObj> valIter = dict.values().iterator();
+		IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+		Iterator<IYCFSecSecSessionObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -801,20 +801,20 @@ public class CFSecSecSessionTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>(len);
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -827,19 +827,19 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecSessionObj> sortedList = arrayList;
+		List<IYCFSecSecSessionObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecSecSessionObj readSecSessionByStartIdx( UUID SecUserId,
+	public IYCFSecSecSessionObj readSecSessionByStartIdx( UUID SecUserId,
 		Calendar Start )
 	{
 		return( readSecSessionByStartIdx( SecUserId,
@@ -847,35 +847,35 @@ public class CFSecSecSessionTableObj
 			false ) );
 	}
 
-	public ICFSecSecSessionObj readSecSessionByStartIdx( UUID SecUserId,
+	public IYCFSecSecSessionObj readSecSessionByStartIdx( UUID SecUserId,
 		Calendar Start, boolean forceRead )
 	{
 		if( indexByStartIdx == null ) {
-			indexByStartIdx = new HashMap< CFSecSecSessionByStartIdxKey,
-				ICFSecSecSessionObj >();
+			indexByStartIdx = new HashMap< YCFSecSecSessionByStartIdxKey,
+				IYCFSecSecSessionObj >();
 		}
-		CFSecSecSessionByStartIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
+		YCFSecSecSessionByStartIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setRequiredStart( Start );
-		ICFSecSecSessionObj obj = null;
+		IYCFSecSecSessionObj obj = null;
 		if( ( ! forceRead ) && indexByStartIdx.containsKey( key ) ) {
 			obj = indexByStartIdx.get( key );
 		}
 		else {
-			CFSecSecSessionBuff buff = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedByStartIdx( schema.getAuthorization(),
+			YCFSecSecSessionBuff buff = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedByStartIdx( schema.getAuthorization(),
 				SecUserId,
 				Start );
 			if( buff != null ) {
 				obj = schema.getSecSessionTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFSecSecSessionObj)obj.realise();
+				obj = (IYCFSecSecSessionObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFSecSecSessionObj> readSecSessionByFinishIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> readSecSessionByFinishIdx( UUID SecUserId,
 		Calendar Finish )
 	{
 		return( readSecSessionByFinishIdx( SecUserId,
@@ -883,48 +883,48 @@ public class CFSecSecSessionTableObj
 			false ) );
 	}
 
-	public List<ICFSecSecSessionObj> readSecSessionByFinishIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> readSecSessionByFinishIdx( UUID SecUserId,
 		Calendar Finish,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecSessionByFinishIdx";
-		CFSecSecSessionByFinishIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
+		YCFSecSecSessionByFinishIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setOptionalFinish( Finish );
-		Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict;
+		Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict;
 		if( indexByFinishIdx == null ) {
-			indexByFinishIdx = new HashMap< CFSecSecSessionByFinishIdxKey,
-				Map< CFSecSecSessionPKey, ICFSecSecSessionObj > >();
+			indexByFinishIdx = new HashMap< YCFSecSecSessionByFinishIdxKey,
+				Map< YCFSecSecSessionPKey, IYCFSecSecSessionObj > >();
 		}
 		if( ( ! forceRead ) && indexByFinishIdx.containsKey( key ) ) {
 			dict = indexByFinishIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecSessionPKey, ICFSecSecSessionObj>();
-			ICFSecSecSessionObj obj;
-			CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedByFinishIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecSessionPKey, IYCFSecSecSessionObj>();
+			IYCFSecSecSessionObj obj;
+			YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedByFinishIdx( schema.getAuthorization(),
 				SecUserId,
 				Finish );
-			CFSecSecSessionBuff buff;
+			YCFSecSecSessionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecSessionTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecSessionObj realised = (ICFSecSecSessionObj)obj.realise();
+				IYCFSecSecSessionObj realised = (IYCFSecSecSessionObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByFinishIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-		Iterator<ICFSecSecSessionObj> valIter = dict.values().iterator();
+		IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+		Iterator<IYCFSecSecSessionObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -932,20 +932,20 @@ public class CFSecSecSessionTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>(len);
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -958,63 +958,63 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecSessionObj> sortedList = arrayList;
+		List<IYCFSecSecSessionObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFSecSecSessionObj> readSecSessionBySecProxyIdx( UUID SecProxyId )
+	public List<IYCFSecSecSessionObj> readSecSessionBySecProxyIdx( UUID SecProxyId )
 	{
 		return( readSecSessionBySecProxyIdx( SecProxyId,
 			false ) );
 	}
 
-	public List<ICFSecSecSessionObj> readSecSessionBySecProxyIdx( UUID SecProxyId,
+	public List<IYCFSecSecSessionObj> readSecSessionBySecProxyIdx( UUID SecProxyId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecSessionBySecProxyIdx";
-		CFSecSecSessionBySecProxyIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
+		YCFSecSecSessionBySecProxyIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
 		key.setOptionalSecProxyId( SecProxyId );
-		Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict;
+		Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict;
 		if( indexBySecProxyIdx == null ) {
-			indexBySecProxyIdx = new HashMap< CFSecSecSessionBySecProxyIdxKey,
-				Map< CFSecSecSessionPKey, ICFSecSecSessionObj > >();
+			indexBySecProxyIdx = new HashMap< YCFSecSecSessionBySecProxyIdxKey,
+				Map< YCFSecSecSessionPKey, IYCFSecSecSessionObj > >();
 		}
 		if( ( ! forceRead ) && indexBySecProxyIdx.containsKey( key ) ) {
 			dict = indexBySecProxyIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFSecSecSessionPKey, ICFSecSecSessionObj>();
-			ICFSecSecSessionObj obj;
-			CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedBySecProxyIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFSecSecSessionPKey, IYCFSecSecSessionObj>();
+			IYCFSecSecSessionObj obj;
+			YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().readDerivedBySecProxyIdx( schema.getAuthorization(),
 				SecProxyId );
-			CFSecSecSessionBuff buff;
+			YCFSecSecSessionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecSessionTableObj().newInstance();
-				obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+				obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 				obj.setBuff( buff );
-				ICFSecSecSessionObj realised = (ICFSecSecSessionObj)obj.realise();
+				IYCFSecSecSessionObj realised = (IYCFSecSecSessionObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexBySecProxyIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-		Iterator<ICFSecSecSessionObj> valIter = dict.values().iterator();
+		IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+		Iterator<IYCFSecSecSessionObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1022,20 +1022,20 @@ public class CFSecSecSessionTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>(len);
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1048,46 +1048,46 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFSecSecSessionObj> sortedList = arrayList;
+		List<IYCFSecSecSessionObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFSecSecSessionObj readCachedSecSessionByIdIdx( UUID SecSessionId )
+	public IYCFSecSecSessionObj readCachedSecSessionByIdIdx( UUID SecSessionId )
 	{
-		ICFSecSecSessionObj obj = null;
-		CFSecSecSessionPKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey();
+		IYCFSecSecSessionObj obj = null;
+		YCFSecSecSessionPKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey();
 		pkey.setRequiredSecSessionId( SecSessionId );
 		obj = readCachedSecSession( pkey );
 		return( obj );
 	}
 
-	public List<ICFSecSecSessionObj> readCachedSecSessionBySecUserIdx( UUID SecUserId )
+	public List<IYCFSecSecSessionObj> readCachedSecSessionBySecUserIdx( UUID SecUserId )
 	{
 		final String S_ProcName = "readCachedSecSessionBySecUserIdx";
-		CFSecSecSessionBySecUserIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
+		YCFSecSecSessionBySecUserIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>();
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>();
 		if( indexBySecUserIdx != null ) {
-			Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict;
+			Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict;
 			if( indexBySecUserIdx.containsKey( key ) ) {
 				dict = indexBySecUserIdx.get( key );
 				int len = dict.size();
-				ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-				Iterator<ICFSecSecSessionObj> valIter = dict.values().iterator();
+				IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+				Iterator<IYCFSecSecSessionObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1095,7 +1095,7 @@ public class CFSecSecSessionTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1108,8 +1108,8 @@ public class CFSecSecSessionTableObj
 			}
 		}
 		else {
-			ICFSecSecSessionObj obj;
-			Iterator<ICFSecSecSessionObj> valIter = members.values().iterator();
+			IYCFSecSecSessionObj obj;
+			Iterator<IYCFSecSecSessionObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1119,8 +1119,8 @@ public class CFSecSecSessionTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1133,8 +1133,8 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1144,27 +1144,27 @@ public class CFSecSecSessionTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecSecSessionObj> readCachedSecSessionBySecDevIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> readCachedSecSessionBySecDevIdx( UUID SecUserId,
 		String SecDevName )
 	{
 		final String S_ProcName = "readCachedSecSessionBySecDevIdx";
-		CFSecSecSessionBySecDevIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
+		YCFSecSecSessionBySecDevIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setOptionalSecDevName( SecDevName );
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>();
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>();
 		if( indexBySecDevIdx != null ) {
-			Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict;
+			Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict;
 			if( indexBySecDevIdx.containsKey( key ) ) {
 				dict = indexBySecDevIdx.get( key );
 				int len = dict.size();
-				ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-				Iterator<ICFSecSecSessionObj> valIter = dict.values().iterator();
+				IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+				Iterator<IYCFSecSecSessionObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1172,7 +1172,7 @@ public class CFSecSecSessionTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1185,8 +1185,8 @@ public class CFSecSecSessionTableObj
 			}
 		}
 		else {
-			ICFSecSecSessionObj obj;
-			Iterator<ICFSecSecSessionObj> valIter = members.values().iterator();
+			IYCFSecSecSessionObj obj;
+			Iterator<IYCFSecSecSessionObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1196,8 +1196,8 @@ public class CFSecSecSessionTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1210,8 +1210,8 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1221,11 +1221,11 @@ public class CFSecSecSessionTableObj
 		return( arrayList );
 	}
 
-	public ICFSecSecSessionObj readCachedSecSessionByStartIdx( UUID SecUserId,
+	public IYCFSecSecSessionObj readCachedSecSessionByStartIdx( UUID SecUserId,
 		Calendar Start )
 	{
-		ICFSecSecSessionObj obj = null;
-		CFSecSecSessionByStartIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
+		IYCFSecSecSessionObj obj = null;
+		YCFSecSecSessionByStartIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setRequiredStart( Start );
 		if( indexByStartIdx != null ) {
@@ -1233,7 +1233,7 @@ public class CFSecSecSessionTableObj
 				obj = indexByStartIdx.get( key );
 			}
 			else {
-				Iterator<ICFSecSecSessionObj> valIter = members.values().iterator();
+				Iterator<IYCFSecSecSessionObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1245,7 +1245,7 @@ public class CFSecSecSessionTableObj
 			}
 		}
 		else {
-			Iterator<ICFSecSecSessionObj> valIter = members.values().iterator();
+			Iterator<IYCFSecSecSessionObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1258,27 +1258,27 @@ public class CFSecSecSessionTableObj
 		return( obj );
 	}
 
-	public List<ICFSecSecSessionObj> readCachedSecSessionByFinishIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> readCachedSecSessionByFinishIdx( UUID SecUserId,
 		Calendar Finish )
 	{
 		final String S_ProcName = "readCachedSecSessionByFinishIdx";
-		CFSecSecSessionByFinishIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
+		YCFSecSecSessionByFinishIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setOptionalFinish( Finish );
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>();
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>();
 		if( indexByFinishIdx != null ) {
-			Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict;
+			Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict;
 			if( indexByFinishIdx.containsKey( key ) ) {
 				dict = indexByFinishIdx.get( key );
 				int len = dict.size();
-				ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-				Iterator<ICFSecSecSessionObj> valIter = dict.values().iterator();
+				IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+				Iterator<IYCFSecSecSessionObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1286,7 +1286,7 @@ public class CFSecSecSessionTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1299,8 +1299,8 @@ public class CFSecSecSessionTableObj
 			}
 		}
 		else {
-			ICFSecSecSessionObj obj;
-			Iterator<ICFSecSecSessionObj> valIter = members.values().iterator();
+			IYCFSecSecSessionObj obj;
+			Iterator<IYCFSecSecSessionObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1310,8 +1310,8 @@ public class CFSecSecSessionTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1324,8 +1324,8 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1335,25 +1335,25 @@ public class CFSecSecSessionTableObj
 		return( arrayList );
 	}
 
-	public List<ICFSecSecSessionObj> readCachedSecSessionBySecProxyIdx( UUID SecProxyId )
+	public List<IYCFSecSecSessionObj> readCachedSecSessionBySecProxyIdx( UUID SecProxyId )
 	{
 		final String S_ProcName = "readCachedSecSessionBySecProxyIdx";
-		CFSecSecSessionBySecProxyIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
+		YCFSecSecSessionBySecProxyIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
 		key.setOptionalSecProxyId( SecProxyId );
-		ArrayList<ICFSecSecSessionObj> arrayList = new ArrayList<ICFSecSecSessionObj>();
+		ArrayList<IYCFSecSecSessionObj> arrayList = new ArrayList<IYCFSecSecSessionObj>();
 		if( indexBySecProxyIdx != null ) {
-			Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict;
+			Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict;
 			if( indexBySecProxyIdx.containsKey( key ) ) {
 				dict = indexBySecProxyIdx.get( key );
 				int len = dict.size();
-				ICFSecSecSessionObj arr[] = new ICFSecSecSessionObj[len];
-				Iterator<ICFSecSecSessionObj> valIter = dict.values().iterator();
+				IYCFSecSecSessionObj arr[] = new IYCFSecSecSessionObj[len];
+				Iterator<IYCFSecSecSessionObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1361,7 +1361,7 @@ public class CFSecSecSessionTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1374,8 +1374,8 @@ public class CFSecSecSessionTableObj
 			}
 		}
 		else {
-			ICFSecSecSessionObj obj;
-			Iterator<ICFSecSecSessionObj> valIter = members.values().iterator();
+			IYCFSecSecSessionObj obj;
+			Iterator<IYCFSecSecSessionObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1385,8 +1385,8 @@ public class CFSecSecSessionTableObj
 				}
 			}
 		}
-		Comparator<ICFSecSecSessionObj> cmp = new Comparator<ICFSecSecSessionObj>() {
-			public int compare( ICFSecSecSessionObj lhs, ICFSecSecSessionObj rhs ) {
+		Comparator<IYCFSecSecSessionObj> cmp = new Comparator<IYCFSecSecSessionObj>() {
+			public int compare( IYCFSecSecSessionObj lhs, IYCFSecSecSessionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1399,8 +1399,8 @@ public class CFSecSecSessionTableObj
 					return( 1 );
 				}
 				else {
-					CFSecSecSessionPKey lhsPKey = lhs.getPKey();
-					CFSecSecSessionPKey rhsPKey = rhs.getPKey();
+					YCFSecSecSessionPKey lhsPKey = lhs.getPKey();
+					YCFSecSecSessionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1412,7 +1412,7 @@ public class CFSecSecSessionTableObj
 
 	public void deepDisposeSecSessionByIdIdx( UUID SecSessionId )
 	{
-		ICFSecSecSessionObj obj = readCachedSecSessionByIdIdx( SecSessionId );
+		IYCFSecSecSessionObj obj = readCachedSecSessionByIdIdx( SecSessionId );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -1421,10 +1421,10 @@ public class CFSecSecSessionTableObj
 	public void deepDisposeSecSessionBySecUserIdx( UUID SecUserId )
 	{
 		final String S_ProcName = "deepDisposeSecSessionBySecUserIdx";
-		ICFSecSecSessionObj obj;
-		List<ICFSecSecSessionObj> arrayList = readCachedSecSessionBySecUserIdx( SecUserId );
+		IYCFSecSecSessionObj obj;
+		List<IYCFSecSecSessionObj> arrayList = readCachedSecSessionBySecUserIdx( SecUserId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecSessionObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecSessionObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1438,11 +1438,11 @@ public class CFSecSecSessionTableObj
 		String SecDevName )
 	{
 		final String S_ProcName = "deepDisposeSecSessionBySecDevIdx";
-		ICFSecSecSessionObj obj;
-		List<ICFSecSecSessionObj> arrayList = readCachedSecSessionBySecDevIdx( SecUserId,
+		IYCFSecSecSessionObj obj;
+		List<IYCFSecSecSessionObj> arrayList = readCachedSecSessionBySecDevIdx( SecUserId,
 				SecDevName );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecSessionObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecSessionObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1455,7 +1455,7 @@ public class CFSecSecSessionTableObj
 	public void deepDisposeSecSessionByStartIdx( UUID SecUserId,
 		Calendar Start )
 	{
-		ICFSecSecSessionObj obj = readCachedSecSessionByStartIdx( SecUserId,
+		IYCFSecSecSessionObj obj = readCachedSecSessionByStartIdx( SecUserId,
 				Start );
 		if( obj != null ) {
 			obj.forget();
@@ -1466,11 +1466,11 @@ public class CFSecSecSessionTableObj
 		Calendar Finish )
 	{
 		final String S_ProcName = "deepDisposeSecSessionByFinishIdx";
-		ICFSecSecSessionObj obj;
-		List<ICFSecSecSessionObj> arrayList = readCachedSecSessionByFinishIdx( SecUserId,
+		IYCFSecSecSessionObj obj;
+		List<IYCFSecSecSessionObj> arrayList = readCachedSecSessionByFinishIdx( SecUserId,
 				Finish );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecSessionObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecSessionObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1483,10 +1483,10 @@ public class CFSecSecSessionTableObj
 	public void deepDisposeSecSessionBySecProxyIdx( UUID SecProxyId )
 	{
 		final String S_ProcName = "deepDisposeSecSessionBySecProxyIdx";
-		ICFSecSecSessionObj obj;
-		List<ICFSecSecSessionObj> arrayList = readCachedSecSessionBySecProxyIdx( SecProxyId );
+		IYCFSecSecSessionObj obj;
+		List<IYCFSecSecSessionObj> arrayList = readCachedSecSessionBySecProxyIdx( SecProxyId );
 		if( arrayList != null )  {
-			Iterator<ICFSecSecSessionObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFSecSecSessionObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1505,24 +1505,24 @@ public class CFSecSecSessionTableObj
 	 *	@return	A List of SecSession-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecSessionObj> pageSecSessionBySecUserIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> pageSecSessionBySecUserIdx( UUID SecUserId,
 		UUID priorSecSessionId )
 	{
 		final String S_ProcName = "pageSecSessionBySecUserIdx";
-		CFSecSecSessionBySecUserIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
+		YCFSecSecSessionBySecUserIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
-		List<ICFSecSecSessionObj> retList = new LinkedList<ICFSecSecSessionObj>();
-		ICFSecSecSessionObj obj;
-		CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().pageBuffBySecUserIdx( schema.getAuthorization(),
+		List<IYCFSecSecSessionObj> retList = new LinkedList<IYCFSecSecSessionObj>();
+		IYCFSecSecSessionObj obj;
+		YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().pageBuffBySecUserIdx( schema.getAuthorization(),
 				SecUserId,
 			priorSecSessionId );
-		CFSecSecSessionBuff buff;
+		YCFSecSecSessionBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecSessionTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecSessionObj realised = (ICFSecSecSessionObj)obj.realise();
+			IYCFSecSecSessionObj realised = (IYCFSecSecSessionObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1539,27 +1539,27 @@ public class CFSecSecSessionTableObj
 	 *	@return	A List of SecSession-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecSessionObj> pageSecSessionBySecDevIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> pageSecSessionBySecDevIdx( UUID SecUserId,
 		String SecDevName,
 		UUID priorSecSessionId )
 	{
 		final String S_ProcName = "pageSecSessionBySecDevIdx";
-		CFSecSecSessionBySecDevIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
+		YCFSecSecSessionBySecDevIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setOptionalSecDevName( SecDevName );
-		List<ICFSecSecSessionObj> retList = new LinkedList<ICFSecSecSessionObj>();
-		ICFSecSecSessionObj obj;
-		CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().pageBuffBySecDevIdx( schema.getAuthorization(),
+		List<IYCFSecSecSessionObj> retList = new LinkedList<IYCFSecSecSessionObj>();
+		IYCFSecSecSessionObj obj;
+		YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().pageBuffBySecDevIdx( schema.getAuthorization(),
 				SecUserId,
 				SecDevName,
 			priorSecSessionId );
-		CFSecSecSessionBuff buff;
+		YCFSecSecSessionBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecSessionTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecSessionObj realised = (ICFSecSecSessionObj)obj.realise();
+			IYCFSecSecSessionObj realised = (IYCFSecSecSessionObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1576,27 +1576,27 @@ public class CFSecSecSessionTableObj
 	 *	@return	A List of SecSession-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecSessionObj> pageSecSessionByFinishIdx( UUID SecUserId,
+	public List<IYCFSecSecSessionObj> pageSecSessionByFinishIdx( UUID SecUserId,
 		Calendar Finish,
 		UUID priorSecSessionId )
 	{
 		final String S_ProcName = "pageSecSessionByFinishIdx";
-		CFSecSecSessionByFinishIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
+		YCFSecSecSessionByFinishIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setOptionalFinish( Finish );
-		List<ICFSecSecSessionObj> retList = new LinkedList<ICFSecSecSessionObj>();
-		ICFSecSecSessionObj obj;
-		CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().pageBuffByFinishIdx( schema.getAuthorization(),
+		List<IYCFSecSecSessionObj> retList = new LinkedList<IYCFSecSecSessionObj>();
+		IYCFSecSecSessionObj obj;
+		YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().pageBuffByFinishIdx( schema.getAuthorization(),
 				SecUserId,
 				Finish,
 			priorSecSessionId );
-		CFSecSecSessionBuff buff;
+		YCFSecSecSessionBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecSessionTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecSessionObj realised = (ICFSecSecSessionObj)obj.realise();
+			IYCFSecSecSessionObj realised = (IYCFSecSecSessionObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1611,55 +1611,55 @@ public class CFSecSecSessionTableObj
 	 *	@return	A List of SecSession-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFSecSecSessionObj> pageSecSessionBySecProxyIdx( UUID SecProxyId,
+	public List<IYCFSecSecSessionObj> pageSecSessionBySecProxyIdx( UUID SecProxyId,
 		UUID priorSecSessionId )
 	{
 		final String S_ProcName = "pageSecSessionBySecProxyIdx";
-		CFSecSecSessionBySecProxyIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
+		YCFSecSecSessionBySecProxyIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
 		key.setOptionalSecProxyId( SecProxyId );
-		List<ICFSecSecSessionObj> retList = new LinkedList<ICFSecSecSessionObj>();
-		ICFSecSecSessionObj obj;
-		CFSecSecSessionBuff[] buffList = ((ICFSecSchema)schema.getBackingStore()).getTableSecSession().pageBuffBySecProxyIdx( schema.getAuthorization(),
+		List<IYCFSecSecSessionObj> retList = new LinkedList<IYCFSecSecSessionObj>();
+		IYCFSecSecSessionObj obj;
+		YCFSecSecSessionBuff[] buffList = ((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().pageBuffBySecProxyIdx( schema.getAuthorization(),
 				SecProxyId,
 			priorSecSessionId );
-		CFSecSecSessionBuff buff;
+		YCFSecSecSessionBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecSessionTableObj().newInstance();
-			obj.setPKey( ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
+			obj.setPKey( ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey() );
 			obj.setBuff( buff );
-			ICFSecSecSessionObj realised = (ICFSecSecSessionObj)obj.realise();
+			IYCFSecSecSessionObj realised = (IYCFSecSecSessionObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
 	}
 
-	public ICFSecSecSessionObj updateSecSession( ICFSecSecSessionObj Obj ) {
-		ICFSecSecSessionObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableSecSession().updateSecSession( schema.getAuthorization(),
+	public IYCFSecSecSessionObj updateSecSession( IYCFSecSecSessionObj Obj ) {
+		IYCFSecSecSessionObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().updateSecSession( schema.getAuthorization(),
 			Obj.getSecSessionBuff() );
-		obj = (ICFSecSecSessionObj)Obj.realise();
+		obj = (IYCFSecSecSessionObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteSecSession( ICFSecSecSessionObj Obj ) {
-		ICFSecSecSessionObj obj = Obj;
-		((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSession( schema.getAuthorization(),
+	public void deleteSecSession( IYCFSecSecSessionObj Obj ) {
+		IYCFSecSecSessionObj obj = Obj;
+		((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSession( schema.getAuthorization(),
 			obj.getSecSessionBuff() );
 		Obj.forget();
 	}
 
 	public void deleteSecSessionByIdIdx( UUID SecSessionId )
 	{
-		CFSecSecSessionPKey pkey = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey();
+		YCFSecSecSessionPKey pkey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newPKey();
 		pkey.setRequiredSecSessionId( SecSessionId );
-		ICFSecSecSessionObj obj = readSecSession( pkey );
+		IYCFSecSecSessionObj obj = readSecSession( pkey );
 		if( obj != null ) {
-			ICFSecSecSessionEditObj editObj = (ICFSecSecSessionEditObj)obj.getEdit();
+			IYCFSecSecSessionEditObj editObj = (IYCFSecSecSessionEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFSecSecSessionEditObj)obj.beginEdit();
+				editObj = (IYCFSecSecSessionEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1683,19 +1683,19 @@ public class CFSecSecSessionTableObj
 
 	public void deleteSecSessionBySecUserIdx( UUID SecUserId )
 	{
-		CFSecSecSessionBySecUserIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
+		YCFSecSecSessionBySecUserIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		if( indexBySecUserIdx == null ) {
-			indexBySecUserIdx = new HashMap< CFSecSecSessionBySecUserIdxKey,
-				Map< CFSecSecSessionPKey, ICFSecSecSessionObj > >();
+			indexBySecUserIdx = new HashMap< YCFSecSecSessionBySecUserIdxKey,
+				Map< YCFSecSecSessionPKey, IYCFSecSecSessionObj > >();
 		}
 		if( indexBySecUserIdx.containsKey( key ) ) {
-			Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict = indexBySecUserIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecUserIdx( schema.getAuthorization(),
+			Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict = indexBySecUserIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecUserIdx( schema.getAuthorization(),
 				SecUserId );
-			Iterator<ICFSecSecSessionObj> iter = dict.values().iterator();
-			ICFSecSecSessionObj obj;
-			List<ICFSecSecSessionObj> toForget = new LinkedList<ICFSecSecSessionObj>();
+			Iterator<IYCFSecSecSessionObj> iter = dict.values().iterator();
+			IYCFSecSecSessionObj obj;
+			List<IYCFSecSecSessionObj> toForget = new LinkedList<IYCFSecSecSessionObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1708,7 +1708,7 @@ public class CFSecSecSessionTableObj
 			indexBySecUserIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecUserIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecUserIdx( schema.getAuthorization(),
 				SecUserId );
 		}
 		deepDisposeSecSessionBySecUserIdx( SecUserId );
@@ -1717,21 +1717,21 @@ public class CFSecSecSessionTableObj
 	public void deleteSecSessionBySecDevIdx( UUID SecUserId,
 		String SecDevName )
 	{
-		CFSecSecSessionBySecDevIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
+		YCFSecSecSessionBySecDevIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecDevIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setOptionalSecDevName( SecDevName );
 		if( indexBySecDevIdx == null ) {
-			indexBySecDevIdx = new HashMap< CFSecSecSessionBySecDevIdxKey,
-				Map< CFSecSecSessionPKey, ICFSecSecSessionObj > >();
+			indexBySecDevIdx = new HashMap< YCFSecSecSessionBySecDevIdxKey,
+				Map< YCFSecSecSessionPKey, IYCFSecSecSessionObj > >();
 		}
 		if( indexBySecDevIdx.containsKey( key ) ) {
-			Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict = indexBySecDevIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecDevIdx( schema.getAuthorization(),
+			Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict = indexBySecDevIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecDevIdx( schema.getAuthorization(),
 				SecUserId,
 				SecDevName );
-			Iterator<ICFSecSecSessionObj> iter = dict.values().iterator();
-			ICFSecSecSessionObj obj;
-			List<ICFSecSecSessionObj> toForget = new LinkedList<ICFSecSecSessionObj>();
+			Iterator<IYCFSecSecSessionObj> iter = dict.values().iterator();
+			IYCFSecSecSessionObj obj;
+			List<IYCFSecSecSessionObj> toForget = new LinkedList<IYCFSecSecSessionObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1744,7 +1744,7 @@ public class CFSecSecSessionTableObj
 			indexBySecDevIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecDevIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecDevIdx( schema.getAuthorization(),
 				SecUserId,
 				SecDevName );
 		}
@@ -1756,22 +1756,22 @@ public class CFSecSecSessionTableObj
 		Calendar Start )
 	{
 		if( indexByStartIdx == null ) {
-			indexByStartIdx = new HashMap< CFSecSecSessionByStartIdxKey,
-				ICFSecSecSessionObj >();
+			indexByStartIdx = new HashMap< YCFSecSecSessionByStartIdxKey,
+				IYCFSecSecSessionObj >();
 		}
-		CFSecSecSessionByStartIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
+		YCFSecSecSessionByStartIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newStartIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setRequiredStart( Start );
-		ICFSecSecSessionObj obj = null;
+		IYCFSecSecSessionObj obj = null;
 		if( indexByStartIdx.containsKey( key ) ) {
 			obj = indexByStartIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionByStartIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionByStartIdx( schema.getAuthorization(),
 				SecUserId,
 				Start );
 			obj.forget();
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionByStartIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionByStartIdx( schema.getAuthorization(),
 				SecUserId,
 				Start );
 		}
@@ -1782,21 +1782,21 @@ public class CFSecSecSessionTableObj
 	public void deleteSecSessionByFinishIdx( UUID SecUserId,
 		Calendar Finish )
 	{
-		CFSecSecSessionByFinishIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
+		YCFSecSecSessionByFinishIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newFinishIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		key.setOptionalFinish( Finish );
 		if( indexByFinishIdx == null ) {
-			indexByFinishIdx = new HashMap< CFSecSecSessionByFinishIdxKey,
-				Map< CFSecSecSessionPKey, ICFSecSecSessionObj > >();
+			indexByFinishIdx = new HashMap< YCFSecSecSessionByFinishIdxKey,
+				Map< YCFSecSecSessionPKey, IYCFSecSecSessionObj > >();
 		}
 		if( indexByFinishIdx.containsKey( key ) ) {
-			Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict = indexByFinishIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionByFinishIdx( schema.getAuthorization(),
+			Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict = indexByFinishIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionByFinishIdx( schema.getAuthorization(),
 				SecUserId,
 				Finish );
-			Iterator<ICFSecSecSessionObj> iter = dict.values().iterator();
-			ICFSecSecSessionObj obj;
-			List<ICFSecSecSessionObj> toForget = new LinkedList<ICFSecSecSessionObj>();
+			Iterator<IYCFSecSecSessionObj> iter = dict.values().iterator();
+			IYCFSecSecSessionObj obj;
+			List<IYCFSecSecSessionObj> toForget = new LinkedList<IYCFSecSecSessionObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1809,7 +1809,7 @@ public class CFSecSecSessionTableObj
 			indexByFinishIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionByFinishIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionByFinishIdx( schema.getAuthorization(),
 				SecUserId,
 				Finish );
 		}
@@ -1819,19 +1819,19 @@ public class CFSecSecSessionTableObj
 
 	public void deleteSecSessionBySecProxyIdx( UUID SecProxyId )
 	{
-		CFSecSecSessionBySecProxyIdxKey key = ((ICFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
+		YCFSecSecSessionBySecProxyIdxKey key = ((IYCFSecSchema)schema.getBackingStore()).getFactorySecSession().newSecProxyIdxKey();
 		key.setOptionalSecProxyId( SecProxyId );
 		if( indexBySecProxyIdx == null ) {
-			indexBySecProxyIdx = new HashMap< CFSecSecSessionBySecProxyIdxKey,
-				Map< CFSecSecSessionPKey, ICFSecSecSessionObj > >();
+			indexBySecProxyIdx = new HashMap< YCFSecSecSessionBySecProxyIdxKey,
+				Map< YCFSecSecSessionPKey, IYCFSecSecSessionObj > >();
 		}
 		if( indexBySecProxyIdx.containsKey( key ) ) {
-			Map<CFSecSecSessionPKey, ICFSecSecSessionObj> dict = indexBySecProxyIdx.get( key );
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecProxyIdx( schema.getAuthorization(),
+			Map<YCFSecSecSessionPKey, IYCFSecSecSessionObj> dict = indexBySecProxyIdx.get( key );
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecProxyIdx( schema.getAuthorization(),
 				SecProxyId );
-			Iterator<ICFSecSecSessionObj> iter = dict.values().iterator();
-			ICFSecSecSessionObj obj;
-			List<ICFSecSecSessionObj> toForget = new LinkedList<ICFSecSecSessionObj>();
+			Iterator<IYCFSecSecSessionObj> iter = dict.values().iterator();
+			IYCFSecSecSessionObj obj;
+			List<IYCFSecSecSessionObj> toForget = new LinkedList<IYCFSecSecSessionObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1844,23 +1844,23 @@ public class CFSecSecSessionTableObj
 			indexBySecProxyIdx.remove( key );
 		}
 		else {
-			((ICFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecProxyIdx( schema.getAuthorization(),
+			((IYCFSecSchema)schema.getBackingStore()).getTableSecSession().deleteSecSessionBySecProxyIdx( schema.getAuthorization(),
 				SecProxyId );
 		}
 		deepDisposeSecSessionBySecProxyIdx( SecProxyId );
 	}
 
-	public ICFSecSecSessionObj getSystemSession() {
+	public IYCFSecSecSessionObj getSystemSession() {
 		boolean transactionStarted = schema.beginTransaction();
-		ICFSecSecUserObj userObj;
-		ICFSecSecSessionObj sessionObj;
+		IYCFSecSecUserObj userObj;
+		IYCFSecSecSessionObj sessionObj;
 		try {
 			userObj = schema.getSecUserTableObj().getSystemUser();
 			sessionObj = readSecSessionByStartIdx( userObj.getRequiredSecUserId(),
 				Calendar.getInstance() );
 			if( sessionObj == null ) {
 				sessionObj = newInstance();
-				ICFSecSecSessionEditObj sessionEdit = sessionObj.beginEdit();
+				IYCFSecSecSessionEditObj sessionEdit = sessionObj.beginEdit();
 				sessionEdit.setRequiredContainerSecUser( userObj );
 				sessionEdit.setRequiredStart( Calendar.getInstance() );
 				sessionEdit.setOptionalFinish( null );

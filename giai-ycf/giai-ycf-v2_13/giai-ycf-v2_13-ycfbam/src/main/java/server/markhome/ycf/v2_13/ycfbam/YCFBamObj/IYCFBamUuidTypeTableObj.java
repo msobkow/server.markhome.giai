@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamUuidTypeTableObj
+public interface IYCFBamUuidTypeTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamUuidTypeObj newInstance();
+	IYCFBamUuidTypeObj newInstance();
 
 	/**
 	 *	Instantiate a new UuidType edition of the specified UuidType instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamUuidTypeEditObj newEditInstance( ICFBamUuidTypeObj orig );
+	IYCFBamUuidTypeEditObj newEditInstance( IYCFBamUuidTypeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamUuidTypeObj realiseUuidType( ICFBamUuidTypeObj Obj );
+	IYCFBamUuidTypeObj realiseUuidType( IYCFBamUuidTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamUuidTypeObj createUuidType( ICFBamUuidTypeObj Obj );
+	IYCFBamUuidTypeObj createUuidType( IYCFBamUuidTypeObj Obj );
 
 	/**
 	 *	Read a UuidType-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamUuidTypeTableObj
 	 *	@return	The UuidType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamUuidTypeObj readUuidType( CFBamValuePKey pkey );
+	IYCFBamUuidTypeObj readUuidType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a UuidType-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamUuidTypeTableObj
 	 *	@return	The UuidType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamUuidTypeObj readUuidType( CFBamValuePKey pkey,
+	IYCFBamUuidTypeObj readUuidType( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamUuidTypeObj readCachedUuidType( CFBamValuePKey pkey );
+	IYCFBamUuidTypeObj readCachedUuidType( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeUuidType( ICFBamUuidTypeObj obj );
+	public void reallyDeepDisposeUuidType( IYCFBamUuidTypeObj obj );
 
-	void deepDisposeUuidType( CFBamValuePKey pkey );
+	void deepDisposeUuidType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamUuidTypeObj lockUuidType( CFBamValuePKey pkey );
+	IYCFBamUuidTypeObj lockUuidType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the UuidType-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamUuidTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamUuidTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readAllUuidType();
+	List<IYCFBamUuidTypeObj> readAllUuidType();
 
 	/**
 	 *	Return a sorted map of all the UuidType-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamUuidTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamUuidTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readAllUuidType( boolean forceRead );
+	List<IYCFBamUuidTypeObj> readAllUuidType( boolean forceRead );
 
-	List<ICFBamUuidTypeObj> readCachedAllUuidType();
+	List<IYCFBamUuidTypeObj> readCachedAllUuidType();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamUuidTypeObj readUuidTypeByIdIdx( long TenantId,
+	IYCFBamUuidTypeObj readUuidTypeByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamUuidTypeObj readUuidTypeByIdIdx( long TenantId,
+	IYCFBamUuidTypeObj readUuidTypeByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@param	argName	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamUuidTypeObj readUuidTypeByUNameIdx( long TenantId,
+	IYCFBamUuidTypeObj readUuidTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@param	argName	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamUuidTypeObj readUuidTypeByUNameIdx( long TenantId,
+	IYCFBamUuidTypeObj readUuidTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByValTentIdx( long TenantId );
+	List<IYCFBamUuidTypeObj> readUuidTypeByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByValTentIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByScopeIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByScopeIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@param	argPrevId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByContPrevIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@param	argPrevId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByContPrevIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@param	argNextId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByContNextIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@param	argNextId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByContNextIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamUuidTypeObj> readUuidTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamUuidTypeObj> readUuidTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@param	argCodeVis	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
@@ -446,77 +446,77 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@param	argCodeVis	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeBySchemaIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	/**
-	 *	Get the map of CFBamUuidTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamUuidTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The UuidType key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The UuidType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamUuidTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamUuidTypeObj> readUuidTypeBySchemaIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readUuidTypeBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead );
 
-	ICFBamUuidTypeObj readCachedUuidTypeByIdIdx( long TenantId,
+	IYCFBamUuidTypeObj readCachedUuidTypeByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamUuidTypeObj readCachedUuidTypeByUNameIdx( long TenantId,
+	IYCFBamUuidTypeObj readCachedUuidTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeByValTentIdx( long TenantId );
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeByValTentIdx( long TenantId );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeByScopeIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeByContPrevIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeByContNextIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamUuidTypeObj> readCachedUuidTypeBySchemaIdx( long TenantId,
+	List<IYCFBamUuidTypeObj> readCachedUuidTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	void deepDisposeUuidTypeByIdIdx( long TenantId,
@@ -548,11 +548,11 @@ public interface ICFBamUuidTypeTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeUuidTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeUuidTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeUuidTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeUuidTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -560,12 +560,12 @@ public interface ICFBamUuidTypeTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamUuidTypeObj updateUuidType( ICFBamUuidTypeObj Obj );
+	IYCFBamUuidTypeObj updateUuidType( IYCFBamUuidTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteUuidType( ICFBamUuidTypeObj Obj );
+	void deleteUuidType( IYCFBamUuidTypeObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -668,7 +668,7 @@ public interface ICFBamUuidTypeTableObj
 	 *
 	 *	@param	argCodeVis	The UuidType key attribute of the instance generating the id.
 	 */
-	void deleteUuidTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteUuidTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -681,7 +681,7 @@ public interface ICFBamUuidTypeTableObj
 	 */
 	void deleteUuidTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -694,16 +694,16 @@ public interface ICFBamUuidTypeTableObj
 		long SchemaDefId );
 
 	/**
-	 *	Move the CFBamUuidTypeObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamUuidTypeObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamUuidTypeObj refreshed cache instance.
+	 *	@return	YCFBamUuidTypeObj refreshed cache instance.
 	 */
-	ICFBamUuidTypeObj moveUpUuidType( ICFBamUuidTypeObj Obj );
+	IYCFBamUuidTypeObj moveUpUuidType( IYCFBamUuidTypeObj Obj );
 
 	/**
-	 *	Move the CFBamUuidTypeObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamUuidTypeObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamUuidTypeObj refreshed cache instance.
+	 *	@return	YCFBamUuidTypeObj refreshed cache instance.
 	 */
-	ICFBamUuidTypeObj moveDownUuidType( ICFBamUuidTypeObj Obj );
+	IYCFBamUuidTypeObj moveDownUuidType( IYCFBamUuidTypeObj Obj );
 }

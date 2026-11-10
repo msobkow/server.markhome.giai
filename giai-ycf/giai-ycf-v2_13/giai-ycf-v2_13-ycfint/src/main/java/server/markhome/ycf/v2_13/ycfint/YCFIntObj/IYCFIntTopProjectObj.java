@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFInt TopProject.
+// Description: Java 11 Object interface for YCFInt TopProject.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,29 +26,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntTopProjectObj
-	extends ICFLibAnyObj
+public interface IYCFIntTopProjectObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -60,9 +60,9 @@ public interface ICFIntTopProjectObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -73,9 +73,9 @@ public interface ICFIntTopProjectObj
 	/**
 	 *	Realise this instance of a TopProject.
 	 *
-	 *	@return	CFIntTopProjectObj instance which should be subsequently referenced.
+	 *	@return	YCFIntTopProjectObj instance which should be subsequently referenced.
 	 */
-	ICFIntTopProjectObj realise();
+	IYCFIntTopProjectObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -87,99 +87,99 @@ public interface ICFIntTopProjectObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntTopProjectObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntTopProjectObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntTopProjectObj read();
+	IYCFIntTopProjectObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFIntTopProjectObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFIntTopProjectObj the reference to the cached or read (realised) instance.
 	 */
-	ICFIntTopProjectObj read( boolean forceRead );
+	IYCFIntTopProjectObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this TopProject instance.
 	 *
-	 *	@return	The newly locked ICFIntTopProjectEditObj edition of this instance.
+	 *	@return	The newly locked IYCFIntTopProjectEditObj edition of this instance.
 	 */
-	ICFIntTopProjectEditObj beginEdit();
+	IYCFIntTopProjectEditObj beginEdit();
 
 	/**
 	 *	End this edition of this TopProject instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this TopProject instance.
 	 *
-	 *	@return	The ICFIntTopProjectEditObj edition of this instance.
+	 *	@return	The IYCFIntTopProjectEditObj edition of this instance.
 	 */
-	ICFIntTopProjectEditObj getEdit();
+	IYCFIntTopProjectEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this TopProject instance as a ICFIntTopProjectEditObj.
+	 *	Get the current edition of this TopProject instance as a IYCFIntTopProjectEditObj.
 	 *
-	 *	@return	The ICFIntTopProjectEditObj edition of this instance.
+	 *	@return	The IYCFIntTopProjectEditObj edition of this instance.
 	 */
-	ICFIntTopProjectEditObj getEditAsTopProject();
+	IYCFIntTopProjectEditObj getEditAsTopProject();
 
 	/**
-	 *	Get the ICFIntTopProjectTableObj table cache which manages this instance.
+	 *	Get the IYCFIntTopProjectTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFIntTopProjectTableObj table cache which manages this instance.
+	 *	@return	IYCFIntTopProjectTableObj table cache which manages this instance.
 	 */
-	ICFIntTopProjectTableObj getTopProjectTable();
+	IYCFIntTopProjectTableObj getTopProjectTable();
 
 	/**
-	 *	Get the ICFIntSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFIntSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFIntSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFIntSchemaObj schema cache which manages this instance.
 	 */
-	ICFIntSchemaObj getSchema();
+	IYCFIntSchemaObj getSchema();
 
 	/**
-	 *	Get the CFIntTopProjectBuff instance which currently backs this instance.
+	 *	Get the YCFIntTopProjectBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntTopProjectBuff instance which currently backs this object.
+	 *	@return	YCFIntTopProjectBuff instance which currently backs this object.
 	 */
-	CFIntTopProjectBuff getBuff();
+	YCFIntTopProjectBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFIntTopProjectBuff value );
+	void setBuff( YCFIntTopProjectBuff value );
 
 	/**
-	 *	Get the CFIntTopProjectBuff instance which currently backs this instance.
+	 *	Get the YCFIntTopProjectBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFIntTopProjectBuff instance which currently backs this object.
+	 *	@return	YCFIntTopProjectBuff instance which currently backs this object.
 	 */
-	CFIntTopProjectBuff getTopProjectBuff();
+	YCFIntTopProjectBuff getTopProjectBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFIntTopProjectPKey primary key for this instance.
+	 *	@return	YCFIntTopProjectPKey primary key for this instance.
 	 */
-	CFIntTopProjectPKey getPKey();
+	YCFIntTopProjectPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFIntTopProjectPKey primary key value for this instance.
+	 *	@param YCFIntTopProjectPKey primary key value for this instance.
 	 */
-	void setPKey( CFIntTopProjectPKey value );
+	void setPKey( YCFIntTopProjectPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -234,46 +234,46 @@ public interface ICFIntTopProjectObj
 	String getOptionalDescription();
 
 	/**
-	 *	Get the required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFIntTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFIntTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFIntTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Get the required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the required IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The required ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The required IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
+	IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead );
 
 	/**
-	 *	Get the required ICFIntTopDomainObj instance referenced by the ParentSDom key.
+	 *	Get the required IYCFIntTopDomainObj instance referenced by the ParentSDom key.
 	 *
-	 *	@return	The required ICFIntTopDomainObj instance referenced by the ParentSDom key.
+	 *	@return	The required IYCFIntTopDomainObj instance referenced by the ParentSDom key.
 	 */
-	ICFIntTopDomainObj getRequiredContainerParentSDom();
+	IYCFIntTopDomainObj getRequiredContainerParentSDom();
 
 	/**
-	 *	Get the required ICFIntTopDomainObj instance referenced by the ParentSDom key.
+	 *	Get the required IYCFIntTopDomainObj instance referenced by the ParentSDom key.
 	 *
-	 *	@return	The required ICFIntTopDomainObj instance referenced by the ParentSDom key.
+	 *	@return	The required IYCFIntTopDomainObj instance referenced by the ParentSDom key.
 	 */
-	ICFIntTopDomainObj getRequiredContainerParentSDom( boolean forceRead );
+	IYCFIntTopDomainObj getRequiredContainerParentSDom( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFIntSubProjectObj array of instances referenced by the SubProject key.
+	 *	Get the array of optional IYCFIntSubProjectObj array of instances referenced by the SubProject key.
 	 *
-	 *	@return	The optional ICFIntSubProjectObj[] array of instances referenced by the SubProject key.
+	 *	@return	The optional IYCFIntSubProjectObj[] array of instances referenced by the SubProject key.
 	 */
-	List<ICFIntSubProjectObj> getOptionalComponentsSubProject();
+	List<IYCFIntSubProjectObj> getOptionalComponentsSubProject();
 
 	/**
-	 *	Get the array of optional ICFIntSubProjectObj array of instances referenced by the SubProject key.
+	 *	Get the array of optional IYCFIntSubProjectObj array of instances referenced by the SubProject key.
 	 *
-	 *	@return	The optional ICFIntSubProjectObj[] array of instances referenced by the SubProject key.
+	 *	@return	The optional IYCFIntSubProjectObj[] array of instances referenced by the SubProject key.
 	 */
-	List<ICFIntSubProjectObj> getOptionalComponentsSubProject( boolean forceRead );
+	List<IYCFIntSubProjectObj> getOptionalComponentsSubProject( boolean forceRead );
 
 	/**
 	 *	Internal use only.

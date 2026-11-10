@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamDoubleTypeTableObj
+public interface IYCFBamDoubleTypeTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamDoubleTypeObj newInstance();
+	IYCFBamDoubleTypeObj newInstance();
 
 	/**
 	 *	Instantiate a new DoubleType edition of the specified DoubleType instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamDoubleTypeEditObj newEditInstance( ICFBamDoubleTypeObj orig );
+	IYCFBamDoubleTypeEditObj newEditInstance( IYCFBamDoubleTypeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDoubleTypeObj realiseDoubleType( ICFBamDoubleTypeObj Obj );
+	IYCFBamDoubleTypeObj realiseDoubleType( IYCFBamDoubleTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDoubleTypeObj createDoubleType( ICFBamDoubleTypeObj Obj );
+	IYCFBamDoubleTypeObj createDoubleType( IYCFBamDoubleTypeObj Obj );
 
 	/**
 	 *	Read a DoubleType-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamDoubleTypeTableObj
 	 *	@return	The DoubleType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDoubleTypeObj readDoubleType( CFBamValuePKey pkey );
+	IYCFBamDoubleTypeObj readDoubleType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a DoubleType-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamDoubleTypeTableObj
 	 *	@return	The DoubleType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDoubleTypeObj readDoubleType( CFBamValuePKey pkey,
+	IYCFBamDoubleTypeObj readDoubleType( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamDoubleTypeObj readCachedDoubleType( CFBamValuePKey pkey );
+	IYCFBamDoubleTypeObj readCachedDoubleType( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeDoubleType( ICFBamDoubleTypeObj obj );
+	public void reallyDeepDisposeDoubleType( IYCFBamDoubleTypeObj obj );
 
-	void deepDisposeDoubleType( CFBamValuePKey pkey );
+	void deepDisposeDoubleType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDoubleTypeObj lockDoubleType( CFBamValuePKey pkey );
+	IYCFBamDoubleTypeObj lockDoubleType( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the DoubleType-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDoubleTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDoubleTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readAllDoubleType();
+	List<IYCFBamDoubleTypeObj> readAllDoubleType();
 
 	/**
 	 *	Return a sorted map of all the DoubleType-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDoubleTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDoubleTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readAllDoubleType( boolean forceRead );
+	List<IYCFBamDoubleTypeObj> readAllDoubleType( boolean forceRead );
 
-	List<ICFBamDoubleTypeObj> readCachedAllDoubleType();
+	List<IYCFBamDoubleTypeObj> readCachedAllDoubleType();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDoubleTypeObj readDoubleTypeByIdIdx( long TenantId,
+	IYCFBamDoubleTypeObj readDoubleTypeByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDoubleTypeObj readDoubleTypeByIdIdx( long TenantId,
+	IYCFBamDoubleTypeObj readDoubleTypeByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@param	argName	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDoubleTypeObj readDoubleTypeByUNameIdx( long TenantId,
+	IYCFBamDoubleTypeObj readDoubleTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@param	argName	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDoubleTypeObj readDoubleTypeByUNameIdx( long TenantId,
+	IYCFBamDoubleTypeObj readDoubleTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByValTentIdx( long TenantId );
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByValTentIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByScopeIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByScopeIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@param	argPrevId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByContPrevIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@param	argPrevId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByContPrevIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@param	argNextId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByContNextIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@param	argNextId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByContNextIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
@@ -446,77 +446,77 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeBySchemaIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	/**
-	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamDoubleTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The DoubleType key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDoubleTypeObj> readDoubleTypeBySchemaIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readDoubleTypeBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead );
 
-	ICFBamDoubleTypeObj readCachedDoubleTypeByIdIdx( long TenantId,
+	IYCFBamDoubleTypeObj readCachedDoubleTypeByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamDoubleTypeObj readCachedDoubleTypeByUNameIdx( long TenantId,
+	IYCFBamDoubleTypeObj readCachedDoubleTypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByValTentIdx( long TenantId );
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeByValTentIdx( long TenantId );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByScopeIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByNextIdx( Long NextTenantId,
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByContPrevIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByContNextIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamDoubleTypeObj> readCachedDoubleTypeBySchemaIdx( long TenantId,
+	List<IYCFBamDoubleTypeObj> readCachedDoubleTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	void deepDisposeDoubleTypeByIdIdx( long TenantId,
@@ -548,11 +548,11 @@ public interface ICFBamDoubleTypeTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeDoubleTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDoubleTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDoubleTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -560,12 +560,12 @@ public interface ICFBamDoubleTypeTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDoubleTypeObj updateDoubleType( ICFBamDoubleTypeObj Obj );
+	IYCFBamDoubleTypeObj updateDoubleType( IYCFBamDoubleTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteDoubleType( ICFBamDoubleTypeObj Obj );
+	void deleteDoubleType( IYCFBamDoubleTypeObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -668,7 +668,7 @@ public interface ICFBamDoubleTypeTableObj
 	 *
 	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
 	 */
-	void deleteDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteDoubleTypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -681,7 +681,7 @@ public interface ICFBamDoubleTypeTableObj
 	 */
 	void deleteDoubleTypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -694,16 +694,16 @@ public interface ICFBamDoubleTypeTableObj
 		long SchemaDefId );
 
 	/**
-	 *	Move the CFBamDoubleTypeObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamDoubleTypeObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamDoubleTypeObj refreshed cache instance.
+	 *	@return	YCFBamDoubleTypeObj refreshed cache instance.
 	 */
-	ICFBamDoubleTypeObj moveUpDoubleType( ICFBamDoubleTypeObj Obj );
+	IYCFBamDoubleTypeObj moveUpDoubleType( IYCFBamDoubleTypeObj Obj );
 
 	/**
-	 *	Move the CFBamDoubleTypeObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamDoubleTypeObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamDoubleTypeObj refreshed cache instance.
+	 *	@return	YCFBamDoubleTypeObj refreshed cache instance.
 	 */
-	ICFBamDoubleTypeObj moveDownDoubleType( ICFBamDoubleTypeObj Obj );
+	IYCFBamDoubleTypeObj moveDownDoubleType( IYCFBamDoubleTypeObj Obj );
 }

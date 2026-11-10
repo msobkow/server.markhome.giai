@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for ServiceType.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,17 +35,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntServiceTypeTable database interface for ServiceType
+ *	YCFIntServiceTypeTable database interface for ServiceType
  */
-public interface ICFIntServiceTypeTable
-extends ICFSecServiceTypeTable
+public interface IYCFIntServiceTypeTable
+extends IYCFSecServiceTypeTable
 {
 
 	/**
@@ -56,8 +56,8 @@ extends ICFSecServiceTypeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createServiceType( CFSecAuthorization Authorization,
-		CFSecServiceTypeBuff Buff );
+	void createServiceType( YCFSecAuthorization Authorization,
+		YCFSecServiceTypeBuff Buff );
 
 
 	/**
@@ -68,8 +68,8 @@ extends ICFSecServiceTypeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateServiceType( CFSecAuthorization Authorization,
-		CFSecServiceTypeBuff Buff );
+	void updateServiceType( YCFSecAuthorization Authorization,
+		YCFSecServiceTypeBuff Buff );
 
 
 	/**
@@ -79,8 +79,8 @@ extends ICFSecServiceTypeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteServiceType( CFSecAuthorization Authorization,
-		CFSecServiceTypeBuff Buff );
+	void deleteServiceType( YCFSecAuthorization Authorization,
+		YCFSecServiceTypeBuff Buff );
 	/**
 	 *	Delete the ServiceType instance identified by the primary key attributes.
 	 *
@@ -88,7 +88,7 @@ extends ICFSecServiceTypeTable
 	 *
 	 *	@param	argServiceTypeId	The ServiceType key attribute of the instance generating the id.
 	 */
-	void deleteServiceTypeByIdIdx( CFSecAuthorization Authorization,
+	void deleteServiceTypeByIdIdx( YCFSecAuthorization Authorization,
 		int argServiceTypeId );
 
 	/**
@@ -98,8 +98,8 @@ extends ICFSecServiceTypeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteServiceTypeByIdIdx( CFSecAuthorization Authorization,
-		CFSecServiceTypePKey argKey );
+	void deleteServiceTypeByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceTypePKey argKey );
 	/**
 	 *	Delete the ServiceType instances identified by the key UDescrIdx.
 	 *
@@ -107,7 +107,7 @@ extends ICFSecServiceTypeTable
 	 *
 	 *	@param	argDescription	The ServiceType key attribute of the instance generating the id.
 	 */
-	void deleteServiceTypeByUDescrIdx( CFSecAuthorization Authorization,
+	void deleteServiceTypeByUDescrIdx( YCFSecAuthorization Authorization,
 		String argDescription );
 
 	/**
@@ -117,8 +117,8 @@ extends ICFSecServiceTypeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteServiceTypeByUDescrIdx( CFSecAuthorization Authorization,
-		CFSecServiceTypeByUDescrIdxKey argKey );
+	void deleteServiceTypeByUDescrIdx( YCFSecAuthorization Authorization,
+		YCFSecServiceTypeByUDescrIdxKey argKey );
 
 
 	/**
@@ -131,8 +131,8 @@ extends ICFSecServiceTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecServiceTypeBuff readDerived( CFSecAuthorization Authorization,
-		CFSecServiceTypePKey PKey );
+	YCFSecServiceTypeBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecServiceTypePKey PKey );
 
 	/**
 	 *	Lock the derived ServiceType buffer instance by primary key.
@@ -144,8 +144,8 @@ extends ICFSecServiceTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecServiceTypeBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecServiceTypePKey PKey );
+	YCFSecServiceTypeBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecServiceTypePKey PKey );
 
 	/**
 	 *	Read all ServiceType instances.
@@ -154,7 +154,7 @@ extends ICFSecServiceTypeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecServiceTypeBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecServiceTypeBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived ServiceType buffer instance identified by the unique key IdIdx.
@@ -166,7 +166,7 @@ extends ICFSecServiceTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecServiceTypeBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecServiceTypeBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		int ServiceTypeId );
 
 	/**
@@ -179,7 +179,7 @@ extends ICFSecServiceTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecServiceTypeBuff readDerivedByUDescrIdx( CFSecAuthorization Authorization,
+	YCFSecServiceTypeBuff readDerivedByUDescrIdx( YCFSecAuthorization Authorization,
 		String Description );
 
 	/**
@@ -192,10 +192,10 @@ extends ICFSecServiceTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceTypeBuff readBuff( CFSecAuthorization Authorization,
-		CFSecServiceTypePKey PKey );
+	YCFSecServiceTypeBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecServiceTypePKey PKey );
 
 	/**
 	 *	Lock the specific ServiceType buffer instance identified by the primary key.
@@ -207,10 +207,10 @@ extends ICFSecServiceTypeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceTypeBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecServiceTypePKey PKey );
+	YCFSecServiceTypeBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecServiceTypePKey PKey );
 
 	/**
 	 *	Read all the specific ServiceType buffer instances.
@@ -219,7 +219,7 @@ extends ICFSecServiceTypeTable
 	 *
 	 *	@return All the specific ServiceType instances in the database accessible for the Authorization.
 	 */
-	CFSecServiceTypeBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecServiceTypeBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific ServiceType buffer instance identified by the unique key IdIdx.
@@ -231,9 +231,9 @@ extends ICFSecServiceTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceTypeBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecServiceTypeBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		int ServiceTypeId );
 
 	/**
@@ -246,15 +246,15 @@ extends ICFSecServiceTypeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecServiceTypeBuff readBuffByUDescrIdx( CFSecAuthorization Authorization,
+	YCFSecServiceTypeBuff readBuffByUDescrIdx( YCFSecAuthorization Authorization,
 		String Description );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb Tool.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb Tool.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbToolEditObj
-	extends ICFGenKbToolObj
+public interface IYCFGenKbToolEditObj
+	extends IYCFGenKbToolObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbToolObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbToolObj.
 	 */
-	ICFGenKbToolObj getOrig();
+	IYCFGenKbToolObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbToolObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbToolObj.
 	 */
-	ICFGenKbToolObj getOrigAsTool();
+	IYCFGenKbToolObj getOrigAsTool();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbToolEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbToolObj create();
+	IYCFGenKbToolObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbToolEditObj update();
+	YCFGenKbToolEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbToolEditObj deleteInstance();
+	YCFGenKbToolEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -104,16 +104,16 @@ public interface ICFGenKbToolEditObj
 	void setRequiredIsSupported( boolean value );
 
 	/**
-	 *	Get the ICFGenKbToolObj instance referenced by the Replaces key.
+	 *	Get the IYCFGenKbToolObj instance referenced by the Replaces key.
 	 *
-	 *	@return	The ICFGenKbToolObj instance referenced by the Replaces key.
+	 *	@return	The IYCFGenKbToolObj instance referenced by the Replaces key.
 	 */
-	ICFGenKbToolObj getOptionalLookupReplaces();
+	IYCFGenKbToolObj getOptionalLookupReplaces();
 
 	/**
-	 *	Set the ICFGenKbToolObj instance referenced by the Replaces key.
+	 *	Set the IYCFGenKbToolObj instance referenced by the Replaces key.
 	 *
-	 *	@param	value	the ICFGenKbToolObj instance to be referenced by the Replaces key.
+	 *	@param	value	the IYCFGenKbToolObj instance to be referenced by the Replaces key.
 	 */
-	void setOptionalLookupReplaces( ICFGenKbToolObj value );
+	void setOptionalLookupReplaces( IYCFGenKbToolObj value );
 }

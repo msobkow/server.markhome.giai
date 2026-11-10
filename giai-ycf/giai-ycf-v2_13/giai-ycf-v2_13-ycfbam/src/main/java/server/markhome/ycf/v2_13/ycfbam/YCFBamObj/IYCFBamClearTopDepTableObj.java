@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamClearTopDepTableObj
+public interface IYCFBamClearTopDepTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamClearTopDepTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamClearTopDepObj newInstance();
+	IYCFBamClearTopDepObj newInstance();
 
 	/**
 	 *	Instantiate a new ClearTopDep edition of the specified ClearTopDep instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamClearTopDepEditObj newEditInstance( ICFBamClearTopDepObj orig );
+	IYCFBamClearTopDepEditObj newEditInstance( IYCFBamClearTopDepObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamClearTopDepObj realiseClearTopDep( ICFBamClearTopDepObj Obj );
+	IYCFBamClearTopDepObj realiseClearTopDep( IYCFBamClearTopDepObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamClearTopDepObj createClearTopDep( ICFBamClearTopDepObj Obj );
+	IYCFBamClearTopDepObj createClearTopDep( IYCFBamClearTopDepObj Obj );
 
 	/**
 	 *	Read a ClearTopDep-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamClearTopDepTableObj
 	 *	@return	The ClearTopDep-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamClearTopDepObj readClearTopDep( CFBamScopePKey pkey );
+	IYCFBamClearTopDepObj readClearTopDep( YCFBamScopePKey pkey );
 
 	/**
 	 *	Read a ClearTopDep-derived instance by it's primary key.
@@ -113,169 +113,169 @@ public interface ICFBamClearTopDepTableObj
 	 *	@return	The ClearTopDep-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamClearTopDepObj readClearTopDep( CFBamScopePKey pkey,
+	IYCFBamClearTopDepObj readClearTopDep( YCFBamScopePKey pkey,
 		boolean forceRead );
 
-	ICFBamClearTopDepObj readCachedClearTopDep( CFBamScopePKey pkey );
+	IYCFBamClearTopDepObj readCachedClearTopDep( YCFBamScopePKey pkey );
 
-	public void reallyDeepDisposeClearTopDep( ICFBamClearTopDepObj obj );
+	public void reallyDeepDisposeClearTopDep( IYCFBamClearTopDepObj obj );
 
-	void deepDisposeClearTopDep( CFBamScopePKey pkey );
+	void deepDisposeClearTopDep( YCFBamScopePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamClearTopDepObj lockClearTopDep( CFBamScopePKey pkey );
+	IYCFBamClearTopDepObj lockClearTopDep( YCFBamScopePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ClearTopDep-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamClearTopDepObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamClearTopDepObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readAllClearTopDep();
+	List<IYCFBamClearTopDepObj> readAllClearTopDep();
 
 	/**
 	 *	Return a sorted map of all the ClearTopDep-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamClearTopDepObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamClearTopDepObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readAllClearTopDep( boolean forceRead );
+	List<IYCFBamClearTopDepObj> readAllClearTopDep( boolean forceRead );
 
-	List<ICFBamClearTopDepObj> readCachedAllClearTopDep();
+	List<IYCFBamClearTopDepObj> readCachedAllClearTopDep();
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj cached instance for the primary key, or
+	 *	@return	YCFBamScopeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamClearTopDepObj readClearTopDepByIdIdx( long TenantId,
+	IYCFBamClearTopDepObj readClearTopDepByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj refreshed instance for the primary key, or
+	 *	@return	YCFBamScopeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamClearTopDepObj readClearTopDepByIdIdx( long TenantId,
+	IYCFBamClearTopDepObj readClearTopDepByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByTenantIdx( long TenantId );
+	List<IYCFBamClearTopDepObj> readClearTopDepByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamClearTopDepObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamClearTopDepObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByTenantIdx( long TenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamClearDepObj instances sorted by their primary keys for the duplicate ClearDepIdx key.
+	 *	Get the map of YCFBamClearDepObj instances sorted by their primary keys for the duplicate ClearDepIdx key.
 	 *
 	 *	@param	argTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate ClearDepIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate ClearDepIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByClearDepIdx( long TenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByClearDepIdx( long TenantId,
 		long RelationId );
 
 	/**
-	 *	Get the map of CFBamClearTopDepObj instances sorted by their primary keys for the duplicate ClearDepIdx key.
+	 *	Get the map of YCFBamClearTopDepObj instances sorted by their primary keys for the duplicate ClearDepIdx key.
 	 *
 	 *	@param	argTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate ClearDepIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate ClearDepIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByClearDepIdx( long TenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByClearDepIdx( long TenantId,
 		long RelationId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamClearDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamClearDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamClearTopDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamClearTopDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamClearTopDepObj instances sorted by their primary keys for the duplicate ClrTopDepTblIdx key.
+	 *	Get the map of YCFBamClearTopDepObj instances sorted by their primary keys for the duplicate ClrTopDepTblIdx key.
 	 *
 	 *	@param	argTableTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate ClrTopDepTblIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate ClrTopDepTblIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByClrTopDepTblIdx( long TableTenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByClrTopDepTblIdx( long TableTenantId,
 		long TableId );
 
 	/**
-	 *	Get the map of CFBamClearTopDepObj instances sorted by their primary keys for the duplicate ClrTopDepTblIdx key.
+	 *	Get the map of YCFBamClearTopDepObj instances sorted by their primary keys for the duplicate ClrTopDepTblIdx key.
 	 *
 	 *	@param	argTableTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argTableId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate ClrTopDepTblIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate ClrTopDepTblIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByClrTopDepTblIdx( long TableTenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByClrTopDepTblIdx( long TableTenantId,
 		long TableId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamClearTopDepObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamClearTopDepObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTableTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
@@ -283,15 +283,15 @@ public interface ICFBamClearTopDepTableObj
 	 *
 	 *	@param	argName	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamClearTopDepObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamClearTopDepObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamClearTopDepObj readClearTopDepByUNameIdx(long TableTenantId,
+	IYCFBamClearTopDepObj readClearTopDepByUNameIdx(long TableTenantId,
 		long TableId,
 		String Name );
 
 	/**
-	 *	Get the CFBamClearTopDepObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamClearTopDepObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTableTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
@@ -299,90 +299,90 @@ public interface ICFBamClearTopDepTableObj
 	 *
 	 *	@param	argName	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamClearTopDepObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamClearTopDepObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamClearTopDepObj readClearTopDepByUNameIdx(long TableTenantId,
+	IYCFBamClearTopDepObj readClearTopDepByUNameIdx(long TableTenantId,
 		long TableId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamClearTopDepObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamClearTopDepObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByPrevIdx( Long PrevTenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamClearTopDepObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamClearTopDepObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByPrevIdx( Long PrevTenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamClearTopDepObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamClearTopDepObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByNextIdx( Long NextTenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamClearTopDepObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamClearTopDepObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The ClearTopDep key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The ClearTopDep key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamClearTopDepObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamClearTopDepObj> readClearTopDepByNextIdx( Long NextTenantId,
+	List<IYCFBamClearTopDepObj> readClearTopDepByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
-	ICFBamClearTopDepObj readCachedClearTopDepByIdIdx( long TenantId,
+	IYCFBamClearTopDepObj readCachedClearTopDepByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFBamClearTopDepObj> readCachedClearTopDepByTenantIdx( long TenantId );
+	List<IYCFBamClearTopDepObj> readCachedClearTopDepByTenantIdx( long TenantId );
 
-	List<ICFBamClearTopDepObj> readCachedClearTopDepByClearDepIdx( long TenantId,
+	List<IYCFBamClearTopDepObj> readCachedClearTopDepByClearDepIdx( long TenantId,
 		long RelationId );
 
-	List<ICFBamClearTopDepObj> readCachedClearTopDepByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamClearTopDepObj> readCachedClearTopDepByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamClearTopDepObj> readCachedClearTopDepByClrTopDepTblIdx( long TableTenantId,
+	List<IYCFBamClearTopDepObj> readCachedClearTopDepByClrTopDepTblIdx( long TableTenantId,
 		long TableId );
 
-	ICFBamClearTopDepObj readCachedClearTopDepByUNameIdx( long TableTenantId,
+	IYCFBamClearTopDepObj readCachedClearTopDepByUNameIdx( long TableTenantId,
 		long TableId,
 		String Name );
 
-	List<ICFBamClearTopDepObj> readCachedClearTopDepByPrevIdx( Long PrevTenantId,
+	List<IYCFBamClearTopDepObj> readCachedClearTopDepByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamClearTopDepObj> readCachedClearTopDepByNextIdx( Long NextTenantId,
+	List<IYCFBamClearTopDepObj> readCachedClearTopDepByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	void deepDisposeClearTopDepByIdIdx( long TenantId,
@@ -412,12 +412,12 @@ public interface ICFBamClearTopDepTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamClearTopDepObj updateClearTopDep( ICFBamClearTopDepObj Obj );
+	IYCFBamClearTopDepObj updateClearTopDep( IYCFBamClearTopDepObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteClearTopDep( ICFBamClearTopDepObj Obj );
+	void deleteClearTopDep( IYCFBamClearTopDepObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -500,16 +500,16 @@ public interface ICFBamClearTopDepTableObj
 		Long NextId );
 
 	/**
-	 *	Move the CFBamClearTopDepObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamClearTopDepObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamClearTopDepObj refreshed cache instance.
+	 *	@return	YCFBamClearTopDepObj refreshed cache instance.
 	 */
-	ICFBamClearTopDepObj moveUpClearTopDep( ICFBamClearTopDepObj Obj );
+	IYCFBamClearTopDepObj moveUpClearTopDep( IYCFBamClearTopDepObj Obj );
 
 	/**
-	 *	Move the CFBamClearTopDepObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamClearTopDepObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamClearTopDepObj refreshed cache instance.
+	 *	@return	YCFBamClearTopDepObj refreshed cache instance.
 	 */
-	ICFBamClearTopDepObj moveDownClearTopDep( ICFBamClearTopDepObj Obj );
+	IYCFBamClearTopDepObj moveDownClearTopDep( IYCFBamClearTopDepObj Obj );
 }

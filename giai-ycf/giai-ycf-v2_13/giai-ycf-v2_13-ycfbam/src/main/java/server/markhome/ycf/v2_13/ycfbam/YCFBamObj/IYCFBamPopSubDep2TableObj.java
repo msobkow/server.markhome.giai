@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamPopSubDep2TableObj
+public interface IYCFBamPopSubDep2TableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamPopSubDep2TableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamPopSubDep2Obj newInstance();
+	IYCFBamPopSubDep2Obj newInstance();
 
 	/**
 	 *	Instantiate a new PopSubDep2 edition of the specified PopSubDep2 instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamPopSubDep2EditObj newEditInstance( ICFBamPopSubDep2Obj orig );
+	IYCFBamPopSubDep2EditObj newEditInstance( IYCFBamPopSubDep2Obj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamPopSubDep2Obj realisePopSubDep2( ICFBamPopSubDep2Obj Obj );
+	IYCFBamPopSubDep2Obj realisePopSubDep2( IYCFBamPopSubDep2Obj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamPopSubDep2Obj createPopSubDep2( ICFBamPopSubDep2Obj Obj );
+	IYCFBamPopSubDep2Obj createPopSubDep2( IYCFBamPopSubDep2Obj Obj );
 
 	/**
 	 *	Read a PopSubDep2-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamPopSubDep2TableObj
 	 *	@return	The PopSubDep2-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamPopSubDep2Obj readPopSubDep2( CFBamScopePKey pkey );
+	IYCFBamPopSubDep2Obj readPopSubDep2( YCFBamScopePKey pkey );
 
 	/**
 	 *	Read a PopSubDep2-derived instance by it's primary key.
@@ -113,169 +113,169 @@ public interface ICFBamPopSubDep2TableObj
 	 *	@return	The PopSubDep2-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamPopSubDep2Obj readPopSubDep2( CFBamScopePKey pkey,
+	IYCFBamPopSubDep2Obj readPopSubDep2( YCFBamScopePKey pkey,
 		boolean forceRead );
 
-	ICFBamPopSubDep2Obj readCachedPopSubDep2( CFBamScopePKey pkey );
+	IYCFBamPopSubDep2Obj readCachedPopSubDep2( YCFBamScopePKey pkey );
 
-	public void reallyDeepDisposePopSubDep2( ICFBamPopSubDep2Obj obj );
+	public void reallyDeepDisposePopSubDep2( IYCFBamPopSubDep2Obj obj );
 
-	void deepDisposePopSubDep2( CFBamScopePKey pkey );
+	void deepDisposePopSubDep2( YCFBamScopePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamPopSubDep2Obj lockPopSubDep2( CFBamScopePKey pkey );
+	IYCFBamPopSubDep2Obj lockPopSubDep2( YCFBamScopePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the PopSubDep2-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamPopSubDep2Obj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamPopSubDep2Obj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readAllPopSubDep2();
+	List<IYCFBamPopSubDep2Obj> readAllPopSubDep2();
 
 	/**
 	 *	Return a sorted map of all the PopSubDep2-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamPopSubDep2Obj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamPopSubDep2Obj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readAllPopSubDep2( boolean forceRead );
+	List<IYCFBamPopSubDep2Obj> readAllPopSubDep2( boolean forceRead );
 
-	List<ICFBamPopSubDep2Obj> readCachedAllPopSubDep2();
+	List<IYCFBamPopSubDep2Obj> readCachedAllPopSubDep2();
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj cached instance for the primary key, or
+	 *	@return	YCFBamScopeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamPopSubDep2Obj readPopSubDep2ByIdIdx( long TenantId,
+	IYCFBamPopSubDep2Obj readPopSubDep2ByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamScopeObj instance for the primary key attributes.
+	 *	Get the YCFBamScopeObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamScopeObj refreshed instance for the primary key, or
+	 *	@return	YCFBamScopeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamPopSubDep2Obj readPopSubDep2ByIdIdx( long TenantId,
+	IYCFBamPopSubDep2Obj readPopSubDep2ByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamScopeObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readPopSubDep2ByTenantIdx( long TenantId );
+	List<IYCFBamPopSubDep2Obj> readPopSubDep2ByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readPopSubDep2ByTenantIdx( long TenantId,
+	List<IYCFBamPopSubDep2Obj> readPopSubDep2ByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamPopDepObj instances sorted by their primary keys for the duplicate RelationIdx key.
+	 *	Get the map of YCFBamPopDepObj instances sorted by their primary keys for the duplicate RelationIdx key.
 	 *
 	 *	@param	argRelationTenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate RelationIdx key,
+	 *	@return	List of YCFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate RelationIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readPopSubDep2ByRelationIdx( long RelationTenantId,
+	List<IYCFBamPopSubDep2Obj> readPopSubDep2ByRelationIdx( long RelationTenantId,
 		long RelationId );
 
 	/**
-	 *	Get the map of CFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate RelationIdx key.
+	 *	Get the map of YCFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate RelationIdx key.
 	 *
 	 *	@param	argRelationTenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
 	 *	@param	argRelationId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate RelationIdx key,
+	 *	@return	List of YCFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate RelationIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readPopSubDep2ByRelationIdx( long RelationTenantId,
+	List<IYCFBamPopSubDep2Obj> readPopSubDep2ByRelationIdx( long RelationTenantId,
 		long RelationId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamPopDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamPopDepObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readPopSubDep2ByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamPopSubDep2Obj> readPopSubDep2ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readPopSubDep2ByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamPopSubDep2Obj> readPopSubDep2ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate PopSubDep1Idx key.
+	 *	Get the map of YCFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate PopSubDep1Idx key.
 	 *
 	 *	@param	argPopSubDep1TenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
 	 *	@param	argPopSubDep1Id	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate PopSubDep1Idx key,
+	 *	@return	List of YCFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate PopSubDep1Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readPopSubDep2ByPopSubDep1Idx( long PopSubDep1TenantId,
+	List<IYCFBamPopSubDep2Obj> readPopSubDep2ByPopSubDep1Idx( long PopSubDep1TenantId,
 		long PopSubDep1Id );
 
 	/**
-	 *	Get the map of CFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate PopSubDep1Idx key.
+	 *	Get the map of YCFBamPopSubDep2Obj instances sorted by their primary keys for the duplicate PopSubDep1Idx key.
 	 *
 	 *	@param	argPopSubDep1TenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
 	 *	@param	argPopSubDep1Id	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate PopSubDep1Idx key,
+	 *	@return	List of YCFBamPopSubDep2Obj cached instances sorted by their primary keys for the duplicate PopSubDep1Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamPopSubDep2Obj> readPopSubDep2ByPopSubDep1Idx( long PopSubDep1TenantId,
+	List<IYCFBamPopSubDep2Obj> readPopSubDep2ByPopSubDep1Idx( long PopSubDep1TenantId,
 		long PopSubDep1Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamPopSubDep2Obj instance for the unique UNameIdx key.
+	 *	Get the YCFBamPopSubDep2Obj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argPopSubDep1TenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
@@ -283,15 +283,15 @@ public interface ICFBamPopSubDep2TableObj
 	 *
 	 *	@param	argName	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamPopSubDep2Obj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamPopSubDep2Obj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamPopSubDep2Obj readPopSubDep2ByUNameIdx(long PopSubDep1TenantId,
+	IYCFBamPopSubDep2Obj readPopSubDep2ByUNameIdx(long PopSubDep1TenantId,
 		long PopSubDep1Id,
 		String Name );
 
 	/**
-	 *	Get the CFBamPopSubDep2Obj instance for the unique UNameIdx key.
+	 *	Get the YCFBamPopSubDep2Obj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argPopSubDep1TenantId	The PopSubDep2 key attribute of the instance generating the id.
 	 *
@@ -299,29 +299,29 @@ public interface ICFBamPopSubDep2TableObj
 	 *
 	 *	@param	argName	The PopSubDep2 key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamPopSubDep2Obj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamPopSubDep2Obj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamPopSubDep2Obj readPopSubDep2ByUNameIdx(long PopSubDep1TenantId,
+	IYCFBamPopSubDep2Obj readPopSubDep2ByUNameIdx(long PopSubDep1TenantId,
 		long PopSubDep1Id,
 		String Name,
 		boolean forceRead );
 
-	ICFBamPopSubDep2Obj readCachedPopSubDep2ByIdIdx( long TenantId,
+	IYCFBamPopSubDep2Obj readCachedPopSubDep2ByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFBamPopSubDep2Obj> readCachedPopSubDep2ByTenantIdx( long TenantId );
+	List<IYCFBamPopSubDep2Obj> readCachedPopSubDep2ByTenantIdx( long TenantId );
 
-	List<ICFBamPopSubDep2Obj> readCachedPopSubDep2ByRelationIdx( long RelationTenantId,
+	List<IYCFBamPopSubDep2Obj> readCachedPopSubDep2ByRelationIdx( long RelationTenantId,
 		long RelationId );
 
-	List<ICFBamPopSubDep2Obj> readCachedPopSubDep2ByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamPopSubDep2Obj> readCachedPopSubDep2ByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamPopSubDep2Obj> readCachedPopSubDep2ByPopSubDep1Idx( long PopSubDep1TenantId,
+	List<IYCFBamPopSubDep2Obj> readCachedPopSubDep2ByPopSubDep1Idx( long PopSubDep1TenantId,
 		long PopSubDep1Id );
 
-	ICFBamPopSubDep2Obj readCachedPopSubDep2ByUNameIdx( long PopSubDep1TenantId,
+	IYCFBamPopSubDep2Obj readCachedPopSubDep2ByUNameIdx( long PopSubDep1TenantId,
 		long PopSubDep1Id,
 		String Name );
 
@@ -346,12 +346,12 @@ public interface ICFBamPopSubDep2TableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamPopSubDep2Obj updatePopSubDep2( ICFBamPopSubDep2Obj Obj );
+	IYCFBamPopSubDep2Obj updatePopSubDep2( IYCFBamPopSubDep2Obj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deletePopSubDep2( ICFBamPopSubDep2Obj Obj );
+	void deletePopSubDep2( IYCFBamPopSubDep2Obj Obj );
 
 	/**
 	 *	Internal use only.

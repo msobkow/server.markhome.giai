@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelBoilerplateTableObj
+public interface IYCFGenKbGelBoilerplateTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelBoilerplateTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelBoilerplateObj newInstance();
+	IYCFGenKbGelBoilerplateObj newInstance();
 
 	/**
 	 *	Instantiate a new GelBoilerplate edition of the specified GelBoilerplate instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelBoilerplateEditObj newEditInstance( ICFGenKbGelBoilerplateObj orig );
+	IYCFGenKbGelBoilerplateEditObj newEditInstance( IYCFGenKbGelBoilerplateObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelBoilerplateObj realiseGelBoilerplate( ICFGenKbGelBoilerplateObj Obj );
+	IYCFGenKbGelBoilerplateObj realiseGelBoilerplate( IYCFGenKbGelBoilerplateObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelBoilerplateObj createGelBoilerplate( ICFGenKbGelBoilerplateObj Obj );
+	IYCFGenKbGelBoilerplateObj createGelBoilerplate( IYCFGenKbGelBoilerplateObj Obj );
 
 	/**
 	 *	Read a GelBoilerplate-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelBoilerplateTableObj
 	 *	@return	The GelBoilerplate-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelBoilerplateObj readGelBoilerplate( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelBoilerplateObj readGelBoilerplate( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelBoilerplate-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelBoilerplateTableObj
 	 *	@return	The GelBoilerplate-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelBoilerplateObj readGelBoilerplate( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelBoilerplateObj readGelBoilerplate( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelBoilerplateObj readCachedGelBoilerplate( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelBoilerplateObj readCachedGelBoilerplate( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelBoilerplate( ICFGenKbGelBoilerplateObj obj );
+	public void reallyDeepDisposeGelBoilerplate( IYCFGenKbGelBoilerplateObj obj );
 
-	void deepDisposeGelBoilerplate( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelBoilerplate( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelBoilerplateObj lockGelBoilerplate( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelBoilerplateObj lockGelBoilerplate( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelBoilerplate-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelBoilerplateObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelBoilerplateObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelBoilerplateObj> readAllGelBoilerplate();
+	List<IYCFGenKbGelBoilerplateObj> readAllGelBoilerplate();
 
 	/**
 	 *	Return a sorted map of all the GelBoilerplate-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelBoilerplateObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelBoilerplateObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelBoilerplateObj> readAllGelBoilerplate( boolean forceRead );
+	List<IYCFGenKbGelBoilerplateObj> readAllGelBoilerplate( boolean forceRead );
 
-	List<ICFGenKbGelBoilerplateObj> readCachedAllGelBoilerplate();
+	List<IYCFGenKbGelBoilerplateObj> readCachedAllGelBoilerplate();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelBoilerplateTableObj
 	 *
 	 *	@param	argGelInstId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelBoilerplateObj readGelBoilerplateByPIdx( long TenantId,
+	IYCFGenKbGelBoilerplateObj readGelBoilerplateByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelBoilerplateTableObj
 	 *
 	 *	@param	argGelInstId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelBoilerplateObj readGelBoilerplateByPIdx( long TenantId,
+	IYCFGenKbGelBoilerplateObj readGelBoilerplateByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelBoilerplateObj> readGelBoilerplateByTenantIdx( long TenantId );
+	List<IYCFGenKbGelBoilerplateObj> readGelBoilerplateByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelBoilerplateObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelBoilerplateObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelBoilerplateObj> readGelBoilerplateByTenantIdx( long TenantId,
+	List<IYCFGenKbGelBoilerplateObj> readGelBoilerplateByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelBoilerplateObj> readGelBoilerplateByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelBoilerplateObj> readGelBoilerplateByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelBoilerplateObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelBoilerplateObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelBoilerplateObj> readGelBoilerplateByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelBoilerplateObj> readGelBoilerplateByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelBoilerplateTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelBoilerplateObj> readGelBoilerplateByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelBoilerplateObj> readGelBoilerplateByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelBoilerplateObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelBoilerplateObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
@@ -229,24 +229,24 @@ public interface ICFGenKbGelBoilerplateTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelBoilerplate key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelBoilerplateObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelBoilerplateObj> readGelBoilerplateByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelBoilerplateObj> readGelBoilerplateByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
-	ICFGenKbGelBoilerplateObj readCachedGelBoilerplateByPIdx( long TenantId,
+	IYCFGenKbGelBoilerplateObj readCachedGelBoilerplateByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelBoilerplateObj> readCachedGelBoilerplateByTenantIdx( long TenantId );
+	List<IYCFGenKbGelBoilerplateObj> readCachedGelBoilerplateByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelBoilerplateObj> readCachedGelBoilerplateByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelBoilerplateObj> readCachedGelBoilerplateByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelBoilerplateObj> readCachedGelBoilerplateByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelBoilerplateObj> readCachedGelBoilerplateByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
@@ -266,12 +266,12 @@ public interface ICFGenKbGelBoilerplateTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelBoilerplateObj updateGelBoilerplate( ICFGenKbGelBoilerplateObj Obj );
+	IYCFGenKbGelBoilerplateObj updateGelBoilerplate( IYCFGenKbGelBoilerplateObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelBoilerplate( ICFGenKbGelBoilerplateObj Obj );
+	void deleteGelBoilerplate( IYCFGenKbGelBoilerplateObj Obj );
 
 	/**
 	 *	Internal use only.

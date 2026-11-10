@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Reference for SecGroupForm Relationship Form.
+// Description: Java 11 MssYCF Reference for SecGroupForm Relationship Form.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,33 +27,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.sql.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /**
- *	CFBamMssCFReferenceSecGroupFormForm binds SecGroupForm.Form
- *	as an instance of MssCFGenReferenceObj.
+ *	YCFBamMssYCFReferenceSecGroupFormForm binds SecGroupForm.Form
+ *	as an instance of MssYCFGenReferenceObj.
  */
-public class CFBamMssCFReferenceSecGroupFormForm
-	extends MssCFGenReferenceObj
+public class YCFBamMssYCFReferenceSecGroupFormForm
+	extends MssYCFGenReferenceObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFReferenceSecGroupFormForm() {
+	public YCFBamMssYCFReferenceSecGroupFormForm() {
 		super();
 	}
 
-	public CFBamMssCFReferenceSecGroupFormForm( MssCFEngine argEngine ) {
+	public YCFBamMssYCFReferenceSecGroupFormForm( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
@@ -62,35 +62,35 @@ public class CFBamMssCFReferenceSecGroupFormForm
 			"SecForm" );
 	}
 
-	public ICFLibAnyObj dereference( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFReferenceSecGroupFormForm.dereference() ";
+	public IYCFLibAnyObj dereference( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFReferenceSecGroupFormForm.dereference() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext.getGenDef()" );
 		}
 
-		ICFBamSecFormObj obj;
+		IYCFBamSecFormObj obj;
 
-		if( genDef instanceof ICFBamSecGroupFormObj ) {
-			obj = (ICFBamSecFormObj)((ICFBamSecGroupFormObj)genDef).getRequiredParentForm();
+		if( genDef instanceof IYCFBamSecGroupFormObj ) {
+			obj = (IYCFBamSecFormObj)((IYCFBamSecGroupFormObj)genDef).getRequiredParentForm();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamSecGroupFormObj" );
+				"IYCFBamSecGroupFormObj" );
 		}
 
 		return( obj );

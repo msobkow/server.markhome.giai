@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb SecSession.
+// Description: Java 11 Object interface for YCFGenKb SecSession.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecSessionObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbSecSessionObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a SecSession.
 	 *
-	 *	@return	CFGenKbSecSessionObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbSecSessionObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbSecSessionObj realise();
+	IYCFGenKbSecSessionObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -59,99 +59,99 @@ public interface ICFGenKbSecSessionObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSecSessionObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSecSessionObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSecSessionObj read();
+	IYCFGenKbSecSessionObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSecSessionObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSecSessionObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSecSessionObj read( boolean forceRead );
+	IYCFGenKbSecSessionObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SecSession instance.
 	 *
-	 *	@return	The newly locked ICFGenKbSecSessionEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbSecSessionEditObj edition of this instance.
 	 */
-	ICFGenKbSecSessionEditObj beginEdit();
+	IYCFGenKbSecSessionEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SecSession instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SecSession instance.
 	 *
-	 *	@return	The ICFGenKbSecSessionEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSecSessionEditObj edition of this instance.
 	 */
-	ICFGenKbSecSessionEditObj getEdit();
+	IYCFGenKbSecSessionEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SecSession instance as a ICFGenKbSecSessionEditObj.
+	 *	Get the current edition of this SecSession instance as a IYCFGenKbSecSessionEditObj.
 	 *
-	 *	@return	The ICFGenKbSecSessionEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSecSessionEditObj edition of this instance.
 	 */
-	ICFGenKbSecSessionEditObj getEditAsSecSession();
+	IYCFGenKbSecSessionEditObj getEditAsSecSession();
 
 	/**
-	 *	Get the ICFGenKbSecSessionTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbSecSessionTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSecSessionTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbSecSessionTableObj table cache which manages this instance.
 	 */
-	ICFGenKbSecSessionTableObj getSecSessionTable();
+	IYCFGenKbSecSessionTableObj getSecSessionTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbSecSessionBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSecSessionBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSecSessionBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSecSessionBuff instance which currently backs this object.
 	 */
-	CFGenKbSecSessionBuff getBuff();
+	YCFGenKbSecSessionBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbSecSessionBuff value );
+	void setBuff( YCFGenKbSecSessionBuff value );
 
 	/**
-	 *	Get the CFGenKbSecSessionBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSecSessionBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSecSessionBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSecSessionBuff instance which currently backs this object.
 	 */
-	CFGenKbSecSessionBuff getSecSessionBuff();
+	YCFGenKbSecSessionBuff getSecSessionBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbSecSessionPKey primary key for this instance.
+	 *	@return	YCFGenKbSecSessionPKey primary key for this instance.
 	 */
-	CFGenKbSecSessionPKey getPKey();
+	YCFGenKbSecSessionPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbSecSessionPKey primary key value for this instance.
+	 *	@param YCFGenKbSecSessionPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbSecSessionPKey value );
+	void setPKey( YCFGenKbSecSessionPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -213,32 +213,32 @@ public interface ICFGenKbSecSessionObj
 	UUID getOptionalSecProxyId();
 
 	/**
-	 *	Get the required ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	Get the required IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The required ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	@return	The required IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFGenKbSecUserObj getRequiredContainerSecUser();
+	IYCFGenKbSecUserObj getRequiredContainerSecUser();
 
 	/**
-	 *	Get the required ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	Get the required IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The required ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	@return	The required IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFGenKbSecUserObj getRequiredContainerSecUser( boolean forceRead );
+	IYCFGenKbSecUserObj getRequiredContainerSecUser( boolean forceRead );
 
 	/**
-	 *	Get the required ICFGenKbSecUserObj instance referenced by the SecProxy key.
+	 *	Get the required IYCFGenKbSecUserObj instance referenced by the SecProxy key.
 	 *
-	 *	@return	The required ICFGenKbSecUserObj instance referenced by the SecProxy key.
+	 *	@return	The required IYCFGenKbSecUserObj instance referenced by the SecProxy key.
 	 */
-	ICFGenKbSecUserObj getRequiredParentSecProxy();
+	IYCFGenKbSecUserObj getRequiredParentSecProxy();
 
 	/**
-	 *	Get the required ICFGenKbSecUserObj instance referenced by the SecProxy key.
+	 *	Get the required IYCFGenKbSecUserObj instance referenced by the SecProxy key.
 	 *
-	 *	@return	The required ICFGenKbSecUserObj instance referenced by the SecProxy key.
+	 *	@return	The required IYCFGenKbSecUserObj instance referenced by the SecProxy key.
 	 */
-	ICFGenKbSecUserObj getRequiredParentSecProxy( boolean forceRead );
+	IYCFGenKbSecUserObj getRequiredParentSecProxy( boolean forceRead );
 
 	/**
 	 *	Internal use only.

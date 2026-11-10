@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecSecUserTableObj
+public interface IYCFSecSecUserTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecSecUserTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecSecUserObj newInstance();
+	IYCFSecSecUserObj newInstance();
 
 	/**
 	 *	Instantiate a new SecUser edition of the specified SecUser instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecSecUserEditObj newEditInstance( ICFSecSecUserObj orig );
+	IYCFSecSecUserEditObj newEditInstance( IYCFSecSecUserObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecUserObj realiseSecUser( ICFSecSecUserObj Obj );
+	IYCFSecSecUserObj realiseSecUser( IYCFSecSecUserObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecUserObj createSecUser( ICFSecSecUserObj Obj );
+	IYCFSecSecUserObj createSecUser( IYCFSecSecUserObj Obj );
 
 	/**
 	 *	Read a SecUser-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecSecUserTableObj
 	 *	@return	The SecUser-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecUserObj readSecUser( CFSecSecUserPKey pkey );
+	IYCFSecSecUserObj readSecUser( YCFSecSecUserPKey pkey );
 
 	/**
 	 *	Read a SecUser-derived instance by it's primary key.
@@ -90,166 +90,166 @@ public interface ICFSecSecUserTableObj
 	 *	@return	The SecUser-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecSecUserObj readSecUser( CFSecSecUserPKey pkey,
+	IYCFSecSecUserObj readSecUser( YCFSecSecUserPKey pkey,
 		boolean forceRead );
 
-	ICFSecSecUserObj readCachedSecUser( CFSecSecUserPKey pkey );
+	IYCFSecSecUserObj readCachedSecUser( YCFSecSecUserPKey pkey );
 
-	public void reallyDeepDisposeSecUser( ICFSecSecUserObj obj );
+	public void reallyDeepDisposeSecUser( IYCFSecSecUserObj obj );
 
-	void deepDisposeSecUser( CFSecSecUserPKey pkey );
+	void deepDisposeSecUser( YCFSecSecUserPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecUserObj lockSecUser( CFSecSecUserPKey pkey );
+	IYCFSecSecUserObj lockSecUser( YCFSecSecUserPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SecUser-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecUserObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecUserObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecUserObj> readAllSecUser();
+	List<IYCFSecSecUserObj> readAllSecUser();
 
 	/**
 	 *	Return a sorted map of all the SecUser-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecUserObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecUserObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecUserObj> readAllSecUser( boolean forceRead );
+	List<IYCFSecSecUserObj> readAllSecUser( boolean forceRead );
 
-	List<ICFSecSecUserObj> readCachedAllSecUser();
+	List<IYCFSecSecUserObj> readCachedAllSecUser();
 
 	/**
 	 *	Return a sorted map of a page of the SecUser-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecSecUserObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecSecUserObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecSecUserObj> pageAllSecUser(UUID priorSecUserId );
+	List<IYCFSecSecUserObj> pageAllSecUser(UUID priorSecUserId );
 
 	/**
-	 *	Get the CFSecSecUserObj instance for the primary key attributes.
+	 *	Get the YCFSecSecUserObj instance for the primary key attributes.
 	 *
 	 *	@param	argSecUserId	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecUserObj cached instance for the primary key, or
+	 *	@return	YCFSecSecUserObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecUserObj readSecUserByIdIdx( UUID SecUserId );
+	IYCFSecSecUserObj readSecUserByIdIdx( UUID SecUserId );
 
 	/**
-	 *	Get the CFSecSecUserObj instance for the primary key attributes.
+	 *	Get the YCFSecSecUserObj instance for the primary key attributes.
 	 *
 	 *	@param	argSecUserId	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecUserObj refreshed instance for the primary key, or
+	 *	@return	YCFSecSecUserObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecUserObj readSecUserByIdIdx( UUID SecUserId,
+	IYCFSecSecUserObj readSecUserByIdIdx( UUID SecUserId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecSecUserObj instance for the unique ULoginIdx key.
+	 *	Get the YCFSecSecUserObj instance for the unique ULoginIdx key.
 	 *
 	 *	@param	argLoginId	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecUserObj cached instance for the unique ULoginIdx key, or
+	 *	@return	YCFSecSecUserObj cached instance for the unique ULoginIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecUserObj readSecUserByULoginIdx(String LoginId );
+	IYCFSecSecUserObj readSecUserByULoginIdx(String LoginId );
 
 	/**
-	 *	Get the CFSecSecUserObj instance for the unique ULoginIdx key.
+	 *	Get the YCFSecSecUserObj instance for the unique ULoginIdx key.
 	 *
 	 *	@param	argLoginId	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecSecUserObj refreshed instance for the unique ULoginIdx key, or
+	 *	@return	YCFSecSecUserObj refreshed instance for the unique ULoginIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecSecUserObj readSecUserByULoginIdx(String LoginId,
+	IYCFSecSecUserObj readSecUserByULoginIdx(String LoginId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSecUserObj instances sorted by their primary keys for the duplicate EMConfIdx key.
+	 *	Get the map of YCFSecSecUserObj instances sorted by their primary keys for the duplicate EMConfIdx key.
 	 *
 	 *	@param	argEMailConfirmUuid	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecUserObj cached instances sorted by their primary keys for the duplicate EMConfIdx key,
+	 *	@return	List of YCFSecSecUserObj cached instances sorted by their primary keys for the duplicate EMConfIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecUserObj> readSecUserByEMConfIdx( UUID EMailConfirmUuid );
+	List<IYCFSecSecUserObj> readSecUserByEMConfIdx( UUID EMailConfirmUuid );
 
 	/**
-	 *	Get the map of CFSecSecUserObj instances sorted by their primary keys for the duplicate EMConfIdx key.
+	 *	Get the map of YCFSecSecUserObj instances sorted by their primary keys for the duplicate EMConfIdx key.
 	 *
 	 *	@param	argEMailConfirmUuid	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecUserObj cached instances sorted by their primary keys for the duplicate EMConfIdx key,
+	 *	@return	List of YCFSecSecUserObj cached instances sorted by their primary keys for the duplicate EMConfIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecUserObj> readSecUserByEMConfIdx( UUID EMailConfirmUuid,
+	List<IYCFSecSecUserObj> readSecUserByEMConfIdx( UUID EMailConfirmUuid,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSecUserObj instances sorted by their primary keys for the duplicate PwdResetIdx key.
+	 *	Get the map of YCFSecSecUserObj instances sorted by their primary keys for the duplicate PwdResetIdx key.
 	 *
 	 *	@param	argPasswordResetUuid	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecUserObj cached instances sorted by their primary keys for the duplicate PwdResetIdx key,
+	 *	@return	List of YCFSecSecUserObj cached instances sorted by their primary keys for the duplicate PwdResetIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecUserObj> readSecUserByPwdResetIdx( UUID PasswordResetUuid );
+	List<IYCFSecSecUserObj> readSecUserByPwdResetIdx( UUID PasswordResetUuid );
 
 	/**
-	 *	Get the map of CFSecSecUserObj instances sorted by their primary keys for the duplicate PwdResetIdx key.
+	 *	Get the map of YCFSecSecUserObj instances sorted by their primary keys for the duplicate PwdResetIdx key.
 	 *
 	 *	@param	argPasswordResetUuid	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecUserObj cached instances sorted by their primary keys for the duplicate PwdResetIdx key,
+	 *	@return	List of YCFSecSecUserObj cached instances sorted by their primary keys for the duplicate PwdResetIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecUserObj> readSecUserByPwdResetIdx( UUID PasswordResetUuid,
+	List<IYCFSecSecUserObj> readSecUserByPwdResetIdx( UUID PasswordResetUuid,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecSecUserObj instances sorted by their primary keys for the duplicate DefDevIdx key.
+	 *	Get the map of YCFSecSecUserObj instances sorted by their primary keys for the duplicate DefDevIdx key.
 	 *
 	 *	@param	argDfltDevUserId	The SecUser key attribute of the instance generating the id.
 	 *
 	 *	@param	argDfltDevName	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecUserObj cached instances sorted by their primary keys for the duplicate DefDevIdx key,
+	 *	@return	List of YCFSecSecUserObj cached instances sorted by their primary keys for the duplicate DefDevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecUserObj> readSecUserByDefDevIdx( UUID DfltDevUserId,
+	List<IYCFSecSecUserObj> readSecUserByDefDevIdx( UUID DfltDevUserId,
 		String DfltDevName );
 
 	/**
-	 *	Get the map of CFSecSecUserObj instances sorted by their primary keys for the duplicate DefDevIdx key.
+	 *	Get the map of YCFSecSecUserObj instances sorted by their primary keys for the duplicate DefDevIdx key.
 	 *
 	 *	@param	argDfltDevUserId	The SecUser key attribute of the instance generating the id.
 	 *
 	 *	@param	argDfltDevName	The SecUser key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecSecUserObj cached instances sorted by their primary keys for the duplicate DefDevIdx key,
+	 *	@return	List of YCFSecSecUserObj cached instances sorted by their primary keys for the duplicate DefDevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecSecUserObj> readSecUserByDefDevIdx( UUID DfltDevUserId,
+	List<IYCFSecSecUserObj> readSecUserByDefDevIdx( UUID DfltDevUserId,
 		String DfltDevName,
 		boolean forceRead );
 
-	ICFSecSecUserObj readCachedSecUserByIdIdx( UUID SecUserId );
+	IYCFSecSecUserObj readCachedSecUserByIdIdx( UUID SecUserId );
 
-	ICFSecSecUserObj readCachedSecUserByULoginIdx( String LoginId );
+	IYCFSecSecUserObj readCachedSecUserByULoginIdx( String LoginId );
 
-	List<ICFSecSecUserObj> readCachedSecUserByEMConfIdx( UUID EMailConfirmUuid );
+	List<IYCFSecSecUserObj> readCachedSecUserByEMConfIdx( UUID EMailConfirmUuid );
 
-	List<ICFSecSecUserObj> readCachedSecUserByPwdResetIdx( UUID PasswordResetUuid );
+	List<IYCFSecSecUserObj> readCachedSecUserByPwdResetIdx( UUID PasswordResetUuid );
 
-	List<ICFSecSecUserObj> readCachedSecUserByDefDevIdx( UUID DfltDevUserId,
+	List<IYCFSecSecUserObj> readCachedSecUserByDefDevIdx( UUID DfltDevUserId,
 		String DfltDevName );
 
 	void deepDisposeSecUserByIdIdx( UUID SecUserId );
@@ -272,7 +272,7 @@ public interface ICFSecSecUserTableObj
 	 *	@return	A List of SecUser-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFSecSecUserObj> pageSecUserByEMConfIdx( UUID EMailConfirmUuid,
+	List<IYCFSecSecUserObj> pageSecUserByEMConfIdx( UUID EMailConfirmUuid,
 		UUID priorSecUserId );
 
 	/**
@@ -284,7 +284,7 @@ public interface ICFSecSecUserTableObj
 	 *	@return	A List of SecUser-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFSecSecUserObj> pageSecUserByPwdResetIdx( UUID PasswordResetUuid,
+	List<IYCFSecSecUserObj> pageSecUserByPwdResetIdx( UUID PasswordResetUuid,
 		UUID priorSecUserId );
 
 	/**
@@ -298,19 +298,19 @@ public interface ICFSecSecUserTableObj
 	 *	@return	A List of SecUser-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFSecSecUserObj> pageSecUserByDefDevIdx( UUID DfltDevUserId,
+	List<IYCFSecSecUserObj> pageSecUserByDefDevIdx( UUID DfltDevUserId,
 		String DfltDevName,
 		UUID priorSecUserId );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecSecUserObj updateSecUser( ICFSecSecUserObj Obj );
+	IYCFSecSecUserObj updateSecUser( IYCFSecSecUserObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSecUser( ICFSecSecUserObj Obj );
+	void deleteSecUser( IYCFSecSecUserObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -350,5 +350,5 @@ public interface ICFSecSecUserTableObj
 	void deleteSecUserByDefDevIdx( UUID DfltDevUserId,
 		String DfltDevName );
 
-	ICFSecSecUserObj getSystemUser();
+	IYCFSecSecUserObj getSystemUser();
 }

@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustXmlLoader
+ *	MSS Code Factory YCFBam 2.13 CustXmlLoader
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,45 +23,45 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader;
+package org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamXmlLoaderTldParse XML SAX Element Handler implementation
+ *	YCFBamXmlLoaderTldParse XML SAX Element Handler implementation
  *	for Tld.
  */
-public class CFBamXmlLoaderTldHandler
-	extends CFLibXmlCoreElementHandler
+public class YCFBamXmlLoaderTldHandler
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamXmlLoaderTldHandler( CFBamXmlLoader saxLoader ) {
+	public YCFBamXmlLoaderTldHandler( YCFBamXmlLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -78,7 +78,7 @@ public class CFBamXmlLoaderTldHandler
 			// Tld Attributes
 			String	attrName = null;
 			// Tld References
-			ICFBamTenantObj refTenant = null;
+			IYCFBamTenantObj refTenant = null;
 			// Attribute Extraction
 			String	attrLocalName;
 			int		numAttrs;
@@ -88,24 +88,24 @@ public class CFBamXmlLoaderTldHandler
 
 			assert qName.equals( "Tld" );
 
-			CFBamXmlLoader saxLoader = (CFBamXmlLoader)getParser();
+			YCFBamXmlLoader saxLoader = (YCFBamXmlLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			ICFBamTldEditObj editBuff = (ICFBamTldEditObj)schemaObj.getTldTableObj().newInstance().beginEdit();
+			IYCFBamTldEditObj editBuff = (IYCFBamTldEditObj)schemaObj.getTldTableObj().newInstance().beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -113,7 +113,7 @@ public class CFBamXmlLoaderTldHandler
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -122,7 +122,7 @@ public class CFBamXmlLoaderTldHandler
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -133,7 +133,7 @@ public class CFBamXmlLoaderTldHandler
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -142,14 +142,14 @@ public class CFBamXmlLoaderTldHandler
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 
@@ -167,17 +167,17 @@ public class CFBamXmlLoaderTldHandler
 			editBuff.setRequiredName( natName );
 
 			// Get the containing Tenant where our definitions are to go
-			refTenant = (ICFBamTenantObj)saxLoader.getTenant();
+			refTenant = (IYCFBamTenantObj)saxLoader.getTenant();
 			if( refTenant == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"saxLoader.tenant" );
 			}
 			editBuff.setRequiredContainerTenant( refTenant );
 
-			ICFBamTldEditObj editTld = null;
-			ICFBamTldObj origTld = (ICFBamTldObj)schemaObj.getTldTableObj().readTldByNameIdx( refTenant.getRequiredId(),
+			IYCFBamTldEditObj editTld = null;
+			IYCFBamTldObj origTld = (IYCFBamTldObj)schemaObj.getTldTableObj().readTldByNameIdx( refTenant.getRequiredId(),
 				editBuff.getRequiredName() );
 			if( origTld == null ) {
 				editTld = editBuff;
@@ -188,7 +188,7 @@ public class CFBamXmlLoaderTldHandler
 					editTld.update();
 				}
 				else {
-					origTld = (ICFBamTldObj)editTld.create();
+					origTld = (IYCFBamTldObj)editTld.create();
 				}
 				editTld = null;
 			}

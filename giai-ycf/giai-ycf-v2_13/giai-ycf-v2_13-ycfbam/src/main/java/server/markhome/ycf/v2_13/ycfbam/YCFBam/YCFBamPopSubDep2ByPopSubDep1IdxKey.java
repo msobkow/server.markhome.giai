@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a PopSubDep2 by PopSubDep1Idx index key object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,20 +55,20 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamPopSubDep2ByPopSubDep1IdxKey
+public class YCFBamPopSubDep2ByPopSubDep1IdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredPopSubDep1TenantId;
 	protected long requiredPopSubDep1Id;
-	public CFBamPopSubDep2ByPopSubDep1IdxKey() {
-		requiredPopSubDep1TenantId = CFBamPopSubDep2Buff.POPSUBDEP1TENANTID_INIT_VALUE;
-		requiredPopSubDep1Id = CFBamPopSubDep2Buff.POPSUBDEP1ID_INIT_VALUE;
+	public YCFBamPopSubDep2ByPopSubDep1IdxKey() {
+		requiredPopSubDep1TenantId = YCFBamPopSubDep2Buff.POPSUBDEP1TENANTID_INIT_VALUE;
+		requiredPopSubDep1Id = YCFBamPopSubDep2Buff.POPSUBDEP1ID_INIT_VALUE;
 	}
 
 	public long getRequiredPopSubDep1TenantId() {
@@ -76,13 +76,13 @@ public class CFBamPopSubDep2ByPopSubDep1IdxKey
 	}
 
 	public void setRequiredPopSubDep1TenantId( long value ) {
-		if( value < CFBamPopSubDep2Buff.POPSUBDEP1TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamPopSubDep2Buff.POPSUBDEP1TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredPopSubDep1TenantId",
 				1,
 				"value",
 				value,
-				CFBamPopSubDep2Buff.POPSUBDEP1TENANTID_MIN_VALUE );
+				YCFBamPopSubDep2Buff.POPSUBDEP1TENANTID_MIN_VALUE );
 		}
 		requiredPopSubDep1TenantId = value;
 	}
@@ -92,13 +92,13 @@ public class CFBamPopSubDep2ByPopSubDep1IdxKey
 	}
 
 	public void setRequiredPopSubDep1Id( long value ) {
-		if( value < CFBamPopSubDep2Buff.POPSUBDEP1ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamPopSubDep2Buff.POPSUBDEP1ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredPopSubDep1Id",
 				1,
 				"value",
 				value,
-				CFBamPopSubDep2Buff.POPSUBDEP1ID_MIN_VALUE );
+				YCFBamPopSubDep2Buff.POPSUBDEP1ID_MIN_VALUE );
 		}
 		requiredPopSubDep1Id = value;
 	}
@@ -107,8 +107,8 @@ public class CFBamPopSubDep2ByPopSubDep1IdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamPopSubDep2ByPopSubDep1IdxKey ) {
-			CFBamPopSubDep2ByPopSubDep1IdxKey rhs = (CFBamPopSubDep2ByPopSubDep1IdxKey)obj;
+		else if( obj instanceof YCFBamPopSubDep2ByPopSubDep1IdxKey ) {
+			YCFBamPopSubDep2ByPopSubDep1IdxKey rhs = (YCFBamPopSubDep2ByPopSubDep1IdxKey)obj;
 			if( getRequiredPopSubDep1TenantId() != rhs.getRequiredPopSubDep1TenantId() ) {
 				return( false );
 			}
@@ -117,8 +117,8 @@ public class CFBamPopSubDep2ByPopSubDep1IdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamPopSubDep2Buff ) {
-			CFBamPopSubDep2Buff rhs = (CFBamPopSubDep2Buff)obj;
+		else if( obj instanceof YCFBamPopSubDep2Buff ) {
+			YCFBamPopSubDep2Buff rhs = (YCFBamPopSubDep2Buff)obj;
 			if( getRequiredPopSubDep1TenantId() != rhs.getRequiredPopSubDep1TenantId() ) {
 				return( false );
 			}
@@ -143,8 +143,8 @@ public class CFBamPopSubDep2ByPopSubDep1IdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFBamPopSubDep2ByPopSubDep1IdxKey ) {
-			CFBamPopSubDep2ByPopSubDep1IdxKey rhs = (CFBamPopSubDep2ByPopSubDep1IdxKey)obj;
+		else if( obj instanceof YCFBamPopSubDep2ByPopSubDep1IdxKey ) {
+			YCFBamPopSubDep2ByPopSubDep1IdxKey rhs = (YCFBamPopSubDep2ByPopSubDep1IdxKey)obj;
 			if( getRequiredPopSubDep1TenantId() < rhs.getRequiredPopSubDep1TenantId() ) {
 				return( -1 );
 			}
@@ -159,8 +159,8 @@ public class CFBamPopSubDep2ByPopSubDep1IdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamPopSubDep2Buff ) {
-			CFBamPopSubDep2Buff rhs = (CFBamPopSubDep2Buff)obj;
+		else if( obj instanceof YCFBamPopSubDep2Buff ) {
+			YCFBamPopSubDep2Buff rhs = (YCFBamPopSubDep2Buff)obj;
 			if( getRequiredPopSubDep1TenantId() < rhs.getRequiredPopSubDep1TenantId() ) {
 				return( -1 );
 			}
@@ -176,7 +176,7 @@ public class CFBamPopSubDep2ByPopSubDep1IdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -185,7 +185,7 @@ public class CFBamPopSubDep2ByPopSubDep1IdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFBamPopSubDep2ByPopSubDep1Idx"
+		String ret = "<YCFBamPopSubDep2ByPopSubDep1Idx"
 			+ " RequiredPopSubDep1TenantId=" + "\"" + Long.toString( getRequiredPopSubDep1TenantId() ) + "\""
 			+ " RequiredPopSubDep1Id=" + "\"" + Long.toString( getRequiredPopSubDep1Id() ) + "\""
 			+ "/>";

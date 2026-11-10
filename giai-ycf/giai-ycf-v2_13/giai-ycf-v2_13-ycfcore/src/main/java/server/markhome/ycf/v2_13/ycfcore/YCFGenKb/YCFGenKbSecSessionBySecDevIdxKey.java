@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecSession by SecDevIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSecSessionBySecDevIdxKey
+public class YCFGenKbSecSessionBySecDevIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected UUID requiredSecUserId;
 	protected String optionalSecDevName;
-	public CFGenKbSecSessionBySecDevIdxKey() {
-		requiredSecUserId = UUID.fromString( CFGenKbSecSessionBuff.SECUSERID_INIT_VALUE.toString() );
+	public YCFGenKbSecSessionBySecDevIdxKey() {
+		requiredSecUserId = UUID.fromString( YCFGenKbSecSessionBuff.SECUSERID_INIT_VALUE.toString() );
 		optionalSecDevName = null;
 	}
 
@@ -57,7 +57,7 @@ public class CFGenKbSecSessionBySecDevIdxKey
 
 	public void setRequiredSecUserId( UUID value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
 				1,
 				"value" );
@@ -74,7 +74,7 @@ public class CFGenKbSecSessionBySecDevIdxKey
 			optionalSecDevName = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalSecDevName",
 				1,
 				"value.length()",
@@ -90,8 +90,8 @@ public class CFGenKbSecSessionBySecDevIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecSessionBySecDevIdxKey ) {
-			CFGenKbSecSessionBySecDevIdxKey rhs = (CFGenKbSecSessionBySecDevIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecSessionBySecDevIdxKey ) {
+			YCFGenKbSecSessionBySecDevIdxKey rhs = (YCFGenKbSecSessionBySecDevIdxKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -109,8 +109,8 @@ public class CFGenKbSecSessionBySecDevIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecSessionBuff ) {
-			CFGenKbSecSessionBuff rhs = (CFGenKbSecSessionBuff)obj;
+		else if( obj instanceof YCFGenKbSecSessionBuff ) {
+			YCFGenKbSecSessionBuff rhs = (YCFGenKbSecSessionBuff)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -146,8 +146,8 @@ public class CFGenKbSecSessionBySecDevIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbSecSessionBySecDevIdxKey ) {
-			CFGenKbSecSessionBySecDevIdxKey rhs = (CFGenKbSecSessionBySecDevIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecSessionBySecDevIdxKey ) {
+			YCFGenKbSecSessionBySecDevIdxKey rhs = (YCFGenKbSecSessionBySecDevIdxKey)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -172,8 +172,8 @@ public class CFGenKbSecSessionBySecDevIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecSessionBuff ) {
-			CFGenKbSecSessionBuff rhs = (CFGenKbSecSessionBuff)obj;
+		else if( obj instanceof YCFGenKbSecSessionBuff ) {
+			YCFGenKbSecSessionBuff rhs = (YCFGenKbSecSessionBuff)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -199,7 +199,7 @@ public class CFGenKbSecSessionBySecDevIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -208,9 +208,9 @@ public class CFGenKbSecSessionBySecDevIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbSecSessionBySecDevIdx"
+		String ret = "<YCFGenKbSecSessionBySecDevIdx"
 			+ " RequiredSecUserId=" + "\"" + getRequiredSecUserId().toString() + "\""
-			+ " OptionalSecDevName=" + ( ( getOptionalSecDevName() == null ) ? "null" : "\"" + CFGenKbSchema.xmlEncodeString( getOptionalSecDevName() ) + "\"" )
+			+ " OptionalSecDevName=" + ( ( getOptionalSecDevName() == null ) ? "null" : "\"" + YCFGenKbSchema.xmlEncodeString( getOptionalSecDevName() ) + "\"" )
 			+ "/>";
 		return( ret );
 	}

@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for ISOTZone.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,57 +35,57 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFSecISOTZoneFactory implementation for ISOTZone
+	 *	YCFSecISOTZoneFactory implementation for ISOTZone
 	 */
-public class CFSecISOTZoneDefaultFactory
-	implements ICFSecISOTZoneFactory
+public class YCFSecISOTZoneDefaultFactory
+	implements IYCFSecISOTZoneFactory
 {
-	public CFSecISOTZoneDefaultFactory() {
+	public YCFSecISOTZoneDefaultFactory() {
 	}
 
-	public CFSecISOTZonePKey newPKey() {
-		CFSecISOTZonePKey pkey =
-			new CFSecISOTZonePKey();
+	public YCFSecISOTZonePKey newPKey() {
+		YCFSecISOTZonePKey pkey =
+			new YCFSecISOTZonePKey();
 		return( pkey );
 	}
 
-	public CFSecISOTZoneHPKey newHPKey() {
-		CFSecISOTZoneHPKey hpkey =
-			new CFSecISOTZoneHPKey();
+	public YCFSecISOTZoneHPKey newHPKey() {
+		YCFSecISOTZoneHPKey hpkey =
+			new YCFSecISOTZoneHPKey();
 		return( hpkey );
 	}
 
-	public CFSecISOTZoneByOffsetIdxKey newOffsetIdxKey() {
-		CFSecISOTZoneByOffsetIdxKey key =
-			new CFSecISOTZoneByOffsetIdxKey();
+	public YCFSecISOTZoneByOffsetIdxKey newOffsetIdxKey() {
+		YCFSecISOTZoneByOffsetIdxKey key =
+			new YCFSecISOTZoneByOffsetIdxKey();
 		return( key );
 	}
 
-	public CFSecISOTZoneByUTZNameIdxKey newUTZNameIdxKey() {
-		CFSecISOTZoneByUTZNameIdxKey key =
-			new CFSecISOTZoneByUTZNameIdxKey();
+	public YCFSecISOTZoneByUTZNameIdxKey newUTZNameIdxKey() {
+		YCFSecISOTZoneByUTZNameIdxKey key =
+			new YCFSecISOTZoneByUTZNameIdxKey();
 		return( key );
 	}
 
-	public CFSecISOTZoneByIso8601IdxKey newIso8601IdxKey() {
-		CFSecISOTZoneByIso8601IdxKey key =
-			new CFSecISOTZoneByIso8601IdxKey();
+	public YCFSecISOTZoneByIso8601IdxKey newIso8601IdxKey() {
+		YCFSecISOTZoneByIso8601IdxKey key =
+			new YCFSecISOTZoneByIso8601IdxKey();
 		return( key );
 	}
 
-	public CFSecISOTZoneBuff newBuff() {
-		CFSecISOTZoneBuff buff =
-			new CFSecISOTZoneBuff();
+	public YCFSecISOTZoneBuff newBuff() {
+		YCFSecISOTZoneBuff buff =
+			new YCFSecISOTZoneBuff();
 		return( buff );
 	}
 
-	public CFSecISOTZoneHBuff newHBuff() {
-		CFSecISOTZoneHBuff hbuff =
-			new CFSecISOTZoneHBuff();
+	public YCFSecISOTZoneHBuff newHBuff() {
+		YCFSecISOTZoneHBuff hbuff =
+			new YCFSecISOTZoneHBuff();
 		return( hbuff );
 	}
 }

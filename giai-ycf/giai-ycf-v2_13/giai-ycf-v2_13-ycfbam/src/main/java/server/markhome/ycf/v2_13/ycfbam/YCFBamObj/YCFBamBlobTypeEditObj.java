@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam BlobType.
+// Description: Java 11 edit object instance implementation for YCFBam BlobType.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,47 +45,47 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamBlobTypeEditObj
-	extends CFBamBlobDefEditObj
+public class YCFBamBlobTypeEditObj
+	extends YCFBamBlobDefEditObj
 
-	implements ICFBamBlobTypeEditObj
+	implements IYCFBamBlobTypeEditObj
 {
-	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
+	protected IYCFBamSchemaDefObj requiredContainerSchemaDef;
 
-	public CFBamBlobTypeEditObj( ICFBamBlobTypeObj argOrig ) {
+	public YCFBamBlobTypeEditObj( IYCFBamBlobTypeObj argOrig ) {
 		super( argOrig );
 		requiredContainerSchemaDef = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamBlobTypeObj.CLASS_CODE );
+		return( YCFBamBlobTypeObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "BlobType" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
 		return( scope );
 	}
 
@@ -95,14 +95,14 @@ public class CFBamBlobTypeEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -113,10 +113,10 @@ public class CFBamBlobTypeEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -125,11 +125,11 @@ public class CFBamBlobTypeEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -153,16 +153,16 @@ public class CFBamBlobTypeEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -174,9 +174,9 @@ public class CFBamBlobTypeEditObj
 		return( qualName );
 	}
 
-	public ICFBamValueObj realise() {
+	public IYCFBamValueObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamBlobTypeObj retobj = getSchema().getBlobTypeTableObj().realiseBlobType( (ICFBamBlobTypeObj)this );
+		IYCFBamBlobTypeObj retobj = getSchema().getBlobTypeTableObj().realiseBlobType( (IYCFBamBlobTypeObj)this );
 		return( retobj );
 	}
 
@@ -184,101 +184,101 @@ public class CFBamBlobTypeEditObj
 		getOrigAsBlobType().forget();
 	}
 
-	public ICFBamValueObj moveUp() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveUp() {
+		throw new YCFLibUsageException( getClass(),
 			"moveUp",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj moveDown() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamValueObj moveDown() {
+		throw new YCFLibUsageException( getClass(),
 			"moveDown",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamValueObj create() {
+	public IYCFBamValueObj create() {
 		copyBuffToOrig();
-		ICFBamBlobTypeObj retobj = ((ICFBamSchemaObj)getOrigAsBlobType().getSchema()).getBlobTypeTableObj().createBlobType( getOrigAsBlobType() );
+		IYCFBamBlobTypeObj retobj = ((IYCFBamSchemaObj)getOrigAsBlobType().getSchema()).getBlobTypeTableObj().createBlobType( getOrigAsBlobType() );
 		if( retobj == getOrigAsBlobType() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamValueEditObj update() {
-		getSchema().getBlobTypeTableObj().updateBlobType( (ICFBamBlobTypeObj)this );
+	public YCFBamValueEditObj update() {
+		getSchema().getBlobTypeTableObj().updateBlobType( (IYCFBamBlobTypeObj)this );
 		return( null );
 	}
 
-	public CFBamValueEditObj deleteInstance() {
+	public YCFBamValueEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getBlobTypeTableObj().deleteBlobType( getOrigAsBlobType() );
 		return( null );
 	}
 
-	public ICFBamBlobTypeTableObj getBlobTypeTable() {
+	public IYCFBamBlobTypeTableObj getBlobTypeTable() {
 		return( orig.getSchema().getBlobTypeTableObj() );
 	}
 
-	public ICFBamBlobTypeEditObj getEditAsBlobType() {
-		return( (ICFBamBlobTypeEditObj)this );
+	public IYCFBamBlobTypeEditObj getEditAsBlobType() {
+		return( (IYCFBamBlobTypeEditObj)this );
 	}
 
-	public ICFBamBlobTypeObj getOrigAsBlobType() {
-		return( (ICFBamBlobTypeObj)orig );
+	public IYCFBamBlobTypeObj getOrigAsBlobType() {
+		return( (IYCFBamBlobTypeObj)orig );
 	}
 
-	public CFBamValueBuff getBuff() {
+	public YCFBamValueBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsBlobType().getSchema().getBackingStore()).getFactoryBlobType().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsBlobType().getSchema().getBackingStore()).getFactoryBlobType().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamValueBuff value ) {
+	public void setBuff( YCFBamValueBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			requiredContainerSchemaDef = null;
 		}
 	}
 
-	public CFBamBlobTypeBuff getBlobTypeBuff() {
-		return( (CFBamBlobTypeBuff)getBuff() );
+	public YCFBamBlobTypeBuff getBlobTypeBuff() {
+		return( (YCFBamBlobTypeBuff)getBuff() );
 	}
 
 	public long getRequiredSchemaDefId() {
 		return( getBlobTypeBuff().getRequiredSchemaDefId() );
 	}
 
-	public void setRequiredContainerScope( ICFBamScopeObj value ) {
-		final String S_ProcName = "CFBamBlobTypeEditObj.setRequiredContainerScope() ";
+	public void setRequiredContainerScope( IYCFBamScopeObj value ) {
+		final String S_ProcName = "YCFBamBlobTypeEditObj.setRequiredContainerScope() ";
 		if( value == null ) {
 			setRequiredContainerSchemaDef( null );
 		}
-		else if( ! ( value instanceof ICFBamSchemaDefObj ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+		else if( ! ( value instanceof IYCFBamSchemaDefObj ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setRequiredContainerScope",
 				"value",
 				value,
-				"ICFBamSchemaDefObj" );
+				"IYCFBamSchemaDefObj" );
 		}
 		else {
-			setRequiredContainerSchemaDef( (ICFBamSchemaDefObj)value );
+			setRequiredContainerSchemaDef( (IYCFBamSchemaDefObj)value );
 		}
 	}
 
-	public ICFBamSchemaDefObj getRequiredContainerSchemaDef() {
+	public IYCFBamSchemaDefObj getRequiredContainerSchemaDef() {
 		return( getRequiredContainerSchemaDef( false ) );
 	}
 
-	public ICFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead ) {
+	public IYCFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead ) {
 		if( forceRead || ( requiredContainerSchemaDef == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamSchemaDefObj obj = ((ICFBamSchemaObj)getOrigAsBlobType().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFBamSchemaDefObj obj = ((IYCFBamSchemaObj)getOrigAsBlobType().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getPKey().getRequiredTenantId(),
 					getBlobTypeBuff().getRequiredSchemaDefId() );
 				requiredContainerSchemaDef = obj;
 				if( obj != null ) {
@@ -291,7 +291,7 @@ public class CFBamBlobTypeEditObj
 		return( requiredContainerSchemaDef );
 	}
 
-	public void setRequiredContainerSchemaDef( ICFBamSchemaDefObj value ) {
+	public void setRequiredContainerSchemaDef( IYCFBamSchemaDefObj value ) {
 			if( buff == null ) {
 				getBlobTypeBuff();
 			}
@@ -305,14 +305,14 @@ public class CFBamBlobTypeEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamBlobTypeBuff origBuff = getOrigAsBlobType().getBlobTypeBuff();
-		CFBamBlobTypeBuff myBuff = getBlobTypeBuff();
+		YCFBamBlobTypeBuff origBuff = getOrigAsBlobType().getBlobTypeBuff();
+		YCFBamBlobTypeBuff myBuff = getBlobTypeBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamBlobTypeBuff origBuff = getOrigAsBlobType().getBlobTypeBuff();
-		CFBamBlobTypeBuff myBuff = getBlobTypeBuff();
+		YCFBamBlobTypeBuff origBuff = getOrigAsBlobType().getBlobTypeBuff();
+		YCFBamBlobTypeBuff myBuff = getBlobTypeBuff();
 		myBuff.set( origBuff );
 	}
 }

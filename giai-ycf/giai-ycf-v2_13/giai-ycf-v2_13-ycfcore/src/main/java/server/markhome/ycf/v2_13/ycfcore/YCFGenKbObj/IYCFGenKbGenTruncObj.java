@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb GenTrunc.
+// Description: Java 11 Object interface for YCFGenKb GenTrunc.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,43 +27,43 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGenTruncObj
-	extends ICFGenKbGenRuleObj
+public interface IYCFGenKbGenTruncObj
+	extends IYCFGenKbGenRuleObj
 {
 	/**
-	 *	Get the current edition of this GenTrunc instance as a ICFGenKbGenTruncEditObj.
+	 *	Get the current edition of this GenTrunc instance as a IYCFGenKbGenTruncEditObj.
 	 *
-	 *	@return	The ICFGenKbGenTruncEditObj edition of this instance.
+	 *	@return	The IYCFGenKbGenTruncEditObj edition of this instance.
 	 */
-	ICFGenKbGenTruncEditObj getEditAsGenTrunc();
+	IYCFGenKbGenTruncEditObj getEditAsGenTrunc();
 
 	/**
-	 *	Get the ICFGenKbGenTruncTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbGenTruncTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbGenTruncTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbGenTruncTableObj table cache which manages this instance.
 	 */
-	ICFGenKbGenTruncTableObj getGenTruncTable();
+	IYCFGenKbGenTruncTableObj getGenTruncTable();
 
 	/**
-	 *	Get the CFGenKbGenTruncBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbGenTruncBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbGenTruncBuff instance which currently backs this object.
+	 *	@return	YCFGenKbGenTruncBuff instance which currently backs this object.
 	 */
-	CFGenKbGenTruncBuff getGenTruncBuff();
+	YCFGenKbGenTruncBuff getGenTruncBuff();
 
 	/**
 	 *	Get the required int attribute TruncateAt.

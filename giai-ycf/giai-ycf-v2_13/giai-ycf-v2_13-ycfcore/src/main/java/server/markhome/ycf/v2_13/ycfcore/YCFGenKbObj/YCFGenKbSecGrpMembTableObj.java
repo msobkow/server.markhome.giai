@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object implementation for CFGenKb.
+// Description: Java 11 Table Object implementation for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,36 +27,36 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbSecGrpMembTableObj
-	implements ICFGenKbSecGrpMembTableObj
+public class YCFGenKbSecGrpMembTableObj
+	implements IYCFGenKbSecGrpMembTableObj
 {
-	protected ICFGenKbSchemaObj schema;
-	private Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> members;
-	private Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> allSecGrpMemb;
-	private Map< CFGenKbSecGrpMembByClusterIdxKey,
-		Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > > indexByClusterIdx;
-	private Map< CFGenKbSecGrpMembByGroupIdxKey,
-		Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > > indexByGroupIdx;
-	private Map< CFGenKbSecGrpMembByUserIdxKey,
-		Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > > indexByUserIdx;
-	private Map< CFGenKbSecGrpMembByUUserIdxKey,
-		ICFGenKbSecGrpMembObj > indexByUUserIdx;
+	protected IYCFGenKbSchemaObj schema;
+	private Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> members;
+	private Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> allSecGrpMemb;
+	private Map< YCFGenKbSecGrpMembByClusterIdxKey,
+		Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > > indexByClusterIdx;
+	private Map< YCFGenKbSecGrpMembByGroupIdxKey,
+		Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > > indexByGroupIdx;
+	private Map< YCFGenKbSecGrpMembByUserIdxKey,
+		Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > > indexByUserIdx;
+	private Map< YCFGenKbSecGrpMembByUUserIdxKey,
+		IYCFGenKbSecGrpMembObj > indexByUUserIdx;
 	public static String TABLE_NAME = "SecGrpMemb";
 	public static String TABLE_DBNAME = "secmemb";
 
-	public CFGenKbSecGrpMembTableObj() {
+	public YCFGenKbSecGrpMembTableObj() {
 		schema = null;
-		members = new HashMap<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj>();
+		members = new HashMap<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj>();
 		allSecGrpMemb = null;
 		indexByClusterIdx = null;
 		indexByGroupIdx = null;
@@ -64,9 +64,9 @@ public class CFGenKbSecGrpMembTableObj
 		indexByUUserIdx = null;
 	}
 
-	public CFGenKbSecGrpMembTableObj( ICFGenKbSchemaObj argSchema ) {
-		schema = (ICFGenKbSchemaObj)argSchema;
-		members = new HashMap<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj>();
+	public YCFGenKbSecGrpMembTableObj( IYCFGenKbSchemaObj argSchema ) {
+		schema = (IYCFGenKbSchemaObj)argSchema;
+		members = new HashMap<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj>();
 		allSecGrpMemb = null;
 		indexByClusterIdx = null;
 		indexByGroupIdx = null;
@@ -74,12 +74,12 @@ public class CFGenKbSecGrpMembTableObj
 		indexByUUserIdx = null;
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
-		schema = (ICFGenKbSchemaObj)value;
+	public void setSchema( IYCFGenKbSchemaObj value ) {
+		schema = (IYCFGenKbSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -101,9 +101,9 @@ public class CFGenKbSecGrpMembTableObj
 		indexByGroupIdx = null;
 		indexByUserIdx = null;
 		indexByUUserIdx = null;
-		List<ICFGenKbSecGrpMembObj> toForget = new LinkedList<ICFGenKbSecGrpMembObj>();
-		ICFGenKbSecGrpMembObj cur = null;
-		Iterator<ICFGenKbSecGrpMembObj> iter = members.values().iterator();
+		List<IYCFGenKbSecGrpMembObj> toForget = new LinkedList<IYCFGenKbSecGrpMembObj>();
+		IYCFGenKbSecGrpMembObj cur = null;
+		Iterator<IYCFGenKbSecGrpMembObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -121,10 +121,10 @@ public class CFGenKbSecGrpMembTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbSecGrpMembObj.
+	 *	YCFGenKbSecGrpMembObj.
 	 */
-	public ICFGenKbSecGrpMembObj newInstance() {
-		ICFGenKbSecGrpMembObj inst = new CFGenKbSecGrpMembObj( schema );
+	public IYCFGenKbSecGrpMembObj newInstance() {
+		IYCFGenKbSecGrpMembObj inst = new YCFGenKbSecGrpMembObj( schema );
 		return( inst );
 	}
 
@@ -135,19 +135,19 @@ public class CFGenKbSecGrpMembTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFGenKbSecGrpMembObj.
+	 *	YCFGenKbSecGrpMembObj.
 	 */
-	public ICFGenKbSecGrpMembEditObj newEditInstance( ICFGenKbSecGrpMembObj orig ) {
-		ICFGenKbSecGrpMembEditObj edit = new CFGenKbSecGrpMembEditObj( orig );
+	public IYCFGenKbSecGrpMembEditObj newEditInstance( IYCFGenKbSecGrpMembObj orig ) {
+		IYCFGenKbSecGrpMembEditObj edit = new YCFGenKbSecGrpMembEditObj( orig );
 		return( edit );
 	}
 
-	public ICFGenKbSecGrpMembObj realiseSecGrpMemb( ICFGenKbSecGrpMembObj Obj ) {
-		ICFGenKbSecGrpMembObj obj = Obj;
-		CFGenKbSecGrpMembPKey pkey = obj.getPKey();
-		ICFGenKbSecGrpMembObj keepObj = null;
+	public IYCFGenKbSecGrpMembObj realiseSecGrpMemb( IYCFGenKbSecGrpMembObj Obj ) {
+		IYCFGenKbSecGrpMembObj obj = Obj;
+		YCFGenKbSecGrpMembPKey pkey = obj.getPKey();
+		IYCFGenKbSecGrpMembObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFGenKbSecGrpMembObj existingObj = members.get( pkey );
+			IYCFGenKbSecGrpMembObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -158,10 +158,10 @@ public class CFGenKbSecGrpMembTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByClusterIdx != null ) {
-				CFGenKbSecGrpMembByClusterIdxKey keyClusterIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
+				YCFGenKbSecGrpMembByClusterIdxKey keyClusterIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.remove( keepObj.getPKey() );
 					if( mapClusterIdx.size() <= 0 ) {
@@ -171,11 +171,11 @@ public class CFGenKbSecGrpMembTableObj
 			}
 
 			if( indexByGroupIdx != null ) {
-				CFGenKbSecGrpMembByGroupIdxKey keyGroupIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
+				YCFGenKbSecGrpMembByGroupIdxKey keyGroupIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
 				keyGroupIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyGroupIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
-				Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
+				Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
 				if( mapGroupIdx != null ) {
 					mapGroupIdx.remove( keepObj.getPKey() );
 					if( mapGroupIdx.size() <= 0 ) {
@@ -185,10 +185,10 @@ public class CFGenKbSecGrpMembTableObj
 			}
 
 			if( indexByUserIdx != null ) {
-				CFGenKbSecGrpMembByUserIdxKey keyUserIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
+				YCFGenKbSecGrpMembByUserIdxKey keyUserIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
 				keyUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
-				Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
+				Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
 				if( mapUserIdx != null ) {
 					mapUserIdx.remove( keepObj.getPKey() );
 					if( mapUserIdx.size() <= 0 ) {
@@ -198,8 +198,8 @@ public class CFGenKbSecGrpMembTableObj
 			}
 
 			if( indexByUUserIdx != null ) {
-				CFGenKbSecGrpMembByUUserIdxKey keyUUserIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
+				YCFGenKbSecGrpMembByUUserIdxKey keyUUserIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
 				keyUUserIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUUserIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
 				keyUUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
@@ -210,39 +210,39 @@ public class CFGenKbSecGrpMembTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByClusterIdx != null ) {
-				CFGenKbSecGrpMembByClusterIdxKey keyClusterIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
+				YCFGenKbSecGrpMembByClusterIdxKey keyClusterIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByGroupIdx != null ) {
-				CFGenKbSecGrpMembByGroupIdxKey keyGroupIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
+				YCFGenKbSecGrpMembByGroupIdxKey keyGroupIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
 				keyGroupIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyGroupIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
-				Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
+				Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
 				if( mapGroupIdx != null ) {
 					mapGroupIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUserIdx != null ) {
-				CFGenKbSecGrpMembByUserIdxKey keyUserIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
+				YCFGenKbSecGrpMembByUserIdxKey keyUserIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
 				keyUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
-				Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
+				Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
 				if( mapUserIdx != null ) {
 					mapUserIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUUserIdx != null ) {
-				CFGenKbSecGrpMembByUUserIdxKey keyUUserIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
+				YCFGenKbSecGrpMembByUUserIdxKey keyUUserIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
 				keyUUserIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUUserIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
 				keyUUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
@@ -264,39 +264,39 @@ public class CFGenKbSecGrpMembTableObj
 			}
 
 			if( indexByClusterIdx != null ) {
-				CFGenKbSecGrpMembByClusterIdxKey keyClusterIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
+				YCFGenKbSecGrpMembByClusterIdxKey keyClusterIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
 				keyClusterIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
-				Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
+				Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > mapClusterIdx = indexByClusterIdx.get( keyClusterIdx );
 				if( mapClusterIdx != null ) {
 					mapClusterIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByGroupIdx != null ) {
-				CFGenKbSecGrpMembByGroupIdxKey keyGroupIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
+				YCFGenKbSecGrpMembByGroupIdxKey keyGroupIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
 				keyGroupIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyGroupIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
-				Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
+				Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > mapGroupIdx = indexByGroupIdx.get( keyGroupIdx );
 				if( mapGroupIdx != null ) {
 					mapGroupIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUserIdx != null ) {
-				CFGenKbSecGrpMembByUserIdxKey keyUserIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
+				YCFGenKbSecGrpMembByUserIdxKey keyUserIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
 				keyUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
-				Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
+				Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > mapUserIdx = indexByUserIdx.get( keyUserIdx );
 				if( mapUserIdx != null ) {
 					mapUserIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByUUserIdx != null ) {
-				CFGenKbSecGrpMembByUUserIdxKey keyUUserIdx =
-					((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
+				YCFGenKbSecGrpMembByUUserIdxKey keyUUserIdx =
+					((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
 				keyUUserIdx.setRequiredClusterId( keepObj.getRequiredClusterId() );
 				keyUUserIdx.setRequiredSecGroupId( keepObj.getRequiredSecGroupId() );
 				keyUUserIdx.setRequiredSecUserId( keepObj.getRequiredSecUserId() );
@@ -307,10 +307,10 @@ public class CFGenKbSecGrpMembTableObj
 		return( keepObj );
 	}
 
-	public ICFGenKbSecGrpMembObj createSecGrpMemb( ICFGenKbSecGrpMembObj Obj ) {
-		ICFGenKbSecGrpMembObj obj = Obj;
-		CFGenKbSecGrpMembBuff buff = obj.getSecGrpMembBuff();
-		((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().createSecGrpMemb(
+	public IYCFGenKbSecGrpMembObj createSecGrpMemb( IYCFGenKbSecGrpMembObj Obj ) {
+		IYCFGenKbSecGrpMembObj obj = Obj;
+		YCFGenKbSecGrpMembBuff buff = obj.getSecGrpMembBuff();
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().createSecGrpMemb(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -319,61 +319,61 @@ public class CFGenKbSecGrpMembTableObj
 		return( obj );
 	}
 
-	public ICFGenKbSecGrpMembObj readSecGrpMemb( CFGenKbSecGrpMembPKey pkey ) {
+	public IYCFGenKbSecGrpMembObj readSecGrpMemb( YCFGenKbSecGrpMembPKey pkey ) {
 		return( readSecGrpMemb( pkey, false ) );
 	}
 
-	public ICFGenKbSecGrpMembObj readSecGrpMemb( CFGenKbSecGrpMembPKey pkey, boolean forceRead ) {
-		ICFGenKbSecGrpMembObj obj = null;
+	public IYCFGenKbSecGrpMembObj readSecGrpMemb( YCFGenKbSecGrpMembPKey pkey, boolean forceRead ) {
+		IYCFGenKbSecGrpMembObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFGenKbSecGrpMembBuff readBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFGenKbSecGrpMembBuff readBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredClusterId(),
 				pkey.getRequiredSecGrpMembId() );
 			if( readBuff != null ) {
 				obj = schema.getSecGrpMembTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFGenKbSecGrpMembObj)obj.realise();
+				obj = (IYCFGenKbSecGrpMembObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbSecGrpMembObj readCachedSecGrpMemb( CFGenKbSecGrpMembPKey pkey ) {
-		ICFGenKbSecGrpMembObj obj = null;
+	public IYCFGenKbSecGrpMembObj readCachedSecGrpMemb( YCFGenKbSecGrpMembPKey pkey ) {
+		IYCFGenKbSecGrpMembObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeSecGrpMemb( ICFGenKbSecGrpMembObj obj )
+	public void reallyDeepDisposeSecGrpMemb( IYCFGenKbSecGrpMembObj obj )
 	{
-		final String S_ProcName = "CFGenKbSecGrpMembTableObj.reallyDeepDisposeSecGrpMemb() ";
+		final String S_ProcName = "YCFGenKbSecGrpMembTableObj.reallyDeepDisposeSecGrpMemb() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFGenKbSecGrpMembPKey pkey = obj.getPKey();
-		ICFGenKbSecGrpMembObj existing = readCachedSecGrpMemb( pkey );
+		YCFGenKbSecGrpMembPKey pkey = obj.getPKey();
+		IYCFGenKbSecGrpMembObj existing = readCachedSecGrpMemb( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFGenKbSecGrpMembByClusterIdxKey keyClusterIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
+		YCFGenKbSecGrpMembByClusterIdxKey keyClusterIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFGenKbSecGrpMembByGroupIdxKey keyGroupIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
+		YCFGenKbSecGrpMembByGroupIdxKey keyGroupIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
 		keyGroupIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyGroupIdx.setRequiredSecGroupId( existing.getRequiredSecGroupId() );
 
-		CFGenKbSecGrpMembByUserIdxKey keyUserIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
+		YCFGenKbSecGrpMembByUserIdxKey keyUserIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
 		keyUserIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
 
-		CFGenKbSecGrpMembByUUserIdxKey keyUUserIdx = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
+		YCFGenKbSecGrpMembByUUserIdxKey keyUUserIdx = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
 		keyUUserIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUUserIdx.setRequiredSecGroupId( existing.getRequiredSecGroupId() );
 		keyUUserIdx.setRequiredSecUserId( existing.getRequiredSecUserId() );
@@ -413,57 +413,57 @@ public class CFGenKbSecGrpMembTableObj
 
 
 	}
-	public void deepDisposeSecGrpMemb( CFGenKbSecGrpMembPKey pkey ) {
-		ICFGenKbSecGrpMembObj obj = readCachedSecGrpMemb( pkey );
+	public void deepDisposeSecGrpMemb( YCFGenKbSecGrpMembPKey pkey ) {
+		IYCFGenKbSecGrpMembObj obj = readCachedSecGrpMemb( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFGenKbSecGrpMembObj lockSecGrpMemb( CFGenKbSecGrpMembPKey pkey ) {
-		ICFGenKbSecGrpMembObj locked = null;
-		CFGenKbSecGrpMembBuff lockBuff = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFGenKbSecGrpMembObj lockSecGrpMemb( YCFGenKbSecGrpMembPKey pkey ) {
+		IYCFGenKbSecGrpMembObj locked = null;
+		YCFGenKbSecGrpMembBuff lockBuff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getSecGrpMembTableObj().newInstance();
-			locked.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+			locked.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFGenKbSecGrpMembObj)locked.realise();
+			locked = (IYCFGenKbSecGrpMembObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockSecGrpMemb", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockSecGrpMemb", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readAllSecGrpMemb() {
+	public List<IYCFGenKbSecGrpMembObj> readAllSecGrpMemb() {
 		return( readAllSecGrpMemb( false ) );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readAllSecGrpMemb( boolean forceRead ) {
+	public List<IYCFGenKbSecGrpMembObj> readAllSecGrpMemb( boolean forceRead ) {
 		final String S_ProcName = "readAllSecGrpMemb";
 		if( ( allSecGrpMemb == null ) || forceRead ) {
-			Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> map = new HashMap<CFGenKbSecGrpMembPKey,ICFGenKbSecGrpMembObj>();
+			Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> map = new HashMap<YCFGenKbSecGrpMembPKey,IYCFGenKbSecGrpMembObj>();
 			allSecGrpMemb = map;
-			CFGenKbSecGrpMembBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readAllDerived( schema.getAuthorization() );
-			CFGenKbSecGrpMembBuff buff;
-			ICFGenKbSecGrpMembObj obj;
+			YCFGenKbSecGrpMembBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readAllDerived( schema.getAuthorization() );
+			YCFGenKbSecGrpMembBuff buff;
+			IYCFGenKbSecGrpMembObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbSecGrpMembObj realised = (ICFGenKbSecGrpMembObj)obj.realise();
+				IYCFGenKbSecGrpMembObj realised = (IYCFGenKbSecGrpMembObj)obj.realise();
 			}
 		}
 		int len = allSecGrpMemb.size();
-		ICFGenKbSecGrpMembObj arr[] = new ICFGenKbSecGrpMembObj[len];
-		Iterator<ICFGenKbSecGrpMembObj> valIter = allSecGrpMemb.values().iterator();
+		IYCFGenKbSecGrpMembObj arr[] = new IYCFGenKbSecGrpMembObj[len];
+		Iterator<IYCFGenKbSecGrpMembObj> valIter = allSecGrpMemb.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -471,20 +471,20 @@ public class CFGenKbSecGrpMembTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbSecGrpMembObj> arrayList = new ArrayList<ICFGenKbSecGrpMembObj>(len);
+		ArrayList<IYCFGenKbSecGrpMembObj> arrayList = new ArrayList<IYCFGenKbSecGrpMembObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbSecGrpMembObj> cmp = new Comparator<ICFGenKbSecGrpMembObj>() {
-			public int compare( ICFGenKbSecGrpMembObj lhs, ICFGenKbSecGrpMembObj rhs ) {
+		Comparator<IYCFGenKbSecGrpMembObj> cmp = new Comparator<IYCFGenKbSecGrpMembObj>() {
+			public int compare( IYCFGenKbSecGrpMembObj lhs, IYCFGenKbSecGrpMembObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -497,31 +497,31 @@ public class CFGenKbSecGrpMembTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
-					CFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
+					YCFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
+					YCFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbSecGrpMembObj> sortedList = arrayList;
+		List<IYCFGenKbSecGrpMembObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readCachedAllSecGrpMemb() {
+	public List<IYCFGenKbSecGrpMembObj> readCachedAllSecGrpMemb() {
 		final String S_ProcName = "readCachedAllSecGrpMemb";
-		ArrayList<ICFGenKbSecGrpMembObj> arrayList = new ArrayList<ICFGenKbSecGrpMembObj>();
+		ArrayList<IYCFGenKbSecGrpMembObj> arrayList = new ArrayList<IYCFGenKbSecGrpMembObj>();
 		if( allSecGrpMemb != null ) {
 			int len = allSecGrpMemb.size();
-			ICFGenKbSecGrpMembObj arr[] = new ICFGenKbSecGrpMembObj[len];
-			Iterator<ICFGenKbSecGrpMembObj> valIter = allSecGrpMemb.values().iterator();
+			IYCFGenKbSecGrpMembObj arr[] = new IYCFGenKbSecGrpMembObj[len];
+			Iterator<IYCFGenKbSecGrpMembObj> valIter = allSecGrpMemb.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -529,7 +529,7 @@ public class CFGenKbSecGrpMembTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -540,8 +540,8 @@ public class CFGenKbSecGrpMembTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFGenKbSecGrpMembObj> cmp = new Comparator<ICFGenKbSecGrpMembObj>() {
-			public int compare( ICFGenKbSecGrpMembObj lhs, ICFGenKbSecGrpMembObj rhs ) {
+		Comparator<IYCFGenKbSecGrpMembObj> cmp = new Comparator<IYCFGenKbSecGrpMembObj>() {
+			public int compare( IYCFGenKbSecGrpMembObj lhs, IYCFGenKbSecGrpMembObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -554,8 +554,8 @@ public class CFGenKbSecGrpMembTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
-					CFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
+					YCFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
+					YCFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -568,33 +568,33 @@ public class CFGenKbSecGrpMembTableObj
 	/**
 	 *	Return a sorted map of a page of the SecGrpMemb-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSecGrpMembObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSecGrpMembObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	public List<ICFGenKbSecGrpMembObj> pageAllSecGrpMemb(Long priorClusterId,
+	public List<IYCFGenKbSecGrpMembObj> pageAllSecGrpMemb(Long priorClusterId,
 		Long priorSecGrpMembId )
 	{
 		final String S_ProcName = "pageAllSecGrpMemb";
-		Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> map = new HashMap<CFGenKbSecGrpMembPKey,ICFGenKbSecGrpMembObj>();
-		CFGenKbSecGrpMembBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().pageAllBuff( schema.getAuthorization(),
+		Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> map = new HashMap<YCFGenKbSecGrpMembPKey,IYCFGenKbSecGrpMembObj>();
+		YCFGenKbSecGrpMembBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().pageAllBuff( schema.getAuthorization(),
 			priorClusterId,
 			priorSecGrpMembId );
-		CFGenKbSecGrpMembBuff buff;
-		ICFGenKbSecGrpMembObj obj;
-		ICFGenKbSecGrpMembObj realised;
-		ArrayList<ICFGenKbSecGrpMembObj> arrayList = new ArrayList<ICFGenKbSecGrpMembObj>( buffList.length );
+		YCFGenKbSecGrpMembBuff buff;
+		IYCFGenKbSecGrpMembObj obj;
+		IYCFGenKbSecGrpMembObj realised;
+		ArrayList<IYCFGenKbSecGrpMembObj> arrayList = new ArrayList<IYCFGenKbSecGrpMembObj>( buffList.length );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = newInstance();
-			obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+			obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 			obj.setBuff( buff );
-			realised = (ICFGenKbSecGrpMembObj)obj.realise();
+			realised = (IYCFGenKbSecGrpMembObj)obj.realise();
 			arrayList.add( realised );
 		}
 		return( arrayList );
 	}
 
-	public ICFGenKbSecGrpMembObj readSecGrpMembByIdIdx( long ClusterId,
+	public IYCFGenKbSecGrpMembObj readSecGrpMembByIdIdx( long ClusterId,
 		long SecGrpMembId )
 	{
 		return( readSecGrpMembByIdIdx( ClusterId,
@@ -602,61 +602,61 @@ public class CFGenKbSecGrpMembTableObj
 			false ) );
 	}
 
-	public ICFGenKbSecGrpMembObj readSecGrpMembByIdIdx( long ClusterId,
+	public IYCFGenKbSecGrpMembObj readSecGrpMembByIdIdx( long ClusterId,
 		long SecGrpMembId, boolean forceRead )
 	{
-		CFGenKbSecGrpMembPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey();
+		YCFGenKbSecGrpMembPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecGrpMembId( SecGrpMembId );
-		ICFGenKbSecGrpMembObj obj = readSecGrpMemb( pkey, forceRead );
+		IYCFGenKbSecGrpMembObj obj = readSecGrpMemb( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readSecGrpMembByClusterIdx( long ClusterId )
+	public List<IYCFGenKbSecGrpMembObj> readSecGrpMembByClusterIdx( long ClusterId )
 	{
 		return( readSecGrpMembByClusterIdx( ClusterId,
 			false ) );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readSecGrpMembByClusterIdx( long ClusterId,
+	public List<IYCFGenKbSecGrpMembObj> readSecGrpMembByClusterIdx( long ClusterId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecGrpMembByClusterIdx";
-		CFGenKbSecGrpMembByClusterIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
+		YCFGenKbSecGrpMembByClusterIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> dict;
+		Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> dict;
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFGenKbSecGrpMembByClusterIdxKey,
-				Map< CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > >();
+			indexByClusterIdx = new HashMap< YCFGenKbSecGrpMembByClusterIdxKey,
+				Map< YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > >();
 		}
 		if( ( ! forceRead ) && indexByClusterIdx.containsKey( key ) ) {
 			dict = indexByClusterIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj>();
-			ICFGenKbSecGrpMembObj obj;
-			CFGenKbSecGrpMembBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByClusterIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj>();
+			IYCFGenKbSecGrpMembObj obj;
+			YCFGenKbSecGrpMembBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			CFGenKbSecGrpMembBuff buff;
+			YCFGenKbSecGrpMembBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecGrpMembTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbSecGrpMembObj realised = (ICFGenKbSecGrpMembObj)obj.realise();
+				IYCFGenKbSecGrpMembObj realised = (IYCFGenKbSecGrpMembObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByClusterIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbSecGrpMembObj arr[] = new ICFGenKbSecGrpMembObj[len];
-		Iterator<ICFGenKbSecGrpMembObj> valIter = dict.values().iterator();
+		IYCFGenKbSecGrpMembObj arr[] = new IYCFGenKbSecGrpMembObj[len];
+		Iterator<IYCFGenKbSecGrpMembObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -664,20 +664,20 @@ public class CFGenKbSecGrpMembTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbSecGrpMembObj> arrayList = new ArrayList<ICFGenKbSecGrpMembObj>(len);
+		ArrayList<IYCFGenKbSecGrpMembObj> arrayList = new ArrayList<IYCFGenKbSecGrpMembObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbSecGrpMembObj> cmp = new Comparator<ICFGenKbSecGrpMembObj>() {
-			public int compare( ICFGenKbSecGrpMembObj lhs, ICFGenKbSecGrpMembObj rhs ) {
+		Comparator<IYCFGenKbSecGrpMembObj> cmp = new Comparator<IYCFGenKbSecGrpMembObj>() {
+			public int compare( IYCFGenKbSecGrpMembObj lhs, IYCFGenKbSecGrpMembObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -690,19 +690,19 @@ public class CFGenKbSecGrpMembTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
-					CFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
+					YCFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
+					YCFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbSecGrpMembObj> sortedList = arrayList;
+		List<IYCFGenKbSecGrpMembObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readSecGrpMembByGroupIdx( long ClusterId,
+	public List<IYCFGenKbSecGrpMembObj> readSecGrpMembByGroupIdx( long ClusterId,
 		int SecGroupId )
 	{
 		return( readSecGrpMembByGroupIdx( ClusterId,
@@ -710,48 +710,48 @@ public class CFGenKbSecGrpMembTableObj
 			false ) );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readSecGrpMembByGroupIdx( long ClusterId,
+	public List<IYCFGenKbSecGrpMembObj> readSecGrpMembByGroupIdx( long ClusterId,
 		int SecGroupId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecGrpMembByGroupIdx";
-		CFGenKbSecGrpMembByGroupIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
+		YCFGenKbSecGrpMembByGroupIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
-		Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> dict;
+		Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> dict;
 		if( indexByGroupIdx == null ) {
-			indexByGroupIdx = new HashMap< CFGenKbSecGrpMembByGroupIdxKey,
-				Map< CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > >();
+			indexByGroupIdx = new HashMap< YCFGenKbSecGrpMembByGroupIdxKey,
+				Map< YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > >();
 		}
 		if( ( ! forceRead ) && indexByGroupIdx.containsKey( key ) ) {
 			dict = indexByGroupIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj>();
-			ICFGenKbSecGrpMembObj obj;
-			CFGenKbSecGrpMembBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByGroupIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj>();
+			IYCFGenKbSecGrpMembObj obj;
+			YCFGenKbSecGrpMembBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByGroupIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId );
-			CFGenKbSecGrpMembBuff buff;
+			YCFGenKbSecGrpMembBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecGrpMembTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbSecGrpMembObj realised = (ICFGenKbSecGrpMembObj)obj.realise();
+				IYCFGenKbSecGrpMembObj realised = (IYCFGenKbSecGrpMembObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByGroupIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbSecGrpMembObj arr[] = new ICFGenKbSecGrpMembObj[len];
-		Iterator<ICFGenKbSecGrpMembObj> valIter = dict.values().iterator();
+		IYCFGenKbSecGrpMembObj arr[] = new IYCFGenKbSecGrpMembObj[len];
+		Iterator<IYCFGenKbSecGrpMembObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -759,20 +759,20 @@ public class CFGenKbSecGrpMembTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbSecGrpMembObj> arrayList = new ArrayList<ICFGenKbSecGrpMembObj>(len);
+		ArrayList<IYCFGenKbSecGrpMembObj> arrayList = new ArrayList<IYCFGenKbSecGrpMembObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbSecGrpMembObj> cmp = new Comparator<ICFGenKbSecGrpMembObj>() {
-			public int compare( ICFGenKbSecGrpMembObj lhs, ICFGenKbSecGrpMembObj rhs ) {
+		Comparator<IYCFGenKbSecGrpMembObj> cmp = new Comparator<IYCFGenKbSecGrpMembObj>() {
+			public int compare( IYCFGenKbSecGrpMembObj lhs, IYCFGenKbSecGrpMembObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -785,63 +785,63 @@ public class CFGenKbSecGrpMembTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
-					CFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
+					YCFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
+					YCFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbSecGrpMembObj> sortedList = arrayList;
+		List<IYCFGenKbSecGrpMembObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readSecGrpMembByUserIdx( UUID SecUserId )
+	public List<IYCFGenKbSecGrpMembObj> readSecGrpMembByUserIdx( UUID SecUserId )
 	{
 		return( readSecGrpMembByUserIdx( SecUserId,
 			false ) );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readSecGrpMembByUserIdx( UUID SecUserId,
+	public List<IYCFGenKbSecGrpMembObj> readSecGrpMembByUserIdx( UUID SecUserId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readSecGrpMembByUserIdx";
-		CFGenKbSecGrpMembByUserIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
+		YCFGenKbSecGrpMembByUserIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
-		Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> dict;
+		Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> dict;
 		if( indexByUserIdx == null ) {
-			indexByUserIdx = new HashMap< CFGenKbSecGrpMembByUserIdxKey,
-				Map< CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > >();
+			indexByUserIdx = new HashMap< YCFGenKbSecGrpMembByUserIdxKey,
+				Map< YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > >();
 		}
 		if( ( ! forceRead ) && indexByUserIdx.containsKey( key ) ) {
 			dict = indexByUserIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj>();
-			ICFGenKbSecGrpMembObj obj;
-			CFGenKbSecGrpMembBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByUserIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj>();
+			IYCFGenKbSecGrpMembObj obj;
+			YCFGenKbSecGrpMembBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByUserIdx( schema.getAuthorization(),
 				SecUserId );
-			CFGenKbSecGrpMembBuff buff;
+			YCFGenKbSecGrpMembBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getSecGrpMembTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 				obj.setBuff( buff );
-				ICFGenKbSecGrpMembObj realised = (ICFGenKbSecGrpMembObj)obj.realise();
+				IYCFGenKbSecGrpMembObj realised = (IYCFGenKbSecGrpMembObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByUserIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFGenKbSecGrpMembObj arr[] = new ICFGenKbSecGrpMembObj[len];
-		Iterator<ICFGenKbSecGrpMembObj> valIter = dict.values().iterator();
+		IYCFGenKbSecGrpMembObj arr[] = new IYCFGenKbSecGrpMembObj[len];
+		Iterator<IYCFGenKbSecGrpMembObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -849,20 +849,20 @@ public class CFGenKbSecGrpMembTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFGenKbSecGrpMembObj> arrayList = new ArrayList<ICFGenKbSecGrpMembObj>(len);
+		ArrayList<IYCFGenKbSecGrpMembObj> arrayList = new ArrayList<IYCFGenKbSecGrpMembObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFGenKbSecGrpMembObj> cmp = new Comparator<ICFGenKbSecGrpMembObj>() {
-			public int compare( ICFGenKbSecGrpMembObj lhs, ICFGenKbSecGrpMembObj rhs ) {
+		Comparator<IYCFGenKbSecGrpMembObj> cmp = new Comparator<IYCFGenKbSecGrpMembObj>() {
+			public int compare( IYCFGenKbSecGrpMembObj lhs, IYCFGenKbSecGrpMembObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -875,19 +875,19 @@ public class CFGenKbSecGrpMembTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
-					CFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
+					YCFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
+					YCFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFGenKbSecGrpMembObj> sortedList = arrayList;
+		List<IYCFGenKbSecGrpMembObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFGenKbSecGrpMembObj readSecGrpMembByUUserIdx( long ClusterId,
+	public IYCFGenKbSecGrpMembObj readSecGrpMembByUUserIdx( long ClusterId,
 		int SecGroupId,
 		UUID SecUserId )
 	{
@@ -897,67 +897,67 @@ public class CFGenKbSecGrpMembTableObj
 			false ) );
 	}
 
-	public ICFGenKbSecGrpMembObj readSecGrpMembByUUserIdx( long ClusterId,
+	public IYCFGenKbSecGrpMembObj readSecGrpMembByUUserIdx( long ClusterId,
 		int SecGroupId,
 		UUID SecUserId, boolean forceRead )
 	{
 		if( indexByUUserIdx == null ) {
-			indexByUUserIdx = new HashMap< CFGenKbSecGrpMembByUUserIdxKey,
-				ICFGenKbSecGrpMembObj >();
+			indexByUUserIdx = new HashMap< YCFGenKbSecGrpMembByUUserIdxKey,
+				IYCFGenKbSecGrpMembObj >();
 		}
-		CFGenKbSecGrpMembByUUserIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
+		YCFGenKbSecGrpMembByUUserIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 		key.setRequiredSecUserId( SecUserId );
-		ICFGenKbSecGrpMembObj obj = null;
+		IYCFGenKbSecGrpMembObj obj = null;
 		if( ( ! forceRead ) && indexByUUserIdx.containsKey( key ) ) {
 			obj = indexByUUserIdx.get( key );
 		}
 		else {
-			CFGenKbSecGrpMembBuff buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByUUserIdx( schema.getAuthorization(),
+			YCFGenKbSecGrpMembBuff buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().readDerivedByUUserIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId,
 				SecUserId );
 			if( buff != null ) {
 				obj = schema.getSecGrpMembTableObj().newInstance();
-				obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+				obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFGenKbSecGrpMembObj)obj.realise();
+				obj = (IYCFGenKbSecGrpMembObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFGenKbSecGrpMembObj readCachedSecGrpMembByIdIdx( long ClusterId,
+	public IYCFGenKbSecGrpMembObj readCachedSecGrpMembByIdIdx( long ClusterId,
 		long SecGrpMembId )
 	{
-		ICFGenKbSecGrpMembObj obj = null;
-		CFGenKbSecGrpMembPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey();
+		IYCFGenKbSecGrpMembObj obj = null;
+		YCFGenKbSecGrpMembPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecGrpMembId( SecGrpMembId );
 		obj = readCachedSecGrpMemb( pkey );
 		return( obj );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readCachedSecGrpMembByClusterIdx( long ClusterId )
+	public List<IYCFGenKbSecGrpMembObj> readCachedSecGrpMembByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "readCachedSecGrpMembByClusterIdx";
-		CFGenKbSecGrpMembByClusterIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
+		YCFGenKbSecGrpMembByClusterIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		ArrayList<ICFGenKbSecGrpMembObj> arrayList = new ArrayList<ICFGenKbSecGrpMembObj>();
+		ArrayList<IYCFGenKbSecGrpMembObj> arrayList = new ArrayList<IYCFGenKbSecGrpMembObj>();
 		if( indexByClusterIdx != null ) {
-			Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> dict;
+			Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> dict;
 			if( indexByClusterIdx.containsKey( key ) ) {
 				dict = indexByClusterIdx.get( key );
 				int len = dict.size();
-				ICFGenKbSecGrpMembObj arr[] = new ICFGenKbSecGrpMembObj[len];
-				Iterator<ICFGenKbSecGrpMembObj> valIter = dict.values().iterator();
+				IYCFGenKbSecGrpMembObj arr[] = new IYCFGenKbSecGrpMembObj[len];
+				Iterator<IYCFGenKbSecGrpMembObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -965,7 +965,7 @@ public class CFGenKbSecGrpMembTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -978,8 +978,8 @@ public class CFGenKbSecGrpMembTableObj
 			}
 		}
 		else {
-			ICFGenKbSecGrpMembObj obj;
-			Iterator<ICFGenKbSecGrpMembObj> valIter = members.values().iterator();
+			IYCFGenKbSecGrpMembObj obj;
+			Iterator<IYCFGenKbSecGrpMembObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -989,8 +989,8 @@ public class CFGenKbSecGrpMembTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbSecGrpMembObj> cmp = new Comparator<ICFGenKbSecGrpMembObj>() {
-			public int compare( ICFGenKbSecGrpMembObj lhs, ICFGenKbSecGrpMembObj rhs ) {
+		Comparator<IYCFGenKbSecGrpMembObj> cmp = new Comparator<IYCFGenKbSecGrpMembObj>() {
+			public int compare( IYCFGenKbSecGrpMembObj lhs, IYCFGenKbSecGrpMembObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1003,8 +1003,8 @@ public class CFGenKbSecGrpMembTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
-					CFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
+					YCFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
+					YCFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1014,27 +1014,27 @@ public class CFGenKbSecGrpMembTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readCachedSecGrpMembByGroupIdx( long ClusterId,
+	public List<IYCFGenKbSecGrpMembObj> readCachedSecGrpMembByGroupIdx( long ClusterId,
 		int SecGroupId )
 	{
 		final String S_ProcName = "readCachedSecGrpMembByGroupIdx";
-		CFGenKbSecGrpMembByGroupIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
+		YCFGenKbSecGrpMembByGroupIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
-		ArrayList<ICFGenKbSecGrpMembObj> arrayList = new ArrayList<ICFGenKbSecGrpMembObj>();
+		ArrayList<IYCFGenKbSecGrpMembObj> arrayList = new ArrayList<IYCFGenKbSecGrpMembObj>();
 		if( indexByGroupIdx != null ) {
-			Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> dict;
+			Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> dict;
 			if( indexByGroupIdx.containsKey( key ) ) {
 				dict = indexByGroupIdx.get( key );
 				int len = dict.size();
-				ICFGenKbSecGrpMembObj arr[] = new ICFGenKbSecGrpMembObj[len];
-				Iterator<ICFGenKbSecGrpMembObj> valIter = dict.values().iterator();
+				IYCFGenKbSecGrpMembObj arr[] = new IYCFGenKbSecGrpMembObj[len];
+				Iterator<IYCFGenKbSecGrpMembObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1042,7 +1042,7 @@ public class CFGenKbSecGrpMembTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1055,8 +1055,8 @@ public class CFGenKbSecGrpMembTableObj
 			}
 		}
 		else {
-			ICFGenKbSecGrpMembObj obj;
-			Iterator<ICFGenKbSecGrpMembObj> valIter = members.values().iterator();
+			IYCFGenKbSecGrpMembObj obj;
+			Iterator<IYCFGenKbSecGrpMembObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1066,8 +1066,8 @@ public class CFGenKbSecGrpMembTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbSecGrpMembObj> cmp = new Comparator<ICFGenKbSecGrpMembObj>() {
-			public int compare( ICFGenKbSecGrpMembObj lhs, ICFGenKbSecGrpMembObj rhs ) {
+		Comparator<IYCFGenKbSecGrpMembObj> cmp = new Comparator<IYCFGenKbSecGrpMembObj>() {
+			public int compare( IYCFGenKbSecGrpMembObj lhs, IYCFGenKbSecGrpMembObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1080,8 +1080,8 @@ public class CFGenKbSecGrpMembTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
-					CFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
+					YCFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
+					YCFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1091,25 +1091,25 @@ public class CFGenKbSecGrpMembTableObj
 		return( arrayList );
 	}
 
-	public List<ICFGenKbSecGrpMembObj> readCachedSecGrpMembByUserIdx( UUID SecUserId )
+	public List<IYCFGenKbSecGrpMembObj> readCachedSecGrpMembByUserIdx( UUID SecUserId )
 	{
 		final String S_ProcName = "readCachedSecGrpMembByUserIdx";
-		CFGenKbSecGrpMembByUserIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
+		YCFGenKbSecGrpMembByUserIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
-		ArrayList<ICFGenKbSecGrpMembObj> arrayList = new ArrayList<ICFGenKbSecGrpMembObj>();
+		ArrayList<IYCFGenKbSecGrpMembObj> arrayList = new ArrayList<IYCFGenKbSecGrpMembObj>();
 		if( indexByUserIdx != null ) {
-			Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> dict;
+			Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> dict;
 			if( indexByUserIdx.containsKey( key ) ) {
 				dict = indexByUserIdx.get( key );
 				int len = dict.size();
-				ICFGenKbSecGrpMembObj arr[] = new ICFGenKbSecGrpMembObj[len];
-				Iterator<ICFGenKbSecGrpMembObj> valIter = dict.values().iterator();
+				IYCFGenKbSecGrpMembObj arr[] = new IYCFGenKbSecGrpMembObj[len];
+				Iterator<IYCFGenKbSecGrpMembObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1117,7 +1117,7 @@ public class CFGenKbSecGrpMembTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1130,8 +1130,8 @@ public class CFGenKbSecGrpMembTableObj
 			}
 		}
 		else {
-			ICFGenKbSecGrpMembObj obj;
-			Iterator<ICFGenKbSecGrpMembObj> valIter = members.values().iterator();
+			IYCFGenKbSecGrpMembObj obj;
+			Iterator<IYCFGenKbSecGrpMembObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1141,8 +1141,8 @@ public class CFGenKbSecGrpMembTableObj
 				}
 			}
 		}
-		Comparator<ICFGenKbSecGrpMembObj> cmp = new Comparator<ICFGenKbSecGrpMembObj>() {
-			public int compare( ICFGenKbSecGrpMembObj lhs, ICFGenKbSecGrpMembObj rhs ) {
+		Comparator<IYCFGenKbSecGrpMembObj> cmp = new Comparator<IYCFGenKbSecGrpMembObj>() {
+			public int compare( IYCFGenKbSecGrpMembObj lhs, IYCFGenKbSecGrpMembObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1155,8 +1155,8 @@ public class CFGenKbSecGrpMembTableObj
 					return( 1 );
 				}
 				else {
-					CFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
-					CFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
+					YCFGenKbSecGrpMembPKey lhsPKey = lhs.getPKey();
+					YCFGenKbSecGrpMembPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1166,12 +1166,12 @@ public class CFGenKbSecGrpMembTableObj
 		return( arrayList );
 	}
 
-	public ICFGenKbSecGrpMembObj readCachedSecGrpMembByUUserIdx( long ClusterId,
+	public IYCFGenKbSecGrpMembObj readCachedSecGrpMembByUUserIdx( long ClusterId,
 		int SecGroupId,
 		UUID SecUserId )
 	{
-		ICFGenKbSecGrpMembObj obj = null;
-		CFGenKbSecGrpMembByUUserIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
+		IYCFGenKbSecGrpMembObj obj = null;
+		YCFGenKbSecGrpMembByUUserIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 		key.setRequiredSecUserId( SecUserId );
@@ -1180,7 +1180,7 @@ public class CFGenKbSecGrpMembTableObj
 				obj = indexByUUserIdx.get( key );
 			}
 			else {
-				Iterator<ICFGenKbSecGrpMembObj> valIter = members.values().iterator();
+				Iterator<IYCFGenKbSecGrpMembObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1192,7 +1192,7 @@ public class CFGenKbSecGrpMembTableObj
 			}
 		}
 		else {
-			Iterator<ICFGenKbSecGrpMembObj> valIter = members.values().iterator();
+			Iterator<IYCFGenKbSecGrpMembObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1208,7 +1208,7 @@ public class CFGenKbSecGrpMembTableObj
 	public void deepDisposeSecGrpMembByIdIdx( long ClusterId,
 		long SecGrpMembId )
 	{
-		ICFGenKbSecGrpMembObj obj = readCachedSecGrpMembByIdIdx( ClusterId,
+		IYCFGenKbSecGrpMembObj obj = readCachedSecGrpMembByIdIdx( ClusterId,
 				SecGrpMembId );
 		if( obj != null ) {
 			obj.forget();
@@ -1218,10 +1218,10 @@ public class CFGenKbSecGrpMembTableObj
 	public void deepDisposeSecGrpMembByClusterIdx( long ClusterId )
 	{
 		final String S_ProcName = "deepDisposeSecGrpMembByClusterIdx";
-		ICFGenKbSecGrpMembObj obj;
-		List<ICFGenKbSecGrpMembObj> arrayList = readCachedSecGrpMembByClusterIdx( ClusterId );
+		IYCFGenKbSecGrpMembObj obj;
+		List<IYCFGenKbSecGrpMembObj> arrayList = readCachedSecGrpMembByClusterIdx( ClusterId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbSecGrpMembObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbSecGrpMembObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1235,11 +1235,11 @@ public class CFGenKbSecGrpMembTableObj
 		int SecGroupId )
 	{
 		final String S_ProcName = "deepDisposeSecGrpMembByGroupIdx";
-		ICFGenKbSecGrpMembObj obj;
-		List<ICFGenKbSecGrpMembObj> arrayList = readCachedSecGrpMembByGroupIdx( ClusterId,
+		IYCFGenKbSecGrpMembObj obj;
+		List<IYCFGenKbSecGrpMembObj> arrayList = readCachedSecGrpMembByGroupIdx( ClusterId,
 				SecGroupId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbSecGrpMembObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbSecGrpMembObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1252,10 +1252,10 @@ public class CFGenKbSecGrpMembTableObj
 	public void deepDisposeSecGrpMembByUserIdx( UUID SecUserId )
 	{
 		final String S_ProcName = "deepDisposeSecGrpMembByUserIdx";
-		ICFGenKbSecGrpMembObj obj;
-		List<ICFGenKbSecGrpMembObj> arrayList = readCachedSecGrpMembByUserIdx( SecUserId );
+		IYCFGenKbSecGrpMembObj obj;
+		List<IYCFGenKbSecGrpMembObj> arrayList = readCachedSecGrpMembByUserIdx( SecUserId );
 		if( arrayList != null )  {
-			Iterator<ICFGenKbSecGrpMembObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFGenKbSecGrpMembObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1269,7 +1269,7 @@ public class CFGenKbSecGrpMembTableObj
 		int SecGroupId,
 		UUID SecUserId )
 	{
-		ICFGenKbSecGrpMembObj obj = readCachedSecGrpMembByUUserIdx( ClusterId,
+		IYCFGenKbSecGrpMembObj obj = readCachedSecGrpMembByUUserIdx( ClusterId,
 				SecGroupId,
 				SecUserId );
 		if( obj != null ) {
@@ -1286,26 +1286,26 @@ public class CFGenKbSecGrpMembTableObj
 	 *	@return	A List of SecGrpMemb-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFGenKbSecGrpMembObj> pageSecGrpMembByClusterIdx( long ClusterId,
+	public List<IYCFGenKbSecGrpMembObj> pageSecGrpMembByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Long priorSecGrpMembId )
 	{
 		final String S_ProcName = "pageSecGrpMembByClusterIdx";
-		CFGenKbSecGrpMembByClusterIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
+		YCFGenKbSecGrpMembByClusterIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
-		List<ICFGenKbSecGrpMembObj> retList = new LinkedList<ICFGenKbSecGrpMembObj>();
-		ICFGenKbSecGrpMembObj obj;
-		CFGenKbSecGrpMembBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().pageBuffByClusterIdx( schema.getAuthorization(),
+		List<IYCFGenKbSecGrpMembObj> retList = new LinkedList<IYCFGenKbSecGrpMembObj>();
+		IYCFGenKbSecGrpMembObj obj;
+		YCFGenKbSecGrpMembBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().pageBuffByClusterIdx( schema.getAuthorization(),
 				ClusterId,
 			priorClusterId,
 			priorSecGrpMembId );
-		CFGenKbSecGrpMembBuff buff;
+		YCFGenKbSecGrpMembBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecGrpMembTableObj().newInstance();
-			obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+			obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 			obj.setBuff( buff );
-			ICFGenKbSecGrpMembObj realised = (ICFGenKbSecGrpMembObj)obj.realise();
+			IYCFGenKbSecGrpMembObj realised = (IYCFGenKbSecGrpMembObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1322,29 +1322,29 @@ public class CFGenKbSecGrpMembTableObj
 	 *	@return	A List of SecGrpMemb-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFGenKbSecGrpMembObj> pageSecGrpMembByGroupIdx( long ClusterId,
+	public List<IYCFGenKbSecGrpMembObj> pageSecGrpMembByGroupIdx( long ClusterId,
 		int SecGroupId,
 		Long priorClusterId,
 		Long priorSecGrpMembId )
 	{
 		final String S_ProcName = "pageSecGrpMembByGroupIdx";
-		CFGenKbSecGrpMembByGroupIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
+		YCFGenKbSecGrpMembByGroupIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
-		List<ICFGenKbSecGrpMembObj> retList = new LinkedList<ICFGenKbSecGrpMembObj>();
-		ICFGenKbSecGrpMembObj obj;
-		CFGenKbSecGrpMembBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().pageBuffByGroupIdx( schema.getAuthorization(),
+		List<IYCFGenKbSecGrpMembObj> retList = new LinkedList<IYCFGenKbSecGrpMembObj>();
+		IYCFGenKbSecGrpMembObj obj;
+		YCFGenKbSecGrpMembBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().pageBuffByGroupIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId,
 			priorClusterId,
 			priorSecGrpMembId );
-		CFGenKbSecGrpMembBuff buff;
+		YCFGenKbSecGrpMembBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecGrpMembTableObj().newInstance();
-			obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+			obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 			obj.setBuff( buff );
-			ICFGenKbSecGrpMembObj realised = (ICFGenKbSecGrpMembObj)obj.realise();
+			IYCFGenKbSecGrpMembObj realised = (IYCFGenKbSecGrpMembObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
@@ -1359,43 +1359,43 @@ public class CFGenKbSecGrpMembTableObj
 	 *	@return	A List of SecGrpMemb-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	public List<ICFGenKbSecGrpMembObj> pageSecGrpMembByUserIdx( UUID SecUserId,
+	public List<IYCFGenKbSecGrpMembObj> pageSecGrpMembByUserIdx( UUID SecUserId,
 		Long priorClusterId,
 		Long priorSecGrpMembId )
 	{
 		final String S_ProcName = "pageSecGrpMembByUserIdx";
-		CFGenKbSecGrpMembByUserIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
+		YCFGenKbSecGrpMembByUserIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
-		List<ICFGenKbSecGrpMembObj> retList = new LinkedList<ICFGenKbSecGrpMembObj>();
-		ICFGenKbSecGrpMembObj obj;
-		CFGenKbSecGrpMembBuff[] buffList = ((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().pageBuffByUserIdx( schema.getAuthorization(),
+		List<IYCFGenKbSecGrpMembObj> retList = new LinkedList<IYCFGenKbSecGrpMembObj>();
+		IYCFGenKbSecGrpMembObj obj;
+		YCFGenKbSecGrpMembBuff[] buffList = ((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().pageBuffByUserIdx( schema.getAuthorization(),
 				SecUserId,
 			priorClusterId,
 			priorSecGrpMembId );
-		CFGenKbSecGrpMembBuff buff;
+		YCFGenKbSecGrpMembBuff buff;
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[ idx ];
 				obj = schema.getSecGrpMembTableObj().newInstance();
-			obj.setPKey( ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
+			obj.setPKey( ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey() );
 			obj.setBuff( buff );
-			ICFGenKbSecGrpMembObj realised = (ICFGenKbSecGrpMembObj)obj.realise();
+			IYCFGenKbSecGrpMembObj realised = (IYCFGenKbSecGrpMembObj)obj.realise();
 			retList.add( realised );
 		}
 		return( retList );
 	}
 
-	public ICFGenKbSecGrpMembObj updateSecGrpMemb( ICFGenKbSecGrpMembObj Obj ) {
-		ICFGenKbSecGrpMembObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().updateSecGrpMemb( schema.getAuthorization(),
+	public IYCFGenKbSecGrpMembObj updateSecGrpMemb( IYCFGenKbSecGrpMembObj Obj ) {
+		IYCFGenKbSecGrpMembObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().updateSecGrpMemb( schema.getAuthorization(),
 			Obj.getSecGrpMembBuff() );
-		obj = (ICFGenKbSecGrpMembObj)Obj.realise();
+		obj = (IYCFGenKbSecGrpMembObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteSecGrpMemb( ICFGenKbSecGrpMembObj Obj ) {
-		ICFGenKbSecGrpMembObj obj = Obj;
-		((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMemb( schema.getAuthorization(),
+	public void deleteSecGrpMemb( IYCFGenKbSecGrpMembObj Obj ) {
+		IYCFGenKbSecGrpMembObj obj = Obj;
+		((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMemb( schema.getAuthorization(),
 			obj.getSecGrpMembBuff() );
 		Obj.forget();
 	}
@@ -1403,15 +1403,15 @@ public class CFGenKbSecGrpMembTableObj
 	public void deleteSecGrpMembByIdIdx( long ClusterId,
 		long SecGrpMembId )
 	{
-		CFGenKbSecGrpMembPKey pkey = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey();
+		YCFGenKbSecGrpMembPKey pkey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newPKey();
 		pkey.setRequiredClusterId( ClusterId );
 		pkey.setRequiredSecGrpMembId( SecGrpMembId );
-		ICFGenKbSecGrpMembObj obj = readSecGrpMemb( pkey );
+		IYCFGenKbSecGrpMembObj obj = readSecGrpMemb( pkey );
 		if( obj != null ) {
-			ICFGenKbSecGrpMembEditObj editObj = (ICFGenKbSecGrpMembEditObj)obj.getEdit();
+			IYCFGenKbSecGrpMembEditObj editObj = (IYCFGenKbSecGrpMembEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFGenKbSecGrpMembEditObj)obj.beginEdit();
+				editObj = (IYCFGenKbSecGrpMembEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1436,19 +1436,19 @@ public class CFGenKbSecGrpMembTableObj
 
 	public void deleteSecGrpMembByClusterIdx( long ClusterId )
 	{
-		CFGenKbSecGrpMembByClusterIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
+		YCFGenKbSecGrpMembByClusterIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		if( indexByClusterIdx == null ) {
-			indexByClusterIdx = new HashMap< CFGenKbSecGrpMembByClusterIdxKey,
-				Map< CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > >();
+			indexByClusterIdx = new HashMap< YCFGenKbSecGrpMembByClusterIdxKey,
+				Map< YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > >();
 		}
 		if( indexByClusterIdx.containsKey( key ) ) {
-			Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> dict = indexByClusterIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByClusterIdx( schema.getAuthorization(),
+			Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> dict = indexByClusterIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByClusterIdx( schema.getAuthorization(),
 				ClusterId );
-			Iterator<ICFGenKbSecGrpMembObj> iter = dict.values().iterator();
-			ICFGenKbSecGrpMembObj obj;
-			List<ICFGenKbSecGrpMembObj> toForget = new LinkedList<ICFGenKbSecGrpMembObj>();
+			Iterator<IYCFGenKbSecGrpMembObj> iter = dict.values().iterator();
+			IYCFGenKbSecGrpMembObj obj;
+			List<IYCFGenKbSecGrpMembObj> toForget = new LinkedList<IYCFGenKbSecGrpMembObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1461,7 +1461,7 @@ public class CFGenKbSecGrpMembTableObj
 			indexByClusterIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByClusterIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByClusterIdx( schema.getAuthorization(),
 				ClusterId );
 		}
 		deepDisposeSecGrpMembByClusterIdx( ClusterId );
@@ -1470,21 +1470,21 @@ public class CFGenKbSecGrpMembTableObj
 	public void deleteSecGrpMembByGroupIdx( long ClusterId,
 		int SecGroupId )
 	{
-		CFGenKbSecGrpMembByGroupIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
+		YCFGenKbSecGrpMembByGroupIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newGroupIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 		if( indexByGroupIdx == null ) {
-			indexByGroupIdx = new HashMap< CFGenKbSecGrpMembByGroupIdxKey,
-				Map< CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > >();
+			indexByGroupIdx = new HashMap< YCFGenKbSecGrpMembByGroupIdxKey,
+				Map< YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > >();
 		}
 		if( indexByGroupIdx.containsKey( key ) ) {
-			Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> dict = indexByGroupIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByGroupIdx( schema.getAuthorization(),
+			Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> dict = indexByGroupIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByGroupIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId );
-			Iterator<ICFGenKbSecGrpMembObj> iter = dict.values().iterator();
-			ICFGenKbSecGrpMembObj obj;
-			List<ICFGenKbSecGrpMembObj> toForget = new LinkedList<ICFGenKbSecGrpMembObj>();
+			Iterator<IYCFGenKbSecGrpMembObj> iter = dict.values().iterator();
+			IYCFGenKbSecGrpMembObj obj;
+			List<IYCFGenKbSecGrpMembObj> toForget = new LinkedList<IYCFGenKbSecGrpMembObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1497,7 +1497,7 @@ public class CFGenKbSecGrpMembTableObj
 			indexByGroupIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByGroupIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByGroupIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId );
 		}
@@ -1507,19 +1507,19 @@ public class CFGenKbSecGrpMembTableObj
 
 	public void deleteSecGrpMembByUserIdx( UUID SecUserId )
 	{
-		CFGenKbSecGrpMembByUserIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
+		YCFGenKbSecGrpMembByUserIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUserIdxKey();
 		key.setRequiredSecUserId( SecUserId );
 		if( indexByUserIdx == null ) {
-			indexByUserIdx = new HashMap< CFGenKbSecGrpMembByUserIdxKey,
-				Map< CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj > >();
+			indexByUserIdx = new HashMap< YCFGenKbSecGrpMembByUserIdxKey,
+				Map< YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj > >();
 		}
 		if( indexByUserIdx.containsKey( key ) ) {
-			Map<CFGenKbSecGrpMembPKey, ICFGenKbSecGrpMembObj> dict = indexByUserIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByUserIdx( schema.getAuthorization(),
+			Map<YCFGenKbSecGrpMembPKey, IYCFGenKbSecGrpMembObj> dict = indexByUserIdx.get( key );
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByUserIdx( schema.getAuthorization(),
 				SecUserId );
-			Iterator<ICFGenKbSecGrpMembObj> iter = dict.values().iterator();
-			ICFGenKbSecGrpMembObj obj;
-			List<ICFGenKbSecGrpMembObj> toForget = new LinkedList<ICFGenKbSecGrpMembObj>();
+			Iterator<IYCFGenKbSecGrpMembObj> iter = dict.values().iterator();
+			IYCFGenKbSecGrpMembObj obj;
+			List<IYCFGenKbSecGrpMembObj> toForget = new LinkedList<IYCFGenKbSecGrpMembObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1532,7 +1532,7 @@ public class CFGenKbSecGrpMembTableObj
 			indexByUserIdx.remove( key );
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByUserIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByUserIdx( schema.getAuthorization(),
 				SecUserId );
 		}
 		deepDisposeSecGrpMembByUserIdx( SecUserId );
@@ -1543,24 +1543,24 @@ public class CFGenKbSecGrpMembTableObj
 		UUID SecUserId )
 	{
 		if( indexByUUserIdx == null ) {
-			indexByUUserIdx = new HashMap< CFGenKbSecGrpMembByUUserIdxKey,
-				ICFGenKbSecGrpMembObj >();
+			indexByUUserIdx = new HashMap< YCFGenKbSecGrpMembByUUserIdxKey,
+				IYCFGenKbSecGrpMembObj >();
 		}
-		CFGenKbSecGrpMembByUUserIdxKey key = ((ICFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
+		YCFGenKbSecGrpMembByUUserIdxKey key = ((IYCFGenKbSchema)schema.getBackingStore()).getFactorySecGrpMemb().newUUserIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredSecGroupId( SecGroupId );
 		key.setRequiredSecUserId( SecUserId );
-		ICFGenKbSecGrpMembObj obj = null;
+		IYCFGenKbSecGrpMembObj obj = null;
 		if( indexByUUserIdx.containsKey( key ) ) {
 			obj = indexByUUserIdx.get( key );
-			((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByUUserIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByUUserIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId,
 				SecUserId );
 			obj.forget();
 		}
 		else {
-			((ICFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByUUserIdx( schema.getAuthorization(),
+			((IYCFGenKbSchema)schema.getBackingStore()).getTableSecGrpMemb().deleteSecGrpMembByUUserIdx( schema.getAuthorization(),
 				ClusterId,
 				SecGroupId,
 				SecUserId );

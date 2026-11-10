@@ -1,15 +1,15 @@
-// Description: Java 11 Schema Pooled Object implementation for CFInt.
+// Description: Java 11 Schema Pooled Object implementation for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,14 +26,14 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 /**
  *	A pooled schema object does not disconnect the backing
@@ -41,10 +41,10 @@ import org.msscf.msscf.v2_13.cfint.CFInt.*;
  *	comes from a connection pool that is reused across requests,
  *	rather than being owned by the SchemaPooledObj.
  */
-public class CFIntSchemaPooledObj
-	extends CFIntSchemaObj
+public class YCFIntSchemaPooledObj
+	extends YCFIntSchemaObj
 {
-	public CFIntSchemaPooledObj() {
+	public YCFIntSchemaPooledObj() {
 		super();
 	}
 
@@ -59,7 +59,7 @@ public class CFIntSchemaPooledObj
 
 	public void disconnect( boolean doCommit ) {
 		final String S_ProcName = "disconnect";
-		throw new CFLibUsageException( getClass(),
+		throw new YCFLibUsageException( getClass(),
 			S_ProcName,
 			"Schema objects over pooled storage cannot be explicitly disconnected" );
 	}
@@ -80,10 +80,10 @@ public class CFIntSchemaPooledObj
 			}
 			UUID secSessionId = authorization.getSecSessionId();
 			if( secSessionId != null ) {
-				ICFSecSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
+				IYCFSecSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
 				if( secSession != null ) {
 					if( secSession.getOptionalFinish() == null ) {
-						ICFSecSecSessionEditObj editSecSession = secSession.beginEdit();
+						IYCFSecSecSessionEditObj editSecSession = secSession.beginEdit();
 						editSecSession.setOptionalFinish( Calendar.getInstance() );
 						editSecSession.update();
 						editSecSession = null;

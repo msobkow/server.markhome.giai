@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFInt.
+// Description: Java 11 Table Object implementation for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,57 +26,57 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntMajorVersionTableObj
-	implements ICFIntMajorVersionTableObj
+public class YCFIntMajorVersionTableObj
+	implements IYCFIntMajorVersionTableObj
 {
-	protected ICFIntSchemaObj schema;
-	private Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj> members;
-	private Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj> allMajorVersion;
-	private Map< CFIntMajorVersionByTenantIdxKey,
-		Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj > > indexByTenantIdx;
-	private Map< CFIntMajorVersionBySubProjectIdxKey,
-		Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj > > indexBySubProjectIdx;
-	private Map< CFIntMajorVersionByNameIdxKey,
-		ICFIntMajorVersionObj > indexByNameIdx;
+	protected IYCFIntSchemaObj schema;
+	private Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj> members;
+	private Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj> allMajorVersion;
+	private Map< YCFIntMajorVersionByTenantIdxKey,
+		Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > > indexByTenantIdx;
+	private Map< YCFIntMajorVersionBySubProjectIdxKey,
+		Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > > indexBySubProjectIdx;
+	private Map< YCFIntMajorVersionByNameIdxKey,
+		IYCFIntMajorVersionObj > indexByNameIdx;
 	public static String TABLE_NAME = "MajorVersion";
 	public static String TABLE_DBNAME = "mjvrdef";
 
-	public CFIntMajorVersionTableObj() {
+	public YCFIntMajorVersionTableObj() {
 		schema = null;
-		members = new HashMap<CFIntMajorVersionPKey, ICFIntMajorVersionObj>();
+		members = new HashMap<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj>();
 		allMajorVersion = null;
 		indexByTenantIdx = null;
 		indexBySubProjectIdx = null;
 		indexByNameIdx = null;
 	}
 
-	public CFIntMajorVersionTableObj( ICFIntSchemaObj argSchema ) {
-		schema = (ICFIntSchemaObj)argSchema;
-		members = new HashMap<CFIntMajorVersionPKey, ICFIntMajorVersionObj>();
+	public YCFIntMajorVersionTableObj( IYCFIntSchemaObj argSchema ) {
+		schema = (IYCFIntSchemaObj)argSchema;
+		members = new HashMap<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj>();
 		allMajorVersion = null;
 		indexByTenantIdx = null;
 		indexBySubProjectIdx = null;
 		indexByNameIdx = null;
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
-		schema = (ICFIntSchemaObj)value;
+	public void setSchema( IYCFIntSchemaObj value ) {
+		schema = (IYCFIntSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -88,7 +88,7 @@ public class CFIntMajorVersionTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFIntTenantObj.class );
+		return( IYCFIntTenantObj.class );
 	}
 
 
@@ -97,9 +97,9 @@ public class CFIntMajorVersionTableObj
 		indexByTenantIdx = null;
 		indexBySubProjectIdx = null;
 		indexByNameIdx = null;
-		List<ICFIntMajorVersionObj> toForget = new LinkedList<ICFIntMajorVersionObj>();
-		ICFIntMajorVersionObj cur = null;
-		Iterator<ICFIntMajorVersionObj> iter = members.values().iterator();
+		List<IYCFIntMajorVersionObj> toForget = new LinkedList<IYCFIntMajorVersionObj>();
+		IYCFIntMajorVersionObj cur = null;
+		Iterator<IYCFIntMajorVersionObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -117,10 +117,10 @@ public class CFIntMajorVersionTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntMajorVersionObj.
+	 *	YCFIntMajorVersionObj.
 	 */
-	public ICFIntMajorVersionObj newInstance() {
-		ICFIntMajorVersionObj inst = new CFIntMajorVersionObj( schema );
+	public IYCFIntMajorVersionObj newInstance() {
+		IYCFIntMajorVersionObj inst = new YCFIntMajorVersionObj( schema );
 		return( inst );
 	}
 
@@ -131,19 +131,19 @@ public class CFIntMajorVersionTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntMajorVersionObj.
+	 *	YCFIntMajorVersionObj.
 	 */
-	public ICFIntMajorVersionEditObj newEditInstance( ICFIntMajorVersionObj orig ) {
-		ICFIntMajorVersionEditObj edit = new CFIntMajorVersionEditObj( orig );
+	public IYCFIntMajorVersionEditObj newEditInstance( IYCFIntMajorVersionObj orig ) {
+		IYCFIntMajorVersionEditObj edit = new YCFIntMajorVersionEditObj( orig );
 		return( edit );
 	}
 
-	public ICFIntMajorVersionObj realiseMajorVersion( ICFIntMajorVersionObj Obj ) {
-		ICFIntMajorVersionObj obj = Obj;
-		CFIntMajorVersionPKey pkey = obj.getPKey();
-		ICFIntMajorVersionObj keepObj = null;
+	public IYCFIntMajorVersionObj realiseMajorVersion( IYCFIntMajorVersionObj Obj ) {
+		IYCFIntMajorVersionObj obj = Obj;
+		YCFIntMajorVersionPKey pkey = obj.getPKey();
+		IYCFIntMajorVersionObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFIntMajorVersionObj existingObj = members.get( pkey );
+			IYCFIntMajorVersionObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -154,10 +154,10 @@ public class CFIntMajorVersionTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByTenantIdx != null ) {
-				CFIntMajorVersionByTenantIdxKey keyTenantIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
+				YCFIntMajorVersionByTenantIdxKey keyTenantIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.remove( keepObj.getPKey() );
 					if( mapTenantIdx.size() <= 0 ) {
@@ -167,11 +167,11 @@ public class CFIntMajorVersionTableObj
 			}
 
 			if( indexBySubProjectIdx != null ) {
-				CFIntMajorVersionBySubProjectIdxKey keySubProjectIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
+				YCFIntMajorVersionBySubProjectIdxKey keySubProjectIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
 				keySubProjectIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keySubProjectIdx.setRequiredSubProjectId( keepObj.getRequiredSubProjectId() );
-				Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj > mapSubProjectIdx = indexBySubProjectIdx.get( keySubProjectIdx );
+				Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > mapSubProjectIdx = indexBySubProjectIdx.get( keySubProjectIdx );
 				if( mapSubProjectIdx != null ) {
 					mapSubProjectIdx.remove( keepObj.getPKey() );
 					if( mapSubProjectIdx.size() <= 0 ) {
@@ -181,8 +181,8 @@ public class CFIntMajorVersionTableObj
 			}
 
 			if( indexByNameIdx != null ) {
-				CFIntMajorVersionByNameIdxKey keyNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
+				YCFIntMajorVersionByNameIdxKey keyNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
 				keyNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyNameIdx.setRequiredSubProjectId( keepObj.getRequiredSubProjectId() );
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -193,29 +193,29 @@ public class CFIntMajorVersionTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByTenantIdx != null ) {
-				CFIntMajorVersionByTenantIdxKey keyTenantIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
+				YCFIntMajorVersionByTenantIdxKey keyTenantIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySubProjectIdx != null ) {
-				CFIntMajorVersionBySubProjectIdxKey keySubProjectIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
+				YCFIntMajorVersionBySubProjectIdxKey keySubProjectIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
 				keySubProjectIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keySubProjectIdx.setRequiredSubProjectId( keepObj.getRequiredSubProjectId() );
-				Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj > mapSubProjectIdx = indexBySubProjectIdx.get( keySubProjectIdx );
+				Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > mapSubProjectIdx = indexBySubProjectIdx.get( keySubProjectIdx );
 				if( mapSubProjectIdx != null ) {
 					mapSubProjectIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNameIdx != null ) {
-				CFIntMajorVersionByNameIdxKey keyNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
+				YCFIntMajorVersionByNameIdxKey keyNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
 				keyNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyNameIdx.setRequiredSubProjectId( keepObj.getRequiredSubProjectId() );
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -237,29 +237,29 @@ public class CFIntMajorVersionTableObj
 			}
 
 			if( indexByTenantIdx != null ) {
-				CFIntMajorVersionByTenantIdxKey keyTenantIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
+				YCFIntMajorVersionByTenantIdxKey keyTenantIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
 				keyTenantIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
+				Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > mapTenantIdx = indexByTenantIdx.get( keyTenantIdx );
 				if( mapTenantIdx != null ) {
 					mapTenantIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexBySubProjectIdx != null ) {
-				CFIntMajorVersionBySubProjectIdxKey keySubProjectIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
+				YCFIntMajorVersionBySubProjectIdxKey keySubProjectIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
 				keySubProjectIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keySubProjectIdx.setRequiredSubProjectId( keepObj.getRequiredSubProjectId() );
-				Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj > mapSubProjectIdx = indexBySubProjectIdx.get( keySubProjectIdx );
+				Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > mapSubProjectIdx = indexBySubProjectIdx.get( keySubProjectIdx );
 				if( mapSubProjectIdx != null ) {
 					mapSubProjectIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNameIdx != null ) {
-				CFIntMajorVersionByNameIdxKey keyNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
+				YCFIntMajorVersionByNameIdxKey keyNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
 				keyNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyNameIdx.setRequiredSubProjectId( keepObj.getRequiredSubProjectId() );
 				keyNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -270,10 +270,10 @@ public class CFIntMajorVersionTableObj
 		return( keepObj );
 	}
 
-	public ICFIntMajorVersionObj createMajorVersion( ICFIntMajorVersionObj Obj ) {
-		ICFIntMajorVersionObj obj = Obj;
-		CFIntMajorVersionBuff buff = obj.getMajorVersionBuff();
-		((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().createMajorVersion(
+	public IYCFIntMajorVersionObj createMajorVersion( IYCFIntMajorVersionObj Obj ) {
+		IYCFIntMajorVersionObj obj = Obj;
+		YCFIntMajorVersionBuff buff = obj.getMajorVersionBuff();
+		((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().createMajorVersion(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -282,58 +282,58 @@ public class CFIntMajorVersionTableObj
 		return( obj );
 	}
 
-	public ICFIntMajorVersionObj readMajorVersion( CFIntMajorVersionPKey pkey ) {
+	public IYCFIntMajorVersionObj readMajorVersion( YCFIntMajorVersionPKey pkey ) {
 		return( readMajorVersion( pkey, false ) );
 	}
 
-	public ICFIntMajorVersionObj readMajorVersion( CFIntMajorVersionPKey pkey, boolean forceRead ) {
-		ICFIntMajorVersionObj obj = null;
+	public IYCFIntMajorVersionObj readMajorVersion( YCFIntMajorVersionPKey pkey, boolean forceRead ) {
+		IYCFIntMajorVersionObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFIntMajorVersionBuff readBuff = ((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFIntMajorVersionBuff readBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getMajorVersionTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFIntMajorVersionObj)obj.realise();
+				obj = (IYCFIntMajorVersionObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntMajorVersionObj readCachedMajorVersion( CFIntMajorVersionPKey pkey ) {
-		ICFIntMajorVersionObj obj = null;
+	public IYCFIntMajorVersionObj readCachedMajorVersion( YCFIntMajorVersionPKey pkey ) {
+		IYCFIntMajorVersionObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeMajorVersion( ICFIntMajorVersionObj obj )
+	public void reallyDeepDisposeMajorVersion( IYCFIntMajorVersionObj obj )
 	{
-		final String S_ProcName = "CFIntMajorVersionTableObj.reallyDeepDisposeMajorVersion() ";
+		final String S_ProcName = "YCFIntMajorVersionTableObj.reallyDeepDisposeMajorVersion() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFIntMajorVersionPKey pkey = obj.getPKey();
-		ICFIntMajorVersionObj existing = readCachedMajorVersion( pkey );
+		YCFIntMajorVersionPKey pkey = obj.getPKey();
+		IYCFIntMajorVersionObj existing = readCachedMajorVersion( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFIntMajorVersionByTenantIdxKey keyTenantIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
+		YCFIntMajorVersionByTenantIdxKey keyTenantIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntMajorVersionBySubProjectIdxKey keySubProjectIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
+		YCFIntMajorVersionBySubProjectIdxKey keySubProjectIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
 		keySubProjectIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keySubProjectIdx.setRequiredSubProjectId( existing.getRequiredSubProjectId() );
 
-		CFIntMajorVersionByNameIdxKey keyNameIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
+		YCFIntMajorVersionByNameIdxKey keyNameIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
 		keyNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyNameIdx.setRequiredSubProjectId( existing.getRequiredSubProjectId() );
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
@@ -366,57 +366,57 @@ public class CFIntMajorVersionTableObj
 
 
 	}
-	public void deepDisposeMajorVersion( CFIntMajorVersionPKey pkey ) {
-		ICFIntMajorVersionObj obj = readCachedMajorVersion( pkey );
+	public void deepDisposeMajorVersion( YCFIntMajorVersionPKey pkey ) {
+		IYCFIntMajorVersionObj obj = readCachedMajorVersion( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFIntMajorVersionObj lockMajorVersion( CFIntMajorVersionPKey pkey ) {
-		ICFIntMajorVersionObj locked = null;
-		CFIntMajorVersionBuff lockBuff = ((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFIntMajorVersionObj lockMajorVersion( YCFIntMajorVersionPKey pkey ) {
+		IYCFIntMajorVersionObj locked = null;
+		YCFIntMajorVersionBuff lockBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getMajorVersionTableObj().newInstance();
-			locked.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
+			locked.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFIntMajorVersionObj)locked.realise();
+			locked = (IYCFIntMajorVersionObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockMajorVersion", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockMajorVersion", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFIntMajorVersionObj> readAllMajorVersion() {
+	public List<IYCFIntMajorVersionObj> readAllMajorVersion() {
 		return( readAllMajorVersion( false ) );
 	}
 
-	public List<ICFIntMajorVersionObj> readAllMajorVersion( boolean forceRead ) {
+	public List<IYCFIntMajorVersionObj> readAllMajorVersion( boolean forceRead ) {
 		final String S_ProcName = "readAllMajorVersion";
 		if( ( allMajorVersion == null ) || forceRead ) {
-			Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj> map = new HashMap<CFIntMajorVersionPKey,ICFIntMajorVersionObj>();
+			Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj> map = new HashMap<YCFIntMajorVersionPKey,IYCFIntMajorVersionObj>();
 			allMajorVersion = map;
-			CFIntMajorVersionBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().readAllDerived( schema.getAuthorization() );
-			CFIntMajorVersionBuff buff;
-			ICFIntMajorVersionObj obj;
+			YCFIntMajorVersionBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().readAllDerived( schema.getAuthorization() );
+			YCFIntMajorVersionBuff buff;
+			IYCFIntMajorVersionObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
 				obj.setBuff( buff );
-				ICFIntMajorVersionObj realised = (ICFIntMajorVersionObj)obj.realise();
+				IYCFIntMajorVersionObj realised = (IYCFIntMajorVersionObj)obj.realise();
 			}
 		}
 		int len = allMajorVersion.size();
-		ICFIntMajorVersionObj arr[] = new ICFIntMajorVersionObj[len];
-		Iterator<ICFIntMajorVersionObj> valIter = allMajorVersion.values().iterator();
+		IYCFIntMajorVersionObj arr[] = new IYCFIntMajorVersionObj[len];
+		Iterator<IYCFIntMajorVersionObj> valIter = allMajorVersion.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -424,20 +424,20 @@ public class CFIntMajorVersionTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntMajorVersionObj> arrayList = new ArrayList<ICFIntMajorVersionObj>(len);
+		ArrayList<IYCFIntMajorVersionObj> arrayList = new ArrayList<IYCFIntMajorVersionObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntMajorVersionObj> cmp = new Comparator<ICFIntMajorVersionObj>() {
-			public int compare( ICFIntMajorVersionObj lhs, ICFIntMajorVersionObj rhs ) {
+		Comparator<IYCFIntMajorVersionObj> cmp = new Comparator<IYCFIntMajorVersionObj>() {
+			public int compare( IYCFIntMajorVersionObj lhs, IYCFIntMajorVersionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -450,31 +450,31 @@ public class CFIntMajorVersionTableObj
 					return( 1 );
 				}
 				else {
-					CFIntMajorVersionPKey lhsPKey = lhs.getPKey();
-					CFIntMajorVersionPKey rhsPKey = rhs.getPKey();
+					YCFIntMajorVersionPKey lhsPKey = lhs.getPKey();
+					YCFIntMajorVersionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntMajorVersionObj> sortedList = arrayList;
+		List<IYCFIntMajorVersionObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFIntMajorVersionObj> readCachedAllMajorVersion() {
+	public List<IYCFIntMajorVersionObj> readCachedAllMajorVersion() {
 		final String S_ProcName = "readCachedAllMajorVersion";
-		ArrayList<ICFIntMajorVersionObj> arrayList = new ArrayList<ICFIntMajorVersionObj>();
+		ArrayList<IYCFIntMajorVersionObj> arrayList = new ArrayList<IYCFIntMajorVersionObj>();
 		if( allMajorVersion != null ) {
 			int len = allMajorVersion.size();
-			ICFIntMajorVersionObj arr[] = new ICFIntMajorVersionObj[len];
-			Iterator<ICFIntMajorVersionObj> valIter = allMajorVersion.values().iterator();
+			IYCFIntMajorVersionObj arr[] = new IYCFIntMajorVersionObj[len];
+			Iterator<IYCFIntMajorVersionObj> valIter = allMajorVersion.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -482,7 +482,7 @@ public class CFIntMajorVersionTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -493,8 +493,8 @@ public class CFIntMajorVersionTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFIntMajorVersionObj> cmp = new Comparator<ICFIntMajorVersionObj>() {
-			public int compare( ICFIntMajorVersionObj lhs, ICFIntMajorVersionObj rhs ) {
+		Comparator<IYCFIntMajorVersionObj> cmp = new Comparator<IYCFIntMajorVersionObj>() {
+			public int compare( IYCFIntMajorVersionObj lhs, IYCFIntMajorVersionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -507,8 +507,8 @@ public class CFIntMajorVersionTableObj
 					return( 1 );
 				}
 				else {
-					CFIntMajorVersionPKey lhsPKey = lhs.getPKey();
-					CFIntMajorVersionPKey rhsPKey = rhs.getPKey();
+					YCFIntMajorVersionPKey lhsPKey = lhs.getPKey();
+					YCFIntMajorVersionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -518,7 +518,7 @@ public class CFIntMajorVersionTableObj
 		return( arrayList );
 	}
 
-	public ICFIntMajorVersionObj readMajorVersionByIdIdx( long TenantId,
+	public IYCFIntMajorVersionObj readMajorVersionByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readMajorVersionByIdIdx( TenantId,
@@ -526,61 +526,61 @@ public class CFIntMajorVersionTableObj
 			false ) );
 	}
 
-	public ICFIntMajorVersionObj readMajorVersionByIdIdx( long TenantId,
+	public IYCFIntMajorVersionObj readMajorVersionByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFIntMajorVersionPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey();
+		YCFIntMajorVersionPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFIntMajorVersionObj obj = readMajorVersion( pkey, forceRead );
+		IYCFIntMajorVersionObj obj = readMajorVersion( pkey, forceRead );
 		return( obj );
 	}
 
-	public List<ICFIntMajorVersionObj> readMajorVersionByTenantIdx( long TenantId )
+	public List<IYCFIntMajorVersionObj> readMajorVersionByTenantIdx( long TenantId )
 	{
 		return( readMajorVersionByTenantIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFIntMajorVersionObj> readMajorVersionByTenantIdx( long TenantId,
+	public List<IYCFIntMajorVersionObj> readMajorVersionByTenantIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readMajorVersionByTenantIdx";
-		CFIntMajorVersionByTenantIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
+		YCFIntMajorVersionByTenantIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj> dict;
+		Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj> dict;
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFIntMajorVersionByTenantIdxKey,
-				Map< CFIntMajorVersionPKey, ICFIntMajorVersionObj > >();
+			indexByTenantIdx = new HashMap< YCFIntMajorVersionByTenantIdxKey,
+				Map< YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > >();
 		}
 		if( ( ! forceRead ) && indexByTenantIdx.containsKey( key ) ) {
 			dict = indexByTenantIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFIntMajorVersionPKey, ICFIntMajorVersionObj>();
-			ICFIntMajorVersionObj obj;
-			CFIntMajorVersionBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().readDerivedByTenantIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj>();
+			IYCFIntMajorVersionObj obj;
+			YCFIntMajorVersionBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().readDerivedByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			CFIntMajorVersionBuff buff;
+			YCFIntMajorVersionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getMajorVersionTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
 				obj.setBuff( buff );
-				ICFIntMajorVersionObj realised = (ICFIntMajorVersionObj)obj.realise();
+				IYCFIntMajorVersionObj realised = (IYCFIntMajorVersionObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByTenantIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFIntMajorVersionObj arr[] = new ICFIntMajorVersionObj[len];
-		Iterator<ICFIntMajorVersionObj> valIter = dict.values().iterator();
+		IYCFIntMajorVersionObj arr[] = new IYCFIntMajorVersionObj[len];
+		Iterator<IYCFIntMajorVersionObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -588,20 +588,20 @@ public class CFIntMajorVersionTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntMajorVersionObj> arrayList = new ArrayList<ICFIntMajorVersionObj>(len);
+		ArrayList<IYCFIntMajorVersionObj> arrayList = new ArrayList<IYCFIntMajorVersionObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntMajorVersionObj> cmp = new Comparator<ICFIntMajorVersionObj>() {
-			public int compare( ICFIntMajorVersionObj lhs, ICFIntMajorVersionObj rhs ) {
+		Comparator<IYCFIntMajorVersionObj> cmp = new Comparator<IYCFIntMajorVersionObj>() {
+			public int compare( IYCFIntMajorVersionObj lhs, IYCFIntMajorVersionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -614,19 +614,19 @@ public class CFIntMajorVersionTableObj
 					return( 1 );
 				}
 				else {
-					CFIntMajorVersionPKey lhsPKey = lhs.getPKey();
-					CFIntMajorVersionPKey rhsPKey = rhs.getPKey();
+					YCFIntMajorVersionPKey lhsPKey = lhs.getPKey();
+					YCFIntMajorVersionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntMajorVersionObj> sortedList = arrayList;
+		List<IYCFIntMajorVersionObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFIntMajorVersionObj> readMajorVersionBySubProjectIdx( long TenantId,
+	public List<IYCFIntMajorVersionObj> readMajorVersionBySubProjectIdx( long TenantId,
 		long SubProjectId )
 	{
 		return( readMajorVersionBySubProjectIdx( TenantId,
@@ -634,48 +634,48 @@ public class CFIntMajorVersionTableObj
 			false ) );
 	}
 
-	public List<ICFIntMajorVersionObj> readMajorVersionBySubProjectIdx( long TenantId,
+	public List<IYCFIntMajorVersionObj> readMajorVersionBySubProjectIdx( long TenantId,
 		long SubProjectId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readMajorVersionBySubProjectIdx";
-		CFIntMajorVersionBySubProjectIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
+		YCFIntMajorVersionBySubProjectIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSubProjectId( SubProjectId );
-		Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj> dict;
+		Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj> dict;
 		if( indexBySubProjectIdx == null ) {
-			indexBySubProjectIdx = new HashMap< CFIntMajorVersionBySubProjectIdxKey,
-				Map< CFIntMajorVersionPKey, ICFIntMajorVersionObj > >();
+			indexBySubProjectIdx = new HashMap< YCFIntMajorVersionBySubProjectIdxKey,
+				Map< YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > >();
 		}
 		if( ( ! forceRead ) && indexBySubProjectIdx.containsKey( key ) ) {
 			dict = indexBySubProjectIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFIntMajorVersionPKey, ICFIntMajorVersionObj>();
-			ICFIntMajorVersionObj obj;
-			CFIntMajorVersionBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().readDerivedBySubProjectIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj>();
+			IYCFIntMajorVersionObj obj;
+			YCFIntMajorVersionBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().readDerivedBySubProjectIdx( schema.getAuthorization(),
 				TenantId,
 				SubProjectId );
-			CFIntMajorVersionBuff buff;
+			YCFIntMajorVersionBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getMajorVersionTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
 				obj.setBuff( buff );
-				ICFIntMajorVersionObj realised = (ICFIntMajorVersionObj)obj.realise();
+				IYCFIntMajorVersionObj realised = (IYCFIntMajorVersionObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexBySubProjectIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFIntMajorVersionObj arr[] = new ICFIntMajorVersionObj[len];
-		Iterator<ICFIntMajorVersionObj> valIter = dict.values().iterator();
+		IYCFIntMajorVersionObj arr[] = new IYCFIntMajorVersionObj[len];
+		Iterator<IYCFIntMajorVersionObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -683,20 +683,20 @@ public class CFIntMajorVersionTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntMajorVersionObj> arrayList = new ArrayList<ICFIntMajorVersionObj>(len);
+		ArrayList<IYCFIntMajorVersionObj> arrayList = new ArrayList<IYCFIntMajorVersionObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntMajorVersionObj> cmp = new Comparator<ICFIntMajorVersionObj>() {
-			public int compare( ICFIntMajorVersionObj lhs, ICFIntMajorVersionObj rhs ) {
+		Comparator<IYCFIntMajorVersionObj> cmp = new Comparator<IYCFIntMajorVersionObj>() {
+			public int compare( IYCFIntMajorVersionObj lhs, IYCFIntMajorVersionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -709,19 +709,19 @@ public class CFIntMajorVersionTableObj
 					return( 1 );
 				}
 				else {
-					CFIntMajorVersionPKey lhsPKey = lhs.getPKey();
-					CFIntMajorVersionPKey rhsPKey = rhs.getPKey();
+					YCFIntMajorVersionPKey lhsPKey = lhs.getPKey();
+					YCFIntMajorVersionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntMajorVersionObj> sortedList = arrayList;
+		List<IYCFIntMajorVersionObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFIntMajorVersionObj readMajorVersionByNameIdx( long TenantId,
+	public IYCFIntMajorVersionObj readMajorVersionByNameIdx( long TenantId,
 		long SubProjectId,
 		String Name )
 	{
@@ -731,67 +731,67 @@ public class CFIntMajorVersionTableObj
 			false ) );
 	}
 
-	public ICFIntMajorVersionObj readMajorVersionByNameIdx( long TenantId,
+	public IYCFIntMajorVersionObj readMajorVersionByNameIdx( long TenantId,
 		long SubProjectId,
 		String Name, boolean forceRead )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFIntMajorVersionByNameIdxKey,
-				ICFIntMajorVersionObj >();
+			indexByNameIdx = new HashMap< YCFIntMajorVersionByNameIdxKey,
+				IYCFIntMajorVersionObj >();
 		}
-		CFIntMajorVersionByNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
+		YCFIntMajorVersionByNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSubProjectId( SubProjectId );
 		key.setRequiredName( Name );
-		ICFIntMajorVersionObj obj = null;
+		IYCFIntMajorVersionObj obj = null;
 		if( ( ! forceRead ) && indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
 		}
 		else {
-			CFIntMajorVersionBuff buff = ((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().readDerivedByNameIdx( schema.getAuthorization(),
+			YCFIntMajorVersionBuff buff = ((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().readDerivedByNameIdx( schema.getAuthorization(),
 				TenantId,
 				SubProjectId,
 				Name );
 			if( buff != null ) {
 				obj = schema.getMajorVersionTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFIntMajorVersionObj)obj.realise();
+				obj = (IYCFIntMajorVersionObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntMajorVersionObj readCachedMajorVersionByIdIdx( long TenantId,
+	public IYCFIntMajorVersionObj readCachedMajorVersionByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFIntMajorVersionObj obj = null;
-		CFIntMajorVersionPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey();
+		IYCFIntMajorVersionObj obj = null;
+		YCFIntMajorVersionPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedMajorVersion( pkey );
 		return( obj );
 	}
 
-	public List<ICFIntMajorVersionObj> readCachedMajorVersionByTenantIdx( long TenantId )
+	public List<IYCFIntMajorVersionObj> readCachedMajorVersionByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedMajorVersionByTenantIdx";
-		CFIntMajorVersionByTenantIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
+		YCFIntMajorVersionByTenantIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFIntMajorVersionObj> arrayList = new ArrayList<ICFIntMajorVersionObj>();
+		ArrayList<IYCFIntMajorVersionObj> arrayList = new ArrayList<IYCFIntMajorVersionObj>();
 		if( indexByTenantIdx != null ) {
-			Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj> dict;
+			Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj> dict;
 			if( indexByTenantIdx.containsKey( key ) ) {
 				dict = indexByTenantIdx.get( key );
 				int len = dict.size();
-				ICFIntMajorVersionObj arr[] = new ICFIntMajorVersionObj[len];
-				Iterator<ICFIntMajorVersionObj> valIter = dict.values().iterator();
+				IYCFIntMajorVersionObj arr[] = new IYCFIntMajorVersionObj[len];
+				Iterator<IYCFIntMajorVersionObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -799,7 +799,7 @@ public class CFIntMajorVersionTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -812,8 +812,8 @@ public class CFIntMajorVersionTableObj
 			}
 		}
 		else {
-			ICFIntMajorVersionObj obj;
-			Iterator<ICFIntMajorVersionObj> valIter = members.values().iterator();
+			IYCFIntMajorVersionObj obj;
+			Iterator<IYCFIntMajorVersionObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -823,8 +823,8 @@ public class CFIntMajorVersionTableObj
 				}
 			}
 		}
-		Comparator<ICFIntMajorVersionObj> cmp = new Comparator<ICFIntMajorVersionObj>() {
-			public int compare( ICFIntMajorVersionObj lhs, ICFIntMajorVersionObj rhs ) {
+		Comparator<IYCFIntMajorVersionObj> cmp = new Comparator<IYCFIntMajorVersionObj>() {
+			public int compare( IYCFIntMajorVersionObj lhs, IYCFIntMajorVersionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -837,8 +837,8 @@ public class CFIntMajorVersionTableObj
 					return( 1 );
 				}
 				else {
-					CFIntMajorVersionPKey lhsPKey = lhs.getPKey();
-					CFIntMajorVersionPKey rhsPKey = rhs.getPKey();
+					YCFIntMajorVersionPKey lhsPKey = lhs.getPKey();
+					YCFIntMajorVersionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -848,27 +848,27 @@ public class CFIntMajorVersionTableObj
 		return( arrayList );
 	}
 
-	public List<ICFIntMajorVersionObj> readCachedMajorVersionBySubProjectIdx( long TenantId,
+	public List<IYCFIntMajorVersionObj> readCachedMajorVersionBySubProjectIdx( long TenantId,
 		long SubProjectId )
 	{
 		final String S_ProcName = "readCachedMajorVersionBySubProjectIdx";
-		CFIntMajorVersionBySubProjectIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
+		YCFIntMajorVersionBySubProjectIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSubProjectId( SubProjectId );
-		ArrayList<ICFIntMajorVersionObj> arrayList = new ArrayList<ICFIntMajorVersionObj>();
+		ArrayList<IYCFIntMajorVersionObj> arrayList = new ArrayList<IYCFIntMajorVersionObj>();
 		if( indexBySubProjectIdx != null ) {
-			Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj> dict;
+			Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj> dict;
 			if( indexBySubProjectIdx.containsKey( key ) ) {
 				dict = indexBySubProjectIdx.get( key );
 				int len = dict.size();
-				ICFIntMajorVersionObj arr[] = new ICFIntMajorVersionObj[len];
-				Iterator<ICFIntMajorVersionObj> valIter = dict.values().iterator();
+				IYCFIntMajorVersionObj arr[] = new IYCFIntMajorVersionObj[len];
+				Iterator<IYCFIntMajorVersionObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -876,7 +876,7 @@ public class CFIntMajorVersionTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -889,8 +889,8 @@ public class CFIntMajorVersionTableObj
 			}
 		}
 		else {
-			ICFIntMajorVersionObj obj;
-			Iterator<ICFIntMajorVersionObj> valIter = members.values().iterator();
+			IYCFIntMajorVersionObj obj;
+			Iterator<IYCFIntMajorVersionObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -900,8 +900,8 @@ public class CFIntMajorVersionTableObj
 				}
 			}
 		}
-		Comparator<ICFIntMajorVersionObj> cmp = new Comparator<ICFIntMajorVersionObj>() {
-			public int compare( ICFIntMajorVersionObj lhs, ICFIntMajorVersionObj rhs ) {
+		Comparator<IYCFIntMajorVersionObj> cmp = new Comparator<IYCFIntMajorVersionObj>() {
+			public int compare( IYCFIntMajorVersionObj lhs, IYCFIntMajorVersionObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -914,8 +914,8 @@ public class CFIntMajorVersionTableObj
 					return( 1 );
 				}
 				else {
-					CFIntMajorVersionPKey lhsPKey = lhs.getPKey();
-					CFIntMajorVersionPKey rhsPKey = rhs.getPKey();
+					YCFIntMajorVersionPKey lhsPKey = lhs.getPKey();
+					YCFIntMajorVersionPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -925,12 +925,12 @@ public class CFIntMajorVersionTableObj
 		return( arrayList );
 	}
 
-	public ICFIntMajorVersionObj readCachedMajorVersionByNameIdx( long TenantId,
+	public IYCFIntMajorVersionObj readCachedMajorVersionByNameIdx( long TenantId,
 		long SubProjectId,
 		String Name )
 	{
-		ICFIntMajorVersionObj obj = null;
-		CFIntMajorVersionByNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
+		IYCFIntMajorVersionObj obj = null;
+		YCFIntMajorVersionByNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSubProjectId( SubProjectId );
 		key.setRequiredName( Name );
@@ -939,7 +939,7 @@ public class CFIntMajorVersionTableObj
 				obj = indexByNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFIntMajorVersionObj> valIter = members.values().iterator();
+				Iterator<IYCFIntMajorVersionObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -951,7 +951,7 @@ public class CFIntMajorVersionTableObj
 			}
 		}
 		else {
-			Iterator<ICFIntMajorVersionObj> valIter = members.values().iterator();
+			Iterator<IYCFIntMajorVersionObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -967,7 +967,7 @@ public class CFIntMajorVersionTableObj
 	public void deepDisposeMajorVersionByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFIntMajorVersionObj obj = readCachedMajorVersionByIdIdx( TenantId,
+		IYCFIntMajorVersionObj obj = readCachedMajorVersionByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -977,10 +977,10 @@ public class CFIntMajorVersionTableObj
 	public void deepDisposeMajorVersionByTenantIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeMajorVersionByTenantIdx";
-		ICFIntMajorVersionObj obj;
-		List<ICFIntMajorVersionObj> arrayList = readCachedMajorVersionByTenantIdx( TenantId );
+		IYCFIntMajorVersionObj obj;
+		List<IYCFIntMajorVersionObj> arrayList = readCachedMajorVersionByTenantIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFIntMajorVersionObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFIntMajorVersionObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -994,11 +994,11 @@ public class CFIntMajorVersionTableObj
 		long SubProjectId )
 	{
 		final String S_ProcName = "deepDisposeMajorVersionBySubProjectIdx";
-		ICFIntMajorVersionObj obj;
-		List<ICFIntMajorVersionObj> arrayList = readCachedMajorVersionBySubProjectIdx( TenantId,
+		IYCFIntMajorVersionObj obj;
+		List<IYCFIntMajorVersionObj> arrayList = readCachedMajorVersionBySubProjectIdx( TenantId,
 				SubProjectId );
 		if( arrayList != null )  {
-			Iterator<ICFIntMajorVersionObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFIntMajorVersionObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -1012,7 +1012,7 @@ public class CFIntMajorVersionTableObj
 		long SubProjectId,
 		String Name )
 	{
-		ICFIntMajorVersionObj obj = readCachedMajorVersionByNameIdx( TenantId,
+		IYCFIntMajorVersionObj obj = readCachedMajorVersionByNameIdx( TenantId,
 				SubProjectId,
 				Name );
 		if( obj != null ) {
@@ -1020,18 +1020,18 @@ public class CFIntMajorVersionTableObj
 		}
 	}
 
-	public ICFIntMajorVersionObj updateMajorVersion( ICFIntMajorVersionObj Obj ) {
-		ICFIntMajorVersionObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().updateMajorVersion( schema.getAuthorization(),
+	public IYCFIntMajorVersionObj updateMajorVersion( IYCFIntMajorVersionObj Obj ) {
+		IYCFIntMajorVersionObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().updateMajorVersion( schema.getAuthorization(),
 			Obj.getMajorVersionBuff() );
-		obj = (ICFIntMajorVersionObj)Obj.realise();
+		obj = (IYCFIntMajorVersionObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteMajorVersion( ICFIntMajorVersionObj Obj ) {
-		ICFIntMajorVersionObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersion( schema.getAuthorization(),
+	public void deleteMajorVersion( IYCFIntMajorVersionObj Obj ) {
+		IYCFIntMajorVersionObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersion( schema.getAuthorization(),
 			obj.getMajorVersionBuff() );
 		Obj.forget();
 	}
@@ -1039,15 +1039,15 @@ public class CFIntMajorVersionTableObj
 	public void deleteMajorVersionByIdIdx( long TenantId,
 		long Id )
 	{
-		CFIntMajorVersionPKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey();
+		YCFIntMajorVersionPKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFIntMajorVersionObj obj = readMajorVersion( pkey );
+		IYCFIntMajorVersionObj obj = readMajorVersion( pkey );
 		if( obj != null ) {
-			ICFIntMajorVersionEditObj editObj = (ICFIntMajorVersionEditObj)obj.getEdit();
+			IYCFIntMajorVersionEditObj editObj = (IYCFIntMajorVersionEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFIntMajorVersionEditObj)obj.beginEdit();
+				editObj = (IYCFIntMajorVersionEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -1072,19 +1072,19 @@ public class CFIntMajorVersionTableObj
 
 	public void deleteMajorVersionByTenantIdx( long TenantId )
 	{
-		CFIntMajorVersionByTenantIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
+		YCFIntMajorVersionByTenantIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByTenantIdx == null ) {
-			indexByTenantIdx = new HashMap< CFIntMajorVersionByTenantIdxKey,
-				Map< CFIntMajorVersionPKey, ICFIntMajorVersionObj > >();
+			indexByTenantIdx = new HashMap< YCFIntMajorVersionByTenantIdxKey,
+				Map< YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > >();
 		}
 		if( indexByTenantIdx.containsKey( key ) ) {
-			Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj> dict = indexByTenantIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionByTenantIdx( schema.getAuthorization(),
+			Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj> dict = indexByTenantIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionByTenantIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFIntMajorVersionObj> iter = dict.values().iterator();
-			ICFIntMajorVersionObj obj;
-			List<ICFIntMajorVersionObj> toForget = new LinkedList<ICFIntMajorVersionObj>();
+			Iterator<IYCFIntMajorVersionObj> iter = dict.values().iterator();
+			IYCFIntMajorVersionObj obj;
+			List<IYCFIntMajorVersionObj> toForget = new LinkedList<IYCFIntMajorVersionObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1097,7 +1097,7 @@ public class CFIntMajorVersionTableObj
 			indexByTenantIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionByTenantIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionByTenantIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeMajorVersionByTenantIdx( TenantId );
@@ -1106,21 +1106,21 @@ public class CFIntMajorVersionTableObj
 	public void deleteMajorVersionBySubProjectIdx( long TenantId,
 		long SubProjectId )
 	{
-		CFIntMajorVersionBySubProjectIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
+		YCFIntMajorVersionBySubProjectIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newSubProjectIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSubProjectId( SubProjectId );
 		if( indexBySubProjectIdx == null ) {
-			indexBySubProjectIdx = new HashMap< CFIntMajorVersionBySubProjectIdxKey,
-				Map< CFIntMajorVersionPKey, ICFIntMajorVersionObj > >();
+			indexBySubProjectIdx = new HashMap< YCFIntMajorVersionBySubProjectIdxKey,
+				Map< YCFIntMajorVersionPKey, IYCFIntMajorVersionObj > >();
 		}
 		if( indexBySubProjectIdx.containsKey( key ) ) {
-			Map<CFIntMajorVersionPKey, ICFIntMajorVersionObj> dict = indexBySubProjectIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionBySubProjectIdx( schema.getAuthorization(),
+			Map<YCFIntMajorVersionPKey, IYCFIntMajorVersionObj> dict = indexBySubProjectIdx.get( key );
+			((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionBySubProjectIdx( schema.getAuthorization(),
 				TenantId,
 				SubProjectId );
-			Iterator<ICFIntMajorVersionObj> iter = dict.values().iterator();
-			ICFIntMajorVersionObj obj;
-			List<ICFIntMajorVersionObj> toForget = new LinkedList<ICFIntMajorVersionObj>();
+			Iterator<IYCFIntMajorVersionObj> iter = dict.values().iterator();
+			IYCFIntMajorVersionObj obj;
+			List<IYCFIntMajorVersionObj> toForget = new LinkedList<IYCFIntMajorVersionObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -1133,7 +1133,7 @@ public class CFIntMajorVersionTableObj
 			indexBySubProjectIdx.remove( key );
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionBySubProjectIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionBySubProjectIdx( schema.getAuthorization(),
 				TenantId,
 				SubProjectId );
 		}
@@ -1146,24 +1146,24 @@ public class CFIntMajorVersionTableObj
 		String Name )
 	{
 		if( indexByNameIdx == null ) {
-			indexByNameIdx = new HashMap< CFIntMajorVersionByNameIdxKey,
-				ICFIntMajorVersionObj >();
+			indexByNameIdx = new HashMap< YCFIntMajorVersionByNameIdxKey,
+				IYCFIntMajorVersionObj >();
 		}
-		CFIntMajorVersionByNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
+		YCFIntMajorVersionByNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMajorVersion().newNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredSubProjectId( SubProjectId );
 		key.setRequiredName( Name );
-		ICFIntMajorVersionObj obj = null;
+		IYCFIntMajorVersionObj obj = null;
 		if( indexByNameIdx.containsKey( key ) ) {
 			obj = indexByNameIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionByNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionByNameIdx( schema.getAuthorization(),
 				TenantId,
 				SubProjectId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionByNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableMajorVersion().deleteMajorVersionByNameIdx( schema.getAuthorization(),
 				TenantId,
 				SubProjectId,
 				Name );

@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamStringDefTableObj
+public interface IYCFBamStringDefTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamStringDefObj newInstance();
+	IYCFBamStringDefObj newInstance();
 
 	/**
 	 *	Instantiate a new StringDef edition of the specified StringDef instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamStringDefEditObj newEditInstance( ICFBamStringDefObj orig );
+	IYCFBamStringDefEditObj newEditInstance( IYCFBamStringDefObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamStringDefObj realiseStringDef( ICFBamStringDefObj Obj );
+	IYCFBamStringDefObj realiseStringDef( IYCFBamStringDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamStringDefObj createStringDef( ICFBamStringDefObj Obj );
+	IYCFBamStringDefObj createStringDef( IYCFBamStringDefObj Obj );
 
 	/**
 	 *	Read a StringDef-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamStringDefTableObj
 	 *	@return	The StringDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamStringDefObj readStringDef( CFBamValuePKey pkey );
+	IYCFBamStringDefObj readStringDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a StringDef-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamStringDefTableObj
 	 *	@return	The StringDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamStringDefObj readStringDef( CFBamValuePKey pkey,
+	IYCFBamStringDefObj readStringDef( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamStringDefObj readCachedStringDef( CFBamValuePKey pkey );
+	IYCFBamStringDefObj readCachedStringDef( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeStringDef( ICFBamStringDefObj obj );
+	public void reallyDeepDisposeStringDef( IYCFBamStringDefObj obj );
 
-	void deepDisposeStringDef( CFBamValuePKey pkey );
+	void deepDisposeStringDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamStringDefObj lockStringDef( CFBamValuePKey pkey );
+	IYCFBamStringDefObj lockStringDef( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the StringDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamStringDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamStringDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamStringDefObj> readAllStringDef();
+	List<IYCFBamStringDefObj> readAllStringDef();
 
 	/**
 	 *	Return a sorted map of all the StringDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamStringDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamStringDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamStringDefObj> readAllStringDef( boolean forceRead );
+	List<IYCFBamStringDefObj> readAllStringDef( boolean forceRead );
 
-	List<ICFBamStringDefObj> readCachedAllStringDef();
+	List<IYCFBamStringDefObj> readCachedAllStringDef();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamStringDefObj readStringDefByIdIdx( long TenantId,
+	IYCFBamStringDefObj readStringDefByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamStringDefObj readStringDefByIdIdx( long TenantId,
+	IYCFBamStringDefObj readStringDefByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@param	argName	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamStringDefObj readStringDefByUNameIdx( long TenantId,
+	IYCFBamStringDefObj readStringDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@param	argName	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamStringDefObj readStringDefByUNameIdx( long TenantId,
+	IYCFBamStringDefObj readStringDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByValTentIdx( long TenantId );
+	List<IYCFBamStringDefObj> readStringDefByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamStringDefObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByValTentIdx( long TenantId,
+	List<IYCFBamStringDefObj> readStringDefByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByScopeIdx( long TenantId,
+	List<IYCFBamStringDefObj> readStringDefByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamStringDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByScopeIdx( long TenantId,
+	List<IYCFBamStringDefObj> readStringDefByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamStringDefObj> readStringDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamStringDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamStringDefObj> readStringDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamStringDefObj> readStringDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamStringDefObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamStringDefObj> readStringDefByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByNextIdx( Long NextTenantId,
+	List<IYCFBamStringDefObj> readStringDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamStringDefObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The StringDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByNextIdx( Long NextTenantId,
+	List<IYCFBamStringDefObj> readStringDefByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@param	argPrevId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByContPrevIdx( long TenantId,
+	List<IYCFBamStringDefObj> readStringDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamStringDefObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@param	argPrevId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByContPrevIdx( long TenantId,
+	List<IYCFBamStringDefObj> readStringDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@param	argNextId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByContNextIdx( long TenantId,
+	List<IYCFBamStringDefObj> readStringDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamStringDefObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@param	argNextId	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByContNextIdx( long TenantId,
+	List<IYCFBamStringDefObj> readStringDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamStringDefObj> readStringDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamStringDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamStringDefObj> readStringDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamStringDefObj> readStringDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamStringDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
 	 *
@@ -446,48 +446,48 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamStringDefObj> readStringDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamStringDefObj> readStringDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
-	ICFBamStringDefObj readCachedStringDefByIdIdx( long TenantId,
+	IYCFBamStringDefObj readCachedStringDefByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamStringDefObj readCachedStringDefByUNameIdx( long TenantId,
+	IYCFBamStringDefObj readCachedStringDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamStringDefObj> readCachedStringDefByValTentIdx( long TenantId );
+	List<IYCFBamStringDefObj> readCachedStringDefByValTentIdx( long TenantId );
 
-	List<ICFBamStringDefObj> readCachedStringDefByScopeIdx( long TenantId,
+	List<IYCFBamStringDefObj> readCachedStringDefByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamStringDefObj> readCachedStringDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamStringDefObj> readCachedStringDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamStringDefObj> readCachedStringDefByPrevIdx( Long PrevTenantId,
+	List<IYCFBamStringDefObj> readCachedStringDefByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamStringDefObj> readCachedStringDefByNextIdx( Long NextTenantId,
+	List<IYCFBamStringDefObj> readCachedStringDefByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamStringDefObj> readCachedStringDefByContPrevIdx( long TenantId,
+	List<IYCFBamStringDefObj> readCachedStringDefByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamStringDefObj> readCachedStringDefByContNextIdx( long TenantId,
+	List<IYCFBamStringDefObj> readCachedStringDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamStringDefObj> readCachedStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamStringDefObj> readCachedStringDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamStringDefObj> readCachedStringDefByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamStringDefObj> readCachedStringDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeStringDefByIdIdx( long TenantId,
 		long Id );
@@ -518,21 +518,21 @@ public interface ICFBamStringDefTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeStringDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeStringDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamStringDefObj updateStringDef( ICFBamStringDefObj Obj );
+	IYCFBamStringDefObj updateStringDef( IYCFBamStringDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteStringDef( ICFBamStringDefObj Obj );
+	void deleteStringDef( IYCFBamStringDefObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -635,7 +635,7 @@ public interface ICFBamStringDefTableObj
 	 *
 	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
 	 */
-	void deleteStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteStringDefByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -648,19 +648,19 @@ public interface ICFBamStringDefTableObj
 	 */
 	void deleteStringDefByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Move the CFBamStringDefObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamStringDefObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamStringDefObj refreshed cache instance.
+	 *	@return	YCFBamStringDefObj refreshed cache instance.
 	 */
-	ICFBamStringDefObj moveUpStringDef( ICFBamStringDefObj Obj );
+	IYCFBamStringDefObj moveUpStringDef( IYCFBamStringDefObj Obj );
 
 	/**
-	 *	Move the CFBamStringDefObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamStringDefObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamStringDefObj refreshed cache instance.
+	 *	@return	YCFBamStringDefObj refreshed cache instance.
 	 */
-	ICFBamStringDefObj moveDownStringDef( ICFBamStringDefObj Obj );
+	IYCFBamStringDefObj moveDownStringDef( IYCFBamStringDefObj Obj );
 }

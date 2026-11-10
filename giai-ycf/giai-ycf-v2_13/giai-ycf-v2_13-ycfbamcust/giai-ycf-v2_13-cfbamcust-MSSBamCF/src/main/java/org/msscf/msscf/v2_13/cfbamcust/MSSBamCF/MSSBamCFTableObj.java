@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,124 +23,124 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
 import java.math.*;
 import java.text.*;
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
-public class MSSBamCFTableObj
+public class MSSBamYCFTableObj
 {
-	public MSSBamCFTableObj() {
+	public MSSBamYCFTableObj() {
 	}
 
-    public static List<ICFBamId16GenObj> getId16Generators( ICFBamTableObj tableDef )
+    public static List<IYCFBamId16GenObj> getId16Generators( IYCFBamTableObj tableDef )
     {
-        List<ICFBamId16GenObj> list = new LinkedList<ICFBamId16GenObj>();
-        Iterator<ICFBamValueObj> childrenColumns = tableDef.getOptionalComponentsColumns().iterator();
+        List<IYCFBamId16GenObj> list = new LinkedList<IYCFBamId16GenObj>();
+        Iterator<IYCFBamValueObj> childrenColumns = tableDef.getOptionalComponentsColumns().iterator();
         while (childrenColumns.hasNext())
         {
-            ICFBamAtomObj atomDef = null;
-            ICFLibAnyObj colDef = childrenColumns.next();
-            if (colDef instanceof ICFBamTableColObj)
+            IYCFBamAtomObj atomDef = null;
+            IYCFLibAnyObj colDef = childrenColumns.next();
+            if (colDef instanceof IYCFBamTableColObj)
             {
-                atomDef = (ICFBamAtomObj)((ICFBamTableColObj)colDef).getRequiredParentDataType();
+                atomDef = (IYCFBamAtomObj)((IYCFBamTableColObj)colDef).getRequiredParentDataType();
             }
-            else if (colDef instanceof ICFBamAtomObj)
+            else if (colDef instanceof IYCFBamAtomObj)
             {
-                atomDef = (ICFBamAtomObj)colDef;
+                atomDef = (IYCFBamAtomObj)colDef;
             }
             if (atomDef != null)
             {
-                if (atomDef instanceof ICFBamId16GenObj)
+                if (atomDef instanceof IYCFBamId16GenObj)
                 {
-                    list.add((ICFBamId16GenObj)atomDef);
+                    list.add((IYCFBamId16GenObj)atomDef);
                 }
             }
         }
         return (list);
     }
 
-    public static List<ICFBamId32GenObj> getId32Generators(ICFBamTableObj tableDef)
+    public static List<IYCFBamId32GenObj> getId32Generators(IYCFBamTableObj tableDef)
     {
-        List<ICFBamId32GenObj> list = new LinkedList<ICFBamId32GenObj>();
-        Iterator<ICFBamValueObj> childrenColumns = tableDef.getOptionalComponentsColumns().iterator();
+        List<IYCFBamId32GenObj> list = new LinkedList<IYCFBamId32GenObj>();
+        Iterator<IYCFBamValueObj> childrenColumns = tableDef.getOptionalComponentsColumns().iterator();
         while (childrenColumns.hasNext())
         {
-            ICFBamAtomObj atomDef = null;
-            ICFLibAnyObj colDef = childrenColumns.next();
-            if (colDef instanceof ICFBamTableColObj)
+            IYCFBamAtomObj atomDef = null;
+            IYCFLibAnyObj colDef = childrenColumns.next();
+            if (colDef instanceof IYCFBamTableColObj)
             {
-                atomDef = (ICFBamAtomObj)((ICFBamTableColObj)colDef).getRequiredParentDataType();
+                atomDef = (IYCFBamAtomObj)((IYCFBamTableColObj)colDef).getRequiredParentDataType();
             }
-            else if (colDef instanceof ICFBamAtomObj)
+            else if (colDef instanceof IYCFBamAtomObj)
             {
-                atomDef = (ICFBamAtomObj)colDef;
+                atomDef = (IYCFBamAtomObj)colDef;
             }
             if (atomDef != null)
             {
-                if (atomDef instanceof ICFBamId32GenObj)
+                if (atomDef instanceof IYCFBamId32GenObj)
                 {
-                    list.add((ICFBamId32GenObj)atomDef);
+                    list.add((IYCFBamId32GenObj)atomDef);
                 }
             }
         }
         return (list);
     }
 
-    public static List<ICFBamId64GenObj> getId64Generators(ICFBamTableObj tableDef)
+    public static List<IYCFBamId64GenObj> getId64Generators(IYCFBamTableObj tableDef)
     {
-        List<ICFBamId64GenObj> list = new LinkedList<ICFBamId64GenObj>();
-        Iterator<ICFBamValueObj> childrenColumns = tableDef.getOptionalComponentsColumns().iterator();
+        List<IYCFBamId64GenObj> list = new LinkedList<IYCFBamId64GenObj>();
+        Iterator<IYCFBamValueObj> childrenColumns = tableDef.getOptionalComponentsColumns().iterator();
         while (childrenColumns.hasNext())
         {
-            ICFBamAtomObj atomDef = null;
-            ICFLibAnyObj colDef = childrenColumns.next();
-            if (colDef instanceof ICFBamTableColObj)
+            IYCFBamAtomObj atomDef = null;
+            IYCFLibAnyObj colDef = childrenColumns.next();
+            if (colDef instanceof IYCFBamTableColObj)
             {
-                atomDef = (ICFBamAtomObj)((ICFBamTableColObj)colDef).getRequiredParentDataType();
+                atomDef = (IYCFBamAtomObj)((IYCFBamTableColObj)colDef).getRequiredParentDataType();
             }
-            else if (colDef instanceof ICFBamAtomObj)
+            else if (colDef instanceof IYCFBamAtomObj)
             {
-                atomDef = (ICFBamAtomObj)colDef;
+                atomDef = (IYCFBamAtomObj)colDef;
             }
             if (atomDef != null)
             {
-                if (atomDef instanceof ICFBamId64GenObj)
+                if (atomDef instanceof IYCFBamId64GenObj)
                 {
-                    list.add((ICFBamId64GenObj)atomDef);
+                    list.add((IYCFBamId64GenObj)atomDef);
                 }
             }
         }
         return (list);
     }
 
-    public static List<ICFBamId16GenObj> getDispensedId16Generators(ICFBamTableObj tableDef)
+    public static List<IYCFBamId16GenObj> getDispensedId16Generators(IYCFBamTableObj tableDef)
     {
-        List<ICFBamId16GenObj> list = new LinkedList<ICFBamId16GenObj>();
-        Iterator<ICFBamId16GenObj> dispensed = tableDef.getSchema().getId16GenTableObj().readId16GenByDispIdx(tableDef.getRequiredTenantId(), tableDef.getRequiredId()).iterator();
+        List<IYCFBamId16GenObj> list = new LinkedList<IYCFBamId16GenObj>();
+        Iterator<IYCFBamId16GenObj> dispensed = tableDef.getSchema().getId16GenTableObj().readId16GenByDispIdx(tableDef.getRequiredTenantId(), tableDef.getRequiredId()).iterator();
         while (dispensed.hasNext())
         {
             list.add(dispensed.next());
@@ -148,10 +148,10 @@ public class MSSBamCFTableObj
         return (list);
     }
 
-    public static List<ICFBamId32GenObj> getDispensedId32Generators(ICFBamTableObj tableDef)
+    public static List<IYCFBamId32GenObj> getDispensedId32Generators(IYCFBamTableObj tableDef)
     {
-        List<ICFBamId32GenObj> list = new LinkedList<ICFBamId32GenObj>();
-        Iterator<ICFBamId32GenObj> dispensed = tableDef.getSchema().getId32GenTableObj().readId32GenByDispIdx(tableDef.getRequiredTenantId(), tableDef.getRequiredId()).iterator();
+        List<IYCFBamId32GenObj> list = new LinkedList<IYCFBamId32GenObj>();
+        Iterator<IYCFBamId32GenObj> dispensed = tableDef.getSchema().getId32GenTableObj().readId32GenByDispIdx(tableDef.getRequiredTenantId(), tableDef.getRequiredId()).iterator();
         while (dispensed.hasNext())
         {
             list.add(dispensed.next());
@@ -159,10 +159,10 @@ public class MSSBamCFTableObj
         return (list);
     }
 
-    public static List<ICFBamId64GenObj> getDispensedId64Generators(ICFBamTableObj tableDef)
+    public static List<IYCFBamId64GenObj> getDispensedId64Generators(IYCFBamTableObj tableDef)
     {
-        List<ICFBamId64GenObj> list = new LinkedList<ICFBamId64GenObj>();
-        Iterator<ICFBamId64GenObj> dispensed = tableDef.getSchema().getId64GenTableObj().readId64GenByDispIdx(tableDef.getRequiredTenantId(), tableDef.getRequiredId()).iterator();
+        List<IYCFBamId64GenObj> list = new LinkedList<IYCFBamId64GenObj>();
+        Iterator<IYCFBamId64GenObj> dispensed = tableDef.getSchema().getId64GenTableObj().readId64GenByDispIdx(tableDef.getRequiredTenantId(), tableDef.getRequiredId()).iterator();
         while (dispensed.hasNext())
         {
             list.add(dispensed.next());
@@ -170,25 +170,25 @@ public class MSSBamCFTableObj
         return (list);
     }
 
-    public static List<ICFBamRelationObj> getOnlyOwnerRelations( ICFBamTableObj tableDef )
+    public static List<IYCFBamRelationObj> getOnlyOwnerRelations( IYCFBamTableObj tableDef )
     {
-        ICFBamRelationObj relationDef = null;
-        List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-        Iterator<ICFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
+        IYCFBamRelationObj relationDef = null;
+        List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+        Iterator<IYCFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
         while (childrenRelations.hasNext()) {
             relationDef = childrenRelations.next();
-            if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner ) {
+            if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner ) {
                 list.add(relationDef);
             }
         }
 
-        ICFBamRelationObj superClass = getSuperClassRelation( tableDef );
+        IYCFBamRelationObj superClass = getSuperClassRelation( tableDef );
         while( superClass != null ) {
         	tableDef = superClass.getRequiredLookupToTable();
             childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
             while (childrenRelations.hasNext()) {
                 relationDef = childrenRelations.next();
-                if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner ) {
+                if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner ) {
                     list.add(relationDef);
                 }
             }
@@ -198,7 +198,7 @@ public class MSSBamCFTableObj
         childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
         while (childrenRelations.hasNext()) {
             relationDef = childrenRelations.next();
-            if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) {
+            if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) {
                 list.add(relationDef);
             }
         }
@@ -209,7 +209,7 @@ public class MSSBamCFTableObj
             childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
             while (childrenRelations.hasNext()) {
                 relationDef = childrenRelations.next();
-                if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) {
+                if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) {
                     list.add(relationDef);
                 }
             }
@@ -219,31 +219,31 @@ public class MSSBamCFTableObj
         return (list);
     }
 
-    public static List<ICFBamRelationObj> getContainerOwnerRelations( ICFBamTableObj tableDef )
+    public static List<IYCFBamRelationObj> getContainerOwnerRelations( IYCFBamTableObj tableDef )
     {
-        ICFBamRelationObj relationDef = null;
+        IYCFBamRelationObj relationDef = null;
         String relationTag = null;
-        List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-        Iterator<ICFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
+        List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+        Iterator<IYCFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
         while (childrenRelations.hasNext()) {
             relationDef = childrenRelations.next();
-            if( ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner )
-             || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Parent )
-             || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) )
+            if( ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner )
+             || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Parent )
+             || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) )
             {
                 list.add(relationDef);
             }
         }
 
-        ICFBamRelationObj superClass = getSuperClassRelation( tableDef );
+        IYCFBamRelationObj superClass = getSuperClassRelation( tableDef );
         while( superClass != null ) {
         	tableDef = superClass.getRequiredLookupToTable();
             childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
             while (childrenRelations.hasNext()) {
                 relationDef = childrenRelations.next();
-                if( ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner )
-                 || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Parent )
-                 || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) )
+                if( ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner )
+                 || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Parent )
+                 || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) )
                 {
                 	list.add(relationDef);
                 }
@@ -254,29 +254,29 @@ public class MSSBamCFTableObj
         return (list);
     }
 
-    public static ICFBamRelationObj getContainerRelation(ICFBamTableObj tableDef)
+    public static IYCFBamRelationObj getContainerRelation(IYCFBamTableObj tableDef)
     {
-        ICFBamRelationObj relationDef;
-        Iterator<ICFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
+        IYCFBamRelationObj relationDef;
+        Iterator<IYCFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
         while (childrenRelations.hasNext()) {
             relationDef = childrenRelations.next();
-            if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) {
+            if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) {
                 return (relationDef);
             }
         }
         return (null);
     }
 
-    public static ICFBamRelationObj getInheritedContainerRelation(ICFBamTableObj tableDef)
+    public static IYCFBamRelationObj getInheritedContainerRelation(IYCFBamTableObj tableDef)
     {
-    	ICFBamRelationObj inheritedContainerRelation = null;
-        ICFBamRelationObj relationDef;
-        Iterator<ICFBamRelationObj> childrenRelations;
+    	IYCFBamRelationObj inheritedContainerRelation = null;
+        IYCFBamRelationObj relationDef;
+        Iterator<IYCFBamRelationObj> childrenRelations;
     	while( ( inheritedContainerRelation == null ) && ( tableDef != null ) ) {
 	        childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
 	        while (childrenRelations.hasNext()) {
 	            relationDef = childrenRelations.next();
-	            if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) {
+	            if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) {
             		return( relationDef );
 	            }
 	        }
@@ -291,29 +291,29 @@ public class MSSBamCFTableObj
         return (null);
     }
 
-    public static ICFBamRelationObj getOwnerRelation(ICFBamTableObj tableDef)
+    public static IYCFBamRelationObj getOwnerRelation(IYCFBamTableObj tableDef)
     {
-        ICFBamRelationObj relationDef;
-        Iterator<ICFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
+        IYCFBamRelationObj relationDef;
+        Iterator<IYCFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
         while (childrenRelations.hasNext()) {
             relationDef = childrenRelations.next();
-            if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner ) {
+            if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner ) {
                 return (relationDef);
             }
         }
         return (null);
     }
 
-    public static ICFBamRelationObj getInheritedOwnerRelation(ICFBamTableObj tableDef)
+    public static IYCFBamRelationObj getInheritedOwnerRelation(IYCFBamTableObj tableDef)
     {
-    	ICFBamRelationObj inheritedOwnerRelation = null;
-        ICFBamRelationObj relationDef;
-        Iterator<ICFBamRelationObj> childrenRelations;
+    	IYCFBamRelationObj inheritedOwnerRelation = null;
+        IYCFBamRelationObj relationDef;
+        Iterator<IYCFBamRelationObj> childrenRelations;
     	while( ( inheritedOwnerRelation == null ) && ( tableDef != null ) ) {
 	        childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
 	        while (childrenRelations.hasNext()) {
 	            relationDef = childrenRelations.next();
-	            if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner ) {
+	            if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner ) {
             		return( relationDef );
 	            }
 	        }
@@ -328,17 +328,17 @@ public class MSSBamCFTableObj
         return (null);
     }
 
-    public static List<ICFBamRelationObj> getOwnerLookupRelations(ICFBamTableObj tableDef)
+    public static List<IYCFBamRelationObj> getOwnerLookupRelations(IYCFBamTableObj tableDef)
     {
-        List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-        Iterator<ICFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
+        List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+        Iterator<IYCFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
         while (childrenRelations.hasNext())
         {
-            ICFBamRelationObj relationDef = childrenRelations.next();
-            if( ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Parent )
-             || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container )
-             || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Lookup )
-             || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner ) )
+            IYCFBamRelationObj relationDef = childrenRelations.next();
+            if( ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Parent )
+             || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container )
+             || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Lookup )
+             || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner ) )
             {
                 list.add(relationDef);
             }
@@ -346,32 +346,32 @@ public class MSSBamCFTableObj
         return (list);
     }
 
-    public static List<ICFBamRelationObj> getOwnerContainerNamedLookupChainRelations(ICFBamTableObj tableDef)
+    public static List<IYCFBamRelationObj> getOwnerContainerNamedLookupChainRelations(IYCFBamTableObj tableDef)
     {
-        List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-        List<ICFBamChainObj> componentChains = tableDef.getOptionalComponentsChains();
-        Iterator<ICFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
+        List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+        List<IYCFBamChainObj> componentChains = tableDef.getOptionalComponentsChains();
+        Iterator<IYCFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
         while (childrenRelations.hasNext()) {
-            ICFBamRelationObj relationDef = childrenRelations.next();
-            if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+            IYCFBamRelationObj relationDef = childrenRelations.next();
+            if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
             	;
             }
-            else if( ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container )
-             || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner )
-             || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container )
-             || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Parent )
-             || ( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Lookup ) )
+            else if( ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container )
+             || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner )
+             || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container )
+             || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Parent )
+             || ( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Lookup ) )
             {
                list.add(relationDef);
             }
             else {
             	if( ! relationDef.getRequiredIsXsdContainer() ) {
-	            	ICFBamIndexObj toIndex = relationDef.getRequiredLookupToIndex();
+	            	IYCFBamIndexObj toIndex = relationDef.getRequiredLookupToIndex();
 	            	if( toIndex.getRequiredIsUnique() ) {
 	            		boolean referencedByChain = false;
-	            		Iterator<ICFBamChainObj> iterChain = componentChains.iterator();
+	            		Iterator<IYCFBamChainObj> iterChain = componentChains.iterator();
 	            		while( ( ! referencedByChain ) && iterChain.hasNext() ) {
-	            			ICFBamChainObj chain = iterChain.next();
+	            			IYCFBamChainObj chain = iterChain.next();
 	            			if( chain.getRequiredLookupPrevRel() == relationDef ) {
 	            				referencedByChain = true;
 	            			}
@@ -383,10 +383,10 @@ public class MSSBamCFTableObj
 	            			list.add( relationDef );
 	            		}
 	            		else {
-			            	ICFBamTableObj toTable = relationDef.getRequiredLookupToTable();
-			            	ICFBamIndexObj lookupIndex = toTable.getOptionalLookupLookupIndex();
+			            	IYCFBamTableObj toTable = relationDef.getRequiredLookupToTable();
+			            	IYCFBamIndexObj lookupIndex = toTable.getOptionalLookupLookupIndex();
 			            	while( ( lookupIndex == null ) && ( toTable != null ) ) {
-			            		ICFBamRelationObj superRelation = getSuperClassRelation( toTable );
+			            		IYCFBamRelationObj superRelation = getSuperClassRelation( toTable );
 			            		if( superRelation != null ) {
 			            			toTable = superRelation.getRequiredLookupToTable();
 				            		if( toTable != null ) {
@@ -408,82 +408,82 @@ public class MSSBamCFTableObj
         return (list);
     }
 
-    public static List<ICFBamAtomObj> getChildrenAtoms( ICFBamTableObj tableDef )
+    public static List<IYCFBamAtomObj> getChildrenAtoms( IYCFBamTableObj tableDef )
     {
-        List<ICFBamAtomObj> list = new LinkedList<ICFBamAtomObj>();
-        Iterator<ICFBamValueObj> childrenColumns = tableDef.getOptionalComponentsColumns().iterator();
+        List<IYCFBamAtomObj> list = new LinkedList<IYCFBamAtomObj>();
+        Iterator<IYCFBamValueObj> childrenColumns = tableDef.getOptionalComponentsColumns().iterator();
         while (childrenColumns.hasNext())
         {
-            ICFBamValueObj colDef = childrenColumns.next();
-            if (colDef instanceof ICFBamAtomObj)
+            IYCFBamValueObj colDef = childrenColumns.next();
+            if (colDef instanceof IYCFBamAtomObj)
             {
-                list.add( (ICFBamAtomObj)colDef);
+                list.add( (IYCFBamAtomObj)colDef);
             }
         }
         return (list);
     }
 
-    public static ICFBamRelationObj getSuperClassRelation( ICFBamTableObj tableDef )
+    public static IYCFBamRelationObj getSuperClassRelation( IYCFBamTableObj tableDef )
     {
-        Iterator<ICFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
+        Iterator<IYCFBamRelationObj> childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
         while (childrenRelations.hasNext())
         {
-            ICFBamRelationObj relationDef = childrenRelations.next();
-            if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+            IYCFBamRelationObj relationDef = childrenRelations.next();
+            if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
                 return( relationDef );
             }
         }
         return (null);
     }
 
-    public static List<ICFBamRelationObj> getSubClassRelations(ICFBamTableObj tableDef)
+    public static List<IYCFBamRelationObj> getSubClassRelations(IYCFBamTableObj tableDef)
     {
-        List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-        Iterator<ICFBamRelationObj> reverseRelations = tableDef.getOptionalChildrenReverseRelations().iterator();
+        List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+        Iterator<IYCFBamRelationObj> reverseRelations = tableDef.getOptionalChildrenReverseRelations().iterator();
         while (reverseRelations.hasNext())
         {
-            ICFBamRelationObj reverseRelation = reverseRelations.next();
-            if( reverseRelation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+            IYCFBamRelationObj reverseRelation = reverseRelations.next();
+            if( reverseRelation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
                 list.add(reverseRelation);
             }
         }
         return (list);
     }
 
-    public static ICFBamIndexObj getPrimaryKeyIndex(ICFBamTableObj tableDef)
+    public static IYCFBamIndexObj getPrimaryKeyIndex(IYCFBamTableObj tableDef)
     {
-        ICFBamIndexObj primaryIndex = tableDef.getOptionalLookupPrimaryIndex();
+        IYCFBamIndexObj primaryIndex = tableDef.getOptionalLookupPrimaryIndex();
         return (primaryIndex);
     }
 
-    public static List<ICFBamRelationObj> getFactoryOwnerRelations(ICFBamTableObj tableDef)
+    public static List<IYCFBamRelationObj> getFactoryOwnerRelations(IYCFBamTableObj tableDef)
     {
-        List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-        Iterator<ICFBamRelationObj> ownerRelations = getContainerOwnerRelations(tableDef).iterator();
+        List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+        Iterator<IYCFBamRelationObj> ownerRelations = getContainerOwnerRelations(tableDef).iterator();
         while (ownerRelations.hasNext())
         {
             // throw new NotImplementedException();
-            ICFBamRelationObj ownerRelation = ownerRelations.next();
-            if( ownerRelation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+            IYCFBamRelationObj ownerRelation = ownerRelations.next();
+            if( ownerRelation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
                 list.add(ownerRelation);
             }
         }
         return (list);
     }
 
-    public static List<ICFBamIndexObj> getInheritedIndexes(ICFBamTableObj tableDef)
+    public static List<IYCFBamIndexObj> getInheritedIndexes(IYCFBamTableObj tableDef)
     {
-        List<ICFBamIndexObj> list = new LinkedList<ICFBamIndexObj>();
-        ICFBamRelationObj superClassRelation = getSuperClassRelation(tableDef);
+        List<IYCFBamIndexObj> list = new LinkedList<IYCFBamIndexObj>();
+        IYCFBamRelationObj superClassRelation = getSuperClassRelation(tableDef);
         if (superClassRelation != null)
         {
-            Iterator<ICFBamIndexObj> superClassInheritedIndexes
+            Iterator<IYCFBamIndexObj> superClassInheritedIndexes
                 = getInheritedIndexes(superClassRelation.getRequiredLookupToTable()).iterator();
             while (superClassInheritedIndexes.hasNext())
             {
                 list.add(superClassInheritedIndexes.next());
             }
-            Iterator<ICFBamIndexObj> myIndexes
+            Iterator<IYCFBamIndexObj> myIndexes
                 = getChildrenIndexes( tableDef ).iterator();
             while( myIndexes.hasNext() )
             {
@@ -493,29 +493,29 @@ public class MSSBamCFTableObj
         return (list);
     }
 
-    public static List<ICFBamIndexObj> getChildrenIndexes(ICFBamTableObj tableDef)
+    public static List<IYCFBamIndexObj> getChildrenIndexes(IYCFBamTableObj tableDef)
     {
-        Iterator<ICFBamIndexObj> iter = tableDef.getOptionalComponentsIndex().iterator();
-        List<ICFBamIndexObj> list = new LinkedList<ICFBamIndexObj>();
+        Iterator<IYCFBamIndexObj> iter = tableDef.getOptionalComponentsIndex().iterator();
+        List<IYCFBamIndexObj> list = new LinkedList<IYCFBamIndexObj>();
         while( iter.hasNext() ) {
         	list.add( iter.next() );
         }
         return( list );
     }
 
-    public static List<ICFBamRelationObj> getInheritedRelations(ICFBamTableObj tableDef)
+    public static List<IYCFBamRelationObj> getInheritedRelations(IYCFBamTableObj tableDef)
     {
-        List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-        ICFBamRelationObj superClassRelation = getSuperClassRelation(tableDef);
+        List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+        IYCFBamRelationObj superClassRelation = getSuperClassRelation(tableDef);
         if (superClassRelation != null)
         {
-            Iterator<ICFBamRelationObj> superClassInheritedRelations
+            Iterator<IYCFBamRelationObj> superClassInheritedRelations
                 = getInheritedRelations(superClassRelation.getRequiredLookupToTable()).iterator();
             while (superClassInheritedRelations.hasNext())
             {
                 list.add(superClassInheritedRelations.next());
             }
-            Iterator<ICFBamRelationObj> myRelations
+            Iterator<IYCFBamRelationObj> myRelations
                 = getChildrenRelations(tableDef).iterator();
             while (myRelations.hasNext())
             {
@@ -525,31 +525,31 @@ public class MSSBamCFTableObj
         return (list);
     }
 
-    public static List<ICFBamRelationObj> getChildrenRelations(ICFBamTableObj tableDef)
+    public static List<IYCFBamRelationObj> getChildrenRelations(IYCFBamTableObj tableDef)
     {
-        List<ICFBamRelationObj> childrenRelations = new LinkedList<ICFBamRelationObj>();
-        Collection<ICFBamRelationObj> cltn = tableDef.getOptionalComponentsRelation();
-        Iterator<ICFBamRelationObj> iter = cltn.iterator();
+        List<IYCFBamRelationObj> childrenRelations = new LinkedList<IYCFBamRelationObj>();
+        Collection<IYCFBamRelationObj> cltn = tableDef.getOptionalComponentsRelation();
+        Iterator<IYCFBamRelationObj> iter = cltn.iterator();
         while( iter.hasNext() ) {
         	childrenRelations.add( iter.next() );
         }
         return (childrenRelations);
     }
 
-    public static List<ICFBamValueObj> getTableIdGenerators(ICFBamTableObj tableDef)
+    public static List<IYCFBamValueObj> getTableIdGenerators(IYCFBamTableObj tableDef)
     {
-        List<ICFBamValueObj> list = new LinkedList<ICFBamValueObj>();
-        Iterator<ICFBamId16GenObj> id16Generators = getId16Generators(tableDef).iterator();
+        List<IYCFBamValueObj> list = new LinkedList<IYCFBamValueObj>();
+        Iterator<IYCFBamId16GenObj> id16Generators = getId16Generators(tableDef).iterator();
         while (id16Generators.hasNext())
         {
             list.add(id16Generators.next());
         }
-        Iterator<ICFBamId32GenObj> id32Generators = getId32Generators(tableDef).iterator();
+        Iterator<IYCFBamId32GenObj> id32Generators = getId32Generators(tableDef).iterator();
         while (id32Generators.hasNext())
         {
             list.add(id32Generators.next());
         }
-        Iterator<ICFBamId64GenObj> id64Generators = getId64Generators(tableDef).iterator();
+        Iterator<IYCFBamId64GenObj> id64Generators = getId64Generators(tableDef).iterator();
         while (id64Generators.hasNext())
         {
             list.add(id64Generators.next());

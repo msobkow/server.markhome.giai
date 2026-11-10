@@ -1,17 +1,17 @@
-// Description: Java 11 implementation of an in-memory RAM CFBam schema.
+// Description: Java 11 implementation of an in-memory RAM YCFBam schema.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,26 +45,26 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.lang.reflect.*;
 import java.net.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader.*;
 
-public class CFBamRamSchema
-	extends CFBamSchema
-	implements ICFBamSchema
+public class YCFBamRamSchema
+	extends YCFBamSchema
+	implements IYCFBamSchema
 {
 		protected short nextISOCcyIdGenValue = 1;
 		protected short nextISOCtryIdGenValue = 1;
@@ -77,183 +77,183 @@ public class CFBamRamSchema
 		protected long nextTenantIdGenValue = 1;
 
 
-	public CFBamRamSchema() {
+	public YCFBamRamSchema() {
 		super();
-		tableAtom = new CFBamRamAtomTable( this );
-		tableBlobCol = new CFBamRamBlobColTable( this );
-		tableBlobDef = new CFBamRamBlobDefTable( this );
-		tableBlobType = new CFBamRamBlobTypeTable( this );
-		tableBoolCol = new CFBamRamBoolColTable( this );
-		tableBoolDef = new CFBamRamBoolDefTable( this );
-		tableBoolType = new CFBamRamBoolTypeTable( this );
-		tableChain = new CFBamRamChainTable( this );
-		tableClearDep = new CFBamRamClearDepTable( this );
-		tableClearSubDep1 = new CFBamRamClearSubDep1Table( this );
-		tableClearSubDep2 = new CFBamRamClearSubDep2Table( this );
-		tableClearSubDep3 = new CFBamRamClearSubDep3Table( this );
-		tableClearTopDep = new CFBamRamClearTopDepTable( this );
-		tableCluster = new CFBamRamClusterTable( this );
-		tableDateCol = new CFBamRamDateColTable( this );
-		tableDateDef = new CFBamRamDateDefTable( this );
-		tableDateType = new CFBamRamDateTypeTable( this );
-		tableDbKeyHash128Col = new CFBamRamDbKeyHash128ColTable( this );
-		tableDbKeyHash128Def = new CFBamRamDbKeyHash128DefTable( this );
-		tableDbKeyHash128Gen = new CFBamRamDbKeyHash128GenTable( this );
-		tableDbKeyHash128Type = new CFBamRamDbKeyHash128TypeTable( this );
-		tableDbKeyHash160Col = new CFBamRamDbKeyHash160ColTable( this );
-		tableDbKeyHash160Def = new CFBamRamDbKeyHash160DefTable( this );
-		tableDbKeyHash160Gen = new CFBamRamDbKeyHash160GenTable( this );
-		tableDbKeyHash160Type = new CFBamRamDbKeyHash160TypeTable( this );
-		tableDbKeyHash224Col = new CFBamRamDbKeyHash224ColTable( this );
-		tableDbKeyHash224Def = new CFBamRamDbKeyHash224DefTable( this );
-		tableDbKeyHash224Gen = new CFBamRamDbKeyHash224GenTable( this );
-		tableDbKeyHash224Type = new CFBamRamDbKeyHash224TypeTable( this );
-		tableDbKeyHash256Col = new CFBamRamDbKeyHash256ColTable( this );
-		tableDbKeyHash256Def = new CFBamRamDbKeyHash256DefTable( this );
-		tableDbKeyHash256Gen = new CFBamRamDbKeyHash256GenTable( this );
-		tableDbKeyHash256Type = new CFBamRamDbKeyHash256TypeTable( this );
-		tableDbKeyHash384Col = new CFBamRamDbKeyHash384ColTable( this );
-		tableDbKeyHash384Def = new CFBamRamDbKeyHash384DefTable( this );
-		tableDbKeyHash384Gen = new CFBamRamDbKeyHash384GenTable( this );
-		tableDbKeyHash384Type = new CFBamRamDbKeyHash384TypeTable( this );
-		tableDbKeyHash512Col = new CFBamRamDbKeyHash512ColTable( this );
-		tableDbKeyHash512Def = new CFBamRamDbKeyHash512DefTable( this );
-		tableDbKeyHash512Gen = new CFBamRamDbKeyHash512GenTable( this );
-		tableDbKeyHash512Type = new CFBamRamDbKeyHash512TypeTable( this );
-		tableDelDep = new CFBamRamDelDepTable( this );
-		tableDelSubDep1 = new CFBamRamDelSubDep1Table( this );
-		tableDelSubDep2 = new CFBamRamDelSubDep2Table( this );
-		tableDelSubDep3 = new CFBamRamDelSubDep3Table( this );
-		tableDelTopDep = new CFBamRamDelTopDepTable( this );
-		tableDoubleCol = new CFBamRamDoubleColTable( this );
-		tableDoubleDef = new CFBamRamDoubleDefTable( this );
-		tableDoubleType = new CFBamRamDoubleTypeTable( this );
-		tableEnumDef = new CFBamRamEnumDefTable( this );
-		tableEnumTag = new CFBamRamEnumTagTable( this );
-		tableEnumType = new CFBamRamEnumTypeTable( this );
-		tableFloatCol = new CFBamRamFloatColTable( this );
-		tableFloatDef = new CFBamRamFloatDefTable( this );
-		tableFloatType = new CFBamRamFloatTypeTable( this );
-		tableHostNode = new CFBamRamHostNodeTable( this );
-		tableISOCcy = new CFBamRamISOCcyTable( this );
-		tableISOCtry = new CFBamRamISOCtryTable( this );
-		tableISOCtryCcy = new CFBamRamISOCtryCcyTable( this );
-		tableISOCtryLang = new CFBamRamISOCtryLangTable( this );
-		tableISOLang = new CFBamRamISOLangTable( this );
-		tableISOTZone = new CFBamRamISOTZoneTable( this );
-		tableId16Gen = new CFBamRamId16GenTable( this );
-		tableId32Gen = new CFBamRamId32GenTable( this );
-		tableId64Gen = new CFBamRamId64GenTable( this );
-		tableIndex = new CFBamRamIndexTable( this );
-		tableIndexCol = new CFBamRamIndexColTable( this );
-		tableIndexTweak = new CFBamRamIndexTweakTable( this );
-		tableInt16Col = new CFBamRamInt16ColTable( this );
-		tableInt16Def = new CFBamRamInt16DefTable( this );
-		tableInt16Type = new CFBamRamInt16TypeTable( this );
-		tableInt32Col = new CFBamRamInt32ColTable( this );
-		tableInt32Def = new CFBamRamInt32DefTable( this );
-		tableInt32Type = new CFBamRamInt32TypeTable( this );
-		tableInt64Col = new CFBamRamInt64ColTable( this );
-		tableInt64Def = new CFBamRamInt64DefTable( this );
-		tableInt64Type = new CFBamRamInt64TypeTable( this );
-		tableLicense = new CFBamRamLicenseTable( this );
-		tableMajorVersion = new CFBamRamMajorVersionTable( this );
-		tableMimeType = new CFBamRamMimeTypeTable( this );
-		tableMinorVersion = new CFBamRamMinorVersionTable( this );
-		tableNmTokenCol = new CFBamRamNmTokenColTable( this );
-		tableNmTokenDef = new CFBamRamNmTokenDefTable( this );
-		tableNmTokenType = new CFBamRamNmTokenTypeTable( this );
-		tableNmTokensCol = new CFBamRamNmTokensColTable( this );
-		tableNmTokensDef = new CFBamRamNmTokensDefTable( this );
-		tableNmTokensType = new CFBamRamNmTokensTypeTable( this );
-		tableNumberCol = new CFBamRamNumberColTable( this );
-		tableNumberDef = new CFBamRamNumberDefTable( this );
-		tableNumberType = new CFBamRamNumberTypeTable( this );
-		tableParam = new CFBamRamParamTable( this );
-		tablePopDep = new CFBamRamPopDepTable( this );
-		tablePopSubDep1 = new CFBamRamPopSubDep1Table( this );
-		tablePopSubDep2 = new CFBamRamPopSubDep2Table( this );
-		tablePopSubDep3 = new CFBamRamPopSubDep3Table( this );
-		tablePopTopDep = new CFBamRamPopTopDepTable( this );
-		tableRelation = new CFBamRamRelationTable( this );
-		tableRelationCol = new CFBamRamRelationColTable( this );
-		tableRoleDef = new CFBamRamRoleDefTable( this );
-		tableSchemaDef = new CFBamRamSchemaDefTable( this );
-		tableSchemaRef = new CFBamRamSchemaRefTable( this );
-		tableSchemaRole = new CFBamRamSchemaRoleTable( this );
-		tableSchemaTweak = new CFBamRamSchemaTweakTable( this );
-		tableScope = new CFBamRamScopeTable( this );
-		tableSecApp = new CFBamRamSecAppTable( this );
-		tableSecDevice = new CFBamRamSecDeviceTable( this );
-		tableSecForm = new CFBamRamSecFormTable( this );
-		tableSecGroup = new CFBamRamSecGroupTable( this );
-		tableSecGroupForm = new CFBamRamSecGroupFormTable( this );
-		tableSecGrpInc = new CFBamRamSecGrpIncTable( this );
-		tableSecGrpMemb = new CFBamRamSecGrpMembTable( this );
-		tableSecSession = new CFBamRamSecSessionTable( this );
-		tableSecUser = new CFBamRamSecUserTable( this );
-		tableServerListFunc = new CFBamRamServerListFuncTable( this );
-		tableServerMethod = new CFBamRamServerMethodTable( this );
-		tableServerObjFunc = new CFBamRamServerObjFuncTable( this );
-		tableServerProc = new CFBamRamServerProcTable( this );
-		tableService = new CFBamRamServiceTable( this );
-		tableServiceType = new CFBamRamServiceTypeTable( this );
-		tableStringCol = new CFBamRamStringColTable( this );
-		tableStringDef = new CFBamRamStringDefTable( this );
-		tableStringType = new CFBamRamStringTypeTable( this );
-		tableSubProject = new CFBamRamSubProjectTable( this );
-		tableSysCluster = new CFBamRamSysClusterTable( this );
-		tableTSecGroup = new CFBamRamTSecGroupTable( this );
-		tableTSecGrpInc = new CFBamRamTSecGrpIncTable( this );
-		tableTSecGrpMemb = new CFBamRamTSecGrpMembTable( this );
-		tableTZDateCol = new CFBamRamTZDateColTable( this );
-		tableTZDateDef = new CFBamRamTZDateDefTable( this );
-		tableTZDateType = new CFBamRamTZDateTypeTable( this );
-		tableTZTimeCol = new CFBamRamTZTimeColTable( this );
-		tableTZTimeDef = new CFBamRamTZTimeDefTable( this );
-		tableTZTimeType = new CFBamRamTZTimeTypeTable( this );
-		tableTZTimestampCol = new CFBamRamTZTimestampColTable( this );
-		tableTZTimestampDef = new CFBamRamTZTimestampDefTable( this );
-		tableTZTimestampType = new CFBamRamTZTimestampTypeTable( this );
-		tableTable = new CFBamRamTableTable( this );
-		tableTableCol = new CFBamRamTableColTable( this );
-		tableTableTweak = new CFBamRamTableTweakTable( this );
-		tableTenant = new CFBamRamTenantTable( this );
-		tableTextCol = new CFBamRamTextColTable( this );
-		tableTextDef = new CFBamRamTextDefTable( this );
-		tableTextType = new CFBamRamTextTypeTable( this );
-		tableTimeCol = new CFBamRamTimeColTable( this );
-		tableTimeDef = new CFBamRamTimeDefTable( this );
-		tableTimeType = new CFBamRamTimeTypeTable( this );
-		tableTimestampCol = new CFBamRamTimestampColTable( this );
-		tableTimestampDef = new CFBamRamTimestampDefTable( this );
-		tableTimestampType = new CFBamRamTimestampTypeTable( this );
-		tableTld = new CFBamRamTldTable( this );
-		tableTokenCol = new CFBamRamTokenColTable( this );
-		tableTokenDef = new CFBamRamTokenDefTable( this );
-		tableTokenType = new CFBamRamTokenTypeTable( this );
-		tableTopDomain = new CFBamRamTopDomainTable( this );
-		tableTopProject = new CFBamRamTopProjectTable( this );
-		tableTweak = new CFBamRamTweakTable( this );
-		tableUInt16Col = new CFBamRamUInt16ColTable( this );
-		tableUInt16Def = new CFBamRamUInt16DefTable( this );
-		tableUInt16Type = new CFBamRamUInt16TypeTable( this );
-		tableUInt32Col = new CFBamRamUInt32ColTable( this );
-		tableUInt32Def = new CFBamRamUInt32DefTable( this );
-		tableUInt32Type = new CFBamRamUInt32TypeTable( this );
-		tableUInt64Col = new CFBamRamUInt64ColTable( this );
-		tableUInt64Def = new CFBamRamUInt64DefTable( this );
-		tableUInt64Type = new CFBamRamUInt64TypeTable( this );
-		tableURLProtocol = new CFBamRamURLProtocolTable( this );
-		tableUuid6Col = new CFBamRamUuid6ColTable( this );
-		tableUuid6Def = new CFBamRamUuid6DefTable( this );
-		tableUuid6Gen = new CFBamRamUuid6GenTable( this );
-		tableUuid6Type = new CFBamRamUuid6TypeTable( this );
-		tableUuidCol = new CFBamRamUuidColTable( this );
-		tableUuidDef = new CFBamRamUuidDefTable( this );
-		tableUuidGen = new CFBamRamUuidGenTable( this );
-		tableUuidType = new CFBamRamUuidTypeTable( this );
-		tableValue = new CFBamRamValueTable( this );
+		tableAtom = new YCFBamRamAtomTable( this );
+		tableBlobCol = new YCFBamRamBlobColTable( this );
+		tableBlobDef = new YCFBamRamBlobDefTable( this );
+		tableBlobType = new YCFBamRamBlobTypeTable( this );
+		tableBoolCol = new YCFBamRamBoolColTable( this );
+		tableBoolDef = new YCFBamRamBoolDefTable( this );
+		tableBoolType = new YCFBamRamBoolTypeTable( this );
+		tableChain = new YCFBamRamChainTable( this );
+		tableClearDep = new YCFBamRamClearDepTable( this );
+		tableClearSubDep1 = new YCFBamRamClearSubDep1Table( this );
+		tableClearSubDep2 = new YCFBamRamClearSubDep2Table( this );
+		tableClearSubDep3 = new YCFBamRamClearSubDep3Table( this );
+		tableClearTopDep = new YCFBamRamClearTopDepTable( this );
+		tableCluster = new YCFBamRamClusterTable( this );
+		tableDateCol = new YCFBamRamDateColTable( this );
+		tableDateDef = new YCFBamRamDateDefTable( this );
+		tableDateType = new YCFBamRamDateTypeTable( this );
+		tableDbKeyHash128Col = new YCFBamRamDbKeyHash128ColTable( this );
+		tableDbKeyHash128Def = new YCFBamRamDbKeyHash128DefTable( this );
+		tableDbKeyHash128Gen = new YCFBamRamDbKeyHash128GenTable( this );
+		tableDbKeyHash128Type = new YCFBamRamDbKeyHash128TypeTable( this );
+		tableDbKeyHash160Col = new YCFBamRamDbKeyHash160ColTable( this );
+		tableDbKeyHash160Def = new YCFBamRamDbKeyHash160DefTable( this );
+		tableDbKeyHash160Gen = new YCFBamRamDbKeyHash160GenTable( this );
+		tableDbKeyHash160Type = new YCFBamRamDbKeyHash160TypeTable( this );
+		tableDbKeyHash224Col = new YCFBamRamDbKeyHash224ColTable( this );
+		tableDbKeyHash224Def = new YCFBamRamDbKeyHash224DefTable( this );
+		tableDbKeyHash224Gen = new YCFBamRamDbKeyHash224GenTable( this );
+		tableDbKeyHash224Type = new YCFBamRamDbKeyHash224TypeTable( this );
+		tableDbKeyHash256Col = new YCFBamRamDbKeyHash256ColTable( this );
+		tableDbKeyHash256Def = new YCFBamRamDbKeyHash256DefTable( this );
+		tableDbKeyHash256Gen = new YCFBamRamDbKeyHash256GenTable( this );
+		tableDbKeyHash256Type = new YCFBamRamDbKeyHash256TypeTable( this );
+		tableDbKeyHash384Col = new YCFBamRamDbKeyHash384ColTable( this );
+		tableDbKeyHash384Def = new YCFBamRamDbKeyHash384DefTable( this );
+		tableDbKeyHash384Gen = new YCFBamRamDbKeyHash384GenTable( this );
+		tableDbKeyHash384Type = new YCFBamRamDbKeyHash384TypeTable( this );
+		tableDbKeyHash512Col = new YCFBamRamDbKeyHash512ColTable( this );
+		tableDbKeyHash512Def = new YCFBamRamDbKeyHash512DefTable( this );
+		tableDbKeyHash512Gen = new YCFBamRamDbKeyHash512GenTable( this );
+		tableDbKeyHash512Type = new YCFBamRamDbKeyHash512TypeTable( this );
+		tableDelDep = new YCFBamRamDelDepTable( this );
+		tableDelSubDep1 = new YCFBamRamDelSubDep1Table( this );
+		tableDelSubDep2 = new YCFBamRamDelSubDep2Table( this );
+		tableDelSubDep3 = new YCFBamRamDelSubDep3Table( this );
+		tableDelTopDep = new YCFBamRamDelTopDepTable( this );
+		tableDoubleCol = new YCFBamRamDoubleColTable( this );
+		tableDoubleDef = new YCFBamRamDoubleDefTable( this );
+		tableDoubleType = new YCFBamRamDoubleTypeTable( this );
+		tableEnumDef = new YCFBamRamEnumDefTable( this );
+		tableEnumTag = new YCFBamRamEnumTagTable( this );
+		tableEnumType = new YCFBamRamEnumTypeTable( this );
+		tableFloatCol = new YCFBamRamFloatColTable( this );
+		tableFloatDef = new YCFBamRamFloatDefTable( this );
+		tableFloatType = new YCFBamRamFloatTypeTable( this );
+		tableHostNode = new YCFBamRamHostNodeTable( this );
+		tableISOCcy = new YCFBamRamISOCcyTable( this );
+		tableISOCtry = new YCFBamRamISOCtryTable( this );
+		tableISOCtryCcy = new YCFBamRamISOCtryCcyTable( this );
+		tableISOCtryLang = new YCFBamRamISOCtryLangTable( this );
+		tableISOLang = new YCFBamRamISOLangTable( this );
+		tableISOTZone = new YCFBamRamISOTZoneTable( this );
+		tableId16Gen = new YCFBamRamId16GenTable( this );
+		tableId32Gen = new YCFBamRamId32GenTable( this );
+		tableId64Gen = new YCFBamRamId64GenTable( this );
+		tableIndex = new YCFBamRamIndexTable( this );
+		tableIndexCol = new YCFBamRamIndexColTable( this );
+		tableIndexTweak = new YCFBamRamIndexTweakTable( this );
+		tableInt16Col = new YCFBamRamInt16ColTable( this );
+		tableInt16Def = new YCFBamRamInt16DefTable( this );
+		tableInt16Type = new YCFBamRamInt16TypeTable( this );
+		tableInt32Col = new YCFBamRamInt32ColTable( this );
+		tableInt32Def = new YCFBamRamInt32DefTable( this );
+		tableInt32Type = new YCFBamRamInt32TypeTable( this );
+		tableInt64Col = new YCFBamRamInt64ColTable( this );
+		tableInt64Def = new YCFBamRamInt64DefTable( this );
+		tableInt64Type = new YCFBamRamInt64TypeTable( this );
+		tableLicense = new YCFBamRamLicenseTable( this );
+		tableMajorVersion = new YCFBamRamMajorVersionTable( this );
+		tableMimeType = new YCFBamRamMimeTypeTable( this );
+		tableMinorVersion = new YCFBamRamMinorVersionTable( this );
+		tableNmTokenCol = new YCFBamRamNmTokenColTable( this );
+		tableNmTokenDef = new YCFBamRamNmTokenDefTable( this );
+		tableNmTokenType = new YCFBamRamNmTokenTypeTable( this );
+		tableNmTokensCol = new YCFBamRamNmTokensColTable( this );
+		tableNmTokensDef = new YCFBamRamNmTokensDefTable( this );
+		tableNmTokensType = new YCFBamRamNmTokensTypeTable( this );
+		tableNumberCol = new YCFBamRamNumberColTable( this );
+		tableNumberDef = new YCFBamRamNumberDefTable( this );
+		tableNumberType = new YCFBamRamNumberTypeTable( this );
+		tableParam = new YCFBamRamParamTable( this );
+		tablePopDep = new YCFBamRamPopDepTable( this );
+		tablePopSubDep1 = new YCFBamRamPopSubDep1Table( this );
+		tablePopSubDep2 = new YCFBamRamPopSubDep2Table( this );
+		tablePopSubDep3 = new YCFBamRamPopSubDep3Table( this );
+		tablePopTopDep = new YCFBamRamPopTopDepTable( this );
+		tableRelation = new YCFBamRamRelationTable( this );
+		tableRelationCol = new YCFBamRamRelationColTable( this );
+		tableRoleDef = new YCFBamRamRoleDefTable( this );
+		tableSchemaDef = new YCFBamRamSchemaDefTable( this );
+		tableSchemaRef = new YCFBamRamSchemaRefTable( this );
+		tableSchemaRole = new YCFBamRamSchemaRoleTable( this );
+		tableSchemaTweak = new YCFBamRamSchemaTweakTable( this );
+		tableScope = new YCFBamRamScopeTable( this );
+		tableSecApp = new YCFBamRamSecAppTable( this );
+		tableSecDevice = new YCFBamRamSecDeviceTable( this );
+		tableSecForm = new YCFBamRamSecFormTable( this );
+		tableSecGroup = new YCFBamRamSecGroupTable( this );
+		tableSecGroupForm = new YCFBamRamSecGroupFormTable( this );
+		tableSecGrpInc = new YCFBamRamSecGrpIncTable( this );
+		tableSecGrpMemb = new YCFBamRamSecGrpMembTable( this );
+		tableSecSession = new YCFBamRamSecSessionTable( this );
+		tableSecUser = new YCFBamRamSecUserTable( this );
+		tableServerListFunc = new YCFBamRamServerListFuncTable( this );
+		tableServerMethod = new YCFBamRamServerMethodTable( this );
+		tableServerObjFunc = new YCFBamRamServerObjFuncTable( this );
+		tableServerProc = new YCFBamRamServerProcTable( this );
+		tableService = new YCFBamRamServiceTable( this );
+		tableServiceType = new YCFBamRamServiceTypeTable( this );
+		tableStringCol = new YCFBamRamStringColTable( this );
+		tableStringDef = new YCFBamRamStringDefTable( this );
+		tableStringType = new YCFBamRamStringTypeTable( this );
+		tableSubProject = new YCFBamRamSubProjectTable( this );
+		tableSysCluster = new YCFBamRamSysClusterTable( this );
+		tableTSecGroup = new YCFBamRamTSecGroupTable( this );
+		tableTSecGrpInc = new YCFBamRamTSecGrpIncTable( this );
+		tableTSecGrpMemb = new YCFBamRamTSecGrpMembTable( this );
+		tableTZDateCol = new YCFBamRamTZDateColTable( this );
+		tableTZDateDef = new YCFBamRamTZDateDefTable( this );
+		tableTZDateType = new YCFBamRamTZDateTypeTable( this );
+		tableTZTimeCol = new YCFBamRamTZTimeColTable( this );
+		tableTZTimeDef = new YCFBamRamTZTimeDefTable( this );
+		tableTZTimeType = new YCFBamRamTZTimeTypeTable( this );
+		tableTZTimestampCol = new YCFBamRamTZTimestampColTable( this );
+		tableTZTimestampDef = new YCFBamRamTZTimestampDefTable( this );
+		tableTZTimestampType = new YCFBamRamTZTimestampTypeTable( this );
+		tableTable = new YCFBamRamTableTable( this );
+		tableTableCol = new YCFBamRamTableColTable( this );
+		tableTableTweak = new YCFBamRamTableTweakTable( this );
+		tableTenant = new YCFBamRamTenantTable( this );
+		tableTextCol = new YCFBamRamTextColTable( this );
+		tableTextDef = new YCFBamRamTextDefTable( this );
+		tableTextType = new YCFBamRamTextTypeTable( this );
+		tableTimeCol = new YCFBamRamTimeColTable( this );
+		tableTimeDef = new YCFBamRamTimeDefTable( this );
+		tableTimeType = new YCFBamRamTimeTypeTable( this );
+		tableTimestampCol = new YCFBamRamTimestampColTable( this );
+		tableTimestampDef = new YCFBamRamTimestampDefTable( this );
+		tableTimestampType = new YCFBamRamTimestampTypeTable( this );
+		tableTld = new YCFBamRamTldTable( this );
+		tableTokenCol = new YCFBamRamTokenColTable( this );
+		tableTokenDef = new YCFBamRamTokenDefTable( this );
+		tableTokenType = new YCFBamRamTokenTypeTable( this );
+		tableTopDomain = new YCFBamRamTopDomainTable( this );
+		tableTopProject = new YCFBamRamTopProjectTable( this );
+		tableTweak = new YCFBamRamTweakTable( this );
+		tableUInt16Col = new YCFBamRamUInt16ColTable( this );
+		tableUInt16Def = new YCFBamRamUInt16DefTable( this );
+		tableUInt16Type = new YCFBamRamUInt16TypeTable( this );
+		tableUInt32Col = new YCFBamRamUInt32ColTable( this );
+		tableUInt32Def = new YCFBamRamUInt32DefTable( this );
+		tableUInt32Type = new YCFBamRamUInt32TypeTable( this );
+		tableUInt64Col = new YCFBamRamUInt64ColTable( this );
+		tableUInt64Def = new YCFBamRamUInt64DefTable( this );
+		tableUInt64Type = new YCFBamRamUInt64TypeTable( this );
+		tableURLProtocol = new YCFBamRamURLProtocolTable( this );
+		tableUuid6Col = new YCFBamRamUuid6ColTable( this );
+		tableUuid6Def = new YCFBamRamUuid6DefTable( this );
+		tableUuid6Gen = new YCFBamRamUuid6GenTable( this );
+		tableUuid6Type = new YCFBamRamUuid6TypeTable( this );
+		tableUuidCol = new YCFBamRamUuidColTable( this );
+		tableUuidDef = new YCFBamRamUuidDefTable( this );
+		tableUuidGen = new YCFBamRamUuidGenTable( this );
+		tableUuidType = new YCFBamRamUuidTypeTable( this );
+		tableValue = new YCFBamRamValueTable( this );
 	}
 
 	protected boolean sessConnected = false;
@@ -276,19 +276,19 @@ public class CFBamRamSchema
 	public boolean connect( String username, String password ) {
 		final String S_ProcName = "connect";
 		if( ( username == null ) || ( username.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"username" );
 		}
 		if( password == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"password" );
 		}
 		if( ! username.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only 'system' is authorized to use a RAM database" );
 		}
@@ -305,41 +305,41 @@ public class CFBamRamSchema
 	public boolean connect( String loginId, String password, String clusterName, String tenantName ) {
 		final String S_ProcName = "connect";
 		if( ( loginId == null ) || ( loginId.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"loginId" );
 		}
 		if( password == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"password" );
 		}
 		if( clusterName == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				3,
 				"clusterName" );
 		}
 		if( tenantName == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				4,
 				"tenantName" );
 		}
 		if( ! loginId.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only 'system' is authorized to use a RAM database" );
 		}
 		if( ! clusterName.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only the 'system' Cluster is authorized to use a RAM database" );
 		}
 		if( ! tenantName.equals( "system" ) ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Only the 'system' Tenant is authorized to use a RAM database" );
 		}
@@ -382,8 +382,8 @@ public class CFBamRamSchema
 		tranOpen = false;
 	}
 
-	public ICFBamSchema newSchema() {
-		throw new CFLibMustOverrideException( getClass(), "newSchema" );
+	public IYCFBamSchema newSchema() {
+		throw new YCFLibMustOverrideException( getClass(), "newSchema" );
 	}
 
 	public short nextISOCcyIdGen() {
@@ -444,31 +444,31 @@ public class CFBamRamSchema
 	public void releasePreparedStatements() {
 	}
 
-	public String fileImport( CFSecAuthorization Authorization,
+	public String fileImport( YCFSecAuthorization Authorization,
 		String fileName,
 		String fileContent )
 	{
 		final String S_ProcName = "fileImport";
 		if( ( fileName == null ) || ( fileName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"fileName" );
 		}
 		if( ( fileContent == null ) || ( fileContent.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"fileContent" );
 		}
 
-		CFBamSaxLoader saxLoader = new CFBamSaxLoader();
-		ICFBamSchemaObj schemaObj = new CFBamSchemaObj();
+		YCFBamSaxLoader saxLoader = new YCFBamSaxLoader();
+		IYCFBamSchemaObj schemaObj = new YCFBamSchemaObj();
 		schemaObj.setBackingStore( this );
 		saxLoader.setSchemaObj( schemaObj );
-		ICFSecClusterObj useCluster = schemaObj.getClusterTableObj().readClusterByIdIdx( Authorization.getSecClusterId() );
-		ICFSecTenantObj useTenant = schemaObj.getTenantTableObj().readTenantByIdIdx( Authorization.getSecTenantId() );
-		CFLibCachedMessageLog runlog = new CFLibCachedMessageLog();
+		IYCFSecClusterObj useCluster = schemaObj.getClusterTableObj().readClusterByIdIdx( Authorization.getSecClusterId() );
+		IYCFSecTenantObj useTenant = schemaObj.getTenantTableObj().readTenantByIdIdx( Authorization.getSecTenantId() );
+		YCFLibCachedMessageLog runlog = new YCFLibCachedMessageLog();
 		saxLoader.setLog( runlog );
 		saxLoader.setUseCluster( useCluster );
 		saxLoader.setUseTenant( useTenant );

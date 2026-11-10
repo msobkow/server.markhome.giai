@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustXmlLoader
+ *	MSS Code Factory YCFBam 2.13 CustXmlLoader
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,41 +23,41 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader;
+package org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader;
 
-import org.msscf.msscf.v2_13.cfbam.CFBam.CFBamSchema;
-import org.msscf.msscf.v2_13.cfbam.CFBam.ICFBamSchema;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.YCFBamSchema;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.IYCFBamSchema;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamXmlLoaderServerObjFuncParse XML SAX Element Handler implementation
+ *	YCFBamXmlLoaderServerObjFuncParse XML SAX Element Handler implementation
  *	for ServerObjFunc.
  */
-public class CFBamXmlLoaderServerObjFuncHandler
-	extends CFLibXmlCoreElementHandler
+public class YCFBamXmlLoaderServerObjFuncHandler
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamXmlLoaderServerObjFuncHandler( CFBamXmlLoader saxLoader ) {
+	public YCFBamXmlLoaderServerObjFuncHandler( YCFBamXmlLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -73,7 +73,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 			String	attrId = null;
 			// Scope Attributes
 			// Scope References
-			ICFBamTenantObj refTenant = null;
+			IYCFBamTenantObj refTenant = null;
 			// ServerObjFunc Attributes
 			String	attrName = null;
 			String	attrShortName = null;
@@ -86,9 +86,9 @@ public class CFBamXmlLoaderServerObjFuncHandler
 			String	attrIsServerOnly = null;
 			String	attrCodeVis = null;
 			// ServerObjFunc References
-			ICFBamTenantObj refSrvProcTenant = null;
-			ICFBamTableObj refForTable = null;
-			ICFBamTableObj refReturnTable = null;
+			IYCFBamTenantObj refSrvProcTenant = null;
+			IYCFBamTableObj refForTable = null;
+			IYCFBamTableObj refReturnTable = null;
 			// Attribute Extraction
 			String	attrLocalName;
 			int		numAttrs;
@@ -98,24 +98,24 @@ public class CFBamXmlLoaderServerObjFuncHandler
 
 			assert qName.equals( "ServerObjFunc" );
 
-			CFBamXmlLoader saxLoader = (CFBamXmlLoader)getParser();
+			YCFBamXmlLoader saxLoader = (YCFBamXmlLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			ICFBamServerObjFuncEditObj editBuff = (ICFBamServerObjFuncEditObj)schemaObj.getServerObjFuncTableObj().newInstance().beginEdit();
+			IYCFBamServerObjFuncEditObj editBuff = (IYCFBamServerObjFuncEditObj)schemaObj.getServerObjFuncTableObj().newInstance().beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -123,7 +123,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -132,7 +132,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -141,7 +141,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "ShortName" ) ) {
 					if( attrShortName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -150,7 +150,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "Label" ) ) {
 					if( attrLabel != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -159,7 +159,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "ShortDescription" ) ) {
 					if( attrShortDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -168,7 +168,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -177,7 +177,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "Suffix" ) ) {
 					if( attrSuffix != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -186,7 +186,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "IsInstanceMethod" ) ) {
 					if( attrIsInstanceMethod != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -195,7 +195,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "IsServerOnly" ) ) {
 					if( attrIsServerOnly != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -204,7 +204,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "ReturnTable" ) ) {
 					if( attrReturnTable != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -213,7 +213,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				}
 				else if( attrLocalName.equals( "CodeVis" ) ) {
 					if( attrCodeVis != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -224,7 +224,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -233,29 +233,29 @@ public class CFBamXmlLoaderServerObjFuncHandler
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 			if( ( attrIsInstanceMethod == null ) || ( attrIsInstanceMethod.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"IsInstanceMethod" );
 			}
 			if( ( attrReturnTable == null ) || ( attrReturnTable.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"ReturnTable" );
 			}
 			if( ( attrCodeVis == null ) || ( attrCodeVis.length() <= 0 ) ) {
-				attrCodeVis = ICFBamSchema.CodeVisibilityEnum.Public.name();
+				attrCodeVis = IYCFBamSchema.CodeVisibilityEnum.Public.name();
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 
 			// Convert string attributes to native Cafe types
 			// and apply the converted attributes to the editBuff.
@@ -293,7 +293,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				natIsInstanceMethod = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected IsInstanceMethod value, must be one of true, false, yes, no, 1, or 0, not \"" + attrIsInstanceMethod + "\"" );
 			}
@@ -310,18 +310,18 @@ public class CFBamXmlLoaderServerObjFuncHandler
 				natIsServerOnly = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected IsServerOnly value, must be one of true, false, yes, no, 1, or 0, not \"" + attrIsServerOnly + "\"" );
 			}
 			editBuff.setRequiredIsServerOnly( natIsServerOnly );
 
-			ICFBamSchema.CodeVisibilityEnum natCodeVis = CFBamSchema.parseCodeVisibilityEnum( attrCodeVis );
+			IYCFBamSchema.CodeVisibilityEnum natCodeVis = YCFBamSchema.parseCodeVisibilityEnum( attrCodeVis );
 			editBuff.setRequiredCodeVis( natCodeVis );
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -333,33 +333,33 @@ public class CFBamXmlLoaderServerObjFuncHandler
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamTableObj ) {
-				refForTable = (ICFBamTableObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamTableObj ) {
+				refForTable = (IYCFBamTableObj) scopeObj;
 				editBuff.setRequiredContainerForTable( refForTable );
-				refSrvProcTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerTenant();
+				refSrvProcTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamTableObj" );
+					"IYCFBamTableObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refSrvProcTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refSrvProcTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refSrvProcTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refSrvProcTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<SrvProcTenant>" );
@@ -371,10 +371,10 @@ public class CFBamXmlLoaderServerObjFuncHandler
 
 			// Lookup refReturnTable by qualified name
 			if( ( attrReturnTable != null ) && ( attrReturnTable.length() > 0 ) ) {
-				refReturnTable = (ICFBamTableObj)(editBuff.getNamedObject( schemaObj.getTableTableObj().getObjQualifyingClass(),
+				refReturnTable = (IYCFBamTableObj)(editBuff.getNamedObject( schemaObj.getTableTableObj().getObjQualifyingClass(),
 					attrReturnTable ) );
 				if( refReturnTable == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve ReturnTable reference qualified name \"" + attrReturnTable + "\" to table Table" );
@@ -385,7 +385,7 @@ public class CFBamXmlLoaderServerObjFuncHandler
 			}
 			editBuff.setOptionalLookupRetTable( refReturnTable );
 
-			ICFBamServerObjFuncObj origServerObjFunc = (ICFBamServerObjFuncObj)editBuff.create();
+			IYCFBamServerObjFuncObj origServerObjFunc = (IYCFBamServerObjFuncObj)editBuff.create();
 			editBuff = null;
 
 			curContext.putNamedValue( "Object", origServerObjFunc );

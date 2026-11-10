@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SecDevice history buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,12 +36,12 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecSecDeviceHBuff
+public class YCFSecSecDeviceHBuff
 
-	extends CFSecHPKey	implements Comparable<Object>,
+	extends YCFSecHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final UUID SECUSERID_INIT_VALUE = UUID.fromString( "654dbba0-eda7-11e1-aff1-0800200c9a66" );
@@ -50,15 +50,15 @@ public class CFSecSecDeviceHBuff
 	protected UUID requiredSecUserId;
 	protected String requiredDevName;
 	protected String optionalPubKey;
-	public CFSecSecDeviceHBuff() {
+	public YCFSecSecDeviceHBuff() {
 		super();
-		requiredSecUserId = UUID.fromString( CFSecSecDeviceBuff.SECUSERID_INIT_VALUE.toString() );
-		requiredDevName = new String( CFSecSecDeviceBuff.DEVNAME_INIT_VALUE );
+		requiredSecUserId = UUID.fromString( YCFSecSecDeviceBuff.SECUSERID_INIT_VALUE.toString() );
+		requiredDevName = new String( YCFSecSecDeviceBuff.DEVNAME_INIT_VALUE );
 		optionalPubKey = null;
 	}
 
 	public String getClassCode() {
-		return( CFSecSecDeviceBuff.CLASS_CODE );
+		return( YCFSecSecDeviceBuff.CLASS_CODE );
 	}
 
 	public UUID getRequiredSecUserId() {
@@ -67,7 +67,7 @@ public class CFSecSecDeviceHBuff
 
 	public void setRequiredSecUserId( UUID value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
 				1,
 				"value" );
@@ -81,13 +81,13 @@ public class CFSecSecDeviceHBuff
 
 	public void setRequiredDevName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredDevName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDevName",
 				1,
 				"value.length()",
@@ -106,7 +106,7 @@ public class CFSecSecDeviceHBuff
 			optionalPubKey = null;
 		}
 		else if( value.length() > 10000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalPubKey",
 				1,
 				"value.length()",
@@ -122,8 +122,8 @@ public class CFSecSecDeviceHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSecDeviceHBuff ) {
-			CFSecSecDeviceHBuff rhs = (CFSecSecDeviceHBuff)obj;
+		else if( obj instanceof YCFSecSecDeviceHBuff ) {
+			YCFSecSecDeviceHBuff rhs = (YCFSecSecDeviceHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -147,8 +147,8 @@ public class CFSecSecDeviceHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecDeviceBuff ) {
-			CFSecSecDeviceBuff rhs = (CFSecSecDeviceBuff)obj;
+		else if( obj instanceof YCFSecSecDeviceBuff ) {
+			YCFSecSecDeviceBuff rhs = (YCFSecSecDeviceBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -172,8 +172,8 @@ public class CFSecSecDeviceHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecDeviceByNameIdxKey ) {
-			CFSecSecDeviceByNameIdxKey rhs = (CFSecSecDeviceByNameIdxKey)obj;
+		else if( obj instanceof YCFSecSecDeviceByNameIdxKey ) {
+			YCFSecSecDeviceByNameIdxKey rhs = (YCFSecSecDeviceByNameIdxKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -182,15 +182,15 @@ public class CFSecSecDeviceHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecDeviceByUserIdxKey ) {
-			CFSecSecDeviceByUserIdxKey rhs = (CFSecSecDeviceByUserIdxKey)obj;
+		else if( obj instanceof YCFSecSecDeviceByUserIdxKey ) {
+			YCFSecSecDeviceByUserIdxKey rhs = (YCFSecSecDeviceByUserIdxKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecDeviceHPKey ) {
-			CFSecSecDeviceHPKey rhs = (CFSecSecDeviceHPKey)obj;
+		else if( obj instanceof YCFSecSecDeviceHPKey ) {
+			YCFSecSecDeviceHPKey rhs = (YCFSecSecDeviceHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -254,8 +254,8 @@ public class CFSecSecDeviceHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -313,8 +313,8 @@ public class CFSecSecDeviceHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecDevicePKey ) {
-			CFSecSecDevicePKey rhs = (CFSecSecDevicePKey)obj;
+		else if( obj instanceof YCFSecSecDevicePKey ) {
+			YCFSecSecDevicePKey rhs = (YCFSecSecDevicePKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -344,16 +344,16 @@ public class CFSecSecDeviceHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecSecDeviceBuff ) {
-			CFSecSecDeviceBuff rhs = (CFSecSecDeviceBuff)obj;
+		else if( obj instanceof YCFSecSecDeviceBuff ) {
+			YCFSecSecDeviceBuff rhs = (YCFSecSecDeviceBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecDeviceByNameIdxKey ) {
-			CFSecSecDeviceByNameIdxKey rhs = (CFSecSecDeviceByNameIdxKey)obj;
+		else if( obj instanceof YCFSecSecDeviceByNameIdxKey ) {
+			YCFSecSecDeviceByNameIdxKey rhs = (YCFSecSecDeviceByNameIdxKey)obj;
 
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
@@ -368,8 +368,8 @@ public class CFSecSecDeviceHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecDeviceByUserIdxKey ) {
-			CFSecSecDeviceByUserIdxKey rhs = (CFSecSecDeviceByUserIdxKey)obj;
+		else if( obj instanceof YCFSecSecDeviceByUserIdxKey ) {
+			YCFSecSecDeviceByUserIdxKey rhs = (YCFSecSecDeviceByUserIdxKey)obj;
 
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
@@ -378,8 +378,8 @@ public class CFSecSecDeviceHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecDeviceHBuff ) {
-			CFSecSecDeviceHBuff rhs = (CFSecSecDeviceHBuff)obj;
+		else if( obj instanceof YCFSecSecDeviceHBuff ) {
+			YCFSecSecDeviceHBuff rhs = (YCFSecSecDeviceHBuff)obj;
 
 			int retval = 0;
 			{
@@ -544,8 +544,8 @@ public class CFSecSecDeviceHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecDeviceHPKey ) {
-			CFSecSecDeviceHPKey rhs = (CFSecSecDeviceHPKey)obj;
+		else if( obj instanceof YCFSecSecDeviceHPKey ) {
+			YCFSecSecDeviceHPKey rhs = (YCFSecSecDeviceHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -626,8 +626,8 @@ public class CFSecSecDeviceHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecDevicePKey ) {
-			CFSecSecDevicePKey rhs = (CFSecSecDevicePKey)obj;
+		else if( obj instanceof YCFSecSecDevicePKey ) {
+			YCFSecSecDevicePKey rhs = (YCFSecSecDevicePKey)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -642,8 +642,8 @@ public class CFSecSecDeviceHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -661,22 +661,22 @@ public class CFSecSecDeviceHBuff
 		}
 	}
 
-	public void set( CFSecSecDeviceBuff src ) {
+	public void set( YCFSecSecDeviceBuff src ) {
 		setSecDeviceBuff( src );
 	}
 
-	public void setSecDeviceBuff( CFSecSecDeviceBuff src ) {
+	public void setSecDeviceBuff( YCFSecSecDeviceBuff src ) {
 		setRequiredSecUserId( src.getRequiredSecUserId() );
 		setRequiredDevName( src.getRequiredDevName() );
 		setOptionalPubKey( src.getOptionalPubKey() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecSecDeviceHBuff src ) {
+	public void set( YCFSecSecDeviceHBuff src ) {
 		setSecDeviceBuff( src );
 	}
 
-	public void setSecDeviceBuff( CFSecSecDeviceHBuff src ) {
+	public void setSecDeviceBuff( YCFSecSecDeviceHBuff src ) {
 		setRequiredSecUserId( src.getRequiredSecUserId() );
 		setRequiredDevName( src.getRequiredDevName() );
 		setOptionalPubKey( src.getOptionalPubKey() );

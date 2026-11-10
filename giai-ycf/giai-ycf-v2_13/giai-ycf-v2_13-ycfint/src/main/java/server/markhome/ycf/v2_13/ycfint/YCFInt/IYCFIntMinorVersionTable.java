@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for MinorVersion.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,16 +35,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntMinorVersionTable database interface for MinorVersion
+ *	YCFIntMinorVersionTable database interface for MinorVersion
  */
-public interface ICFIntMinorVersionTable
+public interface IYCFIntMinorVersionTable
 {
 
 	/**
@@ -55,8 +55,8 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createMinorVersion( CFSecAuthorization Authorization,
-		CFIntMinorVersionBuff Buff );
+	void createMinorVersion( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionBuff Buff );
 
 
 	/**
@@ -67,8 +67,8 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateMinorVersion( CFSecAuthorization Authorization,
-		CFIntMinorVersionBuff Buff );
+	void updateMinorVersion( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionBuff Buff );
 
 
 	/**
@@ -78,8 +78,8 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteMinorVersion( CFSecAuthorization Authorization,
-		CFIntMinorVersionBuff Buff );
+	void deleteMinorVersion( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionBuff Buff );
 	/**
 	 *	Delete the MinorVersion instance identified by the primary key attributes.
 	 *
@@ -89,7 +89,7 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	argId	The MinorVersion key attribute of the instance generating the id.
 	 */
-	void deleteMinorVersionByIdIdx( CFSecAuthorization Authorization,
+	void deleteMinorVersionByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -100,8 +100,8 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteMinorVersionByIdIdx( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey argKey );
+	void deleteMinorVersionByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey argKey );
 	/**
 	 *	Delete the MinorVersion instances identified by the key TenantIdx.
 	 *
@@ -109,7 +109,7 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	argTenantId	The MinorVersion key attribute of the instance generating the id.
 	 */
-	void deleteMinorVersionByTenantIdx( CFSecAuthorization Authorization,
+	void deleteMinorVersionByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -119,8 +119,8 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteMinorVersionByTenantIdx( CFSecAuthorization Authorization,
-		CFIntMinorVersionByTenantIdxKey argKey );
+	void deleteMinorVersionByTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionByTenantIdxKey argKey );
 	/**
 	 *	Delete the MinorVersion instances identified by the key MajorVerIdx.
 	 *
@@ -130,7 +130,7 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	argMajorVersionId	The MinorVersion key attribute of the instance generating the id.
 	 */
-	void deleteMinorVersionByMajorVerIdx( CFSecAuthorization Authorization,
+	void deleteMinorVersionByMajorVerIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argMajorVersionId );
 
@@ -141,8 +141,8 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteMinorVersionByMajorVerIdx( CFSecAuthorization Authorization,
-		CFIntMinorVersionByMajorVerIdxKey argKey );
+	void deleteMinorVersionByMajorVerIdx( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionByMajorVerIdxKey argKey );
 	/**
 	 *	Delete the MinorVersion instances identified by the key NameIdx.
 	 *
@@ -154,7 +154,7 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	argName	The MinorVersion key attribute of the instance generating the id.
 	 */
-	void deleteMinorVersionByNameIdx( CFSecAuthorization Authorization,
+	void deleteMinorVersionByNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argMajorVersionId,
 		String argName );
@@ -166,8 +166,8 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteMinorVersionByNameIdx( CFSecAuthorization Authorization,
-		CFIntMinorVersionByNameIdxKey argKey );
+	void deleteMinorVersionByNameIdx( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionByNameIdxKey argKey );
 
 
 	/**
@@ -180,8 +180,8 @@ public interface ICFIntMinorVersionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMinorVersionBuff readDerived( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey PKey );
+	YCFIntMinorVersionBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey PKey );
 
 	/**
 	 *	Lock the derived MinorVersion buffer instance by primary key.
@@ -193,8 +193,8 @@ public interface ICFIntMinorVersionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMinorVersionBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey PKey );
+	YCFIntMinorVersionBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey PKey );
 
 	/**
 	 *	Read all MinorVersion instances.
@@ -203,7 +203,7 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFIntMinorVersionBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFIntMinorVersionBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived MinorVersion buffer instance identified by the unique key IdIdx.
@@ -217,7 +217,7 @@ public interface ICFIntMinorVersionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMinorVersionBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFIntMinorVersionBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -230,7 +230,7 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntMinorVersionBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntMinorVersionBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -244,7 +244,7 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntMinorVersionBuff[] readDerivedByMajorVerIdx( CFSecAuthorization Authorization,
+	YCFIntMinorVersionBuff[] readDerivedByMajorVerIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MajorVersionId );
 
@@ -262,7 +262,7 @@ public interface ICFIntMinorVersionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntMinorVersionBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	YCFIntMinorVersionBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MajorVersionId,
 		String Name );
@@ -277,10 +277,10 @@ public interface ICFIntMinorVersionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMinorVersionBuff readBuff( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey PKey );
+	YCFIntMinorVersionBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey PKey );
 
 	/**
 	 *	Lock the specific MinorVersion buffer instance identified by the primary key.
@@ -292,10 +292,10 @@ public interface ICFIntMinorVersionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMinorVersionBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntMinorVersionPKey PKey );
+	YCFIntMinorVersionBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntMinorVersionPKey PKey );
 
 	/**
 	 *	Read all the specific MinorVersion buffer instances.
@@ -304,7 +304,7 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@return All the specific MinorVersion instances in the database accessible for the Authorization.
 	 */
-	CFIntMinorVersionBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFIntMinorVersionBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific MinorVersion buffer instance identified by the unique key IdIdx.
@@ -318,9 +318,9 @@ public interface ICFIntMinorVersionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMinorVersionBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFIntMinorVersionBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -333,9 +333,9 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMinorVersionBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFIntMinorVersionBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -349,9 +349,9 @@ public interface ICFIntMinorVersionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMinorVersionBuff[] readBuffByMajorVerIdx( CFSecAuthorization Authorization,
+	YCFIntMinorVersionBuff[] readBuffByMajorVerIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MajorVersionId );
 
@@ -369,9 +369,9 @@ public interface ICFIntMinorVersionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntMinorVersionBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	YCFIntMinorVersionBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MajorVersionId,
 		String Name );
@@ -379,7 +379,7 @@ public interface ICFIntMinorVersionTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

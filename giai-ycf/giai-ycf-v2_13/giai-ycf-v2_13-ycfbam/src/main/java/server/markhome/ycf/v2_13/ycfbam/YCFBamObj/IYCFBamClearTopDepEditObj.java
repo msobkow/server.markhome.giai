@@ -1,17 +1,17 @@
-// Description: Java 11 Instance Edit Object interface for CFBam ClearTopDep.
+// Description: Java 11 Instance Edit Object interface for YCFBam ClearTopDep.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,30 +45,30 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamClearTopDepEditObj
-	extends ICFBamClearTopDepObj,
-		ICFBamClearDepEditObj
+public interface IYCFBamClearTopDepEditObj
+	extends IYCFBamClearTopDepObj,
+		IYCFBamClearDepEditObj
 {
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFBamClearTopDepObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFBamClearTopDepObj.
 	 */
-	ICFBamClearTopDepObj getOrigAsClearTopDep();
+	IYCFBamClearTopDepObj getOrigAsClearTopDep();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -85,44 +85,44 @@ public interface ICFBamClearTopDepEditObj
 	void setRequiredName( String value );
 
 	/**
-	 *	Get the ICFBamTableObj instance referenced by the Table key.
+	 *	Get the IYCFBamTableObj instance referenced by the Table key.
 	 *
-	 *	@return	The ICFBamTableObj instance referenced by the Table key.
+	 *	@return	The IYCFBamTableObj instance referenced by the Table key.
 	 */
-	ICFBamTableObj getRequiredContainerTable();
+	IYCFBamTableObj getRequiredContainerTable();
 
 	/**
-	 *	Set the ICFBamTableObj instance referenced by the Table key.
+	 *	Set the IYCFBamTableObj instance referenced by the Table key.
 	 *
-	 *	@param	value	the ICFBamTableObj instance to be referenced by the Table key.
+	 *	@param	value	the IYCFBamTableObj instance to be referenced by the Table key.
 	 */
-	void setRequiredContainerTable( ICFBamTableObj value );
+	void setRequiredContainerTable( IYCFBamTableObj value );
 
 	/**
-	 *	Get the ICFBamClearTopDepObj instance referenced by the Prev key.
+	 *	Get the IYCFBamClearTopDepObj instance referenced by the Prev key.
 	 *
-	 *	@return	The ICFBamClearTopDepObj instance referenced by the Prev key.
+	 *	@return	The IYCFBamClearTopDepObj instance referenced by the Prev key.
 	 */
-	ICFBamClearTopDepObj getOptionalLookupPrev();
+	IYCFBamClearTopDepObj getOptionalLookupPrev();
 
 	/**
-	 *	Set the ICFBamClearTopDepObj instance referenced by the Prev key.
+	 *	Set the IYCFBamClearTopDepObj instance referenced by the Prev key.
 	 *
-	 *	@param	value	the ICFBamClearTopDepObj instance to be referenced by the Prev key.
+	 *	@param	value	the IYCFBamClearTopDepObj instance to be referenced by the Prev key.
 	 */
-	void setOptionalLookupPrev( ICFBamClearTopDepObj value );
+	void setOptionalLookupPrev( IYCFBamClearTopDepObj value );
 
 	/**
-	 *	Get the ICFBamClearTopDepObj instance referenced by the Next key.
+	 *	Get the IYCFBamClearTopDepObj instance referenced by the Next key.
 	 *
-	 *	@return	The ICFBamClearTopDepObj instance referenced by the Next key.
+	 *	@return	The IYCFBamClearTopDepObj instance referenced by the Next key.
 	 */
-	ICFBamClearTopDepObj getOptionalLookupNext();
+	IYCFBamClearTopDepObj getOptionalLookupNext();
 
 	/**
-	 *	Set the ICFBamClearTopDepObj instance referenced by the Next key.
+	 *	Set the IYCFBamClearTopDepObj instance referenced by the Next key.
 	 *
-	 *	@param	value	the ICFBamClearTopDepObj instance to be referenced by the Next key.
+	 *	@param	value	the IYCFBamClearTopDepObj instance to be referenced by the Next key.
 	 */
-	void setOptionalLookupNext( ICFBamClearTopDepObj value );
+	void setOptionalLookupNext( IYCFBamClearTopDepObj value );
 }

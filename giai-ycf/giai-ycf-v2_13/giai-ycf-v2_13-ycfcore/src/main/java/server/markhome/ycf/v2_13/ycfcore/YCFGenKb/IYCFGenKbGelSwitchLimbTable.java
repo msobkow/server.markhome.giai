@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelSwitchLimb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelSwitchLimbTable database interface for GelSwitchLimb
+ *	YCFGenKbGelSwitchLimbTable database interface for GelSwitchLimb
  */
-public interface ICFGenKbGelSwitchLimbTable
+public interface IYCFGenKbGelSwitchLimbTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelSwitchLimb( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbBuff Buff );
+	void createGelSwitchLimb( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelSwitchLimb( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbBuff Buff );
+	void updateGelSwitchLimb( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelSwitchLimb( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbBuff Buff );
+	void deleteGelSwitchLimb( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbBuff Buff );
 	/**
 	 *	Delete the GelSwitchLimb instance identified by the primary key attributes.
 	 *
@@ -92,7 +92,7 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@param	argLimbName	The GelSwitchLimb key attribute of the instance generating the id.
 	 */
-	void deleteGelSwitchLimbByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSwitchLimbByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId,
@@ -105,8 +105,8 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelSwitchLimbByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey argKey );
+	void deleteGelSwitchLimbByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey argKey );
 	/**
 	 *	Delete the GelSwitchLimb instances identified by the key TenantIdx.
 	 *
@@ -114,7 +114,7 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@param	argTenantId	The GelSwitchLimb key attribute of the instance generating the id.
 	 */
-	void deleteGelSwitchLimbByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSwitchLimbByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -124,8 +124,8 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSwitchLimbByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbByTenantIdxKey argKey );
+	void deleteGelSwitchLimbByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelSwitchLimb instances identified by the key SwitchIdx.
 	 *
@@ -137,7 +137,7 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@param	argGelInstId	The GelSwitchLimb key attribute of the instance generating the id.
 	 */
-	void deleteGelSwitchLimbBySwitchIdx( CFGenKbAuthorization Authorization,
+	void deleteGelSwitchLimbBySwitchIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -149,8 +149,8 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelSwitchLimbBySwitchIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbBySwitchIdxKey argKey );
+	void deleteGelSwitchLimbBySwitchIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbBySwitchIdxKey argKey );
 
 
 	/**
@@ -163,8 +163,8 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelSwitchLimbBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey PKey );
+	YCFGenKbGelSwitchLimbBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey PKey );
 
 	/**
 	 *	Lock the derived GelSwitchLimb buffer instance by primary key.
@@ -176,8 +176,8 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelSwitchLimbBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey PKey );
+	YCFGenKbGelSwitchLimbBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey PKey );
 
 	/**
 	 *	Read all GelSwitchLimb instances.
@@ -186,7 +186,7 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSwitchLimbBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelSwitchLimbBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelSwitchLimb buffer instance identified by the unique key PIdx.
@@ -204,7 +204,7 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelSwitchLimbBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSwitchLimbBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId,
@@ -219,7 +219,7 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSwitchLimbBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSwitchLimbBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -235,7 +235,7 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelSwitchLimbBuff[] readDerivedBySwitchIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSwitchLimbBuff[] readDerivedBySwitchIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -250,10 +250,10 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSwitchLimbBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey PKey );
+	YCFGenKbGelSwitchLimbBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey PKey );
 
 	/**
 	 *	Lock the specific GelSwitchLimb buffer instance identified by the primary key.
@@ -265,10 +265,10 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSwitchLimbBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelSwitchLimbPKey PKey );
+	YCFGenKbGelSwitchLimbBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelSwitchLimbPKey PKey );
 
 	/**
 	 *	Read all the specific GelSwitchLimb buffer instances.
@@ -277,7 +277,7 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@return All the specific GelSwitchLimb instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelSwitchLimbBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelSwitchLimbBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelSwitchLimb buffer instance identified by the unique key PIdx.
@@ -295,9 +295,9 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSwitchLimbBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSwitchLimbBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId,
@@ -312,9 +312,9 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSwitchLimbBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSwitchLimbBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -330,9 +330,9 @@ public interface ICFGenKbGelSwitchLimbTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelSwitchLimbBuff[] readBuffBySwitchIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelSwitchLimbBuff[] readBuffBySwitchIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -340,7 +340,7 @@ public interface ICFGenKbGelSwitchLimbTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

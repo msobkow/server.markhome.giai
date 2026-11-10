@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for TSecGroup.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,61 +35,61 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 	/*
-	 *	CFBamTSecGroupFactory implementation for TSecGroup
+	 *	YCFBamTSecGroupFactory implementation for TSecGroup
 	 */
-public class CFBamTSecGroupDefaultFactory
-	extends CFSecTSecGroupDefaultFactory
-	implements ICFBamTSecGroupFactory
+public class YCFBamTSecGroupDefaultFactory
+	extends YCFSecTSecGroupDefaultFactory
+	implements IYCFBamTSecGroupFactory
 {
-	public CFBamTSecGroupDefaultFactory() {
+	public YCFBamTSecGroupDefaultFactory() {
 		super();
 	}
 
-	public CFSecTSecGroupPKey newPKey() {
-		CFSecTSecGroupPKey pkey =
-			new CFSecTSecGroupPKey();
+	public YCFSecTSecGroupPKey newPKey() {
+		YCFSecTSecGroupPKey pkey =
+			new YCFSecTSecGroupPKey();
 		return( pkey );
 	}
 
-	public CFSecTSecGroupHPKey newHPKey() {
-		CFSecTSecGroupHPKey hpkey =
-			new CFSecTSecGroupHPKey();
+	public YCFSecTSecGroupHPKey newHPKey() {
+		YCFSecTSecGroupHPKey hpkey =
+			new YCFSecTSecGroupHPKey();
 		return( hpkey );
 	}
 
-	public CFSecTSecGroupByTenantIdxKey newTenantIdxKey() {
-		CFSecTSecGroupByTenantIdxKey key =
-			new CFSecTSecGroupByTenantIdxKey();
+	public YCFSecTSecGroupByTenantIdxKey newTenantIdxKey() {
+		YCFSecTSecGroupByTenantIdxKey key =
+			new YCFSecTSecGroupByTenantIdxKey();
 		return( key );
 	}
 
-	public CFSecTSecGroupByTenantVisIdxKey newTenantVisIdxKey() {
-		CFSecTSecGroupByTenantVisIdxKey key =
-			new CFSecTSecGroupByTenantVisIdxKey();
+	public YCFSecTSecGroupByTenantVisIdxKey newTenantVisIdxKey() {
+		YCFSecTSecGroupByTenantVisIdxKey key =
+			new YCFSecTSecGroupByTenantVisIdxKey();
 		return( key );
 	}
 
-	public CFSecTSecGroupByUNameIdxKey newUNameIdxKey() {
-		CFSecTSecGroupByUNameIdxKey key =
-			new CFSecTSecGroupByUNameIdxKey();
+	public YCFSecTSecGroupByUNameIdxKey newUNameIdxKey() {
+		YCFSecTSecGroupByUNameIdxKey key =
+			new YCFSecTSecGroupByUNameIdxKey();
 		return( key );
 	}
 
-	public CFSecTSecGroupBuff newBuff() {
-		CFSecTSecGroupBuff buff =
-			new CFSecTSecGroupBuff();
+	public YCFSecTSecGroupBuff newBuff() {
+		YCFSecTSecGroupBuff buff =
+			new YCFSecTSecGroupBuff();
 		return( buff );
 	}
 
-	public CFSecTSecGroupHBuff newHBuff() {
-		CFSecTSecGroupHBuff hbuff =
-			new CFSecTSecGroupHBuff();
+	public YCFSecTSecGroupHBuff newHBuff() {
+		YCFSecTSecGroupHBuff hbuff =
+			new YCFSecTSecGroupHBuff();
 		return( hbuff );
 	}
 }

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelInstruction buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelInstructionBuff
+public class YCFGenKbGelInstructionBuff
 {
 	public final static String CLASS_CODE = "a916";
 	public static final long TENANTID_INIT_VALUE = 0L;
@@ -64,14 +64,14 @@ public class CFGenKbGelInstructionBuff
 	protected Long optionalChainInstGelInstId;
 	protected String requiredSourceText;
 	protected int requiredRevision;
-	public CFGenKbGelInstructionBuff() {
-		requiredTenantId = CFGenKbGelInstructionBuff.TENANTID_INIT_VALUE;
-		requiredGelCacheId = CFGenKbGelInstructionBuff.GELCACHEID_INIT_VALUE;
-		requiredGelInstId = CFGenKbGelInstructionBuff.GELINSTID_INIT_VALUE;
+	public YCFGenKbGelInstructionBuff() {
+		requiredTenantId = YCFGenKbGelInstructionBuff.TENANTID_INIT_VALUE;
+		requiredGelCacheId = YCFGenKbGelInstructionBuff.GELCACHEID_INIT_VALUE;
+		requiredGelInstId = YCFGenKbGelInstructionBuff.GELINSTID_INIT_VALUE;
 		optionalChainInstTenantId = null;
 		optionalChainInstGelCacheId = null;
 		optionalChainInstGelInstId = null;
-		requiredSourceText = new String( CFGenKbGelInstructionBuff.SOURCETEXT_INIT_VALUE );
+		requiredSourceText = new String( YCFGenKbGelInstructionBuff.SOURCETEXT_INIT_VALUE );
 	}
 
 	public String getClassCode() {
@@ -83,13 +83,13 @@ public class CFGenKbGelInstructionBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbGelInstructionBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelInstructionBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.TENANTID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -99,13 +99,13 @@ public class CFGenKbGelInstructionBuff
 	}
 
 	public void setRequiredGelCacheId( long value ) {
-		if( value < CFGenKbGelInstructionBuff.GELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelInstructionBuff.GELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.GELCACHEID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.GELCACHEID_MIN_VALUE );
 		}
 		requiredGelCacheId = value;
 	}
@@ -115,13 +115,13 @@ public class CFGenKbGelInstructionBuff
 	}
 
 	public void setRequiredGelInstId( long value ) {
-		if( value < CFGenKbGelInstructionBuff.GELINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelInstructionBuff.GELINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGelInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.GELINSTID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.GELINSTID_MIN_VALUE );
 		}
 		requiredGelInstId = value;
 	}
@@ -134,13 +134,13 @@ public class CFGenKbGelInstructionBuff
 		if( value == null ) {
 			optionalChainInstTenantId = null;
 		}
-		else if( value < CFGenKbGelInstructionBuff.CHAININSTTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelInstructionBuff.CHAININSTTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalChainInstTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.CHAININSTTENANTID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.CHAININSTTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalChainInstTenantId = value;
@@ -155,13 +155,13 @@ public class CFGenKbGelInstructionBuff
 		if( value == null ) {
 			optionalChainInstGelCacheId = null;
 		}
-		else if( value < CFGenKbGelInstructionBuff.CHAININSTGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelInstructionBuff.CHAININSTGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalChainInstGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.CHAININSTGELCACHEID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.CHAININSTGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalChainInstGelCacheId = value;
@@ -176,13 +176,13 @@ public class CFGenKbGelInstructionBuff
 		if( value == null ) {
 			optionalChainInstGelInstId = null;
 		}
-		else if( value < CFGenKbGelInstructionBuff.CHAININSTGELINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelInstructionBuff.CHAININSTGELINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalChainInstGelInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.CHAININSTGELINSTID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.CHAININSTGELINSTID_MIN_VALUE );
 		}
 		else {
 			optionalChainInstGelInstId = value;
@@ -195,13 +195,13 @@ public class CFGenKbGelInstructionBuff
 
 	public void setRequiredSourceText( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSourceText",
 				1,
 				"value" );
 		}
 		if( value.length() > 2000000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredSourceText",
 				1,
 				"value.length()",
@@ -223,8 +223,8 @@ public class CFGenKbGelInstructionBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelInstructionBuff ) {
-			CFGenKbGelInstructionBuff rhs = (CFGenKbGelInstructionBuff)obj;
+		else if( obj instanceof YCFGenKbGelInstructionBuff ) {
+			YCFGenKbGelInstructionBuff rhs = (YCFGenKbGelInstructionBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -275,8 +275,8 @@ public class CFGenKbGelInstructionBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -288,15 +288,15 @@ public class CFGenKbGelInstructionBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByTenantIdxKey ) {
-			CFGenKbGelInstructionByTenantIdxKey rhs = (CFGenKbGelInstructionByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByTenantIdxKey ) {
+			YCFGenKbGelInstructionByTenantIdxKey rhs = (YCFGenKbGelInstructionByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByGelCacheIdxKey ) {
-			CFGenKbGelInstructionByGelCacheIdxKey rhs = (CFGenKbGelInstructionByGelCacheIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByGelCacheIdxKey ) {
+			YCFGenKbGelInstructionByGelCacheIdxKey rhs = (YCFGenKbGelInstructionByGelCacheIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -305,8 +305,8 @@ public class CFGenKbGelInstructionBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByChainIdxKey ) {
-			CFGenKbGelInstructionByChainIdxKey rhs = (CFGenKbGelInstructionByChainIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByChainIdxKey ) {
+			YCFGenKbGelInstructionByChainIdxKey rhs = (YCFGenKbGelInstructionByChainIdxKey)obj;
 			if( getOptionalChainInstTenantId() != null ) {
 				if( rhs.getOptionalChainInstTenantId() != null ) {
 					if( ! getOptionalChainInstTenantId().equals( rhs.getOptionalChainInstTenantId() ) ) {
@@ -374,8 +374,8 @@ public class CFGenKbGelInstructionBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionBuff ) {
-			CFGenKbGelInstructionBuff rhs = (CFGenKbGelInstructionBuff)obj;
+		else if( obj instanceof YCFGenKbGelInstructionBuff ) {
+			YCFGenKbGelInstructionBuff rhs = (YCFGenKbGelInstructionBuff)obj;
 			int retval = 0;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -457,8 +457,8 @@ public class CFGenKbGelInstructionBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -479,8 +479,8 @@ public class CFGenKbGelInstructionBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByTenantIdxKey ) {
-			CFGenKbGelInstructionByTenantIdxKey rhs = (CFGenKbGelInstructionByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByTenantIdxKey ) {
+			YCFGenKbGelInstructionByTenantIdxKey rhs = (YCFGenKbGelInstructionByTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -489,8 +489,8 @@ public class CFGenKbGelInstructionBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByGelCacheIdxKey ) {
-			CFGenKbGelInstructionByGelCacheIdxKey rhs = (CFGenKbGelInstructionByGelCacheIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByGelCacheIdxKey ) {
+			YCFGenKbGelInstructionByGelCacheIdxKey rhs = (YCFGenKbGelInstructionByGelCacheIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -505,8 +505,8 @@ public class CFGenKbGelInstructionBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByChainIdxKey ) {
-			CFGenKbGelInstructionByChainIdxKey rhs = (CFGenKbGelInstructionByChainIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByChainIdxKey ) {
+			YCFGenKbGelInstructionByChainIdxKey rhs = (YCFGenKbGelInstructionByChainIdxKey)obj;
 
 			if( getOptionalChainInstTenantId() != null ) {
 				Long lhsChainInstTenantId = getOptionalChainInstTenantId();
@@ -564,7 +564,7 @@ public class CFGenKbGelInstructionBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -572,11 +572,11 @@ public class CFGenKbGelInstructionBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
+	public void set( YCFGenKbGelInstructionBuff src ) {
 		setGelInstructionBuff( src );
 	}
 
-	public void setGelInstructionBuff( CFGenKbGelInstructionBuff src ) {
+	public void setGelInstructionBuff( YCFGenKbGelInstructionBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredGelCacheId( src.getRequiredGelCacheId() );
 		setRequiredGelInstId( src.getRequiredGelInstId() );

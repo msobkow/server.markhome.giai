@@ -1,15 +1,15 @@
-// Description: Java 11 base object instance implementation for CFInt URLProtocol.
+// Description: Java 11 base object instance implementation for YCFInt URLProtocol.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,35 +26,35 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntURLProtocolObj
-	implements ICFIntURLProtocolObj
+public class YCFIntURLProtocolObj
+	implements IYCFIntURLProtocolObj
 {
 	public final static String CLASS_CODE = "a109";
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
 	protected boolean isNew;
-	protected ICFIntURLProtocolEditObj edit;
-	protected ICFIntSchemaObj schema;
-	protected CFIntURLProtocolPKey pKey;
-	protected CFIntURLProtocolBuff buff;
+	protected IYCFIntURLProtocolEditObj edit;
+	protected IYCFIntSchemaObj schema;
+	protected YCFIntURLProtocolPKey pKey;
+	protected YCFIntURLProtocolBuff buff;
 
-	public CFIntURLProtocolObj() {
+	public YCFIntURLProtocolObj() {
 		isNew = true;
 	}
 
-	public CFIntURLProtocolObj( ICFIntSchemaObj argSchema ) {
+	public YCFIntURLProtocolObj( IYCFIntSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -68,11 +68,11 @@ public class CFIntURLProtocolObj
 		return( "URLProtocol" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -82,14 +82,14 @@ public class CFIntURLProtocolObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -100,10 +100,10 @@ public class CFIntURLProtocolObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFIntClusterObj ) {
+				if( container instanceof IYCFIntClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFIntTenantObj ) {
+				else if( container instanceof IYCFIntTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -112,20 +112,20 @@ public class CFIntURLProtocolObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -149,13 +149,13 @@ public class CFIntURLProtocolObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -169,13 +169,13 @@ public class CFIntURLProtocolObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -187,46 +187,46 @@ public class CFIntURLProtocolObj
 		return( fullName );
 	}
 
-	public ICFIntURLProtocolObj realise() {
-		ICFIntURLProtocolObj retobj = ((ICFIntSchemaObj)schema).getURLProtocolTableObj().realiseURLProtocol(
-			(ICFIntURLProtocolObj)this );
-		return( (ICFIntURLProtocolObj)retobj );
+	public IYCFIntURLProtocolObj realise() {
+		IYCFIntURLProtocolObj retobj = ((IYCFIntSchemaObj)schema).getURLProtocolTableObj().realiseURLProtocol(
+			(IYCFIntURLProtocolObj)this );
+		return( (IYCFIntURLProtocolObj)retobj );
 	}
 
 	public void forget() {
-		((ICFIntSchemaObj)schema).getURLProtocolTableObj().reallyDeepDisposeURLProtocol( (ICFIntURLProtocolObj)this );
+		((IYCFIntSchemaObj)schema).getURLProtocolTableObj().reallyDeepDisposeURLProtocol( (IYCFIntURLProtocolObj)this );
 	}
 
-	public ICFIntURLProtocolObj read() {
-		ICFIntURLProtocolObj retobj = ((ICFIntSchemaObj)schema).getURLProtocolTableObj().readURLProtocolByIdIdx( getPKey().getRequiredURLProtocolId(), false );
-		return( (ICFIntURLProtocolObj)retobj );
+	public IYCFIntURLProtocolObj read() {
+		IYCFIntURLProtocolObj retobj = ((IYCFIntSchemaObj)schema).getURLProtocolTableObj().readURLProtocolByIdIdx( getPKey().getRequiredURLProtocolId(), false );
+		return( (IYCFIntURLProtocolObj)retobj );
 	}
 
-	public ICFIntURLProtocolObj read( boolean forceRead ) {
-		ICFIntURLProtocolObj retobj = ((ICFIntSchemaObj)schema).getURLProtocolTableObj().readURLProtocolByIdIdx( getPKey().getRequiredURLProtocolId(), forceRead );
-		return( (ICFIntURLProtocolObj)retobj );
+	public IYCFIntURLProtocolObj read( boolean forceRead ) {
+		IYCFIntURLProtocolObj retobj = ((IYCFIntSchemaObj)schema).getURLProtocolTableObj().readURLProtocolByIdIdx( getPKey().getRequiredURLProtocolId(), forceRead );
+		return( (IYCFIntURLProtocolObj)retobj );
 	}
 
-	public ICFIntURLProtocolTableObj getURLProtocolTable() {
-		return( ((ICFIntSchemaObj)schema).getURLProtocolTableObj() );
+	public IYCFIntURLProtocolTableObj getURLProtocolTable() {
+		return( ((IYCFIntSchemaObj)schema).getURLProtocolTableObj() );
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
+	public void setSchema( IYCFIntSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFIntURLProtocolBuff getBuff() {
+	public YCFIntURLProtocolBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newBuff();
+				buff = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFIntSchema)schema.getBackingStore()).getTableURLProtocol().readDerivedByIdIdx( ((ICFIntSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFIntSchema)schema.getBackingStore()).getTableURLProtocol().readDerivedByIdIdx( ((IYCFIntSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredURLProtocolId() );
 				if( buff != null ) {
 					copyBuffToPKey();
@@ -236,30 +236,30 @@ public class CFIntURLProtocolObj
 		return( buff );
 	}
 
-	public void setBuff( CFIntURLProtocolBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFIntURLProtocolBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFIntURLProtocolBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFIntURLProtocolBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFIntURLProtocolBuff" );
+				"YCFIntURLProtocolBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
 	}
 
-	public CFIntURLProtocolBuff getURLProtocolBuff() {
-		return( (CFIntURLProtocolBuff)getBuff() );
+	public YCFIntURLProtocolBuff getURLProtocolBuff() {
+		return( (YCFIntURLProtocolBuff)getBuff() );
 	}
 
-	public CFIntURLProtocolPKey getPKey() {
+	public YCFIntURLProtocolPKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey();
+			pKey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryURLProtocol().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFIntURLProtocolPKey value ) {
+	public void setPKey( YCFIntURLProtocolPKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -274,37 +274,37 @@ public class CFIntURLProtocolObj
 		isNew = value;
 	}
 
-	public ICFIntURLProtocolEditObj beginEdit() {
+	public IYCFIntURLProtocolEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFIntURLProtocolObj lockobj;
+		IYCFIntURLProtocolObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFIntURLProtocolObj)this;
+			lockobj = (IYCFIntURLProtocolObj)this;
 		}
 		else {
-			lockobj = ((ICFIntSchemaObj)schema).getURLProtocolTableObj().lockURLProtocol( getPKey() );
+			lockobj = ((IYCFIntSchemaObj)schema).getURLProtocolTableObj().lockURLProtocol( getPKey() );
 		}
-		edit = ((ICFIntSchemaObj)schema).getURLProtocolTableObj().newEditInstance( lockobj );
-		return( (ICFIntURLProtocolEditObj)edit );
+		edit = ((IYCFIntSchemaObj)schema).getURLProtocolTableObj().newEditInstance( lockobj );
+		return( (IYCFIntURLProtocolEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFIntURLProtocolEditObj getEdit() {
+	public IYCFIntURLProtocolEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFIntURLProtocolEditObj getEditAsURLProtocol() {
-		return( (ICFIntURLProtocolEditObj)edit );
+	public IYCFIntURLProtocolEditObj getEditAsURLProtocol() {
+		return( (IYCFIntURLProtocolEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFIntURLProtocolBuff buff = getBuff();
-			createdBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFIntURLProtocolBuff buff = getBuff();
+			createdBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -313,10 +313,10 @@ public class CFIntURLProtocolObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFIntURLProtocolBuff buff = getBuff();
-			updatedBy = ((ICFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFIntURLProtocolBuff buff = getBuff();
+			updatedBy = ((IYCFIntSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}

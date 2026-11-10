@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenFile buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenFileBuff
-	extends CFGenKbGenRuleBuff
+public class YCFGenKbGenFileBuff
+	extends YCFGenKbGenRuleBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -132,7 +132,7 @@ public class CFGenKbGenFileBuff
 	protected Long optionalExpansionFileNameTenantId;
 	protected Long optionalExpansionFileNameGelCacheId;
 	protected Long optionalExpansionFileNameGelId;
-	public CFGenKbGenFileBuff() {
+	public YCFGenKbGenFileBuff() {
 		super();
 		optionalGenerateOnce = null;
 		optionalSourceBundle = null;
@@ -178,7 +178,7 @@ public class CFGenKbGenFileBuff
 			optionalGenerateOnce = null;
 		}
 		else if( value.length() > 8 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalGenerateOnce",
 				1,
 				"value.length()",
@@ -199,7 +199,7 @@ public class CFGenKbGenFileBuff
 			optionalSourceBundle = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalSourceBundle",
 				1,
 				"value.length()",
@@ -219,13 +219,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalSourceBundleTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SOURCEBUNDLETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SOURCEBUNDLETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSourceBundleTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SOURCEBUNDLETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SOURCEBUNDLETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalSourceBundleTenantId = value;
@@ -240,13 +240,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalSourceBundleGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SOURCEBUNDLEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SOURCEBUNDLEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSourceBundleGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SOURCEBUNDLEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SOURCEBUNDLEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalSourceBundleGelCacheId = value;
@@ -261,13 +261,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalSourceBundleGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SOURCEBUNDLEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SOURCEBUNDLEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSourceBundleGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SOURCEBUNDLEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SOURCEBUNDLEGELID_MIN_VALUE );
 		}
 		else {
 			optionalSourceBundleGelId = value;
@@ -283,7 +283,7 @@ public class CFGenKbGenFileBuff
 			optionalModuleName = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalModuleName",
 				1,
 				"value.length()",
@@ -303,13 +303,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalModuleNameTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.MODULENAMETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.MODULENAMETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalModuleNameTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.MODULENAMETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.MODULENAMETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalModuleNameTenantId = value;
@@ -324,13 +324,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalModuleNameGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.MODULENAMEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.MODULENAMEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalModuleNameGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.MODULENAMEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.MODULENAMEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalModuleNameGelCacheId = value;
@@ -345,13 +345,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalModuleNameGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.MODULENAMEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.MODULENAMEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalModuleNameGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.MODULENAMEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.MODULENAMEGELID_MIN_VALUE );
 		}
 		else {
 			optionalModuleNameGelId = value;
@@ -367,7 +367,7 @@ public class CFGenKbGenFileBuff
 			optionalBasePackageName = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalBasePackageName",
 				1,
 				"value.length()",
@@ -387,13 +387,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalBasePackageTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.BASEPACKAGETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.BASEPACKAGETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBasePackageTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.BASEPACKAGETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.BASEPACKAGETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalBasePackageTenantId = value;
@@ -408,13 +408,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalBasePackageGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.BASEPACKAGEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.BASEPACKAGEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBasePackageGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.BASEPACKAGEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.BASEPACKAGEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalBasePackageGelCacheId = value;
@@ -429,13 +429,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalBasePackageGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.BASEPACKAGEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.BASEPACKAGEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBasePackageGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.BASEPACKAGEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.BASEPACKAGEGELID_MIN_VALUE );
 		}
 		else {
 			optionalBasePackageGelId = value;
@@ -451,7 +451,7 @@ public class CFGenKbGenFileBuff
 			optionalSubPackageName = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalSubPackageName",
 				1,
 				"value.length()",
@@ -471,13 +471,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalSubPackageTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SUBPACKAGETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SUBPACKAGETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSubPackageTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SUBPACKAGETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SUBPACKAGETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalSubPackageTenantId = value;
@@ -492,13 +492,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalSubPackageGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SUBPACKAGEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SUBPACKAGEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSubPackageGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SUBPACKAGEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SUBPACKAGEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalSubPackageGelCacheId = value;
@@ -513,13 +513,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalSubPackageGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.SUBPACKAGEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.SUBPACKAGEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalSubPackageGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.SUBPACKAGEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.SUBPACKAGEGELID_MIN_VALUE );
 		}
 		else {
 			optionalSubPackageGelId = value;
@@ -535,7 +535,7 @@ public class CFGenKbGenFileBuff
 			optionalExpansionClassName = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpansionClassName",
 				1,
 				"value.length()",
@@ -555,13 +555,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalExpansionClassNameTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONCLASSNAMETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONCLASSNAMETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionClassNameTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONCLASSNAMETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONCLASSNAMETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionClassNameTenantId = value;
@@ -576,13 +576,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalExpansionClassNameGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionClassNameGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionClassNameGelCacheId = value;
@@ -597,13 +597,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalExpansionClassNameGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionClassNameGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionClassNameGelId = value;
@@ -619,7 +619,7 @@ public class CFGenKbGenFileBuff
 			optionalExpansionKeyName = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpansionKeyName",
 				1,
 				"value.length()",
@@ -639,13 +639,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalExpansionKeyNameTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONKEYNAMETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONKEYNAMETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionKeyNameTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONKEYNAMETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONKEYNAMETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionKeyNameTenantId = value;
@@ -660,13 +660,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalExpansionKeyNameGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONKEYNAMEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONKEYNAMEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionKeyNameGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONKEYNAMEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONKEYNAMEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionKeyNameGelCacheId = value;
@@ -681,13 +681,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalExpansionKeyNameGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONKEYNAMEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONKEYNAMEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionKeyNameGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONKEYNAMEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONKEYNAMEGELID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionKeyNameGelId = value;
@@ -703,7 +703,7 @@ public class CFGenKbGenFileBuff
 			optionalExpansionFileName = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalExpansionFileName",
 				1,
 				"value.length()",
@@ -723,13 +723,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalExpansionFileNameTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONFILENAMETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONFILENAMETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionFileNameTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONFILENAMETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONFILENAMETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionFileNameTenantId = value;
@@ -744,13 +744,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalExpansionFileNameGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONFILENAMEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONFILENAMEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionFileNameGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONFILENAMEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONFILENAMEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionFileNameGelCacheId = value;
@@ -765,13 +765,13 @@ public class CFGenKbGenFileBuff
 		if( value == null ) {
 			optionalExpansionFileNameGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONFILENAMEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONFILENAMEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionFileNameGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONFILENAMEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONFILENAMEGELID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionFileNameGelId = value;
@@ -782,8 +782,8 @@ public class CFGenKbGenFileBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -1143,8 +1143,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenItemPKey ) {
-			CFGenKbGenItemPKey rhs = (CFGenKbGenItemPKey)obj;
+		else if( obj instanceof YCFGenKbGenItemPKey ) {
+			YCFGenKbGenItemPKey rhs = (YCFGenKbGenItemPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -1156,8 +1156,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileByXSrcBundleKey ) {
-			CFGenKbGenFileByXSrcBundleKey rhs = (CFGenKbGenFileByXSrcBundleKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXSrcBundleKey ) {
+			YCFGenKbGenFileByXSrcBundleKey rhs = (YCFGenKbGenFileByXSrcBundleKey)obj;
 			if( getOptionalSourceBundleTenantId() != null ) {
 				if( rhs.getOptionalSourceBundleTenantId() != null ) {
 					if( ! getOptionalSourceBundleTenantId().equals( rhs.getOptionalSourceBundleTenantId() ) ) {
@@ -1196,8 +1196,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileByXModNameKey ) {
-			CFGenKbGenFileByXModNameKey rhs = (CFGenKbGenFileByXModNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXModNameKey ) {
+			YCFGenKbGenFileByXModNameKey rhs = (YCFGenKbGenFileByXModNameKey)obj;
 			if( getOptionalModuleNameTenantId() != null ) {
 				if( rhs.getOptionalModuleNameTenantId() != null ) {
 					if( ! getOptionalModuleNameTenantId().equals( rhs.getOptionalModuleNameTenantId() ) ) {
@@ -1236,8 +1236,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileByXBasePkgKey ) {
-			CFGenKbGenFileByXBasePkgKey rhs = (CFGenKbGenFileByXBasePkgKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXBasePkgKey ) {
+			YCFGenKbGenFileByXBasePkgKey rhs = (YCFGenKbGenFileByXBasePkgKey)obj;
 			if( getOptionalBasePackageTenantId() != null ) {
 				if( rhs.getOptionalBasePackageTenantId() != null ) {
 					if( ! getOptionalBasePackageTenantId().equals( rhs.getOptionalBasePackageTenantId() ) ) {
@@ -1276,8 +1276,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileByXSubPkgKey ) {
-			CFGenKbGenFileByXSubPkgKey rhs = (CFGenKbGenFileByXSubPkgKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXSubPkgKey ) {
+			YCFGenKbGenFileByXSubPkgKey rhs = (YCFGenKbGenFileByXSubPkgKey)obj;
 			if( getOptionalSubPackageTenantId() != null ) {
 				if( rhs.getOptionalSubPackageTenantId() != null ) {
 					if( ! getOptionalSubPackageTenantId().equals( rhs.getOptionalSubPackageTenantId() ) ) {
@@ -1316,8 +1316,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileByXExpClsNameKey ) {
-			CFGenKbGenFileByXExpClsNameKey rhs = (CFGenKbGenFileByXExpClsNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXExpClsNameKey ) {
+			YCFGenKbGenFileByXExpClsNameKey rhs = (YCFGenKbGenFileByXExpClsNameKey)obj;
 			if( getOptionalExpansionClassNameTenantId() != null ) {
 				if( rhs.getOptionalExpansionClassNameTenantId() != null ) {
 					if( ! getOptionalExpansionClassNameTenantId().equals( rhs.getOptionalExpansionClassNameTenantId() ) ) {
@@ -1356,8 +1356,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileByXExpKeyNameKey ) {
-			CFGenKbGenFileByXExpKeyNameKey rhs = (CFGenKbGenFileByXExpKeyNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXExpKeyNameKey ) {
+			YCFGenKbGenFileByXExpKeyNameKey rhs = (YCFGenKbGenFileByXExpKeyNameKey)obj;
 			if( getOptionalExpansionKeyNameTenantId() != null ) {
 				if( rhs.getOptionalExpansionKeyNameTenantId() != null ) {
 					if( ! getOptionalExpansionKeyNameTenantId().equals( rhs.getOptionalExpansionKeyNameTenantId() ) ) {
@@ -1396,8 +1396,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileByXExpFileNameKey ) {
-			CFGenKbGenFileByXExpFileNameKey rhs = (CFGenKbGenFileByXExpFileNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXExpFileNameKey ) {
+			YCFGenKbGenFileByXExpFileNameKey rhs = (YCFGenKbGenFileByXExpFileNameKey)obj;
 			if( getOptionalExpansionFileNameTenantId() != null ) {
 				if( rhs.getOptionalExpansionFileNameTenantId() != null ) {
 					if( ! getOptionalExpansionFileNameTenantId().equals( rhs.getOptionalExpansionFileNameTenantId() ) ) {
@@ -1538,8 +1538,8 @@ public class CFGenKbGenFileBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -2052,8 +2052,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenItemPKey ) {
-			CFGenKbGenItemPKey rhs = (CFGenKbGenItemPKey)obj;
+		else if( obj instanceof YCFGenKbGenItemPKey ) {
+			YCFGenKbGenItemPKey rhs = (YCFGenKbGenItemPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -2074,8 +2074,8 @@ public class CFGenKbGenFileBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXSrcBundleKey ) {
-			CFGenKbGenFileByXSrcBundleKey rhs = (CFGenKbGenFileByXSrcBundleKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXSrcBundleKey ) {
+			YCFGenKbGenFileByXSrcBundleKey rhs = (YCFGenKbGenFileByXSrcBundleKey)obj;
 
 			if( getOptionalSourceBundleTenantId() != null ) {
 				Long lhsSourceBundleTenantId = getOptionalSourceBundleTenantId();
@@ -2132,8 +2132,8 @@ public class CFGenKbGenFileBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXModNameKey ) {
-			CFGenKbGenFileByXModNameKey rhs = (CFGenKbGenFileByXModNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXModNameKey ) {
+			YCFGenKbGenFileByXModNameKey rhs = (YCFGenKbGenFileByXModNameKey)obj;
 
 			if( getOptionalModuleNameTenantId() != null ) {
 				Long lhsModuleNameTenantId = getOptionalModuleNameTenantId();
@@ -2190,8 +2190,8 @@ public class CFGenKbGenFileBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXBasePkgKey ) {
-			CFGenKbGenFileByXBasePkgKey rhs = (CFGenKbGenFileByXBasePkgKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXBasePkgKey ) {
+			YCFGenKbGenFileByXBasePkgKey rhs = (YCFGenKbGenFileByXBasePkgKey)obj;
 
 			if( getOptionalBasePackageTenantId() != null ) {
 				Long lhsBasePackageTenantId = getOptionalBasePackageTenantId();
@@ -2248,8 +2248,8 @@ public class CFGenKbGenFileBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXSubPkgKey ) {
-			CFGenKbGenFileByXSubPkgKey rhs = (CFGenKbGenFileByXSubPkgKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXSubPkgKey ) {
+			YCFGenKbGenFileByXSubPkgKey rhs = (YCFGenKbGenFileByXSubPkgKey)obj;
 
 			if( getOptionalSubPackageTenantId() != null ) {
 				Long lhsSubPackageTenantId = getOptionalSubPackageTenantId();
@@ -2306,8 +2306,8 @@ public class CFGenKbGenFileBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXExpClsNameKey ) {
-			CFGenKbGenFileByXExpClsNameKey rhs = (CFGenKbGenFileByXExpClsNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXExpClsNameKey ) {
+			YCFGenKbGenFileByXExpClsNameKey rhs = (YCFGenKbGenFileByXExpClsNameKey)obj;
 
 			if( getOptionalExpansionClassNameTenantId() != null ) {
 				Long lhsExpansionClassNameTenantId = getOptionalExpansionClassNameTenantId();
@@ -2364,8 +2364,8 @@ public class CFGenKbGenFileBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXExpKeyNameKey ) {
-			CFGenKbGenFileByXExpKeyNameKey rhs = (CFGenKbGenFileByXExpKeyNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXExpKeyNameKey ) {
+			YCFGenKbGenFileByXExpKeyNameKey rhs = (YCFGenKbGenFileByXExpKeyNameKey)obj;
 
 			if( getOptionalExpansionKeyNameTenantId() != null ) {
 				Long lhsExpansionKeyNameTenantId = getOptionalExpansionKeyNameTenantId();
@@ -2422,8 +2422,8 @@ public class CFGenKbGenFileBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXExpFileNameKey ) {
-			CFGenKbGenFileByXExpFileNameKey rhs = (CFGenKbGenFileByXExpFileNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXExpFileNameKey ) {
+			YCFGenKbGenFileByXExpFileNameKey rhs = (YCFGenKbGenFileByXExpFileNameKey)obj;
 
 			if( getOptionalExpansionFileNameTenantId() != null ) {
 				Long lhsExpansionFileNameTenantId = getOptionalExpansionFileNameTenantId();
@@ -2486,20 +2486,20 @@ public class CFGenKbGenFileBuff
 		}
 	}
 
-	public void set( CFGenKbGenItemBuff src ) {
-		if( src instanceof CFGenKbGenFileBuff ) {
-			setGenFileBuff( (CFGenKbGenFileBuff)src );
+	public void set( YCFGenKbGenItemBuff src ) {
+		if( src instanceof YCFGenKbGenFileBuff ) {
+			setGenFileBuff( (YCFGenKbGenFileBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGenFileBuff" );
+				"YCFGenKbGenFileBuff" );
 		}
 	}
 
-	public void setGenFileBuff( CFGenKbGenFileBuff src ) {
+	public void setGenFileBuff( YCFGenKbGenFileBuff src ) {
 		super.setGenRuleBuff( src );
 		setOptionalGenerateOnce( src.getOptionalGenerateOnce() );
 		setOptionalSourceBundle( src.getOptionalSourceBundle() );

@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelModifier.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelModifierTable database interface for GelModifier
+ *	YCFGenKbGelModifierTable database interface for GelModifier
  */
-public interface ICFGenKbGelModifierTable
+public interface IYCFGenKbGelModifierTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelModifier( CFGenKbAuthorization Authorization,
-		CFGenKbGelModifierBuff Buff );
+	void createGelModifier( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelModifierBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelModifier( CFGenKbAuthorization Authorization,
-		CFGenKbGelModifierBuff Buff );
+	void updateGelModifier( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelModifierBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelModifier( CFGenKbAuthorization Authorization,
-		CFGenKbGelModifierBuff Buff );
+	void deleteGelModifier( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelModifierBuff Buff );
 	/**
 	 *	Delete the GelModifier instances identified by the key RemainderIdx.
 	 *
@@ -90,7 +90,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argRemainderInstId	The GelModifier key attribute of the instance generating the id.
 	 */
-	void deleteGelModifierByRemainderIdx( CFGenKbAuthorization Authorization,
+	void deleteGelModifierByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long argRemainderTenantId,
 		long argRemainderGelCacheId,
 		Long argRemainderInstId );
@@ -102,8 +102,8 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelModifierByRemainderIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelModifierByRemainderIdxKey argKey );
+	void deleteGelModifierByRemainderIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelModifierByRemainderIdxKey argKey );
 	/**
 	 *	Delete the GelModifier instance identified by the primary key attributes.
 	 *
@@ -115,7 +115,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argGelInstId	The GelModifier key attribute of the instance generating the id.
 	 */
-	void deleteGelModifierByPIdx( CFGenKbAuthorization Authorization,
+	void deleteGelModifierByPIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId,
 		long argGelInstId );
@@ -127,8 +127,8 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelModifierByPIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey argKey );
+	void deleteGelModifierByPIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey argKey );
 	/**
 	 *	Delete the GelModifier instances identified by the key TenantIdx.
 	 *
@@ -136,7 +136,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argTenantId	The GelModifier key attribute of the instance generating the id.
 	 */
-	void deleteGelModifierByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelModifierByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -146,8 +146,8 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelModifierByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByTenantIdxKey argKey );
+	void deleteGelModifierByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelModifier instances identified by the key GelCacheIdx.
 	 *
@@ -157,7 +157,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argGelCacheId	The GelModifier key attribute of the instance generating the id.
 	 */
-	void deleteGelModifierByGelCacheIdx( CFGenKbAuthorization Authorization,
+	void deleteGelModifierByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -168,8 +168,8 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelModifierByGelCacheIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByGelCacheIdxKey argKey );
+	void deleteGelModifierByGelCacheIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByGelCacheIdxKey argKey );
 	/**
 	 *	Delete the GelModifier instances identified by the key ChainIdx.
 	 *
@@ -181,7 +181,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argChainInstGelInstId	The GelModifier key attribute of the instance generating the id.
 	 */
-	void deleteGelModifierByChainIdx( CFGenKbAuthorization Authorization,
+	void deleteGelModifierByChainIdx( YCFGenKbAuthorization Authorization,
 		Long argChainInstTenantId,
 		Long argChainInstGelCacheId,
 		Long argChainInstGelInstId );
@@ -193,8 +193,8 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelModifierByChainIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionByChainIdxKey argKey );
+	void deleteGelModifierByChainIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionByChainIdxKey argKey );
 
 
 	/**
@@ -207,8 +207,8 @@ public interface ICFGenKbGelModifierTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelModifierBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelModifierBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the derived GelModifier buffer instance by primary key.
@@ -220,8 +220,8 @@ public interface ICFGenKbGelModifierTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelModifierBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelModifierBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all GelModifier instances.
@@ -230,7 +230,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelModifierBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelModifierBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelModifier buffer instance identified by the unique key PIdx.
@@ -246,7 +246,7 @@ public interface ICFGenKbGelModifierTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelModifierBuff readDerivedByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff readDerivedByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -260,7 +260,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelModifierBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -274,7 +274,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelModifierBuff[] readDerivedByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff[] readDerivedByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -291,7 +291,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelModifierBuff[] readDerivedByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff[] readDerivedByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -309,7 +309,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelModifierBuff[] readDerivedByRemainderIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff[] readDerivedByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
@@ -324,10 +324,10 @@ public interface ICFGenKbGelModifierTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelModifierBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelModifierBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Lock the specific GelModifier buffer instance identified by the primary key.
@@ -339,10 +339,10 @@ public interface ICFGenKbGelModifierTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelModifierBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelInstructionPKey PKey );
+	YCFGenKbGelModifierBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelInstructionPKey PKey );
 
 	/**
 	 *	Read all the specific GelModifier buffer instances.
@@ -351,7 +351,7 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return All the specific GelModifier instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelModifierBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelModifierBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelModifier buffer instance identified by the unique key PIdx.
@@ -367,9 +367,9 @@ public interface ICFGenKbGelModifierTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelModifierBuff readBuffByPIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff readBuffByPIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId,
 		long GelInstId );
@@ -383,9 +383,9 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelModifierBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -399,9 +399,9 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelModifierBuff[] readBuffByGelCacheIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff[] readBuffByGelCacheIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -418,9 +418,9 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelModifierBuff[] readBuffByChainIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff[] readBuffByChainIdx( YCFGenKbAuthorization Authorization,
 		Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
@@ -438,9 +438,9 @@ public interface ICFGenKbGelModifierTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelModifierBuff[] readBuffByRemainderIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelModifierBuff[] readBuffByRemainderIdx( YCFGenKbAuthorization Authorization,
 		Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
@@ -448,7 +448,7 @@ public interface ICFGenKbGelModifierTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a ToolSet by NameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbToolSetByNameIdxKey
+public class YCFGenKbToolSetByNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String requiredName;
-	public CFGenKbToolSetByNameIdxKey() {
-		requiredName = new String( CFGenKbToolSetBuff.NAME_INIT_VALUE );
+	public YCFGenKbToolSetByNameIdxKey() {
+		requiredName = new String( YCFGenKbToolSetBuff.NAME_INIT_VALUE );
 	}
 
 	public String getRequiredName() {
@@ -55,13 +55,13 @@ public class CFGenKbToolSetByNameIdxKey
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 511 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -75,15 +75,15 @@ public class CFGenKbToolSetByNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbToolSetByNameIdxKey ) {
-			CFGenKbToolSetByNameIdxKey rhs = (CFGenKbToolSetByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbToolSetByNameIdxKey ) {
+			YCFGenKbToolSetByNameIdxKey rhs = (YCFGenKbToolSetByNameIdxKey)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbToolSetBuff ) {
-			CFGenKbToolSetBuff rhs = (CFGenKbToolSetBuff)obj;
+		else if( obj instanceof YCFGenKbToolSetBuff ) {
+			YCFGenKbToolSetBuff rhs = (YCFGenKbToolSetBuff)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
@@ -106,8 +106,8 @@ public class CFGenKbToolSetByNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbToolSetByNameIdxKey ) {
-			CFGenKbToolSetByNameIdxKey rhs = (CFGenKbToolSetByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbToolSetByNameIdxKey ) {
+			YCFGenKbToolSetByNameIdxKey rhs = (YCFGenKbToolSetByNameIdxKey)obj;
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
 				if( cmp != 0 ) {
@@ -116,8 +116,8 @@ public class CFGenKbToolSetByNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbToolSetBuff ) {
-			CFGenKbToolSetBuff rhs = (CFGenKbToolSetBuff)obj;
+		else if( obj instanceof YCFGenKbToolSetBuff ) {
+			YCFGenKbToolSetBuff rhs = (YCFGenKbToolSetBuff)obj;
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
 				if( cmp != 0 ) {
@@ -127,7 +127,7 @@ public class CFGenKbToolSetByNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -136,8 +136,8 @@ public class CFGenKbToolSetByNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbToolSetByNameIdx"
-			+ " RequiredName=" + "\"" + CFGenKbSchema.xmlEncodeString( getRequiredName() ) + "\""
+		String ret = "<YCFGenKbToolSetByNameIdx"
+			+ " RequiredName=" + "\"" + YCFGenKbSchema.xmlEncodeString( getRequiredName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

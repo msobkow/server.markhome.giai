@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelPrefixLineTableObj
+public interface IYCFGenKbGelPrefixLineTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelPrefixLineTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelPrefixLineObj newInstance();
+	IYCFGenKbGelPrefixLineObj newInstance();
 
 	/**
 	 *	Instantiate a new GelPrefixLine edition of the specified GelPrefixLine instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelPrefixLineEditObj newEditInstance( ICFGenKbGelPrefixLineObj orig );
+	IYCFGenKbGelPrefixLineEditObj newEditInstance( IYCFGenKbGelPrefixLineObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPrefixLineObj realiseGelPrefixLine( ICFGenKbGelPrefixLineObj Obj );
+	IYCFGenKbGelPrefixLineObj realiseGelPrefixLine( IYCFGenKbGelPrefixLineObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPrefixLineObj createGelPrefixLine( ICFGenKbGelPrefixLineObj Obj );
+	IYCFGenKbGelPrefixLineObj createGelPrefixLine( IYCFGenKbGelPrefixLineObj Obj );
 
 	/**
 	 *	Read a GelPrefixLine-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelPrefixLineTableObj
 	 *	@return	The GelPrefixLine-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelPrefixLineObj readGelPrefixLine( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelPrefixLineObj readGelPrefixLine( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelPrefixLine-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelPrefixLineTableObj
 	 *	@return	The GelPrefixLine-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelPrefixLineObj readGelPrefixLine( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelPrefixLineObj readGelPrefixLine( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelPrefixLineObj readCachedGelPrefixLine( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelPrefixLineObj readCachedGelPrefixLine( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelPrefixLine( ICFGenKbGelPrefixLineObj obj );
+	public void reallyDeepDisposeGelPrefixLine( IYCFGenKbGelPrefixLineObj obj );
 
-	void deepDisposeGelPrefixLine( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelPrefixLine( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPrefixLineObj lockGelPrefixLine( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelPrefixLineObj lockGelPrefixLine( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelPrefixLine-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelPrefixLineObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelPrefixLineObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readAllGelPrefixLine();
+	List<IYCFGenKbGelPrefixLineObj> readAllGelPrefixLine();
 
 	/**
 	 *	Return a sorted map of all the GelPrefixLine-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelPrefixLineObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelPrefixLineObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readAllGelPrefixLine( boolean forceRead );
+	List<IYCFGenKbGelPrefixLineObj> readAllGelPrefixLine( boolean forceRead );
 
-	List<ICFGenKbGelPrefixLineObj> readCachedAllGelPrefixLine();
+	List<IYCFGenKbGelPrefixLineObj> readCachedAllGelPrefixLine();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelPrefixLineTableObj
 	 *
 	 *	@param	argGelInstId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelPrefixLineObj readGelPrefixLineByPIdx( long TenantId,
+	IYCFGenKbGelPrefixLineObj readGelPrefixLineByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelPrefixLineTableObj
 	 *
 	 *	@param	argGelInstId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelPrefixLineObj readGelPrefixLineByPIdx( long TenantId,
+	IYCFGenKbGelPrefixLineObj readGelPrefixLineByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByTenantIdx( long TenantId );
+	List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByTenantIdx( long TenantId,
+	List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelPrefixLineTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
@@ -229,16 +229,16 @@ public interface ICFGenKbGelPrefixLineTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
@@ -246,15 +246,15 @@ public interface ICFGenKbGelPrefixLineTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelPrefixLineObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
@@ -262,28 +262,28 @@ public interface ICFGenKbGelPrefixLineTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelPrefixLine key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelPrefixLineObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPrefixLineObj> readGelPrefixLineByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelPrefixLineObj> readGelPrefixLineByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId,
 		boolean forceRead );
 
-	ICFGenKbGelPrefixLineObj readCachedGelPrefixLineByPIdx( long TenantId,
+	IYCFGenKbGelPrefixLineObj readCachedGelPrefixLineByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelPrefixLineObj> readCachedGelPrefixLineByTenantIdx( long TenantId );
+	List<IYCFGenKbGelPrefixLineObj> readCachedGelPrefixLineByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelPrefixLineObj> readCachedGelPrefixLineByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelPrefixLineObj> readCachedGelPrefixLineByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelPrefixLineObj> readCachedGelPrefixLineByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelPrefixLineObj> readCachedGelPrefixLineByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
-	List<ICFGenKbGelPrefixLineObj> readCachedGelPrefixLineByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelPrefixLineObj> readCachedGelPrefixLineByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
@@ -307,12 +307,12 @@ public interface ICFGenKbGelPrefixLineTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPrefixLineObj updateGelPrefixLine( ICFGenKbGelPrefixLineObj Obj );
+	IYCFGenKbGelPrefixLineObj updateGelPrefixLine( IYCFGenKbGelPrefixLineObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelPrefixLine( ICFGenKbGelPrefixLineObj Obj );
+	void deleteGelPrefixLine( IYCFGenKbGelPrefixLineObj Obj );
 
 	/**
 	 *	Internal use only.

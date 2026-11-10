@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for SchemaDef.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSchemaDefTable database interface for SchemaDef
+ *	YCFBamSchemaDefTable database interface for SchemaDef
  */
-public interface ICFBamSchemaDefTable
+public interface IYCFBamSchemaDefTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSchemaDef( CFSecAuthorization Authorization,
-		CFBamSchemaDefBuff Buff );
+	void createSchemaDef( YCFSecAuthorization Authorization,
+		YCFBamSchemaDefBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSchemaDef( CFSecAuthorization Authorization,
-		CFBamSchemaDefBuff Buff );
+	void updateSchemaDef( YCFSecAuthorization Authorization,
+		YCFBamSchemaDefBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSchemaDef( CFSecAuthorization Authorization,
-		CFBamSchemaDefBuff Buff );
+	void deleteSchemaDef( YCFSecAuthorization Authorization,
+		YCFBamSchemaDefBuff Buff );
 	/**
 	 *	Delete the SchemaDef instances identified by the key CTenantIdx.
 	 *
@@ -108,7 +108,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argTenantId	The SchemaDef key attribute of the instance generating the id.
 	 */
-	void deleteSchemaDefByCTenantIdx( CFSecAuthorization Authorization,
+	void deleteSchemaDefByCTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -118,8 +118,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaDefByCTenantIdx( CFSecAuthorization Authorization,
-		CFBamSchemaDefByCTenantIdxKey argKey );
+	void deleteSchemaDefByCTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaDefByCTenantIdxKey argKey );
 	/**
 	 *	Delete the SchemaDef instances identified by the key MinorVersionIdx.
 	 *
@@ -129,7 +129,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argMinorVersionId	The SchemaDef key attribute of the instance generating the id.
 	 */
-	void deleteSchemaDefByMinorVersionIdx( CFSecAuthorization Authorization,
+	void deleteSchemaDefByMinorVersionIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argMinorVersionId );
 
@@ -140,8 +140,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaDefByMinorVersionIdx( CFSecAuthorization Authorization,
-		CFBamSchemaDefByMinorVersionIdxKey argKey );
+	void deleteSchemaDefByMinorVersionIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaDefByMinorVersionIdxKey argKey );
 	/**
 	 *	Delete the SchemaDef instances identified by the key UNameIdx.
 	 *
@@ -153,7 +153,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argName	The SchemaDef key attribute of the instance generating the id.
 	 */
-	void deleteSchemaDefByUNameIdx( CFSecAuthorization Authorization,
+	void deleteSchemaDefByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argMinorVersionId,
 		String argName );
@@ -165,8 +165,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaDefByUNameIdx( CFSecAuthorization Authorization,
-		CFBamSchemaDefByUNameIdxKey argKey );
+	void deleteSchemaDefByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaDefByUNameIdxKey argKey );
 	/**
 	 *	Delete the SchemaDef instances identified by the key AuthEMailIdx.
 	 *
@@ -176,7 +176,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argAuthorEMail	The SchemaDef key attribute of the instance generating the id.
 	 */
-	void deleteSchemaDefByAuthEMailIdx( CFSecAuthorization Authorization,
+	void deleteSchemaDefByAuthEMailIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		String argAuthorEMail );
 
@@ -187,8 +187,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaDefByAuthEMailIdx( CFSecAuthorization Authorization,
-		CFBamSchemaDefByAuthEMailIdxKey argKey );
+	void deleteSchemaDefByAuthEMailIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaDefByAuthEMailIdxKey argKey );
 	/**
 	 *	Delete the SchemaDef instances identified by the key ProjectURLIdx.
 	 *
@@ -198,7 +198,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argProjectURL	The SchemaDef key attribute of the instance generating the id.
 	 */
-	void deleteSchemaDefByProjectURLIdx( CFSecAuthorization Authorization,
+	void deleteSchemaDefByProjectURLIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		String argProjectURL );
 
@@ -209,8 +209,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaDefByProjectURLIdx( CFSecAuthorization Authorization,
-		CFBamSchemaDefByProjectURLIdxKey argKey );
+	void deleteSchemaDefByProjectURLIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaDefByProjectURLIdxKey argKey );
 	/**
 	 *	Delete the SchemaDef instances identified by the key PubURIIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argPublishURI	The SchemaDef key attribute of the instance generating the id.
 	 */
-	void deleteSchemaDefByPubURIIdx( CFSecAuthorization Authorization,
+	void deleteSchemaDefByPubURIIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		String argPublishURI );
 
@@ -231,8 +231,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaDefByPubURIIdx( CFSecAuthorization Authorization,
-		CFBamSchemaDefByPubURIIdxKey argKey );
+	void deleteSchemaDefByPubURIIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaDefByPubURIIdxKey argKey );
 	/**
 	 *	Delete the SchemaDef instance identified by the primary key attributes.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argId	The SchemaDef key attribute of the instance generating the id.
 	 */
-	void deleteSchemaDefByIdIdx( CFSecAuthorization Authorization,
+	void deleteSchemaDefByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -253,8 +253,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSchemaDefByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey );
+	void deleteSchemaDefByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey );
 	/**
 	 *	Delete the SchemaDef instances identified by the key TenantIdx.
 	 *
@@ -262,7 +262,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argTenantId	The SchemaDef key attribute of the instance generating the id.
 	 */
-	void deleteSchemaDefByTenantIdx( CFSecAuthorization Authorization,
+	void deleteSchemaDefByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -272,8 +272,8 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaDefByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey );
+	void deleteSchemaDefByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey );
 
 
 	/**
@@ -286,8 +286,8 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaDefBuff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamSchemaDefBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the derived SchemaDef buffer instance by primary key.
@@ -299,8 +299,8 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaDefBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamSchemaDefBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all SchemaDef instances.
@@ -309,7 +309,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaDefBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamSchemaDefBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SchemaDef buffer instance identified by the unique key IdIdx.
@@ -323,7 +323,7 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaDefBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -336,7 +336,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaDefBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -348,7 +348,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaDefBuff[] readDerivedByCTenantIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readDerivedByCTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -362,7 +362,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaDefBuff[] readDerivedByMinorVersionIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readDerivedByMinorVersionIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MinorVersionId );
 
@@ -380,7 +380,7 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaDefBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MinorVersionId,
 		String Name );
@@ -396,7 +396,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaDefBuff[] readDerivedByAuthEMailIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readDerivedByAuthEMailIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String AuthorEMail );
 
@@ -411,7 +411,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaDefBuff[] readDerivedByProjectURLIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readDerivedByProjectURLIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String ProjectURL );
 
@@ -427,7 +427,7 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaDefBuff readDerivedByPubURIIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff readDerivedByPubURIIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String PublishURI );
 
@@ -441,10 +441,10 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamSchemaDefBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the specific SchemaDef buffer instance identified by the primary key.
@@ -456,10 +456,10 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamSchemaDefBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all the specific SchemaDef buffer instances.
@@ -468,7 +468,7 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return All the specific SchemaDef instances in the database accessible for the Authorization.
 	 */
-	CFBamSchemaDefBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamSchemaDefBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific SchemaDef buffer instance identified by the unique key IdIdx.
@@ -482,9 +482,9 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -497,9 +497,9 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -511,9 +511,9 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff[] readBuffByCTenantIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readBuffByCTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -527,9 +527,9 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff[] readBuffByMinorVersionIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readBuffByMinorVersionIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MinorVersionId );
 
@@ -547,9 +547,9 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long MinorVersionId,
 		String Name );
@@ -565,9 +565,9 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff[] readBuffByAuthEMailIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readBuffByAuthEMailIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String AuthorEMail );
 
@@ -582,9 +582,9 @@ public interface ICFBamSchemaDefTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff[] readBuffByProjectURLIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff[] readBuffByProjectURLIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String ProjectURL );
 
@@ -600,16 +600,16 @@ public interface ICFBamSchemaDefTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaDefBuff readBuffByPubURIIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaDefBuff readBuffByPubURIIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		String PublishURI );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

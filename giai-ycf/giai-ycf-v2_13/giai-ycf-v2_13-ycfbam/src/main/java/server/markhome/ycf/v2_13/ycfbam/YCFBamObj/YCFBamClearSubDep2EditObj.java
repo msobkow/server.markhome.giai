@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam ClearSubDep2.
+// Description: Java 11 edit object instance implementation for YCFBam ClearSubDep2.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,47 +45,47 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamClearSubDep2EditObj
-	extends CFBamClearDepEditObj
+public class YCFBamClearSubDep2EditObj
+	extends YCFBamClearDepEditObj
 
-	implements ICFBamClearSubDep2EditObj
+	implements IYCFBamClearSubDep2EditObj
 {
-	protected ICFBamClearSubDep1Obj requiredContainerClearSubDep1;
+	protected IYCFBamClearSubDep1Obj requiredContainerClearSubDep1;
 
-	public CFBamClearSubDep2EditObj( ICFBamClearSubDep2Obj argOrig ) {
+	public YCFBamClearSubDep2EditObj( IYCFBamClearSubDep2Obj argOrig ) {
 		super( argOrig );
 		requiredContainerClearSubDep1 = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamClearSubDep2Obj.CLASS_CODE );
+		return( YCFBamClearSubDep2Obj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "ClearSubDep2" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamClearSubDep1Obj scope = getRequiredContainerClearSubDep1();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamClearSubDep1Obj scope = getRequiredContainerClearSubDep1();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamClearSubDep1Obj scope = getRequiredContainerClearSubDep1();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamClearSubDep1Obj scope = getRequiredContainerClearSubDep1();
 		return( scope );
 	}
 
@@ -95,14 +95,14 @@ public class CFBamClearSubDep2EditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -113,10 +113,10 @@ public class CFBamClearSubDep2EditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -125,11 +125,11 @@ public class CFBamClearSubDep2EditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -153,16 +153,16 @@ public class CFBamClearSubDep2EditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -174,9 +174,9 @@ public class CFBamClearSubDep2EditObj
 		return( qualName );
 	}
 
-	public ICFBamScopeObj realise() {
+	public IYCFBamScopeObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamClearSubDep2Obj retobj = getSchema().getClearSubDep2TableObj().realiseClearSubDep2( (ICFBamClearSubDep2Obj)this );
+		IYCFBamClearSubDep2Obj retobj = getSchema().getClearSubDep2TableObj().realiseClearSubDep2( (IYCFBamClearSubDep2Obj)this );
 		return( retobj );
 	}
 
@@ -184,57 +184,57 @@ public class CFBamClearSubDep2EditObj
 		getOrigAsClearSubDep2().forget();
 	}
 
-	public ICFBamScopeObj create() {
+	public IYCFBamScopeObj create() {
 		copyBuffToOrig();
-		ICFBamClearSubDep2Obj retobj = ((ICFBamSchemaObj)getOrigAsClearSubDep2().getSchema()).getClearSubDep2TableObj().createClearSubDep2( getOrigAsClearSubDep2() );
+		IYCFBamClearSubDep2Obj retobj = ((IYCFBamSchemaObj)getOrigAsClearSubDep2().getSchema()).getClearSubDep2TableObj().createClearSubDep2( getOrigAsClearSubDep2() );
 		if( retobj == getOrigAsClearSubDep2() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamScopeEditObj update() {
-		getSchema().getClearSubDep2TableObj().updateClearSubDep2( (ICFBamClearSubDep2Obj)this );
+	public YCFBamScopeEditObj update() {
+		getSchema().getClearSubDep2TableObj().updateClearSubDep2( (IYCFBamClearSubDep2Obj)this );
 		return( null );
 	}
 
-	public CFBamScopeEditObj deleteInstance() {
+	public YCFBamScopeEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getClearSubDep2TableObj().deleteClearSubDep2( getOrigAsClearSubDep2() );
 		return( null );
 	}
 
-	public ICFBamClearSubDep2TableObj getClearSubDep2Table() {
+	public IYCFBamClearSubDep2TableObj getClearSubDep2Table() {
 		return( orig.getSchema().getClearSubDep2TableObj() );
 	}
 
-	public ICFBamClearSubDep2EditObj getEditAsClearSubDep2() {
-		return( (ICFBamClearSubDep2EditObj)this );
+	public IYCFBamClearSubDep2EditObj getEditAsClearSubDep2() {
+		return( (IYCFBamClearSubDep2EditObj)this );
 	}
 
-	public ICFBamClearSubDep2Obj getOrigAsClearSubDep2() {
-		return( (ICFBamClearSubDep2Obj)orig );
+	public IYCFBamClearSubDep2Obj getOrigAsClearSubDep2() {
+		return( (IYCFBamClearSubDep2Obj)orig );
 	}
 
-	public CFBamScopeBuff getBuff() {
+	public YCFBamScopeBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsClearSubDep2().getSchema().getBackingStore()).getFactoryClearSubDep2().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsClearSubDep2().getSchema().getBackingStore()).getFactoryClearSubDep2().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamScopeBuff value ) {
+	public void setBuff( YCFBamScopeBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			requiredContainerClearSubDep1 = null;
 		}
 	}
 
-	public CFBamClearSubDep2Buff getClearSubDep2Buff() {
-		return( (CFBamClearSubDep2Buff)getBuff() );
+	public YCFBamClearSubDep2Buff getClearSubDep2Buff() {
+		return( (YCFBamClearSubDep2Buff)getBuff() );
 	}
 
 	public long getRequiredClearSubDep1TenantId() {
@@ -255,15 +255,15 @@ public class CFBamClearSubDep2EditObj
 		}
 	}
 
-	public ICFBamClearSubDep1Obj getRequiredContainerClearSubDep1() {
+	public IYCFBamClearSubDep1Obj getRequiredContainerClearSubDep1() {
 		return( getRequiredContainerClearSubDep1( false ) );
 	}
 
-	public ICFBamClearSubDep1Obj getRequiredContainerClearSubDep1( boolean forceRead ) {
+	public IYCFBamClearSubDep1Obj getRequiredContainerClearSubDep1( boolean forceRead ) {
 		if( forceRead || ( requiredContainerClearSubDep1 == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamClearSubDep1Obj obj = ((ICFBamSchemaObj)getOrigAsClearSubDep2().getSchema()).getClearSubDep1TableObj().readClearSubDep1ByIdIdx( getClearSubDep2Buff().getRequiredClearSubDep1TenantId(),
+				IYCFBamClearSubDep1Obj obj = ((IYCFBamSchemaObj)getOrigAsClearSubDep2().getSchema()).getClearSubDep1TableObj().readClearSubDep1ByIdIdx( getClearSubDep2Buff().getRequiredClearSubDep1TenantId(),
 					getClearSubDep2Buff().getRequiredClearSubDep1Id() );
 				requiredContainerClearSubDep1 = obj;
 				if( obj != null ) {
@@ -276,7 +276,7 @@ public class CFBamClearSubDep2EditObj
 		return( requiredContainerClearSubDep1 );
 	}
 
-	public void setRequiredContainerClearSubDep1( ICFBamClearSubDep1Obj value ) {
+	public void setRequiredContainerClearSubDep1( IYCFBamClearSubDep1Obj value ) {
 			if( buff == null ) {
 				getClearSubDep2Buff();
 			}
@@ -287,31 +287,31 @@ public class CFBamClearSubDep2EditObj
 			requiredContainerClearSubDep1 = value;
 	}
 
-	public List<ICFBamClearSubDep3Obj> getOptionalComponentsClearDep() {
-		List<ICFBamClearSubDep3Obj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsClearSubDep2().getSchema()).getClearSubDep3TableObj().readClearSubDep3ByClearSubDep2Idx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamClearSubDep3Obj> getOptionalComponentsClearDep() {
+		List<IYCFBamClearSubDep3Obj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsClearSubDep2().getSchema()).getClearSubDep3TableObj().readClearSubDep3ByClearSubDep2Idx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamClearSubDep3Obj> getOptionalComponentsClearDep( boolean forceRead ) {
-		List<ICFBamClearSubDep3Obj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsClearSubDep2().getSchema()).getClearSubDep3TableObj().readClearSubDep3ByClearSubDep2Idx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamClearSubDep3Obj> getOptionalComponentsClearDep( boolean forceRead ) {
+		List<IYCFBamClearSubDep3Obj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsClearSubDep2().getSchema()).getClearSubDep3TableObj().readClearSubDep3ByClearSubDep2Idx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
 	public void copyBuffToOrig() {
-		CFBamClearSubDep2Buff origBuff = getOrigAsClearSubDep2().getClearSubDep2Buff();
-		CFBamClearSubDep2Buff myBuff = getClearSubDep2Buff();
+		YCFBamClearSubDep2Buff origBuff = getOrigAsClearSubDep2().getClearSubDep2Buff();
+		YCFBamClearSubDep2Buff myBuff = getClearSubDep2Buff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamClearSubDep2Buff origBuff = getOrigAsClearSubDep2().getClearSubDep2Buff();
-		CFBamClearSubDep2Buff myBuff = getClearSubDep2Buff();
+		YCFBamClearSubDep2Buff origBuff = getOrigAsClearSubDep2().getClearSubDep2Buff();
+		YCFBamClearSubDep2Buff myBuff = getClearSubDep2Buff();
 		myBuff.set( origBuff );
 	}
 }

@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object implementation for CFInt.
+// Description: Java 11 Table Object implementation for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,49 +26,49 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFIntMimeTypeTableObj
-	implements ICFIntMimeTypeTableObj
+public class YCFIntMimeTypeTableObj
+	implements IYCFIntMimeTypeTableObj
 {
-	protected ICFIntSchemaObj schema;
-	private Map<CFIntMimeTypePKey, ICFIntMimeTypeObj> members;
-	private Map<CFIntMimeTypePKey, ICFIntMimeTypeObj> allMimeType;
-	private Map< CFIntMimeTypeByUNameIdxKey,
-		ICFIntMimeTypeObj > indexByUNameIdx;
+	protected IYCFIntSchemaObj schema;
+	private Map<YCFIntMimeTypePKey, IYCFIntMimeTypeObj> members;
+	private Map<YCFIntMimeTypePKey, IYCFIntMimeTypeObj> allMimeType;
+	private Map< YCFIntMimeTypeByUNameIdxKey,
+		IYCFIntMimeTypeObj > indexByUNameIdx;
 	public static String TABLE_NAME = "MimeType";
 	public static String TABLE_DBNAME = "mimetype";
 
-	public CFIntMimeTypeTableObj() {
+	public YCFIntMimeTypeTableObj() {
 		schema = null;
-		members = new HashMap<CFIntMimeTypePKey, ICFIntMimeTypeObj>();
+		members = new HashMap<YCFIntMimeTypePKey, IYCFIntMimeTypeObj>();
 		allMimeType = null;
 		indexByUNameIdx = null;
 	}
 
-	public CFIntMimeTypeTableObj( ICFIntSchemaObj argSchema ) {
-		schema = (ICFIntSchemaObj)argSchema;
-		members = new HashMap<CFIntMimeTypePKey, ICFIntMimeTypeObj>();
+	public YCFIntMimeTypeTableObj( IYCFIntSchemaObj argSchema ) {
+		schema = (IYCFIntSchemaObj)argSchema;
+		members = new HashMap<YCFIntMimeTypePKey, IYCFIntMimeTypeObj>();
 		allMimeType = null;
 		indexByUNameIdx = null;
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
-		schema = (ICFIntSchemaObj)value;
+	public void setSchema( IYCFIntSchemaObj value ) {
+		schema = (IYCFIntSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -87,9 +87,9 @@ public class CFIntMimeTypeTableObj
 	public void minimizeMemory() {
 		allMimeType = null;
 		indexByUNameIdx = null;
-		List<ICFIntMimeTypeObj> toForget = new LinkedList<ICFIntMimeTypeObj>();
-		ICFIntMimeTypeObj cur = null;
-		Iterator<ICFIntMimeTypeObj> iter = members.values().iterator();
+		List<IYCFIntMimeTypeObj> toForget = new LinkedList<IYCFIntMimeTypeObj>();
+		IYCFIntMimeTypeObj cur = null;
+		Iterator<IYCFIntMimeTypeObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -107,10 +107,10 @@ public class CFIntMimeTypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntMimeTypeObj.
+	 *	YCFIntMimeTypeObj.
 	 */
-	public ICFIntMimeTypeObj newInstance() {
-		ICFIntMimeTypeObj inst = new CFIntMimeTypeObj( schema );
+	public IYCFIntMimeTypeObj newInstance() {
+		IYCFIntMimeTypeObj inst = new YCFIntMimeTypeObj( schema );
 		return( inst );
 	}
 
@@ -121,19 +121,19 @@ public class CFIntMimeTypeTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFIntMimeTypeObj.
+	 *	YCFIntMimeTypeObj.
 	 */
-	public ICFIntMimeTypeEditObj newEditInstance( ICFIntMimeTypeObj orig ) {
-		ICFIntMimeTypeEditObj edit = new CFIntMimeTypeEditObj( orig );
+	public IYCFIntMimeTypeEditObj newEditInstance( IYCFIntMimeTypeObj orig ) {
+		IYCFIntMimeTypeEditObj edit = new YCFIntMimeTypeEditObj( orig );
 		return( edit );
 	}
 
-	public ICFIntMimeTypeObj realiseMimeType( ICFIntMimeTypeObj Obj ) {
-		ICFIntMimeTypeObj obj = Obj;
-		CFIntMimeTypePKey pkey = obj.getPKey();
-		ICFIntMimeTypeObj keepObj = null;
+	public IYCFIntMimeTypeObj realiseMimeType( IYCFIntMimeTypeObj Obj ) {
+		IYCFIntMimeTypeObj obj = Obj;
+		YCFIntMimeTypePKey pkey = obj.getPKey();
+		IYCFIntMimeTypeObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFIntMimeTypeObj existingObj = members.get( pkey );
+			IYCFIntMimeTypeObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -144,8 +144,8 @@ public class CFIntMimeTypeTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByUNameIdx != null ) {
-				CFIntMimeTypeByUNameIdxKey keyUNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
+				YCFIntMimeTypeByUNameIdxKey keyUNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.remove( keyUNameIdx );
 			}
@@ -154,8 +154,8 @@ public class CFIntMimeTypeTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByUNameIdx != null ) {
-				CFIntMimeTypeByUNameIdxKey keyUNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
+				YCFIntMimeTypeByUNameIdxKey keyUNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
 			}
@@ -175,8 +175,8 @@ public class CFIntMimeTypeTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFIntMimeTypeByUNameIdxKey keyUNameIdx =
-					((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
+				YCFIntMimeTypeByUNameIdxKey keyUNameIdx =
+					((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
 			}
@@ -185,10 +185,10 @@ public class CFIntMimeTypeTableObj
 		return( keepObj );
 	}
 
-	public ICFIntMimeTypeObj createMimeType( ICFIntMimeTypeObj Obj ) {
-		ICFIntMimeTypeObj obj = Obj;
-		CFIntMimeTypeBuff buff = obj.getMimeTypeBuff();
-		((ICFIntSchema)schema.getBackingStore()).getTableMimeType().createMimeType(
+	public IYCFIntMimeTypeObj createMimeType( IYCFIntMimeTypeObj Obj ) {
+		IYCFIntMimeTypeObj obj = Obj;
+		YCFIntMimeTypeBuff buff = obj.getMimeTypeBuff();
+		((IYCFIntSchema)schema.getBackingStore()).getTableMimeType().createMimeType(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
@@ -197,50 +197,50 @@ public class CFIntMimeTypeTableObj
 		return( obj );
 	}
 
-	public ICFIntMimeTypeObj readMimeType( CFIntMimeTypePKey pkey ) {
+	public IYCFIntMimeTypeObj readMimeType( YCFIntMimeTypePKey pkey ) {
 		return( readMimeType( pkey, false ) );
 	}
 
-	public ICFIntMimeTypeObj readMimeType( CFIntMimeTypePKey pkey, boolean forceRead ) {
-		ICFIntMimeTypeObj obj = null;
+	public IYCFIntMimeTypeObj readMimeType( YCFIntMimeTypePKey pkey, boolean forceRead ) {
+		IYCFIntMimeTypeObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFIntMimeTypeBuff readBuff = ((ICFIntSchema)schema.getBackingStore()).getTableMimeType().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFIntMimeTypeBuff readBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableMimeType().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredMimeTypeId() );
 			if( readBuff != null ) {
 				obj = schema.getMimeTypeTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFIntMimeTypeObj)obj.realise();
+				obj = (IYCFIntMimeTypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntMimeTypeObj readCachedMimeType( CFIntMimeTypePKey pkey ) {
-		ICFIntMimeTypeObj obj = null;
+	public IYCFIntMimeTypeObj readCachedMimeType( YCFIntMimeTypePKey pkey ) {
+		IYCFIntMimeTypeObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeMimeType( ICFIntMimeTypeObj obj )
+	public void reallyDeepDisposeMimeType( IYCFIntMimeTypeObj obj )
 	{
-		final String S_ProcName = "CFIntMimeTypeTableObj.reallyDeepDisposeMimeType() ";
+		final String S_ProcName = "YCFIntMimeTypeTableObj.reallyDeepDisposeMimeType() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFIntMimeTypePKey pkey = obj.getPKey();
-		ICFIntMimeTypeObj existing = readCachedMimeType( pkey );
+		YCFIntMimeTypePKey pkey = obj.getPKey();
+		IYCFIntMimeTypeObj existing = readCachedMimeType( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFIntMimeTypeByUNameIdxKey keyUNameIdx = ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
+		YCFIntMimeTypeByUNameIdxKey keyUNameIdx = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
 
@@ -251,57 +251,57 @@ public class CFIntMimeTypeTableObj
 
 
 	}
-	public void deepDisposeMimeType( CFIntMimeTypePKey pkey ) {
-		ICFIntMimeTypeObj obj = readCachedMimeType( pkey );
+	public void deepDisposeMimeType( YCFIntMimeTypePKey pkey ) {
+		IYCFIntMimeTypeObj obj = readCachedMimeType( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFIntMimeTypeObj lockMimeType( CFIntMimeTypePKey pkey ) {
-		ICFIntMimeTypeObj locked = null;
-		CFIntMimeTypeBuff lockBuff = ((ICFIntSchema)schema.getBackingStore()).getTableMimeType().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFIntMimeTypeObj lockMimeType( YCFIntMimeTypePKey pkey ) {
+		IYCFIntMimeTypeObj locked = null;
+		YCFIntMimeTypeBuff lockBuff = ((IYCFIntSchema)schema.getBackingStore()).getTableMimeType().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getMimeTypeTableObj().newInstance();
-			locked.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey() );
+			locked.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFIntMimeTypeObj)locked.realise();
+			locked = (IYCFIntMimeTypeObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockMimeType", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockMimeType", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFIntMimeTypeObj> readAllMimeType() {
+	public List<IYCFIntMimeTypeObj> readAllMimeType() {
 		return( readAllMimeType( false ) );
 	}
 
-	public List<ICFIntMimeTypeObj> readAllMimeType( boolean forceRead ) {
+	public List<IYCFIntMimeTypeObj> readAllMimeType( boolean forceRead ) {
 		final String S_ProcName = "readAllMimeType";
 		if( ( allMimeType == null ) || forceRead ) {
-			Map<CFIntMimeTypePKey, ICFIntMimeTypeObj> map = new HashMap<CFIntMimeTypePKey,ICFIntMimeTypeObj>();
+			Map<YCFIntMimeTypePKey, IYCFIntMimeTypeObj> map = new HashMap<YCFIntMimeTypePKey,IYCFIntMimeTypeObj>();
 			allMimeType = map;
-			CFIntMimeTypeBuff[] buffList = ((ICFIntSchema)schema.getBackingStore()).getTableMimeType().readAllDerived( schema.getAuthorization() );
-			CFIntMimeTypeBuff buff;
-			ICFIntMimeTypeObj obj;
+			YCFIntMimeTypeBuff[] buffList = ((IYCFIntSchema)schema.getBackingStore()).getTableMimeType().readAllDerived( schema.getAuthorization() );
+			YCFIntMimeTypeBuff buff;
+			IYCFIntMimeTypeObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey() );
 				obj.setBuff( buff );
-				ICFIntMimeTypeObj realised = (ICFIntMimeTypeObj)obj.realise();
+				IYCFIntMimeTypeObj realised = (IYCFIntMimeTypeObj)obj.realise();
 			}
 		}
 		int len = allMimeType.size();
-		ICFIntMimeTypeObj arr[] = new ICFIntMimeTypeObj[len];
-		Iterator<ICFIntMimeTypeObj> valIter = allMimeType.values().iterator();
+		IYCFIntMimeTypeObj arr[] = new IYCFIntMimeTypeObj[len];
+		Iterator<IYCFIntMimeTypeObj> valIter = allMimeType.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -309,20 +309,20 @@ public class CFIntMimeTypeTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFIntMimeTypeObj> arrayList = new ArrayList<ICFIntMimeTypeObj>(len);
+		ArrayList<IYCFIntMimeTypeObj> arrayList = new ArrayList<IYCFIntMimeTypeObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFIntMimeTypeObj> cmp = new Comparator<ICFIntMimeTypeObj>() {
-			public int compare( ICFIntMimeTypeObj lhs, ICFIntMimeTypeObj rhs ) {
+		Comparator<IYCFIntMimeTypeObj> cmp = new Comparator<IYCFIntMimeTypeObj>() {
+			public int compare( IYCFIntMimeTypeObj lhs, IYCFIntMimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -335,31 +335,31 @@ public class CFIntMimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFIntMimeTypePKey lhsPKey = lhs.getPKey();
-					CFIntMimeTypePKey rhsPKey = rhs.getPKey();
+					YCFIntMimeTypePKey lhsPKey = lhs.getPKey();
+					YCFIntMimeTypePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFIntMimeTypeObj> sortedList = arrayList;
+		List<IYCFIntMimeTypeObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFIntMimeTypeObj> readCachedAllMimeType() {
+	public List<IYCFIntMimeTypeObj> readCachedAllMimeType() {
 		final String S_ProcName = "readCachedAllMimeType";
-		ArrayList<ICFIntMimeTypeObj> arrayList = new ArrayList<ICFIntMimeTypeObj>();
+		ArrayList<IYCFIntMimeTypeObj> arrayList = new ArrayList<IYCFIntMimeTypeObj>();
 		if( allMimeType != null ) {
 			int len = allMimeType.size();
-			ICFIntMimeTypeObj arr[] = new ICFIntMimeTypeObj[len];
-			Iterator<ICFIntMimeTypeObj> valIter = allMimeType.values().iterator();
+			IYCFIntMimeTypeObj arr[] = new IYCFIntMimeTypeObj[len];
+			Iterator<IYCFIntMimeTypeObj> valIter = allMimeType.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -367,7 +367,7 @@ public class CFIntMimeTypeTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -378,8 +378,8 @@ public class CFIntMimeTypeTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFIntMimeTypeObj> cmp = new Comparator<ICFIntMimeTypeObj>() {
-			public int compare( ICFIntMimeTypeObj lhs, ICFIntMimeTypeObj rhs ) {
+		Comparator<IYCFIntMimeTypeObj> cmp = new Comparator<IYCFIntMimeTypeObj>() {
+			public int compare( IYCFIntMimeTypeObj lhs, IYCFIntMimeTypeObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -392,8 +392,8 @@ public class CFIntMimeTypeTableObj
 					return( 1 );
 				}
 				else {
-					CFIntMimeTypePKey lhsPKey = lhs.getPKey();
-					CFIntMimeTypePKey rhsPKey = rhs.getPKey();
+					YCFIntMimeTypePKey lhsPKey = lhs.getPKey();
+					YCFIntMimeTypePKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -403,71 +403,71 @@ public class CFIntMimeTypeTableObj
 		return( arrayList );
 	}
 
-	public ICFIntMimeTypeObj readMimeTypeByIdIdx( int MimeTypeId )
+	public IYCFIntMimeTypeObj readMimeTypeByIdIdx( int MimeTypeId )
 	{
 		return( readMimeTypeByIdIdx( MimeTypeId,
 			false ) );
 	}
 
-	public ICFIntMimeTypeObj readMimeTypeByIdIdx( int MimeTypeId, boolean forceRead )
+	public IYCFIntMimeTypeObj readMimeTypeByIdIdx( int MimeTypeId, boolean forceRead )
 	{
-		CFIntMimeTypePKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey();
+		YCFIntMimeTypePKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey();
 		pkey.setRequiredMimeTypeId( MimeTypeId );
-		ICFIntMimeTypeObj obj = readMimeType( pkey, forceRead );
+		IYCFIntMimeTypeObj obj = readMimeType( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFIntMimeTypeObj readMimeTypeByUNameIdx( String Name )
+	public IYCFIntMimeTypeObj readMimeTypeByUNameIdx( String Name )
 	{
 		return( readMimeTypeByUNameIdx( Name,
 			false ) );
 	}
 
-	public ICFIntMimeTypeObj readMimeTypeByUNameIdx( String Name, boolean forceRead )
+	public IYCFIntMimeTypeObj readMimeTypeByUNameIdx( String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFIntMimeTypeByUNameIdxKey,
-				ICFIntMimeTypeObj >();
+			indexByUNameIdx = new HashMap< YCFIntMimeTypeByUNameIdxKey,
+				IYCFIntMimeTypeObj >();
 		}
-		CFIntMimeTypeByUNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
+		YCFIntMimeTypeByUNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
 		key.setRequiredName( Name );
-		ICFIntMimeTypeObj obj = null;
+		IYCFIntMimeTypeObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFIntMimeTypeBuff buff = ((ICFIntSchema)schema.getBackingStore()).getTableMimeType().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFIntMimeTypeBuff buff = ((IYCFIntSchema)schema.getBackingStore()).getTableMimeType().readDerivedByUNameIdx( schema.getAuthorization(),
 				Name );
 			if( buff != null ) {
 				obj = schema.getMimeTypeTableObj().newInstance();
-				obj.setPKey( ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey() );
+				obj.setPKey( ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFIntMimeTypeObj)obj.realise();
+				obj = (IYCFIntMimeTypeObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFIntMimeTypeObj readCachedMimeTypeByIdIdx( int MimeTypeId )
+	public IYCFIntMimeTypeObj readCachedMimeTypeByIdIdx( int MimeTypeId )
 	{
-		ICFIntMimeTypeObj obj = null;
-		CFIntMimeTypePKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey();
+		IYCFIntMimeTypeObj obj = null;
+		YCFIntMimeTypePKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey();
 		pkey.setRequiredMimeTypeId( MimeTypeId );
 		obj = readCachedMimeType( pkey );
 		return( obj );
 	}
 
-	public ICFIntMimeTypeObj readCachedMimeTypeByUNameIdx( String Name )
+	public IYCFIntMimeTypeObj readCachedMimeTypeByUNameIdx( String Name )
 	{
-		ICFIntMimeTypeObj obj = null;
-		CFIntMimeTypeByUNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
+		IYCFIntMimeTypeObj obj = null;
+		YCFIntMimeTypeByUNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
 		key.setRequiredName( Name );
 		if( indexByUNameIdx != null ) {
 			if( indexByUNameIdx.containsKey( key ) ) {
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFIntMimeTypeObj> valIter = members.values().iterator();
+				Iterator<IYCFIntMimeTypeObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -479,7 +479,7 @@ public class CFIntMimeTypeTableObj
 			}
 		}
 		else {
-			Iterator<ICFIntMimeTypeObj> valIter = members.values().iterator();
+			Iterator<IYCFIntMimeTypeObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -494,7 +494,7 @@ public class CFIntMimeTypeTableObj
 
 	public void deepDisposeMimeTypeByIdIdx( int MimeTypeId )
 	{
-		ICFIntMimeTypeObj obj = readCachedMimeTypeByIdIdx( MimeTypeId );
+		IYCFIntMimeTypeObj obj = readCachedMimeTypeByIdIdx( MimeTypeId );
 		if( obj != null ) {
 			obj.forget();
 		}
@@ -502,38 +502,38 @@ public class CFIntMimeTypeTableObj
 
 	public void deepDisposeMimeTypeByUNameIdx( String Name )
 	{
-		ICFIntMimeTypeObj obj = readCachedMimeTypeByUNameIdx( Name );
+		IYCFIntMimeTypeObj obj = readCachedMimeTypeByUNameIdx( Name );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFIntMimeTypeObj updateMimeType( ICFIntMimeTypeObj Obj ) {
-		ICFIntMimeTypeObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableMimeType().updateMimeType( schema.getAuthorization(),
+	public IYCFIntMimeTypeObj updateMimeType( IYCFIntMimeTypeObj Obj ) {
+		IYCFIntMimeTypeObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableMimeType().updateMimeType( schema.getAuthorization(),
 			Obj.getMimeTypeBuff() );
-		obj = (ICFIntMimeTypeObj)Obj.realise();
+		obj = (IYCFIntMimeTypeObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteMimeType( ICFIntMimeTypeObj Obj ) {
-		ICFIntMimeTypeObj obj = Obj;
-		((ICFIntSchema)schema.getBackingStore()).getTableMimeType().deleteMimeType( schema.getAuthorization(),
+	public void deleteMimeType( IYCFIntMimeTypeObj Obj ) {
+		IYCFIntMimeTypeObj obj = Obj;
+		((IYCFIntSchema)schema.getBackingStore()).getTableMimeType().deleteMimeType( schema.getAuthorization(),
 			obj.getMimeTypeBuff() );
 		Obj.forget();
 	}
 
 	public void deleteMimeTypeByIdIdx( int MimeTypeId )
 	{
-		CFIntMimeTypePKey pkey = ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey();
+		YCFIntMimeTypePKey pkey = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newPKey();
 		pkey.setRequiredMimeTypeId( MimeTypeId );
-		ICFIntMimeTypeObj obj = readMimeType( pkey );
+		IYCFIntMimeTypeObj obj = readMimeType( pkey );
 		if( obj != null ) {
-			ICFIntMimeTypeEditObj editObj = (ICFIntMimeTypeEditObj)obj.getEdit();
+			IYCFIntMimeTypeEditObj editObj = (IYCFIntMimeTypeEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFIntMimeTypeEditObj)obj.beginEdit();
+				editObj = (IYCFIntMimeTypeEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -558,20 +558,20 @@ public class CFIntMimeTypeTableObj
 	public void deleteMimeTypeByUNameIdx( String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFIntMimeTypeByUNameIdxKey,
-				ICFIntMimeTypeObj >();
+			indexByUNameIdx = new HashMap< YCFIntMimeTypeByUNameIdxKey,
+				IYCFIntMimeTypeObj >();
 		}
-		CFIntMimeTypeByUNameIdxKey key = ((ICFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
+		YCFIntMimeTypeByUNameIdxKey key = ((IYCFIntSchema)schema.getBackingStore()).getFactoryMimeType().newUNameIdxKey();
 		key.setRequiredName( Name );
-		ICFIntMimeTypeObj obj = null;
+		IYCFIntMimeTypeObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFIntSchema)schema.getBackingStore()).getTableMimeType().deleteMimeTypeByUNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableMimeType().deleteMimeTypeByUNameIdx( schema.getAuthorization(),
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFIntSchema)schema.getBackingStore()).getTableMimeType().deleteMimeTypeByUNameIdx( schema.getAuthorization(),
+			((IYCFIntSchema)schema.getBackingStore()).getTableMimeType().deleteMimeTypeByUNameIdx( schema.getAuthorization(),
 				Name );
 		}
 		deepDisposeMimeTypeByUNameIdx( Name );

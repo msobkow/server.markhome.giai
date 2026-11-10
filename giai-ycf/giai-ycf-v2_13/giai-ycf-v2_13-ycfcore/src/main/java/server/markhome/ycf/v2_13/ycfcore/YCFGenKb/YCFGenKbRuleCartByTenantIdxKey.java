@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a RuleCart by TenantIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbRuleCartByTenantIdxKey
+public class YCFGenKbRuleCartByTenantIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
-	public CFGenKbRuleCartByTenantIdxKey() {
-		requiredTenantId = CFGenKbRuleCartBuff.TENANTID_INIT_VALUE;
+	public YCFGenKbRuleCartByTenantIdxKey() {
+		requiredTenantId = YCFGenKbRuleCartBuff.TENANTID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -54,13 +54,13 @@ public class CFGenKbRuleCartByTenantIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbRuleCartBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbRuleCartBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbRuleCartBuff.TENANTID_MIN_VALUE );
+				YCFGenKbRuleCartBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -69,15 +69,15 @@ public class CFGenKbRuleCartByTenantIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbRuleCartByTenantIdxKey ) {
-			CFGenKbRuleCartByTenantIdxKey rhs = (CFGenKbRuleCartByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleCartByTenantIdxKey ) {
+			YCFGenKbRuleCartByTenantIdxKey rhs = (YCFGenKbRuleCartByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbRuleCartBuff ) {
-			CFGenKbRuleCartBuff rhs = (CFGenKbRuleCartBuff)obj;
+		else if( obj instanceof YCFGenKbRuleCartBuff ) {
+			YCFGenKbRuleCartBuff rhs = (YCFGenKbRuleCartBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -98,8 +98,8 @@ public class CFGenKbRuleCartByTenantIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbRuleCartByTenantIdxKey ) {
-			CFGenKbRuleCartByTenantIdxKey rhs = (CFGenKbRuleCartByTenantIdxKey)obj;
+		else if( obj instanceof YCFGenKbRuleCartByTenantIdxKey ) {
+			YCFGenKbRuleCartByTenantIdxKey rhs = (YCFGenKbRuleCartByTenantIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -108,8 +108,8 @@ public class CFGenKbRuleCartByTenantIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbRuleCartBuff ) {
-			CFGenKbRuleCartBuff rhs = (CFGenKbRuleCartBuff)obj;
+		else if( obj instanceof YCFGenKbRuleCartBuff ) {
+			YCFGenKbRuleCartBuff rhs = (YCFGenKbRuleCartBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -119,7 +119,7 @@ public class CFGenKbRuleCartByTenantIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -128,7 +128,7 @@ public class CFGenKbRuleCartByTenantIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbRuleCartByTenantIdx"
+		String ret = "<YCFGenKbRuleCartByTenantIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ "/>";
 		return( ret );

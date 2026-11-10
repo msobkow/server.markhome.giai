@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecHostNodeTableObj
+public interface IYCFSecHostNodeTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecHostNodeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecHostNodeObj newInstance();
+	IYCFSecHostNodeObj newInstance();
 
 	/**
 	 *	Instantiate a new HostNode edition of the specified HostNode instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecHostNodeEditObj newEditInstance( ICFSecHostNodeObj orig );
+	IYCFSecHostNodeEditObj newEditInstance( IYCFSecHostNodeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecHostNodeObj realiseHostNode( ICFSecHostNodeObj Obj );
+	IYCFSecHostNodeObj realiseHostNode( IYCFSecHostNodeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecHostNodeObj createHostNode( ICFSecHostNodeObj Obj );
+	IYCFSecHostNodeObj createHostNode( IYCFSecHostNodeObj Obj );
 
 	/**
 	 *	Read a HostNode-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecHostNodeTableObj
 	 *	@return	The HostNode-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecHostNodeObj readHostNode( CFSecHostNodePKey pkey );
+	IYCFSecHostNodeObj readHostNode( YCFSecHostNodePKey pkey );
 
 	/**
 	 *	Read a HostNode-derived instance by it's primary key.
@@ -90,158 +90,158 @@ public interface ICFSecHostNodeTableObj
 	 *	@return	The HostNode-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecHostNodeObj readHostNode( CFSecHostNodePKey pkey,
+	IYCFSecHostNodeObj readHostNode( YCFSecHostNodePKey pkey,
 		boolean forceRead );
 
-	ICFSecHostNodeObj readCachedHostNode( CFSecHostNodePKey pkey );
+	IYCFSecHostNodeObj readCachedHostNode( YCFSecHostNodePKey pkey );
 
-	public void reallyDeepDisposeHostNode( ICFSecHostNodeObj obj );
+	public void reallyDeepDisposeHostNode( IYCFSecHostNodeObj obj );
 
-	void deepDisposeHostNode( CFSecHostNodePKey pkey );
+	void deepDisposeHostNode( YCFSecHostNodePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecHostNodeObj lockHostNode( CFSecHostNodePKey pkey );
+	IYCFSecHostNodeObj lockHostNode( YCFSecHostNodePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the HostNode-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecHostNodeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecHostNodeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecHostNodeObj> readAllHostNode();
+	List<IYCFSecHostNodeObj> readAllHostNode();
 
 	/**
 	 *	Return a sorted map of all the HostNode-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecHostNodeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecHostNodeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecHostNodeObj> readAllHostNode( boolean forceRead );
+	List<IYCFSecHostNodeObj> readAllHostNode( boolean forceRead );
 
-	List<ICFSecHostNodeObj> readCachedAllHostNode();
+	List<IYCFSecHostNodeObj> readCachedAllHostNode();
 
 	/**
 	 *	Return a sorted map of a page of the HostNode-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecHostNodeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecHostNodeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecHostNodeObj> pageAllHostNode(Long priorClusterId,
+	List<IYCFSecHostNodeObj> pageAllHostNode(Long priorClusterId,
 		Long priorHostNodeId );
 
 	/**
-	 *	Get the CFSecHostNodeObj instance for the primary key attributes.
+	 *	Get the YCFSecHostNodeObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argHostNodeId	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecHostNodeObj cached instance for the primary key, or
+	 *	@return	YCFSecHostNodeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecHostNodeObj readHostNodeByIdIdx( long ClusterId,
+	IYCFSecHostNodeObj readHostNodeByIdIdx( long ClusterId,
 		long HostNodeId );
 
 	/**
-	 *	Get the CFSecHostNodeObj instance for the primary key attributes.
+	 *	Get the YCFSecHostNodeObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argHostNodeId	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecHostNodeObj refreshed instance for the primary key, or
+	 *	@return	YCFSecHostNodeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecHostNodeObj readHostNodeByIdIdx( long ClusterId,
+	IYCFSecHostNodeObj readHostNodeByIdIdx( long ClusterId,
 		long HostNodeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecHostNodeObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecHostNodeObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecHostNodeObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecHostNodeObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecHostNodeObj> readHostNodeByClusterIdx( long ClusterId );
+	List<IYCFSecHostNodeObj> readHostNodeByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFSecHostNodeObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecHostNodeObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecHostNodeObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecHostNodeObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecHostNodeObj> readHostNodeByClusterIdx( long ClusterId,
+	List<IYCFSecHostNodeObj> readHostNodeByClusterIdx( long ClusterId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecHostNodeObj instance for the unique UDescrIdx key.
+	 *	Get the YCFSecHostNodeObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argDescription	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecHostNodeObj cached instance for the unique UDescrIdx key, or
+	 *	@return	YCFSecHostNodeObj cached instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecHostNodeObj readHostNodeByUDescrIdx(long ClusterId,
+	IYCFSecHostNodeObj readHostNodeByUDescrIdx(long ClusterId,
 		String Description );
 
 	/**
-	 *	Get the CFSecHostNodeObj instance for the unique UDescrIdx key.
+	 *	Get the YCFSecHostNodeObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argDescription	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecHostNodeObj refreshed instance for the unique UDescrIdx key, or
+	 *	@return	YCFSecHostNodeObj refreshed instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecHostNodeObj readHostNodeByUDescrIdx(long ClusterId,
+	IYCFSecHostNodeObj readHostNodeByUDescrIdx(long ClusterId,
 		String Description,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecHostNodeObj instance for the unique HostNameIdx key.
+	 *	Get the YCFSecHostNodeObj instance for the unique HostNameIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argHostName	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecHostNodeObj cached instance for the unique HostNameIdx key, or
+	 *	@return	YCFSecHostNodeObj cached instance for the unique HostNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecHostNodeObj readHostNodeByHostNameIdx(long ClusterId,
+	IYCFSecHostNodeObj readHostNodeByHostNameIdx(long ClusterId,
 		String HostName );
 
 	/**
-	 *	Get the CFSecHostNodeObj instance for the unique HostNameIdx key.
+	 *	Get the YCFSecHostNodeObj instance for the unique HostNameIdx key.
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 *
 	 *	@param	argHostName	The HostNode key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecHostNodeObj refreshed instance for the unique HostNameIdx key, or
+	 *	@return	YCFSecHostNodeObj refreshed instance for the unique HostNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecHostNodeObj readHostNodeByHostNameIdx(long ClusterId,
+	IYCFSecHostNodeObj readHostNodeByHostNameIdx(long ClusterId,
 		String HostName,
 		boolean forceRead );
 
-	ICFSecHostNodeObj readCachedHostNodeByIdIdx( long ClusterId,
+	IYCFSecHostNodeObj readCachedHostNodeByIdIdx( long ClusterId,
 		long HostNodeId );
 
-	List<ICFSecHostNodeObj> readCachedHostNodeByClusterIdx( long ClusterId );
+	List<IYCFSecHostNodeObj> readCachedHostNodeByClusterIdx( long ClusterId );
 
-	ICFSecHostNodeObj readCachedHostNodeByUDescrIdx( long ClusterId,
+	IYCFSecHostNodeObj readCachedHostNodeByUDescrIdx( long ClusterId,
 		String Description );
 
-	ICFSecHostNodeObj readCachedHostNodeByHostNameIdx( long ClusterId,
+	IYCFSecHostNodeObj readCachedHostNodeByHostNameIdx( long ClusterId,
 		String HostName );
 
 	void deepDisposeHostNodeByIdIdx( long ClusterId,
@@ -264,19 +264,19 @@ public interface ICFSecHostNodeTableObj
 	 *	@return	A List of HostNode-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFSecHostNodeObj> pageHostNodeByClusterIdx( long ClusterId,
+	List<IYCFSecHostNodeObj> pageHostNodeByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Long priorHostNodeId );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecHostNodeObj updateHostNode( ICFSecHostNodeObj Obj );
+	IYCFSecHostNodeObj updateHostNode( IYCFSecHostNodeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteHostNode( ICFSecHostNodeObj Obj );
+	void deleteHostNode( IYCFSecHostNodeObj Obj );
 
 	/**
 	 *	Internal use only.

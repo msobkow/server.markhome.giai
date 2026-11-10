@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for SchemaRole.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSchemaRoleTable database interface for SchemaRole
+ *	YCFBamSchemaRoleTable database interface for SchemaRole
  */
-public interface ICFBamSchemaRoleTable
+public interface IYCFBamSchemaRoleTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSchemaRole( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBuff Buff );
+	void createSchemaRole( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSchemaRole( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBuff Buff );
+	void updateSchemaRole( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSchemaRole( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBuff Buff );
+	void deleteSchemaRole( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBuff Buff );
 	/**
 	 *	Delete the SchemaRole instances identified by the key SchemaIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleBySchemaIdx( CFSecAuthorization Authorization,
+	void deleteSchemaRoleBySchemaIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId );
 
@@ -121,8 +121,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaRoleBySchemaIdx( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBySchemaIdxKey argKey );
+	void deleteSchemaRoleBySchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBySchemaIdxKey argKey );
 	/**
 	 *	Delete the SchemaRole instances identified by the key RoleScopeIdx.
 	 *
@@ -130,8 +130,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleByRoleScopeIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum argRoleScope );
+	void deleteSchemaRoleByRoleScopeIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.RoleScopeEnum argRoleScope );
 
 	/**
 	 *	Delete the SchemaRole instances identified by the key RoleScopeIdx.
@@ -140,8 +140,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaRoleByRoleScopeIdx( CFSecAuthorization Authorization,
-		CFBamSchemaRoleByRoleScopeIdxKey argKey );
+	void deleteSchemaRoleByRoleScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleByRoleScopeIdxKey argKey );
 	/**
 	 *	Delete the SchemaRole instances identified by the key SchRoleScpIdx.
 	 *
@@ -153,10 +153,10 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleBySchRoleScpIdx( CFSecAuthorization Authorization,
+	void deleteSchemaRoleBySchRoleScpIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argSchemaDefId,
-		ICFBamSchema.RoleScopeEnum argRoleScope );
+		IYCFBamSchema.RoleScopeEnum argRoleScope );
 
 	/**
 	 *	Delete the SchemaRole instances identified by the key SchRoleScpIdx.
@@ -165,8 +165,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaRoleBySchRoleScpIdx( CFSecAuthorization Authorization,
-		CFBamSchemaRoleBySchRoleScpIdxKey argKey );
+	void deleteSchemaRoleBySchRoleScpIdx( YCFSecAuthorization Authorization,
+		YCFBamSchemaRoleBySchRoleScpIdxKey argKey );
 	/**
 	 *	Delete the SchemaRole instance identified by the primary key attributes.
 	 *
@@ -176,7 +176,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argId	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleByIdIdx( CFSecAuthorization Authorization,
+	void deleteSchemaRoleByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -187,8 +187,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSchemaRoleByIdIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey argKey );
+	void deleteSchemaRoleByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey argKey );
 	/**
 	 *	Delete the SchemaRole instances identified by the key UNameIdx.
 	 *
@@ -200,7 +200,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argName	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleByUNameIdx( CFSecAuthorization Authorization,
+	void deleteSchemaRoleByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -212,8 +212,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaRoleByUNameIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByUNameIdxKey argKey );
+	void deleteSchemaRoleByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByUNameIdxKey argKey );
 	/**
 	 *	Delete the SchemaRole instances identified by the key UDefIdx.
 	 *
@@ -229,7 +229,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argName	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleByUDefIdx( CFSecAuthorization Authorization,
+	void deleteSchemaRoleByUDefIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argDefSchemaTenantId,
@@ -243,8 +243,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaRoleByUDefIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByUDefIdxKey argKey );
+	void deleteSchemaRoleByUDefIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByUDefIdxKey argKey );
 	/**
 	 *	Delete the SchemaRole instances identified by the key RoleDefTentIdx.
 	 *
@@ -252,7 +252,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleByRoleDefTentIdx( CFSecAuthorization Authorization,
+	void deleteSchemaRoleByRoleDefTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -262,8 +262,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaRoleByRoleDefTentIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByRoleDefTentIdxKey argKey );
+	void deleteSchemaRoleByRoleDefTentIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByRoleDefTentIdxKey argKey );
 	/**
 	 *	Delete the SchemaRole instances identified by the key ScopeIdx.
 	 *
@@ -273,7 +273,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argScopeId	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleByScopeIdx( CFSecAuthorization Authorization,
+	void deleteSchemaRoleByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -284,8 +284,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaRoleByScopeIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByScopeIdxKey argKey );
+	void deleteSchemaRoleByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByScopeIdxKey argKey );
 	/**
 	 *	Delete the SchemaRole instances identified by the key DefSchemaIdx.
 	 *
@@ -295,7 +295,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argDefSchemaId	The SchemaRole key attribute of the instance generating the id.
 	 */
-	void deleteSchemaRoleByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteSchemaRoleByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -306,8 +306,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSchemaRoleByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamRoleDefByDefSchemaIdxKey argKey );
+	void deleteSchemaRoleByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamRoleDefByDefSchemaIdxKey argKey );
 
 
 	/**
@@ -320,8 +320,8 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaRoleBuff readDerived( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey );
+	YCFBamSchemaRoleBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey );
 
 	/**
 	 *	Lock the derived SchemaRole buffer instance by primary key.
@@ -333,8 +333,8 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaRoleBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey );
+	YCFBamSchemaRoleBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey );
 
 	/**
 	 *	Read all SchemaRole instances.
@@ -343,7 +343,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaRoleBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamSchemaRoleBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SchemaRole buffer instance identified by the unique key IdIdx.
@@ -357,7 +357,7 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaRoleBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -375,7 +375,7 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaRoleBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -398,7 +398,7 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamSchemaRoleBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff readDerivedByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
@@ -414,7 +414,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaRoleBuff[] readDerivedByRoleDefTentIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readDerivedByRoleDefTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -428,7 +428,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaRoleBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -443,7 +443,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaRoleBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -458,7 +458,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaRoleBuff[] readDerivedBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readDerivedBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -471,8 +471,8 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaRoleBuff[] readDerivedByRoleScopeIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum RoleScope );
+	YCFBamSchemaRoleBuff[] readDerivedByRoleScopeIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.RoleScopeEnum RoleScope );
 
 	/**
 	 *	Read an array of the derived SchemaRole buffer instances identified by the duplicate key SchRoleScpIdx.
@@ -487,10 +487,10 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamSchemaRoleBuff[] readDerivedBySchRoleScpIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readDerivedBySchRoleScpIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope );
+		IYCFBamSchema.RoleScopeEnum RoleScope );
 
 	/**
 	 *	Read the specific SchemaRole buffer instance identified by the primary key.
@@ -502,10 +502,10 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff readBuff( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey );
+	YCFBamSchemaRoleBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey );
 
 	/**
 	 *	Lock the specific SchemaRole buffer instance identified by the primary key.
@@ -517,10 +517,10 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamRoleDefPKey PKey );
+	YCFBamSchemaRoleBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamRoleDefPKey PKey );
 
 	/**
 	 *	Read all the specific SchemaRole buffer instances.
@@ -529,7 +529,7 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return All the specific SchemaRole instances in the database accessible for the Authorization.
 	 */
-	CFBamSchemaRoleBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamSchemaRoleBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific SchemaRole buffer instance identified by the unique key IdIdx.
@@ -543,9 +543,9 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -563,9 +563,9 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -588,9 +588,9 @@ public interface ICFBamSchemaRoleTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff readBuffByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
@@ -606,9 +606,9 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff[] readBuffByRoleDefTentIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readBuffByRoleDefTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -622,9 +622,9 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -639,9 +639,9 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -656,9 +656,9 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readBuffBySchemaIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
 
@@ -671,10 +671,10 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff[] readBuffByRoleScopeIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.RoleScopeEnum RoleScope );
+	YCFBamSchemaRoleBuff[] readBuffByRoleScopeIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.RoleScopeEnum RoleScope );
 
 	/**
 	 *	Read an array of the specific SchemaRole buffer instances identified by the duplicate key SchRoleScpIdx.
@@ -689,17 +689,17 @@ public interface ICFBamSchemaRoleTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamSchemaRoleBuff[] readBuffBySchRoleScpIdx( CFSecAuthorization Authorization,
+	YCFBamSchemaRoleBuff[] readBuffBySchRoleScpIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId,
-		ICFBamSchema.RoleScopeEnum RoleScope );
+		IYCFBamSchema.RoleScopeEnum RoleScope );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

@@ -1,15 +1,15 @@
-// Description: Java 11 Object interface for CFBam ISOCtryLang.
+// Description: Java 11 Object interface for YCFBam ISOCtryLang.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,32 +26,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamISOCtryLangObj
-	extends ICFSecISOCtryLangObj,
-		ICFIntISOCtryLangObj
+public interface IYCFBamISOCtryLangObj
+	extends IYCFSecISOCtryLangObj,
+		IYCFIntISOCtryLangObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who created this instance.
+	 *	@return	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	ICFSecSecUserObj getCreatedBy();
+	IYCFSecSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -63,9 +63,9 @@ public interface ICFBamISOCtryLangObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFSecSecUserObj instance who updated this instance.
+	 *	@return	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	ICFSecSecUserObj getUpdatedBy();
+	IYCFSecSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -76,9 +76,9 @@ public interface ICFBamISOCtryLangObj
 	/**
 	 *	Realise this instance of a ISOCtryLang.
 	 *
-	 *	@return	CFSecISOCtryLangObj instance which should be subsequently referenced.
+	 *	@return	YCFSecISOCtryLangObj instance which should be subsequently referenced.
 	 */
-	ICFSecISOCtryLangObj realise();
+	IYCFSecISOCtryLangObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -90,83 +90,83 @@ public interface ICFBamISOCtryLangObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecISOCtryLangObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecISOCtryLangObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecISOCtryLangObj read();
+	IYCFSecISOCtryLangObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFSecISOCtryLangObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFSecISOCtryLangObj the reference to the cached or read (realised) instance.
 	 */
-	ICFSecISOCtryLangObj read( boolean forceRead );
+	IYCFSecISOCtryLangObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this ISOCtryLang instance.
 	 *
-	 *	@return	The newly locked ICFSecISOCtryLangEditObj edition of this instance.
+	 *	@return	The newly locked IYCFSecISOCtryLangEditObj edition of this instance.
 	 */
-	ICFSecISOCtryLangEditObj beginEdit();
+	IYCFSecISOCtryLangEditObj beginEdit();
 
 	/**
 	 *	End this edition of this ISOCtryLang instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this ISOCtryLang instance.
 	 *
-	 *	@return	The ICFSecISOCtryLangEditObj edition of this instance.
+	 *	@return	The IYCFSecISOCtryLangEditObj edition of this instance.
 	 */
-	ICFSecISOCtryLangEditObj getEdit();
+	IYCFSecISOCtryLangEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this ISOCtryLang instance as a ICFSecISOCtryLangEditObj.
+	 *	Get the current edition of this ISOCtryLang instance as a IYCFSecISOCtryLangEditObj.
 	 *
-	 *	@return	The ICFSecISOCtryLangEditObj edition of this instance.
+	 *	@return	The IYCFSecISOCtryLangEditObj edition of this instance.
 	 */
-	ICFSecISOCtryLangEditObj getEditAsISOCtryLang();
+	IYCFSecISOCtryLangEditObj getEditAsISOCtryLang();
 
 	/**
-	 *	Get the ICFSecISOCtryLangTableObj table cache which manages this instance.
+	 *	Get the IYCFSecISOCtryLangTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFSecISOCtryLangTableObj table cache which manages this instance.
+	 *	@return	IYCFSecISOCtryLangTableObj table cache which manages this instance.
 	 */
-	ICFSecISOCtryLangTableObj getISOCtryLangTable();
+	IYCFSecISOCtryLangTableObj getISOCtryLangTable();
 
 	/**
-	 *	Get the ICFSecSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFSecSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFSecSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFSecSchemaObj schema cache which manages this instance.
 	 */
-	ICFSecSchemaObj getSchema();
+	IYCFSecSchemaObj getSchema();
 
 	/**
-	 *	Get the CFSecISOCtryLangBuff instance which currently backs this instance.
+	 *	Get the YCFSecISOCtryLangBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecISOCtryLangBuff instance which currently backs this object.
+	 *	@return	YCFSecISOCtryLangBuff instance which currently backs this object.
 	 */
-	CFSecISOCtryLangBuff getBuff();
+	YCFSecISOCtryLangBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFSecISOCtryLangBuff value );
+	void setBuff( YCFSecISOCtryLangBuff value );
 
 	/**
-	 *	Get the CFSecISOCtryLangBuff instance which currently backs this instance.
+	 *	Get the YCFSecISOCtryLangBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFSecISOCtryLangBuff instance which currently backs this object.
+	 *	@return	YCFSecISOCtryLangBuff instance which currently backs this object.
 	 */
-	CFSecISOCtryLangBuff getISOCtryLangBuff();
+	YCFSecISOCtryLangBuff getISOCtryLangBuff();
 
 	/**
 	 *	Is this a new instance?
@@ -200,32 +200,32 @@ public interface ICFBamISOCtryLangObj
 	short getRequiredISOLangId();
 
 	/**
-	 *	Get the required ICFBamISOCtryObj instance referenced by the Ctry key.
+	 *	Get the required IYCFBamISOCtryObj instance referenced by the Ctry key.
 	 *
-	 *	@return	The required ICFBamISOCtryObj instance referenced by the Ctry key.
+	 *	@return	The required IYCFBamISOCtryObj instance referenced by the Ctry key.
 	 */
-	ICFSecISOCtryObj getRequiredContainerCtry();
+	IYCFSecISOCtryObj getRequiredContainerCtry();
 
 	/**
-	 *	Get the required ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	Get the required IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 *
-	 *	@return	The required ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	@return	The required IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 */
-	ICFSecISOCtryObj getRequiredContainerCtry( boolean forceRead );
+	IYCFSecISOCtryObj getRequiredContainerCtry( boolean forceRead );
 
 	/**
-	 *	Get the required ICFBamISOLangObj instance referenced by the Lang key.
+	 *	Get the required IYCFBamISOLangObj instance referenced by the Lang key.
 	 *
-	 *	@return	The required ICFBamISOLangObj instance referenced by the Lang key.
+	 *	@return	The required IYCFBamISOLangObj instance referenced by the Lang key.
 	 */
-	ICFSecISOLangObj getRequiredParentLang();
+	IYCFSecISOLangObj getRequiredParentLang();
 
 	/**
-	 *	Get the required ICFSecISOLangObj instance referenced by the Lang key.
+	 *	Get the required IYCFSecISOLangObj instance referenced by the Lang key.
 	 *
-	 *	@return	The required ICFSecISOLangObj instance referenced by the Lang key.
+	 *	@return	The required IYCFSecISOLangObj instance referenced by the Lang key.
 	 */
-	ICFSecISOLangObj getRequiredParentLang( boolean forceRead );
+	IYCFSecISOLangObj getRequiredParentLang( boolean forceRead );
 
 	/**
 	 *	Internal use only.

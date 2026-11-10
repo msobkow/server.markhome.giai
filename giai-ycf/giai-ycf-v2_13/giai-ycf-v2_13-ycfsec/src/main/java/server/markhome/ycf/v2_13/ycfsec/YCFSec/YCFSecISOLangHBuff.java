@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ISOLang history buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,12 +36,12 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecISOLangHBuff
+public class YCFSecISOLangHBuff
 
-	extends CFSecHPKey	implements Comparable<Object>,
+	extends YCFSecHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final short ISOLANGID_INIT_VALUE = (short)0;
@@ -54,16 +54,16 @@ public class CFSecISOLangHBuff
 	protected String requiredISO6392Code;
 	protected String optionalISO6391Code;
 	protected String requiredEnglishName;
-	public CFSecISOLangHBuff() {
+	public YCFSecISOLangHBuff() {
 		super();
-		requiredISOLangId = CFSecISOLangBuff.ISOLANGID_INIT_VALUE;
-		requiredISO6392Code = new String( CFSecISOLangBuff.ISO6392CODE_INIT_VALUE );
+		requiredISOLangId = YCFSecISOLangBuff.ISOLANGID_INIT_VALUE;
+		requiredISO6392Code = new String( YCFSecISOLangBuff.ISO6392CODE_INIT_VALUE );
 		optionalISO6391Code = null;
-		requiredEnglishName = new String( CFSecISOLangBuff.ENGLISHNAME_INIT_VALUE );
+		requiredEnglishName = new String( YCFSecISOLangBuff.ENGLISHNAME_INIT_VALUE );
 	}
 
 	public String getClassCode() {
-		return( CFSecISOLangBuff.CLASS_CODE );
+		return( YCFSecISOLangBuff.CLASS_CODE );
 	}
 
 	public short getRequiredISOLangId() {
@@ -71,13 +71,13 @@ public class CFSecISOLangHBuff
 	}
 
 	public void setRequiredISOLangId( short value ) {
-		if( value < CFSecISOLangBuff.ISOLANGID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecISOLangBuff.ISOLANGID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOLangId",
 				1,
 				"value",
 				value,
-				CFSecISOLangBuff.ISOLANGID_MIN_VALUE );
+				YCFSecISOLangBuff.ISOLANGID_MIN_VALUE );
 		}
 		requiredISOLangId = value;
 	}
@@ -88,13 +88,13 @@ public class CFSecISOLangHBuff
 
 	public void setRequiredISO6392Code( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredISO6392Code",
 				1,
 				"value" );
 		}
 		if( value.length() > 3 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredISO6392Code",
 				1,
 				"value.length()",
@@ -113,7 +113,7 @@ public class CFSecISOLangHBuff
 			optionalISO6391Code = null;
 		}
 		else if( value.length() > 2 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalISO6391Code",
 				1,
 				"value.length()",
@@ -131,13 +131,13 @@ public class CFSecISOLangHBuff
 
 	public void setRequiredEnglishName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredEnglishName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredEnglishName",
 				1,
 				"value.length()",
@@ -151,8 +151,8 @@ public class CFSecISOLangHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecISOLangHBuff ) {
-			CFSecISOLangHBuff rhs = (CFSecISOLangHBuff)obj;
+		else if( obj instanceof YCFSecISOLangHBuff ) {
+			YCFSecISOLangHBuff rhs = (YCFSecISOLangHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -179,8 +179,8 @@ public class CFSecISOLangHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOLangBuff ) {
-			CFSecISOLangBuff rhs = (CFSecISOLangBuff)obj;
+		else if( obj instanceof YCFSecISOLangBuff ) {
+			YCFSecISOLangBuff rhs = (YCFSecISOLangBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -207,15 +207,15 @@ public class CFSecISOLangHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOLangByCode3IdxKey ) {
-			CFSecISOLangByCode3IdxKey rhs = (CFSecISOLangByCode3IdxKey)obj;
+		else if( obj instanceof YCFSecISOLangByCode3IdxKey ) {
+			YCFSecISOLangByCode3IdxKey rhs = (YCFSecISOLangByCode3IdxKey)obj;
 			if( ! getRequiredISO6392Code().equals( rhs.getRequiredISO6392Code() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOLangByCode2IdxKey ) {
-			CFSecISOLangByCode2IdxKey rhs = (CFSecISOLangByCode2IdxKey)obj;
+		else if( obj instanceof YCFSecISOLangByCode2IdxKey ) {
+			YCFSecISOLangByCode2IdxKey rhs = (YCFSecISOLangByCode2IdxKey)obj;
 			if( getOptionalISO6391Code() != null ) {
 				if( rhs.getOptionalISO6391Code() != null ) {
 					if( ! getOptionalISO6391Code().equals( rhs.getOptionalISO6391Code() ) ) {
@@ -230,8 +230,8 @@ public class CFSecISOLangHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOLangHPKey ) {
-			CFSecISOLangHPKey rhs = (CFSecISOLangHPKey)obj;
+		else if( obj instanceof YCFSecISOLangHPKey ) {
+			YCFSecISOLangHPKey rhs = (YCFSecISOLangHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -292,8 +292,8 @@ public class CFSecISOLangHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -351,8 +351,8 @@ public class CFSecISOLangHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOLangPKey ) {
-			CFSecISOLangPKey rhs = (CFSecISOLangPKey)obj;
+		else if( obj instanceof YCFSecISOLangPKey ) {
+			YCFSecISOLangPKey rhs = (YCFSecISOLangPKey)obj;
 			if( getRequiredISOLangId() != rhs.getRequiredISOLangId() ) {
 				return( false );
 			}
@@ -382,16 +382,16 @@ public class CFSecISOLangHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecISOLangBuff ) {
-			CFSecISOLangBuff rhs = (CFSecISOLangBuff)obj;
+		else if( obj instanceof YCFSecISOLangBuff ) {
+			YCFSecISOLangBuff rhs = (YCFSecISOLangBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOLangByCode3IdxKey ) {
-			CFSecISOLangByCode3IdxKey rhs = (CFSecISOLangByCode3IdxKey)obj;
+		else if( obj instanceof YCFSecISOLangByCode3IdxKey ) {
+			YCFSecISOLangByCode3IdxKey rhs = (YCFSecISOLangByCode3IdxKey)obj;
 
 			{
 				int cmp = getRequiredISO6392Code().compareTo( rhs.getRequiredISO6392Code() );
@@ -400,8 +400,8 @@ public class CFSecISOLangHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecISOLangByCode2IdxKey ) {
-			CFSecISOLangByCode2IdxKey rhs = (CFSecISOLangByCode2IdxKey)obj;
+		else if( obj instanceof YCFSecISOLangByCode2IdxKey ) {
+			YCFSecISOLangByCode2IdxKey rhs = (YCFSecISOLangByCode2IdxKey)obj;
 
 			if( getOptionalISO6391Code() != null ) {
 				if( rhs.getOptionalISO6391Code() != null ) {
@@ -420,8 +420,8 @@ public class CFSecISOLangHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecISOLangHBuff ) {
-			CFSecISOLangHBuff rhs = (CFSecISOLangHBuff)obj;
+		else if( obj instanceof YCFSecISOLangHBuff ) {
+			YCFSecISOLangHBuff rhs = (YCFSecISOLangHBuff)obj;
 
 			int retval = 0;
 			{
@@ -592,8 +592,8 @@ public class CFSecISOLangHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOLangHPKey ) {
-			CFSecISOLangHPKey rhs = (CFSecISOLangHPKey)obj;
+		else if( obj instanceof YCFSecISOLangHPKey ) {
+			YCFSecISOLangHPKey rhs = (YCFSecISOLangHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -668,8 +668,8 @@ public class CFSecISOLangHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOLangPKey ) {
-			CFSecISOLangPKey rhs = (CFSecISOLangPKey)obj;
+		else if( obj instanceof YCFSecISOLangPKey ) {
+			YCFSecISOLangPKey rhs = (YCFSecISOLangPKey)obj;
 			if( getRequiredISOLangId() < rhs.getRequiredISOLangId() ) {
 				return( -1 );
 			}
@@ -678,8 +678,8 @@ public class CFSecISOLangHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -697,11 +697,11 @@ public class CFSecISOLangHBuff
 		}
 	}
 
-	public void set( CFSecISOLangBuff src ) {
+	public void set( YCFSecISOLangBuff src ) {
 		setISOLangBuff( src );
 	}
 
-	public void setISOLangBuff( CFSecISOLangBuff src ) {
+	public void setISOLangBuff( YCFSecISOLangBuff src ) {
 		setRequiredISOLangId( src.getRequiredISOLangId() );
 		setRequiredISO6392Code( src.getRequiredISO6392Code() );
 		setOptionalISO6391Code( src.getOptionalISO6391Code() );
@@ -709,11 +709,11 @@ public class CFSecISOLangHBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecISOLangHBuff src ) {
+	public void set( YCFSecISOLangHBuff src ) {
 		setISOLangBuff( src );
 	}
 
-	public void setISOLangBuff( CFSecISOLangHBuff src ) {
+	public void setISOLangBuff( YCFSecISOLangHBuff src ) {
 		setRequiredISOLangId( src.getRequiredISOLangId() );
 		setRequiredISO6392Code( src.getRequiredISO6392Code() );
 		setOptionalISO6391Code( src.getOptionalISO6391Code() );

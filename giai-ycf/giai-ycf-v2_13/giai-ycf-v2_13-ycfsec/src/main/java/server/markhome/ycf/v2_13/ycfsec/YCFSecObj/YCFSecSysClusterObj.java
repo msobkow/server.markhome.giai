@@ -1,15 +1,15 @@
-// Description: Java 11 base object instance implementation for CFSec SysCluster.
+// Description: Java 11 base object instance implementation for YCFSec SysCluster.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,33 +26,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFSecSysClusterObj
-	implements ICFSecSysClusterObj
+public class YCFSecSysClusterObj
+	implements IYCFSecSysClusterObj
 {
 	public final static String CLASS_CODE = "a014";
 	protected boolean isNew;
-	protected ICFSecSysClusterEditObj edit;
-	protected ICFSecSchemaObj schema;
-	protected CFSecSysClusterPKey pKey;
-	protected CFSecSysClusterBuff buff;
-	protected ICFSecClusterObj requiredContainerCluster;
+	protected IYCFSecSysClusterEditObj edit;
+	protected IYCFSecSchemaObj schema;
+	protected YCFSecSysClusterPKey pKey;
+	protected YCFSecSysClusterBuff buff;
+	protected IYCFSecClusterObj requiredContainerCluster;
 
-	public CFSecSysClusterObj() {
+	public YCFSecSysClusterObj() {
 		isNew = true;
 		requiredContainerCluster = null;
 	}
 
-	public CFSecSysClusterObj( ICFSecSchemaObj argSchema ) {
+	public YCFSecSysClusterObj( IYCFSecSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -67,13 +67,13 @@ public class CFSecSysClusterObj
 		return( "SysCluster" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFSecClusterObj scope = getRequiredContainerCluster();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFSecClusterObj scope = getRequiredContainerCluster();
 		return( scope );
 	}
 
@@ -84,14 +84,14 @@ public class CFSecSysClusterObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFSecClusterObj ) {
+				if( container instanceof IYCFSecClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFSecTenantObj ) {
+				else if( container instanceof IYCFSecTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -102,10 +102,10 @@ public class CFSecSysClusterObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFSecClusterObj ) {
+				if( container instanceof IYCFSecClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFSecTenantObj ) {
+				else if( container instanceof IYCFSecTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -114,20 +114,20 @@ public class CFSecSysClusterObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -151,13 +151,13 @@ public class CFSecSysClusterObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -171,13 +171,13 @@ public class CFSecSysClusterObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -189,46 +189,46 @@ public class CFSecSysClusterObj
 		return( fullName );
 	}
 
-	public ICFSecSysClusterObj realise() {
-		ICFSecSysClusterObj retobj = ((ICFSecSchemaObj)schema).getSysClusterTableObj().realiseSysCluster(
-			(ICFSecSysClusterObj)this );
-		return( (ICFSecSysClusterObj)retobj );
+	public IYCFSecSysClusterObj realise() {
+		IYCFSecSysClusterObj retobj = ((IYCFSecSchemaObj)schema).getSysClusterTableObj().realiseSysCluster(
+			(IYCFSecSysClusterObj)this );
+		return( (IYCFSecSysClusterObj)retobj );
 	}
 
 	public void forget() {
-		((ICFSecSchemaObj)schema).getSysClusterTableObj().reallyDeepDisposeSysCluster( (ICFSecSysClusterObj)this );
+		((IYCFSecSchemaObj)schema).getSysClusterTableObj().reallyDeepDisposeSysCluster( (IYCFSecSysClusterObj)this );
 	}
 
-	public ICFSecSysClusterObj read() {
-		ICFSecSysClusterObj retobj = ((ICFSecSchemaObj)schema).getSysClusterTableObj().readSysClusterByIdIdx( getPKey().getRequiredSingletonId(), false );
-		return( (ICFSecSysClusterObj)retobj );
+	public IYCFSecSysClusterObj read() {
+		IYCFSecSysClusterObj retobj = ((IYCFSecSchemaObj)schema).getSysClusterTableObj().readSysClusterByIdIdx( getPKey().getRequiredSingletonId(), false );
+		return( (IYCFSecSysClusterObj)retobj );
 	}
 
-	public ICFSecSysClusterObj read( boolean forceRead ) {
-		ICFSecSysClusterObj retobj = ((ICFSecSchemaObj)schema).getSysClusterTableObj().readSysClusterByIdIdx( getPKey().getRequiredSingletonId(), forceRead );
-		return( (ICFSecSysClusterObj)retobj );
+	public IYCFSecSysClusterObj read( boolean forceRead ) {
+		IYCFSecSysClusterObj retobj = ((IYCFSecSchemaObj)schema).getSysClusterTableObj().readSysClusterByIdIdx( getPKey().getRequiredSingletonId(), forceRead );
+		return( (IYCFSecSysClusterObj)retobj );
 	}
 
-	public ICFSecSysClusterTableObj getSysClusterTable() {
-		return( ((ICFSecSchemaObj)schema).getSysClusterTableObj() );
+	public IYCFSecSysClusterTableObj getSysClusterTable() {
+		return( ((IYCFSecSchemaObj)schema).getSysClusterTableObj() );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFSecSchemaObj value ) {
+	public void setSchema( IYCFSecSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFSecSysClusterBuff getBuff() {
+	public YCFSecSysClusterBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFSecSchema)schema.getBackingStore()).getFactorySysCluster().newBuff();
+				buff = ((IYCFSecSchema)schema.getBackingStore()).getFactorySysCluster().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFSecSchema)schema.getBackingStore()).getTableSysCluster().readDerivedByIdIdx( ((ICFSecSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFSecSchema)schema.getBackingStore()).getTableSysCluster().readDerivedByIdIdx( ((IYCFSecSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredSingletonId() );
 				if( buff != null ) {
 					copyBuffToPKey();
@@ -238,31 +238,31 @@ public class CFSecSysClusterObj
 		return( buff );
 	}
 
-	public void setBuff( CFSecSysClusterBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFSecSysClusterBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFSecSysClusterBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFSecSysClusterBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFSecSysClusterBuff" );
+				"YCFSecSysClusterBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
 		requiredContainerCluster = null;
 	}
 
-	public CFSecSysClusterBuff getSysClusterBuff() {
-		return( (CFSecSysClusterBuff)getBuff() );
+	public YCFSecSysClusterBuff getSysClusterBuff() {
+		return( (YCFSecSysClusterBuff)getBuff() );
 	}
 
-	public CFSecSysClusterPKey getPKey() {
+	public YCFSecSysClusterPKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFSecSchema)schema.getBackingStore()).getFactorySysCluster().newPKey();
+			pKey = ((IYCFSecSchema)schema.getBackingStore()).getFactorySysCluster().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFSecSysClusterPKey value ) {
+	public void setPKey( YCFSecSysClusterPKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -277,31 +277,31 @@ public class CFSecSysClusterObj
 		isNew = value;
 	}
 
-	public ICFSecSysClusterEditObj beginEdit() {
+	public IYCFSecSysClusterEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFSecSysClusterObj lockobj;
+		IYCFSecSysClusterObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFSecSysClusterObj)this;
+			lockobj = (IYCFSecSysClusterObj)this;
 		}
 		else {
-			lockobj = ((ICFSecSchemaObj)schema).getSysClusterTableObj().lockSysCluster( getPKey() );
+			lockobj = ((IYCFSecSchemaObj)schema).getSysClusterTableObj().lockSysCluster( getPKey() );
 		}
-		edit = ((ICFSecSchemaObj)schema).getSysClusterTableObj().newEditInstance( lockobj );
-		return( (ICFSecSysClusterEditObj)edit );
+		edit = ((IYCFSecSchemaObj)schema).getSysClusterTableObj().newEditInstance( lockobj );
+		return( (IYCFSecSysClusterEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFSecSysClusterEditObj getEdit() {
+	public IYCFSecSysClusterEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFSecSysClusterEditObj getEditAsSysCluster() {
-		return( (ICFSecSysClusterEditObj)edit );
+	public IYCFSecSysClusterEditObj getEditAsSysCluster() {
+		return( (IYCFSecSysClusterEditObj)edit );
 	}
 
 	public int getRequiredSingletonId() {
@@ -312,15 +312,15 @@ public class CFSecSysClusterObj
 		return( getSysClusterBuff().getRequiredClusterId() );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster() {
+	public IYCFSecClusterObj getRequiredContainerCluster() {
 		return( getRequiredContainerCluster( false ) );
 	}
 
-	public ICFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
+	public IYCFSecClusterObj getRequiredContainerCluster( boolean forceRead ) {
 		if( ( requiredContainerCluster == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerCluster = ((ICFSecSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getSysClusterBuff().getRequiredClusterId(), forceRead );
+				requiredContainerCluster = ((IYCFSecSchemaObj)schema).getClusterTableObj().readClusterByIdIdx( getSysClusterBuff().getRequiredClusterId(), forceRead );
 			}
 		}
 		return( requiredContainerCluster );

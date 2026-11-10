@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,29 +21,29 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
-public class CFVBox
+public class YCFVBox
 extends VBox
 {
-	public CFVBox() {
+	public YCFVBox() {
 		super();
 	}
 
-    public CFVBox(double spacing) {
+    public YCFVBox(double spacing) {
     	super( spacing );
     }
 
-    public CFVBox(Node... children) {
+    public YCFVBox(Node... children) {
         super( children );
     }
 
-    public CFVBox(double spacing, Node... children) {
+    public YCFVBox(double spacing, Node... children) {
     	super( spacing, children );
     }
 }

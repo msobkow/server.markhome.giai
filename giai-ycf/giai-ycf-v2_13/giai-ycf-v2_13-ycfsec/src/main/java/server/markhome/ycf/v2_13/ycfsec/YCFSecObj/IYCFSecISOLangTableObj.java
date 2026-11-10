@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOLangTableObj
+public interface IYCFSecISOLangTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecISOLangTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecISOLangObj newInstance();
+	IYCFSecISOLangObj newInstance();
 
 	/**
 	 *	Instantiate a new ISOLang edition of the specified ISOLang instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecISOLangEditObj newEditInstance( ICFSecISOLangObj orig );
+	IYCFSecISOLangEditObj newEditInstance( IYCFSecISOLangObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOLangObj realiseISOLang( ICFSecISOLangObj Obj );
+	IYCFSecISOLangObj realiseISOLang( IYCFSecISOLangObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOLangObj createISOLang( ICFSecISOLangObj Obj );
+	IYCFSecISOLangObj createISOLang( IYCFSecISOLangObj Obj );
 
 	/**
 	 *	Read a ISOLang-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecISOLangTableObj
 	 *	@return	The ISOLang-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOLangObj readISOLang( CFSecISOLangPKey pkey );
+	IYCFSecISOLangObj readISOLang( YCFSecISOLangPKey pkey );
 
 	/**
 	 *	Read a ISOLang-derived instance by it's primary key.
@@ -90,106 +90,106 @@ public interface ICFSecISOLangTableObj
 	 *	@return	The ISOLang-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOLangObj readISOLang( CFSecISOLangPKey pkey,
+	IYCFSecISOLangObj readISOLang( YCFSecISOLangPKey pkey,
 		boolean forceRead );
 
-	ICFSecISOLangObj readCachedISOLang( CFSecISOLangPKey pkey );
+	IYCFSecISOLangObj readCachedISOLang( YCFSecISOLangPKey pkey );
 
-	public void reallyDeepDisposeISOLang( ICFSecISOLangObj obj );
+	public void reallyDeepDisposeISOLang( IYCFSecISOLangObj obj );
 
-	void deepDisposeISOLang( CFSecISOLangPKey pkey );
+	void deepDisposeISOLang( YCFSecISOLangPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOLangObj lockISOLang( CFSecISOLangPKey pkey );
+	IYCFSecISOLangObj lockISOLang( YCFSecISOLangPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ISOLang-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOLangObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOLangObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOLangObj> readAllISOLang();
+	List<IYCFSecISOLangObj> readAllISOLang();
 
 	/**
 	 *	Return a sorted map of all the ISOLang-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOLangObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOLangObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOLangObj> readAllISOLang( boolean forceRead );
+	List<IYCFSecISOLangObj> readAllISOLang( boolean forceRead );
 
-	List<ICFSecISOLangObj> readCachedAllISOLang();
+	List<IYCFSecISOLangObj> readCachedAllISOLang();
 
 	/**
-	 *	Get the CFSecISOLangObj instance for the primary key attributes.
+	 *	Get the YCFSecISOLangObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOLangId	The ISOLang key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOLangObj cached instance for the primary key, or
+	 *	@return	YCFSecISOLangObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOLangObj readISOLangByIdIdx( short ISOLangId );
+	IYCFSecISOLangObj readISOLangByIdIdx( short ISOLangId );
 
 	/**
-	 *	Get the CFSecISOLangObj instance for the primary key attributes.
+	 *	Get the YCFSecISOLangObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOLangId	The ISOLang key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOLangObj refreshed instance for the primary key, or
+	 *	@return	YCFSecISOLangObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOLangObj readISOLangByIdIdx( short ISOLangId,
+	IYCFSecISOLangObj readISOLangByIdIdx( short ISOLangId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecISOLangObj instance for the unique Code3Idx key.
+	 *	Get the YCFSecISOLangObj instance for the unique Code3Idx key.
 	 *
 	 *	@param	argISO6392Code	The ISOLang key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOLangObj cached instance for the unique Code3Idx key, or
+	 *	@return	YCFSecISOLangObj cached instance for the unique Code3Idx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOLangObj readISOLangByCode3Idx(String ISO6392Code );
+	IYCFSecISOLangObj readISOLangByCode3Idx(String ISO6392Code );
 
 	/**
-	 *	Get the CFSecISOLangObj instance for the unique Code3Idx key.
+	 *	Get the YCFSecISOLangObj instance for the unique Code3Idx key.
 	 *
 	 *	@param	argISO6392Code	The ISOLang key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOLangObj refreshed instance for the unique Code3Idx key, or
+	 *	@return	YCFSecISOLangObj refreshed instance for the unique Code3Idx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOLangObj readISOLangByCode3Idx(String ISO6392Code,
+	IYCFSecISOLangObj readISOLangByCode3Idx(String ISO6392Code,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecISOLangObj instances sorted by their primary keys for the duplicate Code2Idx key.
+	 *	Get the map of YCFSecISOLangObj instances sorted by their primary keys for the duplicate Code2Idx key.
 	 *
 	 *	@param	argISO6391Code	The ISOLang key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOLangObj cached instances sorted by their primary keys for the duplicate Code2Idx key,
+	 *	@return	List of YCFSecISOLangObj cached instances sorted by their primary keys for the duplicate Code2Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOLangObj> readISOLangByCode2Idx( String ISO6391Code );
+	List<IYCFSecISOLangObj> readISOLangByCode2Idx( String ISO6391Code );
 
 	/**
-	 *	Get the map of CFSecISOLangObj instances sorted by their primary keys for the duplicate Code2Idx key.
+	 *	Get the map of YCFSecISOLangObj instances sorted by their primary keys for the duplicate Code2Idx key.
 	 *
 	 *	@param	argISO6391Code	The ISOLang key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecISOLangObj cached instances sorted by their primary keys for the duplicate Code2Idx key,
+	 *	@return	List of YCFSecISOLangObj cached instances sorted by their primary keys for the duplicate Code2Idx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecISOLangObj> readISOLangByCode2Idx( String ISO6391Code,
+	List<IYCFSecISOLangObj> readISOLangByCode2Idx( String ISO6391Code,
 		boolean forceRead );
 
-	ICFSecISOLangObj readCachedISOLangByIdIdx( short ISOLangId );
+	IYCFSecISOLangObj readCachedISOLangByIdIdx( short ISOLangId );
 
-	ICFSecISOLangObj readCachedISOLangByCode3Idx( String ISO6392Code );
+	IYCFSecISOLangObj readCachedISOLangByCode3Idx( String ISO6392Code );
 
-	List<ICFSecISOLangObj> readCachedISOLangByCode2Idx( String ISO6391Code );
+	List<IYCFSecISOLangObj> readCachedISOLangByCode2Idx( String ISO6391Code );
 
 	void deepDisposeISOLangByIdIdx( short ISOLangId );
 
@@ -200,12 +200,12 @@ public interface ICFSecISOLangTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOLangObj updateISOLang( ICFSecISOLangObj Obj );
+	IYCFSecISOLangObj updateISOLang( IYCFSecISOLangObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteISOLang( ICFSecISOLangObj Obj );
+	void deleteISOLang( IYCFSecISOLangObj Obj );
 
 	/**
 	 *	Internal use only.

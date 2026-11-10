@@ -2,17 +2,17 @@
 // Description: Java 11 in-memory RAM DbIO implementation for Relation.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,156 +46,156 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamRelationTable in-memory RAM DbIO implementation
+ *	YCFBamRamRelationTable in-memory RAM DbIO implementation
  *	for Relation.
  */
-public class CFBamRamRelationTable
-	implements ICFBamRelationTable
+public class YCFBamRamRelationTable
+	implements IYCFBamRelationTable
 {
-	private ICFBamSchema schema;
-	private Map< CFBamScopePKey,
-				CFBamRelationBuff > dictByPKey
-		= new HashMap< CFBamScopePKey,
-				CFBamRelationBuff >();
-	private Map< CFBamRelationByUNameIdxKey,
-			CFBamRelationBuff > dictByUNameIdx
-		= new HashMap< CFBamRelationByUNameIdxKey,
-			CFBamRelationBuff >();
-	private Map< CFBamRelationByRelnTenantIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >> dictByRelnTenantIdx
-		= new HashMap< CFBamRelationByRelnTenantIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >>();
-	private Map< CFBamRelationByRelTableIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >> dictByRelTableIdx
-		= new HashMap< CFBamRelationByRelTableIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >>();
-	private Map< CFBamRelationByCodeVisIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >> dictByCodeVisIdx
-		= new HashMap< CFBamRelationByCodeVisIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >>();
-	private Map< CFBamRelationByTableCodeVisIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >> dictByTableCodeVisIdx
-		= new HashMap< CFBamRelationByTableCodeVisIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >>();
-	private Map< CFBamRelationByDefSchemaIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >> dictByDefSchemaIdx
-		= new HashMap< CFBamRelationByDefSchemaIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >>();
-	private Map< CFBamRelationByFromKeyIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >> dictByFromKeyIdx
-		= new HashMap< CFBamRelationByFromKeyIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >>();
-	private Map< CFBamRelationByToTblIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >> dictByToTblIdx
-		= new HashMap< CFBamRelationByToTblIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >>();
-	private Map< CFBamRelationByToKeyIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >> dictByToKeyIdx
-		= new HashMap< CFBamRelationByToKeyIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >>();
-	private Map< CFBamRelationByNarrowedIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >> dictByNarrowedIdx
-		= new HashMap< CFBamRelationByNarrowedIdxKey,
-				Map< CFBamScopePKey,
-					CFBamRelationBuff >>();
+	private IYCFBamSchema schema;
+	private Map< YCFBamScopePKey,
+				YCFBamRelationBuff > dictByPKey
+		= new HashMap< YCFBamScopePKey,
+				YCFBamRelationBuff >();
+	private Map< YCFBamRelationByUNameIdxKey,
+			YCFBamRelationBuff > dictByUNameIdx
+		= new HashMap< YCFBamRelationByUNameIdxKey,
+			YCFBamRelationBuff >();
+	private Map< YCFBamRelationByRelnTenantIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >> dictByRelnTenantIdx
+		= new HashMap< YCFBamRelationByRelnTenantIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >>();
+	private Map< YCFBamRelationByRelTableIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >> dictByRelTableIdx
+		= new HashMap< YCFBamRelationByRelTableIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >>();
+	private Map< YCFBamRelationByCodeVisIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >> dictByCodeVisIdx
+		= new HashMap< YCFBamRelationByCodeVisIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >>();
+	private Map< YCFBamRelationByTableCodeVisIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >> dictByTableCodeVisIdx
+		= new HashMap< YCFBamRelationByTableCodeVisIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >>();
+	private Map< YCFBamRelationByDefSchemaIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >> dictByDefSchemaIdx
+		= new HashMap< YCFBamRelationByDefSchemaIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >>();
+	private Map< YCFBamRelationByFromKeyIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >> dictByFromKeyIdx
+		= new HashMap< YCFBamRelationByFromKeyIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >>();
+	private Map< YCFBamRelationByToTblIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >> dictByToTblIdx
+		= new HashMap< YCFBamRelationByToTblIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >>();
+	private Map< YCFBamRelationByToKeyIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >> dictByToKeyIdx
+		= new HashMap< YCFBamRelationByToKeyIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >>();
+	private Map< YCFBamRelationByNarrowedIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >> dictByNarrowedIdx
+		= new HashMap< YCFBamRelationByNarrowedIdxKey,
+				Map< YCFBamScopePKey,
+					YCFBamRelationBuff >>();
 
-	public CFBamRamRelationTable( ICFBamSchema argSchema ) {
+	public YCFBamRamRelationTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createRelation( CFSecAuthorization Authorization,
-		CFBamRelationBuff Buff )
+	public void createRelation( YCFSecAuthorization Authorization,
+		YCFBamRelationBuff Buff )
 	{
 		final String S_ProcName = "createRelation";
 		schema.getTableScope().createScope( Authorization,
 			Buff );
-		CFBamScopePKey pkey = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = schema.getFactoryScope().newPKey();
 		pkey.setClassCode( Buff.getClassCode() );
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamRelationByUNameIdxKey keyUNameIdx = schema.getFactoryRelation().newUNameIdxKey();
+		YCFBamRelationByUNameIdxKey keyUNameIdx = schema.getFactoryRelation().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamRelationByRelnTenantIdxKey keyRelnTenantIdx = schema.getFactoryRelation().newRelnTenantIdxKey();
+		YCFBamRelationByRelnTenantIdxKey keyRelnTenantIdx = schema.getFactoryRelation().newRelnTenantIdxKey();
 		keyRelnTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFBamRelationByRelTableIdxKey keyRelTableIdx = schema.getFactoryRelation().newRelTableIdxKey();
+		YCFBamRelationByRelTableIdxKey keyRelTableIdx = schema.getFactoryRelation().newRelTableIdxKey();
 		keyRelTableIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyRelTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamRelationByCodeVisIdxKey keyCodeVisIdx = schema.getFactoryRelation().newCodeVisIdxKey();
+		YCFBamRelationByCodeVisIdxKey keyCodeVisIdx = schema.getFactoryRelation().newCodeVisIdxKey();
 		keyCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx = schema.getFactoryRelation().newTableCodeVisIdxKey();
+		YCFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx = schema.getFactoryRelation().newTableCodeVisIdxKey();
 		keyTableCodeVisIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyTableCodeVisIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		keyTableCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamRelationByDefSchemaIdxKey keyDefSchemaIdx = schema.getFactoryRelation().newDefSchemaIdxKey();
+		YCFBamRelationByDefSchemaIdxKey keyDefSchemaIdx = schema.getFactoryRelation().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( Buff.getOptionalDefSchemaTenantId() );
 		keyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamRelationByFromKeyIdxKey keyFromKeyIdx = schema.getFactoryRelation().newFromKeyIdxKey();
+		YCFBamRelationByFromKeyIdxKey keyFromKeyIdx = schema.getFactoryRelation().newFromKeyIdxKey();
 		keyFromKeyIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyFromKeyIdx.setRequiredFromIndexId( Buff.getRequiredFromIndexId() );
 
-		CFBamRelationByToTblIdxKey keyToTblIdx = schema.getFactoryRelation().newToTblIdxKey();
+		YCFBamRelationByToTblIdxKey keyToTblIdx = schema.getFactoryRelation().newToTblIdxKey();
 		keyToTblIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyToTblIdx.setRequiredToTableId( Buff.getRequiredToTableId() );
 
-		CFBamRelationByToKeyIdxKey keyToKeyIdx = schema.getFactoryRelation().newToKeyIdxKey();
+		YCFBamRelationByToKeyIdxKey keyToKeyIdx = schema.getFactoryRelation().newToKeyIdxKey();
 		keyToKeyIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyToKeyIdx.setRequiredToIndexId( Buff.getRequiredToIndexId() );
 
-		CFBamRelationByNarrowedIdxKey keyNarrowedIdx = schema.getFactoryRelation().newNarrowedIdxKey();
+		YCFBamRelationByNarrowedIdxKey keyNarrowedIdx = schema.getFactoryRelation().newNarrowedIdxKey();
 		keyNarrowedIdx.setOptionalNarrowedTenantId( Buff.getOptionalNarrowedTenantId() );
 		keyNarrowedIdx.setOptionalNarrowedId( Buff.getOptionalNarrowedId() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUNameIdx.containsKey( keyUNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"RelationUNameIdx",
 				keyUNameIdx );
@@ -212,7 +212,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Superclass",
 						"SuperClass",
@@ -231,7 +231,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredTableId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"FromTable",
@@ -248,7 +248,7 @@ public class CFBamRamRelationTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Owner",
 						"RelTenant",
@@ -267,7 +267,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredFromIndexId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Lookup",
 						"FromIndex",
@@ -286,7 +286,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredToTableId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Lookup",
 						"ToTable",
@@ -305,7 +305,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredToIndexId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Lookup",
 						"ToIndex",
@@ -321,106 +321,106 @@ public class CFBamRamRelationTable
 
 		dictByUNameIdx.put( keyUNameIdx, Buff );
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdictRelnTenantIdx;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdictRelnTenantIdx;
 		if( dictByRelnTenantIdx.containsKey( keyRelnTenantIdx ) ) {
 			subdictRelnTenantIdx = dictByRelnTenantIdx.get( keyRelnTenantIdx );
 		}
 		else {
-			subdictRelnTenantIdx = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdictRelnTenantIdx = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByRelnTenantIdx.put( keyRelnTenantIdx, subdictRelnTenantIdx );
 		}
 		subdictRelnTenantIdx.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdictRelTableIdx;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdictRelTableIdx;
 		if( dictByRelTableIdx.containsKey( keyRelTableIdx ) ) {
 			subdictRelTableIdx = dictByRelTableIdx.get( keyRelTableIdx );
 		}
 		else {
-			subdictRelTableIdx = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdictRelTableIdx = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByRelTableIdx.put( keyRelTableIdx, subdictRelTableIdx );
 		}
 		subdictRelTableIdx.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdictCodeVisIdx;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdictCodeVisIdx;
 		if( dictByCodeVisIdx.containsKey( keyCodeVisIdx ) ) {
 			subdictCodeVisIdx = dictByCodeVisIdx.get( keyCodeVisIdx );
 		}
 		else {
-			subdictCodeVisIdx = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdictCodeVisIdx = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByCodeVisIdx.put( keyCodeVisIdx, subdictCodeVisIdx );
 		}
 		subdictCodeVisIdx.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdictTableCodeVisIdx;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdictTableCodeVisIdx;
 		if( dictByTableCodeVisIdx.containsKey( keyTableCodeVisIdx ) ) {
 			subdictTableCodeVisIdx = dictByTableCodeVisIdx.get( keyTableCodeVisIdx );
 		}
 		else {
-			subdictTableCodeVisIdx = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdictTableCodeVisIdx = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByTableCodeVisIdx.put( keyTableCodeVisIdx, subdictTableCodeVisIdx );
 		}
 		subdictTableCodeVisIdx.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdictDefSchemaIdx;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdictDefSchemaIdx;
 		if( dictByDefSchemaIdx.containsKey( keyDefSchemaIdx ) ) {
 			subdictDefSchemaIdx = dictByDefSchemaIdx.get( keyDefSchemaIdx );
 		}
 		else {
-			subdictDefSchemaIdx = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdictDefSchemaIdx = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByDefSchemaIdx.put( keyDefSchemaIdx, subdictDefSchemaIdx );
 		}
 		subdictDefSchemaIdx.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdictFromKeyIdx;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdictFromKeyIdx;
 		if( dictByFromKeyIdx.containsKey( keyFromKeyIdx ) ) {
 			subdictFromKeyIdx = dictByFromKeyIdx.get( keyFromKeyIdx );
 		}
 		else {
-			subdictFromKeyIdx = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdictFromKeyIdx = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByFromKeyIdx.put( keyFromKeyIdx, subdictFromKeyIdx );
 		}
 		subdictFromKeyIdx.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdictToTblIdx;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdictToTblIdx;
 		if( dictByToTblIdx.containsKey( keyToTblIdx ) ) {
 			subdictToTblIdx = dictByToTblIdx.get( keyToTblIdx );
 		}
 		else {
-			subdictToTblIdx = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdictToTblIdx = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByToTblIdx.put( keyToTblIdx, subdictToTblIdx );
 		}
 		subdictToTblIdx.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdictToKeyIdx;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdictToKeyIdx;
 		if( dictByToKeyIdx.containsKey( keyToKeyIdx ) ) {
 			subdictToKeyIdx = dictByToKeyIdx.get( keyToKeyIdx );
 		}
 		else {
-			subdictToKeyIdx = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdictToKeyIdx = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByToKeyIdx.put( keyToKeyIdx, subdictToKeyIdx );
 		}
 		subdictToKeyIdx.put( pkey, Buff );
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdictNarrowedIdx;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdictNarrowedIdx;
 		if( dictByNarrowedIdx.containsKey( keyNarrowedIdx ) ) {
 			subdictNarrowedIdx = dictByNarrowedIdx.get( keyNarrowedIdx );
 		}
 		else {
-			subdictNarrowedIdx = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdictNarrowedIdx = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByNarrowedIdx.put( keyNarrowedIdx, subdictNarrowedIdx );
 		}
 		subdictNarrowedIdx.put( pkey, Buff );
 
 	}
 
-	public CFBamRelationBuff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamRelationBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerived";
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerived";
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamRelationBuff buff;
+		YCFBamRelationBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -430,14 +430,14 @@ public class CFBamRamRelationTable
 		return( buff );
 	}
 
-	public CFBamRelationBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamRelationBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerived";
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerived";
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFBamRelationBuff buff;
+		YCFBamRelationBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -447,10 +447,10 @@ public class CFBamRamRelationTable
 		return( buff );
 	}
 
-	public CFBamRelationBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamRelation.readAllDerived";
-		CFBamRelationBuff[] retList = new CFBamRelationBuff[ dictByPKey.values().size() ];
-		Iterator< CFBamRelationBuff > iter = dictByPKey.values().iterator();
+	public YCFBamRelationBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamRelation.readAllDerived";
+		YCFBamRelationBuff[] retList = new YCFBamRelationBuff[ dictByPKey.values().size() ];
+		Iterator< YCFBamRelationBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -458,40 +458,40 @@ public class CFBamRamRelationTable
 		return( retList );
 	}
 
-	public CFBamRelationBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamScope.readDerivedByTenantIdx";
-		CFBamScopeBuff buffList[] = schema.getTableScope().readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamScope.readDerivedByTenantIdx";
+		YCFBamScopeBuff buffList[] = schema.getTableScope().readDerivedByTenantIdx( Authorization,
 			TenantId );
 		if( buffList == null ) {
 			return( null );
 		}
 		else {
-			CFBamScopeBuff buff;
-			ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
+			YCFBamScopeBuff buff;
+			ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[idx];
-				if( ( buff != null ) && ( buff instanceof CFBamRelationBuff ) ) {
-					filteredList.add( (CFBamRelationBuff)buff );
+				if( ( buff != null ) && ( buff instanceof YCFBamRelationBuff ) ) {
+					filteredList.add( (YCFBamRelationBuff)buff );
 				}
 			}
-			return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+			return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 		}
 	}
 
-	public CFBamRelationBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByUNameIdx";
-		CFBamRelationByUNameIdxKey key = schema.getFactoryRelation().newUNameIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByUNameIdx";
+		YCFBamRelationByUNameIdxKey key = schema.getFactoryRelation().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		key.setRequiredName( Name );
 
-		CFBamRelationBuff buff;
+		YCFBamRelationBuff buff;
 		if( dictByUNameIdx.containsKey( key ) ) {
 			buff = dictByUNameIdx.get( key );
 		}
@@ -501,275 +501,275 @@ public class CFBamRamRelationTable
 		return( buff );
 	}
 
-	public CFBamRelationBuff[] readDerivedByRelnTenantIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readDerivedByRelnTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByRelnTenantIdx";
-		CFBamRelationByRelnTenantIdxKey key = schema.getFactoryRelation().newRelnTenantIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByRelnTenantIdx";
+		YCFBamRelationByRelnTenantIdxKey key = schema.getFactoryRelation().newRelnTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 
-		CFBamRelationBuff[] recArray;
+		YCFBamRelationBuff[] recArray;
 		if( dictByRelnTenantIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictRelnTenantIdx
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictRelnTenantIdx
 				= dictByRelnTenantIdx.get( key );
-			recArray = new CFBamRelationBuff[ subdictRelnTenantIdx.size() ];
-			Iterator< CFBamRelationBuff > iter = subdictRelnTenantIdx.values().iterator();
+			recArray = new YCFBamRelationBuff[ subdictRelnTenantIdx.size() ];
+			Iterator< YCFBamRelationBuff > iter = subdictRelnTenantIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictRelnTenantIdx
-				= new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictRelnTenantIdx
+				= new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByRelnTenantIdx.put( key, subdictRelnTenantIdx );
-			recArray = new CFBamRelationBuff[0];
+			recArray = new YCFBamRelationBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamRelationBuff[] readDerivedByRelTableIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readDerivedByRelTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByRelTableIdx";
-		CFBamRelationByRelTableIdxKey key = schema.getFactoryRelation().newRelTableIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByRelTableIdx";
+		YCFBamRelationByRelTableIdxKey key = schema.getFactoryRelation().newRelTableIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 
-		CFBamRelationBuff[] recArray;
+		YCFBamRelationBuff[] recArray;
 		if( dictByRelTableIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictRelTableIdx
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictRelTableIdx
 				= dictByRelTableIdx.get( key );
-			recArray = new CFBamRelationBuff[ subdictRelTableIdx.size() ];
-			Iterator< CFBamRelationBuff > iter = subdictRelTableIdx.values().iterator();
+			recArray = new YCFBamRelationBuff[ subdictRelTableIdx.size() ];
+			Iterator< YCFBamRelationBuff > iter = subdictRelTableIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictRelTableIdx
-				= new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictRelTableIdx
+				= new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByRelTableIdx.put( key, subdictRelTableIdx );
-			recArray = new CFBamRelationBuff[0];
+			recArray = new YCFBamRelationBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamRelationBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public YCFBamRelationBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByCodeVisIdx";
-		CFBamRelationByCodeVisIdxKey key = schema.getFactoryRelation().newCodeVisIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByCodeVisIdx";
+		YCFBamRelationByCodeVisIdxKey key = schema.getFactoryRelation().newCodeVisIdxKey();
 		key.setRequiredCodeVis( CodeVis );
 
-		CFBamRelationBuff[] recArray;
+		YCFBamRelationBuff[] recArray;
 		if( dictByCodeVisIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictCodeVisIdx
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictCodeVisIdx
 				= dictByCodeVisIdx.get( key );
-			recArray = new CFBamRelationBuff[ subdictCodeVisIdx.size() ];
-			Iterator< CFBamRelationBuff > iter = subdictCodeVisIdx.values().iterator();
+			recArray = new YCFBamRelationBuff[ subdictCodeVisIdx.size() ];
+			Iterator< YCFBamRelationBuff > iter = subdictCodeVisIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictCodeVisIdx
-				= new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictCodeVisIdx
+				= new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByCodeVisIdx.put( key, subdictCodeVisIdx );
-			recArray = new CFBamRelationBuff[0];
+			recArray = new YCFBamRelationBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamRelationBuff[] readDerivedByTableCodeVisIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readDerivedByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByTableCodeVisIdx";
-		CFBamRelationByTableCodeVisIdxKey key = schema.getFactoryRelation().newTableCodeVisIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByTableCodeVisIdx";
+		YCFBamRelationByTableCodeVisIdxKey key = schema.getFactoryRelation().newTableCodeVisIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTableId( TableId );
 		key.setRequiredCodeVis( CodeVis );
 
-		CFBamRelationBuff[] recArray;
+		YCFBamRelationBuff[] recArray;
 		if( dictByTableCodeVisIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictTableCodeVisIdx
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictTableCodeVisIdx
 				= dictByTableCodeVisIdx.get( key );
-			recArray = new CFBamRelationBuff[ subdictTableCodeVisIdx.size() ];
-			Iterator< CFBamRelationBuff > iter = subdictTableCodeVisIdx.values().iterator();
+			recArray = new YCFBamRelationBuff[ subdictTableCodeVisIdx.size() ];
+			Iterator< YCFBamRelationBuff > iter = subdictTableCodeVisIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictTableCodeVisIdx
-				= new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictTableCodeVisIdx
+				= new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByTableCodeVisIdx.put( key, subdictTableCodeVisIdx );
-			recArray = new CFBamRelationBuff[0];
+			recArray = new YCFBamRelationBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamRelationBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByDefSchemaIdx";
-		CFBamRelationByDefSchemaIdxKey key = schema.getFactoryRelation().newDefSchemaIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByDefSchemaIdx";
+		YCFBamRelationByDefSchemaIdxKey key = schema.getFactoryRelation().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 
-		CFBamRelationBuff[] recArray;
+		YCFBamRelationBuff[] recArray;
 		if( dictByDefSchemaIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictDefSchemaIdx
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictDefSchemaIdx
 				= dictByDefSchemaIdx.get( key );
-			recArray = new CFBamRelationBuff[ subdictDefSchemaIdx.size() ];
-			Iterator< CFBamRelationBuff > iter = subdictDefSchemaIdx.values().iterator();
+			recArray = new YCFBamRelationBuff[ subdictDefSchemaIdx.size() ];
+			Iterator< YCFBamRelationBuff > iter = subdictDefSchemaIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictDefSchemaIdx
-				= new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictDefSchemaIdx
+				= new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByDefSchemaIdx.put( key, subdictDefSchemaIdx );
-			recArray = new CFBamRelationBuff[0];
+			recArray = new YCFBamRelationBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamRelationBuff[] readDerivedByFromKeyIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readDerivedByFromKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long FromIndexId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByFromKeyIdx";
-		CFBamRelationByFromKeyIdxKey key = schema.getFactoryRelation().newFromKeyIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByFromKeyIdx";
+		YCFBamRelationByFromKeyIdxKey key = schema.getFactoryRelation().newFromKeyIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredFromIndexId( FromIndexId );
 
-		CFBamRelationBuff[] recArray;
+		YCFBamRelationBuff[] recArray;
 		if( dictByFromKeyIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictFromKeyIdx
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictFromKeyIdx
 				= dictByFromKeyIdx.get( key );
-			recArray = new CFBamRelationBuff[ subdictFromKeyIdx.size() ];
-			Iterator< CFBamRelationBuff > iter = subdictFromKeyIdx.values().iterator();
+			recArray = new YCFBamRelationBuff[ subdictFromKeyIdx.size() ];
+			Iterator< YCFBamRelationBuff > iter = subdictFromKeyIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictFromKeyIdx
-				= new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictFromKeyIdx
+				= new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByFromKeyIdx.put( key, subdictFromKeyIdx );
-			recArray = new CFBamRelationBuff[0];
+			recArray = new YCFBamRelationBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamRelationBuff[] readDerivedByToTblIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readDerivedByToTblIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToTableId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByToTblIdx";
-		CFBamRelationByToTblIdxKey key = schema.getFactoryRelation().newToTblIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByToTblIdx";
+		YCFBamRelationByToTblIdxKey key = schema.getFactoryRelation().newToTblIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredToTableId( ToTableId );
 
-		CFBamRelationBuff[] recArray;
+		YCFBamRelationBuff[] recArray;
 		if( dictByToTblIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictToTblIdx
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictToTblIdx
 				= dictByToTblIdx.get( key );
-			recArray = new CFBamRelationBuff[ subdictToTblIdx.size() ];
-			Iterator< CFBamRelationBuff > iter = subdictToTblIdx.values().iterator();
+			recArray = new YCFBamRelationBuff[ subdictToTblIdx.size() ];
+			Iterator< YCFBamRelationBuff > iter = subdictToTblIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictToTblIdx
-				= new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictToTblIdx
+				= new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByToTblIdx.put( key, subdictToTblIdx );
-			recArray = new CFBamRelationBuff[0];
+			recArray = new YCFBamRelationBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamRelationBuff[] readDerivedByToKeyIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readDerivedByToKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToIndexId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByToKeyIdx";
-		CFBamRelationByToKeyIdxKey key = schema.getFactoryRelation().newToKeyIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByToKeyIdx";
+		YCFBamRelationByToKeyIdxKey key = schema.getFactoryRelation().newToKeyIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredToIndexId( ToIndexId );
 
-		CFBamRelationBuff[] recArray;
+		YCFBamRelationBuff[] recArray;
 		if( dictByToKeyIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictToKeyIdx
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictToKeyIdx
 				= dictByToKeyIdx.get( key );
-			recArray = new CFBamRelationBuff[ subdictToKeyIdx.size() ];
-			Iterator< CFBamRelationBuff > iter = subdictToKeyIdx.values().iterator();
+			recArray = new YCFBamRelationBuff[ subdictToKeyIdx.size() ];
+			Iterator< YCFBamRelationBuff > iter = subdictToKeyIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictToKeyIdx
-				= new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictToKeyIdx
+				= new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByToKeyIdx.put( key, subdictToKeyIdx );
-			recArray = new CFBamRelationBuff[0];
+			recArray = new YCFBamRelationBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamRelationBuff[] readDerivedByNarrowedIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readDerivedByNarrowedIdx( YCFSecAuthorization Authorization,
 		Long NarrowedTenantId,
 		Long NarrowedId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readDerivedByNarrowedIdx";
-		CFBamRelationByNarrowedIdxKey key = schema.getFactoryRelation().newNarrowedIdxKey();
+		final String S_ProcName = "YCFBamRamRelation.readDerivedByNarrowedIdx";
+		YCFBamRelationByNarrowedIdxKey key = schema.getFactoryRelation().newNarrowedIdxKey();
 		key.setOptionalNarrowedTenantId( NarrowedTenantId );
 		key.setOptionalNarrowedId( NarrowedId );
 
-		CFBamRelationBuff[] recArray;
+		YCFBamRelationBuff[] recArray;
 		if( dictByNarrowedIdx.containsKey( key ) ) {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictNarrowedIdx
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictNarrowedIdx
 				= dictByNarrowedIdx.get( key );
-			recArray = new CFBamRelationBuff[ subdictNarrowedIdx.size() ];
-			Iterator< CFBamRelationBuff > iter = subdictNarrowedIdx.values().iterator();
+			recArray = new YCFBamRelationBuff[ subdictNarrowedIdx.size() ];
+			Iterator< YCFBamRelationBuff > iter = subdictNarrowedIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFBamScopePKey, CFBamRelationBuff > subdictNarrowedIdx
-				= new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			Map< YCFBamScopePKey, YCFBamRelationBuff > subdictNarrowedIdx
+				= new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByNarrowedIdx.put( key, subdictNarrowedIdx );
-			recArray = new CFBamRelationBuff[0];
+			recArray = new YCFBamRelationBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFBamRelationBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamScope.readDerivedByIdIdx() ";
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		final String S_ProcName = "YCFBamRamScope.readDerivedByIdIdx() ";
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFBamRelationBuff buff;
+		YCFBamRelationBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -779,261 +779,261 @@ public class CFBamRamRelationTable
 		return( buff );
 	}
 
-	public CFBamRelationBuff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamRelationBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuff";
-		CFBamRelationBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamRelation.readBuff";
+		YCFBamRelationBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a838" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamRelationBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey )
+	public YCFBamRelationBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFBamRelationBuff buff = readDerived( Authorization, PKey );
+		YCFBamRelationBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a838" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFBamRelationBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFBamRelationBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamRelation.readAllBuff";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamRelation.readAllBuff";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamScope.readBuffByIdIdx() ";
-		CFBamRelationBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamScope.readBuffByIdIdx() ";
+		YCFBamRelationBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a801" ) ) {
-			return( (CFBamRelationBuff)buff );
+			return( (YCFBamRelationBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamRelationBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamScope.readBuffByTenantIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamScope.readBuffByTenantIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a801" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByUNameIdx() ";
-		CFBamRelationBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByUNameIdx() ";
+		YCFBamRelationBuff buff = readDerivedByUNameIdx( Authorization,
 			TenantId,
 			TableId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-			return( (CFBamRelationBuff)buff );
+			return( (YCFBamRelationBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFBamRelationBuff[] readBuffByRelnTenantIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readBuffByRelnTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByRelnTenantIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByRelnTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByRelnTenantIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByRelnTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff[] readBuffByRelTableIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readBuffByRelTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByRelTableIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByRelTableIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByRelTableIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByRelTableIdx( Authorization,
 			TenantId,
 			TableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	public YCFBamRelationBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByCodeVisIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByCodeVisIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByCodeVisIdx( Authorization,
 			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff[] readBuffByTableCodeVisIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readBuffByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis )
+		IYCFBamSchema.CodeVisibilityEnum CodeVis )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByTableCodeVisIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByTableCodeVisIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByTableCodeVisIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByTableCodeVisIdx( Authorization,
 			TenantId,
 			TableId,
 			CodeVis );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByDefSchemaIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByDefSchemaIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByDefSchemaIdx( Authorization,
 			DefSchemaTenantId,
 			DefSchemaId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff[] readBuffByFromKeyIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readBuffByFromKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long FromIndexId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByFromKeyIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByFromKeyIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByFromKeyIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByFromKeyIdx( Authorization,
 			TenantId,
 			FromIndexId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff[] readBuffByToTblIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readBuffByToTblIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToTableId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByToTblIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByToTblIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByToTblIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByToTblIdx( Authorization,
 			TenantId,
 			ToTableId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff[] readBuffByToKeyIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readBuffByToKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToIndexId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByToKeyIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByToKeyIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByToKeyIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByToKeyIdx( Authorization,
 			TenantId,
 			ToIndexId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
-	public CFBamRelationBuff[] readBuffByNarrowedIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] readBuffByNarrowedIdx( YCFSecAuthorization Authorization,
 		Long NarrowedTenantId,
 		Long NarrowedId )
 	{
-		final String S_ProcName = "CFBamRamRelation.readBuffByNarrowedIdx() ";
-		CFBamRelationBuff buff;
-		ArrayList<CFBamRelationBuff> filteredList = new ArrayList<CFBamRelationBuff>();
-		CFBamRelationBuff[] buffList = readDerivedByNarrowedIdx( Authorization,
+		final String S_ProcName = "YCFBamRamRelation.readBuffByNarrowedIdx() ";
+		YCFBamRelationBuff buff;
+		ArrayList<YCFBamRelationBuff> filteredList = new ArrayList<YCFBamRelationBuff>();
+		YCFBamRelationBuff[] buffList = readDerivedByNarrowedIdx( Authorization,
 			NarrowedTenantId,
 			NarrowedId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a838" ) ) {
-				filteredList.add( (CFBamRelationBuff)buff );
+				filteredList.add( (YCFBamRelationBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFBamRelationBuff[0] ) );
+		return( filteredList.toArray( new YCFBamRelationBuff[0] ) );
 	}
 
 	/**
@@ -1045,15 +1045,15 @@ public class CFBamRamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamRelationBuff[] pageBuffByRelnTenantIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] pageBuffByRelnTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByRelnTenantIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -1067,16 +1067,16 @@ public class CFBamRamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamRelationBuff[] pageBuffByRelTableIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] pageBuffByRelTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByRelTableIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -1088,15 +1088,15 @@ public class CFBamRamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamRelationBuff[] pageBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+	public YCFBamRelationBuff[] pageBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByCodeVisIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -1112,17 +1112,17 @@ public class CFBamRamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamRelationBuff[] pageBuffByTableCodeVisIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] pageBuffByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByTableCodeVisIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -1136,16 +1136,16 @@ public class CFBamRamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamRelationBuff[] pageBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] pageBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByDefSchemaIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -1159,16 +1159,16 @@ public class CFBamRamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamRelationBuff[] pageBuffByFromKeyIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] pageBuffByFromKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long FromIndexId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByFromKeyIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -1182,16 +1182,16 @@ public class CFBamRamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamRelationBuff[] pageBuffByToTblIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] pageBuffByToTblIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToTableId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByToTblIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -1205,16 +1205,16 @@ public class CFBamRamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamRelationBuff[] pageBuffByToKeyIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] pageBuffByToKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToIndexId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByToKeyIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
 	/**
@@ -1228,111 +1228,111 @@ public class CFBamRamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFBamRelationBuff[] pageBuffByNarrowedIdx( CFSecAuthorization Authorization,
+	public YCFBamRelationBuff[] pageBuffByNarrowedIdx( YCFSecAuthorization Authorization,
 		Long NarrowedTenantId,
 		Long NarrowedId,
 		Long priorTenantId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByNarrowedIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateRelation( CFSecAuthorization Authorization,
-		CFBamRelationBuff Buff )
+	public void updateRelation( YCFSecAuthorization Authorization,
+		YCFBamRelationBuff Buff )
 	{
 		schema.getTableScope().updateScope( Authorization,
 			Buff );
-		CFBamScopePKey pkey = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = schema.getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamRelationBuff existing = dictByPKey.get( pkey );
+		YCFBamRelationBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateRelation",
 				"Existing record not found",
 				"Relation",
 				pkey );
 		}
-		CFBamRelationByUNameIdxKey existingKeyUNameIdx = schema.getFactoryRelation().newUNameIdxKey();
+		YCFBamRelationByUNameIdxKey existingKeyUNameIdx = schema.getFactoryRelation().newUNameIdxKey();
 		existingKeyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamRelationByUNameIdxKey newKeyUNameIdx = schema.getFactoryRelation().newUNameIdxKey();
+		YCFBamRelationByUNameIdxKey newKeyUNameIdx = schema.getFactoryRelation().newUNameIdxKey();
 		newKeyUNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyUNameIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFBamRelationByRelnTenantIdxKey existingKeyRelnTenantIdx = schema.getFactoryRelation().newRelnTenantIdxKey();
+		YCFBamRelationByRelnTenantIdxKey existingKeyRelnTenantIdx = schema.getFactoryRelation().newRelnTenantIdxKey();
 		existingKeyRelnTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFBamRelationByRelnTenantIdxKey newKeyRelnTenantIdx = schema.getFactoryRelation().newRelnTenantIdxKey();
+		YCFBamRelationByRelnTenantIdxKey newKeyRelnTenantIdx = schema.getFactoryRelation().newRelnTenantIdxKey();
 		newKeyRelnTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFBamRelationByRelTableIdxKey existingKeyRelTableIdx = schema.getFactoryRelation().newRelTableIdxKey();
+		YCFBamRelationByRelTableIdxKey existingKeyRelTableIdx = schema.getFactoryRelation().newRelTableIdxKey();
 		existingKeyRelTableIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyRelTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamRelationByRelTableIdxKey newKeyRelTableIdx = schema.getFactoryRelation().newRelTableIdxKey();
+		YCFBamRelationByRelTableIdxKey newKeyRelTableIdx = schema.getFactoryRelation().newRelTableIdxKey();
 		newKeyRelTableIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyRelTableIdx.setRequiredTableId( Buff.getRequiredTableId() );
 
-		CFBamRelationByCodeVisIdxKey existingKeyCodeVisIdx = schema.getFactoryRelation().newCodeVisIdxKey();
+		YCFBamRelationByCodeVisIdxKey existingKeyCodeVisIdx = schema.getFactoryRelation().newCodeVisIdxKey();
 		existingKeyCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamRelationByCodeVisIdxKey newKeyCodeVisIdx = schema.getFactoryRelation().newCodeVisIdxKey();
+		YCFBamRelationByCodeVisIdxKey newKeyCodeVisIdx = schema.getFactoryRelation().newCodeVisIdxKey();
 		newKeyCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamRelationByTableCodeVisIdxKey existingKeyTableCodeVisIdx = schema.getFactoryRelation().newTableCodeVisIdxKey();
+		YCFBamRelationByTableCodeVisIdxKey existingKeyTableCodeVisIdx = schema.getFactoryRelation().newTableCodeVisIdxKey();
 		existingKeyTableCodeVisIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyTableCodeVisIdx.setRequiredTableId( existing.getRequiredTableId() );
 		existingKeyTableCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamRelationByTableCodeVisIdxKey newKeyTableCodeVisIdx = schema.getFactoryRelation().newTableCodeVisIdxKey();
+		YCFBamRelationByTableCodeVisIdxKey newKeyTableCodeVisIdx = schema.getFactoryRelation().newTableCodeVisIdxKey();
 		newKeyTableCodeVisIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyTableCodeVisIdx.setRequiredTableId( Buff.getRequiredTableId() );
 		newKeyTableCodeVisIdx.setRequiredCodeVis( Buff.getRequiredCodeVis() );
 
-		CFBamRelationByDefSchemaIdxKey existingKeyDefSchemaIdx = schema.getFactoryRelation().newDefSchemaIdxKey();
+		YCFBamRelationByDefSchemaIdxKey existingKeyDefSchemaIdx = schema.getFactoryRelation().newDefSchemaIdxKey();
 		existingKeyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		existingKeyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamRelationByDefSchemaIdxKey newKeyDefSchemaIdx = schema.getFactoryRelation().newDefSchemaIdxKey();
+		YCFBamRelationByDefSchemaIdxKey newKeyDefSchemaIdx = schema.getFactoryRelation().newDefSchemaIdxKey();
 		newKeyDefSchemaIdx.setOptionalDefSchemaTenantId( Buff.getOptionalDefSchemaTenantId() );
 		newKeyDefSchemaIdx.setOptionalDefSchemaId( Buff.getOptionalDefSchemaId() );
 
-		CFBamRelationByFromKeyIdxKey existingKeyFromKeyIdx = schema.getFactoryRelation().newFromKeyIdxKey();
+		YCFBamRelationByFromKeyIdxKey existingKeyFromKeyIdx = schema.getFactoryRelation().newFromKeyIdxKey();
 		existingKeyFromKeyIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyFromKeyIdx.setRequiredFromIndexId( existing.getRequiredFromIndexId() );
 
-		CFBamRelationByFromKeyIdxKey newKeyFromKeyIdx = schema.getFactoryRelation().newFromKeyIdxKey();
+		YCFBamRelationByFromKeyIdxKey newKeyFromKeyIdx = schema.getFactoryRelation().newFromKeyIdxKey();
 		newKeyFromKeyIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyFromKeyIdx.setRequiredFromIndexId( Buff.getRequiredFromIndexId() );
 
-		CFBamRelationByToTblIdxKey existingKeyToTblIdx = schema.getFactoryRelation().newToTblIdxKey();
+		YCFBamRelationByToTblIdxKey existingKeyToTblIdx = schema.getFactoryRelation().newToTblIdxKey();
 		existingKeyToTblIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyToTblIdx.setRequiredToTableId( existing.getRequiredToTableId() );
 
-		CFBamRelationByToTblIdxKey newKeyToTblIdx = schema.getFactoryRelation().newToTblIdxKey();
+		YCFBamRelationByToTblIdxKey newKeyToTblIdx = schema.getFactoryRelation().newToTblIdxKey();
 		newKeyToTblIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyToTblIdx.setRequiredToTableId( Buff.getRequiredToTableId() );
 
-		CFBamRelationByToKeyIdxKey existingKeyToKeyIdx = schema.getFactoryRelation().newToKeyIdxKey();
+		YCFBamRelationByToKeyIdxKey existingKeyToKeyIdx = schema.getFactoryRelation().newToKeyIdxKey();
 		existingKeyToKeyIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyToKeyIdx.setRequiredToIndexId( existing.getRequiredToIndexId() );
 
-		CFBamRelationByToKeyIdxKey newKeyToKeyIdx = schema.getFactoryRelation().newToKeyIdxKey();
+		YCFBamRelationByToKeyIdxKey newKeyToKeyIdx = schema.getFactoryRelation().newToKeyIdxKey();
 		newKeyToKeyIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyToKeyIdx.setRequiredToIndexId( Buff.getRequiredToIndexId() );
 
-		CFBamRelationByNarrowedIdxKey existingKeyNarrowedIdx = schema.getFactoryRelation().newNarrowedIdxKey();
+		YCFBamRelationByNarrowedIdxKey existingKeyNarrowedIdx = schema.getFactoryRelation().newNarrowedIdxKey();
 		existingKeyNarrowedIdx.setOptionalNarrowedTenantId( existing.getOptionalNarrowedTenantId() );
 		existingKeyNarrowedIdx.setOptionalNarrowedId( existing.getOptionalNarrowedId() );
 
-		CFBamRelationByNarrowedIdxKey newKeyNarrowedIdx = schema.getFactoryRelation().newNarrowedIdxKey();
+		YCFBamRelationByNarrowedIdxKey newKeyNarrowedIdx = schema.getFactoryRelation().newNarrowedIdxKey();
 		newKeyNarrowedIdx.setOptionalNarrowedTenantId( Buff.getOptionalNarrowedTenantId() );
 		newKeyNarrowedIdx.setOptionalNarrowedId( Buff.getOptionalNarrowedId() );
 
@@ -1340,7 +1340,7 @@ public class CFBamRamRelationTable
 
 		if( ! existingKeyUNameIdx.equals( newKeyUNameIdx ) ) {
 			if( dictByUNameIdx.containsKey( newKeyUNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateRelation",
 					"RelationUNameIdx",
 					newKeyUNameIdx );
@@ -1357,7 +1357,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateRelation",
 						"Superclass",
 						"SuperClass",
@@ -1375,7 +1375,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredTableId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateRelation",
 						"Container",
 						"FromTable",
@@ -1392,7 +1392,7 @@ public class CFBamRamRelationTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateRelation",
 						"Owner",
 						"RelTenant",
@@ -1410,7 +1410,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredFromIndexId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateRelation",
 						"Lookup",
 						"FromIndex",
@@ -1428,7 +1428,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredToTableId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateRelation",
 						"Lookup",
 						"ToTable",
@@ -1446,7 +1446,7 @@ public class CFBamRamRelationTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredToIndexId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateRelation",
 						"Lookup",
 						"ToIndex",
@@ -1458,7 +1458,7 @@ public class CFBamRamRelationTable
 
 		// Update is valid
 
-		Map< CFBamScopePKey, CFBamRelationBuff > subdict;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -1474,7 +1474,7 @@ public class CFBamRamRelationTable
 			subdict = dictByRelnTenantIdx.get( newKeyRelnTenantIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByRelnTenantIdx.put( newKeyRelnTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -1487,7 +1487,7 @@ public class CFBamRamRelationTable
 			subdict = dictByRelTableIdx.get( newKeyRelTableIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByRelTableIdx.put( newKeyRelTableIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -1500,7 +1500,7 @@ public class CFBamRamRelationTable
 			subdict = dictByCodeVisIdx.get( newKeyCodeVisIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByCodeVisIdx.put( newKeyCodeVisIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -1513,7 +1513,7 @@ public class CFBamRamRelationTable
 			subdict = dictByTableCodeVisIdx.get( newKeyTableCodeVisIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByTableCodeVisIdx.put( newKeyTableCodeVisIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -1526,7 +1526,7 @@ public class CFBamRamRelationTable
 			subdict = dictByDefSchemaIdx.get( newKeyDefSchemaIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByDefSchemaIdx.put( newKeyDefSchemaIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -1539,7 +1539,7 @@ public class CFBamRamRelationTable
 			subdict = dictByFromKeyIdx.get( newKeyFromKeyIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByFromKeyIdx.put( newKeyFromKeyIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -1552,7 +1552,7 @@ public class CFBamRamRelationTable
 			subdict = dictByToTblIdx.get( newKeyToTblIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByToTblIdx.put( newKeyToTblIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -1565,7 +1565,7 @@ public class CFBamRamRelationTable
 			subdict = dictByToKeyIdx.get( newKeyToKeyIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByToKeyIdx.put( newKeyToKeyIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -1578,28 +1578,28 @@ public class CFBamRamRelationTable
 			subdict = dictByNarrowedIdx.get( newKeyNarrowedIdx );
 		}
 		else {
-			subdict = new HashMap< CFBamScopePKey, CFBamRelationBuff >();
+			subdict = new HashMap< YCFBamScopePKey, YCFBamRelationBuff >();
 			dictByNarrowedIdx.put( newKeyNarrowedIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteRelation( CFSecAuthorization Authorization,
-		CFBamRelationBuff Buff )
+	public void deleteRelation( YCFSecAuthorization Authorization,
+		YCFBamRelationBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamRelationTable.deleteRelation() ";
+		final String S_ProcName = "YCFBamRamRelationTable.deleteRelation() ";
 		String classCode;
-		CFBamScopePKey pkey = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey pkey = schema.getFactoryScope().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFBamRelationBuff existing = dictByPKey.get( pkey );
+		YCFBamRelationBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteRelation",
 				pkey );
 		}
@@ -1609,43 +1609,43 @@ public class CFBamRamRelationTable
 					schema.getTableRelationCol().deleteRelationColByRelationIdx( Authorization,
 						existing.getRequiredTenantId(),
 						existing.getRequiredId() );
-		CFBamRelationByUNameIdxKey keyUNameIdx = schema.getFactoryRelation().newUNameIdxKey();
+		YCFBamRelationByUNameIdxKey keyUNameIdx = schema.getFactoryRelation().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyUNameIdx.setRequiredTableId( existing.getRequiredTableId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamRelationByRelnTenantIdxKey keyRelnTenantIdx = schema.getFactoryRelation().newRelnTenantIdxKey();
+		YCFBamRelationByRelnTenantIdxKey keyRelnTenantIdx = schema.getFactoryRelation().newRelnTenantIdxKey();
 		keyRelnTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFBamRelationByRelTableIdxKey keyRelTableIdx = schema.getFactoryRelation().newRelTableIdxKey();
+		YCFBamRelationByRelTableIdxKey keyRelTableIdx = schema.getFactoryRelation().newRelTableIdxKey();
 		keyRelTableIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyRelTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
-		CFBamRelationByCodeVisIdxKey keyCodeVisIdx = schema.getFactoryRelation().newCodeVisIdxKey();
+		YCFBamRelationByCodeVisIdxKey keyCodeVisIdx = schema.getFactoryRelation().newCodeVisIdxKey();
 		keyCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx = schema.getFactoryRelation().newTableCodeVisIdxKey();
+		YCFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx = schema.getFactoryRelation().newTableCodeVisIdxKey();
 		keyTableCodeVisIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyTableCodeVisIdx.setRequiredTableId( existing.getRequiredTableId() );
 		keyTableCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
 
-		CFBamRelationByDefSchemaIdxKey keyDefSchemaIdx = schema.getFactoryRelation().newDefSchemaIdxKey();
+		YCFBamRelationByDefSchemaIdxKey keyDefSchemaIdx = schema.getFactoryRelation().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamRelationByFromKeyIdxKey keyFromKeyIdx = schema.getFactoryRelation().newFromKeyIdxKey();
+		YCFBamRelationByFromKeyIdxKey keyFromKeyIdx = schema.getFactoryRelation().newFromKeyIdxKey();
 		keyFromKeyIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyFromKeyIdx.setRequiredFromIndexId( existing.getRequiredFromIndexId() );
 
-		CFBamRelationByToTblIdxKey keyToTblIdx = schema.getFactoryRelation().newToTblIdxKey();
+		YCFBamRelationByToTblIdxKey keyToTblIdx = schema.getFactoryRelation().newToTblIdxKey();
 		keyToTblIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyToTblIdx.setRequiredToTableId( existing.getRequiredToTableId() );
 
-		CFBamRelationByToKeyIdxKey keyToKeyIdx = schema.getFactoryRelation().newToKeyIdxKey();
+		YCFBamRelationByToKeyIdxKey keyToKeyIdx = schema.getFactoryRelation().newToKeyIdxKey();
 		keyToKeyIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyToKeyIdx.setRequiredToIndexId( existing.getRequiredToIndexId() );
 
-		CFBamRelationByNarrowedIdxKey keyNarrowedIdx = schema.getFactoryRelation().newNarrowedIdxKey();
+		YCFBamRelationByNarrowedIdxKey keyNarrowedIdx = schema.getFactoryRelation().newNarrowedIdxKey();
 		keyNarrowedIdx.setOptionalNarrowedTenantId( existing.getOptionalNarrowedTenantId() );
 		keyNarrowedIdx.setOptionalNarrowedId( existing.getOptionalNarrowedId() );
 
@@ -1655,7 +1655,7 @@ public class CFBamRamRelationTable
 					existing.getRequiredTenantId(),
 					existing.getRequiredId() ).length > 0 )
 		{
-			throw new CFLibDependentsDetectedException( getClass(),
+			throw new YCFLibDependentsDetectedException( getClass(),
 				"deleteRelation",
 				"Lookup",
 				"PrevRelation",
@@ -1667,7 +1667,7 @@ public class CFBamRamRelationTable
 					existing.getRequiredTenantId(),
 					existing.getRequiredId() ).length > 0 )
 		{
-			throw new CFLibDependentsDetectedException( getClass(),
+			throw new YCFLibDependentsDetectedException( getClass(),
 				"deleteRelation",
 				"Lookup",
 				"NextRelation",
@@ -1679,7 +1679,7 @@ public class CFBamRamRelationTable
 					existing.getRequiredTenantId(),
 					existing.getRequiredId() ).length > 0 )
 		{
-			throw new CFLibDependentsDetectedException( getClass(),
+			throw new YCFLibDependentsDetectedException( getClass(),
 				"deleteRelation",
 				"Lookup",
 				"Relation",
@@ -1691,7 +1691,7 @@ public class CFBamRamRelationTable
 					existing.getRequiredTenantId(),
 					existing.getRequiredId() ).length > 0 )
 		{
-			throw new CFLibDependentsDetectedException( getClass(),
+			throw new YCFLibDependentsDetectedException( getClass(),
 				"deleteRelation",
 				"Lookup",
 				"Relation",
@@ -1703,7 +1703,7 @@ public class CFBamRamRelationTable
 					existing.getRequiredTenantId(),
 					existing.getRequiredId() ).length > 0 )
 		{
-			throw new CFLibDependentsDetectedException( getClass(),
+			throw new YCFLibDependentsDetectedException( getClass(),
 				"deleteRelation",
 				"Lookup",
 				"Relation",
@@ -1712,7 +1712,7 @@ public class CFBamRamRelationTable
 		}
 
 		// Delete is valid
-		Map< CFBamScopePKey, CFBamRelationBuff > subdict;
+		Map< YCFBamScopePKey, YCFBamRelationBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -1748,22 +1748,22 @@ public class CFBamRamRelationTable
 		schema.getTableScope().deleteScope( Authorization,
 			Buff );
 	}
-	public void deleteRelationByUNameIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
 		String argName )
 	{
-		CFBamRelationByUNameIdxKey key = schema.getFactoryRelation().newUNameIdxKey();
+		YCFBamRelationByUNameIdxKey key = schema.getFactoryRelation().newUNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTableId( argTableId );
 		key.setRequiredName( argName );
 		deleteRelationByUNameIdx( Authorization, key );
 	}
 
-	public void deleteRelationByUNameIdx( CFSecAuthorization Authorization,
-		CFBamRelationByUNameIdxKey argKey )
+	public void deleteRelationByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByUNameIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -1771,15 +1771,15 @@ public class CFBamRamRelationTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -1789,32 +1789,32 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByRelnTenantIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByRelnTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFBamRelationByRelnTenantIdxKey key = schema.getFactoryRelation().newRelnTenantIdxKey();
+		YCFBamRelationByRelnTenantIdxKey key = schema.getFactoryRelation().newRelnTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteRelationByRelnTenantIdx( Authorization, key );
 	}
 
-	public void deleteRelationByRelnTenantIdx( CFSecAuthorization Authorization,
-		CFBamRelationByRelnTenantIdxKey argKey )
+	public void deleteRelationByRelnTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByRelnTenantIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -1824,35 +1824,35 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByRelTableIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByRelTableIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId )
 	{
-		CFBamRelationByRelTableIdxKey key = schema.getFactoryRelation().newRelTableIdxKey();
+		YCFBamRelationByRelTableIdxKey key = schema.getFactoryRelation().newRelTableIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTableId( argTableId );
 		deleteRelationByRelTableIdx( Authorization, key );
 	}
 
-	public void deleteRelationByRelTableIdx( CFSecAuthorization Authorization,
-		CFBamRelationByRelTableIdxKey argKey )
+	public void deleteRelationByRelTableIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByRelTableIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -1862,32 +1862,32 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+	public void deleteRelationByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamRelationByCodeVisIdxKey key = schema.getFactoryRelation().newCodeVisIdxKey();
+		YCFBamRelationByCodeVisIdxKey key = schema.getFactoryRelation().newCodeVisIdxKey();
 		key.setRequiredCodeVis( argCodeVis );
 		deleteRelationByCodeVisIdx( Authorization, key );
 	}
 
-	public void deleteRelationByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamRelationByCodeVisIdxKey argKey )
+	public void deleteRelationByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByCodeVisIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -1897,22 +1897,22 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByTableCodeVisIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis )
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis )
 	{
-		CFBamRelationByTableCodeVisIdxKey key = schema.getFactoryRelation().newTableCodeVisIdxKey();
+		YCFBamRelationByTableCodeVisIdxKey key = schema.getFactoryRelation().newTableCodeVisIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTableId( argTableId );
 		key.setRequiredCodeVis( argCodeVis );
 		deleteRelationByTableCodeVisIdx( Authorization, key );
 	}
 
-	public void deleteRelationByTableCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamRelationByTableCodeVisIdxKey argKey )
+	public void deleteRelationByTableCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByTableCodeVisIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -1920,15 +1920,15 @@ public class CFBamRamRelationTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -1938,20 +1938,20 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByDefSchemaIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId )
 	{
-		CFBamRelationByDefSchemaIdxKey key = schema.getFactoryRelation().newDefSchemaIdxKey();
+		YCFBamRelationByDefSchemaIdxKey key = schema.getFactoryRelation().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( argDefSchemaTenantId );
 		key.setOptionalDefSchemaId( argDefSchemaId );
 		deleteRelationByDefSchemaIdx( Authorization, key );
 	}
 
-	public void deleteRelationByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamRelationByDefSchemaIdxKey argKey )
+	public void deleteRelationByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByDefSchemaIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalDefSchemaTenantId() != null ) {
 			anyNotNull = true;
@@ -1962,15 +1962,15 @@ public class CFBamRamRelationTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -1980,35 +1980,35 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByFromKeyIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByFromKeyIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argFromIndexId )
 	{
-		CFBamRelationByFromKeyIdxKey key = schema.getFactoryRelation().newFromKeyIdxKey();
+		YCFBamRelationByFromKeyIdxKey key = schema.getFactoryRelation().newFromKeyIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredFromIndexId( argFromIndexId );
 		deleteRelationByFromKeyIdx( Authorization, key );
 	}
 
-	public void deleteRelationByFromKeyIdx( CFSecAuthorization Authorization,
-		CFBamRelationByFromKeyIdxKey argKey )
+	public void deleteRelationByFromKeyIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByFromKeyIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -2018,35 +2018,35 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByToTblIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByToTblIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argToTableId )
 	{
-		CFBamRelationByToTblIdxKey key = schema.getFactoryRelation().newToTblIdxKey();
+		YCFBamRelationByToTblIdxKey key = schema.getFactoryRelation().newToTblIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredToTableId( argToTableId );
 		deleteRelationByToTblIdx( Authorization, key );
 	}
 
-	public void deleteRelationByToTblIdx( CFSecAuthorization Authorization,
-		CFBamRelationByToTblIdxKey argKey )
+	public void deleteRelationByToTblIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByToTblIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -2056,35 +2056,35 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByToKeyIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByToKeyIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argToIndexId )
 	{
-		CFBamRelationByToKeyIdxKey key = schema.getFactoryRelation().newToKeyIdxKey();
+		YCFBamRelationByToKeyIdxKey key = schema.getFactoryRelation().newToKeyIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredToIndexId( argToIndexId );
 		deleteRelationByToKeyIdx( Authorization, key );
 	}
 
-	public void deleteRelationByToKeyIdx( CFSecAuthorization Authorization,
-		CFBamRelationByToKeyIdxKey argKey )
+	public void deleteRelationByToKeyIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByToKeyIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -2094,20 +2094,20 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByNarrowedIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByNarrowedIdx( YCFSecAuthorization Authorization,
 		Long argNarrowedTenantId,
 		Long argNarrowedId )
 	{
-		CFBamRelationByNarrowedIdxKey key = schema.getFactoryRelation().newNarrowedIdxKey();
+		YCFBamRelationByNarrowedIdxKey key = schema.getFactoryRelation().newNarrowedIdxKey();
 		key.setOptionalNarrowedTenantId( argNarrowedTenantId );
 		key.setOptionalNarrowedId( argNarrowedId );
 		deleteRelationByNarrowedIdx( Authorization, key );
 	}
 
-	public void deleteRelationByNarrowedIdx( CFSecAuthorization Authorization,
-		CFBamRelationByNarrowedIdxKey argKey )
+	public void deleteRelationByNarrowedIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByNarrowedIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		if( argKey.getOptionalNarrowedTenantId() != null ) {
 			anyNotNull = true;
@@ -2118,15 +2118,15 @@ public class CFBamRamRelationTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -2136,18 +2136,18 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByIdIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFBamScopePKey key = schema.getFactoryScope().newPKey();
+		YCFBamScopePKey key = schema.getFactoryScope().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deleteRelationByIdIdx( Authorization, key );
 	}
 
-	public void deleteRelationByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey )
+	public void deleteRelationByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -2155,16 +2155,16 @@ public class CFBamRamRelationTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFBamRelationBuff cur;
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		YCFBamRelationBuff cur;
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,
@@ -2174,32 +2174,32 @@ public class CFBamRamRelationTable
 		}
 	}
 
-	public void deleteRelationByTenantIdx( CFSecAuthorization Authorization,
+	public void deleteRelationByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFBamScopeByTenantIdxKey key = schema.getFactoryScope().newTenantIdxKey();
+		YCFBamScopeByTenantIdxKey key = schema.getFactoryScope().newTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteRelationByTenantIdx( Authorization, key );
 	}
 
-	public void deleteRelationByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey )
+	public void deleteRelationByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey )
 	{
-		CFBamRelationBuff cur;
+		YCFBamRelationBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFBamRelationBuff> matchSet = new LinkedList<CFBamRelationBuff>();
-		Iterator<CFBamRelationBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFBamRelationBuff> matchSet = new LinkedList<YCFBamRelationBuff>();
+		Iterator<YCFBamRelationBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFBamRelationBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFBamRelationBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableRelation().readDerivedByIdIdx( Authorization,

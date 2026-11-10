@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for IndexTweak.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamIndexTweakTable database interface for IndexTweak
+ *	YCFBamIndexTweakTable database interface for IndexTweak
  */
-public interface ICFBamIndexTweakTable
+public interface IYCFBamIndexTweakTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createIndexTweak( CFSecAuthorization Authorization,
-		CFBamIndexTweakBuff Buff );
+	void createIndexTweak( YCFSecAuthorization Authorization,
+		YCFBamIndexTweakBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateIndexTweak( CFSecAuthorization Authorization,
-		CFBamIndexTweakBuff Buff );
+	void updateIndexTweak( YCFSecAuthorization Authorization,
+		YCFBamIndexTweakBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteIndexTweak( CFSecAuthorization Authorization,
-		CFBamIndexTweakBuff Buff );
+	void deleteIndexTweak( YCFSecAuthorization Authorization,
+		YCFBamIndexTweakBuff Buff );
 	/**
 	 *	Delete the IndexTweak instances identified by the key IndexIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argIndexId	The IndexTweak key attribute of the instance generating the id.
 	 */
-	void deleteIndexTweakByIndexIdx( CFSecAuthorization Authorization,
+	void deleteIndexTweakByIndexIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argIndexId );
 
@@ -121,8 +121,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexTweakByIndexIdx( CFSecAuthorization Authorization,
-		CFBamIndexTweakByIndexIdxKey argKey );
+	void deleteIndexTweakByIndexIdx( YCFSecAuthorization Authorization,
+		YCFBamIndexTweakByIndexIdxKey argKey );
 	/**
 	 *	Delete the IndexTweak instance identified by the primary key attributes.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argId	The IndexTweak key attribute of the instance generating the id.
 	 */
-	void deleteIndexTweakByIdIdx( CFSecAuthorization Authorization,
+	void deleteIndexTweakByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -143,8 +143,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteIndexTweakByIdIdx( CFSecAuthorization Authorization,
-		CFBamTweakPKey argKey );
+	void deleteIndexTweakByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey argKey );
 	/**
 	 *	Delete the IndexTweak instances identified by the key UNameIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argName	The IndexTweak key attribute of the instance generating the id.
 	 */
-	void deleteIndexTweakByUNameIdx( CFSecAuthorization Authorization,
+	void deleteIndexTweakByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -168,8 +168,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexTweakByUNameIdx( CFSecAuthorization Authorization,
-		CFBamTweakByUNameIdxKey argKey );
+	void deleteIndexTweakByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByUNameIdxKey argKey );
 	/**
 	 *	Delete the IndexTweak instances identified by the key UDefIdx.
 	 *
@@ -185,7 +185,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argName	The IndexTweak key attribute of the instance generating the id.
 	 */
-	void deleteIndexTweakByUDefIdx( CFSecAuthorization Authorization,
+	void deleteIndexTweakByUDefIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argDefSchemaTenantId,
@@ -199,8 +199,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexTweakByUDefIdx( CFSecAuthorization Authorization,
-		CFBamTweakByUDefIdxKey argKey );
+	void deleteIndexTweakByUDefIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByUDefIdxKey argKey );
 	/**
 	 *	Delete the IndexTweak instances identified by the key ValTentIdx.
 	 *
@@ -208,7 +208,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argTenantId	The IndexTweak key attribute of the instance generating the id.
 	 */
-	void deleteIndexTweakByValTentIdx( CFSecAuthorization Authorization,
+	void deleteIndexTweakByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -218,8 +218,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexTweakByValTentIdx( CFSecAuthorization Authorization,
-		CFBamTweakByValTentIdxKey argKey );
+	void deleteIndexTweakByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByValTentIdxKey argKey );
 	/**
 	 *	Delete the IndexTweak instances identified by the key ScopeIdx.
 	 *
@@ -229,7 +229,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argScopeId	The IndexTweak key attribute of the instance generating the id.
 	 */
-	void deleteIndexTweakByScopeIdx( CFSecAuthorization Authorization,
+	void deleteIndexTweakByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -240,8 +240,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexTweakByScopeIdx( CFSecAuthorization Authorization,
-		CFBamTweakByScopeIdxKey argKey );
+	void deleteIndexTweakByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByScopeIdxKey argKey );
 	/**
 	 *	Delete the IndexTweak instances identified by the key DefSchemaIdx.
 	 *
@@ -251,7 +251,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argDefSchemaId	The IndexTweak key attribute of the instance generating the id.
 	 */
-	void deleteIndexTweakByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteIndexTweakByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -262,8 +262,8 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteIndexTweakByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamTweakByDefSchemaIdxKey argKey );
+	void deleteIndexTweakByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByDefSchemaIdxKey argKey );
 
 
 	/**
@@ -276,8 +276,8 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexTweakBuff readDerived( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey );
+	YCFBamIndexTweakBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey );
 
 	/**
 	 *	Lock the derived IndexTweak buffer instance by primary key.
@@ -289,8 +289,8 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexTweakBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey );
+	YCFBamIndexTweakBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey );
 
 	/**
 	 *	Read all IndexTweak instances.
@@ -299,7 +299,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamIndexTweakBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamIndexTweakBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived IndexTweak buffer instance identified by the unique key IdIdx.
@@ -313,7 +313,7 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexTweakBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -331,7 +331,7 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexTweakBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -354,7 +354,7 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamIndexTweakBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff readDerivedByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
@@ -370,7 +370,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexTweakBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -384,7 +384,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexTweakBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -399,7 +399,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexTweakBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -414,7 +414,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamIndexTweakBuff[] readDerivedByIndexIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff[] readDerivedByIndexIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId );
 
@@ -428,10 +428,10 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexTweakBuff readBuff( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey );
+	YCFBamIndexTweakBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey );
 
 	/**
 	 *	Lock the specific IndexTweak buffer instance identified by the primary key.
@@ -443,10 +443,10 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexTweakBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey );
+	YCFBamIndexTweakBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey );
 
 	/**
 	 *	Read all the specific IndexTweak buffer instances.
@@ -455,7 +455,7 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return All the specific IndexTweak instances in the database accessible for the Authorization.
 	 */
-	CFBamIndexTweakBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamIndexTweakBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific IndexTweak buffer instance identified by the unique key IdIdx.
@@ -469,9 +469,9 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexTweakBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -489,9 +489,9 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexTweakBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -514,9 +514,9 @@ public interface ICFBamIndexTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexTweakBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff readBuffByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
@@ -532,9 +532,9 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexTweakBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -548,9 +548,9 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexTweakBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -565,9 +565,9 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexTweakBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -582,16 +582,16 @@ public interface ICFBamIndexTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamIndexTweakBuff[] readBuffByIndexIdx( CFSecAuthorization Authorization,
+	YCFBamIndexTweakBuff[] readBuffByIndexIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long IndexId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

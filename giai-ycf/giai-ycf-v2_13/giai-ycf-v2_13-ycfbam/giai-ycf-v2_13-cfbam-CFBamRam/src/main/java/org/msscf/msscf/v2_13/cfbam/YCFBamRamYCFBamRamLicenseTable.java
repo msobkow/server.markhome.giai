@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for License.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,74 +27,74 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamRam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRamLicenseTable in-memory RAM DbIO implementation
+ *	YCFBamRamLicenseTable in-memory RAM DbIO implementation
  *	for License.
  */
-public class CFBamRamLicenseTable
-	implements ICFBamLicenseTable
+public class YCFBamRamLicenseTable
+	implements IYCFBamLicenseTable
 {
-	private ICFBamSchema schema;
-	private Map< CFIntLicensePKey,
-				CFIntLicenseBuff > dictByPKey
-		= new HashMap< CFIntLicensePKey,
-				CFIntLicenseBuff >();
-	private Map< CFIntLicenseByLicnTenantIdxKey,
-				Map< CFIntLicensePKey,
-					CFIntLicenseBuff >> dictByLicnTenantIdx
-		= new HashMap< CFIntLicenseByLicnTenantIdxKey,
-				Map< CFIntLicensePKey,
-					CFIntLicenseBuff >>();
-	private Map< CFIntLicenseByDomainIdxKey,
-				Map< CFIntLicensePKey,
-					CFIntLicenseBuff >> dictByDomainIdx
-		= new HashMap< CFIntLicenseByDomainIdxKey,
-				Map< CFIntLicensePKey,
-					CFIntLicenseBuff >>();
-	private Map< CFIntLicenseByUNameIdxKey,
-			CFIntLicenseBuff > dictByUNameIdx
-		= new HashMap< CFIntLicenseByUNameIdxKey,
-			CFIntLicenseBuff >();
+	private IYCFBamSchema schema;
+	private Map< YCFIntLicensePKey,
+				YCFIntLicenseBuff > dictByPKey
+		= new HashMap< YCFIntLicensePKey,
+				YCFIntLicenseBuff >();
+	private Map< YCFIntLicenseByLicnTenantIdxKey,
+				Map< YCFIntLicensePKey,
+					YCFIntLicenseBuff >> dictByLicnTenantIdx
+		= new HashMap< YCFIntLicenseByLicnTenantIdxKey,
+				Map< YCFIntLicensePKey,
+					YCFIntLicenseBuff >>();
+	private Map< YCFIntLicenseByDomainIdxKey,
+				Map< YCFIntLicensePKey,
+					YCFIntLicenseBuff >> dictByDomainIdx
+		= new HashMap< YCFIntLicenseByDomainIdxKey,
+				Map< YCFIntLicensePKey,
+					YCFIntLicenseBuff >>();
+	private Map< YCFIntLicenseByUNameIdxKey,
+			YCFIntLicenseBuff > dictByUNameIdx
+		= new HashMap< YCFIntLicenseByUNameIdxKey,
+			YCFIntLicenseBuff >();
 
-	public CFBamRamLicenseTable( ICFBamSchema argSchema ) {
+	public YCFBamRamLicenseTable( IYCFBamSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createLicense( CFSecAuthorization Authorization,
-		CFIntLicenseBuff Buff )
+	public void createLicense( YCFSecAuthorization Authorization,
+		YCFIntLicenseBuff Buff )
 	{
 		final String S_ProcName = "createLicense";
-		CFIntLicensePKey pkey = schema.getFactoryLicense().newPKey();
+		YCFIntLicensePKey pkey = schema.getFactoryLicense().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
-		pkey.setRequiredId( ((CFBamRamTenantTable)schema.getTableTenant()).nextLicenseIdGen( Authorization,
+		pkey.setRequiredId( ((YCFBamRamTenantTable)schema.getTableTenant()).nextLicenseIdGen( Authorization,
 			Buff.getRequiredTenantId() ) );
 		Buff.setRequiredTenantId( pkey.getRequiredTenantId() );
 		Buff.setRequiredId( pkey.getRequiredId() );
-		CFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx = schema.getFactoryLicense().newLicnTenantIdxKey();
+		YCFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx = schema.getFactoryLicense().newLicnTenantIdxKey();
 		keyLicnTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntLicenseByDomainIdxKey keyDomainIdx = schema.getFactoryLicense().newDomainIdxKey();
+		YCFIntLicenseByDomainIdxKey keyDomainIdx = schema.getFactoryLicense().newDomainIdxKey();
 		keyDomainIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyDomainIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 
-		CFIntLicenseByUNameIdxKey keyUNameIdx = schema.getFactoryLicense().newUNameIdxKey();
+		YCFIntLicenseByUNameIdxKey keyUNameIdx = schema.getFactoryLicense().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		keyUNameIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -102,11 +102,11 @@ public class CFBamRamLicenseTable
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUNameIdx.containsKey( keyUNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"LicenseUNameIdx",
 				keyUNameIdx );
@@ -121,7 +121,7 @@ public class CFBamRamLicenseTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Owner",
 						"Owner",
@@ -140,7 +140,7 @@ public class CFBamRamLicenseTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredTopDomainId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"TopDomain",
@@ -154,22 +154,22 @@ public class CFBamRamLicenseTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFIntLicensePKey, CFIntLicenseBuff > subdictLicnTenantIdx;
+		Map< YCFIntLicensePKey, YCFIntLicenseBuff > subdictLicnTenantIdx;
 		if( dictByLicnTenantIdx.containsKey( keyLicnTenantIdx ) ) {
 			subdictLicnTenantIdx = dictByLicnTenantIdx.get( keyLicnTenantIdx );
 		}
 		else {
-			subdictLicnTenantIdx = new HashMap< CFIntLicensePKey, CFIntLicenseBuff >();
+			subdictLicnTenantIdx = new HashMap< YCFIntLicensePKey, YCFIntLicenseBuff >();
 			dictByLicnTenantIdx.put( keyLicnTenantIdx, subdictLicnTenantIdx );
 		}
 		subdictLicnTenantIdx.put( pkey, Buff );
 
-		Map< CFIntLicensePKey, CFIntLicenseBuff > subdictDomainIdx;
+		Map< YCFIntLicensePKey, YCFIntLicenseBuff > subdictDomainIdx;
 		if( dictByDomainIdx.containsKey( keyDomainIdx ) ) {
 			subdictDomainIdx = dictByDomainIdx.get( keyDomainIdx );
 		}
 		else {
-			subdictDomainIdx = new HashMap< CFIntLicensePKey, CFIntLicenseBuff >();
+			subdictDomainIdx = new HashMap< YCFIntLicensePKey, YCFIntLicenseBuff >();
 			dictByDomainIdx.put( keyDomainIdx, subdictDomainIdx );
 		}
 		subdictDomainIdx.put( pkey, Buff );
@@ -178,14 +178,14 @@ public class CFBamRamLicenseTable
 
 	}
 
-	public CFIntLicenseBuff readDerived( CFSecAuthorization Authorization,
-		CFIntLicensePKey PKey )
+	public YCFIntLicenseBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamLicense.readDerived";
-		CFIntLicensePKey key = schema.getFactoryLicense().newPKey();
+		final String S_ProcName = "YCFBamRamLicense.readDerived";
+		YCFIntLicensePKey key = schema.getFactoryLicense().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFIntLicenseBuff buff;
+		YCFIntLicenseBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -195,14 +195,14 @@ public class CFBamRamLicenseTable
 		return( buff );
 	}
 
-	public CFIntLicenseBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntLicensePKey PKey )
+	public YCFIntLicenseBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamLicense.readDerived";
-		CFIntLicensePKey key = schema.getFactoryLicense().newPKey();
+		final String S_ProcName = "YCFBamRamLicense.readDerived";
+		YCFIntLicensePKey key = schema.getFactoryLicense().newPKey();
 		key.setRequiredTenantId( PKey.getRequiredTenantId() );
 		key.setRequiredId( PKey.getRequiredId() );
-		CFIntLicenseBuff buff;
+		YCFIntLicenseBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -212,10 +212,10 @@ public class CFBamRamLicenseTable
 		return( buff );
 	}
 
-	public CFIntLicenseBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFBamRamLicense.readAllDerived";
-		CFIntLicenseBuff[] retList = new CFIntLicenseBuff[ dictByPKey.values().size() ];
-		Iterator< CFIntLicenseBuff > iter = dictByPKey.values().iterator();
+	public YCFIntLicenseBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFBamRamLicense.readAllDerived";
+		YCFIntLicenseBuff[] retList = new YCFIntLicenseBuff[ dictByPKey.values().size() ];
+		Iterator< YCFIntLicenseBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -223,74 +223,74 @@ public class CFBamRamLicenseTable
 		return( retList );
 	}
 
-	public CFIntLicenseBuff[] readDerivedByLicnTenantIdx( CFSecAuthorization Authorization,
+	public YCFIntLicenseBuff[] readDerivedByLicnTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamLicense.readDerivedByLicnTenantIdx";
-		CFIntLicenseByLicnTenantIdxKey key = schema.getFactoryLicense().newLicnTenantIdxKey();
+		final String S_ProcName = "YCFBamRamLicense.readDerivedByLicnTenantIdx";
+		YCFIntLicenseByLicnTenantIdxKey key = schema.getFactoryLicense().newLicnTenantIdxKey();
 		key.setRequiredTenantId( TenantId );
 
-		CFIntLicenseBuff[] recArray;
+		YCFIntLicenseBuff[] recArray;
 		if( dictByLicnTenantIdx.containsKey( key ) ) {
-			Map< CFIntLicensePKey, CFIntLicenseBuff > subdictLicnTenantIdx
+			Map< YCFIntLicensePKey, YCFIntLicenseBuff > subdictLicnTenantIdx
 				= dictByLicnTenantIdx.get( key );
-			recArray = new CFIntLicenseBuff[ subdictLicnTenantIdx.size() ];
-			Iterator< CFIntLicenseBuff > iter = subdictLicnTenantIdx.values().iterator();
+			recArray = new YCFIntLicenseBuff[ subdictLicnTenantIdx.size() ];
+			Iterator< YCFIntLicenseBuff > iter = subdictLicnTenantIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFIntLicensePKey, CFIntLicenseBuff > subdictLicnTenantIdx
-				= new HashMap< CFIntLicensePKey, CFIntLicenseBuff >();
+			Map< YCFIntLicensePKey, YCFIntLicenseBuff > subdictLicnTenantIdx
+				= new HashMap< YCFIntLicensePKey, YCFIntLicenseBuff >();
 			dictByLicnTenantIdx.put( key, subdictLicnTenantIdx );
-			recArray = new CFIntLicenseBuff[0];
+			recArray = new YCFIntLicenseBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFIntLicenseBuff[] readDerivedByDomainIdx( CFSecAuthorization Authorization,
+	public YCFIntLicenseBuff[] readDerivedByDomainIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId )
 	{
-		final String S_ProcName = "CFBamRamLicense.readDerivedByDomainIdx";
-		CFIntLicenseByDomainIdxKey key = schema.getFactoryLicense().newDomainIdxKey();
+		final String S_ProcName = "YCFBamRamLicense.readDerivedByDomainIdx";
+		YCFIntLicenseByDomainIdxKey key = schema.getFactoryLicense().newDomainIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 
-		CFIntLicenseBuff[] recArray;
+		YCFIntLicenseBuff[] recArray;
 		if( dictByDomainIdx.containsKey( key ) ) {
-			Map< CFIntLicensePKey, CFIntLicenseBuff > subdictDomainIdx
+			Map< YCFIntLicensePKey, YCFIntLicenseBuff > subdictDomainIdx
 				= dictByDomainIdx.get( key );
-			recArray = new CFIntLicenseBuff[ subdictDomainIdx.size() ];
-			Iterator< CFIntLicenseBuff > iter = subdictDomainIdx.values().iterator();
+			recArray = new YCFIntLicenseBuff[ subdictDomainIdx.size() ];
+			Iterator< YCFIntLicenseBuff > iter = subdictDomainIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFIntLicensePKey, CFIntLicenseBuff > subdictDomainIdx
-				= new HashMap< CFIntLicensePKey, CFIntLicenseBuff >();
+			Map< YCFIntLicensePKey, YCFIntLicenseBuff > subdictDomainIdx
+				= new HashMap< YCFIntLicensePKey, YCFIntLicenseBuff >();
 			dictByDomainIdx.put( key, subdictDomainIdx );
-			recArray = new CFIntLicenseBuff[0];
+			recArray = new YCFIntLicenseBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFIntLicenseBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFIntLicenseBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamLicense.readDerivedByUNameIdx";
-		CFIntLicenseByUNameIdxKey key = schema.getFactoryLicense().newUNameIdxKey();
+		final String S_ProcName = "YCFBamRamLicense.readDerivedByUNameIdx";
+		YCFIntLicenseByUNameIdxKey key = schema.getFactoryLicense().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredTopDomainId( TopDomainId );
 		key.setRequiredName( Name );
 
-		CFIntLicenseBuff buff;
+		YCFIntLicenseBuff buff;
 		if( dictByUNameIdx.containsKey( key ) ) {
 			buff = dictByUNameIdx.get( key );
 		}
@@ -300,16 +300,16 @@ public class CFBamRamLicenseTable
 		return( buff );
 	}
 
-	public CFIntLicenseBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntLicenseBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamLicense.readDerivedByIdIdx() ";
-		CFIntLicensePKey key = schema.getFactoryLicense().newPKey();
+		final String S_ProcName = "YCFBamRamLicense.readDerivedByIdIdx() ";
+		YCFIntLicensePKey key = schema.getFactoryLicense().newPKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredId( Id );
 
-		CFIntLicenseBuff buff;
+		YCFIntLicenseBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -319,153 +319,153 @@ public class CFBamRamLicenseTable
 		return( buff );
 	}
 
-	public CFIntLicenseBuff readBuff( CFSecAuthorization Authorization,
-		CFIntLicensePKey PKey )
+	public YCFIntLicenseBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey PKey )
 	{
-		final String S_ProcName = "CFBamRamLicense.readBuff";
-		CFIntLicenseBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFBamRamLicense.readBuff";
+		YCFIntLicenseBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a101" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntLicenseBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntLicensePKey PKey )
+	public YCFIntLicenseBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFIntLicenseBuff buff = readDerived( Authorization, PKey );
+		YCFIntLicenseBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a101" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFIntLicenseBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFIntLicenseBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFBamRamLicense.readAllBuff";
-		CFIntLicenseBuff buff;
-		ArrayList<CFIntLicenseBuff> filteredList = new ArrayList<CFIntLicenseBuff>();
-		CFIntLicenseBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFBamRamLicense.readAllBuff";
+		YCFIntLicenseBuff buff;
+		ArrayList<YCFIntLicenseBuff> filteredList = new ArrayList<YCFIntLicenseBuff>();
+		YCFIntLicenseBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a101" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntLicenseBuff[0] ) );
+		return( filteredList.toArray( new YCFIntLicenseBuff[0] ) );
 	}
 
-	public CFIntLicenseBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFIntLicenseBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id )
 	{
-		final String S_ProcName = "CFBamRamLicense.readBuffByIdIdx() ";
-		CFIntLicenseBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFBamRamLicense.readBuffByIdIdx() ";
+		YCFIntLicenseBuff buff = readDerivedByIdIdx( Authorization,
 			TenantId,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a101" ) ) {
-			return( (CFIntLicenseBuff)buff );
+			return( (YCFIntLicenseBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFIntLicenseBuff[] readBuffByLicnTenantIdx( CFSecAuthorization Authorization,
+	public YCFIntLicenseBuff[] readBuffByLicnTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId )
 	{
-		final String S_ProcName = "CFBamRamLicense.readBuffByLicnTenantIdx() ";
-		CFIntLicenseBuff buff;
-		ArrayList<CFIntLicenseBuff> filteredList = new ArrayList<CFIntLicenseBuff>();
-		CFIntLicenseBuff[] buffList = readDerivedByLicnTenantIdx( Authorization,
+		final String S_ProcName = "YCFBamRamLicense.readBuffByLicnTenantIdx() ";
+		YCFIntLicenseBuff buff;
+		ArrayList<YCFIntLicenseBuff> filteredList = new ArrayList<YCFIntLicenseBuff>();
+		YCFIntLicenseBuff[] buffList = readDerivedByLicnTenantIdx( Authorization,
 			TenantId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a101" ) ) {
-				filteredList.add( (CFIntLicenseBuff)buff );
+				filteredList.add( (YCFIntLicenseBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntLicenseBuff[0] ) );
+		return( filteredList.toArray( new YCFIntLicenseBuff[0] ) );
 	}
 
-	public CFIntLicenseBuff[] readBuffByDomainIdx( CFSecAuthorization Authorization,
+	public YCFIntLicenseBuff[] readBuffByDomainIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId )
 	{
-		final String S_ProcName = "CFBamRamLicense.readBuffByDomainIdx() ";
-		CFIntLicenseBuff buff;
-		ArrayList<CFIntLicenseBuff> filteredList = new ArrayList<CFIntLicenseBuff>();
-		CFIntLicenseBuff[] buffList = readDerivedByDomainIdx( Authorization,
+		final String S_ProcName = "YCFBamRamLicense.readBuffByDomainIdx() ";
+		YCFIntLicenseBuff buff;
+		ArrayList<YCFIntLicenseBuff> filteredList = new ArrayList<YCFIntLicenseBuff>();
+		YCFIntLicenseBuff[] buffList = readDerivedByDomainIdx( Authorization,
 			TenantId,
 			TopDomainId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a101" ) ) {
-				filteredList.add( (CFIntLicenseBuff)buff );
+				filteredList.add( (YCFIntLicenseBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFIntLicenseBuff[0] ) );
+		return( filteredList.toArray( new YCFIntLicenseBuff[0] ) );
 	}
 
-	public CFIntLicenseBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFIntLicenseBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId,
 		String Name )
 	{
-		final String S_ProcName = "CFBamRamLicense.readBuffByUNameIdx() ";
-		CFIntLicenseBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFBamRamLicense.readBuffByUNameIdx() ";
+		YCFIntLicenseBuff buff = readDerivedByUNameIdx( Authorization,
 			TenantId,
 			TopDomainId,
 			Name );
 		if( ( buff != null ) && buff.getClassCode().equals( "a101" ) ) {
-			return( (CFIntLicenseBuff)buff );
+			return( (YCFIntLicenseBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public void updateLicense( CFSecAuthorization Authorization,
-		CFIntLicenseBuff Buff )
+	public void updateLicense( YCFSecAuthorization Authorization,
+		YCFIntLicenseBuff Buff )
 	{
-		CFIntLicensePKey pkey = schema.getFactoryLicense().newPKey();
+		YCFIntLicensePKey pkey = schema.getFactoryLicense().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFIntLicenseBuff existing = dictByPKey.get( pkey );
+		YCFIntLicenseBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateLicense",
 				"Existing record not found",
 				"License",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateLicense",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntLicenseByLicnTenantIdxKey existingKeyLicnTenantIdx = schema.getFactoryLicense().newLicnTenantIdxKey();
+		YCFIntLicenseByLicnTenantIdxKey existingKeyLicnTenantIdx = schema.getFactoryLicense().newLicnTenantIdxKey();
 		existingKeyLicnTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntLicenseByLicnTenantIdxKey newKeyLicnTenantIdx = schema.getFactoryLicense().newLicnTenantIdxKey();
+		YCFIntLicenseByLicnTenantIdxKey newKeyLicnTenantIdx = schema.getFactoryLicense().newLicnTenantIdxKey();
 		newKeyLicnTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntLicenseByDomainIdxKey existingKeyDomainIdx = schema.getFactoryLicense().newDomainIdxKey();
+		YCFIntLicenseByDomainIdxKey existingKeyDomainIdx = schema.getFactoryLicense().newDomainIdxKey();
 		existingKeyDomainIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyDomainIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 
-		CFIntLicenseByDomainIdxKey newKeyDomainIdx = schema.getFactoryLicense().newDomainIdxKey();
+		YCFIntLicenseByDomainIdxKey newKeyDomainIdx = schema.getFactoryLicense().newDomainIdxKey();
 		newKeyDomainIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyDomainIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 
-		CFIntLicenseByUNameIdxKey existingKeyUNameIdx = schema.getFactoryLicense().newUNameIdxKey();
+		YCFIntLicenseByUNameIdxKey existingKeyUNameIdx = schema.getFactoryLicense().newUNameIdxKey();
 		existingKeyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		existingKeyUNameIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntLicenseByUNameIdxKey newKeyUNameIdx = schema.getFactoryLicense().newUNameIdxKey();
+		YCFIntLicenseByUNameIdxKey newKeyUNameIdx = schema.getFactoryLicense().newUNameIdxKey();
 		newKeyUNameIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 		newKeyUNameIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
@@ -474,7 +474,7 @@ public class CFBamRamLicenseTable
 
 		if( ! existingKeyUNameIdx.equals( newKeyUNameIdx ) ) {
 			if( dictByUNameIdx.containsKey( newKeyUNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateLicense",
 					"LicenseUNameIdx",
 					newKeyUNameIdx );
@@ -490,7 +490,7 @@ public class CFBamRamLicenseTable
 				if( null == schema.getTableTenant().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredTenantId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateLicense",
 						"Owner",
 						"Owner",
@@ -508,7 +508,7 @@ public class CFBamRamLicenseTable
 						Buff.getRequiredTenantId(),
 						Buff.getRequiredTopDomainId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateLicense",
 						"Container",
 						"TopDomain",
@@ -520,7 +520,7 @@ public class CFBamRamLicenseTable
 
 		// Update is valid
 
-		Map< CFIntLicensePKey, CFIntLicenseBuff > subdict;
+		Map< YCFIntLicensePKey, YCFIntLicenseBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -533,7 +533,7 @@ public class CFBamRamLicenseTable
 			subdict = dictByLicnTenantIdx.get( newKeyLicnTenantIdx );
 		}
 		else {
-			subdict = new HashMap< CFIntLicensePKey, CFIntLicenseBuff >();
+			subdict = new HashMap< YCFIntLicensePKey, YCFIntLicenseBuff >();
 			dictByLicnTenantIdx.put( newKeyLicnTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -546,7 +546,7 @@ public class CFBamRamLicenseTable
 			subdict = dictByDomainIdx.get( newKeyDomainIdx );
 		}
 		else {
-			subdict = new HashMap< CFIntLicensePKey, CFIntLicenseBuff >();
+			subdict = new HashMap< YCFIntLicensePKey, YCFIntLicenseBuff >();
 			dictByDomainIdx.put( newKeyDomainIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -556,32 +556,32 @@ public class CFBamRamLicenseTable
 
 	}
 
-	public void deleteLicense( CFSecAuthorization Authorization,
-		CFIntLicenseBuff Buff )
+	public void deleteLicense( YCFSecAuthorization Authorization,
+		YCFIntLicenseBuff Buff )
 	{
-		final String S_ProcName = "CFBamRamLicenseTable.deleteLicense() ";
+		final String S_ProcName = "YCFBamRamLicenseTable.deleteLicense() ";
 		String classCode;
-		CFIntLicensePKey pkey = schema.getFactoryLicense().newPKey();
+		YCFIntLicensePKey pkey = schema.getFactoryLicense().newPKey();
 		pkey.setRequiredTenantId( Buff.getRequiredTenantId() );
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFIntLicenseBuff existing = dictByPKey.get( pkey );
+		YCFIntLicenseBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteLicense",
 				pkey );
 		}
-		CFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx = schema.getFactoryLicense().newLicnTenantIdxKey();
+		YCFIntLicenseByLicnTenantIdxKey keyLicnTenantIdx = schema.getFactoryLicense().newLicnTenantIdxKey();
 		keyLicnTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntLicenseByDomainIdxKey keyDomainIdx = schema.getFactoryLicense().newDomainIdxKey();
+		YCFIntLicenseByDomainIdxKey keyDomainIdx = schema.getFactoryLicense().newDomainIdxKey();
 		keyDomainIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyDomainIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 
-		CFIntLicenseByUNameIdxKey keyUNameIdx = schema.getFactoryLicense().newUNameIdxKey();
+		YCFIntLicenseByUNameIdxKey keyUNameIdx = schema.getFactoryLicense().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyUNameIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
@@ -589,7 +589,7 @@ public class CFBamRamLicenseTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFIntLicensePKey, CFIntLicenseBuff > subdict;
+		Map< YCFIntLicensePKey, YCFIntLicenseBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -602,18 +602,18 @@ public class CFBamRamLicenseTable
 		dictByUNameIdx.remove( keyUNameIdx );
 
 	}
-	public void deleteLicenseByIdIdx( CFSecAuthorization Authorization,
+	public void deleteLicenseByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId )
 	{
-		CFIntLicensePKey key = schema.getFactoryLicense().newPKey();
+		YCFIntLicensePKey key = schema.getFactoryLicense().newPKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredId( argId );
 		deleteLicenseByIdIdx( Authorization, key );
 	}
 
-	public void deleteLicenseByIdIdx( CFSecAuthorization Authorization,
-		CFIntLicensePKey argKey )
+	public void deleteLicenseByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -621,16 +621,16 @@ public class CFBamRamLicenseTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFIntLicenseBuff cur;
-		LinkedList<CFIntLicenseBuff> matchSet = new LinkedList<CFIntLicenseBuff>();
-		Iterator<CFIntLicenseBuff> values = dictByPKey.values().iterator();
+		YCFIntLicenseBuff cur;
+		LinkedList<YCFIntLicenseBuff> matchSet = new LinkedList<YCFIntLicenseBuff>();
+		Iterator<YCFIntLicenseBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntLicenseBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntLicenseBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableLicense().readDerivedByIdIdx( Authorization,
@@ -640,32 +640,32 @@ public class CFBamRamLicenseTable
 		}
 	}
 
-	public void deleteLicenseByLicnTenantIdx( CFSecAuthorization Authorization,
+	public void deleteLicenseByLicnTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId )
 	{
-		CFIntLicenseByLicnTenantIdxKey key = schema.getFactoryLicense().newLicnTenantIdxKey();
+		YCFIntLicenseByLicnTenantIdxKey key = schema.getFactoryLicense().newLicnTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteLicenseByLicnTenantIdx( Authorization, key );
 	}
 
-	public void deleteLicenseByLicnTenantIdx( CFSecAuthorization Authorization,
-		CFIntLicenseByLicnTenantIdxKey argKey )
+	public void deleteLicenseByLicnTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntLicenseByLicnTenantIdxKey argKey )
 	{
-		CFIntLicenseBuff cur;
+		YCFIntLicenseBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntLicenseBuff> matchSet = new LinkedList<CFIntLicenseBuff>();
-		Iterator<CFIntLicenseBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntLicenseBuff> matchSet = new LinkedList<YCFIntLicenseBuff>();
+		Iterator<YCFIntLicenseBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntLicenseBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntLicenseBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableLicense().readDerivedByIdIdx( Authorization,
@@ -675,35 +675,35 @@ public class CFBamRamLicenseTable
 		}
 	}
 
-	public void deleteLicenseByDomainIdx( CFSecAuthorization Authorization,
+	public void deleteLicenseByDomainIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopDomainId )
 	{
-		CFIntLicenseByDomainIdxKey key = schema.getFactoryLicense().newDomainIdxKey();
+		YCFIntLicenseByDomainIdxKey key = schema.getFactoryLicense().newDomainIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTopDomainId( argTopDomainId );
 		deleteLicenseByDomainIdx( Authorization, key );
 	}
 
-	public void deleteLicenseByDomainIdx( CFSecAuthorization Authorization,
-		CFIntLicenseByDomainIdxKey argKey )
+	public void deleteLicenseByDomainIdx( YCFSecAuthorization Authorization,
+		YCFIntLicenseByDomainIdxKey argKey )
 	{
-		CFIntLicenseBuff cur;
+		YCFIntLicenseBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntLicenseBuff> matchSet = new LinkedList<CFIntLicenseBuff>();
-		Iterator<CFIntLicenseBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntLicenseBuff> matchSet = new LinkedList<YCFIntLicenseBuff>();
+		Iterator<YCFIntLicenseBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntLicenseBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntLicenseBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableLicense().readDerivedByIdIdx( Authorization,
@@ -713,22 +713,22 @@ public class CFBamRamLicenseTable
 		}
 	}
 
-	public void deleteLicenseByUNameIdx( CFSecAuthorization Authorization,
+	public void deleteLicenseByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopDomainId,
 		String argName )
 	{
-		CFIntLicenseByUNameIdxKey key = schema.getFactoryLicense().newUNameIdxKey();
+		YCFIntLicenseByUNameIdxKey key = schema.getFactoryLicense().newUNameIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		key.setRequiredTopDomainId( argTopDomainId );
 		key.setRequiredName( argName );
 		deleteLicenseByUNameIdx( Authorization, key );
 	}
 
-	public void deleteLicenseByUNameIdx( CFSecAuthorization Authorization,
-		CFIntLicenseByUNameIdxKey argKey )
+	public void deleteLicenseByUNameIdx( YCFSecAuthorization Authorization,
+		YCFIntLicenseByUNameIdxKey argKey )
 	{
-		CFIntLicenseBuff cur;
+		YCFIntLicenseBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
@@ -736,15 +736,15 @@ public class CFBamRamLicenseTable
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFIntLicenseBuff> matchSet = new LinkedList<CFIntLicenseBuff>();
-		Iterator<CFIntLicenseBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFIntLicenseBuff> matchSet = new LinkedList<YCFIntLicenseBuff>();
+		Iterator<YCFIntLicenseBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFIntLicenseBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFIntLicenseBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableLicense().readDerivedByIdIdx( Authorization,

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,14 +20,14 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.spring;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.spring;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.appdb.AppDbAddress;
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.appdb.AppDbAddressService;
-import org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb.SecDbUserService;
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash256;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.appdb.AppDbAddress;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.appdb.AppDbAddressService;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb.SecDbUserService;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash256;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -57,11 +57,11 @@ public class TestAppDb {
     public String performTests(EntityManager em) {
         StringBuffer responseMessage = new StringBuffer();
         LocalDateTime now = LocalDateTime.now();
-        // CFLibDbKeyHash256 adminpid = new CFLibDbKeyHash256("0123456789abcdef");
-        CFLibDbKeyHash256 mgrpid = new CFLibDbKeyHash256("fedcba9876543210");
+        // YCFLibDbKeyHash256 adminpid = new YCFLibDbKeyHash256("0123456789abcdef");
+        YCFLibDbKeyHash256 mgrpid = new YCFLibDbKeyHash256("fedcba9876543210");
         List<AppDbAddress> addresses = appDbAddressService.findByRefUID(mgrpid);
         if (addresses == null || addresses.isEmpty()) {
-            AppDbAddress appAddress = new AppDbAddress(new CFLibDbKeyHash256(0), mgrpid, "Home", "Mark Sobkow", "19", "207 Seventh Avenue North", null, "Yorkton", "SK", "Canada", "S3N 0X3", now, mgrpid, now, mgrpid);
+            AppDbAddress appAddress = new AppDbAddress(new YCFLibDbKeyHash256(0), mgrpid, "Home", "Mark Sobkow", "19", "207 Seventh Avenue North", null, "Yorkton", "SK", "Canada", "S3N 0X3", now, mgrpid, now, mgrpid);
             appAddress = appDbAddressService.create(appAddress);
             responseMessage.append("Sample AppDbAddress for Manager " + mgrpid.toString() + " created in AppDb.");
         } else {

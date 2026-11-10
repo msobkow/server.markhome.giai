@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Reference for Tenant Relationship Cluster.
+// Description: Java 11 MssYCF Reference for Tenant Relationship Cluster.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,33 +27,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.sql.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /**
- *	CFBamMssCFReferenceTenantCluster binds Tenant.Cluster
- *	as an instance of MssCFGenReferenceObj.
+ *	YCFBamMssYCFReferenceTenantCluster binds Tenant.Cluster
+ *	as an instance of MssYCFGenReferenceObj.
  */
-public class CFBamMssCFReferenceTenantCluster
-	extends MssCFGenReferenceObj
+public class YCFBamMssYCFReferenceTenantCluster
+	extends MssYCFGenReferenceObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFReferenceTenantCluster() {
+	public YCFBamMssYCFReferenceTenantCluster() {
 		super();
 	}
 
-	public CFBamMssCFReferenceTenantCluster( MssCFEngine argEngine ) {
+	public YCFBamMssYCFReferenceTenantCluster( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
@@ -62,35 +62,35 @@ public class CFBamMssCFReferenceTenantCluster
 			"Cluster" );
 	}
 
-	public ICFLibAnyObj dereference( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFReferenceTenantCluster.dereference() ";
+	public IYCFLibAnyObj dereference( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFReferenceTenantCluster.dereference() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext.getGenDef()" );
 		}
 
-		ICFBamClusterObj obj;
+		IYCFBamClusterObj obj;
 
-		if( genDef instanceof ICFBamTenantObj ) {
-			obj = (ICFBamClusterObj)((ICFBamTenantObj)genDef).getRequiredContainerCluster();
+		if( genDef instanceof IYCFBamTenantObj ) {
+			obj = (IYCFBamClusterObj)((IYCFBamTenantObj)genDef).getRequiredContainerCluster();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamTenantObj" );
+				"IYCFBamTenantObj" );
 		}
 
 		return( obj );

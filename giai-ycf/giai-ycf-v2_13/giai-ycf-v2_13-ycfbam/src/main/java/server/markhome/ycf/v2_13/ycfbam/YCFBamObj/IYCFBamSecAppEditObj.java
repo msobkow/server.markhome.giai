@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFBam SecApp.
+// Description: Java 11 Instance Edit Object interface for YCFBam SecApp.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,24 +26,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamSecAppEditObj
-	extends ICFBamSecAppObj,
-		ICFSecSecAppEditObj,
-		ICFIntSecAppEditObj
+public interface IYCFBamSecAppEditObj
+	extends IYCFBamSecAppObj,
+		IYCFSecSecAppEditObj,
+		IYCFIntSecAppEditObj
 {
 	/*
 	 *	create() may return a different instance than the
@@ -54,24 +54,24 @@ public interface ICFBamSecAppEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFSecSecAppObj create();
+	IYCFSecSecAppObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFSecSecAppEditObj update();
+	YCFSecSecAppEditObj update();
 
 	/**
-	 *	Get the ICFSecClusterObj instance referenced by the Cluster key.
+	 *	Get the IYCFSecClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The ICFSecClusterObj instance referenced by the Cluster key.
+	 *	@return	The IYCFSecClusterObj instance referenced by the Cluster key.
 	 */
-	ICFSecClusterObj getRequiredContainerCluster();
+	IYCFSecClusterObj getRequiredContainerCluster();
 
 	/**
-	 *	Set the ICFSecClusterObj instance referenced by the Cluster key.
+	 *	Set the IYCFSecClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@param	value	the ICFSecClusterObj instance to be referenced by the Cluster key.
+	 *	@param	value	the IYCFSecClusterObj instance to be referenced by the Cluster key.
 	 */
-	void setRequiredContainerCluster( ICFSecClusterObj value );
+	void setRequiredContainerCluster( IYCFSecClusterObj value );
 }

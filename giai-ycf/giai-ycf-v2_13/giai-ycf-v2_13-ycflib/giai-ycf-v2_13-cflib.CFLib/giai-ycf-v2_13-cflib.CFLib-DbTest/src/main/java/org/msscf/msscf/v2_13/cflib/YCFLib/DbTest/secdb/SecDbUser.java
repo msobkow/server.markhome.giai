@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,7 +20,7 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb;
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
 
@@ -28,7 +28,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash256;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash256;
 
 @Entity
 @Table(
@@ -51,9 +51,9 @@ public class SecDbUser implements Comparable<Object> {
 
     @Id
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "pid", nullable = false, unique = true, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "pid", nullable = false, unique = true, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
-    private CFLibDbKeyHash256 pid;
+    private YCFLibDbKeyHash256 pid;
 
     @Column(name = "username", nullable = false, unique = true, length = USERNAME_SIZE)
     private String username;
@@ -66,53 +66,53 @@ public class SecDbUser implements Comparable<Object> {
     private java.time.LocalDateTime createdAt;
 
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "created_by", nullable = false, unique = false, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "created_by", nullable = false, unique = false, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
-    private CFLibDbKeyHash256 createdBy;
+    private YCFLibDbKeyHash256 createdBy;
 
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private java.time.LocalDateTime updatedAt;
 
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "updated_by", nullable = false, unique = false, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "updated_by", nullable = false, unique = false, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
-    private CFLibDbKeyHash256 updatedBy;
+    private YCFLibDbKeyHash256 updatedBy;
 
     @Column(name = "member_deptcode", length = 32, nullable = true)
     private String memberDeptCode;
 
     public SecDbUser() {}
 
-    public SecDbUser(CFLibDbKeyHash256 pid) {
+    public SecDbUser(YCFLibDbKeyHash256 pid) {
         this.pid = pid;
         this.username = "";
         this.email = "";
     }
 
-    public SecDbUser(CFLibDbKeyHash256 pid, SecDbUser user) {
+    public SecDbUser(YCFLibDbKeyHash256 pid, SecDbUser user) {
         this.pid = pid;
         this.username = user.getUsername();
         this.email = user.getEmail();
         this.memberDeptCode = user.getMemberDeptCode();
     }
     
-    public SecDbUser(CFLibDbKeyHash256 pid, String username, String email) {
+    public SecDbUser(YCFLibDbKeyHash256 pid, String username, String email) {
         this.pid = pid;
         this.username = username;
         this.email = email;
     }
 
-    public SecDbUser(CFLibDbKeyHash256 pid, String username, String email, String memberDeptCode) {
+    public SecDbUser(YCFLibDbKeyHash256 pid, String username, String email, String memberDeptCode) {
         this.pid = pid;
         this.username = username;
         this.email = email;
         this.memberDeptCode = memberDeptCode;
     }
 
-    public SecDbUser(CFLibDbKeyHash256 pid, String username, String email, String memberDeptCode,
-                     java.time.LocalDateTime createdAt, CFLibDbKeyHash256 createdBy,
-                     java.time.LocalDateTime updatedAt, CFLibDbKeyHash256 updatedBy) {
+    public SecDbUser(YCFLibDbKeyHash256 pid, String username, String email, String memberDeptCode,
+                     java.time.LocalDateTime createdAt, YCFLibDbKeyHash256 createdBy,
+                     java.time.LocalDateTime updatedAt, YCFLibDbKeyHash256 updatedBy) {
         this.pid = pid;
         this.username = username;
         this.email = email;
@@ -123,11 +123,11 @@ public class SecDbUser implements Comparable<Object> {
         this.updatedBy = updatedBy;
     }
 
-    public CFLibDbKeyHash256 getPid() {
+    public YCFLibDbKeyHash256 getPid() {
         return pid;
     }
 
-    public void setPid(CFLibDbKeyHash256 pid) {
+    public void setPid(YCFLibDbKeyHash256 pid) {
         this.pid = pid;
     }
 
@@ -155,11 +155,11 @@ public class SecDbUser implements Comparable<Object> {
         this.createdAt = createdAt;
     }
 
-    public CFLibDbKeyHash256 getCreatedBy() {
+    public YCFLibDbKeyHash256 getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(CFLibDbKeyHash256 createdBy) {
+    public void setCreatedBy(YCFLibDbKeyHash256 createdBy) {
         this.createdBy = createdBy;
     }
 
@@ -171,11 +171,11 @@ public class SecDbUser implements Comparable<Object> {
         this.updatedAt = updatedAt;
     }
 
-    public CFLibDbKeyHash256 getUpdatedBy() {
+    public YCFLibDbKeyHash256 getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(CFLibDbKeyHash256 updatedBy) {
+    public void setUpdatedBy(YCFLibDbKeyHash256 updatedBy) {
         this.updatedBy = updatedBy;
     }
 

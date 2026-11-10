@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object implementation for CFBam.
+// Description: Java 11 Table Object implementation for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,50 +45,50 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamParamTableObj
-	implements ICFBamParamTableObj
+public class YCFBamParamTableObj
+	implements IYCFBamParamTableObj
 {
-	protected ICFBamSchemaObj schema;
-	private Map<CFBamParamPKey, ICFBamParamObj> members;
-	private Map<CFBamParamPKey, ICFBamParamObj> allParam;
-	private Map< CFBamParamByUNameIdxKey,
-		ICFBamParamObj > indexByUNameIdx;
-	private Map< CFBamParamByValTentIdxKey,
-		Map<CFBamParamPKey, ICFBamParamObj > > indexByValTentIdx;
-	private Map< CFBamParamByServerMethodIdxKey,
-		Map<CFBamParamPKey, ICFBamParamObj > > indexByServerMethodIdx;
-	private Map< CFBamParamByDefSchemaIdxKey,
-		Map<CFBamParamPKey, ICFBamParamObj > > indexByDefSchemaIdx;
-	private Map< CFBamParamByServerTypeIdxKey,
-		Map<CFBamParamPKey, ICFBamParamObj > > indexByServerTypeIdx;
-	private Map< CFBamParamByPrevIdxKey,
-		Map<CFBamParamPKey, ICFBamParamObj > > indexByPrevIdx;
-	private Map< CFBamParamByNextIdxKey,
-		Map<CFBamParamPKey, ICFBamParamObj > > indexByNextIdx;
-	private Map< CFBamParamByContPrevIdxKey,
-		Map<CFBamParamPKey, ICFBamParamObj > > indexByContPrevIdx;
-	private Map< CFBamParamByContNextIdxKey,
-		Map<CFBamParamPKey, ICFBamParamObj > > indexByContNextIdx;
+	protected IYCFBamSchemaObj schema;
+	private Map<YCFBamParamPKey, IYCFBamParamObj> members;
+	private Map<YCFBamParamPKey, IYCFBamParamObj> allParam;
+	private Map< YCFBamParamByUNameIdxKey,
+		IYCFBamParamObj > indexByUNameIdx;
+	private Map< YCFBamParamByValTentIdxKey,
+		Map<YCFBamParamPKey, IYCFBamParamObj > > indexByValTentIdx;
+	private Map< YCFBamParamByServerMethodIdxKey,
+		Map<YCFBamParamPKey, IYCFBamParamObj > > indexByServerMethodIdx;
+	private Map< YCFBamParamByDefSchemaIdxKey,
+		Map<YCFBamParamPKey, IYCFBamParamObj > > indexByDefSchemaIdx;
+	private Map< YCFBamParamByServerTypeIdxKey,
+		Map<YCFBamParamPKey, IYCFBamParamObj > > indexByServerTypeIdx;
+	private Map< YCFBamParamByPrevIdxKey,
+		Map<YCFBamParamPKey, IYCFBamParamObj > > indexByPrevIdx;
+	private Map< YCFBamParamByNextIdxKey,
+		Map<YCFBamParamPKey, IYCFBamParamObj > > indexByNextIdx;
+	private Map< YCFBamParamByContPrevIdxKey,
+		Map<YCFBamParamPKey, IYCFBamParamObj > > indexByContPrevIdx;
+	private Map< YCFBamParamByContNextIdxKey,
+		Map<YCFBamParamPKey, IYCFBamParamObj > > indexByContNextIdx;
 	public static String TABLE_NAME = "Param";
 	public static String TABLE_DBNAME = "srvprm";
 
-	public CFBamParamTableObj() {
+	public YCFBamParamTableObj() {
 		schema = null;
-		members = new HashMap<CFBamParamPKey, ICFBamParamObj>();
+		members = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
 		allParam = null;
 		indexByUNameIdx = null;
 		indexByValTentIdx = null;
@@ -101,9 +101,9 @@ public class CFBamParamTableObj
 		indexByContNextIdx = null;
 	}
 
-	public CFBamParamTableObj( ICFBamSchemaObj argSchema ) {
-		schema = (ICFBamSchemaObj)argSchema;
-		members = new HashMap<CFBamParamPKey, ICFBamParamObj>();
+	public YCFBamParamTableObj( IYCFBamSchemaObj argSchema ) {
+		schema = (IYCFBamSchemaObj)argSchema;
+		members = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
 		allParam = null;
 		indexByUNameIdx = null;
 		indexByValTentIdx = null;
@@ -116,12 +116,12 @@ public class CFBamParamTableObj
 		indexByContNextIdx = null;
 	}
 
-	public ICFBamSchemaObj getSchema() {
+	public IYCFBamSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFBamSchemaObj value ) {
-		schema = (ICFBamSchemaObj)value;
+	public void setSchema( IYCFBamSchemaObj value ) {
+		schema = (IYCFBamSchemaObj)value;
 	}
 
 	public String getTableName() {
@@ -133,7 +133,7 @@ public class CFBamParamTableObj
 	}
 
 	public Class getObjQualifyingClass() {
-		return( ICFBamSchemaDefObj.class );
+		return( IYCFBamSchemaDefObj.class );
 	}
 
 
@@ -148,9 +148,9 @@ public class CFBamParamTableObj
 		indexByNextIdx = null;
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
-		List<ICFBamParamObj> toForget = new LinkedList<ICFBamParamObj>();
-		ICFBamParamObj cur = null;
-		Iterator<ICFBamParamObj> iter = members.values().iterator();
+		List<IYCFBamParamObj> toForget = new LinkedList<IYCFBamParamObj>();
+		IYCFBamParamObj cur = null;
+		Iterator<IYCFBamParamObj> iter = members.values().iterator();
 		while( iter.hasNext() ) {
 			cur = iter.next();
 			toForget.add( cur );
@@ -168,10 +168,10 @@ public class CFBamParamTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamParamObj.
+	 *	YCFBamParamObj.
 	 */
-	public ICFBamParamObj newInstance() {
-		ICFBamParamObj inst = new CFBamParamObj( schema );
+	public IYCFBamParamObj newInstance() {
+		IYCFBamParamObj inst = new YCFBamParamObj( schema );
 		return( inst );
 	}
 
@@ -182,19 +182,19 @@ public class CFBamParamTableObj
 	 *	instances instead of the base implementation.
 	 *
 	 *	This is the sole factory for instances derived from
-	 *	CFBamParamObj.
+	 *	YCFBamParamObj.
 	 */
-	public ICFBamParamEditObj newEditInstance( ICFBamParamObj orig ) {
-		ICFBamParamEditObj edit = new CFBamParamEditObj( orig );
+	public IYCFBamParamEditObj newEditInstance( IYCFBamParamObj orig ) {
+		IYCFBamParamEditObj edit = new YCFBamParamEditObj( orig );
 		return( edit );
 	}
 
-	public ICFBamParamObj realiseParam( ICFBamParamObj Obj ) {
-		ICFBamParamObj obj = Obj;
-		CFBamParamPKey pkey = obj.getPKey();
-		ICFBamParamObj keepObj = null;
+	public IYCFBamParamObj realiseParam( IYCFBamParamObj Obj ) {
+		IYCFBamParamObj obj = Obj;
+		YCFBamParamPKey pkey = obj.getPKey();
+		IYCFBamParamObj keepObj = null;
 		if( members.containsKey( pkey ) && ( null != members.get( pkey ) ) ) {
-			ICFBamParamObj existingObj = members.get( pkey );
+			IYCFBamParamObj existingObj = members.get( pkey );
 			keepObj = existingObj;
 
 			/*
@@ -205,8 +205,8 @@ public class CFBamParamTableObj
 			// Detach object from alternate and duplicate indexes, leave PKey alone
 
 			if( indexByUNameIdx != null ) {
-				CFBamParamByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
+				YCFBamParamByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -214,10 +214,10 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamParamByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
+				YCFBamParamByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					mapValTentIdx.remove( keepObj.getPKey() );
 					if( mapValTentIdx.size() <= 0 ) {
@@ -227,11 +227,11 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByServerMethodIdx != null ) {
-				CFBamParamByServerMethodIdxKey keyServerMethodIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
+				YCFBamParamByServerMethodIdxKey keyServerMethodIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
 				keyServerMethodIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyServerMethodIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapServerMethodIdx = indexByServerMethodIdx.get( keyServerMethodIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapServerMethodIdx = indexByServerMethodIdx.get( keyServerMethodIdx );
 				if( mapServerMethodIdx != null ) {
 					mapServerMethodIdx.remove( keepObj.getPKey() );
 					if( mapServerMethodIdx.size() <= 0 ) {
@@ -241,11 +241,11 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamParamByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
+				YCFBamParamByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.remove( keepObj.getPKey() );
 					if( mapDefSchemaIdx.size() <= 0 ) {
@@ -255,11 +255,11 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByServerTypeIdx != null ) {
-				CFBamParamByServerTypeIdxKey keyServerTypeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
+				YCFBamParamByServerTypeIdxKey keyServerTypeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
 				keyServerTypeIdx.setOptionalTypeTenantId( keepObj.getOptionalTypeTenantId() );
 				keyServerTypeIdx.setOptionalTypeId( keepObj.getOptionalTypeId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapServerTypeIdx = indexByServerTypeIdx.get( keyServerTypeIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapServerTypeIdx = indexByServerTypeIdx.get( keyServerTypeIdx );
 				if( mapServerTypeIdx != null ) {
 					mapServerTypeIdx.remove( keepObj.getPKey() );
 					if( mapServerTypeIdx.size() <= 0 ) {
@@ -269,11 +269,11 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamParamByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
+				YCFBamParamByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.remove( keepObj.getPKey() );
 					if( mapPrevIdx.size() <= 0 ) {
@@ -283,11 +283,11 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamParamByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
+				YCFBamParamByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.remove( keepObj.getPKey() );
 					if( mapNextIdx.size() <= 0 ) {
@@ -297,12 +297,12 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamParamByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
+				YCFBamParamByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					mapContPrevIdx.remove( keepObj.getPKey() );
 					if( mapContPrevIdx.size() <= 0 ) {
@@ -312,12 +312,12 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamParamByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
+				YCFBamParamByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.remove( keepObj.getPKey() );
 					if( mapContNextIdx.size() <= 0 ) {
@@ -330,8 +330,8 @@ public class CFBamParamTableObj
 			// Attach new object to alternate and duplicate indexes -- PKey stay stable
 
 			if( indexByUNameIdx != null ) {
-				CFBamParamByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
+				YCFBamParamByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -339,89 +339,89 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamParamByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
+				YCFBamParamByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					mapValTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByServerMethodIdx != null ) {
-				CFBamParamByServerMethodIdxKey keyServerMethodIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
+				YCFBamParamByServerMethodIdxKey keyServerMethodIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
 				keyServerMethodIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyServerMethodIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapServerMethodIdx = indexByServerMethodIdx.get( keyServerMethodIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapServerMethodIdx = indexByServerMethodIdx.get( keyServerMethodIdx );
 				if( mapServerMethodIdx != null ) {
 					mapServerMethodIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamParamByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
+				YCFBamParamByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByServerTypeIdx != null ) {
-				CFBamParamByServerTypeIdxKey keyServerTypeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
+				YCFBamParamByServerTypeIdxKey keyServerTypeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
 				keyServerTypeIdx.setOptionalTypeTenantId( keepObj.getOptionalTypeTenantId() );
 				keyServerTypeIdx.setOptionalTypeId( keepObj.getOptionalTypeId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapServerTypeIdx = indexByServerTypeIdx.get( keyServerTypeIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapServerTypeIdx = indexByServerTypeIdx.get( keyServerTypeIdx );
 				if( mapServerTypeIdx != null ) {
 					mapServerTypeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamParamByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
+				YCFBamParamByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamParamByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
+				YCFBamParamByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamParamByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
+				YCFBamParamByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					mapContPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamParamByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
+				YCFBamParamByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -442,8 +442,8 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByUNameIdx != null ) {
-				CFBamParamByUNameIdxKey keyUNameIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
+				YCFBamParamByUNameIdxKey keyUNameIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
 				keyUNameIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyUNameIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
@@ -451,89 +451,89 @@ public class CFBamParamTableObj
 			}
 
 			if( indexByValTentIdx != null ) {
-				CFBamParamByValTentIdxKey keyValTentIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
+				YCFBamParamByValTentIdxKey keyValTentIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
 				keyValTentIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapValTentIdx = indexByValTentIdx.get( keyValTentIdx );
 				if( mapValTentIdx != null ) {
 					mapValTentIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByServerMethodIdx != null ) {
-				CFBamParamByServerMethodIdxKey keyServerMethodIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
+				YCFBamParamByServerMethodIdxKey keyServerMethodIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
 				keyServerMethodIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyServerMethodIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapServerMethodIdx = indexByServerMethodIdx.get( keyServerMethodIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapServerMethodIdx = indexByServerMethodIdx.get( keyServerMethodIdx );
 				if( mapServerMethodIdx != null ) {
 					mapServerMethodIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByDefSchemaIdx != null ) {
-				CFBamParamByDefSchemaIdxKey keyDefSchemaIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
+				YCFBamParamByDefSchemaIdxKey keyDefSchemaIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
 				keyDefSchemaIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
 				keyDefSchemaIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapDefSchemaIdx = indexByDefSchemaIdx.get( keyDefSchemaIdx );
 				if( mapDefSchemaIdx != null ) {
 					mapDefSchemaIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByServerTypeIdx != null ) {
-				CFBamParamByServerTypeIdxKey keyServerTypeIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
+				YCFBamParamByServerTypeIdxKey keyServerTypeIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
 				keyServerTypeIdx.setOptionalTypeTenantId( keepObj.getOptionalTypeTenantId() );
 				keyServerTypeIdx.setOptionalTypeId( keepObj.getOptionalTypeId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapServerTypeIdx = indexByServerTypeIdx.get( keyServerTypeIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapServerTypeIdx = indexByServerTypeIdx.get( keyServerTypeIdx );
 				if( mapServerTypeIdx != null ) {
 					mapServerTypeIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByPrevIdx != null ) {
-				CFBamParamByPrevIdxKey keyPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
+				YCFBamParamByPrevIdxKey keyPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
 				keyPrevIdx.setOptionalPrevTenantId( keepObj.getOptionalPrevTenantId() );
 				keyPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapPrevIdx = indexByPrevIdx.get( keyPrevIdx );
 				if( mapPrevIdx != null ) {
 					mapPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByNextIdx != null ) {
-				CFBamParamByNextIdxKey keyNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
+				YCFBamParamByNextIdxKey keyNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
 				keyNextIdx.setOptionalNextTenantId( keepObj.getOptionalNextTenantId() );
 				keyNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapNextIdx = indexByNextIdx.get( keyNextIdx );
 				if( mapNextIdx != null ) {
 					mapNextIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContPrevIdx != null ) {
-				CFBamParamByContPrevIdxKey keyContPrevIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
+				YCFBamParamByContPrevIdxKey keyContPrevIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
 				keyContPrevIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContPrevIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
 				keyContPrevIdx.setOptionalPrevId( keepObj.getOptionalPrevId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapContPrevIdx = indexByContPrevIdx.get( keyContPrevIdx );
 				if( mapContPrevIdx != null ) {
 					mapContPrevIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
 			if( indexByContNextIdx != null ) {
-				CFBamParamByContNextIdxKey keyContNextIdx =
-					((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
+				YCFBamParamByContNextIdxKey keyContNextIdx =
+					((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
 				keyContNextIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
 				keyContNextIdx.setRequiredServerMethodId( keepObj.getRequiredServerMethodId() );
 				keyContNextIdx.setOptionalNextId( keepObj.getOptionalNextId() );
-				Map<CFBamParamPKey, ICFBamParamObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
+				Map<YCFBamParamPKey, IYCFBamParamObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
 				}
@@ -543,15 +543,15 @@ public class CFBamParamTableObj
 		return( keepObj );
 	}
 
-	public ICFBamParamObj createParam( ICFBamParamObj Obj ) {
-		ICFBamParamObj obj = Obj;
-		CFBamParamBuff buff = obj.getParamBuff();
-		((ICFBamSchema)schema.getBackingStore()).getTableParam().createParam(
+	public IYCFBamParamObj createParam( IYCFBamParamObj Obj ) {
+		IYCFBamParamObj obj = Obj;
+		YCFBamParamBuff buff = obj.getParamBuff();
+		((IYCFBamSchema)schema.getBackingStore()).getTableParam().createParam(
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
 		obj = obj.realise();
-		ICFBamParamObj prev = obj.getOptionalLookupPrev();
+		IYCFBamParamObj prev = obj.getOptionalLookupPrev();
 		if( prev != null ) {
 			prev.read( true );
 		}
@@ -559,84 +559,84 @@ public class CFBamParamTableObj
 		return( obj );
 	}
 
-	public ICFBamParamObj readParam( CFBamParamPKey pkey ) {
+	public IYCFBamParamObj readParam( YCFBamParamPKey pkey ) {
 		return( readParam( pkey, false ) );
 	}
 
-	public ICFBamParamObj readParam( CFBamParamPKey pkey, boolean forceRead ) {
-		ICFBamParamObj obj = null;
+	public IYCFBamParamObj readParam( YCFBamParamPKey pkey, boolean forceRead ) {
+		IYCFBamParamObj obj = null;
 		if( ( ! forceRead ) && members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		else {
-			CFBamParamBuff readBuff = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByIdIdx( schema.getAuthorization(),
+			YCFBamParamBuff readBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByIdIdx( schema.getAuthorization(),
 				pkey.getRequiredTenantId(),
 				pkey.getRequiredId() );
 			if( readBuff != null ) {
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( readBuff );
-				obj = (ICFBamParamObj)obj.realise();
+				obj = (IYCFBamParamObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public ICFBamParamObj readCachedParam( CFBamParamPKey pkey ) {
-		ICFBamParamObj obj = null;
+	public IYCFBamParamObj readCachedParam( YCFBamParamPKey pkey ) {
+		IYCFBamParamObj obj = null;
 		if( members.containsKey( pkey ) ) {
 			obj = members.get( pkey );
 		}
 		return( obj );
 	}
 
-	public void reallyDeepDisposeParam( ICFBamParamObj obj )
+	public void reallyDeepDisposeParam( IYCFBamParamObj obj )
 	{
-		final String S_ProcName = "CFBamParamTableObj.reallyDeepDisposeParam() ";
+		final String S_ProcName = "YCFBamParamTableObj.reallyDeepDisposeParam() ";
 		String classCode;
 		if( obj == null ) {
 			return;
 		}
-		CFBamParamPKey pkey = obj.getPKey();
-		ICFBamParamObj existing = readCachedParam( pkey );
+		YCFBamParamPKey pkey = obj.getPKey();
+		IYCFBamParamObj existing = readCachedParam( pkey );
 		if( existing == null ) {
 			return;
 		}
 		members.remove( pkey );
-		CFBamParamByUNameIdxKey keyUNameIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
+		YCFBamParamByUNameIdxKey keyUNameIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
 		keyUNameIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyUNameIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFBamParamByValTentIdxKey keyValTentIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
+		YCFBamParamByValTentIdxKey keyValTentIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
 		keyValTentIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFBamParamByServerMethodIdxKey keyServerMethodIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
+		YCFBamParamByServerMethodIdxKey keyServerMethodIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
 		keyServerMethodIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyServerMethodIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 
-		CFBamParamByDefSchemaIdxKey keyDefSchemaIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
+		YCFBamParamByDefSchemaIdxKey keyDefSchemaIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
 
-		CFBamParamByServerTypeIdxKey keyServerTypeIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
+		YCFBamParamByServerTypeIdxKey keyServerTypeIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
 		keyServerTypeIdx.setOptionalTypeTenantId( existing.getOptionalTypeTenantId() );
 		keyServerTypeIdx.setOptionalTypeId( existing.getOptionalTypeId() );
 
-		CFBamParamByPrevIdxKey keyPrevIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
+		YCFBamParamByPrevIdxKey keyPrevIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
 		keyPrevIdx.setOptionalPrevTenantId( existing.getOptionalPrevTenantId() );
 		keyPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamParamByNextIdxKey keyNextIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
+		YCFBamParamByNextIdxKey keyNextIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
 		keyNextIdx.setOptionalNextTenantId( existing.getOptionalNextTenantId() );
 		keyNextIdx.setOptionalNextId( existing.getOptionalNextId() );
 
-		CFBamParamByContPrevIdxKey keyContPrevIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
+		YCFBamParamByContPrevIdxKey keyContPrevIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
 		keyContPrevIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyContPrevIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 		keyContPrevIdx.setOptionalPrevId( existing.getOptionalPrevId() );
 
-		CFBamParamByContNextIdxKey keyContNextIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
+		YCFBamParamByContNextIdxKey keyContNextIdx = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
 		keyContNextIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyContNextIdx.setRequiredServerMethodId( existing.getRequiredServerMethodId() );
 		keyContNextIdx.setOptionalNextId( existing.getOptionalNextId() );
@@ -721,57 +721,57 @@ public class CFBamParamTableObj
 
 
 	}
-	public void deepDisposeParam( CFBamParamPKey pkey ) {
-		ICFBamParamObj obj = readCachedParam( pkey );
+	public void deepDisposeParam( YCFBamParamPKey pkey ) {
+		IYCFBamParamObj obj = readCachedParam( pkey );
 		if( obj != null ) {
 			obj.forget();
 		}
 	}
 
-	public ICFBamParamObj lockParam( CFBamParamPKey pkey ) {
-		ICFBamParamObj locked = null;
-		CFBamParamBuff lockBuff = ((ICFBamSchema)schema.getBackingStore()).getTableParam().lockDerived( schema.getAuthorization(), pkey );
+	public IYCFBamParamObj lockParam( YCFBamParamPKey pkey ) {
+		IYCFBamParamObj locked = null;
+		YCFBamParamBuff lockBuff = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().lockDerived( schema.getAuthorization(), pkey );
 		if( lockBuff != null ) {
 				locked = schema.getParamTableObj().newInstance();
-			locked.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+			locked.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 			locked.setBuff( lockBuff );
-			locked = (ICFBamParamObj)locked.realise();
+			locked = (IYCFBamParamObj)locked.realise();
 		}
 		else {
-			throw new CFLibCollisionDetectedException( getClass(), "lockParam", pkey );
+			throw new YCFLibCollisionDetectedException( getClass(), "lockParam", pkey );
 		}
 		return( locked );
 	}
 
-	public List<ICFBamParamObj> readAllParam() {
+	public List<IYCFBamParamObj> readAllParam() {
 		return( readAllParam( false ) );
 	}
 
-	public List<ICFBamParamObj> readAllParam( boolean forceRead ) {
+	public List<IYCFBamParamObj> readAllParam( boolean forceRead ) {
 		final String S_ProcName = "readAllParam";
 		if( ( allParam == null ) || forceRead ) {
-			Map<CFBamParamPKey, ICFBamParamObj> map = new HashMap<CFBamParamPKey,ICFBamParamObj>();
+			Map<YCFBamParamPKey, IYCFBamParamObj> map = new HashMap<YCFBamParamPKey,IYCFBamParamObj>();
 			allParam = map;
-			CFBamParamBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readAllDerived( schema.getAuthorization() );
-			CFBamParamBuff buff;
-			ICFBamParamObj obj;
+			YCFBamParamBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readAllDerived( schema.getAuthorization() );
+			YCFBamParamBuff buff;
+			IYCFBamParamObj obj;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				ICFBamParamObj realised = (ICFBamParamObj)obj.realise();
+				IYCFBamParamObj realised = (IYCFBamParamObj)obj.realise();
 			}
 		}
 		int len = allParam.size();
-		ICFBamParamObj arr[] = new ICFBamParamObj[len];
-		Iterator<ICFBamParamObj> valIter = allParam.values().iterator();
+		IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+		Iterator<IYCFBamParamObj> valIter = allParam.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -779,20 +779,20 @@ public class CFBamParamTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>(len);
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -805,31 +805,31 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamParamObj> sortedList = arrayList;
+		List<IYCFBamParamObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamParamObj> readCachedAllParam() {
+	public List<IYCFBamParamObj> readCachedAllParam() {
 		final String S_ProcName = "readCachedAllParam";
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>();
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>();
 		if( allParam != null ) {
 			int len = allParam.size();
-			ICFBamParamObj arr[] = new ICFBamParamObj[len];
-			Iterator<ICFBamParamObj> valIter = allParam.values().iterator();
+			IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+			Iterator<IYCFBamParamObj> valIter = allParam.values().iterator();
 			int idx = 0;
 			while( ( idx < len ) && valIter.hasNext() ) {
 				arr[idx++] = valIter.next();
 			}
 			if( idx < len ) {
-				throw new CFLibArgumentUnderflowException( getClass(),
+				throw new YCFLibArgumentUnderflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
@@ -837,7 +837,7 @@ public class CFBamParamTableObj
 					len );
 			}
 			else if( valIter.hasNext() ) {
-				throw new CFLibArgumentOverflowException( getClass(),
+				throw new YCFLibArgumentOverflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -848,8 +848,8 @@ public class CFBamParamTableObj
 				arrayList.add( arr[idx] );
 			}
 		}
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -862,8 +862,8 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -873,7 +873,7 @@ public class CFBamParamTableObj
 		return( arrayList );
 	}
 
-	public ICFBamParamObj readParamByIdIdx( long TenantId,
+	public IYCFBamParamObj readParamByIdIdx( long TenantId,
 		long Id )
 	{
 		return( readParamByIdIdx( TenantId,
@@ -881,17 +881,17 @@ public class CFBamParamTableObj
 			false ) );
 	}
 
-	public ICFBamParamObj readParamByIdIdx( long TenantId,
+	public IYCFBamParamObj readParamByIdIdx( long TenantId,
 		long Id, boolean forceRead )
 	{
-		CFBamParamPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey();
+		YCFBamParamPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamParamObj obj = readParam( pkey, forceRead );
+		IYCFBamParamObj obj = readParam( pkey, forceRead );
 		return( obj );
 	}
 
-	public ICFBamParamObj readParamByUNameIdx( long TenantId,
+	public IYCFBamParamObj readParamByUNameIdx( long TenantId,
 		long ServerMethodId,
 		String Name )
 	{
@@ -901,82 +901,82 @@ public class CFBamParamTableObj
 			false ) );
 	}
 
-	public ICFBamParamObj readParamByUNameIdx( long TenantId,
+	public IYCFBamParamObj readParamByUNameIdx( long TenantId,
 		long ServerMethodId,
 		String Name, boolean forceRead )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamParamByUNameIdxKey,
-				ICFBamParamObj >();
+			indexByUNameIdx = new HashMap< YCFBamParamByUNameIdxKey,
+				IYCFBamParamObj >();
 		}
-		CFBamParamByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
+		YCFBamParamByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setRequiredName( Name );
-		ICFBamParamObj obj = null;
+		IYCFBamParamObj obj = null;
 		if( ( ! forceRead ) && indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
 		}
 		else {
-			CFBamParamBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByUNameIdx( schema.getAuthorization(),
+			YCFBamParamBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId,
 				Name );
 			if( buff != null ) {
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				obj = (ICFBamParamObj)obj.realise();
+				obj = (IYCFBamParamObj)obj.realise();
 			}
 		}
 		return( obj );
 	}
 
-	public List<ICFBamParamObj> readParamByValTentIdx( long TenantId )
+	public List<IYCFBamParamObj> readParamByValTentIdx( long TenantId )
 	{
 		return( readParamByValTentIdx( TenantId,
 			false ) );
 	}
 
-	public List<ICFBamParamObj> readParamByValTentIdx( long TenantId,
+	public List<IYCFBamParamObj> readParamByValTentIdx( long TenantId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readParamByValTentIdx";
-		CFBamParamByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
+		YCFBamParamByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		Map<CFBamParamPKey, ICFBamParamObj> dict;
+		Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 		if( indexByValTentIdx == null ) {
-			indexByValTentIdx = new HashMap< CFBamParamByValTentIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByValTentIdx = new HashMap< YCFBamParamByValTentIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( ( ! forceRead ) && indexByValTentIdx.containsKey( key ) ) {
 			dict = indexByValTentIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamParamPKey, ICFBamParamObj>();
-			ICFBamParamObj obj;
-			CFBamParamBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByValTentIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
+			IYCFBamParamObj obj;
+			YCFBamParamBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByValTentIdx( schema.getAuthorization(),
 				TenantId );
-			CFBamParamBuff buff;
+			YCFBamParamBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				ICFBamParamObj realised = (ICFBamParamObj)obj.realise();
+				IYCFBamParamObj realised = (IYCFBamParamObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByValTentIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamParamObj arr[] = new ICFBamParamObj[len];
-		Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+		IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+		Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -984,20 +984,20 @@ public class CFBamParamTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>(len);
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1010,19 +1010,19 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamParamObj> sortedList = arrayList;
+		List<IYCFBamParamObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamParamObj> readParamByServerMethodIdx( long TenantId,
+	public List<IYCFBamParamObj> readParamByServerMethodIdx( long TenantId,
 		long ServerMethodId )
 	{
 		return( readParamByServerMethodIdx( TenantId,
@@ -1030,48 +1030,48 @@ public class CFBamParamTableObj
 			false ) );
 	}
 
-	public List<ICFBamParamObj> readParamByServerMethodIdx( long TenantId,
+	public List<IYCFBamParamObj> readParamByServerMethodIdx( long TenantId,
 		long ServerMethodId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readParamByServerMethodIdx";
-		CFBamParamByServerMethodIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
+		YCFBamParamByServerMethodIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
-		Map<CFBamParamPKey, ICFBamParamObj> dict;
+		Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 		if( indexByServerMethodIdx == null ) {
-			indexByServerMethodIdx = new HashMap< CFBamParamByServerMethodIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByServerMethodIdx = new HashMap< YCFBamParamByServerMethodIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( ( ! forceRead ) && indexByServerMethodIdx.containsKey( key ) ) {
 			dict = indexByServerMethodIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamParamPKey, ICFBamParamObj>();
-			ICFBamParamObj obj;
-			CFBamParamBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByServerMethodIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
+			IYCFBamParamObj obj;
+			YCFBamParamBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByServerMethodIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId );
-			CFBamParamBuff buff;
+			YCFBamParamBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				ICFBamParamObj realised = (ICFBamParamObj)obj.realise();
+				IYCFBamParamObj realised = (IYCFBamParamObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByServerMethodIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamParamObj arr[] = new ICFBamParamObj[len];
-		Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+		IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+		Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1079,20 +1079,20 @@ public class CFBamParamTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>(len);
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1105,19 +1105,19 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamParamObj> sortedList = arrayList;
+		List<IYCFBamParamObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamParamObj> readParamByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamParamObj> readParamByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		return( readParamByDefSchemaIdx( DefSchemaTenantId,
@@ -1125,48 +1125,48 @@ public class CFBamParamTableObj
 			false ) );
 	}
 
-	public List<ICFBamParamObj> readParamByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamParamObj> readParamByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readParamByDefSchemaIdx";
-		CFBamParamByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
+		YCFBamParamByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		Map<CFBamParamPKey, ICFBamParamObj> dict;
+		Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamParamByDefSchemaIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamParamByDefSchemaIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( ( ! forceRead ) && indexByDefSchemaIdx.containsKey( key ) ) {
 			dict = indexByDefSchemaIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamParamPKey, ICFBamParamObj>();
-			ICFBamParamObj obj;
-			CFBamParamBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByDefSchemaIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
+			IYCFBamParamObj obj;
+			YCFBamParamBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			CFBamParamBuff buff;
+			YCFBamParamBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				ICFBamParamObj realised = (ICFBamParamObj)obj.realise();
+				IYCFBamParamObj realised = (IYCFBamParamObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByDefSchemaIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamParamObj arr[] = new ICFBamParamObj[len];
-		Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+		IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+		Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1174,20 +1174,20 @@ public class CFBamParamTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>(len);
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1200,19 +1200,19 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamParamObj> sortedList = arrayList;
+		List<IYCFBamParamObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamParamObj> readParamByServerTypeIdx( Long TypeTenantId,
+	public List<IYCFBamParamObj> readParamByServerTypeIdx( Long TypeTenantId,
 		Long TypeId )
 	{
 		return( readParamByServerTypeIdx( TypeTenantId,
@@ -1220,48 +1220,48 @@ public class CFBamParamTableObj
 			false ) );
 	}
 
-	public List<ICFBamParamObj> readParamByServerTypeIdx( Long TypeTenantId,
+	public List<IYCFBamParamObj> readParamByServerTypeIdx( Long TypeTenantId,
 		Long TypeId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readParamByServerTypeIdx";
-		CFBamParamByServerTypeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
+		YCFBamParamByServerTypeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
 		key.setOptionalTypeTenantId( TypeTenantId );
 		key.setOptionalTypeId( TypeId );
-		Map<CFBamParamPKey, ICFBamParamObj> dict;
+		Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 		if( indexByServerTypeIdx == null ) {
-			indexByServerTypeIdx = new HashMap< CFBamParamByServerTypeIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByServerTypeIdx = new HashMap< YCFBamParamByServerTypeIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( ( ! forceRead ) && indexByServerTypeIdx.containsKey( key ) ) {
 			dict = indexByServerTypeIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamParamPKey, ICFBamParamObj>();
-			ICFBamParamObj obj;
-			CFBamParamBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByServerTypeIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
+			IYCFBamParamObj obj;
+			YCFBamParamBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByServerTypeIdx( schema.getAuthorization(),
 				TypeTenantId,
 				TypeId );
-			CFBamParamBuff buff;
+			YCFBamParamBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				ICFBamParamObj realised = (ICFBamParamObj)obj.realise();
+				IYCFBamParamObj realised = (IYCFBamParamObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByServerTypeIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamParamObj arr[] = new ICFBamParamObj[len];
-		Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+		IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+		Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1269,20 +1269,20 @@ public class CFBamParamTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>(len);
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1295,19 +1295,19 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamParamObj> sortedList = arrayList;
+		List<IYCFBamParamObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamParamObj> readParamByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamParamObj> readParamByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		return( readParamByPrevIdx( PrevTenantId,
@@ -1315,48 +1315,48 @@ public class CFBamParamTableObj
 			false ) );
 	}
 
-	public List<ICFBamParamObj> readParamByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamParamObj> readParamByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readParamByPrevIdx";
-		CFBamParamByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
+		YCFBamParamByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		Map<CFBamParamPKey, ICFBamParamObj> dict;
+		Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamParamByPrevIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByPrevIdx = new HashMap< YCFBamParamByPrevIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( ( ! forceRead ) && indexByPrevIdx.containsKey( key ) ) {
 			dict = indexByPrevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamParamPKey, ICFBamParamObj>();
-			ICFBamParamObj obj;
-			CFBamParamBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByPrevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
+			IYCFBamParamObj obj;
+			YCFBamParamBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			CFBamParamBuff buff;
+			YCFBamParamBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				ICFBamParamObj realised = (ICFBamParamObj)obj.realise();
+				IYCFBamParamObj realised = (IYCFBamParamObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByPrevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamParamObj arr[] = new ICFBamParamObj[len];
-		Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+		IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+		Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1364,20 +1364,20 @@ public class CFBamParamTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>(len);
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1390,19 +1390,19 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamParamObj> sortedList = arrayList;
+		List<IYCFBamParamObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamParamObj> readParamByNextIdx( Long NextTenantId,
+	public List<IYCFBamParamObj> readParamByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		return( readParamByNextIdx( NextTenantId,
@@ -1410,48 +1410,48 @@ public class CFBamParamTableObj
 			false ) );
 	}
 
-	public List<ICFBamParamObj> readParamByNextIdx( Long NextTenantId,
+	public List<IYCFBamParamObj> readParamByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readParamByNextIdx";
-		CFBamParamByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
+		YCFBamParamByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		Map<CFBamParamPKey, ICFBamParamObj> dict;
+		Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamParamByNextIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByNextIdx = new HashMap< YCFBamParamByNextIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( ( ! forceRead ) && indexByNextIdx.containsKey( key ) ) {
 			dict = indexByNextIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamParamPKey, ICFBamParamObj>();
-			ICFBamParamObj obj;
-			CFBamParamBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByNextIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
+			IYCFBamParamObj obj;
+			YCFBamParamBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			CFBamParamBuff buff;
+			YCFBamParamBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				ICFBamParamObj realised = (ICFBamParamObj)obj.realise();
+				IYCFBamParamObj realised = (IYCFBamParamObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByNextIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamParamObj arr[] = new ICFBamParamObj[len];
-		Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+		IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+		Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1459,20 +1459,20 @@ public class CFBamParamTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>(len);
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1485,19 +1485,19 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamParamObj> sortedList = arrayList;
+		List<IYCFBamParamObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamParamObj> readParamByContPrevIdx( long TenantId,
+	public List<IYCFBamParamObj> readParamByContPrevIdx( long TenantId,
 		long ServerMethodId,
 		Long PrevId )
 	{
@@ -1507,51 +1507,51 @@ public class CFBamParamTableObj
 			false ) );
 	}
 
-	public List<ICFBamParamObj> readParamByContPrevIdx( long TenantId,
+	public List<IYCFBamParamObj> readParamByContPrevIdx( long TenantId,
 		long ServerMethodId,
 		Long PrevId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readParamByContPrevIdx";
-		CFBamParamByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
+		YCFBamParamByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setOptionalPrevId( PrevId );
-		Map<CFBamParamPKey, ICFBamParamObj> dict;
+		Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 		if( indexByContPrevIdx == null ) {
-			indexByContPrevIdx = new HashMap< CFBamParamByContPrevIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByContPrevIdx = new HashMap< YCFBamParamByContPrevIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( ( ! forceRead ) && indexByContPrevIdx.containsKey( key ) ) {
 			dict = indexByContPrevIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamParamPKey, ICFBamParamObj>();
-			ICFBamParamObj obj;
-			CFBamParamBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByContPrevIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
+			IYCFBamParamObj obj;
+			YCFBamParamBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId,
 				PrevId );
-			CFBamParamBuff buff;
+			YCFBamParamBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				ICFBamParamObj realised = (ICFBamParamObj)obj.realise();
+				IYCFBamParamObj realised = (IYCFBamParamObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByContPrevIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamParamObj arr[] = new ICFBamParamObj[len];
-		Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+		IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+		Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1559,20 +1559,20 @@ public class CFBamParamTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>(len);
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1585,19 +1585,19 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamParamObj> sortedList = arrayList;
+		List<IYCFBamParamObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public List<ICFBamParamObj> readParamByContNextIdx( long TenantId,
+	public List<IYCFBamParamObj> readParamByContNextIdx( long TenantId,
 		long ServerMethodId,
 		Long NextId )
 	{
@@ -1607,51 +1607,51 @@ public class CFBamParamTableObj
 			false ) );
 	}
 
-	public List<ICFBamParamObj> readParamByContNextIdx( long TenantId,
+	public List<IYCFBamParamObj> readParamByContNextIdx( long TenantId,
 		long ServerMethodId,
 		Long NextId,
 		boolean forceRead )
 	{
 		final String S_ProcName = "readParamByContNextIdx";
-		CFBamParamByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
+		YCFBamParamByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setOptionalNextId( NextId );
-		Map<CFBamParamPKey, ICFBamParamObj> dict;
+		Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 		if( indexByContNextIdx == null ) {
-			indexByContNextIdx = new HashMap< CFBamParamByContNextIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByContNextIdx = new HashMap< YCFBamParamByContNextIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( ( ! forceRead ) && indexByContNextIdx.containsKey( key ) ) {
 			dict = indexByContNextIdx.get( key );
 		}
 		else {
-			dict = new HashMap<CFBamParamPKey, ICFBamParamObj>();
-			ICFBamParamObj obj;
-			CFBamParamBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByContNextIdx( schema.getAuthorization(),
+			dict = new HashMap<YCFBamParamPKey, IYCFBamParamObj>();
+			IYCFBamParamObj obj;
+			YCFBamParamBuff[] buffList = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().readDerivedByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId,
 				NextId );
-			CFBamParamBuff buff;
+			YCFBamParamBuff buff;
 			for( int idx = 0; idx < buffList.length; idx ++ ) {
 				buff = buffList[ idx ];
 				obj = schema.getParamTableObj().newInstance();
-				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+				obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 				obj.setBuff( buff );
-				ICFBamParamObj realised = (ICFBamParamObj)obj.realise();
+				IYCFBamParamObj realised = (IYCFBamParamObj)obj.realise();
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByContNextIdx.put( key, dict );
 		}
 		int len = dict.size();
-		ICFBamParamObj arr[] = new ICFBamParamObj[len];
-		Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+		IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+		Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 		int idx = 0;
 		while( ( idx < len ) && valIter.hasNext() ) {
 			arr[idx++] = valIter.next();
 		}
 		if( idx < len ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				S_ProcName,
 				0,
 				"idx",
@@ -1659,20 +1659,20 @@ public class CFBamParamTableObj
 				len );
 		}
 		else if( valIter.hasNext() ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 					S_ProcName,
 					0,
 					"idx",
 					idx,
 					len );
 		}
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>(len);
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>(len);
 		for( idx = 0; idx < len; idx ++ ) {
 			arrayList.add( arr[idx] );
 		}
 
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1685,35 +1685,35 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
 			}
 		};
 		Collections.sort( arrayList, cmp );
-		List<ICFBamParamObj> sortedList = arrayList;
+		List<IYCFBamParamObj> sortedList = arrayList;
 		return( sortedList );
 	}
 
-	public ICFBamParamObj readCachedParamByIdIdx( long TenantId,
+	public IYCFBamParamObj readCachedParamByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamParamObj obj = null;
-		CFBamParamPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey();
+		IYCFBamParamObj obj = null;
+		YCFBamParamPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
 		obj = readCachedParam( pkey );
 		return( obj );
 	}
 
-	public ICFBamParamObj readCachedParamByUNameIdx( long TenantId,
+	public IYCFBamParamObj readCachedParamByUNameIdx( long TenantId,
 		long ServerMethodId,
 		String Name )
 	{
-		ICFBamParamObj obj = null;
-		CFBamParamByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
+		IYCFBamParamObj obj = null;
+		YCFBamParamByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setRequiredName( Name );
@@ -1722,7 +1722,7 @@ public class CFBamParamTableObj
 				obj = indexByUNameIdx.get( key );
 			}
 			else {
-				Iterator<ICFBamParamObj> valIter = members.values().iterator();
+				Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 				while( ( obj == null ) && valIter.hasNext() ) {
 					obj = valIter.next();
 					if( obj != null ) {
@@ -1734,7 +1734,7 @@ public class CFBamParamTableObj
 			}
 		}
 		else {
-			Iterator<ICFBamParamObj> valIter = members.values().iterator();
+			Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1747,25 +1747,25 @@ public class CFBamParamTableObj
 		return( obj );
 	}
 
-	public List<ICFBamParamObj> readCachedParamByValTentIdx( long TenantId )
+	public List<IYCFBamParamObj> readCachedParamByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedParamByValTentIdx";
-		CFBamParamByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
+		YCFBamParamByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>();
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>();
 		if( indexByValTentIdx != null ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict;
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 			if( indexByValTentIdx.containsKey( key ) ) {
 				dict = indexByValTentIdx.get( key );
 				int len = dict.size();
-				ICFBamParamObj arr[] = new ICFBamParamObj[len];
-				Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+				IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+				Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1773,7 +1773,7 @@ public class CFBamParamTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1786,8 +1786,8 @@ public class CFBamParamTableObj
 			}
 		}
 		else {
-			ICFBamParamObj obj;
-			Iterator<ICFBamParamObj> valIter = members.values().iterator();
+			IYCFBamParamObj obj;
+			Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1797,8 +1797,8 @@ public class CFBamParamTableObj
 				}
 			}
 		}
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1811,8 +1811,8 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1822,27 +1822,27 @@ public class CFBamParamTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamParamObj> readCachedParamByServerMethodIdx( long TenantId,
+	public List<IYCFBamParamObj> readCachedParamByServerMethodIdx( long TenantId,
 		long ServerMethodId )
 	{
 		final String S_ProcName = "readCachedParamByServerMethodIdx";
-		CFBamParamByServerMethodIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
+		YCFBamParamByServerMethodIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>();
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>();
 		if( indexByServerMethodIdx != null ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict;
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 			if( indexByServerMethodIdx.containsKey( key ) ) {
 				dict = indexByServerMethodIdx.get( key );
 				int len = dict.size();
-				ICFBamParamObj arr[] = new ICFBamParamObj[len];
-				Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+				IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+				Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1850,7 +1850,7 @@ public class CFBamParamTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1863,8 +1863,8 @@ public class CFBamParamTableObj
 			}
 		}
 		else {
-			ICFBamParamObj obj;
-			Iterator<ICFBamParamObj> valIter = members.values().iterator();
+			IYCFBamParamObj obj;
+			Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1874,8 +1874,8 @@ public class CFBamParamTableObj
 				}
 			}
 		}
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1888,8 +1888,8 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1899,27 +1899,27 @@ public class CFBamParamTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamParamObj> readCachedParamByDefSchemaIdx( Long DefSchemaTenantId,
+	public List<IYCFBamParamObj> readCachedParamByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "readCachedParamByDefSchemaIdx";
-		CFBamParamByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
+		YCFBamParamByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>();
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>();
 		if( indexByDefSchemaIdx != null ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict;
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 			if( indexByDefSchemaIdx.containsKey( key ) ) {
 				dict = indexByDefSchemaIdx.get( key );
 				int len = dict.size();
-				ICFBamParamObj arr[] = new ICFBamParamObj[len];
-				Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+				IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+				Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -1927,7 +1927,7 @@ public class CFBamParamTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -1940,8 +1940,8 @@ public class CFBamParamTableObj
 			}
 		}
 		else {
-			ICFBamParamObj obj;
-			Iterator<ICFBamParamObj> valIter = members.values().iterator();
+			IYCFBamParamObj obj;
+			Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -1951,8 +1951,8 @@ public class CFBamParamTableObj
 				}
 			}
 		}
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -1965,8 +1965,8 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -1976,27 +1976,27 @@ public class CFBamParamTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamParamObj> readCachedParamByServerTypeIdx( Long TypeTenantId,
+	public List<IYCFBamParamObj> readCachedParamByServerTypeIdx( Long TypeTenantId,
 		Long TypeId )
 	{
 		final String S_ProcName = "readCachedParamByServerTypeIdx";
-		CFBamParamByServerTypeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
+		YCFBamParamByServerTypeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
 		key.setOptionalTypeTenantId( TypeTenantId );
 		key.setOptionalTypeId( TypeId );
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>();
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>();
 		if( indexByServerTypeIdx != null ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict;
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 			if( indexByServerTypeIdx.containsKey( key ) ) {
 				dict = indexByServerTypeIdx.get( key );
 				int len = dict.size();
-				ICFBamParamObj arr[] = new ICFBamParamObj[len];
-				Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+				IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+				Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2004,7 +2004,7 @@ public class CFBamParamTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2017,8 +2017,8 @@ public class CFBamParamTableObj
 			}
 		}
 		else {
-			ICFBamParamObj obj;
-			Iterator<ICFBamParamObj> valIter = members.values().iterator();
+			IYCFBamParamObj obj;
+			Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2028,8 +2028,8 @@ public class CFBamParamTableObj
 				}
 			}
 		}
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2042,8 +2042,8 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2053,27 +2053,27 @@ public class CFBamParamTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamParamObj> readCachedParamByPrevIdx( Long PrevTenantId,
+	public List<IYCFBamParamObj> readCachedParamByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
 		final String S_ProcName = "readCachedParamByPrevIdx";
-		CFBamParamByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
+		YCFBamParamByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>();
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>();
 		if( indexByPrevIdx != null ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict;
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 			if( indexByPrevIdx.containsKey( key ) ) {
 				dict = indexByPrevIdx.get( key );
 				int len = dict.size();
-				ICFBamParamObj arr[] = new ICFBamParamObj[len];
-				Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+				IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+				Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2081,7 +2081,7 @@ public class CFBamParamTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2094,8 +2094,8 @@ public class CFBamParamTableObj
 			}
 		}
 		else {
-			ICFBamParamObj obj;
-			Iterator<ICFBamParamObj> valIter = members.values().iterator();
+			IYCFBamParamObj obj;
+			Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2105,8 +2105,8 @@ public class CFBamParamTableObj
 				}
 			}
 		}
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2119,8 +2119,8 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2130,27 +2130,27 @@ public class CFBamParamTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamParamObj> readCachedParamByNextIdx( Long NextTenantId,
+	public List<IYCFBamParamObj> readCachedParamByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
 		final String S_ProcName = "readCachedParamByNextIdx";
-		CFBamParamByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
+		YCFBamParamByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>();
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>();
 		if( indexByNextIdx != null ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict;
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 			if( indexByNextIdx.containsKey( key ) ) {
 				dict = indexByNextIdx.get( key );
 				int len = dict.size();
-				ICFBamParamObj arr[] = new ICFBamParamObj[len];
-				Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+				IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+				Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2158,7 +2158,7 @@ public class CFBamParamTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2171,8 +2171,8 @@ public class CFBamParamTableObj
 			}
 		}
 		else {
-			ICFBamParamObj obj;
-			Iterator<ICFBamParamObj> valIter = members.values().iterator();
+			IYCFBamParamObj obj;
+			Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2182,8 +2182,8 @@ public class CFBamParamTableObj
 				}
 			}
 		}
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2196,8 +2196,8 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2207,29 +2207,29 @@ public class CFBamParamTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamParamObj> readCachedParamByContPrevIdx( long TenantId,
+	public List<IYCFBamParamObj> readCachedParamByContPrevIdx( long TenantId,
 		long ServerMethodId,
 		Long PrevId )
 	{
 		final String S_ProcName = "readCachedParamByContPrevIdx";
-		CFBamParamByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
+		YCFBamParamByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setOptionalPrevId( PrevId );
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>();
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>();
 		if( indexByContPrevIdx != null ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict;
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 			if( indexByContPrevIdx.containsKey( key ) ) {
 				dict = indexByContPrevIdx.get( key );
 				int len = dict.size();
-				ICFBamParamObj arr[] = new ICFBamParamObj[len];
-				Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+				IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+				Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2237,7 +2237,7 @@ public class CFBamParamTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2250,8 +2250,8 @@ public class CFBamParamTableObj
 			}
 		}
 		else {
-			ICFBamParamObj obj;
-			Iterator<ICFBamParamObj> valIter = members.values().iterator();
+			IYCFBamParamObj obj;
+			Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2261,8 +2261,8 @@ public class CFBamParamTableObj
 				}
 			}
 		}
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2275,8 +2275,8 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2286,29 +2286,29 @@ public class CFBamParamTableObj
 		return( arrayList );
 	}
 
-	public List<ICFBamParamObj> readCachedParamByContNextIdx( long TenantId,
+	public List<IYCFBamParamObj> readCachedParamByContNextIdx( long TenantId,
 		long ServerMethodId,
 		Long NextId )
 	{
 		final String S_ProcName = "readCachedParamByContNextIdx";
-		CFBamParamByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
+		YCFBamParamByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setOptionalNextId( NextId );
-		ArrayList<ICFBamParamObj> arrayList = new ArrayList<ICFBamParamObj>();
+		ArrayList<IYCFBamParamObj> arrayList = new ArrayList<IYCFBamParamObj>();
 		if( indexByContNextIdx != null ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict;
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict;
 			if( indexByContNextIdx.containsKey( key ) ) {
 				dict = indexByContNextIdx.get( key );
 				int len = dict.size();
-				ICFBamParamObj arr[] = new ICFBamParamObj[len];
-				Iterator<ICFBamParamObj> valIter = dict.values().iterator();
+				IYCFBamParamObj arr[] = new IYCFBamParamObj[len];
+				Iterator<IYCFBamParamObj> valIter = dict.values().iterator();
 				int idx = 0;
 				while( ( idx < len ) && valIter.hasNext() ) {
 					arr[idx++] = valIter.next();
 				}
 				if( idx < len ) {
-					throw new CFLibArgumentUnderflowException( getClass(),
+					throw new YCFLibArgumentUnderflowException( getClass(),
 						S_ProcName,
 						0,
 						"idx",
@@ -2316,7 +2316,7 @@ public class CFBamParamTableObj
 						len );
 				}
 				else if( valIter.hasNext() ) {
-					throw new CFLibArgumentOverflowException( getClass(),
+					throw new YCFLibArgumentOverflowException( getClass(),
 							S_ProcName,
 							0,
 							"idx",
@@ -2329,8 +2329,8 @@ public class CFBamParamTableObj
 			}
 		}
 		else {
-			ICFBamParamObj obj;
-			Iterator<ICFBamParamObj> valIter = members.values().iterator();
+			IYCFBamParamObj obj;
+			Iterator<IYCFBamParamObj> valIter = members.values().iterator();
 			while( valIter.hasNext() ) {
 				obj = valIter.next();
 				if( obj != null ) {
@@ -2340,8 +2340,8 @@ public class CFBamParamTableObj
 				}
 			}
 		}
-		Comparator<ICFBamParamObj> cmp = new Comparator<ICFBamParamObj>() {
-			public int compare( ICFBamParamObj lhs, ICFBamParamObj rhs ) {
+		Comparator<IYCFBamParamObj> cmp = new Comparator<IYCFBamParamObj>() {
+			public int compare( IYCFBamParamObj lhs, IYCFBamParamObj rhs ) {
 				if( lhs == null ) {
 					if( rhs == null ) {
 						return( 0 );
@@ -2354,8 +2354,8 @@ public class CFBamParamTableObj
 					return( 1 );
 				}
 				else {
-					CFBamParamPKey lhsPKey = lhs.getPKey();
-					CFBamParamPKey rhsPKey = rhs.getPKey();
+					YCFBamParamPKey lhsPKey = lhs.getPKey();
+					YCFBamParamPKey rhsPKey = rhs.getPKey();
 					int ret = lhsPKey.compareTo( rhsPKey );
 					return( ret );
 				}
@@ -2368,7 +2368,7 @@ public class CFBamParamTableObj
 	public void deepDisposeParamByIdIdx( long TenantId,
 		long Id )
 	{
-		ICFBamParamObj obj = readCachedParamByIdIdx( TenantId,
+		IYCFBamParamObj obj = readCachedParamByIdIdx( TenantId,
 				Id );
 		if( obj != null ) {
 			obj.forget();
@@ -2379,7 +2379,7 @@ public class CFBamParamTableObj
 		long ServerMethodId,
 		String Name )
 	{
-		ICFBamParamObj obj = readCachedParamByUNameIdx( TenantId,
+		IYCFBamParamObj obj = readCachedParamByUNameIdx( TenantId,
 				ServerMethodId,
 				Name );
 		if( obj != null ) {
@@ -2390,10 +2390,10 @@ public class CFBamParamTableObj
 	public void deepDisposeParamByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeParamByValTentIdx";
-		ICFBamParamObj obj;
-		List<ICFBamParamObj> arrayList = readCachedParamByValTentIdx( TenantId );
+		IYCFBamParamObj obj;
+		List<IYCFBamParamObj> arrayList = readCachedParamByValTentIdx( TenantId );
 		if( arrayList != null )  {
-			Iterator<ICFBamParamObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamParamObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2407,11 +2407,11 @@ public class CFBamParamTableObj
 		long ServerMethodId )
 	{
 		final String S_ProcName = "deepDisposeParamByServerMethodIdx";
-		ICFBamParamObj obj;
-		List<ICFBamParamObj> arrayList = readCachedParamByServerMethodIdx( TenantId,
+		IYCFBamParamObj obj;
+		List<IYCFBamParamObj> arrayList = readCachedParamByServerMethodIdx( TenantId,
 				ServerMethodId );
 		if( arrayList != null )  {
-			Iterator<ICFBamParamObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamParamObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2425,11 +2425,11 @@ public class CFBamParamTableObj
 		Long DefSchemaId )
 	{
 		final String S_ProcName = "deepDisposeParamByDefSchemaIdx";
-		ICFBamParamObj obj;
-		List<ICFBamParamObj> arrayList = readCachedParamByDefSchemaIdx( DefSchemaTenantId,
+		IYCFBamParamObj obj;
+		List<IYCFBamParamObj> arrayList = readCachedParamByDefSchemaIdx( DefSchemaTenantId,
 				DefSchemaId );
 		if( arrayList != null )  {
-			Iterator<ICFBamParamObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamParamObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2443,11 +2443,11 @@ public class CFBamParamTableObj
 		Long TypeId )
 	{
 		final String S_ProcName = "deepDisposeParamByServerTypeIdx";
-		ICFBamParamObj obj;
-		List<ICFBamParamObj> arrayList = readCachedParamByServerTypeIdx( TypeTenantId,
+		IYCFBamParamObj obj;
+		List<IYCFBamParamObj> arrayList = readCachedParamByServerTypeIdx( TypeTenantId,
 				TypeId );
 		if( arrayList != null )  {
-			Iterator<ICFBamParamObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamParamObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2461,11 +2461,11 @@ public class CFBamParamTableObj
 		Long PrevId )
 	{
 		final String S_ProcName = "deepDisposeParamByPrevIdx";
-		ICFBamParamObj obj;
-		List<ICFBamParamObj> arrayList = readCachedParamByPrevIdx( PrevTenantId,
+		IYCFBamParamObj obj;
+		List<IYCFBamParamObj> arrayList = readCachedParamByPrevIdx( PrevTenantId,
 				PrevId );
 		if( arrayList != null )  {
-			Iterator<ICFBamParamObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamParamObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2479,11 +2479,11 @@ public class CFBamParamTableObj
 		Long NextId )
 	{
 		final String S_ProcName = "deepDisposeParamByNextIdx";
-		ICFBamParamObj obj;
-		List<ICFBamParamObj> arrayList = readCachedParamByNextIdx( NextTenantId,
+		IYCFBamParamObj obj;
+		List<IYCFBamParamObj> arrayList = readCachedParamByNextIdx( NextTenantId,
 				NextId );
 		if( arrayList != null )  {
-			Iterator<ICFBamParamObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamParamObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2498,12 +2498,12 @@ public class CFBamParamTableObj
 		Long PrevId )
 	{
 		final String S_ProcName = "deepDisposeParamByContPrevIdx";
-		ICFBamParamObj obj;
-		List<ICFBamParamObj> arrayList = readCachedParamByContPrevIdx( TenantId,
+		IYCFBamParamObj obj;
+		List<IYCFBamParamObj> arrayList = readCachedParamByContPrevIdx( TenantId,
 				ServerMethodId,
 				PrevId );
 		if( arrayList != null )  {
-			Iterator<ICFBamParamObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamParamObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2518,12 +2518,12 @@ public class CFBamParamTableObj
 		Long NextId )
 	{
 		final String S_ProcName = "deepDisposeParamByContNextIdx";
-		ICFBamParamObj obj;
-		List<ICFBamParamObj> arrayList = readCachedParamByContNextIdx( TenantId,
+		IYCFBamParamObj obj;
+		List<IYCFBamParamObj> arrayList = readCachedParamByContNextIdx( TenantId,
 				ServerMethodId,
 				NextId );
 		if( arrayList != null )  {
-			Iterator<ICFBamParamObj> arrayIter = arrayList.iterator();
+			Iterator<IYCFBamParamObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
 				obj = arrayIter.next();
 				if( obj != null ) {
@@ -2533,20 +2533,20 @@ public class CFBamParamTableObj
 		}
 	}
 
-	public ICFBamParamObj updateParam( ICFBamParamObj Obj ) {
-		ICFBamParamObj obj = Obj;
-		((ICFBamSchema)schema.getBackingStore()).getTableParam().updateParam( schema.getAuthorization(),
+	public IYCFBamParamObj updateParam( IYCFBamParamObj Obj ) {
+		IYCFBamParamObj obj = Obj;
+		((IYCFBamSchema)schema.getBackingStore()).getTableParam().updateParam( schema.getAuthorization(),
 			Obj.getParamBuff() );
-		obj = (ICFBamParamObj)Obj.realise();
+		obj = (IYCFBamParamObj)Obj.realise();
 		obj.endEdit();
 		return( obj );
 	}
 
-	public void deleteParam( ICFBamParamObj Obj ) {
-		ICFBamParamObj obj = Obj;
-		ICFBamParamObj prev = obj.getOptionalLookupPrev();
-		ICFBamParamObj next = obj.getOptionalLookupNext();
-		((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParam( schema.getAuthorization(),
+	public void deleteParam( IYCFBamParamObj Obj ) {
+		IYCFBamParamObj obj = Obj;
+		IYCFBamParamObj prev = obj.getOptionalLookupPrev();
+		IYCFBamParamObj next = obj.getOptionalLookupNext();
+		((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParam( schema.getAuthorization(),
 			obj.getParamBuff() );
 		Obj.forget();
 		if( prev != null ) {
@@ -2560,15 +2560,15 @@ public class CFBamParamTableObj
 	public void deleteParamByIdIdx( long TenantId,
 		long Id )
 	{
-		CFBamParamPKey pkey = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey();
+		YCFBamParamPKey pkey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey();
 		pkey.setRequiredTenantId( TenantId );
 		pkey.setRequiredId( Id );
-		ICFBamParamObj obj = readParam( pkey );
+		IYCFBamParamObj obj = readParam( pkey );
 		if( obj != null ) {
-			ICFBamParamEditObj editObj = (ICFBamParamEditObj)obj.getEdit();
+			IYCFBamParamEditObj editObj = (IYCFBamParamEditObj)obj.getEdit();
 			boolean editStarted;
 			if( editObj == null ) {
-				editObj = (ICFBamParamEditObj)obj.beginEdit();
+				editObj = (IYCFBamParamEditObj)obj.beginEdit();
 				if( editObj != null ) {
 					editStarted = true;
 				}
@@ -2596,24 +2596,24 @@ public class CFBamParamTableObj
 		String Name )
 	{
 		if( indexByUNameIdx == null ) {
-			indexByUNameIdx = new HashMap< CFBamParamByUNameIdxKey,
-				ICFBamParamObj >();
+			indexByUNameIdx = new HashMap< YCFBamParamByUNameIdxKey,
+				IYCFBamParamObj >();
 		}
-		CFBamParamByUNameIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
+		YCFBamParamByUNameIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newUNameIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setRequiredName( Name );
-		ICFBamParamObj obj = null;
+		IYCFBamParamObj obj = null;
 		if( indexByUNameIdx.containsKey( key ) ) {
 			obj = indexByUNameIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId,
 				Name );
 			obj.forget();
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByUNameIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId,
 				Name );
@@ -2625,19 +2625,19 @@ public class CFBamParamTableObj
 
 	public void deleteParamByValTentIdx( long TenantId )
 	{
-		CFBamParamByValTentIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
+		YCFBamParamByValTentIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newValTentIdxKey();
 		key.setRequiredTenantId( TenantId );
 		if( indexByValTentIdx == null ) {
-			indexByValTentIdx = new HashMap< CFBamParamByValTentIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByValTentIdx = new HashMap< YCFBamParamByValTentIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( indexByValTentIdx.containsKey( key ) ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict = indexByValTentIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByValTentIdx( schema.getAuthorization(),
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict = indexByValTentIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByValTentIdx( schema.getAuthorization(),
 				TenantId );
-			Iterator<ICFBamParamObj> iter = dict.values().iterator();
-			ICFBamParamObj obj;
-			List<ICFBamParamObj> toForget = new LinkedList<ICFBamParamObj>();
+			Iterator<IYCFBamParamObj> iter = dict.values().iterator();
+			IYCFBamParamObj obj;
+			List<IYCFBamParamObj> toForget = new LinkedList<IYCFBamParamObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2650,7 +2650,7 @@ public class CFBamParamTableObj
 			indexByValTentIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByValTentIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByValTentIdx( schema.getAuthorization(),
 				TenantId );
 		}
 		deepDisposeParamByValTentIdx( TenantId );
@@ -2659,21 +2659,21 @@ public class CFBamParamTableObj
 	public void deleteParamByServerMethodIdx( long TenantId,
 		long ServerMethodId )
 	{
-		CFBamParamByServerMethodIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
+		YCFBamParamByServerMethodIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerMethodIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		if( indexByServerMethodIdx == null ) {
-			indexByServerMethodIdx = new HashMap< CFBamParamByServerMethodIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByServerMethodIdx = new HashMap< YCFBamParamByServerMethodIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( indexByServerMethodIdx.containsKey( key ) ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict = indexByServerMethodIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByServerMethodIdx( schema.getAuthorization(),
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict = indexByServerMethodIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByServerMethodIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId );
-			Iterator<ICFBamParamObj> iter = dict.values().iterator();
-			ICFBamParamObj obj;
-			List<ICFBamParamObj> toForget = new LinkedList<ICFBamParamObj>();
+			Iterator<IYCFBamParamObj> iter = dict.values().iterator();
+			IYCFBamParamObj obj;
+			List<IYCFBamParamObj> toForget = new LinkedList<IYCFBamParamObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2686,7 +2686,7 @@ public class CFBamParamTableObj
 			indexByServerMethodIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByServerMethodIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByServerMethodIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId );
 		}
@@ -2697,21 +2697,21 @@ public class CFBamParamTableObj
 	public void deleteParamByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
-		CFBamParamByDefSchemaIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
+		YCFBamParamByDefSchemaIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newDefSchemaIdxKey();
 		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
 		key.setOptionalDefSchemaId( DefSchemaId );
 		if( indexByDefSchemaIdx == null ) {
-			indexByDefSchemaIdx = new HashMap< CFBamParamByDefSchemaIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByDefSchemaIdx = new HashMap< YCFBamParamByDefSchemaIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( indexByDefSchemaIdx.containsKey( key ) ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict = indexByDefSchemaIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByDefSchemaIdx( schema.getAuthorization(),
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict = indexByDefSchemaIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
-			Iterator<ICFBamParamObj> iter = dict.values().iterator();
-			ICFBamParamObj obj;
-			List<ICFBamParamObj> toForget = new LinkedList<ICFBamParamObj>();
+			Iterator<IYCFBamParamObj> iter = dict.values().iterator();
+			IYCFBamParamObj obj;
+			List<IYCFBamParamObj> toForget = new LinkedList<IYCFBamParamObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2724,7 +2724,7 @@ public class CFBamParamTableObj
 			indexByDefSchemaIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByDefSchemaIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByDefSchemaIdx( schema.getAuthorization(),
 				DefSchemaTenantId,
 				DefSchemaId );
 		}
@@ -2735,21 +2735,21 @@ public class CFBamParamTableObj
 	public void deleteParamByServerTypeIdx( Long TypeTenantId,
 		Long TypeId )
 	{
-		CFBamParamByServerTypeIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
+		YCFBamParamByServerTypeIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newServerTypeIdxKey();
 		key.setOptionalTypeTenantId( TypeTenantId );
 		key.setOptionalTypeId( TypeId );
 		if( indexByServerTypeIdx == null ) {
-			indexByServerTypeIdx = new HashMap< CFBamParamByServerTypeIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByServerTypeIdx = new HashMap< YCFBamParamByServerTypeIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( indexByServerTypeIdx.containsKey( key ) ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict = indexByServerTypeIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByServerTypeIdx( schema.getAuthorization(),
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict = indexByServerTypeIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByServerTypeIdx( schema.getAuthorization(),
 				TypeTenantId,
 				TypeId );
-			Iterator<ICFBamParamObj> iter = dict.values().iterator();
-			ICFBamParamObj obj;
-			List<ICFBamParamObj> toForget = new LinkedList<ICFBamParamObj>();
+			Iterator<IYCFBamParamObj> iter = dict.values().iterator();
+			IYCFBamParamObj obj;
+			List<IYCFBamParamObj> toForget = new LinkedList<IYCFBamParamObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2762,7 +2762,7 @@ public class CFBamParamTableObj
 			indexByServerTypeIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByServerTypeIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByServerTypeIdx( schema.getAuthorization(),
 				TypeTenantId,
 				TypeId );
 		}
@@ -2773,21 +2773,21 @@ public class CFBamParamTableObj
 	public void deleteParamByPrevIdx( Long PrevTenantId,
 		Long PrevId )
 	{
-		CFBamParamByPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
+		YCFBamParamByPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPrevIdxKey();
 		key.setOptionalPrevTenantId( PrevTenantId );
 		key.setOptionalPrevId( PrevId );
 		if( indexByPrevIdx == null ) {
-			indexByPrevIdx = new HashMap< CFBamParamByPrevIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByPrevIdx = new HashMap< YCFBamParamByPrevIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( indexByPrevIdx.containsKey( key ) ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict = indexByPrevIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByPrevIdx( schema.getAuthorization(),
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict = indexByPrevIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
-			Iterator<ICFBamParamObj> iter = dict.values().iterator();
-			ICFBamParamObj obj;
-			List<ICFBamParamObj> toForget = new LinkedList<ICFBamParamObj>();
+			Iterator<IYCFBamParamObj> iter = dict.values().iterator();
+			IYCFBamParamObj obj;
+			List<IYCFBamParamObj> toForget = new LinkedList<IYCFBamParamObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2800,7 +2800,7 @@ public class CFBamParamTableObj
 			indexByPrevIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByPrevIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByPrevIdx( schema.getAuthorization(),
 				PrevTenantId,
 				PrevId );
 		}
@@ -2811,21 +2811,21 @@ public class CFBamParamTableObj
 	public void deleteParamByNextIdx( Long NextTenantId,
 		Long NextId )
 	{
-		CFBamParamByNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
+		YCFBamParamByNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newNextIdxKey();
 		key.setOptionalNextTenantId( NextTenantId );
 		key.setOptionalNextId( NextId );
 		if( indexByNextIdx == null ) {
-			indexByNextIdx = new HashMap< CFBamParamByNextIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByNextIdx = new HashMap< YCFBamParamByNextIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( indexByNextIdx.containsKey( key ) ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict = indexByNextIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByNextIdx( schema.getAuthorization(),
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict = indexByNextIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
-			Iterator<ICFBamParamObj> iter = dict.values().iterator();
-			ICFBamParamObj obj;
-			List<ICFBamParamObj> toForget = new LinkedList<ICFBamParamObj>();
+			Iterator<IYCFBamParamObj> iter = dict.values().iterator();
+			IYCFBamParamObj obj;
+			List<IYCFBamParamObj> toForget = new LinkedList<IYCFBamParamObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2838,7 +2838,7 @@ public class CFBamParamTableObj
 			indexByNextIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByNextIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByNextIdx( schema.getAuthorization(),
 				NextTenantId,
 				NextId );
 		}
@@ -2850,23 +2850,23 @@ public class CFBamParamTableObj
 		long ServerMethodId,
 		Long PrevId )
 	{
-		CFBamParamByContPrevIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
+		YCFBamParamByContPrevIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContPrevIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setOptionalPrevId( PrevId );
 		if( indexByContPrevIdx == null ) {
-			indexByContPrevIdx = new HashMap< CFBamParamByContPrevIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByContPrevIdx = new HashMap< YCFBamParamByContPrevIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( indexByContPrevIdx.containsKey( key ) ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict = indexByContPrevIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByContPrevIdx( schema.getAuthorization(),
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict = indexByContPrevIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId,
 				PrevId );
-			Iterator<ICFBamParamObj> iter = dict.values().iterator();
-			ICFBamParamObj obj;
-			List<ICFBamParamObj> toForget = new LinkedList<ICFBamParamObj>();
+			Iterator<IYCFBamParamObj> iter = dict.values().iterator();
+			IYCFBamParamObj obj;
+			List<IYCFBamParamObj> toForget = new LinkedList<IYCFBamParamObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2879,7 +2879,7 @@ public class CFBamParamTableObj
 			indexByContPrevIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByContPrevIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByContPrevIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId,
 				PrevId );
@@ -2893,23 +2893,23 @@ public class CFBamParamTableObj
 		long ServerMethodId,
 		Long NextId )
 	{
-		CFBamParamByContNextIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
+		YCFBamParamByContNextIdxKey key = ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newContNextIdxKey();
 		key.setRequiredTenantId( TenantId );
 		key.setRequiredServerMethodId( ServerMethodId );
 		key.setOptionalNextId( NextId );
 		if( indexByContNextIdx == null ) {
-			indexByContNextIdx = new HashMap< CFBamParamByContNextIdxKey,
-				Map< CFBamParamPKey, ICFBamParamObj > >();
+			indexByContNextIdx = new HashMap< YCFBamParamByContNextIdxKey,
+				Map< YCFBamParamPKey, IYCFBamParamObj > >();
 		}
 		if( indexByContNextIdx.containsKey( key ) ) {
-			Map<CFBamParamPKey, ICFBamParamObj> dict = indexByContNextIdx.get( key );
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByContNextIdx( schema.getAuthorization(),
+			Map<YCFBamParamPKey, IYCFBamParamObj> dict = indexByContNextIdx.get( key );
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId,
 				NextId );
-			Iterator<ICFBamParamObj> iter = dict.values().iterator();
-			ICFBamParamObj obj;
-			List<ICFBamParamObj> toForget = new LinkedList<ICFBamParamObj>();
+			Iterator<IYCFBamParamObj> iter = dict.values().iterator();
+			IYCFBamParamObj obj;
+			List<IYCFBamParamObj> toForget = new LinkedList<IYCFBamParamObj>();
 			while( iter.hasNext() ) {
 				obj = iter.next();
 				toForget.add( obj );
@@ -2922,7 +2922,7 @@ public class CFBamParamTableObj
 			indexByContNextIdx.remove( key );
 		}
 		else {
-			((ICFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByContNextIdx( schema.getAuthorization(),
+			((IYCFBamSchema)schema.getBackingStore()).getTableParam().deleteParamByContNextIdx( schema.getAuthorization(),
 				TenantId,
 				ServerMethodId,
 				NextId );
@@ -2933,61 +2933,61 @@ public class CFBamParamTableObj
 	}
 
 	/**
-	 *	Move the CFBamParamObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamParamObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamParamObj refreshed cache instance.
+	 *	@return	YCFBamParamObj refreshed cache instance.
 	 */
-	public ICFBamParamObj moveUpParam( ICFBamParamObj Obj ) {
-		ICFBamParamObj obj = null;
+	public IYCFBamParamObj moveUpParam( IYCFBamParamObj Obj ) {
+		IYCFBamParamObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveUpParam",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamParamBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableParam().moveBuffUp( schema.getAuthorization(),
+		YCFBamParamBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().moveBuffUp( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getParamTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamParamObj)obj.realise();
-			ICFBamParamObj prev = obj.getOptionalLookupPrev( true );
-			ICFBamParamObj next = obj.getOptionalLookupNext( true );
+			obj = (IYCFBamParamObj)obj.realise();
+			IYCFBamParamObj prev = obj.getOptionalLookupPrev( true );
+			IYCFBamParamObj next = obj.getOptionalLookupNext( true );
 			if( next != null ) {
-				ICFBamParamObj gnext = next.getOptionalLookupNext( true );
+				IYCFBamParamObj gnext = next.getOptionalLookupNext( true );
 			}
 		}
 		return( obj );
 	}
 
 	/**
-	 *	Move the CFBamParamObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamParamObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamParamObj refreshed cache instance.
+	 *	@return	YCFBamParamObj refreshed cache instance.
 	 */
-	public ICFBamParamObj moveDownParam( ICFBamParamObj Obj ) {
-		ICFBamParamObj obj = null;
+	public IYCFBamParamObj moveDownParam( IYCFBamParamObj Obj ) {
+		IYCFBamParamObj obj = null;
 		if( null != Obj.getEdit() ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"moveDownParam",
 				"You cannot move an object that is being edited" );
 		}
-		CFBamParamBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableParam().moveBuffDown( schema.getAuthorization(),
+		YCFBamParamBuff buff = ((IYCFBamSchema)schema.getBackingStore()).getTableParam().moveBuffDown( schema.getAuthorization(),
 			Obj.getRequiredTenantId(),
 			Obj.getRequiredId(),
 			Obj.getBuff().getRequiredRevision() );
 		if( buff != null ) {
 			obj = schema.getParamTableObj().newInstance();
-			obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
+			obj.setPKey( ((IYCFBamSchema)schema.getBackingStore()).getFactoryParam().newPKey() );
 			obj.setBuff( buff );
-			obj = (ICFBamParamObj)obj.realise();
-			ICFBamParamObj prev = obj.getOptionalLookupPrev( true );
+			obj = (IYCFBamParamObj)obj.realise();
+			IYCFBamParamObj prev = obj.getOptionalLookupPrev( true );
 			if( prev != null ) {
-				ICFBamParamObj gprev = prev.getOptionalLookupPrev( true );
+				IYCFBamParamObj gprev = prev.getOptionalLookupPrev( true );
 			}
-			ICFBamParamObj next = obj.getOptionalLookupNext( true );
+			IYCFBamParamObj next = obj.getOptionalLookupNext( true );
 		}
 		return( obj );
 	}

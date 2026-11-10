@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb SecDevice.
+// Description: Java 11 Object interface for YCFGenKb SecDevice.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecDeviceObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbSecDeviceObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	ICFGenKbSecUserObj getCreatedBy();
+	IYCFGenKbSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -59,9 +59,9 @@ public interface ICFGenKbSecDeviceObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	ICFGenKbSecUserObj getUpdatedBy();
+	IYCFGenKbSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -72,9 +72,9 @@ public interface ICFGenKbSecDeviceObj
 	/**
 	 *	Realise this instance of a SecDevice.
 	 *
-	 *	@return	CFGenKbSecDeviceObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbSecDeviceObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbSecDeviceObj realise();
+	IYCFGenKbSecDeviceObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -86,99 +86,99 @@ public interface ICFGenKbSecDeviceObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSecDeviceObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSecDeviceObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSecDeviceObj read();
+	IYCFGenKbSecDeviceObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSecDeviceObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSecDeviceObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSecDeviceObj read( boolean forceRead );
+	IYCFGenKbSecDeviceObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SecDevice instance.
 	 *
-	 *	@return	The newly locked ICFGenKbSecDeviceEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbSecDeviceEditObj edition of this instance.
 	 */
-	ICFGenKbSecDeviceEditObj beginEdit();
+	IYCFGenKbSecDeviceEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SecDevice instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SecDevice instance.
 	 *
-	 *	@return	The ICFGenKbSecDeviceEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSecDeviceEditObj edition of this instance.
 	 */
-	ICFGenKbSecDeviceEditObj getEdit();
+	IYCFGenKbSecDeviceEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SecDevice instance as a ICFGenKbSecDeviceEditObj.
+	 *	Get the current edition of this SecDevice instance as a IYCFGenKbSecDeviceEditObj.
 	 *
-	 *	@return	The ICFGenKbSecDeviceEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSecDeviceEditObj edition of this instance.
 	 */
-	ICFGenKbSecDeviceEditObj getEditAsSecDevice();
+	IYCFGenKbSecDeviceEditObj getEditAsSecDevice();
 
 	/**
-	 *	Get the ICFGenKbSecDeviceTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbSecDeviceTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSecDeviceTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbSecDeviceTableObj table cache which manages this instance.
 	 */
-	ICFGenKbSecDeviceTableObj getSecDeviceTable();
+	IYCFGenKbSecDeviceTableObj getSecDeviceTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbSecDeviceBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSecDeviceBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSecDeviceBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSecDeviceBuff instance which currently backs this object.
 	 */
-	CFGenKbSecDeviceBuff getBuff();
+	YCFGenKbSecDeviceBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbSecDeviceBuff value );
+	void setBuff( YCFGenKbSecDeviceBuff value );
 
 	/**
-	 *	Get the CFGenKbSecDeviceBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSecDeviceBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSecDeviceBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSecDeviceBuff instance which currently backs this object.
 	 */
-	CFGenKbSecDeviceBuff getSecDeviceBuff();
+	YCFGenKbSecDeviceBuff getSecDeviceBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbSecDevicePKey primary key for this instance.
+	 *	@return	YCFGenKbSecDevicePKey primary key for this instance.
 	 */
-	CFGenKbSecDevicePKey getPKey();
+	YCFGenKbSecDevicePKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbSecDevicePKey primary key value for this instance.
+	 *	@param YCFGenKbSecDevicePKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbSecDevicePKey value );
+	void setPKey( YCFGenKbSecDevicePKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -219,18 +219,18 @@ public interface ICFGenKbSecDeviceObj
 	String getOptionalPubKey();
 
 	/**
-	 *	Get the required ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	Get the required IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The required ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	@return	The required IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFGenKbSecUserObj getRequiredContainerSecUser();
+	IYCFGenKbSecUserObj getRequiredContainerSecUser();
 
 	/**
-	 *	Get the required ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	Get the required IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 *
-	 *	@return	The required ICFGenKbSecUserObj instance referenced by the SecUser key.
+	 *	@return	The required IYCFGenKbSecUserObj instance referenced by the SecUser key.
 	 */
-	ICFGenKbSecUserObj getRequiredContainerSecUser( boolean forceRead );
+	IYCFGenKbSecUserObj getRequiredContainerSecUser( boolean forceRead );
 
 	/**
 	 *	Internal use only.

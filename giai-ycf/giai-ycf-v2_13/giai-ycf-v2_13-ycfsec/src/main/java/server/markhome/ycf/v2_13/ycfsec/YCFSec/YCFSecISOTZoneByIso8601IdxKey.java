@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a ISOTZone by Iso8601Idx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,16 +36,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecISOTZoneByIso8601IdxKey
+public class YCFSecISOTZoneByIso8601IdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String requiredIso8601;
-	public CFSecISOTZoneByIso8601IdxKey() {
-		requiredIso8601 = new String( CFSecISOTZoneBuff.ISO8601_INIT_VALUE );
+	public YCFSecISOTZoneByIso8601IdxKey() {
+		requiredIso8601 = new String( YCFSecISOTZoneBuff.ISO8601_INIT_VALUE );
 	}
 
 	public String getRequiredIso8601() {
@@ -54,13 +54,13 @@ public class CFSecISOTZoneByIso8601IdxKey
 
 	public void setRequiredIso8601( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredIso8601",
 				1,
 				"value" );
 		}
 		if( value.length() > 6 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredIso8601",
 				1,
 				"value.length()",
@@ -74,15 +74,15 @@ public class CFSecISOTZoneByIso8601IdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecISOTZoneByIso8601IdxKey ) {
-			CFSecISOTZoneByIso8601IdxKey rhs = (CFSecISOTZoneByIso8601IdxKey)obj;
+		else if( obj instanceof YCFSecISOTZoneByIso8601IdxKey ) {
+			YCFSecISOTZoneByIso8601IdxKey rhs = (YCFSecISOTZoneByIso8601IdxKey)obj;
 			if( ! getRequiredIso8601().equals( rhs.getRequiredIso8601() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecISOTZoneBuff ) {
-			CFSecISOTZoneBuff rhs = (CFSecISOTZoneBuff)obj;
+		else if( obj instanceof YCFSecISOTZoneBuff ) {
+			YCFSecISOTZoneBuff rhs = (YCFSecISOTZoneBuff)obj;
 			if( ! getRequiredIso8601().equals( rhs.getRequiredIso8601() ) ) {
 				return( false );
 			}
@@ -105,8 +105,8 @@ public class CFSecISOTZoneByIso8601IdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecISOTZoneByIso8601IdxKey ) {
-			CFSecISOTZoneByIso8601IdxKey rhs = (CFSecISOTZoneByIso8601IdxKey)obj;
+		else if( obj instanceof YCFSecISOTZoneByIso8601IdxKey ) {
+			YCFSecISOTZoneByIso8601IdxKey rhs = (YCFSecISOTZoneByIso8601IdxKey)obj;
 			{
 				int cmp = getRequiredIso8601().compareTo( rhs.getRequiredIso8601() );
 				if( cmp != 0 ) {
@@ -115,8 +115,8 @@ public class CFSecISOTZoneByIso8601IdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecISOTZoneBuff ) {
-			CFSecISOTZoneBuff rhs = (CFSecISOTZoneBuff)obj;
+		else if( obj instanceof YCFSecISOTZoneBuff ) {
+			YCFSecISOTZoneBuff rhs = (YCFSecISOTZoneBuff)obj;
 			{
 				int cmp = getRequiredIso8601().compareTo( rhs.getRequiredIso8601() );
 				if( cmp != 0 ) {
@@ -126,7 +126,7 @@ public class CFSecISOTZoneByIso8601IdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -135,8 +135,8 @@ public class CFSecISOTZoneByIso8601IdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecISOTZoneByIso8601Idx"
-			+ " RequiredIso8601=" + "\"" + CFSecSchema.xmlEncodeString( getRequiredIso8601() ) + "\""
+		String ret = "<YCFSecISOTZoneByIso8601Idx"
+			+ " RequiredIso8601=" + "\"" + YCFSecSchema.xmlEncodeString( getRequiredIso8601() ) + "\""
 			+ "/>";
 		return( ret );
 	}

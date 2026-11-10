@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelErrorTableObj
+public interface IYCFGenKbGelErrorTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelErrorTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelErrorObj newInstance();
+	IYCFGenKbGelErrorObj newInstance();
 
 	/**
 	 *	Instantiate a new GelError edition of the specified GelError instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelErrorEditObj newEditInstance( ICFGenKbGelErrorObj orig );
+	IYCFGenKbGelErrorEditObj newEditInstance( IYCFGenKbGelErrorObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelErrorObj realiseGelError( ICFGenKbGelErrorObj Obj );
+	IYCFGenKbGelErrorObj realiseGelError( IYCFGenKbGelErrorObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelErrorObj createGelError( ICFGenKbGelErrorObj Obj );
+	IYCFGenKbGelErrorObj createGelError( IYCFGenKbGelErrorObj Obj );
 
 	/**
 	 *	Read a GelError-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelErrorTableObj
 	 *	@return	The GelError-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelErrorObj readGelError( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelErrorObj readGelError( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelError-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelErrorTableObj
 	 *	@return	The GelError-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelErrorObj readGelError( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelErrorObj readGelError( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelErrorObj readCachedGelError( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelErrorObj readCachedGelError( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelError( ICFGenKbGelErrorObj obj );
+	public void reallyDeepDisposeGelError( IYCFGenKbGelErrorObj obj );
 
-	void deepDisposeGelError( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelError( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelErrorObj lockGelError( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelErrorObj lockGelError( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelError-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelErrorObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelErrorObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelErrorObj> readAllGelError();
+	List<IYCFGenKbGelErrorObj> readAllGelError();
 
 	/**
 	 *	Return a sorted map of all the GelError-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelErrorObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelErrorObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelErrorObj> readAllGelError( boolean forceRead );
+	List<IYCFGenKbGelErrorObj> readAllGelError( boolean forceRead );
 
-	List<ICFGenKbGelErrorObj> readCachedAllGelError();
+	List<IYCFGenKbGelErrorObj> readCachedAllGelError();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelError key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelErrorTableObj
 	 *
 	 *	@param	argGelInstId	The GelError key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelErrorObj readGelErrorByPIdx( long TenantId,
+	IYCFGenKbGelErrorObj readGelErrorByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelError key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelErrorTableObj
 	 *
 	 *	@param	argGelInstId	The GelError key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelErrorObj readGelErrorByPIdx( long TenantId,
+	IYCFGenKbGelErrorObj readGelErrorByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelError key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelErrorObj> readGelErrorByTenantIdx( long TenantId );
+	List<IYCFGenKbGelErrorObj> readGelErrorByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelErrorObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelErrorObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelError key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelErrorObj> readGelErrorByTenantIdx( long TenantId,
+	List<IYCFGenKbGelErrorObj> readGelErrorByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelError key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelError key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelErrorObj> readGelErrorByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelErrorObj> readGelErrorByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelErrorObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelErrorObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelError key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelError key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelErrorObj> readGelErrorByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelErrorObj> readGelErrorByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelError key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelErrorTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelError key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelErrorObj> readGelErrorByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelErrorObj> readGelErrorByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelErrorObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelErrorObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelError key attribute of the instance generating the id.
 	 *
@@ -229,24 +229,24 @@ public interface ICFGenKbGelErrorTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelError key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelErrorObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelErrorObj> readGelErrorByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelErrorObj> readGelErrorByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
-	ICFGenKbGelErrorObj readCachedGelErrorByPIdx( long TenantId,
+	IYCFGenKbGelErrorObj readCachedGelErrorByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelErrorObj> readCachedGelErrorByTenantIdx( long TenantId );
+	List<IYCFGenKbGelErrorObj> readCachedGelErrorByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelErrorObj> readCachedGelErrorByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelErrorObj> readCachedGelErrorByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelErrorObj> readCachedGelErrorByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelErrorObj> readCachedGelErrorByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
@@ -266,12 +266,12 @@ public interface ICFGenKbGelErrorTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelErrorObj updateGelError( ICFGenKbGelErrorObj Obj );
+	IYCFGenKbGelErrorObj updateGelError( IYCFGenKbGelErrorObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelError( ICFGenKbGelErrorObj Obj );
+	void deleteGelError( IYCFGenKbGelErrorObj Obj );
 
 	/**
 	 *	Internal use only.

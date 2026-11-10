@@ -1,17 +1,17 @@
-// Description: Java 11 Instance Edit Object interface for CFBam Relation.
+// Description: Java 11 Instance Edit Object interface for YCFBam Relation.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,30 +45,30 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamRelationEditObj
-	extends ICFBamRelationObj,
-		ICFBamScopeEditObj
+public interface IYCFBamRelationEditObj
+	extends IYCFBamRelationObj,
+		IYCFBamScopeEditObj
 {
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFBamRelationObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFBamRelationObj.
 	 */
-	ICFBamRelationObj getOrigAsRelation();
+	IYCFBamRelationObj getOrigAsRelation();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -141,18 +141,18 @@ public interface ICFBamRelationEditObj
 	void setOptionalDescription( String value );
 
 	/**
-	 *	Get the required ICFBamSchema.RelationTypeEnum attribute RelationType.
+	 *	Get the required IYCFBamSchema.RelationTypeEnum attribute RelationType.
 	 *
-	 *	@return	The ICFBamSchema.RelationTypeEnum value of the attribute RelationType.
+	 *	@return	The IYCFBamSchema.RelationTypeEnum value of the attribute RelationType.
 	 */
-	ICFBamSchema.RelationTypeEnum getRequiredRelationType();
+	IYCFBamSchema.RelationTypeEnum getRequiredRelationType();
 
 	/**
-	 *	Set the required ICFBamSchema.RelationTypeEnum attribute RelationType.
+	 *	Set the required IYCFBamSchema.RelationTypeEnum attribute RelationType.
 	 *
-	 *	@param	value	the ICFBamSchema.RelationTypeEnum value of the attribute RelationType.
+	 *	@param	value	the IYCFBamSchema.RelationTypeEnum value of the attribute RelationType.
 	 */
-	void setRequiredRelationType( ICFBamSchema.RelationTypeEnum value );
+	void setRequiredRelationType( IYCFBamSchema.RelationTypeEnum value );
 
 	/**
 	 *	Get the optional String attribute DbName.
@@ -239,114 +239,114 @@ public interface ICFBamRelationEditObj
 	void setRequiredAllowAddendum( boolean value );
 
 	/**
-	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *	Get the required IYCFBamSchema.CodeVisibilityEnum attribute CodeVis.
 	 *
-	 *	@return	The ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 *	@return	The IYCFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
 	 */
-	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+	IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
 
 	/**
-	 *	Set the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *	Set the required IYCFBamSchema.CodeVisibilityEnum attribute CodeVis.
 	 *
-	 *	@param	value	the ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 *	@param	value	the IYCFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
 	 */
-	void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value );
+	void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value );
 
 	/**
-	 *	Get the ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Get the IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@return	The ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	@return	The IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupDefSchema();
+	IYCFBamSchemaDefObj getOptionalLookupDefSchema();
 
 	/**
-	 *	Set the ICFBamSchemaDefObj instance referenced by the DefSchema key.
+	 *	Set the IYCFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
-	 *	@param	value	the ICFBamSchemaDefObj instance to be referenced by the DefSchema key.
+	 *	@param	value	the IYCFBamSchemaDefObj instance to be referenced by the DefSchema key.
 	 */
-	void setOptionalLookupDefSchema( ICFBamSchemaDefObj value );
+	void setOptionalLookupDefSchema( IYCFBamSchemaDefObj value );
 
 	/**
-	 *	Get the ICFBamTableObj instance referenced by the FromTable key.
+	 *	Get the IYCFBamTableObj instance referenced by the FromTable key.
 	 *
-	 *	@return	The ICFBamTableObj instance referenced by the FromTable key.
+	 *	@return	The IYCFBamTableObj instance referenced by the FromTable key.
 	 */
-	ICFBamTableObj getRequiredContainerFromTable();
+	IYCFBamTableObj getRequiredContainerFromTable();
 
 	/**
-	 *	Set the ICFBamTableObj instance referenced by the FromTable key.
+	 *	Set the IYCFBamTableObj instance referenced by the FromTable key.
 	 *
-	 *	@param	value	the ICFBamTableObj instance to be referenced by the FromTable key.
+	 *	@param	value	the IYCFBamTableObj instance to be referenced by the FromTable key.
 	 */
-	void setRequiredContainerFromTable( ICFBamTableObj value );
+	void setRequiredContainerFromTable( IYCFBamTableObj value );
 
 	/**
-	 *	Get the ICFSecTenantObj instance referenced by the RelTenant key.
+	 *	Get the IYCFSecTenantObj instance referenced by the RelTenant key.
 	 *
-	 *	@return	The ICFSecTenantObj instance referenced by the RelTenant key.
+	 *	@return	The IYCFSecTenantObj instance referenced by the RelTenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerRelTenant();
+	IYCFSecTenantObj getRequiredOwnerRelTenant();
 
 	/**
-	 *	Set the ICFSecTenantObj instance referenced by the RelTenant key.
+	 *	Set the IYCFSecTenantObj instance referenced by the RelTenant key.
 	 *
-	 *	@param	value	the ICFSecTenantObj instance to be referenced by the RelTenant key.
+	 *	@param	value	the IYCFSecTenantObj instance to be referenced by the RelTenant key.
 	 */
-	void setRequiredOwnerRelTenant( ICFSecTenantObj value );
+	void setRequiredOwnerRelTenant( IYCFSecTenantObj value );
 
 	/**
-	 *	Get the ICFBamIndexObj instance referenced by the FromIndex key.
+	 *	Get the IYCFBamIndexObj instance referenced by the FromIndex key.
 	 *
-	 *	@return	The ICFBamIndexObj instance referenced by the FromIndex key.
+	 *	@return	The IYCFBamIndexObj instance referenced by the FromIndex key.
 	 */
-	ICFBamIndexObj getRequiredLookupFromIndex();
+	IYCFBamIndexObj getRequiredLookupFromIndex();
 
 	/**
-	 *	Set the ICFBamIndexObj instance referenced by the FromIndex key.
+	 *	Set the IYCFBamIndexObj instance referenced by the FromIndex key.
 	 *
-	 *	@param	value	the ICFBamIndexObj instance to be referenced by the FromIndex key.
+	 *	@param	value	the IYCFBamIndexObj instance to be referenced by the FromIndex key.
 	 */
-	void setRequiredLookupFromIndex( ICFBamIndexObj value );
+	void setRequiredLookupFromIndex( IYCFBamIndexObj value );
 
 	/**
-	 *	Get the ICFBamTableObj instance referenced by the ToTable key.
+	 *	Get the IYCFBamTableObj instance referenced by the ToTable key.
 	 *
-	 *	@return	The ICFBamTableObj instance referenced by the ToTable key.
+	 *	@return	The IYCFBamTableObj instance referenced by the ToTable key.
 	 */
-	ICFBamTableObj getRequiredLookupToTable();
+	IYCFBamTableObj getRequiredLookupToTable();
 
 	/**
-	 *	Set the ICFBamTableObj instance referenced by the ToTable key.
+	 *	Set the IYCFBamTableObj instance referenced by the ToTable key.
 	 *
-	 *	@param	value	the ICFBamTableObj instance to be referenced by the ToTable key.
+	 *	@param	value	the IYCFBamTableObj instance to be referenced by the ToTable key.
 	 */
-	void setRequiredLookupToTable( ICFBamTableObj value );
+	void setRequiredLookupToTable( IYCFBamTableObj value );
 
 	/**
-	 *	Get the ICFBamIndexObj instance referenced by the ToIndex key.
+	 *	Get the IYCFBamIndexObj instance referenced by the ToIndex key.
 	 *
-	 *	@return	The ICFBamIndexObj instance referenced by the ToIndex key.
+	 *	@return	The IYCFBamIndexObj instance referenced by the ToIndex key.
 	 */
-	ICFBamIndexObj getRequiredLookupToIndex();
+	IYCFBamIndexObj getRequiredLookupToIndex();
 
 	/**
-	 *	Set the ICFBamIndexObj instance referenced by the ToIndex key.
+	 *	Set the IYCFBamIndexObj instance referenced by the ToIndex key.
 	 *
-	 *	@param	value	the ICFBamIndexObj instance to be referenced by the ToIndex key.
+	 *	@param	value	the IYCFBamIndexObj instance to be referenced by the ToIndex key.
 	 */
-	void setRequiredLookupToIndex( ICFBamIndexObj value );
+	void setRequiredLookupToIndex( IYCFBamIndexObj value );
 
 	/**
-	 *	Get the ICFBamRelationObj instance referenced by the Narrowed key.
+	 *	Get the IYCFBamRelationObj instance referenced by the Narrowed key.
 	 *
-	 *	@return	The ICFBamRelationObj instance referenced by the Narrowed key.
+	 *	@return	The IYCFBamRelationObj instance referenced by the Narrowed key.
 	 */
-	ICFBamRelationObj getOptionalLookupNarrowed();
+	IYCFBamRelationObj getOptionalLookupNarrowed();
 
 	/**
-	 *	Set the ICFBamRelationObj instance referenced by the Narrowed key.
+	 *	Set the IYCFBamRelationObj instance referenced by the Narrowed key.
 	 *
-	 *	@param	value	the ICFBamRelationObj instance to be referenced by the Narrowed key.
+	 *	@param	value	the IYCFBamRelationObj instance to be referenced by the Narrowed key.
 	 */
-	void setOptionalLookupNarrowed( ICFBamRelationObj value );
+	void setOptionalLookupNarrowed( IYCFBamRelationObj value );
 }

@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,23 +21,23 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-// package org.msscf.msscf.v2_13.cflib.CFLib.dbutil;
+// package org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash224;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash224;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 @Converter(autoApply = true)
-public class CFLibDbKeyHash224Converter implements AttributeConverter<CFLibDbKeyHash224, byte[]> {
+public class YCFLibDbKeyHash224Converter implements AttributeConverter<YCFLibDbKeyHash224, byte[]> {
     
     @Override
-    public byte[] convertToDatabaseColumn(CFLibDbKeyHash224 attribute) {
+    public byte[] convertToDatabaseColumn(YCFLibDbKeyHash224 attribute) {
         return attribute != null ? attribute.getBytes() : null;
     }
 
     @Override
-    public CFLibDbKeyHash224 convertToEntityAttribute(byte[] dbData) {
-        return dbData != null ? new CFLibDbKeyHash224(dbData) : null;
+    public YCFLibDbKeyHash224 convertToEntityAttribute(byte[] dbData) {
+        return dbData != null ? new YCFLibDbKeyHash224(dbData) : null;
     }
 }

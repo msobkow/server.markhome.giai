@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb SecGroup.
+// Description: Java 11 Object interface for YCFGenKb SecGroup.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecGroupObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbSecGroupObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Get the user who created this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who created this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who created this instance.
 	 */
-	ICFGenKbSecUserObj getCreatedBy();
+	IYCFGenKbSecUserObj getCreatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was created.
@@ -59,9 +59,9 @@ public interface ICFGenKbSecGroupObj
 	/**
 	 *	Get the user who updated this instance.
 	 *
-	 *	@return	The ICFGenKbSecUserObj instance who updated this instance.
+	 *	@return	The IYCFGenKbSecUserObj instance who updated this instance.
 	 */
-	ICFGenKbSecUserObj getUpdatedBy();
+	IYCFGenKbSecUserObj getUpdatedBy();
 
 	/**
 	 *	Get the Calendar date-time this instance was updated.
@@ -72,9 +72,9 @@ public interface ICFGenKbSecGroupObj
 	/**
 	 *	Realise this instance of a SecGroup.
 	 *
-	 *	@return	CFGenKbSecGroupObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbSecGroupObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbSecGroupObj realise();
+	IYCFGenKbSecGroupObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -86,99 +86,99 @@ public interface ICFGenKbSecGroupObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSecGroupObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSecGroupObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSecGroupObj read();
+	IYCFGenKbSecGroupObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbSecGroupObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbSecGroupObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbSecGroupObj read( boolean forceRead );
+	IYCFGenKbSecGroupObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this SecGroup instance.
 	 *
-	 *	@return	The newly locked ICFGenKbSecGroupEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbSecGroupEditObj edition of this instance.
 	 */
-	ICFGenKbSecGroupEditObj beginEdit();
+	IYCFGenKbSecGroupEditObj beginEdit();
 
 	/**
 	 *	End this edition of this SecGroup instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this SecGroup instance.
 	 *
-	 *	@return	The ICFGenKbSecGroupEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSecGroupEditObj edition of this instance.
 	 */
-	ICFGenKbSecGroupEditObj getEdit();
+	IYCFGenKbSecGroupEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this SecGroup instance as a ICFGenKbSecGroupEditObj.
+	 *	Get the current edition of this SecGroup instance as a IYCFGenKbSecGroupEditObj.
 	 *
-	 *	@return	The ICFGenKbSecGroupEditObj edition of this instance.
+	 *	@return	The IYCFGenKbSecGroupEditObj edition of this instance.
 	 */
-	ICFGenKbSecGroupEditObj getEditAsSecGroup();
+	IYCFGenKbSecGroupEditObj getEditAsSecGroup();
 
 	/**
-	 *	Get the ICFGenKbSecGroupTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbSecGroupTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSecGroupTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbSecGroupTableObj table cache which manages this instance.
 	 */
-	ICFGenKbSecGroupTableObj getSecGroupTable();
+	IYCFGenKbSecGroupTableObj getSecGroupTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbSecGroupBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSecGroupBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSecGroupBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSecGroupBuff instance which currently backs this object.
 	 */
-	CFGenKbSecGroupBuff getBuff();
+	YCFGenKbSecGroupBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbSecGroupBuff value );
+	void setBuff( YCFGenKbSecGroupBuff value );
 
 	/**
-	 *	Get the CFGenKbSecGroupBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbSecGroupBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbSecGroupBuff instance which currently backs this object.
+	 *	@return	YCFGenKbSecGroupBuff instance which currently backs this object.
 	 */
-	CFGenKbSecGroupBuff getSecGroupBuff();
+	YCFGenKbSecGroupBuff getSecGroupBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbSecGroupPKey primary key for this instance.
+	 *	@return	YCFGenKbSecGroupPKey primary key for this instance.
 	 */
-	CFGenKbSecGroupPKey getPKey();
+	YCFGenKbSecGroupPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbSecGroupPKey primary key value for this instance.
+	 *	@param YCFGenKbSecGroupPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbSecGroupPKey value );
+	void setPKey( YCFGenKbSecGroupPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -226,74 +226,74 @@ public interface ICFGenKbSecGroupObj
 	boolean getRequiredIsVisible();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster();
+	IYCFGenKbClusterObj getRequiredContainerCluster();
 
 	/**
-	 *	Get the required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	Get the required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 *
-	 *	@return	The required ICFGenKbClusterObj instance referenced by the Cluster key.
+	 *	@return	The required IYCFGenKbClusterObj instance referenced by the Cluster key.
 	 */
-	ICFGenKbClusterObj getRequiredContainerCluster( boolean forceRead );
+	IYCFGenKbClusterObj getRequiredContainerCluster( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbSecGrpIncObj array of instances referenced by the Include key.
+	 *	Get the array of optional IYCFGenKbSecGrpIncObj array of instances referenced by the Include key.
 	 *
-	 *	@return	The optional ICFGenKbSecGrpIncObj[] array of instances referenced by the Include key.
+	 *	@return	The optional IYCFGenKbSecGrpIncObj[] array of instances referenced by the Include key.
 	 */
-	List<ICFGenKbSecGrpIncObj> getOptionalComponentsInclude();
+	List<IYCFGenKbSecGrpIncObj> getOptionalComponentsInclude();
 
 	/**
-	 *	Get the array of optional ICFGenKbSecGrpIncObj array of instances referenced by the Include key.
+	 *	Get the array of optional IYCFGenKbSecGrpIncObj array of instances referenced by the Include key.
 	 *
-	 *	@return	The optional ICFGenKbSecGrpIncObj[] array of instances referenced by the Include key.
+	 *	@return	The optional IYCFGenKbSecGrpIncObj[] array of instances referenced by the Include key.
 	 */
-	List<ICFGenKbSecGrpIncObj> getOptionalComponentsInclude( boolean forceRead );
+	List<IYCFGenKbSecGrpIncObj> getOptionalComponentsInclude( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbSecGrpMembObj array of instances referenced by the Member key.
+	 *	Get the array of optional IYCFGenKbSecGrpMembObj array of instances referenced by the Member key.
 	 *
-	 *	@return	The optional ICFGenKbSecGrpMembObj[] array of instances referenced by the Member key.
+	 *	@return	The optional IYCFGenKbSecGrpMembObj[] array of instances referenced by the Member key.
 	 */
-	List<ICFGenKbSecGrpMembObj> getOptionalComponentsMember();
+	List<IYCFGenKbSecGrpMembObj> getOptionalComponentsMember();
 
 	/**
-	 *	Get the array of optional ICFGenKbSecGrpMembObj array of instances referenced by the Member key.
+	 *	Get the array of optional IYCFGenKbSecGrpMembObj array of instances referenced by the Member key.
 	 *
-	 *	@return	The optional ICFGenKbSecGrpMembObj[] array of instances referenced by the Member key.
+	 *	@return	The optional IYCFGenKbSecGrpMembObj[] array of instances referenced by the Member key.
 	 */
-	List<ICFGenKbSecGrpMembObj> getOptionalComponentsMember( boolean forceRead );
+	List<IYCFGenKbSecGrpMembObj> getOptionalComponentsMember( boolean forceRead );
 
 	/**
-	 *	Get the array of required ICFGenKbSecGrpIncObj array of instances referenced by the IncByGroup key.
+	 *	Get the array of required IYCFGenKbSecGrpIncObj array of instances referenced by the IncByGroup key.
 	 *
-	 *	@return	The required ICFGenKbSecGrpIncObj[] array of instances referenced by the IncByGroup key.
+	 *	@return	The required IYCFGenKbSecGrpIncObj[] array of instances referenced by the IncByGroup key.
 	 */
-	List<ICFGenKbSecGrpIncObj> getRequiredChildrenIncByGroup();
+	List<IYCFGenKbSecGrpIncObj> getRequiredChildrenIncByGroup();
 
 	/**
-	 *	Get the array of required ICFGenKbSecGrpIncObj array of instances referenced by the IncByGroup key.
+	 *	Get the array of required IYCFGenKbSecGrpIncObj array of instances referenced by the IncByGroup key.
 	 *
-	 *	@return	The required ICFGenKbSecGrpIncObj[] array of instances referenced by the IncByGroup key.
+	 *	@return	The required IYCFGenKbSecGrpIncObj[] array of instances referenced by the IncByGroup key.
 	 */
-	List<ICFGenKbSecGrpIncObj> getRequiredChildrenIncByGroup( boolean forceRead );
+	List<IYCFGenKbSecGrpIncObj> getRequiredChildrenIncByGroup( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFGenKbSecGroupFormObj array of instances referenced by the Form key.
+	 *	Get the array of optional IYCFGenKbSecGroupFormObj array of instances referenced by the Form key.
 	 *
-	 *	@return	The optional ICFGenKbSecGroupFormObj[] array of instances referenced by the Form key.
+	 *	@return	The optional IYCFGenKbSecGroupFormObj[] array of instances referenced by the Form key.
 	 */
-	List<ICFGenKbSecGroupFormObj> getOptionalComponentsForm();
+	List<IYCFGenKbSecGroupFormObj> getOptionalComponentsForm();
 
 	/**
-	 *	Get the array of optional ICFGenKbSecGroupFormObj array of instances referenced by the Form key.
+	 *	Get the array of optional IYCFGenKbSecGroupFormObj array of instances referenced by the Form key.
 	 *
-	 *	@return	The optional ICFGenKbSecGroupFormObj[] array of instances referenced by the Form key.
+	 *	@return	The optional IYCFGenKbSecGroupFormObj[] array of instances referenced by the Form key.
 	 */
-	List<ICFGenKbSecGroupFormObj> getOptionalComponentsForm( boolean forceRead );
+	List<IYCFGenKbSecGroupFormObj> getOptionalComponentsForm( boolean forceRead );
 
 	/**
 	 *	Internal use only.

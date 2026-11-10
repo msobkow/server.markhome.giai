@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGelPopTableObj
+public interface IYCFGenKbGelPopTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbGelPopTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGelPopObj newInstance();
+	IYCFGenKbGelPopObj newInstance();
 
 	/**
 	 *	Instantiate a new GelPop edition of the specified GelPop instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGelPopEditObj newEditInstance( ICFGenKbGelPopObj orig );
+	IYCFGenKbGelPopEditObj newEditInstance( IYCFGenKbGelPopObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPopObj realiseGelPop( ICFGenKbGelPopObj Obj );
+	IYCFGenKbGelPopObj realiseGelPop( IYCFGenKbGelPopObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPopObj createGelPop( ICFGenKbGelPopObj Obj );
+	IYCFGenKbGelPopObj createGelPop( IYCFGenKbGelPopObj Obj );
 
 	/**
 	 *	Read a GelPop-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbGelPopTableObj
 	 *	@return	The GelPop-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelPopObj readGelPop( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelPopObj readGelPop( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Read a GelPop-derived instance by it's primary key.
@@ -91,40 +91,40 @@ public interface ICFGenKbGelPopTableObj
 	 *	@return	The GelPop-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGelPopObj readGelPop( CFGenKbGelInstructionPKey pkey,
+	IYCFGenKbGelPopObj readGelPop( YCFGenKbGelInstructionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGelPopObj readCachedGelPop( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelPopObj readCachedGelPop( YCFGenKbGelInstructionPKey pkey );
 
-	public void reallyDeepDisposeGelPop( ICFGenKbGelPopObj obj );
+	public void reallyDeepDisposeGelPop( IYCFGenKbGelPopObj obj );
 
-	void deepDisposeGelPop( CFGenKbGelInstructionPKey pkey );
+	void deepDisposeGelPop( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPopObj lockGelPop( CFGenKbGelInstructionPKey pkey );
+	IYCFGenKbGelPopObj lockGelPop( YCFGenKbGelInstructionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GelPop-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelPopObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelPopObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readAllGelPop();
+	List<IYCFGenKbGelPopObj> readAllGelPop();
 
 	/**
 	 *	Return a sorted map of all the GelPop-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGelPopObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGelPopObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readAllGelPop( boolean forceRead );
+	List<IYCFGenKbGelPopObj> readAllGelPop( boolean forceRead );
 
-	List<ICFGenKbGelPopObj> readCachedAllGelPop();
+	List<IYCFGenKbGelPopObj> readCachedAllGelPop();
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelPop key attribute of the instance generating the id.
 	 *
@@ -132,15 +132,15 @@ public interface ICFGenKbGelPopTableObj
 	 *
 	 *	@param	argGelInstId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelPopObj readGelPopByPIdx( long TenantId,
+	IYCFGenKbGelPopObj readGelPopByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
 	/**
-	 *	Get the CFGenKbGelInstructionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGelInstructionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GelPop key attribute of the instance generating the id.
 	 *
@@ -148,64 +148,64 @@ public interface ICFGenKbGelPopTableObj
 	 *
 	 *	@param	argGelInstId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGelInstructionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGelInstructionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGelPopObj readGelPopByPIdx( long TenantId,
+	IYCFGenKbGelPopObj readGelPopByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readGelPopByTenantIdx( long TenantId );
+	List<IYCFGenKbGelPopObj> readGelPopByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGelPopObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGelPopObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readGelPopByTenantIdx( long TenantId,
+	List<IYCFGenKbGelPopObj> readGelPopByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelPop key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readGelPopByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelPopObj> readGelPopByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
 	/**
-	 *	Get the map of CFGenKbGelPopObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
+	 *	Get the map of YCFGenKbGelPopObj instances sorted by their primary keys for the duplicate GelCacheIdx key.
 	 *
 	 *	@param	argTenantId	The GelPop key attribute of the instance generating the id.
 	 *
 	 *	@param	argGelCacheId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
+	 *	@return	List of YCFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate GelCacheIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readGelPopByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelPopObj> readGelPopByGelCacheIdx( long TenantId,
 		long GelCacheId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelInstructionObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelPop key attribute of the instance generating the id.
 	 *
@@ -213,15 +213,15 @@ public interface ICFGenKbGelPopTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readGelPopByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelPopObj> readGelPopByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelPopObj instances sorted by their primary keys for the duplicate ChainIdx key.
+	 *	Get the map of YCFGenKbGelPopObj instances sorted by their primary keys for the duplicate ChainIdx key.
 	 *
 	 *	@param	argChainInstTenantId	The GelPop key attribute of the instance generating the id.
 	 *
@@ -229,16 +229,16 @@ public interface ICFGenKbGelPopTableObj
 	 *
 	 *	@param	argChainInstGelInstId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
+	 *	@return	List of YCFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate ChainIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readGelPopByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelPopObj> readGelPopByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGelPopObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelPopObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelPop key attribute of the instance generating the id.
 	 *
@@ -246,15 +246,15 @@ public interface ICFGenKbGelPopTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readGelPopByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelPopObj> readGelPopByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
 	/**
-	 *	Get the map of CFGenKbGelPopObj instances sorted by their primary keys for the duplicate RemainderIdx key.
+	 *	Get the map of YCFGenKbGelPopObj instances sorted by their primary keys for the duplicate RemainderIdx key.
 	 *
 	 *	@param	argRemainderTenantId	The GelPop key attribute of the instance generating the id.
 	 *
@@ -262,28 +262,28 @@ public interface ICFGenKbGelPopTableObj
 	 *
 	 *	@param	argRemainderInstId	The GelPop key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
+	 *	@return	List of YCFGenKbGelPopObj cached instances sorted by their primary keys for the duplicate RemainderIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGelPopObj> readGelPopByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelPopObj> readGelPopByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId,
 		boolean forceRead );
 
-	ICFGenKbGelPopObj readCachedGelPopByPIdx( long TenantId,
+	IYCFGenKbGelPopObj readCachedGelPopByPIdx( long TenantId,
 		long GelCacheId,
 		long GelInstId );
 
-	List<ICFGenKbGelPopObj> readCachedGelPopByTenantIdx( long TenantId );
+	List<IYCFGenKbGelPopObj> readCachedGelPopByTenantIdx( long TenantId );
 
-	List<ICFGenKbGelPopObj> readCachedGelPopByGelCacheIdx( long TenantId,
+	List<IYCFGenKbGelPopObj> readCachedGelPopByGelCacheIdx( long TenantId,
 		long GelCacheId );
 
-	List<ICFGenKbGelPopObj> readCachedGelPopByChainIdx( Long ChainInstTenantId,
+	List<IYCFGenKbGelPopObj> readCachedGelPopByChainIdx( Long ChainInstTenantId,
 		Long ChainInstGelCacheId,
 		Long ChainInstGelInstId );
 
-	List<ICFGenKbGelPopObj> readCachedGelPopByRemainderIdx( Long RemainderTenantId,
+	List<IYCFGenKbGelPopObj> readCachedGelPopByRemainderIdx( Long RemainderTenantId,
 		long RemainderGelCacheId,
 		Long RemainderInstId );
 
@@ -307,12 +307,12 @@ public interface ICFGenKbGelPopTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGelPopObj updateGelPop( ICFGenKbGelPopObj Obj );
+	IYCFGenKbGelPopObj updateGelPop( IYCFGenKbGelPopObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGelPop( ICFGenKbGelPopObj Obj );
+	void deleteGelPop( IYCFGenKbGelPopObj Obj );
 
 	/**
 	 *	Internal use only.

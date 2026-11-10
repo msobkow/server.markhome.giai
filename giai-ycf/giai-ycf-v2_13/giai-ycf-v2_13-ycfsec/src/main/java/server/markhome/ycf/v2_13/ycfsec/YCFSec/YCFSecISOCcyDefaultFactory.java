@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for ISOCcy.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,51 +35,51 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFSecISOCcyFactory implementation for ISOCcy
+	 *	YCFSecISOCcyFactory implementation for ISOCcy
 	 */
-public class CFSecISOCcyDefaultFactory
-	implements ICFSecISOCcyFactory
+public class YCFSecISOCcyDefaultFactory
+	implements IYCFSecISOCcyFactory
 {
-	public CFSecISOCcyDefaultFactory() {
+	public YCFSecISOCcyDefaultFactory() {
 	}
 
-	public CFSecISOCcyPKey newPKey() {
-		CFSecISOCcyPKey pkey =
-			new CFSecISOCcyPKey();
+	public YCFSecISOCcyPKey newPKey() {
+		YCFSecISOCcyPKey pkey =
+			new YCFSecISOCcyPKey();
 		return( pkey );
 	}
 
-	public CFSecISOCcyHPKey newHPKey() {
-		CFSecISOCcyHPKey hpkey =
-			new CFSecISOCcyHPKey();
+	public YCFSecISOCcyHPKey newHPKey() {
+		YCFSecISOCcyHPKey hpkey =
+			new YCFSecISOCcyHPKey();
 		return( hpkey );
 	}
 
-	public CFSecISOCcyByCcyCdIdxKey newCcyCdIdxKey() {
-		CFSecISOCcyByCcyCdIdxKey key =
-			new CFSecISOCcyByCcyCdIdxKey();
+	public YCFSecISOCcyByCcyCdIdxKey newCcyCdIdxKey() {
+		YCFSecISOCcyByCcyCdIdxKey key =
+			new YCFSecISOCcyByCcyCdIdxKey();
 		return( key );
 	}
 
-	public CFSecISOCcyByCcyNmIdxKey newCcyNmIdxKey() {
-		CFSecISOCcyByCcyNmIdxKey key =
-			new CFSecISOCcyByCcyNmIdxKey();
+	public YCFSecISOCcyByCcyNmIdxKey newCcyNmIdxKey() {
+		YCFSecISOCcyByCcyNmIdxKey key =
+			new YCFSecISOCcyByCcyNmIdxKey();
 		return( key );
 	}
 
-	public CFSecISOCcyBuff newBuff() {
-		CFSecISOCcyBuff buff =
-			new CFSecISOCcyBuff();
+	public YCFSecISOCcyBuff newBuff() {
+		YCFSecISOCcyBuff buff =
+			new YCFSecISOCcyBuff();
 		return( buff );
 	}
 
-	public CFSecISOCcyHBuff newHBuff() {
-		CFSecISOCcyHBuff hbuff =
-			new CFSecISOCcyHBuff();
+	public YCFSecISOCcyHBuff newHBuff() {
+		YCFSecISOCcyHBuff hbuff =
+			new YCFSecISOCcyHBuff();
 		return( hbuff );
 	}
 }

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecUser by DefDevIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSecUserByDefDevIdxKey
+public class YCFGenKbSecUserByDefDevIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected UUID optionalDfltDevUserId;
 	protected String optionalDfltDevName;
-	public CFGenKbSecUserByDefDevIdxKey() {
+	public YCFGenKbSecUserByDefDevIdxKey() {
 		optionalDfltDevUserId = null;
 		optionalDfltDevName = null;
 	}
@@ -73,7 +73,7 @@ public class CFGenKbSecUserByDefDevIdxKey
 			optionalDfltDevName = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDfltDevName",
 				1,
 				"value.length()",
@@ -89,8 +89,8 @@ public class CFGenKbSecUserByDefDevIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecUserByDefDevIdxKey ) {
-			CFGenKbSecUserByDefDevIdxKey rhs = (CFGenKbSecUserByDefDevIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecUserByDefDevIdxKey ) {
+			YCFGenKbSecUserByDefDevIdxKey rhs = (YCFGenKbSecUserByDefDevIdxKey)obj;
 			if( getOptionalDfltDevUserId() != null ) {
 				if( rhs.getOptionalDfltDevUserId() != null ) {
 					if( ! getOptionalDfltDevUserId().equals( rhs.getOptionalDfltDevUserId() ) ) {
@@ -117,8 +117,8 @@ public class CFGenKbSecUserByDefDevIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecUserBuff ) {
-			CFGenKbSecUserBuff rhs = (CFGenKbSecUserBuff)obj;
+		else if( obj instanceof YCFGenKbSecUserBuff ) {
+			YCFGenKbSecUserBuff rhs = (YCFGenKbSecUserBuff)obj;
 			if( getOptionalDfltDevUserId() != null ) {
 				if( rhs.getOptionalDfltDevUserId() != null ) {
 					if( ! getOptionalDfltDevUserId().equals( rhs.getOptionalDfltDevUserId() ) ) {
@@ -165,8 +165,8 @@ public class CFGenKbSecUserByDefDevIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbSecUserByDefDevIdxKey ) {
-			CFGenKbSecUserByDefDevIdxKey rhs = (CFGenKbSecUserByDefDevIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecUserByDefDevIdxKey ) {
+			YCFGenKbSecUserByDefDevIdxKey rhs = (YCFGenKbSecUserByDefDevIdxKey)obj;
 			if( getOptionalDfltDevUserId() != null ) {
 				if( rhs.getOptionalDfltDevUserId() != null ) {
 					int cmp = getOptionalDfltDevUserId().compareTo( rhs.getOptionalDfltDevUserId() );
@@ -201,8 +201,8 @@ public class CFGenKbSecUserByDefDevIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecUserBuff ) {
-			CFGenKbSecUserBuff rhs = (CFGenKbSecUserBuff)obj;
+		else if( obj instanceof YCFGenKbSecUserBuff ) {
+			YCFGenKbSecUserBuff rhs = (YCFGenKbSecUserBuff)obj;
 			if( getOptionalDfltDevUserId() != null ) {
 				if( rhs.getOptionalDfltDevUserId() != null ) {
 					int cmp = getOptionalDfltDevUserId().compareTo( rhs.getOptionalDfltDevUserId() );
@@ -238,7 +238,7 @@ public class CFGenKbSecUserByDefDevIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -247,9 +247,9 @@ public class CFGenKbSecUserByDefDevIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbSecUserByDefDevIdx"
+		String ret = "<YCFGenKbSecUserByDefDevIdx"
 			+ " OptionalDfltDevUserId=" + ( ( getOptionalDfltDevUserId() == null ) ? "null" : "\"" + getOptionalDfltDevUserId().toString() + "\"" )
-			+ " OptionalDfltDevName=" + ( ( getOptionalDfltDevName() == null ) ? "null" : "\"" + CFGenKbSchema.xmlEncodeString( getOptionalDfltDevName() ) + "\"" )
+			+ " OptionalDfltDevName=" + ( ( getOptionalDfltDevName() == null ) ? "null" : "\"" + YCFGenKbSchema.xmlEncodeString( getOptionalDfltDevName() ) + "\"" )
 			+ "/>";
 		return( ret );
 	}

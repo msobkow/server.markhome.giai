@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for ServiceType
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,23 +35,23 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSaxLoaderServiceTypeParse XML SAX Element Handler implementation
+ *	YCFBamSaxLoaderServiceTypeParse XML SAX Element Handler implementation
  *	for ServiceType.
  */
-public class CFBamSaxLoaderServiceType
-	extends CFLibXmlCoreElementHandler
+public class YCFBamSaxLoaderServiceType
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamSaxLoaderServiceType( CFBamSaxLoader saxLoader ) {
+	public YCFBamSaxLoaderServiceType( YCFBamSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -63,8 +63,8 @@ public class CFBamSaxLoaderServiceType
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFBamServiceTypeObj origBuff = null;
-		ICFBamServiceTypeEditObj editBuff = null;
+		IYCFBamServiceTypeObj origBuff = null;
+		IYCFBamServiceTypeEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// ServiceType Attributes
@@ -78,25 +78,25 @@ public class CFBamSaxLoaderServiceType
 		try {
 			assert qName.equals( "ServiceType" );
 
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFBamServiceTypeObj)schemaObj.getServiceTypeTableObj().newInstance();
-			editBuff = (ICFBamServiceTypeEditObj)origBuff.beginEdit();
+			origBuff = (IYCFBamServiceTypeObj)schemaObj.getServiceTypeTableObj().newInstance();
+			editBuff = (IYCFBamServiceTypeEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -104,7 +104,7 @@ public class CFBamSaxLoaderServiceType
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -113,7 +113,7 @@ public class CFBamSaxLoaderServiceType
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -124,7 +124,7 @@ public class CFBamSaxLoaderServiceType
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -133,14 +133,14 @@ public class CFBamSaxLoaderServiceType
 
 			// Ensure that required attributes have values
 			if( attrDescription == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Description" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Description", attrDescription );
 
@@ -159,7 +159,7 @@ public class CFBamSaxLoaderServiceType
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -168,9 +168,9 @@ public class CFBamSaxLoaderServiceType
 				scopeObj = null;
 			}
 
-			CFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getServiceTypeLoaderBehaviour();
-			ICFBamServiceTypeEditObj editServiceType = null;
-			ICFBamServiceTypeObj origServiceType = (ICFBamServiceTypeObj)schemaObj.getServiceTypeTableObj().readServiceTypeByUDescrIdx( editBuff.getRequiredDescription() );
+			YCFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getServiceTypeLoaderBehaviour();
+			IYCFBamServiceTypeEditObj editServiceType = null;
+			IYCFBamServiceTypeObj origServiceType = (IYCFBamServiceTypeObj)schemaObj.getServiceTypeTableObj().readServiceTypeByUDescrIdx( editBuff.getRequiredDescription() );
 			if( origServiceType == null ) {
 				editServiceType = editBuff;
 			}
@@ -179,11 +179,11 @@ public class CFBamSaxLoaderServiceType
 					case Insert:
 						break;
 					case Update:
-						editServiceType = (ICFBamServiceTypeEditObj)origServiceType.beginEdit();
+						editServiceType = (IYCFBamServiceTypeEditObj)origServiceType.beginEdit();
 						editServiceType.setRequiredDescription( editBuff.getRequiredDescription() );
 						break;
 					case Replace:
-						editServiceType = (ICFBamServiceTypeEditObj)origServiceType.beginEdit();
+						editServiceType = (IYCFBamServiceTypeEditObj)origServiceType.beginEdit();
 						editServiceType.deleteInstance();
 						editServiceType = null;
 						origServiceType = null;
@@ -197,7 +197,7 @@ public class CFBamSaxLoaderServiceType
 					editServiceType.update();
 				}
 				else {
-					origServiceType = (ICFBamServiceTypeObj)editServiceType.create();
+					origServiceType = (IYCFBamServiceTypeObj)editServiceType.create();
 				}
 				editServiceType = null;
 			}

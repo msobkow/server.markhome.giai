@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,17 +21,17 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.text.*;
 import java.util.*;
 import javafx.geometry.Pos;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFTZTimeEditor
-extends CFTextField
+public class YCFTZTimeEditor
+extends YCFTextField
 {
 	protected static Format defaultFormat = null;
 
@@ -52,7 +52,7 @@ extends CFTextField
 		}
 	}
 
-	public CFTZTimeEditor() {
+	public YCFTZTimeEditor() {
 		super();
 		setAlignment( Pos.CENTER_LEFT );
 		setMinWidth( 150 );
@@ -71,14 +71,14 @@ extends CFTextField
 			return( true );
 		}
 		curValue = null;
-		curValue = CFLibXmlUtil.parseTZTime( fieldName, text );
+		curValue = YCFLibXmlUtil.parseTZTime( fieldName, text );
 		return( true );
 	}
 
 	public void setTZTimeValue( Calendar value ) {
 		curValue = value;
 		if( curValue != null ) {
-			String str = CFLibXmlUtil.formatTZTime( value );
+			String str = YCFLibXmlUtil.formatTZTime( value );
 			setText( str );
 		}
 		else {
@@ -107,7 +107,7 @@ extends CFTextField
 			return( curValue );
 		}
 		else {
-			throw new CFLibInvalidArgumentException( fieldName,
+			throw new YCFLibInvalidArgumentException( fieldName,
 					S_ProcName,
 					0,
 					"text",

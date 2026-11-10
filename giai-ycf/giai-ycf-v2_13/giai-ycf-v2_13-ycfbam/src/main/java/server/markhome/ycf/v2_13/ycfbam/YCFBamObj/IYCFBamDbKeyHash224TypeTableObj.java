@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamDbKeyHash224TypeTableObj
+public interface IYCFBamDbKeyHash224TypeTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,24 +76,24 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamDbKeyHash224TypeObj newInstance();
+	IYCFBamDbKeyHash224TypeObj newInstance();
 
 	/**
 	 *	Instantiate a new DbKeyHash224Type edition of the specified DbKeyHash224Type instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamDbKeyHash224TypeEditObj newEditInstance( ICFBamDbKeyHash224TypeObj orig );
+	IYCFBamDbKeyHash224TypeEditObj newEditInstance( IYCFBamDbKeyHash224TypeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDbKeyHash224TypeObj realiseDbKeyHash224Type( ICFBamDbKeyHash224TypeObj Obj );
+	IYCFBamDbKeyHash224TypeObj realiseDbKeyHash224Type( IYCFBamDbKeyHash224TypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDbKeyHash224TypeObj createDbKeyHash224Type( ICFBamDbKeyHash224TypeObj Obj );
+	IYCFBamDbKeyHash224TypeObj createDbKeyHash224Type( IYCFBamDbKeyHash224TypeObj Obj );
 
 	/**
 	 *	Read a DbKeyHash224Type-derived instance by it's primary key.
@@ -103,7 +103,7 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *	@return	The DbKeyHash224Type-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDbKeyHash224TypeObj readDbKeyHash224Type( CFBamValuePKey pkey );
+	IYCFBamDbKeyHash224TypeObj readDbKeyHash224Type( YCFBamValuePKey pkey );
 
 	/**
 	 *	Read a DbKeyHash224Type-derived instance by it's primary key.
@@ -113,67 +113,67 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *	@return	The DbKeyHash224Type-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamDbKeyHash224TypeObj readDbKeyHash224Type( CFBamValuePKey pkey,
+	IYCFBamDbKeyHash224TypeObj readDbKeyHash224Type( YCFBamValuePKey pkey,
 		boolean forceRead );
 
-	ICFBamDbKeyHash224TypeObj readCachedDbKeyHash224Type( CFBamValuePKey pkey );
+	IYCFBamDbKeyHash224TypeObj readCachedDbKeyHash224Type( YCFBamValuePKey pkey );
 
-	public void reallyDeepDisposeDbKeyHash224Type( ICFBamDbKeyHash224TypeObj obj );
+	public void reallyDeepDisposeDbKeyHash224Type( IYCFBamDbKeyHash224TypeObj obj );
 
-	void deepDisposeDbKeyHash224Type( CFBamValuePKey pkey );
+	void deepDisposeDbKeyHash224Type( YCFBamValuePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDbKeyHash224TypeObj lockDbKeyHash224Type( CFBamValuePKey pkey );
+	IYCFBamDbKeyHash224TypeObj lockDbKeyHash224Type( YCFBamValuePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the DbKeyHash224Type-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDbKeyHash224TypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDbKeyHash224TypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readAllDbKeyHash224Type();
+	List<IYCFBamDbKeyHash224TypeObj> readAllDbKeyHash224Type();
 
 	/**
 	 *	Return a sorted map of all the DbKeyHash224Type-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamDbKeyHash224TypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamDbKeyHash224TypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readAllDbKeyHash224Type( boolean forceRead );
+	List<IYCFBamDbKeyHash224TypeObj> readAllDbKeyHash224Type( boolean forceRead );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedAllDbKeyHash224Type();
+	List<IYCFBamDbKeyHash224TypeObj> readCachedAllDbKeyHash224Type();
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the primary key, or
+	 *	@return	YCFBamValueObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDbKeyHash224TypeObj readDbKeyHash224TypeByIdIdx( long TenantId,
+	IYCFBamDbKeyHash224TypeObj readDbKeyHash224TypeByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamValueObj instance for the primary key attributes.
+	 *	Get the YCFBamValueObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the primary key, or
+	 *	@return	YCFBamValueObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDbKeyHash224TypeObj readDbKeyHash224TypeByIdIdx( long TenantId,
+	IYCFBamDbKeyHash224TypeObj readDbKeyHash224TypeByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
@@ -181,15 +181,15 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@param	argName	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDbKeyHash224TypeObj readDbKeyHash224TypeByUNameIdx( long TenantId,
+	IYCFBamDbKeyHash224TypeObj readDbKeyHash224TypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamValueObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamValueObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
@@ -197,145 +197,145 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@param	argName	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamValueObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamValueObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamDbKeyHash224TypeObj readDbKeyHash224TypeByUNameIdx( long TenantId,
+	IYCFBamDbKeyHash224TypeObj readDbKeyHash224TypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByValTentIdx( long TenantId );
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByValTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ValTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByValTentIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByValTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByScopeIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByScopeIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate PrevIdx key.
 	 *
 	 *	@param	argPrevTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argPrevId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate PrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByNextIdx( Long NextTenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate NextIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate NextIdx key.
 	 *
 	 *	@param	argNextTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argNextId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate NextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByNextIdx( Long NextTenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByNextIdx( Long NextTenantId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
@@ -343,15 +343,15 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@param	argPrevId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByContPrevIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ContPrevIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
@@ -359,16 +359,16 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@param	argPrevId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ContPrevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByContPrevIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
@@ -376,15 +376,15 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@param	argNextId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByContNextIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ContNextIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
@@ -392,37 +392,37 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@param	argNextId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ContNextIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByContNextIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
 	 *
 	 *	@param	argCodeVis	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
@@ -430,15 +430,15 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@param	argCodeVis	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
@@ -446,77 +446,77 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@param	argCodeVis	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeBySchemaIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	/**
-	 *	Get the map of CFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
+	 *	Get the map of YCFBamDbKeyHash224TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
 	 *	@param	argSchemaDefId	The DbKeyHash224Type key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
+	 *	@return	List of YCFBamDbKeyHash224TypeObj cached instances sorted by their primary keys for the duplicate SchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamDbKeyHash224TypeObj> readDbKeyHash224TypeBySchemaIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readDbKeyHash224TypeBySchemaIdx( long TenantId,
 		long SchemaDefId,
 		boolean forceRead );
 
-	ICFBamDbKeyHash224TypeObj readCachedDbKeyHash224TypeByIdIdx( long TenantId,
+	IYCFBamDbKeyHash224TypeObj readCachedDbKeyHash224TypeByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamDbKeyHash224TypeObj readCachedDbKeyHash224TypeByUNameIdx( long TenantId,
+	IYCFBamDbKeyHash224TypeObj readCachedDbKeyHash224TypeByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByValTentIdx( long TenantId );
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByValTentIdx( long TenantId );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByScopeIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByPrevIdx( Long PrevTenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByPrevIdx( Long PrevTenantId,
 		Long PrevId );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByNextIdx( Long NextTenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByNextIdx( Long NextTenantId,
 		Long NextId );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByContPrevIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByContPrevIdx( long TenantId,
 		long ScopeId,
 		Long PrevId );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByContNextIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByScopeCodeVisIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
-	List<ICFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeBySchemaIdx( long TenantId,
+	List<IYCFBamDbKeyHash224TypeObj> readCachedDbKeyHash224TypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
 	void deepDisposeDbKeyHash224TypeByIdIdx( long TenantId,
@@ -548,11 +548,11 @@ public interface ICFBamDbKeyHash224TypeTableObj
 		long ScopeId,
 		Long NextId );
 
-	void deepDisposeDbKeyHash224TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deepDisposeDbKeyHash224TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDbKeyHash224TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDbKeyHash224TypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -560,12 +560,12 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamDbKeyHash224TypeObj updateDbKeyHash224Type( ICFBamDbKeyHash224TypeObj Obj );
+	IYCFBamDbKeyHash224TypeObj updateDbKeyHash224Type( IYCFBamDbKeyHash224TypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteDbKeyHash224Type( ICFBamDbKeyHash224TypeObj Obj );
+	void deleteDbKeyHash224Type( IYCFBamDbKeyHash224TypeObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -668,7 +668,7 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 *
 	 *	@param	argCodeVis	The DbKeyHash224Type key attribute of the instance generating the id.
 	 */
-	void deleteDbKeyHash224TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+	void deleteDbKeyHash224TypeByCodeVisIdx( IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -681,7 +681,7 @@ public interface ICFBamDbKeyHash224TypeTableObj
 	 */
 	void deleteDbKeyHash224TypeByScopeCodeVisIdx( long TenantId,
 		long ScopeId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -694,16 +694,16 @@ public interface ICFBamDbKeyHash224TypeTableObj
 		long SchemaDefId );
 
 	/**
-	 *	Move the CFBamDbKeyHash224TypeObj instance up in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamDbKeyHash224TypeObj instance up in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamDbKeyHash224TypeObj refreshed cache instance.
+	 *	@return	YCFBamDbKeyHash224TypeObj refreshed cache instance.
 	 */
-	ICFBamDbKeyHash224TypeObj moveUpDbKeyHash224Type( ICFBamDbKeyHash224TypeObj Obj );
+	IYCFBamDbKeyHash224TypeObj moveUpDbKeyHash224Type( IYCFBamDbKeyHash224TypeObj Obj );
 
 	/**
-	 *	Move the CFBamDbKeyHash224TypeObj instance down in the chain.  The instance is always refreshed.
+	 *	Move the YCFBamDbKeyHash224TypeObj instance down in the chain.  The instance is always refreshed.
 	 *
-	 *	@return	CFBamDbKeyHash224TypeObj refreshed cache instance.
+	 *	@return	YCFBamDbKeyHash224TypeObj refreshed cache instance.
 	 */
-	ICFBamDbKeyHash224TypeObj moveDownDbKeyHash224Type( ICFBamDbKeyHash224TypeObj Obj );
+	IYCFBamDbKeyHash224TypeObj moveDownDbKeyHash224Type( IYCFBamDbKeyHash224TypeObj Obj );
 }

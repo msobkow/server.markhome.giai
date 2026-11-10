@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SecGroupForm history buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,41 +36,41 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecSecGroupFormHBuff
+public class YCFSecSecGroupFormHBuff
 
-	extends CFSecHPKey	implements Comparable<Object>,
+	extends YCFSecHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final long CLUSTERID_INIT_VALUE = 0L;
 	public static final long SECGROUPFORMID_INIT_VALUE = 0L;
 	public static final int SECGROUPID_INIT_VALUE = 0;
 	public static final int SECAPPID_INIT_VALUE = 0;
-	public static final int SECFORMID_INIT_VALUE = 0;
+	public static final int SEYCFORMID_INIT_VALUE = 0;
 	public static final long CLUSTERID_MIN_VALUE = 0L;
 	public static final long SECGROUPFORMID_MIN_VALUE = 0L;
 	public static final int SECGROUPID_MIN_VALUE = 0;
 	public static final int SECAPPID_MIN_VALUE = 0;
-	public static final int SECFORMID_MIN_VALUE = 0;
+	public static final int SEYCFORMID_MIN_VALUE = 0;
 
 	protected long requiredClusterId;
 	protected long requiredSecGroupFormId;
 	protected int requiredSecGroupId;
 	protected int requiredSecAppId;
 	protected int requiredSecFormId;
-	public CFSecSecGroupFormHBuff() {
+	public YCFSecSecGroupFormHBuff() {
 		super();
-		requiredClusterId = CFSecSecGroupFormBuff.CLUSTERID_INIT_VALUE;
-		requiredSecGroupFormId = CFSecSecGroupFormBuff.SECGROUPFORMID_INIT_VALUE;
-		requiredSecGroupId = CFSecSecGroupFormBuff.SECGROUPID_INIT_VALUE;
-		requiredSecAppId = CFSecSecGroupFormBuff.SECAPPID_INIT_VALUE;
-		requiredSecFormId = CFSecSecGroupFormBuff.SECFORMID_INIT_VALUE;
+		requiredClusterId = YCFSecSecGroupFormBuff.CLUSTERID_INIT_VALUE;
+		requiredSecGroupFormId = YCFSecSecGroupFormBuff.SECGROUPFORMID_INIT_VALUE;
+		requiredSecGroupId = YCFSecSecGroupFormBuff.SECGROUPID_INIT_VALUE;
+		requiredSecAppId = YCFSecSecGroupFormBuff.SECAPPID_INIT_VALUE;
+		requiredSecFormId = YCFSecSecGroupFormBuff.SEYCFORMID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
-		return( CFSecSecGroupFormBuff.CLASS_CODE );
+		return( YCFSecSecGroupFormBuff.CLASS_CODE );
 	}
 
 	public long getRequiredClusterId() {
@@ -78,13 +78,13 @@ public class CFSecSecGroupFormHBuff
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFSecSecGroupFormBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecGroupFormBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFSecSecGroupFormBuff.CLUSTERID_MIN_VALUE );
+				YCFSecSecGroupFormBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -94,13 +94,13 @@ public class CFSecSecGroupFormHBuff
 	}
 
 	public void setRequiredSecGroupFormId( long value ) {
-		if( value < CFSecSecGroupFormBuff.SECGROUPFORMID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecGroupFormBuff.SECGROUPFORMID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecGroupFormId",
 				1,
 				"value",
 				value,
-				CFSecSecGroupFormBuff.SECGROUPFORMID_MIN_VALUE );
+				YCFSecSecGroupFormBuff.SECGROUPFORMID_MIN_VALUE );
 		}
 		requiredSecGroupFormId = value;
 	}
@@ -110,13 +110,13 @@ public class CFSecSecGroupFormHBuff
 	}
 
 	public void setRequiredSecGroupId( int value ) {
-		if( value < CFSecSecGroupFormBuff.SECGROUPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecGroupFormBuff.SECGROUPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecGroupId",
 				1,
 				"value",
 				value,
-				CFSecSecGroupFormBuff.SECGROUPID_MIN_VALUE );
+				YCFSecSecGroupFormBuff.SECGROUPID_MIN_VALUE );
 		}
 		requiredSecGroupId = value;
 	}
@@ -126,13 +126,13 @@ public class CFSecSecGroupFormHBuff
 	}
 
 	public void setRequiredSecAppId( int value ) {
-		if( value < CFSecSecGroupFormBuff.SECAPPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecGroupFormBuff.SECAPPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecAppId",
 				1,
 				"value",
 				value,
-				CFSecSecGroupFormBuff.SECAPPID_MIN_VALUE );
+				YCFSecSecGroupFormBuff.SECAPPID_MIN_VALUE );
 		}
 		requiredSecAppId = value;
 	}
@@ -142,13 +142,13 @@ public class CFSecSecGroupFormHBuff
 	}
 
 	public void setRequiredSecFormId( int value ) {
-		if( value < CFSecSecGroupFormBuff.SECFORMID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecGroupFormBuff.SEYCFORMID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecFormId",
 				1,
 				"value",
 				value,
-				CFSecSecGroupFormBuff.SECFORMID_MIN_VALUE );
+				YCFSecSecGroupFormBuff.SEYCFORMID_MIN_VALUE );
 		}
 		requiredSecFormId = value;
 	}
@@ -157,8 +157,8 @@ public class CFSecSecGroupFormHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSecGroupFormHBuff ) {
-			CFSecSecGroupFormHBuff rhs = (CFSecSecGroupFormHBuff)obj;
+		else if( obj instanceof YCFSecSecGroupFormHBuff ) {
+			YCFSecSecGroupFormHBuff rhs = (YCFSecSecGroupFormHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -179,8 +179,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecGroupFormBuff ) {
-			CFSecSecGroupFormBuff rhs = (CFSecSecGroupFormBuff)obj;
+		else if( obj instanceof YCFSecSecGroupFormBuff ) {
+			YCFSecSecGroupFormBuff rhs = (YCFSecSecGroupFormBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -201,15 +201,15 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecGroupFormByClusterIdxKey ) {
-			CFSecSecGroupFormByClusterIdxKey rhs = (CFSecSecGroupFormByClusterIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByClusterIdxKey ) {
+			YCFSecSecGroupFormByClusterIdxKey rhs = (YCFSecSecGroupFormByClusterIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecGroupFormByGroupIdxKey ) {
-			CFSecSecGroupFormByGroupIdxKey rhs = (CFSecSecGroupFormByGroupIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByGroupIdxKey ) {
+			YCFSecSecGroupFormByGroupIdxKey rhs = (YCFSecSecGroupFormByGroupIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -218,8 +218,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecGroupFormByAppIdxKey ) {
-			CFSecSecGroupFormByAppIdxKey rhs = (CFSecSecGroupFormByAppIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByAppIdxKey ) {
+			YCFSecSecGroupFormByAppIdxKey rhs = (YCFSecSecGroupFormByAppIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -228,8 +228,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecGroupFormByFormIdxKey ) {
-			CFSecSecGroupFormByFormIdxKey rhs = (CFSecSecGroupFormByFormIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByFormIdxKey ) {
+			YCFSecSecGroupFormByFormIdxKey rhs = (YCFSecSecGroupFormByFormIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -238,8 +238,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecGroupFormByUFormIdxKey ) {
-			CFSecSecGroupFormByUFormIdxKey rhs = (CFSecSecGroupFormByUFormIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByUFormIdxKey ) {
+			YCFSecSecGroupFormByUFormIdxKey rhs = (YCFSecSecGroupFormByUFormIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -251,8 +251,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecGroupFormHPKey ) {
-			CFSecSecGroupFormHPKey rhs = (CFSecSecGroupFormHPKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormHPKey ) {
+			YCFSecSecGroupFormHPKey rhs = (YCFSecSecGroupFormHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -316,8 +316,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -375,8 +375,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecGroupFormPKey ) {
-			CFSecSecGroupFormPKey rhs = (CFSecSecGroupFormPKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormPKey ) {
+			YCFSecSecGroupFormPKey rhs = (YCFSecSecGroupFormPKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -404,16 +404,16 @@ public class CFSecSecGroupFormHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecSecGroupFormBuff ) {
-			CFSecSecGroupFormBuff rhs = (CFSecSecGroupFormBuff)obj;
+		else if( obj instanceof YCFSecSecGroupFormBuff ) {
+			YCFSecSecGroupFormBuff rhs = (YCFSecSecGroupFormBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecGroupFormByClusterIdxKey ) {
-			CFSecSecGroupFormByClusterIdxKey rhs = (CFSecSecGroupFormByClusterIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByClusterIdxKey ) {
+			YCFSecSecGroupFormByClusterIdxKey rhs = (YCFSecSecGroupFormByClusterIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -422,8 +422,8 @@ public class CFSecSecGroupFormHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecGroupFormByGroupIdxKey ) {
-			CFSecSecGroupFormByGroupIdxKey rhs = (CFSecSecGroupFormByGroupIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByGroupIdxKey ) {
+			YCFSecSecGroupFormByGroupIdxKey rhs = (YCFSecSecGroupFormByGroupIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -438,8 +438,8 @@ public class CFSecSecGroupFormHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecGroupFormByAppIdxKey ) {
-			CFSecSecGroupFormByAppIdxKey rhs = (CFSecSecGroupFormByAppIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByAppIdxKey ) {
+			YCFSecSecGroupFormByAppIdxKey rhs = (YCFSecSecGroupFormByAppIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -454,8 +454,8 @@ public class CFSecSecGroupFormHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecGroupFormByFormIdxKey ) {
-			CFSecSecGroupFormByFormIdxKey rhs = (CFSecSecGroupFormByFormIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByFormIdxKey ) {
+			YCFSecSecGroupFormByFormIdxKey rhs = (YCFSecSecGroupFormByFormIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -470,8 +470,8 @@ public class CFSecSecGroupFormHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecGroupFormByUFormIdxKey ) {
-			CFSecSecGroupFormByUFormIdxKey rhs = (CFSecSecGroupFormByUFormIdxKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormByUFormIdxKey ) {
+			YCFSecSecGroupFormByUFormIdxKey rhs = (YCFSecSecGroupFormByUFormIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -492,8 +492,8 @@ public class CFSecSecGroupFormHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecGroupFormHBuff ) {
-			CFSecSecGroupFormHBuff rhs = (CFSecSecGroupFormHBuff)obj;
+		else if( obj instanceof YCFSecSecGroupFormHBuff ) {
+			YCFSecSecGroupFormHBuff rhs = (YCFSecSecGroupFormHBuff)obj;
 
 			int retval = 0;
 			{
@@ -660,8 +660,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecGroupFormHPKey ) {
-			CFSecSecGroupFormHPKey rhs = (CFSecSecGroupFormHPKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormHPKey ) {
+			YCFSecSecGroupFormHPKey rhs = (YCFSecSecGroupFormHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -742,8 +742,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecGroupFormPKey ) {
-			CFSecSecGroupFormPKey rhs = (CFSecSecGroupFormPKey)obj;
+		else if( obj instanceof YCFSecSecGroupFormPKey ) {
+			YCFSecSecGroupFormPKey rhs = (YCFSecSecGroupFormPKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -758,8 +758,8 @@ public class CFSecSecGroupFormHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -777,11 +777,11 @@ public class CFSecSecGroupFormHBuff
 		}
 	}
 
-	public void set( CFSecSecGroupFormBuff src ) {
+	public void set( YCFSecSecGroupFormBuff src ) {
 		setSecGroupFormBuff( src );
 	}
 
-	public void setSecGroupFormBuff( CFSecSecGroupFormBuff src ) {
+	public void setSecGroupFormBuff( YCFSecSecGroupFormBuff src ) {
 		setRequiredClusterId( src.getRequiredClusterId() );
 		setRequiredSecGroupFormId( src.getRequiredSecGroupFormId() );
 		setRequiredSecGroupId( src.getRequiredSecGroupId() );
@@ -790,11 +790,11 @@ public class CFSecSecGroupFormHBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecSecGroupFormHBuff src ) {
+	public void set( YCFSecSecGroupFormHBuff src ) {
 		setSecGroupFormBuff( src );
 	}
 
-	public void setSecGroupFormBuff( CFSecSecGroupFormHBuff src ) {
+	public void setSecGroupFormBuff( YCFSecSecGroupFormHBuff src ) {
 		setRequiredClusterId( src.getRequiredClusterId() );
 		setRequiredSecGroupFormId( src.getRequiredSecGroupFormId() );
 		setRequiredSecGroupId( src.getRequiredSecGroupId() );

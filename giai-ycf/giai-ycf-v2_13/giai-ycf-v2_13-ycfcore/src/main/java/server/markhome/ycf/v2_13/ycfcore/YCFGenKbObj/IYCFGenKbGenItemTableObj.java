@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbGenItemTableObj
+public interface IYCFGenKbGenItemTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,33 +54,33 @@ public interface ICFGenKbGenItemTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbGenItemObj newInstance();
+	IYCFGenKbGenItemObj newInstance();
 
 	/**
 	 *	Instantiate a new GenItem edition of the specified GenItem instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbGenItemEditObj newEditInstance( ICFGenKbGenItemObj orig );
+	IYCFGenKbGenItemEditObj newEditInstance( IYCFGenKbGenItemObj orig );
 
 	/**
 	 *	Construct an appropriate subclass instance based on the specified class code.
 	 *
 	 *	@param	argClassCode	The class code used to identify the proposed instance class.
 	 *
-	 *	@return	ICFGenKbGenItemObj instance, which may be a subclass of a GenItem instance.
+	 *	@return	IYCFGenKbGenItemObj instance, which may be a subclass of a GenItem instance.
 	 */
-	ICFGenKbGenItemObj constructByClassCode( String argClassCode );
+	IYCFGenKbGenItemObj constructByClassCode( String argClassCode );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGenItemObj realiseGenItem( ICFGenKbGenItemObj Obj );
+	IYCFGenKbGenItemObj realiseGenItem( IYCFGenKbGenItemObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGenItemObj createGenItem( ICFGenKbGenItemObj Obj );
+	IYCFGenKbGenItemObj createGenItem( IYCFGenKbGenItemObj Obj );
 
 	/**
 	 *	Read a GenItem-derived instance by it's primary key.
@@ -90,7 +90,7 @@ public interface ICFGenKbGenItemTableObj
 	 *	@return	The GenItem-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGenItemObj readGenItem( CFGenKbGenItemPKey pkey );
+	IYCFGenKbGenItemObj readGenItem( YCFGenKbGenItemPKey pkey );
 
 	/**
 	 *	Read a GenItem-derived instance by it's primary key.
@@ -100,40 +100,40 @@ public interface ICFGenKbGenItemTableObj
 	 *	@return	The GenItem-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbGenItemObj readGenItem( CFGenKbGenItemPKey pkey,
+	IYCFGenKbGenItemObj readGenItem( YCFGenKbGenItemPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbGenItemObj readCachedGenItem( CFGenKbGenItemPKey pkey );
+	IYCFGenKbGenItemObj readCachedGenItem( YCFGenKbGenItemPKey pkey );
 
-	public void reallyDeepDisposeGenItem( ICFGenKbGenItemObj obj );
+	public void reallyDeepDisposeGenItem( IYCFGenKbGenItemObj obj );
 
-	void deepDisposeGenItem( CFGenKbGenItemPKey pkey );
+	void deepDisposeGenItem( YCFGenKbGenItemPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGenItemObj lockGenItem( CFGenKbGenItemPKey pkey );
+	IYCFGenKbGenItemObj lockGenItem( YCFGenKbGenItemPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the GenItem-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGenItemObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGenItemObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readAllGenItem();
+	List<IYCFGenKbGenItemObj> readAllGenItem();
 
 	/**
 	 *	Return a sorted map of all the GenItem-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbGenItemObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbGenItemObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readAllGenItem( boolean forceRead );
+	List<IYCFGenKbGenItemObj> readAllGenItem( boolean forceRead );
 
-	List<ICFGenKbGenItemObj> readCachedAllGenItem();
+	List<IYCFGenKbGenItemObj> readCachedAllGenItem();
 
 	/**
-	 *	Get the CFGenKbGenItemObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGenItemObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GenItem key attribute of the instance generating the id.
 	 *
@@ -141,15 +141,15 @@ public interface ICFGenKbGenItemTableObj
 	 *
 	 *	@param	argItemId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGenItemObj cached instance for the primary key, or
+	 *	@return	YCFGenKbGenItemObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGenItemObj readGenItemByItemIdIdx( long TenantId,
+	IYCFGenKbGenItemObj readGenItemByItemIdIdx( long TenantId,
 		long CartridgeId,
 		long ItemId );
 
 	/**
-	 *	Get the CFGenKbGenItemObj instance for the primary key attributes.
+	 *	Get the YCFGenKbGenItemObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The GenItem key attribute of the instance generating the id.
 	 *
@@ -157,148 +157,148 @@ public interface ICFGenKbGenItemTableObj
 	 *
 	 *	@param	argItemId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGenItemObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbGenItemObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGenItemObj readGenItemByItemIdIdx( long TenantId,
+	IYCFGenKbGenItemObj readGenItemByItemIdIdx( long TenantId,
 		long CartridgeId,
 		long ItemId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByTenantIdx( long TenantId );
+	List<IYCFGenKbGenItemObj> readGenItemByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByTenantIdx( long TenantId,
+	List<IYCFGenKbGenItemObj> readGenItemByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate CartIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate CartIdx key.
 	 *
 	 *	@param	argTenantId	The GenItem key attribute of the instance generating the id.
 	 *
 	 *	@param	argCartridgeId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate CartIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate CartIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByCartIdx( long TenantId,
+	List<IYCFGenKbGenItemObj> readGenItemByCartIdx( long TenantId,
 		long CartridgeId );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate CartIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate CartIdx key.
 	 *
 	 *	@param	argTenantId	The GenItem key attribute of the instance generating the id.
 	 *
 	 *	@param	argCartridgeId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate CartIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate CartIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByCartIdx( long TenantId,
+	List<IYCFGenKbGenItemObj> readGenItemByCartIdx( long TenantId,
 		long CartridgeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate RuleTypeIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate RuleTypeIdx key.
 	 *
 	 *	@param	argRuleTypeId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate RuleTypeIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate RuleTypeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByRuleTypeIdx( short RuleTypeId );
+	List<IYCFGenKbGenItemObj> readGenItemByRuleTypeIdx( short RuleTypeId );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate RuleTypeIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate RuleTypeIdx key.
 	 *
 	 *	@param	argRuleTypeId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate RuleTypeIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate RuleTypeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByRuleTypeIdx( short RuleTypeId,
+	List<IYCFGenKbGenItemObj> readGenItemByRuleTypeIdx( short RuleTypeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate ToolSetIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate ToolSetIdx key.
 	 *
 	 *	@param	argToolSetId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ToolSetIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ToolSetIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByToolSetIdx( short ToolSetId );
+	List<IYCFGenKbGenItemObj> readGenItemByToolSetIdx( short ToolSetId );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate ToolSetIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate ToolSetIdx key.
 	 *
 	 *	@param	argToolSetId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ToolSetIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ToolSetIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByToolSetIdx( short ToolSetId,
+	List<IYCFGenKbGenItemObj> readGenItemByToolSetIdx( short ToolSetId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argScopeDefId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByScopeIdx( Short ScopeDefId );
+	List<IYCFGenKbGenItemObj> readGenItemByScopeIdx( Short ScopeDefId );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argScopeDefId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByScopeIdx( Short ScopeDefId,
+	List<IYCFGenKbGenItemObj> readGenItemByScopeIdx( Short ScopeDefId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate GenDefIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate GenDefIdx key.
 	 *
 	 *	@param	argGenDefId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate GenDefIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate GenDefIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByGenDefIdx( short GenDefId );
+	List<IYCFGenKbGenItemObj> readGenItemByGenDefIdx( short GenDefId );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate GenDefIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate GenDefIdx key.
 	 *
 	 *	@param	argGenDefId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate GenDefIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate GenDefIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByGenDefIdx( short GenDefId,
+	List<IYCFGenKbGenItemObj> readGenItemByGenDefIdx( short GenDefId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbGenItemObj instance for the unique AltIdx key.
+	 *	Get the YCFGenKbGenItemObj instance for the unique AltIdx key.
 	 *
 	 *	@param	argName	The GenItem key attribute of the instance generating the id.
 	 *
@@ -308,16 +308,16 @@ public interface ICFGenKbGenItemTableObj
 	 *
 	 *	@param	argGenDefId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGenItemObj cached instance for the unique AltIdx key, or
+	 *	@return	YCFGenKbGenItemObj cached instance for the unique AltIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGenItemObj readGenItemByAltIdx(String Name,
+	IYCFGenKbGenItemObj readGenItemByAltIdx(String Name,
 		short ToolSetId,
 		Short ScopeDefId,
 		short GenDefId );
 
 	/**
-	 *	Get the CFGenKbGenItemObj instance for the unique AltIdx key.
+	 *	Get the YCFGenKbGenItemObj instance for the unique AltIdx key.
 	 *
 	 *	@param	argName	The GenItem key attribute of the instance generating the id.
 	 *
@@ -327,17 +327,17 @@ public interface ICFGenKbGenItemTableObj
 	 *
 	 *	@param	argGenDefId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbGenItemObj refreshed instance for the unique AltIdx key, or
+	 *	@return	YCFGenKbGenItemObj refreshed instance for the unique AltIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbGenItemObj readGenItemByAltIdx(String Name,
+	IYCFGenKbGenItemObj readGenItemByAltIdx(String Name,
 		short ToolSetId,
 		Short ScopeDefId,
 		short GenDefId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate GelExecIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate GelExecIdx key.
 	 *
 	 *	@param	argGelExecutableTenantId	The GenItem key attribute of the instance generating the id.
 	 *
@@ -345,15 +345,15 @@ public interface ICFGenKbGenItemTableObj
 	 *
 	 *	@param	argGelExecutableId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate GelExecIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate GelExecIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByGelExecIdx( Long GelExecutableTenantId,
+	List<IYCFGenKbGenItemObj> readGenItemByGelExecIdx( Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate GelExecIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate GelExecIdx key.
 	 *
 	 *	@param	argGelExecutableTenantId	The GenItem key attribute of the instance generating the id.
 	 *
@@ -361,16 +361,16 @@ public interface ICFGenKbGenItemTableObj
 	 *
 	 *	@param	argGelExecutableId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate GelExecIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate GelExecIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByGelExecIdx( Long GelExecutableTenantId,
+	List<IYCFGenKbGenItemObj> readGenItemByGelExecIdx( Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate ProbeIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate ProbeIdx key.
 	 *
 	 *	@param	argProbeTenantId	The GenItem key attribute of the instance generating the id.
 	 *
@@ -378,15 +378,15 @@ public interface ICFGenKbGenItemTableObj
 	 *
 	 *	@param	argProbeGenItemId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ProbeIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ProbeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByProbeIdx( Long ProbeTenantId,
+	List<IYCFGenKbGenItemObj> readGenItemByProbeIdx( Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
 
 	/**
-	 *	Get the map of CFGenKbGenItemObj instances sorted by their primary keys for the duplicate ProbeIdx key.
+	 *	Get the map of YCFGenKbGenItemObj instances sorted by their primary keys for the duplicate ProbeIdx key.
 	 *
 	 *	@param	argProbeTenantId	The GenItem key attribute of the instance generating the id.
 	 *
@@ -394,41 +394,41 @@ public interface ICFGenKbGenItemTableObj
 	 *
 	 *	@param	argProbeGenItemId	The GenItem key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ProbeIdx key,
+	 *	@return	List of YCFGenKbGenItemObj cached instances sorted by their primary keys for the duplicate ProbeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbGenItemObj> readGenItemByProbeIdx( Long ProbeTenantId,
+	List<IYCFGenKbGenItemObj> readGenItemByProbeIdx( Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId,
 		boolean forceRead );
 
-	ICFGenKbGenItemObj readCachedGenItemByItemIdIdx( long TenantId,
+	IYCFGenKbGenItemObj readCachedGenItemByItemIdIdx( long TenantId,
 		long CartridgeId,
 		long ItemId );
 
-	List<ICFGenKbGenItemObj> readCachedGenItemByTenantIdx( long TenantId );
+	List<IYCFGenKbGenItemObj> readCachedGenItemByTenantIdx( long TenantId );
 
-	List<ICFGenKbGenItemObj> readCachedGenItemByCartIdx( long TenantId,
+	List<IYCFGenKbGenItemObj> readCachedGenItemByCartIdx( long TenantId,
 		long CartridgeId );
 
-	List<ICFGenKbGenItemObj> readCachedGenItemByRuleTypeIdx( short RuleTypeId );
+	List<IYCFGenKbGenItemObj> readCachedGenItemByRuleTypeIdx( short RuleTypeId );
 
-	List<ICFGenKbGenItemObj> readCachedGenItemByToolSetIdx( short ToolSetId );
+	List<IYCFGenKbGenItemObj> readCachedGenItemByToolSetIdx( short ToolSetId );
 
-	List<ICFGenKbGenItemObj> readCachedGenItemByScopeIdx( Short ScopeDefId );
+	List<IYCFGenKbGenItemObj> readCachedGenItemByScopeIdx( Short ScopeDefId );
 
-	List<ICFGenKbGenItemObj> readCachedGenItemByGenDefIdx( short GenDefId );
+	List<IYCFGenKbGenItemObj> readCachedGenItemByGenDefIdx( short GenDefId );
 
-	ICFGenKbGenItemObj readCachedGenItemByAltIdx( String Name,
+	IYCFGenKbGenItemObj readCachedGenItemByAltIdx( String Name,
 		short ToolSetId,
 		Short ScopeDefId,
 		short GenDefId );
 
-	List<ICFGenKbGenItemObj> readCachedGenItemByGelExecIdx( Long GelExecutableTenantId,
+	List<IYCFGenKbGenItemObj> readCachedGenItemByGelExecIdx( Long GelExecutableTenantId,
 		Long GelExecutableGelCacheId,
 		Long GelExecutableId );
 
-	List<ICFGenKbGenItemObj> readCachedGenItemByProbeIdx( Long ProbeTenantId,
+	List<IYCFGenKbGenItemObj> readCachedGenItemByProbeIdx( Long ProbeTenantId,
 		Long ProbeCartridgeId,
 		Long ProbeGenItemId );
 
@@ -465,12 +465,12 @@ public interface ICFGenKbGenItemTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbGenItemObj updateGenItem( ICFGenKbGenItemObj Obj );
+	IYCFGenKbGenItemObj updateGenItem( IYCFGenKbGenItemObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteGenItem( ICFGenKbGenItemObj Obj );
+	void deleteGenItem( IYCFGenKbGenItemObj Obj );
 
 	/**
 	 *	Internal use only.

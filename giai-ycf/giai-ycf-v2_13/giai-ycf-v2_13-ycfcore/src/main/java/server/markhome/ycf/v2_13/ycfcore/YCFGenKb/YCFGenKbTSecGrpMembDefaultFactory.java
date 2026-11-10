@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for TSecGrpMemb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,51 +36,51 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbTSecGrpMembFactory implementation for TSecGrpMemb
+	 *	YCFGenKbTSecGrpMembFactory implementation for TSecGrpMemb
 	 */
-public class CFGenKbTSecGrpMembDefaultFactory
-	implements ICFGenKbTSecGrpMembFactory
+public class YCFGenKbTSecGrpMembDefaultFactory
+	implements IYCFGenKbTSecGrpMembFactory
 {
-	public CFGenKbTSecGrpMembDefaultFactory() {
+	public YCFGenKbTSecGrpMembDefaultFactory() {
 	}
 
-	public CFGenKbTSecGrpMembPKey newPKey() {
-		CFGenKbTSecGrpMembPKey pkey =
-			new CFGenKbTSecGrpMembPKey();
+	public YCFGenKbTSecGrpMembPKey newPKey() {
+		YCFGenKbTSecGrpMembPKey pkey =
+			new YCFGenKbTSecGrpMembPKey();
 		return( pkey );
 	}
 
-	public CFGenKbTSecGrpMembByTenantIdxKey newTenantIdxKey() {
-		CFGenKbTSecGrpMembByTenantIdxKey key =
-			new CFGenKbTSecGrpMembByTenantIdxKey();
+	public YCFGenKbTSecGrpMembByTenantIdxKey newTenantIdxKey() {
+		YCFGenKbTSecGrpMembByTenantIdxKey key =
+			new YCFGenKbTSecGrpMembByTenantIdxKey();
 		return( key );
 	}
 
-	public CFGenKbTSecGrpMembByGroupIdxKey newGroupIdxKey() {
-		CFGenKbTSecGrpMembByGroupIdxKey key =
-			new CFGenKbTSecGrpMembByGroupIdxKey();
+	public YCFGenKbTSecGrpMembByGroupIdxKey newGroupIdxKey() {
+		YCFGenKbTSecGrpMembByGroupIdxKey key =
+			new YCFGenKbTSecGrpMembByGroupIdxKey();
 		return( key );
 	}
 
-	public CFGenKbTSecGrpMembByUserIdxKey newUserIdxKey() {
-		CFGenKbTSecGrpMembByUserIdxKey key =
-			new CFGenKbTSecGrpMembByUserIdxKey();
+	public YCFGenKbTSecGrpMembByUserIdxKey newUserIdxKey() {
+		YCFGenKbTSecGrpMembByUserIdxKey key =
+			new YCFGenKbTSecGrpMembByUserIdxKey();
 		return( key );
 	}
 
-	public CFGenKbTSecGrpMembByUUserIdxKey newUUserIdxKey() {
-		CFGenKbTSecGrpMembByUUserIdxKey key =
-			new CFGenKbTSecGrpMembByUUserIdxKey();
+	public YCFGenKbTSecGrpMembByUUserIdxKey newUUserIdxKey() {
+		YCFGenKbTSecGrpMembByUUserIdxKey key =
+			new YCFGenKbTSecGrpMembByUUserIdxKey();
 		return( key );
 	}
 
-	public CFGenKbTSecGrpMembBuff newBuff() {
-		CFGenKbTSecGrpMembBuff buff =
-			new CFGenKbTSecGrpMembBuff();
+	public YCFGenKbTSecGrpMembBuff newBuff() {
+		YCFGenKbTSecGrpMembBuff buff =
+			new YCFGenKbTSecGrpMembBuff();
 		return( buff );
 	}
 }

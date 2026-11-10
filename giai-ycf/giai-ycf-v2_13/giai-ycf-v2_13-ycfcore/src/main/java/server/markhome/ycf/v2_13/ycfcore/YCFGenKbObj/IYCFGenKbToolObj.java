@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb Tool.
+// Description: Java 11 Object interface for YCFGenKb Tool.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbToolObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbToolObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a Tool.
 	 *
-	 *	@return	CFGenKbToolObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbToolObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbToolObj realise();
+	IYCFGenKbToolObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -59,99 +59,99 @@ public interface ICFGenKbToolObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbToolObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbToolObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbToolObj read();
+	IYCFGenKbToolObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbToolObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbToolObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbToolObj read( boolean forceRead );
+	IYCFGenKbToolObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this Tool instance.
 	 *
-	 *	@return	The newly locked ICFGenKbToolEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbToolEditObj edition of this instance.
 	 */
-	ICFGenKbToolEditObj beginEdit();
+	IYCFGenKbToolEditObj beginEdit();
 
 	/**
 	 *	End this edition of this Tool instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this Tool instance.
 	 *
-	 *	@return	The ICFGenKbToolEditObj edition of this instance.
+	 *	@return	The IYCFGenKbToolEditObj edition of this instance.
 	 */
-	ICFGenKbToolEditObj getEdit();
+	IYCFGenKbToolEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this Tool instance as a ICFGenKbToolEditObj.
+	 *	Get the current edition of this Tool instance as a IYCFGenKbToolEditObj.
 	 *
-	 *	@return	The ICFGenKbToolEditObj edition of this instance.
+	 *	@return	The IYCFGenKbToolEditObj edition of this instance.
 	 */
-	ICFGenKbToolEditObj getEditAsTool();
+	IYCFGenKbToolEditObj getEditAsTool();
 
 	/**
-	 *	Get the ICFGenKbToolTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbToolTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbToolTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbToolTableObj table cache which manages this instance.
 	 */
-	ICFGenKbToolTableObj getToolTable();
+	IYCFGenKbToolTableObj getToolTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbToolBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbToolBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbToolBuff instance which currently backs this object.
+	 *	@return	YCFGenKbToolBuff instance which currently backs this object.
 	 */
-	CFGenKbToolBuff getBuff();
+	YCFGenKbToolBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbToolBuff value );
+	void setBuff( YCFGenKbToolBuff value );
 
 	/**
-	 *	Get the CFGenKbToolBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbToolBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbToolBuff instance which currently backs this object.
+	 *	@return	YCFGenKbToolBuff instance which currently backs this object.
 	 */
-	CFGenKbToolBuff getToolBuff();
+	YCFGenKbToolBuff getToolBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbToolPKey primary key for this instance.
+	 *	@return	YCFGenKbToolPKey primary key for this instance.
 	 */
-	CFGenKbToolPKey getPKey();
+	YCFGenKbToolPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbToolPKey primary key value for this instance.
+	 *	@param YCFGenKbToolPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbToolPKey value );
+	void setPKey( YCFGenKbToolPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -199,18 +199,18 @@ public interface ICFGenKbToolObj
 	boolean getRequiredIsSupported();
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Replaces key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Replaces key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Replaces key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Replaces key.
 	 */
-	ICFGenKbToolObj getOptionalLookupReplaces();
+	IYCFGenKbToolObj getOptionalLookupReplaces();
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Replaces key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Replaces key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Replaces key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Replaces key.
 	 */
-	ICFGenKbToolObj getOptionalLookupReplaces( boolean forceRead );
+	IYCFGenKbToolObj getOptionalLookupReplaces( boolean forceRead );
 
 	/**
 	 *	Internal use only.

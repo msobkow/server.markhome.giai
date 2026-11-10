@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelInstruction by ChainIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelInstructionByChainIdxKey
+public class YCFGenKbGelInstructionByChainIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalChainInstTenantId;
 	protected Long optionalChainInstGelCacheId;
 	protected Long optionalChainInstGelInstId;
-	public CFGenKbGelInstructionByChainIdxKey() {
+	public YCFGenKbGelInstructionByChainIdxKey() {
 		optionalChainInstTenantId = null;
 		optionalChainInstGelCacheId = null;
 		optionalChainInstGelInstId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGelInstructionByChainIdxKey
 		if( value == null ) {
 			optionalChainInstTenantId = null;
 		}
-		else if( value < CFGenKbGelInstructionBuff.CHAININSTTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelInstructionBuff.CHAININSTTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalChainInstTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.CHAININSTTENANTID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.CHAININSTTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalChainInstTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGelInstructionByChainIdxKey
 		if( value == null ) {
 			optionalChainInstGelCacheId = null;
 		}
-		else if( value < CFGenKbGelInstructionBuff.CHAININSTGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelInstructionBuff.CHAININSTGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalChainInstGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.CHAININSTGELCACHEID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.CHAININSTGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalChainInstGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGelInstructionByChainIdxKey
 		if( value == null ) {
 			optionalChainInstGelInstId = null;
 		}
-		else if( value < CFGenKbGelInstructionBuff.CHAININSTGELINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelInstructionBuff.CHAININSTGELINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalChainInstGelInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.CHAININSTGELINSTID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.CHAININSTGELINSTID_MIN_VALUE );
 		}
 		else {
 			optionalChainInstGelInstId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGelInstructionByChainIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByChainIdxKey ) {
-			CFGenKbGelInstructionByChainIdxKey rhs = (CFGenKbGelInstructionByChainIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByChainIdxKey ) {
+			YCFGenKbGelInstructionByChainIdxKey rhs = (YCFGenKbGelInstructionByChainIdxKey)obj;
 			if( getOptionalChainInstTenantId() != null ) {
 				if( rhs.getOptionalChainInstTenantId() != null ) {
 					if( ! getOptionalChainInstTenantId().equals( rhs.getOptionalChainInstTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGelInstructionByChainIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionBuff ) {
-			CFGenKbGelInstructionBuff rhs = (CFGenKbGelInstructionBuff)obj;
+		else if( obj instanceof YCFGenKbGelInstructionBuff ) {
+			YCFGenKbGelInstructionBuff rhs = (YCFGenKbGelInstructionBuff)obj;
 			if( getOptionalChainInstTenantId() != null ) {
 				if( rhs.getOptionalChainInstTenantId() != null ) {
 					if( ! getOptionalChainInstTenantId().equals( rhs.getOptionalChainInstTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGelInstructionByChainIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionByChainIdxKey ) {
-			CFGenKbGelInstructionByChainIdxKey rhs = (CFGenKbGelInstructionByChainIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionByChainIdxKey ) {
+			YCFGenKbGelInstructionByChainIdxKey rhs = (YCFGenKbGelInstructionByChainIdxKey)obj;
 			if( getOptionalChainInstTenantId() != null ) {
 				Long lhsChainInstTenantId = getOptionalChainInstTenantId();
 				if( rhs.getOptionalChainInstTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGelInstructionByChainIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionBuff ) {
-			CFGenKbGelInstructionBuff rhs = (CFGenKbGelInstructionBuff)obj;
+		else if( obj instanceof YCFGenKbGelInstructionBuff ) {
+			YCFGenKbGelInstructionBuff rhs = (YCFGenKbGelInstructionBuff)obj;
 			if( getOptionalChainInstTenantId() != null ) {
 				Long lhsChainInstTenantId = getOptionalChainInstTenantId();
 				if( rhs.getOptionalChainInstTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGelInstructionByChainIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGelInstructionByChainIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelInstructionByChainIdx"
+		String ret = "<YCFGenKbGelInstructionByChainIdx"
 			+ " OptionalChainInstTenantId=" + ( ( getOptionalChainInstTenantId() == null ) ? "null" : "\"" + getOptionalChainInstTenantId().toString() + "\"" )
 			+ " OptionalChainInstGelCacheId=" + ( ( getOptionalChainInstGelCacheId() == null ) ? "null" : "\"" + getOptionalChainInstGelCacheId().toString() + "\"" )
 			+ " OptionalChainInstGelInstId=" + ( ( getOptionalChainInstGelInstId() == null ) ? "null" : "\"" + getOptionalChainInstGelInstId().toString() + "\"" )

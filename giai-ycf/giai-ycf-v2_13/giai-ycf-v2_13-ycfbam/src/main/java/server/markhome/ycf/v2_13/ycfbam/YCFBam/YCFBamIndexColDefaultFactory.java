@@ -2,17 +2,17 @@
 // Description: Java 11 Default Factory implementation for IndexCol.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,95 +54,95 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 	/*
-	 *	CFBamIndexColFactory implementation for IndexCol
+	 *	YCFBamIndexColFactory implementation for IndexCol
 	 */
-public class CFBamIndexColDefaultFactory
-	implements ICFBamIndexColFactory
+public class YCFBamIndexColDefaultFactory
+	implements IYCFBamIndexColFactory
 {
-	public CFBamIndexColDefaultFactory() {
+	public YCFBamIndexColDefaultFactory() {
 	}
 
-	public CFBamIndexColPKey newPKey() {
-		CFBamIndexColPKey pkey =
-			new CFBamIndexColPKey();
+	public YCFBamIndexColPKey newPKey() {
+		YCFBamIndexColPKey pkey =
+			new YCFBamIndexColPKey();
 		return( pkey );
 	}
 
-	public CFBamIndexColHPKey newHPKey() {
-		CFBamIndexColHPKey hpkey =
-			new CFBamIndexColHPKey();
+	public YCFBamIndexColHPKey newHPKey() {
+		YCFBamIndexColHPKey hpkey =
+			new YCFBamIndexColHPKey();
 		return( hpkey );
 	}
 
-	public CFBamIndexColByUNameIdxKey newUNameIdxKey() {
-		CFBamIndexColByUNameIdxKey key =
-			new CFBamIndexColByUNameIdxKey();
+	public YCFBamIndexColByUNameIdxKey newUNameIdxKey() {
+		YCFBamIndexColByUNameIdxKey key =
+			new YCFBamIndexColByUNameIdxKey();
 		return( key );
 	}
 
-	public CFBamIndexColByIdxColTenantIdxKey newIdxColTenantIdxKey() {
-		CFBamIndexColByIdxColTenantIdxKey key =
-			new CFBamIndexColByIdxColTenantIdxKey();
+	public YCFBamIndexColByIdxColTenantIdxKey newIdxColTenantIdxKey() {
+		YCFBamIndexColByIdxColTenantIdxKey key =
+			new YCFBamIndexColByIdxColTenantIdxKey();
 		return( key );
 	}
 
-	public CFBamIndexColByIndexIdxKey newIndexIdxKey() {
-		CFBamIndexColByIndexIdxKey key =
-			new CFBamIndexColByIndexIdxKey();
+	public YCFBamIndexColByIndexIdxKey newIndexIdxKey() {
+		YCFBamIndexColByIndexIdxKey key =
+			new YCFBamIndexColByIndexIdxKey();
 		return( key );
 	}
 
-	public CFBamIndexColByDefSchemaIdxKey newDefSchemaIdxKey() {
-		CFBamIndexColByDefSchemaIdxKey key =
-			new CFBamIndexColByDefSchemaIdxKey();
+	public YCFBamIndexColByDefSchemaIdxKey newDefSchemaIdxKey() {
+		YCFBamIndexColByDefSchemaIdxKey key =
+			new YCFBamIndexColByDefSchemaIdxKey();
 		return( key );
 	}
 
-	public CFBamIndexColByColIdxKey newColIdxKey() {
-		CFBamIndexColByColIdxKey key =
-			new CFBamIndexColByColIdxKey();
+	public YCFBamIndexColByColIdxKey newColIdxKey() {
+		YCFBamIndexColByColIdxKey key =
+			new YCFBamIndexColByColIdxKey();
 		return( key );
 	}
 
-	public CFBamIndexColByPrevIdxKey newPrevIdxKey() {
-		CFBamIndexColByPrevIdxKey key =
-			new CFBamIndexColByPrevIdxKey();
+	public YCFBamIndexColByPrevIdxKey newPrevIdxKey() {
+		YCFBamIndexColByPrevIdxKey key =
+			new YCFBamIndexColByPrevIdxKey();
 		return( key );
 	}
 
-	public CFBamIndexColByNextIdxKey newNextIdxKey() {
-		CFBamIndexColByNextIdxKey key =
-			new CFBamIndexColByNextIdxKey();
+	public YCFBamIndexColByNextIdxKey newNextIdxKey() {
+		YCFBamIndexColByNextIdxKey key =
+			new YCFBamIndexColByNextIdxKey();
 		return( key );
 	}
 
-	public CFBamIndexColByIdxPrevIdxKey newIdxPrevIdxKey() {
-		CFBamIndexColByIdxPrevIdxKey key =
-			new CFBamIndexColByIdxPrevIdxKey();
+	public YCFBamIndexColByIdxPrevIdxKey newIdxPrevIdxKey() {
+		YCFBamIndexColByIdxPrevIdxKey key =
+			new YCFBamIndexColByIdxPrevIdxKey();
 		return( key );
 	}
 
-	public CFBamIndexColByIdxNextIdxKey newIdxNextIdxKey() {
-		CFBamIndexColByIdxNextIdxKey key =
-			new CFBamIndexColByIdxNextIdxKey();
+	public YCFBamIndexColByIdxNextIdxKey newIdxNextIdxKey() {
+		YCFBamIndexColByIdxNextIdxKey key =
+			new YCFBamIndexColByIdxNextIdxKey();
 		return( key );
 	}
 
-	public CFBamIndexColBuff newBuff() {
-		CFBamIndexColBuff buff =
-			new CFBamIndexColBuff();
+	public YCFBamIndexColBuff newBuff() {
+		YCFBamIndexColBuff buff =
+			new YCFBamIndexColBuff();
 		return( buff );
 	}
 
-	public CFBamIndexColHBuff newHBuff() {
-		CFBamIndexColHBuff hbuff =
-			new CFBamIndexColHBuff();
+	public YCFBamIndexColHBuff newHBuff() {
+		YCFBamIndexColHBuff hbuff =
+			new YCFBamIndexColHBuff();
 		return( hbuff );
 	}
 }

@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a ServerMethod by MethTableVisIdx index key object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,22 +55,22 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamServerMethodByMethTableVisIdxKey
+public class YCFBamServerMethodByMethTableVisIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected long requiredTableId;
-	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
-	public CFBamServerMethodByMethTableVisIdxKey() {
-		requiredTenantId = CFBamServerMethodBuff.TENANTID_INIT_VALUE;
-		requiredTableId = CFBamServerMethodBuff.TABLEID_INIT_VALUE;
-		requiredCodeVis = CFBamServerMethodBuff.CODEVIS_INIT_VALUE;
+	protected IYCFBamSchema.CodeVisibilityEnum requiredCodeVis;
+	public YCFBamServerMethodByMethTableVisIdxKey() {
+		requiredTenantId = YCFBamServerMethodBuff.TENANTID_INIT_VALUE;
+		requiredTableId = YCFBamServerMethodBuff.TABLEID_INIT_VALUE;
+		requiredCodeVis = YCFBamServerMethodBuff.CODEVIS_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -78,13 +78,13 @@ public class CFBamServerMethodByMethTableVisIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFBamServerMethodBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamServerMethodBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFBamServerMethodBuff.TENANTID_MIN_VALUE );
+				YCFBamServerMethodBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -94,24 +94,24 @@ public class CFBamServerMethodByMethTableVisIdxKey
 	}
 
 	public void setRequiredTableId( long value ) {
-		if( value < CFBamServerMethodBuff.TABLEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamServerMethodBuff.TABLEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTableId",
 				1,
 				"value",
 				value,
-				CFBamServerMethodBuff.TABLEID_MIN_VALUE );
+				YCFBamServerMethodBuff.TABLEID_MIN_VALUE );
 		}
 		requiredTableId = value;
 	}
 
-	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+	public IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
 		return( requiredCodeVis );
 	}
 
-	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+	public void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredCodeVis",
 				1,
 				"value" );
@@ -123,8 +123,8 @@ public class CFBamServerMethodByMethTableVisIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamServerMethodByMethTableVisIdxKey ) {
-			CFBamServerMethodByMethTableVisIdxKey rhs = (CFBamServerMethodByMethTableVisIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByMethTableVisIdxKey ) {
+			YCFBamServerMethodByMethTableVisIdxKey rhs = (YCFBamServerMethodByMethTableVisIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -136,8 +136,8 @@ public class CFBamServerMethodByMethTableVisIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamServerMethodBuff ) {
-			CFBamServerMethodBuff rhs = (CFBamServerMethodBuff)obj;
+		else if( obj instanceof YCFBamServerMethodBuff ) {
+			YCFBamServerMethodBuff rhs = (YCFBamServerMethodBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -166,8 +166,8 @@ public class CFBamServerMethodByMethTableVisIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFBamServerMethodByMethTableVisIdxKey ) {
-			CFBamServerMethodByMethTableVisIdxKey rhs = (CFBamServerMethodByMethTableVisIdxKey)obj;
+		else if( obj instanceof YCFBamServerMethodByMethTableVisIdxKey ) {
+			YCFBamServerMethodByMethTableVisIdxKey rhs = (YCFBamServerMethodByMethTableVisIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -188,8 +188,8 @@ public class CFBamServerMethodByMethTableVisIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamServerMethodBuff ) {
-			CFBamServerMethodBuff rhs = (CFBamServerMethodBuff)obj;
+		else if( obj instanceof YCFBamServerMethodBuff ) {
+			YCFBamServerMethodBuff rhs = (YCFBamServerMethodBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -211,7 +211,7 @@ public class CFBamServerMethodByMethTableVisIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -220,7 +220,7 @@ public class CFBamServerMethodByMethTableVisIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFBamServerMethodByMethTableVisIdx"
+		String ret = "<YCFBamServerMethodByMethTableVisIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredTableId=" + "\"" + Long.toString( getRequiredTableId() ) + "\""
 			+ " RequiredCodeVis=" + "\"" + getRequiredCodeVis().toString() + "\""

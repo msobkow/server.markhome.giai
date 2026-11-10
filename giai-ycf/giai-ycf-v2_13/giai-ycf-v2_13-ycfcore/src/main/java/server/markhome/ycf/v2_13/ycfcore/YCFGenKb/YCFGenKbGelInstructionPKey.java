@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelInstruction primary key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,18 +37,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFGenKbGelInstructionPKey Primary Key for GelInstruction
+ *	YCFGenKbGelInstructionPKey Primary Key for GelInstruction
 
  *		classCode	Required class code.
  *		requiredTenantId	Required object attribute TenantId.
  *		requiredGelCacheId	Required object attribute GelCacheId.
  *		requiredGelInstId	Required object attribute GelInstId. */
-public class CFGenKbGelInstructionPKey
+public class YCFGenKbGelInstructionPKey
 	implements Comparable<Object>,
 		Serializable
 {
@@ -57,10 +57,10 @@ public class CFGenKbGelInstructionPKey
 	protected long requiredTenantId;
 	protected long requiredGelCacheId;
 	protected long requiredGelInstId;
-	public CFGenKbGelInstructionPKey() {
-		requiredTenantId = CFGenKbGelInstructionBuff.TENANTID_INIT_VALUE;
-		requiredGelCacheId = CFGenKbGelInstructionBuff.GELCACHEID_INIT_VALUE;
-		requiredGelInstId = CFGenKbGelInstructionBuff.GELINSTID_INIT_VALUE;
+	public YCFGenKbGelInstructionPKey() {
+		requiredTenantId = YCFGenKbGelInstructionBuff.TENANTID_INIT_VALUE;
+		requiredGelCacheId = YCFGenKbGelInstructionBuff.GELCACHEID_INIT_VALUE;
+		requiredGelInstId = YCFGenKbGelInstructionBuff.GELINSTID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -76,13 +76,13 @@ public class CFGenKbGelInstructionPKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFGenKbGelInstructionBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelInstructionBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.TENANTID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -92,13 +92,13 @@ public class CFGenKbGelInstructionPKey
 	}
 
 	public void setRequiredGelCacheId( long value ) {
-		if( value < CFGenKbGelInstructionBuff.GELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelInstructionBuff.GELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.GELCACHEID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.GELCACHEID_MIN_VALUE );
 		}
 		requiredGelCacheId = value;
 	}
@@ -108,13 +108,13 @@ public class CFGenKbGelInstructionPKey
 	}
 
 	public void setRequiredGelInstId( long value ) {
-		if( value < CFGenKbGelInstructionBuff.GELINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelInstructionBuff.GELINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredGelInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelInstructionBuff.GELINSTID_MIN_VALUE );
+				YCFGenKbGelInstructionBuff.GELINSTID_MIN_VALUE );
 		}
 		requiredGelInstId = value;
 	}
@@ -123,8 +123,8 @@ public class CFGenKbGelInstructionPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -136,8 +136,8 @@ public class CFGenKbGelInstructionPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionBuff ) {
-			CFGenKbGelInstructionBuff rhs = (CFGenKbGelInstructionBuff)obj;
+		else if( obj instanceof YCFGenKbGelInstructionBuff ) {
+			YCFGenKbGelInstructionBuff rhs = (YCFGenKbGelInstructionBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -166,8 +166,8 @@ public class CFGenKbGelInstructionPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -188,8 +188,8 @@ public class CFGenKbGelInstructionPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionBuff ) {
-			CFGenKbGelInstructionBuff rhs = (CFGenKbGelInstructionBuff)obj;
+		else if( obj instanceof YCFGenKbGelInstructionBuff ) {
+			YCFGenKbGelInstructionBuff rhs = (YCFGenKbGelInstructionBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -211,16 +211,16 @@ public class CFGenKbGelInstructionPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFGenKbGelInstructionPKey, CFGenKbGelInstructionBuff" );
+				"YCFGenKbGelInstructionPKey, YCFGenKbGelInstructionBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelInstructionPKey"
+		String ret = "<YCFGenKbGelInstructionPKey"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredGelCacheId=" + "\"" + Long.toString( getRequiredGelCacheId() ) + "\""
 			+ " RequiredGelInstId=" + "\"" + Long.toString( getRequiredGelInstId() ) + "\""

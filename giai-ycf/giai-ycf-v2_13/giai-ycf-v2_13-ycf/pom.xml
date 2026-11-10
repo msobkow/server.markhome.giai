@@ -2,17 +2,17 @@
   <modelVersion>4.1.0</modelVersion>
 
   <parent>
-    <groupId>org.msscf.msscf</groupId>
-    <artifactId>org.msscf.msscf.v2_13</artifactId>
+    <groupId>giai-ycf</groupId>
+    <artifactId>giai-ycf-v2_13</artifactId>
     <version>2.13.42-alpha17-202611140000</version>
   </parent>
 
-  <groupId>org.msscf.msscf.v2_13</groupId>
-  <artifactId>org.msscf.msscf.v2_13.CFCli</artifactId>
+  <groupId>giai-ycf-v2_13</groupId>
+  <artifactId>giai-ycf-v2_13.CFCli</artifactId>
   <version>2.13.42-alpha17-202611140000</version>
-  <name>org.msscf.msscf.v2_13.CFCli</name>
+  <name>server.markhome.giai.v2_13.CFCli</name>
   <description>MSS Code Factory 2.13 Command Line Interface</description>
-  <url>https://msscode.com/msscf/</url>
+  <url>https://msobkow.github.io/ycf/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -99,48 +99,48 @@
       <version>2.4.0-b180725.0427</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cflib.CFLib</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycflib.CFLib</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfcore</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfcore</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfbam</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfbam</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfsec</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfsec</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfint</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfint</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfbam.CFBamMssCF</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfbam.CFBamMssCF</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfbamcust.MSSBamCF</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfbamcust.MSSBamCF</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfbamcust.CFBamXmlLoader</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
     <dependency>
-      <groupId>org.msscf.msscf.v2_13</groupId>
-      <artifactId>org.msscf.msscf.v2_13.cfbam.CFBamRam</artifactId>
+      <groupId>giai-ycf-v2_13</groupId>
+      <artifactId>giai-ycf-v2_13-ycfbam.CFBamRam</artifactId>
       <version>2.13.42-alpha17-202611140000</version>
     </dependency>
   </dependencies>
@@ -206,7 +206,7 @@
                         <configuration>
                             <classifier>spring-boot</classifier>
                             <mainClass>
-                                org.msscf.msscf.v2_13.CFCli.CFCli
+                                server.markhome.giai.v2_13.CFCli.CFCli
                             </mainClass>
                         </configuration>
                     </execution>

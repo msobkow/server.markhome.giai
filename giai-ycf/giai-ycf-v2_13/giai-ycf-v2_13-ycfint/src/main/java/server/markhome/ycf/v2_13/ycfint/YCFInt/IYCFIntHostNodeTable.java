@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for HostNode.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,17 +35,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntHostNodeTable database interface for HostNode
+ *	YCFIntHostNodeTable database interface for HostNode
  */
-public interface ICFIntHostNodeTable
-extends ICFSecHostNodeTable
+public interface IYCFIntHostNodeTable
+extends IYCFSecHostNodeTable
 {
 
 	/**
@@ -56,8 +56,8 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createHostNode( CFSecAuthorization Authorization,
-		CFSecHostNodeBuff Buff );
+	void createHostNode( YCFSecAuthorization Authorization,
+		YCFSecHostNodeBuff Buff );
 
 
 	/**
@@ -68,8 +68,8 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateHostNode( CFSecAuthorization Authorization,
-		CFSecHostNodeBuff Buff );
+	void updateHostNode( YCFSecAuthorization Authorization,
+		YCFSecHostNodeBuff Buff );
 
 
 	/**
@@ -79,8 +79,8 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteHostNode( CFSecAuthorization Authorization,
-		CFSecHostNodeBuff Buff );
+	void deleteHostNode( YCFSecAuthorization Authorization,
+		YCFSecHostNodeBuff Buff );
 	/**
 	 *	Delete the HostNode instance identified by the primary key attributes.
 	 *
@@ -90,7 +90,7 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	argHostNodeId	The HostNode key attribute of the instance generating the id.
 	 */
-	void deleteHostNodeByIdIdx( CFSecAuthorization Authorization,
+	void deleteHostNodeByIdIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argHostNodeId );
 
@@ -101,8 +101,8 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteHostNodeByIdIdx( CFSecAuthorization Authorization,
-		CFSecHostNodePKey argKey );
+	void deleteHostNodeByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecHostNodePKey argKey );
 	/**
 	 *	Delete the HostNode instances identified by the key ClusterIdx.
 	 *
@@ -110,7 +110,7 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	argClusterId	The HostNode key attribute of the instance generating the id.
 	 */
-	void deleteHostNodeByClusterIdx( CFSecAuthorization Authorization,
+	void deleteHostNodeByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -120,8 +120,8 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteHostNodeByClusterIdx( CFSecAuthorization Authorization,
-		CFSecHostNodeByClusterIdxKey argKey );
+	void deleteHostNodeByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecHostNodeByClusterIdxKey argKey );
 	/**
 	 *	Delete the HostNode instances identified by the key UDescrIdx.
 	 *
@@ -131,7 +131,7 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	argDescription	The HostNode key attribute of the instance generating the id.
 	 */
-	void deleteHostNodeByUDescrIdx( CFSecAuthorization Authorization,
+	void deleteHostNodeByUDescrIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		String argDescription );
 
@@ -142,8 +142,8 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteHostNodeByUDescrIdx( CFSecAuthorization Authorization,
-		CFSecHostNodeByUDescrIdxKey argKey );
+	void deleteHostNodeByUDescrIdx( YCFSecAuthorization Authorization,
+		YCFSecHostNodeByUDescrIdxKey argKey );
 	/**
 	 *	Delete the HostNode instances identified by the key HostNameIdx.
 	 *
@@ -153,7 +153,7 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	argHostName	The HostNode key attribute of the instance generating the id.
 	 */
-	void deleteHostNodeByHostNameIdx( CFSecAuthorization Authorization,
+	void deleteHostNodeByHostNameIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		String argHostName );
 
@@ -164,8 +164,8 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteHostNodeByHostNameIdx( CFSecAuthorization Authorization,
-		CFSecHostNodeByHostNameIdxKey argKey );
+	void deleteHostNodeByHostNameIdx( YCFSecAuthorization Authorization,
+		YCFSecHostNodeByHostNameIdxKey argKey );
 
 
 	/**
@@ -178,8 +178,8 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecHostNodeBuff readDerived( CFSecAuthorization Authorization,
-		CFSecHostNodePKey PKey );
+	YCFSecHostNodeBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecHostNodePKey PKey );
 
 	/**
 	 *	Lock the derived HostNode buffer instance by primary key.
@@ -191,8 +191,8 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecHostNodeBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecHostNodePKey PKey );
+	YCFSecHostNodeBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecHostNodePKey PKey );
 
 	/**
 	 *	Read all HostNode instances.
@@ -201,7 +201,7 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecHostNodeBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecHostNodeBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived HostNode buffer instance identified by the unique key IdIdx.
@@ -215,7 +215,7 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecHostNodeBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId );
 
@@ -228,7 +228,7 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecHostNodeBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -243,7 +243,7 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecHostNodeBuff readDerivedByUDescrIdx( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff readDerivedByUDescrIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		String Description );
 
@@ -259,7 +259,7 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecHostNodeBuff readDerivedByHostNameIdx( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff readDerivedByHostNameIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		String HostName );
 
@@ -273,10 +273,10 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecHostNodeBuff readBuff( CFSecAuthorization Authorization,
-		CFSecHostNodePKey PKey );
+	YCFSecHostNodeBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecHostNodePKey PKey );
 
 	/**
 	 *	Lock the specific HostNode buffer instance identified by the primary key.
@@ -288,10 +288,10 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecHostNodeBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecHostNodePKey PKey );
+	YCFSecHostNodeBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecHostNodePKey PKey );
 
 	/**
 	 *	Read all the specific HostNode buffer instances.
@@ -300,7 +300,7 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@return All the specific HostNode instances in the database accessible for the Authorization.
 	 */
-	CFSecHostNodeBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecHostNodeBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific HostNode buffer instances.
@@ -309,7 +309,7 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@return All the specific HostNode instances in the database accessible for the Authorization.
 	 */
-	CFSecHostNodeBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		Long priorClusterId,
 		Long priorHostNodeId );
 
@@ -325,9 +325,9 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecHostNodeBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long HostNodeId );
 
@@ -340,9 +340,9 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecHostNodeBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -357,9 +357,9 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecHostNodeBuff readBuffByUDescrIdx( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff readBuffByUDescrIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		String Description );
 
@@ -375,9 +375,9 @@ extends ICFSecHostNodeTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecHostNodeBuff readBuffByHostNameIdx( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff readBuffByHostNameIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		String HostName );
 
@@ -390,9 +390,9 @@ extends ICFSecHostNodeTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecHostNodeBuff[] pageBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecHostNodeBuff[] pageBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Long priorHostNodeId );
@@ -400,7 +400,7 @@ extends ICFSecHostNodeTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

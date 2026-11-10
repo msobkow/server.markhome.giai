@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for SysCluster.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbSysClusterTable database interface for SysCluster
+ *	YCFGenKbSysClusterTable database interface for SysCluster
  */
-public interface ICFGenKbSysClusterTable
+public interface IYCFGenKbSysClusterTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSysCluster( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterBuff Buff );
+	void createSysCluster( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSysCluster( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterBuff Buff );
+	void updateSysCluster( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSysCluster( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterBuff Buff );
+	void deleteSysCluster( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterBuff Buff );
 	/**
 	 *	Delete the SysCluster instance identified by the primary key attributes.
 	 *
@@ -86,7 +86,7 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@param	argSingletonId	The SysCluster key attribute of the instance generating the id.
 	 */
-	void deleteSysClusterByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteSysClusterByIdIdx( YCFGenKbAuthorization Authorization,
 		int argSingletonId );
 
 	/**
@@ -96,8 +96,8 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSysClusterByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey argKey );
+	void deleteSysClusterByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey argKey );
 	/**
 	 *	Delete the SysCluster instances identified by the key ClusterIdx.
 	 *
@@ -105,7 +105,7 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@param	argClusterId	The SysCluster key attribute of the instance generating the id.
 	 */
-	void deleteSysClusterByClusterIdx( CFGenKbAuthorization Authorization,
+	void deleteSysClusterByClusterIdx( YCFGenKbAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -115,8 +115,8 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSysClusterByClusterIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterByClusterIdxKey argKey );
+	void deleteSysClusterByClusterIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterByClusterIdxKey argKey );
 
 
 	/**
@@ -129,8 +129,8 @@ public interface ICFGenKbSysClusterTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSysClusterBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey PKey );
+	YCFGenKbSysClusterBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey PKey );
 
 	/**
 	 *	Lock the derived SysCluster buffer instance by primary key.
@@ -142,8 +142,8 @@ public interface ICFGenKbSysClusterTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSysClusterBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey PKey );
+	YCFGenKbSysClusterBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey PKey );
 
 	/**
 	 *	Read all SysCluster instances.
@@ -152,7 +152,7 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbSysClusterBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbSysClusterBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived SysCluster buffer instance identified by the unique key IdIdx.
@@ -164,7 +164,7 @@ public interface ICFGenKbSysClusterTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSysClusterBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSysClusterBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		int SingletonId );
 
 	/**
@@ -176,7 +176,7 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSysClusterBuff[] readDerivedByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSysClusterBuff[] readDerivedByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -189,10 +189,10 @@ public interface ICFGenKbSysClusterTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSysClusterBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey PKey );
+	YCFGenKbSysClusterBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey PKey );
 
 	/**
 	 *	Lock the specific SysCluster buffer instance identified by the primary key.
@@ -204,10 +204,10 @@ public interface ICFGenKbSysClusterTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSysClusterBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSysClusterPKey PKey );
+	YCFGenKbSysClusterBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSysClusterPKey PKey );
 
 	/**
 	 *	Read all the specific SysCluster buffer instances.
@@ -216,7 +216,7 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@return All the specific SysCluster instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSysClusterBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbSysClusterBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific SysCluster buffer instance identified by the unique key IdIdx.
@@ -228,9 +228,9 @@ public interface ICFGenKbSysClusterTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSysClusterBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSysClusterBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		int SingletonId );
 
 	/**
@@ -242,15 +242,15 @@ public interface ICFGenKbSysClusterTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSysClusterBuff[] readBuffByClusterIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSysClusterBuff[] readBuffByClusterIdx( YCFGenKbAuthorization Authorization,
 		long ClusterId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

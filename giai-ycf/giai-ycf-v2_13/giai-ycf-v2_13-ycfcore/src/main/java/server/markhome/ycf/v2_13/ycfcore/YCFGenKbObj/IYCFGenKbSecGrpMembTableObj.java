@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecGrpMembTableObj
+public interface IYCFGenKbSecGrpMembTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbSecGrpMembTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbSecGrpMembObj newInstance();
+	IYCFGenKbSecGrpMembObj newInstance();
 
 	/**
 	 *	Instantiate a new SecGrpMemb edition of the specified SecGrpMemb instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbSecGrpMembEditObj newEditInstance( ICFGenKbSecGrpMembObj orig );
+	IYCFGenKbSecGrpMembEditObj newEditInstance( IYCFGenKbSecGrpMembObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecGrpMembObj realiseSecGrpMemb( ICFGenKbSecGrpMembObj Obj );
+	IYCFGenKbSecGrpMembObj realiseSecGrpMemb( IYCFGenKbSecGrpMembObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecGrpMembObj createSecGrpMemb( ICFGenKbSecGrpMembObj Obj );
+	IYCFGenKbSecGrpMembObj createSecGrpMemb( IYCFGenKbSecGrpMembObj Obj );
 
 	/**
 	 *	Read a SecGrpMemb-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbSecGrpMembTableObj
 	 *	@return	The SecGrpMemb-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbSecGrpMembObj readSecGrpMemb( CFGenKbSecGrpMembPKey pkey );
+	IYCFGenKbSecGrpMembObj readSecGrpMemb( YCFGenKbSecGrpMembPKey pkey );
 
 	/**
 	 *	Read a SecGrpMemb-derived instance by it's primary key.
@@ -91,145 +91,145 @@ public interface ICFGenKbSecGrpMembTableObj
 	 *	@return	The SecGrpMemb-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbSecGrpMembObj readSecGrpMemb( CFGenKbSecGrpMembPKey pkey,
+	IYCFGenKbSecGrpMembObj readSecGrpMemb( YCFGenKbSecGrpMembPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbSecGrpMembObj readCachedSecGrpMemb( CFGenKbSecGrpMembPKey pkey );
+	IYCFGenKbSecGrpMembObj readCachedSecGrpMemb( YCFGenKbSecGrpMembPKey pkey );
 
-	public void reallyDeepDisposeSecGrpMemb( ICFGenKbSecGrpMembObj obj );
+	public void reallyDeepDisposeSecGrpMemb( IYCFGenKbSecGrpMembObj obj );
 
-	void deepDisposeSecGrpMemb( CFGenKbSecGrpMembPKey pkey );
+	void deepDisposeSecGrpMemb( YCFGenKbSecGrpMembPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecGrpMembObj lockSecGrpMemb( CFGenKbSecGrpMembPKey pkey );
+	IYCFGenKbSecGrpMembObj lockSecGrpMemb( YCFGenKbSecGrpMembPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SecGrpMemb-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSecGrpMembObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSecGrpMembObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> readAllSecGrpMemb();
+	List<IYCFGenKbSecGrpMembObj> readAllSecGrpMemb();
 
 	/**
 	 *	Return a sorted map of all the SecGrpMemb-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSecGrpMembObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSecGrpMembObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> readAllSecGrpMemb( boolean forceRead );
+	List<IYCFGenKbSecGrpMembObj> readAllSecGrpMemb( boolean forceRead );
 
-	List<ICFGenKbSecGrpMembObj> readCachedAllSecGrpMemb();
+	List<IYCFGenKbSecGrpMembObj> readCachedAllSecGrpMemb();
 
 	/**
 	 *	Return a sorted map of a page of the SecGrpMemb-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSecGrpMembObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSecGrpMembObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> pageAllSecGrpMemb(Long priorClusterId,
+	List<IYCFGenKbSecGrpMembObj> pageAllSecGrpMemb(Long priorClusterId,
 		Long priorSecGrpMembId );
 
 	/**
-	 *	Get the CFGenKbSecGrpMembObj instance for the primary key attributes.
+	 *	Get the YCFGenKbSecGrpMembObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecGrpMembId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecGrpMembObj cached instance for the primary key, or
+	 *	@return	YCFGenKbSecGrpMembObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecGrpMembObj readSecGrpMembByIdIdx( long ClusterId,
+	IYCFGenKbSecGrpMembObj readSecGrpMembByIdIdx( long ClusterId,
 		long SecGrpMembId );
 
 	/**
-	 *	Get the CFGenKbSecGrpMembObj instance for the primary key attributes.
+	 *	Get the YCFGenKbSecGrpMembObj instance for the primary key attributes.
 	 *
 	 *	@param	argClusterId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecGrpMembId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecGrpMembObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbSecGrpMembObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecGrpMembObj readSecGrpMembByIdIdx( long ClusterId,
+	IYCFGenKbSecGrpMembObj readSecGrpMembByIdIdx( long ClusterId,
 		long SecGrpMembId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> readSecGrpMembByClusterIdx( long ClusterId );
+	List<IYCFGenKbSecGrpMembObj> readSecGrpMembByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> readSecGrpMembByClusterIdx( long ClusterId,
+	List<IYCFGenKbSecGrpMembObj> readSecGrpMembByClusterIdx( long ClusterId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate GroupIdx key.
+	 *	Get the map of YCFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate GroupIdx key.
 	 *
 	 *	@param	argClusterId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecGroupId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate GroupIdx key,
+	 *	@return	List of YCFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate GroupIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> readSecGrpMembByGroupIdx( long ClusterId,
+	List<IYCFGenKbSecGrpMembObj> readSecGrpMembByGroupIdx( long ClusterId,
 		int SecGroupId );
 
 	/**
-	 *	Get the map of CFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate GroupIdx key.
+	 *	Get the map of YCFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate GroupIdx key.
 	 *
 	 *	@param	argClusterId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecGroupId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate GroupIdx key,
+	 *	@return	List of YCFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate GroupIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> readSecGrpMembByGroupIdx( long ClusterId,
+	List<IYCFGenKbSecGrpMembObj> readSecGrpMembByGroupIdx( long ClusterId,
 		int SecGroupId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate UserIdx key.
+	 *	Get the map of YCFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate UserIdx key.
 	 *
 	 *	@param	argSecUserId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate UserIdx key,
+	 *	@return	List of YCFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate UserIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> readSecGrpMembByUserIdx( UUID SecUserId );
+	List<IYCFGenKbSecGrpMembObj> readSecGrpMembByUserIdx( UUID SecUserId );
 
 	/**
-	 *	Get the map of CFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate UserIdx key.
+	 *	Get the map of YCFGenKbSecGrpMembObj instances sorted by their primary keys for the duplicate UserIdx key.
 	 *
 	 *	@param	argSecUserId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate UserIdx key,
+	 *	@return	List of YCFGenKbSecGrpMembObj cached instances sorted by their primary keys for the duplicate UserIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> readSecGrpMembByUserIdx( UUID SecUserId,
+	List<IYCFGenKbSecGrpMembObj> readSecGrpMembByUserIdx( UUID SecUserId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbSecGrpMembObj instance for the unique UUserIdx key.
+	 *	Get the YCFGenKbSecGrpMembObj instance for the unique UUserIdx key.
 	 *
 	 *	@param	argClusterId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
@@ -237,15 +237,15 @@ public interface ICFGenKbSecGrpMembTableObj
 	 *
 	 *	@param	argSecUserId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecGrpMembObj cached instance for the unique UUserIdx key, or
+	 *	@return	YCFGenKbSecGrpMembObj cached instance for the unique UUserIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecGrpMembObj readSecGrpMembByUUserIdx(long ClusterId,
+	IYCFGenKbSecGrpMembObj readSecGrpMembByUUserIdx(long ClusterId,
 		int SecGroupId,
 		UUID SecUserId );
 
 	/**
-	 *	Get the CFGenKbSecGrpMembObj instance for the unique UUserIdx key.
+	 *	Get the YCFGenKbSecGrpMembObj instance for the unique UUserIdx key.
 	 *
 	 *	@param	argClusterId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
@@ -253,25 +253,25 @@ public interface ICFGenKbSecGrpMembTableObj
 	 *
 	 *	@param	argSecUserId	The SecGrpMemb key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecGrpMembObj refreshed instance for the unique UUserIdx key, or
+	 *	@return	YCFGenKbSecGrpMembObj refreshed instance for the unique UUserIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecGrpMembObj readSecGrpMembByUUserIdx(long ClusterId,
+	IYCFGenKbSecGrpMembObj readSecGrpMembByUUserIdx(long ClusterId,
 		int SecGroupId,
 		UUID SecUserId,
 		boolean forceRead );
 
-	ICFGenKbSecGrpMembObj readCachedSecGrpMembByIdIdx( long ClusterId,
+	IYCFGenKbSecGrpMembObj readCachedSecGrpMembByIdIdx( long ClusterId,
 		long SecGrpMembId );
 
-	List<ICFGenKbSecGrpMembObj> readCachedSecGrpMembByClusterIdx( long ClusterId );
+	List<IYCFGenKbSecGrpMembObj> readCachedSecGrpMembByClusterIdx( long ClusterId );
 
-	List<ICFGenKbSecGrpMembObj> readCachedSecGrpMembByGroupIdx( long ClusterId,
+	List<IYCFGenKbSecGrpMembObj> readCachedSecGrpMembByGroupIdx( long ClusterId,
 		int SecGroupId );
 
-	List<ICFGenKbSecGrpMembObj> readCachedSecGrpMembByUserIdx( UUID SecUserId );
+	List<IYCFGenKbSecGrpMembObj> readCachedSecGrpMembByUserIdx( UUID SecUserId );
 
-	ICFGenKbSecGrpMembObj readCachedSecGrpMembByUUserIdx( long ClusterId,
+	IYCFGenKbSecGrpMembObj readCachedSecGrpMembByUUserIdx( long ClusterId,
 		int SecGroupId,
 		UUID SecUserId );
 
@@ -298,7 +298,7 @@ public interface ICFGenKbSecGrpMembTableObj
 	 *	@return	A List of SecGrpMemb-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> pageSecGrpMembByClusterIdx( long ClusterId,
+	List<IYCFGenKbSecGrpMembObj> pageSecGrpMembByClusterIdx( long ClusterId,
 		Long priorClusterId,
 		Long priorSecGrpMembId );
 
@@ -313,7 +313,7 @@ public interface ICFGenKbSecGrpMembTableObj
 	 *	@return	A List of SecGrpMemb-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> pageSecGrpMembByGroupIdx( long ClusterId,
+	List<IYCFGenKbSecGrpMembObj> pageSecGrpMembByGroupIdx( long ClusterId,
 		int SecGroupId,
 		Long priorClusterId,
 		Long priorSecGrpMembId );
@@ -327,19 +327,19 @@ public interface ICFGenKbSecGrpMembTableObj
 	 *	@return	A List of SecGrpMemb-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFGenKbSecGrpMembObj> pageSecGrpMembByUserIdx( UUID SecUserId,
+	List<IYCFGenKbSecGrpMembObj> pageSecGrpMembByUserIdx( UUID SecUserId,
 		Long priorClusterId,
 		Long priorSecGrpMembId );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecGrpMembObj updateSecGrpMemb( ICFGenKbSecGrpMembObj Obj );
+	IYCFGenKbSecGrpMembObj updateSecGrpMemb( IYCFGenKbSecGrpMembObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSecGrpMemb( ICFGenKbSecGrpMembObj Obj );
+	void deleteSecGrpMemb( IYCFGenKbSecGrpMembObj Obj );
 
 	/**
 	 *	Internal use only.

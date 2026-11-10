@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for ISOLang.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,54 +35,54 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntISOLangFactory implementation for ISOLang
+	 *	YCFIntISOLangFactory implementation for ISOLang
 	 */
-public class CFIntISOLangDefaultFactory
-	extends CFSecISOLangDefaultFactory
-	implements ICFIntISOLangFactory
+public class YCFIntISOLangDefaultFactory
+	extends YCFSecISOLangDefaultFactory
+	implements IYCFIntISOLangFactory
 {
-	public CFIntISOLangDefaultFactory() {
+	public YCFIntISOLangDefaultFactory() {
 		super();
 	}
 
-	public CFSecISOLangPKey newPKey() {
-		CFSecISOLangPKey pkey =
-			new CFSecISOLangPKey();
+	public YCFSecISOLangPKey newPKey() {
+		YCFSecISOLangPKey pkey =
+			new YCFSecISOLangPKey();
 		return( pkey );
 	}
 
-	public CFSecISOLangHPKey newHPKey() {
-		CFSecISOLangHPKey hpkey =
-			new CFSecISOLangHPKey();
+	public YCFSecISOLangHPKey newHPKey() {
+		YCFSecISOLangHPKey hpkey =
+			new YCFSecISOLangHPKey();
 		return( hpkey );
 	}
 
-	public CFSecISOLangByCode3IdxKey newCode3IdxKey() {
-		CFSecISOLangByCode3IdxKey key =
-			new CFSecISOLangByCode3IdxKey();
+	public YCFSecISOLangByCode3IdxKey newCode3IdxKey() {
+		YCFSecISOLangByCode3IdxKey key =
+			new YCFSecISOLangByCode3IdxKey();
 		return( key );
 	}
 
-	public CFSecISOLangByCode2IdxKey newCode2IdxKey() {
-		CFSecISOLangByCode2IdxKey key =
-			new CFSecISOLangByCode2IdxKey();
+	public YCFSecISOLangByCode2IdxKey newCode2IdxKey() {
+		YCFSecISOLangByCode2IdxKey key =
+			new YCFSecISOLangByCode2IdxKey();
 		return( key );
 	}
 
-	public CFSecISOLangBuff newBuff() {
-		CFSecISOLangBuff buff =
-			new CFSecISOLangBuff();
+	public YCFSecISOLangBuff newBuff() {
+		YCFSecISOLangBuff buff =
+			new YCFSecISOLangBuff();
 		return( buff );
 	}
 
-	public CFSecISOLangHBuff newHBuff() {
-		CFSecISOLangHBuff hbuff =
-			new CFSecISOLangHBuff();
+	public YCFSecISOLangHBuff newHBuff() {
+		YCFSecISOLangHBuff hbuff =
+			new YCFSecISOLangHBuff();
 		return( hbuff );
 	}
 }

@@ -1,17 +1,17 @@
-// Description: Java 11 Table Object interface for CFBam.
+// Description: Java 11 Table Object interface for YCFBam.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,24 +45,24 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamRoleDefTableObj
+public interface IYCFBamRoleDefTableObj
 {
-	ICFBamSchemaObj getSchema();
-	void setSchema( ICFBamSchemaObj value );
+	IYCFBamSchemaObj getSchema();
+	void setSchema( IYCFBamSchemaObj value );
 
 	void minimizeMemory();
 
@@ -76,33 +76,33 @@ public interface ICFBamRoleDefTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFBamRoleDefObj newInstance();
+	IYCFBamRoleDefObj newInstance();
 
 	/**
 	 *	Instantiate a new RoleDef edition of the specified RoleDef instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFBamRoleDefEditObj newEditInstance( ICFBamRoleDefObj orig );
+	IYCFBamRoleDefEditObj newEditInstance( IYCFBamRoleDefObj orig );
 
 	/**
 	 *	Construct an appropriate subclass instance based on the specified class code.
 	 *
 	 *	@param	argClassCode	The class code used to identify the proposed instance class.
 	 *
-	 *	@return	ICFBamRoleDefObj instance, which may be a subclass of a RoleDef instance.
+	 *	@return	IYCFBamRoleDefObj instance, which may be a subclass of a RoleDef instance.
 	 */
-	ICFBamRoleDefObj constructByClassCode( String argClassCode );
+	IYCFBamRoleDefObj constructByClassCode( String argClassCode );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamRoleDefObj realiseRoleDef( ICFBamRoleDefObj Obj );
+	IYCFBamRoleDefObj realiseRoleDef( IYCFBamRoleDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamRoleDefObj createRoleDef( ICFBamRoleDefObj Obj );
+	IYCFBamRoleDefObj createRoleDef( IYCFBamRoleDefObj Obj );
 
 	/**
 	 *	Read a RoleDef-derived instance by it's primary key.
@@ -112,7 +112,7 @@ public interface ICFBamRoleDefTableObj
 	 *	@return	The RoleDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamRoleDefObj readRoleDef( CFBamRoleDefPKey pkey );
+	IYCFBamRoleDefObj readRoleDef( YCFBamRoleDefPKey pkey );
 
 	/**
 	 *	Read a RoleDef-derived instance by it's primary key.
@@ -122,67 +122,67 @@ public interface ICFBamRoleDefTableObj
 	 *	@return	The RoleDef-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFBamRoleDefObj readRoleDef( CFBamRoleDefPKey pkey,
+	IYCFBamRoleDefObj readRoleDef( YCFBamRoleDefPKey pkey,
 		boolean forceRead );
 
-	ICFBamRoleDefObj readCachedRoleDef( CFBamRoleDefPKey pkey );
+	IYCFBamRoleDefObj readCachedRoleDef( YCFBamRoleDefPKey pkey );
 
-	public void reallyDeepDisposeRoleDef( ICFBamRoleDefObj obj );
+	public void reallyDeepDisposeRoleDef( IYCFBamRoleDefObj obj );
 
-	void deepDisposeRoleDef( CFBamRoleDefPKey pkey );
+	void deepDisposeRoleDef( YCFBamRoleDefPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamRoleDefObj lockRoleDef( CFBamRoleDefPKey pkey );
+	IYCFBamRoleDefObj lockRoleDef( YCFBamRoleDefPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the RoleDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamRoleDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamRoleDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamRoleDefObj> readAllRoleDef();
+	List<IYCFBamRoleDefObj> readAllRoleDef();
 
 	/**
 	 *	Return a sorted map of all the RoleDef-derived instances in the database.
 	 *
-	 *	@return	List of ICFBamRoleDefObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFBamRoleDefObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFBamRoleDefObj> readAllRoleDef( boolean forceRead );
+	List<IYCFBamRoleDefObj> readAllRoleDef( boolean forceRead );
 
-	List<ICFBamRoleDefObj> readCachedAllRoleDef();
+	List<IYCFBamRoleDefObj> readCachedAllRoleDef();
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the primary key attributes.
+	 *	Get the YCFBamRoleDefObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj cached instance for the primary key, or
+	 *	@return	YCFBamRoleDefObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRoleDefObj readRoleDefByIdIdx( long TenantId,
+	IYCFBamRoleDefObj readRoleDefByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the primary key attributes.
+	 *	Get the YCFBamRoleDefObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj refreshed instance for the primary key, or
+	 *	@return	YCFBamRoleDefObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRoleDefObj readRoleDefByIdIdx( long TenantId,
+	IYCFBamRoleDefObj readRoleDefByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamRoleDefObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
@@ -190,15 +190,15 @@ public interface ICFBamRoleDefTableObj
 	 *
 	 *	@param	argName	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFBamRoleDefObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRoleDefObj readRoleDefByUNameIdx(long TenantId,
+	IYCFBamRoleDefObj readRoleDefByUNameIdx(long TenantId,
 		long ScopeId,
 		String Name );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the unique UNameIdx key.
+	 *	Get the YCFBamRoleDefObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
@@ -206,16 +206,16 @@ public interface ICFBamRoleDefTableObj
 	 *
 	 *	@param	argName	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFBamRoleDefObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRoleDefObj readRoleDefByUNameIdx(long TenantId,
+	IYCFBamRoleDefObj readRoleDefByUNameIdx(long TenantId,
 		long ScopeId,
 		String Name,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the unique UDefIdx key.
+	 *	Get the YCFBamRoleDefObj instance for the unique UDefIdx key.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
@@ -227,17 +227,17 @@ public interface ICFBamRoleDefTableObj
 	 *
 	 *	@param	argName	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj cached instance for the unique UDefIdx key, or
+	 *	@return	YCFBamRoleDefObj cached instance for the unique UDefIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRoleDefObj readRoleDefByUDefIdx(long TenantId,
+	IYCFBamRoleDefObj readRoleDefByUDefIdx(long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name );
 
 	/**
-	 *	Get the CFBamRoleDefObj instance for the unique UDefIdx key.
+	 *	Get the YCFBamRoleDefObj instance for the unique UDefIdx key.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
@@ -249,10 +249,10 @@ public interface ICFBamRoleDefTableObj
 	 *
 	 *	@param	argName	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	CFBamRoleDefObj refreshed instance for the unique UDefIdx key, or
+	 *	@return	YCFBamRoleDefObj refreshed instance for the unique UDefIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFBamRoleDefObj readRoleDefByUDefIdx(long TenantId,
+	IYCFBamRoleDefObj readRoleDefByUDefIdx(long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
@@ -260,99 +260,99 @@ public interface ICFBamRoleDefTableObj
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRoleDefObj instances sorted by their primary keys for the duplicate RoleDefTentIdx key.
+	 *	Get the map of YCFBamRoleDefObj instances sorted by their primary keys for the duplicate RoleDefTentIdx key.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRoleDefObj cached instances sorted by their primary keys for the duplicate RoleDefTentIdx key,
+	 *	@return	List of YCFBamRoleDefObj cached instances sorted by their primary keys for the duplicate RoleDefTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRoleDefObj> readRoleDefByRoleDefTentIdx( long TenantId );
+	List<IYCFBamRoleDefObj> readRoleDefByRoleDefTentIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFBamRoleDefObj instances sorted by their primary keys for the duplicate RoleDefTentIdx key.
+	 *	Get the map of YCFBamRoleDefObj instances sorted by their primary keys for the duplicate RoleDefTentIdx key.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRoleDefObj cached instances sorted by their primary keys for the duplicate RoleDefTentIdx key,
+	 *	@return	List of YCFBamRoleDefObj cached instances sorted by their primary keys for the duplicate RoleDefTentIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRoleDefObj> readRoleDefByRoleDefTentIdx( long TenantId,
+	List<IYCFBamRoleDefObj> readRoleDefByRoleDefTentIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRoleDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamRoleDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRoleDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamRoleDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRoleDefObj> readRoleDefByScopeIdx( long TenantId,
+	List<IYCFBamRoleDefObj> readRoleDefByScopeIdx( long TenantId,
 		long ScopeId );
 
 	/**
-	 *	Get the map of CFBamRoleDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
+	 *	Get the map of YCFBamRoleDefObj instances sorted by their primary keys for the duplicate ScopeIdx key.
 	 *
 	 *	@param	argTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argScopeId	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRoleDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
+	 *	@return	List of YCFBamRoleDefObj cached instances sorted by their primary keys for the duplicate ScopeIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRoleDefObj> readRoleDefByScopeIdx( long TenantId,
+	List<IYCFBamRoleDefObj> readRoleDefByScopeIdx( long TenantId,
 		long ScopeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFBamRoleDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamRoleDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRoleDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamRoleDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRoleDefObj> readRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamRoleDefObj> readRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	/**
-	 *	Get the map of CFBamRoleDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
+	 *	Get the map of YCFBamRoleDefObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The RoleDef key attribute of the instance generating the id.
 	 *
 	 *	@param	argDefSchemaId	The RoleDef key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFBamRoleDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
+	 *	@return	List of YCFBamRoleDefObj cached instances sorted by their primary keys for the duplicate DefSchemaIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFBamRoleDefObj> readRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamRoleDefObj> readRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId,
 		boolean forceRead );
 
-	ICFBamRoleDefObj readCachedRoleDefByIdIdx( long TenantId,
+	IYCFBamRoleDefObj readCachedRoleDefByIdIdx( long TenantId,
 		long Id );
 
-	ICFBamRoleDefObj readCachedRoleDefByUNameIdx( long TenantId,
+	IYCFBamRoleDefObj readCachedRoleDefByUNameIdx( long TenantId,
 		long ScopeId,
 		String Name );
 
-	ICFBamRoleDefObj readCachedRoleDefByUDefIdx( long TenantId,
+	IYCFBamRoleDefObj readCachedRoleDefByUDefIdx( long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
 		Long DefSchemaId,
 		String Name );
 
-	List<ICFBamRoleDefObj> readCachedRoleDefByRoleDefTentIdx( long TenantId );
+	List<IYCFBamRoleDefObj> readCachedRoleDefByRoleDefTentIdx( long TenantId );
 
-	List<ICFBamRoleDefObj> readCachedRoleDefByScopeIdx( long TenantId,
+	List<IYCFBamRoleDefObj> readCachedRoleDefByScopeIdx( long TenantId,
 		long ScopeId );
 
-	List<ICFBamRoleDefObj> readCachedRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
+	List<IYCFBamRoleDefObj> readCachedRoleDefByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
 	void deepDisposeRoleDefByIdIdx( long TenantId,
@@ -379,12 +379,12 @@ public interface ICFBamRoleDefTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFBamRoleDefObj updateRoleDef( ICFBamRoleDefObj Obj );
+	IYCFBamRoleDefObj updateRoleDef( IYCFBamRoleDefObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteRoleDef( ICFBamRoleDefObj Obj );
+	void deleteRoleDef( IYCFBamRoleDefObj Obj );
 
 	/**
 	 *	Internal use only.

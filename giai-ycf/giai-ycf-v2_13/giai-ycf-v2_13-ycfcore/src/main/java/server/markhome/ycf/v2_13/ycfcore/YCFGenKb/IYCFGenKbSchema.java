@@ -1,11 +1,11 @@
-// Description: Java 11 interface for a CFGenKb schema.
+// Description: Java 11 interface for a YCFGenKb schema.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,13 +35,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.Tip.CFTipClientHandler;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.Tip.YCFTipClientHandler;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSchema
+public interface IYCFGenKbSchema
 {
 	public enum AuditActionEnum {
 		Create,
@@ -49,13 +49,13 @@ public interface ICFGenKbSchema
 		Delete
 	};
 
-	CFTipClientHandler getCFTipClientHandler();
+	YCFTipClientHandler getYCFTipClientHandler();
 
 	String getServerURL();
 	void setServerURL( String value );
 
-	CFGenKbConfigurationFile getConfigurationFile();
-	void setConfigurationFile( CFGenKbConfigurationFile value );
+	YCFGenKbConfigurationFile getConfigurationFile();
+	void setConfigurationFile( YCFGenKbConfigurationFile value );
 
 	String getJndiName();
 	void setJndiName( String value );
@@ -65,18 +65,18 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The Authorization used by the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbAuthorization getAuthorization();
+	YCFGenKbAuthorization getAuthorization();
 
 	/**
 	 *	Set the Authorization used by the schema.
 	 *
 	 *	@param	value	The Authorization to be used by the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	void setAuthorization( CFGenKbAuthorization value );
+	void setAuthorization( YCFGenKbAuthorization value );
 
 	/**
 	 *	Is the schema connected to a persistent storage server?
@@ -115,21 +115,21 @@ public interface ICFGenKbSchema
 	/**
 	 *	Log out of the server, releasing the authorization information.
 	 */
-	void logout( CFGenKbAuthorization auth );
+	void logout( YCFGenKbAuthorization auth );
 
 	/**
 	 *	Allocate a new schema instance.
 	 *
-	 *	@return	A new ICFGenKbSchema instance.
+	 *	@return	A new IYCFGenKbSchema instance.
 	 */
-	ICFGenKbSchema newSchema();
+	IYCFGenKbSchema newSchema();
 
 	/**
 	 *	Get the next DefClassIdGen identifier.
 	 *
 	 *	@return	The next DefClassIdGen identifier.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	short nextDefClassIdGen();
 
@@ -138,7 +138,7 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The next RuleTypeIdGen identifier.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	short nextRuleTypeIdGen();
 
@@ -147,7 +147,7 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The next ToolIdGen identifier.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	short nextToolIdGen();
 
@@ -156,7 +156,7 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The next ToolSetIdGen identifier.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	short nextToolSetIdGen();
 
@@ -165,7 +165,7 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The next ClusterIdGen identifier.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	long nextClusterIdGen();
 
@@ -174,7 +174,7 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The next TenantIdGen identifier.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	long nextTenantIdGen();
 
@@ -183,7 +183,7 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The next SecSessionIdGen identifier.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	UUID nextSecSessionIdGen();
 
@@ -192,7 +192,7 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The next SecUserIdGen identifier.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	UUID nextSecUserIdGen();
 
@@ -201,882 +201,882 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The Cluster Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbClusterTable getTableCluster();
+	IYCFGenKbClusterTable getTableCluster();
 
 	/**
 	 *	Get the Cluster Factory interface for the schema.
 	 *
 	 *	@return	The Cluster Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbClusterFactory getFactoryCluster();
+	IYCFGenKbClusterFactory getFactoryCluster();
 
 	/**
 	 *	Get the DefClass Table interface for the schema.
 	 *
 	 *	@return	The DefClass Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbDefClassTable getTableDefClass();
+	IYCFGenKbDefClassTable getTableDefClass();
 
 	/**
 	 *	Get the DefClass Factory interface for the schema.
 	 *
 	 *	@return	The DefClass Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbDefClassFactory getFactoryDefClass();
+	IYCFGenKbDefClassFactory getFactoryDefClass();
 
 	/**
 	 *	Get the GelBoilerplate Table interface for the schema.
 	 *
 	 *	@return	The GelBoilerplate Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelBoilerplateTable getTableGelBoilerplate();
+	IYCFGenKbGelBoilerplateTable getTableGelBoilerplate();
 
 	/**
 	 *	Get the GelBoilerplate Factory interface for the schema.
 	 *
 	 *	@return	The GelBoilerplate Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelBoilerplateFactory getFactoryGelBoilerplate();
+	IYCFGenKbGelBoilerplateFactory getFactoryGelBoilerplate();
 
 	/**
 	 *	Get the GelBuiltin Table interface for the schema.
 	 *
 	 *	@return	The GelBuiltin Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelBuiltinTable getTableGelBuiltin();
+	IYCFGenKbGelBuiltinTable getTableGelBuiltin();
 
 	/**
 	 *	Get the GelBuiltin Factory interface for the schema.
 	 *
 	 *	@return	The GelBuiltin Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelBuiltinFactory getFactoryGelBuiltin();
+	IYCFGenKbGelBuiltinFactory getFactoryGelBuiltin();
 
 	/**
 	 *	Get the GelCache Table interface for the schema.
 	 *
 	 *	@return	The GelCache Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelCacheTable getTableGelCache();
+	IYCFGenKbGelCacheTable getTableGelCache();
 
 	/**
 	 *	Get the GelCache Factory interface for the schema.
 	 *
 	 *	@return	The GelCache Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelCacheFactory getFactoryGelCache();
+	IYCFGenKbGelCacheFactory getFactoryGelCache();
 
 	/**
 	 *	Get the GelCall Table interface for the schema.
 	 *
 	 *	@return	The GelCall Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelCallTable getTableGelCall();
+	IYCFGenKbGelCallTable getTableGelCall();
 
 	/**
 	 *	Get the GelCall Factory interface for the schema.
 	 *
 	 *	@return	The GelCall Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelCallFactory getFactoryGelCall();
+	IYCFGenKbGelCallFactory getFactoryGelCall();
 
 	/**
 	 *	Get the GelConstrain Table interface for the schema.
 	 *
 	 *	@return	The GelConstrain Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelConstrainTable getTableGelConstrain();
+	IYCFGenKbGelConstrainTable getTableGelConstrain();
 
 	/**
 	 *	Get the GelConstrain Factory interface for the schema.
 	 *
 	 *	@return	The GelConstrain Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelConstrainFactory getFactoryGelConstrain();
+	IYCFGenKbGelConstrainFactory getFactoryGelConstrain();
 
 	/**
 	 *	Get the GelCounter Table interface for the schema.
 	 *
 	 *	@return	The GelCounter Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelCounterTable getTableGelCounter();
+	IYCFGenKbGelCounterTable getTableGelCounter();
 
 	/**
 	 *	Get the GelCounter Factory interface for the schema.
 	 *
 	 *	@return	The GelCounter Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelCounterFactory getFactoryGelCounter();
+	IYCFGenKbGelCounterFactory getFactoryGelCounter();
 
 	/**
 	 *	Get the GelError Table interface for the schema.
 	 *
 	 *	@return	The GelError Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelErrorTable getTableGelError();
+	IYCFGenKbGelErrorTable getTableGelError();
 
 	/**
 	 *	Get the GelError Factory interface for the schema.
 	 *
 	 *	@return	The GelError Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelErrorFactory getFactoryGelError();
+	IYCFGenKbGelErrorFactory getFactoryGelError();
 
 	/**
 	 *	Get the GelExecutable Table interface for the schema.
 	 *
 	 *	@return	The GelExecutable Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelExecutableTable getTableGelExecutable();
+	IYCFGenKbGelExecutableTable getTableGelExecutable();
 
 	/**
 	 *	Get the GelExecutable Factory interface for the schema.
 	 *
 	 *	@return	The GelExecutable Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelExecutableFactory getFactoryGelExecutable();
+	IYCFGenKbGelExecutableFactory getFactoryGelExecutable();
 
 	/**
 	 *	Get the GelExpansion Table interface for the schema.
 	 *
 	 *	@return	The GelExpansion Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelExpansionTable getTableGelExpansion();
+	IYCFGenKbGelExpansionTable getTableGelExpansion();
 
 	/**
 	 *	Get the GelExpansion Factory interface for the schema.
 	 *
 	 *	@return	The GelExpansion Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelExpansionFactory getFactoryGelExpansion();
+	IYCFGenKbGelExpansionFactory getFactoryGelExpansion();
 
 	/**
 	 *	Get the GelInstruction Table interface for the schema.
 	 *
 	 *	@return	The GelInstruction Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelInstructionTable getTableGelInstruction();
+	IYCFGenKbGelInstructionTable getTableGelInstruction();
 
 	/**
 	 *	Get the GelInstruction Factory interface for the schema.
 	 *
 	 *	@return	The GelInstruction Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelInstructionFactory getFactoryGelInstruction();
+	IYCFGenKbGelInstructionFactory getFactoryGelInstruction();
 
 	/**
 	 *	Get the GelIterator Table interface for the schema.
 	 *
 	 *	@return	The GelIterator Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelIteratorTable getTableGelIterator();
+	IYCFGenKbGelIteratorTable getTableGelIterator();
 
 	/**
 	 *	Get the GelIterator Factory interface for the schema.
 	 *
 	 *	@return	The GelIterator Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelIteratorFactory getFactoryGelIterator();
+	IYCFGenKbGelIteratorFactory getFactoryGelIterator();
 
 	/**
 	 *	Get the GelModifier Table interface for the schema.
 	 *
 	 *	@return	The GelModifier Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelModifierTable getTableGelModifier();
+	IYCFGenKbGelModifierTable getTableGelModifier();
 
 	/**
 	 *	Get the GelModifier Factory interface for the schema.
 	 *
 	 *	@return	The GelModifier Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelModifierFactory getFactoryGelModifier();
+	IYCFGenKbGelModifierFactory getFactoryGelModifier();
 
 	/**
 	 *	Get the GelPop Table interface for the schema.
 	 *
 	 *	@return	The GelPop Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelPopTable getTableGelPop();
+	IYCFGenKbGelPopTable getTableGelPop();
 
 	/**
 	 *	Get the GelPop Factory interface for the schema.
 	 *
 	 *	@return	The GelPop Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelPopFactory getFactoryGelPop();
+	IYCFGenKbGelPopFactory getFactoryGelPop();
 
 	/**
 	 *	Get the GelPushContext Table interface for the schema.
 	 *
 	 *	@return	The GelPushContext Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelPushContextTable getTableGelPushContext();
+	IYCFGenKbGelPushContextTable getTableGelPushContext();
 
 	/**
 	 *	Get the GelPushContext Factory interface for the schema.
 	 *
 	 *	@return	The GelPushContext Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelPushContextFactory getFactoryGelPushContext();
+	IYCFGenKbGelPushContextFactory getFactoryGelPushContext();
 
 	/**
 	 *	Get the GelPopContext Table interface for the schema.
 	 *
 	 *	@return	The GelPopContext Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelPopContextTable getTableGelPopContext();
+	IYCFGenKbGelPopContextTable getTableGelPopContext();
 
 	/**
 	 *	Get the GelPopContext Factory interface for the schema.
 	 *
 	 *	@return	The GelPopContext Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelPopContextFactory getFactoryGelPopContext();
+	IYCFGenKbGelPopContextFactory getFactoryGelPopContext();
 
 	/**
 	 *	Get the GelPrefixLine Table interface for the schema.
 	 *
 	 *	@return	The GelPrefixLine Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelPrefixLineTable getTableGelPrefixLine();
+	IYCFGenKbGelPrefixLineTable getTableGelPrefixLine();
 
 	/**
 	 *	Get the GelPrefixLine Factory interface for the schema.
 	 *
 	 *	@return	The GelPrefixLine Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelPrefixLineFactory getFactoryGelPrefixLine();
+	IYCFGenKbGelPrefixLineFactory getFactoryGelPrefixLine();
 
 	/**
 	 *	Get the GelReference Table interface for the schema.
 	 *
 	 *	@return	The GelReference Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelReferenceTable getTableGelReference();
+	IYCFGenKbGelReferenceTable getTableGelReference();
 
 	/**
 	 *	Get the GelReference Factory interface for the schema.
 	 *
 	 *	@return	The GelReference Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelReferenceFactory getFactoryGelReference();
+	IYCFGenKbGelReferenceFactory getFactoryGelReference();
 
 	/**
 	 *	Get the GelSequence Table interface for the schema.
 	 *
 	 *	@return	The GelSequence Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelSequenceTable getTableGelSequence();
+	IYCFGenKbGelSequenceTable getTableGelSequence();
 
 	/**
 	 *	Get the GelSequence Factory interface for the schema.
 	 *
 	 *	@return	The GelSequence Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelSequenceFactory getFactoryGelSequence();
+	IYCFGenKbGelSequenceFactory getFactoryGelSequence();
 
 	/**
 	 *	Get the GelSpread Table interface for the schema.
 	 *
 	 *	@return	The GelSpread Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelSpreadTable getTableGelSpread();
+	IYCFGenKbGelSpreadTable getTableGelSpread();
 
 	/**
 	 *	Get the GelSpread Factory interface for the schema.
 	 *
 	 *	@return	The GelSpread Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelSpreadFactory getFactoryGelSpread();
+	IYCFGenKbGelSpreadFactory getFactoryGelSpread();
 
 	/**
 	 *	Get the GelSwitch Table interface for the schema.
 	 *
 	 *	@return	The GelSwitch Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelSwitchTable getTableGelSwitch();
+	IYCFGenKbGelSwitchTable getTableGelSwitch();
 
 	/**
 	 *	Get the GelSwitch Factory interface for the schema.
 	 *
 	 *	@return	The GelSwitch Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelSwitchFactory getFactoryGelSwitch();
+	IYCFGenKbGelSwitchFactory getFactoryGelSwitch();
 
 	/**
 	 *	Get the GelSwitchLimb Table interface for the schema.
 	 *
 	 *	@return	The GelSwitchLimb Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelSwitchLimbTable getTableGelSwitchLimb();
+	IYCFGenKbGelSwitchLimbTable getTableGelSwitchLimb();
 
 	/**
 	 *	Get the GelSwitchLimb Factory interface for the schema.
 	 *
 	 *	@return	The GelSwitchLimb Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGelSwitchLimbFactory getFactoryGelSwitchLimb();
+	IYCFGenKbGelSwitchLimbFactory getFactoryGelSwitchLimb();
 
 	/**
 	 *	Get the GenBind Table interface for the schema.
 	 *
 	 *	@return	The GenBind Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenBindTable getTableGenBind();
+	IYCFGenKbGenBindTable getTableGenBind();
 
 	/**
 	 *	Get the GenBind Factory interface for the schema.
 	 *
 	 *	@return	The GenBind Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenBindFactory getFactoryGenBind();
+	IYCFGenKbGenBindFactory getFactoryGenBind();
 
 	/**
 	 *	Get the GenFile Table interface for the schema.
 	 *
 	 *	@return	The GenFile Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenFileTable getTableGenFile();
+	IYCFGenKbGenFileTable getTableGenFile();
 
 	/**
 	 *	Get the GenFile Factory interface for the schema.
 	 *
 	 *	@return	The GenFile Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenFileFactory getFactoryGenFile();
+	IYCFGenKbGenFileFactory getFactoryGenFile();
 
 	/**
 	 *	Get the GenItem Table interface for the schema.
 	 *
 	 *	@return	The GenItem Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenItemTable getTableGenItem();
+	IYCFGenKbGenItemTable getTableGenItem();
 
 	/**
 	 *	Get the GenItem Factory interface for the schema.
 	 *
 	 *	@return	The GenItem Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenItemFactory getFactoryGenItem();
+	IYCFGenKbGenItemFactory getFactoryGenItem();
 
 	/**
 	 *	Get the GenIterator Table interface for the schema.
 	 *
 	 *	@return	The GenIterator Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenIteratorTable getTableGenIterator();
+	IYCFGenKbGenIteratorTable getTableGenIterator();
 
 	/**
 	 *	Get the GenIterator Factory interface for the schema.
 	 *
 	 *	@return	The GenIterator Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenIteratorFactory getFactoryGenIterator();
+	IYCFGenKbGenIteratorFactory getFactoryGenIterator();
 
 	/**
 	 *	Get the GenReference Table interface for the schema.
 	 *
 	 *	@return	The GenReference Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenReferenceTable getTableGenReference();
+	IYCFGenKbGenReferenceTable getTableGenReference();
 
 	/**
 	 *	Get the GenReference Factory interface for the schema.
 	 *
 	 *	@return	The GenReference Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenReferenceFactory getFactoryGenReference();
+	IYCFGenKbGenReferenceFactory getFactoryGenReference();
 
 	/**
 	 *	Get the GenRule Table interface for the schema.
 	 *
 	 *	@return	The GenRule Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenRuleTable getTableGenRule();
+	IYCFGenKbGenRuleTable getTableGenRule();
 
 	/**
 	 *	Get the GenRule Factory interface for the schema.
 	 *
 	 *	@return	The GenRule Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenRuleFactory getFactoryGenRule();
+	IYCFGenKbGenRuleFactory getFactoryGenRule();
 
 	/**
 	 *	Get the GenTrunc Table interface for the schema.
 	 *
 	 *	@return	The GenTrunc Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenTruncTable getTableGenTrunc();
+	IYCFGenKbGenTruncTable getTableGenTrunc();
 
 	/**
 	 *	Get the GenTrunc Factory interface for the schema.
 	 *
 	 *	@return	The GenTrunc Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbGenTruncFactory getFactoryGenTrunc();
+	IYCFGenKbGenTruncFactory getFactoryGenTrunc();
 
 	/**
 	 *	Get the HostNode Table interface for the schema.
 	 *
 	 *	@return	The HostNode Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbHostNodeTable getTableHostNode();
+	IYCFGenKbHostNodeTable getTableHostNode();
 
 	/**
 	 *	Get the HostNode Factory interface for the schema.
 	 *
 	 *	@return	The HostNode Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbHostNodeFactory getFactoryHostNode();
+	IYCFGenKbHostNodeFactory getFactoryHostNode();
 
 	/**
 	 *	Get the RuleCart Table interface for the schema.
 	 *
 	 *	@return	The RuleCart Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbRuleCartTable getTableRuleCart();
+	IYCFGenKbRuleCartTable getTableRuleCart();
 
 	/**
 	 *	Get the RuleCart Factory interface for the schema.
 	 *
 	 *	@return	The RuleCart Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbRuleCartFactory getFactoryRuleCart();
+	IYCFGenKbRuleCartFactory getFactoryRuleCart();
 
 	/**
 	 *	Get the RuleType Table interface for the schema.
 	 *
 	 *	@return	The RuleType Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbRuleTypeTable getTableRuleType();
+	IYCFGenKbRuleTypeTable getTableRuleType();
 
 	/**
 	 *	Get the RuleType Factory interface for the schema.
 	 *
 	 *	@return	The RuleType Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbRuleTypeFactory getFactoryRuleType();
+	IYCFGenKbRuleTypeFactory getFactoryRuleType();
 
 	/**
 	 *	Get the SecApp Table interface for the schema.
 	 *
 	 *	@return	The SecApp Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecAppTable getTableSecApp();
+	IYCFGenKbSecAppTable getTableSecApp();
 
 	/**
 	 *	Get the SecApp Factory interface for the schema.
 	 *
 	 *	@return	The SecApp Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecAppFactory getFactorySecApp();
+	IYCFGenKbSecAppFactory getFactorySecApp();
 
 	/**
 	 *	Get the SecDevice Table interface for the schema.
 	 *
 	 *	@return	The SecDevice Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecDeviceTable getTableSecDevice();
+	IYCFGenKbSecDeviceTable getTableSecDevice();
 
 	/**
 	 *	Get the SecDevice Factory interface for the schema.
 	 *
 	 *	@return	The SecDevice Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecDeviceFactory getFactorySecDevice();
+	IYCFGenKbSecDeviceFactory getFactorySecDevice();
 
 	/**
 	 *	Get the SecForm Table interface for the schema.
 	 *
 	 *	@return	The SecForm Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecFormTable getTableSecForm();
+	IYCFGenKbSecFormTable getTableSecForm();
 
 	/**
 	 *	Get the SecForm Factory interface for the schema.
 	 *
 	 *	@return	The SecForm Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecFormFactory getFactorySecForm();
+	IYCFGenKbSecFormFactory getFactorySecForm();
 
 	/**
 	 *	Get the SecGroup Table interface for the schema.
 	 *
 	 *	@return	The SecGroup Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecGroupTable getTableSecGroup();
+	IYCFGenKbSecGroupTable getTableSecGroup();
 
 	/**
 	 *	Get the SecGroup Factory interface for the schema.
 	 *
 	 *	@return	The SecGroup Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecGroupFactory getFactorySecGroup();
+	IYCFGenKbSecGroupFactory getFactorySecGroup();
 
 	/**
 	 *	Get the SecGroupForm Table interface for the schema.
 	 *
 	 *	@return	The SecGroupForm Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecGroupFormTable getTableSecGroupForm();
+	IYCFGenKbSecGroupFormTable getTableSecGroupForm();
 
 	/**
 	 *	Get the SecGroupForm Factory interface for the schema.
 	 *
 	 *	@return	The SecGroupForm Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecGroupFormFactory getFactorySecGroupForm();
+	IYCFGenKbSecGroupFormFactory getFactorySecGroupForm();
 
 	/**
 	 *	Get the SecGrpInc Table interface for the schema.
 	 *
 	 *	@return	The SecGrpInc Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecGrpIncTable getTableSecGrpInc();
+	IYCFGenKbSecGrpIncTable getTableSecGrpInc();
 
 	/**
 	 *	Get the SecGrpInc Factory interface for the schema.
 	 *
 	 *	@return	The SecGrpInc Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecGrpIncFactory getFactorySecGrpInc();
+	IYCFGenKbSecGrpIncFactory getFactorySecGrpInc();
 
 	/**
 	 *	Get the SecGrpMemb Table interface for the schema.
 	 *
 	 *	@return	The SecGrpMemb Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecGrpMembTable getTableSecGrpMemb();
+	IYCFGenKbSecGrpMembTable getTableSecGrpMemb();
 
 	/**
 	 *	Get the SecGrpMemb Factory interface for the schema.
 	 *
 	 *	@return	The SecGrpMemb Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecGrpMembFactory getFactorySecGrpMemb();
+	IYCFGenKbSecGrpMembFactory getFactorySecGrpMemb();
 
 	/**
 	 *	Get the SecSession Table interface for the schema.
 	 *
 	 *	@return	The SecSession Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecSessionTable getTableSecSession();
+	IYCFGenKbSecSessionTable getTableSecSession();
 
 	/**
 	 *	Get the SecSession Factory interface for the schema.
 	 *
 	 *	@return	The SecSession Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecSessionFactory getFactorySecSession();
+	IYCFGenKbSecSessionFactory getFactorySecSession();
 
 	/**
 	 *	Get the SecUser Table interface for the schema.
 	 *
 	 *	@return	The SecUser Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecUserTable getTableSecUser();
+	IYCFGenKbSecUserTable getTableSecUser();
 
 	/**
 	 *	Get the SecUser Factory interface for the schema.
 	 *
 	 *	@return	The SecUser Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSecUserFactory getFactorySecUser();
+	IYCFGenKbSecUserFactory getFactorySecUser();
 
 	/**
 	 *	Get the SysCluster Table interface for the schema.
 	 *
 	 *	@return	The SysCluster Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSysClusterTable getTableSysCluster();
+	IYCFGenKbSysClusterTable getTableSysCluster();
 
 	/**
 	 *	Get the SysCluster Factory interface for the schema.
 	 *
 	 *	@return	The SysCluster Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbSysClusterFactory getFactorySysCluster();
+	IYCFGenKbSysClusterFactory getFactorySysCluster();
 
 	/**
 	 *	Get the TSecGroup Table interface for the schema.
 	 *
 	 *	@return	The TSecGroup Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbTSecGroupTable getTableTSecGroup();
+	IYCFGenKbTSecGroupTable getTableTSecGroup();
 
 	/**
 	 *	Get the TSecGroup Factory interface for the schema.
 	 *
 	 *	@return	The TSecGroup Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbTSecGroupFactory getFactoryTSecGroup();
+	IYCFGenKbTSecGroupFactory getFactoryTSecGroup();
 
 	/**
 	 *	Get the TSecGrpInc Table interface for the schema.
 	 *
 	 *	@return	The TSecGrpInc Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbTSecGrpIncTable getTableTSecGrpInc();
+	IYCFGenKbTSecGrpIncTable getTableTSecGrpInc();
 
 	/**
 	 *	Get the TSecGrpInc Factory interface for the schema.
 	 *
 	 *	@return	The TSecGrpInc Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbTSecGrpIncFactory getFactoryTSecGrpInc();
+	IYCFGenKbTSecGrpIncFactory getFactoryTSecGrpInc();
 
 	/**
 	 *	Get the TSecGrpMemb Table interface for the schema.
 	 *
 	 *	@return	The TSecGrpMemb Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbTSecGrpMembTable getTableTSecGrpMemb();
+	IYCFGenKbTSecGrpMembTable getTableTSecGrpMemb();
 
 	/**
 	 *	Get the TSecGrpMemb Factory interface for the schema.
 	 *
 	 *	@return	The TSecGrpMemb Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbTSecGrpMembFactory getFactoryTSecGrpMemb();
+	IYCFGenKbTSecGrpMembFactory getFactoryTSecGrpMemb();
 
 	/**
 	 *	Get the Tenant Table interface for the schema.
 	 *
 	 *	@return	The Tenant Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbTenantTable getTableTenant();
+	IYCFGenKbTenantTable getTableTenant();
 
 	/**
 	 *	Get the Tenant Factory interface for the schema.
 	 *
 	 *	@return	The Tenant Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbTenantFactory getFactoryTenant();
+	IYCFGenKbTenantFactory getFactoryTenant();
 
 	/**
 	 *	Get the Tool Table interface for the schema.
 	 *
 	 *	@return	The Tool Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbToolTable getTableTool();
+	IYCFGenKbToolTable getTableTool();
 
 	/**
 	 *	Get the Tool Factory interface for the schema.
 	 *
 	 *	@return	The Tool Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbToolFactory getFactoryTool();
+	IYCFGenKbToolFactory getFactoryTool();
 
 	/**
 	 *	Get the ToolSet Table interface for the schema.
 	 *
 	 *	@return	The ToolSet Table interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbToolSetTable getTableToolSet();
+	IYCFGenKbToolSetTable getTableToolSet();
 
 	/**
 	 *	Get the ToolSet Factory interface for the schema.
 	 *
 	 *	@return	The ToolSet Factory interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbToolSetFactory getFactoryToolSet();
+	IYCFGenKbToolSetFactory getFactoryToolSet();
 
 	/**
 	 *	If a transaction is already opened for the schema connection,
@@ -1124,21 +1124,21 @@ public interface ICFGenKbSchema
 	/**
 	 *	Begin a transaction.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	boolean beginTransaction();
 
 	/**
 	 *	Commit the current open transaction.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void commit();
 
 	/**
 	 *	Roll back the current open transaction.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void rollback();
 
@@ -1147,23 +1147,23 @@ public interface ICFGenKbSchema
 	 *
 	 *	@return	The Table Permissions interface for the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	ICFGenKbTablePerms getTablePerms();
+	IYCFGenKbTablePerms getTablePerms();
 
 	/**
 	 *	Set the Table Permissions interface for the schema.
 	 *
 	 *	@param	value	The Table Permissions interface to be used by the schema.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	void setTablePerms( ICFGenKbTablePerms value );
+	void setTablePerms( IYCFGenKbTablePerms value );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@Exception CFLibNotSupportedException thrown by client-side implementations.
+	 *	@Exception YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 
@@ -1177,7 +1177,7 @@ public interface ICFGenKbSchema
 	 *	the expression of the current schema model being expanded.  That is, it is specified
 	 *	in the DbSchemaName attribute of a SchemaDef instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	String getDbSchemaName();
 	String getLowerDbSchemaName();
@@ -1196,7 +1196,7 @@ public interface ICFGenKbSchema
 	 *	regardless of what's been provided by the cust client implementation,
 	 *	be it as a Java application or a web interface written using JEE.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void setDbSchemaName( String argDbSchemaName );
 }

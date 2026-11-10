@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a URLProtocol history buffer object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,13 +36,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntURLProtocolHBuff
+public class YCFIntURLProtocolHBuff
 
-	extends CFIntHPKey	implements Comparable<Object>,
+	extends YCFIntHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final int URLPROTOCOLID_INIT_VALUE = 0;
@@ -55,16 +55,16 @@ public class CFIntURLProtocolHBuff
 	protected String requiredName;
 	protected String requiredDescription;
 	protected boolean requiredIsSecure;
-	public CFIntURLProtocolHBuff() {
+	public YCFIntURLProtocolHBuff() {
 		super();
-		requiredURLProtocolId = CFIntURLProtocolBuff.URLPROTOCOLID_INIT_VALUE;
-		requiredName = new String( CFIntURLProtocolBuff.NAME_INIT_VALUE );
-		requiredDescription = new String( CFIntURLProtocolBuff.DESCRIPTION_INIT_VALUE );
-		requiredIsSecure = CFIntURLProtocolBuff.ISSECURE_INIT_VALUE;
+		requiredURLProtocolId = YCFIntURLProtocolBuff.URLPROTOCOLID_INIT_VALUE;
+		requiredName = new String( YCFIntURLProtocolBuff.NAME_INIT_VALUE );
+		requiredDescription = new String( YCFIntURLProtocolBuff.DESCRIPTION_INIT_VALUE );
+		requiredIsSecure = YCFIntURLProtocolBuff.ISSECURE_INIT_VALUE;
 	}
 
 	public String getClassCode() {
-		return( CFIntURLProtocolBuff.CLASS_CODE );
+		return( YCFIntURLProtocolBuff.CLASS_CODE );
 	}
 
 	public int getRequiredURLProtocolId() {
@@ -72,13 +72,13 @@ public class CFIntURLProtocolHBuff
 	}
 
 	public void setRequiredURLProtocolId( int value ) {
-		if( value < CFIntURLProtocolBuff.URLPROTOCOLID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntURLProtocolBuff.URLPROTOCOLID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredURLProtocolId",
 				1,
 				"value",
 				value,
-				CFIntURLProtocolBuff.URLPROTOCOLID_MIN_VALUE );
+				YCFIntURLProtocolBuff.URLPROTOCOLID_MIN_VALUE );
 		}
 		requiredURLProtocolId = value;
 	}
@@ -89,13 +89,13 @@ public class CFIntURLProtocolHBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 16 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -111,13 +111,13 @@ public class CFIntURLProtocolHBuff
 
 	public void setRequiredDescription( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredDescription",
 				1,
 				"value" );
 		}
 		if( value.length() > 50 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDescription",
 				1,
 				"value.length()",
@@ -139,8 +139,8 @@ public class CFIntURLProtocolHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntURLProtocolHBuff ) {
-			CFIntURLProtocolHBuff rhs = (CFIntURLProtocolHBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolHBuff ) {
+			YCFIntURLProtocolHBuff rhs = (YCFIntURLProtocolHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -158,8 +158,8 @@ public class CFIntURLProtocolHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolBuff ) {
-			CFIntURLProtocolBuff rhs = (CFIntURLProtocolBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolBuff ) {
+			YCFIntURLProtocolBuff rhs = (YCFIntURLProtocolBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -177,22 +177,22 @@ public class CFIntURLProtocolHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolByUNameIdxKey ) {
-			CFIntURLProtocolByUNameIdxKey rhs = (CFIntURLProtocolByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntURLProtocolByUNameIdxKey ) {
+			YCFIntURLProtocolByUNameIdxKey rhs = (YCFIntURLProtocolByUNameIdxKey)obj;
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolByIsSecureIdxKey ) {
-			CFIntURLProtocolByIsSecureIdxKey rhs = (CFIntURLProtocolByIsSecureIdxKey)obj;
+		else if( obj instanceof YCFIntURLProtocolByIsSecureIdxKey ) {
+			YCFIntURLProtocolByIsSecureIdxKey rhs = (YCFIntURLProtocolByIsSecureIdxKey)obj;
 			if( getRequiredIsSecure() != rhs.getRequiredIsSecure() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolHPKey ) {
-			CFIntURLProtocolHPKey rhs = (CFIntURLProtocolHPKey)obj;
+		else if( obj instanceof YCFIntURLProtocolHPKey ) {
+			YCFIntURLProtocolHPKey rhs = (YCFIntURLProtocolHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -253,8 +253,8 @@ public class CFIntURLProtocolHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -312,8 +312,8 @@ public class CFIntURLProtocolHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntURLProtocolPKey ) {
-			CFIntURLProtocolPKey rhs = (CFIntURLProtocolPKey)obj;
+		else if( obj instanceof YCFIntURLProtocolPKey ) {
+			YCFIntURLProtocolPKey rhs = (YCFIntURLProtocolPKey)obj;
 			if( getRequiredURLProtocolId() != rhs.getRequiredURLProtocolId() ) {
 				return( false );
 			}
@@ -346,16 +346,16 @@ public class CFIntURLProtocolHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntURLProtocolBuff ) {
-			CFIntURLProtocolBuff rhs = (CFIntURLProtocolBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolBuff ) {
+			YCFIntURLProtocolBuff rhs = (YCFIntURLProtocolBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolByUNameIdxKey ) {
-			CFIntURLProtocolByUNameIdxKey rhs = (CFIntURLProtocolByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntURLProtocolByUNameIdxKey ) {
+			YCFIntURLProtocolByUNameIdxKey rhs = (YCFIntURLProtocolByUNameIdxKey)obj;
 
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
@@ -364,8 +364,8 @@ public class CFIntURLProtocolHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolByIsSecureIdxKey ) {
-			CFIntURLProtocolByIsSecureIdxKey rhs = (CFIntURLProtocolByIsSecureIdxKey)obj;
+		else if( obj instanceof YCFIntURLProtocolByIsSecureIdxKey ) {
+			YCFIntURLProtocolByIsSecureIdxKey rhs = (YCFIntURLProtocolByIsSecureIdxKey)obj;
 
 			if( getRequiredIsSecure() ) {
 				if( ! rhs.getRequiredIsSecure() ) {
@@ -378,8 +378,8 @@ public class CFIntURLProtocolHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolHBuff ) {
-			CFIntURLProtocolHBuff rhs = (CFIntURLProtocolHBuff)obj;
+		else if( obj instanceof YCFIntURLProtocolHBuff ) {
+			YCFIntURLProtocolHBuff rhs = (YCFIntURLProtocolHBuff)obj;
 
 			int retval = 0;
 			{
@@ -544,8 +544,8 @@ public class CFIntURLProtocolHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolHPKey ) {
-			CFIntURLProtocolHPKey rhs = (CFIntURLProtocolHPKey)obj;
+		else if( obj instanceof YCFIntURLProtocolHPKey ) {
+			YCFIntURLProtocolHPKey rhs = (YCFIntURLProtocolHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -620,8 +620,8 @@ public class CFIntURLProtocolHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntURLProtocolPKey ) {
-			CFIntURLProtocolPKey rhs = (CFIntURLProtocolPKey)obj;
+		else if( obj instanceof YCFIntURLProtocolPKey ) {
+			YCFIntURLProtocolPKey rhs = (YCFIntURLProtocolPKey)obj;
 			if( getRequiredURLProtocolId() < rhs.getRequiredURLProtocolId() ) {
 				return( -1 );
 			}
@@ -630,8 +630,8 @@ public class CFIntURLProtocolHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -649,11 +649,11 @@ public class CFIntURLProtocolHBuff
 		}
 	}
 
-	public void set( CFIntURLProtocolBuff src ) {
+	public void set( YCFIntURLProtocolBuff src ) {
 		setURLProtocolBuff( src );
 	}
 
-	public void setURLProtocolBuff( CFIntURLProtocolBuff src ) {
+	public void setURLProtocolBuff( YCFIntURLProtocolBuff src ) {
 		setRequiredURLProtocolId( src.getRequiredURLProtocolId() );
 		setRequiredName( src.getRequiredName() );
 		setRequiredDescription( src.getRequiredDescription() );
@@ -661,11 +661,11 @@ public class CFIntURLProtocolHBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFIntURLProtocolHBuff src ) {
+	public void set( YCFIntURLProtocolHBuff src ) {
 		setURLProtocolBuff( src );
 	}
 
-	public void setURLProtocolBuff( CFIntURLProtocolHBuff src ) {
+	public void setURLProtocolBuff( YCFIntURLProtocolHBuff src ) {
 		setRequiredURLProtocolId( src.getRequiredURLProtocolId() );
 		setRequiredName( src.getRequiredName() );
 		setRequiredDescription( src.getRequiredDescription() );

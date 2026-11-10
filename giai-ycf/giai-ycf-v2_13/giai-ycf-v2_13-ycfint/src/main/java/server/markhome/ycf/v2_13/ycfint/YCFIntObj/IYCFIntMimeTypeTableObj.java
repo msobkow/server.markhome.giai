@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFInt.
+// Description: Java 11 Table Object interface for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,22 +26,22 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntMimeTypeTableObj
+public interface IYCFIntMimeTypeTableObj
 {
-	ICFIntSchemaObj getSchema();
-	void setSchema( ICFIntSchemaObj value );
+	IYCFIntSchemaObj getSchema();
+	void setSchema( IYCFIntSchemaObj value );
 
 	void minimizeMemory();
 
@@ -55,24 +55,24 @@ public interface ICFIntMimeTypeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFIntMimeTypeObj newInstance();
+	IYCFIntMimeTypeObj newInstance();
 
 	/**
 	 *	Instantiate a new MimeType edition of the specified MimeType instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFIntMimeTypeEditObj newEditInstance( ICFIntMimeTypeObj orig );
+	IYCFIntMimeTypeEditObj newEditInstance( IYCFIntMimeTypeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMimeTypeObj realiseMimeType( ICFIntMimeTypeObj Obj );
+	IYCFIntMimeTypeObj realiseMimeType( IYCFIntMimeTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMimeTypeObj createMimeType( ICFIntMimeTypeObj Obj );
+	IYCFIntMimeTypeObj createMimeType( IYCFIntMimeTypeObj Obj );
 
 	/**
 	 *	Read a MimeType-derived instance by it's primary key.
@@ -82,7 +82,7 @@ public interface ICFIntMimeTypeTableObj
 	 *	@return	The MimeType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntMimeTypeObj readMimeType( CFIntMimeTypePKey pkey );
+	IYCFIntMimeTypeObj readMimeType( YCFIntMimeTypePKey pkey );
 
 	/**
 	 *	Read a MimeType-derived instance by it's primary key.
@@ -92,83 +92,83 @@ public interface ICFIntMimeTypeTableObj
 	 *	@return	The MimeType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntMimeTypeObj readMimeType( CFIntMimeTypePKey pkey,
+	IYCFIntMimeTypeObj readMimeType( YCFIntMimeTypePKey pkey,
 		boolean forceRead );
 
-	ICFIntMimeTypeObj readCachedMimeType( CFIntMimeTypePKey pkey );
+	IYCFIntMimeTypeObj readCachedMimeType( YCFIntMimeTypePKey pkey );
 
-	public void reallyDeepDisposeMimeType( ICFIntMimeTypeObj obj );
+	public void reallyDeepDisposeMimeType( IYCFIntMimeTypeObj obj );
 
-	void deepDisposeMimeType( CFIntMimeTypePKey pkey );
+	void deepDisposeMimeType( YCFIntMimeTypePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMimeTypeObj lockMimeType( CFIntMimeTypePKey pkey );
+	IYCFIntMimeTypeObj lockMimeType( YCFIntMimeTypePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the MimeType-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntMimeTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntMimeTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntMimeTypeObj> readAllMimeType();
+	List<IYCFIntMimeTypeObj> readAllMimeType();
 
 	/**
 	 *	Return a sorted map of all the MimeType-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntMimeTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntMimeTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntMimeTypeObj> readAllMimeType( boolean forceRead );
+	List<IYCFIntMimeTypeObj> readAllMimeType( boolean forceRead );
 
-	List<ICFIntMimeTypeObj> readCachedAllMimeType();
+	List<IYCFIntMimeTypeObj> readCachedAllMimeType();
 
 	/**
-	 *	Get the CFIntMimeTypeObj instance for the primary key attributes.
+	 *	Get the YCFIntMimeTypeObj instance for the primary key attributes.
 	 *
 	 *	@param	argMimeTypeId	The MimeType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMimeTypeObj cached instance for the primary key, or
+	 *	@return	YCFIntMimeTypeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMimeTypeObj readMimeTypeByIdIdx( int MimeTypeId );
+	IYCFIntMimeTypeObj readMimeTypeByIdIdx( int MimeTypeId );
 
 	/**
-	 *	Get the CFIntMimeTypeObj instance for the primary key attributes.
+	 *	Get the YCFIntMimeTypeObj instance for the primary key attributes.
 	 *
 	 *	@param	argMimeTypeId	The MimeType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMimeTypeObj refreshed instance for the primary key, or
+	 *	@return	YCFIntMimeTypeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMimeTypeObj readMimeTypeByIdIdx( int MimeTypeId,
+	IYCFIntMimeTypeObj readMimeTypeByIdIdx( int MimeTypeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFIntMimeTypeObj instance for the unique UNameIdx key.
+	 *	Get the YCFIntMimeTypeObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argName	The MimeType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMimeTypeObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFIntMimeTypeObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMimeTypeObj readMimeTypeByUNameIdx(String Name );
+	IYCFIntMimeTypeObj readMimeTypeByUNameIdx(String Name );
 
 	/**
-	 *	Get the CFIntMimeTypeObj instance for the unique UNameIdx key.
+	 *	Get the YCFIntMimeTypeObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argName	The MimeType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMimeTypeObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFIntMimeTypeObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMimeTypeObj readMimeTypeByUNameIdx(String Name,
+	IYCFIntMimeTypeObj readMimeTypeByUNameIdx(String Name,
 		boolean forceRead );
 
-	ICFIntMimeTypeObj readCachedMimeTypeByIdIdx( int MimeTypeId );
+	IYCFIntMimeTypeObj readCachedMimeTypeByIdIdx( int MimeTypeId );
 
-	ICFIntMimeTypeObj readCachedMimeTypeByUNameIdx( String Name );
+	IYCFIntMimeTypeObj readCachedMimeTypeByUNameIdx( String Name );
 
 	void deepDisposeMimeTypeByIdIdx( int MimeTypeId );
 
@@ -177,12 +177,12 @@ public interface ICFIntMimeTypeTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMimeTypeObj updateMimeType( ICFIntMimeTypeObj Obj );
+	IYCFIntMimeTypeObj updateMimeType( IYCFIntMimeTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteMimeType( ICFIntMimeTypeObj Obj );
+	void deleteMimeType( IYCFIntMimeTypeObj Obj );
 
 	/**
 	 *	Internal use only.

@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam Table.
+// Description: Java 11 edit object instance implementation for YCFBam Table.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,33 +45,33 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamTableEditObj
-	extends CFBamScopeEditObj
+public class YCFBamTableEditObj
+	extends YCFBamScopeEditObj
 
-	implements ICFBamTableEditObj
+	implements IYCFBamTableEditObj
 {
-	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
-	protected ICFBamSchemaDefObj optionalLookupDefSchema;
-	protected ICFBamIndexObj optionalLookupLookupIndex;
-	protected ICFBamIndexObj optionalLookupAltIndex;
-	protected ICFBamTableObj optionalLookupQualTable;
-	protected ICFBamIndexObj optionalLookupPrimaryIndex;
+	protected IYCFBamSchemaDefObj requiredContainerSchemaDef;
+	protected IYCFBamSchemaDefObj optionalLookupDefSchema;
+	protected IYCFBamIndexObj optionalLookupLookupIndex;
+	protected IYCFBamIndexObj optionalLookupAltIndex;
+	protected IYCFBamTableObj optionalLookupQualTable;
+	protected IYCFBamIndexObj optionalLookupPrimaryIndex;
 
-	public CFBamTableEditObj( ICFBamTableObj argOrig ) {
+	public YCFBamTableEditObj( IYCFBamTableObj argOrig ) {
 		super( argOrig );
 		requiredContainerSchemaDef = null;
 		optionalLookupDefSchema = null;
@@ -82,20 +82,20 @@ public class CFBamTableEditObj
 	}
 
 	public String getClassCode() {
-		return( CFBamTableObj.CLASS_CODE );
+		return( YCFBamTableObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "Table" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamSchemaDefObj scope = getRequiredContainerSchemaDef();
 		return( scope );
 	}
 
@@ -105,14 +105,14 @@ public class CFBamTableEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -123,10 +123,10 @@ public class CFBamTableEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -135,11 +135,11 @@ public class CFBamTableEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -150,32 +150,32 @@ public class CFBamTableEditObj
 			remainingName = null;
 		}
 		if( subObj == null ) {
-			subObj = ((ICFBamSchemaObj)getSchema()).getRelationTableObj().readRelationByUNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFBamSchemaObj)getSchema()).getRelationTableObj().readRelationByUNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
 		if( subObj == null ) {
-			subObj = ((ICFBamSchemaObj)getSchema()).getIndexTableObj().readIndexByUNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFBamSchemaObj)getSchema()).getIndexTableObj().readIndexByUNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
 		if( subObj == null ) {
-			subObj = ((ICFBamSchemaObj)getSchema()).getValueTableObj().readValueByUNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFBamSchemaObj)getSchema()).getValueTableObj().readValueByUNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
 		if( subObj == null ) {
-			subObj = ((ICFBamSchemaObj)getSchema()).getChainTableObj().readChainByUNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFBamSchemaObj)getSchema()).getChainTableObj().readChainByUNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
 		if( subObj == null ) {
-			subObj = ((ICFBamSchemaObj)getSchema()).getServerMethodTableObj().readServerMethodByUNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFBamSchemaObj)getSchema()).getServerMethodTableObj().readServerMethodByUNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
 		if( subObj == null ) {
-			subObj = ((ICFBamSchemaObj)getSchema()).getTweakTableObj().readTweakByUNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFBamSchemaObj)getSchema()).getTweakTableObj().readTweakByUNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
@@ -193,16 +193,16 @@ public class CFBamTableEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -214,9 +214,9 @@ public class CFBamTableEditObj
 		return( qualName );
 	}
 
-	public ICFBamScopeObj realise() {
+	public IYCFBamScopeObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamTableObj retobj = getSchema().getTableTableObj().realiseTable( (ICFBamTableObj)this );
+		IYCFBamTableObj retobj = getSchema().getTableTableObj().realiseTable( (IYCFBamTableObj)this );
 		return( retobj );
 	}
 
@@ -224,49 +224,49 @@ public class CFBamTableEditObj
 		getOrigAsTable().forget();
 	}
 
-	public ICFBamScopeObj create() {
+	public IYCFBamScopeObj create() {
 		copyBuffToOrig();
-		ICFBamTableObj retobj = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getTableTableObj().createTable( getOrigAsTable() );
+		IYCFBamTableObj retobj = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getTableTableObj().createTable( getOrigAsTable() );
 		if( retobj == getOrigAsTable() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamScopeEditObj update() {
-		getSchema().getTableTableObj().updateTable( (ICFBamTableObj)this );
+	public YCFBamScopeEditObj update() {
+		getSchema().getTableTableObj().updateTable( (IYCFBamTableObj)this );
 		return( null );
 	}
 
-	public CFBamScopeEditObj deleteInstance() {
+	public YCFBamScopeEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getTableTableObj().deleteTable( getOrigAsTable() );
 		return( null );
 	}
 
-	public ICFBamTableTableObj getTableTable() {
+	public IYCFBamTableTableObj getTableTable() {
 		return( orig.getSchema().getTableTableObj() );
 	}
 
-	public ICFBamTableEditObj getEditAsTable() {
-		return( (ICFBamTableEditObj)this );
+	public IYCFBamTableEditObj getEditAsTable() {
+		return( (IYCFBamTableEditObj)this );
 	}
 
-	public ICFBamTableObj getOrigAsTable() {
-		return( (ICFBamTableObj)orig );
+	public IYCFBamTableObj getOrigAsTable() {
+		return( (IYCFBamTableObj)orig );
 	}
 
-	public CFBamScopeBuff getBuff() {
+	public YCFBamScopeBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsTable().getSchema().getBackingStore()).getFactoryTable().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsTable().getSchema().getBackingStore()).getFactoryTable().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamScopeBuff value ) {
+	public void setBuff( YCFBamScopeBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			requiredContainerSchemaDef = null;
@@ -278,8 +278,8 @@ public class CFBamTableEditObj
 		}
 	}
 
-	public CFBamTableBuff getTableBuff() {
-		return( (CFBamTableBuff)getBuff() );
+	public YCFBamTableBuff getTableBuff() {
+		return( (YCFBamTableBuff)getBuff() );
 	}
 
 	public long getRequiredSchemaDefId() {
@@ -456,31 +456,31 @@ public class CFBamTableEditObj
 		}
 	}
 
-	public ICFBamSchema.LoaderBehaviourEnum getRequiredLoaderBehaviour() {
+	public IYCFBamSchema.LoaderBehaviourEnum getRequiredLoaderBehaviour() {
 		return( getTableBuff().getRequiredLoaderBehaviour() );
 	}
 
-	public void setRequiredLoaderBehaviour( ICFBamSchema.LoaderBehaviourEnum value ) {
+	public void setRequiredLoaderBehaviour( IYCFBamSchema.LoaderBehaviourEnum value ) {
 		if( getTableBuff().getRequiredLoaderBehaviour() != value ) {
 			getTableBuff().setRequiredLoaderBehaviour( value );
 		}
 	}
 
-	public ICFBamSchema.SecScopeEnum getRequiredSecScope() {
+	public IYCFBamSchema.SecScopeEnum getRequiredSecScope() {
 		return( getTableBuff().getRequiredSecScope() );
 	}
 
-	public void setRequiredSecScope( ICFBamSchema.SecScopeEnum value ) {
+	public void setRequiredSecScope( IYCFBamSchema.SecScopeEnum value ) {
 		if( getTableBuff().getRequiredSecScope() != value ) {
 			getTableBuff().setRequiredSecScope( value );
 		}
 	}
 
-	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+	public IYCFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
 		return( getTableBuff().getRequiredCodeVis() );
 	}
 
-	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+	public void setRequiredCodeVis( IYCFBamSchema.CodeVisibilityEnum value ) {
 		if( getTableBuff().getRequiredCodeVis() != value ) {
 			getTableBuff().setRequiredCodeVis( value );
 		}
@@ -2286,15 +2286,15 @@ public class CFBamTableEditObj
 		}
 	}
 
-	public ICFBamSchemaDefObj getRequiredContainerSchemaDef() {
+	public IYCFBamSchemaDefObj getRequiredContainerSchemaDef() {
 		return( getRequiredContainerSchemaDef( false ) );
 	}
 
-	public ICFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead ) {
+	public IYCFBamSchemaDefObj getRequiredContainerSchemaDef( boolean forceRead ) {
 		if( forceRead || ( requiredContainerSchemaDef == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamSchemaDefObj obj = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getPKey().getRequiredTenantId(),
+				IYCFBamSchemaDefObj obj = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getPKey().getRequiredTenantId(),
 					getTableBuff().getRequiredSchemaDefId() );
 				requiredContainerSchemaDef = obj;
 				if( obj != null ) {
@@ -2307,7 +2307,7 @@ public class CFBamTableEditObj
 		return( requiredContainerSchemaDef );
 	}
 
-	public void setRequiredContainerSchemaDef( ICFBamSchemaDefObj value ) {
+	public void setRequiredContainerSchemaDef( IYCFBamSchemaDefObj value ) {
 			if( buff == null ) {
 				getTableBuff();
 			}
@@ -2319,11 +2319,11 @@ public class CFBamTableEditObj
 			requiredContainerSchemaDef = value;
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema() {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema() {
 		return( getOptionalLookupDefSchema( false ) );
 	}
 
-	public ICFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
+	public IYCFBamSchemaDefObj getOptionalLookupDefSchema( boolean forceRead ) {
 		if( forceRead || ( optionalLookupDefSchema == null ) ) {
 			boolean anyMissing = false;
 			if( getTableBuff().getOptionalDefSchemaTenantId() == null ) {
@@ -2333,7 +2333,7 @@ public class CFBamTableEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamSchemaDefObj obj = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getTableBuff().getOptionalDefSchemaTenantId(),
+				IYCFBamSchemaDefObj obj = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getSchemaDefTableObj().readSchemaDefByIdIdx( getTableBuff().getOptionalDefSchemaTenantId(),
 					getTableBuff().getOptionalDefSchemaId() );
 				optionalLookupDefSchema = obj;
 			}
@@ -2341,7 +2341,7 @@ public class CFBamTableEditObj
 		return( optionalLookupDefSchema );
 	}
 
-	public void setOptionalLookupDefSchema( ICFBamSchemaDefObj value ) {
+	public void setOptionalLookupDefSchema( IYCFBamSchemaDefObj value ) {
 			if( buff == null ) {
 				getTableBuff();
 			}
@@ -2356,27 +2356,27 @@ public class CFBamTableEditObj
 			optionalLookupDefSchema = value;
 	}
 
-	public List<ICFBamRelationObj> getOptionalComponentsRelation() {
-		List<ICFBamRelationObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getRelationTableObj().readRelationByRelTableIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamRelationObj> getOptionalComponentsRelation() {
+		List<IYCFBamRelationObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getRelationTableObj().readRelationByRelTableIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamRelationObj> getOptionalComponentsRelation( boolean forceRead ) {
-		List<ICFBamRelationObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getRelationTableObj().readRelationByRelTableIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamRelationObj> getOptionalComponentsRelation( boolean forceRead ) {
+		List<IYCFBamRelationObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getRelationTableObj().readRelationByRelTableIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public ICFBamIndexObj getOptionalLookupLookupIndex() {
+	public IYCFBamIndexObj getOptionalLookupLookupIndex() {
 		return( getOptionalLookupLookupIndex( false ) );
 	}
 
-	public ICFBamIndexObj getOptionalLookupLookupIndex( boolean forceRead ) {
+	public IYCFBamIndexObj getOptionalLookupLookupIndex( boolean forceRead ) {
 		if( forceRead || ( optionalLookupLookupIndex == null ) ) {
 			boolean anyMissing = false;
 			if( getTableBuff().getOptionalLookupIndexTenantId() == null ) {
@@ -2386,7 +2386,7 @@ public class CFBamTableEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamIndexObj obj = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdIdx( getTableBuff().getOptionalLookupIndexTenantId(),
+				IYCFBamIndexObj obj = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdIdx( getTableBuff().getOptionalLookupIndexTenantId(),
 					getTableBuff().getOptionalLookupIndexId() );
 				optionalLookupLookupIndex = obj;
 			}
@@ -2394,7 +2394,7 @@ public class CFBamTableEditObj
 		return( optionalLookupLookupIndex );
 	}
 
-	public void setOptionalLookupLookupIndex( ICFBamIndexObj value ) {
+	public void setOptionalLookupLookupIndex( IYCFBamIndexObj value ) {
 			if( buff == null ) {
 				getTableBuff();
 			}
@@ -2409,11 +2409,11 @@ public class CFBamTableEditObj
 			optionalLookupLookupIndex = value;
 	}
 
-	public ICFBamIndexObj getOptionalLookupAltIndex() {
+	public IYCFBamIndexObj getOptionalLookupAltIndex() {
 		return( getOptionalLookupAltIndex( false ) );
 	}
 
-	public ICFBamIndexObj getOptionalLookupAltIndex( boolean forceRead ) {
+	public IYCFBamIndexObj getOptionalLookupAltIndex( boolean forceRead ) {
 		if( forceRead || ( optionalLookupAltIndex == null ) ) {
 			boolean anyMissing = false;
 			if( getTableBuff().getOptionalAltIndexTenantId() == null ) {
@@ -2423,7 +2423,7 @@ public class CFBamTableEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamIndexObj obj = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdIdx( getTableBuff().getOptionalAltIndexTenantId(),
+				IYCFBamIndexObj obj = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdIdx( getTableBuff().getOptionalAltIndexTenantId(),
 					getTableBuff().getOptionalAltIndexId() );
 				optionalLookupAltIndex = obj;
 			}
@@ -2431,7 +2431,7 @@ public class CFBamTableEditObj
 		return( optionalLookupAltIndex );
 	}
 
-	public void setOptionalLookupAltIndex( ICFBamIndexObj value ) {
+	public void setOptionalLookupAltIndex( IYCFBamIndexObj value ) {
 			if( buff == null ) {
 				getTableBuff();
 			}
@@ -2446,11 +2446,11 @@ public class CFBamTableEditObj
 			optionalLookupAltIndex = value;
 	}
 
-	public ICFBamTableObj getOptionalLookupQualTable() {
+	public IYCFBamTableObj getOptionalLookupQualTable() {
 		return( getOptionalLookupQualTable( false ) );
 	}
 
-	public ICFBamTableObj getOptionalLookupQualTable( boolean forceRead ) {
+	public IYCFBamTableObj getOptionalLookupQualTable( boolean forceRead ) {
 		if( forceRead || ( optionalLookupQualTable == null ) ) {
 			boolean anyMissing = false;
 			if( getTableBuff().getOptionalQualifyingTenantId() == null ) {
@@ -2460,7 +2460,7 @@ public class CFBamTableEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getTableTableObj().readTableByIdIdx( getTableBuff().getOptionalQualifyingTenantId(),
+				IYCFBamTableObj obj = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getTableTableObj().readTableByIdIdx( getTableBuff().getOptionalQualifyingTenantId(),
 					getTableBuff().getOptionalQualifyingTableId() );
 				optionalLookupQualTable = obj;
 			}
@@ -2468,7 +2468,7 @@ public class CFBamTableEditObj
 		return( optionalLookupQualTable );
 	}
 
-	public void setOptionalLookupQualTable( ICFBamTableObj value ) {
+	public void setOptionalLookupQualTable( IYCFBamTableObj value ) {
 			if( buff == null ) {
 				getTableBuff();
 			}
@@ -2483,27 +2483,27 @@ public class CFBamTableEditObj
 			optionalLookupQualTable = value;
 	}
 
-	public List<ICFBamIndexObj> getOptionalComponentsIndex() {
-		List<ICFBamIndexObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdxTableIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamIndexObj> getOptionalComponentsIndex() {
+		List<IYCFBamIndexObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdxTableIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamIndexObj> getOptionalComponentsIndex( boolean forceRead ) {
-		List<ICFBamIndexObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdxTableIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamIndexObj> getOptionalComponentsIndex( boolean forceRead ) {
+		List<IYCFBamIndexObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdxTableIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public ICFBamIndexObj getOptionalLookupPrimaryIndex() {
+	public IYCFBamIndexObj getOptionalLookupPrimaryIndex() {
 		return( getOptionalLookupPrimaryIndex( false ) );
 	}
 
-	public ICFBamIndexObj getOptionalLookupPrimaryIndex( boolean forceRead ) {
+	public IYCFBamIndexObj getOptionalLookupPrimaryIndex( boolean forceRead ) {
 		if( forceRead || ( optionalLookupPrimaryIndex == null ) ) {
 			boolean anyMissing = false;
 			if( getTableBuff().getOptionalPrimaryIndexTenantId() == null ) {
@@ -2513,7 +2513,7 @@ public class CFBamTableEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamIndexObj obj = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdIdx( getTableBuff().getOptionalPrimaryIndexTenantId(),
+				IYCFBamIndexObj obj = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getIndexTableObj().readIndexByIdIdx( getTableBuff().getOptionalPrimaryIndexTenantId(),
 					getTableBuff().getOptionalPrimaryIndexId() );
 				optionalLookupPrimaryIndex = obj;
 			}
@@ -2521,7 +2521,7 @@ public class CFBamTableEditObj
 		return( optionalLookupPrimaryIndex );
 	}
 
-	public void setOptionalLookupPrimaryIndex( ICFBamIndexObj value ) {
+	public void setOptionalLookupPrimaryIndex( IYCFBamIndexObj value ) {
 			if( buff == null ) {
 				getTableBuff();
 			}
@@ -2536,197 +2536,197 @@ public class CFBamTableEditObj
 			optionalLookupPrimaryIndex = value;
 	}
 
-	public List<ICFBamValueObj> getOptionalComponentsColumns() {
-		List<ICFBamValueObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getValueTableObj().readValueByScopeIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamValueObj> getOptionalComponentsColumns() {
+		List<IYCFBamValueObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getValueTableObj().readValueByScopeIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamValueObj> getOptionalComponentsColumns( boolean forceRead ) {
-		List<ICFBamValueObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getValueTableObj().readValueByScopeIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamValueObj> getOptionalComponentsColumns( boolean forceRead ) {
+		List<IYCFBamValueObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getValueTableObj().readValueByScopeIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamRelationObj> getOptionalChildrenReverseRelations() {
-		List<ICFBamRelationObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getRelationTableObj().readRelationByToTblIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamRelationObj> getOptionalChildrenReverseRelations() {
+		List<IYCFBamRelationObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getRelationTableObj().readRelationByToTblIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamRelationObj> getOptionalChildrenReverseRelations( boolean forceRead ) {
-		List<ICFBamRelationObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getRelationTableObj().readRelationByToTblIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamRelationObj> getOptionalChildrenReverseRelations( boolean forceRead ) {
+		List<IYCFBamRelationObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getRelationTableObj().readRelationByToTblIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamChainObj> getOptionalComponentsChains() {
-		List<ICFBamChainObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getChainTableObj().readChainByChainTableIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamChainObj> getOptionalComponentsChains() {
+		List<IYCFBamChainObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getChainTableObj().readChainByChainTableIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamChainObj> getOptionalComponentsChains( boolean forceRead ) {
-		List<ICFBamChainObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getChainTableObj().readChainByChainTableIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamChainObj> getOptionalComponentsChains( boolean forceRead ) {
+		List<IYCFBamChainObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getChainTableObj().readChainByChainTableIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamDelTopDepObj> getOptionalComponentsDelDep() {
-		List<ICFBamDelTopDepObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getDelTopDepTableObj().readDelTopDepByDelTopDepTblIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamDelTopDepObj> getOptionalComponentsDelDep() {
+		List<IYCFBamDelTopDepObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getDelTopDepTableObj().readDelTopDepByDelTopDepTblIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamDelTopDepObj> getOptionalComponentsDelDep( boolean forceRead ) {
-		List<ICFBamDelTopDepObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getDelTopDepTableObj().readDelTopDepByDelTopDepTblIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamDelTopDepObj> getOptionalComponentsDelDep( boolean forceRead ) {
+		List<IYCFBamDelTopDepObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getDelTopDepTableObj().readDelTopDepByDelTopDepTblIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamClearTopDepObj> getOptionalComponentsClearDep() {
-		List<ICFBamClearTopDepObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getClearTopDepTableObj().readClearTopDepByClrTopDepTblIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamClearTopDepObj> getOptionalComponentsClearDep() {
+		List<IYCFBamClearTopDepObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getClearTopDepTableObj().readClearTopDepByClrTopDepTblIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamClearTopDepObj> getOptionalComponentsClearDep( boolean forceRead ) {
-		List<ICFBamClearTopDepObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getClearTopDepTableObj().readClearTopDepByClrTopDepTblIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamClearTopDepObj> getOptionalComponentsClearDep( boolean forceRead ) {
+		List<IYCFBamClearTopDepObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getClearTopDepTableObj().readClearTopDepByClrTopDepTblIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamId16GenObj> getOptionalChildrenDispId16Gen() {
-		List<ICFBamId16GenObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getId16GenTableObj().readId16GenByDispIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamId16GenObj> getOptionalChildrenDispId16Gen() {
+		List<IYCFBamId16GenObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getId16GenTableObj().readId16GenByDispIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamId16GenObj> getOptionalChildrenDispId16Gen( boolean forceRead ) {
-		List<ICFBamId16GenObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getId16GenTableObj().readId16GenByDispIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamId16GenObj> getOptionalChildrenDispId16Gen( boolean forceRead ) {
+		List<IYCFBamId16GenObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getId16GenTableObj().readId16GenByDispIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamId32GenObj> getOptionalChildrenDispId32Gen() {
-		List<ICFBamId32GenObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getId32GenTableObj().readId32GenByDispIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamId32GenObj> getOptionalChildrenDispId32Gen() {
+		List<IYCFBamId32GenObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getId32GenTableObj().readId32GenByDispIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamId32GenObj> getOptionalChildrenDispId32Gen( boolean forceRead ) {
-		List<ICFBamId32GenObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getId32GenTableObj().readId32GenByDispIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamId32GenObj> getOptionalChildrenDispId32Gen( boolean forceRead ) {
+		List<IYCFBamId32GenObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getId32GenTableObj().readId32GenByDispIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamId64GenObj> getOptionalChildrenDispId64Gen() {
-		List<ICFBamId64GenObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getId64GenTableObj().readId64GenByDispIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamId64GenObj> getOptionalChildrenDispId64Gen() {
+		List<IYCFBamId64GenObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getId64GenTableObj().readId64GenByDispIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamId64GenObj> getOptionalChildrenDispId64Gen( boolean forceRead ) {
-		List<ICFBamId64GenObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getId64GenTableObj().readId64GenByDispIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamId64GenObj> getOptionalChildrenDispId64Gen( boolean forceRead ) {
+		List<IYCFBamId64GenObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getId64GenTableObj().readId64GenByDispIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamServerMethodObj> getOptionalComponentsServerMethods() {
-		List<ICFBamServerMethodObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getServerMethodTableObj().readServerMethodByMethTableIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamServerMethodObj> getOptionalComponentsServerMethods() {
+		List<IYCFBamServerMethodObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getServerMethodTableObj().readServerMethodByMethTableIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamServerMethodObj> getOptionalComponentsServerMethods( boolean forceRead ) {
-		List<ICFBamServerMethodObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getServerMethodTableObj().readServerMethodByMethTableIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamServerMethodObj> getOptionalComponentsServerMethods( boolean forceRead ) {
+		List<IYCFBamServerMethodObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getServerMethodTableObj().readServerMethodByMethTableIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public List<ICFBamTweakObj> getOptionalComponentsTweaks() {
-		List<ICFBamTweakObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getTweakTableObj().readTweakByScopeIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamTweakObj> getOptionalComponentsTweaks() {
+		List<IYCFBamTweakObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getTweakTableObj().readTweakByScopeIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamTweakObj> getOptionalComponentsTweaks( boolean forceRead ) {
-		List<ICFBamTweakObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getTweakTableObj().readTweakByScopeIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamTweakObj> getOptionalComponentsTweaks( boolean forceRead ) {
+		List<IYCFBamTweakObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsTable().getSchema()).getTweakTableObj().readTweakByScopeIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
 	public void copyBuffToOrig() {
-		CFBamTableBuff origBuff = getOrigAsTable().getTableBuff();
-		CFBamTableBuff myBuff = getTableBuff();
+		YCFBamTableBuff origBuff = getOrigAsTable().getTableBuff();
+		YCFBamTableBuff myBuff = getTableBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamTableBuff origBuff = getOrigAsTable().getTableBuff();
-		CFBamTableBuff myBuff = getTableBuff();
+		YCFBamTableBuff origBuff = getOrigAsTable().getTableBuff();
+		YCFBamTableBuff myBuff = getTableBuff();
 		myBuff.set( origBuff );
 	}
 
-	public List<ICFBamRelationObj> getOnlyOwnerRelations() {
-		ICFBamTableObj tableDef;
-		ICFBamRelationObj relationDef = null;
-		List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-		Iterator<ICFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
+	public List<IYCFBamRelationObj> getOnlyOwnerRelations() {
+		IYCFBamTableObj tableDef;
+		IYCFBamRelationObj relationDef = null;
+		List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+		Iterator<IYCFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
 		while (childrenRelations.hasNext()) {
 			relationDef = childrenRelations.next();
-			if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner ) {
+			if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner ) {
 				list.add(relationDef);
 			}
 		}
 
-		ICFBamRelationObj superClass = getSuperClassRelation();
+		IYCFBamRelationObj superClass = getSuperClassRelation();
 		while( superClass != null ) {
 			tableDef = superClass.getRequiredLookupToTable();
 			childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
 			while (childrenRelations.hasNext()) {
 				relationDef = childrenRelations.next();
-				if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner ) {
+				if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner ) {
 					list.add(relationDef);
 				}
 			}
@@ -2736,7 +2736,7 @@ public class CFBamTableEditObj
 		childrenRelations = getOptionalComponentsRelation().iterator();
 		while (childrenRelations.hasNext()) {
 			relationDef = childrenRelations.next();
-			if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) {
+			if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) {
 				list.add(relationDef);
 			}
 		}
@@ -2747,7 +2747,7 @@ public class CFBamTableEditObj
 			childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
 			while (childrenRelations.hasNext()) {
 				relationDef = childrenRelations.next();
-				if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) {
+				if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) {
 					list.add(relationDef);
 				}
 			}
@@ -2757,33 +2757,33 @@ public class CFBamTableEditObj
 		return( list );
 	}
 
-	public List<ICFBamRelationObj> getContainerOwnerRelations() {
-		ICFBamTableObj tableDef;
-		ICFBamRelationObj relationDef = null;
-		ICFBamSchema.RelationTypeEnum relType;
-		List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-		Iterator<ICFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
+	public List<IYCFBamRelationObj> getContainerOwnerRelations() {
+		IYCFBamTableObj tableDef;
+		IYCFBamRelationObj relationDef = null;
+		IYCFBamSchema.RelationTypeEnum relType;
+		List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+		Iterator<IYCFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
 		while (childrenRelations.hasNext()) {
 			relationDef = childrenRelations.next();
 			relType = relationDef.getRequiredRelationType();
-			if( ( relType == ICFBamSchema.RelationTypeEnum.Owner )
-			 || ( relType == ICFBamSchema.RelationTypeEnum.Parent )
-			 || ( relType == ICFBamSchema.RelationTypeEnum.Container ) )
+			if( ( relType == IYCFBamSchema.RelationTypeEnum.Owner )
+			 || ( relType == IYCFBamSchema.RelationTypeEnum.Parent )
+			 || ( relType == IYCFBamSchema.RelationTypeEnum.Container ) )
 			{
 				list.add(relationDef);
 			}
 		}
 
-		ICFBamRelationObj superClass = getSuperClassRelation();
+		IYCFBamRelationObj superClass = getSuperClassRelation();
 		while( superClass != null ) {
 			tableDef = superClass.getRequiredLookupToTable();
 			childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
 			while (childrenRelations.hasNext()) {
 				relationDef = childrenRelations.next();
 				relType = relationDef.getRequiredRelationType();
-				if( ( relType == ICFBamSchema.RelationTypeEnum.Owner )
-				 || ( relType == ICFBamSchema.RelationTypeEnum.Parent )
-				 || ( relType == ICFBamSchema.RelationTypeEnum.Container ) )
+				if( ( relType == IYCFBamSchema.RelationTypeEnum.Owner )
+				 || ( relType == IYCFBamSchema.RelationTypeEnum.Parent )
+				 || ( relType == IYCFBamSchema.RelationTypeEnum.Container ) )
 				{
 					list.add(relationDef);
 				}
@@ -2794,28 +2794,28 @@ public class CFBamTableEditObj
 		return( list );
 	}
 
-	public ICFBamRelationObj getContainerRelation() {
-		ICFBamRelationObj relationDef;
-		Iterator<ICFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
+	public IYCFBamRelationObj getContainerRelation() {
+		IYCFBamRelationObj relationDef;
+		Iterator<IYCFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
 		while (childrenRelations.hasNext()) {
 			relationDef = childrenRelations.next();
-			if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) {
+			if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) {
 				return( relationDef );
 			}
 		}
 		return( null );
 	}
 
-	public ICFBamRelationObj getInheritedContainerRelation() {
-		ICFBamRelationObj inheritedContainerRelation = null;
-		ICFBamRelationObj relationDef;
-		Iterator<ICFBamRelationObj> childrenRelations;
-		ICFBamTableObj tableDef = this;
+	public IYCFBamRelationObj getInheritedContainerRelation() {
+		IYCFBamRelationObj inheritedContainerRelation = null;
+		IYCFBamRelationObj relationDef;
+		Iterator<IYCFBamRelationObj> childrenRelations;
+		IYCFBamTableObj tableDef = this;
 		while( ( inheritedContainerRelation == null ) && ( tableDef != null ) ) {
 			childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
 			while (childrenRelations.hasNext()) {
 				relationDef = childrenRelations.next();
-				if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Container ) {
+				if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Container ) {
 					return( relationDef );
 				}
 			}
@@ -2830,28 +2830,28 @@ public class CFBamTableEditObj
 		return( null );
 	}
 
-	public ICFBamRelationObj getOwnerRelation() {
-		ICFBamRelationObj relationDef;
-		Iterator<ICFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
+	public IYCFBamRelationObj getOwnerRelation() {
+		IYCFBamRelationObj relationDef;
+		Iterator<IYCFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
 		while (childrenRelations.hasNext()) {
 			relationDef = childrenRelations.next();
-			if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner ) {
+			if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner ) {
 				return( relationDef );
 			}
 		}
 		return( null );
 	}
 
-	public ICFBamRelationObj getInheritedOwnerRelation() {
-		ICFBamTableObj tableDef = this;
-		ICFBamRelationObj inheritedOwnerRelation = null;
-		ICFBamRelationObj relationDef;
-		Iterator<ICFBamRelationObj> childrenRelations;
+	public IYCFBamRelationObj getInheritedOwnerRelation() {
+		IYCFBamTableObj tableDef = this;
+		IYCFBamRelationObj inheritedOwnerRelation = null;
+		IYCFBamRelationObj relationDef;
+		Iterator<IYCFBamRelationObj> childrenRelations;
 		while( ( inheritedOwnerRelation == null ) && ( tableDef != null ) ) {
 			childrenRelations = tableDef.getOptionalComponentsRelation().iterator();
 			while (childrenRelations.hasNext()) {
 				relationDef = childrenRelations.next();
-				if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Owner ) {
+				if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Owner ) {
 					return( relationDef );
 				}
 			}
@@ -2866,19 +2866,19 @@ public class CFBamTableEditObj
 		return( null );
 	}
 
-	public List<ICFBamRelationObj> getOwnerLookupRelations() {
-		ICFBamSchema.RelationTypeEnum relType;
-		ICFBamRelationObj relationDef;
-		List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-		Iterator<ICFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
+	public List<IYCFBamRelationObj> getOwnerLookupRelations() {
+		IYCFBamSchema.RelationTypeEnum relType;
+		IYCFBamRelationObj relationDef;
+		List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+		Iterator<IYCFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
 		while (childrenRelations.hasNext())
 		{
 			relationDef = childrenRelations.next();
 			relType = relationDef.getRequiredRelationType();
-			if( ( relType == ICFBamSchema.RelationTypeEnum.Parent )
-			 || ( relType == ICFBamSchema.RelationTypeEnum.Container )
-			 || ( relType == ICFBamSchema.RelationTypeEnum.Lookup )
-			 || ( relType == ICFBamSchema.RelationTypeEnum.Owner ) )
+			if( ( relType == IYCFBamSchema.RelationTypeEnum.Parent )
+			 || ( relType == IYCFBamSchema.RelationTypeEnum.Container )
+			 || ( relType == IYCFBamSchema.RelationTypeEnum.Lookup )
+			 || ( relType == IYCFBamSchema.RelationTypeEnum.Owner ) )
 			{
 				list.add(relationDef);
 			}
@@ -2886,31 +2886,31 @@ public class CFBamTableEditObj
 		return( list );
 	}
 
-	public List<ICFBamRelationObj> getOwnerContainerNamedLookupChainRelations() {
-		ICFBamSchema.RelationTypeEnum relType;
-		ICFBamRelationObj relationDef;
-		List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-		List<ICFBamChainObj> componentChains = getOptionalComponentsChains();
-		Iterator<ICFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
+	public List<IYCFBamRelationObj> getOwnerContainerNamedLookupChainRelations() {
+		IYCFBamSchema.RelationTypeEnum relType;
+		IYCFBamRelationObj relationDef;
+		List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+		List<IYCFBamChainObj> componentChains = getOptionalComponentsChains();
+		Iterator<IYCFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
 		while (childrenRelations.hasNext()) {
 			relationDef = childrenRelations.next();
 			relType = relationDef.getRequiredRelationType();
-			if( relType == ICFBamSchema.RelationTypeEnum.Superclass ) {
+			if( relType == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 				;
 			}
-			else if( ( relType == ICFBamSchema.RelationTypeEnum.Container )
-				|| ( relType == ICFBamSchema.RelationTypeEnum.Owner ) )
+			else if( ( relType == IYCFBamSchema.RelationTypeEnum.Container )
+				|| ( relType == IYCFBamSchema.RelationTypeEnum.Owner ) )
 			{
 				list.add(relationDef);
 			}
 			else {
 				if( ! relationDef.getRequiredIsXsdContainer() ) {
-					ICFBamIndexObj toIndex = relationDef.getRequiredLookupToIndex();
+					IYCFBamIndexObj toIndex = relationDef.getRequiredLookupToIndex();
 					if( toIndex.getRequiredIsUnique() ) {
 						boolean referencedByChain = false;
-						Iterator<ICFBamChainObj> iterChain = componentChains.iterator();
+						Iterator<IYCFBamChainObj> iterChain = componentChains.iterator();
 						while( ( ! referencedByChain ) && iterChain.hasNext() ) {
-							ICFBamChainObj chain = iterChain.next();
+							IYCFBamChainObj chain = iterChain.next();
 							if( chain.getRequiredLookupPrevRel() == relationDef ) {
 								referencedByChain = true;
 							}
@@ -2922,10 +2922,10 @@ public class CFBamTableEditObj
 							list.add( relationDef );
 						}
 						else {
-							ICFBamTableObj toTable = relationDef.getRequiredLookupToTable();
-							ICFBamIndexObj lookupIndex = toTable.getOptionalLookupLookupIndex();
+							IYCFBamTableObj toTable = relationDef.getRequiredLookupToTable();
+							IYCFBamIndexObj lookupIndex = toTable.getOptionalLookupLookupIndex();
 							while( ( lookupIndex == null ) && ( toTable != null ) ) {
-								ICFBamRelationObj superRelation = toTable.getSuperClassRelation();
+								IYCFBamRelationObj superRelation = toTable.getSuperClassRelation();
 								if( superRelation != null ) {
 									toTable = superRelation.getRequiredLookupToTable();
 									if( toTable != null ) {
@@ -2947,76 +2947,76 @@ public class CFBamTableEditObj
 		return( list );
 	}
 
-	public List<ICFBamAtomObj> getChildrenAtoms() {
-		List<ICFBamAtomObj> list = new LinkedList<ICFBamAtomObj>();
-		Iterator<ICFBamValueObj> childrenColumns = getOptionalComponentsColumns().iterator();
+	public List<IYCFBamAtomObj> getChildrenAtoms() {
+		List<IYCFBamAtomObj> list = new LinkedList<IYCFBamAtomObj>();
+		Iterator<IYCFBamValueObj> childrenColumns = getOptionalComponentsColumns().iterator();
 		while (childrenColumns.hasNext())
 		{
-			ICFBamValueObj colDef = childrenColumns.next();
-			if( colDef instanceof ICFBamAtomObj)
+			IYCFBamValueObj colDef = childrenColumns.next();
+			if( colDef instanceof IYCFBamAtomObj)
 			{
-				list.add( (ICFBamAtomObj)colDef);
+				list.add( (IYCFBamAtomObj)colDef);
 			}
 		}
 		return( list );
 	}
 
-	public ICFBamRelationObj getSuperClassRelation() {
-		Iterator<ICFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
+	public IYCFBamRelationObj getSuperClassRelation() {
+		Iterator<IYCFBamRelationObj> childrenRelations = getOptionalComponentsRelation().iterator();
 		while (childrenRelations.hasNext())
 		{
-			ICFBamRelationObj relationDef = childrenRelations.next();
-			if( relationDef.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+			IYCFBamRelationObj relationDef = childrenRelations.next();
+			if( relationDef.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 				return( relationDef );
 			}
 		}
 		return( null );
 	}
 
-	public List<ICFBamRelationObj> getSubClassRelations() {
-		List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-		Iterator<ICFBamRelationObj> reverseRelations = getOptionalChildrenReverseRelations().iterator();
+	public List<IYCFBamRelationObj> getSubClassRelations() {
+		List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+		Iterator<IYCFBamRelationObj> reverseRelations = getOptionalChildrenReverseRelations().iterator();
 		while (reverseRelations.hasNext())
 		{
-			ICFBamRelationObj reverseRelation = reverseRelations.next();
-			if( reverseRelation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+			IYCFBamRelationObj reverseRelation = reverseRelations.next();
+			if( reverseRelation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 				list.add(reverseRelation);
 			}
 		}
 		return( list );
 	}
 
-	public ICFBamIndexObj getPrimaryKeyIndex() {
-		ICFBamIndexObj primaryIndex = getOptionalLookupPrimaryIndex();
+	public IYCFBamIndexObj getPrimaryKeyIndex() {
+		IYCFBamIndexObj primaryIndex = getOptionalLookupPrimaryIndex();
 		return( primaryIndex );
 	}
 
-	public List<ICFBamRelationObj> getFactoryOwnerRelations() {
-		List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-		Iterator<ICFBamRelationObj> ownerRelations = getContainerOwnerRelations().iterator();
+	public List<IYCFBamRelationObj> getFactoryOwnerRelations() {
+		List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+		Iterator<IYCFBamRelationObj> ownerRelations = getContainerOwnerRelations().iterator();
 		while (ownerRelations.hasNext())
 		{
 			// throw new NotImplementedException();
-			ICFBamRelationObj ownerRelation = ownerRelations.next();
-			if( ownerRelation.getRequiredRelationType() == ICFBamSchema.RelationTypeEnum.Superclass ) {
+			IYCFBamRelationObj ownerRelation = ownerRelations.next();
+			if( ownerRelation.getRequiredRelationType() == IYCFBamSchema.RelationTypeEnum.Superclass ) {
 				list.add(ownerRelation);
 			}
 		}
 		return( list );
 	}
 
-	public List<ICFBamIndexObj> getInheritedIndexes() {
-		List<ICFBamIndexObj> list = new LinkedList<ICFBamIndexObj>();
-		ICFBamRelationObj superClassRelation = getSuperClassRelation();
+	public List<IYCFBamIndexObj> getInheritedIndexes() {
+		List<IYCFBamIndexObj> list = new LinkedList<IYCFBamIndexObj>();
+		IYCFBamRelationObj superClassRelation = getSuperClassRelation();
 		if( superClassRelation != null)
 		{
-			Iterator<ICFBamIndexObj> superClassInheritedIndexes
+			Iterator<IYCFBamIndexObj> superClassInheritedIndexes
 				= superClassRelation.getRequiredLookupToTable().getInheritedIndexes().iterator();
 			while (superClassInheritedIndexes.hasNext())
 			{
 				list.add(superClassInheritedIndexes.next());
 			}
-			Iterator<ICFBamIndexObj> myIndexes = getChildrenIndexes().iterator();
+			Iterator<IYCFBamIndexObj> myIndexes = getChildrenIndexes().iterator();
 			while( myIndexes.hasNext() )
 			{
 				list.add( myIndexes.next() );
@@ -3025,27 +3025,27 @@ public class CFBamTableEditObj
 		return( list );
 	}
 
-	public List<ICFBamIndexObj> getChildrenIndexes() {
-		Iterator<ICFBamIndexObj> iter = getOptionalComponentsIndex().iterator();
-		List<ICFBamIndexObj> list = new LinkedList<ICFBamIndexObj>();
+	public List<IYCFBamIndexObj> getChildrenIndexes() {
+		Iterator<IYCFBamIndexObj> iter = getOptionalComponentsIndex().iterator();
+		List<IYCFBamIndexObj> list = new LinkedList<IYCFBamIndexObj>();
 		while( iter.hasNext() ) {
 			list.add( iter.next() );
 		}
 		return( list );
 	}
 
-	public List<ICFBamRelationObj> getInheritedRelations() {
-		List<ICFBamRelationObj> list = new LinkedList<ICFBamRelationObj>();
-		ICFBamRelationObj superClassRelation = getSuperClassRelation();
+	public List<IYCFBamRelationObj> getInheritedRelations() {
+		List<IYCFBamRelationObj> list = new LinkedList<IYCFBamRelationObj>();
+		IYCFBamRelationObj superClassRelation = getSuperClassRelation();
 		if( superClassRelation != null)
 		{
-			Iterator<ICFBamRelationObj> superClassInheritedRelations
+			Iterator<IYCFBamRelationObj> superClassInheritedRelations
 				= superClassRelation.getRequiredLookupToTable().getInheritedRelations().iterator();
 			while (superClassInheritedRelations.hasNext())
 			{
 				list.add(superClassInheritedRelations.next());
 			}
-			Iterator<ICFBamRelationObj> myRelations = getChildrenRelations().iterator();
+			Iterator<IYCFBamRelationObj> myRelations = getChildrenRelations().iterator();
 			while (myRelations.hasNext())
 			{
 				list.add(myRelations.next());
@@ -3054,10 +3054,10 @@ public class CFBamTableEditObj
 		return( list );
 	}
 
-	public List<ICFBamRelationObj> getChildrenRelations() {
-		List<ICFBamRelationObj> childrenRelations = new LinkedList<ICFBamRelationObj>();
-		Collection<ICFBamRelationObj> cltn = getOptionalComponentsRelation();
-		Iterator<ICFBamRelationObj> iter = cltn.iterator();
+	public List<IYCFBamRelationObj> getChildrenRelations() {
+		List<IYCFBamRelationObj> childrenRelations = new LinkedList<IYCFBamRelationObj>();
+		Collection<IYCFBamRelationObj> cltn = getOptionalComponentsRelation();
+		Iterator<IYCFBamRelationObj> iter = cltn.iterator();
 		while( iter.hasNext() ) {
 			childrenRelations.add( iter.next() );
 		}

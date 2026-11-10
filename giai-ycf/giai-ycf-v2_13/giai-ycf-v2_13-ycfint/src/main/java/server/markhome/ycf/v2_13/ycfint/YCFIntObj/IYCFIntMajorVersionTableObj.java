@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFInt.
+// Description: Java 11 Table Object interface for YCFInt.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,22 +26,22 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntMajorVersionTableObj
+public interface IYCFIntMajorVersionTableObj
 {
-	ICFIntSchemaObj getSchema();
-	void setSchema( ICFIntSchemaObj value );
+	IYCFIntSchemaObj getSchema();
+	void setSchema( IYCFIntSchemaObj value );
 
 	void minimizeMemory();
 
@@ -55,24 +55,24 @@ public interface ICFIntMajorVersionTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFIntMajorVersionObj newInstance();
+	IYCFIntMajorVersionObj newInstance();
 
 	/**
 	 *	Instantiate a new MajorVersion edition of the specified MajorVersion instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFIntMajorVersionEditObj newEditInstance( ICFIntMajorVersionObj orig );
+	IYCFIntMajorVersionEditObj newEditInstance( IYCFIntMajorVersionObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMajorVersionObj realiseMajorVersion( ICFIntMajorVersionObj Obj );
+	IYCFIntMajorVersionObj realiseMajorVersion( IYCFIntMajorVersionObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMajorVersionObj createMajorVersion( ICFIntMajorVersionObj Obj );
+	IYCFIntMajorVersionObj createMajorVersion( IYCFIntMajorVersionObj Obj );
 
 	/**
 	 *	Read a MajorVersion-derived instance by it's primary key.
@@ -82,7 +82,7 @@ public interface ICFIntMajorVersionTableObj
 	 *	@return	The MajorVersion-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntMajorVersionObj readMajorVersion( CFIntMajorVersionPKey pkey );
+	IYCFIntMajorVersionObj readMajorVersion( YCFIntMajorVersionPKey pkey );
 
 	/**
 	 *	Read a MajorVersion-derived instance by it's primary key.
@@ -92,115 +92,115 @@ public interface ICFIntMajorVersionTableObj
 	 *	@return	The MajorVersion-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFIntMajorVersionObj readMajorVersion( CFIntMajorVersionPKey pkey,
+	IYCFIntMajorVersionObj readMajorVersion( YCFIntMajorVersionPKey pkey,
 		boolean forceRead );
 
-	ICFIntMajorVersionObj readCachedMajorVersion( CFIntMajorVersionPKey pkey );
+	IYCFIntMajorVersionObj readCachedMajorVersion( YCFIntMajorVersionPKey pkey );
 
-	public void reallyDeepDisposeMajorVersion( ICFIntMajorVersionObj obj );
+	public void reallyDeepDisposeMajorVersion( IYCFIntMajorVersionObj obj );
 
-	void deepDisposeMajorVersion( CFIntMajorVersionPKey pkey );
+	void deepDisposeMajorVersion( YCFIntMajorVersionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMajorVersionObj lockMajorVersion( CFIntMajorVersionPKey pkey );
+	IYCFIntMajorVersionObj lockMajorVersion( YCFIntMajorVersionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the MajorVersion-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntMajorVersionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntMajorVersionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntMajorVersionObj> readAllMajorVersion();
+	List<IYCFIntMajorVersionObj> readAllMajorVersion();
 
 	/**
 	 *	Return a sorted map of all the MajorVersion-derived instances in the database.
 	 *
-	 *	@return	List of ICFIntMajorVersionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFIntMajorVersionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFIntMajorVersionObj> readAllMajorVersion( boolean forceRead );
+	List<IYCFIntMajorVersionObj> readAllMajorVersion( boolean forceRead );
 
-	List<ICFIntMajorVersionObj> readCachedAllMajorVersion();
+	List<IYCFIntMajorVersionObj> readCachedAllMajorVersion();
 
 	/**
-	 *	Get the CFIntMajorVersionObj instance for the primary key attributes.
+	 *	Get the YCFIntMajorVersionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The MajorVersion key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The MajorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMajorVersionObj cached instance for the primary key, or
+	 *	@return	YCFIntMajorVersionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMajorVersionObj readMajorVersionByIdIdx( long TenantId,
+	IYCFIntMajorVersionObj readMajorVersionByIdIdx( long TenantId,
 		long Id );
 
 	/**
-	 *	Get the CFIntMajorVersionObj instance for the primary key attributes.
+	 *	Get the YCFIntMajorVersionObj instance for the primary key attributes.
 	 *
 	 *	@param	argTenantId	The MajorVersion key attribute of the instance generating the id.
 	 *
 	 *	@param	argId	The MajorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMajorVersionObj refreshed instance for the primary key, or
+	 *	@return	YCFIntMajorVersionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMajorVersionObj readMajorVersionByIdIdx( long TenantId,
+	IYCFIntMajorVersionObj readMajorVersionByIdIdx( long TenantId,
 		long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntMajorVersionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntMajorVersionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The MajorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntMajorVersionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntMajorVersionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntMajorVersionObj> readMajorVersionByTenantIdx( long TenantId );
+	List<IYCFIntMajorVersionObj> readMajorVersionByTenantIdx( long TenantId );
 
 	/**
-	 *	Get the map of CFIntMajorVersionObj instances sorted by their primary keys for the duplicate TenantIdx key.
+	 *	Get the map of YCFIntMajorVersionObj instances sorted by their primary keys for the duplicate TenantIdx key.
 	 *
 	 *	@param	argTenantId	The MajorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntMajorVersionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
+	 *	@return	List of YCFIntMajorVersionObj cached instances sorted by their primary keys for the duplicate TenantIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntMajorVersionObj> readMajorVersionByTenantIdx( long TenantId,
+	List<IYCFIntMajorVersionObj> readMajorVersionByTenantIdx( long TenantId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFIntMajorVersionObj instances sorted by their primary keys for the duplicate SubProjectIdx key.
+	 *	Get the map of YCFIntMajorVersionObj instances sorted by their primary keys for the duplicate SubProjectIdx key.
 	 *
 	 *	@param	argTenantId	The MajorVersion key attribute of the instance generating the id.
 	 *
 	 *	@param	argSubProjectId	The MajorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntMajorVersionObj cached instances sorted by their primary keys for the duplicate SubProjectIdx key,
+	 *	@return	List of YCFIntMajorVersionObj cached instances sorted by their primary keys for the duplicate SubProjectIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntMajorVersionObj> readMajorVersionBySubProjectIdx( long TenantId,
+	List<IYCFIntMajorVersionObj> readMajorVersionBySubProjectIdx( long TenantId,
 		long SubProjectId );
 
 	/**
-	 *	Get the map of CFIntMajorVersionObj instances sorted by their primary keys for the duplicate SubProjectIdx key.
+	 *	Get the map of YCFIntMajorVersionObj instances sorted by their primary keys for the duplicate SubProjectIdx key.
 	 *
 	 *	@param	argTenantId	The MajorVersion key attribute of the instance generating the id.
 	 *
 	 *	@param	argSubProjectId	The MajorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFIntMajorVersionObj cached instances sorted by their primary keys for the duplicate SubProjectIdx key,
+	 *	@return	List of YCFIntMajorVersionObj cached instances sorted by their primary keys for the duplicate SubProjectIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFIntMajorVersionObj> readMajorVersionBySubProjectIdx( long TenantId,
+	List<IYCFIntMajorVersionObj> readMajorVersionBySubProjectIdx( long TenantId,
 		long SubProjectId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFIntMajorVersionObj instance for the unique NameIdx key.
+	 *	Get the YCFIntMajorVersionObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The MajorVersion key attribute of the instance generating the id.
 	 *
@@ -208,15 +208,15 @@ public interface ICFIntMajorVersionTableObj
 	 *
 	 *	@param	argName	The MajorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMajorVersionObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFIntMajorVersionObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMajorVersionObj readMajorVersionByNameIdx(long TenantId,
+	IYCFIntMajorVersionObj readMajorVersionByNameIdx(long TenantId,
 		long SubProjectId,
 		String Name );
 
 	/**
-	 *	Get the CFIntMajorVersionObj instance for the unique NameIdx key.
+	 *	Get the YCFIntMajorVersionObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argTenantId	The MajorVersion key attribute of the instance generating the id.
 	 *
@@ -224,23 +224,23 @@ public interface ICFIntMajorVersionTableObj
 	 *
 	 *	@param	argName	The MajorVersion key attribute of the instance generating the id.
 	 *
-	 *	@return	CFIntMajorVersionObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFIntMajorVersionObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFIntMajorVersionObj readMajorVersionByNameIdx(long TenantId,
+	IYCFIntMajorVersionObj readMajorVersionByNameIdx(long TenantId,
 		long SubProjectId,
 		String Name,
 		boolean forceRead );
 
-	ICFIntMajorVersionObj readCachedMajorVersionByIdIdx( long TenantId,
+	IYCFIntMajorVersionObj readCachedMajorVersionByIdIdx( long TenantId,
 		long Id );
 
-	List<ICFIntMajorVersionObj> readCachedMajorVersionByTenantIdx( long TenantId );
+	List<IYCFIntMajorVersionObj> readCachedMajorVersionByTenantIdx( long TenantId );
 
-	List<ICFIntMajorVersionObj> readCachedMajorVersionBySubProjectIdx( long TenantId,
+	List<IYCFIntMajorVersionObj> readCachedMajorVersionBySubProjectIdx( long TenantId,
 		long SubProjectId );
 
-	ICFIntMajorVersionObj readCachedMajorVersionByNameIdx( long TenantId,
+	IYCFIntMajorVersionObj readCachedMajorVersionByNameIdx( long TenantId,
 		long SubProjectId,
 		String Name );
 
@@ -259,12 +259,12 @@ public interface ICFIntMajorVersionTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFIntMajorVersionObj updateMajorVersion( ICFIntMajorVersionObj Obj );
+	IYCFIntMajorVersionObj updateMajorVersion( IYCFIntMajorVersionObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteMajorVersion( ICFIntMajorVersionObj Obj );
+	void deleteMajorVersion( IYCFIntMajorVersionObj Obj );
 
 	/**
 	 *	Internal use only.

@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelError buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelErrorBuff
-	extends CFGenKbGelBoilerplateBuff
+public class YCFGenKbGelErrorBuff
+	extends YCFGenKbGelBoilerplateBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -52,7 +52,7 @@ public class CFGenKbGelErrorBuff
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long GELCACHEID_MIN_VALUE = 0L;
 	public static final long GELINSTID_MIN_VALUE = 0L;
-	public CFGenKbGelErrorBuff() {
+	public YCFGenKbGelErrorBuff() {
 		super();
 	}
 
@@ -64,8 +64,8 @@ public class CFGenKbGelErrorBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelErrorBuff ) {
-			CFGenKbGelErrorBuff rhs = (CFGenKbGelErrorBuff)obj;
+		else if( obj instanceof YCFGenKbGelErrorBuff ) {
+			YCFGenKbGelErrorBuff rhs = (YCFGenKbGelErrorBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -77,8 +77,8 @@ public class CFGenKbGelErrorBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -105,16 +105,16 @@ public class CFGenKbGelErrorBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelErrorBuff ) {
-			CFGenKbGelErrorBuff rhs = (CFGenKbGelErrorBuff)obj;
+		else if( obj instanceof YCFGenKbGelErrorBuff ) {
+			YCFGenKbGelErrorBuff rhs = (YCFGenKbGelErrorBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -141,20 +141,20 @@ public class CFGenKbGelErrorBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelErrorBuff ) {
-			setGelErrorBuff( (CFGenKbGelErrorBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelErrorBuff ) {
+			setGelErrorBuff( (YCFGenKbGelErrorBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelErrorBuff" );
+				"YCFGenKbGelErrorBuff" );
 		}
 	}
 
-	public void setGelErrorBuff( CFGenKbGelErrorBuff src ) {
+	public void setGelErrorBuff( YCFGenKbGelErrorBuff src ) {
 		super.setGelBoilerplateBuff( src );
 	}
 }

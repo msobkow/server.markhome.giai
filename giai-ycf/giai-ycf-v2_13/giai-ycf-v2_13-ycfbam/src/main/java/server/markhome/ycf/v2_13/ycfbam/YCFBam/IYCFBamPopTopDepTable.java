@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for PopTopDep.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamPopTopDepTable database interface for PopTopDep
+ *	YCFBamPopTopDepTable database interface for PopTopDep
  */
-public interface ICFBamPopTopDepTable
+public interface IYCFBamPopTopDepTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createPopTopDep( CFSecAuthorization Authorization,
-		CFBamPopTopDepBuff Buff );
+	void createPopTopDep( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updatePopTopDep( CFSecAuthorization Authorization,
-		CFBamPopTopDepBuff Buff );
+	void updatePopTopDep( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deletePopTopDep( CFSecAuthorization Authorization,
-		CFBamPopTopDepBuff Buff );
+	void deletePopTopDep( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepBuff Buff );
 	/**
 	 *	Delete the PopTopDep instances identified by the key ContRelIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argContRelationId	The PopTopDep key attribute of the instance generating the id.
 	 */
-	void deletePopTopDepByContRelIdx( CFSecAuthorization Authorization,
+	void deletePopTopDepByContRelIdx( YCFSecAuthorization Authorization,
 		long argContRelationTenantId,
 		long argContRelationId );
 
@@ -121,8 +121,8 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deletePopTopDepByContRelIdx( CFSecAuthorization Authorization,
-		CFBamPopTopDepByContRelIdxKey argKey );
+	void deletePopTopDepByContRelIdx( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepByContRelIdxKey argKey );
 	/**
 	 *	Delete the PopTopDep instances identified by the key UNameIdx.
 	 *
@@ -134,7 +134,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argName	The PopTopDep key attribute of the instance generating the id.
 	 */
-	void deletePopTopDepByUNameIdx( CFSecAuthorization Authorization,
+	void deletePopTopDepByUNameIdx( YCFSecAuthorization Authorization,
 		long argContRelationTenantId,
 		long argContRelationId,
 		String argName );
@@ -146,8 +146,8 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deletePopTopDepByUNameIdx( CFSecAuthorization Authorization,
-		CFBamPopTopDepByUNameIdxKey argKey );
+	void deletePopTopDepByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamPopTopDepByUNameIdxKey argKey );
 	/**
 	 *	Delete the PopTopDep instances identified by the key RelationIdx.
 	 *
@@ -157,7 +157,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argRelationId	The PopTopDep key attribute of the instance generating the id.
 	 */
-	void deletePopTopDepByRelationIdx( CFSecAuthorization Authorization,
+	void deletePopTopDepByRelationIdx( YCFSecAuthorization Authorization,
 		long argRelationTenantId,
 		long argRelationId );
 
@@ -168,8 +168,8 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deletePopTopDepByRelationIdx( CFSecAuthorization Authorization,
-		CFBamPopDepByRelationIdxKey argKey );
+	void deletePopTopDepByRelationIdx( YCFSecAuthorization Authorization,
+		YCFBamPopDepByRelationIdxKey argKey );
 	/**
 	 *	Delete the PopTopDep instances identified by the key DefSchemaIdx.
 	 *
@@ -179,7 +179,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argDefSchemaId	The PopTopDep key attribute of the instance generating the id.
 	 */
-	void deletePopTopDepByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deletePopTopDepByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -190,8 +190,8 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deletePopTopDepByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamPopDepByDefSchemaIdxKey argKey );
+	void deletePopTopDepByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamPopDepByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the PopTopDep instance identified by the primary key attributes.
 	 *
@@ -201,7 +201,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argId	The PopTopDep key attribute of the instance generating the id.
 	 */
-	void deletePopTopDepByIdIdx( CFSecAuthorization Authorization,
+	void deletePopTopDepByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -212,8 +212,8 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deletePopTopDepByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey );
+	void deletePopTopDepByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey );
 	/**
 	 *	Delete the PopTopDep instances identified by the key TenantIdx.
 	 *
@@ -221,7 +221,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argTenantId	The PopTopDep key attribute of the instance generating the id.
 	 */
-	void deletePopTopDepByTenantIdx( CFSecAuthorization Authorization,
+	void deletePopTopDepByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -231,8 +231,8 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deletePopTopDepByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey );
+	void deletePopTopDepByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey );
 
 
 	/**
@@ -245,8 +245,8 @@ public interface ICFBamPopTopDepTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamPopTopDepBuff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamPopTopDepBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the derived PopTopDep buffer instance by primary key.
@@ -258,8 +258,8 @@ public interface ICFBamPopTopDepTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamPopTopDepBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamPopTopDepBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all PopTopDep instances.
@@ -268,7 +268,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamPopTopDepBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamPopTopDepBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived PopTopDep buffer instance identified by the unique key IdIdx.
@@ -282,7 +282,7 @@ public interface ICFBamPopTopDepTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamPopTopDepBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -295,7 +295,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamPopTopDepBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -309,7 +309,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamPopTopDepBuff[] readDerivedByRelationIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff[] readDerivedByRelationIdx( YCFSecAuthorization Authorization,
 		long RelationTenantId,
 		long RelationId );
 
@@ -324,7 +324,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamPopTopDepBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -339,7 +339,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamPopTopDepBuff[] readDerivedByContRelIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff[] readDerivedByContRelIdx( YCFSecAuthorization Authorization,
 		long ContRelationTenantId,
 		long ContRelationId );
 
@@ -357,7 +357,7 @@ public interface ICFBamPopTopDepTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamPopTopDepBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long ContRelationTenantId,
 		long ContRelationId,
 		String Name );
@@ -372,10 +372,10 @@ public interface ICFBamPopTopDepTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamPopTopDepBuff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamPopTopDepBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the specific PopTopDep buffer instance identified by the primary key.
@@ -387,10 +387,10 @@ public interface ICFBamPopTopDepTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamPopTopDepBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamPopTopDepBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all the specific PopTopDep buffer instances.
@@ -399,7 +399,7 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return All the specific PopTopDep instances in the database accessible for the Authorization.
 	 */
-	CFBamPopTopDepBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamPopTopDepBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific PopTopDep buffer instance identified by the unique key IdIdx.
@@ -413,9 +413,9 @@ public interface ICFBamPopTopDepTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamPopTopDepBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -428,9 +428,9 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamPopTopDepBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -444,9 +444,9 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamPopTopDepBuff[] readBuffByRelationIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff[] readBuffByRelationIdx( YCFSecAuthorization Authorization,
 		long RelationTenantId,
 		long RelationId );
 
@@ -461,9 +461,9 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamPopTopDepBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -478,9 +478,9 @@ public interface ICFBamPopTopDepTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamPopTopDepBuff[] readBuffByContRelIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff[] readBuffByContRelIdx( YCFSecAuthorization Authorization,
 		long ContRelationTenantId,
 		long ContRelationId );
 
@@ -498,9 +498,9 @@ public interface ICFBamPopTopDepTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamPopTopDepBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamPopTopDepBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long ContRelationTenantId,
 		long ContRelationId,
 		String Name );
@@ -508,7 +508,7 @@ public interface ICFBamPopTopDepTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

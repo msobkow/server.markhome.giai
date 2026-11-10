@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SecForm by UJEEServletIdx index key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,20 +36,20 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecSecFormByUJEEServletIdxKey
+public class YCFSecSecFormByUJEEServletIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredClusterId;
 	protected int requiredSecAppId;
 	protected String requiredJEEServletMapName;
-	public CFSecSecFormByUJEEServletIdxKey() {
-		requiredClusterId = CFSecSecFormBuff.CLUSTERID_INIT_VALUE;
-		requiredSecAppId = CFSecSecFormBuff.SECAPPID_INIT_VALUE;
-		requiredJEEServletMapName = new String( CFSecSecFormBuff.JEESERVLETMAPNAME_INIT_VALUE );
+	public YCFSecSecFormByUJEEServletIdxKey() {
+		requiredClusterId = YCFSecSecFormBuff.CLUSTERID_INIT_VALUE;
+		requiredSecAppId = YCFSecSecFormBuff.SECAPPID_INIT_VALUE;
+		requiredJEEServletMapName = new String( YCFSecSecFormBuff.JEESERVLETMAPNAME_INIT_VALUE );
 	}
 
 	public long getRequiredClusterId() {
@@ -57,13 +57,13 @@ public class CFSecSecFormByUJEEServletIdxKey
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFSecSecFormBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecFormBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFSecSecFormBuff.CLUSTERID_MIN_VALUE );
+				YCFSecSecFormBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -73,13 +73,13 @@ public class CFSecSecFormByUJEEServletIdxKey
 	}
 
 	public void setRequiredSecAppId( int value ) {
-		if( value < CFSecSecFormBuff.SECAPPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecFormBuff.SECAPPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecAppId",
 				1,
 				"value",
 				value,
-				CFSecSecFormBuff.SECAPPID_MIN_VALUE );
+				YCFSecSecFormBuff.SECAPPID_MIN_VALUE );
 		}
 		requiredSecAppId = value;
 	}
@@ -90,13 +90,13 @@ public class CFSecSecFormByUJEEServletIdxKey
 
 	public void setRequiredJEEServletMapName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredJEEServletMapName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredJEEServletMapName",
 				1,
 				"value.length()",
@@ -110,8 +110,8 @@ public class CFSecSecFormByUJEEServletIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSecFormByUJEEServletIdxKey ) {
-			CFSecSecFormByUJEEServletIdxKey rhs = (CFSecSecFormByUJEEServletIdxKey)obj;
+		else if( obj instanceof YCFSecSecFormByUJEEServletIdxKey ) {
+			YCFSecSecFormByUJEEServletIdxKey rhs = (YCFSecSecFormByUJEEServletIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -123,8 +123,8 @@ public class CFSecSecFormByUJEEServletIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecFormBuff ) {
-			CFSecSecFormBuff rhs = (CFSecSecFormBuff)obj;
+		else if( obj instanceof YCFSecSecFormBuff ) {
+			YCFSecSecFormBuff rhs = (YCFSecSecFormBuff)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -155,8 +155,8 @@ public class CFSecSecFormByUJEEServletIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFSecSecFormByUJEEServletIdxKey ) {
-			CFSecSecFormByUJEEServletIdxKey rhs = (CFSecSecFormByUJEEServletIdxKey)obj;
+		else if( obj instanceof YCFSecSecFormByUJEEServletIdxKey ) {
+			YCFSecSecFormByUJEEServletIdxKey rhs = (YCFSecSecFormByUJEEServletIdxKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -177,8 +177,8 @@ public class CFSecSecFormByUJEEServletIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecFormBuff ) {
-			CFSecSecFormBuff rhs = (CFSecSecFormBuff)obj;
+		else if( obj instanceof YCFSecSecFormBuff ) {
+			YCFSecSecFormBuff rhs = (YCFSecSecFormBuff)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -200,7 +200,7 @@ public class CFSecSecFormByUJEEServletIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -209,10 +209,10 @@ public class CFSecSecFormByUJEEServletIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFSecSecFormByUJEEServletIdx"
+		String ret = "<YCFSecSecFormByUJEEServletIdx"
 			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
 			+ " RequiredSecAppId=" + "\"" + Integer.toString( getRequiredSecAppId() ) + "\""
-			+ " RequiredJEEServletMapName=" + "\"" + CFSecSchema.xmlEncodeString( getRequiredJEEServletMapName() ) + "\""
+			+ " RequiredJEEServletMapName=" + "\"" + YCFSecSchema.xmlEncodeString( getRequiredJEEServletMapName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

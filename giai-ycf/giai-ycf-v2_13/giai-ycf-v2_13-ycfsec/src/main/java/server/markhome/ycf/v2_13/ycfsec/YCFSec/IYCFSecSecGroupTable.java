@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for SecGroup.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,14 +35,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSecGroupTable database interface for SecGroup
+ *	YCFSecSecGroupTable database interface for SecGroup
  */
-public interface ICFSecSecGroupTable
+public interface IYCFSecSecGroupTable
 {
 
 	/**
@@ -53,8 +53,8 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecGroup( CFSecAuthorization Authorization,
-		CFSecSecGroupBuff Buff );
+	void createSecGroup( YCFSecAuthorization Authorization,
+		YCFSecSecGroupBuff Buff );
 
 
 	/**
@@ -65,8 +65,8 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecGroup( CFSecAuthorization Authorization,
-		CFSecSecGroupBuff Buff );
+	void updateSecGroup( YCFSecAuthorization Authorization,
+		YCFSecSecGroupBuff Buff );
 
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecGroup( CFSecAuthorization Authorization,
-		CFSecSecGroupBuff Buff );
+	void deleteSecGroup( YCFSecAuthorization Authorization,
+		YCFSecSecGroupBuff Buff );
 	/**
 	 *	Delete the SecGroup instance identified by the primary key attributes.
 	 *
@@ -87,7 +87,7 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	argSecGroupId	The SecGroup key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupByIdIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupByIdIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId );
 
@@ -98,8 +98,8 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecGroupByIdIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupPKey argKey );
+	void deleteSecGroupByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupPKey argKey );
 	/**
 	 *	Delete the SecGroup instances identified by the key ClusterIdx.
 	 *
@@ -107,7 +107,7 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	argClusterId	The SecGroup key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupByClusterIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -117,8 +117,8 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupByClusterIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupByClusterIdxKey argKey );
+	void deleteSecGroupByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupByClusterIdxKey argKey );
 	/**
 	 *	Delete the SecGroup instances identified by the key ClusterVisIdx.
 	 *
@@ -128,7 +128,7 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	argIsVisible	The SecGroup key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupByClusterVisIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupByClusterVisIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		boolean argIsVisible );
 
@@ -139,8 +139,8 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupByClusterVisIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupByClusterVisIdxKey argKey );
+	void deleteSecGroupByClusterVisIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupByClusterVisIdxKey argKey );
 	/**
 	 *	Delete the SecGroup instances identified by the key UNameIdx.
 	 *
@@ -150,7 +150,7 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	argName	The SecGroup key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupByUNameIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupByUNameIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		String argName );
 
@@ -161,8 +161,8 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupByUNameIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupByUNameIdxKey argKey );
+	void deleteSecGroupByUNameIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupByUNameIdxKey argKey );
 
 
 	/**
@@ -175,8 +175,8 @@ public interface ICFSecSecGroupTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGroupBuff readDerived( CFSecAuthorization Authorization,
-		CFSecSecGroupPKey PKey );
+	YCFSecSecGroupBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecSecGroupPKey PKey );
 
 	/**
 	 *	Lock the derived SecGroup buffer instance by primary key.
@@ -188,8 +188,8 @@ public interface ICFSecSecGroupTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGroupBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecSecGroupPKey PKey );
+	YCFSecSecGroupBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecSecGroupPKey PKey );
 
 	/**
 	 *	Read all SecGroup instances.
@@ -198,7 +198,7 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecSecGroupBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecSecGroupBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecGroup buffer instance identified by the unique key IdIdx.
@@ -212,7 +212,7 @@ public interface ICFSecSecGroupTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGroupBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -225,7 +225,7 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecGroupBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -239,7 +239,7 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecGroupBuff[] readDerivedByClusterVisIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupBuff[] readDerivedByClusterVisIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		boolean IsVisible );
 
@@ -255,7 +255,7 @@ public interface ICFSecSecGroupTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGroupBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		String Name );
 
@@ -269,10 +269,10 @@ public interface ICFSecSecGroupTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupBuff readBuff( CFSecAuthorization Authorization,
-		CFSecSecGroupPKey PKey );
+	YCFSecSecGroupBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecSecGroupPKey PKey );
 
 	/**
 	 *	Lock the specific SecGroup buffer instance identified by the primary key.
@@ -284,10 +284,10 @@ public interface ICFSecSecGroupTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecSecGroupPKey PKey );
+	YCFSecSecGroupBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecSecGroupPKey PKey );
 
 	/**
 	 *	Read all the specific SecGroup buffer instances.
@@ -296,7 +296,7 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@return All the specific SecGroup instances in the database accessible for the Authorization.
 	 */
-	CFSecSecGroupBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecSecGroupBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific SecGroup buffer instance identified by the unique key IdIdx.
@@ -310,9 +310,9 @@ public interface ICFSecSecGroupTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -325,9 +325,9 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -341,9 +341,9 @@ public interface ICFSecSecGroupTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupBuff[] readBuffByClusterVisIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupBuff[] readBuffByClusterVisIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		boolean IsVisible );
 
@@ -359,16 +359,16 @@ public interface ICFSecSecGroupTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		String Name );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

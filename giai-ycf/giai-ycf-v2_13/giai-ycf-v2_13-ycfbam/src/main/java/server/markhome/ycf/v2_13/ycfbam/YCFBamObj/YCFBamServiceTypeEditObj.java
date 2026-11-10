@@ -1,15 +1,15 @@
-// Description: Java 11 edit object instance implementation for CFBam ServiceType.
+// Description: Java 11 edit object instance implementation for YCFBam ServiceType.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,39 +26,39 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamServiceTypeEditObj
-	implements ICFBamServiceTypeEditObj
+public class YCFBamServiceTypeEditObj
+	implements IYCFBamServiceTypeEditObj
 {
-	protected ICFSecServiceTypeObj orig;
-	protected CFSecServiceTypeBuff buff;
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
+	protected IYCFSecServiceTypeObj orig;
+	protected YCFSecServiceTypeBuff buff;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
 
-	public CFBamServiceTypeEditObj( ICFSecServiceTypeObj argOrig ) {
+	public YCFBamServiceTypeEditObj( IYCFSecServiceTypeObj argOrig ) {
 		orig = argOrig;
 		getBuff();
-		CFSecServiceTypeBuff origBuff = orig.getBuff();
+		YCFSecServiceTypeBuff origBuff = orig.getBuff();
 		buff.set( origBuff );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFSecServiceTypeBuff buff = getBuff();
-			createdBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFSecServiceTypeBuff buff = getBuff();
+			createdBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -67,10 +67,10 @@ public class CFBamServiceTypeEditObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFSecServiceTypeBuff buff = getBuff();
-			updatedBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFSecServiceTypeBuff buff = getBuff();
+			updatedBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -79,7 +79,7 @@ public class CFBamServiceTypeEditObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public void setCreatedBy( ICFSecSecUserObj value ) {
+	public void setCreatedBy( IYCFSecSecUserObj value ) {
 		createdBy = value;
 		if( value != null ) {
 			getBuff().setCreatedByUserId( value.getRequiredSecUserId() );
@@ -90,7 +90,7 @@ public class CFBamServiceTypeEditObj
 		getBuff().setCreatedAt( value );
 	}
 
-	public void setUpdatedBy( ICFSecSecUserObj value ) {
+	public void setUpdatedBy( IYCFSecSecUserObj value ) {
 		updatedBy = value;
 		if( value != null ) {
 			getBuff().setUpdatedByUserId( value.getRequiredSecUserId() );
@@ -102,18 +102,18 @@ public class CFBamServiceTypeEditObj
 	}
 
 	public String getClassCode() {
-		return( CFBamServiceTypeObj.CLASS_CODE );
+		return( YCFBamServiceTypeObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "ServiceType" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -123,14 +123,14 @@ public class CFBamServiceTypeEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -141,10 +141,10 @@ public class CFBamServiceTypeEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -153,20 +153,20 @@ public class CFBamServiceTypeEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -190,13 +190,13 @@ public class CFBamServiceTypeEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -210,13 +210,13 @@ public class CFBamServiceTypeEditObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -228,9 +228,9 @@ public class CFBamServiceTypeEditObj
 		return( fullName );
 	}
 
-	public ICFSecServiceTypeObj realise() {
+	public IYCFSecServiceTypeObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFSecServiceTypeObj retobj = getSchema().getServiceTypeTableObj().realiseServiceType( (ICFBamServiceTypeObj)this );
+		IYCFSecServiceTypeObj retobj = getSchema().getServiceTypeTableObj().realiseServiceType( (IYCFBamServiceTypeObj)this );
 		return( retobj );
 	}
 
@@ -238,10 +238,10 @@ public class CFBamServiceTypeEditObj
 		getOrigAsServiceType().forget();
 	}
 
-	public ICFSecServiceTypeObj read() {
-		ICFSecServiceTypeObj retval = getOrigAsServiceType().read();
+	public IYCFSecServiceTypeObj read() {
+		IYCFSecServiceTypeObj retval = getOrigAsServiceType().read();
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -249,10 +249,10 @@ public class CFBamServiceTypeEditObj
 		return( retval );
 	}
 
-	public ICFSecServiceTypeObj read( boolean forceRead ) {
-		ICFSecServiceTypeObj retval = getOrigAsServiceType().read( forceRead );
+	public IYCFSecServiceTypeObj read( boolean forceRead ) {
+		IYCFSecServiceTypeObj retval = getOrigAsServiceType().read( forceRead );
 		if( retval != orig ) {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				"read",
 				"retval != orig" );
 		}
@@ -260,83 +260,83 @@ public class CFBamServiceTypeEditObj
 		return( retval );
 	}
 
-	public ICFSecServiceTypeObj create() {
+	public IYCFSecServiceTypeObj create() {
 		copyBuffToOrig();
-		ICFSecServiceTypeObj retobj = ((ICFBamSchemaObj)getOrigAsServiceType().getSchema()).getServiceTypeTableObj().createServiceType( getOrigAsServiceType() );
+		IYCFSecServiceTypeObj retobj = ((IYCFBamSchemaObj)getOrigAsServiceType().getSchema()).getServiceTypeTableObj().createServiceType( getOrigAsServiceType() );
 		if( retobj == getOrigAsServiceType() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFSecServiceTypeEditObj update() {
-		getSchema().getServiceTypeTableObj().updateServiceType( (ICFSecServiceTypeObj)this );
+	public YCFSecServiceTypeEditObj update() {
+		getSchema().getServiceTypeTableObj().updateServiceType( (IYCFSecServiceTypeObj)this );
 		return( null );
 	}
 
-	public CFSecServiceTypeEditObj deleteInstance() {
+	public YCFSecServiceTypeEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getServiceTypeTableObj().deleteServiceType( getOrigAsServiceType() );
 		return( null );
 	}
 
-	public ICFSecServiceTypeTableObj getServiceTypeTable() {
+	public IYCFSecServiceTypeTableObj getServiceTypeTable() {
 		return( orig.getSchema().getServiceTypeTableObj() );
 	}
 
-	public ICFSecServiceTypeEditObj getEdit() {
-		return( (ICFSecServiceTypeEditObj)this );
+	public IYCFSecServiceTypeEditObj getEdit() {
+		return( (IYCFSecServiceTypeEditObj)this );
 	}
 
-	public ICFSecServiceTypeEditObj getEditAsServiceType() {
-		return( (ICFSecServiceTypeEditObj)this );
+	public IYCFSecServiceTypeEditObj getEditAsServiceType() {
+		return( (IYCFSecServiceTypeEditObj)this );
 	}
 
-	public ICFSecServiceTypeEditObj beginEdit() {
-		throw new CFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
+	public IYCFSecServiceTypeEditObj beginEdit() {
+		throw new YCFLibUsageException( getClass(), "beginEdit", "Cannot edit an edition" );
 	}
 
 	public void endEdit() {
 		orig.endEdit();
 	}
 
-	public ICFSecServiceTypeObj getOrig() {
+	public IYCFSecServiceTypeObj getOrig() {
 		return( orig );
 	}
 
-	public ICFSecServiceTypeObj getOrigAsServiceType() {
-		return( (ICFSecServiceTypeObj)orig );
+	public IYCFSecServiceTypeObj getOrigAsServiceType() {
+		return( (IYCFSecServiceTypeObj)orig );
 	}
 
-	public ICFSecSchemaObj getSchema() {
+	public IYCFSecSchemaObj getSchema() {
 		return( orig.getSchema() );
 	}
 
-	public CFSecServiceTypeBuff getBuff() {
+	public YCFSecServiceTypeBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsServiceType().getSchema().getBackingStore()).getFactoryServiceType().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsServiceType().getSchema().getBackingStore()).getFactoryServiceType().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFSecServiceTypeBuff value ) {
+	public void setBuff( YCFSecServiceTypeBuff value ) {
 		if( buff != value ) {
 			buff = value;
 		}
 	}
 
-	public CFSecServiceTypeBuff getServiceTypeBuff() {
-		return( (CFSecServiceTypeBuff)getBuff() );
+	public YCFSecServiceTypeBuff getServiceTypeBuff() {
+		return( (YCFSecServiceTypeBuff)getBuff() );
 	}
 
-	public CFSecServiceTypePKey getPKey() {
+	public YCFSecServiceTypePKey getPKey() {
 		return( orig.getPKey() );
 	}
 
-	public void setPKey( CFSecServiceTypePKey value ) {
+	public void setPKey( YCFSecServiceTypePKey value ) {
 		orig.setPKey( value );
 		copyPKeyToBuff();
 	}
@@ -363,16 +363,16 @@ public class CFBamServiceTypeEditObj
 		}
 	}
 
-	public List<ICFSecServiceObj> getOptionalChildrenDeployed() {
-		List<ICFSecServiceObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsServiceType().getSchema()).getServiceTableObj().readServiceByTypeIdx( getPKey().getRequiredServiceTypeId(),
+	public List<IYCFSecServiceObj> getOptionalChildrenDeployed() {
+		List<IYCFSecServiceObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsServiceType().getSchema()).getServiceTableObj().readServiceByTypeIdx( getPKey().getRequiredServiceTypeId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFSecServiceObj> getOptionalChildrenDeployed( boolean forceRead ) {
-		List<ICFSecServiceObj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsServiceType().getSchema()).getServiceTableObj().readServiceByTypeIdx( getPKey().getRequiredServiceTypeId(),
+	public List<IYCFSecServiceObj> getOptionalChildrenDeployed( boolean forceRead ) {
+		List<IYCFSecServiceObj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsServiceType().getSchema()).getServiceTableObj().readServiceByTypeIdx( getPKey().getRequiredServiceTypeId(),
 			forceRead );
 		return( retval );
 	}
@@ -386,14 +386,14 @@ public class CFBamServiceTypeEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFSecServiceTypeBuff origBuff = getOrigAsServiceType().getServiceTypeBuff();
-		CFSecServiceTypeBuff myBuff = getServiceTypeBuff();
+		YCFSecServiceTypeBuff origBuff = getOrigAsServiceType().getServiceTypeBuff();
+		YCFSecServiceTypeBuff myBuff = getServiceTypeBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFSecServiceTypeBuff origBuff = getOrigAsServiceType().getServiceTypeBuff();
-		CFSecServiceTypeBuff myBuff = getServiceTypeBuff();
+		YCFSecServiceTypeBuff origBuff = getOrigAsServiceType().getServiceTypeBuff();
+		YCFSecServiceTypeBuff myBuff = getServiceTypeBuff();
 		myBuff.set( origBuff );
 	}
 }

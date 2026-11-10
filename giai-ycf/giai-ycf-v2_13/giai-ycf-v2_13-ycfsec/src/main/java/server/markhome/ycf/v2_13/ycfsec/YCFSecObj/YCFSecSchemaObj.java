@@ -1,15 +1,15 @@
-// Description: Java 11 Schema Object implementation for CFSec.
+// Description: Java 11 Schema Object implementation for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,90 +26,90 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-public class CFSecSchemaObj
-	implements ICFSecSchemaObj
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+public class YCFSecSchemaObj
+	implements IYCFSecSchemaObj
 {
-	public static String SCHEMA_NAME = "CFSec";
-	public static String SCHEMA_DBNAME = "cfsec213";
-	protected CFSecAuthorization authorization = null;
-	protected ICFSecSchema backingStore = null;
+	public static String SCHEMA_NAME = "YCFSec";
+	public static String SCHEMA_DBNAME = "ycfsec213";
+	protected YCFSecAuthorization authorization = null;
+	protected IYCFSecSchema backingStore = null;
 	protected String secClusterName = "system";
 	protected String secTenantName = "system";
 	protected String secUserName = "system";
-	protected ICFSecClusterObj secCluster = null;
+	protected IYCFSecClusterObj secCluster = null;
 	protected long secClusterId = 0L;
-	protected ICFSecTenantObj secTenant = null;
+	protected IYCFSecTenantObj secTenant = null;
 	protected long secTenantId = 0L;
-	protected ICFSecSecUserObj secUser = null;
+	protected IYCFSecSecUserObj secUser = null;
 	protected UUID secSessionUserId = null;
-	protected ICFSecSecSessionObj secSession = null;
+	protected IYCFSecSecSessionObj secSession = null;
 	protected UUID secSessionSessionId = null;
 	protected String schemaDbName = SCHEMA_DBNAME;
 	protected String lowerDbSchemaName = SCHEMA_DBNAME.toLowerCase();
-	protected ICFSecClusterTableObj clusterTableObj;
-	protected ICFSecHostNodeTableObj hostNodeTableObj;
-	protected ICFSecISOCcyTableObj iSOCcyTableObj;
-	protected ICFSecISOCtryTableObj iSOCtryTableObj;
-	protected ICFSecISOCtryCcyTableObj iSOCtryCcyTableObj;
-	protected ICFSecISOCtryLangTableObj iSOCtryLangTableObj;
-	protected ICFSecISOLangTableObj iSOLangTableObj;
-	protected ICFSecISOTZoneTableObj iSOTZoneTableObj;
-	protected ICFSecSecAppTableObj secAppTableObj;
-	protected ICFSecSecDeviceTableObj secDeviceTableObj;
-	protected ICFSecSecFormTableObj secFormTableObj;
-	protected ICFSecSecGroupTableObj secGroupTableObj;
-	protected ICFSecSecGroupFormTableObj secGroupFormTableObj;
-	protected ICFSecSecGrpIncTableObj secGrpIncTableObj;
-	protected ICFSecSecGrpMembTableObj secGrpMembTableObj;
-	protected ICFSecSecSessionTableObj secSessionTableObj;
-	protected ICFSecSecUserTableObj secUserTableObj;
-	protected ICFSecServiceTableObj serviceTableObj;
-	protected ICFSecServiceTypeTableObj serviceTypeTableObj;
-	protected ICFSecSysClusterTableObj sysClusterTableObj;
-	protected ICFSecTSecGroupTableObj tSecGroupTableObj;
-	protected ICFSecTSecGrpIncTableObj tSecGrpIncTableObj;
-	protected ICFSecTSecGrpMembTableObj tSecGrpMembTableObj;
-	protected ICFSecTenantTableObj tenantTableObj;
+	protected IYCFSecClusterTableObj clusterTableObj;
+	protected IYCFSecHostNodeTableObj hostNodeTableObj;
+	protected IYCFSecISOCcyTableObj iSOCcyTableObj;
+	protected IYCFSecISOCtryTableObj iSOCtryTableObj;
+	protected IYCFSecISOCtryCcyTableObj iSOCtryCcyTableObj;
+	protected IYCFSecISOCtryLangTableObj iSOCtryLangTableObj;
+	protected IYCFSecISOLangTableObj iSOLangTableObj;
+	protected IYCFSecISOTZoneTableObj iSOTZoneTableObj;
+	protected IYCFSecSecAppTableObj secAppTableObj;
+	protected IYCFSecSecDeviceTableObj secDeviceTableObj;
+	protected IYCFSecSecFormTableObj secFormTableObj;
+	protected IYCFSecSecGroupTableObj secGroupTableObj;
+	protected IYCFSecSecGroupFormTableObj secGroupFormTableObj;
+	protected IYCFSecSecGrpIncTableObj secGrpIncTableObj;
+	protected IYCFSecSecGrpMembTableObj secGrpMembTableObj;
+	protected IYCFSecSecSessionTableObj secSessionTableObj;
+	protected IYCFSecSecUserTableObj secUserTableObj;
+	protected IYCFSecServiceTableObj serviceTableObj;
+	protected IYCFSecServiceTypeTableObj serviceTypeTableObj;
+	protected IYCFSecSysClusterTableObj sysClusterTableObj;
+	protected IYCFSecTSecGroupTableObj tSecGroupTableObj;
+	protected IYCFSecTSecGrpIncTableObj tSecGrpIncTableObj;
+	protected IYCFSecTSecGrpMembTableObj tSecGrpMembTableObj;
+	protected IYCFSecTenantTableObj tenantTableObj;
 
-	public CFSecSchemaObj() {
-		clusterTableObj = new CFSecClusterTableObj( this );
-		hostNodeTableObj = new CFSecHostNodeTableObj( this );
-		iSOCcyTableObj = new CFSecISOCcyTableObj( this );
-		iSOCtryTableObj = new CFSecISOCtryTableObj( this );
-		iSOCtryCcyTableObj = new CFSecISOCtryCcyTableObj( this );
-		iSOCtryLangTableObj = new CFSecISOCtryLangTableObj( this );
-		iSOLangTableObj = new CFSecISOLangTableObj( this );
-		iSOTZoneTableObj = new CFSecISOTZoneTableObj( this );
-		secAppTableObj = new CFSecSecAppTableObj( this );
-		secDeviceTableObj = new CFSecSecDeviceTableObj( this );
-		secFormTableObj = new CFSecSecFormTableObj( this );
-		secGroupTableObj = new CFSecSecGroupTableObj( this );
-		secGroupFormTableObj = new CFSecSecGroupFormTableObj( this );
-		secGrpIncTableObj = new CFSecSecGrpIncTableObj( this );
-		secGrpMembTableObj = new CFSecSecGrpMembTableObj( this );
-		secSessionTableObj = new CFSecSecSessionTableObj( this );
-		secUserTableObj = new CFSecSecUserTableObj( this );
-		serviceTableObj = new CFSecServiceTableObj( this );
-		serviceTypeTableObj = new CFSecServiceTypeTableObj( this );
-		sysClusterTableObj = new CFSecSysClusterTableObj( this );
-		tSecGroupTableObj = new CFSecTSecGroupTableObj( this );
-		tSecGrpIncTableObj = new CFSecTSecGrpIncTableObj( this );
-		tSecGrpMembTableObj = new CFSecTSecGrpMembTableObj( this );
-		tenantTableObj = new CFSecTenantTableObj( this );
+	public YCFSecSchemaObj() {
+		clusterTableObj = new YCFSecClusterTableObj( this );
+		hostNodeTableObj = new YCFSecHostNodeTableObj( this );
+		iSOCcyTableObj = new YCFSecISOCcyTableObj( this );
+		iSOCtryTableObj = new YCFSecISOCtryTableObj( this );
+		iSOCtryCcyTableObj = new YCFSecISOCtryCcyTableObj( this );
+		iSOCtryLangTableObj = new YCFSecISOCtryLangTableObj( this );
+		iSOLangTableObj = new YCFSecISOLangTableObj( this );
+		iSOTZoneTableObj = new YCFSecISOTZoneTableObj( this );
+		secAppTableObj = new YCFSecSecAppTableObj( this );
+		secDeviceTableObj = new YCFSecSecDeviceTableObj( this );
+		secFormTableObj = new YCFSecSecFormTableObj( this );
+		secGroupTableObj = new YCFSecSecGroupTableObj( this );
+		secGroupFormTableObj = new YCFSecSecGroupFormTableObj( this );
+		secGrpIncTableObj = new YCFSecSecGrpIncTableObj( this );
+		secGrpMembTableObj = new YCFSecSecGrpMembTableObj( this );
+		secSessionTableObj = new YCFSecSecSessionTableObj( this );
+		secUserTableObj = new YCFSecSecUserTableObj( this );
+		serviceTableObj = new YCFSecServiceTableObj( this );
+		serviceTypeTableObj = new YCFSecServiceTypeTableObj( this );
+		sysClusterTableObj = new YCFSecSysClusterTableObj( this );
+		tSecGroupTableObj = new YCFSecTSecGroupTableObj( this );
+		tSecGrpIncTableObj = new YCFSecTSecGrpIncTableObj( this );
+		tSecGrpMembTableObj = new YCFSecTSecGrpMembTableObj( this );
+		tenantTableObj = new YCFSecTenantTableObj( this );
 		}
 
 	public void setSecClusterName( String value ) {
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setClusterName",
 				1,
 				"value" );
@@ -122,7 +122,7 @@ public class CFSecSchemaObj
 		return( secClusterName );
 	}
 
-	public ICFSecClusterObj getSecCluster() {
+	public IYCFSecClusterObj getSecCluster() {
 		if( secCluster == null ) {
 			if( authorization != null ) {
 				secCluster = getClusterTableObj().readClusterByIdIdx( authorization.getSecClusterId() );
@@ -144,7 +144,7 @@ public class CFSecSchemaObj
 		return( secCluster );
 	}
 
-	public void setSecCluster( ICFSecClusterObj value ) {
+	public void setSecCluster( IYCFSecClusterObj value ) {
 		secCluster = value;
 		if( secCluster == null ) {
 			return;
@@ -162,7 +162,7 @@ public class CFSecSchemaObj
 
 	public void setSecTenantName( String value ) {
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setTenantName",
 				1,
 				"value" );
@@ -175,7 +175,7 @@ public class CFSecSchemaObj
 		return( secTenantName );
 	}
 
-	public ICFSecTenantObj getSecTenant() {
+	public IYCFSecTenantObj getSecTenant() {
 		if( secTenant == null ) {
 			if( authorization != null ) {
 				secTenant = getTenantTableObj().readTenantByIdIdx( authorization.getSecTenantId() );
@@ -197,7 +197,7 @@ public class CFSecSchemaObj
 		return( secTenant );
 	}
 
-	public void setSecTenant( ICFSecTenantObj value ) {
+	public void setSecTenant( IYCFSecTenantObj value ) {
 		secTenant = value;
 		if( secTenant == null ) {
 			return;
@@ -215,7 +215,7 @@ public class CFSecSchemaObj
 
 	public void setSecUserName( String value ) {
 		if( ( value == null ) || ( value.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setUserName",
 				1,
 				"value" );
@@ -228,7 +228,7 @@ public class CFSecSchemaObj
 		return( secUserName );
 	}
 
-	public ICFSecSecUserObj getSecUser() {
+	public IYCFSecSecUserObj getSecUser() {
 		if( secUser == null ) {
 			if( authorization != null ) {
 				secUser = getSecUserTableObj().readSecUserByIdIdx( authorization.getSecUserId() );
@@ -247,14 +247,14 @@ public class CFSecSchemaObj
 		return( secUser );
 	}
 
-	public void setSecUser( ICFSecSecUserObj value ) {
+	public void setSecUser( IYCFSecSecUserObj value ) {
 		secUser = value;
 		if( secUser != null ) {
 			secUserName = secUser.getRequiredLoginId();
 			secSessionUserId = secUser.getRequiredSecUserId();
 		}
 	}
-	public ICFSecSecSessionObj getSecSession() {
+	public IYCFSecSecSessionObj getSecSession() {
 		if( secSession == null ) {
 			if( authorization != null ) {
 				secSession = getSecSessionTableObj().readSecSessionByIdIdx( authorization.getSecSessionId() );
@@ -270,7 +270,7 @@ public class CFSecSchemaObj
 		return( secSession );
 	}
 
-	public void setSecSession( ICFSecSecSessionObj value ) {
+	public void setSecSession( IYCFSecSecSessionObj value ) {
 		secSession = value;
 		if( secSession == null ) {
 			return;
@@ -335,7 +335,7 @@ public class CFSecSchemaObj
 		rollback();
 
 		if( ( argDbSchemaName == null ) || ( argDbSchemaName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"argDbSchemaName" );
@@ -364,19 +364,19 @@ public class CFSecSchemaObj
 	 */
 	public void releasePreparedStatements() {
 	}
-	public CFSecAuthorization getAuthorization() {
+	public YCFSecAuthorization getAuthorization() {
 		return( authorization );
 	}
 
-	public void setAuthorization( CFSecAuthorization value ) {
+	public void setAuthorization( YCFSecAuthorization value ) {
 		authorization = value;
 	}
 
-	public ICFSecSchema getBackingStore() {
+	public IYCFSecSchema getBackingStore() {
 		return( backingStore );
 	}
 
-	public void setBackingStore( ICFSecSchema value ) {
+	public void setBackingStore( IYCFSecSchema value ) {
 		backingStore = value;
 	}
 
@@ -404,25 +404,25 @@ public class CFSecSchemaObj
 	public boolean connect( String clusterName, String tenantName, String secUserName, String password ) {
 		final String S_ProcName = "connect-full";
 		if( ( clusterName == null ) || ( clusterName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"clusterName" );
 		}
 		if( ( tenantName == null ) || ( tenantName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				2,
 				"tenantName" );
 		}
 		if( ( secUserName == null ) || ( secUserName.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				3,
 				"secUserName" );
 		}
 		if( ( password == null ) || ( password.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				5,
 				"password" );
@@ -448,7 +448,7 @@ public class CFSecSchemaObj
 		{
 			if( secCluster == null ) {
 				secCluster = getClusterTableObj().newInstance();
-				ICFSecClusterEditObj editCluster = secCluster.getEdit();
+				IYCFSecClusterEditObj editCluster = secCluster.getEdit();
 				if( editCluster == null ) {
 					editCluster = secCluster.beginEdit();
 					editCluster.setRequiredDescription( "system" );
@@ -459,7 +459,7 @@ public class CFSecSchemaObj
 			}
 			if( secTenant == null ) {
 				secTenant = getTenantTableObj().newInstance();
-				ICFSecTenantEditObj editTenant = secTenant.getEdit();
+				IYCFSecTenantEditObj editTenant = secTenant.getEdit();
 				if( editTenant == null ) {
 					editTenant = secTenant.beginEdit();
 					editTenant.setRequiredContainerCluster( secCluster);
@@ -470,7 +470,7 @@ public class CFSecSchemaObj
 			}
 			if( secUser == null ) {
 				secUser = getSecUserTableObj().newInstance();
-				ICFSecSecUserEditObj editSecUser = secUser.getEdit();
+				IYCFSecSecUserEditObj editSecUser = secUser.getEdit();
 				if( editSecUser == null ) {
 					editSecUser = secUser.beginEdit();
 					editSecUser.setRequiredEMailAddress( "system" );
@@ -486,13 +486,13 @@ public class CFSecSchemaObj
 			secTenant = null;
 			secUser = null;
 			secSession = null;
-			ICFSecClusterObj cluster = getSecCluster();
-			ICFSecTenantObj tenant = getSecTenant();
-			ICFSecSecUserObj user = getSecUser();
-			ICFSecSecSessionObj session;
+			IYCFSecClusterObj cluster = getSecCluster();
+			IYCFSecTenantObj tenant = getSecTenant();
+			IYCFSecSecUserObj user = getSecUser();
+			IYCFSecSecSessionObj session;
 			if( ( cluster != null ) && ( tenant != null ) && ( user != null ) ) {
 				session = getSecSessionTableObj().newInstance();
-				ICFSecSecSessionEditObj sessionEdit = session.beginEdit();
+				IYCFSecSecSessionEditObj sessionEdit = session.beginEdit();
 				sessionEdit.setRequiredContainerSecUser( user );
 				sessionEdit.setRequiredStart( Calendar.getInstance() );
 				sessionEdit.setOptionalFinish( null );
@@ -506,12 +506,12 @@ public class CFSecSchemaObj
 			if( ( cluster == null ) || ( tenant == null ) || ( user == null ) || ( session == null ) ) {
 				disconnect( false );
 				authorization = null;
-				throw new CFLibRuntimeException( getClass(),
+				throw new YCFLibRuntimeException( getClass(),
 					S_ProcName,
 					"Could not resolve cluster name, tenant name, user name, or session.  Login cancelled" );
 			}
 			if( authorization == null ) {
-				authorization = new CFSecAuthorization();
+				authorization = new YCFSecAuthorization();
 			}
 			authorization.setSecCluster( cluster );
 			authorization.setSecTenant( tenant );
@@ -526,13 +526,13 @@ public class CFSecSchemaObj
 		secTenant = null;
 		secUser = null;
 		secSession = null;
-		ICFSecClusterObj cluster = getSecCluster();
-		ICFSecTenantObj tenant = getSecTenant();
-		ICFSecSecUserObj user = getSecUser();
-		ICFSecSecSessionObj session;
+		IYCFSecClusterObj cluster = getSecCluster();
+		IYCFSecTenantObj tenant = getSecTenant();
+		IYCFSecSecUserObj user = getSecUser();
+		IYCFSecSecSessionObj session;
 		if( ( cluster != null ) && ( tenant != null ) && ( user != null ) ) {
 			session = getSecSessionTableObj().newInstance();
-			ICFSecSecSessionEditObj sessionEdit = session.beginEdit();
+			IYCFSecSecSessionEditObj sessionEdit = session.beginEdit();
 			sessionEdit.setRequiredContainerSecUser( user );
 			sessionEdit.setRequiredStart( Calendar.getInstance() );
 			sessionEdit.setOptionalFinish( null );
@@ -549,12 +549,12 @@ public class CFSecSchemaObj
 		if( ( cluster == null ) || ( tenant == null ) || ( user == null ) || ( session == null ) ) {
 			disconnect( false );
 			authorization = null;
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				S_ProcName,
 				"Could not resolve cluster name, tenant name, user name, or session.  Login cancelled" );
 		}
 		if( authorization == null ) {
-			authorization = new CFSecAuthorization();
+			authorization = new YCFSecAuthorization();
 		}
 		authorization.setSecCluster( cluster );
 		authorization.setSecTenant( tenant );
@@ -586,10 +586,10 @@ public class CFSecSchemaObj
 				}
 				UUID secSessionId = authorization.getSecSessionId();
 				if( secSessionId != null ) {
-					ICFSecSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
+					IYCFSecSecSessionObj secSession = getSecSessionTableObj().readSecSessionByIdIdx( secSessionId );
 					if( secSession != null ) {
 						if( secSession.getOptionalFinish() == null ) {
-							ICFSecSecSessionEditObj editSecSession = secSession.beginEdit();
+							IYCFSecSecSessionEditObj editSecSession = secSession.beginEdit();
 							editSecSession.setOptionalFinish( Calendar.getInstance() );
 							editSecSession.update();
 							editSecSession = null;
@@ -701,99 +701,99 @@ public class CFSecSchemaObj
 	public void rollback() {
 		backingStore.rollback();
 	}
-	public ICFSecClusterTableObj getClusterTableObj() {
+	public IYCFSecClusterTableObj getClusterTableObj() {
 		return( clusterTableObj );
 	}
 
-	public ICFSecHostNodeTableObj getHostNodeTableObj() {
+	public IYCFSecHostNodeTableObj getHostNodeTableObj() {
 		return( hostNodeTableObj );
 	}
 
-	public ICFSecISOCcyTableObj getISOCcyTableObj() {
+	public IYCFSecISOCcyTableObj getISOCcyTableObj() {
 		return( iSOCcyTableObj );
 	}
 
-	public ICFSecISOCtryTableObj getISOCtryTableObj() {
+	public IYCFSecISOCtryTableObj getISOCtryTableObj() {
 		return( iSOCtryTableObj );
 	}
 
-	public ICFSecISOCtryCcyTableObj getISOCtryCcyTableObj() {
+	public IYCFSecISOCtryCcyTableObj getISOCtryCcyTableObj() {
 		return( iSOCtryCcyTableObj );
 	}
 
-	public ICFSecISOCtryLangTableObj getISOCtryLangTableObj() {
+	public IYCFSecISOCtryLangTableObj getISOCtryLangTableObj() {
 		return( iSOCtryLangTableObj );
 	}
 
-	public ICFSecISOLangTableObj getISOLangTableObj() {
+	public IYCFSecISOLangTableObj getISOLangTableObj() {
 		return( iSOLangTableObj );
 	}
 
-	public ICFSecISOTZoneTableObj getISOTZoneTableObj() {
+	public IYCFSecISOTZoneTableObj getISOTZoneTableObj() {
 		return( iSOTZoneTableObj );
 	}
 
-	public ICFSecSecAppTableObj getSecAppTableObj() {
+	public IYCFSecSecAppTableObj getSecAppTableObj() {
 		return( secAppTableObj );
 	}
 
-	public ICFSecSecDeviceTableObj getSecDeviceTableObj() {
+	public IYCFSecSecDeviceTableObj getSecDeviceTableObj() {
 		return( secDeviceTableObj );
 	}
 
-	public ICFSecSecFormTableObj getSecFormTableObj() {
+	public IYCFSecSecFormTableObj getSecFormTableObj() {
 		return( secFormTableObj );
 	}
 
-	public ICFSecSecGroupTableObj getSecGroupTableObj() {
+	public IYCFSecSecGroupTableObj getSecGroupTableObj() {
 		return( secGroupTableObj );
 	}
 
-	public ICFSecSecGroupFormTableObj getSecGroupFormTableObj() {
+	public IYCFSecSecGroupFormTableObj getSecGroupFormTableObj() {
 		return( secGroupFormTableObj );
 	}
 
-	public ICFSecSecGrpIncTableObj getSecGrpIncTableObj() {
+	public IYCFSecSecGrpIncTableObj getSecGrpIncTableObj() {
 		return( secGrpIncTableObj );
 	}
 
-	public ICFSecSecGrpMembTableObj getSecGrpMembTableObj() {
+	public IYCFSecSecGrpMembTableObj getSecGrpMembTableObj() {
 		return( secGrpMembTableObj );
 	}
 
-	public ICFSecSecSessionTableObj getSecSessionTableObj() {
+	public IYCFSecSecSessionTableObj getSecSessionTableObj() {
 		return( secSessionTableObj );
 	}
 
-	public ICFSecSecUserTableObj getSecUserTableObj() {
+	public IYCFSecSecUserTableObj getSecUserTableObj() {
 		return( secUserTableObj );
 	}
 
-	public ICFSecServiceTableObj getServiceTableObj() {
+	public IYCFSecServiceTableObj getServiceTableObj() {
 		return( serviceTableObj );
 	}
 
-	public ICFSecServiceTypeTableObj getServiceTypeTableObj() {
+	public IYCFSecServiceTypeTableObj getServiceTypeTableObj() {
 		return( serviceTypeTableObj );
 	}
 
-	public ICFSecSysClusterTableObj getSysClusterTableObj() {
+	public IYCFSecSysClusterTableObj getSysClusterTableObj() {
 		return( sysClusterTableObj );
 	}
 
-	public ICFSecTSecGroupTableObj getTSecGroupTableObj() {
+	public IYCFSecTSecGroupTableObj getTSecGroupTableObj() {
 		return( tSecGroupTableObj );
 	}
 
-	public ICFSecTSecGrpIncTableObj getTSecGrpIncTableObj() {
+	public IYCFSecTSecGrpIncTableObj getTSecGrpIncTableObj() {
 		return( tSecGrpIncTableObj );
 	}
 
-	public ICFSecTSecGrpMembTableObj getTSecGrpMembTableObj() {
+	public IYCFSecTSecGrpMembTableObj getTSecGrpMembTableObj() {
 		return( tSecGrpMembTableObj );
 	}
 
-	public ICFSecTenantTableObj getTenantTableObj() {
+	public IYCFSecTenantTableObj getTenantTableObj() {
 		return( tenantTableObj );
 	}
 }

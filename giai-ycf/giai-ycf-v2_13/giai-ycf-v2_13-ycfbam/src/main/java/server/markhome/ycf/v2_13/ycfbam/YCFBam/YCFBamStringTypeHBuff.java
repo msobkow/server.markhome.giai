@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a StringType history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamStringTypeHBuff
-	extends CFBamStringDefHBuff
+public class YCFBamStringTypeHBuff
+	extends YCFBamStringDefHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -73,13 +73,13 @@ public class CFBamStringTypeHBuff
 	public static final long SCHEMADEFID_MIN_VALUE = 0L;
 
 	protected long requiredSchemaDefId;
-	public CFBamStringTypeHBuff() {
+	public YCFBamStringTypeHBuff() {
 		super();
-		requiredSchemaDefId = CFBamStringTypeBuff.SCHEMADEFID_INIT_VALUE;
+		requiredSchemaDefId = YCFBamStringTypeBuff.SCHEMADEFID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
-		return( CFBamStringTypeBuff.CLASS_CODE );
+		return( YCFBamStringTypeBuff.CLASS_CODE );
 	}
 
 	public long getRequiredSchemaDefId() {
@@ -87,13 +87,13 @@ public class CFBamStringTypeHBuff
 	}
 
 	public void setRequiredSchemaDefId( long value ) {
-		if( value < CFBamStringTypeBuff.SCHEMADEFID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamStringTypeBuff.SCHEMADEFID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSchemaDefId",
 				1,
 				"value",
 				value,
-				CFBamStringTypeBuff.SCHEMADEFID_MIN_VALUE );
+				YCFBamStringTypeBuff.SCHEMADEFID_MIN_VALUE );
 		}
 		requiredSchemaDefId = value;
 	}
@@ -102,8 +102,8 @@ public class CFBamStringTypeHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamStringTypeHBuff ) {
-			CFBamStringTypeHBuff rhs = (CFBamStringTypeHBuff)obj;
+		else if( obj instanceof YCFBamStringTypeHBuff ) {
+			YCFBamStringTypeHBuff rhs = (YCFBamStringTypeHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -118,8 +118,8 @@ public class CFBamStringTypeHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamStringTypeBuff ) {
-			CFBamStringTypeBuff rhs = (CFBamStringTypeBuff)obj;
+		else if( obj instanceof YCFBamStringTypeBuff ) {
+			YCFBamStringTypeBuff rhs = (YCFBamStringTypeBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -134,8 +134,8 @@ public class CFBamStringTypeHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamStringTypeBySchemaIdxKey ) {
-			CFBamStringTypeBySchemaIdxKey rhs = (CFBamStringTypeBySchemaIdxKey)obj;
+		else if( obj instanceof YCFBamStringTypeBySchemaIdxKey ) {
+			YCFBamStringTypeBySchemaIdxKey rhs = (YCFBamStringTypeBySchemaIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -159,16 +159,16 @@ public class CFBamStringTypeHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamStringTypeBuff ) {
-			CFBamStringTypeBuff rhs = (CFBamStringTypeBuff)obj;
+		else if( obj instanceof YCFBamStringTypeBuff ) {
+			YCFBamStringTypeBuff rhs = (YCFBamStringTypeBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamStringTypeBySchemaIdxKey ) {
-			CFBamStringTypeBySchemaIdxKey rhs = (CFBamStringTypeBySchemaIdxKey)obj;
+		else if( obj instanceof YCFBamStringTypeBySchemaIdxKey ) {
+			YCFBamStringTypeBySchemaIdxKey rhs = (YCFBamStringTypeBySchemaIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -183,8 +183,8 @@ public class CFBamStringTypeHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFBamStringTypeHBuff ) {
-			CFBamStringTypeHBuff rhs = (CFBamStringTypeHBuff)obj;
+		else if( obj instanceof YCFBamStringTypeHBuff ) {
+			YCFBamStringTypeHBuff rhs = (YCFBamStringTypeHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -579,38 +579,38 @@ public class CFBamStringTypeHBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamStringTypeBuff ) {
-			setStringTypeBuff( (CFBamStringTypeBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamStringTypeBuff ) {
+			setStringTypeBuff( (YCFBamStringTypeBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamStringTypeBuff" );
+				"YCFBamStringTypeBuff" );
 		}
 	}
 
-	public void setStringTypeBuff( CFBamStringTypeBuff src ) {
+	public void setStringTypeBuff( YCFBamStringTypeBuff src ) {
 		super.setStringDefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamStringTypeHBuff ) {
-			setStringTypeBuff( (CFBamStringTypeHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamStringTypeHBuff ) {
+			setStringTypeBuff( (YCFBamStringTypeHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamStringTypeHBuff" );
+				"YCFBamStringTypeHBuff" );
 		}
 	}
 
-	public void setStringTypeBuff( CFBamStringTypeHBuff src ) {
+	public void setStringTypeBuff( YCFBamStringTypeHBuff src ) {
 		super.setStringDefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 	}

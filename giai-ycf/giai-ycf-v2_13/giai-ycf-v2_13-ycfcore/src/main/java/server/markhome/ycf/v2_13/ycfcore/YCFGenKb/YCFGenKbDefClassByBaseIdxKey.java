@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a DefClass by BaseIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,15 +37,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbDefClassByBaseIdxKey
+public class YCFGenKbDefClassByBaseIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Short optionalBaseId;
-	public CFGenKbDefClassByBaseIdxKey() {
+	public YCFGenKbDefClassByBaseIdxKey() {
 		optionalBaseId = null;
 	}
 
@@ -57,21 +57,21 @@ public class CFGenKbDefClassByBaseIdxKey
 		if( value == null ) {
 			optionalBaseId = null;
 		}
-		else if( value < CFGenKbDefClassBuff.BASEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbDefClassBuff.BASEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalBaseId",
 				1,
 				"value",
 				value,
-				CFGenKbDefClassBuff.BASEID_MIN_VALUE );
+				YCFGenKbDefClassBuff.BASEID_MIN_VALUE );
 		}
-		else if( value > CFGenKbDefClassBuff.BASEID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFGenKbDefClassBuff.BASEID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalBaseId",
 				1,
 				"value",
 				value,
-				CFGenKbDefClassBuff.BASEID_MAX_VALUE );
+				YCFGenKbDefClassBuff.BASEID_MAX_VALUE );
 		}
 		else {
 			optionalBaseId = value;
@@ -82,8 +82,8 @@ public class CFGenKbDefClassByBaseIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbDefClassByBaseIdxKey ) {
-			CFGenKbDefClassByBaseIdxKey rhs = (CFGenKbDefClassByBaseIdxKey)obj;
+		else if( obj instanceof YCFGenKbDefClassByBaseIdxKey ) {
+			YCFGenKbDefClassByBaseIdxKey rhs = (YCFGenKbDefClassByBaseIdxKey)obj;
 			if( getOptionalBaseId() != null ) {
 				if( rhs.getOptionalBaseId() != null ) {
 					if( ! getOptionalBaseId().equals( rhs.getOptionalBaseId() ) ) {
@@ -98,8 +98,8 @@ public class CFGenKbDefClassByBaseIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbDefClassBuff ) {
-			CFGenKbDefClassBuff rhs = (CFGenKbDefClassBuff)obj;
+		else if( obj instanceof YCFGenKbDefClassBuff ) {
+			YCFGenKbDefClassBuff rhs = (YCFGenKbDefClassBuff)obj;
 			if( getOptionalBaseId() != null ) {
 				if( rhs.getOptionalBaseId() != null ) {
 					if( ! getOptionalBaseId().equals( rhs.getOptionalBaseId() ) ) {
@@ -134,8 +134,8 @@ public class CFGenKbDefClassByBaseIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbDefClassByBaseIdxKey ) {
-			CFGenKbDefClassByBaseIdxKey rhs = (CFGenKbDefClassByBaseIdxKey)obj;
+		else if( obj instanceof YCFGenKbDefClassByBaseIdxKey ) {
+			YCFGenKbDefClassByBaseIdxKey rhs = (YCFGenKbDefClassByBaseIdxKey)obj;
 			if( getOptionalBaseId() != null ) {
 				Short lhsBaseId = getOptionalBaseId();
 				if( rhs.getOptionalBaseId() != null ) {
@@ -156,8 +156,8 @@ public class CFGenKbDefClassByBaseIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbDefClassBuff ) {
-			CFGenKbDefClassBuff rhs = (CFGenKbDefClassBuff)obj;
+		else if( obj instanceof YCFGenKbDefClassBuff ) {
+			YCFGenKbDefClassBuff rhs = (YCFGenKbDefClassBuff)obj;
 			if( getOptionalBaseId() != null ) {
 				Short lhsBaseId = getOptionalBaseId();
 				if( rhs.getOptionalBaseId() != null ) {
@@ -179,7 +179,7 @@ public class CFGenKbDefClassByBaseIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -188,7 +188,7 @@ public class CFGenKbDefClassByBaseIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbDefClassByBaseIdx"
+		String ret = "<YCFGenKbDefClassByBaseIdx"
 			+ " OptionalBaseId=" + ( ( getOptionalBaseId() == null ) ? "null" : "\"" + getOptionalBaseId().toString() + "\"" )
 			+ "/>";
 		return( ret );

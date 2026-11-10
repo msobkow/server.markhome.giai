@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,25 +21,25 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
-public class CFLibFireOnInstanceOf {
+public class YCFLibFireOnInstanceOf {
 	
     @SuppressWarnings("rawtypes")
 	protected Class instOf = null;
 
-    public CFLibFireOnInstanceOf() {
+    public YCFLibFireOnInstanceOf() {
     	setInstanceOf( Object.class );
     }
 
-    public CFLibFireOnInstanceOf( @SuppressWarnings("rawtypes") Class value ) {
+    public YCFLibFireOnInstanceOf( @SuppressWarnings("rawtypes") Class value ) {
     	setInstanceOf( value );
     }
 
     public void setInstanceOf( @SuppressWarnings("rawtypes") Class value ) {
     	final String S_ProcName = "setInstanceOf";
         if( value == null ) {
-            throw new CFLibNullArgumentException( getClass(),
+            throw new YCFLibNullArgumentException( getClass(),
                 S_ProcName,
                 1,
                 "value" );
@@ -52,7 +52,7 @@ public class CFLibFireOnInstanceOf {
         return( instOf );
     }
 
-    public boolean isInstanceOf( ICFLibAnyObj obj ) {
+    public boolean isInstanceOf( IYCFLibAnyObj obj ) {
     	if( obj == null ) {
     		return( false );
     	}
@@ -64,16 +64,16 @@ public class CFLibFireOnInstanceOf {
     	return( instOf.isInstance( obj ) );
     }
 
-    public void onInstanceOf( ICFLibAnyObj obj ) {
+    public void onInstanceOf( IYCFLibAnyObj obj ) {
         final String S_ProcName = "onInstanceOf";
         if( obj == null ) {
             return;
         }
-        throw new CFLibNotImplementedYetException( getClass(),
+        throw new YCFLibNotImplementedYetException( getClass(),
         	S_ProcName );
     }
 
-    public final void fireOnInstanceOf( ICFLibAnyObj obj ) {
+    public final void fireOnInstanceOf( IYCFLibAnyObj obj ) {
     	if( obj == null ) {
     		return;
     	}

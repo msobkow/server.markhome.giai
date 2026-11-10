@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for SecGroupForm.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,14 +35,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecSecGroupFormTable database interface for SecGroupForm
+ *	YCFSecSecGroupFormTable database interface for SecGroupForm
  */
-public interface ICFSecSecGroupFormTable
+public interface IYCFSecSecGroupFormTable
 {
 
 	/**
@@ -53,8 +53,8 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecGroupForm( CFSecAuthorization Authorization,
-		CFSecSecGroupFormBuff Buff );
+	void createSecGroupForm( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormBuff Buff );
 
 
 	/**
@@ -65,8 +65,8 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecGroupForm( CFSecAuthorization Authorization,
-		CFSecSecGroupFormBuff Buff );
+	void updateSecGroupForm( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormBuff Buff );
 
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecGroupForm( CFSecAuthorization Authorization,
-		CFSecSecGroupFormBuff Buff );
+	void deleteSecGroupForm( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormBuff Buff );
 	/**
 	 *	Delete the SecGroupForm instance identified by the primary key attributes.
 	 *
@@ -87,7 +87,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argSecGroupFormId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByIdIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupFormByIdIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		long argSecGroupFormId );
 
@@ -98,8 +98,8 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecGroupFormByIdIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupFormPKey argKey );
+	void deleteSecGroupFormByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormPKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key ClusterIdx.
 	 *
@@ -107,7 +107,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argClusterId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByClusterIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupFormByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId );
 
 	/**
@@ -117,8 +117,8 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByClusterIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupFormByClusterIdxKey argKey );
+	void deleteSecGroupFormByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormByClusterIdxKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key GroupIdx.
 	 *
@@ -128,7 +128,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argSecGroupId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByGroupIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupFormByGroupIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId );
 
@@ -139,8 +139,8 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByGroupIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupFormByGroupIdxKey argKey );
+	void deleteSecGroupFormByGroupIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormByGroupIdxKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key AppIdx.
 	 *
@@ -150,7 +150,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argSecAppId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByAppIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupFormByAppIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecAppId );
 
@@ -161,8 +161,8 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByAppIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupFormByAppIdxKey argKey );
+	void deleteSecGroupFormByAppIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormByAppIdxKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key FormIdx.
 	 *
@@ -172,7 +172,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argSecFormId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByFormIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupFormByFormIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecFormId );
 
@@ -183,8 +183,8 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByFormIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupFormByFormIdxKey argKey );
+	void deleteSecGroupFormByFormIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormByFormIdxKey argKey );
 	/**
 	 *	Delete the SecGroupForm instances identified by the key UFormIdx.
 	 *
@@ -196,7 +196,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argSecFormId	The SecGroupForm key attribute of the instance generating the id.
 	 */
-	void deleteSecGroupFormByUFormIdx( CFSecAuthorization Authorization,
+	void deleteSecGroupFormByUFormIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		int argSecGroupId,
 		int argSecFormId );
@@ -208,8 +208,8 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecGroupFormByUFormIdx( CFSecAuthorization Authorization,
-		CFSecSecGroupFormByUFormIdxKey argKey );
+	void deleteSecGroupFormByUFormIdx( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormByUFormIdxKey argKey );
 
 
 	/**
@@ -222,8 +222,8 @@ public interface ICFSecSecGroupFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGroupFormBuff readDerived( CFSecAuthorization Authorization,
-		CFSecSecGroupFormPKey PKey );
+	YCFSecSecGroupFormBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormPKey PKey );
 
 	/**
 	 *	Lock the derived SecGroupForm buffer instance by primary key.
@@ -235,8 +235,8 @@ public interface ICFSecSecGroupFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGroupFormBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecSecGroupFormPKey PKey );
+	YCFSecSecGroupFormBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormPKey PKey );
 
 	/**
 	 *	Read all SecGroupForm instances.
@@ -245,7 +245,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecSecGroupFormBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecSecGroupFormBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecGroupForm buffer instance identified by the unique key IdIdx.
@@ -259,7 +259,7 @@ public interface ICFSecSecGroupFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGroupFormBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long SecGroupFormId );
 
@@ -272,7 +272,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecGroupFormBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -286,7 +286,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecGroupFormBuff[] readDerivedByGroupIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] readDerivedByGroupIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -301,7 +301,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecGroupFormBuff[] readDerivedByAppIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] readDerivedByAppIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId );
 
@@ -316,7 +316,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecSecGroupFormBuff[] readDerivedByFormIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] readDerivedByFormIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecFormId );
 
@@ -334,7 +334,7 @@ public interface ICFSecSecGroupFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecSecGroupFormBuff readDerivedByUFormIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff readDerivedByUFormIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		int SecFormId );
@@ -349,10 +349,10 @@ public interface ICFSecSecGroupFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff readBuff( CFSecAuthorization Authorization,
-		CFSecSecGroupFormPKey PKey );
+	YCFSecSecGroupFormBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormPKey PKey );
 
 	/**
 	 *	Lock the specific SecGroupForm buffer instance identified by the primary key.
@@ -364,10 +364,10 @@ public interface ICFSecSecGroupFormTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecSecGroupFormPKey PKey );
+	YCFSecSecGroupFormBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecSecGroupFormPKey PKey );
 
 	/**
 	 *	Read all the specific SecGroupForm buffer instances.
@@ -376,7 +376,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return All the specific SecGroupForm instances in the database accessible for the Authorization.
 	 */
-	CFSecSecGroupFormBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecSecGroupFormBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific SecGroupForm buffer instances.
@@ -385,7 +385,7 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return All the specific SecGroupForm instances in the database accessible for the Authorization.
 	 */
-	CFSecSecGroupFormBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		Long priorClusterId,
 		Long priorSecGroupFormId );
 
@@ -401,9 +401,9 @@ public interface ICFSecSecGroupFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		long SecGroupFormId );
 
@@ -416,9 +416,9 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId );
 
 	/**
@@ -432,9 +432,9 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff[] readBuffByGroupIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] readBuffByGroupIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId );
 
@@ -449,9 +449,9 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff[] readBuffByAppIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] readBuffByAppIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId );
 
@@ -466,9 +466,9 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff[] readBuffByFormIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] readBuffByFormIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecFormId );
 
@@ -486,9 +486,9 @@ public interface ICFSecSecGroupFormTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff readBuffByUFormIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff readBuffByUFormIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		int SecFormId );
@@ -502,9 +502,9 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff[] pageBuffByClusterIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] pageBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		Long priorClusterId,
 		Long priorSecGroupFormId );
@@ -520,9 +520,9 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff[] pageBuffByGroupIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] pageBuffByGroupIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecGroupId,
 		Long priorClusterId,
@@ -539,9 +539,9 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff[] pageBuffByAppIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] pageBuffByAppIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecAppId,
 		Long priorClusterId,
@@ -558,9 +558,9 @@ public interface ICFSecSecGroupFormTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecSecGroupFormBuff[] pageBuffByFormIdx( CFSecAuthorization Authorization,
+	YCFSecSecGroupFormBuff[] pageBuffByFormIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		int SecFormId,
 		Long priorClusterId,
@@ -569,7 +569,7 @@ public interface ICFSecSecGroupFormTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

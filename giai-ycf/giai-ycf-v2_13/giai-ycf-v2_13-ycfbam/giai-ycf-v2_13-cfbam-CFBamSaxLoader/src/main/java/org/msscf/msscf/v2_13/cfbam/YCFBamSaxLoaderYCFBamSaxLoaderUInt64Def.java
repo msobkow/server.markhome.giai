@@ -2,17 +2,17 @@
 // Description: Java 11 XML SAX Element Handler for UInt64Def
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -54,23 +54,23 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSaxLoaderUInt64DefParse XML SAX Element Handler implementation
+ *	YCFBamSaxLoaderUInt64DefParse XML SAX Element Handler implementation
  *	for UInt64Def.
  */
-public class CFBamSaxLoaderUInt64Def
-	extends CFLibXmlCoreElementHandler
+public class YCFBamSaxLoaderUInt64Def
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamSaxLoaderUInt64Def( CFBamSaxLoader saxLoader ) {
+	public YCFBamSaxLoaderUInt64Def( YCFBamSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -82,8 +82,8 @@ public class CFBamSaxLoaderUInt64Def
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFBamUInt64DefObj origBuff = null;
-		ICFBamUInt64DefEditObj editBuff = null;
+		IYCFBamUInt64DefObj origBuff = null;
+		IYCFBamUInt64DefEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// Value Attributes
@@ -99,9 +99,9 @@ public class CFBamSaxLoaderUInt64Def
 		String attrCodeVis = null;
 		String attrDefSchema = null;
 		// Value References
-		ICFBamTenantObj refTenant = null;
-		ICFBamScopeObj refScope = null;
-		ICFBamSchemaDefObj refDefSchema = null;
+		IYCFBamTenantObj refTenant = null;
+		IYCFBamScopeObj refScope = null;
+		IYCFBamSchemaDefObj refDefSchema = null;
 		// Atom Attributes
 		String attrDbName = null;
 		// Atom References
@@ -118,25 +118,25 @@ public class CFBamSaxLoaderUInt64Def
 		try {
 			assert qName.equals( "UInt64Def" );
 
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFBamUInt64DefObj)schemaObj.getUInt64DefTableObj().newInstance();
-			editBuff = (ICFBamUInt64DefEditObj)origBuff.beginEdit();
+			origBuff = (IYCFBamUInt64DefObj)schemaObj.getUInt64DefTableObj().newInstance();
+			editBuff = (IYCFBamUInt64DefEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -144,7 +144,7 @@ public class CFBamSaxLoaderUInt64Def
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -153,7 +153,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -162,7 +162,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "ShortName" ) ) {
 					if( attrShortName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -171,7 +171,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "Label" ) ) {
 					if( attrLabel != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -180,7 +180,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "ShortDescription" ) ) {
 					if( attrShortDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -189,7 +189,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -198,7 +198,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "DefaultXmlValue" ) ) {
 					if( attrDefaultXmlValue != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -207,7 +207,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "IsNullable" ) ) {
 					if( attrIsNullable != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -216,7 +216,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "GenerateId" ) ) {
 					if( attrGenerateId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -225,7 +225,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "ImplementsPolymorph" ) ) {
 					if( attrImplementsPolymorph != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -234,7 +234,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "CodeVis" ) ) {
 					if( attrCodeVis != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -243,7 +243,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "DefSchema" ) ) {
 					if( attrDefSchema != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -252,7 +252,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "DbName" ) ) {
 					if( attrDbName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -261,7 +261,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "InitValue" ) ) {
 					if( attrInitValue != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -270,7 +270,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "MinValue" ) ) {
 					if( attrMinValue != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -279,7 +279,7 @@ public class CFBamSaxLoaderUInt64Def
 				}
 				else if( attrLocalName.equals( "MaxValue" ) ) {
 					if( attrMaxValue != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -290,7 +290,7 @@ public class CFBamSaxLoaderUInt64Def
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -299,32 +299,32 @@ public class CFBamSaxLoaderUInt64Def
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 			if( ( attrIsNullable == null ) || ( attrIsNullable.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"IsNullable" );
 			}
 			if( ( attrImplementsPolymorph == null ) || ( attrImplementsPolymorph.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"ImplementsPolymorph" );
 			}
 			if( ( attrCodeVis == null ) || ( attrCodeVis.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"CodeVis" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "ShortName", attrShortName );
@@ -378,7 +378,7 @@ public class CFBamSaxLoaderUInt64Def
 				natIsNullable = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected IsNullable value, must be one of true, false, yes, no, 1, or 0, not \"" + attrIsNullable + "\"" );
 			}
@@ -395,7 +395,7 @@ public class CFBamSaxLoaderUInt64Def
 				natGenerateId = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected GenerateId value, must be one of true, false, yes, no, 1, or 0, not \"" + attrGenerateId + "\"" );
 			}
@@ -409,13 +409,13 @@ public class CFBamSaxLoaderUInt64Def
 				natImplementsPolymorph = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected ImplementsPolymorph value, must be one of true, false, yes, no, 1, or 0, not \"" + attrImplementsPolymorph + "\"" );
 			}
 			editBuff.setRequiredImplementsPolymorph( natImplementsPolymorph );
 
-			ICFBamSchema.CodeVisibilityEnum natCodeVis = CFBamSchema.parseCodeVisibilityEnum( attrCodeVis );
+			IYCFBamSchema.CodeVisibilityEnum natCodeVis = YCFBamSchema.parseCodeVisibilityEnum( attrCodeVis );
 			editBuff.setRequiredCodeVis( natCodeVis );
 
 			String natDbName = attrDbName;
@@ -426,7 +426,7 @@ public class CFBamSaxLoaderUInt64Def
 				natInitValue = null;
 			}
 			else {
-				natInitValue= CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.InitValue", 19, 0, attrInitValue );
+				natInitValue= YCFLibBigDecimalUtil.parse( "YCFBam.UInt64Def.InitValue", 19, 0, attrInitValue );
 			}
 			editBuff.setOptionalInitValue( natInitValue );
 
@@ -435,7 +435,7 @@ public class CFBamSaxLoaderUInt64Def
 				natMinValue = null;
 			}
 			else {
-				natMinValue= CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.MinValue", 19, 0, attrMinValue );
+				natMinValue= YCFLibBigDecimalUtil.parse( "YCFBam.UInt64Def.MinValue", 19, 0, attrMinValue );
 			}
 			editBuff.setOptionalMinValue( natMinValue );
 
@@ -444,13 +444,13 @@ public class CFBamSaxLoaderUInt64Def
 				natMaxValue = null;
 			}
 			else {
-				natMaxValue= CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.MaxValue", 19, 0, attrMaxValue );
+				natMaxValue= YCFLibBigDecimalUtil.parse( "YCFBam.UInt64Def.MaxValue", 19, 0, attrMaxValue );
 			}
 			editBuff.setOptionalMaxValue( natMaxValue );
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -462,33 +462,33 @@ public class CFBamSaxLoaderUInt64Def
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamScopeObj ) {
-				refScope = (ICFBamScopeObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamScopeObj ) {
+				refScope = (IYCFBamScopeObj) scopeObj;
 				editBuff.setRequiredContainerScope( refScope );
-				refTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamScopeObj" );
+					"IYCFBamScopeObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
@@ -497,10 +497,10 @@ public class CFBamSaxLoaderUInt64Def
 
 			// Lookup refDefSchema by qualified name
 			if( ( attrDefSchema != null ) && ( attrDefSchema.length() > 0 ) ) {
-				refDefSchema = (ICFBamSchemaDefObj)(editBuff.getNamedObject( schemaObj.getSchemaDefTableObj().getObjQualifyingClass(),
+				refDefSchema = (IYCFBamSchemaDefObj)(editBuff.getNamedObject( schemaObj.getSchemaDefTableObj().getObjQualifyingClass(),
 					attrDefSchema ) );
 				if( refDefSchema == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve DefSchema reference qualified name \"" + attrDefSchema + "\" to table SchemaDef" );
@@ -511,9 +511,9 @@ public class CFBamSaxLoaderUInt64Def
 			}
 			editBuff.setOptionalLookupDefSchema( refDefSchema );
 
-			CFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getUInt64DefLoaderBehaviour();
-			ICFBamUInt64DefEditObj editUInt64Def = null;
-			ICFBamUInt64DefObj origUInt64Def = (ICFBamUInt64DefObj)schemaObj.getUInt64DefTableObj().readUInt64DefByUNameIdx( refTenant.getRequiredId(),
+			YCFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getUInt64DefLoaderBehaviour();
+			IYCFBamUInt64DefEditObj editUInt64Def = null;
+			IYCFBamUInt64DefObj origUInt64Def = (IYCFBamUInt64DefObj)schemaObj.getUInt64DefTableObj().readUInt64DefByUNameIdx( refTenant.getRequiredId(),
 			refScope.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origUInt64Def == null ) {
@@ -524,7 +524,7 @@ public class CFBamSaxLoaderUInt64Def
 					case Insert:
 						break;
 					case Update:
-						editUInt64Def = (ICFBamUInt64DefEditObj)origUInt64Def.beginEdit();
+						editUInt64Def = (IYCFBamUInt64DefEditObj)origUInt64Def.beginEdit();
 						editUInt64Def.setRequiredName( editBuff.getRequiredName() );
 						editUInt64Def.setOptionalShortName( editBuff.getOptionalShortName() );
 						editUInt64Def.setOptionalLabel( editBuff.getOptionalLabel() );
@@ -542,7 +542,7 @@ public class CFBamSaxLoaderUInt64Def
 						editUInt64Def.setOptionalLookupDefSchema( editBuff.getOptionalLookupDefSchema() );
 						break;
 					case Replace:
-						editUInt64Def = (ICFBamUInt64DefEditObj)origUInt64Def.beginEdit();
+						editUInt64Def = (IYCFBamUInt64DefEditObj)origUInt64Def.beginEdit();
 						editUInt64Def.deleteInstance();
 						editUInt64Def = null;
 						origUInt64Def = null;
@@ -556,7 +556,7 @@ public class CFBamSaxLoaderUInt64Def
 					editUInt64Def.update();
 				}
 				else {
-					origUInt64Def = (ICFBamUInt64DefObj)editUInt64Def.create();
+					origUInt64Def = (IYCFBamUInt64DefObj)editUInt64Def.create();
 				}
 				editUInt64Def = null;
 			}

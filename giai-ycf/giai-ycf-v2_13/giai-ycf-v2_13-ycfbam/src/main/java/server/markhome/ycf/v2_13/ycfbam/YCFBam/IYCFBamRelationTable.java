@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for Relation.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamRelationTable database interface for Relation
+ *	YCFBamRelationTable database interface for Relation
  */
-public interface ICFBamRelationTable
+public interface IYCFBamRelationTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createRelation( CFSecAuthorization Authorization,
-		CFBamRelationBuff Buff );
+	void createRelation( YCFSecAuthorization Authorization,
+		YCFBamRelationBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateRelation( CFSecAuthorization Authorization,
-		CFBamRelationBuff Buff );
+	void updateRelation( YCFSecAuthorization Authorization,
+		YCFBamRelationBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteRelation( CFSecAuthorization Authorization,
-		CFBamRelationBuff Buff );
+	void deleteRelation( YCFSecAuthorization Authorization,
+		YCFBamRelationBuff Buff );
 	/**
 	 *	Delete the Relation instances identified by the key UNameIdx.
 	 *
@@ -112,7 +112,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argName	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByUNameIdx( CFSecAuthorization Authorization,
+	void deleteRelationByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
 		String argName );
@@ -124,8 +124,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByUNameIdx( CFSecAuthorization Authorization,
-		CFBamRelationByUNameIdxKey argKey );
+	void deleteRelationByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByUNameIdxKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key RelnTenantIdx.
 	 *
@@ -133,7 +133,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argTenantId	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByRelnTenantIdx( CFSecAuthorization Authorization,
+	void deleteRelationByRelnTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -143,8 +143,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByRelnTenantIdx( CFSecAuthorization Authorization,
-		CFBamRelationByRelnTenantIdxKey argKey );
+	void deleteRelationByRelnTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByRelnTenantIdxKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key RelTableIdx.
 	 *
@@ -154,7 +154,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argTableId	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByRelTableIdx( CFSecAuthorization Authorization,
+	void deleteRelationByRelTableIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId );
 
@@ -165,8 +165,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByRelTableIdx( CFSecAuthorization Authorization,
-		CFBamRelationByRelTableIdxKey argKey );
+	void deleteRelationByRelTableIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByRelTableIdxKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key CodeVisIdx.
 	 *
@@ -174,8 +174,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argCodeVis	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+	void deleteRelationByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the Relation instances identified by the key CodeVisIdx.
@@ -184,8 +184,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamRelationByCodeVisIdxKey argKey );
+	void deleteRelationByCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByCodeVisIdxKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key TableCodeVisIdx.
 	 *
@@ -197,10 +197,10 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argCodeVis	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByTableCodeVisIdx( CFSecAuthorization Authorization,
+	void deleteRelationByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId,
-		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+		IYCFBamSchema.CodeVisibilityEnum argCodeVis );
 
 	/**
 	 *	Delete the Relation instances identified by the key TableCodeVisIdx.
@@ -209,8 +209,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByTableCodeVisIdx( CFSecAuthorization Authorization,
-		CFBamRelationByTableCodeVisIdxKey argKey );
+	void deleteRelationByTableCodeVisIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByTableCodeVisIdxKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key DefSchemaIdx.
 	 *
@@ -220,7 +220,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argDefSchemaId	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteRelationByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -231,8 +231,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamRelationByDefSchemaIdxKey argKey );
+	void deleteRelationByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByDefSchemaIdxKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key FromKeyIdx.
 	 *
@@ -242,7 +242,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argFromIndexId	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByFromKeyIdx( CFSecAuthorization Authorization,
+	void deleteRelationByFromKeyIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argFromIndexId );
 
@@ -253,8 +253,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByFromKeyIdx( CFSecAuthorization Authorization,
-		CFBamRelationByFromKeyIdxKey argKey );
+	void deleteRelationByFromKeyIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByFromKeyIdxKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key ToTblIdx.
 	 *
@@ -264,7 +264,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argToTableId	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByToTblIdx( CFSecAuthorization Authorization,
+	void deleteRelationByToTblIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argToTableId );
 
@@ -275,8 +275,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByToTblIdx( CFSecAuthorization Authorization,
-		CFBamRelationByToTblIdxKey argKey );
+	void deleteRelationByToTblIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByToTblIdxKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key ToKeyIdx.
 	 *
@@ -286,7 +286,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argToIndexId	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByToKeyIdx( CFSecAuthorization Authorization,
+	void deleteRelationByToKeyIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argToIndexId );
 
@@ -297,8 +297,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByToKeyIdx( CFSecAuthorization Authorization,
-		CFBamRelationByToKeyIdxKey argKey );
+	void deleteRelationByToKeyIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByToKeyIdxKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key NarrowedIdx.
 	 *
@@ -308,7 +308,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argNarrowedId	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByNarrowedIdx( CFSecAuthorization Authorization,
+	void deleteRelationByNarrowedIdx( YCFSecAuthorization Authorization,
 		Long argNarrowedTenantId,
 		Long argNarrowedId );
 
@@ -319,8 +319,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByNarrowedIdx( CFSecAuthorization Authorization,
-		CFBamRelationByNarrowedIdxKey argKey );
+	void deleteRelationByNarrowedIdx( YCFSecAuthorization Authorization,
+		YCFBamRelationByNarrowedIdxKey argKey );
 	/**
 	 *	Delete the Relation instance identified by the primary key attributes.
 	 *
@@ -330,7 +330,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argId	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByIdIdx( CFSecAuthorization Authorization,
+	void deleteRelationByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -341,8 +341,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteRelationByIdIdx( CFSecAuthorization Authorization,
-		CFBamScopePKey argKey );
+	void deleteRelationByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamScopePKey argKey );
 	/**
 	 *	Delete the Relation instances identified by the key TenantIdx.
 	 *
@@ -350,7 +350,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argTenantId	The Relation key attribute of the instance generating the id.
 	 */
-	void deleteRelationByTenantIdx( CFSecAuthorization Authorization,
+	void deleteRelationByTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -360,8 +360,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteRelationByTenantIdx( CFSecAuthorization Authorization,
-		CFBamScopeByTenantIdxKey argKey );
+	void deleteRelationByTenantIdx( YCFSecAuthorization Authorization,
+		YCFBamScopeByTenantIdxKey argKey );
 
 
 	/**
@@ -374,8 +374,8 @@ public interface ICFBamRelationTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamRelationBuff readDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamRelationBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the derived Relation buffer instance by primary key.
@@ -387,8 +387,8 @@ public interface ICFBamRelationTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamRelationBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamRelationBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all Relation instances.
@@ -397,7 +397,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamRelationBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived Relation buffer instance identified by the unique key IdIdx.
@@ -411,7 +411,7 @@ public interface ICFBamRelationTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamRelationBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -424,7 +424,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readDerivedByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -441,7 +441,7 @@ public interface ICFBamRelationTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamRelationBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name );
@@ -455,7 +455,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByRelnTenantIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readDerivedByRelnTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -469,7 +469,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByRelTableIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readDerivedByRelTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -482,8 +482,8 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamRelationBuff[] readDerivedByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived Relation buffer instances identified by the duplicate key TableCodeVisIdx.
@@ -498,10 +498,10 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByTableCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readDerivedByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived Relation buffer instances identified by the duplicate key DefSchemaIdx.
@@ -514,7 +514,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -529,7 +529,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByFromKeyIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readDerivedByFromKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long FromIndexId );
 
@@ -544,7 +544,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByToTblIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readDerivedByToTblIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToTableId );
 
@@ -559,7 +559,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByToKeyIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readDerivedByToKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToIndexId );
 
@@ -574,7 +574,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamRelationBuff[] readDerivedByNarrowedIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readDerivedByNarrowedIdx( YCFSecAuthorization Authorization,
 		Long NarrowedTenantId,
 		Long NarrowedId );
 
@@ -588,10 +588,10 @@ public interface ICFBamRelationTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff readBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamRelationBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Lock the specific Relation buffer instance identified by the primary key.
@@ -603,10 +603,10 @@ public interface ICFBamRelationTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamScopePKey PKey );
+	YCFBamRelationBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamScopePKey PKey );
 
 	/**
 	 *	Read all the specific Relation buffer instances.
@@ -615,7 +615,7 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return All the specific Relation instances in the database accessible for the Authorization.
 	 */
-	CFBamRelationBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamRelationBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific Relation buffer instance identified by the unique key IdIdx.
@@ -629,9 +629,9 @@ public interface ICFBamRelationTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -644,9 +644,9 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByTenantIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readBuffByTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -663,9 +663,9 @@ public interface ICFBamRelationTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
 		String Name );
@@ -679,9 +679,9 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByRelnTenantIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readBuffByRelnTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -695,9 +695,9 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByRelTableIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readBuffByRelTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -710,10 +710,10 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+	YCFBamRelationBuff[] readBuffByCodeVisIdx( YCFSecAuthorization Authorization,
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Relation buffer instances identified by the duplicate key TableCodeVisIdx.
@@ -728,12 +728,12 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByTableCodeVisIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readBuffByTableCodeVisIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId,
-		ICFBamSchema.CodeVisibilityEnum CodeVis );
+		IYCFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Relation buffer instances identified by the duplicate key DefSchemaIdx.
@@ -746,9 +746,9 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -763,9 +763,9 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByFromKeyIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readBuffByFromKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long FromIndexId );
 
@@ -780,9 +780,9 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByToTblIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readBuffByToTblIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToTableId );
 
@@ -797,9 +797,9 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByToKeyIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readBuffByToKeyIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ToIndexId );
 
@@ -814,16 +814,16 @@ public interface ICFBamRelationTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamRelationBuff[] readBuffByNarrowedIdx( CFSecAuthorization Authorization,
+	YCFBamRelationBuff[] readBuffByNarrowedIdx( YCFSecAuthorization Authorization,
 		Long NarrowedTenantId,
 		Long NarrowedId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

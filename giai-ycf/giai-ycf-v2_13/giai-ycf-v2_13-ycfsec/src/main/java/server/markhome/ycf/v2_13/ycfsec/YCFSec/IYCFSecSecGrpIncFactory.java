@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for SecGrpInc.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,13 +35,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 /*
- *	CFSecSecGrpIncFactory interface for SecGrpInc
+ *	YCFSecSecGrpIncFactory interface for SecGrpInc
  */
-public interface ICFSecSecGrpIncFactory
+public interface IYCFSecSecGrpIncFactory
 {
 
 	/**
@@ -49,55 +49,55 @@ public interface ICFSecSecGrpIncFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGrpIncPKey newPKey();
+	YCFSecSecGrpIncPKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for SecGrpInc instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGrpIncHPKey newHPKey();
+	YCFSecSecGrpIncHPKey newHPKey();
 
 	/**
 	 *	Allocate a ClusterIdx key over SecGrpInc instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGrpIncByClusterIdxKey newClusterIdxKey();
+	YCFSecSecGrpIncByClusterIdxKey newClusterIdxKey();
 
 	/**
 	 *	Allocate a GroupIdx key over SecGrpInc instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGrpIncByGroupIdxKey newGroupIdxKey();
+	YCFSecSecGrpIncByGroupIdxKey newGroupIdxKey();
 
 	/**
 	 *	Allocate a IncludeIdx key over SecGrpInc instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGrpIncByIncludeIdxKey newIncludeIdxKey();
+	YCFSecSecGrpIncByIncludeIdxKey newIncludeIdxKey();
 
 	/**
 	 *	Allocate a UIncludeIdx key over SecGrpInc instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGrpIncByUIncludeIdxKey newUIncludeIdxKey();
+	YCFSecSecGrpIncByUIncludeIdxKey newUIncludeIdxKey();
 
 	/**
 	 *	Allocate a SecGrpInc instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGrpIncBuff newBuff();
+	YCFSecSecGrpIncBuff newBuff();
 
 	/**
 	 *	Allocate a SecGrpInc history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFSecSecGrpIncHBuff newHBuff();
+	YCFSecSecGrpIncHBuff newHBuff();
 
 }

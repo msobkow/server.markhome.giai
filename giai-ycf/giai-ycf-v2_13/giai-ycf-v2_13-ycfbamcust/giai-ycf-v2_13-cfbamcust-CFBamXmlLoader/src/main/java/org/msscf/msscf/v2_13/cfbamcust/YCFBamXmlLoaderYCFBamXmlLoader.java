@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustXmlLoader
+ *	MSS Code Factory YCFBam 2.13 CustXmlLoader
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,25 +23,25 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader;
+package org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,35 +53,35 @@ import javax.xml.XMLConstants;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 import org.xml.sax.*;
 
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfbamcust.MSSBamCF.MSSBamCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFSaxParser;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF.MSSBamYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFSaxParser;
 
-public class CFBamXmlLoader
-	extends MssCFSaxParser
+public class YCFBamXmlLoader
+	extends MssYCFSaxParser
 	implements ContentHandler
 {
 
 	// The namespace URI of the supported schema
-	public final static String	SCHEMA_XMLNS = "http://msscf.org/msscf/2.0.13/xsd/mssbam-2.13";
+	public final static String	SCHEMA_XMLNS = "http://mssycf.org/mssycf/2.0.13/xsd/mssbam-2.13";
 
 	// The source for loading the supported schema
-	public final static String	SCHEMA_URI = "http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd";
-	public final static String	SCHEMA_ROOT_URI = "http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd";
+	public final static String	SCHEMA_URI = "http://mycf.markhome.server/mssycf/2.0.13/xsd/mssbam-2.13.xsd";
+	public final static String	SCHEMA_ROOT_URI = "http://mycf.markhome.server/mssycf/2.0.13/xsd/mssbam-2.13.xsd";
 
 	// The schema instance to load in to
 
-	private ICFBamSchemaObj schemaObj = null;
+	private IYCFBamSchemaObj schemaObj = null;
 	// Loader behaviour configuration attributes
 
 	// Constructors
 
-	public CFBamXmlLoader( MSSBamCFEngine engine, ICFLibMessageLog jLogger ) {
+	public YCFBamXmlLoader( MSSBamYCFEngine engine, IYCFLibMessageLog jLogger ) {
 		super( engine, jLogger );
 		bamEngine = engine;
 		setRootElementHandler( getSaxRootHandler() );
@@ -93,13 +93,13 @@ public class CFBamXmlLoader
 	 */
 	protected static ArrayList<String> modelPath = new ArrayList<String>();
 
-	protected ICFBamTenantObj tenant = null;
+	protected IYCFBamTenantObj tenant = null;
 
-	protected ICFLibAnyObj definedProjectVersion = null;
+	protected IYCFLibAnyObj definedProjectVersion = null;
 
-	protected MSSBamCFEngine bamEngine = null;
+	protected MSSBamYCFEngine bamEngine = null;
 
-	public MSSBamCFEngine getBamEngine() {
+	public MSSBamYCFEngine getBamEngine() {
 		return( bamEngine );
 	}
 
@@ -137,14 +137,14 @@ public class CFBamXmlLoader
 	 *
 	 *	@return	The parsed MSSBam
 	 */
-	public ICFBamTenantObj getTenant() {
+	public IYCFBamTenantObj getTenant() {
 		return( tenant );
 	}
 
 	/**
 	 *	Set the tenant to receive the parse
 	 */
-	public void setTenant( ICFBamTenantObj value ) {
+	public void setTenant( IYCFBamTenantObj value ) {
 		tenant = value;
 	}
 
@@ -153,7 +153,7 @@ public class CFBamXmlLoader
 	 *
 	 *	@return	The ProjectVersion defined by the model.
 	 */
-	public ICFLibAnyObj getDefinedProjectVersion() {
+	public IYCFLibAnyObj getDefinedProjectVersion() {
 		return( definedProjectVersion );
 	}
 
@@ -164,7 +164,7 @@ public class CFBamXmlLoader
 	 *
 	 *	@param	modelName	The name of the model to be loaded
 	 */
-	public ICFBamTenantObj loadTenant( String modelName ) {
+	public IYCFBamTenantObj loadTenant( String modelName ) {
 
 //		Get the model path to be searched
 
@@ -208,7 +208,7 @@ public class CFBamXmlLoader
 //		Did we find the model?
 
 		if( tenantXml == null ) {
-			throw new CFLibRuntimeException( getClass(),
+			throw new YCFLibRuntimeException( getClass(),
 				"loadTenant",
 				getLocationInfo() + " Could not locate Repository Model \"" + modelName + "\"" ); 
 		}
@@ -226,7 +226,7 @@ public class CFBamXmlLoader
 				tenantXml.close();
 			}
 			catch( Exception e ) {
-				throw new CFLibRuntimeException( getClass(),
+				throw new YCFLibRuntimeException( getClass(),
 					"loadTenant",
 					getLocationInfo() + " Could not close Business Application Model \"" + modelName + "\"", e ); 
 			}
@@ -235,10 +235,10 @@ public class CFBamXmlLoader
 		return( tenant );
 	}
 
-	public static boolean getProcessSchema( CFLibXmlCoreContext curContext ) {
+	public static boolean getProcessSchema( YCFLibXmlCoreContext curContext ) {
 		final String S_ProcName = "getProcessSchema";
 		boolean retval = false;
-		CFLibXmlCoreContext workContext = curContext;
+		YCFLibXmlCoreContext workContext = curContext;
 
 		Object obj = null;
 		while( ( obj == null ) && ( workContext != null ) ) {
@@ -260,7 +260,7 @@ public class CFBamXmlLoader
 				retval = false;
 			}
 			else {
-				throw new CFLibInvalidArgumentException( CFBamXmlLoader.class,
+				throw new YCFLibInvalidArgumentException( YCFBamXmlLoader.class,
 					S_ProcName,
 					0,
 					"ProcessSchema",
@@ -268,7 +268,7 @@ public class CFBamXmlLoader
 			}
 		}
 		else {
-			new CFLibUnsupportedClassException( CFBamXmlLoader.class,
+			new YCFLibUnsupportedClassException( YCFBamXmlLoader.class,
 					S_ProcName,
 					"ProcessSchema",
 					obj,
@@ -280,3073 +280,3073 @@ public class CFBamXmlLoader
 
 	// Element Handler instances
 
-	private CFBamXmlLoaderCommonLicenseHandler commonLicenseHandler = null;
-	private CFBamXmlLoaderClientImplLicenseHandler clientImplLicenseHandler = null;
-	private CFBamXmlLoaderClientXFaceLicenseHandler clientXFaceLicenseHandler = null;
-	private CFBamXmlLoaderServerImplLicenseHandler serverImplLicenseHandler = null;
-	private CFBamXmlLoaderServerXFaceLicenseHandler serverXFaceLicenseHandler = null;
-	private CFBamXmlLoaderBlobColHandler blobColHandler = null;
-	private CFBamXmlLoaderBlobTypeHandler blobTypeHandler = null;
-	private CFBamXmlLoaderBoolColHandler boolColHandler = null;
-	private CFBamXmlLoaderBoolTypeHandler boolTypeHandler = null;
-	private CFBamXmlLoaderChainHandler chainHandler = null;
-	private CFBamXmlLoaderClearDepHandler clearDepHandler = null;
-	private CFBamXmlLoaderDateColHandler dateColHandler = null;
-	private CFBamXmlLoaderDateTypeHandler dateTypeHandler = null;
-	private CFBamXmlLoaderDelDepHandler delDepHandler = null;
-	private CFBamXmlLoaderDoubleColHandler doubleColHandler = null;
-	private CFBamXmlLoaderDoubleTypeHandler doubleTypeHandler = null;
-	private CFBamXmlLoaderEnumTagHandler enumTagHandler = null;
-	private CFBamXmlLoaderEnumTypeHandler enumTypeHandler = null;
-	private CFBamXmlLoaderFloatColHandler floatColHandler = null;
-	private CFBamXmlLoaderFloatTypeHandler floatTypeHandler = null;
-	private CFBamXmlLoaderId16GenHandler id16GenHandler = null;
-	private CFBamXmlLoaderId32GenHandler id32GenHandler = null;
-	private CFBamXmlLoaderId64GenHandler id64GenHandler = null;
-	private CFBamXmlLoaderIndexHandler indexHandler = null;
-	private CFBamXmlLoaderIndexColHandler indexColHandler = null;
-	private CFBamXmlLoaderIndexTweakHandler indexTweakHandler = null;
-	private CFBamXmlLoaderIndexAddendumHandler indexAddendumHandler = null;
-	private CFBamXmlLoaderInt16ColHandler int16ColHandler = null;
-	private CFBamXmlLoaderInt16TypeHandler int16TypeHandler = null;
-	private CFBamXmlLoaderInt32ColHandler int32ColHandler = null;
-	private CFBamXmlLoaderInt32TypeHandler int32TypeHandler = null;
-	private CFBamXmlLoaderInt64ColHandler int64ColHandler = null;
-	private CFBamXmlLoaderInt64TypeHandler int64TypeHandler = null;
-	private CFBamXmlLoaderCafeMethodBodyHandler cafeMethodBodyHandler = null;
-	private CFBamXmlLoaderCafeSchemaObjInterfaceHandler cafeSchemaObjInterfaceHandler = null;
-	private CFBamXmlLoaderCafeSchemaObjMembersHandler cafeSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCafeSchemaObjImportHandler cafeSchemaObjImportHandler = null;
-	private CFBamXmlLoaderCafeSchemaObjImplementationHandler cafeSchemaObjImplementationHandler = null;
-	private CFBamXmlLoaderCafeDb2LUWSchemaObjMembersHandler cafeDb2LUWSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCafeDb2LUWSchemaObjImplHandler cafeDb2LUWSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCafeDb2LUWSchemaObjImportHandler cafeDb2LUWSchemaObjImportHandler = null;
-	private CFBamXmlLoaderCafeMSSqlSchemaObjMembersHandler cafeMSSqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCafeMSSqlSchemaObjImplHandler cafeMSSqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCafeMSSqlSchemaObjImportHandler cafeMSSqlSchemaObjImportHandler = null;
-	private CFBamXmlLoaderCafeMySqlSchemaObjMembersHandler cafeMySqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCafeMySqlSchemaObjImplHandler cafeMySqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCafeMySqlSchemaObjImportHandler cafeMySqlSchemaObjImportHandler = null;
-	private CFBamXmlLoaderCafeOracleSchemaObjMembersHandler cafeOracleSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCafeOracleSchemaObjImplHandler cafeOracleSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCafeOracleSchemaObjImportHandler cafeOracleSchemaObjImportHandler = null;
-	private CFBamXmlLoaderCafePgSqlSchemaObjMembersHandler cafePgSqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCafePgSqlSchemaObjImplHandler cafePgSqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCafePgSqlSchemaObjImportHandler cafePgSqlSchemaObjImportHandler = null;
-	private CFBamXmlLoaderCafeRamSchemaObjMembersHandler cafeRamSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCafeRamSchemaObjImplHandler cafeRamSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCafeRamSchemaObjImportHandler cafeRamSchemaObjImportHandler = null;
-	private CFBamXmlLoaderCafeXMsgSchemaImportHandler cafeXMsgSchemaImportHandler = null;
-	private CFBamXmlLoaderCafeXMsgSchemaFormattersHandler cafeXMsgSchemaFormattersHandler = null;
-	private CFBamXmlLoaderCafeXMsgClientSchemaImportHandler cafeXMsgClientSchemaImportHandler = null;
-	private CFBamXmlLoaderCafeXMsgClientSchemaBodyHandler cafeXMsgClientSchemaBodyHandler = null;
-	private CFBamXmlLoaderCafeXMsgRqstSchemaBodyHandler cafeXMsgRqstSchemaBodyHandler = null;
-	private CFBamXmlLoaderCafeXMsgRqstSchemaImportHandler cafeXMsgRqstSchemaImportHandler = null;
-	private CFBamXmlLoaderCafeXMsgRqstSchemaWireParsersHandler cafeXMsgRqstSchemaWireParsersHandler = null;
-	private CFBamXmlLoaderCafeXMsgRqstSchemaXsdElementListHandler cafeXMsgRqstSchemaXsdElementListHandler = null;
-	private CFBamXmlLoaderCafeXMsgRqstSchemaXsdSpecHandler cafeXMsgRqstSchemaXsdSpecHandler = null;
-	private CFBamXmlLoaderCafeXMsgRspnSchemaBodyHandler cafeXMsgRspnSchemaBodyHandler = null;
-	private CFBamXmlLoaderCafeXMsgRspnSchemaImportHandler cafeXMsgRspnSchemaImportHandler = null;
-	private CFBamXmlLoaderCafeXMsgRspnSchemaWireParsersHandler cafeXMsgRspnSchemaWireParsersHandler = null;
-	private CFBamXmlLoaderCafeXMsgRspnSchemaXsdElementListHandler cafeXMsgRspnSchemaXsdElementListHandler = null;
-	private CFBamXmlLoaderCafeXMsgRspnSchemaXsdSpecHandler cafeXMsgRspnSchemaXsdSpecHandler = null;
-	private CFBamXmlLoaderCafeObjMembersHandler cafeObjMembersHandler = null;
-	private CFBamXmlLoaderCafeObjInterfaceHandler cafeObjInterfaceHandler = null;
-	private CFBamXmlLoaderCafeObjImplementationHandler cafeObjImplementationHandler = null;
-	private CFBamXmlLoaderCafeEditObjMembersHandler cafeEditObjMembersHandler = null;
-	private CFBamXmlLoaderCafeEditObjInterfaceHandler cafeEditObjInterfaceHandler = null;
-	private CFBamXmlLoaderCafeEditObjImplementationHandler cafeEditObjImplementationHandler = null;
-	private CFBamXmlLoaderCafeDb2LUWTableImportHandler cafeDb2LUWTableImportHandler = null;
-	private CFBamXmlLoaderCafeMSSqlTableImportHandler cafeMSSqlTableImportHandler = null;
-	private CFBamXmlLoaderCafeMySqlTableImportHandler cafeMySqlTableImportHandler = null;
-	private CFBamXmlLoaderCafeOracleTableImportHandler cafeOracleTableImportHandler = null;
-	private CFBamXmlLoaderCafePgSqlTableImportHandler cafePgSqlTableImportHandler = null;
-	private CFBamXmlLoaderCafeRamTableImportHandler cafeRamTableImportHandler = null;
-	private CFBamXmlLoaderCafeObjImportHandler cafeObjImportHandler = null;
-	private CFBamXmlLoaderCafeEditObjImportHandler cafeEditObjImportHandler = null;
-	private CFBamXmlLoaderCafeSaxLoaderImportHandler cafeSaxLoaderImportHandler = null;
-	private CFBamXmlLoaderCafeTableImportHandler cafeTableImportHandler = null;
-	private CFBamXmlLoaderCafeTableObjImportHandler cafeTableObjImportHandler = null;
-	private CFBamXmlLoaderCafeTableMembersHandler cafeTableMembersHandler = null;
-	private CFBamXmlLoaderCafeTableInterfaceHandler cafeTableInterfaceHandler = null;
-	private CFBamXmlLoaderCafeTableImplementationHandler cafeTableImplementationHandler = null;
-	private CFBamXmlLoaderCafeTableObjMembersHandler cafeTableObjMembersHandler = null;
-	private CFBamXmlLoaderCafeTableObjInterfaceHandler cafeTableObjInterfaceHandler = null;
-	private CFBamXmlLoaderCafeTableObjImplementationHandler cafeTableObjImplementationHandler = null;
-	private CFBamXmlLoaderCafeDb2LUWTableMembersHandler cafeDb2LUWTableMembersHandler = null;
-	private CFBamXmlLoaderCafeDb2LUWTableImplementationHandler cafeDb2LUWTableImplementationHandler = null;
-	private CFBamXmlLoaderCafeMSSqlTableMembersHandler cafeMSSqlTableMembersHandler = null;
-	private CFBamXmlLoaderCafeMSSqlTableImplementationHandler cafeMSSqlTableImplementationHandler = null;
-	private CFBamXmlLoaderCafeMySqlTableMembersHandler cafeMySqlTableMembersHandler = null;
-	private CFBamXmlLoaderCafeMySqlTableImplementationHandler cafeMySqlTableImplementationHandler = null;
-	private CFBamXmlLoaderCafeOracleTableMembersHandler cafeOracleTableMembersHandler = null;
-	private CFBamXmlLoaderCafeOracleTableImplementationHandler cafeOracleTableImplementationHandler = null;
-	private CFBamXmlLoaderCafePgSqlTableMembersHandler cafePgSqlTableMembersHandler = null;
-	private CFBamXmlLoaderCafePgSqlTableImplementationHandler cafePgSqlTableImplementationHandler = null;
-	private CFBamXmlLoaderCafeRamTableMembersHandler cafeRamTableMembersHandler = null;
-	private CFBamXmlLoaderCafeRamTableImplementationHandler cafeRamTableImplementationHandler = null;
-	private CFBamXmlLoaderCafeSaxLoaderStartElementHandler cafeSaxLoaderStartElementHandler = null;
-	private CFBamXmlLoaderCafeSaxLoaderEndElementHandler cafeSaxLoaderEndElementHandler = null;
-	private CFBamXmlLoaderCafeXMsgTableImportHandler cafeXMsgTableImportHandler = null;
-	private CFBamXmlLoaderCafeXMsgTableFormattersHandler cafeXMsgTableFormattersHandler = null;
-	private CFBamXmlLoaderCafeXMsgRqstTableImportHandler cafeXMsgRqstTableImportHandler = null;
-	private CFBamXmlLoaderCafeXMsgRspnTableImportHandler cafeXMsgRspnTableImportHandler = null;
-	private CFBamXmlLoaderCafeXMsgClientTableImportHandler cafeXMsgClientTableImportHandler = null;
-	private CFBamXmlLoaderCafeXMsgRqstTableBodyHandler cafeXMsgRqstTableBodyHandler = null;
-	private CFBamXmlLoaderCafeXMsgRspnTableBodyHandler cafeXMsgRspnTableBodyHandler = null;
-	private CFBamXmlLoaderCafeXMsgClientTableBodyHandler cafeXMsgClientTableBodyHandler = null;
-	private CFBamXmlLoaderCPlusMethodBodyHandler cplusMethodBodyHandler = null;
-	private CFBamXmlLoaderCPlusSchemaObjInterfaceHandler cplusSchemaObjInterfaceHandler = null;
-	private CFBamXmlLoaderCPlusSchemaObjMembersHandler cplusSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusSchemaObjIncludeHandler cplusSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusSchemaObjImplementationHandler cplusSchemaObjImplementationHandler = null;
-	private CFBamXmlLoaderCPlusDb2LUWSchemaObjMembersHandler cplusDb2LUWSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusDb2LUWSchemaObjImplHandler cplusDb2LUWSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCPlusDb2LUWSchemaObjIncludeHandler cplusDb2LUWSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusMSSqlSchemaObjMembersHandler cplusMSSqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusMSSqlSchemaObjImplHandler cplusMSSqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCPlusMSSqlSchemaObjIncludeHandler cplusMSSqlSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusMySqlSchemaObjMembersHandler cplusMySqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusMySqlSchemaObjImplHandler cplusMySqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCPlusMySqlSchemaObjIncludeHandler cplusMySqlSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusOracleSchemaObjMembersHandler cplusOracleSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusOracleSchemaObjImplHandler cplusOracleSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCPlusOracleSchemaObjIncludeHandler cplusOracleSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusPgSqlSchemaObjMembersHandler cplusPgSqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusPgSqlSchemaObjImplHandler cplusPgSqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCPlusPgSqlSchemaObjIncludeHandler cplusPgSqlSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusRamSchemaObjMembersHandler cplusRamSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusRamSchemaObjImplHandler cplusRamSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCPlusRamSchemaObjIncludeHandler cplusRamSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusXMsgSchemaIncludeHandler cplusXMsgSchemaIncludeHandler = null;
-	private CFBamXmlLoaderCPlusXMsgSchemaFormattersHandler cplusXMsgSchemaFormattersHandler = null;
-	private CFBamXmlLoaderCPlusXMsgClientSchemaIncludeHandler cplusXMsgClientSchemaIncludeHandler = null;
-	private CFBamXmlLoaderCPlusXMsgClientSchemaBodyHandler cplusXMsgClientSchemaBodyHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRqstSchemaBodyHandler cplusXMsgRqstSchemaBodyHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRqstSchemaIncludeHandler cplusXMsgRqstSchemaIncludeHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRqstSchemaWireParsersHandler cplusXMsgRqstSchemaWireParsersHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRqstSchemaXsdElementListHandler cplusXMsgRqstSchemaXsdElementListHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRqstSchemaXsdSpecHandler cplusXMsgRqstSchemaXsdSpecHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRspnSchemaBodyHandler cplusXMsgRspnSchemaBodyHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRspnSchemaIncludeHandler cplusXMsgRspnSchemaIncludeHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRspnSchemaWireParsersHandler cplusXMsgRspnSchemaWireParsersHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRspnSchemaXsdElementListHandler cplusXMsgRspnSchemaXsdElementListHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRspnSchemaXsdSpecHandler cplusXMsgRspnSchemaXsdSpecHandler = null;
-	private CFBamXmlLoaderCPlusObjMembersHandler cplusObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusObjInterfaceHandler cplusObjInterfaceHandler = null;
-	private CFBamXmlLoaderCPlusObjImplementationHandler cplusObjImplementationHandler = null;
-	private CFBamXmlLoaderCPlusEditObjMembersHandler cplusEditObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusEditObjInterfaceHandler cplusEditObjInterfaceHandler = null;
-	private CFBamXmlLoaderCPlusEditObjImplementationHandler cplusEditObjImplementationHandler = null;
-	private CFBamXmlLoaderCPlusDb2LUWTableIncludeHandler cplusDb2LUWTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusMSSqlTableIncludeHandler cplusMSSqlTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusMySqlTableIncludeHandler cplusMySqlTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusOracleTableIncludeHandler cplusOracleTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusPgSqlTableIncludeHandler cplusPgSqlTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusRamTableIncludeHandler cplusRamTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusObjIncludeHandler cplusObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusEditObjIncludeHandler cplusEditObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusSaxLoaderIncludeHandler cplusSaxLoaderIncludeHandler = null;
-	private CFBamXmlLoaderCPlusTableIncludeHandler cplusTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusTableObjIncludeHandler cplusTableObjIncludeHandler = null;
-	private CFBamXmlLoaderCPlusTableMembersHandler cplusTableMembersHandler = null;
-	private CFBamXmlLoaderCPlusTableInterfaceHandler cplusTableInterfaceHandler = null;
-	private CFBamXmlLoaderCPlusTableImplementationHandler cplusTableImplementationHandler = null;
-	private CFBamXmlLoaderCPlusTableObjMembersHandler cplusTableObjMembersHandler = null;
-	private CFBamXmlLoaderCPlusTableObjInterfaceHandler cplusTableObjInterfaceHandler = null;
-	private CFBamXmlLoaderCPlusTableObjImplementationHandler cplusTableObjImplementationHandler = null;
-	private CFBamXmlLoaderCPlusDb2LUWTableMembersHandler cplusDb2LUWTableMembersHandler = null;
-	private CFBamXmlLoaderCPlusDb2LUWTableImplementationHandler cplusDb2LUWTableImplementationHandler = null;
-	private CFBamXmlLoaderCPlusMSSqlTableMembersHandler cplusMSSqlTableMembersHandler = null;
-	private CFBamXmlLoaderCPlusMSSqlTableImplementationHandler cplusMSSqlTableImplementationHandler = null;
-	private CFBamXmlLoaderCPlusMySqlTableMembersHandler cplusMySqlTableMembersHandler = null;
-	private CFBamXmlLoaderCPlusMySqlTableImplementationHandler cplusMySqlTableImplementationHandler = null;
-	private CFBamXmlLoaderCPlusOracleTableMembersHandler cplusOracleTableMembersHandler = null;
-	private CFBamXmlLoaderCPlusOracleTableImplementationHandler cplusOracleTableImplementationHandler = null;
-	private CFBamXmlLoaderCPlusPgSqlTableMembersHandler cplusPgSqlTableMembersHandler = null;
-	private CFBamXmlLoaderCPlusPgSqlTableImplementationHandler cplusPgSqlTableImplementationHandler = null;
-	private CFBamXmlLoaderCPlusRamTableMembersHandler cplusRamTableMembersHandler = null;
-	private CFBamXmlLoaderCPlusRamTableImplementationHandler cplusRamTableImplementationHandler = null;
-	private CFBamXmlLoaderCPlusSaxLoaderStartElementHandler cplusSaxLoaderStartElementHandler = null;
-	private CFBamXmlLoaderCPlusSaxLoaderEndElementHandler cplusSaxLoaderEndElementHandler = null;
-	private CFBamXmlLoaderCPlusXMsgTableIncludeHandler cplusXMsgTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusXMsgTableFormattersHandler cplusXMsgTableFormattersHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRqstTableIncludeHandler cplusXMsgRqstTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRspnTableIncludeHandler cplusXMsgRspnTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusXMsgClientTableIncludeHandler cplusXMsgClientTableIncludeHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRqstTableBodyHandler cplusXMsgRqstTableBodyHandler = null;
-	private CFBamXmlLoaderCPlusXMsgRspnTableBodyHandler cplusXMsgRspnTableBodyHandler = null;
-	private CFBamXmlLoaderCPlusXMsgClientTableBodyHandler cplusXMsgClientTableBodyHandler = null;
-	private CFBamXmlLoaderHPlusSchemaObjInterfaceHandler hplusSchemaObjInterfaceHandler = null;
-	private CFBamXmlLoaderHPlusSchemaObjMembersHandler hplusSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusSchemaObjIncludeHandler hplusSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusSchemaObjImplementationHandler hplusSchemaObjImplementationHandler = null;
-	private CFBamXmlLoaderHPlusDb2LUWSchemaObjMembersHandler hplusDb2LUWSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusDb2LUWSchemaObjImplHandler hplusDb2LUWSchemaObjImplHandler = null;
-	private CFBamXmlLoaderHPlusDb2LUWSchemaObjIncludeHandler hplusDb2LUWSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusMSSqlSchemaObjMembersHandler hplusMSSqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusMSSqlSchemaObjImplHandler hplusMSSqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderHPlusMSSqlSchemaObjIncludeHandler hplusMSSqlSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusMySqlSchemaObjMembersHandler hplusMySqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusMySqlSchemaObjImplHandler hplusMySqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderHPlusMySqlSchemaObjIncludeHandler hplusMySqlSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusOracleSchemaObjMembersHandler hplusOracleSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusOracleSchemaObjImplHandler hplusOracleSchemaObjImplHandler = null;
-	private CFBamXmlLoaderHPlusOracleSchemaObjIncludeHandler hplusOracleSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusPgSqlSchemaObjMembersHandler hplusPgSqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusPgSqlSchemaObjImplHandler hplusPgSqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderHPlusPgSqlSchemaObjIncludeHandler hplusPgSqlSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusRamSchemaObjMembersHandler hplusRamSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusRamSchemaObjImplHandler hplusRamSchemaObjImplHandler = null;
-	private CFBamXmlLoaderHPlusRamSchemaObjIncludeHandler hplusRamSchemaObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusXMsgSchemaIncludeHandler hplusXMsgSchemaIncludeHandler = null;
-	private CFBamXmlLoaderHPlusXMsgSchemaFormattersHandler hplusXMsgSchemaFormattersHandler = null;
-	private CFBamXmlLoaderHPlusXMsgClientSchemaIncludeHandler hplusXMsgClientSchemaIncludeHandler = null;
-	private CFBamXmlLoaderHPlusXMsgClientSchemaBodyHandler hplusXMsgClientSchemaBodyHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRqstSchemaBodyHandler hplusXMsgRqstSchemaBodyHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRqstSchemaIncludeHandler hplusXMsgRqstSchemaIncludeHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRqstSchemaWireParsersHandler hplusXMsgRqstSchemaWireParsersHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRqstSchemaXsdElementListHandler hplusXMsgRqstSchemaXsdElementListHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRqstSchemaXsdSpecHandler hplusXMsgRqstSchemaXsdSpecHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRspnSchemaBodyHandler hplusXMsgRspnSchemaBodyHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRspnSchemaIncludeHandler hplusXMsgRspnSchemaIncludeHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRspnSchemaWireParsersHandler hplusXMsgRspnSchemaWireParsersHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRspnSchemaXsdElementListHandler hplusXMsgRspnSchemaXsdElementListHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRspnSchemaXsdSpecHandler hplusXMsgRspnSchemaXsdSpecHandler = null;
-	private CFBamXmlLoaderHPlusObjMembersHandler hplusObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusObjInterfaceHandler hplusObjInterfaceHandler = null;
-	private CFBamXmlLoaderHPlusObjImplementationHandler hplusObjImplementationHandler = null;
-	private CFBamXmlLoaderHPlusEditObjMembersHandler hplusEditObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusEditObjInterfaceHandler hplusEditObjInterfaceHandler = null;
-	private CFBamXmlLoaderHPlusEditObjImplementationHandler hplusEditObjImplementationHandler = null;
-	private CFBamXmlLoaderHPlusDb2LUWTableIncludeHandler hplusDb2LUWTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusMSSqlTableIncludeHandler hplusMSSqlTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusMySqlTableIncludeHandler hplusMySqlTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusOracleTableIncludeHandler hplusOracleTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusPgSqlTableIncludeHandler hplusPgSqlTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusRamTableIncludeHandler hplusRamTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusObjIncludeHandler hplusObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusEditObjIncludeHandler hplusEditObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusSaxLoaderIncludeHandler hplusSaxLoaderIncludeHandler = null;
-	private CFBamXmlLoaderHPlusTableIncludeHandler hplusTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusTableObjIncludeHandler hplusTableObjIncludeHandler = null;
-	private CFBamXmlLoaderHPlusTableMembersHandler hplusTableMembersHandler = null;
-	private CFBamXmlLoaderHPlusTableInterfaceHandler hplusTableInterfaceHandler = null;
-	private CFBamXmlLoaderHPlusTableImplementationHandler hplusTableImplementationHandler = null;
-	private CFBamXmlLoaderHPlusTableObjMembersHandler hplusTableObjMembersHandler = null;
-	private CFBamXmlLoaderHPlusTableObjInterfaceHandler hplusTableObjInterfaceHandler = null;
-	private CFBamXmlLoaderHPlusTableObjImplementationHandler hplusTableObjImplementationHandler = null;
-	private CFBamXmlLoaderHPlusDb2LUWTableMembersHandler hplusDb2LUWTableMembersHandler = null;
-	private CFBamXmlLoaderHPlusDb2LUWTableImplementationHandler hplusDb2LUWTableImplementationHandler = null;
-	private CFBamXmlLoaderHPlusMSSqlTableMembersHandler hplusMSSqlTableMembersHandler = null;
-	private CFBamXmlLoaderHPlusMSSqlTableImplementationHandler hplusMSSqlTableImplementationHandler = null;
-	private CFBamXmlLoaderHPlusMySqlTableMembersHandler hplusMySqlTableMembersHandler = null;
-	private CFBamXmlLoaderHPlusMySqlTableImplementationHandler hplusMySqlTableImplementationHandler = null;
-	private CFBamXmlLoaderHPlusOracleTableMembersHandler hplusOracleTableMembersHandler = null;
-	private CFBamXmlLoaderHPlusOracleTableImplementationHandler hplusOracleTableImplementationHandler = null;
-	private CFBamXmlLoaderHPlusPgSqlTableMembersHandler hplusPgSqlTableMembersHandler = null;
-	private CFBamXmlLoaderHPlusPgSqlTableImplementationHandler hplusPgSqlTableImplementationHandler = null;
-	private CFBamXmlLoaderHPlusRamTableMembersHandler hplusRamTableMembersHandler = null;
-	private CFBamXmlLoaderHPlusRamTableImplementationHandler hplusRamTableImplementationHandler = null;
-	private CFBamXmlLoaderHPlusSaxLoaderStartElementHandler hplusSaxLoaderStartElementHandler = null;
-	private CFBamXmlLoaderHPlusSaxLoaderEndElementHandler hplusSaxLoaderEndElementHandler = null;
-	private CFBamXmlLoaderHPlusXMsgTableIncludeHandler hplusXMsgTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusXMsgTableFormattersHandler hplusXMsgTableFormattersHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRqstTableIncludeHandler hplusXMsgRqstTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRspnTableIncludeHandler hplusXMsgRspnTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusXMsgClientTableIncludeHandler hplusXMsgClientTableIncludeHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRqstTableBodyHandler hplusXMsgRqstTableBodyHandler = null;
-	private CFBamXmlLoaderHPlusXMsgRspnTableBodyHandler hplusXMsgRspnTableBodyHandler = null;
-	private CFBamXmlLoaderHPlusXMsgClientTableBodyHandler hplusXMsgClientTableBodyHandler = null;
-	private CFBamXmlLoaderCSharpMethodBodyHandler csharpMethodBodyHandler = null;
-	private CFBamXmlLoaderCSharpSchemaObjInterfaceHandler csharpSchemaObjInterfaceHandler = null;
-	private CFBamXmlLoaderCSharpSchemaObjMembersHandler csharpSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpSchemaObjUsingHandler csharpSchemaObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpSchemaObjImplementationHandler csharpSchemaObjImplementationHandler = null;
-	private CFBamXmlLoaderCSharpDb2LUWSchemaObjMembersHandler csharpDb2LUWSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpDb2LUWSchemaObjImplHandler csharpDb2LUWSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCSharpDb2LUWSchemaObjUsingHandler csharpDb2LUWSchemaObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpMSSqlSchemaObjMembersHandler csharpMSSqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpMSSqlSchemaObjImplHandler csharpMSSqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCSharpMSSqlSchemaObjUsingHandler csharpMSSqlSchemaObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpMySqlSchemaObjMembersHandler csharpMySqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpMySqlSchemaObjImplHandler csharpMySqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCSharpMySqlSchemaObjUsingHandler csharpMySqlSchemaObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpOracleSchemaObjMembersHandler csharpOracleSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpOracleSchemaObjImplHandler csharpOracleSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCSharpOracleSchemaObjUsingHandler csharpOracleSchemaObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpPgSqlSchemaObjMembersHandler csharpPgSqlSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpPgSqlSchemaObjImplHandler csharpPgSqlSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCSharpPgSqlSchemaObjUsingHandler csharpPgSqlSchemaObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpRamSchemaObjMembersHandler csharpRamSchemaObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpRamSchemaObjImplHandler csharpRamSchemaObjImplHandler = null;
-	private CFBamXmlLoaderCSharpRamSchemaObjUsingHandler csharpRamSchemaObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpXMsgSchemaUsingHandler csharpXMsgSchemaUsingHandler = null;
-	private CFBamXmlLoaderCSharpXMsgSchemaFormattersHandler csharpXMsgSchemaFormattersHandler = null;
-	private CFBamXmlLoaderCSharpXMsgClientSchemaUsingHandler csharpXMsgClientSchemaUsingHandler = null;
-	private CFBamXmlLoaderCSharpXMsgClientSchemaBodyHandler csharpXMsgClientSchemaBodyHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRqstSchemaBodyHandler csharpXMsgRqstSchemaBodyHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRqstSchemaUsingHandler csharpXMsgRqstSchemaUsingHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRqstSchemaWireParsersHandler csharpXMsgRqstSchemaWireParsersHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRqstSchemaXsdElementListHandler csharpXMsgRqstSchemaXsdElementListHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRqstSchemaXsdSpecHandler csharpXMsgRqstSchemaXsdSpecHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRspnSchemaBodyHandler csharpXMsgRspnSchemaBodyHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRspnSchemaUsingHandler csharpXMsgRspnSchemaUsingHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRspnSchemaWireParsersHandler csharpXMsgRspnSchemaWireParsersHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRspnSchemaXsdElementListHandler csharpXMsgRspnSchemaXsdElementListHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRspnSchemaXsdSpecHandler csharpXMsgRspnSchemaXsdSpecHandler = null;
-	private CFBamXmlLoaderCSharpObjMembersHandler csharpObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpObjInterfaceHandler csharpObjInterfaceHandler = null;
-	private CFBamXmlLoaderCSharpObjImplementationHandler csharpObjImplementationHandler = null;
-	private CFBamXmlLoaderCSharpEditObjMembersHandler csharpEditObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpEditObjInterfaceHandler csharpEditObjInterfaceHandler = null;
-	private CFBamXmlLoaderCSharpEditObjImplementationHandler csharpEditObjImplementationHandler = null;
-	private CFBamXmlLoaderCSharpDb2LUWTableUsingHandler csharpDb2LUWTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpMSSqlTableUsingHandler csharpMSSqlTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpMySqlTableUsingHandler csharpMySqlTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpOracleTableUsingHandler csharpOracleTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpPgSqlTableUsingHandler csharpPgSqlTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpRamTableUsingHandler csharpRamTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpObjUsingHandler csharpObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpEditObjUsingHandler csharpEditObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpSaxLoaderUsingHandler csharpSaxLoaderUsingHandler = null;
-	private CFBamXmlLoaderCSharpTableUsingHandler csharpTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpTableObjUsingHandler csharpTableObjUsingHandler = null;
-	private CFBamXmlLoaderCSharpTableMembersHandler csharpTableMembersHandler = null;
-	private CFBamXmlLoaderCSharpTableInterfaceHandler csharpTableInterfaceHandler = null;
-	private CFBamXmlLoaderCSharpTableImplementationHandler csharpTableImplementationHandler = null;
-	private CFBamXmlLoaderCSharpTableObjMembersHandler csharpTableObjMembersHandler = null;
-	private CFBamXmlLoaderCSharpTableObjInterfaceHandler csharpTableObjInterfaceHandler = null;
-	private CFBamXmlLoaderCSharpTableObjImplementationHandler csharpTableObjImplementationHandler = null;
-	private CFBamXmlLoaderCSharpDb2LUWTableMembersHandler csharpDb2LUWTableMembersHandler = null;
-	private CFBamXmlLoaderCSharpDb2LUWTableImplementationHandler csharpDb2LUWTableImplementationHandler = null;
-	private CFBamXmlLoaderCSharpMSSqlTableMembersHandler csharpMSSqlTableMembersHandler = null;
-	private CFBamXmlLoaderCSharpMSSqlTableImplementationHandler csharpMSSqlTableImplementationHandler = null;
-	private CFBamXmlLoaderCSharpMySqlTableMembersHandler csharpMySqlTableMembersHandler = null;
-	private CFBamXmlLoaderCSharpMySqlTableImplementationHandler csharpMySqlTableImplementationHandler = null;
-	private CFBamXmlLoaderCSharpOracleTableMembersHandler csharpOracleTableMembersHandler = null;
-	private CFBamXmlLoaderCSharpOracleTableImplementationHandler csharpOracleTableImplementationHandler = null;
-	private CFBamXmlLoaderCSharpPgSqlTableMembersHandler csharpPgSqlTableMembersHandler = null;
-	private CFBamXmlLoaderCSharpPgSqlTableImplementationHandler csharpPgSqlTableImplementationHandler = null;
-	private CFBamXmlLoaderCSharpRamTableMembersHandler csharpRamTableMembersHandler = null;
-	private CFBamXmlLoaderCSharpRamTableImplementationHandler csharpRamTableImplementationHandler = null;
-	private CFBamXmlLoaderCSharpSaxLoaderStartElementHandler csharpSaxLoaderStartElementHandler = null;
-	private CFBamXmlLoaderCSharpSaxLoaderEndElementHandler csharpSaxLoaderEndElementHandler = null;
-	private CFBamXmlLoaderCSharpXMsgTableUsingHandler csharpXMsgTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpXMsgTableFormattersHandler csharpXMsgTableFormattersHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRqstTableUsingHandler csharpXMsgRqstTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRspnTableUsingHandler csharpXMsgRspnTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpXMsgClientTableUsingHandler csharpXMsgClientTableUsingHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRqstTableBodyHandler csharpXMsgRqstTableBodyHandler = null;
-	private CFBamXmlLoaderCSharpXMsgRspnTableBodyHandler csharpXMsgRspnTableBodyHandler = null;
-	private CFBamXmlLoaderCSharpXMsgClientTableBodyHandler csharpXMsgClientTableBodyHandler = null;
-	private CFBamXmlLoaderLicenseHandler licenseHandler = null;
-	private CFBamXmlLoaderMajorVersionHandler majorVersionHandler = null;
-	private CFBamXmlLoaderMinorVersionHandler minorVersionHandler = null;
-	private CFBamXmlLoaderNmTokenColHandler nmTokenColHandler = null;
-	private CFBamXmlLoaderNmTokenTypeHandler nmTokenTypeHandler = null;
-	private CFBamXmlLoaderNmTokensColHandler nmTokensColHandler = null;
-	private CFBamXmlLoaderNmTokensTypeHandler nmTokensTypeHandler = null;
-	private CFBamXmlLoaderNumberColHandler numberColHandler = null;
-	private CFBamXmlLoaderNumberTypeHandler numberTypeHandler = null;
-	private CFBamXmlLoaderParamHandler paramHandler = null;
-	private CFBamXmlLoaderPrimaryIndexHandler primaryIndexHandler = null;
-	private CFBamXmlLoaderRelationHandler relationHandler = null;
-	private CFBamXmlLoaderRelationColHandler relationColHandler = null;
-	private CFBamXmlLoaderSchemaDefHandler schemaDefHandler = null;
-	private CFBamXmlLoaderSchemaRefHandler schemaRefHandler = null;
-	private CFBamXmlLoaderSchemaRoleHandler schemaRoleHandler = null;
-	private CFBamXmlLoaderSchemaTweakHandler schemaTweakHandler = null;
-	private CFBamXmlLoaderServerListFuncHandler serverListFuncHandler = null;
-	private CFBamXmlLoaderServerObjFuncHandler serverObjFuncHandler = null;
-	private CFBamXmlLoaderServerProcHandler serverProcHandler = null;
-	private CFBamXmlLoaderSuperClassRelationHandler superClassRelationHandler = null;
-	private CFBamXmlLoaderStringColHandler stringColHandler = null;
-	private CFBamXmlLoaderStringTypeHandler stringTypeHandler = null;
-	private CFBamXmlLoaderSubProjectHandler subProjectHandler = null;
-	private CFBamXmlLoaderTZDateColHandler tZDateColHandler = null;
-	private CFBamXmlLoaderTZDateTypeHandler tZDateTypeHandler = null;
-	private CFBamXmlLoaderTZTimeColHandler tZTimeColHandler = null;
-	private CFBamXmlLoaderTZTimeTypeHandler tZTimeTypeHandler = null;
-	private CFBamXmlLoaderTZTimestampColHandler tZTimestampColHandler = null;
-	private CFBamXmlLoaderTZTimestampTypeHandler tZTimestampTypeHandler = null;
-	private CFBamXmlLoaderTableHandler tableHandler = null;
-	private CFBamXmlLoaderTableAddendumHandler tableAddendumHandler = null;
-	private CFBamXmlLoaderTableColHandler tableColHandler = null;
-	private CFBamXmlLoaderTableTweakHandler tableTweakHandler = null;
-	private CFBamXmlLoaderTextColHandler textColHandler = null;
-	private CFBamXmlLoaderTextTypeHandler textTypeHandler = null;
-	private CFBamXmlLoaderTimeColHandler timeColHandler = null;
-	private CFBamXmlLoaderTimeTypeHandler timeTypeHandler = null;
-	private CFBamXmlLoaderTimestampColHandler timestampColHandler = null;
-	private CFBamXmlLoaderTimestampTypeHandler timestampTypeHandler = null;
-	private CFBamXmlLoaderTldHandler tldHandler = null;
-	private CFBamXmlLoaderTokenColHandler tokenColHandler = null;
-	private CFBamXmlLoaderTokenTypeHandler tokenTypeHandler = null;
-	private CFBamXmlLoaderTopDomainHandler topDomainHandler = null;
-	private CFBamXmlLoaderTopProjectHandler topProjectHandler = null;
-	private CFBamXmlLoaderUInt16ColHandler uInt16ColHandler = null;
-	private CFBamXmlLoaderUInt16TypeHandler uInt16TypeHandler = null;
-	private CFBamXmlLoaderUInt32ColHandler uInt32ColHandler = null;
-	private CFBamXmlLoaderUInt32TypeHandler uInt32TypeHandler = null;
-	private CFBamXmlLoaderUInt64ColHandler uInt64ColHandler = null;
-	private CFBamXmlLoaderUInt64TypeHandler uInt64TypeHandler = null;
-	private CFBamXmlLoaderUuidColHandler uuidColHandler = null;
-	private CFBamXmlLoaderUuidGenHandler uuidGenHandler = null;
-	private CFBamXmlLoaderUuidTypeHandler uuidTypeHandler = null;
-	private CFBamXmlLoaderUuid6ColHandler uuid6ColHandler = null;
-	private CFBamXmlLoaderUuid6GenHandler uuid6GenHandler = null;
-	private CFBamXmlLoaderUuid6TypeHandler uuid6TypeHandler = null;
-	private CFBamXmlLoaderDbKeyHash128ColHandler dbKeyHash128ColHandler = null;
-	private CFBamXmlLoaderDbKeyHash128GenHandler dbKeyHash128GenHandler = null;
-	private CFBamXmlLoaderDbKeyHash128TypeHandler dbKeyHash128TypeHandler = null;
-	private CFBamXmlLoaderDbKeyHash160ColHandler dbKeyHash160ColHandler = null;
-	private CFBamXmlLoaderDbKeyHash160GenHandler dbKeyHash160GenHandler = null;
-	private CFBamXmlLoaderDbKeyHash160TypeHandler dbKeyHash160TypeHandler = null;
-	private CFBamXmlLoaderDbKeyHash224ColHandler dbKeyHash224ColHandler = null;
-	private CFBamXmlLoaderDbKeyHash224GenHandler dbKeyHash224GenHandler = null;
-	private CFBamXmlLoaderDbKeyHash224TypeHandler dbKeyHash224TypeHandler = null;
-	private CFBamXmlLoaderDbKeyHash256ColHandler dbKeyHash256ColHandler = null;
-	private CFBamXmlLoaderDbKeyHash256GenHandler dbKeyHash256GenHandler = null;
-	private CFBamXmlLoaderDbKeyHash256TypeHandler dbKeyHash256TypeHandler = null;
-	private CFBamXmlLoaderDbKeyHash384ColHandler dbKeyHash384ColHandler = null;
-	private CFBamXmlLoaderDbKeyHash384GenHandler dbKeyHash384GenHandler = null;
-	private CFBamXmlLoaderDbKeyHash384TypeHandler dbKeyHash384TypeHandler = null;
-	private CFBamXmlLoaderDbKeyHash512ColHandler dbKeyHash512ColHandler = null;
-	private CFBamXmlLoaderDbKeyHash512GenHandler dbKeyHash512GenHandler = null;
-	private CFBamXmlLoaderDbKeyHash512TypeHandler dbKeyHash512TypeHandler = null;
-	private CFBamSaxRootHandler saxRootHandler = null;
+	private YCFBamXmlLoaderCommonLicenseHandler commonLicenseHandler = null;
+	private YCFBamXmlLoaderClientImplLicenseHandler clientImplLicenseHandler = null;
+	private YCFBamXmlLoaderClientXFaceLicenseHandler clientXFaceLicenseHandler = null;
+	private YCFBamXmlLoaderServerImplLicenseHandler serverImplLicenseHandler = null;
+	private YCFBamXmlLoaderServerXFaceLicenseHandler serverXFaceLicenseHandler = null;
+	private YCFBamXmlLoaderBlobColHandler blobColHandler = null;
+	private YCFBamXmlLoaderBlobTypeHandler blobTypeHandler = null;
+	private YCFBamXmlLoaderBoolColHandler boolColHandler = null;
+	private YCFBamXmlLoaderBoolTypeHandler boolTypeHandler = null;
+	private YCFBamXmlLoaderChainHandler chainHandler = null;
+	private YCFBamXmlLoaderClearDepHandler clearDepHandler = null;
+	private YCFBamXmlLoaderDateColHandler dateColHandler = null;
+	private YCFBamXmlLoaderDateTypeHandler dateTypeHandler = null;
+	private YCFBamXmlLoaderDelDepHandler delDepHandler = null;
+	private YCFBamXmlLoaderDoubleColHandler doubleColHandler = null;
+	private YCFBamXmlLoaderDoubleTypeHandler doubleTypeHandler = null;
+	private YCFBamXmlLoaderEnumTagHandler enumTagHandler = null;
+	private YCFBamXmlLoaderEnumTypeHandler enumTypeHandler = null;
+	private YCFBamXmlLoaderFloatColHandler floatColHandler = null;
+	private YCFBamXmlLoaderFloatTypeHandler floatTypeHandler = null;
+	private YCFBamXmlLoaderId16GenHandler id16GenHandler = null;
+	private YCFBamXmlLoaderId32GenHandler id32GenHandler = null;
+	private YCFBamXmlLoaderId64GenHandler id64GenHandler = null;
+	private YCFBamXmlLoaderIndexHandler indexHandler = null;
+	private YCFBamXmlLoaderIndexColHandler indexColHandler = null;
+	private YCFBamXmlLoaderIndexTweakHandler indexTweakHandler = null;
+	private YCFBamXmlLoaderIndexAddendumHandler indexAddendumHandler = null;
+	private YCFBamXmlLoaderInt16ColHandler int16ColHandler = null;
+	private YCFBamXmlLoaderInt16TypeHandler int16TypeHandler = null;
+	private YCFBamXmlLoaderInt32ColHandler int32ColHandler = null;
+	private YCFBamXmlLoaderInt32TypeHandler int32TypeHandler = null;
+	private YCFBamXmlLoaderInt64ColHandler int64ColHandler = null;
+	private YCFBamXmlLoaderInt64TypeHandler int64TypeHandler = null;
+	private YCFBamXmlLoaderCafeMethodBodyHandler cafeMethodBodyHandler = null;
+	private YCFBamXmlLoaderCafeSchemaObjInterfaceHandler cafeSchemaObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCafeSchemaObjMembersHandler cafeSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCafeSchemaObjImportHandler cafeSchemaObjImportHandler = null;
+	private YCFBamXmlLoaderCafeSchemaObjImplementationHandler cafeSchemaObjImplementationHandler = null;
+	private YCFBamXmlLoaderCafeDb2LUWSchemaObjMembersHandler cafeDb2LUWSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCafeDb2LUWSchemaObjImplHandler cafeDb2LUWSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCafeDb2LUWSchemaObjImportHandler cafeDb2LUWSchemaObjImportHandler = null;
+	private YCFBamXmlLoaderCafeMSSqlSchemaObjMembersHandler cafeMSSqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCafeMSSqlSchemaObjImplHandler cafeMSSqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCafeMSSqlSchemaObjImportHandler cafeMSSqlSchemaObjImportHandler = null;
+	private YCFBamXmlLoaderCafeMySqlSchemaObjMembersHandler cafeMySqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCafeMySqlSchemaObjImplHandler cafeMySqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCafeMySqlSchemaObjImportHandler cafeMySqlSchemaObjImportHandler = null;
+	private YCFBamXmlLoaderCafeOracleSchemaObjMembersHandler cafeOracleSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCafeOracleSchemaObjImplHandler cafeOracleSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCafeOracleSchemaObjImportHandler cafeOracleSchemaObjImportHandler = null;
+	private YCFBamXmlLoaderCafePgSqlSchemaObjMembersHandler cafePgSqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCafePgSqlSchemaObjImplHandler cafePgSqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCafePgSqlSchemaObjImportHandler cafePgSqlSchemaObjImportHandler = null;
+	private YCFBamXmlLoaderCafeRamSchemaObjMembersHandler cafeRamSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCafeRamSchemaObjImplHandler cafeRamSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCafeRamSchemaObjImportHandler cafeRamSchemaObjImportHandler = null;
+	private YCFBamXmlLoaderCafeXMsgSchemaImportHandler cafeXMsgSchemaImportHandler = null;
+	private YCFBamXmlLoaderCafeXMsgSchemaFormattersHandler cafeXMsgSchemaFormattersHandler = null;
+	private YCFBamXmlLoaderCafeXMsgClientSchemaImportHandler cafeXMsgClientSchemaImportHandler = null;
+	private YCFBamXmlLoaderCafeXMsgClientSchemaBodyHandler cafeXMsgClientSchemaBodyHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRqstSchemaBodyHandler cafeXMsgRqstSchemaBodyHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRqstSchemaImportHandler cafeXMsgRqstSchemaImportHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRqstSchemaWireParsersHandler cafeXMsgRqstSchemaWireParsersHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRqstSchemaXsdElementListHandler cafeXMsgRqstSchemaXsdElementListHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRqstSchemaXsdSpecHandler cafeXMsgRqstSchemaXsdSpecHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRspnSchemaBodyHandler cafeXMsgRspnSchemaBodyHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRspnSchemaImportHandler cafeXMsgRspnSchemaImportHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRspnSchemaWireParsersHandler cafeXMsgRspnSchemaWireParsersHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRspnSchemaXsdElementListHandler cafeXMsgRspnSchemaXsdElementListHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRspnSchemaXsdSpecHandler cafeXMsgRspnSchemaXsdSpecHandler = null;
+	private YCFBamXmlLoaderCafeObjMembersHandler cafeObjMembersHandler = null;
+	private YCFBamXmlLoaderCafeObjInterfaceHandler cafeObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCafeObjImplementationHandler cafeObjImplementationHandler = null;
+	private YCFBamXmlLoaderCafeEditObjMembersHandler cafeEditObjMembersHandler = null;
+	private YCFBamXmlLoaderCafeEditObjInterfaceHandler cafeEditObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCafeEditObjImplementationHandler cafeEditObjImplementationHandler = null;
+	private YCFBamXmlLoaderCafeDb2LUWTableImportHandler cafeDb2LUWTableImportHandler = null;
+	private YCFBamXmlLoaderCafeMSSqlTableImportHandler cafeMSSqlTableImportHandler = null;
+	private YCFBamXmlLoaderCafeMySqlTableImportHandler cafeMySqlTableImportHandler = null;
+	private YCFBamXmlLoaderCafeOracleTableImportHandler cafeOracleTableImportHandler = null;
+	private YCFBamXmlLoaderCafePgSqlTableImportHandler cafePgSqlTableImportHandler = null;
+	private YCFBamXmlLoaderCafeRamTableImportHandler cafeRamTableImportHandler = null;
+	private YCFBamXmlLoaderCafeObjImportHandler cafeObjImportHandler = null;
+	private YCFBamXmlLoaderCafeEditObjImportHandler cafeEditObjImportHandler = null;
+	private YCFBamXmlLoaderCafeSaxLoaderImportHandler cafeSaxLoaderImportHandler = null;
+	private YCFBamXmlLoaderCafeTableImportHandler cafeTableImportHandler = null;
+	private YCFBamXmlLoaderCafeTableObjImportHandler cafeTableObjImportHandler = null;
+	private YCFBamXmlLoaderCafeTableMembersHandler cafeTableMembersHandler = null;
+	private YCFBamXmlLoaderCafeTableInterfaceHandler cafeTableInterfaceHandler = null;
+	private YCFBamXmlLoaderCafeTableImplementationHandler cafeTableImplementationHandler = null;
+	private YCFBamXmlLoaderCafeTableObjMembersHandler cafeTableObjMembersHandler = null;
+	private YCFBamXmlLoaderCafeTableObjInterfaceHandler cafeTableObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCafeTableObjImplementationHandler cafeTableObjImplementationHandler = null;
+	private YCFBamXmlLoaderCafeDb2LUWTableMembersHandler cafeDb2LUWTableMembersHandler = null;
+	private YCFBamXmlLoaderCafeDb2LUWTableImplementationHandler cafeDb2LUWTableImplementationHandler = null;
+	private YCFBamXmlLoaderCafeMSSqlTableMembersHandler cafeMSSqlTableMembersHandler = null;
+	private YCFBamXmlLoaderCafeMSSqlTableImplementationHandler cafeMSSqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderCafeMySqlTableMembersHandler cafeMySqlTableMembersHandler = null;
+	private YCFBamXmlLoaderCafeMySqlTableImplementationHandler cafeMySqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderCafeOracleTableMembersHandler cafeOracleTableMembersHandler = null;
+	private YCFBamXmlLoaderCafeOracleTableImplementationHandler cafeOracleTableImplementationHandler = null;
+	private YCFBamXmlLoaderCafePgSqlTableMembersHandler cafePgSqlTableMembersHandler = null;
+	private YCFBamXmlLoaderCafePgSqlTableImplementationHandler cafePgSqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderCafeRamTableMembersHandler cafeRamTableMembersHandler = null;
+	private YCFBamXmlLoaderCafeRamTableImplementationHandler cafeRamTableImplementationHandler = null;
+	private YCFBamXmlLoaderCafeSaxLoaderStartElementHandler cafeSaxLoaderStartElementHandler = null;
+	private YCFBamXmlLoaderCafeSaxLoaderEndElementHandler cafeSaxLoaderEndElementHandler = null;
+	private YCFBamXmlLoaderCafeXMsgTableImportHandler cafeXMsgTableImportHandler = null;
+	private YCFBamXmlLoaderCafeXMsgTableFormattersHandler cafeXMsgTableFormattersHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRqstTableImportHandler cafeXMsgRqstTableImportHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRspnTableImportHandler cafeXMsgRspnTableImportHandler = null;
+	private YCFBamXmlLoaderCafeXMsgClientTableImportHandler cafeXMsgClientTableImportHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRqstTableBodyHandler cafeXMsgRqstTableBodyHandler = null;
+	private YCFBamXmlLoaderCafeXMsgRspnTableBodyHandler cafeXMsgRspnTableBodyHandler = null;
+	private YCFBamXmlLoaderCafeXMsgClientTableBodyHandler cafeXMsgClientTableBodyHandler = null;
+	private YCFBamXmlLoaderCPlusMethodBodyHandler cplusMethodBodyHandler = null;
+	private YCFBamXmlLoaderCPlusSchemaObjInterfaceHandler cplusSchemaObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCPlusSchemaObjMembersHandler cplusSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusSchemaObjIncludeHandler cplusSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusSchemaObjImplementationHandler cplusSchemaObjImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusDb2LUWSchemaObjMembersHandler cplusDb2LUWSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusDb2LUWSchemaObjImplHandler cplusDb2LUWSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCPlusDb2LUWSchemaObjIncludeHandler cplusDb2LUWSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusMSSqlSchemaObjMembersHandler cplusMSSqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusMSSqlSchemaObjImplHandler cplusMSSqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCPlusMSSqlSchemaObjIncludeHandler cplusMSSqlSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusMySqlSchemaObjMembersHandler cplusMySqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusMySqlSchemaObjImplHandler cplusMySqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCPlusMySqlSchemaObjIncludeHandler cplusMySqlSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusOracleSchemaObjMembersHandler cplusOracleSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusOracleSchemaObjImplHandler cplusOracleSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCPlusOracleSchemaObjIncludeHandler cplusOracleSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusPgSqlSchemaObjMembersHandler cplusPgSqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusPgSqlSchemaObjImplHandler cplusPgSqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCPlusPgSqlSchemaObjIncludeHandler cplusPgSqlSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusRamSchemaObjMembersHandler cplusRamSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusRamSchemaObjImplHandler cplusRamSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCPlusRamSchemaObjIncludeHandler cplusRamSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgSchemaIncludeHandler cplusXMsgSchemaIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgSchemaFormattersHandler cplusXMsgSchemaFormattersHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgClientSchemaIncludeHandler cplusXMsgClientSchemaIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgClientSchemaBodyHandler cplusXMsgClientSchemaBodyHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRqstSchemaBodyHandler cplusXMsgRqstSchemaBodyHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRqstSchemaIncludeHandler cplusXMsgRqstSchemaIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRqstSchemaWireParsersHandler cplusXMsgRqstSchemaWireParsersHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRqstSchemaXsdElementListHandler cplusXMsgRqstSchemaXsdElementListHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRqstSchemaXsdSpecHandler cplusXMsgRqstSchemaXsdSpecHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRspnSchemaBodyHandler cplusXMsgRspnSchemaBodyHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRspnSchemaIncludeHandler cplusXMsgRspnSchemaIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRspnSchemaWireParsersHandler cplusXMsgRspnSchemaWireParsersHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRspnSchemaXsdElementListHandler cplusXMsgRspnSchemaXsdElementListHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRspnSchemaXsdSpecHandler cplusXMsgRspnSchemaXsdSpecHandler = null;
+	private YCFBamXmlLoaderCPlusObjMembersHandler cplusObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusObjInterfaceHandler cplusObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCPlusObjImplementationHandler cplusObjImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusEditObjMembersHandler cplusEditObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusEditObjInterfaceHandler cplusEditObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCPlusEditObjImplementationHandler cplusEditObjImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusDb2LUWTableIncludeHandler cplusDb2LUWTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusMSSqlTableIncludeHandler cplusMSSqlTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusMySqlTableIncludeHandler cplusMySqlTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusOracleTableIncludeHandler cplusOracleTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusPgSqlTableIncludeHandler cplusPgSqlTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusRamTableIncludeHandler cplusRamTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusObjIncludeHandler cplusObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusEditObjIncludeHandler cplusEditObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusSaxLoaderIncludeHandler cplusSaxLoaderIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusTableIncludeHandler cplusTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusTableObjIncludeHandler cplusTableObjIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusTableMembersHandler cplusTableMembersHandler = null;
+	private YCFBamXmlLoaderCPlusTableInterfaceHandler cplusTableInterfaceHandler = null;
+	private YCFBamXmlLoaderCPlusTableImplementationHandler cplusTableImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusTableObjMembersHandler cplusTableObjMembersHandler = null;
+	private YCFBamXmlLoaderCPlusTableObjInterfaceHandler cplusTableObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCPlusTableObjImplementationHandler cplusTableObjImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusDb2LUWTableMembersHandler cplusDb2LUWTableMembersHandler = null;
+	private YCFBamXmlLoaderCPlusDb2LUWTableImplementationHandler cplusDb2LUWTableImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusMSSqlTableMembersHandler cplusMSSqlTableMembersHandler = null;
+	private YCFBamXmlLoaderCPlusMSSqlTableImplementationHandler cplusMSSqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusMySqlTableMembersHandler cplusMySqlTableMembersHandler = null;
+	private YCFBamXmlLoaderCPlusMySqlTableImplementationHandler cplusMySqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusOracleTableMembersHandler cplusOracleTableMembersHandler = null;
+	private YCFBamXmlLoaderCPlusOracleTableImplementationHandler cplusOracleTableImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusPgSqlTableMembersHandler cplusPgSqlTableMembersHandler = null;
+	private YCFBamXmlLoaderCPlusPgSqlTableImplementationHandler cplusPgSqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusRamTableMembersHandler cplusRamTableMembersHandler = null;
+	private YCFBamXmlLoaderCPlusRamTableImplementationHandler cplusRamTableImplementationHandler = null;
+	private YCFBamXmlLoaderCPlusSaxLoaderStartElementHandler cplusSaxLoaderStartElementHandler = null;
+	private YCFBamXmlLoaderCPlusSaxLoaderEndElementHandler cplusSaxLoaderEndElementHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgTableIncludeHandler cplusXMsgTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgTableFormattersHandler cplusXMsgTableFormattersHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRqstTableIncludeHandler cplusXMsgRqstTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRspnTableIncludeHandler cplusXMsgRspnTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgClientTableIncludeHandler cplusXMsgClientTableIncludeHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRqstTableBodyHandler cplusXMsgRqstTableBodyHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgRspnTableBodyHandler cplusXMsgRspnTableBodyHandler = null;
+	private YCFBamXmlLoaderCPlusXMsgClientTableBodyHandler cplusXMsgClientTableBodyHandler = null;
+	private YCFBamXmlLoaderHPlusSchemaObjInterfaceHandler hplusSchemaObjInterfaceHandler = null;
+	private YCFBamXmlLoaderHPlusSchemaObjMembersHandler hplusSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusSchemaObjIncludeHandler hplusSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusSchemaObjImplementationHandler hplusSchemaObjImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusDb2LUWSchemaObjMembersHandler hplusDb2LUWSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusDb2LUWSchemaObjImplHandler hplusDb2LUWSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderHPlusDb2LUWSchemaObjIncludeHandler hplusDb2LUWSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusMSSqlSchemaObjMembersHandler hplusMSSqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusMSSqlSchemaObjImplHandler hplusMSSqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderHPlusMSSqlSchemaObjIncludeHandler hplusMSSqlSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusMySqlSchemaObjMembersHandler hplusMySqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusMySqlSchemaObjImplHandler hplusMySqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderHPlusMySqlSchemaObjIncludeHandler hplusMySqlSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusOracleSchemaObjMembersHandler hplusOracleSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusOracleSchemaObjImplHandler hplusOracleSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderHPlusOracleSchemaObjIncludeHandler hplusOracleSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusPgSqlSchemaObjMembersHandler hplusPgSqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusPgSqlSchemaObjImplHandler hplusPgSqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderHPlusPgSqlSchemaObjIncludeHandler hplusPgSqlSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusRamSchemaObjMembersHandler hplusRamSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusRamSchemaObjImplHandler hplusRamSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderHPlusRamSchemaObjIncludeHandler hplusRamSchemaObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgSchemaIncludeHandler hplusXMsgSchemaIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgSchemaFormattersHandler hplusXMsgSchemaFormattersHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgClientSchemaIncludeHandler hplusXMsgClientSchemaIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgClientSchemaBodyHandler hplusXMsgClientSchemaBodyHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRqstSchemaBodyHandler hplusXMsgRqstSchemaBodyHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRqstSchemaIncludeHandler hplusXMsgRqstSchemaIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRqstSchemaWireParsersHandler hplusXMsgRqstSchemaWireParsersHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRqstSchemaXsdElementListHandler hplusXMsgRqstSchemaXsdElementListHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRqstSchemaXsdSpecHandler hplusXMsgRqstSchemaXsdSpecHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRspnSchemaBodyHandler hplusXMsgRspnSchemaBodyHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRspnSchemaIncludeHandler hplusXMsgRspnSchemaIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRspnSchemaWireParsersHandler hplusXMsgRspnSchemaWireParsersHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRspnSchemaXsdElementListHandler hplusXMsgRspnSchemaXsdElementListHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRspnSchemaXsdSpecHandler hplusXMsgRspnSchemaXsdSpecHandler = null;
+	private YCFBamXmlLoaderHPlusObjMembersHandler hplusObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusObjInterfaceHandler hplusObjInterfaceHandler = null;
+	private YCFBamXmlLoaderHPlusObjImplementationHandler hplusObjImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusEditObjMembersHandler hplusEditObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusEditObjInterfaceHandler hplusEditObjInterfaceHandler = null;
+	private YCFBamXmlLoaderHPlusEditObjImplementationHandler hplusEditObjImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusDb2LUWTableIncludeHandler hplusDb2LUWTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusMSSqlTableIncludeHandler hplusMSSqlTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusMySqlTableIncludeHandler hplusMySqlTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusOracleTableIncludeHandler hplusOracleTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusPgSqlTableIncludeHandler hplusPgSqlTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusRamTableIncludeHandler hplusRamTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusObjIncludeHandler hplusObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusEditObjIncludeHandler hplusEditObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusSaxLoaderIncludeHandler hplusSaxLoaderIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusTableIncludeHandler hplusTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusTableObjIncludeHandler hplusTableObjIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusTableMembersHandler hplusTableMembersHandler = null;
+	private YCFBamXmlLoaderHPlusTableInterfaceHandler hplusTableInterfaceHandler = null;
+	private YCFBamXmlLoaderHPlusTableImplementationHandler hplusTableImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusTableObjMembersHandler hplusTableObjMembersHandler = null;
+	private YCFBamXmlLoaderHPlusTableObjInterfaceHandler hplusTableObjInterfaceHandler = null;
+	private YCFBamXmlLoaderHPlusTableObjImplementationHandler hplusTableObjImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusDb2LUWTableMembersHandler hplusDb2LUWTableMembersHandler = null;
+	private YCFBamXmlLoaderHPlusDb2LUWTableImplementationHandler hplusDb2LUWTableImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusMSSqlTableMembersHandler hplusMSSqlTableMembersHandler = null;
+	private YCFBamXmlLoaderHPlusMSSqlTableImplementationHandler hplusMSSqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusMySqlTableMembersHandler hplusMySqlTableMembersHandler = null;
+	private YCFBamXmlLoaderHPlusMySqlTableImplementationHandler hplusMySqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusOracleTableMembersHandler hplusOracleTableMembersHandler = null;
+	private YCFBamXmlLoaderHPlusOracleTableImplementationHandler hplusOracleTableImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusPgSqlTableMembersHandler hplusPgSqlTableMembersHandler = null;
+	private YCFBamXmlLoaderHPlusPgSqlTableImplementationHandler hplusPgSqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusRamTableMembersHandler hplusRamTableMembersHandler = null;
+	private YCFBamXmlLoaderHPlusRamTableImplementationHandler hplusRamTableImplementationHandler = null;
+	private YCFBamXmlLoaderHPlusSaxLoaderStartElementHandler hplusSaxLoaderStartElementHandler = null;
+	private YCFBamXmlLoaderHPlusSaxLoaderEndElementHandler hplusSaxLoaderEndElementHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgTableIncludeHandler hplusXMsgTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgTableFormattersHandler hplusXMsgTableFormattersHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRqstTableIncludeHandler hplusXMsgRqstTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRspnTableIncludeHandler hplusXMsgRspnTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgClientTableIncludeHandler hplusXMsgClientTableIncludeHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRqstTableBodyHandler hplusXMsgRqstTableBodyHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgRspnTableBodyHandler hplusXMsgRspnTableBodyHandler = null;
+	private YCFBamXmlLoaderHPlusXMsgClientTableBodyHandler hplusXMsgClientTableBodyHandler = null;
+	private YCFBamXmlLoaderCSharpMethodBodyHandler csharpMethodBodyHandler = null;
+	private YCFBamXmlLoaderCSharpSchemaObjInterfaceHandler csharpSchemaObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCSharpSchemaObjMembersHandler csharpSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpSchemaObjUsingHandler csharpSchemaObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpSchemaObjImplementationHandler csharpSchemaObjImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpDb2LUWSchemaObjMembersHandler csharpDb2LUWSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpDb2LUWSchemaObjImplHandler csharpDb2LUWSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCSharpDb2LUWSchemaObjUsingHandler csharpDb2LUWSchemaObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpMSSqlSchemaObjMembersHandler csharpMSSqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpMSSqlSchemaObjImplHandler csharpMSSqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCSharpMSSqlSchemaObjUsingHandler csharpMSSqlSchemaObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpMySqlSchemaObjMembersHandler csharpMySqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpMySqlSchemaObjImplHandler csharpMySqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCSharpMySqlSchemaObjUsingHandler csharpMySqlSchemaObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpOracleSchemaObjMembersHandler csharpOracleSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpOracleSchemaObjImplHandler csharpOracleSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCSharpOracleSchemaObjUsingHandler csharpOracleSchemaObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpPgSqlSchemaObjMembersHandler csharpPgSqlSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpPgSqlSchemaObjImplHandler csharpPgSqlSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCSharpPgSqlSchemaObjUsingHandler csharpPgSqlSchemaObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpRamSchemaObjMembersHandler csharpRamSchemaObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpRamSchemaObjImplHandler csharpRamSchemaObjImplHandler = null;
+	private YCFBamXmlLoaderCSharpRamSchemaObjUsingHandler csharpRamSchemaObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgSchemaUsingHandler csharpXMsgSchemaUsingHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgSchemaFormattersHandler csharpXMsgSchemaFormattersHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgClientSchemaUsingHandler csharpXMsgClientSchemaUsingHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgClientSchemaBodyHandler csharpXMsgClientSchemaBodyHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRqstSchemaBodyHandler csharpXMsgRqstSchemaBodyHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRqstSchemaUsingHandler csharpXMsgRqstSchemaUsingHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRqstSchemaWireParsersHandler csharpXMsgRqstSchemaWireParsersHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRqstSchemaXsdElementListHandler csharpXMsgRqstSchemaXsdElementListHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRqstSchemaXsdSpecHandler csharpXMsgRqstSchemaXsdSpecHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRspnSchemaBodyHandler csharpXMsgRspnSchemaBodyHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRspnSchemaUsingHandler csharpXMsgRspnSchemaUsingHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRspnSchemaWireParsersHandler csharpXMsgRspnSchemaWireParsersHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRspnSchemaXsdElementListHandler csharpXMsgRspnSchemaXsdElementListHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRspnSchemaXsdSpecHandler csharpXMsgRspnSchemaXsdSpecHandler = null;
+	private YCFBamXmlLoaderCSharpObjMembersHandler csharpObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpObjInterfaceHandler csharpObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCSharpObjImplementationHandler csharpObjImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpEditObjMembersHandler csharpEditObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpEditObjInterfaceHandler csharpEditObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCSharpEditObjImplementationHandler csharpEditObjImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpDb2LUWTableUsingHandler csharpDb2LUWTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpMSSqlTableUsingHandler csharpMSSqlTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpMySqlTableUsingHandler csharpMySqlTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpOracleTableUsingHandler csharpOracleTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpPgSqlTableUsingHandler csharpPgSqlTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpRamTableUsingHandler csharpRamTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpObjUsingHandler csharpObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpEditObjUsingHandler csharpEditObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpSaxLoaderUsingHandler csharpSaxLoaderUsingHandler = null;
+	private YCFBamXmlLoaderCSharpTableUsingHandler csharpTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpTableObjUsingHandler csharpTableObjUsingHandler = null;
+	private YCFBamXmlLoaderCSharpTableMembersHandler csharpTableMembersHandler = null;
+	private YCFBamXmlLoaderCSharpTableInterfaceHandler csharpTableInterfaceHandler = null;
+	private YCFBamXmlLoaderCSharpTableImplementationHandler csharpTableImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpTableObjMembersHandler csharpTableObjMembersHandler = null;
+	private YCFBamXmlLoaderCSharpTableObjInterfaceHandler csharpTableObjInterfaceHandler = null;
+	private YCFBamXmlLoaderCSharpTableObjImplementationHandler csharpTableObjImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpDb2LUWTableMembersHandler csharpDb2LUWTableMembersHandler = null;
+	private YCFBamXmlLoaderCSharpDb2LUWTableImplementationHandler csharpDb2LUWTableImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpMSSqlTableMembersHandler csharpMSSqlTableMembersHandler = null;
+	private YCFBamXmlLoaderCSharpMSSqlTableImplementationHandler csharpMSSqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpMySqlTableMembersHandler csharpMySqlTableMembersHandler = null;
+	private YCFBamXmlLoaderCSharpMySqlTableImplementationHandler csharpMySqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpOracleTableMembersHandler csharpOracleTableMembersHandler = null;
+	private YCFBamXmlLoaderCSharpOracleTableImplementationHandler csharpOracleTableImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpPgSqlTableMembersHandler csharpPgSqlTableMembersHandler = null;
+	private YCFBamXmlLoaderCSharpPgSqlTableImplementationHandler csharpPgSqlTableImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpRamTableMembersHandler csharpRamTableMembersHandler = null;
+	private YCFBamXmlLoaderCSharpRamTableImplementationHandler csharpRamTableImplementationHandler = null;
+	private YCFBamXmlLoaderCSharpSaxLoaderStartElementHandler csharpSaxLoaderStartElementHandler = null;
+	private YCFBamXmlLoaderCSharpSaxLoaderEndElementHandler csharpSaxLoaderEndElementHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgTableUsingHandler csharpXMsgTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgTableFormattersHandler csharpXMsgTableFormattersHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRqstTableUsingHandler csharpXMsgRqstTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRspnTableUsingHandler csharpXMsgRspnTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgClientTableUsingHandler csharpXMsgClientTableUsingHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRqstTableBodyHandler csharpXMsgRqstTableBodyHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgRspnTableBodyHandler csharpXMsgRspnTableBodyHandler = null;
+	private YCFBamXmlLoaderCSharpXMsgClientTableBodyHandler csharpXMsgClientTableBodyHandler = null;
+	private YCFBamXmlLoaderLicenseHandler licenseHandler = null;
+	private YCFBamXmlLoaderMajorVersionHandler majorVersionHandler = null;
+	private YCFBamXmlLoaderMinorVersionHandler minorVersionHandler = null;
+	private YCFBamXmlLoaderNmTokenColHandler nmTokenColHandler = null;
+	private YCFBamXmlLoaderNmTokenTypeHandler nmTokenTypeHandler = null;
+	private YCFBamXmlLoaderNmTokensColHandler nmTokensColHandler = null;
+	private YCFBamXmlLoaderNmTokensTypeHandler nmTokensTypeHandler = null;
+	private YCFBamXmlLoaderNumberColHandler numberColHandler = null;
+	private YCFBamXmlLoaderNumberTypeHandler numberTypeHandler = null;
+	private YCFBamXmlLoaderParamHandler paramHandler = null;
+	private YCFBamXmlLoaderPrimaryIndexHandler primaryIndexHandler = null;
+	private YCFBamXmlLoaderRelationHandler relationHandler = null;
+	private YCFBamXmlLoaderRelationColHandler relationColHandler = null;
+	private YCFBamXmlLoaderSchemaDefHandler schemaDefHandler = null;
+	private YCFBamXmlLoaderSchemaRefHandler schemaRefHandler = null;
+	private YCFBamXmlLoaderSchemaRoleHandler schemaRoleHandler = null;
+	private YCFBamXmlLoaderSchemaTweakHandler schemaTweakHandler = null;
+	private YCFBamXmlLoaderServerListFuncHandler serverListFuncHandler = null;
+	private YCFBamXmlLoaderServerObjFuncHandler serverObjFuncHandler = null;
+	private YCFBamXmlLoaderServerProcHandler serverProcHandler = null;
+	private YCFBamXmlLoaderSuperClassRelationHandler superClassRelationHandler = null;
+	private YCFBamXmlLoaderStringColHandler stringColHandler = null;
+	private YCFBamXmlLoaderStringTypeHandler stringTypeHandler = null;
+	private YCFBamXmlLoaderSubProjectHandler subProjectHandler = null;
+	private YCFBamXmlLoaderTZDateColHandler tZDateColHandler = null;
+	private YCFBamXmlLoaderTZDateTypeHandler tZDateTypeHandler = null;
+	private YCFBamXmlLoaderTZTimeColHandler tZTimeColHandler = null;
+	private YCFBamXmlLoaderTZTimeTypeHandler tZTimeTypeHandler = null;
+	private YCFBamXmlLoaderTZTimestampColHandler tZTimestampColHandler = null;
+	private YCFBamXmlLoaderTZTimestampTypeHandler tZTimestampTypeHandler = null;
+	private YCFBamXmlLoaderTableHandler tableHandler = null;
+	private YCFBamXmlLoaderTableAddendumHandler tableAddendumHandler = null;
+	private YCFBamXmlLoaderTableColHandler tableColHandler = null;
+	private YCFBamXmlLoaderTableTweakHandler tableTweakHandler = null;
+	private YCFBamXmlLoaderTextColHandler textColHandler = null;
+	private YCFBamXmlLoaderTextTypeHandler textTypeHandler = null;
+	private YCFBamXmlLoaderTimeColHandler timeColHandler = null;
+	private YCFBamXmlLoaderTimeTypeHandler timeTypeHandler = null;
+	private YCFBamXmlLoaderTimestampColHandler timestampColHandler = null;
+	private YCFBamXmlLoaderTimestampTypeHandler timestampTypeHandler = null;
+	private YCFBamXmlLoaderTldHandler tldHandler = null;
+	private YCFBamXmlLoaderTokenColHandler tokenColHandler = null;
+	private YCFBamXmlLoaderTokenTypeHandler tokenTypeHandler = null;
+	private YCFBamXmlLoaderTopDomainHandler topDomainHandler = null;
+	private YCFBamXmlLoaderTopProjectHandler topProjectHandler = null;
+	private YCFBamXmlLoaderUInt16ColHandler uInt16ColHandler = null;
+	private YCFBamXmlLoaderUInt16TypeHandler uInt16TypeHandler = null;
+	private YCFBamXmlLoaderUInt32ColHandler uInt32ColHandler = null;
+	private YCFBamXmlLoaderUInt32TypeHandler uInt32TypeHandler = null;
+	private YCFBamXmlLoaderUInt64ColHandler uInt64ColHandler = null;
+	private YCFBamXmlLoaderUInt64TypeHandler uInt64TypeHandler = null;
+	private YCFBamXmlLoaderUuidColHandler uuidColHandler = null;
+	private YCFBamXmlLoaderUuidGenHandler uuidGenHandler = null;
+	private YCFBamXmlLoaderUuidTypeHandler uuidTypeHandler = null;
+	private YCFBamXmlLoaderUuid6ColHandler uuid6ColHandler = null;
+	private YCFBamXmlLoaderUuid6GenHandler uuid6GenHandler = null;
+	private YCFBamXmlLoaderUuid6TypeHandler uuid6TypeHandler = null;
+	private YCFBamXmlLoaderDbKeyHash128ColHandler dbKeyHash128ColHandler = null;
+	private YCFBamXmlLoaderDbKeyHash128GenHandler dbKeyHash128GenHandler = null;
+	private YCFBamXmlLoaderDbKeyHash128TypeHandler dbKeyHash128TypeHandler = null;
+	private YCFBamXmlLoaderDbKeyHash160ColHandler dbKeyHash160ColHandler = null;
+	private YCFBamXmlLoaderDbKeyHash160GenHandler dbKeyHash160GenHandler = null;
+	private YCFBamXmlLoaderDbKeyHash160TypeHandler dbKeyHash160TypeHandler = null;
+	private YCFBamXmlLoaderDbKeyHash224ColHandler dbKeyHash224ColHandler = null;
+	private YCFBamXmlLoaderDbKeyHash224GenHandler dbKeyHash224GenHandler = null;
+	private YCFBamXmlLoaderDbKeyHash224TypeHandler dbKeyHash224TypeHandler = null;
+	private YCFBamXmlLoaderDbKeyHash256ColHandler dbKeyHash256ColHandler = null;
+	private YCFBamXmlLoaderDbKeyHash256GenHandler dbKeyHash256GenHandler = null;
+	private YCFBamXmlLoaderDbKeyHash256TypeHandler dbKeyHash256TypeHandler = null;
+	private YCFBamXmlLoaderDbKeyHash384ColHandler dbKeyHash384ColHandler = null;
+	private YCFBamXmlLoaderDbKeyHash384GenHandler dbKeyHash384GenHandler = null;
+	private YCFBamXmlLoaderDbKeyHash384TypeHandler dbKeyHash384TypeHandler = null;
+	private YCFBamXmlLoaderDbKeyHash512ColHandler dbKeyHash512ColHandler = null;
+	private YCFBamXmlLoaderDbKeyHash512GenHandler dbKeyHash512GenHandler = null;
+	private YCFBamXmlLoaderDbKeyHash512TypeHandler dbKeyHash512TypeHandler = null;
+	private YCFBamSaxRootHandler saxRootHandler = null;
 
-	private CFBamSaxDocHandler saxDocHandler = null;
+	private YCFBamSaxDocHandler saxDocHandler = null;
 
 	// Schema object accessors
 
 	// SchemaObj accessors
 
-	public ICFBamSchemaObj getSchemaObj() {
+	public IYCFBamSchemaObj getSchemaObj() {
 		return( schemaObj );
 	}
 
-	public void setSchemaObj( ICFBamSchemaObj value ) {
+	public void setSchemaObj( IYCFBamSchemaObj value ) {
 		schemaObj = value;
 	}
 
 	// Element Handler Resolver Factories
 
-	protected CFBamXmlLoaderCommonLicenseHandler getCommonLicenseHandler() {
+	protected YCFBamXmlLoaderCommonLicenseHandler getCommonLicenseHandler() {
 		if( commonLicenseHandler == null ) {
-			commonLicenseHandler = new CFBamXmlLoaderCommonLicenseHandler( this );
+			commonLicenseHandler = new YCFBamXmlLoaderCommonLicenseHandler( this );
 		}
 		return( commonLicenseHandler );
 	}
 
-	protected CFBamXmlLoaderClientImplLicenseHandler getClientImplLicenseHandler() {
+	protected YCFBamXmlLoaderClientImplLicenseHandler getClientImplLicenseHandler() {
 		if( clientImplLicenseHandler == null ) {
-			clientImplLicenseHandler = new CFBamXmlLoaderClientImplLicenseHandler( this );
+			clientImplLicenseHandler = new YCFBamXmlLoaderClientImplLicenseHandler( this );
 		}
 		return( clientImplLicenseHandler );
 	}
 
-	protected CFBamXmlLoaderClientXFaceLicenseHandler getClientXFaceLicenseHandler() {
+	protected YCFBamXmlLoaderClientXFaceLicenseHandler getClientXFaceLicenseHandler() {
 		if( clientXFaceLicenseHandler == null ) {
-			clientXFaceLicenseHandler = new CFBamXmlLoaderClientXFaceLicenseHandler( this );
+			clientXFaceLicenseHandler = new YCFBamXmlLoaderClientXFaceLicenseHandler( this );
 		}
 		return( clientXFaceLicenseHandler );
 	}
 
-	protected CFBamXmlLoaderServerImplLicenseHandler getServerImplLicenseHandler() {
+	protected YCFBamXmlLoaderServerImplLicenseHandler getServerImplLicenseHandler() {
 		if( serverImplLicenseHandler == null ) {
-			serverImplLicenseHandler = new CFBamXmlLoaderServerImplLicenseHandler( this );
+			serverImplLicenseHandler = new YCFBamXmlLoaderServerImplLicenseHandler( this );
 		}
 		return( serverImplLicenseHandler );
 	}
 
-	protected CFBamXmlLoaderServerXFaceLicenseHandler getServerXFaceLicenseHandler() {
+	protected YCFBamXmlLoaderServerXFaceLicenseHandler getServerXFaceLicenseHandler() {
 		if( serverXFaceLicenseHandler == null ) {
-			serverXFaceLicenseHandler = new CFBamXmlLoaderServerXFaceLicenseHandler( this );
+			serverXFaceLicenseHandler = new YCFBamXmlLoaderServerXFaceLicenseHandler( this );
 		}
 		return( serverXFaceLicenseHandler );
 	}
 
-	protected CFBamXmlLoaderBlobColHandler getBlobColHandler() {
+	protected YCFBamXmlLoaderBlobColHandler getBlobColHandler() {
 		if( blobColHandler == null ) {
-			blobColHandler = new CFBamXmlLoaderBlobColHandler( this );
+			blobColHandler = new YCFBamXmlLoaderBlobColHandler( this );
 		}
 		return( blobColHandler );
 	}
 
-	protected CFBamXmlLoaderBlobTypeHandler getBlobTypeHandler() {
+	protected YCFBamXmlLoaderBlobTypeHandler getBlobTypeHandler() {
 		if( blobTypeHandler == null ) {
-			blobTypeHandler = new CFBamXmlLoaderBlobTypeHandler( this );
+			blobTypeHandler = new YCFBamXmlLoaderBlobTypeHandler( this );
 		}
 		return( blobTypeHandler );
 	}
 
-	protected CFBamXmlLoaderBoolColHandler getBoolColHandler() {
+	protected YCFBamXmlLoaderBoolColHandler getBoolColHandler() {
 		if( boolColHandler == null ) {
-			boolColHandler = new CFBamXmlLoaderBoolColHandler( this );
+			boolColHandler = new YCFBamXmlLoaderBoolColHandler( this );
 		}
 		return( boolColHandler );
 	}
 
-	protected CFBamXmlLoaderBoolTypeHandler getBoolTypeHandler() {
+	protected YCFBamXmlLoaderBoolTypeHandler getBoolTypeHandler() {
 		if( boolTypeHandler == null ) {
-			boolTypeHandler = new CFBamXmlLoaderBoolTypeHandler( this );
+			boolTypeHandler = new YCFBamXmlLoaderBoolTypeHandler( this );
 		}
 		return( boolTypeHandler );
 	}
 
-	protected CFBamXmlLoaderChainHandler getChainHandler() {
+	protected YCFBamXmlLoaderChainHandler getChainHandler() {
 		if( chainHandler == null ) {
-			chainHandler = new CFBamXmlLoaderChainHandler( this );
+			chainHandler = new YCFBamXmlLoaderChainHandler( this );
 		}
 		return( chainHandler );
 	}
 
-	protected CFBamXmlLoaderClearDepHandler getClearDepHandler() {
+	protected YCFBamXmlLoaderClearDepHandler getClearDepHandler() {
 		if( clearDepHandler == null ) {
-			clearDepHandler = new CFBamXmlLoaderClearDepHandler( this );
+			clearDepHandler = new YCFBamXmlLoaderClearDepHandler( this );
 		}
 		return( clearDepHandler );
 	}
 
-	protected CFBamXmlLoaderDateColHandler getDateColHandler() {
+	protected YCFBamXmlLoaderDateColHandler getDateColHandler() {
 		if( dateColHandler == null ) {
-			dateColHandler = new CFBamXmlLoaderDateColHandler( this );
+			dateColHandler = new YCFBamXmlLoaderDateColHandler( this );
 		}
 		return( dateColHandler );
 	}
 
-	protected CFBamXmlLoaderDateTypeHandler getDateTypeHandler() {
+	protected YCFBamXmlLoaderDateTypeHandler getDateTypeHandler() {
 		if( dateTypeHandler == null ) {
-			dateTypeHandler = new CFBamXmlLoaderDateTypeHandler( this );
+			dateTypeHandler = new YCFBamXmlLoaderDateTypeHandler( this );
 		}
 		return( dateTypeHandler );
 	}
 
-	protected CFBamXmlLoaderDelDepHandler getDelDepHandler() {
+	protected YCFBamXmlLoaderDelDepHandler getDelDepHandler() {
 		if( delDepHandler == null ) {
-			delDepHandler = new CFBamXmlLoaderDelDepHandler( this );
+			delDepHandler = new YCFBamXmlLoaderDelDepHandler( this );
 		}
 		return( delDepHandler );
 	}
 
-	protected CFBamXmlLoaderDoubleColHandler getDoubleColHandler() {
+	protected YCFBamXmlLoaderDoubleColHandler getDoubleColHandler() {
 		if( doubleColHandler == null ) {
-			doubleColHandler = new CFBamXmlLoaderDoubleColHandler( this );
+			doubleColHandler = new YCFBamXmlLoaderDoubleColHandler( this );
 		}
 		return( doubleColHandler );
 	}
 
-	protected CFBamXmlLoaderDoubleTypeHandler getDoubleTypeHandler() {
+	protected YCFBamXmlLoaderDoubleTypeHandler getDoubleTypeHandler() {
 		if( doubleTypeHandler == null ) {
-			doubleTypeHandler = new CFBamXmlLoaderDoubleTypeHandler( this );
+			doubleTypeHandler = new YCFBamXmlLoaderDoubleTypeHandler( this );
 		}
 		return( doubleTypeHandler );
 	}
 
-	protected CFBamXmlLoaderEnumTagHandler getEnumTagHandler() {
+	protected YCFBamXmlLoaderEnumTagHandler getEnumTagHandler() {
 		if( enumTagHandler == null ) {
-			enumTagHandler = new CFBamXmlLoaderEnumTagHandler( this );
+			enumTagHandler = new YCFBamXmlLoaderEnumTagHandler( this );
 		}
 		return( enumTagHandler );
 	}
 
-	protected CFBamXmlLoaderEnumTypeHandler getEnumTypeHandler() {
+	protected YCFBamXmlLoaderEnumTypeHandler getEnumTypeHandler() {
 		if( enumTypeHandler == null ) {
-			enumTypeHandler = new CFBamXmlLoaderEnumTypeHandler( this );
+			enumTypeHandler = new YCFBamXmlLoaderEnumTypeHandler( this );
 			enumTypeHandler.addElementHandler( "EnumTag", getEnumTagHandler() );
 		}
 		return( enumTypeHandler );
 	}
 
-	protected CFBamXmlLoaderFloatColHandler getFloatColHandler() {
+	protected YCFBamXmlLoaderFloatColHandler getFloatColHandler() {
 		if( floatColHandler == null ) {
-			floatColHandler = new CFBamXmlLoaderFloatColHandler( this );
+			floatColHandler = new YCFBamXmlLoaderFloatColHandler( this );
 		}
 		return( floatColHandler );
 	}
 
-	protected CFBamXmlLoaderFloatTypeHandler getFloatTypeHandler() {
+	protected YCFBamXmlLoaderFloatTypeHandler getFloatTypeHandler() {
 		if( floatTypeHandler == null ) {
-			floatTypeHandler = new CFBamXmlLoaderFloatTypeHandler( this );
+			floatTypeHandler = new YCFBamXmlLoaderFloatTypeHandler( this );
 		}
 		return( floatTypeHandler );
 	}
 
-	protected CFBamXmlLoaderId16GenHandler getId16GenHandler() {
+	protected YCFBamXmlLoaderId16GenHandler getId16GenHandler() {
 		if( id16GenHandler == null ) {
-			id16GenHandler = new CFBamXmlLoaderId16GenHandler( this );
+			id16GenHandler = new YCFBamXmlLoaderId16GenHandler( this );
 		}
 		return( id16GenHandler );
 	}
 
-	protected CFBamXmlLoaderId32GenHandler getId32GenHandler() {
+	protected YCFBamXmlLoaderId32GenHandler getId32GenHandler() {
 		if( id32GenHandler == null ) {
-			id32GenHandler = new CFBamXmlLoaderId32GenHandler( this );
+			id32GenHandler = new YCFBamXmlLoaderId32GenHandler( this );
 		}
 		return( id32GenHandler );
 	}
 
-	protected CFBamXmlLoaderId64GenHandler getId64GenHandler() {
+	protected YCFBamXmlLoaderId64GenHandler getId64GenHandler() {
 		if( id64GenHandler == null ) {
-			id64GenHandler = new CFBamXmlLoaderId64GenHandler( this );
+			id64GenHandler = new YCFBamXmlLoaderId64GenHandler( this );
 		}
 		return( id64GenHandler );
 	}
 
-	protected CFBamXmlLoaderIndexHandler getIndexHandler() {
+	protected YCFBamXmlLoaderIndexHandler getIndexHandler() {
 		if( indexHandler == null ) {
-			indexHandler = new CFBamXmlLoaderIndexHandler( this );
+			indexHandler = new YCFBamXmlLoaderIndexHandler( this );
 			indexHandler.addElementHandler( "IndexCol", getIndexColHandler() );
 			indexHandler.addElementHandler( "IndexTweak", getIndexTweakHandler() );
 		}
 		return( indexHandler );
 	}
 
-	protected CFBamXmlLoaderIndexTweakHandler getIndexTweakHandler() {
+	protected YCFBamXmlLoaderIndexTweakHandler getIndexTweakHandler() {
 		if( indexTweakHandler == null ) {
-			indexTweakHandler = new CFBamXmlLoaderIndexTweakHandler( this );
+			indexTweakHandler = new YCFBamXmlLoaderIndexTweakHandler( this );
 		}
 		return( indexTweakHandler );
 	}
 
-	protected CFBamXmlLoaderIndexColHandler getIndexColHandler() {
+	protected YCFBamXmlLoaderIndexColHandler getIndexColHandler() {
 		if( indexColHandler == null ) {
-			indexColHandler = new CFBamXmlLoaderIndexColHandler( this );
+			indexColHandler = new YCFBamXmlLoaderIndexColHandler( this );
 		}
 		return( indexColHandler );
 	}
 
-	protected CFBamXmlLoaderInt16ColHandler getInt16ColHandler() {
+	protected YCFBamXmlLoaderInt16ColHandler getInt16ColHandler() {
 		if( int16ColHandler == null ) {
-			int16ColHandler = new CFBamXmlLoaderInt16ColHandler( this );
+			int16ColHandler = new YCFBamXmlLoaderInt16ColHandler( this );
 		}
 		return( int16ColHandler );
 	}
 
-	protected CFBamXmlLoaderInt16TypeHandler getInt16TypeHandler() {
+	protected YCFBamXmlLoaderInt16TypeHandler getInt16TypeHandler() {
 		if( int16TypeHandler == null ) {
-			int16TypeHandler = new CFBamXmlLoaderInt16TypeHandler( this );
+			int16TypeHandler = new YCFBamXmlLoaderInt16TypeHandler( this );
 		}
 		return( int16TypeHandler );
 	}
 
-	protected CFBamXmlLoaderInt32ColHandler getInt32ColHandler() {
+	protected YCFBamXmlLoaderInt32ColHandler getInt32ColHandler() {
 		if( int32ColHandler == null ) {
-			int32ColHandler = new CFBamXmlLoaderInt32ColHandler( this );
+			int32ColHandler = new YCFBamXmlLoaderInt32ColHandler( this );
 		}
 		return( int32ColHandler );
 	}
 
-	protected CFBamXmlLoaderInt32TypeHandler getInt32TypeHandler() {
+	protected YCFBamXmlLoaderInt32TypeHandler getInt32TypeHandler() {
 		if( int32TypeHandler == null ) {
-			int32TypeHandler = new CFBamXmlLoaderInt32TypeHandler( this );
+			int32TypeHandler = new YCFBamXmlLoaderInt32TypeHandler( this );
 		}
 		return( int32TypeHandler );
 	}
 
-	protected CFBamXmlLoaderInt64ColHandler getInt64ColHandler() {
+	protected YCFBamXmlLoaderInt64ColHandler getInt64ColHandler() {
 		if( int64ColHandler == null ) {
-			int64ColHandler = new CFBamXmlLoaderInt64ColHandler( this );
+			int64ColHandler = new YCFBamXmlLoaderInt64ColHandler( this );
 		}
 		return( int64ColHandler );
 	}
 
-	protected CFBamXmlLoaderInt64TypeHandler getInt64TypeHandler() {
+	protected YCFBamXmlLoaderInt64TypeHandler getInt64TypeHandler() {
 		if( int64TypeHandler == null ) {
-			int64TypeHandler = new CFBamXmlLoaderInt64TypeHandler( this );
+			int64TypeHandler = new YCFBamXmlLoaderInt64TypeHandler( this );
 		}
 		return( int64TypeHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMethodBodyHandler getCafeMethodBodyHandler() {
+	protected YCFBamXmlLoaderCafeMethodBodyHandler getCafeMethodBodyHandler() {
 		if( cafeMethodBodyHandler == null ) {
-			cafeMethodBodyHandler = new CFBamXmlLoaderCafeMethodBodyHandler( this );
+			cafeMethodBodyHandler = new YCFBamXmlLoaderCafeMethodBodyHandler( this );
 		}
 		return( cafeMethodBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCafeSchemaObjInterfaceHandler getCafeSchemaObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCafeSchemaObjInterfaceHandler getCafeSchemaObjInterfaceHandler() {
 		if( cafeSchemaObjInterfaceHandler == null ) {
-			cafeSchemaObjInterfaceHandler = new CFBamXmlLoaderCafeSchemaObjInterfaceHandler( this );
+			cafeSchemaObjInterfaceHandler = new YCFBamXmlLoaderCafeSchemaObjInterfaceHandler( this );
 		}
 		return( cafeSchemaObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCafeSchemaObjMembersHandler getCafeSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCafeSchemaObjMembersHandler getCafeSchemaObjMembersHandler() {
 		if( cafeSchemaObjMembersHandler == null ) {
-			cafeSchemaObjMembersHandler = new CFBamXmlLoaderCafeSchemaObjMembersHandler( this );
+			cafeSchemaObjMembersHandler = new YCFBamXmlLoaderCafeSchemaObjMembersHandler( this );
 		}
 		return( cafeSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeSchemaObjImportHandler getCafeSchemaObjImportHandler() {
+	protected YCFBamXmlLoaderCafeSchemaObjImportHandler getCafeSchemaObjImportHandler() {
 		if( cafeSchemaObjImportHandler == null ) {
-			cafeSchemaObjImportHandler = new CFBamXmlLoaderCafeSchemaObjImportHandler( this );
+			cafeSchemaObjImportHandler = new YCFBamXmlLoaderCafeSchemaObjImportHandler( this );
 		}
 		return( cafeSchemaObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeSchemaObjImplementationHandler getCafeSchemaObjImplementationHandler() {
+	protected YCFBamXmlLoaderCafeSchemaObjImplementationHandler getCafeSchemaObjImplementationHandler() {
 		if( cafeSchemaObjImplementationHandler == null ) {
-			cafeSchemaObjImplementationHandler = new CFBamXmlLoaderCafeSchemaObjImplementationHandler( this );
+			cafeSchemaObjImplementationHandler = new YCFBamXmlLoaderCafeSchemaObjImplementationHandler( this );
 		}
 		return( cafeSchemaObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeDb2LUWSchemaObjMembersHandler getCafeDb2LUWSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCafeDb2LUWSchemaObjMembersHandler getCafeDb2LUWSchemaObjMembersHandler() {
 		if( cafeDb2LUWSchemaObjMembersHandler == null ) {
-			cafeDb2LUWSchemaObjMembersHandler = new CFBamXmlLoaderCafeDb2LUWSchemaObjMembersHandler( this );
+			cafeDb2LUWSchemaObjMembersHandler = new YCFBamXmlLoaderCafeDb2LUWSchemaObjMembersHandler( this );
 		}
 		return( cafeDb2LUWSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeDb2LUWSchemaObjImplHandler getCafeDb2LUWSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCafeDb2LUWSchemaObjImplHandler getCafeDb2LUWSchemaObjImplHandler() {
 		if( cafeDb2LUWSchemaObjImplHandler == null ) {
-			cafeDb2LUWSchemaObjImplHandler = new CFBamXmlLoaderCafeDb2LUWSchemaObjImplHandler( this );
+			cafeDb2LUWSchemaObjImplHandler = new YCFBamXmlLoaderCafeDb2LUWSchemaObjImplHandler( this );
 		}
 		return( cafeDb2LUWSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCafeDb2LUWSchemaObjImportHandler getCafeDb2LUWSchemaObjImportHandler() {
+	protected YCFBamXmlLoaderCafeDb2LUWSchemaObjImportHandler getCafeDb2LUWSchemaObjImportHandler() {
 		if( cafeDb2LUWSchemaObjImportHandler == null ) {
-			cafeDb2LUWSchemaObjImportHandler = new CFBamXmlLoaderCafeDb2LUWSchemaObjImportHandler( this );
+			cafeDb2LUWSchemaObjImportHandler = new YCFBamXmlLoaderCafeDb2LUWSchemaObjImportHandler( this );
 		}
 		return( cafeDb2LUWSchemaObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMSSqlSchemaObjMembersHandler getCafeMSSqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCafeMSSqlSchemaObjMembersHandler getCafeMSSqlSchemaObjMembersHandler() {
 		if( cafeMSSqlSchemaObjMembersHandler == null ) {
-			cafeMSSqlSchemaObjMembersHandler = new CFBamXmlLoaderCafeMSSqlSchemaObjMembersHandler( this );
+			cafeMSSqlSchemaObjMembersHandler = new YCFBamXmlLoaderCafeMSSqlSchemaObjMembersHandler( this );
 		}
 		return( cafeMSSqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMSSqlSchemaObjImplHandler getCafeMSSqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCafeMSSqlSchemaObjImplHandler getCafeMSSqlSchemaObjImplHandler() {
 		if( cafeMSSqlSchemaObjImplHandler == null ) {
-			cafeMSSqlSchemaObjImplHandler = new CFBamXmlLoaderCafeMSSqlSchemaObjImplHandler( this );
+			cafeMSSqlSchemaObjImplHandler = new YCFBamXmlLoaderCafeMSSqlSchemaObjImplHandler( this );
 		}
 		return( cafeMSSqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMSSqlSchemaObjImportHandler getCafeMSSqlSchemaObjImportHandler() {
+	protected YCFBamXmlLoaderCafeMSSqlSchemaObjImportHandler getCafeMSSqlSchemaObjImportHandler() {
 		if( cafeMSSqlSchemaObjImportHandler == null ) {
-			cafeMSSqlSchemaObjImportHandler = new CFBamXmlLoaderCafeMSSqlSchemaObjImportHandler( this );
+			cafeMSSqlSchemaObjImportHandler = new YCFBamXmlLoaderCafeMSSqlSchemaObjImportHandler( this );
 		}
 		return( cafeMSSqlSchemaObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMySqlSchemaObjMembersHandler getCafeMySqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCafeMySqlSchemaObjMembersHandler getCafeMySqlSchemaObjMembersHandler() {
 		if( cafeMySqlSchemaObjMembersHandler == null ) {
-			cafeMySqlSchemaObjMembersHandler = new CFBamXmlLoaderCafeMySqlSchemaObjMembersHandler( this );
+			cafeMySqlSchemaObjMembersHandler = new YCFBamXmlLoaderCafeMySqlSchemaObjMembersHandler( this );
 		}
 		return( cafeMySqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMySqlSchemaObjImplHandler getCafeMySqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCafeMySqlSchemaObjImplHandler getCafeMySqlSchemaObjImplHandler() {
 		if( cafeMySqlSchemaObjImplHandler == null ) {
-			cafeMySqlSchemaObjImplHandler = new CFBamXmlLoaderCafeMySqlSchemaObjImplHandler( this );
+			cafeMySqlSchemaObjImplHandler = new YCFBamXmlLoaderCafeMySqlSchemaObjImplHandler( this );
 		}
 		return( cafeMySqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMySqlSchemaObjImportHandler getCafeMySqlSchemaObjImportHandler() {
+	protected YCFBamXmlLoaderCafeMySqlSchemaObjImportHandler getCafeMySqlSchemaObjImportHandler() {
 		if( cafeMySqlSchemaObjImportHandler == null ) {
-			cafeMySqlSchemaObjImportHandler = new CFBamXmlLoaderCafeMySqlSchemaObjImportHandler( this );
+			cafeMySqlSchemaObjImportHandler = new YCFBamXmlLoaderCafeMySqlSchemaObjImportHandler( this );
 		}
 		return( cafeMySqlSchemaObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeOracleSchemaObjMembersHandler getCafeOracleSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCafeOracleSchemaObjMembersHandler getCafeOracleSchemaObjMembersHandler() {
 		if( cafeOracleSchemaObjMembersHandler == null ) {
-			cafeOracleSchemaObjMembersHandler = new CFBamXmlLoaderCafeOracleSchemaObjMembersHandler( this );
+			cafeOracleSchemaObjMembersHandler = new YCFBamXmlLoaderCafeOracleSchemaObjMembersHandler( this );
 		}
 		return( cafeOracleSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeOracleSchemaObjImplHandler getCafeOracleSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCafeOracleSchemaObjImplHandler getCafeOracleSchemaObjImplHandler() {
 		if( cafeOracleSchemaObjImplHandler == null ) {
-			cafeOracleSchemaObjImplHandler = new CFBamXmlLoaderCafeOracleSchemaObjImplHandler( this );
+			cafeOracleSchemaObjImplHandler = new YCFBamXmlLoaderCafeOracleSchemaObjImplHandler( this );
 		}
 		return( cafeOracleSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCafeOracleSchemaObjImportHandler getCafeOracleSchemaObjImportHandler() {
+	protected YCFBamXmlLoaderCafeOracleSchemaObjImportHandler getCafeOracleSchemaObjImportHandler() {
 		if( cafeOracleSchemaObjImportHandler == null ) {
-			cafeOracleSchemaObjImportHandler = new CFBamXmlLoaderCafeOracleSchemaObjImportHandler( this );
+			cafeOracleSchemaObjImportHandler = new YCFBamXmlLoaderCafeOracleSchemaObjImportHandler( this );
 		}
 		return( cafeOracleSchemaObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafePgSqlSchemaObjMembersHandler getCafePgSqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCafePgSqlSchemaObjMembersHandler getCafePgSqlSchemaObjMembersHandler() {
 		if( cafePgSqlSchemaObjMembersHandler == null ) {
-			cafePgSqlSchemaObjMembersHandler = new CFBamXmlLoaderCafePgSqlSchemaObjMembersHandler( this );
+			cafePgSqlSchemaObjMembersHandler = new YCFBamXmlLoaderCafePgSqlSchemaObjMembersHandler( this );
 		}
 		return( cafePgSqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafePgSqlSchemaObjImplHandler getCafePgSqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCafePgSqlSchemaObjImplHandler getCafePgSqlSchemaObjImplHandler() {
 		if( cafePgSqlSchemaObjImplHandler == null ) {
-			cafePgSqlSchemaObjImplHandler = new CFBamXmlLoaderCafePgSqlSchemaObjImplHandler( this );
+			cafePgSqlSchemaObjImplHandler = new YCFBamXmlLoaderCafePgSqlSchemaObjImplHandler( this );
 		}
 		return( cafePgSqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCafePgSqlSchemaObjImportHandler getCafePgSqlSchemaObjImportHandler() {
+	protected YCFBamXmlLoaderCafePgSqlSchemaObjImportHandler getCafePgSqlSchemaObjImportHandler() {
 		if( cafePgSqlSchemaObjImportHandler == null ) {
-			cafePgSqlSchemaObjImportHandler = new CFBamXmlLoaderCafePgSqlSchemaObjImportHandler( this );
+			cafePgSqlSchemaObjImportHandler = new YCFBamXmlLoaderCafePgSqlSchemaObjImportHandler( this );
 		}
 		return( cafePgSqlSchemaObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeRamSchemaObjMembersHandler getCafeRamSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCafeRamSchemaObjMembersHandler getCafeRamSchemaObjMembersHandler() {
 		if( cafeRamSchemaObjMembersHandler == null ) {
-			cafeRamSchemaObjMembersHandler = new CFBamXmlLoaderCafeRamSchemaObjMembersHandler( this );
+			cafeRamSchemaObjMembersHandler = new YCFBamXmlLoaderCafeRamSchemaObjMembersHandler( this );
 		}
 		return( cafeRamSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeRamSchemaObjImplHandler getCafeRamSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCafeRamSchemaObjImplHandler getCafeRamSchemaObjImplHandler() {
 		if( cafeRamSchemaObjImplHandler == null ) {
-			cafeRamSchemaObjImplHandler = new CFBamXmlLoaderCafeRamSchemaObjImplHandler( this );
+			cafeRamSchemaObjImplHandler = new YCFBamXmlLoaderCafeRamSchemaObjImplHandler( this );
 		}
 		return( cafeRamSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCafeRamSchemaObjImportHandler getCafeRamSchemaObjImportHandler() {
+	protected YCFBamXmlLoaderCafeRamSchemaObjImportHandler getCafeRamSchemaObjImportHandler() {
 		if( cafeRamSchemaObjImportHandler == null ) {
-			cafeRamSchemaObjImportHandler = new CFBamXmlLoaderCafeRamSchemaObjImportHandler( this );
+			cafeRamSchemaObjImportHandler = new YCFBamXmlLoaderCafeRamSchemaObjImportHandler( this );
 		}
 		return( cafeRamSchemaObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgSchemaImportHandler getCafeXMsgSchemaImportHandler() {
+	protected YCFBamXmlLoaderCafeXMsgSchemaImportHandler getCafeXMsgSchemaImportHandler() {
 		if( cafeXMsgSchemaImportHandler == null ) {
-			cafeXMsgSchemaImportHandler = new CFBamXmlLoaderCafeXMsgSchemaImportHandler( this );
+			cafeXMsgSchemaImportHandler = new YCFBamXmlLoaderCafeXMsgSchemaImportHandler( this );
 		}
 		return( cafeXMsgSchemaImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgSchemaFormattersHandler getCafeXMsgSchemaFormattersHandler() {
+	protected YCFBamXmlLoaderCafeXMsgSchemaFormattersHandler getCafeXMsgSchemaFormattersHandler() {
 		if( cafeXMsgSchemaFormattersHandler == null ) {
-			cafeXMsgSchemaFormattersHandler = new CFBamXmlLoaderCafeXMsgSchemaFormattersHandler( this );
+			cafeXMsgSchemaFormattersHandler = new YCFBamXmlLoaderCafeXMsgSchemaFormattersHandler( this );
 		}
 		return( cafeXMsgSchemaFormattersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgClientSchemaImportHandler getCafeXMsgClientSchemaImportHandler() {
+	protected YCFBamXmlLoaderCafeXMsgClientSchemaImportHandler getCafeXMsgClientSchemaImportHandler() {
 		if( cafeXMsgClientSchemaImportHandler == null ) {
-			cafeXMsgClientSchemaImportHandler = new CFBamXmlLoaderCafeXMsgClientSchemaImportHandler( this );
+			cafeXMsgClientSchemaImportHandler = new YCFBamXmlLoaderCafeXMsgClientSchemaImportHandler( this );
 		}
 		return( cafeXMsgClientSchemaImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgClientSchemaBodyHandler getCafeXMsgClientSchemaBodyHandler() {
+	protected YCFBamXmlLoaderCafeXMsgClientSchemaBodyHandler getCafeXMsgClientSchemaBodyHandler() {
 		if( cafeXMsgClientSchemaBodyHandler == null ) {
-			cafeXMsgClientSchemaBodyHandler = new CFBamXmlLoaderCafeXMsgClientSchemaBodyHandler( this );
+			cafeXMsgClientSchemaBodyHandler = new YCFBamXmlLoaderCafeXMsgClientSchemaBodyHandler( this );
 		}
 		return( cafeXMsgClientSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRqstSchemaBodyHandler getCafeXMsgRqstSchemaBodyHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRqstSchemaBodyHandler getCafeXMsgRqstSchemaBodyHandler() {
 		if( cafeXMsgRqstSchemaBodyHandler == null ) {
-			cafeXMsgRqstSchemaBodyHandler = new CFBamXmlLoaderCafeXMsgRqstSchemaBodyHandler( this );
+			cafeXMsgRqstSchemaBodyHandler = new YCFBamXmlLoaderCafeXMsgRqstSchemaBodyHandler( this );
 		}
 		return( cafeXMsgRqstSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRqstSchemaImportHandler getCafeXMsgRqstSchemaImportHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRqstSchemaImportHandler getCafeXMsgRqstSchemaImportHandler() {
 		if( cafeXMsgRqstSchemaImportHandler == null ) {
-			cafeXMsgRqstSchemaImportHandler = new CFBamXmlLoaderCafeXMsgRqstSchemaImportHandler( this );
+			cafeXMsgRqstSchemaImportHandler = new YCFBamXmlLoaderCafeXMsgRqstSchemaImportHandler( this );
 		}
 		return( cafeXMsgRqstSchemaImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRqstSchemaWireParsersHandler getCafeXMsgRqstSchemaWireParsersHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRqstSchemaWireParsersHandler getCafeXMsgRqstSchemaWireParsersHandler() {
 		if( cafeXMsgRqstSchemaWireParsersHandler == null ) {
-			cafeXMsgRqstSchemaWireParsersHandler = new CFBamXmlLoaderCafeXMsgRqstSchemaWireParsersHandler( this );
+			cafeXMsgRqstSchemaWireParsersHandler = new YCFBamXmlLoaderCafeXMsgRqstSchemaWireParsersHandler( this );
 		}
 		return( cafeXMsgRqstSchemaWireParsersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRqstSchemaXsdElementListHandler getCafeXMsgRqstSchemaXsdElementListHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRqstSchemaXsdElementListHandler getCafeXMsgRqstSchemaXsdElementListHandler() {
 		if( cafeXMsgRqstSchemaXsdElementListHandler == null ) {
-			cafeXMsgRqstSchemaXsdElementListHandler = new CFBamXmlLoaderCafeXMsgRqstSchemaXsdElementListHandler( this );
+			cafeXMsgRqstSchemaXsdElementListHandler = new YCFBamXmlLoaderCafeXMsgRqstSchemaXsdElementListHandler( this );
 		}
 		return( cafeXMsgRqstSchemaXsdElementListHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRqstSchemaXsdSpecHandler getCafeXMsgRqstSchemaXsdSpecHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRqstSchemaXsdSpecHandler getCafeXMsgRqstSchemaXsdSpecHandler() {
 		if( cafeXMsgRqstSchemaXsdSpecHandler == null ) {
-			cafeXMsgRqstSchemaXsdSpecHandler = new CFBamXmlLoaderCafeXMsgRqstSchemaXsdSpecHandler( this );
+			cafeXMsgRqstSchemaXsdSpecHandler = new YCFBamXmlLoaderCafeXMsgRqstSchemaXsdSpecHandler( this );
 		}
 		return( cafeXMsgRqstSchemaXsdSpecHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRspnSchemaBodyHandler getCafeXMsgRspnSchemaBodyHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRspnSchemaBodyHandler getCafeXMsgRspnSchemaBodyHandler() {
 		if( cafeXMsgRspnSchemaBodyHandler == null ) {
-			cafeXMsgRspnSchemaBodyHandler = new CFBamXmlLoaderCafeXMsgRspnSchemaBodyHandler( this );
+			cafeXMsgRspnSchemaBodyHandler = new YCFBamXmlLoaderCafeXMsgRspnSchemaBodyHandler( this );
 		}
 		return( cafeXMsgRspnSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRspnSchemaImportHandler getCafeXMsgRspnSchemaImportHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRspnSchemaImportHandler getCafeXMsgRspnSchemaImportHandler() {
 		if( cafeXMsgRspnSchemaImportHandler == null ) {
-			cafeXMsgRspnSchemaImportHandler = new CFBamXmlLoaderCafeXMsgRspnSchemaImportHandler( this );
+			cafeXMsgRspnSchemaImportHandler = new YCFBamXmlLoaderCafeXMsgRspnSchemaImportHandler( this );
 		}
 		return( cafeXMsgRspnSchemaImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRspnSchemaWireParsersHandler getCafeXMsgRspnSchemaWireParsersHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRspnSchemaWireParsersHandler getCafeXMsgRspnSchemaWireParsersHandler() {
 		if( cafeXMsgRspnSchemaWireParsersHandler == null ) {
-			cafeXMsgRspnSchemaWireParsersHandler = new CFBamXmlLoaderCafeXMsgRspnSchemaWireParsersHandler( this );
+			cafeXMsgRspnSchemaWireParsersHandler = new YCFBamXmlLoaderCafeXMsgRspnSchemaWireParsersHandler( this );
 		}
 		return( cafeXMsgRspnSchemaWireParsersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRspnSchemaXsdElementListHandler getCafeXMsgRspnSchemaXsdElementListHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRspnSchemaXsdElementListHandler getCafeXMsgRspnSchemaXsdElementListHandler() {
 		if( cafeXMsgRspnSchemaXsdElementListHandler == null ) {
-			cafeXMsgRspnSchemaXsdElementListHandler = new CFBamXmlLoaderCafeXMsgRspnSchemaXsdElementListHandler( this );
+			cafeXMsgRspnSchemaXsdElementListHandler = new YCFBamXmlLoaderCafeXMsgRspnSchemaXsdElementListHandler( this );
 		}
 		return( cafeXMsgRspnSchemaXsdElementListHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRspnSchemaXsdSpecHandler getCafeXMsgRspnSchemaXsdSpecHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRspnSchemaXsdSpecHandler getCafeXMsgRspnSchemaXsdSpecHandler() {
 		if( cafeXMsgRspnSchemaXsdSpecHandler == null ) {
-			cafeXMsgRspnSchemaXsdSpecHandler = new CFBamXmlLoaderCafeXMsgRspnSchemaXsdSpecHandler( this );
+			cafeXMsgRspnSchemaXsdSpecHandler = new YCFBamXmlLoaderCafeXMsgRspnSchemaXsdSpecHandler( this );
 		}
 		return( cafeXMsgRspnSchemaXsdSpecHandler );
 	}
 
-	protected CFBamXmlLoaderCafeObjMembersHandler getCafeObjMembersHandler() {
+	protected YCFBamXmlLoaderCafeObjMembersHandler getCafeObjMembersHandler() {
 		if( cafeObjMembersHandler == null ) {
-			cafeObjMembersHandler = new CFBamXmlLoaderCafeObjMembersHandler( this );
+			cafeObjMembersHandler = new YCFBamXmlLoaderCafeObjMembersHandler( this );
 		}
 		return( cafeObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeObjInterfaceHandler getCafeObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCafeObjInterfaceHandler getCafeObjInterfaceHandler() {
 		if( cafeObjInterfaceHandler == null ) {
-			cafeObjInterfaceHandler = new CFBamXmlLoaderCafeObjInterfaceHandler( this );
+			cafeObjInterfaceHandler = new YCFBamXmlLoaderCafeObjInterfaceHandler( this );
 		}
 		return( cafeObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCafeObjImplementationHandler getCafeObjImplementationHandler() {
+	protected YCFBamXmlLoaderCafeObjImplementationHandler getCafeObjImplementationHandler() {
 		if( cafeObjImplementationHandler == null ) {
-			cafeObjImplementationHandler = new CFBamXmlLoaderCafeObjImplementationHandler( this );
+			cafeObjImplementationHandler = new YCFBamXmlLoaderCafeObjImplementationHandler( this );
 		}
 		return( cafeObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeEditObjMembersHandler getCafeEditObjMembersHandler() {
+	protected YCFBamXmlLoaderCafeEditObjMembersHandler getCafeEditObjMembersHandler() {
 		if( cafeEditObjMembersHandler == null ) {
-			cafeEditObjMembersHandler = new CFBamXmlLoaderCafeEditObjMembersHandler( this );
+			cafeEditObjMembersHandler = new YCFBamXmlLoaderCafeEditObjMembersHandler( this );
 		}
 		return( cafeEditObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeEditObjInterfaceHandler getCafeEditObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCafeEditObjInterfaceHandler getCafeEditObjInterfaceHandler() {
 		if( cafeEditObjInterfaceHandler == null ) {
-			cafeEditObjInterfaceHandler = new CFBamXmlLoaderCafeEditObjInterfaceHandler( this );
+			cafeEditObjInterfaceHandler = new YCFBamXmlLoaderCafeEditObjInterfaceHandler( this );
 		}
 		return( cafeEditObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCafeEditObjImplementationHandler getCafeEditObjImplementationHandler() {
+	protected YCFBamXmlLoaderCafeEditObjImplementationHandler getCafeEditObjImplementationHandler() {
 		if( cafeEditObjImplementationHandler == null ) {
-			cafeEditObjImplementationHandler = new CFBamXmlLoaderCafeEditObjImplementationHandler( this );
+			cafeEditObjImplementationHandler = new YCFBamXmlLoaderCafeEditObjImplementationHandler( this );
 		}
 		return( cafeEditObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeDb2LUWTableImportHandler getCafeDb2LUWTableImportHandler() {
+	protected YCFBamXmlLoaderCafeDb2LUWTableImportHandler getCafeDb2LUWTableImportHandler() {
 		if( cafeDb2LUWTableImportHandler == null ) {
-			cafeDb2LUWTableImportHandler = new CFBamXmlLoaderCafeDb2LUWTableImportHandler( this );
+			cafeDb2LUWTableImportHandler = new YCFBamXmlLoaderCafeDb2LUWTableImportHandler( this );
 		}
 		return( cafeDb2LUWTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMSSqlTableImportHandler getCafeMSSqlTableImportHandler() {
+	protected YCFBamXmlLoaderCafeMSSqlTableImportHandler getCafeMSSqlTableImportHandler() {
 		if( cafeMSSqlTableImportHandler == null ) {
-			cafeMSSqlTableImportHandler = new CFBamXmlLoaderCafeMSSqlTableImportHandler( this );
+			cafeMSSqlTableImportHandler = new YCFBamXmlLoaderCafeMSSqlTableImportHandler( this );
 		}
 		return( cafeMSSqlTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMySqlTableImportHandler getCafeMySqlTableImportHandler() {
+	protected YCFBamXmlLoaderCafeMySqlTableImportHandler getCafeMySqlTableImportHandler() {
 		if( cafeMySqlTableImportHandler == null ) {
-			cafeMySqlTableImportHandler = new CFBamXmlLoaderCafeMySqlTableImportHandler( this );
+			cafeMySqlTableImportHandler = new YCFBamXmlLoaderCafeMySqlTableImportHandler( this );
 		}
 		return( cafeMySqlTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeOracleTableImportHandler getCafeOracleTableImportHandler() {
+	protected YCFBamXmlLoaderCafeOracleTableImportHandler getCafeOracleTableImportHandler() {
 		if( cafeOracleTableImportHandler == null ) {
-			cafeOracleTableImportHandler = new CFBamXmlLoaderCafeOracleTableImportHandler( this );
+			cafeOracleTableImportHandler = new YCFBamXmlLoaderCafeOracleTableImportHandler( this );
 		}
 		return( cafeOracleTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafePgSqlTableImportHandler getCafePgSqlTableImportHandler() {
+	protected YCFBamXmlLoaderCafePgSqlTableImportHandler getCafePgSqlTableImportHandler() {
 		if( cafePgSqlTableImportHandler == null ) {
-			cafePgSqlTableImportHandler = new CFBamXmlLoaderCafePgSqlTableImportHandler( this );
+			cafePgSqlTableImportHandler = new YCFBamXmlLoaderCafePgSqlTableImportHandler( this );
 		}
 		return( cafePgSqlTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeRamTableImportHandler getCafeRamTableImportHandler() {
+	protected YCFBamXmlLoaderCafeRamTableImportHandler getCafeRamTableImportHandler() {
 		if( cafeRamTableImportHandler == null ) {
-			cafeRamTableImportHandler = new CFBamXmlLoaderCafeRamTableImportHandler( this );
+			cafeRamTableImportHandler = new YCFBamXmlLoaderCafeRamTableImportHandler( this );
 		}
 		return( cafeRamTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeObjImportHandler getCafeObjImportHandler() {
+	protected YCFBamXmlLoaderCafeObjImportHandler getCafeObjImportHandler() {
 		if( cafeObjImportHandler == null ) {
-			cafeObjImportHandler = new CFBamXmlLoaderCafeObjImportHandler( this );
+			cafeObjImportHandler = new YCFBamXmlLoaderCafeObjImportHandler( this );
 		}
 		return( cafeObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeEditObjImportHandler getCafeEditObjImportHandler() {
+	protected YCFBamXmlLoaderCafeEditObjImportHandler getCafeEditObjImportHandler() {
 		if( cafeEditObjImportHandler == null ) {
-			cafeEditObjImportHandler = new CFBamXmlLoaderCafeEditObjImportHandler( this );
+			cafeEditObjImportHandler = new YCFBamXmlLoaderCafeEditObjImportHandler( this );
 		}
 		return( cafeEditObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeSaxLoaderImportHandler getCafeSaxLoaderImportHandler() {
+	protected YCFBamXmlLoaderCafeSaxLoaderImportHandler getCafeSaxLoaderImportHandler() {
 		if( cafeSaxLoaderImportHandler == null ) {
-			cafeSaxLoaderImportHandler = new CFBamXmlLoaderCafeSaxLoaderImportHandler( this );
+			cafeSaxLoaderImportHandler = new YCFBamXmlLoaderCafeSaxLoaderImportHandler( this );
 		}
 		return( cafeSaxLoaderImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeTableImportHandler getCafeTableImportHandler() {
+	protected YCFBamXmlLoaderCafeTableImportHandler getCafeTableImportHandler() {
 		if( cafeTableImportHandler == null ) {
-			cafeTableImportHandler = new CFBamXmlLoaderCafeTableImportHandler( this );
+			cafeTableImportHandler = new YCFBamXmlLoaderCafeTableImportHandler( this );
 		}
 		return( cafeTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeTableObjImportHandler getCafeTableObjImportHandler() {
+	protected YCFBamXmlLoaderCafeTableObjImportHandler getCafeTableObjImportHandler() {
 		if( cafeTableObjImportHandler == null ) {
-			cafeTableObjImportHandler = new CFBamXmlLoaderCafeTableObjImportHandler( this );
+			cafeTableObjImportHandler = new YCFBamXmlLoaderCafeTableObjImportHandler( this );
 		}
 		return( cafeTableObjImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeTableMembersHandler getCafeTableMembersHandler() {
+	protected YCFBamXmlLoaderCafeTableMembersHandler getCafeTableMembersHandler() {
 		if( cafeTableMembersHandler == null ) {
-			cafeTableMembersHandler = new CFBamXmlLoaderCafeTableMembersHandler( this );
+			cafeTableMembersHandler = new YCFBamXmlLoaderCafeTableMembersHandler( this );
 		}
 		return( cafeTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeTableInterfaceHandler getCafeTableInterfaceHandler() {
+	protected YCFBamXmlLoaderCafeTableInterfaceHandler getCafeTableInterfaceHandler() {
 		if( cafeTableInterfaceHandler == null ) {
-			cafeTableInterfaceHandler = new CFBamXmlLoaderCafeTableInterfaceHandler( this );
+			cafeTableInterfaceHandler = new YCFBamXmlLoaderCafeTableInterfaceHandler( this );
 		}
 		return( cafeTableInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCafeTableImplementationHandler getCafeTableImplementationHandler() {
+	protected YCFBamXmlLoaderCafeTableImplementationHandler getCafeTableImplementationHandler() {
 		if( cafeTableImplementationHandler == null ) {
-			cafeTableImplementationHandler = new CFBamXmlLoaderCafeTableImplementationHandler( this );
+			cafeTableImplementationHandler = new YCFBamXmlLoaderCafeTableImplementationHandler( this );
 		}
 		return( cafeTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeTableObjMembersHandler getCafeTableObjMembersHandler() {
+	protected YCFBamXmlLoaderCafeTableObjMembersHandler getCafeTableObjMembersHandler() {
 		if( cafeTableObjMembersHandler == null ) {
-			cafeTableObjMembersHandler = new CFBamXmlLoaderCafeTableObjMembersHandler( this );
+			cafeTableObjMembersHandler = new YCFBamXmlLoaderCafeTableObjMembersHandler( this );
 		}
 		return( cafeTableObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeTableObjInterfaceHandler getCafeTableObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCafeTableObjInterfaceHandler getCafeTableObjInterfaceHandler() {
 		if( cafeTableObjInterfaceHandler == null ) {
-			cafeTableObjInterfaceHandler = new CFBamXmlLoaderCafeTableObjInterfaceHandler( this );
+			cafeTableObjInterfaceHandler = new YCFBamXmlLoaderCafeTableObjInterfaceHandler( this );
 		}
 		return( cafeTableObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCafeTableObjImplementationHandler getCafeTableObjImplementationHandler() {
+	protected YCFBamXmlLoaderCafeTableObjImplementationHandler getCafeTableObjImplementationHandler() {
 		if( cafeTableObjImplementationHandler == null ) {
-			cafeTableObjImplementationHandler = new CFBamXmlLoaderCafeTableObjImplementationHandler( this );
+			cafeTableObjImplementationHandler = new YCFBamXmlLoaderCafeTableObjImplementationHandler( this );
 		}
 		return( cafeTableObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeDb2LUWTableMembersHandler getCafeDb2LUWTableMembersHandler() {
+	protected YCFBamXmlLoaderCafeDb2LUWTableMembersHandler getCafeDb2LUWTableMembersHandler() {
 		if( cafeDb2LUWTableMembersHandler == null ) {
-			cafeDb2LUWTableMembersHandler = new CFBamXmlLoaderCafeDb2LUWTableMembersHandler( this );
+			cafeDb2LUWTableMembersHandler = new YCFBamXmlLoaderCafeDb2LUWTableMembersHandler( this );
 		}
 		return( cafeDb2LUWTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeDb2LUWTableImplementationHandler getCafeDb2LUWTableImplementationHandler() {
+	protected YCFBamXmlLoaderCafeDb2LUWTableImplementationHandler getCafeDb2LUWTableImplementationHandler() {
 		if( cafeDb2LUWTableImplementationHandler == null ) {
-			cafeDb2LUWTableImplementationHandler = new CFBamXmlLoaderCafeDb2LUWTableImplementationHandler( this );
+			cafeDb2LUWTableImplementationHandler = new YCFBamXmlLoaderCafeDb2LUWTableImplementationHandler( this );
 		}
 		return( cafeDb2LUWTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMSSqlTableMembersHandler getCafeMSSqlTableMembersHandler() {
+	protected YCFBamXmlLoaderCafeMSSqlTableMembersHandler getCafeMSSqlTableMembersHandler() {
 		if( cafeMSSqlTableMembersHandler == null ) {
-			cafeMSSqlTableMembersHandler = new CFBamXmlLoaderCafeMSSqlTableMembersHandler( this );
+			cafeMSSqlTableMembersHandler = new YCFBamXmlLoaderCafeMSSqlTableMembersHandler( this );
 		}
 		return( cafeMSSqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMSSqlTableImplementationHandler getCafeMSSqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderCafeMSSqlTableImplementationHandler getCafeMSSqlTableImplementationHandler() {
 		if( cafeMSSqlTableImplementationHandler == null ) {
-			cafeMSSqlTableImplementationHandler = new CFBamXmlLoaderCafeMSSqlTableImplementationHandler( this );
+			cafeMSSqlTableImplementationHandler = new YCFBamXmlLoaderCafeMSSqlTableImplementationHandler( this );
 		}
 		return( cafeMSSqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMySqlTableMembersHandler getCafeMySqlTableMembersHandler() {
+	protected YCFBamXmlLoaderCafeMySqlTableMembersHandler getCafeMySqlTableMembersHandler() {
 		if( cafeMySqlTableMembersHandler == null ) {
-			cafeMySqlTableMembersHandler = new CFBamXmlLoaderCafeMySqlTableMembersHandler( this );
+			cafeMySqlTableMembersHandler = new YCFBamXmlLoaderCafeMySqlTableMembersHandler( this );
 		}
 		return( cafeMySqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeMySqlTableImplementationHandler getCafeMySqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderCafeMySqlTableImplementationHandler getCafeMySqlTableImplementationHandler() {
 		if( cafeMySqlTableImplementationHandler == null ) {
-			cafeMySqlTableImplementationHandler = new CFBamXmlLoaderCafeMySqlTableImplementationHandler( this );
+			cafeMySqlTableImplementationHandler = new YCFBamXmlLoaderCafeMySqlTableImplementationHandler( this );
 		}
 		return( cafeMySqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeOracleTableMembersHandler getCafeOracleTableMembersHandler() {
+	protected YCFBamXmlLoaderCafeOracleTableMembersHandler getCafeOracleTableMembersHandler() {
 		if( cafeOracleTableMembersHandler == null ) {
-			cafeOracleTableMembersHandler = new CFBamXmlLoaderCafeOracleTableMembersHandler( this );
+			cafeOracleTableMembersHandler = new YCFBamXmlLoaderCafeOracleTableMembersHandler( this );
 		}
 		return( cafeOracleTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeOracleTableImplementationHandler getCafeOracleTableImplementationHandler() {
+	protected YCFBamXmlLoaderCafeOracleTableImplementationHandler getCafeOracleTableImplementationHandler() {
 		if( cafeOracleTableImplementationHandler == null ) {
-			cafeOracleTableImplementationHandler = new CFBamXmlLoaderCafeOracleTableImplementationHandler( this );
+			cafeOracleTableImplementationHandler = new YCFBamXmlLoaderCafeOracleTableImplementationHandler( this );
 		}
 		return( cafeOracleTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafePgSqlTableMembersHandler getCafePgSqlTableMembersHandler() {
+	protected YCFBamXmlLoaderCafePgSqlTableMembersHandler getCafePgSqlTableMembersHandler() {
 		if( cafePgSqlTableMembersHandler == null ) {
-			cafePgSqlTableMembersHandler = new CFBamXmlLoaderCafePgSqlTableMembersHandler( this );
+			cafePgSqlTableMembersHandler = new YCFBamXmlLoaderCafePgSqlTableMembersHandler( this );
 		}
 		return( cafePgSqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafePgSqlTableImplementationHandler getCafePgSqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderCafePgSqlTableImplementationHandler getCafePgSqlTableImplementationHandler() {
 		if( cafePgSqlTableImplementationHandler == null ) {
-			cafePgSqlTableImplementationHandler = new CFBamXmlLoaderCafePgSqlTableImplementationHandler( this );
+			cafePgSqlTableImplementationHandler = new YCFBamXmlLoaderCafePgSqlTableImplementationHandler( this );
 		}
 		return( cafePgSqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeRamTableMembersHandler getCafeRamTableMembersHandler() {
+	protected YCFBamXmlLoaderCafeRamTableMembersHandler getCafeRamTableMembersHandler() {
 		if( cafeRamTableMembersHandler == null ) {
-			cafeRamTableMembersHandler = new CFBamXmlLoaderCafeRamTableMembersHandler( this );
+			cafeRamTableMembersHandler = new YCFBamXmlLoaderCafeRamTableMembersHandler( this );
 		}
 		return( cafeRamTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeRamTableImplementationHandler getCafeRamTableImplementationHandler() {
+	protected YCFBamXmlLoaderCafeRamTableImplementationHandler getCafeRamTableImplementationHandler() {
 		if( cafeRamTableImplementationHandler == null ) {
-			cafeRamTableImplementationHandler = new CFBamXmlLoaderCafeRamTableImplementationHandler( this );
+			cafeRamTableImplementationHandler = new YCFBamXmlLoaderCafeRamTableImplementationHandler( this );
 		}
 		return( cafeRamTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCafeSaxLoaderStartElementHandler getCafeSaxLoaderStartElementHandler() {
+	protected YCFBamXmlLoaderCafeSaxLoaderStartElementHandler getCafeSaxLoaderStartElementHandler() {
 		if( cafeSaxLoaderStartElementHandler == null ) {
-			cafeSaxLoaderStartElementHandler = new CFBamXmlLoaderCafeSaxLoaderStartElementHandler( this );
+			cafeSaxLoaderStartElementHandler = new YCFBamXmlLoaderCafeSaxLoaderStartElementHandler( this );
 		}
 		return( cafeSaxLoaderStartElementHandler );
 	}
 
-	protected CFBamXmlLoaderCafeSaxLoaderEndElementHandler getCafeSaxLoaderEndElementHandler() {
+	protected YCFBamXmlLoaderCafeSaxLoaderEndElementHandler getCafeSaxLoaderEndElementHandler() {
 		if( cafeSaxLoaderEndElementHandler == null ) {
-			cafeSaxLoaderEndElementHandler = new CFBamXmlLoaderCafeSaxLoaderEndElementHandler( this );
+			cafeSaxLoaderEndElementHandler = new YCFBamXmlLoaderCafeSaxLoaderEndElementHandler( this );
 		}
 		return( cafeSaxLoaderEndElementHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgTableImportHandler getCafeXMsgTableImportHandler() {
+	protected YCFBamXmlLoaderCafeXMsgTableImportHandler getCafeXMsgTableImportHandler() {
 		if( cafeXMsgTableImportHandler == null ) {
-			cafeXMsgTableImportHandler = new CFBamXmlLoaderCafeXMsgTableImportHandler( this );
+			cafeXMsgTableImportHandler = new YCFBamXmlLoaderCafeXMsgTableImportHandler( this );
 		}
 		return( cafeXMsgTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgTableFormattersHandler getCafeXMsgTableFormattersHandler() {
+	protected YCFBamXmlLoaderCafeXMsgTableFormattersHandler getCafeXMsgTableFormattersHandler() {
 		if( cafeXMsgTableFormattersHandler == null ) {
-			cafeXMsgTableFormattersHandler = new CFBamXmlLoaderCafeXMsgTableFormattersHandler( this );
+			cafeXMsgTableFormattersHandler = new YCFBamXmlLoaderCafeXMsgTableFormattersHandler( this );
 		}
 		return( cafeXMsgTableFormattersHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRqstTableImportHandler getCafeXMsgRqstTableImportHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRqstTableImportHandler getCafeXMsgRqstTableImportHandler() {
 		if( cafeXMsgRqstTableImportHandler == null ) {
-			cafeXMsgRqstTableImportHandler = new CFBamXmlLoaderCafeXMsgRqstTableImportHandler( this );
+			cafeXMsgRqstTableImportHandler = new YCFBamXmlLoaderCafeXMsgRqstTableImportHandler( this );
 		}
 		return( cafeXMsgRqstTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRspnTableImportHandler getCafeXMsgRspnTableImportHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRspnTableImportHandler getCafeXMsgRspnTableImportHandler() {
 		if( cafeXMsgRspnTableImportHandler == null ) {
-			cafeXMsgRspnTableImportHandler = new CFBamXmlLoaderCafeXMsgRspnTableImportHandler( this );
+			cafeXMsgRspnTableImportHandler = new YCFBamXmlLoaderCafeXMsgRspnTableImportHandler( this );
 		}
 		return( cafeXMsgRspnTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgClientTableImportHandler getCafeXMsgClientTableImportHandler() {
+	protected YCFBamXmlLoaderCafeXMsgClientTableImportHandler getCafeXMsgClientTableImportHandler() {
 		if( cafeXMsgClientTableImportHandler == null ) {
-			cafeXMsgClientTableImportHandler = new CFBamXmlLoaderCafeXMsgClientTableImportHandler( this );
+			cafeXMsgClientTableImportHandler = new YCFBamXmlLoaderCafeXMsgClientTableImportHandler( this );
 		}
 		return( cafeXMsgClientTableImportHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRqstTableBodyHandler getCafeXMsgRqstTableBodyHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRqstTableBodyHandler getCafeXMsgRqstTableBodyHandler() {
 		if( cafeXMsgRqstTableBodyHandler == null ) {
-			cafeXMsgRqstTableBodyHandler = new CFBamXmlLoaderCafeXMsgRqstTableBodyHandler( this );
+			cafeXMsgRqstTableBodyHandler = new YCFBamXmlLoaderCafeXMsgRqstTableBodyHandler( this );
 		}
 		return( cafeXMsgRqstTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgRspnTableBodyHandler getCafeXMsgRspnTableBodyHandler() {
+	protected YCFBamXmlLoaderCafeXMsgRspnTableBodyHandler getCafeXMsgRspnTableBodyHandler() {
 		if( cafeXMsgRspnTableBodyHandler == null ) {
-			cafeXMsgRspnTableBodyHandler = new CFBamXmlLoaderCafeXMsgRspnTableBodyHandler( this );
+			cafeXMsgRspnTableBodyHandler = new YCFBamXmlLoaderCafeXMsgRspnTableBodyHandler( this );
 		}
 		return( cafeXMsgRspnTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCafeXMsgClientTableBodyHandler getCafeXMsgClientTableBodyHandler() {
+	protected YCFBamXmlLoaderCafeXMsgClientTableBodyHandler getCafeXMsgClientTableBodyHandler() {
 		if( cafeXMsgClientTableBodyHandler == null ) {
-			cafeXMsgClientTableBodyHandler = new CFBamXmlLoaderCafeXMsgClientTableBodyHandler( this );
+			cafeXMsgClientTableBodyHandler = new YCFBamXmlLoaderCafeXMsgClientTableBodyHandler( this );
 		}
 		return( cafeXMsgClientTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMethodBodyHandler getCPlusMethodBodyHandler() {
+	protected YCFBamXmlLoaderCPlusMethodBodyHandler getCPlusMethodBodyHandler() {
 		if( cplusMethodBodyHandler == null ) {
-			cplusMethodBodyHandler = new CFBamXmlLoaderCPlusMethodBodyHandler( this );
+			cplusMethodBodyHandler = new YCFBamXmlLoaderCPlusMethodBodyHandler( this );
 		}
 		return( cplusMethodBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusSchemaObjInterfaceHandler getCPlusSchemaObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCPlusSchemaObjInterfaceHandler getCPlusSchemaObjInterfaceHandler() {
 		if( cplusSchemaObjInterfaceHandler == null ) {
-			cplusSchemaObjInterfaceHandler = new CFBamXmlLoaderCPlusSchemaObjInterfaceHandler( this );
+			cplusSchemaObjInterfaceHandler = new YCFBamXmlLoaderCPlusSchemaObjInterfaceHandler( this );
 		}
 		return( cplusSchemaObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusSchemaObjMembersHandler getCPlusSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusSchemaObjMembersHandler getCPlusSchemaObjMembersHandler() {
 		if( cplusSchemaObjMembersHandler == null ) {
-			cplusSchemaObjMembersHandler = new CFBamXmlLoaderCPlusSchemaObjMembersHandler( this );
+			cplusSchemaObjMembersHandler = new YCFBamXmlLoaderCPlusSchemaObjMembersHandler( this );
 		}
 		return( cplusSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusSchemaObjIncludeHandler getCPlusSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusSchemaObjIncludeHandler getCPlusSchemaObjIncludeHandler() {
 		if( cplusSchemaObjIncludeHandler == null ) {
-			cplusSchemaObjIncludeHandler = new CFBamXmlLoaderCPlusSchemaObjIncludeHandler( this );
+			cplusSchemaObjIncludeHandler = new YCFBamXmlLoaderCPlusSchemaObjIncludeHandler( this );
 		}
 		return( cplusSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusSchemaObjImplementationHandler getCPlusSchemaObjImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusSchemaObjImplementationHandler getCPlusSchemaObjImplementationHandler() {
 		if( cplusSchemaObjImplementationHandler == null ) {
-			cplusSchemaObjImplementationHandler = new CFBamXmlLoaderCPlusSchemaObjImplementationHandler( this );
+			cplusSchemaObjImplementationHandler = new YCFBamXmlLoaderCPlusSchemaObjImplementationHandler( this );
 		}
 		return( cplusSchemaObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusDb2LUWSchemaObjMembersHandler getCPlusDb2LUWSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusDb2LUWSchemaObjMembersHandler getCPlusDb2LUWSchemaObjMembersHandler() {
 		if( cplusDb2LUWSchemaObjMembersHandler == null ) {
-			cplusDb2LUWSchemaObjMembersHandler = new CFBamXmlLoaderCPlusDb2LUWSchemaObjMembersHandler( this );
+			cplusDb2LUWSchemaObjMembersHandler = new YCFBamXmlLoaderCPlusDb2LUWSchemaObjMembersHandler( this );
 		}
 		return( cplusDb2LUWSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusDb2LUWSchemaObjImplHandler getCPlusDb2LUWSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCPlusDb2LUWSchemaObjImplHandler getCPlusDb2LUWSchemaObjImplHandler() {
 		if( cplusDb2LUWSchemaObjImplHandler == null ) {
-			cplusDb2LUWSchemaObjImplHandler = new CFBamXmlLoaderCPlusDb2LUWSchemaObjImplHandler( this );
+			cplusDb2LUWSchemaObjImplHandler = new YCFBamXmlLoaderCPlusDb2LUWSchemaObjImplHandler( this );
 		}
 		return( cplusDb2LUWSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusDb2LUWSchemaObjIncludeHandler getCPlusDb2LUWSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusDb2LUWSchemaObjIncludeHandler getCPlusDb2LUWSchemaObjIncludeHandler() {
 		if( cplusDb2LUWSchemaObjIncludeHandler == null ) {
-			cplusDb2LUWSchemaObjIncludeHandler = new CFBamXmlLoaderCPlusDb2LUWSchemaObjIncludeHandler( this );
+			cplusDb2LUWSchemaObjIncludeHandler = new YCFBamXmlLoaderCPlusDb2LUWSchemaObjIncludeHandler( this );
 		}
 		return( cplusDb2LUWSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMSSqlSchemaObjMembersHandler getCPlusMSSqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusMSSqlSchemaObjMembersHandler getCPlusMSSqlSchemaObjMembersHandler() {
 		if( cplusMSSqlSchemaObjMembersHandler == null ) {
-			cplusMSSqlSchemaObjMembersHandler = new CFBamXmlLoaderCPlusMSSqlSchemaObjMembersHandler( this );
+			cplusMSSqlSchemaObjMembersHandler = new YCFBamXmlLoaderCPlusMSSqlSchemaObjMembersHandler( this );
 		}
 		return( cplusMSSqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMSSqlSchemaObjImplHandler getCPlusMSSqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCPlusMSSqlSchemaObjImplHandler getCPlusMSSqlSchemaObjImplHandler() {
 		if( cplusMSSqlSchemaObjImplHandler == null ) {
-			cplusMSSqlSchemaObjImplHandler = new CFBamXmlLoaderCPlusMSSqlSchemaObjImplHandler( this );
+			cplusMSSqlSchemaObjImplHandler = new YCFBamXmlLoaderCPlusMSSqlSchemaObjImplHandler( this );
 		}
 		return( cplusMSSqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMSSqlSchemaObjIncludeHandler getCPlusMSSqlSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusMSSqlSchemaObjIncludeHandler getCPlusMSSqlSchemaObjIncludeHandler() {
 		if( cplusMSSqlSchemaObjIncludeHandler == null ) {
-			cplusMSSqlSchemaObjIncludeHandler = new CFBamXmlLoaderCPlusMSSqlSchemaObjIncludeHandler( this );
+			cplusMSSqlSchemaObjIncludeHandler = new YCFBamXmlLoaderCPlusMSSqlSchemaObjIncludeHandler( this );
 		}
 		return( cplusMSSqlSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMySqlSchemaObjMembersHandler getCPlusMySqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusMySqlSchemaObjMembersHandler getCPlusMySqlSchemaObjMembersHandler() {
 		if( cplusMySqlSchemaObjMembersHandler == null ) {
-			cplusMySqlSchemaObjMembersHandler = new CFBamXmlLoaderCPlusMySqlSchemaObjMembersHandler( this );
+			cplusMySqlSchemaObjMembersHandler = new YCFBamXmlLoaderCPlusMySqlSchemaObjMembersHandler( this );
 		}
 		return( cplusMySqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMySqlSchemaObjImplHandler getCPlusMySqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCPlusMySqlSchemaObjImplHandler getCPlusMySqlSchemaObjImplHandler() {
 		if( cplusMySqlSchemaObjImplHandler == null ) {
-			cplusMySqlSchemaObjImplHandler = new CFBamXmlLoaderCPlusMySqlSchemaObjImplHandler( this );
+			cplusMySqlSchemaObjImplHandler = new YCFBamXmlLoaderCPlusMySqlSchemaObjImplHandler( this );
 		}
 		return( cplusMySqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMySqlSchemaObjIncludeHandler getCPlusMySqlSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusMySqlSchemaObjIncludeHandler getCPlusMySqlSchemaObjIncludeHandler() {
 		if( cplusMySqlSchemaObjIncludeHandler == null ) {
-			cplusMySqlSchemaObjIncludeHandler = new CFBamXmlLoaderCPlusMySqlSchemaObjIncludeHandler( this );
+			cplusMySqlSchemaObjIncludeHandler = new YCFBamXmlLoaderCPlusMySqlSchemaObjIncludeHandler( this );
 		}
 		return( cplusMySqlSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusOracleSchemaObjMembersHandler getCPlusOracleSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusOracleSchemaObjMembersHandler getCPlusOracleSchemaObjMembersHandler() {
 		if( cplusOracleSchemaObjMembersHandler == null ) {
-			cplusOracleSchemaObjMembersHandler = new CFBamXmlLoaderCPlusOracleSchemaObjMembersHandler( this );
+			cplusOracleSchemaObjMembersHandler = new YCFBamXmlLoaderCPlusOracleSchemaObjMembersHandler( this );
 		}
 		return( cplusOracleSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusOracleSchemaObjImplHandler getCPlusOracleSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCPlusOracleSchemaObjImplHandler getCPlusOracleSchemaObjImplHandler() {
 		if( cplusOracleSchemaObjImplHandler == null ) {
-			cplusOracleSchemaObjImplHandler = new CFBamXmlLoaderCPlusOracleSchemaObjImplHandler( this );
+			cplusOracleSchemaObjImplHandler = new YCFBamXmlLoaderCPlusOracleSchemaObjImplHandler( this );
 		}
 		return( cplusOracleSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusOracleSchemaObjIncludeHandler getCPlusOracleSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusOracleSchemaObjIncludeHandler getCPlusOracleSchemaObjIncludeHandler() {
 		if( cplusOracleSchemaObjIncludeHandler == null ) {
-			cplusOracleSchemaObjIncludeHandler = new CFBamXmlLoaderCPlusOracleSchemaObjIncludeHandler( this );
+			cplusOracleSchemaObjIncludeHandler = new YCFBamXmlLoaderCPlusOracleSchemaObjIncludeHandler( this );
 		}
 		return( cplusOracleSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusPgSqlSchemaObjMembersHandler getCPlusPgSqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusPgSqlSchemaObjMembersHandler getCPlusPgSqlSchemaObjMembersHandler() {
 		if( cplusPgSqlSchemaObjMembersHandler == null ) {
-			cplusPgSqlSchemaObjMembersHandler = new CFBamXmlLoaderCPlusPgSqlSchemaObjMembersHandler( this );
+			cplusPgSqlSchemaObjMembersHandler = new YCFBamXmlLoaderCPlusPgSqlSchemaObjMembersHandler( this );
 		}
 		return( cplusPgSqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusPgSqlSchemaObjImplHandler getCPlusPgSqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCPlusPgSqlSchemaObjImplHandler getCPlusPgSqlSchemaObjImplHandler() {
 		if( cplusPgSqlSchemaObjImplHandler == null ) {
-			cplusPgSqlSchemaObjImplHandler = new CFBamXmlLoaderCPlusPgSqlSchemaObjImplHandler( this );
+			cplusPgSqlSchemaObjImplHandler = new YCFBamXmlLoaderCPlusPgSqlSchemaObjImplHandler( this );
 		}
 		return( cplusPgSqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusPgSqlSchemaObjIncludeHandler getCPlusPgSqlSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusPgSqlSchemaObjIncludeHandler getCPlusPgSqlSchemaObjIncludeHandler() {
 		if( cplusPgSqlSchemaObjIncludeHandler == null ) {
-			cplusPgSqlSchemaObjIncludeHandler = new CFBamXmlLoaderCPlusPgSqlSchemaObjIncludeHandler( this );
+			cplusPgSqlSchemaObjIncludeHandler = new YCFBamXmlLoaderCPlusPgSqlSchemaObjIncludeHandler( this );
 		}
 		return( cplusPgSqlSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusRamSchemaObjMembersHandler getCPlusRamSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusRamSchemaObjMembersHandler getCPlusRamSchemaObjMembersHandler() {
 		if( cplusRamSchemaObjMembersHandler == null ) {
-			cplusRamSchemaObjMembersHandler = new CFBamXmlLoaderCPlusRamSchemaObjMembersHandler( this );
+			cplusRamSchemaObjMembersHandler = new YCFBamXmlLoaderCPlusRamSchemaObjMembersHandler( this );
 		}
 		return( cplusRamSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusRamSchemaObjImplHandler getCPlusRamSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCPlusRamSchemaObjImplHandler getCPlusRamSchemaObjImplHandler() {
 		if( cplusRamSchemaObjImplHandler == null ) {
-			cplusRamSchemaObjImplHandler = new CFBamXmlLoaderCPlusRamSchemaObjImplHandler( this );
+			cplusRamSchemaObjImplHandler = new YCFBamXmlLoaderCPlusRamSchemaObjImplHandler( this );
 		}
 		return( cplusRamSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusRamSchemaObjIncludeHandler getCPlusRamSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusRamSchemaObjIncludeHandler getCPlusRamSchemaObjIncludeHandler() {
 		if( cplusRamSchemaObjIncludeHandler == null ) {
-			cplusRamSchemaObjIncludeHandler = new CFBamXmlLoaderCPlusRamSchemaObjIncludeHandler( this );
+			cplusRamSchemaObjIncludeHandler = new YCFBamXmlLoaderCPlusRamSchemaObjIncludeHandler( this );
 		}
 		return( cplusRamSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgSchemaIncludeHandler getCPlusXMsgSchemaIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgSchemaIncludeHandler getCPlusXMsgSchemaIncludeHandler() {
 		if( cplusXMsgSchemaIncludeHandler == null ) {
-			cplusXMsgSchemaIncludeHandler = new CFBamXmlLoaderCPlusXMsgSchemaIncludeHandler( this );
+			cplusXMsgSchemaIncludeHandler = new YCFBamXmlLoaderCPlusXMsgSchemaIncludeHandler( this );
 		}
 		return( cplusXMsgSchemaIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgSchemaFormattersHandler getCPlusXMsgSchemaFormattersHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgSchemaFormattersHandler getCPlusXMsgSchemaFormattersHandler() {
 		if( cplusXMsgSchemaFormattersHandler == null ) {
-			cplusXMsgSchemaFormattersHandler = new CFBamXmlLoaderCPlusXMsgSchemaFormattersHandler( this );
+			cplusXMsgSchemaFormattersHandler = new YCFBamXmlLoaderCPlusXMsgSchemaFormattersHandler( this );
 		}
 		return( cplusXMsgSchemaFormattersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgClientSchemaIncludeHandler getCPlusXMsgClientSchemaIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgClientSchemaIncludeHandler getCPlusXMsgClientSchemaIncludeHandler() {
 		if( cplusXMsgClientSchemaIncludeHandler == null ) {
-			cplusXMsgClientSchemaIncludeHandler = new CFBamXmlLoaderCPlusXMsgClientSchemaIncludeHandler( this );
+			cplusXMsgClientSchemaIncludeHandler = new YCFBamXmlLoaderCPlusXMsgClientSchemaIncludeHandler( this );
 		}
 		return( cplusXMsgClientSchemaIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgClientSchemaBodyHandler getCPlusXMsgClientSchemaBodyHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgClientSchemaBodyHandler getCPlusXMsgClientSchemaBodyHandler() {
 		if( cplusXMsgClientSchemaBodyHandler == null ) {
-			cplusXMsgClientSchemaBodyHandler = new CFBamXmlLoaderCPlusXMsgClientSchemaBodyHandler( this );
+			cplusXMsgClientSchemaBodyHandler = new YCFBamXmlLoaderCPlusXMsgClientSchemaBodyHandler( this );
 		}
 		return( cplusXMsgClientSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRqstSchemaBodyHandler getCPlusXMsgRqstSchemaBodyHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRqstSchemaBodyHandler getCPlusXMsgRqstSchemaBodyHandler() {
 		if( cplusXMsgRqstSchemaBodyHandler == null ) {
-			cplusXMsgRqstSchemaBodyHandler = new CFBamXmlLoaderCPlusXMsgRqstSchemaBodyHandler( this );
+			cplusXMsgRqstSchemaBodyHandler = new YCFBamXmlLoaderCPlusXMsgRqstSchemaBodyHandler( this );
 		}
 		return( cplusXMsgRqstSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRqstSchemaIncludeHandler getCPlusXMsgRqstSchemaIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRqstSchemaIncludeHandler getCPlusXMsgRqstSchemaIncludeHandler() {
 		if( cplusXMsgRqstSchemaIncludeHandler == null ) {
-			cplusXMsgRqstSchemaIncludeHandler = new CFBamXmlLoaderCPlusXMsgRqstSchemaIncludeHandler( this );
+			cplusXMsgRqstSchemaIncludeHandler = new YCFBamXmlLoaderCPlusXMsgRqstSchemaIncludeHandler( this );
 		}
 		return( cplusXMsgRqstSchemaIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRqstSchemaWireParsersHandler getCPlusXMsgRqstSchemaWireParsersHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRqstSchemaWireParsersHandler getCPlusXMsgRqstSchemaWireParsersHandler() {
 		if( cplusXMsgRqstSchemaWireParsersHandler == null ) {
-			cplusXMsgRqstSchemaWireParsersHandler = new CFBamXmlLoaderCPlusXMsgRqstSchemaWireParsersHandler( this );
+			cplusXMsgRqstSchemaWireParsersHandler = new YCFBamXmlLoaderCPlusXMsgRqstSchemaWireParsersHandler( this );
 		}
 		return( cplusXMsgRqstSchemaWireParsersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRqstSchemaXsdElementListHandler getCPlusXMsgRqstSchemaXsdElementListHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRqstSchemaXsdElementListHandler getCPlusXMsgRqstSchemaXsdElementListHandler() {
 		if( cplusXMsgRqstSchemaXsdElementListHandler == null ) {
-			cplusXMsgRqstSchemaXsdElementListHandler = new CFBamXmlLoaderCPlusXMsgRqstSchemaXsdElementListHandler( this );
+			cplusXMsgRqstSchemaXsdElementListHandler = new YCFBamXmlLoaderCPlusXMsgRqstSchemaXsdElementListHandler( this );
 		}
 		return( cplusXMsgRqstSchemaXsdElementListHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRqstSchemaXsdSpecHandler getCPlusXMsgRqstSchemaXsdSpecHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRqstSchemaXsdSpecHandler getCPlusXMsgRqstSchemaXsdSpecHandler() {
 		if( cplusXMsgRqstSchemaXsdSpecHandler == null ) {
-			cplusXMsgRqstSchemaXsdSpecHandler = new CFBamXmlLoaderCPlusXMsgRqstSchemaXsdSpecHandler( this );
+			cplusXMsgRqstSchemaXsdSpecHandler = new YCFBamXmlLoaderCPlusXMsgRqstSchemaXsdSpecHandler( this );
 		}
 		return( cplusXMsgRqstSchemaXsdSpecHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRspnSchemaBodyHandler getCPlusXMsgRspnSchemaBodyHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRspnSchemaBodyHandler getCPlusXMsgRspnSchemaBodyHandler() {
 		if( cplusXMsgRspnSchemaBodyHandler == null ) {
-			cplusXMsgRspnSchemaBodyHandler = new CFBamXmlLoaderCPlusXMsgRspnSchemaBodyHandler( this );
+			cplusXMsgRspnSchemaBodyHandler = new YCFBamXmlLoaderCPlusXMsgRspnSchemaBodyHandler( this );
 		}
 		return( cplusXMsgRspnSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRspnSchemaIncludeHandler getCPlusXMsgRspnSchemaIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRspnSchemaIncludeHandler getCPlusXMsgRspnSchemaIncludeHandler() {
 		if( cplusXMsgRspnSchemaIncludeHandler == null ) {
-			cplusXMsgRspnSchemaIncludeHandler = new CFBamXmlLoaderCPlusXMsgRspnSchemaIncludeHandler( this );
+			cplusXMsgRspnSchemaIncludeHandler = new YCFBamXmlLoaderCPlusXMsgRspnSchemaIncludeHandler( this );
 		}
 		return( cplusXMsgRspnSchemaIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRspnSchemaWireParsersHandler getCPlusXMsgRspnSchemaWireParsersHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRspnSchemaWireParsersHandler getCPlusXMsgRspnSchemaWireParsersHandler() {
 		if( cplusXMsgRspnSchemaWireParsersHandler == null ) {
-			cplusXMsgRspnSchemaWireParsersHandler = new CFBamXmlLoaderCPlusXMsgRspnSchemaWireParsersHandler( this );
+			cplusXMsgRspnSchemaWireParsersHandler = new YCFBamXmlLoaderCPlusXMsgRspnSchemaWireParsersHandler( this );
 		}
 		return( cplusXMsgRspnSchemaWireParsersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRspnSchemaXsdElementListHandler getCPlusXMsgRspnSchemaXsdElementListHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRspnSchemaXsdElementListHandler getCPlusXMsgRspnSchemaXsdElementListHandler() {
 		if( cplusXMsgRspnSchemaXsdElementListHandler == null ) {
-			cplusXMsgRspnSchemaXsdElementListHandler = new CFBamXmlLoaderCPlusXMsgRspnSchemaXsdElementListHandler( this );
+			cplusXMsgRspnSchemaXsdElementListHandler = new YCFBamXmlLoaderCPlusXMsgRspnSchemaXsdElementListHandler( this );
 		}
 		return( cplusXMsgRspnSchemaXsdElementListHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRspnSchemaXsdSpecHandler getCPlusXMsgRspnSchemaXsdSpecHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRspnSchemaXsdSpecHandler getCPlusXMsgRspnSchemaXsdSpecHandler() {
 		if( cplusXMsgRspnSchemaXsdSpecHandler == null ) {
-			cplusXMsgRspnSchemaXsdSpecHandler = new CFBamXmlLoaderCPlusXMsgRspnSchemaXsdSpecHandler( this );
+			cplusXMsgRspnSchemaXsdSpecHandler = new YCFBamXmlLoaderCPlusXMsgRspnSchemaXsdSpecHandler( this );
 		}
 		return( cplusXMsgRspnSchemaXsdSpecHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusObjMembersHandler getCPlusObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusObjMembersHandler getCPlusObjMembersHandler() {
 		if( cplusObjMembersHandler == null ) {
-			cplusObjMembersHandler = new CFBamXmlLoaderCPlusObjMembersHandler( this );
+			cplusObjMembersHandler = new YCFBamXmlLoaderCPlusObjMembersHandler( this );
 		}
 		return( cplusObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusObjInterfaceHandler getCPlusObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCPlusObjInterfaceHandler getCPlusObjInterfaceHandler() {
 		if( cplusObjInterfaceHandler == null ) {
-			cplusObjInterfaceHandler = new CFBamXmlLoaderCPlusObjInterfaceHandler( this );
+			cplusObjInterfaceHandler = new YCFBamXmlLoaderCPlusObjInterfaceHandler( this );
 		}
 		return( cplusObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusObjImplementationHandler getCPlusObjImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusObjImplementationHandler getCPlusObjImplementationHandler() {
 		if( cplusObjImplementationHandler == null ) {
-			cplusObjImplementationHandler = new CFBamXmlLoaderCPlusObjImplementationHandler( this );
+			cplusObjImplementationHandler = new YCFBamXmlLoaderCPlusObjImplementationHandler( this );
 		}
 		return( cplusObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusEditObjMembersHandler getCPlusEditObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusEditObjMembersHandler getCPlusEditObjMembersHandler() {
 		if( cplusEditObjMembersHandler == null ) {
-			cplusEditObjMembersHandler = new CFBamXmlLoaderCPlusEditObjMembersHandler( this );
+			cplusEditObjMembersHandler = new YCFBamXmlLoaderCPlusEditObjMembersHandler( this );
 		}
 		return( cplusEditObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusEditObjInterfaceHandler getCPlusEditObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCPlusEditObjInterfaceHandler getCPlusEditObjInterfaceHandler() {
 		if( cplusEditObjInterfaceHandler == null ) {
-			cplusEditObjInterfaceHandler = new CFBamXmlLoaderCPlusEditObjInterfaceHandler( this );
+			cplusEditObjInterfaceHandler = new YCFBamXmlLoaderCPlusEditObjInterfaceHandler( this );
 		}
 		return( cplusEditObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusEditObjImplementationHandler getCPlusEditObjImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusEditObjImplementationHandler getCPlusEditObjImplementationHandler() {
 		if( cplusEditObjImplementationHandler == null ) {
-			cplusEditObjImplementationHandler = new CFBamXmlLoaderCPlusEditObjImplementationHandler( this );
+			cplusEditObjImplementationHandler = new YCFBamXmlLoaderCPlusEditObjImplementationHandler( this );
 		}
 		return( cplusEditObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusDb2LUWTableIncludeHandler getCPlusDb2LUWTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusDb2LUWTableIncludeHandler getCPlusDb2LUWTableIncludeHandler() {
 		if( cplusDb2LUWTableIncludeHandler == null ) {
-			cplusDb2LUWTableIncludeHandler = new CFBamXmlLoaderCPlusDb2LUWTableIncludeHandler( this );
+			cplusDb2LUWTableIncludeHandler = new YCFBamXmlLoaderCPlusDb2LUWTableIncludeHandler( this );
 		}
 		return( cplusDb2LUWTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMSSqlTableIncludeHandler getCPlusMSSqlTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusMSSqlTableIncludeHandler getCPlusMSSqlTableIncludeHandler() {
 		if( cplusMSSqlTableIncludeHandler == null ) {
-			cplusMSSqlTableIncludeHandler = new CFBamXmlLoaderCPlusMSSqlTableIncludeHandler( this );
+			cplusMSSqlTableIncludeHandler = new YCFBamXmlLoaderCPlusMSSqlTableIncludeHandler( this );
 		}
 		return( cplusMSSqlTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMySqlTableIncludeHandler getCPlusMySqlTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusMySqlTableIncludeHandler getCPlusMySqlTableIncludeHandler() {
 		if( cplusMySqlTableIncludeHandler == null ) {
-			cplusMySqlTableIncludeHandler = new CFBamXmlLoaderCPlusMySqlTableIncludeHandler( this );
+			cplusMySqlTableIncludeHandler = new YCFBamXmlLoaderCPlusMySqlTableIncludeHandler( this );
 		}
 		return( cplusMySqlTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusOracleTableIncludeHandler getCPlusOracleTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusOracleTableIncludeHandler getCPlusOracleTableIncludeHandler() {
 		if( cplusOracleTableIncludeHandler == null ) {
-			cplusOracleTableIncludeHandler = new CFBamXmlLoaderCPlusOracleTableIncludeHandler( this );
+			cplusOracleTableIncludeHandler = new YCFBamXmlLoaderCPlusOracleTableIncludeHandler( this );
 		}
 		return( cplusOracleTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusPgSqlTableIncludeHandler getCPlusPgSqlTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusPgSqlTableIncludeHandler getCPlusPgSqlTableIncludeHandler() {
 		if( cplusPgSqlTableIncludeHandler == null ) {
-			cplusPgSqlTableIncludeHandler = new CFBamXmlLoaderCPlusPgSqlTableIncludeHandler( this );
+			cplusPgSqlTableIncludeHandler = new YCFBamXmlLoaderCPlusPgSqlTableIncludeHandler( this );
 		}
 		return( cplusPgSqlTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusRamTableIncludeHandler getCPlusRamTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusRamTableIncludeHandler getCPlusRamTableIncludeHandler() {
 		if( cplusRamTableIncludeHandler == null ) {
-			cplusRamTableIncludeHandler = new CFBamXmlLoaderCPlusRamTableIncludeHandler( this );
+			cplusRamTableIncludeHandler = new YCFBamXmlLoaderCPlusRamTableIncludeHandler( this );
 		}
 		return( cplusRamTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusObjIncludeHandler getCPlusObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusObjIncludeHandler getCPlusObjIncludeHandler() {
 		if( cplusObjIncludeHandler == null ) {
-			cplusObjIncludeHandler = new CFBamXmlLoaderCPlusObjIncludeHandler( this );
+			cplusObjIncludeHandler = new YCFBamXmlLoaderCPlusObjIncludeHandler( this );
 		}
 		return( cplusObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusEditObjIncludeHandler getCPlusEditObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusEditObjIncludeHandler getCPlusEditObjIncludeHandler() {
 		if( cplusEditObjIncludeHandler == null ) {
-			cplusEditObjIncludeHandler = new CFBamXmlLoaderCPlusEditObjIncludeHandler( this );
+			cplusEditObjIncludeHandler = new YCFBamXmlLoaderCPlusEditObjIncludeHandler( this );
 		}
 		return( cplusEditObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusSaxLoaderIncludeHandler getCPlusSaxLoaderIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusSaxLoaderIncludeHandler getCPlusSaxLoaderIncludeHandler() {
 		if( cplusSaxLoaderIncludeHandler == null ) {
-			cplusSaxLoaderIncludeHandler = new CFBamXmlLoaderCPlusSaxLoaderIncludeHandler( this );
+			cplusSaxLoaderIncludeHandler = new YCFBamXmlLoaderCPlusSaxLoaderIncludeHandler( this );
 		}
 		return( cplusSaxLoaderIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusTableIncludeHandler getCPlusTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusTableIncludeHandler getCPlusTableIncludeHandler() {
 		if( cplusTableIncludeHandler == null ) {
-			cplusTableIncludeHandler = new CFBamXmlLoaderCPlusTableIncludeHandler( this );
+			cplusTableIncludeHandler = new YCFBamXmlLoaderCPlusTableIncludeHandler( this );
 		}
 		return( cplusTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusTableObjIncludeHandler getCPlusTableObjIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusTableObjIncludeHandler getCPlusTableObjIncludeHandler() {
 		if( cplusTableObjIncludeHandler == null ) {
-			cplusTableObjIncludeHandler = new CFBamXmlLoaderCPlusTableObjIncludeHandler( this );
+			cplusTableObjIncludeHandler = new YCFBamXmlLoaderCPlusTableObjIncludeHandler( this );
 		}
 		return( cplusTableObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusTableMembersHandler getCPlusTableMembersHandler() {
+	protected YCFBamXmlLoaderCPlusTableMembersHandler getCPlusTableMembersHandler() {
 		if( cplusTableMembersHandler == null ) {
-			cplusTableMembersHandler = new CFBamXmlLoaderCPlusTableMembersHandler( this );
+			cplusTableMembersHandler = new YCFBamXmlLoaderCPlusTableMembersHandler( this );
 		}
 		return( cplusTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusTableInterfaceHandler getCPlusTableInterfaceHandler() {
+	protected YCFBamXmlLoaderCPlusTableInterfaceHandler getCPlusTableInterfaceHandler() {
 		if( cplusTableInterfaceHandler == null ) {
-			cplusTableInterfaceHandler = new CFBamXmlLoaderCPlusTableInterfaceHandler( this );
+			cplusTableInterfaceHandler = new YCFBamXmlLoaderCPlusTableInterfaceHandler( this );
 		}
 		return( cplusTableInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusTableImplementationHandler getCPlusTableImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusTableImplementationHandler getCPlusTableImplementationHandler() {
 		if( cplusTableImplementationHandler == null ) {
-			cplusTableImplementationHandler = new CFBamXmlLoaderCPlusTableImplementationHandler( this );
+			cplusTableImplementationHandler = new YCFBamXmlLoaderCPlusTableImplementationHandler( this );
 		}
 		return( cplusTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusTableObjMembersHandler getCPlusTableObjMembersHandler() {
+	protected YCFBamXmlLoaderCPlusTableObjMembersHandler getCPlusTableObjMembersHandler() {
 		if( cplusTableObjMembersHandler == null ) {
-			cplusTableObjMembersHandler = new CFBamXmlLoaderCPlusTableObjMembersHandler( this );
+			cplusTableObjMembersHandler = new YCFBamXmlLoaderCPlusTableObjMembersHandler( this );
 		}
 		return( cplusTableObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusTableObjInterfaceHandler getCPlusTableObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCPlusTableObjInterfaceHandler getCPlusTableObjInterfaceHandler() {
 		if( cplusTableObjInterfaceHandler == null ) {
-			cplusTableObjInterfaceHandler = new CFBamXmlLoaderCPlusTableObjInterfaceHandler( this );
+			cplusTableObjInterfaceHandler = new YCFBamXmlLoaderCPlusTableObjInterfaceHandler( this );
 		}
 		return( cplusTableObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusTableObjImplementationHandler getCPlusTableObjImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusTableObjImplementationHandler getCPlusTableObjImplementationHandler() {
 		if( cplusTableObjImplementationHandler == null ) {
-			cplusTableObjImplementationHandler = new CFBamXmlLoaderCPlusTableObjImplementationHandler( this );
+			cplusTableObjImplementationHandler = new YCFBamXmlLoaderCPlusTableObjImplementationHandler( this );
 		}
 		return( cplusTableObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusDb2LUWTableMembersHandler getCPlusDb2LUWTableMembersHandler() {
+	protected YCFBamXmlLoaderCPlusDb2LUWTableMembersHandler getCPlusDb2LUWTableMembersHandler() {
 		if( cplusDb2LUWTableMembersHandler == null ) {
-			cplusDb2LUWTableMembersHandler = new CFBamXmlLoaderCPlusDb2LUWTableMembersHandler( this );
+			cplusDb2LUWTableMembersHandler = new YCFBamXmlLoaderCPlusDb2LUWTableMembersHandler( this );
 		}
 		return( cplusDb2LUWTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusDb2LUWTableImplementationHandler getCPlusDb2LUWTableImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusDb2LUWTableImplementationHandler getCPlusDb2LUWTableImplementationHandler() {
 		if( cplusDb2LUWTableImplementationHandler == null ) {
-			cplusDb2LUWTableImplementationHandler = new CFBamXmlLoaderCPlusDb2LUWTableImplementationHandler( this );
+			cplusDb2LUWTableImplementationHandler = new YCFBamXmlLoaderCPlusDb2LUWTableImplementationHandler( this );
 		}
 		return( cplusDb2LUWTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMSSqlTableMembersHandler getCPlusMSSqlTableMembersHandler() {
+	protected YCFBamXmlLoaderCPlusMSSqlTableMembersHandler getCPlusMSSqlTableMembersHandler() {
 		if( cplusMSSqlTableMembersHandler == null ) {
-			cplusMSSqlTableMembersHandler = new CFBamXmlLoaderCPlusMSSqlTableMembersHandler( this );
+			cplusMSSqlTableMembersHandler = new YCFBamXmlLoaderCPlusMSSqlTableMembersHandler( this );
 		}
 		return( cplusMSSqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMSSqlTableImplementationHandler getCPlusMSSqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusMSSqlTableImplementationHandler getCPlusMSSqlTableImplementationHandler() {
 		if( cplusMSSqlTableImplementationHandler == null ) {
-			cplusMSSqlTableImplementationHandler = new CFBamXmlLoaderCPlusMSSqlTableImplementationHandler( this );
+			cplusMSSqlTableImplementationHandler = new YCFBamXmlLoaderCPlusMSSqlTableImplementationHandler( this );
 		}
 		return( cplusMSSqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMySqlTableMembersHandler getCPlusMySqlTableMembersHandler() {
+	protected YCFBamXmlLoaderCPlusMySqlTableMembersHandler getCPlusMySqlTableMembersHandler() {
 		if( cplusMySqlTableMembersHandler == null ) {
-			cplusMySqlTableMembersHandler = new CFBamXmlLoaderCPlusMySqlTableMembersHandler( this );
+			cplusMySqlTableMembersHandler = new YCFBamXmlLoaderCPlusMySqlTableMembersHandler( this );
 		}
 		return( cplusMySqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusMySqlTableImplementationHandler getCPlusMySqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusMySqlTableImplementationHandler getCPlusMySqlTableImplementationHandler() {
 		if( cplusMySqlTableImplementationHandler == null ) {
-			cplusMySqlTableImplementationHandler = new CFBamXmlLoaderCPlusMySqlTableImplementationHandler( this );
+			cplusMySqlTableImplementationHandler = new YCFBamXmlLoaderCPlusMySqlTableImplementationHandler( this );
 		}
 		return( cplusMySqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusOracleTableMembersHandler getCPlusOracleTableMembersHandler() {
+	protected YCFBamXmlLoaderCPlusOracleTableMembersHandler getCPlusOracleTableMembersHandler() {
 		if( cplusOracleTableMembersHandler == null ) {
-			cplusOracleTableMembersHandler = new CFBamXmlLoaderCPlusOracleTableMembersHandler( this );
+			cplusOracleTableMembersHandler = new YCFBamXmlLoaderCPlusOracleTableMembersHandler( this );
 		}
 		return( cplusOracleTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusOracleTableImplementationHandler getCPlusOracleTableImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusOracleTableImplementationHandler getCPlusOracleTableImplementationHandler() {
 		if( cplusOracleTableImplementationHandler == null ) {
-			cplusOracleTableImplementationHandler = new CFBamXmlLoaderCPlusOracleTableImplementationHandler( this );
+			cplusOracleTableImplementationHandler = new YCFBamXmlLoaderCPlusOracleTableImplementationHandler( this );
 		}
 		return( cplusOracleTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusPgSqlTableMembersHandler getCPlusPgSqlTableMembersHandler() {
+	protected YCFBamXmlLoaderCPlusPgSqlTableMembersHandler getCPlusPgSqlTableMembersHandler() {
 		if( cplusPgSqlTableMembersHandler == null ) {
-			cplusPgSqlTableMembersHandler = new CFBamXmlLoaderCPlusPgSqlTableMembersHandler( this );
+			cplusPgSqlTableMembersHandler = new YCFBamXmlLoaderCPlusPgSqlTableMembersHandler( this );
 		}
 		return( cplusPgSqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusPgSqlTableImplementationHandler getCPlusPgSqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusPgSqlTableImplementationHandler getCPlusPgSqlTableImplementationHandler() {
 		if( cplusPgSqlTableImplementationHandler == null ) {
-			cplusPgSqlTableImplementationHandler = new CFBamXmlLoaderCPlusPgSqlTableImplementationHandler( this );
+			cplusPgSqlTableImplementationHandler = new YCFBamXmlLoaderCPlusPgSqlTableImplementationHandler( this );
 		}
 		return( cplusPgSqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusRamTableMembersHandler getCPlusRamTableMembersHandler() {
+	protected YCFBamXmlLoaderCPlusRamTableMembersHandler getCPlusRamTableMembersHandler() {
 		if( cplusRamTableMembersHandler == null ) {
-			cplusRamTableMembersHandler = new CFBamXmlLoaderCPlusRamTableMembersHandler( this );
+			cplusRamTableMembersHandler = new YCFBamXmlLoaderCPlusRamTableMembersHandler( this );
 		}
 		return( cplusRamTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusRamTableImplementationHandler getCPlusRamTableImplementationHandler() {
+	protected YCFBamXmlLoaderCPlusRamTableImplementationHandler getCPlusRamTableImplementationHandler() {
 		if( cplusRamTableImplementationHandler == null ) {
-			cplusRamTableImplementationHandler = new CFBamXmlLoaderCPlusRamTableImplementationHandler( this );
+			cplusRamTableImplementationHandler = new YCFBamXmlLoaderCPlusRamTableImplementationHandler( this );
 		}
 		return( cplusRamTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusSaxLoaderStartElementHandler getCPlusSaxLoaderStartElementHandler() {
+	protected YCFBamXmlLoaderCPlusSaxLoaderStartElementHandler getCPlusSaxLoaderStartElementHandler() {
 		if( cplusSaxLoaderStartElementHandler == null ) {
-			cplusSaxLoaderStartElementHandler = new CFBamXmlLoaderCPlusSaxLoaderStartElementHandler( this );
+			cplusSaxLoaderStartElementHandler = new YCFBamXmlLoaderCPlusSaxLoaderStartElementHandler( this );
 		}
 		return( cplusSaxLoaderStartElementHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusSaxLoaderEndElementHandler getCPlusSaxLoaderEndElementHandler() {
+	protected YCFBamXmlLoaderCPlusSaxLoaderEndElementHandler getCPlusSaxLoaderEndElementHandler() {
 		if( cplusSaxLoaderEndElementHandler == null ) {
-			cplusSaxLoaderEndElementHandler = new CFBamXmlLoaderCPlusSaxLoaderEndElementHandler( this );
+			cplusSaxLoaderEndElementHandler = new YCFBamXmlLoaderCPlusSaxLoaderEndElementHandler( this );
 		}
 		return( cplusSaxLoaderEndElementHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgTableIncludeHandler getCPlusXMsgTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgTableIncludeHandler getCPlusXMsgTableIncludeHandler() {
 		if( cplusXMsgTableIncludeHandler == null ) {
-			cplusXMsgTableIncludeHandler = new CFBamXmlLoaderCPlusXMsgTableIncludeHandler( this );
+			cplusXMsgTableIncludeHandler = new YCFBamXmlLoaderCPlusXMsgTableIncludeHandler( this );
 		}
 		return( cplusXMsgTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgTableFormattersHandler getCPlusXMsgTableFormattersHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgTableFormattersHandler getCPlusXMsgTableFormattersHandler() {
 		if( cplusXMsgTableFormattersHandler == null ) {
-			cplusXMsgTableFormattersHandler = new CFBamXmlLoaderCPlusXMsgTableFormattersHandler( this );
+			cplusXMsgTableFormattersHandler = new YCFBamXmlLoaderCPlusXMsgTableFormattersHandler( this );
 		}
 		return( cplusXMsgTableFormattersHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRqstTableIncludeHandler getCPlusXMsgRqstTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRqstTableIncludeHandler getCPlusXMsgRqstTableIncludeHandler() {
 		if( cplusXMsgRqstTableIncludeHandler == null ) {
-			cplusXMsgRqstTableIncludeHandler = new CFBamXmlLoaderCPlusXMsgRqstTableIncludeHandler( this );
+			cplusXMsgRqstTableIncludeHandler = new YCFBamXmlLoaderCPlusXMsgRqstTableIncludeHandler( this );
 		}
 		return( cplusXMsgRqstTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRspnTableIncludeHandler getCPlusXMsgRspnTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRspnTableIncludeHandler getCPlusXMsgRspnTableIncludeHandler() {
 		if( cplusXMsgRspnTableIncludeHandler == null ) {
-			cplusXMsgRspnTableIncludeHandler = new CFBamXmlLoaderCPlusXMsgRspnTableIncludeHandler( this );
+			cplusXMsgRspnTableIncludeHandler = new YCFBamXmlLoaderCPlusXMsgRspnTableIncludeHandler( this );
 		}
 		return( cplusXMsgRspnTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgClientTableIncludeHandler getCPlusXMsgClientTableIncludeHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgClientTableIncludeHandler getCPlusXMsgClientTableIncludeHandler() {
 		if( cplusXMsgClientTableIncludeHandler == null ) {
-			cplusXMsgClientTableIncludeHandler = new CFBamXmlLoaderCPlusXMsgClientTableIncludeHandler( this );
+			cplusXMsgClientTableIncludeHandler = new YCFBamXmlLoaderCPlusXMsgClientTableIncludeHandler( this );
 		}
 		return( cplusXMsgClientTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRqstTableBodyHandler getCPlusXMsgRqstTableBodyHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRqstTableBodyHandler getCPlusXMsgRqstTableBodyHandler() {
 		if( cplusXMsgRqstTableBodyHandler == null ) {
-			cplusXMsgRqstTableBodyHandler = new CFBamXmlLoaderCPlusXMsgRqstTableBodyHandler( this );
+			cplusXMsgRqstTableBodyHandler = new YCFBamXmlLoaderCPlusXMsgRqstTableBodyHandler( this );
 		}
 		return( cplusXMsgRqstTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgRspnTableBodyHandler getCPlusXMsgRspnTableBodyHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgRspnTableBodyHandler getCPlusXMsgRspnTableBodyHandler() {
 		if( cplusXMsgRspnTableBodyHandler == null ) {
-			cplusXMsgRspnTableBodyHandler = new CFBamXmlLoaderCPlusXMsgRspnTableBodyHandler( this );
+			cplusXMsgRspnTableBodyHandler = new YCFBamXmlLoaderCPlusXMsgRspnTableBodyHandler( this );
 		}
 		return( cplusXMsgRspnTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCPlusXMsgClientTableBodyHandler getCPlusXMsgClientTableBodyHandler() {
+	protected YCFBamXmlLoaderCPlusXMsgClientTableBodyHandler getCPlusXMsgClientTableBodyHandler() {
 		if( cplusXMsgClientTableBodyHandler == null ) {
-			cplusXMsgClientTableBodyHandler = new CFBamXmlLoaderCPlusXMsgClientTableBodyHandler( this );
+			cplusXMsgClientTableBodyHandler = new YCFBamXmlLoaderCPlusXMsgClientTableBodyHandler( this );
 		}
 		return( cplusXMsgClientTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusSchemaObjInterfaceHandler getHPlusSchemaObjInterfaceHandler() {
+	protected YCFBamXmlLoaderHPlusSchemaObjInterfaceHandler getHPlusSchemaObjInterfaceHandler() {
 		if( hplusSchemaObjInterfaceHandler == null ) {
-			hplusSchemaObjInterfaceHandler = new CFBamXmlLoaderHPlusSchemaObjInterfaceHandler( this );
+			hplusSchemaObjInterfaceHandler = new YCFBamXmlLoaderHPlusSchemaObjInterfaceHandler( this );
 		}
 		return( hplusSchemaObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusSchemaObjMembersHandler getHPlusSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusSchemaObjMembersHandler getHPlusSchemaObjMembersHandler() {
 		if( hplusSchemaObjMembersHandler == null ) {
-			hplusSchemaObjMembersHandler = new CFBamXmlLoaderHPlusSchemaObjMembersHandler( this );
+			hplusSchemaObjMembersHandler = new YCFBamXmlLoaderHPlusSchemaObjMembersHandler( this );
 		}
 		return( hplusSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusSchemaObjIncludeHandler getHPlusSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusSchemaObjIncludeHandler getHPlusSchemaObjIncludeHandler() {
 		if( hplusSchemaObjIncludeHandler == null ) {
-			hplusSchemaObjIncludeHandler = new CFBamXmlLoaderHPlusSchemaObjIncludeHandler( this );
+			hplusSchemaObjIncludeHandler = new YCFBamXmlLoaderHPlusSchemaObjIncludeHandler( this );
 		}
 		return( hplusSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusSchemaObjImplementationHandler getHPlusSchemaObjImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusSchemaObjImplementationHandler getHPlusSchemaObjImplementationHandler() {
 		if( hplusSchemaObjImplementationHandler == null ) {
-			hplusSchemaObjImplementationHandler = new CFBamXmlLoaderHPlusSchemaObjImplementationHandler( this );
+			hplusSchemaObjImplementationHandler = new YCFBamXmlLoaderHPlusSchemaObjImplementationHandler( this );
 		}
 		return( hplusSchemaObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusDb2LUWSchemaObjMembersHandler getHPlusDb2LUWSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusDb2LUWSchemaObjMembersHandler getHPlusDb2LUWSchemaObjMembersHandler() {
 		if( hplusDb2LUWSchemaObjMembersHandler == null ) {
-			hplusDb2LUWSchemaObjMembersHandler = new CFBamXmlLoaderHPlusDb2LUWSchemaObjMembersHandler( this );
+			hplusDb2LUWSchemaObjMembersHandler = new YCFBamXmlLoaderHPlusDb2LUWSchemaObjMembersHandler( this );
 		}
 		return( hplusDb2LUWSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusDb2LUWSchemaObjImplHandler getHPlusDb2LUWSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderHPlusDb2LUWSchemaObjImplHandler getHPlusDb2LUWSchemaObjImplHandler() {
 		if( hplusDb2LUWSchemaObjImplHandler == null ) {
-			hplusDb2LUWSchemaObjImplHandler = new CFBamXmlLoaderHPlusDb2LUWSchemaObjImplHandler( this );
+			hplusDb2LUWSchemaObjImplHandler = new YCFBamXmlLoaderHPlusDb2LUWSchemaObjImplHandler( this );
 		}
 		return( hplusDb2LUWSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusDb2LUWSchemaObjIncludeHandler getHPlusDb2LUWSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusDb2LUWSchemaObjIncludeHandler getHPlusDb2LUWSchemaObjIncludeHandler() {
 		if( hplusDb2LUWSchemaObjIncludeHandler == null ) {
-			hplusDb2LUWSchemaObjIncludeHandler = new CFBamXmlLoaderHPlusDb2LUWSchemaObjIncludeHandler( this );
+			hplusDb2LUWSchemaObjIncludeHandler = new YCFBamXmlLoaderHPlusDb2LUWSchemaObjIncludeHandler( this );
 		}
 		return( hplusDb2LUWSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMSSqlSchemaObjMembersHandler getHPlusMSSqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusMSSqlSchemaObjMembersHandler getHPlusMSSqlSchemaObjMembersHandler() {
 		if( hplusMSSqlSchemaObjMembersHandler == null ) {
-			hplusMSSqlSchemaObjMembersHandler = new CFBamXmlLoaderHPlusMSSqlSchemaObjMembersHandler( this );
+			hplusMSSqlSchemaObjMembersHandler = new YCFBamXmlLoaderHPlusMSSqlSchemaObjMembersHandler( this );
 		}
 		return( hplusMSSqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMSSqlSchemaObjImplHandler getHPlusMSSqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderHPlusMSSqlSchemaObjImplHandler getHPlusMSSqlSchemaObjImplHandler() {
 		if( hplusMSSqlSchemaObjImplHandler == null ) {
-			hplusMSSqlSchemaObjImplHandler = new CFBamXmlLoaderHPlusMSSqlSchemaObjImplHandler( this );
+			hplusMSSqlSchemaObjImplHandler = new YCFBamXmlLoaderHPlusMSSqlSchemaObjImplHandler( this );
 		}
 		return( hplusMSSqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMSSqlSchemaObjIncludeHandler getHPlusMSSqlSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusMSSqlSchemaObjIncludeHandler getHPlusMSSqlSchemaObjIncludeHandler() {
 		if( hplusMSSqlSchemaObjIncludeHandler == null ) {
-			hplusMSSqlSchemaObjIncludeHandler = new CFBamXmlLoaderHPlusMSSqlSchemaObjIncludeHandler( this );
+			hplusMSSqlSchemaObjIncludeHandler = new YCFBamXmlLoaderHPlusMSSqlSchemaObjIncludeHandler( this );
 		}
 		return( hplusMSSqlSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMySqlSchemaObjMembersHandler getHPlusMySqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusMySqlSchemaObjMembersHandler getHPlusMySqlSchemaObjMembersHandler() {
 		if( hplusMySqlSchemaObjMembersHandler == null ) {
-			hplusMySqlSchemaObjMembersHandler = new CFBamXmlLoaderHPlusMySqlSchemaObjMembersHandler( this );
+			hplusMySqlSchemaObjMembersHandler = new YCFBamXmlLoaderHPlusMySqlSchemaObjMembersHandler( this );
 		}
 		return( hplusMySqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMySqlSchemaObjImplHandler getHPlusMySqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderHPlusMySqlSchemaObjImplHandler getHPlusMySqlSchemaObjImplHandler() {
 		if( hplusMySqlSchemaObjImplHandler == null ) {
-			hplusMySqlSchemaObjImplHandler = new CFBamXmlLoaderHPlusMySqlSchemaObjImplHandler( this );
+			hplusMySqlSchemaObjImplHandler = new YCFBamXmlLoaderHPlusMySqlSchemaObjImplHandler( this );
 		}
 		return( hplusMySqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMySqlSchemaObjIncludeHandler getHPlusMySqlSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusMySqlSchemaObjIncludeHandler getHPlusMySqlSchemaObjIncludeHandler() {
 		if( hplusMySqlSchemaObjIncludeHandler == null ) {
-			hplusMySqlSchemaObjIncludeHandler = new CFBamXmlLoaderHPlusMySqlSchemaObjIncludeHandler( this );
+			hplusMySqlSchemaObjIncludeHandler = new YCFBamXmlLoaderHPlusMySqlSchemaObjIncludeHandler( this );
 		}
 		return( hplusMySqlSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusOracleSchemaObjMembersHandler getHPlusOracleSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusOracleSchemaObjMembersHandler getHPlusOracleSchemaObjMembersHandler() {
 		if( hplusOracleSchemaObjMembersHandler == null ) {
-			hplusOracleSchemaObjMembersHandler = new CFBamXmlLoaderHPlusOracleSchemaObjMembersHandler( this );
+			hplusOracleSchemaObjMembersHandler = new YCFBamXmlLoaderHPlusOracleSchemaObjMembersHandler( this );
 		}
 		return( hplusOracleSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusOracleSchemaObjImplHandler getHPlusOracleSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderHPlusOracleSchemaObjImplHandler getHPlusOracleSchemaObjImplHandler() {
 		if( hplusOracleSchemaObjImplHandler == null ) {
-			hplusOracleSchemaObjImplHandler = new CFBamXmlLoaderHPlusOracleSchemaObjImplHandler( this );
+			hplusOracleSchemaObjImplHandler = new YCFBamXmlLoaderHPlusOracleSchemaObjImplHandler( this );
 		}
 		return( hplusOracleSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusOracleSchemaObjIncludeHandler getHPlusOracleSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusOracleSchemaObjIncludeHandler getHPlusOracleSchemaObjIncludeHandler() {
 		if( hplusOracleSchemaObjIncludeHandler == null ) {
-			hplusOracleSchemaObjIncludeHandler = new CFBamXmlLoaderHPlusOracleSchemaObjIncludeHandler( this );
+			hplusOracleSchemaObjIncludeHandler = new YCFBamXmlLoaderHPlusOracleSchemaObjIncludeHandler( this );
 		}
 		return( hplusOracleSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusPgSqlSchemaObjMembersHandler getHPlusPgSqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusPgSqlSchemaObjMembersHandler getHPlusPgSqlSchemaObjMembersHandler() {
 		if( hplusPgSqlSchemaObjMembersHandler == null ) {
-			hplusPgSqlSchemaObjMembersHandler = new CFBamXmlLoaderHPlusPgSqlSchemaObjMembersHandler( this );
+			hplusPgSqlSchemaObjMembersHandler = new YCFBamXmlLoaderHPlusPgSqlSchemaObjMembersHandler( this );
 		}
 		return( hplusPgSqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusPgSqlSchemaObjImplHandler getHPlusPgSqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderHPlusPgSqlSchemaObjImplHandler getHPlusPgSqlSchemaObjImplHandler() {
 		if( hplusPgSqlSchemaObjImplHandler == null ) {
-			hplusPgSqlSchemaObjImplHandler = new CFBamXmlLoaderHPlusPgSqlSchemaObjImplHandler( this );
+			hplusPgSqlSchemaObjImplHandler = new YCFBamXmlLoaderHPlusPgSqlSchemaObjImplHandler( this );
 		}
 		return( hplusPgSqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusPgSqlSchemaObjIncludeHandler getHPlusPgSqlSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusPgSqlSchemaObjIncludeHandler getHPlusPgSqlSchemaObjIncludeHandler() {
 		if( hplusPgSqlSchemaObjIncludeHandler == null ) {
-			hplusPgSqlSchemaObjIncludeHandler = new CFBamXmlLoaderHPlusPgSqlSchemaObjIncludeHandler( this );
+			hplusPgSqlSchemaObjIncludeHandler = new YCFBamXmlLoaderHPlusPgSqlSchemaObjIncludeHandler( this );
 		}
 		return( hplusPgSqlSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusRamSchemaObjMembersHandler getHPlusRamSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusRamSchemaObjMembersHandler getHPlusRamSchemaObjMembersHandler() {
 		if( hplusRamSchemaObjMembersHandler == null ) {
-			hplusRamSchemaObjMembersHandler = new CFBamXmlLoaderHPlusRamSchemaObjMembersHandler( this );
+			hplusRamSchemaObjMembersHandler = new YCFBamXmlLoaderHPlusRamSchemaObjMembersHandler( this );
 		}
 		return( hplusRamSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusRamSchemaObjImplHandler getHPlusRamSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderHPlusRamSchemaObjImplHandler getHPlusRamSchemaObjImplHandler() {
 		if( hplusRamSchemaObjImplHandler == null ) {
-			hplusRamSchemaObjImplHandler = new CFBamXmlLoaderHPlusRamSchemaObjImplHandler( this );
+			hplusRamSchemaObjImplHandler = new YCFBamXmlLoaderHPlusRamSchemaObjImplHandler( this );
 		}
 		return( hplusRamSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusRamSchemaObjIncludeHandler getHPlusRamSchemaObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusRamSchemaObjIncludeHandler getHPlusRamSchemaObjIncludeHandler() {
 		if( hplusRamSchemaObjIncludeHandler == null ) {
-			hplusRamSchemaObjIncludeHandler = new CFBamXmlLoaderHPlusRamSchemaObjIncludeHandler( this );
+			hplusRamSchemaObjIncludeHandler = new YCFBamXmlLoaderHPlusRamSchemaObjIncludeHandler( this );
 		}
 		return( hplusRamSchemaObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgSchemaIncludeHandler getHPlusXMsgSchemaIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgSchemaIncludeHandler getHPlusXMsgSchemaIncludeHandler() {
 		if( hplusXMsgSchemaIncludeHandler == null ) {
-			hplusXMsgSchemaIncludeHandler = new CFBamXmlLoaderHPlusXMsgSchemaIncludeHandler( this );
+			hplusXMsgSchemaIncludeHandler = new YCFBamXmlLoaderHPlusXMsgSchemaIncludeHandler( this );
 		}
 		return( hplusXMsgSchemaIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgSchemaFormattersHandler getHPlusXMsgSchemaFormattersHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgSchemaFormattersHandler getHPlusXMsgSchemaFormattersHandler() {
 		if( hplusXMsgSchemaFormattersHandler == null ) {
-			hplusXMsgSchemaFormattersHandler = new CFBamXmlLoaderHPlusXMsgSchemaFormattersHandler( this );
+			hplusXMsgSchemaFormattersHandler = new YCFBamXmlLoaderHPlusXMsgSchemaFormattersHandler( this );
 		}
 		return( hplusXMsgSchemaFormattersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgClientSchemaIncludeHandler getHPlusXMsgClientSchemaIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgClientSchemaIncludeHandler getHPlusXMsgClientSchemaIncludeHandler() {
 		if( hplusXMsgClientSchemaIncludeHandler == null ) {
-			hplusXMsgClientSchemaIncludeHandler = new CFBamXmlLoaderHPlusXMsgClientSchemaIncludeHandler( this );
+			hplusXMsgClientSchemaIncludeHandler = new YCFBamXmlLoaderHPlusXMsgClientSchemaIncludeHandler( this );
 		}
 		return( hplusXMsgClientSchemaIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgClientSchemaBodyHandler getHPlusXMsgClientSchemaBodyHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgClientSchemaBodyHandler getHPlusXMsgClientSchemaBodyHandler() {
 		if( hplusXMsgClientSchemaBodyHandler == null ) {
-			hplusXMsgClientSchemaBodyHandler = new CFBamXmlLoaderHPlusXMsgClientSchemaBodyHandler( this );
+			hplusXMsgClientSchemaBodyHandler = new YCFBamXmlLoaderHPlusXMsgClientSchemaBodyHandler( this );
 		}
 		return( hplusXMsgClientSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRqstSchemaBodyHandler getHPlusXMsgRqstSchemaBodyHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRqstSchemaBodyHandler getHPlusXMsgRqstSchemaBodyHandler() {
 		if( hplusXMsgRqstSchemaBodyHandler == null ) {
-			hplusXMsgRqstSchemaBodyHandler = new CFBamXmlLoaderHPlusXMsgRqstSchemaBodyHandler( this );
+			hplusXMsgRqstSchemaBodyHandler = new YCFBamXmlLoaderHPlusXMsgRqstSchemaBodyHandler( this );
 		}
 		return( hplusXMsgRqstSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRqstSchemaIncludeHandler getHPlusXMsgRqstSchemaIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRqstSchemaIncludeHandler getHPlusXMsgRqstSchemaIncludeHandler() {
 		if( hplusXMsgRqstSchemaIncludeHandler == null ) {
-			hplusXMsgRqstSchemaIncludeHandler = new CFBamXmlLoaderHPlusXMsgRqstSchemaIncludeHandler( this );
+			hplusXMsgRqstSchemaIncludeHandler = new YCFBamXmlLoaderHPlusXMsgRqstSchemaIncludeHandler( this );
 		}
 		return( hplusXMsgRqstSchemaIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRqstSchemaWireParsersHandler getHPlusXMsgRqstSchemaWireParsersHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRqstSchemaWireParsersHandler getHPlusXMsgRqstSchemaWireParsersHandler() {
 		if( hplusXMsgRqstSchemaWireParsersHandler == null ) {
-			hplusXMsgRqstSchemaWireParsersHandler = new CFBamXmlLoaderHPlusXMsgRqstSchemaWireParsersHandler( this );
+			hplusXMsgRqstSchemaWireParsersHandler = new YCFBamXmlLoaderHPlusXMsgRqstSchemaWireParsersHandler( this );
 		}
 		return( hplusXMsgRqstSchemaWireParsersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRqstSchemaXsdElementListHandler getHPlusXMsgRqstSchemaXsdElementListHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRqstSchemaXsdElementListHandler getHPlusXMsgRqstSchemaXsdElementListHandler() {
 		if( hplusXMsgRqstSchemaXsdElementListHandler == null ) {
-			hplusXMsgRqstSchemaXsdElementListHandler = new CFBamXmlLoaderHPlusXMsgRqstSchemaXsdElementListHandler( this );
+			hplusXMsgRqstSchemaXsdElementListHandler = new YCFBamXmlLoaderHPlusXMsgRqstSchemaXsdElementListHandler( this );
 		}
 		return( hplusXMsgRqstSchemaXsdElementListHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRqstSchemaXsdSpecHandler getHPlusXMsgRqstSchemaXsdSpecHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRqstSchemaXsdSpecHandler getHPlusXMsgRqstSchemaXsdSpecHandler() {
 		if( hplusXMsgRqstSchemaXsdSpecHandler == null ) {
-			hplusXMsgRqstSchemaXsdSpecHandler = new CFBamXmlLoaderHPlusXMsgRqstSchemaXsdSpecHandler( this );
+			hplusXMsgRqstSchemaXsdSpecHandler = new YCFBamXmlLoaderHPlusXMsgRqstSchemaXsdSpecHandler( this );
 		}
 		return( hplusXMsgRqstSchemaXsdSpecHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRspnSchemaBodyHandler getHPlusXMsgRspnSchemaBodyHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRspnSchemaBodyHandler getHPlusXMsgRspnSchemaBodyHandler() {
 		if( hplusXMsgRspnSchemaBodyHandler == null ) {
-			hplusXMsgRspnSchemaBodyHandler = new CFBamXmlLoaderHPlusXMsgRspnSchemaBodyHandler( this );
+			hplusXMsgRspnSchemaBodyHandler = new YCFBamXmlLoaderHPlusXMsgRspnSchemaBodyHandler( this );
 		}
 		return( hplusXMsgRspnSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRspnSchemaIncludeHandler getHPlusXMsgRspnSchemaIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRspnSchemaIncludeHandler getHPlusXMsgRspnSchemaIncludeHandler() {
 		if( hplusXMsgRspnSchemaIncludeHandler == null ) {
-			hplusXMsgRspnSchemaIncludeHandler = new CFBamXmlLoaderHPlusXMsgRspnSchemaIncludeHandler( this );
+			hplusXMsgRspnSchemaIncludeHandler = new YCFBamXmlLoaderHPlusXMsgRspnSchemaIncludeHandler( this );
 		}
 		return( hplusXMsgRspnSchemaIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRspnSchemaWireParsersHandler getHPlusXMsgRspnSchemaWireParsersHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRspnSchemaWireParsersHandler getHPlusXMsgRspnSchemaWireParsersHandler() {
 		if( hplusXMsgRspnSchemaWireParsersHandler == null ) {
-			hplusXMsgRspnSchemaWireParsersHandler = new CFBamXmlLoaderHPlusXMsgRspnSchemaWireParsersHandler( this );
+			hplusXMsgRspnSchemaWireParsersHandler = new YCFBamXmlLoaderHPlusXMsgRspnSchemaWireParsersHandler( this );
 		}
 		return( hplusXMsgRspnSchemaWireParsersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRspnSchemaXsdElementListHandler getHPlusXMsgRspnSchemaXsdElementListHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRspnSchemaXsdElementListHandler getHPlusXMsgRspnSchemaXsdElementListHandler() {
 		if( hplusXMsgRspnSchemaXsdElementListHandler == null ) {
-			hplusXMsgRspnSchemaXsdElementListHandler = new CFBamXmlLoaderHPlusXMsgRspnSchemaXsdElementListHandler( this );
+			hplusXMsgRspnSchemaXsdElementListHandler = new YCFBamXmlLoaderHPlusXMsgRspnSchemaXsdElementListHandler( this );
 		}
 		return( hplusXMsgRspnSchemaXsdElementListHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRspnSchemaXsdSpecHandler getHPlusXMsgRspnSchemaXsdSpecHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRspnSchemaXsdSpecHandler getHPlusXMsgRspnSchemaXsdSpecHandler() {
 		if( hplusXMsgRspnSchemaXsdSpecHandler == null ) {
-			hplusXMsgRspnSchemaXsdSpecHandler = new CFBamXmlLoaderHPlusXMsgRspnSchemaXsdSpecHandler( this );
+			hplusXMsgRspnSchemaXsdSpecHandler = new YCFBamXmlLoaderHPlusXMsgRspnSchemaXsdSpecHandler( this );
 		}
 		return( hplusXMsgRspnSchemaXsdSpecHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusObjMembersHandler getHPlusObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusObjMembersHandler getHPlusObjMembersHandler() {
 		if( hplusObjMembersHandler == null ) {
-			hplusObjMembersHandler = new CFBamXmlLoaderHPlusObjMembersHandler( this );
+			hplusObjMembersHandler = new YCFBamXmlLoaderHPlusObjMembersHandler( this );
 		}
 		return( hplusObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusObjInterfaceHandler getHPlusObjInterfaceHandler() {
+	protected YCFBamXmlLoaderHPlusObjInterfaceHandler getHPlusObjInterfaceHandler() {
 		if( hplusObjInterfaceHandler == null ) {
-			hplusObjInterfaceHandler = new CFBamXmlLoaderHPlusObjInterfaceHandler( this );
+			hplusObjInterfaceHandler = new YCFBamXmlLoaderHPlusObjInterfaceHandler( this );
 		}
 		return( hplusObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusObjImplementationHandler getHPlusObjImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusObjImplementationHandler getHPlusObjImplementationHandler() {
 		if( hplusObjImplementationHandler == null ) {
-			hplusObjImplementationHandler = new CFBamXmlLoaderHPlusObjImplementationHandler( this );
+			hplusObjImplementationHandler = new YCFBamXmlLoaderHPlusObjImplementationHandler( this );
 		}
 		return( hplusObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusEditObjMembersHandler getHPlusEditObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusEditObjMembersHandler getHPlusEditObjMembersHandler() {
 		if( hplusEditObjMembersHandler == null ) {
-			hplusEditObjMembersHandler = new CFBamXmlLoaderHPlusEditObjMembersHandler( this );
+			hplusEditObjMembersHandler = new YCFBamXmlLoaderHPlusEditObjMembersHandler( this );
 		}
 		return( hplusEditObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusEditObjInterfaceHandler getHPlusEditObjInterfaceHandler() {
+	protected YCFBamXmlLoaderHPlusEditObjInterfaceHandler getHPlusEditObjInterfaceHandler() {
 		if( hplusEditObjInterfaceHandler == null ) {
-			hplusEditObjInterfaceHandler = new CFBamXmlLoaderHPlusEditObjInterfaceHandler( this );
+			hplusEditObjInterfaceHandler = new YCFBamXmlLoaderHPlusEditObjInterfaceHandler( this );
 		}
 		return( hplusEditObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusEditObjImplementationHandler getHPlusEditObjImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusEditObjImplementationHandler getHPlusEditObjImplementationHandler() {
 		if( hplusEditObjImplementationHandler == null ) {
-			hplusEditObjImplementationHandler = new CFBamXmlLoaderHPlusEditObjImplementationHandler( this );
+			hplusEditObjImplementationHandler = new YCFBamXmlLoaderHPlusEditObjImplementationHandler( this );
 		}
 		return( hplusEditObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusDb2LUWTableIncludeHandler getHPlusDb2LUWTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusDb2LUWTableIncludeHandler getHPlusDb2LUWTableIncludeHandler() {
 		if( hplusDb2LUWTableIncludeHandler == null ) {
-			hplusDb2LUWTableIncludeHandler = new CFBamXmlLoaderHPlusDb2LUWTableIncludeHandler( this );
+			hplusDb2LUWTableIncludeHandler = new YCFBamXmlLoaderHPlusDb2LUWTableIncludeHandler( this );
 		}
 		return( hplusDb2LUWTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMSSqlTableIncludeHandler getHPlusMSSqlTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusMSSqlTableIncludeHandler getHPlusMSSqlTableIncludeHandler() {
 		if( hplusMSSqlTableIncludeHandler == null ) {
-			hplusMSSqlTableIncludeHandler = new CFBamXmlLoaderHPlusMSSqlTableIncludeHandler( this );
+			hplusMSSqlTableIncludeHandler = new YCFBamXmlLoaderHPlusMSSqlTableIncludeHandler( this );
 		}
 		return( hplusMSSqlTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMySqlTableIncludeHandler getHPlusMySqlTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusMySqlTableIncludeHandler getHPlusMySqlTableIncludeHandler() {
 		if( hplusMySqlTableIncludeHandler == null ) {
-			hplusMySqlTableIncludeHandler = new CFBamXmlLoaderHPlusMySqlTableIncludeHandler( this );
+			hplusMySqlTableIncludeHandler = new YCFBamXmlLoaderHPlusMySqlTableIncludeHandler( this );
 		}
 		return( hplusMySqlTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusOracleTableIncludeHandler getHPlusOracleTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusOracleTableIncludeHandler getHPlusOracleTableIncludeHandler() {
 		if( hplusOracleTableIncludeHandler == null ) {
-			hplusOracleTableIncludeHandler = new CFBamXmlLoaderHPlusOracleTableIncludeHandler( this );
+			hplusOracleTableIncludeHandler = new YCFBamXmlLoaderHPlusOracleTableIncludeHandler( this );
 		}
 		return( hplusOracleTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusPgSqlTableIncludeHandler getHPlusPgSqlTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusPgSqlTableIncludeHandler getHPlusPgSqlTableIncludeHandler() {
 		if( hplusPgSqlTableIncludeHandler == null ) {
-			hplusPgSqlTableIncludeHandler = new CFBamXmlLoaderHPlusPgSqlTableIncludeHandler( this );
+			hplusPgSqlTableIncludeHandler = new YCFBamXmlLoaderHPlusPgSqlTableIncludeHandler( this );
 		}
 		return( hplusPgSqlTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusRamTableIncludeHandler getHPlusRamTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusRamTableIncludeHandler getHPlusRamTableIncludeHandler() {
 		if( hplusRamTableIncludeHandler == null ) {
-			hplusRamTableIncludeHandler = new CFBamXmlLoaderHPlusRamTableIncludeHandler( this );
+			hplusRamTableIncludeHandler = new YCFBamXmlLoaderHPlusRamTableIncludeHandler( this );
 		}
 		return( hplusRamTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusObjIncludeHandler getHPlusObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusObjIncludeHandler getHPlusObjIncludeHandler() {
 		if( hplusObjIncludeHandler == null ) {
-			hplusObjIncludeHandler = new CFBamXmlLoaderHPlusObjIncludeHandler( this );
+			hplusObjIncludeHandler = new YCFBamXmlLoaderHPlusObjIncludeHandler( this );
 		}
 		return( hplusObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusEditObjIncludeHandler getHPlusEditObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusEditObjIncludeHandler getHPlusEditObjIncludeHandler() {
 		if( hplusEditObjIncludeHandler == null ) {
-			hplusEditObjIncludeHandler = new CFBamXmlLoaderHPlusEditObjIncludeHandler( this );
+			hplusEditObjIncludeHandler = new YCFBamXmlLoaderHPlusEditObjIncludeHandler( this );
 		}
 		return( hplusEditObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusSaxLoaderIncludeHandler getHPlusSaxLoaderIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusSaxLoaderIncludeHandler getHPlusSaxLoaderIncludeHandler() {
 		if( hplusSaxLoaderIncludeHandler == null ) {
-			hplusSaxLoaderIncludeHandler = new CFBamXmlLoaderHPlusSaxLoaderIncludeHandler( this );
+			hplusSaxLoaderIncludeHandler = new YCFBamXmlLoaderHPlusSaxLoaderIncludeHandler( this );
 		}
 		return( hplusSaxLoaderIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusTableIncludeHandler getHPlusTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusTableIncludeHandler getHPlusTableIncludeHandler() {
 		if( hplusTableIncludeHandler == null ) {
-			hplusTableIncludeHandler = new CFBamXmlLoaderHPlusTableIncludeHandler( this );
+			hplusTableIncludeHandler = new YCFBamXmlLoaderHPlusTableIncludeHandler( this );
 		}
 		return( hplusTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusTableObjIncludeHandler getHPlusTableObjIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusTableObjIncludeHandler getHPlusTableObjIncludeHandler() {
 		if( hplusTableObjIncludeHandler == null ) {
-			hplusTableObjIncludeHandler = new CFBamXmlLoaderHPlusTableObjIncludeHandler( this );
+			hplusTableObjIncludeHandler = new YCFBamXmlLoaderHPlusTableObjIncludeHandler( this );
 		}
 		return( hplusTableObjIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusTableMembersHandler getHPlusTableMembersHandler() {
+	protected YCFBamXmlLoaderHPlusTableMembersHandler getHPlusTableMembersHandler() {
 		if( hplusTableMembersHandler == null ) {
-			hplusTableMembersHandler = new CFBamXmlLoaderHPlusTableMembersHandler( this );
+			hplusTableMembersHandler = new YCFBamXmlLoaderHPlusTableMembersHandler( this );
 		}
 		return( hplusTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusTableInterfaceHandler getHPlusTableInterfaceHandler() {
+	protected YCFBamXmlLoaderHPlusTableInterfaceHandler getHPlusTableInterfaceHandler() {
 		if( hplusTableInterfaceHandler == null ) {
-			hplusTableInterfaceHandler = new CFBamXmlLoaderHPlusTableInterfaceHandler( this );
+			hplusTableInterfaceHandler = new YCFBamXmlLoaderHPlusTableInterfaceHandler( this );
 		}
 		return( hplusTableInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusTableImplementationHandler getHPlusTableImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusTableImplementationHandler getHPlusTableImplementationHandler() {
 		if( hplusTableImplementationHandler == null ) {
-			hplusTableImplementationHandler = new CFBamXmlLoaderHPlusTableImplementationHandler( this );
+			hplusTableImplementationHandler = new YCFBamXmlLoaderHPlusTableImplementationHandler( this );
 		}
 		return( hplusTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusTableObjMembersHandler getHPlusTableObjMembersHandler() {
+	protected YCFBamXmlLoaderHPlusTableObjMembersHandler getHPlusTableObjMembersHandler() {
 		if( hplusTableObjMembersHandler == null ) {
-			hplusTableObjMembersHandler = new CFBamXmlLoaderHPlusTableObjMembersHandler( this );
+			hplusTableObjMembersHandler = new YCFBamXmlLoaderHPlusTableObjMembersHandler( this );
 		}
 		return( hplusTableObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusTableObjInterfaceHandler getHPlusTableObjInterfaceHandler() {
+	protected YCFBamXmlLoaderHPlusTableObjInterfaceHandler getHPlusTableObjInterfaceHandler() {
 		if( hplusTableObjInterfaceHandler == null ) {
-			hplusTableObjInterfaceHandler = new CFBamXmlLoaderHPlusTableObjInterfaceHandler( this );
+			hplusTableObjInterfaceHandler = new YCFBamXmlLoaderHPlusTableObjInterfaceHandler( this );
 		}
 		return( hplusTableObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusTableObjImplementationHandler getHPlusTableObjImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusTableObjImplementationHandler getHPlusTableObjImplementationHandler() {
 		if( hplusTableObjImplementationHandler == null ) {
-			hplusTableObjImplementationHandler = new CFBamXmlLoaderHPlusTableObjImplementationHandler( this );
+			hplusTableObjImplementationHandler = new YCFBamXmlLoaderHPlusTableObjImplementationHandler( this );
 		}
 		return( hplusTableObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusDb2LUWTableMembersHandler getHPlusDb2LUWTableMembersHandler() {
+	protected YCFBamXmlLoaderHPlusDb2LUWTableMembersHandler getHPlusDb2LUWTableMembersHandler() {
 		if( hplusDb2LUWTableMembersHandler == null ) {
-			hplusDb2LUWTableMembersHandler = new CFBamXmlLoaderHPlusDb2LUWTableMembersHandler( this );
+			hplusDb2LUWTableMembersHandler = new YCFBamXmlLoaderHPlusDb2LUWTableMembersHandler( this );
 		}
 		return( hplusDb2LUWTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusDb2LUWTableImplementationHandler getHPlusDb2LUWTableImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusDb2LUWTableImplementationHandler getHPlusDb2LUWTableImplementationHandler() {
 		if( hplusDb2LUWTableImplementationHandler == null ) {
-			hplusDb2LUWTableImplementationHandler = new CFBamXmlLoaderHPlusDb2LUWTableImplementationHandler( this );
+			hplusDb2LUWTableImplementationHandler = new YCFBamXmlLoaderHPlusDb2LUWTableImplementationHandler( this );
 		}
 		return( hplusDb2LUWTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMSSqlTableMembersHandler getHPlusMSSqlTableMembersHandler() {
+	protected YCFBamXmlLoaderHPlusMSSqlTableMembersHandler getHPlusMSSqlTableMembersHandler() {
 		if( hplusMSSqlTableMembersHandler == null ) {
-			hplusMSSqlTableMembersHandler = new CFBamXmlLoaderHPlusMSSqlTableMembersHandler( this );
+			hplusMSSqlTableMembersHandler = new YCFBamXmlLoaderHPlusMSSqlTableMembersHandler( this );
 		}
 		return( hplusMSSqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMSSqlTableImplementationHandler getHPlusMSSqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusMSSqlTableImplementationHandler getHPlusMSSqlTableImplementationHandler() {
 		if( hplusMSSqlTableImplementationHandler == null ) {
-			hplusMSSqlTableImplementationHandler = new CFBamXmlLoaderHPlusMSSqlTableImplementationHandler( this );
+			hplusMSSqlTableImplementationHandler = new YCFBamXmlLoaderHPlusMSSqlTableImplementationHandler( this );
 		}
 		return( hplusMSSqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMySqlTableMembersHandler getHPlusMySqlTableMembersHandler() {
+	protected YCFBamXmlLoaderHPlusMySqlTableMembersHandler getHPlusMySqlTableMembersHandler() {
 		if( hplusMySqlTableMembersHandler == null ) {
-			hplusMySqlTableMembersHandler = new CFBamXmlLoaderHPlusMySqlTableMembersHandler( this );
+			hplusMySqlTableMembersHandler = new YCFBamXmlLoaderHPlusMySqlTableMembersHandler( this );
 		}
 		return( hplusMySqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusMySqlTableImplementationHandler getHPlusMySqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusMySqlTableImplementationHandler getHPlusMySqlTableImplementationHandler() {
 		if( hplusMySqlTableImplementationHandler == null ) {
-			hplusMySqlTableImplementationHandler = new CFBamXmlLoaderHPlusMySqlTableImplementationHandler( this );
+			hplusMySqlTableImplementationHandler = new YCFBamXmlLoaderHPlusMySqlTableImplementationHandler( this );
 		}
 		return( hplusMySqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusOracleTableMembersHandler getHPlusOracleTableMembersHandler() {
+	protected YCFBamXmlLoaderHPlusOracleTableMembersHandler getHPlusOracleTableMembersHandler() {
 		if( hplusOracleTableMembersHandler == null ) {
-			hplusOracleTableMembersHandler = new CFBamXmlLoaderHPlusOracleTableMembersHandler( this );
+			hplusOracleTableMembersHandler = new YCFBamXmlLoaderHPlusOracleTableMembersHandler( this );
 		}
 		return( hplusOracleTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusOracleTableImplementationHandler getHPlusOracleTableImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusOracleTableImplementationHandler getHPlusOracleTableImplementationHandler() {
 		if( hplusOracleTableImplementationHandler == null ) {
-			hplusOracleTableImplementationHandler = new CFBamXmlLoaderHPlusOracleTableImplementationHandler( this );
+			hplusOracleTableImplementationHandler = new YCFBamXmlLoaderHPlusOracleTableImplementationHandler( this );
 		}
 		return( hplusOracleTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusPgSqlTableMembersHandler getHPlusPgSqlTableMembersHandler() {
+	protected YCFBamXmlLoaderHPlusPgSqlTableMembersHandler getHPlusPgSqlTableMembersHandler() {
 		if( hplusPgSqlTableMembersHandler == null ) {
-			hplusPgSqlTableMembersHandler = new CFBamXmlLoaderHPlusPgSqlTableMembersHandler( this );
+			hplusPgSqlTableMembersHandler = new YCFBamXmlLoaderHPlusPgSqlTableMembersHandler( this );
 		}
 		return( hplusPgSqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusPgSqlTableImplementationHandler getHPlusPgSqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusPgSqlTableImplementationHandler getHPlusPgSqlTableImplementationHandler() {
 		if( hplusPgSqlTableImplementationHandler == null ) {
-			hplusPgSqlTableImplementationHandler = new CFBamXmlLoaderHPlusPgSqlTableImplementationHandler( this );
+			hplusPgSqlTableImplementationHandler = new YCFBamXmlLoaderHPlusPgSqlTableImplementationHandler( this );
 		}
 		return( hplusPgSqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusRamTableMembersHandler getHPlusRamTableMembersHandler() {
+	protected YCFBamXmlLoaderHPlusRamTableMembersHandler getHPlusRamTableMembersHandler() {
 		if( hplusRamTableMembersHandler == null ) {
-			hplusRamTableMembersHandler = new CFBamXmlLoaderHPlusRamTableMembersHandler( this );
+			hplusRamTableMembersHandler = new YCFBamXmlLoaderHPlusRamTableMembersHandler( this );
 		}
 		return( hplusRamTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusRamTableImplementationHandler getHPlusRamTableImplementationHandler() {
+	protected YCFBamXmlLoaderHPlusRamTableImplementationHandler getHPlusRamTableImplementationHandler() {
 		if( hplusRamTableImplementationHandler == null ) {
-			hplusRamTableImplementationHandler = new CFBamXmlLoaderHPlusRamTableImplementationHandler( this );
+			hplusRamTableImplementationHandler = new YCFBamXmlLoaderHPlusRamTableImplementationHandler( this );
 		}
 		return( hplusRamTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusSaxLoaderStartElementHandler getHPlusSaxLoaderStartElementHandler() {
+	protected YCFBamXmlLoaderHPlusSaxLoaderStartElementHandler getHPlusSaxLoaderStartElementHandler() {
 		if( hplusSaxLoaderStartElementHandler == null ) {
-			hplusSaxLoaderStartElementHandler = new CFBamXmlLoaderHPlusSaxLoaderStartElementHandler( this );
+			hplusSaxLoaderStartElementHandler = new YCFBamXmlLoaderHPlusSaxLoaderStartElementHandler( this );
 		}
 		return( hplusSaxLoaderStartElementHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusSaxLoaderEndElementHandler getHPlusSaxLoaderEndElementHandler() {
+	protected YCFBamXmlLoaderHPlusSaxLoaderEndElementHandler getHPlusSaxLoaderEndElementHandler() {
 		if( hplusSaxLoaderEndElementHandler == null ) {
-			hplusSaxLoaderEndElementHandler = new CFBamXmlLoaderHPlusSaxLoaderEndElementHandler( this );
+			hplusSaxLoaderEndElementHandler = new YCFBamXmlLoaderHPlusSaxLoaderEndElementHandler( this );
 		}
 		return( hplusSaxLoaderEndElementHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgTableIncludeHandler getHPlusXMsgTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgTableIncludeHandler getHPlusXMsgTableIncludeHandler() {
 		if( hplusXMsgTableIncludeHandler == null ) {
-			hplusXMsgTableIncludeHandler = new CFBamXmlLoaderHPlusXMsgTableIncludeHandler( this );
+			hplusXMsgTableIncludeHandler = new YCFBamXmlLoaderHPlusXMsgTableIncludeHandler( this );
 		}
 		return( hplusXMsgTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgTableFormattersHandler getHPlusXMsgTableFormattersHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgTableFormattersHandler getHPlusXMsgTableFormattersHandler() {
 		if( hplusXMsgTableFormattersHandler == null ) {
-			hplusXMsgTableFormattersHandler = new CFBamXmlLoaderHPlusXMsgTableFormattersHandler( this );
+			hplusXMsgTableFormattersHandler = new YCFBamXmlLoaderHPlusXMsgTableFormattersHandler( this );
 		}
 		return( hplusXMsgTableFormattersHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRqstTableIncludeHandler getHPlusXMsgRqstTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRqstTableIncludeHandler getHPlusXMsgRqstTableIncludeHandler() {
 		if( hplusXMsgRqstTableIncludeHandler == null ) {
-			hplusXMsgRqstTableIncludeHandler = new CFBamXmlLoaderHPlusXMsgRqstTableIncludeHandler( this );
+			hplusXMsgRqstTableIncludeHandler = new YCFBamXmlLoaderHPlusXMsgRqstTableIncludeHandler( this );
 		}
 		return( hplusXMsgRqstTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRspnTableIncludeHandler getHPlusXMsgRspnTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRspnTableIncludeHandler getHPlusXMsgRspnTableIncludeHandler() {
 		if( hplusXMsgRspnTableIncludeHandler == null ) {
-			hplusXMsgRspnTableIncludeHandler = new CFBamXmlLoaderHPlusXMsgRspnTableIncludeHandler( this );
+			hplusXMsgRspnTableIncludeHandler = new YCFBamXmlLoaderHPlusXMsgRspnTableIncludeHandler( this );
 		}
 		return( hplusXMsgRspnTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgClientTableIncludeHandler getHPlusXMsgClientTableIncludeHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgClientTableIncludeHandler getHPlusXMsgClientTableIncludeHandler() {
 		if( hplusXMsgClientTableIncludeHandler == null ) {
-			hplusXMsgClientTableIncludeHandler = new CFBamXmlLoaderHPlusXMsgClientTableIncludeHandler( this );
+			hplusXMsgClientTableIncludeHandler = new YCFBamXmlLoaderHPlusXMsgClientTableIncludeHandler( this );
 		}
 		return( hplusXMsgClientTableIncludeHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRqstTableBodyHandler getHPlusXMsgRqstTableBodyHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRqstTableBodyHandler getHPlusXMsgRqstTableBodyHandler() {
 		if( hplusXMsgRqstTableBodyHandler == null ) {
-			hplusXMsgRqstTableBodyHandler = new CFBamXmlLoaderHPlusXMsgRqstTableBodyHandler( this );
+			hplusXMsgRqstTableBodyHandler = new YCFBamXmlLoaderHPlusXMsgRqstTableBodyHandler( this );
 		}
 		return( hplusXMsgRqstTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgRspnTableBodyHandler getHPlusXMsgRspnTableBodyHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgRspnTableBodyHandler getHPlusXMsgRspnTableBodyHandler() {
 		if( hplusXMsgRspnTableBodyHandler == null ) {
-			hplusXMsgRspnTableBodyHandler = new CFBamXmlLoaderHPlusXMsgRspnTableBodyHandler( this );
+			hplusXMsgRspnTableBodyHandler = new YCFBamXmlLoaderHPlusXMsgRspnTableBodyHandler( this );
 		}
 		return( hplusXMsgRspnTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderHPlusXMsgClientTableBodyHandler getHPlusXMsgClientTableBodyHandler() {
+	protected YCFBamXmlLoaderHPlusXMsgClientTableBodyHandler getHPlusXMsgClientTableBodyHandler() {
 		if( hplusXMsgClientTableBodyHandler == null ) {
-			hplusXMsgClientTableBodyHandler = new CFBamXmlLoaderHPlusXMsgClientTableBodyHandler( this );
+			hplusXMsgClientTableBodyHandler = new YCFBamXmlLoaderHPlusXMsgClientTableBodyHandler( this );
 		}
 		return( hplusXMsgClientTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMethodBodyHandler getCSharpMethodBodyHandler() {
+	protected YCFBamXmlLoaderCSharpMethodBodyHandler getCSharpMethodBodyHandler() {
 		if( csharpMethodBodyHandler == null ) {
-			csharpMethodBodyHandler = new CFBamXmlLoaderCSharpMethodBodyHandler( this );
+			csharpMethodBodyHandler = new YCFBamXmlLoaderCSharpMethodBodyHandler( this );
 		}
 		return( csharpMethodBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpSchemaObjInterfaceHandler getCSharpSchemaObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCSharpSchemaObjInterfaceHandler getCSharpSchemaObjInterfaceHandler() {
 		if( csharpSchemaObjInterfaceHandler == null ) {
-			csharpSchemaObjInterfaceHandler = new CFBamXmlLoaderCSharpSchemaObjInterfaceHandler( this );
+			csharpSchemaObjInterfaceHandler = new YCFBamXmlLoaderCSharpSchemaObjInterfaceHandler( this );
 		}
 		return( csharpSchemaObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpSchemaObjMembersHandler getCSharpSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpSchemaObjMembersHandler getCSharpSchemaObjMembersHandler() {
 		if( csharpSchemaObjMembersHandler == null ) {
-			csharpSchemaObjMembersHandler = new CFBamXmlLoaderCSharpSchemaObjMembersHandler( this );
+			csharpSchemaObjMembersHandler = new YCFBamXmlLoaderCSharpSchemaObjMembersHandler( this );
 		}
 		return( csharpSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpSchemaObjUsingHandler getCSharpSchemaObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpSchemaObjUsingHandler getCSharpSchemaObjUsingHandler() {
 		if( csharpSchemaObjUsingHandler == null ) {
-			csharpSchemaObjUsingHandler = new CFBamXmlLoaderCSharpSchemaObjUsingHandler( this );
+			csharpSchemaObjUsingHandler = new YCFBamXmlLoaderCSharpSchemaObjUsingHandler( this );
 		}
 		return( csharpSchemaObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpSchemaObjImplementationHandler getCSharpSchemaObjImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpSchemaObjImplementationHandler getCSharpSchemaObjImplementationHandler() {
 		if( csharpSchemaObjImplementationHandler == null ) {
-			csharpSchemaObjImplementationHandler = new CFBamXmlLoaderCSharpSchemaObjImplementationHandler( this );
+			csharpSchemaObjImplementationHandler = new YCFBamXmlLoaderCSharpSchemaObjImplementationHandler( this );
 		}
 		return( csharpSchemaObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpDb2LUWSchemaObjMembersHandler getCSharpDb2LUWSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpDb2LUWSchemaObjMembersHandler getCSharpDb2LUWSchemaObjMembersHandler() {
 		if( csharpDb2LUWSchemaObjMembersHandler == null ) {
-			csharpDb2LUWSchemaObjMembersHandler = new CFBamXmlLoaderCSharpDb2LUWSchemaObjMembersHandler( this );
+			csharpDb2LUWSchemaObjMembersHandler = new YCFBamXmlLoaderCSharpDb2LUWSchemaObjMembersHandler( this );
 		}
 		return( csharpDb2LUWSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpDb2LUWSchemaObjImplHandler getCSharpDb2LUWSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCSharpDb2LUWSchemaObjImplHandler getCSharpDb2LUWSchemaObjImplHandler() {
 		if( csharpDb2LUWSchemaObjImplHandler == null ) {
-			csharpDb2LUWSchemaObjImplHandler = new CFBamXmlLoaderCSharpDb2LUWSchemaObjImplHandler( this );
+			csharpDb2LUWSchemaObjImplHandler = new YCFBamXmlLoaderCSharpDb2LUWSchemaObjImplHandler( this );
 		}
 		return( csharpDb2LUWSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpDb2LUWSchemaObjUsingHandler getCSharpDb2LUWSchemaObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpDb2LUWSchemaObjUsingHandler getCSharpDb2LUWSchemaObjUsingHandler() {
 		if( csharpDb2LUWSchemaObjUsingHandler == null ) {
-			csharpDb2LUWSchemaObjUsingHandler = new CFBamXmlLoaderCSharpDb2LUWSchemaObjUsingHandler( this );
+			csharpDb2LUWSchemaObjUsingHandler = new YCFBamXmlLoaderCSharpDb2LUWSchemaObjUsingHandler( this );
 		}
 		return( csharpDb2LUWSchemaObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMSSqlSchemaObjMembersHandler getCSharpMSSqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpMSSqlSchemaObjMembersHandler getCSharpMSSqlSchemaObjMembersHandler() {
 		if( csharpMSSqlSchemaObjMembersHandler == null ) {
-			csharpMSSqlSchemaObjMembersHandler = new CFBamXmlLoaderCSharpMSSqlSchemaObjMembersHandler( this );
+			csharpMSSqlSchemaObjMembersHandler = new YCFBamXmlLoaderCSharpMSSqlSchemaObjMembersHandler( this );
 		}
 		return( csharpMSSqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMSSqlSchemaObjImplHandler getCSharpMSSqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCSharpMSSqlSchemaObjImplHandler getCSharpMSSqlSchemaObjImplHandler() {
 		if( csharpMSSqlSchemaObjImplHandler == null ) {
-			csharpMSSqlSchemaObjImplHandler = new CFBamXmlLoaderCSharpMSSqlSchemaObjImplHandler( this );
+			csharpMSSqlSchemaObjImplHandler = new YCFBamXmlLoaderCSharpMSSqlSchemaObjImplHandler( this );
 		}
 		return( csharpMSSqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMSSqlSchemaObjUsingHandler getCSharpMSSqlSchemaObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpMSSqlSchemaObjUsingHandler getCSharpMSSqlSchemaObjUsingHandler() {
 		if( csharpMSSqlSchemaObjUsingHandler == null ) {
-			csharpMSSqlSchemaObjUsingHandler = new CFBamXmlLoaderCSharpMSSqlSchemaObjUsingHandler( this );
+			csharpMSSqlSchemaObjUsingHandler = new YCFBamXmlLoaderCSharpMSSqlSchemaObjUsingHandler( this );
 		}
 		return( csharpMSSqlSchemaObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMySqlSchemaObjMembersHandler getCSharpMySqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpMySqlSchemaObjMembersHandler getCSharpMySqlSchemaObjMembersHandler() {
 		if( csharpMySqlSchemaObjMembersHandler == null ) {
-			csharpMySqlSchemaObjMembersHandler = new CFBamXmlLoaderCSharpMySqlSchemaObjMembersHandler( this );
+			csharpMySqlSchemaObjMembersHandler = new YCFBamXmlLoaderCSharpMySqlSchemaObjMembersHandler( this );
 		}
 		return( csharpMySqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMySqlSchemaObjImplHandler getCSharpMySqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCSharpMySqlSchemaObjImplHandler getCSharpMySqlSchemaObjImplHandler() {
 		if( csharpMySqlSchemaObjImplHandler == null ) {
-			csharpMySqlSchemaObjImplHandler = new CFBamXmlLoaderCSharpMySqlSchemaObjImplHandler( this );
+			csharpMySqlSchemaObjImplHandler = new YCFBamXmlLoaderCSharpMySqlSchemaObjImplHandler( this );
 		}
 		return( csharpMySqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMySqlSchemaObjUsingHandler getCSharpMySqlSchemaObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpMySqlSchemaObjUsingHandler getCSharpMySqlSchemaObjUsingHandler() {
 		if( csharpMySqlSchemaObjUsingHandler == null ) {
-			csharpMySqlSchemaObjUsingHandler = new CFBamXmlLoaderCSharpMySqlSchemaObjUsingHandler( this );
+			csharpMySqlSchemaObjUsingHandler = new YCFBamXmlLoaderCSharpMySqlSchemaObjUsingHandler( this );
 		}
 		return( csharpMySqlSchemaObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpOracleSchemaObjMembersHandler getCSharpOracleSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpOracleSchemaObjMembersHandler getCSharpOracleSchemaObjMembersHandler() {
 		if( csharpOracleSchemaObjMembersHandler == null ) {
-			csharpOracleSchemaObjMembersHandler = new CFBamXmlLoaderCSharpOracleSchemaObjMembersHandler( this );
+			csharpOracleSchemaObjMembersHandler = new YCFBamXmlLoaderCSharpOracleSchemaObjMembersHandler( this );
 		}
 		return( csharpOracleSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpOracleSchemaObjImplHandler getCSharpOracleSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCSharpOracleSchemaObjImplHandler getCSharpOracleSchemaObjImplHandler() {
 		if( csharpOracleSchemaObjImplHandler == null ) {
-			csharpOracleSchemaObjImplHandler = new CFBamXmlLoaderCSharpOracleSchemaObjImplHandler( this );
+			csharpOracleSchemaObjImplHandler = new YCFBamXmlLoaderCSharpOracleSchemaObjImplHandler( this );
 		}
 		return( csharpOracleSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpOracleSchemaObjUsingHandler getCSharpOracleSchemaObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpOracleSchemaObjUsingHandler getCSharpOracleSchemaObjUsingHandler() {
 		if( csharpOracleSchemaObjUsingHandler == null ) {
-			csharpOracleSchemaObjUsingHandler = new CFBamXmlLoaderCSharpOracleSchemaObjUsingHandler( this );
+			csharpOracleSchemaObjUsingHandler = new YCFBamXmlLoaderCSharpOracleSchemaObjUsingHandler( this );
 		}
 		return( csharpOracleSchemaObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpPgSqlSchemaObjMembersHandler getCSharpPgSqlSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpPgSqlSchemaObjMembersHandler getCSharpPgSqlSchemaObjMembersHandler() {
 		if( csharpPgSqlSchemaObjMembersHandler == null ) {
-			csharpPgSqlSchemaObjMembersHandler = new CFBamXmlLoaderCSharpPgSqlSchemaObjMembersHandler( this );
+			csharpPgSqlSchemaObjMembersHandler = new YCFBamXmlLoaderCSharpPgSqlSchemaObjMembersHandler( this );
 		}
 		return( csharpPgSqlSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpPgSqlSchemaObjImplHandler getCSharpPgSqlSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCSharpPgSqlSchemaObjImplHandler getCSharpPgSqlSchemaObjImplHandler() {
 		if( csharpPgSqlSchemaObjImplHandler == null ) {
-			csharpPgSqlSchemaObjImplHandler = new CFBamXmlLoaderCSharpPgSqlSchemaObjImplHandler( this );
+			csharpPgSqlSchemaObjImplHandler = new YCFBamXmlLoaderCSharpPgSqlSchemaObjImplHandler( this );
 		}
 		return( csharpPgSqlSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpPgSqlSchemaObjUsingHandler getCSharpPgSqlSchemaObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpPgSqlSchemaObjUsingHandler getCSharpPgSqlSchemaObjUsingHandler() {
 		if( csharpPgSqlSchemaObjUsingHandler == null ) {
-			csharpPgSqlSchemaObjUsingHandler = new CFBamXmlLoaderCSharpPgSqlSchemaObjUsingHandler( this );
+			csharpPgSqlSchemaObjUsingHandler = new YCFBamXmlLoaderCSharpPgSqlSchemaObjUsingHandler( this );
 		}
 		return( csharpPgSqlSchemaObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpRamSchemaObjMembersHandler getCSharpRamSchemaObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpRamSchemaObjMembersHandler getCSharpRamSchemaObjMembersHandler() {
 		if( csharpRamSchemaObjMembersHandler == null ) {
-			csharpRamSchemaObjMembersHandler = new CFBamXmlLoaderCSharpRamSchemaObjMembersHandler( this );
+			csharpRamSchemaObjMembersHandler = new YCFBamXmlLoaderCSharpRamSchemaObjMembersHandler( this );
 		}
 		return( csharpRamSchemaObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpRamSchemaObjImplHandler getCSharpRamSchemaObjImplHandler() {
+	protected YCFBamXmlLoaderCSharpRamSchemaObjImplHandler getCSharpRamSchemaObjImplHandler() {
 		if( csharpRamSchemaObjImplHandler == null ) {
-			csharpRamSchemaObjImplHandler = new CFBamXmlLoaderCSharpRamSchemaObjImplHandler( this );
+			csharpRamSchemaObjImplHandler = new YCFBamXmlLoaderCSharpRamSchemaObjImplHandler( this );
 		}
 		return( csharpRamSchemaObjImplHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpRamSchemaObjUsingHandler getCSharpRamSchemaObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpRamSchemaObjUsingHandler getCSharpRamSchemaObjUsingHandler() {
 		if( csharpRamSchemaObjUsingHandler == null ) {
-			csharpRamSchemaObjUsingHandler = new CFBamXmlLoaderCSharpRamSchemaObjUsingHandler( this );
+			csharpRamSchemaObjUsingHandler = new YCFBamXmlLoaderCSharpRamSchemaObjUsingHandler( this );
 		}
 		return( csharpRamSchemaObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgSchemaUsingHandler getCSharpXMsgSchemaUsingHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgSchemaUsingHandler getCSharpXMsgSchemaUsingHandler() {
 		if( csharpXMsgSchemaUsingHandler == null ) {
-			csharpXMsgSchemaUsingHandler = new CFBamXmlLoaderCSharpXMsgSchemaUsingHandler( this );
+			csharpXMsgSchemaUsingHandler = new YCFBamXmlLoaderCSharpXMsgSchemaUsingHandler( this );
 		}
 		return( csharpXMsgSchemaUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgSchemaFormattersHandler getCSharpXMsgSchemaFormattersHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgSchemaFormattersHandler getCSharpXMsgSchemaFormattersHandler() {
 		if( csharpXMsgSchemaFormattersHandler == null ) {
-			csharpXMsgSchemaFormattersHandler = new CFBamXmlLoaderCSharpXMsgSchemaFormattersHandler( this );
+			csharpXMsgSchemaFormattersHandler = new YCFBamXmlLoaderCSharpXMsgSchemaFormattersHandler( this );
 		}
 		return( csharpXMsgSchemaFormattersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgClientSchemaUsingHandler getCSharpXMsgClientSchemaUsingHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgClientSchemaUsingHandler getCSharpXMsgClientSchemaUsingHandler() {
 		if( csharpXMsgClientSchemaUsingHandler == null ) {
-			csharpXMsgClientSchemaUsingHandler = new CFBamXmlLoaderCSharpXMsgClientSchemaUsingHandler( this );
+			csharpXMsgClientSchemaUsingHandler = new YCFBamXmlLoaderCSharpXMsgClientSchemaUsingHandler( this );
 		}
 		return( csharpXMsgClientSchemaUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgClientSchemaBodyHandler getCSharpXMsgClientSchemaBodyHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgClientSchemaBodyHandler getCSharpXMsgClientSchemaBodyHandler() {
 		if( csharpXMsgClientSchemaBodyHandler == null ) {
-			csharpXMsgClientSchemaBodyHandler = new CFBamXmlLoaderCSharpXMsgClientSchemaBodyHandler( this );
+			csharpXMsgClientSchemaBodyHandler = new YCFBamXmlLoaderCSharpXMsgClientSchemaBodyHandler( this );
 		}
 		return( csharpXMsgClientSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRqstSchemaBodyHandler getCSharpXMsgRqstSchemaBodyHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRqstSchemaBodyHandler getCSharpXMsgRqstSchemaBodyHandler() {
 		if( csharpXMsgRqstSchemaBodyHandler == null ) {
-			csharpXMsgRqstSchemaBodyHandler = new CFBamXmlLoaderCSharpXMsgRqstSchemaBodyHandler( this );
+			csharpXMsgRqstSchemaBodyHandler = new YCFBamXmlLoaderCSharpXMsgRqstSchemaBodyHandler( this );
 		}
 		return( csharpXMsgRqstSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRqstSchemaUsingHandler getCSharpXMsgRqstSchemaUsingHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRqstSchemaUsingHandler getCSharpXMsgRqstSchemaUsingHandler() {
 		if( csharpXMsgRqstSchemaUsingHandler == null ) {
-			csharpXMsgRqstSchemaUsingHandler = new CFBamXmlLoaderCSharpXMsgRqstSchemaUsingHandler( this );
+			csharpXMsgRqstSchemaUsingHandler = new YCFBamXmlLoaderCSharpXMsgRqstSchemaUsingHandler( this );
 		}
 		return( csharpXMsgRqstSchemaUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRqstSchemaWireParsersHandler getCSharpXMsgRqstSchemaWireParsersHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRqstSchemaWireParsersHandler getCSharpXMsgRqstSchemaWireParsersHandler() {
 		if( csharpXMsgRqstSchemaWireParsersHandler == null ) {
-			csharpXMsgRqstSchemaWireParsersHandler = new CFBamXmlLoaderCSharpXMsgRqstSchemaWireParsersHandler( this );
+			csharpXMsgRqstSchemaWireParsersHandler = new YCFBamXmlLoaderCSharpXMsgRqstSchemaWireParsersHandler( this );
 		}
 		return( csharpXMsgRqstSchemaWireParsersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRqstSchemaXsdElementListHandler getCSharpXMsgRqstSchemaXsdElementListHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRqstSchemaXsdElementListHandler getCSharpXMsgRqstSchemaXsdElementListHandler() {
 		if( csharpXMsgRqstSchemaXsdElementListHandler == null ) {
-			csharpXMsgRqstSchemaXsdElementListHandler = new CFBamXmlLoaderCSharpXMsgRqstSchemaXsdElementListHandler( this );
+			csharpXMsgRqstSchemaXsdElementListHandler = new YCFBamXmlLoaderCSharpXMsgRqstSchemaXsdElementListHandler( this );
 		}
 		return( csharpXMsgRqstSchemaXsdElementListHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRqstSchemaXsdSpecHandler getCSharpXMsgRqstSchemaXsdSpecHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRqstSchemaXsdSpecHandler getCSharpXMsgRqstSchemaXsdSpecHandler() {
 		if( csharpXMsgRqstSchemaXsdSpecHandler == null ) {
-			csharpXMsgRqstSchemaXsdSpecHandler = new CFBamXmlLoaderCSharpXMsgRqstSchemaXsdSpecHandler( this );
+			csharpXMsgRqstSchemaXsdSpecHandler = new YCFBamXmlLoaderCSharpXMsgRqstSchemaXsdSpecHandler( this );
 		}
 		return( csharpXMsgRqstSchemaXsdSpecHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRspnSchemaBodyHandler getCSharpXMsgRspnSchemaBodyHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRspnSchemaBodyHandler getCSharpXMsgRspnSchemaBodyHandler() {
 		if( csharpXMsgRspnSchemaBodyHandler == null ) {
-			csharpXMsgRspnSchemaBodyHandler = new CFBamXmlLoaderCSharpXMsgRspnSchemaBodyHandler( this );
+			csharpXMsgRspnSchemaBodyHandler = new YCFBamXmlLoaderCSharpXMsgRspnSchemaBodyHandler( this );
 		}
 		return( csharpXMsgRspnSchemaBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRspnSchemaUsingHandler getCSharpXMsgRspnSchemaUsingHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRspnSchemaUsingHandler getCSharpXMsgRspnSchemaUsingHandler() {
 		if( csharpXMsgRspnSchemaUsingHandler == null ) {
-			csharpXMsgRspnSchemaUsingHandler = new CFBamXmlLoaderCSharpXMsgRspnSchemaUsingHandler( this );
+			csharpXMsgRspnSchemaUsingHandler = new YCFBamXmlLoaderCSharpXMsgRspnSchemaUsingHandler( this );
 		}
 		return( csharpXMsgRspnSchemaUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRspnSchemaWireParsersHandler getCSharpXMsgRspnSchemaWireParsersHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRspnSchemaWireParsersHandler getCSharpXMsgRspnSchemaWireParsersHandler() {
 		if( csharpXMsgRspnSchemaWireParsersHandler == null ) {
-			csharpXMsgRspnSchemaWireParsersHandler = new CFBamXmlLoaderCSharpXMsgRspnSchemaWireParsersHandler( this );
+			csharpXMsgRspnSchemaWireParsersHandler = new YCFBamXmlLoaderCSharpXMsgRspnSchemaWireParsersHandler( this );
 		}
 		return( csharpXMsgRspnSchemaWireParsersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRspnSchemaXsdElementListHandler getCSharpXMsgRspnSchemaXsdElementListHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRspnSchemaXsdElementListHandler getCSharpXMsgRspnSchemaXsdElementListHandler() {
 		if( csharpXMsgRspnSchemaXsdElementListHandler == null ) {
-			csharpXMsgRspnSchemaXsdElementListHandler = new CFBamXmlLoaderCSharpXMsgRspnSchemaXsdElementListHandler( this );
+			csharpXMsgRspnSchemaXsdElementListHandler = new YCFBamXmlLoaderCSharpXMsgRspnSchemaXsdElementListHandler( this );
 		}
 		return( csharpXMsgRspnSchemaXsdElementListHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRspnSchemaXsdSpecHandler getCSharpXMsgRspnSchemaXsdSpecHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRspnSchemaXsdSpecHandler getCSharpXMsgRspnSchemaXsdSpecHandler() {
 		if( csharpXMsgRspnSchemaXsdSpecHandler == null ) {
-			csharpXMsgRspnSchemaXsdSpecHandler = new CFBamXmlLoaderCSharpXMsgRspnSchemaXsdSpecHandler( this );
+			csharpXMsgRspnSchemaXsdSpecHandler = new YCFBamXmlLoaderCSharpXMsgRspnSchemaXsdSpecHandler( this );
 		}
 		return( csharpXMsgRspnSchemaXsdSpecHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpObjMembersHandler getCSharpObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpObjMembersHandler getCSharpObjMembersHandler() {
 		if( csharpObjMembersHandler == null ) {
-			csharpObjMembersHandler = new CFBamXmlLoaderCSharpObjMembersHandler( this );
+			csharpObjMembersHandler = new YCFBamXmlLoaderCSharpObjMembersHandler( this );
 		}
 		return( csharpObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpObjInterfaceHandler getCSharpObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCSharpObjInterfaceHandler getCSharpObjInterfaceHandler() {
 		if( csharpObjInterfaceHandler == null ) {
-			csharpObjInterfaceHandler = new CFBamXmlLoaderCSharpObjInterfaceHandler( this );
+			csharpObjInterfaceHandler = new YCFBamXmlLoaderCSharpObjInterfaceHandler( this );
 		}
 		return( csharpObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpObjImplementationHandler getCSharpObjImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpObjImplementationHandler getCSharpObjImplementationHandler() {
 		if( csharpObjImplementationHandler == null ) {
-			csharpObjImplementationHandler = new CFBamXmlLoaderCSharpObjImplementationHandler( this );
+			csharpObjImplementationHandler = new YCFBamXmlLoaderCSharpObjImplementationHandler( this );
 		}
 		return( csharpObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpEditObjMembersHandler getCSharpEditObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpEditObjMembersHandler getCSharpEditObjMembersHandler() {
 		if( csharpEditObjMembersHandler == null ) {
-			csharpEditObjMembersHandler = new CFBamXmlLoaderCSharpEditObjMembersHandler( this );
+			csharpEditObjMembersHandler = new YCFBamXmlLoaderCSharpEditObjMembersHandler( this );
 		}
 		return( csharpEditObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpEditObjInterfaceHandler getCSharpEditObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCSharpEditObjInterfaceHandler getCSharpEditObjInterfaceHandler() {
 		if( csharpEditObjInterfaceHandler == null ) {
-			csharpEditObjInterfaceHandler = new CFBamXmlLoaderCSharpEditObjInterfaceHandler( this );
+			csharpEditObjInterfaceHandler = new YCFBamXmlLoaderCSharpEditObjInterfaceHandler( this );
 		}
 		return( csharpEditObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpEditObjImplementationHandler getCSharpEditObjImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpEditObjImplementationHandler getCSharpEditObjImplementationHandler() {
 		if( csharpEditObjImplementationHandler == null ) {
-			csharpEditObjImplementationHandler = new CFBamXmlLoaderCSharpEditObjImplementationHandler( this );
+			csharpEditObjImplementationHandler = new YCFBamXmlLoaderCSharpEditObjImplementationHandler( this );
 		}
 		return( csharpEditObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpDb2LUWTableUsingHandler getCSharpDb2LUWTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpDb2LUWTableUsingHandler getCSharpDb2LUWTableUsingHandler() {
 		if( csharpDb2LUWTableUsingHandler == null ) {
-			csharpDb2LUWTableUsingHandler = new CFBamXmlLoaderCSharpDb2LUWTableUsingHandler( this );
+			csharpDb2LUWTableUsingHandler = new YCFBamXmlLoaderCSharpDb2LUWTableUsingHandler( this );
 		}
 		return( csharpDb2LUWTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMSSqlTableUsingHandler getCSharpMSSqlTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpMSSqlTableUsingHandler getCSharpMSSqlTableUsingHandler() {
 		if( csharpMSSqlTableUsingHandler == null ) {
-			csharpMSSqlTableUsingHandler = new CFBamXmlLoaderCSharpMSSqlTableUsingHandler( this );
+			csharpMSSqlTableUsingHandler = new YCFBamXmlLoaderCSharpMSSqlTableUsingHandler( this );
 		}
 		return( csharpMSSqlTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMySqlTableUsingHandler getCSharpMySqlTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpMySqlTableUsingHandler getCSharpMySqlTableUsingHandler() {
 		if( csharpMySqlTableUsingHandler == null ) {
-			csharpMySqlTableUsingHandler = new CFBamXmlLoaderCSharpMySqlTableUsingHandler( this );
+			csharpMySqlTableUsingHandler = new YCFBamXmlLoaderCSharpMySqlTableUsingHandler( this );
 		}
 		return( csharpMySqlTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpOracleTableUsingHandler getCSharpOracleTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpOracleTableUsingHandler getCSharpOracleTableUsingHandler() {
 		if( csharpOracleTableUsingHandler == null ) {
-			csharpOracleTableUsingHandler = new CFBamXmlLoaderCSharpOracleTableUsingHandler( this );
+			csharpOracleTableUsingHandler = new YCFBamXmlLoaderCSharpOracleTableUsingHandler( this );
 		}
 		return( csharpOracleTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpPgSqlTableUsingHandler getCSharpPgSqlTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpPgSqlTableUsingHandler getCSharpPgSqlTableUsingHandler() {
 		if( csharpPgSqlTableUsingHandler == null ) {
-			csharpPgSqlTableUsingHandler = new CFBamXmlLoaderCSharpPgSqlTableUsingHandler( this );
+			csharpPgSqlTableUsingHandler = new YCFBamXmlLoaderCSharpPgSqlTableUsingHandler( this );
 		}
 		return( csharpPgSqlTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpRamTableUsingHandler getCSharpRamTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpRamTableUsingHandler getCSharpRamTableUsingHandler() {
 		if( csharpRamTableUsingHandler == null ) {
-			csharpRamTableUsingHandler = new CFBamXmlLoaderCSharpRamTableUsingHandler( this );
+			csharpRamTableUsingHandler = new YCFBamXmlLoaderCSharpRamTableUsingHandler( this );
 		}
 		return( csharpRamTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpObjUsingHandler getCSharpObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpObjUsingHandler getCSharpObjUsingHandler() {
 		if( csharpObjUsingHandler == null ) {
-			csharpObjUsingHandler = new CFBamXmlLoaderCSharpObjUsingHandler( this );
+			csharpObjUsingHandler = new YCFBamXmlLoaderCSharpObjUsingHandler( this );
 		}
 		return( csharpObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpEditObjUsingHandler getCSharpEditObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpEditObjUsingHandler getCSharpEditObjUsingHandler() {
 		if( csharpEditObjUsingHandler == null ) {
-			csharpEditObjUsingHandler = new CFBamXmlLoaderCSharpEditObjUsingHandler( this );
+			csharpEditObjUsingHandler = new YCFBamXmlLoaderCSharpEditObjUsingHandler( this );
 		}
 		return( csharpEditObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpSaxLoaderUsingHandler getCSharpSaxLoaderUsingHandler() {
+	protected YCFBamXmlLoaderCSharpSaxLoaderUsingHandler getCSharpSaxLoaderUsingHandler() {
 		if( csharpSaxLoaderUsingHandler == null ) {
-			csharpSaxLoaderUsingHandler = new CFBamXmlLoaderCSharpSaxLoaderUsingHandler( this );
+			csharpSaxLoaderUsingHandler = new YCFBamXmlLoaderCSharpSaxLoaderUsingHandler( this );
 		}
 		return( csharpSaxLoaderUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpTableUsingHandler getCSharpTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpTableUsingHandler getCSharpTableUsingHandler() {
 		if( csharpTableUsingHandler == null ) {
-			csharpTableUsingHandler = new CFBamXmlLoaderCSharpTableUsingHandler( this );
+			csharpTableUsingHandler = new YCFBamXmlLoaderCSharpTableUsingHandler( this );
 		}
 		return( csharpTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpTableObjUsingHandler getCSharpTableObjUsingHandler() {
+	protected YCFBamXmlLoaderCSharpTableObjUsingHandler getCSharpTableObjUsingHandler() {
 		if( csharpTableObjUsingHandler == null ) {
-			csharpTableObjUsingHandler = new CFBamXmlLoaderCSharpTableObjUsingHandler( this );
+			csharpTableObjUsingHandler = new YCFBamXmlLoaderCSharpTableObjUsingHandler( this );
 		}
 		return( csharpTableObjUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpTableMembersHandler getCSharpTableMembersHandler() {
+	protected YCFBamXmlLoaderCSharpTableMembersHandler getCSharpTableMembersHandler() {
 		if( csharpTableMembersHandler == null ) {
-			csharpTableMembersHandler = new CFBamXmlLoaderCSharpTableMembersHandler( this );
+			csharpTableMembersHandler = new YCFBamXmlLoaderCSharpTableMembersHandler( this );
 		}
 		return( csharpTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpTableInterfaceHandler getCSharpTableInterfaceHandler() {
+	protected YCFBamXmlLoaderCSharpTableInterfaceHandler getCSharpTableInterfaceHandler() {
 		if( csharpTableInterfaceHandler == null ) {
-			csharpTableInterfaceHandler = new CFBamXmlLoaderCSharpTableInterfaceHandler( this );
+			csharpTableInterfaceHandler = new YCFBamXmlLoaderCSharpTableInterfaceHandler( this );
 		}
 		return( csharpTableInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpTableImplementationHandler getCSharpTableImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpTableImplementationHandler getCSharpTableImplementationHandler() {
 		if( csharpTableImplementationHandler == null ) {
-			csharpTableImplementationHandler = new CFBamXmlLoaderCSharpTableImplementationHandler( this );
+			csharpTableImplementationHandler = new YCFBamXmlLoaderCSharpTableImplementationHandler( this );
 		}
 		return( csharpTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpTableObjMembersHandler getCSharpTableObjMembersHandler() {
+	protected YCFBamXmlLoaderCSharpTableObjMembersHandler getCSharpTableObjMembersHandler() {
 		if( csharpTableObjMembersHandler == null ) {
-			csharpTableObjMembersHandler = new CFBamXmlLoaderCSharpTableObjMembersHandler( this );
+			csharpTableObjMembersHandler = new YCFBamXmlLoaderCSharpTableObjMembersHandler( this );
 		}
 		return( csharpTableObjMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpTableObjInterfaceHandler getCSharpTableObjInterfaceHandler() {
+	protected YCFBamXmlLoaderCSharpTableObjInterfaceHandler getCSharpTableObjInterfaceHandler() {
 		if( csharpTableObjInterfaceHandler == null ) {
-			csharpTableObjInterfaceHandler = new CFBamXmlLoaderCSharpTableObjInterfaceHandler( this );
+			csharpTableObjInterfaceHandler = new YCFBamXmlLoaderCSharpTableObjInterfaceHandler( this );
 		}
 		return( csharpTableObjInterfaceHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpTableObjImplementationHandler getCSharpTableObjImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpTableObjImplementationHandler getCSharpTableObjImplementationHandler() {
 		if( csharpTableObjImplementationHandler == null ) {
-			csharpTableObjImplementationHandler = new CFBamXmlLoaderCSharpTableObjImplementationHandler( this );
+			csharpTableObjImplementationHandler = new YCFBamXmlLoaderCSharpTableObjImplementationHandler( this );
 		}
 		return( csharpTableObjImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpDb2LUWTableMembersHandler getCSharpDb2LUWTableMembersHandler() {
+	protected YCFBamXmlLoaderCSharpDb2LUWTableMembersHandler getCSharpDb2LUWTableMembersHandler() {
 		if( csharpDb2LUWTableMembersHandler == null ) {
-			csharpDb2LUWTableMembersHandler = new CFBamXmlLoaderCSharpDb2LUWTableMembersHandler( this );
+			csharpDb2LUWTableMembersHandler = new YCFBamXmlLoaderCSharpDb2LUWTableMembersHandler( this );
 		}
 		return( csharpDb2LUWTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpDb2LUWTableImplementationHandler getCSharpDb2LUWTableImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpDb2LUWTableImplementationHandler getCSharpDb2LUWTableImplementationHandler() {
 		if( csharpDb2LUWTableImplementationHandler == null ) {
-			csharpDb2LUWTableImplementationHandler = new CFBamXmlLoaderCSharpDb2LUWTableImplementationHandler( this );
+			csharpDb2LUWTableImplementationHandler = new YCFBamXmlLoaderCSharpDb2LUWTableImplementationHandler( this );
 		}
 		return( csharpDb2LUWTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMSSqlTableMembersHandler getCSharpMSSqlTableMembersHandler() {
+	protected YCFBamXmlLoaderCSharpMSSqlTableMembersHandler getCSharpMSSqlTableMembersHandler() {
 		if( csharpMSSqlTableMembersHandler == null ) {
-			csharpMSSqlTableMembersHandler = new CFBamXmlLoaderCSharpMSSqlTableMembersHandler( this );
+			csharpMSSqlTableMembersHandler = new YCFBamXmlLoaderCSharpMSSqlTableMembersHandler( this );
 		}
 		return( csharpMSSqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMSSqlTableImplementationHandler getCSharpMSSqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpMSSqlTableImplementationHandler getCSharpMSSqlTableImplementationHandler() {
 		if( csharpMSSqlTableImplementationHandler == null ) {
-			csharpMSSqlTableImplementationHandler = new CFBamXmlLoaderCSharpMSSqlTableImplementationHandler( this );
+			csharpMSSqlTableImplementationHandler = new YCFBamXmlLoaderCSharpMSSqlTableImplementationHandler( this );
 		}
 		return( csharpMSSqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMySqlTableMembersHandler getCSharpMySqlTableMembersHandler() {
+	protected YCFBamXmlLoaderCSharpMySqlTableMembersHandler getCSharpMySqlTableMembersHandler() {
 		if( csharpMySqlTableMembersHandler == null ) {
-			csharpMySqlTableMembersHandler = new CFBamXmlLoaderCSharpMySqlTableMembersHandler( this );
+			csharpMySqlTableMembersHandler = new YCFBamXmlLoaderCSharpMySqlTableMembersHandler( this );
 		}
 		return( csharpMySqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpMySqlTableImplementationHandler getCSharpMySqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpMySqlTableImplementationHandler getCSharpMySqlTableImplementationHandler() {
 		if( csharpMySqlTableImplementationHandler == null ) {
-			csharpMySqlTableImplementationHandler = new CFBamXmlLoaderCSharpMySqlTableImplementationHandler( this );
+			csharpMySqlTableImplementationHandler = new YCFBamXmlLoaderCSharpMySqlTableImplementationHandler( this );
 		}
 		return( csharpMySqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpOracleTableMembersHandler getCSharpOracleTableMembersHandler() {
+	protected YCFBamXmlLoaderCSharpOracleTableMembersHandler getCSharpOracleTableMembersHandler() {
 		if( csharpOracleTableMembersHandler == null ) {
-			csharpOracleTableMembersHandler = new CFBamXmlLoaderCSharpOracleTableMembersHandler( this );
+			csharpOracleTableMembersHandler = new YCFBamXmlLoaderCSharpOracleTableMembersHandler( this );
 		}
 		return( csharpOracleTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpOracleTableImplementationHandler getCSharpOracleTableImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpOracleTableImplementationHandler getCSharpOracleTableImplementationHandler() {
 		if( csharpOracleTableImplementationHandler == null ) {
-			csharpOracleTableImplementationHandler = new CFBamXmlLoaderCSharpOracleTableImplementationHandler( this );
+			csharpOracleTableImplementationHandler = new YCFBamXmlLoaderCSharpOracleTableImplementationHandler( this );
 		}
 		return( csharpOracleTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpPgSqlTableMembersHandler getCSharpPgSqlTableMembersHandler() {
+	protected YCFBamXmlLoaderCSharpPgSqlTableMembersHandler getCSharpPgSqlTableMembersHandler() {
 		if( csharpPgSqlTableMembersHandler == null ) {
-			csharpPgSqlTableMembersHandler = new CFBamXmlLoaderCSharpPgSqlTableMembersHandler( this );
+			csharpPgSqlTableMembersHandler = new YCFBamXmlLoaderCSharpPgSqlTableMembersHandler( this );
 		}
 		return( csharpPgSqlTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpPgSqlTableImplementationHandler getCSharpPgSqlTableImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpPgSqlTableImplementationHandler getCSharpPgSqlTableImplementationHandler() {
 		if( csharpPgSqlTableImplementationHandler == null ) {
-			csharpPgSqlTableImplementationHandler = new CFBamXmlLoaderCSharpPgSqlTableImplementationHandler( this );
+			csharpPgSqlTableImplementationHandler = new YCFBamXmlLoaderCSharpPgSqlTableImplementationHandler( this );
 		}
 		return( csharpPgSqlTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpRamTableMembersHandler getCSharpRamTableMembersHandler() {
+	protected YCFBamXmlLoaderCSharpRamTableMembersHandler getCSharpRamTableMembersHandler() {
 		if( csharpRamTableMembersHandler == null ) {
-			csharpRamTableMembersHandler = new CFBamXmlLoaderCSharpRamTableMembersHandler( this );
+			csharpRamTableMembersHandler = new YCFBamXmlLoaderCSharpRamTableMembersHandler( this );
 		}
 		return( csharpRamTableMembersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpRamTableImplementationHandler getCSharpRamTableImplementationHandler() {
+	protected YCFBamXmlLoaderCSharpRamTableImplementationHandler getCSharpRamTableImplementationHandler() {
 		if( csharpRamTableImplementationHandler == null ) {
-			csharpRamTableImplementationHandler = new CFBamXmlLoaderCSharpRamTableImplementationHandler( this );
+			csharpRamTableImplementationHandler = new YCFBamXmlLoaderCSharpRamTableImplementationHandler( this );
 		}
 		return( csharpRamTableImplementationHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpSaxLoaderStartElementHandler getCSharpSaxLoaderStartElementHandler() {
+	protected YCFBamXmlLoaderCSharpSaxLoaderStartElementHandler getCSharpSaxLoaderStartElementHandler() {
 		if( csharpSaxLoaderStartElementHandler == null ) {
-			csharpSaxLoaderStartElementHandler = new CFBamXmlLoaderCSharpSaxLoaderStartElementHandler( this );
+			csharpSaxLoaderStartElementHandler = new YCFBamXmlLoaderCSharpSaxLoaderStartElementHandler( this );
 		}
 		return( csharpSaxLoaderStartElementHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpSaxLoaderEndElementHandler getCSharpSaxLoaderEndElementHandler() {
+	protected YCFBamXmlLoaderCSharpSaxLoaderEndElementHandler getCSharpSaxLoaderEndElementHandler() {
 		if( csharpSaxLoaderEndElementHandler == null ) {
-			csharpSaxLoaderEndElementHandler = new CFBamXmlLoaderCSharpSaxLoaderEndElementHandler( this );
+			csharpSaxLoaderEndElementHandler = new YCFBamXmlLoaderCSharpSaxLoaderEndElementHandler( this );
 		}
 		return( csharpSaxLoaderEndElementHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgTableUsingHandler getCSharpXMsgTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgTableUsingHandler getCSharpXMsgTableUsingHandler() {
 		if( csharpXMsgTableUsingHandler == null ) {
-			csharpXMsgTableUsingHandler = new CFBamXmlLoaderCSharpXMsgTableUsingHandler( this );
+			csharpXMsgTableUsingHandler = new YCFBamXmlLoaderCSharpXMsgTableUsingHandler( this );
 		}
 		return( csharpXMsgTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgTableFormattersHandler getCSharpXMsgTableFormattersHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgTableFormattersHandler getCSharpXMsgTableFormattersHandler() {
 		if( csharpXMsgTableFormattersHandler == null ) {
-			csharpXMsgTableFormattersHandler = new CFBamXmlLoaderCSharpXMsgTableFormattersHandler( this );
+			csharpXMsgTableFormattersHandler = new YCFBamXmlLoaderCSharpXMsgTableFormattersHandler( this );
 		}
 		return( csharpXMsgTableFormattersHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRqstTableUsingHandler getCSharpXMsgRqstTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRqstTableUsingHandler getCSharpXMsgRqstTableUsingHandler() {
 		if( csharpXMsgRqstTableUsingHandler == null ) {
-			csharpXMsgRqstTableUsingHandler = new CFBamXmlLoaderCSharpXMsgRqstTableUsingHandler( this );
+			csharpXMsgRqstTableUsingHandler = new YCFBamXmlLoaderCSharpXMsgRqstTableUsingHandler( this );
 		}
 		return( csharpXMsgRqstTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRspnTableUsingHandler getCSharpXMsgRspnTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRspnTableUsingHandler getCSharpXMsgRspnTableUsingHandler() {
 		if( csharpXMsgRspnTableUsingHandler == null ) {
-			csharpXMsgRspnTableUsingHandler = new CFBamXmlLoaderCSharpXMsgRspnTableUsingHandler( this );
+			csharpXMsgRspnTableUsingHandler = new YCFBamXmlLoaderCSharpXMsgRspnTableUsingHandler( this );
 		}
 		return( csharpXMsgRspnTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgClientTableUsingHandler getCSharpXMsgClientTableUsingHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgClientTableUsingHandler getCSharpXMsgClientTableUsingHandler() {
 		if( csharpXMsgClientTableUsingHandler == null ) {
-			csharpXMsgClientTableUsingHandler = new CFBamXmlLoaderCSharpXMsgClientTableUsingHandler( this );
+			csharpXMsgClientTableUsingHandler = new YCFBamXmlLoaderCSharpXMsgClientTableUsingHandler( this );
 		}
 		return( csharpXMsgClientTableUsingHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRqstTableBodyHandler getCSharpXMsgRqstTableBodyHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRqstTableBodyHandler getCSharpXMsgRqstTableBodyHandler() {
 		if( csharpXMsgRqstTableBodyHandler == null ) {
-			csharpXMsgRqstTableBodyHandler = new CFBamXmlLoaderCSharpXMsgRqstTableBodyHandler( this );
+			csharpXMsgRqstTableBodyHandler = new YCFBamXmlLoaderCSharpXMsgRqstTableBodyHandler( this );
 		}
 		return( csharpXMsgRqstTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgRspnTableBodyHandler getCSharpXMsgRspnTableBodyHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgRspnTableBodyHandler getCSharpXMsgRspnTableBodyHandler() {
 		if( csharpXMsgRspnTableBodyHandler == null ) {
-			csharpXMsgRspnTableBodyHandler = new CFBamXmlLoaderCSharpXMsgRspnTableBodyHandler( this );
+			csharpXMsgRspnTableBodyHandler = new YCFBamXmlLoaderCSharpXMsgRspnTableBodyHandler( this );
 		}
 		return( csharpXMsgRspnTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderCSharpXMsgClientTableBodyHandler getCSharpXMsgClientTableBodyHandler() {
+	protected YCFBamXmlLoaderCSharpXMsgClientTableBodyHandler getCSharpXMsgClientTableBodyHandler() {
 		if( csharpXMsgClientTableBodyHandler == null ) {
-			csharpXMsgClientTableBodyHandler = new CFBamXmlLoaderCSharpXMsgClientTableBodyHandler( this );
+			csharpXMsgClientTableBodyHandler = new YCFBamXmlLoaderCSharpXMsgClientTableBodyHandler( this );
 		}
 		return( csharpXMsgClientTableBodyHandler );
 	}
 
-	protected CFBamXmlLoaderLicenseHandler getLicenseHandler() {
+	protected YCFBamXmlLoaderLicenseHandler getLicenseHandler() {
 		if( licenseHandler == null ) {
-			licenseHandler = new CFBamXmlLoaderLicenseHandler( this );
+			licenseHandler = new YCFBamXmlLoaderLicenseHandler( this );
 		}
 		return( licenseHandler );
 	}
 
-	protected CFBamXmlLoaderMajorVersionHandler getMajorVersionHandler() {
+	protected YCFBamXmlLoaderMajorVersionHandler getMajorVersionHandler() {
 		if( majorVersionHandler == null ) {
-			majorVersionHandler = new CFBamXmlLoaderMajorVersionHandler( this );
+			majorVersionHandler = new YCFBamXmlLoaderMajorVersionHandler( this );
 			majorVersionHandler.addElementHandler( "MinorVersion", getMinorVersionHandler() );
 		}
 		return( majorVersionHandler );
 	}
 
-	protected CFBamXmlLoaderMinorVersionHandler getMinorVersionHandler() {
+	protected YCFBamXmlLoaderMinorVersionHandler getMinorVersionHandler() {
 		if( minorVersionHandler == null ) {
-			minorVersionHandler = new CFBamXmlLoaderMinorVersionHandler( this );
+			minorVersionHandler = new YCFBamXmlLoaderMinorVersionHandler( this );
 			minorVersionHandler.addElementHandler( "SchemaDef", getSchemaDefHandler() );
 		}
 		return( minorVersionHandler );
 	}
 
-	protected CFBamXmlLoaderNmTokenColHandler getNmTokenColHandler() {
+	protected YCFBamXmlLoaderNmTokenColHandler getNmTokenColHandler() {
 		if( nmTokenColHandler == null ) {
-			nmTokenColHandler = new CFBamXmlLoaderNmTokenColHandler( this );
+			nmTokenColHandler = new YCFBamXmlLoaderNmTokenColHandler( this );
 		}
 		return( nmTokenColHandler );
 	}
 
-	protected CFBamXmlLoaderNmTokenTypeHandler getNmTokenTypeHandler() {
+	protected YCFBamXmlLoaderNmTokenTypeHandler getNmTokenTypeHandler() {
 		if( nmTokenTypeHandler == null ) {
-			nmTokenTypeHandler = new CFBamXmlLoaderNmTokenTypeHandler( this );
+			nmTokenTypeHandler = new YCFBamXmlLoaderNmTokenTypeHandler( this );
 		}
 		return( nmTokenTypeHandler );
 	}
 
-	protected CFBamXmlLoaderNmTokensColHandler getNmTokensColHandler() {
+	protected YCFBamXmlLoaderNmTokensColHandler getNmTokensColHandler() {
 		if( nmTokensColHandler == null ) {
-			nmTokensColHandler = new CFBamXmlLoaderNmTokensColHandler( this );
+			nmTokensColHandler = new YCFBamXmlLoaderNmTokensColHandler( this );
 		}
 		return( nmTokensColHandler );
 	}
 
-	protected CFBamXmlLoaderNmTokensTypeHandler getNmTokensTypeHandler() {
+	protected YCFBamXmlLoaderNmTokensTypeHandler getNmTokensTypeHandler() {
 		if( nmTokensTypeHandler == null ) {
-			nmTokensTypeHandler = new CFBamXmlLoaderNmTokensTypeHandler( this );
+			nmTokensTypeHandler = new YCFBamXmlLoaderNmTokensTypeHandler( this );
 		}
 		return( nmTokensTypeHandler );
 	}
 
-	protected CFBamXmlLoaderNumberColHandler getNumberColHandler() {
+	protected YCFBamXmlLoaderNumberColHandler getNumberColHandler() {
 		if( numberColHandler == null ) {
-			numberColHandler = new CFBamXmlLoaderNumberColHandler( this );
+			numberColHandler = new YCFBamXmlLoaderNumberColHandler( this );
 		}
 		return( numberColHandler );
 	}
 
-	protected CFBamXmlLoaderNumberTypeHandler getNumberTypeHandler() {
+	protected YCFBamXmlLoaderNumberTypeHandler getNumberTypeHandler() {
 		if( numberTypeHandler == null ) {
-			numberTypeHandler = new CFBamXmlLoaderNumberTypeHandler( this );
+			numberTypeHandler = new YCFBamXmlLoaderNumberTypeHandler( this );
 		}
 		return( numberTypeHandler );
 	}
 
-	protected CFBamXmlLoaderParamHandler getParamHandler() {
+	protected YCFBamXmlLoaderParamHandler getParamHandler() {
 		if( paramHandler == null ) {
-			paramHandler = new CFBamXmlLoaderParamHandler( this );
+			paramHandler = new YCFBamXmlLoaderParamHandler( this );
 		}
 		return( paramHandler );
 	}
 
-	protected CFBamXmlLoaderPrimaryIndexHandler getPrimaryIndexHandler() {
+	protected YCFBamXmlLoaderPrimaryIndexHandler getPrimaryIndexHandler() {
 		if( primaryIndexHandler == null ) {
-			primaryIndexHandler = new CFBamXmlLoaderPrimaryIndexHandler( this );
+			primaryIndexHandler = new YCFBamXmlLoaderPrimaryIndexHandler( this );
 			primaryIndexHandler.addElementHandler( "IndexCol", getIndexColHandler() );
 		}
 		return( primaryIndexHandler );
 	}
 
-	protected CFBamXmlLoaderRelationHandler getRelationHandler() {
+	protected YCFBamXmlLoaderRelationHandler getRelationHandler() {
 		if( relationHandler == null ) {
-			relationHandler = new CFBamXmlLoaderRelationHandler( this );
+			relationHandler = new YCFBamXmlLoaderRelationHandler( this );
 			relationHandler.addElementHandler( "RelationCol", getRelationColHandler() );
 		}
 		return( relationHandler );
 	}
 
-	protected CFBamXmlLoaderRelationColHandler getRelationColHandler() {
+	protected YCFBamXmlLoaderRelationColHandler getRelationColHandler() {
 		if( relationColHandler == null ) {
-			relationColHandler = new CFBamXmlLoaderRelationColHandler( this );
+			relationColHandler = new YCFBamXmlLoaderRelationColHandler( this );
 		}
 		return( relationColHandler );
 	}
 
-	protected CFBamXmlLoaderSchemaDefHandler getSchemaDefHandler() {
+	protected YCFBamXmlLoaderSchemaDefHandler getSchemaDefHandler() {
 		if( schemaDefHandler == null ) {
-			schemaDefHandler = new CFBamXmlLoaderSchemaDefHandler( this );
+			schemaDefHandler = new YCFBamXmlLoaderSchemaDefHandler( this );
 			schemaDefHandler.addElementHandler( "CommonLicense", getCommonLicenseHandler() );
 			schemaDefHandler.addElementHandler( "ClientImplLicense", getClientImplLicenseHandler() );
 			schemaDefHandler.addElementHandler( "ClientXFaceLicense", getClientXFaceLicenseHandler() );
@@ -3548,30 +3548,30 @@ public class CFBamXmlLoader
 		return( schemaDefHandler );
 	}
 
-	public CFBamXmlLoaderSchemaRefHandler getSchemaRefHandler() {
+	public YCFBamXmlLoaderSchemaRefHandler getSchemaRefHandler() {
 		if( schemaRefHandler == null ) {
-			schemaRefHandler = new CFBamXmlLoaderSchemaRefHandler( this );
+			schemaRefHandler = new YCFBamXmlLoaderSchemaRefHandler( this );
 		}
 		return( schemaRefHandler );
 	}
 
-	public CFBamXmlLoaderSchemaRoleHandler getSchemaRoleHandler() {
+	public YCFBamXmlLoaderSchemaRoleHandler getSchemaRoleHandler() {
 		if( schemaRoleHandler == null ) {
-			schemaRoleHandler = new CFBamXmlLoaderSchemaRoleHandler( this );
+			schemaRoleHandler = new YCFBamXmlLoaderSchemaRoleHandler( this );
 		}
 		return( schemaRoleHandler );
 	}
 
-	public CFBamXmlLoaderSchemaTweakHandler getSchemaTweakHandler() {
+	public YCFBamXmlLoaderSchemaTweakHandler getSchemaTweakHandler() {
 		if( schemaTweakHandler == null ) {
-			schemaTweakHandler = new CFBamXmlLoaderSchemaTweakHandler( this );
+			schemaTweakHandler = new YCFBamXmlLoaderSchemaTweakHandler( this );
 		}
 		return( schemaTweakHandler );
 	}
 
-	protected CFBamXmlLoaderServerListFuncHandler getServerListFuncHandler() {
+	protected YCFBamXmlLoaderServerListFuncHandler getServerListFuncHandler() {
 		if( serverListFuncHandler == null ) {
-			serverListFuncHandler = new CFBamXmlLoaderServerListFuncHandler( this );
+			serverListFuncHandler = new YCFBamXmlLoaderServerListFuncHandler( this );
 			serverListFuncHandler.addElementHandler( "Param", getParamHandler() );
 			serverListFuncHandler.addElementHandler( "CafeMethodBody", getCafeMethodBodyHandler() );
 			serverListFuncHandler.addElementHandler( "CPlusMethodBody", getCPlusMethodBodyHandler() );
@@ -3580,9 +3580,9 @@ public class CFBamXmlLoader
 		return( serverListFuncHandler );
 	}
 
-	protected CFBamXmlLoaderServerObjFuncHandler getServerObjFuncHandler() {
+	protected YCFBamXmlLoaderServerObjFuncHandler getServerObjFuncHandler() {
 		if( serverObjFuncHandler == null ) {
-			serverObjFuncHandler = new CFBamXmlLoaderServerObjFuncHandler( this );
+			serverObjFuncHandler = new YCFBamXmlLoaderServerObjFuncHandler( this );
 			serverObjFuncHandler.addElementHandler( "Param", getParamHandler() );
 			serverObjFuncHandler.addElementHandler( "CafeMethodBody", getCafeMethodBodyHandler() );
 			serverObjFuncHandler.addElementHandler( "CPlusMethodBody", getCPlusMethodBodyHandler() );
@@ -3591,9 +3591,9 @@ public class CFBamXmlLoader
 		return( serverObjFuncHandler );
 	}
 
-	protected CFBamXmlLoaderServerProcHandler getServerProcHandler() {
+	protected YCFBamXmlLoaderServerProcHandler getServerProcHandler() {
 		if( serverProcHandler == null ) {
-			serverProcHandler = new CFBamXmlLoaderServerProcHandler( this );
+			serverProcHandler = new YCFBamXmlLoaderServerProcHandler( this );
 			serverProcHandler.addElementHandler( "Param", getParamHandler() );
 			serverProcHandler.addElementHandler( "CafeMethodBody", getCafeMethodBodyHandler() );
 			serverProcHandler.addElementHandler( "CPlusMethodBody", getCPlusMethodBodyHandler() );
@@ -3602,81 +3602,81 @@ public class CFBamXmlLoader
 		return( serverProcHandler );
 	}
 
-	protected CFBamXmlLoaderStringColHandler getStringColHandler() {
+	protected YCFBamXmlLoaderStringColHandler getStringColHandler() {
 		if( stringColHandler == null ) {
-			stringColHandler = new CFBamXmlLoaderStringColHandler( this );
+			stringColHandler = new YCFBamXmlLoaderStringColHandler( this );
 		}
 		return( stringColHandler );
 	}
 
-	protected CFBamXmlLoaderStringTypeHandler getStringTypeHandler() {
+	protected YCFBamXmlLoaderStringTypeHandler getStringTypeHandler() {
 		if( stringTypeHandler == null ) {
-			stringTypeHandler = new CFBamXmlLoaderStringTypeHandler( this );
+			stringTypeHandler = new YCFBamXmlLoaderStringTypeHandler( this );
 		}
 		return( stringTypeHandler );
 	}
 
-	protected CFBamXmlLoaderSubProjectHandler getSubProjectHandler() {
+	protected YCFBamXmlLoaderSubProjectHandler getSubProjectHandler() {
 		if( subProjectHandler == null ) {
-			subProjectHandler = new CFBamXmlLoaderSubProjectHandler( this );
+			subProjectHandler = new YCFBamXmlLoaderSubProjectHandler( this );
 			subProjectHandler.addElementHandler( "MajorVersion", getMajorVersionHandler() );
 		}
 		return( subProjectHandler );
 	}
 
-	protected CFBamXmlLoaderSuperClassRelationHandler getSuperClassRelationHandler() {
+	protected YCFBamXmlLoaderSuperClassRelationHandler getSuperClassRelationHandler() {
 		if( superClassRelationHandler == null ) {
-			superClassRelationHandler = new CFBamXmlLoaderSuperClassRelationHandler( this );
+			superClassRelationHandler = new YCFBamXmlLoaderSuperClassRelationHandler( this );
 			superClassRelationHandler.addElementHandler( "RelationCol", getRelationColHandler() );
 		}
 		return( superClassRelationHandler );
 	}
 
-	protected CFBamXmlLoaderTZDateColHandler getTZDateColHandler() {
+	protected YCFBamXmlLoaderTZDateColHandler getTZDateColHandler() {
 		if( tZDateColHandler == null ) {
-			tZDateColHandler = new CFBamXmlLoaderTZDateColHandler( this );
+			tZDateColHandler = new YCFBamXmlLoaderTZDateColHandler( this );
 		}
 		return( tZDateColHandler );
 	}
 
-	protected CFBamXmlLoaderTZDateTypeHandler getTZDateTypeHandler() {
+	protected YCFBamXmlLoaderTZDateTypeHandler getTZDateTypeHandler() {
 		if( tZDateTypeHandler == null ) {
-			tZDateTypeHandler = new CFBamXmlLoaderTZDateTypeHandler( this );
+			tZDateTypeHandler = new YCFBamXmlLoaderTZDateTypeHandler( this );
 		}
 		return( tZDateTypeHandler );
 	}
 
-	protected CFBamXmlLoaderTZTimeColHandler getTZTimeColHandler() {
+	protected YCFBamXmlLoaderTZTimeColHandler getTZTimeColHandler() {
 		if( tZTimeColHandler == null ) {
-			tZTimeColHandler = new CFBamXmlLoaderTZTimeColHandler( this );
+			tZTimeColHandler = new YCFBamXmlLoaderTZTimeColHandler( this );
 		}
 		return( tZTimeColHandler );
 	}
 
-	protected CFBamXmlLoaderTZTimeTypeHandler getTZTimeTypeHandler() {
+	protected YCFBamXmlLoaderTZTimeTypeHandler getTZTimeTypeHandler() {
 		if( tZTimeTypeHandler == null ) {
-			tZTimeTypeHandler = new CFBamXmlLoaderTZTimeTypeHandler( this );
+			tZTimeTypeHandler = new YCFBamXmlLoaderTZTimeTypeHandler( this );
 		}
 		return( tZTimeTypeHandler );
 	}
 
-	protected CFBamXmlLoaderTZTimestampColHandler getTZTimestampColHandler() {
+	protected YCFBamXmlLoaderTZTimestampColHandler getTZTimestampColHandler() {
 		if( tZTimestampColHandler == null ) {
-			tZTimestampColHandler = new CFBamXmlLoaderTZTimestampColHandler( this );
+			tZTimestampColHandler = new YCFBamXmlLoaderTZTimestampColHandler( this );
 		}
 		return( tZTimestampColHandler );
 	}
 
-	protected CFBamXmlLoaderTZTimestampTypeHandler getTZTimestampTypeHandler() {
+	protected YCFBamXmlLoaderTZTimestampTypeHandler getTZTimestampTypeHandler() {
 		if( tZTimestampTypeHandler == null ) {
-			tZTimestampTypeHandler = new CFBamXmlLoaderTZTimestampTypeHandler( this );
+			tZTimestampTypeHandler = new YCFBamXmlLoaderTZTimestampTypeHandler( this );
 		}
 		return( tZTimestampTypeHandler );
 	}
 
-	protected CFBamXmlLoaderTableHandler getTableHandler() {
+	protected YCFBamXmlLoaderTableHandler getTableHandler() {
 		if( tableHandler == null ) {
-			tableHandler = new CFBamXmlLoaderTableHandler( this );
+			tableHandler = new YCFBamXmlLoaderTableHandler( this );
 			tableHandler.addElementHandler( "ServerListFunc", getServerListFuncHandler() );
 			tableHandler.addElementHandler( "ServerObjFunc", getServerObjFuncHandler() );
 			tableHandler.addElementHandler( "ServerProc", getServerProcHandler() );
@@ -3903,9 +3903,9 @@ public class CFBamXmlLoader
 		return( tableHandler );
 	}
 
-	protected CFBamXmlLoaderTableAddendumHandler getTableAddendumHandler() {
+	protected YCFBamXmlLoaderTableAddendumHandler getTableAddendumHandler() {
 		if( tableAddendumHandler == null ) {
-			tableAddendumHandler = new CFBamXmlLoaderTableAddendumHandler( this );
+			tableAddendumHandler = new YCFBamXmlLoaderTableAddendumHandler( this );
 			tableAddendumHandler.addElementHandler( "ServerListFunc", getServerListFuncHandler() );
 			tableAddendumHandler.addElementHandler( "ServerObjFunc", getServerObjFuncHandler() );
 			tableAddendumHandler.addElementHandler( "ServerProc", getServerProcHandler() );
@@ -3920,324 +3920,324 @@ public class CFBamXmlLoader
 		return( tableAddendumHandler );
 	}
 
-	protected CFBamXmlLoaderIndexAddendumHandler getIndexAddendumHandler() {
+	protected YCFBamXmlLoaderIndexAddendumHandler getIndexAddendumHandler() {
 		if( indexAddendumHandler == null ) {
-			indexAddendumHandler = new CFBamXmlLoaderIndexAddendumHandler( this );
+			indexAddendumHandler = new YCFBamXmlLoaderIndexAddendumHandler( this );
 			indexAddendumHandler.addElementHandler( "IndexTweak", getIndexTweakHandler() );
 		}
 		return( indexAddendumHandler );
 	}
 
-	protected CFBamXmlLoaderTableColHandler getTableColHandler() {
+	protected YCFBamXmlLoaderTableColHandler getTableColHandler() {
 		if( tableColHandler == null ) {
-			tableColHandler = new CFBamXmlLoaderTableColHandler( this );
+			tableColHandler = new YCFBamXmlLoaderTableColHandler( this );
 		}
 		return( tableColHandler );
 	}
 
-	protected CFBamXmlLoaderTableTweakHandler getTableTweakHandler() {
+	protected YCFBamXmlLoaderTableTweakHandler getTableTweakHandler() {
 		if( tableTweakHandler == null ) {
-			tableTweakHandler = new CFBamXmlLoaderTableTweakHandler( this );
+			tableTweakHandler = new YCFBamXmlLoaderTableTweakHandler( this );
 		}
 		return( tableTweakHandler );
 	}
 
-	protected CFBamXmlLoaderTextColHandler getTextColHandler() {
+	protected YCFBamXmlLoaderTextColHandler getTextColHandler() {
 		if( textColHandler == null ) {
-			textColHandler = new CFBamXmlLoaderTextColHandler( this );
+			textColHandler = new YCFBamXmlLoaderTextColHandler( this );
 		}
 		return( textColHandler );
 	}
 
-	protected CFBamXmlLoaderTextTypeHandler getTextTypeHandler() {
+	protected YCFBamXmlLoaderTextTypeHandler getTextTypeHandler() {
 		if( textTypeHandler == null ) {
-			textTypeHandler = new CFBamXmlLoaderTextTypeHandler( this );
+			textTypeHandler = new YCFBamXmlLoaderTextTypeHandler( this );
 		}
 		return( textTypeHandler );
 	}
 
-	protected CFBamXmlLoaderTimeColHandler getTimeColHandler() {
+	protected YCFBamXmlLoaderTimeColHandler getTimeColHandler() {
 		if( timeColHandler == null ) {
-			timeColHandler = new CFBamXmlLoaderTimeColHandler( this );
+			timeColHandler = new YCFBamXmlLoaderTimeColHandler( this );
 		}
 		return( timeColHandler );
 	}
 
-	protected CFBamXmlLoaderTimeTypeHandler getTimeTypeHandler() {
+	protected YCFBamXmlLoaderTimeTypeHandler getTimeTypeHandler() {
 		if( timeTypeHandler == null ) {
-			timeTypeHandler = new CFBamXmlLoaderTimeTypeHandler( this );
+			timeTypeHandler = new YCFBamXmlLoaderTimeTypeHandler( this );
 		}
 		return( timeTypeHandler );
 	}
 
-	protected CFBamXmlLoaderTimestampColHandler getTimestampColHandler() {
+	protected YCFBamXmlLoaderTimestampColHandler getTimestampColHandler() {
 		if( timestampColHandler == null ) {
-			timestampColHandler = new CFBamXmlLoaderTimestampColHandler( this );
+			timestampColHandler = new YCFBamXmlLoaderTimestampColHandler( this );
 		}
 		return( timestampColHandler );
 	}
 
-	protected CFBamXmlLoaderTimestampTypeHandler getTimestampTypeHandler() {
+	protected YCFBamXmlLoaderTimestampTypeHandler getTimestampTypeHandler() {
 		if( timestampTypeHandler == null ) {
-			timestampTypeHandler = new CFBamXmlLoaderTimestampTypeHandler( this );
+			timestampTypeHandler = new YCFBamXmlLoaderTimestampTypeHandler( this );
 		}
 		return( timestampTypeHandler );
 	}
 
-	protected CFBamXmlLoaderTldHandler getTldHandler() {
+	protected YCFBamXmlLoaderTldHandler getTldHandler() {
 		if( tldHandler == null ) {
-			tldHandler = new CFBamXmlLoaderTldHandler( this );
+			tldHandler = new YCFBamXmlLoaderTldHandler( this );
 			tldHandler.addElementHandler( "TopDomain", getTopDomainHandler() );
 		}
 		return( tldHandler );
 	}
 
-	protected CFBamXmlLoaderTokenColHandler getTokenColHandler() {
+	protected YCFBamXmlLoaderTokenColHandler getTokenColHandler() {
 		if( tokenColHandler == null ) {
-			tokenColHandler = new CFBamXmlLoaderTokenColHandler( this );
+			tokenColHandler = new YCFBamXmlLoaderTokenColHandler( this );
 		}
 		return( tokenColHandler );
 	}
 
-	protected CFBamXmlLoaderTokenTypeHandler getTokenTypeHandler() {
+	protected YCFBamXmlLoaderTokenTypeHandler getTokenTypeHandler() {
 		if( tokenTypeHandler == null ) {
-			tokenTypeHandler = new CFBamXmlLoaderTokenTypeHandler( this );
+			tokenTypeHandler = new YCFBamXmlLoaderTokenTypeHandler( this );
 		}
 		return( tokenTypeHandler );
 	}
 
-	protected CFBamXmlLoaderTopDomainHandler getTopDomainHandler() {
+	protected YCFBamXmlLoaderTopDomainHandler getTopDomainHandler() {
 		if( topDomainHandler == null ) {
-			topDomainHandler = new CFBamXmlLoaderTopDomainHandler( this );
+			topDomainHandler = new YCFBamXmlLoaderTopDomainHandler( this );
 			topDomainHandler.addElementHandler( "TopProject", getTopProjectHandler() );
 			topDomainHandler.addElementHandler( "License", getLicenseHandler() );
 		}
 		return( topDomainHandler );
 	}
 
-	protected CFBamXmlLoaderTopProjectHandler getTopProjectHandler() {
+	protected YCFBamXmlLoaderTopProjectHandler getTopProjectHandler() {
 		if( topProjectHandler == null ) {
-			topProjectHandler = new CFBamXmlLoaderTopProjectHandler( this );
+			topProjectHandler = new YCFBamXmlLoaderTopProjectHandler( this );
 			topProjectHandler.addElementHandler( "SubProject", getSubProjectHandler() );
 		}
 		return( topProjectHandler );
 	}
 
-	protected CFBamXmlLoaderUInt16ColHandler getUInt16ColHandler() {
+	protected YCFBamXmlLoaderUInt16ColHandler getUInt16ColHandler() {
 		if( uInt16ColHandler == null ) {
-			uInt16ColHandler = new CFBamXmlLoaderUInt16ColHandler( this );
+			uInt16ColHandler = new YCFBamXmlLoaderUInt16ColHandler( this );
 		}
 		return( uInt16ColHandler );
 	}
 
-	protected CFBamXmlLoaderUInt16TypeHandler getUInt16TypeHandler() {
+	protected YCFBamXmlLoaderUInt16TypeHandler getUInt16TypeHandler() {
 		if( uInt16TypeHandler == null ) {
-			uInt16TypeHandler = new CFBamXmlLoaderUInt16TypeHandler( this );
+			uInt16TypeHandler = new YCFBamXmlLoaderUInt16TypeHandler( this );
 		}
 		return( uInt16TypeHandler );
 	}
 
-	protected CFBamXmlLoaderUInt32ColHandler getUInt32ColHandler() {
+	protected YCFBamXmlLoaderUInt32ColHandler getUInt32ColHandler() {
 		if( uInt32ColHandler == null ) {
-			uInt32ColHandler = new CFBamXmlLoaderUInt32ColHandler( this );
+			uInt32ColHandler = new YCFBamXmlLoaderUInt32ColHandler( this );
 		}
 		return( uInt32ColHandler );
 	}
 
-	protected CFBamXmlLoaderUInt32TypeHandler getUInt32TypeHandler() {
+	protected YCFBamXmlLoaderUInt32TypeHandler getUInt32TypeHandler() {
 		if( uInt32TypeHandler == null ) {
-			uInt32TypeHandler = new CFBamXmlLoaderUInt32TypeHandler( this );
+			uInt32TypeHandler = new YCFBamXmlLoaderUInt32TypeHandler( this );
 		}
 		return( uInt32TypeHandler );
 	}
 
-	protected CFBamXmlLoaderUInt64ColHandler getUInt64ColHandler() {
+	protected YCFBamXmlLoaderUInt64ColHandler getUInt64ColHandler() {
 		if( uInt64ColHandler == null ) {
-			uInt64ColHandler = new CFBamXmlLoaderUInt64ColHandler( this );
+			uInt64ColHandler = new YCFBamXmlLoaderUInt64ColHandler( this );
 		}
 		return( uInt64ColHandler );
 	}
 
-	protected CFBamXmlLoaderUInt64TypeHandler getUInt64TypeHandler() {
+	protected YCFBamXmlLoaderUInt64TypeHandler getUInt64TypeHandler() {
 		if( uInt64TypeHandler == null ) {
-			uInt64TypeHandler = new CFBamXmlLoaderUInt64TypeHandler( this );
+			uInt64TypeHandler = new YCFBamXmlLoaderUInt64TypeHandler( this );
 		}
 		return( uInt64TypeHandler );
 	}
 
-	protected CFBamXmlLoaderUuidColHandler getUuidColHandler() {
+	protected YCFBamXmlLoaderUuidColHandler getUuidColHandler() {
 		if( uuidColHandler == null ) {
-			uuidColHandler = new CFBamXmlLoaderUuidColHandler( this );
+			uuidColHandler = new YCFBamXmlLoaderUuidColHandler( this );
 		}
 		return( uuidColHandler );
 	}
 
-	protected CFBamXmlLoaderUuidGenHandler getUuidGenHandler() {
+	protected YCFBamXmlLoaderUuidGenHandler getUuidGenHandler() {
 		if( uuidGenHandler == null ) {
-			uuidGenHandler = new CFBamXmlLoaderUuidGenHandler( this );
+			uuidGenHandler = new YCFBamXmlLoaderUuidGenHandler( this );
 		}
 		return( uuidGenHandler );
 	}
 
-	protected CFBamXmlLoaderUuidTypeHandler getUuidTypeHandler() {
+	protected YCFBamXmlLoaderUuidTypeHandler getUuidTypeHandler() {
 		if( uuidTypeHandler == null ) {
-			uuidTypeHandler = new CFBamXmlLoaderUuidTypeHandler( this );
+			uuidTypeHandler = new YCFBamXmlLoaderUuidTypeHandler( this );
 		}
 		return( uuidTypeHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash128ColHandler getDbKeyHash128ColHandler() {
+	protected YCFBamXmlLoaderDbKeyHash128ColHandler getDbKeyHash128ColHandler() {
 		if( dbKeyHash128ColHandler == null ) {
-			dbKeyHash128ColHandler = new CFBamXmlLoaderDbKeyHash128ColHandler( this );
+			dbKeyHash128ColHandler = new YCFBamXmlLoaderDbKeyHash128ColHandler( this );
 		}
 		return( dbKeyHash128ColHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash128GenHandler getDbKeyHash128GenHandler() {
+	protected YCFBamXmlLoaderDbKeyHash128GenHandler getDbKeyHash128GenHandler() {
 		if( dbKeyHash128GenHandler == null ) {
-			dbKeyHash128GenHandler = new CFBamXmlLoaderDbKeyHash128GenHandler( this );
+			dbKeyHash128GenHandler = new YCFBamXmlLoaderDbKeyHash128GenHandler( this );
 		}
 		return( dbKeyHash128GenHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash128TypeHandler getDbKeyHash128TypeHandler() {
+	protected YCFBamXmlLoaderDbKeyHash128TypeHandler getDbKeyHash128TypeHandler() {
 		if( dbKeyHash128TypeHandler == null ) {
-			dbKeyHash128TypeHandler = new CFBamXmlLoaderDbKeyHash128TypeHandler( this );
+			dbKeyHash128TypeHandler = new YCFBamXmlLoaderDbKeyHash128TypeHandler( this );
 		}
 		return( dbKeyHash128TypeHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash160ColHandler getDbKeyHash160ColHandler() {
+	protected YCFBamXmlLoaderDbKeyHash160ColHandler getDbKeyHash160ColHandler() {
 		if( dbKeyHash160ColHandler == null ) {
-			dbKeyHash160ColHandler = new CFBamXmlLoaderDbKeyHash160ColHandler( this );
+			dbKeyHash160ColHandler = new YCFBamXmlLoaderDbKeyHash160ColHandler( this );
 		}
 		return( dbKeyHash160ColHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash160GenHandler getDbKeyHash160GenHandler() {
+	protected YCFBamXmlLoaderDbKeyHash160GenHandler getDbKeyHash160GenHandler() {
 		if( dbKeyHash160GenHandler == null ) {
-			dbKeyHash160GenHandler = new CFBamXmlLoaderDbKeyHash160GenHandler( this );
+			dbKeyHash160GenHandler = new YCFBamXmlLoaderDbKeyHash160GenHandler( this );
 		}
 		return( dbKeyHash160GenHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash160TypeHandler getDbKeyHash160TypeHandler() {
+	protected YCFBamXmlLoaderDbKeyHash160TypeHandler getDbKeyHash160TypeHandler() {
 		if( dbKeyHash160TypeHandler == null ) {
-			dbKeyHash160TypeHandler = new CFBamXmlLoaderDbKeyHash160TypeHandler( this );
+			dbKeyHash160TypeHandler = new YCFBamXmlLoaderDbKeyHash160TypeHandler( this );
 		}
 		return( dbKeyHash160TypeHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash224ColHandler getDbKeyHash224ColHandler() {
+	protected YCFBamXmlLoaderDbKeyHash224ColHandler getDbKeyHash224ColHandler() {
 		if( dbKeyHash224ColHandler == null ) {
-			dbKeyHash224ColHandler = new CFBamXmlLoaderDbKeyHash224ColHandler( this );
+			dbKeyHash224ColHandler = new YCFBamXmlLoaderDbKeyHash224ColHandler( this );
 		}
 		return( dbKeyHash224ColHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash224GenHandler getDbKeyHash224GenHandler() {
+	protected YCFBamXmlLoaderDbKeyHash224GenHandler getDbKeyHash224GenHandler() {
 		if( dbKeyHash224GenHandler == null ) {
-			dbKeyHash224GenHandler = new CFBamXmlLoaderDbKeyHash224GenHandler( this );
+			dbKeyHash224GenHandler = new YCFBamXmlLoaderDbKeyHash224GenHandler( this );
 		}
 		return( dbKeyHash224GenHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash224TypeHandler getDbKeyHash224TypeHandler() {
+	protected YCFBamXmlLoaderDbKeyHash224TypeHandler getDbKeyHash224TypeHandler() {
 		if( dbKeyHash224TypeHandler == null ) {
-			dbKeyHash224TypeHandler = new CFBamXmlLoaderDbKeyHash224TypeHandler( this );
+			dbKeyHash224TypeHandler = new YCFBamXmlLoaderDbKeyHash224TypeHandler( this );
 		}
 		return( dbKeyHash224TypeHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash256ColHandler getDbKeyHash256ColHandler() {
+	protected YCFBamXmlLoaderDbKeyHash256ColHandler getDbKeyHash256ColHandler() {
 		if( dbKeyHash256ColHandler == null ) {
-			dbKeyHash256ColHandler = new CFBamXmlLoaderDbKeyHash256ColHandler( this );
+			dbKeyHash256ColHandler = new YCFBamXmlLoaderDbKeyHash256ColHandler( this );
 		}
 		return( dbKeyHash256ColHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash256GenHandler getDbKeyHash256GenHandler() {
+	protected YCFBamXmlLoaderDbKeyHash256GenHandler getDbKeyHash256GenHandler() {
 		if( dbKeyHash256GenHandler == null ) {
-			dbKeyHash256GenHandler = new CFBamXmlLoaderDbKeyHash256GenHandler( this );
+			dbKeyHash256GenHandler = new YCFBamXmlLoaderDbKeyHash256GenHandler( this );
 		}
 		return( dbKeyHash256GenHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash256TypeHandler getDbKeyHash256TypeHandler() {
+	protected YCFBamXmlLoaderDbKeyHash256TypeHandler getDbKeyHash256TypeHandler() {
 		if( dbKeyHash256TypeHandler == null ) {
-			dbKeyHash256TypeHandler = new CFBamXmlLoaderDbKeyHash256TypeHandler( this );
+			dbKeyHash256TypeHandler = new YCFBamXmlLoaderDbKeyHash256TypeHandler( this );
 		}
 		return( dbKeyHash256TypeHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash384ColHandler getDbKeyHash384ColHandler() {
+	protected YCFBamXmlLoaderDbKeyHash384ColHandler getDbKeyHash384ColHandler() {
 		if( dbKeyHash384ColHandler == null ) {
-			dbKeyHash384ColHandler = new CFBamXmlLoaderDbKeyHash384ColHandler( this );
+			dbKeyHash384ColHandler = new YCFBamXmlLoaderDbKeyHash384ColHandler( this );
 		}
 		return( dbKeyHash384ColHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash384GenHandler getDbKeyHash384GenHandler() {
+	protected YCFBamXmlLoaderDbKeyHash384GenHandler getDbKeyHash384GenHandler() {
 		if( dbKeyHash384GenHandler == null ) {
-			dbKeyHash384GenHandler = new CFBamXmlLoaderDbKeyHash384GenHandler( this );
+			dbKeyHash384GenHandler = new YCFBamXmlLoaderDbKeyHash384GenHandler( this );
 		}
 		return( dbKeyHash384GenHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash384TypeHandler getDbKeyHash384TypeHandler() {
+	protected YCFBamXmlLoaderDbKeyHash384TypeHandler getDbKeyHash384TypeHandler() {
 		if( dbKeyHash384TypeHandler == null ) {
-			dbKeyHash384TypeHandler = new CFBamXmlLoaderDbKeyHash384TypeHandler( this );
+			dbKeyHash384TypeHandler = new YCFBamXmlLoaderDbKeyHash384TypeHandler( this );
 		}
 		return( dbKeyHash384TypeHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash512ColHandler getDbKeyHash512ColHandler() {
+	protected YCFBamXmlLoaderDbKeyHash512ColHandler getDbKeyHash512ColHandler() {
 		if( dbKeyHash512ColHandler == null ) {
-			dbKeyHash512ColHandler = new CFBamXmlLoaderDbKeyHash512ColHandler( this );
+			dbKeyHash512ColHandler = new YCFBamXmlLoaderDbKeyHash512ColHandler( this );
 		}
 		return( dbKeyHash512ColHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash512GenHandler getDbKeyHash512GenHandler() {
+	protected YCFBamXmlLoaderDbKeyHash512GenHandler getDbKeyHash512GenHandler() {
 		if( dbKeyHash512GenHandler == null ) {
-			dbKeyHash512GenHandler = new CFBamXmlLoaderDbKeyHash512GenHandler( this );
+			dbKeyHash512GenHandler = new YCFBamXmlLoaderDbKeyHash512GenHandler( this );
 		}
 		return( dbKeyHash512GenHandler );
 	}
 
-	protected CFBamXmlLoaderDbKeyHash512TypeHandler getDbKeyHash512TypeHandler() {
+	protected YCFBamXmlLoaderDbKeyHash512TypeHandler getDbKeyHash512TypeHandler() {
 		if( dbKeyHash512TypeHandler == null ) {
-			dbKeyHash512TypeHandler = new CFBamXmlLoaderDbKeyHash512TypeHandler( this );
+			dbKeyHash512TypeHandler = new YCFBamXmlLoaderDbKeyHash512TypeHandler( this );
 		}
 		return( dbKeyHash512TypeHandler );
 	}
 
-	protected CFBamXmlLoaderUuid6ColHandler getUuid6ColHandler() {
+	protected YCFBamXmlLoaderUuid6ColHandler getUuid6ColHandler() {
 		if( uuid6ColHandler == null ) {
-			uuid6ColHandler = new CFBamXmlLoaderUuid6ColHandler( this );
+			uuid6ColHandler = new YCFBamXmlLoaderUuid6ColHandler( this );
 		}
 		return( uuid6ColHandler );
 	}
 
-	protected CFBamXmlLoaderUuid6GenHandler getUuid6GenHandler() {
+	protected YCFBamXmlLoaderUuid6GenHandler getUuid6GenHandler() {
 		if( uuid6GenHandler == null ) {
-			uuid6GenHandler = new CFBamXmlLoaderUuid6GenHandler( this );
+			uuid6GenHandler = new YCFBamXmlLoaderUuid6GenHandler( this );
 		}
 		return( uuid6GenHandler );
 	}
 
-	protected CFBamXmlLoaderUuid6TypeHandler getUuid6TypeHandler() {
+	protected YCFBamXmlLoaderUuid6TypeHandler getUuid6TypeHandler() {
 		if( uuid6TypeHandler == null ) {
-			uuid6TypeHandler = new CFBamXmlLoaderUuid6TypeHandler( this );
+			uuid6TypeHandler = new YCFBamXmlLoaderUuid6TypeHandler( this );
 		}
 		return( uuid6TypeHandler );
 	}
 
 	// Root Element Handler Resolver Factory
 
-	protected CFBamSaxRootHandler getSaxRootHandler() {
+	protected YCFBamSaxRootHandler getSaxRootHandler() {
 		if( saxRootHandler == null ) {
-			saxRootHandler = new CFBamSaxRootHandler( this );
+			saxRootHandler = new YCFBamSaxRootHandler( this );
 			saxRootHandler.addElementHandler( "MSSBam", getSaxDocHandler() );
 		}
 		return( saxRootHandler );
@@ -4246,12 +4246,12 @@ public class CFBamXmlLoader
 	// Root Element Handler
 
 	/*
-	 *	CFBamSaxRootHandler XML SAX Root Element Handler implementation
+	 *	YCFBamSaxRootHandler XML SAX Root Element Handler implementation
 	 */
-	public class CFBamSaxRootHandler
-		extends CFLibXmlCoreElementHandler
+	public class YCFBamSaxRootHandler
+		extends YCFLibXmlCoreElementHandler
 	{
-		public CFBamSaxRootHandler( CFBamXmlLoader saxLoader ) {
+		public YCFBamSaxRootHandler( YCFBamXmlLoader saxLoader ) {
 			super( saxLoader );
 		}
 
@@ -4275,9 +4275,9 @@ public class CFBamXmlLoader
 
 	// Document Element Handler Resolver Factory
 
-	protected CFBamSaxDocHandler getSaxDocHandler() {
+	protected YCFBamSaxDocHandler getSaxDocHandler() {
 		if( saxDocHandler == null ) {
-			saxDocHandler = new CFBamSaxDocHandler( this );
+			saxDocHandler = new YCFBamSaxDocHandler( this );
 			saxDocHandler.addElementHandler( "Tld", getTldHandler() );
 		}
 		return( saxDocHandler );
@@ -4286,12 +4286,12 @@ public class CFBamXmlLoader
 	// Document Element Handler
 
 	/*
-	 *	CFBamSaxDocHandler XML SAX Doc Element Handler implementation
+	 *	YCFBamSaxDocHandler XML SAX Doc Element Handler implementation
 	 */
-	public class CFBamSaxDocHandler
-		extends CFLibXmlCoreElementHandler
+	public class YCFBamSaxDocHandler
+		extends YCFLibXmlCoreElementHandler
 	{
-		public CFBamSaxDocHandler( CFBamXmlLoader saxLoader ) {
+		public YCFBamSaxDocHandler( YCFBamXmlLoader saxLoader ) {
 			super( saxLoader );
 		}
 
@@ -4319,17 +4319,17 @@ public class CFBamXmlLoader
 
 			assert qName.equals( "MSSBam" );
 
-			CFBamXmlLoader saxLoader = (CFBamXmlLoader)getParser();
+			YCFBamXmlLoader saxLoader = (YCFBamXmlLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
@@ -4340,7 +4340,7 @@ public class CFBamXmlLoader
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalNameIndex,
 							attrLocalName );
@@ -4349,7 +4349,7 @@ public class CFBamXmlLoader
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalNameIndex,
 							attrLocalName );
@@ -4358,7 +4358,7 @@ public class CFBamXmlLoader
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalNameIndex,
 							attrLocalName );
@@ -4367,7 +4367,7 @@ public class CFBamXmlLoader
 				}
 				else if( attrLocalName.equals( "Revision" ) ) {
 					if( attrRevision != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalNameIndex,
 							attrLocalName );
@@ -4376,7 +4376,7 @@ public class CFBamXmlLoader
 				}
 				else if( attrLocalName.equals( "ProjectRoot" ) ) {
 					if( attrProjectRoot != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalNameIndex,
 							attrLocalName );
@@ -4387,7 +4387,7 @@ public class CFBamXmlLoader
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getLocationInfo(),
 						attrLocalName );
@@ -4395,28 +4395,28 @@ public class CFBamXmlLoader
 			}
 
 			if( ( attrName == null ) || ( attrName.length() <= 0 ) ) {
-				throw new CFLibEmptyArgumentException( getClass(),
+				throw new YCFLibEmptyArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			if( ( attrRevision == null ) || ( attrRevision.length() <= 0 ) ) {
-				throw new CFLibEmptyArgumentException( getClass(),
+				throw new YCFLibEmptyArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Revision" );
 			}
 
 			if( ( attrDescription == null ) || ( attrDescription.length() <= 0 ) ) {
-				throw new CFLibEmptyArgumentException( getClass(),
+				throw new YCFLibEmptyArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Description" );
 			}
 
 			if( ( attrProjectRoot == null ) || ( attrProjectRoot.length() <= 0 ) ) {
-				throw new CFLibEmptyArgumentException( getClass(),
+				throw new YCFLibEmptyArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"ProjectRoot" );
@@ -4427,7 +4427,7 @@ public class CFBamXmlLoader
 				+ "\", Description=\"" + attrDescription
 				+ "\", ProjectRoot=\"" + attrProjectRoot + "\"\n" ); 
 
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Description", attrDescription );
 			curContext.putNamedValue( "Name", attrName );
@@ -4444,13 +4444,13 @@ public class CFBamXmlLoader
 		throws SAXException
 		{
 			final String S_ProcName = "endElement";
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			String projectRootName = (String)curContext.getNamedValue( "ProjectRoot" );
 			String name = (String)curContext.getNamedValue( "Name" );
 			String description = (String)curContext.getNamedValue( "Description" );
-			ICFBamTenantObj tenant = (ICFBamTenantObj)curContext.getNamedValue( "Object" );
+			IYCFBamTenantObj tenant = (IYCFBamTenantObj)curContext.getNamedValue( "Object" );
 			if( tenant != null ) {
-				ICFLibAnyObj rootDef;
+				IYCFLibAnyObj rootDef;
 				try {
 					rootDef = tenant.getNamedObject( projectRootName );
 				}
@@ -4458,17 +4458,17 @@ public class CFBamXmlLoader
 					rootDef = null;
 				}
 
-				if( rootDef instanceof ICFBamMajorVersionObj ) {
+				if( rootDef instanceof IYCFBamMajorVersionObj ) {
 					definedProjectVersion = rootDef;
 					getLog().message( "Parsed " + name + " " + description );
 				}
-				else if( rootDef instanceof ICFBamMinorVersionObj ) {
+				else if( rootDef instanceof IYCFBamMinorVersionObj ) {
 					definedProjectVersion = rootDef;
 					getLog().message( "Parsed " + name + " " + description );
 				}
 				else {
 					definedProjectVersion = null;
-					throw new CFLibRuntimeException( getClass(),
+					throw new YCFLibRuntimeException( getClass(),
 						S_ProcName,
 						getLocationInfo() + " Loaded Business Application Model does not define Project Root \"" + projectRootName + "\"" );
 				}

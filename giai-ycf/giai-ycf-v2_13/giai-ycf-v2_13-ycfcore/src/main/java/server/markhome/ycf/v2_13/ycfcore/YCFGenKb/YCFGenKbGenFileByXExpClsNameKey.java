@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GenFile by XExpClsName index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,17 +37,17 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGenFileByXExpClsNameKey
+public class YCFGenKbGenFileByXExpClsNameKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected Long optionalExpansionClassNameTenantId;
 	protected Long optionalExpansionClassNameGelCacheId;
 	protected Long optionalExpansionClassNameGelId;
-	public CFGenKbGenFileByXExpClsNameKey() {
+	public YCFGenKbGenFileByXExpClsNameKey() {
 		optionalExpansionClassNameTenantId = null;
 		optionalExpansionClassNameGelCacheId = null;
 		optionalExpansionClassNameGelId = null;
@@ -61,13 +61,13 @@ public class CFGenKbGenFileByXExpClsNameKey
 		if( value == null ) {
 			optionalExpansionClassNameTenantId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONCLASSNAMETENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONCLASSNAMETENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionClassNameTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONCLASSNAMETENANTID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONCLASSNAMETENANTID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionClassNameTenantId = value;
@@ -82,13 +82,13 @@ public class CFGenKbGenFileByXExpClsNameKey
 		if( value == null ) {
 			optionalExpansionClassNameGelCacheId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionClassNameGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELCACHEID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELCACHEID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionClassNameGelCacheId = value;
@@ -103,13 +103,13 @@ public class CFGenKbGenFileByXExpClsNameKey
 		if( value == null ) {
 			optionalExpansionClassNameGelId = null;
 		}
-		else if( value < CFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalExpansionClassNameGelId",
 				1,
 				"value",
 				value,
-				CFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELID_MIN_VALUE );
+				YCFGenKbGenFileBuff.EXPANSIONCLASSNAMEGELID_MIN_VALUE );
 		}
 		else {
 			optionalExpansionClassNameGelId = value;
@@ -120,8 +120,8 @@ public class CFGenKbGenFileByXExpClsNameKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGenFileByXExpClsNameKey ) {
-			CFGenKbGenFileByXExpClsNameKey rhs = (CFGenKbGenFileByXExpClsNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXExpClsNameKey ) {
+			YCFGenKbGenFileByXExpClsNameKey rhs = (YCFGenKbGenFileByXExpClsNameKey)obj;
 			if( getOptionalExpansionClassNameTenantId() != null ) {
 				if( rhs.getOptionalExpansionClassNameTenantId() != null ) {
 					if( ! getOptionalExpansionClassNameTenantId().equals( rhs.getOptionalExpansionClassNameTenantId() ) ) {
@@ -160,8 +160,8 @@ public class CFGenKbGenFileByXExpClsNameKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			if( getOptionalExpansionClassNameTenantId() != null ) {
 				if( rhs.getOptionalExpansionClassNameTenantId() != null ) {
 					if( ! getOptionalExpansionClassNameTenantId().equals( rhs.getOptionalExpansionClassNameTenantId() ) ) {
@@ -223,8 +223,8 @@ public class CFGenKbGenFileByXExpClsNameKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGenFileByXExpClsNameKey ) {
-			CFGenKbGenFileByXExpClsNameKey rhs = (CFGenKbGenFileByXExpClsNameKey)obj;
+		else if( obj instanceof YCFGenKbGenFileByXExpClsNameKey ) {
+			YCFGenKbGenFileByXExpClsNameKey rhs = (YCFGenKbGenFileByXExpClsNameKey)obj;
 			if( getOptionalExpansionClassNameTenantId() != null ) {
 				Long lhsExpansionClassNameTenantId = getOptionalExpansionClassNameTenantId();
 				if( rhs.getOptionalExpansionClassNameTenantId() != null ) {
@@ -281,8 +281,8 @@ public class CFGenKbGenFileByXExpClsNameKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGenFileBuff ) {
-			CFGenKbGenFileBuff rhs = (CFGenKbGenFileBuff)obj;
+		else if( obj instanceof YCFGenKbGenFileBuff ) {
+			YCFGenKbGenFileBuff rhs = (YCFGenKbGenFileBuff)obj;
 			if( getOptionalExpansionClassNameTenantId() != null ) {
 				Long lhsExpansionClassNameTenantId = getOptionalExpansionClassNameTenantId();
 				if( rhs.getOptionalExpansionClassNameTenantId() != null ) {
@@ -340,7 +340,7 @@ public class CFGenKbGenFileByXExpClsNameKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -349,7 +349,7 @@ public class CFGenKbGenFileByXExpClsNameKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGenFileByXExpClsName"
+		String ret = "<YCFGenKbGenFileByXExpClsName"
 			+ " OptionalExpansionClassNameTenantId=" + ( ( getOptionalExpansionClassNameTenantId() == null ) ? "null" : "\"" + getOptionalExpansionClassNameTenantId().toString() + "\"" )
 			+ " OptionalExpansionClassNameGelCacheId=" + ( ( getOptionalExpansionClassNameGelCacheId() == null ) ? "null" : "\"" + getOptionalExpansionClassNameGelCacheId().toString() + "\"" )
 			+ " OptionalExpansionClassNameGelId=" + ( ( getOptionalExpansionClassNameGelId() == null ) ? "null" : "\"" + getOptionalExpansionClassNameGelId().toString() + "\"" )

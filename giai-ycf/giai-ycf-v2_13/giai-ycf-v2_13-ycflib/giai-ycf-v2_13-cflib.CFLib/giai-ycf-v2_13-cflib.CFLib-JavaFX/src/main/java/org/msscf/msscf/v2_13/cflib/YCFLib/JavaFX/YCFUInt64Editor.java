@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,17 +21,17 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.math.*;
 import java.text.*;
 import javafx.geometry.Pos;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFUInt64Editor
-extends CFFormattedTextField
+public class YCFUInt64Editor
+extends YCFFormattedTextField
 {
 	protected static Format defaultFormat = null;
 	public final static BigDecimal MIN_VALUE = new BigDecimal( "0" );
@@ -55,7 +55,7 @@ extends CFFormattedTextField
 		}
 	}
 
-	public CFUInt64Editor() {
+	public YCFUInt64Editor() {
 		super();
 		setAlignment( Pos.CENTER_RIGHT );
 		setMinWidth( 210 );
@@ -73,13 +73,13 @@ extends CFFormattedTextField
 	public void setMinValue( BigDecimal value ) {
 		final String S_ProcName = "setMinValue";
 		if( value == null ) {
-			throw new CFLibNullArgumentException( fieldName,
+			throw new YCFLibNullArgumentException( fieldName,
 					S_ProcName,
 					1,
 					"value" );
 		}
 		if( value.compareTo( MIN_VALUE ) < 0 ) {
-			throw new CFLibArgumentUnderflowException( fieldName,
+			throw new YCFLibArgumentUnderflowException( fieldName,
 					S_ProcName,
 					1,
 					"value",
@@ -96,13 +96,13 @@ extends CFFormattedTextField
 	public void setMaxValue( BigDecimal value ) {
 		final String S_ProcName = "setMaxValue";
 		if( value == null ) {
-			throw new CFLibNullArgumentException( fieldName,
+			throw new YCFLibNullArgumentException( fieldName,
 					S_ProcName,
 					1,
 					"value" );
 		}
 		if( value.compareTo( MAX_VALUE ) > 0 ) {
-			throw new CFLibArgumentOverflowException( fieldName,
+			throw new YCFLibArgumentOverflowException( fieldName,
 					S_ProcName,
 					1,
 					"value",
@@ -132,7 +132,7 @@ extends CFFormattedTextField
 		else {
 			BigDecimal v = new BigDecimal( text );
 			if( v.compareTo( minValue ) < 0 ) {
-				throw new CFLibArgumentUnderflowException( fieldName,
+				throw new YCFLibArgumentUnderflowException( fieldName,
 						S_ProcName,
 						1,
 						fieldName,
@@ -140,7 +140,7 @@ extends CFFormattedTextField
 						minValue );
 			}
 			if( v.compareTo( maxValue ) > 0 ) {
-				throw new CFLibArgumentOverflowException( fieldName,
+				throw new YCFLibArgumentOverflowException( fieldName,
 						S_ProcName,
 						1,
 						fieldName,

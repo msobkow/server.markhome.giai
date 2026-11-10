@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -29,10 +29,10 @@ import java.net.*;
 import java.security.cert.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFCounter
+public class MssYCFCounter
 {
 	private String name;
 	private int counter;
@@ -40,10 +40,10 @@ public class MssCFCounter
 	/**
 	 *	Construct an instance
 	 */
-	public MssCFCounter( String argName ) {
-		final String S_ProcName = "MssCFCounter.constructor( argName ) ";
+	public MssYCFCounter( String argName ) {
+		final String S_ProcName = "MssYCFCounter.constructor( argName ) ";
 		if( ( argName == null ) || ( 0 == argName.length() ) ) {
-			throw new RuntimeException( S_ProcName + "CFCounter.CFCounter() argName is null or empty" );
+			throw new RuntimeException( S_ProcName + "YCFCounter.YCFCounter() argName is null or empty" );
 		}
 		name = argName;
 		counter = 0;
@@ -56,9 +56,9 @@ public class MssCFCounter
 
 	public void setName( String value )
 	{
-		final String S_ProcName = "MssCFCounter.setName() ";
+		final String S_ProcName = "MssYCFCounter.setName() ";
 		if( ( value == null ) || ( 0 == value.length() ) ) {
-			throw new RuntimeException( S_ProcName + "Set CFCounter.Name value is null or empty" );
+			throw new RuntimeException( S_ProcName + "Set YCFCounter.Name value is null or empty" );
 		}
 		name = value;
 	}
@@ -70,9 +70,9 @@ public class MssCFCounter
 
 	public void setCounter( int value )
 	{
-		final String S_ProcName = "MssCFCounter.setCounter() ";
+		final String S_ProcName = "MssYCFCounter.setCounter() ";
 		if( value < 0 ) {
-			throw new RuntimeException( S_ProcName + "Set CFCounter.Counter value " + Integer.toString( value ) + " must be in range 0.." + Integer.toString(Integer.MAX_VALUE ) );
+			throw new RuntimeException( S_ProcName + "Set YCFCounter.Counter value " + Integer.toString( value ) + " must be in range 0.." + Integer.toString(Integer.MAX_VALUE ) );
 		}
 	}
 

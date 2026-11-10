@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a MimeType primary key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,23 +36,23 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFIntMimeTypePKey Primary Key for MimeType
+ *	YCFIntMimeTypePKey Primary Key for MimeType
 
  *		requiredMimeTypeId	Required object attribute MimeTypeId. */
-public class CFIntMimeTypePKey
+public class YCFIntMimeTypePKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected int requiredMimeTypeId;
-	public CFIntMimeTypePKey() {
-		requiredMimeTypeId = CFIntMimeTypeBuff.MIMETYPEID_INIT_VALUE;
+	public YCFIntMimeTypePKey() {
+		requiredMimeTypeId = YCFIntMimeTypeBuff.MIMETYPEID_INIT_VALUE;
 	}
 
 	public int getRequiredMimeTypeId() {
@@ -60,13 +60,13 @@ public class CFIntMimeTypePKey
 	}
 
 	public void setRequiredMimeTypeId( int value ) {
-		if( value < CFIntMimeTypeBuff.MIMETYPEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntMimeTypeBuff.MIMETYPEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredMimeTypeId",
 				1,
 				"value",
 				value,
-				CFIntMimeTypeBuff.MIMETYPEID_MIN_VALUE );
+				YCFIntMimeTypeBuff.MIMETYPEID_MIN_VALUE );
 		}
 		requiredMimeTypeId = value;
 	}
@@ -75,29 +75,29 @@ public class CFIntMimeTypePKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntMimeTypeHPKey ) {
-			CFIntMimeTypeHPKey rhs = (CFIntMimeTypeHPKey)obj;
+		else if( obj instanceof YCFIntMimeTypeHPKey ) {
+			YCFIntMimeTypeHPKey rhs = (YCFIntMimeTypeHPKey)obj;
 			if( getRequiredMimeTypeId() != rhs.getRequiredMimeTypeId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMimeTypePKey ) {
-			CFIntMimeTypePKey rhs = (CFIntMimeTypePKey)obj;
+		else if( obj instanceof YCFIntMimeTypePKey ) {
+			YCFIntMimeTypePKey rhs = (YCFIntMimeTypePKey)obj;
 			if( getRequiredMimeTypeId() != rhs.getRequiredMimeTypeId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMimeTypeHBuff ) {
-			CFIntMimeTypeHBuff rhs = (CFIntMimeTypeHBuff)obj;
+		else if( obj instanceof YCFIntMimeTypeHBuff ) {
+			YCFIntMimeTypeHBuff rhs = (YCFIntMimeTypeHBuff)obj;
 			if( getRequiredMimeTypeId() != rhs.getRequiredMimeTypeId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMimeTypeBuff ) {
-			CFIntMimeTypeBuff rhs = (CFIntMimeTypeBuff)obj;
+		else if( obj instanceof YCFIntMimeTypeBuff ) {
+			YCFIntMimeTypeBuff rhs = (YCFIntMimeTypeBuff)obj;
 			if( getRequiredMimeTypeId() != rhs.getRequiredMimeTypeId() ) {
 				return( false );
 			}
@@ -118,8 +118,8 @@ public class CFIntMimeTypePKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntMimeTypeHPKey ) {
-			CFIntMimeTypeHPKey rhs = (CFIntMimeTypeHPKey)obj;
+		else if( obj instanceof YCFIntMimeTypeHPKey ) {
+			YCFIntMimeTypeHPKey rhs = (YCFIntMimeTypeHPKey)obj;
 			if( getRequiredMimeTypeId() < rhs.getRequiredMimeTypeId() ) {
 				return( -1 );
 			}
@@ -128,8 +128,8 @@ public class CFIntMimeTypePKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMimeTypePKey ) {
-			CFIntMimeTypePKey rhs = (CFIntMimeTypePKey)obj;
+		else if( obj instanceof YCFIntMimeTypePKey ) {
+			YCFIntMimeTypePKey rhs = (YCFIntMimeTypePKey)obj;
 			if( getRequiredMimeTypeId() < rhs.getRequiredMimeTypeId() ) {
 				return( -1 );
 			}
@@ -138,8 +138,8 @@ public class CFIntMimeTypePKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMimeTypeBuff ) {
-			CFIntMimeTypeBuff rhs = (CFIntMimeTypeBuff)obj;
+		else if( obj instanceof YCFIntMimeTypeBuff ) {
+			YCFIntMimeTypeBuff rhs = (YCFIntMimeTypeBuff)obj;
 			if( getRequiredMimeTypeId() < rhs.getRequiredMimeTypeId() ) {
 				return( -1 );
 			}
@@ -148,8 +148,8 @@ public class CFIntMimeTypePKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMimeTypeHBuff ) {
-			CFIntMimeTypeHBuff rhs = (CFIntMimeTypeHBuff)obj;
+		else if( obj instanceof YCFIntMimeTypeHBuff ) {
+			YCFIntMimeTypeHBuff rhs = (YCFIntMimeTypeHBuff)obj;
 			if( getRequiredMimeTypeId() < rhs.getRequiredMimeTypeId() ) {
 				return( -1 );
 			}
@@ -159,16 +159,16 @@ public class CFIntMimeTypePKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFIntMimeTypePKey, CFIntMimeTypeBuff" );
+				"YCFIntMimeTypePKey, YCFIntMimeTypeBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFIntMimeTypePKey"
+		String ret = "<YCFIntMimeTypePKey"
 			+ " RequiredMimeTypeId=" + "\"" + Integer.toString( getRequiredMimeTypeId() ) + "\""
 			+ "/>";
 		return( ret );

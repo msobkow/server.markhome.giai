@@ -1,17 +1,17 @@
-// Description: Java 11 edit object instance implementation for CFBam DelTopDep.
+// Description: Java 11 edit object instance implementation for YCFBam DelTopDep.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,30 +45,30 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamDelTopDepEditObj
-	extends CFBamDelDepEditObj
+public class YCFBamDelTopDepEditObj
+	extends YCFBamDelDepEditObj
 
-	implements ICFBamDelTopDepEditObj
+	implements IYCFBamDelTopDepEditObj
 {
-	protected ICFBamTableObj requiredContainerTable;
-	protected ICFBamDelTopDepObj optionalLookupPrev;
-	protected ICFBamDelTopDepObj optionalLookupNext;
+	protected IYCFBamTableObj requiredContainerTable;
+	protected IYCFBamDelTopDepObj optionalLookupPrev;
+	protected IYCFBamDelTopDepObj optionalLookupNext;
 
-	public CFBamDelTopDepEditObj( ICFBamDelTopDepObj argOrig ) {
+	public YCFBamDelTopDepEditObj( IYCFBamDelTopDepObj argOrig ) {
 		super( argOrig );
 		requiredContainerTable = null;
 		optionalLookupPrev = null;
@@ -76,20 +76,20 @@ public class CFBamDelTopDepEditObj
 	}
 
 	public String getClassCode() {
-		return( CFBamDelTopDepObj.CLASS_CODE );
+		return( YCFBamDelTopDepObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "DelTopDep" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFBamTableObj scope = getRequiredContainerTable();
+	public IYCFLibAnyObj getScope() {
+		IYCFBamTableObj scope = getRequiredContainerTable();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFBamTableObj scope = getRequiredContainerTable();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFBamTableObj scope = getRequiredContainerTable();
 		return( scope );
 	}
 
@@ -99,14 +99,14 @@ public class CFBamDelTopDepEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -117,10 +117,10 @@ public class CFBamDelTopDepEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -129,11 +129,11 @@ public class CFBamDelTopDepEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -157,16 +157,16 @@ public class CFBamDelTopDepEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFBamSchemaDefObj ) {
+			else if( container instanceof IYCFBamSchemaDefObj ) {
 				container = null;
 			}
 			else {
@@ -178,9 +178,9 @@ public class CFBamDelTopDepEditObj
 		return( qualName );
 	}
 
-	public ICFBamScopeObj realise() {
+	public IYCFBamScopeObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFBamDelTopDepObj retobj = getSchema().getDelTopDepTableObj().realiseDelTopDep( (ICFBamDelTopDepObj)this );
+		IYCFBamDelTopDepObj retobj = getSchema().getDelTopDepTableObj().realiseDelTopDep( (IYCFBamDelTopDepObj)this );
 		return( retobj );
 	}
 
@@ -188,61 +188,61 @@ public class CFBamDelTopDepEditObj
 		getOrigAsDelTopDep().forget();
 	}
 
-	public ICFBamDelTopDepObj moveUp() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamDelTopDepObj moveUp() {
+		throw new YCFLibUsageException( getClass(),
 			"moveUp",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamDelTopDepObj moveDown() {
-		throw new CFLibUsageException( getClass(),
+	public IYCFBamDelTopDepObj moveDown() {
+		throw new YCFLibUsageException( getClass(),
 			"moveDown",
 			"You cannot move an edited object in the chain" );
 	}
 
-	public ICFBamScopeObj create() {
+	public IYCFBamScopeObj create() {
 		copyBuffToOrig();
-		ICFBamDelTopDepObj retobj = ((ICFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelTopDepTableObj().createDelTopDep( getOrigAsDelTopDep() );
+		IYCFBamDelTopDepObj retobj = ((IYCFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelTopDepTableObj().createDelTopDep( getOrigAsDelTopDep() );
 		if( retobj == getOrigAsDelTopDep() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFBamScopeEditObj update() {
-		getSchema().getDelTopDepTableObj().updateDelTopDep( (ICFBamDelTopDepObj)this );
+	public YCFBamScopeEditObj update() {
+		getSchema().getDelTopDepTableObj().updateDelTopDep( (IYCFBamDelTopDepObj)this );
 		return( null );
 	}
 
-	public CFBamScopeEditObj deleteInstance() {
+	public YCFBamScopeEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getDelTopDepTableObj().deleteDelTopDep( getOrigAsDelTopDep() );
 		return( null );
 	}
 
-	public ICFBamDelTopDepTableObj getDelTopDepTable() {
+	public IYCFBamDelTopDepTableObj getDelTopDepTable() {
 		return( orig.getSchema().getDelTopDepTableObj() );
 	}
 
-	public ICFBamDelTopDepEditObj getEditAsDelTopDep() {
-		return( (ICFBamDelTopDepEditObj)this );
+	public IYCFBamDelTopDepEditObj getEditAsDelTopDep() {
+		return( (IYCFBamDelTopDepEditObj)this );
 	}
 
-	public ICFBamDelTopDepObj getOrigAsDelTopDep() {
-		return( (ICFBamDelTopDepObj)orig );
+	public IYCFBamDelTopDepObj getOrigAsDelTopDep() {
+		return( (IYCFBamDelTopDepObj)orig );
 	}
 
-	public CFBamScopeBuff getBuff() {
+	public YCFBamScopeBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFBamSchema)getOrigAsDelTopDep().getSchema().getBackingStore()).getFactoryDelTopDep().newBuff();
+			buff = ((IYCFBamSchema)getOrigAsDelTopDep().getSchema().getBackingStore()).getFactoryDelTopDep().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFBamScopeBuff value ) {
+	public void setBuff( YCFBamScopeBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 			requiredContainerTable = null;
@@ -251,8 +251,8 @@ public class CFBamDelTopDepEditObj
 		}
 	}
 
-	public CFBamDelTopDepBuff getDelTopDepBuff() {
-		return( (CFBamDelTopDepBuff)getBuff() );
+	public YCFBamDelTopDepBuff getDelTopDepBuff() {
+		return( (YCFBamDelTopDepBuff)getBuff() );
 	}
 
 	public String getRequiredName() {
@@ -289,15 +289,15 @@ public class CFBamDelTopDepEditObj
 		return( getDelTopDepBuff().getOptionalNextId() );
 	}
 
-	public ICFBamTableObj getRequiredContainerTable() {
+	public IYCFBamTableObj getRequiredContainerTable() {
 		return( getRequiredContainerTable( false ) );
 	}
 
-	public ICFBamTableObj getRequiredContainerTable( boolean forceRead ) {
+	public IYCFBamTableObj getRequiredContainerTable( boolean forceRead ) {
 		if( forceRead || ( requiredContainerTable == null ) ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getTableTableObj().readTableByIdIdx( getDelTopDepBuff().getRequiredTableTenantId(),
+				IYCFBamTableObj obj = ((IYCFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getTableTableObj().readTableByIdIdx( getDelTopDepBuff().getRequiredTableTenantId(),
 					getDelTopDepBuff().getRequiredTableId() );
 				requiredContainerTable = obj;
 				if( obj != null ) {
@@ -310,7 +310,7 @@ public class CFBamDelTopDepEditObj
 		return( requiredContainerTable );
 	}
 
-	public void setRequiredContainerTable( ICFBamTableObj value ) {
+	public void setRequiredContainerTable( IYCFBamTableObj value ) {
 			if( buff == null ) {
 				getDelTopDepBuff();
 			}
@@ -321,27 +321,27 @@ public class CFBamDelTopDepEditObj
 			requiredContainerTable = value;
 	}
 
-	public List<ICFBamDelSubDep1Obj> getOptionalComponentsDelDep() {
-		List<ICFBamDelSubDep1Obj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelSubDep1TableObj().readDelSubDep1ByDelTopDepIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamDelSubDep1Obj> getOptionalComponentsDelDep() {
+		List<IYCFBamDelSubDep1Obj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelSubDep1TableObj().readDelSubDep1ByDelTopDepIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFBamDelSubDep1Obj> getOptionalComponentsDelDep( boolean forceRead ) {
-		List<ICFBamDelSubDep1Obj> retval;
-		retval = ((ICFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelSubDep1TableObj().readDelSubDep1ByDelTopDepIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFBamDelSubDep1Obj> getOptionalComponentsDelDep( boolean forceRead ) {
+		List<IYCFBamDelSubDep1Obj> retval;
+		retval = ((IYCFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelSubDep1TableObj().readDelSubDep1ByDelTopDepIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );
 	}
 
-	public ICFBamDelTopDepObj getOptionalLookupPrev() {
+	public IYCFBamDelTopDepObj getOptionalLookupPrev() {
 		return( getOptionalLookupPrev( false ) );
 	}
 
-	public ICFBamDelTopDepObj getOptionalLookupPrev( boolean forceRead ) {
+	public IYCFBamDelTopDepObj getOptionalLookupPrev( boolean forceRead ) {
 		if( forceRead || ( optionalLookupPrev == null ) ) {
 			boolean anyMissing = false;
 			if( getDelTopDepBuff().getOptionalPrevTenantId() == null ) {
@@ -351,7 +351,7 @@ public class CFBamDelTopDepEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamDelTopDepObj obj = ((ICFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelTopDepTableObj().readDelTopDepByIdIdx( getDelTopDepBuff().getOptionalPrevTenantId(),
+				IYCFBamDelTopDepObj obj = ((IYCFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelTopDepTableObj().readDelTopDepByIdIdx( getDelTopDepBuff().getOptionalPrevTenantId(),
 					getDelTopDepBuff().getOptionalPrevId() );
 				optionalLookupPrev = obj;
 			}
@@ -359,7 +359,7 @@ public class CFBamDelTopDepEditObj
 		return( optionalLookupPrev );
 	}
 
-	public void setOptionalLookupPrev( ICFBamDelTopDepObj value ) {
+	public void setOptionalLookupPrev( IYCFBamDelTopDepObj value ) {
 			if( buff == null ) {
 				getDelTopDepBuff();
 			}
@@ -374,11 +374,11 @@ public class CFBamDelTopDepEditObj
 			optionalLookupPrev = value;
 	}
 
-	public ICFBamDelTopDepObj getOptionalLookupNext() {
+	public IYCFBamDelTopDepObj getOptionalLookupNext() {
 		return( getOptionalLookupNext( false ) );
 	}
 
-	public ICFBamDelTopDepObj getOptionalLookupNext( boolean forceRead ) {
+	public IYCFBamDelTopDepObj getOptionalLookupNext( boolean forceRead ) {
 		if( forceRead || ( optionalLookupNext == null ) ) {
 			boolean anyMissing = false;
 			if( getDelTopDepBuff().getOptionalNextTenantId() == null ) {
@@ -388,7 +388,7 @@ public class CFBamDelTopDepEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFBamDelTopDepObj obj = ((ICFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelTopDepTableObj().readDelTopDepByIdIdx( getDelTopDepBuff().getOptionalNextTenantId(),
+				IYCFBamDelTopDepObj obj = ((IYCFBamSchemaObj)getOrigAsDelTopDep().getSchema()).getDelTopDepTableObj().readDelTopDepByIdIdx( getDelTopDepBuff().getOptionalNextTenantId(),
 					getDelTopDepBuff().getOptionalNextId() );
 				optionalLookupNext = obj;
 			}
@@ -396,7 +396,7 @@ public class CFBamDelTopDepEditObj
 		return( optionalLookupNext );
 	}
 
-	public void setOptionalLookupNext( ICFBamDelTopDepObj value ) {
+	public void setOptionalLookupNext( IYCFBamDelTopDepObj value ) {
 			if( buff == null ) {
 				getDelTopDepBuff();
 			}
@@ -412,14 +412,14 @@ public class CFBamDelTopDepEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFBamDelTopDepBuff origBuff = getOrigAsDelTopDep().getDelTopDepBuff();
-		CFBamDelTopDepBuff myBuff = getDelTopDepBuff();
+		YCFBamDelTopDepBuff origBuff = getOrigAsDelTopDep().getDelTopDepBuff();
+		YCFBamDelTopDepBuff myBuff = getDelTopDepBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFBamDelTopDepBuff origBuff = getOrigAsDelTopDep().getDelTopDepBuff();
-		CFBamDelTopDepBuff myBuff = getDelTopDepBuff();
+		YCFBamDelTopDepBuff origBuff = getOrigAsDelTopDep().getDelTopDepBuff();
+		YCFBamDelTopDepBuff myBuff = getDelTopDepBuff();
 		myBuff.set( origBuff );
 	}
 }

@@ -2,17 +2,17 @@
 // Description: Java 11 XML SAX Element Handler for Table
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -54,23 +54,23 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSaxLoaderTableParse XML SAX Element Handler implementation
+ *	YCFBamSaxLoaderTableParse XML SAX Element Handler implementation
  *	for Table.
  */
-public class CFBamSaxLoaderTable
-	extends CFLibXmlCoreElementHandler
+public class YCFBamSaxLoaderTable
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamSaxLoaderTable( CFBamSaxLoader saxLoader ) {
+	public YCFBamSaxLoaderTable( YCFBamSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -82,13 +82,13 @@ public class CFBamSaxLoaderTable
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFBamTableObj origBuff = null;
-		ICFBamTableEditObj editBuff = null;
+		IYCFBamTableObj origBuff = null;
+		IYCFBamTableEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// Scope Attributes
 		// Scope References
-		ICFBamTenantObj refTenant = null;
+		IYCFBamTenantObj refTenant = null;
 		// Table Attributes
 		String attrName = null;
 		String attrDbName = null;
@@ -113,12 +113,12 @@ public class CFBamSaxLoaderTable
 		String attrQualTable = null;
 		String attrPrimaryIndex = null;
 		// Table References
-		ICFBamSchemaDefObj refSchemaDef = null;
-		ICFBamSchemaDefObj refDefSchema = null;
-		ICFBamIndexObj refLookupIndex = null;
-		ICFBamIndexObj refAltIndex = null;
-		ICFBamTableObj refQualTable = null;
-		ICFBamIndexObj refPrimaryIndex = null;
+		IYCFBamSchemaDefObj refSchemaDef = null;
+		IYCFBamSchemaDefObj refDefSchema = null;
+		IYCFBamIndexObj refLookupIndex = null;
+		IYCFBamIndexObj refAltIndex = null;
+		IYCFBamTableObj refQualTable = null;
+		IYCFBamIndexObj refPrimaryIndex = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -127,25 +127,25 @@ public class CFBamSaxLoaderTable
 		try {
 			assert qName.equals( "Table" );
 
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFBamTableObj)schemaObj.getTableTableObj().newInstance();
-			editBuff = (ICFBamTableEditObj)origBuff.beginEdit();
+			origBuff = (IYCFBamTableObj)schemaObj.getTableTableObj().newInstance();
+			editBuff = (IYCFBamTableEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -153,7 +153,7 @@ public class CFBamSaxLoaderTable
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -162,7 +162,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -171,7 +171,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "DbName" ) ) {
 					if( attrDbName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -180,7 +180,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "ShortName" ) ) {
 					if( attrShortName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -189,7 +189,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "Label" ) ) {
 					if( attrLabel != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -198,7 +198,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "ShortDescription" ) ) {
 					if( attrShortDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -207,7 +207,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -216,7 +216,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "PageData" ) ) {
 					if( attrPageData != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -225,7 +225,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "TableClassCode" ) ) {
 					if( attrTableClassCode != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -234,7 +234,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "IsInstantiable" ) ) {
 					if( attrIsInstantiable != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -243,7 +243,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "HasHistory" ) ) {
 					if( attrHasHistory != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -252,7 +252,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "HasAuditColumns" ) ) {
 					if( attrHasAuditColumns != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -261,7 +261,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "IsMutable" ) ) {
 					if( attrIsMutable != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -270,7 +270,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "IsServerOnly" ) ) {
 					if( attrIsServerOnly != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -279,7 +279,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "LoaderBehaviour" ) ) {
 					if( attrLoaderBehaviour != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -288,7 +288,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "SecScope" ) ) {
 					if( attrSecScope != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -297,7 +297,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "CodeVis" ) ) {
 					if( attrCodeVis != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -306,7 +306,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "CppPgSqlTableInclude" ) ) {
 					if( attrCppPgSqlTableInclude != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -315,7 +315,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "DefSchema" ) ) {
 					if( attrDefSchema != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -324,7 +324,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "LookupIndex" ) ) {
 					if( attrLookupIndex != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -333,7 +333,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "AltIndex" ) ) {
 					if( attrAltIndex != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -342,7 +342,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "QualTable" ) ) {
 					if( attrQualTable != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -351,7 +351,7 @@ public class CFBamSaxLoaderTable
 				}
 				else if( attrLocalName.equals( "PrimaryIndex" ) ) {
 					if( attrPrimaryIndex != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -362,7 +362,7 @@ public class CFBamSaxLoaderTable
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -371,74 +371,74 @@ public class CFBamSaxLoaderTable
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 			if( ( attrPageData == null ) || ( attrPageData.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"PageData" );
 			}
 			if( attrTableClassCode == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"TableClassCode" );
 			}
 			if( ( attrIsInstantiable == null ) || ( attrIsInstantiable.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"IsInstantiable" );
 			}
 			if( ( attrHasHistory == null ) || ( attrHasHistory.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"HasHistory" );
 			}
 			if( ( attrHasAuditColumns == null ) || ( attrHasAuditColumns.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"HasAuditColumns" );
 			}
 			if( ( attrIsMutable == null ) || ( attrIsMutable.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"IsMutable" );
 			}
 			if( ( attrIsServerOnly == null ) || ( attrIsServerOnly.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"IsServerOnly" );
 			}
 			if( ( attrLoaderBehaviour == null ) || ( attrLoaderBehaviour.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"LoaderBehaviour" );
 			}
 			if( ( attrSecScope == null ) || ( attrSecScope.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"SecScope" );
 			}
 			if( ( attrCodeVis == null ) || ( attrCodeVis.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"CodeVis" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "DbName", attrDbName );
@@ -499,7 +499,7 @@ public class CFBamSaxLoaderTable
 				natPageData = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected PageData value, must be one of true, false, yes, no, 1, or 0, not \"" + attrPageData + "\"" );
 			}
@@ -516,7 +516,7 @@ public class CFBamSaxLoaderTable
 				natIsInstantiable = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected IsInstantiable value, must be one of true, false, yes, no, 1, or 0, not \"" + attrIsInstantiable + "\"" );
 			}
@@ -530,7 +530,7 @@ public class CFBamSaxLoaderTable
 				natHasHistory = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected HasHistory value, must be one of true, false, yes, no, 1, or 0, not \"" + attrHasHistory + "\"" );
 			}
@@ -544,7 +544,7 @@ public class CFBamSaxLoaderTable
 				natHasAuditColumns = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected HasAuditColumns value, must be one of true, false, yes, no, 1, or 0, not \"" + attrHasAuditColumns + "\"" );
 			}
@@ -558,7 +558,7 @@ public class CFBamSaxLoaderTable
 				natIsMutable = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected IsMutable value, must be one of true, false, yes, no, 1, or 0, not \"" + attrIsMutable + "\"" );
 			}
@@ -572,19 +572,19 @@ public class CFBamSaxLoaderTable
 				natIsServerOnly = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected IsServerOnly value, must be one of true, false, yes, no, 1, or 0, not \"" + attrIsServerOnly + "\"" );
 			}
 			editBuff.setRequiredIsServerOnly( natIsServerOnly );
 
-			ICFBamSchema.LoaderBehaviourEnum natLoaderBehaviour = CFBamSchema.parseLoaderBehaviourEnum( attrLoaderBehaviour );
+			IYCFBamSchema.LoaderBehaviourEnum natLoaderBehaviour = YCFBamSchema.parseLoaderBehaviourEnum( attrLoaderBehaviour );
 			editBuff.setRequiredLoaderBehaviour( natLoaderBehaviour );
 
-			ICFBamSchema.SecScopeEnum natSecScope = CFBamSchema.parseSecScopeEnum( attrSecScope );
+			IYCFBamSchema.SecScopeEnum natSecScope = YCFBamSchema.parseSecScopeEnum( attrSecScope );
 			editBuff.setRequiredSecScope( natSecScope );
 
-			ICFBamSchema.CodeVisibilityEnum natCodeVis = CFBamSchema.parseCodeVisibilityEnum( attrCodeVis );
+			IYCFBamSchema.CodeVisibilityEnum natCodeVis = YCFBamSchema.parseCodeVisibilityEnum( attrCodeVis );
 			editBuff.setRequiredCodeVis( natCodeVis );
 
 			String natCppPgSqlTableInclude = attrCppPgSqlTableInclude;
@@ -592,7 +592,7 @@ public class CFBamSaxLoaderTable
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -604,33 +604,33 @@ public class CFBamSaxLoaderTable
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamSchemaDefObj ) {
-				refSchemaDef = (ICFBamSchemaDefObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamSchemaDefObj ) {
+				refSchemaDef = (IYCFBamSchemaDefObj) scopeObj;
 				editBuff.setRequiredContainerSchemaDef( refSchemaDef );
-				refTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamSchemaDefObj" );
+					"IYCFBamSchemaDefObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
@@ -639,10 +639,10 @@ public class CFBamSaxLoaderTable
 
 			// Lookup refDefSchema by qualified name
 			if( ( attrDefSchema != null ) && ( attrDefSchema.length() > 0 ) ) {
-				refDefSchema = (ICFBamSchemaDefObj)(editBuff.getNamedObject( schemaObj.getSchemaDefTableObj().getObjQualifyingClass(),
+				refDefSchema = (IYCFBamSchemaDefObj)(editBuff.getNamedObject( schemaObj.getSchemaDefTableObj().getObjQualifyingClass(),
 					attrDefSchema ) );
 				if( refDefSchema == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve DefSchema reference qualified name \"" + attrDefSchema + "\" to table SchemaDef" );
@@ -655,10 +655,10 @@ public class CFBamSaxLoaderTable
 
 			// Lookup refQualTable by qualified name
 			if( ( attrQualTable != null ) && ( attrQualTable.length() > 0 ) ) {
-				refQualTable = (ICFBamTableObj)(editBuff.getNamedObject( schemaObj.getTableTableObj().getObjQualifyingClass(),
+				refQualTable = (IYCFBamTableObj)(editBuff.getNamedObject( schemaObj.getTableTableObj().getObjQualifyingClass(),
 					attrQualTable ) );
 				if( refQualTable == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve QualTable reference qualified name \"" + attrQualTable + "\" to table Table" );
@@ -669,9 +669,9 @@ public class CFBamSaxLoaderTable
 			}
 			editBuff.setOptionalLookupQualTable( refQualTable );
 
-			CFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTableLoaderBehaviour();
-			ICFBamTableEditObj editTable = null;
-			ICFBamTableObj origTable = (ICFBamTableObj)schemaObj.getTableTableObj().readTableByUNameIdx( refSchemaDef.getRequiredTenantId(),
+			YCFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTableLoaderBehaviour();
+			IYCFBamTableEditObj editTable = null;
+			IYCFBamTableObj origTable = (IYCFBamTableObj)schemaObj.getTableTableObj().readTableByUNameIdx( refSchemaDef.getRequiredTenantId(),
 			refSchemaDef.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origTable == null ) {
@@ -682,7 +682,7 @@ public class CFBamSaxLoaderTable
 					case Insert:
 						break;
 					case Update:
-						editTable = (ICFBamTableEditObj)origTable.beginEdit();
+						editTable = (IYCFBamTableEditObj)origTable.beginEdit();
 						editTable.setRequiredName( editBuff.getRequiredName() );
 						editTable.setOptionalDbName( editBuff.getOptionalDbName() );
 						editTable.setOptionalShortName( editBuff.getOptionalShortName() );
@@ -886,7 +886,7 @@ public class CFBamSaxLoaderTable
 						editTable.setOptionalLookupPrimaryIndex( editBuff.getOptionalLookupPrimaryIndex() );
 						break;
 					case Replace:
-						editTable = (ICFBamTableEditObj)origTable.beginEdit();
+						editTable = (IYCFBamTableEditObj)origTable.beginEdit();
 						editTable.deleteInstance();
 						editTable = null;
 						origTable = null;
@@ -900,7 +900,7 @@ public class CFBamSaxLoaderTable
 					editTable.update();
 				}
 				else {
-					origTable = (ICFBamTableObj)editTable.create();
+					origTable = (IYCFBamTableObj)editTable.create();
 				}
 				editTable = null;
 			}
@@ -923,34 +923,34 @@ public class CFBamSaxLoaderTable
 	throws SAXException
 	{
 		final String S_ProcName = "endElement";
-		ICFBamTableObj origBuff = null;
-		ICFBamTableEditObj editBuff = null;
+		IYCFBamTableObj origBuff = null;
+		IYCFBamTableEditObj editBuff = null;
 		String attrLookupIndex = null;
 		String attrAltIndex = null;
 		String attrPrimaryIndex = null;
-		ICFBamIndexObj refLookupIndex = null;
-		ICFBamIndexObj refAltIndex = null;
-		ICFBamIndexObj refPrimaryIndex = null;
+		IYCFBamIndexObj refLookupIndex = null;
+		IYCFBamIndexObj refAltIndex = null;
+		IYCFBamIndexObj refPrimaryIndex = null;
 		try {
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			if( curContext == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"curContext" );
@@ -958,20 +958,20 @@ public class CFBamSaxLoaderTable
 
 			Object obj = curContext.getNamedValue( "Object" );
 			if( obj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"obj" );
 			}
-			else if( obj instanceof ICFBamTableObj ) {
-				origBuff = (ICFBamTableObj)obj;
+			else if( obj instanceof IYCFBamTableObj ) {
+				origBuff = (IYCFBamTableObj)obj;
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"obj",
 					obj,
-					"ICFBamTableObj" );
+					"IYCFBamTableObj" );
 			}
 
 			attrLookupIndex = (String)curContext.getNamedValue( "LookupIndex" );
@@ -980,10 +980,10 @@ public class CFBamSaxLoaderTable
 
 			// Lookup refLookupIndex by qualified name
 			if( ( attrLookupIndex != null ) && ( attrLookupIndex.length() > 0 ) ) {
-				refLookupIndex = (ICFBamIndexObj)( origBuff.getNamedObject( schemaObj.getIndexTableObj().getObjQualifyingClass(),
+				refLookupIndex = (IYCFBamIndexObj)( origBuff.getNamedObject( schemaObj.getIndexTableObj().getObjQualifyingClass(),
 					attrLookupIndex ) );
 				if( refLookupIndex == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve LookupIndex reference qualified name \"" + attrLookupIndex + "\" to table Index" );
@@ -994,9 +994,9 @@ public class CFBamSaxLoaderTable
 			}
 			if( origBuff.getOptionalLookupLookupIndex() != refLookupIndex ) {
 				if( editBuff == null ) {
-					editBuff = (ICFBamTableEditObj)( origBuff.getEdit() );
+					editBuff = (IYCFBamTableEditObj)( origBuff.getEdit() );
 					if( editBuff == null ) {
-						editBuff = (ICFBamTableEditObj)( origBuff.beginEdit() );
+						editBuff = (IYCFBamTableEditObj)( origBuff.beginEdit() );
 					}
 				}
 				editBuff.setOptionalLookupLookupIndex( refLookupIndex );
@@ -1004,10 +1004,10 @@ public class CFBamSaxLoaderTable
 
 			// Lookup refAltIndex by qualified name
 			if( ( attrAltIndex != null ) && ( attrAltIndex.length() > 0 ) ) {
-				refAltIndex = (ICFBamIndexObj)( origBuff.getNamedObject( schemaObj.getIndexTableObj().getObjQualifyingClass(),
+				refAltIndex = (IYCFBamIndexObj)( origBuff.getNamedObject( schemaObj.getIndexTableObj().getObjQualifyingClass(),
 					attrAltIndex ) );
 				if( refAltIndex == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve AltIndex reference qualified name \"" + attrAltIndex + "\" to table Index" );
@@ -1018,9 +1018,9 @@ public class CFBamSaxLoaderTable
 			}
 			if( origBuff.getOptionalLookupAltIndex() != refAltIndex ) {
 				if( editBuff == null ) {
-					editBuff = (ICFBamTableEditObj)( origBuff.getEdit() );
+					editBuff = (IYCFBamTableEditObj)( origBuff.getEdit() );
 					if( editBuff == null ) {
-						editBuff = (ICFBamTableEditObj)( origBuff.beginEdit() );
+						editBuff = (IYCFBamTableEditObj)( origBuff.beginEdit() );
 					}
 				}
 				editBuff.setOptionalLookupAltIndex( refAltIndex );
@@ -1028,10 +1028,10 @@ public class CFBamSaxLoaderTable
 
 			// Lookup refPrimaryIndex by qualified name
 			if( ( attrPrimaryIndex != null ) && ( attrPrimaryIndex.length() > 0 ) ) {
-				refPrimaryIndex = (ICFBamIndexObj)( origBuff.getNamedObject( schemaObj.getIndexTableObj().getObjQualifyingClass(),
+				refPrimaryIndex = (IYCFBamIndexObj)( origBuff.getNamedObject( schemaObj.getIndexTableObj().getObjQualifyingClass(),
 					attrPrimaryIndex ) );
 				if( refPrimaryIndex == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve PrimaryIndex reference qualified name \"" + attrPrimaryIndex + "\" to table Index" );
@@ -1042,9 +1042,9 @@ public class CFBamSaxLoaderTable
 			}
 			if( origBuff.getOptionalLookupPrimaryIndex() != refPrimaryIndex ) {
 				if( editBuff == null ) {
-					editBuff = (ICFBamTableEditObj)( origBuff.getEdit() );
+					editBuff = (IYCFBamTableEditObj)( origBuff.getEdit() );
 					if( editBuff == null ) {
-						editBuff = (ICFBamTableEditObj)( origBuff.beginEdit() );
+						editBuff = (IYCFBamTableEditObj)( origBuff.beginEdit() );
 					}
 				}
 				editBuff.setOptionalLookupPrimaryIndex( refPrimaryIndex );

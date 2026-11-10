@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,24 +21,24 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.io.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGenContext
-extends CFGenKbGenItemEditObj
+public class MssYCFGenContext
+extends YCFGenKbGenItemEditObj
 {
-	protected MssCFEngine				genEngine;
+	protected MssYCFEngine				genEngine;
 
 	/**
 	 *	Generation contexts form a simple stack.
 	 */
-	protected MssCFGenContext			prevContext = null;
+	protected MssYCFGenContext			prevContext = null;
 
 	/**
 	 *	The generation context needs to track information about the file being
@@ -53,8 +53,8 @@ extends CFGenKbGenItemEditObj
 	protected String					outputName = null;
 	protected String					outputFullName = null;
 	protected PrintStream				output = null;
-	protected MssCFGenFileObj			genFile = null;
-	protected MssCFGenContext			genFileContext = null;
+	protected MssYCFGenFileObj			genFile = null;
+	protected MssYCFGenContext			genFileContext = null;
 	protected String					genGenerateOnce = null;
 	protected String					genModuleName = null;
 	protected String					genBasePackageName = null;
@@ -67,15 +67,15 @@ extends CFGenKbGenItemEditObj
 	 *	The generation context also tracks the current generation definition,
 	 *	scope definition, and classes of them.
 	 */
-	protected ICFLibAnyObj			genDef = null;
-	protected ICFLibAnyObj			scopeDef = null;
+	protected IYCFLibAnyObj			genDef = null;
+	protected IYCFLibAnyObj			scopeDef = null;
 
 	/**
 	 *	In order to support positional/indexed parameter binding, counters are
 	 *	provided that can be created and used within a context.  They're automatically
 	 *	disposed when the context stack pops.
 	 */
-	protected Map<String,MssCFCounter> counterMap;
+	protected Map<String,MssYCFCounter> counterMap;
 
 	public String getGeneratingBuild() {
 		return( generatingBuild );
@@ -83,7 +83,7 @@ extends CFGenKbGenItemEditObj
 
 	public void setGeneratingBuild( String buildString ) {
 		if( ( buildString == null ) || ( buildString.length() <= 0 ) ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setGeneratingBuild",
 				1,
 				"buildString" );
@@ -97,48 +97,48 @@ extends CFGenKbGenItemEditObj
 		return( sourceBundle );
 	}
 
-	public ICFLibAnyObj getGenDef() {
+	public IYCFLibAnyObj getGenDef() {
 		return (genDef);
 	}
 
-	public void setGenDef( ICFLibAnyObj value ) {
+	public void setGenDef( IYCFLibAnyObj value ) {
 		final String S_ProcName = "setGenDef";
 		genDef = value;
 		if( genDef != null ) {
 			String genDefClassName = genDef.getGenDefName();
 			if( genDefClassName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					"genDef.getGenDefName() returned null" );
 			}
-			ICFGenKbDefClassObj optionalLookupGenDef = getSchema().getDefClassTableObj().readDefClassByNameIdx( genDefClassName );
+			IYCFGenKbDefClassObj optionalLookupGenDef = getSchema().getDefClassTableObj().readDefClassByNameIdx( genDefClassName );
 			if( optionalLookupGenDef == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					"Could not resolve optionalLookupGenDef for \"" + genDefClassName + "\"" );
 			}
 			setRequiredLookupGenDef( optionalLookupGenDef );
 			if( optionalLookupGenDef != getRequiredLookupGenDef() ) {
-				throw new CFLibRuntimeException( getClass(),
+				throw new YCFLibRuntimeException( getClass(),
 					S_ProcName,
 					"getRequiredLookupGenDef() is out of sync with what we just set!" );
 			}
 		}
 	}
 
-	public ICFLibAnyObj getScopeDef() {
+	public IYCFLibAnyObj getScopeDef() {
 		return (scopeDef);
 	}
 
-	public MssCFEngine getGenEngine() {
+	public MssYCFEngine getGenEngine() {
 		return( genEngine );
 	}
 
-	public void setGenEngine( MssCFEngine value ) {
+	public void setGenEngine( MssYCFEngine value ) {
 		genEngine = value;
 	}
 
-	public MssCFGenContext getGenFileContext() {
+	public MssYCFGenContext getGenFileContext() {
 		return( genFileContext );
 	}
 
@@ -196,7 +196,7 @@ extends CFGenKbGenItemEditObj
 		return( retval );
 	}
 
-	protected ICFGenKbGelInstructionObj genBasePackageBin = null;
+	protected IYCFGenKbGelInstructionObj genBasePackageBin = null;
 
 	public String getGenBasePackageName() {
 		if (genBasePackageName == null) {
@@ -231,7 +231,7 @@ extends CFGenKbGenItemEditObj
 		return( genGenerateOnce );
 	}
 
-	protected ICFGenKbGelInstructionObj genModuleNameBin = null;
+	protected IYCFGenKbGelInstructionObj genModuleNameBin = null;
 
 	public String getGenModuleName() {
 		if (genModuleName == null) {
@@ -259,7 +259,7 @@ extends CFGenKbGenItemEditObj
 		return (genModuleName);
 	}
 
-	public MssCFGenFileObj getGenFile() {
+	public MssYCFGenFileObj getGenFile() {
 		return (genFile);
 	}
 
@@ -272,7 +272,7 @@ extends CFGenKbGenItemEditObj
 		return (genSubPackageName);
 	}
 
-	public MssCFGenContext getPrevContext() {
+	public MssYCFGenContext getPrevContext() {
 		return (prevContext);
 	}
 
@@ -283,21 +283,21 @@ extends CFGenKbGenItemEditObj
 	/**
 	 *	Construct an expansion context for the stack that pushes a sub class and definition.
 	 */
-	public MssCFGenContext(
+	public MssYCFGenContext(
 		String				buildString,
-		MssCFGenContext		genContext,
+		MssYCFGenContext		genContext,
 		String				subClassGenDefName,
-		ICFLibAnyObj		subObject )
+		IYCFLibAnyObj		subObject )
 	{
-		super( new CFGenKbGenItemObj( genContext.getGenEngine().getCFGenKbSchema() ) );
-		final String S_ProcName = "MssCFGenContext.MssCFGenContext(3 args): ";
+		super( new YCFGenKbGenItemObj( genContext.getGenEngine().getYCFGenKbSchema() ) );
+		final String S_ProcName = "MssYCFGenContext.MssYCFGenContext(3 args): ";
 
 		genEngine = genContext.getGenEngine();
 		setGeneratingBuild( buildString );
 		setRequiredLookupToolSet( genContext.getRequiredLookupToolSet() );
 		setRequiredName( genContext.getRequiredName() );
 
-		setRequiredLookupGenDef( genEngine.getCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(subClassGenDefName) );
+		setRequiredLookupGenDef( genEngine.getYCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(subClassGenDefName) );
 		if (getRequiredLookupGenDef() == null ) {
 			throw new RuntimeException(S_ProcName + "Could not resolve RequiredLookupGenDef name " + subClassGenDefName);
 		}
@@ -324,7 +324,7 @@ extends CFGenKbGenItemEditObj
 		sourceBundle = genContext.sourceBundle;
 		sourcePackage = genContext.sourcePackage;
 
-		counterMap = new HashMap<String,MssCFCounter>();
+		counterMap = new HashMap<String,MssYCFCounter>();
 
 		scopeDef = genContext.getGenDef();
 		genDef = subObject;
@@ -335,31 +335,31 @@ extends CFGenKbGenItemEditObj
 	/**
 	 *	Construct an instance.  Only invoked to create binding entries.
 	 */
-	public MssCFGenContext(
+	public MssYCFGenContext(
 		String				generatingBuild,
-		MssCFEngine			engine,
+		MssYCFEngine			engine,
 		String				argRootGenDir,
 		String				toolset,
 		String				scopeDefClassName,
 		String				genDefClassName,
 		String				itemName )
 	{
-		super(new CFGenKbGenItemObj(engine.getCFGenKbSchema()));
+		super(new YCFGenKbGenItemObj(engine.getYCFGenKbSchema()));
 
-		final String S_ProcName = "MssCFGenContext.MssCFGenContext(5 args) ";
+		final String S_ProcName = "MssYCFGenContext.MssYCFGenContext(5 args) ";
 
 		setGeneratingBuild( generatingBuild );
 
 		setGenEngine( engine );
 
-		setRequiredLookupToolSet( genEngine.getCFGenKbSchema().getToolSetTableObj().readToolSetByNameIdx(toolset) );
+		setRequiredLookupToolSet( genEngine.getYCFGenKbSchema().getToolSetTableObj().readToolSetByNameIdx(toolset) );
 		if( scopeDefClassName != null && scopeDefClassName.length() > 0 ) {
-			setOptionalLookupScopeDef( genEngine.getCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName) );
+			setOptionalLookupScopeDef( genEngine.getYCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName) );
 		}
 		else {
 			setOptionalLookupScopeDef( null );
 		}
-		setRequiredLookupGenDef( genEngine.getCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(genDefClassName) );
+		setRequiredLookupGenDef( genEngine.getYCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(genDefClassName) );
 		if (getRequiredLookupGenDef() == null) {
 			throw new RuntimeException(S_ProcName + "RequiredLookupGenDef could not be resolved for name " + genDefClassName);
 		}
@@ -385,7 +385,7 @@ extends CFGenKbGenItemEditObj
 		genSubPackageName = null;
 		genDefClassName = null;
 
-		counterMap = new HashMap<String,MssCFCounter>();
+		counterMap = new HashMap<String,MssYCFCounter>();
 
 		sourceBundle = null;
 		sourcePackage = null;
@@ -399,33 +399,33 @@ extends CFGenKbGenItemEditObj
 	/**
 	 *	Construct an expansion context for the stack.
 	 */
-	public MssCFGenContext(
+	public MssYCFGenContext(
 		String				generatingBuild,
-		MssCFEngine			engine,
+		MssYCFEngine			engine,
 		String				argRootGenDir,
 		String				toolset,
 		String				scopeDefClassName,
 		String				genDefClassName,
 		String				itemName,
-		ICFLibAnyObj		argGenDef,
-		ICFLibAnyObj		argScopeDef )
+		IYCFLibAnyObj		argGenDef,
+		IYCFLibAnyObj		argScopeDef )
 	{
-		super(new CFGenKbGenItemObj(engine.getCFGenKbSchema()));
+		super(new YCFGenKbGenItemObj(engine.getYCFGenKbSchema()));
 
-		final String S_ProcName = "MssCFGenContext.MssCFGenContext(7 args) ";
+		final String S_ProcName = "MssYCFGenContext.MssYCFGenContext(7 args) ";
 
 		setGeneratingBuild( generatingBuild );
 
 		setGenEngine( engine );
 
-		setRequiredLookupToolSet( genEngine.getCFGenKbSchema().getToolSetTableObj().readToolSetByNameIdx(toolset) );
+		setRequiredLookupToolSet( genEngine.getYCFGenKbSchema().getToolSetTableObj().readToolSetByNameIdx(toolset) );
 		if( scopeDefClassName != null && scopeDefClassName.length() > 0 ) {
-			setOptionalLookupScopeDef( genEngine.getCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName) );
+			setOptionalLookupScopeDef( genEngine.getYCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName) );
 		}
 		else {
 			setOptionalLookupScopeDef( null );
 		}
-		setRequiredLookupGenDef( genEngine.getCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(genDefClassName) );
+		setRequiredLookupGenDef( genEngine.getYCFGenKbSchema().getDefClassTableObj().readDefClassByNameIdx(genDefClassName) );
 		if (getRequiredLookupGenDef() == null) {
 			throw new RuntimeException(S_ProcName + "RequiredLookupGenDef could not be resolved for name " + genDefClassName);
 		}
@@ -450,7 +450,7 @@ extends CFGenKbGenItemEditObj
 		genSubPackageName = null;
 		genDefClassName = null;
 
-		counterMap = new HashMap<String,MssCFCounter>();
+		counterMap = new HashMap<String,MssYCFCounter>();
 
 		sourceBundle = null;
 		sourcePackage = null;
@@ -464,10 +464,10 @@ extends CFGenKbGenItemEditObj
 	/**
 	 *	Build a reference context
 	 */
-	public MssCFGenContext buildRefContext( String generatingBuild, ICFLibAnyObj genDef ) {
-		MssCFGenContext		priorContext = null;
-		ICFLibAnyObj		scopeDef = null;
-		MssCFGenContext		ret = null;
+	public MssYCFGenContext buildRefContext( String generatingBuild, IYCFLibAnyObj genDef ) {
+		MssYCFGenContext		priorContext = null;
+		IYCFLibAnyObj		scopeDef = null;
+		MssYCFGenContext		ret = null;
 
 		if( ( generatingBuild == null ) || ( generatingBuild.length() <= 0 ) ) {
 			generatingBuild = getGeneratingBuild();
@@ -528,7 +528,7 @@ extends CFGenKbGenItemEditObj
 		rootGenDir = value;
 	}
 
-	public void setPrevContext( MssCFGenContext value ) {
+	public void setPrevContext( MssYCFGenContext value ) {
 		prevContext = value;
 	}
 
@@ -560,7 +560,7 @@ extends CFGenKbGenItemEditObj
 		outputFullName = value;
 	}
 
-	public void setGenFile( MssCFGenFileObj value ) {
+	public void setGenFile( MssYCFGenFileObj value ) {
 		genFile = value;
 		if( genFile != null ) {
 			outputGenerateOnce = genFile.getOptionalGenerateOnce();
@@ -572,7 +572,7 @@ extends CFGenKbGenItemEditObj
 		}
 	}
 
-	public void setGenFileContext( MssCFGenContext value ) {
+	public void setGenFileContext( MssYCFGenContext value ) {
 		genFileContext = value;
 	}
 
@@ -621,10 +621,10 @@ extends CFGenKbGenItemEditObj
 	/**
 	 *	Expand the body of an item
 	 */
-	public String expandItemBody( ICFGenKbGenItemObj genItem )
+	public String expandItemBody( IYCFGenKbGenItemObj genItem )
 	{
 		String ret = null;
-		final String S_ProcName = "MssCFGenContext.expandItemBody() ";
+		final String S_ProcName = "MssYCFGenContext.expandItemBody() ";
 
 		if( this.getGenEngine().getDebugMode() ) {
 			String tbe = genItem.getRequiredName();
@@ -636,25 +636,25 @@ extends CFGenKbGenItemEditObj
 			}
 		}
 
-		if( genItem instanceof MssCFGenFileObj ) {
-			ret = ((MssCFGenFileObj)genItem).expandBody( this );
+		if( genItem instanceof MssYCFGenFileObj ) {
+			ret = ((MssYCFGenFileObj)genItem).expandBody( this );
 		}
-		else if( genItem instanceof MssCFGenRuleObj ) {
-   			ret = ((MssCFGenRuleObj)genItem).expandBody( this );
+		else if( genItem instanceof MssYCFGenRuleObj ) {
+   			ret = ((MssYCFGenRuleObj)genItem).expandBody( this );
 		}
-		else if (genItem instanceof MssCFGenTruncObj)
+		else if (genItem instanceof MssYCFGenTruncObj)
 		{
-			ret = ((MssCFGenTruncObj)genItem).expandBody(this);
+			ret = ((MssYCFGenTruncObj)genItem).expandBody(this);
 		}
-		else if (genItem instanceof MssCFGenBindObj)
+		else if (genItem instanceof MssYCFGenBindObj)
 		{
-			ret = ((MssCFGenBindObj)genItem).expandBody( this );
+			ret = ((MssYCFGenBindObj)genItem).expandBody( this );
 		}
-		else if( genItem instanceof MssCFGenReferenceObj ) {
+		else if( genItem instanceof MssYCFGenReferenceObj ) {
 			throw new RuntimeException(S_ProcName + "Cannot expand reference " + genItem.getRequiredName() + " directly");
 		}
-		else if( genItem instanceof MssCFGenIteratorObj ) {
-   			ret = ((MssCFGenIteratorObj)genItem).expandBody( this );
+		else if( genItem instanceof MssYCFGenIteratorObj ) {
+   			ret = ((MssYCFGenIteratorObj)genItem).expandBody( this );
 		}
 		else {
 			throw new RuntimeException( S_ProcName +  "Unsupported generation item class" );
@@ -674,7 +674,7 @@ extends CFGenKbGenItemEditObj
 	}
 
 	public void openSourceFile(
-		MssCFGenFileObj			argGenFile,
+		MssYCFGenFileObj			argGenFile,
 		String					argGenDefClassName,
 		String					argSourceBundle,
 		String					moduleName,
@@ -690,7 +690,7 @@ extends CFGenKbGenItemEditObj
 		String					fileSep = null;
 		String					sysDirName = null;
 
-		final String S_ProcName = "MssCFGenContext.openSourceFile() ";
+		final String S_ProcName = "MssYCFGenContext.openSourceFile() ";
 
 		if( argGenFile == null ) {
 			throw new RuntimeException( S_ProcName + "argGenFile is null" );
@@ -820,7 +820,7 @@ extends CFGenKbGenItemEditObj
 		}
 		catch( FileNotFoundException e ) {
 			System.err.append( S_ProcName + "Could not resolve part of the file name \"" + outputFullName + "\"\n");
-			CFLib.beep();
+			YCFLib.beep();
 			fileWriter = null;
 			output = null;
 		}
@@ -853,8 +853,8 @@ extends CFGenKbGenItemEditObj
 	}
 
 
-	public MssCFCounter addCounter( String name ) {
-		final String S_ProcName = "MssCFGenContext.addCounter() ";
+	public MssYCFCounter addCounter( String name ) {
+		final String S_ProcName = "MssYCFGenContext.addCounter() ";
 		if( ( name == null ) || ( name.length() == 0 ) ) {
 			throw new RuntimeException( S_ProcName + "Parameter 1 \"name\" is null or empty" );
 		}
@@ -863,27 +863,27 @@ extends CFGenKbGenItemEditObj
 			throw new RuntimeException( S_ProcName + "Counter \"" + name + "\" already exists" );
 		}
 
-		MssCFCounter newCounter = new MssCFCounter( name );
+		MssYCFCounter newCounter = new MssYCFCounter( name );
 		counterMap.put( newCounter.getName(), newCounter );
 
 		return( newCounter );
 	}
 
-	public MssCFCounter getCounter( String name ) {
-		final String S_ProcName = "MssCFGenContext.getCounter() ";
+	public MssYCFCounter getCounter( String name ) {
+		final String S_ProcName = "MssYCFGenContext.getCounter() ";
 		if ((name == null) || (name.length() == 0))
 		{
 			throw new RuntimeException(S_ProcName + "Parameter 1 \"name\" is null or empty");
 		}
 
-		MssCFCounter found = null;
+		MssYCFCounter found = null;
 		if (counterMap.containsKey(name))
 		{
 			found = counterMap.get( name );
 		}
 		else
 		{
-			MssCFGenContext probe = this;
+			MssYCFGenContext probe = this;
 			while( ( found == null ) && ( probe.prevContext != null ) ) {
 				probe = probe.prevContext;
 				found = probe.getCounter( name );

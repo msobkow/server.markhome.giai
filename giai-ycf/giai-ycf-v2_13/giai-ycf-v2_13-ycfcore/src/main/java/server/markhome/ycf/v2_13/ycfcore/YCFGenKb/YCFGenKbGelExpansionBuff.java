@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelExpansion buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelExpansionBuff
-	extends CFGenKbGelInstructionBuff
+public class YCFGenKbGelExpansionBuff
+	extends YCFGenKbGelInstructionBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -54,9 +54,9 @@ public class CFGenKbGelExpansionBuff
 	public static final long GELCACHEID_MIN_VALUE = 0L;
 	public static final long GELINSTID_MIN_VALUE = 0L;
 	protected String requiredMacroName;
-	public CFGenKbGelExpansionBuff() {
+	public YCFGenKbGelExpansionBuff() {
 		super();
-		requiredMacroName = new String( CFGenKbGelExpansionBuff.MACRONAME_INIT_VALUE );
+		requiredMacroName = new String( YCFGenKbGelExpansionBuff.MACRONAME_INIT_VALUE );
 	}
 
 	public String getClassCode() {
@@ -69,13 +69,13 @@ public class CFGenKbGelExpansionBuff
 
 	public void setRequiredMacroName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredMacroName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredMacroName",
 				1,
 				"value.length()",
@@ -89,8 +89,8 @@ public class CFGenKbGelExpansionBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelExpansionBuff ) {
-			CFGenKbGelExpansionBuff rhs = (CFGenKbGelExpansionBuff)obj;
+		else if( obj instanceof YCFGenKbGelExpansionBuff ) {
+			YCFGenKbGelExpansionBuff rhs = (YCFGenKbGelExpansionBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -105,8 +105,8 @@ public class CFGenKbGelExpansionBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -136,8 +136,8 @@ public class CFGenKbGelExpansionBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelExpansionBuff ) {
-			CFGenKbGelExpansionBuff rhs = (CFGenKbGelExpansionBuff)obj;
+		else if( obj instanceof YCFGenKbGelExpansionBuff ) {
+			YCFGenKbGelExpansionBuff rhs = (YCFGenKbGelExpansionBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -150,8 +150,8 @@ public class CFGenKbGelExpansionBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -178,20 +178,20 @@ public class CFGenKbGelExpansionBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelExpansionBuff ) {
-			setGelExpansionBuff( (CFGenKbGelExpansionBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelExpansionBuff ) {
+			setGelExpansionBuff( (YCFGenKbGelExpansionBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelExpansionBuff" );
+				"YCFGenKbGelExpansionBuff" );
 		}
 	}
 
-	public void setGelExpansionBuff( CFGenKbGelExpansionBuff src ) {
+	public void setGelExpansionBuff( YCFGenKbGelExpansionBuff src ) {
 		super.setGelInstructionBuff( src );
 		setRequiredMacroName( src.getRequiredMacroName() );
 	}

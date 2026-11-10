@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,39 +23,39 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
 import java.util.ArrayList;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
-public class MSSBamCFGenContext
-extends MssCFGenContext
+public class MSSBamYCFGenContext
+extends MssYCFGenContext
 {
-	protected volatile static ICFBamSchemaDefObj manufacturingSchema = null;
+	protected volatile static IYCFBamSchemaDefObj manufacturingSchema = null;
 
-	protected static ArrayList<ICFBamSchemaDefObj> manufacturingSchemaStack = new ArrayList<>();
+	protected static ArrayList<IYCFBamSchemaDefObj> manufacturingSchemaStack = new ArrayList<>();
 
-	public static ICFBamSchemaDefObj pushManufacturingSchema(ICFBamSchemaDefObj value) {
+	public static IYCFBamSchemaDefObj pushManufacturingSchema(IYCFBamSchemaDefObj value) {
 		if (manufacturingSchema != null) {
 			manufacturingSchemaStack.add(manufacturingSchema);
 		}
@@ -63,7 +63,7 @@ extends MssCFGenContext
 		return(manufacturingSchema);
 	}
 
-	public static ICFBamSchemaDefObj popManufacturingSchema() {
+	public static IYCFBamSchemaDefObj popManufacturingSchema() {
 		if (!manufacturingSchemaStack.isEmpty()) {
 			manufacturingSchema = manufacturingSchemaStack.getLast();
 			manufacturingSchemaStack.removeLast();
@@ -71,31 +71,31 @@ extends MssCFGenContext
 		return(manufacturingSchema);
 	}
 
-	public static void setManufacturingSchema( ICFBamSchemaDefObj value ) {
+	public static void setManufacturingSchema( IYCFBamSchemaDefObj value ) {
 		manufacturingSchema = value;
 	}
 
-	public static ICFBamSchemaDefObj getManufacturingSchema() {
+	public static IYCFBamSchemaDefObj getManufacturingSchema() {
 		return( manufacturingSchema );
 	}
 
 	/**
 	 *	Construct an expansion context for the stack that pushes a sub class and definition.
 	 */
-	public MSSBamCFGenContext(
+	public MSSBamYCFGenContext(
 		String				generatingBuild,
-		MssCFGenContext		genContext,
+		MssYCFGenContext		genContext,
 		String				subClassGenDefName,
-		ICFLibAnyObj		subObject )
+		IYCFLibAnyObj		subObject )
 	{
 		super( generatingBuild,
 			genContext,
 			genContext.getGenEngine().fixGenDefName( subClassGenDefName ),
 			subObject );
-//		setManufacturingSchema( ((MSSBamCFGenContext)genContext).getManufacturingSchema() );
-		if( subObject instanceof ICFBamSchemaDefObj ) {
+//		setManufacturingSchema( ((MSSBamYCFGenContext)genContext).getManufacturingSchema() );
+		if( subObject instanceof IYCFBamSchemaDefObj ) {
 			if( manufacturingSchema == null ) {
-				manufacturingSchema = (ICFBamSchemaDefObj)subObject;
+				manufacturingSchema = (IYCFBamSchemaDefObj)subObject;
 			}
 		}
 	}
@@ -103,9 +103,9 @@ extends MssCFGenContext
 	/**
 	 *	Construct an instance.  Only invoked to create binding entries.
 	 */
-	public MSSBamCFGenContext(
+	public MSSBamYCFGenContext(
 		String				generatingBuild,
-		MssCFEngine			engine,
+		MssYCFEngine			engine,
 		String				argRootGenDir,
 		String				toolset,
 		String				scopeDefClassName,
@@ -124,16 +124,16 @@ extends MssCFGenContext
 	/**
 	 *	Construct an expansion context for the stack.
 	 */
-	public MSSBamCFGenContext(
+	public MSSBamYCFGenContext(
 		String				generatingBuild,
-		MssCFEngine			engine,
+		MssYCFEngine			engine,
 		String				argRootGenDir,
 		String				toolset,
 		String				scopeDefClassName,
 		String				genDefClassName,
 		String				itemName,
-		ICFLibAnyObj		argGenDef,
-		ICFLibAnyObj		argScopeDef )
+		IYCFLibAnyObj		argGenDef,
+		IYCFLibAnyObj		argScopeDef )
 	{
 		super( generatingBuild,
 			engine,
@@ -144,14 +144,14 @@ extends MssCFGenContext
 			itemName,
 			argGenDef,
 			argScopeDef );
-		if( argGenDef instanceof ICFBamSchemaDefObj ) {
+		if( argGenDef instanceof IYCFBamSchemaDefObj ) {
 			if( manufacturingSchema == null ) {
-				manufacturingSchema = (ICFBamSchemaDefObj)argGenDef;
+				manufacturingSchema = (IYCFBamSchemaDefObj)argGenDef;
 			}
 		}
-		else if( argScopeDef instanceof ICFBamSchemaDefObj ) {
+		else if( argScopeDef instanceof IYCFBamSchemaDefObj ) {
 			if( manufacturingSchema == null ) {
-				manufacturingSchema = (ICFBamSchemaDefObj)argScopeDef;
+				manufacturingSchema = (IYCFBamSchemaDefObj)argScopeDef;
 			}
 		}
 	}
@@ -159,10 +159,10 @@ extends MssCFGenContext
 	/**
 	 *	Build a reference context
 	 */
-	public MssCFGenContext buildRefContext( String generatingBuild, ICFLibAnyObj genDef ) {
-		if( genDef instanceof ICFBamSchemaDefObj ) {
+	public MssYCFGenContext buildRefContext( String generatingBuild, IYCFLibAnyObj genDef ) {
+		if( genDef instanceof IYCFBamSchemaDefObj ) {
 			if( manufacturingSchema == null ) {
-				manufacturingSchema = (ICFBamSchemaDefObj)genDef;
+				manufacturingSchema = (IYCFBamSchemaDefObj)genDef;
 			}
 		}
 		return( super.buildRefContext( generatingBuild, genDef ) );

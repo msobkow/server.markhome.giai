@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.dbutil;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil;
 
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
@@ -29,22 +29,22 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Base class for CFLib database key hashes.
+ * Base class for YCFLib database key hashes.
  * 
  * This foundation class provides essential support for n-digit hashes, usually based on the sizes of commmon hash algorithms like SHA-256, SHA-512, etc.
  * It includes methods for byte manipulation, comparison, and static initialization of hash buffers.
- * It is designed to be extended by specific hash implementations, such as CFLibDbKeyHash256 or CFLibDbKeyHash512.
+ * It is designed to be extended by specific hash implementations, such as YCFLibDbKeyHash256 or YCFLibDbKeyHash512.
  * It also provides a consistent way to handle the underlying byte arrays, ensuring that all derived classes can be compared and manipulated uniformly.
  * One issue is that the base class may provide the "gateway" for synchronization of the hash buffer attributes, so the static class data defined here is used as the thread synchronization coordinator, rather than attributes of the specialization classes.
  * To be fair, whether is even an issue really depends on what the JDK and JVM fine-print processing rules say about such specific cases.
  * 
  * @author msobkow
  */
-public abstract class CFLibDbKeyHashBase<T extends CFLibDbKeyHashBase<T>> implements Comparator<T>, Comparable<T> {
+public abstract class YCFLibDbKeyHashBase<T extends YCFLibDbKeyHashBase<T>> implements Comparator<T>, Comparable<T> {
 
   static final String hexDigits = "0123456789abcdef";
   static final int UUID6_INDEX = 0;
-  static final int UUID6_LENGTH = CFLibUuid6.TOTAL_BYTES;
+  static final int UUID6_LENGTH = YCFLibUuid6.TOTAL_BYTES;
   static final int COUNTER_INDEX = 28;
   static final int COUNTER_LENGTH = 8;
   static final int MACHINE_INDEX = 36;
@@ -79,14 +79,14 @@ public abstract class CFLibDbKeyHashBase<T extends CFLibDbKeyHashBase<T>> implem
     }
     try {
       hashBuffer = new ByteBuffer[CONCURRENT_DIGESTS];
-      CFLibDbHostAddr.initAddrHeader();
+      YCFLibDbHostAddr.initAddrHeader();
       long pid = ProcessHandle.current().pid();
       long tid = Thread.currentThread().getId();
       for (int i = 0; i < CONCURRENT_DIGESTS; i++) {
-        CFLibUuid6 u = CFLibUuid6.generateUuid6();
+        YCFLibUuid6 u = YCFLibUuid6.generateUuid6();
         hashBuffer[i] = ByteBuffer.allocate(TOTAL_BYTES);
         byte[] uub = u.getBytes();
-        for (int j = 0; j <  CFLibUuid6.TOTAL_BYTES; j++) {
+        for (int j = 0; j <  YCFLibUuid6.TOTAL_BYTES; j++) {
           hashBuffer[i].put(uub[j]);
         }
         hashBuffer[i].putLong(COUNTER_INDEX, counter);
@@ -122,17 +122,17 @@ public abstract class CFLibDbKeyHashBase<T extends CFLibDbKeyHashBase<T>> implem
     return b;
   }
 
-  public CFLibDbKeyHashBase() {
+  public YCFLibDbKeyHashBase() {
   }
 
   /**
    * This is the hex code of the underlying ID. THIS IS NOT A HASHING FUNCTION.
    */
-  public CFLibDbKeyHashBase(String hexId) {
+  public YCFLibDbKeyHashBase(String hexId) {
     setBytes(bytesFromHex(hexId));
   }
 
-  public CFLibDbKeyHashBase(byte[] anId) {
+  public YCFLibDbKeyHashBase(byte[] anId) {
     if (anId == null) {
       // allowed
     }
@@ -145,7 +145,7 @@ public abstract class CFLibDbKeyHashBase<T extends CFLibDbKeyHashBase<T>> implem
     }
   }
 
-  public CFLibDbKeyHashBase(T otherKey) {
+  public YCFLibDbKeyHashBase(T otherKey) {
     if (otherKey == null) {
       setBytes(new byte[getHashLength()]);
       return;
@@ -155,7 +155,7 @@ public abstract class CFLibDbKeyHashBase<T extends CFLibDbKeyHashBase<T>> implem
     setBytes(_newId);
   }
 
-  public CFLibDbKeyHashBase(int notUsed) {
+  public YCFLibDbKeyHashBase(int notUsed) {
     initStatics();
     int thid = (int) (Math.abs(rotator++) % CONCURRENT_DIGESTS);
     synchronized (hashBuffer[thid]) {

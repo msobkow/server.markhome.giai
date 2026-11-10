@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,31 +21,31 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public abstract class MssCFEngine
-extends CFGenKbSchemaObj
+public abstract class MssYCFEngine
+extends YCFGenKbSchemaObj
 {
-	public final static String		LinkName = "MssCFEngine";
+	public final static String		LinkName = "MssYCFEngine";
 	public final static String		LinkVersion = "2.13.42-alpha15-202611010900";
 
-	public final static String		GeneratorName = "MssCFEngine";
+	public final static String		GeneratorName = "MssYCFEngine";
 	public final static String		GeneratorVersion = LinkVersion;
 
 	protected static boolean		debugMode = false;
 
-	protected ICFGenKbGelCacheObj	gelCache = null;
+	protected IYCFGenKbGelCacheObj	gelCache = null;
 
-	protected static ArrayList<MssCFGenContext> contextStack = new ArrayList<>();
+	protected static ArrayList<MssYCFGenContext> contextStack = new ArrayList<>();
 
-	public static MssCFGenContext pushContext(MssCFGenContext value) {
+	public static MssYCFGenContext pushContext(MssYCFGenContext value) {
 		if (value != null) {
 			contextStack.add(value);
 			return(value);
@@ -60,8 +60,8 @@ extends CFGenKbSchemaObj
 		}
 	}
 
-	public static MssCFGenContext popContext() {
-		MssCFGenContext retval;
+	public static MssYCFGenContext popContext() {
+		MssYCFGenContext retval;
 		if (!contextStack.isEmpty()) {
 			retval = contextStack.getLast();
 			contextStack.removeLast();
@@ -72,19 +72,19 @@ extends CFGenKbSchemaObj
 		return(retval);
 	}
 
-	public ICFGenKbGelCacheObj getGelCache() {
+	public IYCFGenKbGelCacheObj getGelCache() {
 		if( gelCache == null ) {
-			ICFGenKbGelCacheObj cacheObj = (ICFGenKbGelCacheObj)( getGelCacheTableObj().newInstance() );
-			ICFGenKbGelCacheEditObj cacheEdit = (ICFGenKbGelCacheEditObj)( cacheObj.beginEdit() );
-			ICFGenKbTenantObj mySecTenant = getSecTenant();
+			IYCFGenKbGelCacheObj cacheObj = (IYCFGenKbGelCacheObj)( getGelCacheTableObj().newInstance() );
+			IYCFGenKbGelCacheEditObj cacheEdit = (IYCFGenKbGelCacheEditObj)( cacheObj.beginEdit() );
+			IYCFGenKbTenantObj mySecTenant = getSecTenant();
 			cacheEdit.setRequiredOwnerTenant( mySecTenant );
-			gelCache = (ICFGenKbGelCacheObj)( cacheEdit.create() );
+			gelCache = (IYCFGenKbGelCacheObj)( cacheEdit.create() );
 			cacheEdit = null;
 		}
 		return( gelCache );
 	}
 
-	public void setGelCache( ICFGenKbGelCacheObj value ) {
+	public void setGelCache( IYCFGenKbGelCacheObj value ) {
 		if( gelCache != value ) {
 			gelCache = value;
 		}
@@ -102,7 +102,7 @@ extends CFGenKbSchemaObj
 		debugMode = false;
 	}
 
-	ICFGenKbTenantObj internalTenant = null;
+	IYCFGenKbTenantObj internalTenant = null;
 
 	public abstract String fixGenDefName( String rawName );
 	public abstract void bootstrapDefClasses();
@@ -111,11 +111,11 @@ extends CFGenKbSchemaObj
 	public abstract void bootstrapIterators();
 	public abstract void bootstrapReferences();
 
-	protected MssCFGelCompiler gelCompiler = null;
+	protected MssYCFGelCompiler gelCompiler = null;
 
-	public MssCFGelCompiler getGelCompiler() {
+	public MssYCFGelCompiler getGelCompiler() {
 		if( gelCompiler == null ) {
-			gelCompiler = new MssCFGelCompiler( this );
+			gelCompiler = new MssYCFGelCompiler( this );
 		}
 		return( gelCompiler );
 	}
@@ -127,12 +127,12 @@ extends CFGenKbSchemaObj
 		return( "Object" );
 	}
 
-	public ICFGenKbDefClassObj bootstrapDefClass( String name, ICFGenKbDefClassObj baseDefClass ) {
-		ICFGenKbDefClassTableObj tblDefClass = getDefClassTableObj();
-		ICFGenKbDefClassObj defClass = tblDefClass.readDefClassByNameIdx( name );
+	public IYCFGenKbDefClassObj bootstrapDefClass( String name, IYCFGenKbDefClassObj baseDefClass ) {
+		IYCFGenKbDefClassTableObj tblDefClass = getDefClassTableObj();
+		IYCFGenKbDefClassObj defClass = tblDefClass.readDefClassByNameIdx( name );
 		if( defClass == null ) {
 			defClass = tblDefClass.newInstance();
-			ICFGenKbDefClassEditObj editDefClass = defClass.beginEdit();
+			IYCFGenKbDefClassEditObj editDefClass = defClass.beginEdit();
 			editDefClass.setRequiredName( name );
 			editDefClass.setOptionalParentBaseDefClass( baseDefClass );
 			defClass = editDefClass.create();
@@ -162,7 +162,7 @@ extends CFGenKbSchemaObj
 	}
 
 
-	protected TreeMap<CFGenKbDefClassPKey, TreeMap<CFGenKbDefClassPKey,Boolean>> derivationMap = null;
+	protected TreeMap<YCFGenKbDefClassPKey, TreeMap<YCFGenKbDefClassPKey,Boolean>> derivationMap = null;
 
 
 	public void libInitDerivationMap()
@@ -171,16 +171,16 @@ extends CFGenKbSchemaObj
 			return;
 		}
 
-		derivationMap = new TreeMap<CFGenKbDefClassPKey, TreeMap<CFGenKbDefClassPKey,Boolean>>();
+		derivationMap = new TreeMap<YCFGenKbDefClassPKey, TreeMap<YCFGenKbDefClassPKey,Boolean>>();
 
-		ICFGenKbDefClassObj defClass;
-		ICFGenKbDefClassObj inhClass;
+		IYCFGenKbDefClassObj defClass;
+		IYCFGenKbDefClassObj inhClass;
 		Boolean boolTrue = Boolean.valueOf( true );
-		TreeMap<CFGenKbDefClassPKey,Boolean> subMap;
-		Iterator<ICFGenKbDefClassObj> defClassIter = getDefClassTableObj().readAllDefClass().iterator();
+		TreeMap<YCFGenKbDefClassPKey,Boolean> subMap;
+		Iterator<IYCFGenKbDefClassObj> defClassIter = getDefClassTableObj().readAllDefClass().iterator();
 		while( defClassIter.hasNext() ) {
 			defClass = defClassIter.next();
-			subMap = new TreeMap<CFGenKbDefClassPKey,Boolean>();
+			subMap = new TreeMap<YCFGenKbDefClassPKey,Boolean>();
 			derivationMap.put( defClass.getPKey(), subMap );
 			inhClass = defClass;
 			while( inhClass != null ) {
@@ -191,16 +191,16 @@ extends CFGenKbSchemaObj
 	}
 
 
-	public boolean derivesFrom( ICFGenKbDefClassObj obj, ICFGenKbDefClassObj target )
+	public boolean derivesFrom( IYCFGenKbDefClassObj obj, IYCFGenKbDefClassObj target )
 	{
 		// AnyObj is always inherited
 		if( target == null ) {
 			return( true );
 		}
 
-		TreeMap<CFGenKbDefClassPKey, Boolean> subMap = derivationMap.get( obj.getPKey() );
+		TreeMap<YCFGenKbDefClassPKey, Boolean> subMap = derivationMap.get( obj.getPKey() );
 		if( subMap == null ) {
-			throw new CFLibRuntimeException( getClass(), "derivesFrom", "Could not find subMap for DefClass" + obj.getRequiredName() );
+			throw new YCFLibRuntimeException( getClass(), "derivesFrom", "Could not find subMap for DefClass" + obj.getRequiredName() );
 		}
 
 		Boolean entry = subMap.get( target.getPKey() );
@@ -212,7 +212,7 @@ extends CFGenKbSchemaObj
 		}
 	}
 
-	protected TreeMap<CFGenKbToolSetPKey, TreeMap<String,ICFGenKbGenItemObj>> toolSetRuleMap = null;
+	protected TreeMap<YCFGenKbToolSetPKey, TreeMap<String,IYCFGenKbGenItemObj>> toolSetRuleMap = null;
 
 
 	public void initToolSetRuleMap() {
@@ -224,10 +224,10 @@ extends CFGenKbSchemaObj
 
 		log.message( "Initializing tool set rule map" );
 
-		toolSetRuleMap = new TreeMap<CFGenKbToolSetPKey, TreeMap<String, ICFGenKbGenItemObj>>();
+		toolSetRuleMap = new TreeMap<YCFGenKbToolSetPKey, TreeMap<String, IYCFGenKbGenItemObj>>();
 
-		ICFGenKbToolSetObj toolSet;
-		Iterator<ICFGenKbToolSetObj> toolSetIter = getToolSetTableObj().readAllToolSet().iterator();
+		IYCFGenKbToolSetObj toolSet;
+		Iterator<IYCFGenKbToolSetObj> toolSetIter = getToolSetTableObj().readAllToolSet().iterator();
 		while( toolSetIter.hasNext() ) {
 			toolSet = toolSetIter.next();
 			initRuleMap( toolSet );
@@ -238,19 +238,19 @@ extends CFGenKbSchemaObj
 
 
 	private class SortByProbeOrder implements Comparator {
-		MssCFEngine engine;
+		MssYCFEngine engine;
 
-		public SortByProbeOrder( MssCFEngine ref) {
+		public SortByProbeOrder( MssYCFEngine ref) {
 			engine = ref;
 		}
 
 		public int compare(Object arg0, Object arg1) {
-			ICFGenKbGenItemObj lhs = (ICFGenKbGenItemObj)arg0;
-			ICFGenKbGenItemObj rhs = (ICFGenKbGenItemObj)arg1;
-			ICFGenKbDefClassObj lhsScope = lhs.getOptionalLookupScopeDef();
-			ICFGenKbDefClassObj rhsScope = rhs.getOptionalLookupScopeDef();
-			ICFGenKbDefClassObj lhsGenDef;
-			ICFGenKbDefClassObj rhsGenDef;
+			IYCFGenKbGenItemObj lhs = (IYCFGenKbGenItemObj)arg0;
+			IYCFGenKbGenItemObj rhs = (IYCFGenKbGenItemObj)arg1;
+			IYCFGenKbDefClassObj lhsScope = lhs.getOptionalLookupScopeDef();
+			IYCFGenKbDefClassObj rhsScope = rhs.getOptionalLookupScopeDef();
+			IYCFGenKbDefClassObj lhsGenDef;
+			IYCFGenKbDefClassObj rhsGenDef;
 			if( lhsScope == rhsScope ) {
 				lhsGenDef = lhs.getRequiredLookupGenDef();
 				rhsGenDef = rhs.getRequiredLookupGenDef();
@@ -301,8 +301,8 @@ extends CFGenKbSchemaObj
 	}
 
 
-	private void initRuleMap( ICFGenKbToolSetObj toolSet ) {
-		TreeMap<String,ICFGenKbGenItemObj> subMap = toolSetRuleMap.get( toolSet.getPKey() );
+	private void initRuleMap( IYCFGenKbToolSetObj toolSet ) {
+		TreeMap<String,IYCFGenKbGenItemObj> subMap = toolSetRuleMap.get( toolSet.getPKey() );
 		if( subMap != null ) {
 			return;
 		}
@@ -310,36 +310,36 @@ extends CFGenKbSchemaObj
 		log.message( "Initializing rule map for tool set " + toolSet.getRequiredName() );
 
 		// Build a list of the rules in the set grouped by name
-		TreeMap<String,Collection<ICFGenKbGenItemObj>> rulesByName = new TreeMap<String,Collection<ICFGenKbGenItemObj>>();
-		Collection<ICFGenKbGenItemObj> cltn;
-		Iterator<ICFGenKbGenItemObj> genItemIter = getGenItemTableObj().readGenItemByToolSetIdx( toolSet.getRequiredId() ).iterator();
-		ICFGenKbGenItemObj genItem;
+		TreeMap<String,Collection<IYCFGenKbGenItemObj>> rulesByName = new TreeMap<String,Collection<IYCFGenKbGenItemObj>>();
+		Collection<IYCFGenKbGenItemObj> cltn;
+		Iterator<IYCFGenKbGenItemObj> genItemIter = getGenItemTableObj().readGenItemByToolSetIdx( toolSet.getRequiredId() ).iterator();
+		IYCFGenKbGenItemObj genItem;
 		while( genItemIter.hasNext() ) {
 			genItem = genItemIter.next();
 			cltn = rulesByName.get( genItem.getRequiredName() );
 			if( cltn == null ) {
-				cltn = new ArrayList<ICFGenKbGenItemObj>();
+				cltn = new ArrayList<IYCFGenKbGenItemObj>();
 				rulesByName.put( genItem.getRequiredName(), cltn );
 			}
 			cltn.add( genItem );
 		}
 
 		// Instantiate a subMap by name to hold the head entries of the sorted lists below
-		subMap = new TreeMap<String,ICFGenKbGenItemObj>();
+		subMap = new TreeMap<String,IYCFGenKbGenItemObj>();
 
 		// For each name, build an array of the entries and sort based on probe sequence
 		// Iterate through the probe-sequenced array and establish the linkages
 		// Add the head of the linkage list to the subMap
-		ICFGenKbGenItemObj[] genItemArray;
+		IYCFGenKbGenItemObj[] genItemArray;
 		int idx;
-		ICFGenKbGenItemObj probeNext;
-		ICFGenKbGenItemEditObj edit;
+		IYCFGenKbGenItemObj probeNext;
+		IYCFGenKbGenItemEditObj edit;
 		@SuppressWarnings("unchecked")
-		Comparator<ICFGenKbGenItemObj> sortByProbeOrder = new SortByProbeOrder( this );
-		Iterator<Collection<ICFGenKbGenItemObj>> cltnIter = rulesByName.values().iterator();
+		Comparator<IYCFGenKbGenItemObj> sortByProbeOrder = new SortByProbeOrder( this );
+		Iterator<Collection<IYCFGenKbGenItemObj>> cltnIter = rulesByName.values().iterator();
 		while( cltnIter.hasNext() ) {
 			cltn = cltnIter.next();
-			genItemArray = new ICFGenKbGenItemObj[ cltn.size() ];
+			genItemArray = new IYCFGenKbGenItemObj[ cltn.size() ];
 			genItemIter = cltn.iterator();
 			idx = 0;
 			while( genItemIter.hasNext() ) {
@@ -367,9 +367,9 @@ extends CFGenKbSchemaObj
 
 
 
-	public void init( String generatingBuild, ICFGenKbSchemaObj argCFGenKbSchema, ICFGenKbTenantObj argInternalTenant, String strRootGenDir )
+	public void init( String generatingBuild, IYCFGenKbSchemaObj argYCFGenKbSchema, IYCFGenKbTenantObj argInternalTenant, String strRootGenDir )
 	{
-		genkbSchema = argCFGenKbSchema;
+		genkbSchema = argYCFGenKbSchema;
 		setBackingStore( genkbSchema.getBackingStore() );
 		internalTenant = argInternalTenant;
 		rootGenDir = strRootGenDir;
@@ -391,86 +391,86 @@ extends CFGenKbSchemaObj
 		bootstrapReferences();
 	}
 
-	public ICFGenKbDefClassTableObj getDefClassTableObj() {
+	public IYCFGenKbDefClassTableObj getDefClassTableObj() {
 		if( defClassTableObj == null ) {
-			defClassTableObj = new MssCFDefClassTableObj( (MssCFEngine)this );
+			defClassTableObj = new MssYCFDefClassTableObj( (MssYCFEngine)this );
 		}
 		return( defClassTableObj );
 	}
 
-	public ICFGenKbGenBindTableObj getGenBindTableObj() {
+	public IYCFGenKbGenBindTableObj getGenBindTableObj() {
 		if( genBindTableObj == null ) {
-			genBindTableObj = new MssCFGenBindTableObj( (MssCFEngine)this );
+			genBindTableObj = new MssYCFGenBindTableObj( (MssYCFEngine)this );
 		}
 		return( genBindTableObj );
 	}
 
-	public ICFGenKbGenFileTableObj getGenFileTableObj() {
+	public IYCFGenKbGenFileTableObj getGenFileTableObj() {
 		if( genFileTableObj == null ) {
-			genFileTableObj = new MssCFGenFileTableObj( (MssCFEngine)this );
+			genFileTableObj = new MssYCFGenFileTableObj( (MssYCFEngine)this );
 		}
 		return( genFileTableObj );
 	}
 
-	public ICFGenKbGenItemTableObj getGenItemTableObj() {
+	public IYCFGenKbGenItemTableObj getGenItemTableObj() {
 		if( genItemTableObj == null ) {
-			genItemTableObj = new MssCFGenItemTableObj( (MssCFEngine)this );
+			genItemTableObj = new MssYCFGenItemTableObj( (MssYCFEngine)this );
 		}
 		return( genItemTableObj );
 	}
 
-	public ICFGenKbGenIteratorTableObj getGenIteratorTableObj() {
+	public IYCFGenKbGenIteratorTableObj getGenIteratorTableObj() {
 		if( genIteratorTableObj == null ) {
-			genIteratorTableObj = new MssCFGenIteratorTableObj( (MssCFEngine)this );
+			genIteratorTableObj = new MssYCFGenIteratorTableObj( (MssYCFEngine)this );
 		}
 		return( genIteratorTableObj );
 	}
 
-	public ICFGenKbGenReferenceTableObj getGenReferenceTableObj() {
+	public IYCFGenKbGenReferenceTableObj getGenReferenceTableObj() {
 		if( genReferenceTableObj == null ) {
-			genReferenceTableObj = new MssCFGenReferenceTableObj( (MssCFEngine)this );
+			genReferenceTableObj = new MssYCFGenReferenceTableObj( (MssYCFEngine)this );
 		}
 		return( genReferenceTableObj );
 	}
 
-	public ICFGenKbGenRuleTableObj getGenRuleTableObj() {
+	public IYCFGenKbGenRuleTableObj getGenRuleTableObj() {
 		if( genRuleTableObj == null ) {
-			genRuleTableObj = new MssCFGenRuleTableObj( (MssCFEngine)this );
+			genRuleTableObj = new MssYCFGenRuleTableObj( (MssYCFEngine)this );
 		}
 		return( genRuleTableObj );
 	}
 
-	public ICFGenKbGenTruncTableObj getGenTruncTableObj() {
+	public IYCFGenKbGenTruncTableObj getGenTruncTableObj() {
 		if( genTruncTableObj == null ) {
-			genTruncTableObj = new MssCFGenTruncTableObj( (MssCFEngine)this );
+			genTruncTableObj = new MssYCFGenTruncTableObj( (MssYCFEngine)this );
 		}
 		return( genTruncTableObj );
 	}
 
-	public ICFGenKbRuleCartTableObj getRuleCartTableObj() {
+	public IYCFGenKbRuleCartTableObj getRuleCartTableObj() {
 		if( ruleCartTableObj == null ) {
-			ruleCartTableObj = new MssCFRuleCartTableObj( (MssCFEngine)this );
+			ruleCartTableObj = new MssYCFRuleCartTableObj( (MssYCFEngine)this );
 		}
 		return( ruleCartTableObj );
 	}
 
-	public ICFGenKbRuleTypeTableObj getRuleTypeTableObj() {
+	public IYCFGenKbRuleTypeTableObj getRuleTypeTableObj() {
 		if( ruleTypeTableObj == null ) {
-			ruleTypeTableObj = new MssCFRuleTypeTableObj( (MssCFEngine)this );
+			ruleTypeTableObj = new MssYCFRuleTypeTableObj( (MssYCFEngine)this );
 		}
 		return( ruleTypeTableObj );
 	}
 
-	public ICFGenKbToolTableObj getToolTableObj() {
+	public IYCFGenKbToolTableObj getToolTableObj() {
 		if( toolTableObj == null ) {
-			toolTableObj = new MssCFToolTableObj( (MssCFEngine)this );
+			toolTableObj = new MssYCFToolTableObj( (MssYCFEngine)this );
 		}
 		return( toolTableObj );
 	}
 
-	public ICFGenKbToolSetTableObj getToolSetTableObj() {
+	public IYCFGenKbToolSetTableObj getToolSetTableObj() {
 		if( toolSetTableObj == null ) {
-			toolSetTableObj = new MssCFToolSetTableObj( (MssCFEngine)this );
+			toolSetTableObj = new MssYCFToolSetTableObj( (MssYCFEngine)this );
 		}
 		return( toolSetTableObj );
 	}
@@ -480,21 +480,21 @@ extends CFGenKbSchemaObj
 
 	public static long				GenNextSerializableUID = 0L;
 
-	protected ICFLibMessageLog log = null;
-	public ICFLibMessageLog getLog() {
+	protected IYCFLibMessageLog log = null;
+	public IYCFLibMessageLog getLog() {
 		return( log );
 	}
 
-	public void setLog( ICFLibMessageLog value ) {
+	public void setLog( IYCFLibMessageLog value ) {
 		log = value;
 	}
 
-	private MssCFGenContext	genContext = null;
-	public MssCFGenContext getGenContext() {
+	private MssYCFGenContext	genContext = null;
+	public MssYCFGenContext getGenContext() {
 		return( genContext );
 	}
 
-	public void setGenContext( MssCFGenContext value ) {
+	public void setGenContext( MssYCFGenContext value ) {
 		genContext = value;
 	}
 
@@ -503,13 +503,13 @@ extends CFGenKbSchemaObj
 		return( rootGenDir );
 	}
 
-	protected ICFGenKbSchemaObj genkbSchema = null;
+	protected IYCFGenKbSchemaObj genkbSchema = null;
 
-	public ICFGenKbSchemaObj getCFGenKbSchema() {
+	public IYCFGenKbSchemaObj getYCFGenKbSchema() {
 		return (genkbSchema);
 	}
 
-	public MssCFEngine() {
+	public MssYCFEngine() {
 		super();
 		defClassTableObj = null;
 		genBindTableObj = null;
@@ -525,17 +525,17 @@ extends CFGenKbSchemaObj
 		toolSetTableObj = null;
 	}
 
-	protected MssCFGenContextFactory genContextFactory = null;
+	protected MssYCFGenContextFactory genContextFactory = null;
 
-	public MssCFGenContextFactory getGenContextFactory() {
+	public MssYCFGenContextFactory getGenContextFactory() {
 		if( genContextFactory == null )
 		{
-			genContextFactory = new MssCFGenContextFactory();
+			genContextFactory = new MssYCFGenContextFactory();
 		}
 		return( genContextFactory );
 	}
 
-	public void setGenContextFactory( MssCFGenContextFactory value ) {
+	public void setGenContextFactory( MssYCFGenContextFactory value ) {
 		genContextFactory = value;
 	}
 
@@ -549,13 +549,13 @@ extends CFGenKbSchemaObj
 		targetRuleName = value;
 	}
 
-	private ICFGenKbRuleCartObj internalRuleCart = null;
+	private IYCFGenKbRuleCartObj internalRuleCart = null;
 
-	public ICFGenKbRuleCartObj getInternalRuleCart() {
+	public IYCFGenKbRuleCartObj getInternalRuleCart() {
 		if (internalRuleCart == null)
 		{
 			internalRuleCart = getRuleCartTableObj().newInstance();
-			ICFGenKbRuleCartEditObj editRuleCart = internalRuleCart.beginEdit();
+			IYCFGenKbRuleCartEditObj editRuleCart = internalRuleCart.beginEdit();
 			editRuleCart.setRequiredContainerTenant( internalTenant );
 			editRuleCart.setRequiredName( "Internal" );
 			internalRuleCart = editRuleCart.create();
@@ -564,7 +564,7 @@ extends CFGenKbSchemaObj
 		return (internalRuleCart);
 	}
 
-	public ICFGenKbGenFileObj defineFile(
+	public IYCFGenKbGenFileObj defineFile(
 		String	definedNear,
 		String	toolsetName,
 		String	scopeDefClassName,
@@ -580,13 +580,13 @@ extends CFGenKbSchemaObj
 		String	expansionKeyName,
 		String	expansionFileName )
 	{
-		final String S_ProcName = "MssCFEngine.defineFile() ";
+		final String S_ProcName = "MssYCFEngine.defineFile() ";
 		if( definedNear == null ) {
-			throw new CFLibNullArgumentException( getClass(), "defineFile", 1, "definedNear" );
+			throw new YCFLibNullArgumentException( getClass(), "defineFile", 1, "definedNear" );
 		}
-		ICFGenKbRuleCartObj ruleCart = getInternalRuleCart();
-		ICFGenKbGenFileObj genFile = getGenFileTableObj().newInstance();
-		ICFGenKbGenFileEditObj editFile = (ICFGenKbGenFileEditObj)genFile.beginEdit();
+		IYCFGenKbRuleCartObj ruleCart = getInternalRuleCart();
+		IYCFGenKbGenFileObj genFile = getGenFileTableObj().newInstance();
+		IYCFGenKbGenFileEditObj editFile = (IYCFGenKbGenFileEditObj)genFile.beginEdit();
 		editFile.setRequiredLookupToolSet( getToolSetTableObj().readToolSetByNameIdx(toolsetName) );
 		editFile.setRequiredDefinedNear( definedNear );
 		if ((scopeDefClassName != null) && (scopeDefClassName.length() > 0))
@@ -598,7 +598,7 @@ extends CFGenKbSchemaObj
 			else {
 				scopeDefClassName = fixGenDefName( scopeDefClassName );
 			}
-			ICFGenKbDefClassObj scopeDef = getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName);
+			IYCFGenKbDefClassObj scopeDef = getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName);
 			if( scopeDef == null )
 			{
 				throw new RuntimeException( S_ProcName + "Could not resolve ScopeDef " + scopeDefClassName );
@@ -613,7 +613,7 @@ extends CFGenKbSchemaObj
 		editFile.setRequiredLookupRuleType( getRuleTypeTableObj().readRuleTypeByNameIdx("File") );
 
 		genDefClassName = fixGenDefName( genDefClassName );
-		ICFGenKbDefClassObj genDef = getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
+		IYCFGenKbDefClassObj genDef = getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
 		if( genDef == null )
 		{
 			throw new RuntimeException( S_ProcName + "Could not resolve GenDef " + genDefClassName );
@@ -629,24 +629,24 @@ extends CFGenKbSchemaObj
 		editFile.setOptionalExpansionClassName( expansionClassName );
 		editFile.setOptionalExpansionKeyName( expansionKeyName );
 		editFile.setOptionalExpansionFileName( expansionFileName );
-		ICFGenKbGenFileObj created = (ICFGenKbGenFileObj)editFile.create();
+		IYCFGenKbGenFileObj created = (IYCFGenKbGenFileObj)editFile.create();
 		editFile = null;
 
-		MssCFGelCompiler compiler = getGelCompiler();
-		CFGenKbGenFileObj.getBodyBin( compiler, created );
-		CFGenKbGenFileObj.getSrcBundleBin( compiler, created );
-		CFGenKbGenFileObj.getModuleNameBin( compiler, created );
-		CFGenKbGenFileObj.getBasePackageBin( compiler, created );
-		CFGenKbGenFileObj.getSubPackageBin( compiler, created );
-		CFGenKbGenFileObj.getExpClassBin( compiler, created );
-		CFGenKbGenFileObj.getExpKeyNameBin( compiler, created );
-		CFGenKbGenFileObj.getExpFileNameBin( compiler, created );
+		MssYCFGelCompiler compiler = getGelCompiler();
+		YCFGenKbGenFileObj.getBodyBin( compiler, created );
+		YCFGenKbGenFileObj.getSrcBundleBin( compiler, created );
+		YCFGenKbGenFileObj.getModuleNameBin( compiler, created );
+		YCFGenKbGenFileObj.getBasePackageBin( compiler, created );
+		YCFGenKbGenFileObj.getSubPackageBin( compiler, created );
+		YCFGenKbGenFileObj.getExpClassBin( compiler, created );
+		YCFGenKbGenFileObj.getExpKeyNameBin( compiler, created );
+		YCFGenKbGenFileObj.getExpFileNameBin( compiler, created );
 
 		return (created);
 	}
 
 
-	public ICFGenKbGenRuleObj defineRule(
+	public IYCFGenKbGenRuleObj defineRule(
 		String	definedNear,
 		String	toolsetName,
 		String	scopeDefClassName,
@@ -656,27 +656,27 @@ extends CFGenKbSchemaObj
 	{
 		final String S_ProcName = "defineRule";
 		if( definedNear == null ) {
-			throw new CFLibNullArgumentException( getClass(), S_ProcName, 1, "definedNear" );
+			throw new YCFLibNullArgumentException( getClass(), S_ProcName, 1, "definedNear" );
 		}
 		if( toolsetName == null ) {
-			throw new CFLibNullArgumentException( getClass(), S_ProcName, 2, "toolsetName" );
+			throw new YCFLibNullArgumentException( getClass(), S_ProcName, 2, "toolsetName" );
 		}
 		if( ( genDefClassName == null ) || ( genDefClassName.length() <= 0 ) )  {
-			throw new CFLibEmptyArgumentException( getClass(), S_ProcName, 4, "genDefClassName" );
+			throw new YCFLibEmptyArgumentException( getClass(), S_ProcName, 4, "genDefClassName" );
 		}
 		if( ( itemName == null ) || ( itemName.length() <= 0 ) ) {
-			throw new CFLibEmptyArgumentException( getClass(), S_ProcName, 5, "itemName" );
+			throw new YCFLibEmptyArgumentException( getClass(), S_ProcName, 5, "itemName" );
 		}
 		if( expansionBody == null ) {
-			throw new CFLibNullArgumentException( getClass(), S_ProcName, 6, "expansionBody" );
+			throw new YCFLibNullArgumentException( getClass(), S_ProcName, 6, "expansionBody" );
 		}
 
-		ICFGenKbRuleCartObj ruleCart = getInternalRuleCart();
+		IYCFGenKbRuleCartObj ruleCart = getInternalRuleCart();
 		assert ruleCart != null : "ruleCart is null!";
-		ICFGenKbGenRuleObj genRule = getGenRuleTableObj().newInstance();
-		ICFGenKbGenRuleEditObj editRule = (ICFGenKbGenRuleEditObj)genRule.beginEdit();
+		IYCFGenKbGenRuleObj genRule = getGenRuleTableObj().newInstance();
+		IYCFGenKbGenRuleEditObj editRule = (IYCFGenKbGenRuleEditObj)genRule.beginEdit();
 		editRule.setRequiredDefinedNear( definedNear );
-		ICFGenKbToolSetObj toolset = getToolSetTableObj().readToolSetByNameIdx( toolsetName );
+		IYCFGenKbToolSetObj toolset = getToolSetTableObj().readToolSetByNameIdx( toolsetName );
 		assert toolset != null : "Could not resolve toolset " + toolsetName;
 		editRule.setRequiredLookupToolSet( toolset );
 		if ((scopeDefClassName != null) && (scopeDefClassName.length() > 0)) {
@@ -686,9 +686,9 @@ extends CFGenKbSchemaObj
 			else {
 				scopeDefClassName = fixGenDefName( scopeDefClassName );
 			}
-			ICFGenKbDefClassObj scopeDef = getDefClassTableObj().readDefClassByNameIdx( scopeDefClassName );
+			IYCFGenKbDefClassObj scopeDef = getDefClassTableObj().readDefClassByNameIdx( scopeDefClassName );
 			if( scopeDef == null ) {
-				throw new CFLibRuntimeException( getClass(), S_ProcName, "Could not resolve ScopeDef " + scopeDefClassName );
+				throw new YCFLibRuntimeException( getClass(), S_ProcName, "Could not resolve ScopeDef " + scopeDefClassName );
 			}
 			editRule.setOptionalLookupScopeDef( scopeDef );
 		}
@@ -696,30 +696,30 @@ extends CFGenKbSchemaObj
 			editRule.setOptionalLookupScopeDef( null );
 		}
 		editRule.setRequiredContainerCartridge( ruleCart );
-		ICFGenKbRuleTypeObj ruleType = getRuleTypeTableObj().readRuleTypeByNameIdx( "Rule" );
+		IYCFGenKbRuleTypeObj ruleType = getRuleTypeTableObj().readRuleTypeByNameIdx( "Rule" );
 		assert ruleType != null : "ruleType \"Rule\" could not be resolved";
 		editRule.setRequiredLookupRuleType( ruleType );
 		genDefClassName = fixGenDefName( genDefClassName );
 		assert genDefClassName != null && genDefClassName.length() > 0 : "fixed genDefClassName is null or empty";
-		ICFGenKbDefClassObj genDef = getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
+		IYCFGenKbDefClassObj genDef = getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
 		if( genDef == null ) {
-			throw new CFLibRuntimeException( getClass(), S_ProcName, "Could not resolve GenDef " + genDefClassName );
+			throw new YCFLibRuntimeException( getClass(), S_ProcName, "Could not resolve GenDef " + genDefClassName );
 		}
 		editRule.setRequiredLookupGenDef( genDef );
 		editRule.setRequiredName( itemName );
 		editRule.setRequiredBody( expansionBody );
-		ICFGenKbGenRuleObj created = (ICFGenKbGenRuleObj)editRule.create();
+		IYCFGenKbGenRuleObj created = (IYCFGenKbGenRuleObj)editRule.create();
 		editRule = null;
 
-		MssCFGelCompiler compiler = getGelCompiler();
+		MssYCFGelCompiler compiler = getGelCompiler();
 
-		CFGenKbGenRuleObj.getBodyBin( compiler, created );
+		YCFGenKbGenRuleObj.getBodyBin( compiler, created );
 
 		return ( created );
 	}
 
 
-	public ICFGenKbGenTruncObj defineTrunc(
+	public IYCFGenKbGenTruncObj defineTrunc(
 		String	definedNear,
 		String	toolsetName,
 		String	scopeDefClassName,
@@ -728,13 +728,13 @@ extends CFGenKbSchemaObj
 		String	expansionBody,
 		int		truncAt  )
 	{
-		final String S_ProcName = "MssCFEngine.defineTrunc() ";
+		final String S_ProcName = "MssYCFEngine.defineTrunc() ";
 		if( definedNear == null ) {
-			throw new CFLibNullArgumentException( getClass().getSimpleName(), "defineTrunc", 1, "definedNear" );
+			throw new YCFLibNullArgumentException( getClass().getSimpleName(), "defineTrunc", 1, "definedNear" );
 		}
-		ICFGenKbRuleCartObj ruleCart = getInternalRuleCart();
-		ICFGenKbGenTruncObj genTrunc = getGenTruncTableObj().newInstance();
-		ICFGenKbGenTruncEditObj editTrunc = (ICFGenKbGenTruncEditObj)genTrunc.beginEdit();
+		IYCFGenKbRuleCartObj ruleCart = getInternalRuleCart();
+		IYCFGenKbGenTruncObj genTrunc = getGenTruncTableObj().newInstance();
+		IYCFGenKbGenTruncEditObj editTrunc = (IYCFGenKbGenTruncEditObj)genTrunc.beginEdit();
 		editTrunc.setRequiredDefinedNear( definedNear );
 		editTrunc.setRequiredLookupToolSet( getToolSetTableObj().readToolSetByNameIdx(toolsetName) );
 		if ((scopeDefClassName != null) && (scopeDefClassName.length() > 0))
@@ -746,7 +746,7 @@ extends CFGenKbSchemaObj
 			else {
 				scopeDefClassName = fixGenDefName( scopeDefClassName );
 			}
-			ICFGenKbDefClassObj scopeDef = getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName);
+			IYCFGenKbDefClassObj scopeDef = getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName);
 			if( scopeDef == null )
 			{
 				throw new RuntimeException( S_ProcName + "Could not resolve ScopeDef " + scopeDefClassName );
@@ -761,7 +761,7 @@ extends CFGenKbSchemaObj
 		editTrunc.setRequiredLookupRuleType(
 			getRuleTypeTableObj().readRuleTypeByNameIdx("Trunc") );
 		genDefClassName = fixGenDefName( genDefClassName );
-		ICFGenKbDefClassObj genDef = getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
+		IYCFGenKbDefClassObj genDef = getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
 		if( genDef == null )
 		{
 			throw new RuntimeException( S_ProcName + "Could not resolve GenDef " + genDefClassName );
@@ -770,11 +770,11 @@ extends CFGenKbSchemaObj
 		editTrunc.setRequiredName( itemName );
 		editTrunc.setRequiredBody( expansionBody );
 		editTrunc.setRequiredTruncateAt( truncAt );
-		ICFGenKbGenTruncObj created = (ICFGenKbGenTruncObj)editTrunc.create();
+		IYCFGenKbGenTruncObj created = (IYCFGenKbGenTruncObj)editTrunc.create();
 		editTrunc = null;
 
-		MssCFGelCompiler compiler = getGelCompiler();
-		CFGenKbGenTruncObj.getBodyBin( compiler, created );
+		MssYCFGelCompiler compiler = getGelCompiler();
+		YCFGenKbGenTruncObj.getBodyBin( compiler, created );
 
 		return (created);
 	}
@@ -797,22 +797,22 @@ extends CFGenKbSchemaObj
 	 *	level of the toolset.  If no match is found, $itemName$ is
 	 *	eventually returned.
 	 *
-	 *	@param		genContext		MssCFGenContext
+	 *	@param		genContext		MssYCFGenContext
 	 *	@param		itemName		String
 	 *	@return	String				Either the string returned by
 	 *								expanding the match item or $itemName$
 	 */
-	public ICFGenKbGenItemObj findContextItem(
-		MssCFGenContext	genContext,
+	public IYCFGenKbGenItemObj findContextItem(
+		MssYCFGenContext	genContext,
 		String			itemName )
 	{
-//		ICFGenKbGenItemObj	matchItem;
+//		IYCFGenKbGenItemObj	matchItem;
 //		int					lastSeparator;
 //		String				priorNames;
 //		String				toolNames = null;
 //		String			 	eliminatingToolName = null;
 
-		final String S_ProcName = "MssCFEngine.findContextItem() ";
+		final String S_ProcName = "MssYCFEngine.findContextItem() ";
 
 		//	Validate parameters
 
@@ -820,21 +820,21 @@ extends CFGenKbSchemaObj
 			throw new RuntimeException(S_ProcName + "itemName is null or empty");
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
 			return( null );
 		}
 
-		MssCFDefClassObj genClass = (MssCFDefClassObj)(getDefClassTableObj().readDefClassByNameIdx(
+		MssYCFDefClassObj genClass = (MssYCFDefClassObj)(getDefClassTableObj().readDefClassByNameIdx(
 			genDef.getGenDefName() ));
 		if( genClass.getRequiredName().equals( "Object" ) ) {
 			genClass = null;
 		}
 
-		ICFLibAnyObj scopeDef = genContext.getScopeDef();
-		MssCFDefClassObj scopeClass;
+		IYCFLibAnyObj scopeDef = genContext.getScopeDef();
+		MssYCFDefClassObj scopeClass;
 		if( scopeDef != null ) {
-			scopeClass = (MssCFDefClassObj)(getDefClassTableObj().readDefClassByNameIdx(
+			scopeClass = (MssYCFDefClassObj)(getDefClassTableObj().readDefClassByNameIdx(
 				scopeDef.getGenDefName() ));
 			if( scopeClass.getRequiredName().equals( "Object" ) ) {
 				scopeClass = null;
@@ -844,17 +844,17 @@ extends CFGenKbSchemaObj
 			scopeClass = null;
 		}
 
-		TreeMap<String,ICFGenKbGenItemObj> subMap = this.toolSetRuleMap.get( genContext.getRequiredLookupToolSet().getPKey() );
-		ICFGenKbGenItemObj genItem = subMap.get( itemName );
-		MssCFDefClassObj genItemClass;
-		MssCFDefClassObj genItemScope;
+		TreeMap<String,IYCFGenKbGenItemObj> subMap = this.toolSetRuleMap.get( genContext.getRequiredLookupToolSet().getPKey() );
+		IYCFGenKbGenItemObj genItem = subMap.get( itemName );
+		MssYCFDefClassObj genItemClass;
+		MssYCFDefClassObj genItemScope;
 		while( genItem != null ) {
-			genItemClass = (MssCFDefClassObj)genItem.getRequiredLookupGenDef();
+			genItemClass = (MssYCFDefClassObj)genItem.getRequiredLookupGenDef();
 			if( genItemClass.getRequiredName().equals( "Object" ) ) {
 				genItemClass = null;
 			}
 
-			genItemScope = (MssCFDefClassObj)genItem.getOptionalLookupScopeDef();
+			genItemScope = (MssYCFDefClassObj)genItem.getOptionalLookupScopeDef();
 			if( ( genItemScope != null ) && genItemScope.getRequiredName().equals( "Object" ) ) {
 				genItemScope = null;
 			}
@@ -879,7 +879,7 @@ extends CFGenKbSchemaObj
 
 		String inheritsFromName;
 		String inheritsFromFirst;
-		ICFGenKbToolSetObj toolset;
+		IYCFGenKbToolSetObj toolset;
 
 		while( lastPlus >= 0 ) {
 
@@ -892,12 +892,12 @@ extends CFGenKbSchemaObj
 			subMap = this.toolSetRuleMap.get( toolset.getPKey() );
 			genItem = subMap.get( itemName );
 			while( genItem != null ) {
-				genItemClass = (MssCFDefClassObj)genItem.getRequiredLookupGenDef();
+				genItemClass = (MssYCFDefClassObj)genItem.getRequiredLookupGenDef();
 				if( genItemClass.getRequiredName().equals( "Object" ) ) {
 					genItemClass = null;
 				}
 
-				genItemScope = (MssCFDefClassObj)genItem.getOptionalLookupScopeDef();
+				genItemScope = (MssYCFDefClassObj)genItem.getOptionalLookupScopeDef();
 				if( ( genItemScope != null ) && genItemScope.getRequiredName().equals( "Object" ) ) {
 					genItemScope = null;
 				}
@@ -921,12 +921,12 @@ extends CFGenKbSchemaObj
 			subMap = this.toolSetRuleMap.get( toolset.getPKey() );
 			genItem = subMap.get( itemName );
 			while( genItem != null ) {
-				genItemClass = (MssCFDefClassObj)genItem.getRequiredLookupGenDef();
+				genItemClass = (MssYCFDefClassObj)genItem.getRequiredLookupGenDef();
 				if( genItemClass.getRequiredName().equals( "Object" ) ) {
 					genItemClass = null;
 				}
 
-				genItemScope = (MssCFDefClassObj)genItem.getOptionalLookupScopeDef();
+				genItemScope = (MssYCFDefClassObj)genItem.getOptionalLookupScopeDef();
 				if( ( genItemScope != null ) && genItemScope.getRequiredName().equals( "Object" ) ) {
 					genItemScope = null;
 				}
@@ -955,12 +955,12 @@ extends CFGenKbSchemaObj
 		subMap = this.toolSetRuleMap.get( toolset.getPKey() );
 		genItem = subMap.get( itemName );
 		while( genItem != null ) {
-			genItemClass = (MssCFDefClassObj)genItem.getRequiredLookupGenDef();
+			genItemClass = (MssYCFDefClassObj)genItem.getRequiredLookupGenDef();
 			if( genItemClass.getRequiredName().equals( "Object" ) ) {
 				genItemClass = null;
 			}
 
-			genItemScope = (MssCFDefClassObj)genItem.getOptionalLookupScopeDef();
+			genItemScope = (MssYCFDefClassObj)genItem.getOptionalLookupScopeDef();
 			if( ( genItemScope != null ) && genItemScope.getRequiredName().equals( "Object" ) ) {
 				genItemScope = null;
 			}
@@ -987,27 +987,27 @@ extends CFGenKbSchemaObj
 	 *
 	 *	@param		buildString		String	The string that identifies the build being produced
 	 *	@param		rootGenDir		String		The root generation directory
-	 *	@param		anyDef			ICFLibAnyObj	The definition to generate code for.
+	 *	@param		anyDef			IYCFLibAnyObj	The definition to generate code for.
 	 *	@param		toolsDesired	List<String>	The tools to generate code for
 	 */
 	public void generate(
 		String					buildString,
 		String					rootGenDir,
-		ICFLibAnyObj			anyDef,
+		IYCFLibAnyObj			anyDef,
 		List<String>			toolsDesired,
 		String					initialRuleName )
 	{
-		final String S_ProcName = "MssCFEngine.generate() ";
+		final String S_ProcName = "MssYCFEngine.generate() ";
 
 		int						idx;
 		int						num;
 		String					toolsetName = null;
-		ICFGenKbGenItemObj		matchItem = null;
-		MssCFGenContext			genContext = null;
+		IYCFGenKbGenItemObj		matchItem = null;
+		MssYCFGenContext			genContext = null;
 		String					generated = null;
 
-		MssCFToolSetObj			toolset = null;
-		MssCFDefClassObj		genDefClass = null;
+		MssYCFToolSetObj			toolset = null;
+		MssYCFDefClassObj		genDefClass = null;
 		String					genDefClassName = null;
 
 		//	Validate
@@ -1049,7 +1049,7 @@ extends CFGenKbSchemaObj
 
 		//		Resolve the toolset
 
-			toolset = (MssCFToolSetObj)getToolSetTableObj().readToolSetByNameIdx(toolsetName);
+			toolset = (MssYCFToolSetObj)getToolSetTableObj().readToolSetByNameIdx(toolsetName);
 			if (toolset == null) {
 				throw new RuntimeException(S_ProcName + "Could not resolve toolset \"" + toolsetName + "\"");
 			}
@@ -1057,7 +1057,7 @@ extends CFGenKbSchemaObj
 		//		Resolve the generation class
 
 			genDefClassName = anyDef.getGenDefName();
-			genDefClass = (MssCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
+			genDefClass = (MssYCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
 			if (genDefClass == null) {
 				throw new RuntimeException(S_ProcName + "Could not resolve gen DefClass \"" + genDefClassName + "\"");
 			}
@@ -1090,38 +1090,38 @@ extends CFGenKbSchemaObj
 		//		Generate the expansion of the item.  If the expansion
 		//		returns a single-line string, we log it.
 
-			if( matchItem instanceof MssCFGenFileObj ) {
+			if( matchItem instanceof MssYCFGenFileObj ) {
 				if (debugMode) {
-					System.err.println("Expand " + ((MssCFGenFileObj)matchItem).getRequiredName());
+					System.err.println("Expand " + ((MssYCFGenFileObj)matchItem).getRequiredName());
 				}
-				generated = ((MssCFGenFileObj)matchItem).expandBody( genContext );
+				generated = ((MssYCFGenFileObj)matchItem).expandBody( genContext );
 			}
-			else if (matchItem instanceof MssCFGenTruncObj) {
+			else if (matchItem instanceof MssYCFGenTruncObj) {
 				if (debugMode) {
-					System.err.println("Expand " + ((MssCFGenTruncObj)matchItem).getRequiredName());
+					System.err.println("Expand " + ((MssYCFGenTruncObj)matchItem).getRequiredName());
 				}
-				generated = ((MssCFGenTruncObj)matchItem).expandBody( genContext );
+				generated = ((MssYCFGenTruncObj)matchItem).expandBody( genContext );
 			}
-			else if (matchItem instanceof MssCFGenBindObj) {
+			else if (matchItem instanceof MssYCFGenBindObj) {
 				if (debugMode) {
-					System.err.println("Expand " + ((MssCFGenBindObj)matchItem).getRequiredName());
+					System.err.println("Expand " + ((MssYCFGenBindObj)matchItem).getRequiredName());
 				}
-				generated = ((MssCFGenBindObj)matchItem).expandBody( genContext );
+				generated = ((MssYCFGenBindObj)matchItem).expandBody( genContext );
 			}
-			else if (matchItem instanceof MssCFGenIteratorObj) {
+			else if (matchItem instanceof MssYCFGenIteratorObj) {
 				if (debugMode) {
-					System.err.println("Expand " + ((MssCFGenIteratorObj)matchItem).getRequiredName());
+					System.err.println("Expand " + ((MssYCFGenIteratorObj)matchItem).getRequiredName());
 				}
-				generated = ((MssCFGenIteratorObj)matchItem).expandBody( genContext );
+				generated = ((MssYCFGenIteratorObj)matchItem).expandBody( genContext );
 			}
-			else if (matchItem instanceof MssCFGenReferenceObj) {
-				generated = ""; // ((CFGenReferenceObj)matchItem).expandBody( genContext );
+			else if (matchItem instanceof MssYCFGenReferenceObj) {
+				generated = ""; // ((YCFGenReferenceObj)matchItem).expandBody( genContext );
 			}
-			else if (matchItem instanceof MssCFGenRuleObj) {
+			else if (matchItem instanceof MssYCFGenRuleObj) {
 				if (debugMode) {
-					System.err.println("Expand " + ((MssCFGenRuleObj)matchItem).getRequiredName());
+					System.err.println("Expand " + ((MssYCFGenRuleObj)matchItem).getRequiredName());
 				}
-				generated = ((MssCFGenRuleObj)matchItem).expandBody( genContext );
+				generated = ((MssYCFGenRuleObj)matchItem).expandBody( genContext );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "Unsupported knowledge class " 
@@ -1187,34 +1187,34 @@ extends CFGenKbSchemaObj
 	 *	of a generation item.
 	 */
 	protected void initGenItem(
-		CFGenKbGenItemEditObj	genItem,
-		MssCFRuleTypeObj   		ruleType,
+		YCFGenKbGenItemEditObj	genItem,
+		MssYCFRuleTypeObj   		ruleType,
 		String					toolsetName,
 		String					scopeDefClassName,
 		String					genDefClassName,
 		String					itemName )
 	{
-		final String			S_ProcName = "MssCFEngine.initGenItem() ";
+		final String			S_ProcName = "MssYCFEngine.initGenItem() ";
 
-		MssCFToolSetObj			toolset = null;
-		MssCFDefClassObj		defclassScope = null;
-		MssCFDefClassObj		defclassGenDef = null;
+		MssYCFToolSetObj			toolset = null;
+		MssYCFDefClassObj		defclassScope = null;
+		MssYCFDefClassObj		defclassGenDef = null;
 
-		toolset = (MssCFToolSetObj)getToolSetTableObj().readToolSetByNameIdx(toolsetName);
+		toolset = (MssYCFToolSetObj)getToolSetTableObj().readToolSetByNameIdx(toolsetName);
 		if (toolset == null) {
 			throw new RuntimeException(S_ProcName + "Could not resolve toolset \"" + toolsetName + "\"");
 		}
 
 		if( ( scopeDefClassName != null ) && ( 0 < scopeDefClassName.length() ) ) {
 			if (scopeDefClassName.equals("*")) {
-				defclassScope = (MssCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(getAnyClassName());
+				defclassScope = (MssYCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(getAnyClassName());
 				if (defclassScope == null) {
 					throw new RuntimeException(S_ProcName + "Could not resolve scope DefClass \"" + getAnyClassName() + "\"");
 				}
 			}
 			else {
 				scopeDefClassName = fixGenDefName( scopeDefClassName );
-				defclassScope = (MssCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName);
+				defclassScope = (MssYCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName);
 				if (defclassScope == null) {
 					throw new RuntimeException(S_ProcName + "Could not resolve scope DefClass \"" + scopeDefClassName + "\"");
 				}
@@ -1222,14 +1222,14 @@ extends CFGenKbSchemaObj
 		}
 
 		if( genDefClassName.equals( "*" ) ) {
-			defclassGenDef = (MssCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(getAnyClassName());
+			defclassGenDef = (MssYCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(getAnyClassName());
 			if (defclassGenDef == null) {
 				throw new RuntimeException(S_ProcName + "Could not resolve gen DefClass \"" + getAnyClassName() + "\"");
 			}
 		}
 		else {
 			genDefClassName = fixGenDefName( genDefClassName );
-			defclassScope = (MssCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
+			defclassScope = (MssYCFDefClassObj)getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
 			if (defclassScope == null) {
 				throw new RuntimeException(S_ProcName + "Could not resolve gen DefClass \"" + genDefClassName + "\"");
 			}
@@ -1242,12 +1242,12 @@ extends CFGenKbSchemaObj
 		genItem.setRequiredName( itemName );
 	}
 
-	public ICFGenKbToolObj defineTool( String toolName )
+	public IYCFGenKbToolObj defineTool( String toolName )
 	{
-		ICFGenKbToolObj tool;
+		IYCFGenKbToolObj tool;
 		tool = getToolTableObj().readToolByNameIdx(toolName);
 		if( tool == null ) {
-			ICFGenKbToolEditObj editTool;
+			IYCFGenKbToolEditObj editTool;
 			tool = getToolTableObj().newInstance();
 			editTool = tool.beginEdit();
 			editTool.setRequiredName( toolName );
@@ -1257,13 +1257,13 @@ extends CFGenKbSchemaObj
 		return( tool );
 	}
 
-	public ICFGenKbToolSetObj defineToolSet( String toolSetName )
+	public IYCFGenKbToolSetObj defineToolSet( String toolSetName )
 	{
 		// TODO Lots of work to be done here
-		ICFGenKbToolSetObj toolSet;
+		IYCFGenKbToolSetObj toolSet;
 		toolSet = getToolSetTableObj().readToolSetByNameIdx(toolSetName);
 		if( toolSet == null ) {
-			ICFGenKbToolSetEditObj editToolSet;
+			IYCFGenKbToolSetEditObj editToolSet;
 			toolSet = getToolSetTableObj().newInstance();
 			editToolSet = toolSet.beginEdit();
 			editToolSet.setRequiredName( toolSetName );
@@ -1381,37 +1381,37 @@ extends CFGenKbSchemaObj
 
 	private void libInitRuleTypes()
 	{
-		ICFGenKbRuleTypeObj ruleTypeBind = getRuleTypeTableObj().newInstance();
-		ICFGenKbRuleTypeEditObj editRuleType = ruleTypeBind.beginEdit();
+		IYCFGenKbRuleTypeObj ruleTypeBind = getRuleTypeTableObj().newInstance();
+		IYCFGenKbRuleTypeEditObj editRuleType = ruleTypeBind.beginEdit();
 		editRuleType.setRequiredName( "Bind" );
 		ruleTypeBind = editRuleType.create();
 		editRuleType = null;
 
-		ICFGenKbRuleTypeObj ruleTypeIterator = getRuleTypeTableObj().newInstance();
+		IYCFGenKbRuleTypeObj ruleTypeIterator = getRuleTypeTableObj().newInstance();
 		editRuleType = ruleTypeIterator.beginEdit();
 		editRuleType.setRequiredName( "Iterator" );
 		ruleTypeIterator = editRuleType.create();
 		editRuleType = null;
 
-		ICFGenKbRuleTypeObj ruleTypeReference = getRuleTypeTableObj().newInstance();
+		IYCFGenKbRuleTypeObj ruleTypeReference = getRuleTypeTableObj().newInstance();
 		editRuleType = ruleTypeReference.beginEdit();
 		editRuleType.setRequiredName( "Reference" );
 		ruleTypeReference = editRuleType.create();
 		editRuleType = null;
 
-		ICFGenKbRuleTypeObj ruleTypeRule = getRuleTypeTableObj().newInstance();
+		IYCFGenKbRuleTypeObj ruleTypeRule = getRuleTypeTableObj().newInstance();
 		editRuleType = ruleTypeRule.beginEdit();
 		editRuleType.setRequiredName( "Rule" );
 		ruleTypeRule = editRuleType.create();
 		editRuleType = null;
 
-		ICFGenKbRuleTypeObj ruleTypeFile = getRuleTypeTableObj().newInstance();
+		IYCFGenKbRuleTypeObj ruleTypeFile = getRuleTypeTableObj().newInstance();
 		editRuleType = ruleTypeFile.beginEdit();
 		editRuleType.setRequiredName( "File" );
 		ruleTypeFile = editRuleType.create();
 		editRuleType = null;
 
-		ICFGenKbRuleTypeObj ruleTypeTrunc = getRuleTypeTableObj().newInstance();
+		IYCFGenKbRuleTypeObj ruleTypeTrunc = getRuleTypeTableObj().newInstance();
 		editRuleType = ruleTypeTrunc.beginEdit();
 		editRuleType.setRequiredName( "Trunc" );
 		ruleTypeTrunc = editRuleType.create();

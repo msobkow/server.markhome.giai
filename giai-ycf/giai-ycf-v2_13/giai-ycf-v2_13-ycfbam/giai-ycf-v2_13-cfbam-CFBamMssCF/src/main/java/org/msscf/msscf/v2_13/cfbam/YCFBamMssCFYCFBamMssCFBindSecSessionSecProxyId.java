@@ -1,16 +1,16 @@
 
-// Description: Java 11 MssCF Binding for SecSession Column SecProxyId.
+// Description: Java 11 MssYCF Binding for SecSession Column SecProxyId.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,88 +27,88 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamMssCF;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF;
 
 import java.math.*;
 import java.sql.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 import org.apache.commons.codec.binary.Base64;
 
 /**
- *	CFBamMssCFBindSecSessionSecProxyId binds SecSession.SecProxyId
- *	as an instance of MssCFGenBindObj.
+ *	YCFBamMssYCFBindSecSessionSecProxyId binds SecSession.SecProxyId
+ *	as an instance of MssYCFGenBindObj.
  */
-public class CFBamMssCFBindSecSessionSecProxyId
-	extends MssCFGenBindObj
+public class YCFBamMssYCFBindSecSessionSecProxyId
+	extends MssYCFGenBindObj
 {
 	private static final long serialVersionUID = 1L;
 
-	public CFBamMssCFBindSecSessionSecProxyId() {
+	public YCFBamMssYCFBindSecSessionSecProxyId() {
 		super();
 	}
 
-	public CFBamMssCFBindSecSessionSecProxyId( MssCFEngine argEngine ) {
+	public YCFBamMssYCFBindSecSessionSecProxyId( MssYCFEngine argEngine ) {
 		super( argEngine,
 			"any",
 			null,
 			"SecSession",
 			"SecProxyId" );
 	}
-	public Object getValueObject( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindSecSessionSecProxyId.getValueObject() ";
+	public Object getValueObject( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindSecSessionSecProxyId.getValueObject() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
 		}
 
 		UUID secProxyId;
-		if( genDef instanceof ICFBamSecSessionObj ) {
-			secProxyId = ((ICFBamSecSessionObj)genDef).getOptionalSecProxyId();
+		if( genDef instanceof IYCFBamSecSessionObj ) {
+			secProxyId = ((IYCFBamSecSessionObj)genDef).getOptionalSecProxyId();
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamSecSessionObj" );
+				"IYCFBamSecSessionObj" );
 		}
 
 		return( secProxyId );
 	}
 
-	public String expandBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "CFBamMssCFBindSecSessionSecProxyId.expandBody() ";
+	public String expandBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "YCFBamMssYCFBindSecSessionSecProxyId.expandBody() ";
 
 		if( genContext == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext" );
 		}
 
-		ICFLibAnyObj genDef = genContext.getGenDef();
+		IYCFLibAnyObj genDef = genContext.getGenDef();
 		if( genDef == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"expandBody",
 				1,
 				"genContext.getGenDef()" );
@@ -116,8 +116,8 @@ public class CFBamMssCFBindSecSessionSecProxyId
 
 		String ret;
 
-		if( genDef instanceof ICFBamSecSessionObj ) {
-			UUID secProxyId = ((ICFBamSecSessionObj)genDef).getOptionalSecProxyId();
+		if( genDef instanceof IYCFBamSecSessionObj ) {
+			UUID secProxyId = ((IYCFBamSecSessionObj)genDef).getOptionalSecProxyId();
 			if( secProxyId == null ) {
 				ret = null;
 			}
@@ -126,11 +126,11 @@ public class CFBamMssCFBindSecSessionSecProxyId
 			}
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"expandBody",
 				"genContext.getGenDef()",
 				genDef,
-				"ICFBamSecSessionObj" );
+				"IYCFBamSecSessionObj" );
 		}
 
 		return( ret );

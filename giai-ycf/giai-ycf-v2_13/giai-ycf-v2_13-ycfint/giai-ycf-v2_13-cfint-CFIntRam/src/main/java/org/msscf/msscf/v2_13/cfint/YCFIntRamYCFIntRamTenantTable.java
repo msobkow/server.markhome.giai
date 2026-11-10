@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for Tenant.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,64 +27,64 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntRam;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntRamTenantTable in-memory RAM DbIO implementation
+ *	YCFIntRamTenantTable in-memory RAM DbIO implementation
  *	for Tenant.
  */
-public class CFIntRamTenantTable
-	implements ICFIntTenantTable
+public class YCFIntRamTenantTable
+	implements IYCFIntTenantTable
 {
-	private ICFIntSchema schema;
-	private Map< CFSecTenantPKey,
-				CFSecTenantBuff > dictByPKey
-		= new HashMap< CFSecTenantPKey,
-				CFSecTenantBuff >();
-	private Map< CFSecTenantByClusterIdxKey,
-				Map< CFSecTenantPKey,
-					CFSecTenantBuff >> dictByClusterIdx
-		= new HashMap< CFSecTenantByClusterIdxKey,
-				Map< CFSecTenantPKey,
-					CFSecTenantBuff >>();
-	private Map< CFSecTenantByUNameIdxKey,
-			CFSecTenantBuff > dictByUNameIdx
-		= new HashMap< CFSecTenantByUNameIdxKey,
-			CFSecTenantBuff >();
-	private Map< CFIntRamTenantId32Gen,
-				CFIntRamTenantId32Gen > id32Generator
-		= new HashMap< CFIntRamTenantId32Gen,
-				CFIntRamTenantId32Gen >();
-	private Map< CFIntRamTenantId64Gen,
-				CFIntRamTenantId64Gen > id64Generator
-		= new HashMap< CFIntRamTenantId64Gen,
-				CFIntRamTenantId64Gen >();
+	private IYCFIntSchema schema;
+	private Map< YCFSecTenantPKey,
+				YCFSecTenantBuff > dictByPKey
+		= new HashMap< YCFSecTenantPKey,
+				YCFSecTenantBuff >();
+	private Map< YCFSecTenantByClusterIdxKey,
+				Map< YCFSecTenantPKey,
+					YCFSecTenantBuff >> dictByClusterIdx
+		= new HashMap< YCFSecTenantByClusterIdxKey,
+				Map< YCFSecTenantPKey,
+					YCFSecTenantBuff >>();
+	private Map< YCFSecTenantByUNameIdxKey,
+			YCFSecTenantBuff > dictByUNameIdx
+		= new HashMap< YCFSecTenantByUNameIdxKey,
+			YCFSecTenantBuff >();
+	private Map< YCFIntRamTenantId32Gen,
+				YCFIntRamTenantId32Gen > id32Generator
+		= new HashMap< YCFIntRamTenantId32Gen,
+				YCFIntRamTenantId32Gen >();
+	private Map< YCFIntRamTenantId64Gen,
+				YCFIntRamTenantId64Gen > id64Generator
+		= new HashMap< YCFIntRamTenantId64Gen,
+				YCFIntRamTenantId64Gen >();
 
-	public CFIntRamTenantTable( ICFIntSchema argSchema ) {
+	public YCFIntRamTenantTable( IYCFIntSchema argSchema ) {
 		schema = argSchema;
 	}
 
 	protected int generateNextId32( long argId,
 		short argSliceId )
 	{
-		CFIntRamTenantId32Gen key = new CFIntRamTenantId32Gen();
+		YCFIntRamTenantId32Gen key = new YCFIntRamTenantId32Gen();
 		key.setRequiredId( argId );
 		key.setRequiredSliceId( argSliceId );
 
-		CFIntRamTenantId32Gen useGen = id32Generator.get( key );
+		YCFIntRamTenantId32Gen useGen = id32Generator.get( key );
 		if( useGen == null ) {
 			id32Generator.put( key, key );
 			useGen = key;
@@ -98,11 +98,11 @@ public class CFIntRamTenantTable
 	protected long generateNextId64( long argId,
 		short argSliceId )
 	{
-		CFIntRamTenantId64Gen key = new CFIntRamTenantId64Gen();
+		YCFIntRamTenantId64Gen key = new YCFIntRamTenantId64Gen();
 		key.setRequiredId( argId );
 		key.setRequiredSliceId( argSliceId );
 
-		CFIntRamTenantId64Gen useGen = id64Generator.get( key );
+		YCFIntRamTenantId64Gen useGen = id64Generator.get( key );
 		if( useGen == null ) {
 			id64Generator.put( key, key );
 			useGen = key;
@@ -113,15 +113,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public int nextTSecGroupIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public int nextTSecGroupIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		int retval = nextTSecGroupIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public int nextTSecGroupIdGen( CFSecAuthorization Authorization,
+	public int nextTSecGroupIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		int retNext = generateNextId32( argId,
@@ -129,15 +129,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public long nextTSecGrpIncIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public long nextTSecGrpIncIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		long retval = nextTSecGrpIncIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public long nextTSecGrpIncIdGen( CFSecAuthorization Authorization,
+	public long nextTSecGrpIncIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		long retNext = generateNextId64( argId,
@@ -145,15 +145,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public long nextTSecGrpMembIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public long nextTSecGrpMembIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		long retval = nextTSecGrpMembIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public long nextTSecGrpMembIdGen( CFSecAuthorization Authorization,
+	public long nextTSecGrpMembIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		long retNext = generateNextId64( argId,
@@ -161,15 +161,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public long nextLicenseIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public long nextLicenseIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		long retval = nextLicenseIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public long nextLicenseIdGen( CFSecAuthorization Authorization,
+	public long nextLicenseIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		long retNext = generateNextId64( argId,
@@ -177,15 +177,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public long nextMajorVersionIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public long nextMajorVersionIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		long retval = nextMajorVersionIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public long nextMajorVersionIdGen( CFSecAuthorization Authorization,
+	public long nextMajorVersionIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		long retNext = generateNextId64( argId,
@@ -193,15 +193,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public long nextMinorVersionIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public long nextMinorVersionIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		long retval = nextMinorVersionIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public long nextMinorVersionIdGen( CFSecAuthorization Authorization,
+	public long nextMinorVersionIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		long retNext = generateNextId64( argId,
@@ -209,15 +209,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public long nextSubProjectIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public long nextSubProjectIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		long retval = nextSubProjectIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public long nextSubProjectIdGen( CFSecAuthorization Authorization,
+	public long nextSubProjectIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		long retNext = generateNextId64( argId,
@@ -225,15 +225,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public long nextTldIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public long nextTldIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		long retval = nextTldIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public long nextTldIdGen( CFSecAuthorization Authorization,
+	public long nextTldIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		long retNext = generateNextId64( argId,
@@ -241,15 +241,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public long nextTopDomainIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public long nextTopDomainIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		long retval = nextTopDomainIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public long nextTopDomainIdGen( CFSecAuthorization Authorization,
+	public long nextTopDomainIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		long retNext = generateNextId64( argId,
@@ -257,15 +257,15 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public long nextTopProjectIdGen( CFSecAuthorization Authorization,
-		CFSecTenantPKey pkey )
+	public long nextTopProjectIdGen( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey pkey )
 	{
 		long retval = nextTopProjectIdGen( Authorization,
 			pkey.getRequiredId() );
 		return( retval );
 	}
 
-	public long nextTopProjectIdGen( CFSecAuthorization Authorization,
+	public long nextTopProjectIdGen( YCFSecAuthorization Authorization,
 		long argId )
 	{
 		long retNext = generateNextId64( argId,
@@ -273,28 +273,28 @@ public class CFIntRamTenantTable
 		return( retNext );
 	}
 
-	public void createTenant( CFSecAuthorization Authorization,
-		CFSecTenantBuff Buff )
+	public void createTenant( YCFSecAuthorization Authorization,
+		YCFSecTenantBuff Buff )
 	{
 		final String S_ProcName = "createTenant";
-		CFSecTenantPKey pkey = schema.getFactoryTenant().newPKey();
+		YCFSecTenantPKey pkey = schema.getFactoryTenant().newPKey();
 		pkey.setRequiredId( schema.nextTenantIdGen() );
 		Buff.setRequiredId( pkey.getRequiredId() );
-		CFSecTenantByClusterIdxKey keyClusterIdx = schema.getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey keyClusterIdx = schema.getFactoryTenant().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFSecTenantByUNameIdxKey keyUNameIdx = schema.getFactoryTenant().newUNameIdxKey();
+		YCFSecTenantByUNameIdxKey keyUNameIdx = schema.getFactoryTenant().newUNameIdxKey();
 		keyUNameIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		keyUNameIdx.setRequiredTenantName( Buff.getRequiredTenantName() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUNameIdx.containsKey( keyUNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"TenantUNameIdx",
 				keyUNameIdx );
@@ -309,7 +309,7 @@ public class CFIntRamTenantTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						S_ProcName,
 						"Container",
 						"TenantCluster",
@@ -323,12 +323,12 @@ public class CFIntRamTenantTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFSecTenantPKey, CFSecTenantBuff > subdictClusterIdx;
+		Map< YCFSecTenantPKey, YCFSecTenantBuff > subdictClusterIdx;
 		if( dictByClusterIdx.containsKey( keyClusterIdx ) ) {
 			subdictClusterIdx = dictByClusterIdx.get( keyClusterIdx );
 		}
 		else {
-			subdictClusterIdx = new HashMap< CFSecTenantPKey, CFSecTenantBuff >();
+			subdictClusterIdx = new HashMap< YCFSecTenantPKey, YCFSecTenantBuff >();
 			dictByClusterIdx.put( keyClusterIdx, subdictClusterIdx );
 		}
 		subdictClusterIdx.put( pkey, Buff );
@@ -337,13 +337,13 @@ public class CFIntRamTenantTable
 
 	}
 
-	public CFSecTenantBuff readDerived( CFSecAuthorization Authorization,
-		CFSecTenantPKey PKey )
+	public YCFSecTenantBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey PKey )
 	{
-		final String S_ProcName = "CFIntRamTenant.readDerived";
-		CFSecTenantPKey key = schema.getFactoryTenant().newPKey();
+		final String S_ProcName = "YCFIntRamTenant.readDerived";
+		YCFSecTenantPKey key = schema.getFactoryTenant().newPKey();
 		key.setRequiredId( PKey.getRequiredId() );
-		CFSecTenantBuff buff;
+		YCFSecTenantBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -353,13 +353,13 @@ public class CFIntRamTenantTable
 		return( buff );
 	}
 
-	public CFSecTenantBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecTenantPKey PKey )
+	public YCFSecTenantBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey PKey )
 	{
-		final String S_ProcName = "CFIntRamTenant.readDerived";
-		CFSecTenantPKey key = schema.getFactoryTenant().newPKey();
+		final String S_ProcName = "YCFIntRamTenant.readDerived";
+		YCFSecTenantPKey key = schema.getFactoryTenant().newPKey();
 		key.setRequiredId( PKey.getRequiredId() );
-		CFSecTenantBuff buff;
+		YCFSecTenantBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -369,10 +369,10 @@ public class CFIntRamTenantTable
 		return( buff );
 	}
 
-	public CFSecTenantBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFIntRamTenant.readAllDerived";
-		CFSecTenantBuff[] retList = new CFSecTenantBuff[ dictByPKey.values().size() ];
-		Iterator< CFSecTenantBuff > iter = dictByPKey.values().iterator();
+	public YCFSecTenantBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFIntRamTenant.readAllDerived";
+		YCFSecTenantBuff[] retList = new YCFSecTenantBuff[ dictByPKey.values().size() ];
+		Iterator< YCFSecTenantBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -380,43 +380,43 @@ public class CFIntRamTenantTable
 		return( retList );
 	}
 
-	public CFSecTenantBuff[] readDerivedByClusterIdx( CFSecAuthorization Authorization,
+	public YCFSecTenantBuff[] readDerivedByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFIntRamTenant.readDerivedByClusterIdx";
-		CFSecTenantByClusterIdxKey key = schema.getFactoryTenant().newClusterIdxKey();
+		final String S_ProcName = "YCFIntRamTenant.readDerivedByClusterIdx";
+		YCFSecTenantByClusterIdxKey key = schema.getFactoryTenant().newClusterIdxKey();
 		key.setRequiredClusterId( ClusterId );
 
-		CFSecTenantBuff[] recArray;
+		YCFSecTenantBuff[] recArray;
 		if( dictByClusterIdx.containsKey( key ) ) {
-			Map< CFSecTenantPKey, CFSecTenantBuff > subdictClusterIdx
+			Map< YCFSecTenantPKey, YCFSecTenantBuff > subdictClusterIdx
 				= dictByClusterIdx.get( key );
-			recArray = new CFSecTenantBuff[ subdictClusterIdx.size() ];
-			Iterator< CFSecTenantBuff > iter = subdictClusterIdx.values().iterator();
+			recArray = new YCFSecTenantBuff[ subdictClusterIdx.size() ];
+			Iterator< YCFSecTenantBuff > iter = subdictClusterIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecTenantPKey, CFSecTenantBuff > subdictClusterIdx
-				= new HashMap< CFSecTenantPKey, CFSecTenantBuff >();
+			Map< YCFSecTenantPKey, YCFSecTenantBuff > subdictClusterIdx
+				= new HashMap< YCFSecTenantPKey, YCFSecTenantBuff >();
 			dictByClusterIdx.put( key, subdictClusterIdx );
-			recArray = new CFSecTenantBuff[0];
+			recArray = new YCFSecTenantBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecTenantBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	public YCFSecTenantBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		String TenantName )
 	{
-		final String S_ProcName = "CFIntRamTenant.readDerivedByUNameIdx";
-		CFSecTenantByUNameIdxKey key = schema.getFactoryTenant().newUNameIdxKey();
+		final String S_ProcName = "YCFIntRamTenant.readDerivedByUNameIdx";
+		YCFSecTenantByUNameIdxKey key = schema.getFactoryTenant().newUNameIdxKey();
 		key.setRequiredClusterId( ClusterId );
 		key.setRequiredTenantName( TenantName );
 
-		CFSecTenantBuff buff;
+		YCFSecTenantBuff buff;
 		if( dictByUNameIdx.containsKey( key ) ) {
 			buff = dictByUNameIdx.get( key );
 		}
@@ -426,14 +426,14 @@ public class CFIntRamTenantTable
 		return( buff );
 	}
 
-	public CFSecTenantBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecTenantBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long Id )
 	{
-		final String S_ProcName = "CFIntRamTenant.readDerivedByIdIdx() ";
-		CFSecTenantPKey key = schema.getFactoryTenant().newPKey();
+		final String S_ProcName = "YCFIntRamTenant.readDerivedByIdIdx() ";
+		YCFSecTenantPKey key = schema.getFactoryTenant().newPKey();
 		key.setRequiredId( Id );
 
-		CFSecTenantBuff buff;
+		YCFSecTenantBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -443,41 +443,41 @@ public class CFIntRamTenantTable
 		return( buff );
 	}
 
-	public CFSecTenantBuff readBuff( CFSecAuthorization Authorization,
-		CFSecTenantPKey PKey )
+	public YCFSecTenantBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey PKey )
 	{
-		final String S_ProcName = "CFIntRamTenant.readBuff";
-		CFSecTenantBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFIntRamTenant.readBuff";
+		YCFSecTenantBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a015" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecTenantBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecTenantPKey PKey )
+	public YCFSecTenantBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFSecTenantBuff buff = readDerived( Authorization, PKey );
+		YCFSecTenantBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a015" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecTenantBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFSecTenantBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFIntRamTenant.readAllBuff";
-		CFSecTenantBuff buff;
-		ArrayList<CFSecTenantBuff> filteredList = new ArrayList<CFSecTenantBuff>();
-		CFSecTenantBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFIntRamTenant.readAllBuff";
+		YCFSecTenantBuff buff;
+		ArrayList<YCFSecTenantBuff> filteredList = new ArrayList<YCFSecTenantBuff>();
+		YCFSecTenantBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a015" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecTenantBuff[0] ) );
+		return( filteredList.toArray( new YCFSecTenantBuff[0] ) );
 	}
 
 	/**
@@ -487,54 +487,54 @@ public class CFIntRamTenantTable
 	 *
 	 *	@return All the specific Tenant instances in the database accessible for the Authorization.
 	 */
-	public CFSecTenantBuff[] pageAllBuff( CFSecAuthorization Authorization,
+	public YCFSecTenantBuff[] pageAllBuff( YCFSecAuthorization Authorization,
 		Long priorId )
 	{
 		final String S_ProcName = "pageAllBuff";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public CFSecTenantBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecTenantBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long Id )
 	{
-		final String S_ProcName = "CFIntRamTenant.readBuffByIdIdx() ";
-		CFSecTenantBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFIntRamTenant.readBuffByIdIdx() ";
+		YCFSecTenantBuff buff = readDerivedByIdIdx( Authorization,
 			Id );
 		if( ( buff != null ) && buff.getClassCode().equals( "a015" ) ) {
-			return( (CFSecTenantBuff)buff );
+			return( (YCFSecTenantBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecTenantBuff[] readBuffByClusterIdx( CFSecAuthorization Authorization,
+	public YCFSecTenantBuff[] readBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId )
 	{
-		final String S_ProcName = "CFIntRamTenant.readBuffByClusterIdx() ";
-		CFSecTenantBuff buff;
-		ArrayList<CFSecTenantBuff> filteredList = new ArrayList<CFSecTenantBuff>();
-		CFSecTenantBuff[] buffList = readDerivedByClusterIdx( Authorization,
+		final String S_ProcName = "YCFIntRamTenant.readBuffByClusterIdx() ";
+		YCFSecTenantBuff buff;
+		ArrayList<YCFSecTenantBuff> filteredList = new ArrayList<YCFSecTenantBuff>();
+		YCFSecTenantBuff[] buffList = readDerivedByClusterIdx( Authorization,
 			ClusterId );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a015" ) ) {
-				filteredList.add( (CFSecTenantBuff)buff );
+				filteredList.add( (YCFSecTenantBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecTenantBuff[0] ) );
+		return( filteredList.toArray( new YCFSecTenantBuff[0] ) );
 	}
 
-	public CFSecTenantBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	public YCFSecTenantBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		String TenantName )
 	{
-		final String S_ProcName = "CFIntRamTenant.readBuffByUNameIdx() ";
-		CFSecTenantBuff buff = readDerivedByUNameIdx( Authorization,
+		final String S_ProcName = "YCFIntRamTenant.readBuffByUNameIdx() ";
+		YCFSecTenantBuff buff = readDerivedByUNameIdx( Authorization,
 			ClusterId,
 			TenantName );
 		if( ( buff != null ) && buff.getClassCode().equals( "a015" ) ) {
-			return( (CFSecTenantBuff)buff );
+			return( (YCFSecTenantBuff)buff );
 		}
 		else {
 			return( null );
@@ -550,46 +550,46 @@ public class CFIntRamTenantTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	public CFSecTenantBuff[] pageBuffByClusterIdx( CFSecAuthorization Authorization,
+	public YCFSecTenantBuff[] pageBuffByClusterIdx( YCFSecAuthorization Authorization,
 		long ClusterId,
 		Long priorId )
 	{
 		final String S_ProcName = "pageBuffByClusterIdx";
-		throw new CFLibNotImplementedYetException( getClass(), S_ProcName );
+		throw new YCFLibNotImplementedYetException( getClass(), S_ProcName );
 	}
 
-	public void updateTenant( CFSecAuthorization Authorization,
-		CFSecTenantBuff Buff )
+	public void updateTenant( YCFSecAuthorization Authorization,
+		YCFSecTenantBuff Buff )
 	{
-		CFSecTenantPKey pkey = schema.getFactoryTenant().newPKey();
+		YCFSecTenantPKey pkey = schema.getFactoryTenant().newPKey();
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFSecTenantBuff existing = dictByPKey.get( pkey );
+		YCFSecTenantBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateTenant",
 				"Existing record not found",
 				"Tenant",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateTenant",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFSecTenantByClusterIdxKey existingKeyClusterIdx = schema.getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey existingKeyClusterIdx = schema.getFactoryTenant().newClusterIdxKey();
 		existingKeyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecTenantByClusterIdxKey newKeyClusterIdx = schema.getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey newKeyClusterIdx = schema.getFactoryTenant().newClusterIdxKey();
 		newKeyClusterIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 
-		CFSecTenantByUNameIdxKey existingKeyUNameIdx = schema.getFactoryTenant().newUNameIdxKey();
+		YCFSecTenantByUNameIdxKey existingKeyUNameIdx = schema.getFactoryTenant().newUNameIdxKey();
 		existingKeyUNameIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		existingKeyUNameIdx.setRequiredTenantName( existing.getRequiredTenantName() );
 
-		CFSecTenantByUNameIdxKey newKeyUNameIdx = schema.getFactoryTenant().newUNameIdxKey();
+		YCFSecTenantByUNameIdxKey newKeyUNameIdx = schema.getFactoryTenant().newUNameIdxKey();
 		newKeyUNameIdx.setRequiredClusterId( Buff.getRequiredClusterId() );
 		newKeyUNameIdx.setRequiredTenantName( Buff.getRequiredTenantName() );
 
@@ -597,7 +597,7 @@ public class CFIntRamTenantTable
 
 		if( ! existingKeyUNameIdx.equals( newKeyUNameIdx ) ) {
 			if( dictByUNameIdx.containsKey( newKeyUNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateTenant",
 					"TenantUNameIdx",
 					newKeyUNameIdx );
@@ -613,7 +613,7 @@ public class CFIntRamTenantTable
 				if( null == schema.getTableCluster().readDerivedByIdIdx( Authorization,
 						Buff.getRequiredClusterId() ) )
 				{
-					throw new CFLibUnresolvedRelationException( getClass(),
+					throw new YCFLibUnresolvedRelationException( getClass(),
 						"updateTenant",
 						"Container",
 						"TenantCluster",
@@ -625,7 +625,7 @@ public class CFIntRamTenantTable
 
 		// Update is valid
 
-		Map< CFSecTenantPKey, CFSecTenantBuff > subdict;
+		Map< YCFSecTenantPKey, YCFSecTenantBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -638,7 +638,7 @@ public class CFIntRamTenantTable
 			subdict = dictByClusterIdx.get( newKeyClusterIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecTenantPKey, CFSecTenantBuff >();
+			subdict = new HashMap< YCFSecTenantPKey, YCFSecTenantBuff >();
 			dictByClusterIdx.put( newKeyClusterIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -648,27 +648,27 @@ public class CFIntRamTenantTable
 
 	}
 
-	public void deleteTenant( CFSecAuthorization Authorization,
-		CFSecTenantBuff Buff )
+	public void deleteTenant( YCFSecAuthorization Authorization,
+		YCFSecTenantBuff Buff )
 	{
-		final String S_ProcName = "CFIntRamTenantTable.deleteTenant() ";
+		final String S_ProcName = "YCFIntRamTenantTable.deleteTenant() ";
 		String classCode;
-		CFSecTenantPKey pkey = schema.getFactoryTenant().newPKey();
+		YCFSecTenantPKey pkey = schema.getFactoryTenant().newPKey();
 		pkey.setRequiredId( Buff.getRequiredId() );
-		CFSecTenantBuff existing = dictByPKey.get( pkey );
+		YCFSecTenantBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteTenant",
 				pkey );
 		}
 					schema.getTableTld().deleteTldByTenantIdx( Authorization,
 						existing.getRequiredId() );
-		CFSecTSecGroupBuff buffDelIncludedByGroup;
-		CFSecTSecGroupBuff arrDelIncludedByGroup[] = schema.getTableTSecGroup().readDerivedByTenantIdx( Authorization,
+		YCFSecTSecGroupBuff buffDelIncludedByGroup;
+		YCFSecTSecGroupBuff arrDelIncludedByGroup[] = schema.getTableTSecGroup().readDerivedByTenantIdx( Authorization,
 			existing.getRequiredId() );
 		for( int idxDelIncludedByGroup = 0; idxDelIncludedByGroup < arrDelIncludedByGroup.length; idxDelIncludedByGroup++ ) {
 			buffDelIncludedByGroup = arrDelIncludedByGroup[idxDelIncludedByGroup];
@@ -676,8 +676,8 @@ public class CFIntRamTenantTable
 						buffDelIncludedByGroup.getRequiredTenantId(),
 						buffDelIncludedByGroup.getRequiredTSecGroupId() );
 		}
-		CFSecTSecGroupBuff buffDelGrpMembs;
-		CFSecTSecGroupBuff arrDelGrpMembs[] = schema.getTableTSecGroup().readDerivedByTenantIdx( Authorization,
+		YCFSecTSecGroupBuff buffDelGrpMembs;
+		YCFSecTSecGroupBuff arrDelGrpMembs[] = schema.getTableTSecGroup().readDerivedByTenantIdx( Authorization,
 			existing.getRequiredId() );
 		for( int idxDelGrpMembs = 0; idxDelGrpMembs < arrDelGrpMembs.length; idxDelGrpMembs++ ) {
 			buffDelGrpMembs = arrDelGrpMembs[idxDelGrpMembs];
@@ -685,8 +685,8 @@ public class CFIntRamTenantTable
 						buffDelGrpMembs.getRequiredTenantId(),
 						buffDelGrpMembs.getRequiredTSecGroupId() );
 		}
-		CFSecTSecGroupBuff buffDelGrpIncs;
-		CFSecTSecGroupBuff arrDelGrpIncs[] = schema.getTableTSecGroup().readDerivedByTenantIdx( Authorization,
+		YCFSecTSecGroupBuff buffDelGrpIncs;
+		YCFSecTSecGroupBuff arrDelGrpIncs[] = schema.getTableTSecGroup().readDerivedByTenantIdx( Authorization,
 			existing.getRequiredId() );
 		for( int idxDelGrpIncs = 0; idxDelGrpIncs < arrDelGrpIncs.length; idxDelGrpIncs++ ) {
 			buffDelGrpIncs = arrDelGrpIncs[idxDelGrpIncs];
@@ -696,17 +696,17 @@ public class CFIntRamTenantTable
 		}
 					schema.getTableTSecGroup().deleteTSecGroupByTenantIdx( Authorization,
 						existing.getRequiredId() );
-		CFSecTenantByClusterIdxKey keyClusterIdx = schema.getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey keyClusterIdx = schema.getFactoryTenant().newClusterIdxKey();
 		keyClusterIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 
-		CFSecTenantByUNameIdxKey keyUNameIdx = schema.getFactoryTenant().newUNameIdxKey();
+		YCFSecTenantByUNameIdxKey keyUNameIdx = schema.getFactoryTenant().newUNameIdxKey();
 		keyUNameIdx.setRequiredClusterId( existing.getRequiredClusterId() );
 		keyUNameIdx.setRequiredTenantName( existing.getRequiredTenantName() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFSecTenantPKey, CFSecTenantBuff > subdict;
+		Map< YCFSecTenantPKey, YCFSecTenantBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -716,32 +716,32 @@ public class CFIntRamTenantTable
 		dictByUNameIdx.remove( keyUNameIdx );
 
 	}
-	public void deleteTenantByIdIdx( CFSecAuthorization Authorization,
+	public void deleteTenantByIdIdx( YCFSecAuthorization Authorization,
 		long argId )
 	{
-		CFSecTenantPKey key = schema.getFactoryTenant().newPKey();
+		YCFSecTenantPKey key = schema.getFactoryTenant().newPKey();
 		key.setRequiredId( argId );
 		deleteTenantByIdIdx( Authorization, key );
 	}
 
-	public void deleteTenantByIdIdx( CFSecAuthorization Authorization,
-		CFSecTenantPKey argKey )
+	public void deleteTenantByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecTenantPKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFSecTenantBuff cur;
-		LinkedList<CFSecTenantBuff> matchSet = new LinkedList<CFSecTenantBuff>();
-		Iterator<CFSecTenantBuff> values = dictByPKey.values().iterator();
+		YCFSecTenantBuff cur;
+		LinkedList<YCFSecTenantBuff> matchSet = new LinkedList<YCFSecTenantBuff>();
+		Iterator<YCFSecTenantBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecTenantBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecTenantBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTenant().readDerivedByIdIdx( Authorization,
@@ -750,32 +750,32 @@ public class CFIntRamTenantTable
 		}
 	}
 
-	public void deleteTenantByClusterIdx( CFSecAuthorization Authorization,
+	public void deleteTenantByClusterIdx( YCFSecAuthorization Authorization,
 		long argClusterId )
 	{
-		CFSecTenantByClusterIdxKey key = schema.getFactoryTenant().newClusterIdxKey();
+		YCFSecTenantByClusterIdxKey key = schema.getFactoryTenant().newClusterIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		deleteTenantByClusterIdx( Authorization, key );
 	}
 
-	public void deleteTenantByClusterIdx( CFSecAuthorization Authorization,
-		CFSecTenantByClusterIdxKey argKey )
+	public void deleteTenantByClusterIdx( YCFSecAuthorization Authorization,
+		YCFSecTenantByClusterIdxKey argKey )
 	{
-		CFSecTenantBuff cur;
+		YCFSecTenantBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecTenantBuff> matchSet = new LinkedList<CFSecTenantBuff>();
-		Iterator<CFSecTenantBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecTenantBuff> matchSet = new LinkedList<YCFSecTenantBuff>();
+		Iterator<YCFSecTenantBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecTenantBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecTenantBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTenant().readDerivedByIdIdx( Authorization,
@@ -784,35 +784,35 @@ public class CFIntRamTenantTable
 		}
 	}
 
-	public void deleteTenantByUNameIdx( CFSecAuthorization Authorization,
+	public void deleteTenantByUNameIdx( YCFSecAuthorization Authorization,
 		long argClusterId,
 		String argTenantName )
 	{
-		CFSecTenantByUNameIdxKey key = schema.getFactoryTenant().newUNameIdxKey();
+		YCFSecTenantByUNameIdxKey key = schema.getFactoryTenant().newUNameIdxKey();
 		key.setRequiredClusterId( argClusterId );
 		key.setRequiredTenantName( argTenantName );
 		deleteTenantByUNameIdx( Authorization, key );
 	}
 
-	public void deleteTenantByUNameIdx( CFSecAuthorization Authorization,
-		CFSecTenantByUNameIdxKey argKey )
+	public void deleteTenantByUNameIdx( YCFSecAuthorization Authorization,
+		YCFSecTenantByUNameIdxKey argKey )
 	{
-		CFSecTenantBuff cur;
+		YCFSecTenantBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecTenantBuff> matchSet = new LinkedList<CFSecTenantBuff>();
-		Iterator<CFSecTenantBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecTenantBuff> matchSet = new LinkedList<YCFSecTenantBuff>();
+		Iterator<YCFSecTenantBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecTenantBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecTenantBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableTenant().readDerivedByIdIdx( Authorization,

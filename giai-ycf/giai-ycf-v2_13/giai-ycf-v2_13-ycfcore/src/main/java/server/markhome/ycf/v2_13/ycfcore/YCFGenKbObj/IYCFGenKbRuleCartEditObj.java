@@ -1,11 +1,11 @@
-// Description: Java 11 Instance Edit Object interface for CFGenKb RuleCart.
+// Description: Java 11 Instance Edit Object interface for YCFGenKb RuleCart.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,32 +27,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbRuleCartEditObj
-	extends ICFGenKbRuleCartObj
+public interface IYCFGenKbRuleCartEditObj
+	extends IYCFGenKbRuleCartObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFGenKbRuleCartObj.
+	 *	@return The original, non-modifiable instance as a base IYCFGenKbRuleCartObj.
 	 */
-	ICFGenKbRuleCartObj getOrig();
+	IYCFGenKbRuleCartObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFGenKbRuleCartObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFGenKbRuleCartObj.
 	 */
-	ICFGenKbRuleCartObj getOrigAsRuleCart();
+	IYCFGenKbRuleCartObj getOrigAsRuleCart();
 
 	/*
 	 *	create() may return a different instance than the
@@ -63,17 +63,17 @@ public interface ICFGenKbRuleCartEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFGenKbRuleCartObj create();
+	IYCFGenKbRuleCartObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFGenKbRuleCartEditObj update();
+	YCFGenKbRuleCartEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFGenKbRuleCartEditObj deleteInstance();
+	YCFGenKbRuleCartEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -118,16 +118,16 @@ public interface ICFGenKbRuleCartEditObj
 	void setOptionalRevisionString( String value );
 
 	/**
-	 *	Get the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 */
-	ICFGenKbTenantObj getRequiredContainerTenant();
+	IYCFGenKbTenantObj getRequiredContainerTenant();
 
 	/**
-	 *	Set the ICFGenKbTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFGenKbTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFGenKbTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFGenKbTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredContainerTenant( ICFGenKbTenantObj value );
+	void setRequiredContainerTenant( IYCFGenKbTenantObj value );
 }

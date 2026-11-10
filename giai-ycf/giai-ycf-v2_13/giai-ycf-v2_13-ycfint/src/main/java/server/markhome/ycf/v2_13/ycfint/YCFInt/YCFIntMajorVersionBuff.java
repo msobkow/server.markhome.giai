@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a MajorVersion buffer object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,11 +36,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntMajorVersionBuff
+public class YCFIntMajorVersionBuff
 {
 	public final static String CLASS_CODE = "a102";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -55,9 +55,9 @@ public class CFIntMajorVersionBuff
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
 	public static final long SUBPROJECTID_MIN_VALUE = 0L;
-	protected UUID createdByUserId = CFIntMajorVersionBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFIntMajorVersionBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFIntMajorVersionBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFIntMajorVersionBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected long requiredTenantId;
 	protected long requiredId;
@@ -65,11 +65,11 @@ public class CFIntMajorVersionBuff
 	protected String requiredName;
 	protected String optionalDescription;
 	protected int requiredRevision;
-	public CFIntMajorVersionBuff() {
-		requiredTenantId = CFIntMajorVersionBuff.TENANTID_INIT_VALUE;
-		requiredId = CFIntMajorVersionBuff.ID_INIT_VALUE;
-		requiredSubProjectId = CFIntMajorVersionBuff.SUBPROJECTID_INIT_VALUE;
-		requiredName = new String( CFIntMajorVersionBuff.NAME_INIT_VALUE );
+	public YCFIntMajorVersionBuff() {
+		requiredTenantId = YCFIntMajorVersionBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFIntMajorVersionBuff.ID_INIT_VALUE;
+		requiredSubProjectId = YCFIntMajorVersionBuff.SUBPROJECTID_INIT_VALUE;
+		requiredName = new String( YCFIntMajorVersionBuff.NAME_INIT_VALUE );
 		optionalDescription = null;
 	}
 
@@ -113,13 +113,13 @@ public class CFIntMajorVersionBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntMajorVersionBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntMajorVersionBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntMajorVersionBuff.TENANTID_MIN_VALUE );
+				YCFIntMajorVersionBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -129,13 +129,13 @@ public class CFIntMajorVersionBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFIntMajorVersionBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntMajorVersionBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFIntMajorVersionBuff.ID_MIN_VALUE );
+				YCFIntMajorVersionBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -145,13 +145,13 @@ public class CFIntMajorVersionBuff
 	}
 
 	public void setRequiredSubProjectId( long value ) {
-		if( value < CFIntMajorVersionBuff.SUBPROJECTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntMajorVersionBuff.SUBPROJECTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSubProjectId",
 				1,
 				"value",
 				value,
-				CFIntMajorVersionBuff.SUBPROJECTID_MIN_VALUE );
+				YCFIntMajorVersionBuff.SUBPROJECTID_MIN_VALUE );
 		}
 		requiredSubProjectId = value;
 	}
@@ -162,13 +162,13 @@ public class CFIntMajorVersionBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -187,7 +187,7 @@ public class CFIntMajorVersionBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -211,8 +211,8 @@ public class CFIntMajorVersionBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntMajorVersionBuff ) {
-			CFIntMajorVersionBuff rhs = (CFIntMajorVersionBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionBuff ) {
+			YCFIntMajorVersionBuff rhs = (YCFIntMajorVersionBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -251,8 +251,8 @@ public class CFIntMajorVersionBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionPKey ) {
-			CFIntMajorVersionPKey rhs = (CFIntMajorVersionPKey)obj;
+		else if( obj instanceof YCFIntMajorVersionPKey ) {
+			YCFIntMajorVersionPKey rhs = (YCFIntMajorVersionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -261,8 +261,8 @@ public class CFIntMajorVersionBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionHBuff ) {
-			CFIntMajorVersionHBuff rhs = (CFIntMajorVersionHBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionHBuff ) {
+			YCFIntMajorVersionHBuff rhs = (YCFIntMajorVersionHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -289,8 +289,8 @@ public class CFIntMajorVersionBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionHPKey ) {
-			CFIntMajorVersionHPKey rhs = (CFIntMajorVersionHPKey)obj;
+		else if( obj instanceof YCFIntMajorVersionHPKey ) {
+			YCFIntMajorVersionHPKey rhs = (YCFIntMajorVersionHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -299,15 +299,15 @@ public class CFIntMajorVersionBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionByTenantIdxKey ) {
-			CFIntMajorVersionByTenantIdxKey rhs = (CFIntMajorVersionByTenantIdxKey)obj;
+		else if( obj instanceof YCFIntMajorVersionByTenantIdxKey ) {
+			YCFIntMajorVersionByTenantIdxKey rhs = (YCFIntMajorVersionByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionBySubProjectIdxKey ) {
-			CFIntMajorVersionBySubProjectIdxKey rhs = (CFIntMajorVersionBySubProjectIdxKey)obj;
+		else if( obj instanceof YCFIntMajorVersionBySubProjectIdxKey ) {
+			YCFIntMajorVersionBySubProjectIdxKey rhs = (YCFIntMajorVersionBySubProjectIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -316,8 +316,8 @@ public class CFIntMajorVersionBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntMajorVersionByNameIdxKey ) {
-			CFIntMajorVersionByNameIdxKey rhs = (CFIntMajorVersionByNameIdxKey)obj;
+		else if( obj instanceof YCFIntMajorVersionByNameIdxKey ) {
+			YCFIntMajorVersionByNameIdxKey rhs = (YCFIntMajorVersionByNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -357,8 +357,8 @@ public class CFIntMajorVersionBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntMajorVersionBuff ) {
-			CFIntMajorVersionBuff rhs = (CFIntMajorVersionBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionBuff ) {
+			YCFIntMajorVersionBuff rhs = (YCFIntMajorVersionBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -423,8 +423,8 @@ public class CFIntMajorVersionBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionPKey ) {
-			CFIntMajorVersionPKey rhs = (CFIntMajorVersionPKey)obj;
+		else if( obj instanceof YCFIntMajorVersionPKey ) {
+			YCFIntMajorVersionPKey rhs = (YCFIntMajorVersionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -439,8 +439,8 @@ public class CFIntMajorVersionBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionHPKey ) {
-			CFIntMajorVersionHPKey rhs = (CFIntMajorVersionHPKey)obj;
+		else if( obj instanceof YCFIntMajorVersionHPKey ) {
+			YCFIntMajorVersionHPKey rhs = (YCFIntMajorVersionHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -465,8 +465,8 @@ public class CFIntMajorVersionBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionHBuff ) {
-			CFIntMajorVersionHBuff rhs = (CFIntMajorVersionHBuff)obj;
+		else if( obj instanceof YCFIntMajorVersionHBuff ) {
+			YCFIntMajorVersionHBuff rhs = (YCFIntMajorVersionHBuff)obj;
 			int retval = 0;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -510,8 +510,8 @@ public class CFIntMajorVersionBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionByTenantIdxKey ) {
-			CFIntMajorVersionByTenantIdxKey rhs = (CFIntMajorVersionByTenantIdxKey)obj;
+		else if( obj instanceof YCFIntMajorVersionByTenantIdxKey ) {
+			YCFIntMajorVersionByTenantIdxKey rhs = (YCFIntMajorVersionByTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -520,8 +520,8 @@ public class CFIntMajorVersionBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionBySubProjectIdxKey ) {
-			CFIntMajorVersionBySubProjectIdxKey rhs = (CFIntMajorVersionBySubProjectIdxKey)obj;
+		else if( obj instanceof YCFIntMajorVersionBySubProjectIdxKey ) {
+			YCFIntMajorVersionBySubProjectIdxKey rhs = (YCFIntMajorVersionBySubProjectIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -536,8 +536,8 @@ public class CFIntMajorVersionBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntMajorVersionByNameIdxKey ) {
-			CFIntMajorVersionByNameIdxKey rhs = (CFIntMajorVersionByNameIdxKey)obj;
+		else if( obj instanceof YCFIntMajorVersionByNameIdxKey ) {
+			YCFIntMajorVersionByNameIdxKey rhs = (YCFIntMajorVersionByNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -559,7 +559,7 @@ public class CFIntMajorVersionBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -567,11 +567,11 @@ public class CFIntMajorVersionBuff
 		}
 	}
 
-	public void set( CFIntMajorVersionBuff src ) {
+	public void set( YCFIntMajorVersionBuff src ) {
 		setMajorVersionBuff( src );
 	}
 
-	public void setMajorVersionBuff( CFIntMajorVersionBuff src ) {
+	public void setMajorVersionBuff( YCFIntMajorVersionBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setCreatedByUserId( src.getCreatedByUserId() );
@@ -584,11 +584,11 @@ public class CFIntMajorVersionBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFIntMajorVersionHBuff src ) {
+	public void set( YCFIntMajorVersionHBuff src ) {
 		setMajorVersionBuff( src );
 	}
 
-	public void setMajorVersionBuff( CFIntMajorVersionHBuff src ) {
+	public void setMajorVersionBuff( YCFIntMajorVersionHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredSubProjectId( src.getRequiredSubProjectId() );

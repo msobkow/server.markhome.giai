@@ -2,11 +2,11 @@
 // Description: Java 11 Factory interface for TSecGrpMemb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,15 +36,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbTSecGrpMembFactory interface for TSecGrpMemb
+ *	YCFGenKbTSecGrpMembFactory interface for TSecGrpMemb
  */
-public interface ICFGenKbTSecGrpMembFactory
+public interface IYCFGenKbTSecGrpMembFactory
 {
 
 	/**
@@ -52,41 +52,41 @@ public interface ICFGenKbTSecGrpMembFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbTSecGrpMembPKey newPKey();
+	YCFGenKbTSecGrpMembPKey newPKey();
 
 	/**
 	 *	Allocate a TenantIdx key over TSecGrpMemb instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbTSecGrpMembByTenantIdxKey newTenantIdxKey();
+	YCFGenKbTSecGrpMembByTenantIdxKey newTenantIdxKey();
 
 	/**
 	 *	Allocate a GroupIdx key over TSecGrpMemb instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbTSecGrpMembByGroupIdxKey newGroupIdxKey();
+	YCFGenKbTSecGrpMembByGroupIdxKey newGroupIdxKey();
 
 	/**
 	 *	Allocate a UserIdx key over TSecGrpMemb instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbTSecGrpMembByUserIdxKey newUserIdxKey();
+	YCFGenKbTSecGrpMembByUserIdxKey newUserIdxKey();
 
 	/**
 	 *	Allocate a UUserIdx key over TSecGrpMemb instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbTSecGrpMembByUUserIdxKey newUUserIdxKey();
+	YCFGenKbTSecGrpMembByUUserIdxKey newUUserIdxKey();
 
 	/**
 	 *	Allocate a TSecGrpMemb instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbTSecGrpMembBuff newBuff();
+	YCFGenKbTSecGrpMembBuff newBuff();
 
 }

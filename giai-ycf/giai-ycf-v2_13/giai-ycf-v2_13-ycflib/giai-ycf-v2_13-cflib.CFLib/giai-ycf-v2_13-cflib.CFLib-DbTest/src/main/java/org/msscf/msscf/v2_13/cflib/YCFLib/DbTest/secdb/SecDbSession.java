@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Database Testing
+ *	MSS Code Factory YCFLib 2.13 Database Testing
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -20,11 +20,11 @@
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
-package org.msscf.msscf.v2_13.cflib.CFLib.DbTest.secdb;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.DbTest.secdb;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.msscf.msscf.v2_13.cflib.CFLib.dbutil.CFLibDbKeyHash256;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil.YCFLibDbKeyHash256;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -41,13 +41,13 @@ public class SecDbSession {
 
     @Id
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "pid", nullable = false, unique = true, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "pid", nullable = false, unique = true, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
-    private CFLibDbKeyHash256 pid;
+    private YCFLibDbKeyHash256 pid;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @AttributeOverrides({
-        @AttributeOverride(name = "bytes", column = @Column(name = "secuser_pid", nullable = false, unique = false, length = CFLibDbKeyHash256.HASH_LENGTH))
+        @AttributeOverride(name = "bytes", column = @Column(name = "secuser_pid", nullable = false, unique = false, length = YCFLibDbKeyHash256.HASH_LENGTH))
     })
     private SecDbUser secUser;
 
@@ -70,12 +70,12 @@ public class SecDbSession {
   
     public SecDbSession() {}
 
-    public SecDbSession(CFLibDbKeyHash256 pid, SecDbUser secUser) {
+    public SecDbSession(YCFLibDbKeyHash256 pid, SecDbUser secUser) {
         this.pid = pid;
         this.secUser = secUser;
     }
 
-    public SecDbSession(CFLibDbKeyHash256 pid, SecDbUser secUser, String sessCreateInfo) {
+    public SecDbSession(YCFLibDbKeyHash256 pid, SecDbUser secUser, String sessCreateInfo) {
         this.pid = pid;
         this.secUser = secUser;
         this.sessCreateInfo = sessCreateInfo;
@@ -84,7 +84,7 @@ public class SecDbSession {
         this.terminatedAt = null;
     }
 
-    public SecDbSession(CFLibDbKeyHash256 pid, SecDbUser secUser, String sessCreateInfo, LocalDateTime createdAt) {
+    public SecDbSession(YCFLibDbKeyHash256 pid, SecDbUser secUser, String sessCreateInfo, LocalDateTime createdAt) {
         this.pid = pid;
         this.secUser = secUser;
         this.sessCreateInfo = sessCreateInfo;
@@ -93,7 +93,7 @@ public class SecDbSession {
         this.terminatedAt = null;
     }
 
-    public SecDbSession(CFLibDbKeyHash256 pid, SecDbUser secUser, String sessCreateInfo, LocalDateTime createdAt, String sessTerminationInfo, LocalDateTime terminatedAt) {
+    public SecDbSession(YCFLibDbKeyHash256 pid, SecDbUser secUser, String sessCreateInfo, LocalDateTime createdAt, String sessTerminationInfo, LocalDateTime terminatedAt) {
         this.pid = pid;
         this.secUser = secUser;
         this.sessCreateInfo = sessCreateInfo;
@@ -102,11 +102,11 @@ public class SecDbSession {
         this.terminatedAt = terminatedAt;
     }
 
-    public CFLibDbKeyHash256 getPid() {
+    public YCFLibDbKeyHash256 getPid() {
         return pid;
     }
 
-    public void setPid(CFLibDbKeyHash256 pid) {
+    public void setPid(YCFLibDbKeyHash256 pid) {
         this.pid = pid;
     }
 

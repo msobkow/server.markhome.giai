@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,25 +23,25 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
 import java.io.IOException;
 import java.io.File;
@@ -51,7 +51,7 @@ import java.util.Properties;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
 /**
  *	The WorkbenchUPrefs for the workbench defines the standard properties
@@ -61,7 +61,7 @@ import org.msscf.msscf.v2_13.cflib.CFLib.*;
  *	is defined in the preferences, the 1..n'th instances have a string version of their
  *	index appended.
  */
-public class MSSBamCFPrefs
+public class MSSBamYCFPrefs
 {
 
 /**
@@ -80,7 +80,7 @@ protected File							HomeDir;
 /**
  *	The user's preferences are stored in the user's $HOME/.msisarc
  */
-public final static String				FILENAME_MSSCFRC = ".msscfrc";
+public final static String				FILENAME_MSSYCFRC = ".mssycfrc";
 protected String						UPrefFileName;
 
 /**
@@ -92,7 +92,7 @@ protected File							UPrefFile;
 /**
  *	Where should code be generated to?
  */
-public final static String				PROPNAME_ROOTGENDIR = "msscf.rootgendir";
+public final static String				PROPNAME_ROOTGENDIR = "mssycf.rootgendir";
 protected String						RootGenDir;
 
 /**
@@ -102,7 +102,7 @@ protected String						RootGenDir;
  *	maintain sequencing of the entries.
  */
 protected ArrayList<String>				ModelPath;
-public final static String				PROPNAME_MODELDIR = "msscf.modeldir";
+public final static String				PROPNAME_MODELDIR = "mssycf.modeldir";
 
 /**
  *	The XML rule cartridge directories are stored as PathDirInfo instances.
@@ -111,20 +111,20 @@ public final static String				PROPNAME_MODELDIR = "msscf.modeldir";
  *	maintain sequencing of the entries.
  */
 protected ArrayList<String>				CartridgePath;
-public final static String				PROPNAME_CARTRIDGEDIR = "msscf.cartridgedir";
+public final static String				PROPNAME_CARTRIDGEDIR = "mssycf.cartridgedir";
 
 /**
  *	Jar files specify a package of "jar".  In this case the package
  *	names are implicit in the jar structure.
  */
-public final static String				PACKAGE_JAR = MSSBamCFPathDirInfo.PACKAGE_JAR;
+public final static String				PACKAGE_JAR = MSSBamYCFPathDirInfo.PACKAGE_JAR;
 
 /***************************************** Constructors *********************/
 
 /**
  *	Construct an instance for the running user.
  */
-public MSSBamCFPrefs()
+public MSSBamYCFPrefs()
 {
 	UserName = null;
 	HomeDirName = null;
@@ -152,7 +152,7 @@ protected Properties getProperties()
 /**
  *	Synchronized peer for getUserName().
  */
-private synchronized void s_resolveUserName( ICFLibMessageLog log )
+private synchronized void s_resolveUserName( IYCFLibMessageLog log )
 {
 	if( UserName != null ) {
 		return;
@@ -169,7 +169,7 @@ private synchronized void s_resolveUserName( ICFLibMessageLog log )
 /**
  *	The name of the user should always exist.
  */
-public String getUserName( ICFLibMessageLog log )
+public String getUserName( IYCFLibMessageLog log )
 {
 	if( UserName == null ) {
 		s_resolveUserName( log );
@@ -181,7 +181,7 @@ public String getUserName( ICFLibMessageLog log )
 /**
  *	Synchronized peer for getHomeDirName().
  */
-private synchronized void s_resolveHomeDirName( ICFLibMessageLog log )
+private synchronized void s_resolveHomeDirName( IYCFLibMessageLog log )
 {
 	if( HomeDirName != null ) {
 		return;
@@ -201,7 +201,7 @@ private synchronized void s_resolveHomeDirName( ICFLibMessageLog log )
 /**
  *	The name of the user's home directory always exists.
  */
-public String getHomeDirName( ICFLibMessageLog log )
+public String getHomeDirName( IYCFLibMessageLog log )
 {
 	if( HomeDirName == null ) {
 		s_resolveHomeDirName( log );
@@ -213,7 +213,7 @@ public String getHomeDirName( ICFLibMessageLog log )
 /**
  *	Synchronized peer for getHomeDir().
  */
-private synchronized void s_resolveHomeDir( ICFLibMessageLog log )
+private synchronized void s_resolveHomeDir( IYCFLibMessageLog log )
 {
 	if( HomeDir != null ) {
 		return;
@@ -247,7 +247,7 @@ private synchronized void s_resolveHomeDir( ICFLibMessageLog log )
 /**
  *	The user's home directory should always exist.
  */
-public File getHomeDir( ICFLibMessageLog log )
+public File getHomeDir( IYCFLibMessageLog log )
 {
 	if( HomeDir == null ) {
 		s_resolveHomeDir( log );
@@ -272,7 +272,7 @@ public String getRootGenDir()
  */
 public void setRootGenDir( String value )
 {
-	final String S_ProcName = "MSSBamCFPrefs.setRootGenDir() ";
+	final String S_ProcName = "MSSBamYCFPrefs.setRootGenDir() ";
 	if( ( value == null ) || ( value.length() == 0 ) ) {
     	throw new RuntimeException( S_ProcName + "Argument 1 value is null or empty");
     }
@@ -286,13 +286,13 @@ public void setRootGenDir( String value )
  */
 public void addModelPath( String dirname )
 {
-	final String S_ProcName = "MSSBamCFPrefs.addModelPath() ";
+	final String S_ProcName = "MSSBamYCFPrefs.addModelPath() ";
 
 	if( ( dirname == null ) || ( dirname.length() == 0 ) ) {
     	throw new RuntimeException( S_ProcName + "dirname is null or empty");
     }
 
-    MSSBamCFPathDirInfo pathdir = new MSSBamCFPathDirInfo( dirname, null );
+    MSSBamYCFPathDirInfo pathdir = new MSSBamYCFPathDirInfo( dirname, null );
 	ModelPath.add( pathdir.getPathName() );
 
     String propName;
@@ -328,7 +328,7 @@ public Iterator<String> getModelPathIterator()
  */
 public void addCartridgePath( String dirname )
 {
-	final String S_ProcName = "MSSBamCFPrefs.addCartridgePath() ";
+	final String S_ProcName = "MSSBamYCFPrefs.addCartridgePath() ";
 	if( ( dirname == null ) || ( dirname.length() == 0 ) ) {
     	throw new RuntimeException( S_ProcName + "Argument 1 dirname is null or empty");
     }
@@ -363,7 +363,7 @@ public Iterator<String> getCartridgePathIterator()
  *	Default values are set for the user properties if no file
  *	is found.
  */
-public synchronized void reset( ICFLibMessageLog log )
+public synchronized void reset( IYCFLibMessageLog log )
 {
 
 //	We need the user name and the home directory to set up a user's defaults
@@ -384,7 +384,7 @@ public synchronized void reset( ICFLibMessageLog log )
 
 //	Set the default development directory
 
-	String msisaDir = new String( homeDir.getPath() + File.separator + "msscf" + File.separator );
+	String msisaDir = new String( homeDir.getPath() + File.separator + "mssycf" + File.separator );
 
 //	Set the root generation directory
 
@@ -392,25 +392,25 @@ public synchronized void reset( ICFLibMessageLog log )
 
 //	Set the application models and pacakges
 
-	addModelPath( msisaDir + "/net-sourceforge-MssCF-2-11/java/model-2.13" );
+	addModelPath( msisaDir + "/net-sourceforge-MssYCF-2-11/java/model-2.13" );
 
 //	Set the rule directories and packages
 
-	addCartridgePath( msisaDir + "/net-sourceforge-MssCF-2-11/java/cartridge-2.13" );
+	addCartridgePath( msisaDir + "/net-sourceforge-MssYCF-2-11/java/cartridge-2.13" );
 }
 
 /**
  *	Parse the properties into user preference values.
  */
 protected void parseProperties(
-	ICFLibMessageLog		log,
+	IYCFLibMessageLog		log,
     boolean						reload )
 {
 	int							i;
     String						pathDir;
 	String						prop;
 	String						propName;
-	MSSBamCFPathDirInfo			pathInfo;
+	MSSBamYCFPathDirInfo			pathInfo;
 
     ModelPath.clear();
    	CartridgePath.clear();
@@ -482,9 +482,9 @@ protected void parseProperties(
 /**
  *	Save the user preferences file.
  */
-public boolean savePreferences( ICFLibMessageLog log )
+public boolean savePreferences( IYCFLibMessageLog log )
 {
-	final String S_ProcName = "MSSBamCFPrefs.savePreferences() ";
+	final String S_ProcName = "MSSBamYCFPrefs.savePreferences() ";
 	boolean retStatus = false;
 
 //	Push the user's display properties to the user preferences
@@ -542,7 +542,7 @@ public boolean savePreferences( ICFLibMessageLog log )
 
 	try {
 		UPref.store( fileWriter,
-        	"MSSBamCF Preferences for " + getUserName( null ) );
+        	"MSSBamYCF Preferences for " + getUserName( null ) );
 
 		fileWriter.flush();
 		fileWriter.close();
@@ -569,10 +569,10 @@ public boolean savePreferences( ICFLibMessageLog log )
  *	@param	reload	If set the preferences are always reread or reset.
  *	@return	True if preferences were properly loaded, false if errors occured.
  */
-public boolean loadPreferences( ICFLibMessageLog log, boolean reload )
+public boolean loadPreferences( IYCFLibMessageLog log, boolean reload )
 //throws IOException
 {
-	final String S_ProcName = "MSSBamCFPrefs.loadPreferences() ";
+	final String S_ProcName = "MSSBamYCFPrefs.loadPreferences() ";
 	if( ( UPref != null ) && ( ! reload ) ) {
 		return( true );
 	}
@@ -592,7 +592,7 @@ public boolean loadPreferences( ICFLibMessageLog log, boolean reload )
 	}
 
 	if( ( UPrefFileName == null ) || reload ) {
-		UPrefFileName = new String( homeDir.getPath() + File.separator + FILENAME_MSSCFRC );
+		UPrefFileName = new String( homeDir.getPath() + File.separator + FILENAME_MSSYCFRC );
 		UPrefFile = new File( UPrefFileName );
     	reset( log );
 	}

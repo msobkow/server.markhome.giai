@@ -1,15 +1,15 @@
-// Description: Java 11 XML SAX Parser for CFSec.
+// Description: Java 11 XML SAX Parser for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,56 +26,56 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecSaxLoader;
 
 import java.io.File;
 import java.util.Calendar;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
-public class CFSecSaxLdr
+public class YCFSecSaxLdr
 {
-	protected ICFLibMessageLog log = null;
-	protected CFSecSaxLoader saxLoader = null;
+	protected IYCFLibMessageLog log = null;
+	protected YCFSecSaxLoader saxLoader = null;
 	protected String clusterName = "system";
-	protected ICFSecClusterObj clusterObj = null;
+	protected IYCFSecClusterObj clusterObj = null;
 	protected String tenantName = "system";
-	protected static ICFSecTenantObj tenantObj = null;
+	protected static IYCFSecTenantObj tenantObj = null;
 	protected String secUserName = "system";
-	protected ICFSecSecUserObj secUserObj = null;
-	protected ICFSecSecSessionObj secSessionObj = null;
+	protected IYCFSecSecUserObj secUserObj = null;
+	protected IYCFSecSecSessionObj secSessionObj = null;
 	// Constructors
 
-	public CFSecSaxLdr() {
+	public YCFSecSaxLdr() {
 		log = null;
 		getSaxLoader();
 	}
 
-	public CFSecSaxLdr( ICFLibMessageLog messageLog ) {
+	public YCFSecSaxLdr( IYCFLibMessageLog messageLog ) {
 		log = messageLog;
 		getSaxLoader();
 	}
 
 	// Accessors
 
-	public void setSaxLoader( CFSecSaxLoader value ) {
+	public void setSaxLoader( YCFSecSaxLoader value ) {
 		saxLoader = value;
 	}
 
-	public CFSecSaxLoader getSaxLoader() {
+	public YCFSecSaxLoader getSaxLoader() {
 		if( saxLoader == null ) {
-			saxLoader = new CFSecSaxLoader( log );
+			saxLoader = new YCFSecSaxLoader( log );
 		}
 		return( saxLoader );
 	}
 
 	public void setClusterName( String value ) {
 		final String S_ProcName = "setClusterName";
-		ICFSecSchemaObj schema = saxLoader.getSchemaObj();
+		IYCFSecSchemaObj schema = saxLoader.getSchemaObj();
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"value" );
@@ -83,16 +83,16 @@ public class CFSecSaxLdr
 		else if( value.equals( "default" ) ) {
 			boolean transactionStarted = schema.beginTransaction();
 			try {
-				ICFSecSysClusterObj sysCluster = schema.getSysClusterTableObj().readSysClusterByIdIdx( 1 );
+				IYCFSecSysClusterObj sysCluster = schema.getSysClusterTableObj().readSysClusterByIdIdx( 1 );
 				if( sysCluster == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"sysCluster" );
 				}
-				ICFSecClusterObj useCluster = sysCluster.getRequiredContainerCluster();
+				IYCFSecClusterObj useCluster = sysCluster.getRequiredContainerCluster();
 				if( useCluster == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"sysCluster.containerCluster" );
@@ -118,9 +118,9 @@ public class CFSecSaxLdr
 		else if( value.equals( "system" ) ) {
 			boolean transactionStarted = schema.beginTransaction();
 			try {
-				ICFSecClusterObj useCluster = schema.getClusterTableObj().readClusterByUDomNameIdx( "system" );
+				IYCFSecClusterObj useCluster = schema.getClusterTableObj().readClusterByUDomNameIdx( "system" );
 				if( useCluster == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"readClusterByUDomName-system" );
@@ -144,7 +144,7 @@ public class CFSecSaxLdr
 			}
 		}
 		else {
-			throw new CFLibUsageException( getClass(),
+			throw new YCFLibUsageException( getClass(),
 				S_ProcName,
 				"Expected value to by 'default' or 'system'" );
 		}
@@ -154,23 +154,23 @@ public class CFSecSaxLdr
 		return( clusterName );
 	}
 
-	public ICFSecClusterObj getClusterObj() {
+	public IYCFSecClusterObj getClusterObj() {
 		final String S_ProcName = "getClusterObj";
 		if( clusterObj == null ) {
-			ICFSecSchemaObj schema = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schema = saxLoader.getSchemaObj();
 			if( clusterName.equals( "default" ) ) {
 				boolean transactionStarted = schema.beginTransaction();
 				try {
-					ICFSecSysClusterObj sysCluster = schema.getSysClusterTableObj().readSysClusterByIdIdx( 1 );
+					IYCFSecSysClusterObj sysCluster = schema.getSysClusterTableObj().readSysClusterByIdIdx( 1 );
 					if( sysCluster == null ) {
-						throw new CFLibNullArgumentException( getClass(),
+						throw new YCFLibNullArgumentException( getClass(),
 							S_ProcName,
 							0,
 							"sysCluster" );
 					}
-					ICFSecClusterObj useCluster = sysCluster.getRequiredContainerCluster();
+					IYCFSecClusterObj useCluster = sysCluster.getRequiredContainerCluster();
 					if( useCluster == null ) {
-						throw new CFLibNullArgumentException( getClass(),
+						throw new YCFLibNullArgumentException( getClass(),
 							S_ProcName,
 							0,
 							"sysCluster.containerCluster" );
@@ -195,9 +195,9 @@ public class CFSecSaxLdr
 			else if( clusterName.equals( "system" ) ) {
 				boolean transactionStarted = schema.beginTransaction();
 				try {
-					ICFSecClusterObj useCluster = schema.getClusterTableObj().readClusterByUDomNameIdx( "system" );
+					IYCFSecClusterObj useCluster = schema.getClusterTableObj().readClusterByUDomNameIdx( "system" );
 					if( useCluster == null ) {
-						throw new CFLibNullArgumentException( getClass(),
+						throw new YCFLibNullArgumentException( getClass(),
 							S_ProcName,
 							0,
 							"readClusterByUDomName-system" );
@@ -221,7 +221,7 @@ public class CFSecSaxLdr
 			}
 		}
 		if( clusterObj == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"clusterObj" );
@@ -232,9 +232,9 @@ public class CFSecSaxLdr
 
 	public void setTenantName( String value ) {
 		final String S_ProcName = "setTenantName";
-		ICFSecSchemaObj schema = saxLoader.getSchemaObj();
+		IYCFSecSchemaObj schema = saxLoader.getSchemaObj();
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"value" );
@@ -242,10 +242,10 @@ public class CFSecSaxLdr
 		else if( value.equals( "system" ) ) {
 			boolean transactionStarted = schema.beginTransaction();
 			try {
-				ICFSecTenantObj useTenant = schema.getTenantTableObj().readTenantByUNameIdx( clusterObj.getRequiredId(),
+				IYCFSecTenantObj useTenant = schema.getTenantTableObj().readTenantByUNameIdx( clusterObj.getRequiredId(),
 					"system" );
 				if( useTenant == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"readTenantByUNameIdx-" + clusterObj.getObjName() + "-system" );
@@ -270,22 +270,22 @@ public class CFSecSaxLdr
 		}
 		else {
 			if( clusterObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"clusterObj" );
 			}
 			if( clusterName.equals( "system" ) ) {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Cluster 'system' only supports the tenant 'system', not '" + value + "'" );
 			}
 			boolean transactionStarted = schema.beginTransaction();
 			try {
-				ICFSecTenantObj useTenant = schema.getTenantTableObj().readTenantByUNameIdx( clusterObj.getRequiredId(),
+				IYCFSecTenantObj useTenant = schema.getTenantTableObj().readTenantByUNameIdx( clusterObj.getRequiredId(),
 					value );
 				if( useTenant == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"readTenantByUNameIdx-" + clusterObj.getObjName() + "-" + value );
@@ -314,12 +314,12 @@ public class CFSecSaxLdr
 		return( tenantName );
 	}
 
-	public ICFSecTenantObj getTenantObj() {
+	public IYCFSecTenantObj getTenantObj() {
 		final String S_ProcName = "getTenantObj";
 		if( tenantObj == null ) {
-			ICFSecSchemaObj schema = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schema = saxLoader.getSchemaObj();
 			if( tenantName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					1,
 					"value" );
@@ -327,10 +327,10 @@ public class CFSecSaxLdr
 			else if( tenantName.equals( "system" ) ) {
 				boolean transactionStarted = schema.beginTransaction();
 				try {
-					ICFSecTenantObj useTenant = schema.getTenantTableObj().readTenantByUNameIdx( clusterObj.getRequiredId(),
+					IYCFSecTenantObj useTenant = schema.getTenantTableObj().readTenantByUNameIdx( clusterObj.getRequiredId(),
 						"system" );
 					if( useTenant == null ) {
-						throw new CFLibNullArgumentException( getClass(),
+						throw new YCFLibNullArgumentException( getClass(),
 							S_ProcName,
 							0,
 							"readTenantByUNameIdx-" + clusterObj.getObjName() + "-system" );
@@ -354,22 +354,22 @@ public class CFSecSaxLdr
 			}
 			else {
 				if( clusterObj == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"clusterObj" );
 				}
 				if( clusterName.equals( "system" ) ) {
-					throw new CFLibUsageException( getClass(),
+					throw new YCFLibUsageException( getClass(),
 						S_ProcName,
 						"Cluster 'system' only supports the tenant 'system', not '" + tenantName + "'" );
 				}
 				boolean transactionStarted = schema.beginTransaction();
 				try {
-					ICFSecTenantObj useTenant = schema.getTenantTableObj().readTenantByUNameIdx( clusterObj.getRequiredId(),
+					IYCFSecTenantObj useTenant = schema.getTenantTableObj().readTenantByUNameIdx( clusterObj.getRequiredId(),
 						tenantName );
 					if( useTenant == null ) {
-						throw new CFLibNullArgumentException( getClass(),
+						throw new YCFLibNullArgumentException( getClass(),
 							S_ProcName,
 							0,
 							"readTenantByUNameIdx-" + clusterObj.getObjName() + "-" + tenantName );
@@ -393,7 +393,7 @@ public class CFSecSaxLdr
 			}
 		}
 		if( tenantObj == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"tenantObj-" + tenantName );
@@ -410,9 +410,9 @@ public class CFSecSaxLdr
 		return( secUserName );
 	}
 
-	public ICFSecSecUserObj getSecUserObj() {
+	public IYCFSecSecUserObj getSecUserObj() {
 		if( secUserObj == null ) {
-			ICFSecSchemaObj schema = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schema = saxLoader.getSchemaObj();
 			boolean transactionStarted = schema.beginTransaction();
 			try {
 				secUserObj = schema.getSecUserTableObj().readSecUserByULoginIdx( secUserName );
@@ -438,16 +438,16 @@ public class CFSecSaxLdr
 	}
 
 
-	public ICFSecSecSessionObj getSecSessionObj() {
+	public IYCFSecSecSessionObj getSecSessionObj() {
 		if( secSessionObj == null ) {
-			ICFSecSchemaObj schema = saxLoader.getSchemaObj();
+			IYCFSecSchemaObj schema = saxLoader.getSchemaObj();
 			boolean transactionStarted = schema.beginTransaction();
 			try {
 				getClusterObj();
 				getTenantObj();
 				getSecUserObj();
 				secSessionObj = schema.getSecSessionTableObj().newInstance();
-				ICFSecSecSessionEditObj sessionEdit = secSessionObj.beginEdit();
+				IYCFSecSecSessionEditObj sessionEdit = secSessionObj.beginEdit();
 				sessionEdit.setRequiredContainerSecUser( secUserObj );
 				sessionEdit.setRequiredStart( Calendar.getInstance() );
 				sessionEdit.setOptionalFinish( null );
@@ -473,8 +473,8 @@ public class CFSecSaxLdr
 
 	// Apply the loader options argument to the specified loader
 
-	protected static void applyLoaderOptions( CFSecSaxLoader loader, String loaderOptions ) {
-		final String S_ProcName = "CFSecSaxLdr.applyLoaderOptions() ";
+	protected static void applyLoaderOptions( YCFSecSaxLoader loader, String loaderOptions ) {
+		final String S_ProcName = "YCFSecSaxLdr.applyLoaderOptions() ";
 		while( loaderOptions.length() > 0 ) {
 			String evalSegment;
 			int sepIndex = loaderOptions.indexOf( File.pathSeparatorChar );
@@ -497,8 +497,8 @@ public class CFSecSaxLdr
 
 	// Evaluate a loader options argument segment
 
-	protected static void evalLoaderSegment( CFSecSaxLoader loader, String evalSegment ) {
-		final String S_ProcName = "CFSecSaxParserCLI.evalLoaderSegment() ";
+	protected static void evalLoaderSegment( YCFSecSaxLoader loader, String evalSegment ) {
+		final String S_ProcName = "YCFSecSaxParserCLI.evalLoaderSegment() ";
 		int sepEquals = evalSegment.indexOf( '=' );
 		if( sepEquals <= 0 ) {
 			throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -510,13 +510,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setClusterLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setClusterLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setClusterLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setClusterLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setClusterLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setClusterLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -527,13 +527,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setHostNodeLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setHostNodeLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setHostNodeLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setHostNodeLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setHostNodeLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setHostNodeLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -544,13 +544,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setISOCcyLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setISOCcyLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setISOCcyLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setISOCcyLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setISOCcyLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setISOCcyLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -561,13 +561,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setISOCtryLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setISOCtryLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setISOCtryLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setISOCtryLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setISOCtryLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setISOCtryLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -578,13 +578,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setISOCtryCcyLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setISOCtryCcyLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setISOCtryCcyLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setISOCtryCcyLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setISOCtryCcyLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setISOCtryCcyLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -595,13 +595,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setISOCtryLangLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setISOCtryLangLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setISOCtryLangLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setISOCtryLangLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setISOCtryLangLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setISOCtryLangLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -612,13 +612,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setISOLangLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setISOLangLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setISOLangLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setISOLangLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setISOLangLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setISOLangLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -629,13 +629,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setISOTZoneLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setISOTZoneLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setISOTZoneLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setISOTZoneLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setISOTZoneLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setISOTZoneLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -646,13 +646,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSecAppLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSecAppLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSecAppLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSecAppLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSecAppLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSecAppLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -663,13 +663,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSecDeviceLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSecDeviceLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSecDeviceLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSecDeviceLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSecDeviceLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSecDeviceLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -680,13 +680,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSecFormLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSecFormLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSecFormLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSecFormLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSecFormLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSecFormLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -697,13 +697,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSecGroupLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSecGroupLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSecGroupLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSecGroupLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSecGroupLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSecGroupLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -714,13 +714,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSecGroupFormLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSecGroupFormLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSecGroupFormLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSecGroupFormLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSecGroupFormLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSecGroupFormLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -731,13 +731,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSecGrpIncLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSecGrpIncLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSecGrpIncLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSecGrpIncLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSecGrpIncLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSecGrpIncLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -748,13 +748,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSecGrpMembLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSecGrpMembLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSecGrpMembLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSecGrpMembLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSecGrpMembLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSecGrpMembLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -765,13 +765,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSecSessionLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSecSessionLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSecSessionLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSecSessionLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSecSessionLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSecSessionLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -782,13 +782,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSecUserLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSecUserLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSecUserLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSecUserLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSecUserLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSecUserLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -799,13 +799,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setServiceLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setServiceLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setServiceLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setServiceLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setServiceLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setServiceLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -816,13 +816,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setServiceTypeLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setServiceTypeLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setServiceTypeLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setServiceTypeLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setServiceTypeLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setServiceTypeLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -833,13 +833,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setSysClusterLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setSysClusterLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setSysClusterLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setSysClusterLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setSysClusterLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setSysClusterLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -850,13 +850,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setTSecGroupLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setTSecGroupLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setTSecGroupLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setTSecGroupLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setTSecGroupLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setTSecGroupLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -867,13 +867,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setTSecGrpIncLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setTSecGrpIncLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setTSecGrpIncLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setTSecGrpIncLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setTSecGrpIncLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setTSecGrpIncLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -884,13 +884,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setTSecGrpMembLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setTSecGrpMembLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setTSecGrpMembLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setTSecGrpMembLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setTSecGrpMembLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setTSecGrpMembLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );
@@ -901,13 +901,13 @@ public class CFSecSaxLdr
 				// Leave at default
 			}
 			else if( tableOption.equals( "Insert" ) ) {
-				loader.setTenantLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Insert );
+				loader.setTenantLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Insert );
 			}
 			else if( tableOption.equals( "Update" ) ) {
-				loader.setTenantLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Update );
+				loader.setTenantLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Update );
 			}
 			else if( tableOption.equals( "Replace" ) ) {
-				loader.setTenantLoaderBehaviour( CFSecSaxLoader.LoaderBehaviourEnum.Replace );
+				loader.setTenantLoaderBehaviour( YCFSecSaxLoader.LoaderBehaviourEnum.Replace );
 			}
 			else {
 				throw new RuntimeException( S_ProcName + "ERROR: Expected segment to comprise <TableName>={*|Insert|Update|Replace}" );

@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a Tld history buffer object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,13 +36,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntTldHBuff
+public class YCFIntTldHBuff
 
-	extends CFIntHPKey	implements Comparable<Object>,
+	extends YCFIntHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final long TENANTID_INIT_VALUE = 0L;
@@ -56,16 +56,16 @@ public class CFIntTldHBuff
 	protected long requiredId;
 	protected String requiredName;
 	protected String optionalDescription;
-	public CFIntTldHBuff() {
+	public YCFIntTldHBuff() {
 		super();
-		requiredTenantId = CFIntTldBuff.TENANTID_INIT_VALUE;
-		requiredId = CFIntTldBuff.ID_INIT_VALUE;
-		requiredName = new String( CFIntTldBuff.NAME_INIT_VALUE );
+		requiredTenantId = YCFIntTldBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFIntTldBuff.ID_INIT_VALUE;
+		requiredName = new String( YCFIntTldBuff.NAME_INIT_VALUE );
 		optionalDescription = null;
 	}
 
 	public String getClassCode() {
-		return( CFIntTldBuff.CLASS_CODE );
+		return( YCFIntTldBuff.CLASS_CODE );
 	}
 
 	public long getRequiredTenantId() {
@@ -73,13 +73,13 @@ public class CFIntTldHBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntTldBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTldBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntTldBuff.TENANTID_MIN_VALUE );
+				YCFIntTldBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -89,13 +89,13 @@ public class CFIntTldHBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFIntTldBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTldBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFIntTldBuff.ID_MIN_VALUE );
+				YCFIntTldBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -106,13 +106,13 @@ public class CFIntTldHBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -131,7 +131,7 @@ public class CFIntTldHBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -147,8 +147,8 @@ public class CFIntTldHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntTldHBuff ) {
-			CFIntTldHBuff rhs = (CFIntTldHBuff)obj;
+		else if( obj instanceof YCFIntTldHBuff ) {
+			YCFIntTldHBuff rhs = (YCFIntTldHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -175,8 +175,8 @@ public class CFIntTldHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTldBuff ) {
-			CFIntTldBuff rhs = (CFIntTldBuff)obj;
+		else if( obj instanceof YCFIntTldBuff ) {
+			YCFIntTldBuff rhs = (YCFIntTldBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -203,15 +203,15 @@ public class CFIntTldHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTldByTenantIdxKey ) {
-			CFIntTldByTenantIdxKey rhs = (CFIntTldByTenantIdxKey)obj;
+		else if( obj instanceof YCFIntTldByTenantIdxKey ) {
+			YCFIntTldByTenantIdxKey rhs = (YCFIntTldByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTldByNameIdxKey ) {
-			CFIntTldByNameIdxKey rhs = (CFIntTldByNameIdxKey)obj;
+		else if( obj instanceof YCFIntTldByNameIdxKey ) {
+			YCFIntTldByNameIdxKey rhs = (YCFIntTldByNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -220,8 +220,8 @@ public class CFIntTldHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTldHPKey ) {
-			CFIntTldHPKey rhs = (CFIntTldHPKey)obj;
+		else if( obj instanceof YCFIntTldHPKey ) {
+			YCFIntTldHPKey rhs = (YCFIntTldHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -285,8 +285,8 @@ public class CFIntTldHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -344,8 +344,8 @@ public class CFIntTldHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTldPKey ) {
-			CFIntTldPKey rhs = (CFIntTldPKey)obj;
+		else if( obj instanceof YCFIntTldPKey ) {
+			YCFIntTldPKey rhs = (YCFIntTldPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -376,16 +376,16 @@ public class CFIntTldHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntTldBuff ) {
-			CFIntTldBuff rhs = (CFIntTldBuff)obj;
+		else if( obj instanceof YCFIntTldBuff ) {
+			YCFIntTldBuff rhs = (YCFIntTldBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTldByTenantIdxKey ) {
-			CFIntTldByTenantIdxKey rhs = (CFIntTldByTenantIdxKey)obj;
+		else if( obj instanceof YCFIntTldByTenantIdxKey ) {
+			YCFIntTldByTenantIdxKey rhs = (YCFIntTldByTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -394,8 +394,8 @@ public class CFIntTldHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntTldByNameIdxKey ) {
-			CFIntTldByNameIdxKey rhs = (CFIntTldByNameIdxKey)obj;
+		else if( obj instanceof YCFIntTldByNameIdxKey ) {
+			YCFIntTldByNameIdxKey rhs = (YCFIntTldByNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -410,8 +410,8 @@ public class CFIntTldHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntTldHBuff ) {
-			CFIntTldHBuff rhs = (CFIntTldHBuff)obj;
+		else if( obj instanceof YCFIntTldHBuff ) {
+			YCFIntTldHBuff rhs = (YCFIntTldHBuff)obj;
 
 			int retval = 0;
 			{
@@ -582,8 +582,8 @@ public class CFIntTldHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTldHPKey ) {
-			CFIntTldHPKey rhs = (CFIntTldHPKey)obj;
+		else if( obj instanceof YCFIntTldHPKey ) {
+			YCFIntTldHPKey rhs = (YCFIntTldHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -664,8 +664,8 @@ public class CFIntTldHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTldPKey ) {
-			CFIntTldPKey rhs = (CFIntTldPKey)obj;
+		else if( obj instanceof YCFIntTldPKey ) {
+			YCFIntTldPKey rhs = (YCFIntTldPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -680,8 +680,8 @@ public class CFIntTldHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntHPKey ) {
-			CFIntHPKey rhs = (CFIntHPKey)obj;
+		else if( obj instanceof YCFIntHPKey ) {
+			YCFIntHPKey rhs = (YCFIntHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -699,11 +699,11 @@ public class CFIntTldHBuff
 		}
 	}
 
-	public void set( CFIntTldBuff src ) {
+	public void set( YCFIntTldBuff src ) {
 		setTldBuff( src );
 	}
 
-	public void setTldBuff( CFIntTldBuff src ) {
+	public void setTldBuff( YCFIntTldBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredName( src.getRequiredName() );
@@ -711,11 +711,11 @@ public class CFIntTldHBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFIntTldHBuff src ) {
+	public void set( YCFIntTldHBuff src ) {
 		setTldBuff( src );
 	}
 
-	public void setTldBuff( CFIntTldHBuff src ) {
+	public void setTldBuff( YCFIntTldHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredName( src.getRequiredName() );

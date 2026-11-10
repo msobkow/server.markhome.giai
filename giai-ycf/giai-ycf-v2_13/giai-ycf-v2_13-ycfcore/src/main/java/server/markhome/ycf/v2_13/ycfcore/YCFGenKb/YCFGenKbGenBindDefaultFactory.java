@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for GenBind.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,21 +36,21 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbGenBindFactory implementation for GenBind
+	 *	YCFGenKbGenBindFactory implementation for GenBind
 	 */
-public class CFGenKbGenBindDefaultFactory
-	implements ICFGenKbGenBindFactory
+public class YCFGenKbGenBindDefaultFactory
+	implements IYCFGenKbGenBindFactory
 {
-	public CFGenKbGenBindDefaultFactory() {
+	public YCFGenKbGenBindDefaultFactory() {
 	}
 
-	public CFGenKbGenBindBuff newBuff() {
-		CFGenKbGenBindBuff buff =
-			new CFGenKbGenBindBuff();
+	public YCFGenKbGenBindBuff newBuff() {
+		YCFGenKbGenBindBuff buff =
+			new YCFGenKbGenBindBuff();
 		return( buff );
 	}
 }

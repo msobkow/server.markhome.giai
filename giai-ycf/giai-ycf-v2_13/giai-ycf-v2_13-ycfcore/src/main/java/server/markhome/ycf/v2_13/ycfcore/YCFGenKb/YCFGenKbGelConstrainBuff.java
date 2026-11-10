@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelConstrain buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,11 +37,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelConstrainBuff
-	extends CFGenKbGelInstructionBuff
+public class YCFGenKbGelConstrainBuff
+	extends YCFGenKbGelInstructionBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -65,12 +65,12 @@ public class CFGenKbGelConstrainBuff
 	protected Long optionalRemainderTenantId;
 	protected long requiredRemainderGelCacheId;
 	protected Long optionalRemainderInstId;
-	public CFGenKbGelConstrainBuff() {
+	public YCFGenKbGelConstrainBuff() {
 		super();
 		optionalHardConstraint = null;
 		optionalConstrainingName = null;
 		optionalRemainderTenantId = null;
-		requiredRemainderGelCacheId = CFGenKbGelConstrainBuff.REMAINDERGELCACHEID_INIT_VALUE;
+		requiredRemainderGelCacheId = YCFGenKbGelConstrainBuff.REMAINDERGELCACHEID_INIT_VALUE;
 		optionalRemainderInstId = null;
 	}
 
@@ -100,7 +100,7 @@ public class CFGenKbGelConstrainBuff
 			optionalConstrainingName = null;
 		}
 		else if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalConstrainingName",
 				1,
 				"value.length()",
@@ -120,13 +120,13 @@ public class CFGenKbGelConstrainBuff
 		if( value == null ) {
 			optionalRemainderTenantId = null;
 		}
-		else if( value < CFGenKbGelConstrainBuff.REMAINDERTENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelConstrainBuff.REMAINDERTENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderTenantId",
 				1,
 				"value",
 				value,
-				CFGenKbGelConstrainBuff.REMAINDERTENANTID_MIN_VALUE );
+				YCFGenKbGelConstrainBuff.REMAINDERTENANTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderTenantId = value;
@@ -138,13 +138,13 @@ public class CFGenKbGelConstrainBuff
 	}
 
 	public void setRequiredRemainderGelCacheId( long value ) {
-		if( value < CFGenKbGelConstrainBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbGelConstrainBuff.REMAINDERGELCACHEID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredRemainderGelCacheId",
 				1,
 				"value",
 				value,
-				CFGenKbGelConstrainBuff.REMAINDERGELCACHEID_MIN_VALUE );
+				YCFGenKbGelConstrainBuff.REMAINDERGELCACHEID_MIN_VALUE );
 		}
 		requiredRemainderGelCacheId = value;
 	}
@@ -157,13 +157,13 @@ public class CFGenKbGelConstrainBuff
 		if( value == null ) {
 			optionalRemainderInstId = null;
 		}
-		else if( value < CFGenKbGelConstrainBuff.REMAINDERINSTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFGenKbGelConstrainBuff.REMAINDERINSTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalRemainderInstId",
 				1,
 				"value",
 				value,
-				CFGenKbGelConstrainBuff.REMAINDERINSTID_MIN_VALUE );
+				YCFGenKbGelConstrainBuff.REMAINDERINSTID_MIN_VALUE );
 		}
 		else {
 			optionalRemainderInstId = value;
@@ -174,8 +174,8 @@ public class CFGenKbGelConstrainBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelConstrainBuff ) {
-			CFGenKbGelConstrainBuff rhs = (CFGenKbGelConstrainBuff)obj;
+		else if( obj instanceof YCFGenKbGelConstrainBuff ) {
+			YCFGenKbGelConstrainBuff rhs = (YCFGenKbGelConstrainBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -238,8 +238,8 @@ public class CFGenKbGelConstrainBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -251,8 +251,8 @@ public class CFGenKbGelConstrainBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelConstrainByRemainderIdxKey ) {
-			CFGenKbGelConstrainByRemainderIdxKey rhs = (CFGenKbGelConstrainByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelConstrainByRemainderIdxKey ) {
+			YCFGenKbGelConstrainByRemainderIdxKey rhs = (YCFGenKbGelConstrainByRemainderIdxKey)obj;
 			if( getOptionalRemainderTenantId() != null ) {
 				if( rhs.getOptionalRemainderTenantId() != null ) {
 					if( ! getOptionalRemainderTenantId().equals( rhs.getOptionalRemainderTenantId() ) ) {
@@ -310,8 +310,8 @@ public class CFGenKbGelConstrainBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbGelConstrainBuff ) {
-			CFGenKbGelConstrainBuff rhs = (CFGenKbGelConstrainBuff)obj;
+		else if( obj instanceof YCFGenKbGelConstrainBuff ) {
+			YCFGenKbGelConstrainBuff rhs = (YCFGenKbGelConstrainBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -394,8 +394,8 @@ public class CFGenKbGelConstrainBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelInstructionPKey ) {
-			CFGenKbGelInstructionPKey rhs = (CFGenKbGelInstructionPKey)obj;
+		else if( obj instanceof YCFGenKbGelInstructionPKey ) {
+			YCFGenKbGelInstructionPKey rhs = (YCFGenKbGelInstructionPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -416,8 +416,8 @@ public class CFGenKbGelConstrainBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelConstrainByRemainderIdxKey ) {
-			CFGenKbGelConstrainByRemainderIdxKey rhs = (CFGenKbGelConstrainByRemainderIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelConstrainByRemainderIdxKey ) {
+			YCFGenKbGelConstrainByRemainderIdxKey rhs = (YCFGenKbGelConstrainByRemainderIdxKey)obj;
 
 			if( getOptionalRemainderTenantId() != null ) {
 				Long lhsRemainderTenantId = getOptionalRemainderTenantId();
@@ -468,20 +468,20 @@ public class CFGenKbGelConstrainBuff
 		}
 	}
 
-	public void set( CFGenKbGelInstructionBuff src ) {
-		if( src instanceof CFGenKbGelConstrainBuff ) {
-			setGelConstrainBuff( (CFGenKbGelConstrainBuff)src );
+	public void set( YCFGenKbGelInstructionBuff src ) {
+		if( src instanceof YCFGenKbGelConstrainBuff ) {
+			setGelConstrainBuff( (YCFGenKbGelConstrainBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFGenKbGelConstrainBuff" );
+				"YCFGenKbGelConstrainBuff" );
 		}
 	}
 
-	public void setGelConstrainBuff( CFGenKbGelConstrainBuff src ) {
+	public void setGelConstrainBuff( YCFGenKbGelConstrainBuff src ) {
 		super.setGelInstructionBuff( src );
 		setOptionalHardConstraint( src.getOptionalHardConstraint() );
 		setOptionalConstrainingName( src.getOptionalConstrainingName() );

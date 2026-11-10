@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFInt TopDomain.
+// Description: Java 11 Instance Edit Object interface for YCFInt TopDomain.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,34 +26,34 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntTopDomainEditObj
-	extends ICFIntTopDomainObj
+public interface IYCFIntTopDomainEditObj
+	extends IYCFIntTopDomainObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFIntTopDomainObj.
+	 *	@return The original, non-modifiable instance as a base IYCFIntTopDomainObj.
 	 */
-	ICFIntTopDomainObj getOrig();
+	IYCFIntTopDomainObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFIntTopDomainObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFIntTopDomainObj.
 	 */
-	ICFIntTopDomainObj getOrigAsTopDomain();
+	IYCFIntTopDomainObj getOrigAsTopDomain();
 
 	/*
 	 *	create() may return a different instance than the
@@ -64,17 +64,17 @@ public interface ICFIntTopDomainEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFIntTopDomainObj create();
+	IYCFIntTopDomainObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFIntTopDomainEditObj update();
+	YCFIntTopDomainEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFIntTopDomainEditObj deleteInstance();
+	YCFIntTopDomainEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -105,39 +105,39 @@ public interface ICFIntTopDomainEditObj
 	void setOptionalDescription( String value );
 
 	/**
-	 *	Get the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Set the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFSecTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFSecTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredOwnerTenant( ICFSecTenantObj value );
+	void setRequiredOwnerTenant( IYCFSecTenantObj value );
 
 	/**
-	 *	Get the ICFIntTldObj instance referenced by the ParentTld key.
+	 *	Get the IYCFIntTldObj instance referenced by the ParentTld key.
 	 *
-	 *	@return	The ICFIntTldObj instance referenced by the ParentTld key.
+	 *	@return	The IYCFIntTldObj instance referenced by the ParentTld key.
 	 */
-	ICFIntTldObj getRequiredContainerParentTld();
+	IYCFIntTldObj getRequiredContainerParentTld();
 
 	/**
-	 *	Set the ICFIntTldObj instance referenced by the ParentTld key.
+	 *	Set the IYCFIntTldObj instance referenced by the ParentTld key.
 	 *
-	 *	@param	value	the ICFIntTldObj instance to be referenced by the ParentTld key.
+	 *	@param	value	the IYCFIntTldObj instance to be referenced by the ParentTld key.
 	 */
-	void setRequiredContainerParentTld( ICFIntTldObj value );
+	void setRequiredContainerParentTld( IYCFIntTldObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFSecSecUserObj value );
+	void setCreatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -149,9 +149,9 @@ public interface ICFIntTopDomainEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFSecSecUserObj value );
+	void setUpdatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

@@ -1,11 +1,11 @@
-// Description: Java 11 Object interface for CFGenKb ToolSet.
+// Description: Java 11 Object interface for YCFGenKb ToolSet.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,27 +27,27 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbToolSetObj
-	extends ICFLibAnyObj
+public interface IYCFGenKbToolSetObj
+	extends IYCFLibAnyObj
 {
 	String getClassCode();
 	/**
 	 *	Realise this instance of a ToolSet.
 	 *
-	 *	@return	CFGenKbToolSetObj instance which should be subsequently referenced.
+	 *	@return	YCFGenKbToolSetObj instance which should be subsequently referenced.
 	 */
-	ICFGenKbToolSetObj realise();
+	IYCFGenKbToolSetObj realise();
 
 	/**
 	 *	Forget this instance from the cache.
@@ -59,99 +59,99 @@ public interface ICFGenKbToolSetObj
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbToolSetObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbToolSetObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbToolSetObj read();
+	IYCFGenKbToolSetObj read();
 
 	/**
 	 *	Re-read this instance by it's primary key.
 	 *
-	 *	@return	ICFGenKbToolSetObj the reference to the cached or read (realised) instance.
+	 *	@return	IYCFGenKbToolSetObj the reference to the cached or read (realised) instance.
 	 */
-	ICFGenKbToolSetObj read( boolean forceRead );
+	IYCFGenKbToolSetObj read( boolean forceRead );
 
 	/**
 	 *	Initialize and return a locked edition of this ToolSet instance.
 	 *
-	 *	@return	The newly locked ICFGenKbToolSetEditObj edition of this instance.
+	 *	@return	The newly locked IYCFGenKbToolSetEditObj edition of this instance.
 	 */
-	ICFGenKbToolSetEditObj beginEdit();
+	IYCFGenKbToolSetEditObj beginEdit();
 
 	/**
 	 *	End this edition of this ToolSet instance.
 	 *
-	 *	@throws	CFLibNotSupportedException if you try to end a read-only view.
+	 *	@throws	YCFLibNotSupportedException if you try to end a read-only view.
 	 */
 	void endEdit();
 
 	/**
 	 *	Get the current edition of this ToolSet instance.
 	 *
-	 *	@return	The ICFGenKbToolSetEditObj edition of this instance.
+	 *	@return	The IYCFGenKbToolSetEditObj edition of this instance.
 	 */
-	ICFGenKbToolSetEditObj getEdit();
+	IYCFGenKbToolSetEditObj getEdit();
 
 	/**
-	 *	Get the current edition of this ToolSet instance as a ICFGenKbToolSetEditObj.
+	 *	Get the current edition of this ToolSet instance as a IYCFGenKbToolSetEditObj.
 	 *
-	 *	@return	The ICFGenKbToolSetEditObj edition of this instance.
+	 *	@return	The IYCFGenKbToolSetEditObj edition of this instance.
 	 */
-	ICFGenKbToolSetEditObj getEditAsToolSet();
+	IYCFGenKbToolSetEditObj getEditAsToolSet();
 
 	/**
-	 *	Get the ICFGenKbToolSetTableObj table cache which manages this instance.
+	 *	Get the IYCFGenKbToolSetTableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbToolSetTableObj table cache which manages this instance.
+	 *	@return	IYCFGenKbToolSetTableObj table cache which manages this instance.
 	 */
-	ICFGenKbToolSetTableObj getToolSetTable();
+	IYCFGenKbToolSetTableObj getToolSetTable();
 
 	/**
-	 *	Get the ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	Get the IYCFGenKbSchemaObj schema cache which manages this instance.
 	 *
-	 *	@return	ICFGenKbSchemaObj schema cache which manages this instance.
+	 *	@return	IYCFGenKbSchemaObj schema cache which manages this instance.
 	 */
-	ICFGenKbSchemaObj getSchema();
+	IYCFGenKbSchemaObj getSchema();
 
 	/**
-	 *	Get the CFGenKbToolSetBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbToolSetBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbToolSetBuff instance which currently backs this object.
+	 *	@return	YCFGenKbToolSetBuff instance which currently backs this object.
 	 */
-	CFGenKbToolSetBuff getBuff();
+	YCFGenKbToolSetBuff getBuff();
 
 	/**
 	 *	Internal use only.
 	 */
-	void setBuff( CFGenKbToolSetBuff value );
+	void setBuff( YCFGenKbToolSetBuff value );
 
 	/**
-	 *	Get the CFGenKbToolSetBuff instance which currently backs this instance.
+	 *	Get the YCFGenKbToolSetBuff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFGenKbToolSetBuff instance which currently backs this object.
+	 *	@return	YCFGenKbToolSetBuff instance which currently backs this object.
 	 */
-	CFGenKbToolSetBuff getToolSetBuff();
+	YCFGenKbToolSetBuff getToolSetBuff();
 
 	/**
 	 *	Get the primary key of this instance.
 	 *
-	 *	@return	CFGenKbToolSetPKey primary key for this instance.
+	 *	@return	YCFGenKbToolSetPKey primary key for this instance.
 	 */
-	CFGenKbToolSetPKey getPKey();
+	YCFGenKbToolSetPKey getPKey();
 
 	/**
 	 *	Set the primary key of this instance.
 	 *	<p>
 	 *	This method should only be invoked by implementation internals.
 	 *
-	 *	@param CFGenKbToolSetPKey primary key value for this instance.
+	 *	@param YCFGenKbToolSetPKey primary key value for this instance.
 	 */
-	void setPKey( CFGenKbToolSetPKey value );
+	void setPKey( YCFGenKbToolSetPKey value );
 
 	/**
 	 *	Is this a new instance?
@@ -269,116 +269,116 @@ public interface ICFGenKbToolSetObj
 	Short getOptionalToolId7();
 
 	/**
-	 *	Get the required ICFGenKbToolObj instance referenced by the Tool0 key.
+	 *	Get the required IYCFGenKbToolObj instance referenced by the Tool0 key.
 	 *
-	 *	@return	The required ICFGenKbToolObj instance referenced by the Tool0 key.
+	 *	@return	The required IYCFGenKbToolObj instance referenced by the Tool0 key.
 	 */
-	ICFGenKbToolObj getRequiredLookupTool0();
+	IYCFGenKbToolObj getRequiredLookupTool0();
 
 	/**
-	 *	Get the required ICFGenKbToolObj instance referenced by the Tool0 key.
+	 *	Get the required IYCFGenKbToolObj instance referenced by the Tool0 key.
 	 *
-	 *	@return	The required ICFGenKbToolObj instance referenced by the Tool0 key.
+	 *	@return	The required IYCFGenKbToolObj instance referenced by the Tool0 key.
 	 */
-	ICFGenKbToolObj getRequiredLookupTool0( boolean forceRead );
+	IYCFGenKbToolObj getRequiredLookupTool0( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool1 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool1 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool1 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool1 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool1();
+	IYCFGenKbToolObj getOptionalLookupTool1();
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool1 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool1 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool1 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool1 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool1( boolean forceRead );
+	IYCFGenKbToolObj getOptionalLookupTool1( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool2 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool2 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool2 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool2 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool2();
+	IYCFGenKbToolObj getOptionalLookupTool2();
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool2 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool2 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool2 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool2 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool2( boolean forceRead );
+	IYCFGenKbToolObj getOptionalLookupTool2( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool3 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool3 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool3 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool3 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool3();
+	IYCFGenKbToolObj getOptionalLookupTool3();
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool3 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool3 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool3 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool3 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool3( boolean forceRead );
+	IYCFGenKbToolObj getOptionalLookupTool3( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool4 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool4 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool4 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool4 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool4();
+	IYCFGenKbToolObj getOptionalLookupTool4();
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool4 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool4 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool4 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool4 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool4( boolean forceRead );
+	IYCFGenKbToolObj getOptionalLookupTool4( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool5 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool5 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool5 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool5 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool5();
+	IYCFGenKbToolObj getOptionalLookupTool5();
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool5 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool5 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool5 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool5 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool5( boolean forceRead );
+	IYCFGenKbToolObj getOptionalLookupTool5( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool6 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool6 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool6 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool6 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool6();
+	IYCFGenKbToolObj getOptionalLookupTool6();
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool6 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool6 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool6 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool6 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool6( boolean forceRead );
+	IYCFGenKbToolObj getOptionalLookupTool6( boolean forceRead );
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool7 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool7 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool7 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool7 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool7();
+	IYCFGenKbToolObj getOptionalLookupTool7();
 
 	/**
-	 *	Get the optional ICFGenKbToolObj instance referenced by the Tool7 key.
+	 *	Get the optional IYCFGenKbToolObj instance referenced by the Tool7 key.
 	 *
-	 *	@return	The optional ICFGenKbToolObj instance referenced by the Tool7 key.
+	 *	@return	The optional IYCFGenKbToolObj instance referenced by the Tool7 key.
 	 */
-	ICFGenKbToolObj getOptionalLookupTool7( boolean forceRead );
+	IYCFGenKbToolObj getOptionalLookupTool7( boolean forceRead );
 
 	/**
 	 *	Internal use only.

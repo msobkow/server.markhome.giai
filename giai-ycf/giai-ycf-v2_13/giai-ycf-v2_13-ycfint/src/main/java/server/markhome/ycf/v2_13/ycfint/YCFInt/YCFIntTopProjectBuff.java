@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a TopProject buffer object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,11 +36,11 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntTopProjectBuff
+public class YCFIntTopProjectBuff
 {
 	public final static String CLASS_CODE = "a108";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -55,9 +55,9 @@ public class CFIntTopProjectBuff
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
 	public static final long TOPDOMAINID_MIN_VALUE = 0L;
-	protected UUID createdByUserId = CFIntTopProjectBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFIntTopProjectBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFIntTopProjectBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFIntTopProjectBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected long requiredTenantId;
 	protected long requiredId;
@@ -65,11 +65,11 @@ public class CFIntTopProjectBuff
 	protected String requiredName;
 	protected String optionalDescription;
 	protected int requiredRevision;
-	public CFIntTopProjectBuff() {
-		requiredTenantId = CFIntTopProjectBuff.TENANTID_INIT_VALUE;
-		requiredId = CFIntTopProjectBuff.ID_INIT_VALUE;
-		requiredTopDomainId = CFIntTopProjectBuff.TOPDOMAINID_INIT_VALUE;
-		requiredName = new String( CFIntTopProjectBuff.NAME_INIT_VALUE );
+	public YCFIntTopProjectBuff() {
+		requiredTenantId = YCFIntTopProjectBuff.TENANTID_INIT_VALUE;
+		requiredId = YCFIntTopProjectBuff.ID_INIT_VALUE;
+		requiredTopDomainId = YCFIntTopProjectBuff.TOPDOMAINID_INIT_VALUE;
+		requiredName = new String( YCFIntTopProjectBuff.NAME_INIT_VALUE );
 		optionalDescription = null;
 	}
 
@@ -113,13 +113,13 @@ public class CFIntTopProjectBuff
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntTopProjectBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopProjectBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntTopProjectBuff.TENANTID_MIN_VALUE );
+				YCFIntTopProjectBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -129,13 +129,13 @@ public class CFIntTopProjectBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFIntTopProjectBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopProjectBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFIntTopProjectBuff.ID_MIN_VALUE );
+				YCFIntTopProjectBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -145,13 +145,13 @@ public class CFIntTopProjectBuff
 	}
 
 	public void setRequiredTopDomainId( long value ) {
-		if( value < CFIntTopProjectBuff.TOPDOMAINID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntTopProjectBuff.TOPDOMAINID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTopDomainId",
 				1,
 				"value",
 				value,
-				CFIntTopProjectBuff.TOPDOMAINID_MIN_VALUE );
+				YCFIntTopProjectBuff.TOPDOMAINID_MIN_VALUE );
 		}
 		requiredTopDomainId = value;
 	}
@@ -162,13 +162,13 @@ public class CFIntTopProjectBuff
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -187,7 +187,7 @@ public class CFIntTopProjectBuff
 			optionalDescription = null;
 		}
 		else if( value.length() > 1024 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
 				1,
 				"value.length()",
@@ -211,8 +211,8 @@ public class CFIntTopProjectBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntTopProjectBuff ) {
-			CFIntTopProjectBuff rhs = (CFIntTopProjectBuff)obj;
+		else if( obj instanceof YCFIntTopProjectBuff ) {
+			YCFIntTopProjectBuff rhs = (YCFIntTopProjectBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -251,8 +251,8 @@ public class CFIntTopProjectBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopProjectPKey ) {
-			CFIntTopProjectPKey rhs = (CFIntTopProjectPKey)obj;
+		else if( obj instanceof YCFIntTopProjectPKey ) {
+			YCFIntTopProjectPKey rhs = (YCFIntTopProjectPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -261,8 +261,8 @@ public class CFIntTopProjectBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopProjectHBuff ) {
-			CFIntTopProjectHBuff rhs = (CFIntTopProjectHBuff)obj;
+		else if( obj instanceof YCFIntTopProjectHBuff ) {
+			YCFIntTopProjectHBuff rhs = (YCFIntTopProjectHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -289,8 +289,8 @@ public class CFIntTopProjectBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopProjectHPKey ) {
-			CFIntTopProjectHPKey rhs = (CFIntTopProjectHPKey)obj;
+		else if( obj instanceof YCFIntTopProjectHPKey ) {
+			YCFIntTopProjectHPKey rhs = (YCFIntTopProjectHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -299,15 +299,15 @@ public class CFIntTopProjectBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopProjectByTenantIdxKey ) {
-			CFIntTopProjectByTenantIdxKey rhs = (CFIntTopProjectByTenantIdxKey)obj;
+		else if( obj instanceof YCFIntTopProjectByTenantIdxKey ) {
+			YCFIntTopProjectByTenantIdxKey rhs = (YCFIntTopProjectByTenantIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopProjectByTopDomainIdxKey ) {
-			CFIntTopProjectByTopDomainIdxKey rhs = (CFIntTopProjectByTopDomainIdxKey)obj;
+		else if( obj instanceof YCFIntTopProjectByTopDomainIdxKey ) {
+			YCFIntTopProjectByTopDomainIdxKey rhs = (YCFIntTopProjectByTopDomainIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -316,8 +316,8 @@ public class CFIntTopProjectBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntTopProjectByNameIdxKey ) {
-			CFIntTopProjectByNameIdxKey rhs = (CFIntTopProjectByNameIdxKey)obj;
+		else if( obj instanceof YCFIntTopProjectByNameIdxKey ) {
+			YCFIntTopProjectByNameIdxKey rhs = (YCFIntTopProjectByNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -357,8 +357,8 @@ public class CFIntTopProjectBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFIntTopProjectBuff ) {
-			CFIntTopProjectBuff rhs = (CFIntTopProjectBuff)obj;
+		else if( obj instanceof YCFIntTopProjectBuff ) {
+			YCFIntTopProjectBuff rhs = (YCFIntTopProjectBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -423,8 +423,8 @@ public class CFIntTopProjectBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTopProjectPKey ) {
-			CFIntTopProjectPKey rhs = (CFIntTopProjectPKey)obj;
+		else if( obj instanceof YCFIntTopProjectPKey ) {
+			YCFIntTopProjectPKey rhs = (YCFIntTopProjectPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -439,8 +439,8 @@ public class CFIntTopProjectBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTopProjectHPKey ) {
-			CFIntTopProjectHPKey rhs = (CFIntTopProjectHPKey)obj;
+		else if( obj instanceof YCFIntTopProjectHPKey ) {
+			YCFIntTopProjectHPKey rhs = (YCFIntTopProjectHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -465,8 +465,8 @@ public class CFIntTopProjectBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTopProjectHBuff ) {
-			CFIntTopProjectHBuff rhs = (CFIntTopProjectHBuff)obj;
+		else if( obj instanceof YCFIntTopProjectHBuff ) {
+			YCFIntTopProjectHBuff rhs = (YCFIntTopProjectHBuff)obj;
 			int retval = 0;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -510,8 +510,8 @@ public class CFIntTopProjectBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntTopProjectByTenantIdxKey ) {
-			CFIntTopProjectByTenantIdxKey rhs = (CFIntTopProjectByTenantIdxKey)obj;
+		else if( obj instanceof YCFIntTopProjectByTenantIdxKey ) {
+			YCFIntTopProjectByTenantIdxKey rhs = (YCFIntTopProjectByTenantIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -520,8 +520,8 @@ public class CFIntTopProjectBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntTopProjectByTopDomainIdxKey ) {
-			CFIntTopProjectByTopDomainIdxKey rhs = (CFIntTopProjectByTopDomainIdxKey)obj;
+		else if( obj instanceof YCFIntTopProjectByTopDomainIdxKey ) {
+			YCFIntTopProjectByTopDomainIdxKey rhs = (YCFIntTopProjectByTopDomainIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -536,8 +536,8 @@ public class CFIntTopProjectBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFIntTopProjectByNameIdxKey ) {
-			CFIntTopProjectByNameIdxKey rhs = (CFIntTopProjectByNameIdxKey)obj;
+		else if( obj instanceof YCFIntTopProjectByNameIdxKey ) {
+			YCFIntTopProjectByNameIdxKey rhs = (YCFIntTopProjectByNameIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -559,7 +559,7 @@ public class CFIntTopProjectBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -567,11 +567,11 @@ public class CFIntTopProjectBuff
 		}
 	}
 
-	public void set( CFIntTopProjectBuff src ) {
+	public void set( YCFIntTopProjectBuff src ) {
 		setTopProjectBuff( src );
 	}
 
-	public void setTopProjectBuff( CFIntTopProjectBuff src ) {
+	public void setTopProjectBuff( YCFIntTopProjectBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setCreatedByUserId( src.getCreatedByUserId() );
@@ -584,11 +584,11 @@ public class CFIntTopProjectBuff
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFIntTopProjectHBuff src ) {
+	public void set( YCFIntTopProjectHBuff src ) {
 		setTopProjectBuff( src );
 	}
 
-	public void setTopProjectBuff( CFIntTopProjectHBuff src ) {
+	public void setTopProjectBuff( YCFIntTopProjectHBuff src ) {
 		setRequiredTenantId( src.getRequiredTenantId() );
 		setRequiredId( src.getRequiredId() );
 		setRequiredTopDomainId( src.getRequiredTopDomainId() );

@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GelSwitchLimb.
+// Description: Java 11 base object instance implementation for YCFGenKb GelSwitchLimb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,35 +27,35 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGelSwitchLimbObj
-	implements ICFGenKbGelSwitchLimbObj
+public class YCFGenKbGelSwitchLimbObj
+	implements IYCFGenKbGelSwitchLimbObj
 {
 	public final static String CLASS_CODE = "a91f";
 	protected boolean isNew;
-	protected ICFGenKbGelSwitchLimbEditObj edit;
-	protected ICFGenKbSchemaObj schema;
-	protected CFGenKbGelSwitchLimbPKey pKey;
-	protected CFGenKbGelSwitchLimbBuff buff;
-	protected ICFGenKbGelSwitchObj requiredParentSwitch;
-	protected ICFGenKbTenantObj requiredOwnerTenant;
+	protected IYCFGenKbGelSwitchLimbEditObj edit;
+	protected IYCFGenKbSchemaObj schema;
+	protected YCFGenKbGelSwitchLimbPKey pKey;
+	protected YCFGenKbGelSwitchLimbBuff buff;
+	protected IYCFGenKbGelSwitchObj requiredParentSwitch;
+	protected IYCFGenKbTenantObj requiredOwnerTenant;
 
-	public CFGenKbGelSwitchLimbObj() {
+	public YCFGenKbGelSwitchLimbObj() {
 		isNew = true;
 		requiredParentSwitch = null;
 		requiredOwnerTenant = null;
 	}
 
-	public CFGenKbGelSwitchLimbObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGelSwitchLimbObj( IYCFGenKbSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -71,11 +71,11 @@ public class CFGenKbGelSwitchLimbObj
 		return( "GelSwitchLimb" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( null );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( null );
 	}
 
@@ -85,14 +85,14 @@ public class CFGenKbGelSwitchLimbObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -103,10 +103,10 @@ public class CFGenKbGelSwitchLimbObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -115,20 +115,20 @@ public class CFGenKbGelSwitchLimbObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -152,13 +152,13 @@ public class CFGenKbGelSwitchLimbObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -172,13 +172,13 @@ public class CFGenKbGelSwitchLimbObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -190,52 +190,52 @@ public class CFGenKbGelSwitchLimbObj
 		return( fullName );
 	}
 
-	public ICFGenKbGelSwitchLimbObj realise() {
-		ICFGenKbGelSwitchLimbObj retobj = ((ICFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().realiseGelSwitchLimb(
-			(ICFGenKbGelSwitchLimbObj)this );
-		return( (ICFGenKbGelSwitchLimbObj)retobj );
+	public IYCFGenKbGelSwitchLimbObj realise() {
+		IYCFGenKbGelSwitchLimbObj retobj = ((IYCFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().realiseGelSwitchLimb(
+			(IYCFGenKbGelSwitchLimbObj)this );
+		return( (IYCFGenKbGelSwitchLimbObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().reallyDeepDisposeGelSwitchLimb( (ICFGenKbGelSwitchLimbObj)this );
+		((IYCFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().reallyDeepDisposeGelSwitchLimb( (IYCFGenKbGelSwitchLimbObj)this );
 	}
 
-	public ICFGenKbGelSwitchLimbObj read() {
-		ICFGenKbGelSwitchLimbObj retobj = ((ICFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().readGelSwitchLimbByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelSwitchLimbObj read() {
+		IYCFGenKbGelSwitchLimbObj retobj = ((IYCFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().readGelSwitchLimbByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(),
 			getPKey().getRequiredLimbName(), false );
-		return( (ICFGenKbGelSwitchLimbObj)retobj );
+		return( (IYCFGenKbGelSwitchLimbObj)retobj );
 	}
 
-	public ICFGenKbGelSwitchLimbObj read( boolean forceRead ) {
-		ICFGenKbGelSwitchLimbObj retobj = ((ICFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().readGelSwitchLimbByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelSwitchLimbObj read( boolean forceRead ) {
+		IYCFGenKbGelSwitchLimbObj retobj = ((IYCFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().readGelSwitchLimbByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(),
 			getPKey().getRequiredLimbName(), forceRead );
-		return( (ICFGenKbGelSwitchLimbObj)retobj );
+		return( (IYCFGenKbGelSwitchLimbObj)retobj );
 	}
 
-	public ICFGenKbGelSwitchLimbTableObj getGelSwitchLimbTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGelSwitchLimbTableObj() );
+	public IYCFGenKbGelSwitchLimbTableObj getGelSwitchLimbTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGelSwitchLimbTableObj() );
 	}
 
-	public ICFGenKbSchemaObj getSchema() {
+	public IYCFGenKbSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFGenKbSchemaObj value ) {
+	public void setSchema( IYCFGenKbSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFGenKbGelSwitchLimbBuff getBuff() {
+	public YCFGenKbGelSwitchLimbBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelSwitchLimb().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelSwitchLimb().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelSwitchLimb().readDerivedByPIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelSwitchLimb().readDerivedByPIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredGelCacheId(),
 						getPKey().getRequiredGelInstId(),
@@ -248,13 +248,13 @@ public class CFGenKbGelSwitchLimbObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelSwitchLimbBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGelSwitchLimbBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGelSwitchLimbBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGelSwitchLimbBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGelSwitchLimbBuff" );
+				"YCFGenKbGelSwitchLimbBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -262,18 +262,18 @@ public class CFGenKbGelSwitchLimbObj
 		requiredOwnerTenant = null;
 	}
 
-	public CFGenKbGelSwitchLimbBuff getGelSwitchLimbBuff() {
-		return( (CFGenKbGelSwitchLimbBuff)getBuff() );
+	public YCFGenKbGelSwitchLimbBuff getGelSwitchLimbBuff() {
+		return( (YCFGenKbGelSwitchLimbBuff)getBuff() );
 	}
 
-	public CFGenKbGelSwitchLimbPKey getPKey() {
+	public YCFGenKbGelSwitchLimbPKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelSwitchLimb().newPKey();
+			pKey = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelSwitchLimb().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFGenKbGelSwitchLimbPKey value ) {
+	public void setPKey( YCFGenKbGelSwitchLimbPKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -288,31 +288,31 @@ public class CFGenKbGelSwitchLimbObj
 		isNew = value;
 	}
 
-	public ICFGenKbGelSwitchLimbEditObj beginEdit() {
+	public IYCFGenKbGelSwitchLimbEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGelSwitchLimbObj lockobj;
+		IYCFGenKbGelSwitchLimbObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGelSwitchLimbObj)this;
+			lockobj = (IYCFGenKbGelSwitchLimbObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().lockGelSwitchLimb( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().lockGelSwitchLimb( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGelSwitchLimbEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGelSwitchLimbTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGelSwitchLimbEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFGenKbGelSwitchLimbEditObj getEdit() {
+	public IYCFGenKbGelSwitchLimbEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFGenKbGelSwitchLimbEditObj getEditAsGelSwitchLimb() {
-		return( (ICFGenKbGelSwitchLimbEditObj)edit );
+	public IYCFGenKbGelSwitchLimbEditObj getEditAsGelSwitchLimb() {
+		return( (IYCFGenKbGelSwitchLimbEditObj)edit );
 	}
 
 	public long getRequiredTenantId() {
@@ -335,15 +335,15 @@ public class CFGenKbGelSwitchLimbObj
 		return( getGelSwitchLimbBuff().getRequiredLimbExpansion() );
 	}
 
-	public ICFGenKbGelSwitchObj getRequiredParentSwitch() {
+	public IYCFGenKbGelSwitchObj getRequiredParentSwitch() {
 		return( getRequiredParentSwitch( false ) );
 	}
 
-	public ICFGenKbGelSwitchObj getRequiredParentSwitch( boolean forceRead ) {
+	public IYCFGenKbGelSwitchObj getRequiredParentSwitch( boolean forceRead ) {
 		if( ( requiredParentSwitch == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredParentSwitch = ((ICFGenKbSchemaObj)schema).getGelSwitchTableObj().readGelSwitchByPIdx( getPKey().getRequiredTenantId(),
+				requiredParentSwitch = ((IYCFGenKbSchemaObj)schema).getGelSwitchTableObj().readGelSwitchByPIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredGelCacheId(),
 					getPKey().getRequiredGelInstId(), forceRead );
 			}
@@ -351,15 +351,15 @@ public class CFGenKbGelSwitchLimbObj
 		return( requiredParentSwitch );
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant() {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFGenKbTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( ( requiredOwnerTenant == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredOwnerTenant = ((ICFGenKbSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
+				requiredOwnerTenant = ((IYCFGenKbSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
 			}
 		}
 		return( requiredOwnerTenant );

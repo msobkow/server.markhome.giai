@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for Service
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,21 +35,21 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSaxLoaderServiceParse XML SAX Element Handler implementation
+ *	YCFIntSaxLoaderServiceParse XML SAX Element Handler implementation
  *	for Service.
  */
-public class CFIntSaxLoaderService
-	extends CFLibXmlCoreElementHandler
+public class YCFIntSaxLoaderService
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFIntSaxLoaderService( CFIntSaxLoader saxLoader ) {
+	public YCFIntSaxLoaderService( YCFIntSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -61,17 +61,17 @@ public class CFIntSaxLoaderService
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFIntServiceObj origBuff = null;
-		ICFIntServiceEditObj editBuff = null;
+		IYCFIntServiceObj origBuff = null;
+		IYCFIntServiceEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// Service Attributes
 		String attrHostPort = null;
 		String attrServiceType = null;
 		// Service References
-		ICFIntClusterObj refCluster = null;
-		ICFIntHostNodeObj refHost = null;
-		ICFIntServiceTypeObj refServiceType = null;
+		IYCFIntClusterObj refCluster = null;
+		IYCFIntHostNodeObj refHost = null;
+		IYCFIntServiceTypeObj refServiceType = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -80,25 +80,25 @@ public class CFIntSaxLoaderService
 		try {
 			assert qName.equals( "Service" );
 
-			CFIntSaxLoader saxLoader = (CFIntSaxLoader)getParser();
+			YCFIntSaxLoader saxLoader = (YCFIntSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFIntServiceObj)schemaObj.getServiceTableObj().newInstance();
-			editBuff = (ICFIntServiceEditObj)origBuff.beginEdit();
+			origBuff = (IYCFIntServiceObj)schemaObj.getServiceTableObj().newInstance();
+			editBuff = (IYCFIntServiceEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -106,7 +106,7 @@ public class CFIntSaxLoaderService
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -115,7 +115,7 @@ public class CFIntSaxLoaderService
 				}
 				else if( attrLocalName.equals( "HostPort" ) ) {
 					if( attrHostPort != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -124,7 +124,7 @@ public class CFIntSaxLoaderService
 				}
 				else if( attrLocalName.equals( "ServiceType" ) ) {
 					if( attrServiceType != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -135,7 +135,7 @@ public class CFIntSaxLoaderService
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -144,14 +144,14 @@ public class CFIntSaxLoaderService
 
 			// Ensure that required attributes have values
 			if( ( attrHostPort == null ) || ( attrHostPort.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"HostPort" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "HostPort", attrHostPort );
 			curContext.putNamedValue( "ServiceType", attrServiceType );
@@ -171,7 +171,7 @@ public class CFIntSaxLoaderService
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -185,30 +185,30 @@ public class CFIntSaxLoaderService
 			if( scopeObj == null ) {
 				refHost = null;
 				editBuff.setOptionalContainerHost( refHost );
-				refCluster = (ICFIntClusterObj)editBuff.getRequiredOwnerCluster();
+				refCluster = (IYCFIntClusterObj)editBuff.getRequiredOwnerCluster();
 			}
-			else if( scopeObj instanceof ICFIntHostNodeObj ) {
-				refHost = (ICFIntHostNodeObj) scopeObj;
+			else if( scopeObj instanceof IYCFIntHostNodeObj ) {
+				refHost = (IYCFIntHostNodeObj) scopeObj;
 				editBuff.setOptionalContainerHost( refHost );
-				refCluster = (ICFIntClusterObj)editBuff.getRequiredOwnerCluster();
+				refCluster = (IYCFIntClusterObj)editBuff.getRequiredOwnerCluster();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFIntHostNodeObj" );
+					"IYCFIntHostNodeObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refCluster == null ) {
-				if( scopeObj instanceof ICFIntClusterObj ) {
-					refCluster = (ICFIntClusterObj) scopeObj;
+				if( scopeObj instanceof IYCFIntClusterObj ) {
+					refCluster = (IYCFIntClusterObj) scopeObj;
 					editBuff.setRequiredOwnerCluster( refCluster );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Cluster>" );
@@ -217,9 +217,9 @@ public class CFIntSaxLoaderService
 
 			// Lookup refServiceType by key name value attr
 			if( ( attrServiceType != null ) && ( attrServiceType.length() > 0 ) ) {
-				refServiceType = (ICFIntServiceTypeObj)schemaObj.getServiceTypeTableObj().readServiceTypeByUDescrIdx( attrServiceType );
+				refServiceType = (IYCFIntServiceTypeObj)schemaObj.getServiceTypeTableObj().readServiceTypeByUDescrIdx( attrServiceType );
 				if( refServiceType == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve ServiceType reference named \"" + attrServiceType + "\" to table ServiceType" );
@@ -230,9 +230,9 @@ public class CFIntSaxLoaderService
 			}
 			editBuff.setOptionalParentServiceType( refServiceType );
 
-			ICFIntServiceObj origService;
-			ICFIntServiceEditObj editService = editBuff;
-			origService = (ICFIntServiceObj)editService.create();
+			IYCFIntServiceObj origService;
+			IYCFIntServiceEditObj editService = editBuff;
+			origService = (IYCFIntServiceObj)editService.create();
 			editService = null;
 
 			curContext.putNamedValue( "Object", origService );

@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for SecForm.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,45 +36,45 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbSecFormFactory implementation for SecForm
+	 *	YCFGenKbSecFormFactory implementation for SecForm
 	 */
-public class CFGenKbSecFormDefaultFactory
-	implements ICFGenKbSecFormFactory
+public class YCFGenKbSecFormDefaultFactory
+	implements IYCFGenKbSecFormFactory
 {
-	public CFGenKbSecFormDefaultFactory() {
+	public YCFGenKbSecFormDefaultFactory() {
 	}
 
-	public CFGenKbSecFormPKey newPKey() {
-		CFGenKbSecFormPKey pkey =
-			new CFGenKbSecFormPKey();
+	public YCFGenKbSecFormPKey newPKey() {
+		YCFGenKbSecFormPKey pkey =
+			new YCFGenKbSecFormPKey();
 		return( pkey );
 	}
 
-	public CFGenKbSecFormByClusterIdxKey newClusterIdxKey() {
-		CFGenKbSecFormByClusterIdxKey key =
-			new CFGenKbSecFormByClusterIdxKey();
+	public YCFGenKbSecFormByClusterIdxKey newClusterIdxKey() {
+		YCFGenKbSecFormByClusterIdxKey key =
+			new YCFGenKbSecFormByClusterIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecFormBySecAppIdxKey newSecAppIdxKey() {
-		CFGenKbSecFormBySecAppIdxKey key =
-			new CFGenKbSecFormBySecAppIdxKey();
+	public YCFGenKbSecFormBySecAppIdxKey newSecAppIdxKey() {
+		YCFGenKbSecFormBySecAppIdxKey key =
+			new YCFGenKbSecFormBySecAppIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecFormByUJEEServletIdxKey newUJEEServletIdxKey() {
-		CFGenKbSecFormByUJEEServletIdxKey key =
-			new CFGenKbSecFormByUJEEServletIdxKey();
+	public YCFGenKbSecFormByUJEEServletIdxKey newUJEEServletIdxKey() {
+		YCFGenKbSecFormByUJEEServletIdxKey key =
+			new YCFGenKbSecFormByUJEEServletIdxKey();
 		return( key );
 	}
 
-	public CFGenKbSecFormBuff newBuff() {
-		CFGenKbSecFormBuff buff =
-			new CFGenKbSecFormBuff();
+	public YCFGenKbSecFormBuff newBuff() {
+		YCFGenKbSecFormBuff buff =
+			new YCFGenKbSecFormBuff();
 		return( buff );
 	}
 }

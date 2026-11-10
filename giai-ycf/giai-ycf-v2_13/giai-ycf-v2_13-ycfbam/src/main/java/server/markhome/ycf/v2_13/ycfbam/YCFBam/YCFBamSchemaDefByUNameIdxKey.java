@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a SchemaDef by UNameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,22 +55,22 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamSchemaDefByUNameIdxKey
+public class YCFBamSchemaDefByUNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected long requiredMinorVersionId;
 	protected String requiredName;
-	public CFBamSchemaDefByUNameIdxKey() {
-		requiredTenantId = CFBamSchemaDefBuff.TENANTID_INIT_VALUE;
-		requiredMinorVersionId = CFBamSchemaDefBuff.MINORVERSIONID_INIT_VALUE;
-		requiredName = new String( CFBamSchemaDefBuff.NAME_INIT_VALUE );
+	public YCFBamSchemaDefByUNameIdxKey() {
+		requiredTenantId = YCFBamSchemaDefBuff.TENANTID_INIT_VALUE;
+		requiredMinorVersionId = YCFBamSchemaDefBuff.MINORVERSIONID_INIT_VALUE;
+		requiredName = new String( YCFBamSchemaDefBuff.NAME_INIT_VALUE );
 	}
 
 	public long getRequiredTenantId() {
@@ -78,13 +78,13 @@ public class CFBamSchemaDefByUNameIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFBamSchemaDefBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamSchemaDefBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFBamSchemaDefBuff.TENANTID_MIN_VALUE );
+				YCFBamSchemaDefBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -94,13 +94,13 @@ public class CFBamSchemaDefByUNameIdxKey
 	}
 
 	public void setRequiredMinorVersionId( long value ) {
-		if( value < CFBamSchemaDefBuff.MINORVERSIONID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamSchemaDefBuff.MINORVERSIONID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredMinorVersionId",
 				1,
 				"value",
 				value,
-				CFBamSchemaDefBuff.MINORVERSIONID_MIN_VALUE );
+				YCFBamSchemaDefBuff.MINORVERSIONID_MIN_VALUE );
 		}
 		requiredMinorVersionId = value;
 	}
@@ -111,13 +111,13 @@ public class CFBamSchemaDefByUNameIdxKey
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -131,8 +131,8 @@ public class CFBamSchemaDefByUNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamSchemaDefByUNameIdxKey ) {
-			CFBamSchemaDefByUNameIdxKey rhs = (CFBamSchemaDefByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamSchemaDefByUNameIdxKey ) {
+			YCFBamSchemaDefByUNameIdxKey rhs = (YCFBamSchemaDefByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -144,8 +144,8 @@ public class CFBamSchemaDefByUNameIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamSchemaDefBuff ) {
-			CFBamSchemaDefBuff rhs = (CFBamSchemaDefBuff)obj;
+		else if( obj instanceof YCFBamSchemaDefBuff ) {
+			YCFBamSchemaDefBuff rhs = (YCFBamSchemaDefBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -176,8 +176,8 @@ public class CFBamSchemaDefByUNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFBamSchemaDefByUNameIdxKey ) {
-			CFBamSchemaDefByUNameIdxKey rhs = (CFBamSchemaDefByUNameIdxKey)obj;
+		else if( obj instanceof YCFBamSchemaDefByUNameIdxKey ) {
+			YCFBamSchemaDefByUNameIdxKey rhs = (YCFBamSchemaDefByUNameIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -198,8 +198,8 @@ public class CFBamSchemaDefByUNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamSchemaDefBuff ) {
-			CFBamSchemaDefBuff rhs = (CFBamSchemaDefBuff)obj;
+		else if( obj instanceof YCFBamSchemaDefBuff ) {
+			YCFBamSchemaDefBuff rhs = (YCFBamSchemaDefBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -221,7 +221,7 @@ public class CFBamSchemaDefByUNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -230,10 +230,10 @@ public class CFBamSchemaDefByUNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFBamSchemaDefByUNameIdx"
+		String ret = "<YCFBamSchemaDefByUNameIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredMinorVersionId=" + "\"" + Long.toString( getRequiredMinorVersionId() ) + "\""
-			+ " RequiredName=" + "\"" + CFBamSchema.xmlEncodeString( getRequiredName() ) + "\""
+			+ " RequiredName=" + "\"" + YCFBamSchema.xmlEncodeString( getRequiredName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

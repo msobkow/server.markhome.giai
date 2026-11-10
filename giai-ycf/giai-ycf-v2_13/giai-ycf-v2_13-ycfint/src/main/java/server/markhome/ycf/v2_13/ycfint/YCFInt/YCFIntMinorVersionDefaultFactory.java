@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for MinorVersion.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,58 +35,58 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntMinorVersionFactory implementation for MinorVersion
+	 *	YCFIntMinorVersionFactory implementation for MinorVersion
 	 */
-public class CFIntMinorVersionDefaultFactory
-	implements ICFIntMinorVersionFactory
+public class YCFIntMinorVersionDefaultFactory
+	implements IYCFIntMinorVersionFactory
 {
-	public CFIntMinorVersionDefaultFactory() {
+	public YCFIntMinorVersionDefaultFactory() {
 	}
 
-	public CFIntMinorVersionPKey newPKey() {
-		CFIntMinorVersionPKey pkey =
-			new CFIntMinorVersionPKey();
+	public YCFIntMinorVersionPKey newPKey() {
+		YCFIntMinorVersionPKey pkey =
+			new YCFIntMinorVersionPKey();
 		return( pkey );
 	}
 
-	public CFIntMinorVersionHPKey newHPKey() {
-		CFIntMinorVersionHPKey hpkey =
-			new CFIntMinorVersionHPKey();
+	public YCFIntMinorVersionHPKey newHPKey() {
+		YCFIntMinorVersionHPKey hpkey =
+			new YCFIntMinorVersionHPKey();
 		return( hpkey );
 	}
 
-	public CFIntMinorVersionByTenantIdxKey newTenantIdxKey() {
-		CFIntMinorVersionByTenantIdxKey key =
-			new CFIntMinorVersionByTenantIdxKey();
+	public YCFIntMinorVersionByTenantIdxKey newTenantIdxKey() {
+		YCFIntMinorVersionByTenantIdxKey key =
+			new YCFIntMinorVersionByTenantIdxKey();
 		return( key );
 	}
 
-	public CFIntMinorVersionByMajorVerIdxKey newMajorVerIdxKey() {
-		CFIntMinorVersionByMajorVerIdxKey key =
-			new CFIntMinorVersionByMajorVerIdxKey();
+	public YCFIntMinorVersionByMajorVerIdxKey newMajorVerIdxKey() {
+		YCFIntMinorVersionByMajorVerIdxKey key =
+			new YCFIntMinorVersionByMajorVerIdxKey();
 		return( key );
 	}
 
-	public CFIntMinorVersionByNameIdxKey newNameIdxKey() {
-		CFIntMinorVersionByNameIdxKey key =
-			new CFIntMinorVersionByNameIdxKey();
+	public YCFIntMinorVersionByNameIdxKey newNameIdxKey() {
+		YCFIntMinorVersionByNameIdxKey key =
+			new YCFIntMinorVersionByNameIdxKey();
 		return( key );
 	}
 
-	public CFIntMinorVersionBuff newBuff() {
-		CFIntMinorVersionBuff buff =
-			new CFIntMinorVersionBuff();
+	public YCFIntMinorVersionBuff newBuff() {
+		YCFIntMinorVersionBuff buff =
+			new YCFIntMinorVersionBuff();
 		return( buff );
 	}
 
-	public CFIntMinorVersionHBuff newHBuff() {
-		CFIntMinorVersionHBuff hbuff =
-			new CFIntMinorVersionHBuff();
+	public YCFIntMinorVersionHBuff newHBuff() {
+		YCFIntMinorVersionHBuff hbuff =
+			new YCFIntMinorVersionHBuff();
 		return( hbuff );
 	}
 }

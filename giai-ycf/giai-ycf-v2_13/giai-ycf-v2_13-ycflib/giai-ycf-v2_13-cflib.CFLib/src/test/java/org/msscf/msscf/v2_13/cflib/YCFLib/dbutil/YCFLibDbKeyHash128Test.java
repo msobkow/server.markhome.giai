@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,47 +21,47 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.dbutil;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CFLibDbKeyHash128Test {
+public class YCFLibDbKeyHash128Test {
 
     @Test
     void testGetHashAlgo() {
-		assertEquals("MD5", CFLibDbKeyHash128.HASH_ALGO);
-		CFLibDbKeyHash128 k = new CFLibDbKeyHash128();
+		assertEquals("MD5", YCFLibDbKeyHash128.HASH_ALGO);
+		YCFLibDbKeyHash128 k = new YCFLibDbKeyHash128();
 		assertEquals("MD5", k.getHashAlgo());
     }
 
     @Test
     void testGetHashLength() {
-		assertEquals(16, CFLibDbKeyHash128.HASH_LENGTH);
-		CFLibDbKeyHash128 k = new CFLibDbKeyHash128();
+		assertEquals(16, YCFLibDbKeyHash128.HASH_LENGTH);
+		YCFLibDbKeyHash128 k = new YCFLibDbKeyHash128();
 		assertEquals(16, k.getHashLength());
     }
 
     @Test
     void testGetHashLengthString() {
-		assertEquals(32, CFLibDbKeyHash128.HASH_LENGTH_STRING);
-		CFLibDbKeyHash128 k = new CFLibDbKeyHash128();
+		assertEquals(32, YCFLibDbKeyHash128.HASH_LENGTH_STRING);
+		YCFLibDbKeyHash128 k = new YCFLibDbKeyHash128();
 		assertEquals(32, k.getHashLengthString());
     }
 
     @Test
     void testGetBytes() {
-		CFLibDbKeyHash128 k = new CFLibDbKeyHash128();
+		YCFLibDbKeyHash128 k = new YCFLibDbKeyHash128();
 		byte[] bytes = k.getBytes();
 		assertNull(bytes);
-		CFLibDbKeyHash128 k2 = CFLibDbKeyHash128.nullGet();
+		YCFLibDbKeyHash128 k2 = YCFLibDbKeyHash128.nullGet();
 		byte[] bytes2 = k2.getBytes();
 		assertNotNull(bytes2);
     }
 
     @Test
     void testNullGet() {
-		CFLibDbKeyHash128 n = CFLibDbKeyHash128.nullGet();
+		YCFLibDbKeyHash128 n = YCFLibDbKeyHash128.nullGet();
 		byte[] bytes = n.getBytes();
 		assertNotNull(bytes);
 		assertEquals(16, bytes.length);
@@ -73,23 +73,23 @@ public class CFLibDbKeyHash128Test {
 	@Test
     void testCompareOrdered() {
 
-		CFLibDbKeyHash128 nullA = CFLibDbKeyHash128.nullGet();
-		CFLibDbKeyHash128 nullB = CFLibDbKeyHash128.nullGet();
-		assertEquals(0, CFLibDbKeyHash128.compareOrdered(nullA, nullB));
+		YCFLibDbKeyHash128 nullA = YCFLibDbKeyHash128.nullGet();
+		YCFLibDbKeyHash128 nullB = YCFLibDbKeyHash128.nullGet();
+		assertEquals(0, YCFLibDbKeyHash128.compareOrdered(nullA, nullB));
 
 		byte[] bA = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 		byte[] bB = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
-		CFLibDbKeyHash128 valA = new CFLibDbKeyHash128(bA);
-		assertEquals(0, CFLibDbKeyHash128.compareOrdered(valA, valA));
-		CFLibDbKeyHash128 anotherA = new CFLibDbKeyHash128(bA);
-		assertEquals(0, CFLibDbKeyHash128.compareOrdered(valA, anotherA));
+		YCFLibDbKeyHash128 valA = new YCFLibDbKeyHash128(bA);
+		assertEquals(0, YCFLibDbKeyHash128.compareOrdered(valA, valA));
+		YCFLibDbKeyHash128 anotherA = new YCFLibDbKeyHash128(bA);
+		assertEquals(0, YCFLibDbKeyHash128.compareOrdered(valA, anotherA));
 
-		CFLibDbKeyHash128 valB = new CFLibDbKeyHash128(bB);
-		assertTrue(CFLibDbKeyHash128.compareOrdered(valA, valB) < 0);
-		assertTrue(CFLibDbKeyHash128.compareOrdered(valB, valA) > 0);
+		YCFLibDbKeyHash128 valB = new YCFLibDbKeyHash128(bB);
+		assertTrue(YCFLibDbKeyHash128.compareOrdered(valA, valB) < 0);
+		assertTrue(YCFLibDbKeyHash128.compareOrdered(valB, valA) > 0);
 
-		CFLibDbKeyHash128 notNull = new CFLibDbKeyHash128(0);
-		assertTrue(CFLibDbKeyHash128.compareOrdered(nullA, notNull) != 0);
-		assertTrue(CFLibDbKeyHash128.compareOrdered(notNull, nullA) != 0);
+		YCFLibDbKeyHash128 notNull = new YCFLibDbKeyHash128(0);
+		assertTrue(YCFLibDbKeyHash128.compareOrdered(nullA, notNull) != 0);
+		assertTrue(YCFLibDbKeyHash128.compareOrdered(notNull, nullA) != 0);
     }
 }

@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -30,24 +30,24 @@ import java.security.cert.*;
 import java.text.*;
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGenTruncObj
-extends CFGenKbGenTruncObj
+public class MssYCFGenTruncObj
+extends YCFGenKbGenTruncObj
 {
-	public MssCFGenTruncObj() {
+	public MssYCFGenTruncObj() {
 		super();
 	}
 
-	public MssCFGenTruncObj(MssCFEngine schema) {
+	public MssYCFGenTruncObj(MssYCFEngine schema) {
 		super( schema );
 	}
 
-	public String getBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "MssCFGenTruncObj.getBody() ";
-		ICFGenKbGelInstructionObj bodyBin = CFGenKbGenTruncObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
+	public String getBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "MssYCFGenTruncObj.getBody() ";
+		IYCFGenKbGelInstructionObj bodyBin = YCFGenKbGenTruncObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
 		if( bodyBin == null ) {
 			throw new RuntimeException( S_ProcName + "Could not resolve compiled Body GEL executable" );
 		}
@@ -55,15 +55,15 @@ extends CFGenKbGenTruncObj
 		return( body );
 	}
 
-	public String expandBody(MssCFGenContext genContext) {
-		final String S_ProcName = "MssCFGenTruncObj.expandBody() ";
+	public String expandBody(MssYCFGenContext genContext) {
+		final String S_ProcName = "MssYCFGenTruncObj.expandBody() ";
 
 		String ret = null;
 		if (genContext == null) {
 			throw new RuntimeException(S_ProcName + "genContext is null");
 		}
 
-		ICFGenKbGelInstructionObj bodyBin = CFGenKbGenTruncObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
+		IYCFGenKbGelInstructionObj bodyBin = YCFGenKbGenTruncObj.getBodyBin( genContext.getGenEngine().getGelCompiler(), this);
 		ret = bodyBin.expand( genContext );
 
 		if( ret != null ) {

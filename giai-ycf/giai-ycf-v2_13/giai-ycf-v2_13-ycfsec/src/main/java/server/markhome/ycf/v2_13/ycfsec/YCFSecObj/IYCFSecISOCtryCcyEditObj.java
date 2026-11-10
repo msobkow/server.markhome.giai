@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFSec ISOCtryCcy.
+// Description: Java 11 Instance Edit Object interface for YCFSec ISOCtryCcy.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,32 +26,32 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOCtryCcyEditObj
-	extends ICFSecISOCtryCcyObj
+public interface IYCFSecISOCtryCcyEditObj
+	extends IYCFSecISOCtryCcyObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFSecISOCtryCcyObj.
+	 *	@return The original, non-modifiable instance as a base IYCFSecISOCtryCcyObj.
 	 */
-	ICFSecISOCtryCcyObj getOrig();
+	IYCFSecISOCtryCcyObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFSecISOCtryCcyObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFSecISOCtryCcyObj.
 	 */
-	ICFSecISOCtryCcyObj getOrigAsISOCtryCcy();
+	IYCFSecISOCtryCcyObj getOrigAsISOCtryCcy();
 
 	/*
 	 *	create() may return a different instance than the
@@ -62,52 +62,52 @@ public interface ICFSecISOCtryCcyEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFSecISOCtryCcyObj create();
+	IYCFSecISOCtryCcyObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFSecISOCtryCcyEditObj update();
+	YCFSecISOCtryCcyEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFSecISOCtryCcyEditObj deleteInstance();
+	YCFSecISOCtryCcyEditObj deleteInstance();
 
 	/**
-	 *	Get the ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	Get the IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 *
-	 *	@return	The ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	@return	The IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 */
-	ICFSecISOCtryObj getRequiredContainerCtry();
+	IYCFSecISOCtryObj getRequiredContainerCtry();
 
 	/**
-	 *	Set the ICFSecISOCtryObj instance referenced by the Ctry key.
+	 *	Set the IYCFSecISOCtryObj instance referenced by the Ctry key.
 	 *
-	 *	@param	value	the ICFSecISOCtryObj instance to be referenced by the Ctry key.
+	 *	@param	value	the IYCFSecISOCtryObj instance to be referenced by the Ctry key.
 	 */
-	void setRequiredContainerCtry( ICFSecISOCtryObj value );
+	void setRequiredContainerCtry( IYCFSecISOCtryObj value );
 
 	/**
-	 *	Get the ICFSecISOCcyObj instance referenced by the Ccy key.
+	 *	Get the IYCFSecISOCcyObj instance referenced by the Ccy key.
 	 *
-	 *	@return	The ICFSecISOCcyObj instance referenced by the Ccy key.
+	 *	@return	The IYCFSecISOCcyObj instance referenced by the Ccy key.
 	 */
-	ICFSecISOCcyObj getRequiredParentCcy();
+	IYCFSecISOCcyObj getRequiredParentCcy();
 
 	/**
-	 *	Set the ICFSecISOCcyObj instance referenced by the Ccy key.
+	 *	Set the IYCFSecISOCcyObj instance referenced by the Ccy key.
 	 *
-	 *	@param	value	the ICFSecISOCcyObj instance to be referenced by the Ccy key.
+	 *	@param	value	the IYCFSecISOCcyObj instance to be referenced by the Ccy key.
 	 */
-	void setRequiredParentCcy( ICFSecISOCcyObj value );
+	void setRequiredParentCcy( IYCFSecISOCcyObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFSecSecUserObj value );
+	void setCreatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -119,9 +119,9 @@ public interface ICFSecISOCtryCcyEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFSecSecUserObj value );
+	void setUpdatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for SecSession.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,72 +35,72 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntSecSessionFactory implementation for SecSession
+	 *	YCFIntSecSessionFactory implementation for SecSession
 	 */
-public class CFIntSecSessionDefaultFactory
-	extends CFSecSecSessionDefaultFactory
-	implements ICFIntSecSessionFactory
+public class YCFIntSecSessionDefaultFactory
+	extends YCFSecSecSessionDefaultFactory
+	implements IYCFIntSecSessionFactory
 {
-	public CFIntSecSessionDefaultFactory() {
+	public YCFIntSecSessionDefaultFactory() {
 		super();
 	}
 
-	public CFSecSecSessionPKey newPKey() {
-		CFSecSecSessionPKey pkey =
-			new CFSecSecSessionPKey();
+	public YCFSecSecSessionPKey newPKey() {
+		YCFSecSecSessionPKey pkey =
+			new YCFSecSecSessionPKey();
 		return( pkey );
 	}
 
-	public CFSecSecSessionHPKey newHPKey() {
-		CFSecSecSessionHPKey hpkey =
-			new CFSecSecSessionHPKey();
+	public YCFSecSecSessionHPKey newHPKey() {
+		YCFSecSecSessionHPKey hpkey =
+			new YCFSecSecSessionHPKey();
 		return( hpkey );
 	}
 
-	public CFSecSecSessionBySecUserIdxKey newSecUserIdxKey() {
-		CFSecSecSessionBySecUserIdxKey key =
-			new CFSecSecSessionBySecUserIdxKey();
+	public YCFSecSecSessionBySecUserIdxKey newSecUserIdxKey() {
+		YCFSecSecSessionBySecUserIdxKey key =
+			new YCFSecSecSessionBySecUserIdxKey();
 		return( key );
 	}
 
-	public CFSecSecSessionBySecDevIdxKey newSecDevIdxKey() {
-		CFSecSecSessionBySecDevIdxKey key =
-			new CFSecSecSessionBySecDevIdxKey();
+	public YCFSecSecSessionBySecDevIdxKey newSecDevIdxKey() {
+		YCFSecSecSessionBySecDevIdxKey key =
+			new YCFSecSecSessionBySecDevIdxKey();
 		return( key );
 	}
 
-	public CFSecSecSessionByStartIdxKey newStartIdxKey() {
-		CFSecSecSessionByStartIdxKey key =
-			new CFSecSecSessionByStartIdxKey();
+	public YCFSecSecSessionByStartIdxKey newStartIdxKey() {
+		YCFSecSecSessionByStartIdxKey key =
+			new YCFSecSecSessionByStartIdxKey();
 		return( key );
 	}
 
-	public CFSecSecSessionByFinishIdxKey newFinishIdxKey() {
-		CFSecSecSessionByFinishIdxKey key =
-			new CFSecSecSessionByFinishIdxKey();
+	public YCFSecSecSessionByFinishIdxKey newFinishIdxKey() {
+		YCFSecSecSessionByFinishIdxKey key =
+			new YCFSecSecSessionByFinishIdxKey();
 		return( key );
 	}
 
-	public CFSecSecSessionBySecProxyIdxKey newSecProxyIdxKey() {
-		CFSecSecSessionBySecProxyIdxKey key =
-			new CFSecSecSessionBySecProxyIdxKey();
+	public YCFSecSecSessionBySecProxyIdxKey newSecProxyIdxKey() {
+		YCFSecSecSessionBySecProxyIdxKey key =
+			new YCFSecSecSessionBySecProxyIdxKey();
 		return( key );
 	}
 
-	public CFSecSecSessionBuff newBuff() {
-		CFSecSecSessionBuff buff =
-			new CFSecSecSessionBuff();
+	public YCFSecSecSessionBuff newBuff() {
+		YCFSecSecSessionBuff buff =
+			new YCFSecSecSessionBuff();
 		return( buff );
 	}
 
-	public CFSecSecSessionHBuff newHBuff() {
-		CFSecSecSessionHBuff hbuff =
-			new CFSecSecSessionHBuff();
+	public YCFSecSecSessionHBuff newHBuff() {
+		YCFSecSecSessionHBuff hbuff =
+			new YCFSecSecSessionHBuff();
 		return( hbuff );
 	}
 }

@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a TokenDef history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamTokenDefHBuff
-	extends CFBamAtomHBuff
+public class YCFBamTokenDefHBuff
+	extends YCFBamAtomHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -75,14 +75,14 @@ public class CFBamTokenDefHBuff
 
 	protected int requiredMaxLen;
 	protected String optionalInitValue;
-	public CFBamTokenDefHBuff() {
+	public YCFBamTokenDefHBuff() {
 		super();
-		requiredMaxLen = CFBamTokenDefBuff.MAXLEN_INIT_VALUE;
+		requiredMaxLen = YCFBamTokenDefBuff.MAXLEN_INIT_VALUE;
 		optionalInitValue = null;
 	}
 
 	public String getClassCode() {
-		return( CFBamTokenDefBuff.CLASS_CODE );
+		return( YCFBamTokenDefBuff.CLASS_CODE );
 	}
 
 	public int getRequiredMaxLen() {
@@ -90,21 +90,21 @@ public class CFBamTokenDefHBuff
 	}
 
 	public void setRequiredMaxLen( int value ) {
-		if( value < CFBamTokenDefBuff.MAXLEN_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamTokenDefBuff.MAXLEN_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredMaxLen",
 				1,
 				"value",
 				value,
-				CFBamTokenDefBuff.MAXLEN_MIN_VALUE );
+				YCFBamTokenDefBuff.MAXLEN_MIN_VALUE );
 		}
-		if( value > CFBamTokenDefBuff.MAXLEN_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFBamTokenDefBuff.MAXLEN_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredMaxLen",
 				1,
 				"value",
 				value,
-				CFBamTokenDefBuff.MAXLEN_MAX_VALUE );
+				YCFBamTokenDefBuff.MAXLEN_MAX_VALUE );
 		}
 		requiredMaxLen = value;
 	}
@@ -118,7 +118,7 @@ public class CFBamTokenDefHBuff
 			optionalInitValue = null;
 		}
 		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalInitValue",
 				1,
 				"value.length()",
@@ -134,8 +134,8 @@ public class CFBamTokenDefHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamTokenDefHBuff ) {
-			CFBamTokenDefHBuff rhs = (CFBamTokenDefHBuff)obj;
+		else if( obj instanceof YCFBamTokenDefHBuff ) {
+			YCFBamTokenDefHBuff rhs = (YCFBamTokenDefHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -162,8 +162,8 @@ public class CFBamTokenDefHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamTokenDefBuff ) {
-			CFBamTokenDefBuff rhs = (CFBamTokenDefBuff)obj;
+		else if( obj instanceof YCFBamTokenDefBuff ) {
+			YCFBamTokenDefBuff rhs = (YCFBamTokenDefBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -208,16 +208,16 @@ public class CFBamTokenDefHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamTokenDefBuff ) {
-			CFBamTokenDefBuff rhs = (CFBamTokenDefBuff)obj;
+		else if( obj instanceof YCFBamTokenDefBuff ) {
+			YCFBamTokenDefBuff rhs = (YCFBamTokenDefBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamTokenDefHBuff ) {
-			CFBamTokenDefHBuff rhs = (CFBamTokenDefHBuff)obj;
+		else if( obj instanceof YCFBamTokenDefHBuff ) {
+			YCFBamTokenDefHBuff rhs = (YCFBamTokenDefHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -596,39 +596,39 @@ public class CFBamTokenDefHBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamTokenDefBuff ) {
-			setTokenDefBuff( (CFBamTokenDefBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamTokenDefBuff ) {
+			setTokenDefBuff( (YCFBamTokenDefBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamTokenDefBuff" );
+				"YCFBamTokenDefBuff" );
 		}
 	}
 
-	public void setTokenDefBuff( CFBamTokenDefBuff src ) {
+	public void setTokenDefBuff( YCFBamTokenDefBuff src ) {
 		super.setAtomBuff( src );
 		setRequiredMaxLen( src.getRequiredMaxLen() );
 		setOptionalInitValue( src.getOptionalInitValue() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamTokenDefHBuff ) {
-			setTokenDefBuff( (CFBamTokenDefHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamTokenDefHBuff ) {
+			setTokenDefBuff( (YCFBamTokenDefHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamTokenDefHBuff" );
+				"YCFBamTokenDefHBuff" );
 		}
 	}
 
-	public void setTokenDefBuff( CFBamTokenDefHBuff src ) {
+	public void setTokenDefBuff( YCFBamTokenDefHBuff src ) {
 		super.setAtomBuff( src );
 		setRequiredMaxLen( src.getRequiredMaxLen() );
 		setOptionalInitValue( src.getOptionalInitValue() );

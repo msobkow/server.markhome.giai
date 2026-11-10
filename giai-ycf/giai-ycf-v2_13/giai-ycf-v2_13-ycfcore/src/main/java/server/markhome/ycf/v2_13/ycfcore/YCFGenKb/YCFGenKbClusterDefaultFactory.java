@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for Cluster.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,39 +36,39 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbClusterFactory implementation for Cluster
+	 *	YCFGenKbClusterFactory implementation for Cluster
 	 */
-public class CFGenKbClusterDefaultFactory
-	implements ICFGenKbClusterFactory
+public class YCFGenKbClusterDefaultFactory
+	implements IYCFGenKbClusterFactory
 {
-	public CFGenKbClusterDefaultFactory() {
+	public YCFGenKbClusterDefaultFactory() {
 	}
 
-	public CFGenKbClusterPKey newPKey() {
-		CFGenKbClusterPKey pkey =
-			new CFGenKbClusterPKey();
+	public YCFGenKbClusterPKey newPKey() {
+		YCFGenKbClusterPKey pkey =
+			new YCFGenKbClusterPKey();
 		return( pkey );
 	}
 
-	public CFGenKbClusterByUDomNameIdxKey newUDomNameIdxKey() {
-		CFGenKbClusterByUDomNameIdxKey key =
-			new CFGenKbClusterByUDomNameIdxKey();
+	public YCFGenKbClusterByUDomNameIdxKey newUDomNameIdxKey() {
+		YCFGenKbClusterByUDomNameIdxKey key =
+			new YCFGenKbClusterByUDomNameIdxKey();
 		return( key );
 	}
 
-	public CFGenKbClusterByUDescrIdxKey newUDescrIdxKey() {
-		CFGenKbClusterByUDescrIdxKey key =
-			new CFGenKbClusterByUDescrIdxKey();
+	public YCFGenKbClusterByUDescrIdxKey newUDescrIdxKey() {
+		YCFGenKbClusterByUDescrIdxKey key =
+			new YCFGenKbClusterByUDescrIdxKey();
 		return( key );
 	}
 
-	public CFGenKbClusterBuff newBuff() {
-		CFGenKbClusterBuff buff =
-			new CFGenKbClusterBuff();
+	public YCFGenKbClusterBuff newBuff() {
+		YCFGenKbClusterBuff buff =
+			new YCFGenKbClusterBuff();
 		return( buff );
 	}
 }

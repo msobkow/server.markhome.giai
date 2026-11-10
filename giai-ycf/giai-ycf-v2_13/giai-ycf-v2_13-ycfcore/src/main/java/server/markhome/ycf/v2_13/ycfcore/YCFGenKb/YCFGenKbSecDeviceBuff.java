@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a SecDevice buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbSecDeviceBuff
+public class YCFGenKbSecDeviceBuff
 {
 	public final static String CLASS_CODE = "a905";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -49,17 +49,17 @@ public class CFGenKbSecDeviceBuff
 	public final static UUID INIT_UPDATEDBY = UUID.fromString( S_INIT_UPDATEDBY );
 	public static final UUID SECUSERID_INIT_VALUE = UUID.fromString( "654dbba0-eda7-11e1-aff1-0800200c9a66" );
 	public static final String DEVNAME_INIT_VALUE = new String( "" );
-	protected UUID createdByUserId = CFGenKbSecDeviceBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFGenKbSecDeviceBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFGenKbSecDeviceBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFGenKbSecDeviceBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected UUID requiredSecUserId;
 	protected String requiredDevName;
 	protected String optionalPubKey;
 	protected int requiredRevision;
-	public CFGenKbSecDeviceBuff() {
-		requiredSecUserId = UUID.fromString( CFGenKbSecDeviceBuff.SECUSERID_INIT_VALUE.toString() );
-		requiredDevName = new String( CFGenKbSecDeviceBuff.DEVNAME_INIT_VALUE );
+	public YCFGenKbSecDeviceBuff() {
+		requiredSecUserId = UUID.fromString( YCFGenKbSecDeviceBuff.SECUSERID_INIT_VALUE.toString() );
+		requiredDevName = new String( YCFGenKbSecDeviceBuff.DEVNAME_INIT_VALUE );
 		optionalPubKey = null;
 	}
 
@@ -104,7 +104,7 @@ public class CFGenKbSecDeviceBuff
 
 	public void setRequiredSecUserId( UUID value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
 				1,
 				"value" );
@@ -118,13 +118,13 @@ public class CFGenKbSecDeviceBuff
 
 	public void setRequiredDevName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredDevName",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDevName",
 				1,
 				"value.length()",
@@ -143,7 +143,7 @@ public class CFGenKbSecDeviceBuff
 			optionalPubKey = null;
 		}
 		else if( value.length() > 10000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalPubKey",
 				1,
 				"value.length()",
@@ -167,8 +167,8 @@ public class CFGenKbSecDeviceBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbSecDeviceBuff ) {
-			CFGenKbSecDeviceBuff rhs = (CFGenKbSecDeviceBuff)obj;
+		else if( obj instanceof YCFGenKbSecDeviceBuff ) {
+			YCFGenKbSecDeviceBuff rhs = (YCFGenKbSecDeviceBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -201,8 +201,8 @@ public class CFGenKbSecDeviceBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecDevicePKey ) {
-			CFGenKbSecDevicePKey rhs = (CFGenKbSecDevicePKey)obj;
+		else if( obj instanceof YCFGenKbSecDevicePKey ) {
+			YCFGenKbSecDevicePKey rhs = (YCFGenKbSecDevicePKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -211,8 +211,8 @@ public class CFGenKbSecDeviceBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecDeviceByNameIdxKey ) {
-			CFGenKbSecDeviceByNameIdxKey rhs = (CFGenKbSecDeviceByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecDeviceByNameIdxKey ) {
+			YCFGenKbSecDeviceByNameIdxKey rhs = (YCFGenKbSecDeviceByNameIdxKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -221,8 +221,8 @@ public class CFGenKbSecDeviceBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbSecDeviceByUserIdxKey ) {
-			CFGenKbSecDeviceByUserIdxKey rhs = (CFGenKbSecDeviceByUserIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecDeviceByUserIdxKey ) {
+			YCFGenKbSecDeviceByUserIdxKey rhs = (YCFGenKbSecDeviceByUserIdxKey)obj;
 			if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 				return( false );
 			}
@@ -254,8 +254,8 @@ public class CFGenKbSecDeviceBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbSecDeviceBuff ) {
-			CFGenKbSecDeviceBuff rhs = (CFGenKbSecDeviceBuff)obj;
+		else if( obj instanceof YCFGenKbSecDeviceBuff ) {
+			YCFGenKbSecDeviceBuff rhs = (YCFGenKbSecDeviceBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -308,8 +308,8 @@ public class CFGenKbSecDeviceBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecDevicePKey ) {
-			CFGenKbSecDevicePKey rhs = (CFGenKbSecDevicePKey)obj;
+		else if( obj instanceof YCFGenKbSecDevicePKey ) {
+			YCFGenKbSecDevicePKey rhs = (YCFGenKbSecDevicePKey)obj;
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
 				if( cmp != 0 ) {
@@ -324,8 +324,8 @@ public class CFGenKbSecDeviceBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecDeviceByNameIdxKey ) {
-			CFGenKbSecDeviceByNameIdxKey rhs = (CFGenKbSecDeviceByNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecDeviceByNameIdxKey ) {
+			YCFGenKbSecDeviceByNameIdxKey rhs = (YCFGenKbSecDeviceByNameIdxKey)obj;
 
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
@@ -340,8 +340,8 @@ public class CFGenKbSecDeviceBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbSecDeviceByUserIdxKey ) {
-			CFGenKbSecDeviceByUserIdxKey rhs = (CFGenKbSecDeviceByUserIdxKey)obj;
+		else if( obj instanceof YCFGenKbSecDeviceByUserIdxKey ) {
+			YCFGenKbSecDeviceByUserIdxKey rhs = (YCFGenKbSecDeviceByUserIdxKey)obj;
 
 			{
 				int cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
@@ -351,7 +351,7 @@ public class CFGenKbSecDeviceBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -359,11 +359,11 @@ public class CFGenKbSecDeviceBuff
 		}
 	}
 
-	public void set( CFGenKbSecDeviceBuff src ) {
+	public void set( YCFGenKbSecDeviceBuff src ) {
 		setSecDeviceBuff( src );
 	}
 
-	public void setSecDeviceBuff( CFGenKbSecDeviceBuff src ) {
+	public void setSecDeviceBuff( YCFGenKbSecDeviceBuff src ) {
 		setRequiredSecUserId( src.getRequiredSecUserId() );
 		setRequiredDevName( src.getRequiredDevName() );
 		setCreatedByUserId( src.getCreatedByUserId() );

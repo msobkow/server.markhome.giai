@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.dbutil;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -59,10 +59,10 @@ import java.util.Arrays;
  * @author msobkow
  */
 @Embeddable
-public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> {
-    public static final int IPV6_LENGTH = CFLibDbHostAddr.IPV6_LENGTH;
-    public static final int IPV4_LENGTH = CFLibDbHostAddr.IPV4_LENGTH;
-    public static final int IPV4_PAD = CFLibDbHostAddr.IPV4_PAD;
+public class YCFLibUuid6 implements java.io.Serializable, Comparable<YCFLibUuid6> {
+    public static final int IPV6_LENGTH = YCFLibDbHostAddr.IPV6_LENGTH;
+    public static final int IPV4_LENGTH = YCFLibDbHostAddr.IPV4_LENGTH;
+    public static final int IPV4_PAD = YCFLibDbHostAddr.IPV4_PAD;
 
     public final static int STAMP_START = 0;
     public final static int STAMP_BYTES = 6;
@@ -102,7 +102,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
     @java.io.Serial
     private static final long serialVersionUID = 202504190939L;
 
-    // @Convert(converter = CFLibUuid6Converter.class)
+    // @Convert(converter = YCFLibUuid6Converter.class)
     @Column(name = "bytes", nullable = false)
     private final byte[] bytes = new byte[TOTAL_BYTES];
 
@@ -115,7 +115,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
     /*
      * JPA needs access to this formerly private constructor which uses a byte array to construct the new Uuid6.
      */
-    public CFLibUuid6(byte[] data) {
+    public YCFLibUuid6(byte[] data) {
         assert data != null;
         assert data.length >= TOTAL_BYTES;
         for (int i = 0; i < TOTAL_BYTES; i++) {
@@ -128,8 +128,8 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
      *
      * @return  A newly initialized Uuid6
      */
-    public static CFLibUuid6 generateUuid6() {
-        CFLibDbHostAddr.initAddrHeader();
+    public static YCFLibUuid6 generateUuid6() {
+        YCFLibDbHostAddr.initAddrHeader();
         byte[] genBytes = new byte[TOTAL_BYTES];
         long ts = System.currentTimeMillis() >> 4;
         genBytes[STAMP_START] = (byte)((ts >> (5*8))&0xff);
@@ -147,8 +147,8 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
         genBytes[RANDOM_START+1] = randomBytes[1];
         genBytes[RANDOM_START+2] = randomBytes[2];
         genBytes[RANDOM_START+3] = randomBytes[3];
-        CFLibDbHostAddr.copyAddrHeaderTo(genBytes, NODE0_START);
-        // byte[] addrHeader = CFLibDbHostAddr.getAddrHeader(false);
+        YCFLibDbHostAddr.copyAddrHeaderTo(genBytes, NODE0_START);
+        // byte[] addrHeader = YCFLibDbHostAddr.getAddrHeader(false);
         // genBytes[NODE0_START] = addrHeader[0];
         // genBytes[NODE0_START+1] = addrHeader[1];
         // genBytes[NODE0_START+2] = addrHeader[2];
@@ -165,7 +165,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
         // genBytes[NODE3_START+1] = addrHeader[13];
         // genBytes[NODE3_START+2] = addrHeader[14];
         // genBytes[NODE3_START+3] = addrHeader[15];
-        return new CFLibUuid6(genBytes);
+        return new YCFLibUuid6(genBytes);
     }
 
     /**
@@ -176,7 +176,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
      *
      * @return  A randomly generated {@code UUID}
      */
-    public static CFLibUuid6 randomUuid6() {
+    public static YCFLibUuid6 randomUuid6() {
         byte[] randomBytes = new byte[TOTAL_BYTES];
         SecureRandom ng = Holder.numberGenerator2;
         ng.nextBytes(randomBytes);
@@ -184,7 +184,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
         randomBytes[VERSION_AND_VARIANT_START] |= 0x40;
         randomBytes[VERSION_AND_VARIANT_START+1] &= 0x3f;
         randomBytes[VERSION_AND_VARIANT_START+1] |= 0x80;
-        return new CFLibUuid6(randomBytes);
+        return new YCFLibUuid6(randomBytes);
     }
 
     private static final char[] HEXFORMAT;
@@ -268,7 +268,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
      *          described in {@link #toString}
      *
      */
-    public static CFLibUuid6 fromString(String name) {
+    public static YCFLibUuid6 fromString(String name) {
         if (name.length() == STRING_LENGTH) {
             char ch1 = name.charAt(12);
             char ch2 = name.charAt(17);
@@ -321,7 +321,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
                     || v[20] != 0 || v[21] != 0 || v[22] != 0 || v[23] != 0 || v[24] != 0
                     || v[25] != 0 || v[26] != 0 || v[27] != 0)
                 {
-                    return new CFLibUuid6(v);
+                    return new YCFLibUuid6(v);
                 }
             }
             else {
@@ -331,7 +331,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
         return fromString1(name);
     }
     
-    private static CFLibUuid6 fromString1(String name) {
+    private static YCFLibUuid6 fromString1(String name) {
         int len = name.length();
         if (len > STRING_LENGTH) {
             throw new IllegalArgumentException("Uuid6 string too large");
@@ -375,7 +375,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
         shaBytes[VERSION_AND_VARIANT_START]      |= 0x40;  /* set to version 4     */
         shaBytes[VERSION_AND_VARIANT_START+1]    &= 0x3f;  /* clear variant        */
         shaBytes[VERSION_AND_VARIANT_START+1]    |= (byte) 0x80;  /* set to IETF variant  */
-        return new CFLibUuid6(shaBytes);
+        return new YCFLibUuid6(shaBytes);
 
     }
 
@@ -388,7 +388,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
      *
      * @return  A {@code UUID} generated from the specified array
      */
-    public static CFLibUuid6 nameUuid6FromBytes(byte[] name) {
+    public static YCFLibUuid6 nameUuid6FromBytes(byte[] name) {
         MessageDigest md;
         try {
             // Try to get as close to 28 bytes as possible; SHA-224 is 224 bits, or 28 bytes, so we lose no entropy from the hash
@@ -406,7 +406,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
         shaBytes[VERSION_AND_VARIANT_START]      |= 0x40;  /* set to version 4     */
         shaBytes[VERSION_AND_VARIANT_START+1]    &= 0x3f;  /* clear variant        */
         shaBytes[VERSION_AND_VARIANT_START+1]    |= (byte) 0x80;  /* set to IETF variant  */
-        return new CFLibUuid6(shaBytes);
+        return new YCFLibUuid6(shaBytes);
     }
 
     /**
@@ -620,9 +620,9 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
      */
     @Override
     public boolean equals(Object obj) {
-        if ((null == obj) || (obj.getClass() != CFLibUuid6.class))
+        if ((null == obj) || (obj.getClass() != YCFLibUuid6.class))
             return false;
-        CFLibUuid6 id = (CFLibUuid6)obj;
+        YCFLibUuid6 id = (YCFLibUuid6)obj;
         if (this == id) return true;
         return Arrays.equals(bytes, id.bytes);
     }
@@ -644,7 +644,7 @@ public class CFLibUuid6 implements java.io.Serializable, Comparable<CFLibUuid6> 
      *
      */
     @Override
-    public int compareTo(CFLibUuid6 val) {
+    public int compareTo(YCFLibUuid6 val) {
         if (val == null) {
             return 1;
         }

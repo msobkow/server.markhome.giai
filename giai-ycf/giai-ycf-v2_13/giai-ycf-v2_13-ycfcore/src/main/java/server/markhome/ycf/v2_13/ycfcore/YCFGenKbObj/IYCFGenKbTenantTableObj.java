@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbTenantTableObj
+public interface IYCFGenKbTenantTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbTenantTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbTenantObj newInstance();
+	IYCFGenKbTenantObj newInstance();
 
 	/**
 	 *	Instantiate a new Tenant edition of the specified Tenant instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbTenantEditObj newEditInstance( ICFGenKbTenantObj orig );
+	IYCFGenKbTenantEditObj newEditInstance( IYCFGenKbTenantObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbTenantObj realiseTenant( ICFGenKbTenantObj Obj );
+	IYCFGenKbTenantObj realiseTenant( IYCFGenKbTenantObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbTenantObj createTenant( ICFGenKbTenantObj Obj );
+	IYCFGenKbTenantObj createTenant( IYCFGenKbTenantObj Obj );
 
 	/**
 	 *	Read a Tenant-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbTenantTableObj
 	 *	@return	The Tenant-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbTenantObj readTenant( CFGenKbTenantPKey pkey );
+	IYCFGenKbTenantObj readTenant( YCFGenKbTenantPKey pkey );
 
 	/**
 	 *	Read a Tenant-derived instance by it's primary key.
@@ -91,120 +91,120 @@ public interface ICFGenKbTenantTableObj
 	 *	@return	The Tenant-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbTenantObj readTenant( CFGenKbTenantPKey pkey,
+	IYCFGenKbTenantObj readTenant( YCFGenKbTenantPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbTenantObj readCachedTenant( CFGenKbTenantPKey pkey );
+	IYCFGenKbTenantObj readCachedTenant( YCFGenKbTenantPKey pkey );
 
-	public void reallyDeepDisposeTenant( ICFGenKbTenantObj obj );
+	public void reallyDeepDisposeTenant( IYCFGenKbTenantObj obj );
 
-	void deepDisposeTenant( CFGenKbTenantPKey pkey );
+	void deepDisposeTenant( YCFGenKbTenantPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbTenantObj lockTenant( CFGenKbTenantPKey pkey );
+	IYCFGenKbTenantObj lockTenant( YCFGenKbTenantPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the Tenant-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbTenantObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbTenantObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbTenantObj> readAllTenant();
+	List<IYCFGenKbTenantObj> readAllTenant();
 
 	/**
 	 *	Return a sorted map of all the Tenant-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbTenantObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbTenantObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbTenantObj> readAllTenant( boolean forceRead );
+	List<IYCFGenKbTenantObj> readAllTenant( boolean forceRead );
 
-	List<ICFGenKbTenantObj> readCachedAllTenant();
+	List<IYCFGenKbTenantObj> readCachedAllTenant();
 
 	/**
 	 *	Return a sorted map of a page of the Tenant-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbTenantObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbTenantObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbTenantObj> pageAllTenant(Long priorId );
+	List<IYCFGenKbTenantObj> pageAllTenant(Long priorId );
 
 	/**
-	 *	Get the CFGenKbTenantObj instance for the primary key attributes.
+	 *	Get the YCFGenKbTenantObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbTenantObj cached instance for the primary key, or
+	 *	@return	YCFGenKbTenantObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbTenantObj readTenantByIdIdx( long Id );
+	IYCFGenKbTenantObj readTenantByIdIdx( long Id );
 
 	/**
-	 *	Get the CFGenKbTenantObj instance for the primary key attributes.
+	 *	Get the YCFGenKbTenantObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbTenantObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbTenantObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbTenantObj readTenantByIdIdx( long Id,
+	IYCFGenKbTenantObj readTenantByIdIdx( long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbTenantObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbTenantObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbTenantObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbTenantObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbTenantObj> readTenantByClusterIdx( long ClusterId );
+	List<IYCFGenKbTenantObj> readTenantByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFGenKbTenantObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbTenantObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbTenantObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbTenantObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbTenantObj> readTenantByClusterIdx( long ClusterId,
+	List<IYCFGenKbTenantObj> readTenantByClusterIdx( long ClusterId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbTenantObj instance for the unique UNameIdx key.
+	 *	Get the YCFGenKbTenantObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClusterId	The Tenant key attribute of the instance generating the id.
 	 *
 	 *	@param	argTenantName	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbTenantObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFGenKbTenantObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbTenantObj readTenantByUNameIdx(long ClusterId,
+	IYCFGenKbTenantObj readTenantByUNameIdx(long ClusterId,
 		String TenantName );
 
 	/**
-	 *	Get the CFGenKbTenantObj instance for the unique UNameIdx key.
+	 *	Get the YCFGenKbTenantObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClusterId	The Tenant key attribute of the instance generating the id.
 	 *
 	 *	@param	argTenantName	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbTenantObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFGenKbTenantObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbTenantObj readTenantByUNameIdx(long ClusterId,
+	IYCFGenKbTenantObj readTenantByUNameIdx(long ClusterId,
 		String TenantName,
 		boolean forceRead );
 
-	ICFGenKbTenantObj readCachedTenantByIdIdx( long Id );
+	IYCFGenKbTenantObj readCachedTenantByIdIdx( long Id );
 
-	List<ICFGenKbTenantObj> readCachedTenantByClusterIdx( long ClusterId );
+	List<IYCFGenKbTenantObj> readCachedTenantByClusterIdx( long ClusterId );
 
-	ICFGenKbTenantObj readCachedTenantByUNameIdx( long ClusterId,
+	IYCFGenKbTenantObj readCachedTenantByUNameIdx( long ClusterId,
 		String TenantName );
 
 	void deepDisposeTenantByIdIdx( long Id );
@@ -223,18 +223,18 @@ public interface ICFGenKbTenantTableObj
 	 *	@return	A List of Tenant-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFGenKbTenantObj> pageTenantByClusterIdx( long ClusterId,
+	List<IYCFGenKbTenantObj> pageTenantByClusterIdx( long ClusterId,
 		Long priorId );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbTenantObj updateTenant( ICFGenKbTenantObj Obj );
+	IYCFGenKbTenantObj updateTenant( IYCFGenKbTenantObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteTenant( ICFGenKbTenantObj Obj );
+	void deleteTenant( IYCFGenKbTenantObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -260,5 +260,5 @@ public interface ICFGenKbTenantTableObj
 	void deleteTenantByUNameIdx(long ClusterId,
 		String TenantName );
 
-	ICFGenKbTenantObj getSystemTenant();
+	IYCFGenKbTenantObj getSystemTenant();
 }

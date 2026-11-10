@@ -1,5 +1,5 @@
 /*
- *  MSS Code Factory CFCore 2.13 MssCF
+ *  MSS Code Factory YCFCore 2.13 MssYCF
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfcore.MssCF;
+package org.mssycf.mssycf.v2_13.ycfcore.MssYCF;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -30,48 +30,48 @@ import java.security.cert.*;
 import java.text.*;
 import java.util.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
 
-public class MssCFGenIteratorObj
-extends CFGenKbGenIteratorObj
+public class MssYCFGenIteratorObj
+extends YCFGenKbGenIteratorObj
 {
-	protected ICFGenKbDefClassObj detailClass = null;
-	public ICFGenKbDefClassObj getDetailClass() {
+	protected IYCFGenKbDefClassObj detailClass = null;
+	public IYCFGenKbDefClassObj getDetailClass() {
 		return (detailClass);
 	}
 
-	public void setDetailClass( ICFGenKbDefClassObj value ) {
-		final String S_ProcName = "MssCFGenIteratorObj.setDetailClass() ";
+	public void setDetailClass( IYCFGenKbDefClassObj value ) {
+		final String S_ProcName = "MssYCFGenIteratorObj.setDetailClass() ";
 		if (value == null)
 		{
-			throw new RuntimeException(S_ProcName + "CFGenIteratorObj.DetailClass.Set() argument is null");
+			throw new RuntimeException(S_ProcName + "YCFGenIteratorObj.DetailClass.Set() argument is null");
 		}
 		detailClass = value;
 	}
 
-	protected ICFGenKbDefClassObj requiredLookupDetailDef = null;
-	public ICFGenKbDefClassObj getRequiredLookupDetailDef() {
+	protected IYCFGenKbDefClassObj requiredLookupDetailDef = null;
+	public IYCFGenKbDefClassObj getRequiredLookupDetailDef() {
 		return (requiredLookupDetailDef);
 	}
 
-	public void setRequiredLookupDetailDef( ICFGenKbDefClassObj value ) {
+	public void setRequiredLookupDetailDef( IYCFGenKbDefClassObj value ) {
 		requiredLookupDetailDef = value;
 	}
 
-	public MssCFGenIteratorObj() {
+	public MssYCFGenIteratorObj() {
 		super();
 	}
 
-	public MssCFGenIteratorObj(MssCFEngine schema) {
+	public MssYCFGenIteratorObj(MssYCFEngine schema) {
 		super( schema );
 	}
 
-	public MssCFGenIteratorObj(
-		MssCFEngine engine,
+	public MssYCFGenIteratorObj(
+		MssYCFEngine engine,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -81,7 +81,7 @@ extends CFGenKbGenIteratorObj
 		super( engine );
 
 		requiredLookupToolSet = schema.getToolSetTableObj().readToolSetByNameIdx(toolset);
-		CFGenKbGenItemBuff genItemRec = getGenItemBuff();
+		YCFGenKbGenItemBuff genItemRec = getGenItemBuff();
 
 		genItemRec.setRequiredToolSetId( requiredLookupToolSet.getRequiredId() );
 
@@ -114,8 +114,8 @@ extends CFGenKbGenIteratorObj
 	 *
 	 *	@return	Enumeration
 	 */
-	public ListIterator<ICFLibAnyObj> enumerateDetails(MssCFGenContext genContext) {
-		final String S_ProcName = "MssCFGenIteratorObj.enumerateDetails() ";
+	public ListIterator<IYCFLibAnyObj> enumerateDetails(MssYCFGenContext genContext) {
+		final String S_ProcName = "MssYCFGenIteratorObj.enumerateDetails() ";
 		throw new RuntimeException( S_ProcName + "Override not implemented yet");
 	}
 
@@ -124,30 +124,30 @@ extends CFGenKbGenIteratorObj
 	 *
 	 *	@return	String
 	 */
-	public String expandBody( MssCFGenContext genContext ) {
-		final String S_ProcName = "MssCFGenIteratorObj.expandBody() ";
-		throw new RuntimeException( S_ProcName + "MssCFGenIterator instances can not be expanded directly" );
+	public String expandBody( MssYCFGenContext genContext ) {
+		final String S_ProcName = "MssYCFGenIteratorObj.expandBody() ";
+		throw new RuntimeException( S_ProcName + "MssYCFGenIterator instances can not be expanded directly" );
 	}	
 
 	/**
 	 *	Expanding an iterator using Each syntax requires a rule to be applied for each element
 	 *	of the iteration.
 	 *
-	 *	@param		genContext		The CFGenContext of the iteration
+	 *	@param		genContext		The YCFGenContext of the iteration
 	 *	@param		body				The String defining the body to expand for each element.
 	 *
 	 *	@return	String
 	 */
-	public String expandEach( MssCFGenContext genContext, String body )
+	public String expandEach( MssYCFGenContext genContext, String body )
 	{
 		String subExpansion = null;
-		MssCFGenContext subContext = null;
+		MssYCFGenContext subContext = null;
 		String subClassName = null;
-		ICFLibAnyObj elt = null;
-		Iterator<ICFLibAnyObj>	e;
-		List<ICFLibAnyObj> v = null;
+		IYCFLibAnyObj elt = null;
+		Iterator<IYCFLibAnyObj>	e;
+		List<IYCFLibAnyObj> v = null;
 		String ret = "";
-		final String S_ProcName = "CFGenIteratorObj.expandEach() ";
+		final String S_ProcName = "YCFGenIteratorObj.expandEach() ";
 
 		if( genContext == null ) {
 			throw new RuntimeException( S_ProcName + "genContext is null" );
@@ -168,12 +168,12 @@ extends CFGenKbGenIteratorObj
 
 		subClassName = getDetailClass().getRequiredName();
 
-		ICFGenKbGenItemObj genItem;
+		IYCFGenKbGenItemObj genItem;
 		e = v.iterator();
 		while( e.hasNext() ) {
 			elt = e.next();
-			if( elt instanceof ICFGenKbGenItemObj ) {
-				genItem = (ICFGenKbGenItemObj)elt;
+			if( elt instanceof IYCFGenKbGenItemObj ) {
+				genItem = (IYCFGenKbGenItemObj)elt;
 				subContext = genContext.getGenEngine().getGenContextFactory().newGenContext( genContext.getGeneratingBuild(),
 					genContext,
 					subClassName,
@@ -184,7 +184,7 @@ extends CFGenKbGenIteratorObj
 				}
 			}
 			else {
-				throw new RuntimeException( S_ProcName + "Expected element to be an ICFGenKbGenItemObj, not a " + elt.getClass().getSimpleName() );
+				throw new RuntimeException( S_ProcName + "Expected element to be an IYCFGenKbGenItemObj, not a " + elt.getClass().getSimpleName() );
 			}
 		}
 
@@ -199,22 +199,22 @@ extends CFGenKbGenIteratorObj
 	 *	are instances of _DetailClass.  Unfortunately the <tt>instanceof</tt> operator only works with a
 	 *	constant Class, not a dynamic Class instance.
 	 *
-	 *	@param		genContext		CFGenContext
+	 *	@param		genContext		YCFGenContext
 	 *
 	 *	@return	Vector
 	 */
-	public List<ICFLibAnyObj> getDetailList( MssCFGenContext genContext ){
-		ICFLibAnyObj elt;
-		List<ICFLibAnyObj> ret = null;
-		ListIterator<ICFLibAnyObj> e;
-		final String S_ProcName = "CFGenIteratorObj.getDetailList() ";
+	public List<IYCFLibAnyObj> getDetailList( MssYCFGenContext genContext ){
+		IYCFLibAnyObj elt;
+		List<IYCFLibAnyObj> ret = null;
+		ListIterator<IYCFLibAnyObj> e;
+		final String S_ProcName = "YCFGenIteratorObj.getDetailList() ";
 
 		if( genContext == null ) {
 			throw new RuntimeException( S_ProcName + "genContext is null" );
 		}
 
 		e = enumerateDetails( genContext );
-		ret = new ArrayList<ICFLibAnyObj>();
+		ret = new ArrayList<IYCFLibAnyObj>();
 
 		while( e.hasNext() ) {
 			elt = e.next();

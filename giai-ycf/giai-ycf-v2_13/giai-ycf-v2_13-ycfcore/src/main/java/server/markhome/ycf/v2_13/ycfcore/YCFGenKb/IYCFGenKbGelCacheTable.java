@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for GelCache.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGelCacheTable database interface for GelCache
+ *	YCFGenKbGelCacheTable database interface for GelCache
  */
-public interface ICFGenKbGelCacheTable
+public interface IYCFGenKbGelCacheTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createGelCache( CFGenKbAuthorization Authorization,
-		CFGenKbGelCacheBuff Buff );
+	void createGelCache( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCacheBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateGelCache( CFGenKbAuthorization Authorization,
-		CFGenKbGelCacheBuff Buff );
+	void updateGelCache( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCacheBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteGelCache( CFGenKbAuthorization Authorization,
-		CFGenKbGelCacheBuff Buff );
+	void deleteGelCache( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCacheBuff Buff );
 	/**
 	 *	Delete the GelCache instance identified by the primary key attributes.
 	 *
@@ -88,7 +88,7 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@param	argGelCacheId	The GelCache key attribute of the instance generating the id.
 	 */
-	void deleteGelCacheByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteGelCacheByIdIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		long argGelCacheId );
 
@@ -99,8 +99,8 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteGelCacheByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelCachePKey argKey );
+	void deleteGelCacheByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCachePKey argKey );
 	/**
 	 *	Delete the GelCache instances identified by the key TenantIdx.
 	 *
@@ -108,7 +108,7 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@param	argTenantId	The GelCache key attribute of the instance generating the id.
 	 */
-	void deleteGelCacheByTenantIdx( CFGenKbAuthorization Authorization,
+	void deleteGelCacheByTenantIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -118,8 +118,8 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelCacheByTenantIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelCacheByTenantIdxKey argKey );
+	void deleteGelCacheByTenantIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCacheByTenantIdxKey argKey );
 	/**
 	 *	Delete the GelCache instances identified by the key AltIdx.
 	 *
@@ -129,7 +129,7 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@param	argCacheName	The GelCache key attribute of the instance generating the id.
 	 */
-	void deleteGelCacheByAltIdx( CFGenKbAuthorization Authorization,
+	void deleteGelCacheByAltIdx( YCFGenKbAuthorization Authorization,
 		long argTenantId,
 		String argCacheName );
 
@@ -140,8 +140,8 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteGelCacheByAltIdx( CFGenKbAuthorization Authorization,
-		CFGenKbGelCacheByAltIdxKey argKey );
+	void deleteGelCacheByAltIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCacheByAltIdxKey argKey );
 
 
 	/**
@@ -154,8 +154,8 @@ public interface ICFGenKbGelCacheTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelCacheBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelCachePKey PKey );
+	YCFGenKbGelCacheBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCachePKey PKey );
 
 	/**
 	 *	Lock the derived GelCache buffer instance by primary key.
@@ -167,8 +167,8 @@ public interface ICFGenKbGelCacheTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelCacheBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbGelCachePKey PKey );
+	YCFGenKbGelCacheBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCachePKey PKey );
 
 	/**
 	 *	Read all GelCache instances.
@@ -177,7 +177,7 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelCacheBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbGelCacheBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived GelCache buffer instance identified by the unique key IdIdx.
@@ -191,7 +191,7 @@ public interface ICFGenKbGelCacheTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelCacheBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelCacheBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -204,7 +204,7 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbGelCacheBuff[] readDerivedByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelCacheBuff[] readDerivedByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -219,7 +219,7 @@ public interface ICFGenKbGelCacheTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbGelCacheBuff readDerivedByAltIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelCacheBuff readDerivedByAltIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		String CacheName );
 
@@ -233,10 +233,10 @@ public interface ICFGenKbGelCacheTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelCacheBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelCachePKey PKey );
+	YCFGenKbGelCacheBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCachePKey PKey );
 
 	/**
 	 *	Lock the specific GelCache buffer instance identified by the primary key.
@@ -248,10 +248,10 @@ public interface ICFGenKbGelCacheTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelCacheBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbGelCachePKey PKey );
+	YCFGenKbGelCacheBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbGelCachePKey PKey );
 
 	/**
 	 *	Read all the specific GelCache buffer instances.
@@ -260,7 +260,7 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@return All the specific GelCache instances in the database accessible for the Authorization.
 	 */
-	CFGenKbGelCacheBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbGelCacheBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the specific GelCache buffer instance identified by the unique key IdIdx.
@@ -274,9 +274,9 @@ public interface ICFGenKbGelCacheTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelCacheBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelCacheBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		long GelCacheId );
 
@@ -289,9 +289,9 @@ public interface ICFGenKbGelCacheTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelCacheBuff[] readBuffByTenantIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelCacheBuff[] readBuffByTenantIdx( YCFGenKbAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -306,16 +306,16 @@ public interface ICFGenKbGelCacheTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbGelCacheBuff readBuffByAltIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbGelCacheBuff readBuffByAltIdx( YCFGenKbAuthorization Authorization,
 		long TenantId,
 		String CacheName );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

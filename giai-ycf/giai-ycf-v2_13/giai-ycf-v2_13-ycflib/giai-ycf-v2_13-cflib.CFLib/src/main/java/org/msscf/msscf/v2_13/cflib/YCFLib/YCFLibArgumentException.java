@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,17 +21,17 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
-public class CFLibArgumentException extends IllegalArgumentException {
+public class YCFLibArgumentException extends IllegalArgumentException {
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		String msg )
 	{
 		super( msg );
 	}
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -46,7 +46,7 @@ public class CFLibArgumentException extends IllegalArgumentException {
 						: "" ) );
 	}
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		Class throwingClass,
 		String methName,
 		String msg,
@@ -63,7 +63,7 @@ public class CFLibArgumentException extends IllegalArgumentException {
 				th );
 	}
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -81,7 +81,7 @@ public class CFLibArgumentException extends IllegalArgumentException {
 						: "" ) );
 	}
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -101,7 +101,7 @@ public class CFLibArgumentException extends IllegalArgumentException {
 			th );
 	}
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		String fieldName,
 		String msg )
 	{
@@ -111,7 +111,7 @@ public class CFLibArgumentException extends IllegalArgumentException {
 						: "" ) );
 	}
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		String fieldName,
 		String methName,
 		String msg )
@@ -126,7 +126,7 @@ public class CFLibArgumentException extends IllegalArgumentException {
 						: "" ) );
 	}
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		String fieldName,
 		String methName,
 		String msg,
@@ -143,7 +143,7 @@ public class CFLibArgumentException extends IllegalArgumentException {
 				th );
 	}
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -161,7 +161,7 @@ public class CFLibArgumentException extends IllegalArgumentException {
 						: "" ) );
 	}
 
-	public CFLibArgumentException(
+	public YCFLibArgumentException(
 		String fieldName,
 		String methName,
 		int argNo,

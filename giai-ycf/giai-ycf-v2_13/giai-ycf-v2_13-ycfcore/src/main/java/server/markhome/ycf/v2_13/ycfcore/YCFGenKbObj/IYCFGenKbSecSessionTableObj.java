@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSecSessionTableObj
+public interface IYCFGenKbSecSessionTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbSecSessionTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbSecSessionObj newInstance();
+	IYCFGenKbSecSessionObj newInstance();
 
 	/**
 	 *	Instantiate a new SecSession edition of the specified SecSession instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbSecSessionEditObj newEditInstance( ICFGenKbSecSessionObj orig );
+	IYCFGenKbSecSessionEditObj newEditInstance( IYCFGenKbSecSessionObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecSessionObj realiseSecSession( ICFGenKbSecSessionObj Obj );
+	IYCFGenKbSecSessionObj realiseSecSession( IYCFGenKbSecSessionObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecSessionObj createSecSession( ICFGenKbSecSessionObj Obj );
+	IYCFGenKbSecSessionObj createSecSession( IYCFGenKbSecSessionObj Obj );
 
 	/**
 	 *	Read a SecSession-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbSecSessionTableObj
 	 *	@return	The SecSession-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbSecSessionObj readSecSession( CFGenKbSecSessionPKey pkey );
+	IYCFGenKbSecSessionObj readSecSession( YCFGenKbSecSessionPKey pkey );
 
 	/**
 	 *	Read a SecSession-derived instance by it's primary key.
@@ -91,204 +91,204 @@ public interface ICFGenKbSecSessionTableObj
 	 *	@return	The SecSession-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbSecSessionObj readSecSession( CFGenKbSecSessionPKey pkey,
+	IYCFGenKbSecSessionObj readSecSession( YCFGenKbSecSessionPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbSecSessionObj readCachedSecSession( CFGenKbSecSessionPKey pkey );
+	IYCFGenKbSecSessionObj readCachedSecSession( YCFGenKbSecSessionPKey pkey );
 
-	public void reallyDeepDisposeSecSession( ICFGenKbSecSessionObj obj );
+	public void reallyDeepDisposeSecSession( IYCFGenKbSecSessionObj obj );
 
-	void deepDisposeSecSession( CFGenKbSecSessionPKey pkey );
+	void deepDisposeSecSession( YCFGenKbSecSessionPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecSessionObj lockSecSession( CFGenKbSecSessionPKey pkey );
+	IYCFGenKbSecSessionObj lockSecSession( YCFGenKbSecSessionPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SecSession-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSecSessionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSecSessionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readAllSecSession();
+	List<IYCFGenKbSecSessionObj> readAllSecSession();
 
 	/**
 	 *	Return a sorted map of all the SecSession-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSecSessionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSecSessionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readAllSecSession( boolean forceRead );
+	List<IYCFGenKbSecSessionObj> readAllSecSession( boolean forceRead );
 
-	List<ICFGenKbSecSessionObj> readCachedAllSecSession();
+	List<IYCFGenKbSecSessionObj> readCachedAllSecSession();
 
 	/**
 	 *	Return a sorted map of a page of the SecSession-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSecSessionObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSecSessionObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> pageAllSecSession(UUID priorSecSessionId );
+	List<IYCFGenKbSecSessionObj> pageAllSecSession(UUID priorSecSessionId );
 
 	/**
-	 *	Get the CFGenKbSecSessionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbSecSessionObj instance for the primary key attributes.
 	 *
 	 *	@param	argSecSessionId	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecSessionObj cached instance for the primary key, or
+	 *	@return	YCFGenKbSecSessionObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecSessionObj readSecSessionByIdIdx( UUID SecSessionId );
+	IYCFGenKbSecSessionObj readSecSessionByIdIdx( UUID SecSessionId );
 
 	/**
-	 *	Get the CFGenKbSecSessionObj instance for the primary key attributes.
+	 *	Get the YCFGenKbSecSessionObj instance for the primary key attributes.
 	 *
 	 *	@param	argSecSessionId	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecSessionObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbSecSessionObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecSessionObj readSecSessionByIdIdx( UUID SecSessionId,
+	IYCFGenKbSecSessionObj readSecSessionByIdIdx( UUID SecSessionId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecUserIdx key.
+	 *	Get the map of YCFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecUserIdx key.
 	 *
 	 *	@param	argSecUserId	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecUserIdx key,
+	 *	@return	List of YCFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecUserIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readSecSessionBySecUserIdx( UUID SecUserId );
+	List<IYCFGenKbSecSessionObj> readSecSessionBySecUserIdx( UUID SecUserId );
 
 	/**
-	 *	Get the map of CFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecUserIdx key.
+	 *	Get the map of YCFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecUserIdx key.
 	 *
 	 *	@param	argSecUserId	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecUserIdx key,
+	 *	@return	List of YCFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecUserIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readSecSessionBySecUserIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> readSecSessionBySecUserIdx( UUID SecUserId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecDevIdx key.
+	 *	Get the map of YCFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecDevIdx key.
 	 *
 	 *	@param	argSecUserId	The SecSession key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecDevName	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecDevIdx key,
+	 *	@return	List of YCFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecDevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readSecSessionBySecDevIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> readSecSessionBySecDevIdx( UUID SecUserId,
 		String SecDevName );
 
 	/**
-	 *	Get the map of CFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecDevIdx key.
+	 *	Get the map of YCFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecDevIdx key.
 	 *
 	 *	@param	argSecUserId	The SecSession key attribute of the instance generating the id.
 	 *
 	 *	@param	argSecDevName	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecDevIdx key,
+	 *	@return	List of YCFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecDevIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readSecSessionBySecDevIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> readSecSessionBySecDevIdx( UUID SecUserId,
 		String SecDevName,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFGenKbSecSessionObj instance for the unique StartIdx key.
+	 *	Get the YCFGenKbSecSessionObj instance for the unique StartIdx key.
 	 *
 	 *	@param	argSecUserId	The SecSession key attribute of the instance generating the id.
 	 *
 	 *	@param	argStart	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecSessionObj cached instance for the unique StartIdx key, or
+	 *	@return	YCFGenKbSecSessionObj cached instance for the unique StartIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecSessionObj readSecSessionByStartIdx(UUID SecUserId,
+	IYCFGenKbSecSessionObj readSecSessionByStartIdx(UUID SecUserId,
 		Calendar Start );
 
 	/**
-	 *	Get the CFGenKbSecSessionObj instance for the unique StartIdx key.
+	 *	Get the YCFGenKbSecSessionObj instance for the unique StartIdx key.
 	 *
 	 *	@param	argSecUserId	The SecSession key attribute of the instance generating the id.
 	 *
 	 *	@param	argStart	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSecSessionObj refreshed instance for the unique StartIdx key, or
+	 *	@return	YCFGenKbSecSessionObj refreshed instance for the unique StartIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSecSessionObj readSecSessionByStartIdx(UUID SecUserId,
+	IYCFGenKbSecSessionObj readSecSessionByStartIdx(UUID SecUserId,
 		Calendar Start,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSecSessionObj instances sorted by their primary keys for the duplicate FinishIdx key.
+	 *	Get the map of YCFGenKbSecSessionObj instances sorted by their primary keys for the duplicate FinishIdx key.
 	 *
 	 *	@param	argSecUserId	The SecSession key attribute of the instance generating the id.
 	 *
 	 *	@param	argFinish	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate FinishIdx key,
+	 *	@return	List of YCFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate FinishIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readSecSessionByFinishIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> readSecSessionByFinishIdx( UUID SecUserId,
 		Calendar Finish );
 
 	/**
-	 *	Get the map of CFGenKbSecSessionObj instances sorted by their primary keys for the duplicate FinishIdx key.
+	 *	Get the map of YCFGenKbSecSessionObj instances sorted by their primary keys for the duplicate FinishIdx key.
 	 *
 	 *	@param	argSecUserId	The SecSession key attribute of the instance generating the id.
 	 *
 	 *	@param	argFinish	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate FinishIdx key,
+	 *	@return	List of YCFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate FinishIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readSecSessionByFinishIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> readSecSessionByFinishIdx( UUID SecUserId,
 		Calendar Finish,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecProxyIdx key.
+	 *	Get the map of YCFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecProxyIdx key.
 	 *
 	 *	@param	argSecProxyId	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecProxyIdx key,
+	 *	@return	List of YCFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecProxyIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readSecSessionBySecProxyIdx( UUID SecProxyId );
+	List<IYCFGenKbSecSessionObj> readSecSessionBySecProxyIdx( UUID SecProxyId );
 
 	/**
-	 *	Get the map of CFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecProxyIdx key.
+	 *	Get the map of YCFGenKbSecSessionObj instances sorted by their primary keys for the duplicate SecProxyIdx key.
 	 *
 	 *	@param	argSecProxyId	The SecSession key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecProxyIdx key,
+	 *	@return	List of YCFGenKbSecSessionObj cached instances sorted by their primary keys for the duplicate SecProxyIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> readSecSessionBySecProxyIdx( UUID SecProxyId,
+	List<IYCFGenKbSecSessionObj> readSecSessionBySecProxyIdx( UUID SecProxyId,
 		boolean forceRead );
 
-	ICFGenKbSecSessionObj readCachedSecSessionByIdIdx( UUID SecSessionId );
+	IYCFGenKbSecSessionObj readCachedSecSessionByIdIdx( UUID SecSessionId );
 
-	List<ICFGenKbSecSessionObj> readCachedSecSessionBySecUserIdx( UUID SecUserId );
+	List<IYCFGenKbSecSessionObj> readCachedSecSessionBySecUserIdx( UUID SecUserId );
 
-	List<ICFGenKbSecSessionObj> readCachedSecSessionBySecDevIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> readCachedSecSessionBySecDevIdx( UUID SecUserId,
 		String SecDevName );
 
-	ICFGenKbSecSessionObj readCachedSecSessionByStartIdx( UUID SecUserId,
+	IYCFGenKbSecSessionObj readCachedSecSessionByStartIdx( UUID SecUserId,
 		Calendar Start );
 
-	List<ICFGenKbSecSessionObj> readCachedSecSessionByFinishIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> readCachedSecSessionByFinishIdx( UUID SecUserId,
 		Calendar Finish );
 
-	List<ICFGenKbSecSessionObj> readCachedSecSessionBySecProxyIdx( UUID SecProxyId );
+	List<IYCFGenKbSecSessionObj> readCachedSecSessionBySecProxyIdx( UUID SecProxyId );
 
 	void deepDisposeSecSessionByIdIdx( UUID SecSessionId );
 
@@ -314,7 +314,7 @@ public interface ICFGenKbSecSessionTableObj
 	 *	@return	A List of SecSession-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> pageSecSessionBySecUserIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> pageSecSessionBySecUserIdx( UUID SecUserId,
 		UUID priorSecSessionId );
 
 	/**
@@ -328,7 +328,7 @@ public interface ICFGenKbSecSessionTableObj
 	 *	@return	A List of SecSession-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> pageSecSessionBySecDevIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> pageSecSessionBySecDevIdx( UUID SecUserId,
 		String SecDevName,
 		UUID priorSecSessionId );
 
@@ -343,7 +343,7 @@ public interface ICFGenKbSecSessionTableObj
 	 *	@return	A List of SecSession-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> pageSecSessionByFinishIdx( UUID SecUserId,
+	List<IYCFGenKbSecSessionObj> pageSecSessionByFinishIdx( UUID SecUserId,
 		Calendar Finish,
 		UUID priorSecSessionId );
 
@@ -356,18 +356,18 @@ public interface ICFGenKbSecSessionTableObj
 	 *	@return	A List of SecSession-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFGenKbSecSessionObj> pageSecSessionBySecProxyIdx( UUID SecProxyId,
+	List<IYCFGenKbSecSessionObj> pageSecSessionBySecProxyIdx( UUID SecProxyId,
 		UUID priorSecSessionId );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSecSessionObj updateSecSession( ICFGenKbSecSessionObj Obj );
+	IYCFGenKbSecSessionObj updateSecSession( IYCFGenKbSecSessionObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSecSession( ICFGenKbSecSessionObj Obj );
+	void deleteSecSession( IYCFGenKbSecSessionObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -420,5 +420,5 @@ public interface ICFGenKbSecSessionTableObj
 	 */
 	void deleteSecSessionBySecProxyIdx( UUID SecProxyId );
 
-	ICFGenKbSecSessionObj getSystemSession();
+	IYCFGenKbSecSessionObj getSystemSession();
 }

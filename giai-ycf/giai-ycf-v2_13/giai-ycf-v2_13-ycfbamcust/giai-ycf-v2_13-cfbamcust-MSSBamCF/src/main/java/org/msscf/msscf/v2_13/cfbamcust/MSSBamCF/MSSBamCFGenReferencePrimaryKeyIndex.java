@@ -1,15 +1,15 @@
 /*
- *	MSS Code Factory CFBam 2.13 CustMSSBamCF
+ *	MSS Code Factory YCFBam 2.13 CustMSSBamYCF
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -23,43 +23,43 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cfbamcust.MSSBamCF;
+package org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.ICFBamIndexObj;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.ICFBamTableObj;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.IYCFBamIndexObj;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.IYCFBamTableObj;
 
-public class MSSBamCFGenReferencePrimaryKeyIndex
-	extends MssCFGenReferenceObj
+public class MSSBamYCFGenReferencePrimaryKeyIndex
+	extends MssYCFGenReferenceObj
 {
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
-	public MSSBamCFGenReferencePrimaryKeyIndex() {
+	public MSSBamYCFGenReferencePrimaryKeyIndex() {
 		super();
 	}
 
-	public MSSBamCFGenReferencePrimaryKeyIndex(
-		MSSBamCFEngine argSchema,
+	public MSSBamYCFGenReferencePrimaryKeyIndex(
+		MSSBamYCFEngine argSchema,
 		String toolset,
 		String scopeDefClassName,
 		String genDefClassName,
@@ -68,12 +68,12 @@ public class MSSBamCFGenReferencePrimaryKeyIndex
 		super(argSchema, toolset, scopeDefClassName, genDefClassName, itemName, "Index");
 	}
 
-	public ICFLibAnyObj dereference( MssCFGenContext genContext) {
-		ICFLibAnyObj genDef;
+	public IYCFLibAnyObj dereference( MssYCFGenContext genContext) {
+		IYCFLibAnyObj genDef;
 		final String S_ProcName = "expandBody";
 
 		if (genContext == null) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"genContext" );
@@ -81,22 +81,22 @@ public class MSSBamCFGenReferencePrimaryKeyIndex
 
 		genDef = genContext.getGenDef();
 		if (genDef == null) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				0,
 				"genContext.GenDef" );
 		}
 
-		if( ! ( genDef instanceof ICFBamTableObj ) ) { 
-			throw new CFLibUnsupportedClassException( getClass(),
+		if( ! ( genDef instanceof IYCFBamTableObj ) ) { 
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
 				"genDef",
 				genDef,
-				"ICFBamTableObj" );
+				"IYCFBamTableObj" );
 		}
-		ICFBamTableObj tableObj = (ICFBamTableObj)genDef;
+		IYCFBamTableObj tableObj = (IYCFBamTableObj)genDef;
 
-		ICFBamIndexObj primaryKeyIndex = MSSBamCFTableObj.getPrimaryKeyIndex( tableObj );
+		IYCFBamIndexObj primaryKeyIndex = MSSBamYCFTableObj.getPrimaryKeyIndex( tableObj );
 		return( primaryKeyIndex );
 	}
 }

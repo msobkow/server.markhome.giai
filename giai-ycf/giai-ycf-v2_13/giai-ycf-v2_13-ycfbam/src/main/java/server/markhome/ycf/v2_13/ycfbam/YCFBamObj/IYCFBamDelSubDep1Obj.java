@@ -1,17 +1,17 @@
-// Description: Java 11 Object interface for CFBam DelSubDep1.
+// Description: Java 11 Object interface for YCFBam DelSubDep1.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,47 +45,47 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamDelSubDep1Obj
-	extends ICFBamDelDepObj
+public interface IYCFBamDelSubDep1Obj
+	extends IYCFBamDelDepObj
 {
 	/**
-	 *	Get the current edition of this DelSubDep1 instance as a ICFBamDelSubDep1EditObj.
+	 *	Get the current edition of this DelSubDep1 instance as a IYCFBamDelSubDep1EditObj.
 	 *
-	 *	@return	The ICFBamDelSubDep1EditObj edition of this instance.
+	 *	@return	The IYCFBamDelSubDep1EditObj edition of this instance.
 	 */
-	ICFBamDelSubDep1EditObj getEditAsDelSubDep1();
+	IYCFBamDelSubDep1EditObj getEditAsDelSubDep1();
 
 	/**
-	 *	Get the ICFBamDelSubDep1TableObj table cache which manages this instance.
+	 *	Get the IYCFBamDelSubDep1TableObj table cache which manages this instance.
 	 *
-	 *	@return	ICFBamDelSubDep1TableObj table cache which manages this instance.
+	 *	@return	IYCFBamDelSubDep1TableObj table cache which manages this instance.
 	 */
-	ICFBamDelSubDep1TableObj getDelSubDep1Table();
+	IYCFBamDelSubDep1TableObj getDelSubDep1Table();
 
 	/**
-	 *	Get the CFBamDelSubDep1Buff instance which currently backs this instance.
+	 *	Get the YCFBamDelSubDep1Buff instance which currently backs this instance.
 	 *	<p>
 	 *	This value <i>will</i> change for read-only instances, so you should
 	 *	not hold on to the value as a reference anywhere outside the current call stack.
 	 *
-	 *	@return	CFBamDelSubDep1Buff instance which currently backs this object.
+	 *	@return	YCFBamDelSubDep1Buff instance which currently backs this object.
 	 */
-	CFBamDelSubDep1Buff getDelSubDep1Buff();
+	YCFBamDelSubDep1Buff getDelSubDep1Buff();
 
 	/**
 	 *	Get the required long attribute DelTopDepTenantId.
@@ -109,31 +109,31 @@ public interface ICFBamDelSubDep1Obj
 	String getRequiredName();
 
 	/**
-	 *	Get the required ICFBamDelTopDepObj instance referenced by the DelTopDep key.
+	 *	Get the required IYCFBamDelTopDepObj instance referenced by the DelTopDep key.
 	 *
-	 *	@return	The required ICFBamDelTopDepObj instance referenced by the DelTopDep key.
+	 *	@return	The required IYCFBamDelTopDepObj instance referenced by the DelTopDep key.
 	 */
-	ICFBamDelTopDepObj getRequiredContainerDelTopDep();
+	IYCFBamDelTopDepObj getRequiredContainerDelTopDep();
 
 	/**
-	 *	Get the required ICFBamDelTopDepObj instance referenced by the DelTopDep key.
+	 *	Get the required IYCFBamDelTopDepObj instance referenced by the DelTopDep key.
 	 *
-	 *	@return	The required ICFBamDelTopDepObj instance referenced by the DelTopDep key.
+	 *	@return	The required IYCFBamDelTopDepObj instance referenced by the DelTopDep key.
 	 */
-	ICFBamDelTopDepObj getRequiredContainerDelTopDep( boolean forceRead );
+	IYCFBamDelTopDepObj getRequiredContainerDelTopDep( boolean forceRead );
 
 	/**
-	 *	Get the array of optional ICFBamDelSubDep2Obj array of instances referenced by the DelDep key.
+	 *	Get the array of optional IYCFBamDelSubDep2Obj array of instances referenced by the DelDep key.
 	 *
-	 *	@return	The optional ICFBamDelSubDep2Obj[] array of instances referenced by the DelDep key.
+	 *	@return	The optional IYCFBamDelSubDep2Obj[] array of instances referenced by the DelDep key.
 	 */
-	List<ICFBamDelSubDep2Obj> getOptionalComponentsDelDep();
+	List<IYCFBamDelSubDep2Obj> getOptionalComponentsDelDep();
 
 	/**
-	 *	Get the array of optional ICFBamDelSubDep2Obj array of instances referenced by the DelDep key.
+	 *	Get the array of optional IYCFBamDelSubDep2Obj array of instances referenced by the DelDep key.
 	 *
-	 *	@return	The optional ICFBamDelSubDep2Obj[] array of instances referenced by the DelDep key.
+	 *	@return	The optional IYCFBamDelSubDep2Obj[] array of instances referenced by the DelDep key.
 	 */
-	List<ICFBamDelSubDep2Obj> getOptionalComponentsDelDep( boolean forceRead );
+	List<IYCFBamDelSubDep2Obj> getOptionalComponentsDelDep( boolean forceRead );
 
 }

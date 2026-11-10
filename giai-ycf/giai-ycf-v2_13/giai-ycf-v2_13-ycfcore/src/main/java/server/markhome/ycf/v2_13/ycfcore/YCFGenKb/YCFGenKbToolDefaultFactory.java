@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for Tool.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,39 +36,39 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbToolFactory implementation for Tool
+	 *	YCFGenKbToolFactory implementation for Tool
 	 */
-public class CFGenKbToolDefaultFactory
-	implements ICFGenKbToolFactory
+public class YCFGenKbToolDefaultFactory
+	implements IYCFGenKbToolFactory
 {
-	public CFGenKbToolDefaultFactory() {
+	public YCFGenKbToolDefaultFactory() {
 	}
 
-	public CFGenKbToolPKey newPKey() {
-		CFGenKbToolPKey pkey =
-			new CFGenKbToolPKey();
+	public YCFGenKbToolPKey newPKey() {
+		YCFGenKbToolPKey pkey =
+			new YCFGenKbToolPKey();
 		return( pkey );
 	}
 
-	public CFGenKbToolByNameIdxKey newNameIdxKey() {
-		CFGenKbToolByNameIdxKey key =
-			new CFGenKbToolByNameIdxKey();
+	public YCFGenKbToolByNameIdxKey newNameIdxKey() {
+		YCFGenKbToolByNameIdxKey key =
+			new YCFGenKbToolByNameIdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolByReplacesIdxKey newReplacesIdxKey() {
-		CFGenKbToolByReplacesIdxKey key =
-			new CFGenKbToolByReplacesIdxKey();
+	public YCFGenKbToolByReplacesIdxKey newReplacesIdxKey() {
+		YCFGenKbToolByReplacesIdxKey key =
+			new YCFGenKbToolByReplacesIdxKey();
 		return( key );
 	}
 
-	public CFGenKbToolBuff newBuff() {
-		CFGenKbToolBuff buff =
-			new CFGenKbToolBuff();
+	public YCFGenKbToolBuff newBuff() {
+		YCFGenKbToolBuff buff =
+			new YCFGenKbToolBuff();
 		return( buff );
 	}
 }

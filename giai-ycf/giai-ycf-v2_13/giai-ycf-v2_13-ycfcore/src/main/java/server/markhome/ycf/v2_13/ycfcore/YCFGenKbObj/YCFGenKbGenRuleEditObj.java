@@ -1,11 +1,11 @@
-// Description: Java 11 edit object instance implementation for CFGenKb GenRule.
+// Description: Java 11 edit object instance implementation for YCFGenKb GenRule.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,40 +27,40 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public class CFGenKbGenRuleEditObj
-	extends CFGenKbGenItemEditObj
+public class YCFGenKbGenRuleEditObj
+	extends YCFGenKbGenItemEditObj
 
-	implements ICFGenKbGenRuleEditObj
+	implements IYCFGenKbGenRuleEditObj
 {
-	protected ICFGenKbGelExecutableObj optionalComponentsBodyGel;
+	protected IYCFGenKbGelExecutableObj optionalComponentsBodyGel;
 
-	public CFGenKbGenRuleEditObj( ICFGenKbGenRuleObj argOrig ) {
+	public YCFGenKbGenRuleEditObj( IYCFGenKbGenRuleObj argOrig ) {
 		super( argOrig );
 	}
 
 	public String getClassCode() {
-		return( CFGenKbGenRuleObj.CLASS_CODE );
+		return( YCFGenKbGenRuleObj.CLASS_CODE );
 	}
 
 	public String getGenDefName() {
 		return( "GenRule" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -70,14 +70,14 @@ public class CFGenKbGenRuleEditObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -88,10 +88,10 @@ public class CFGenKbGenRuleEditObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -100,11 +100,11 @@ public class CFGenKbGenRuleEditObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -128,13 +128,13 @@ public class CFGenKbGenRuleEditObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -146,9 +146,9 @@ public class CFGenKbGenRuleEditObj
 		return( qualName );
 	}
 
-	public ICFGenKbGenItemObj realise() {
+	public IYCFGenKbGenItemObj realise() {
 		// We realise this so that it's buffer will get copied to orig during realization
-		ICFGenKbGenRuleObj retobj = getSchema().getGenRuleTableObj().realiseGenRule( (ICFGenKbGenRuleObj)this );
+		IYCFGenKbGenRuleObj retobj = getSchema().getGenRuleTableObj().realiseGenRule( (IYCFGenKbGenRuleObj)this );
 		return( retobj );
 	}
 
@@ -156,56 +156,56 @@ public class CFGenKbGenRuleEditObj
 		getOrigAsGenRule().forget();
 	}
 
-	public ICFGenKbGenItemObj create() {
+	public IYCFGenKbGenItemObj create() {
 		copyBuffToOrig();
-		ICFGenKbGenRuleObj retobj = ((ICFGenKbSchemaObj)getOrigAsGenRule().getSchema()).getGenRuleTableObj().createGenRule( getOrigAsGenRule() );
+		IYCFGenKbGenRuleObj retobj = ((IYCFGenKbSchemaObj)getOrigAsGenRule().getSchema()).getGenRuleTableObj().createGenRule( getOrigAsGenRule() );
 		if( retobj == getOrigAsGenRule() ) {
 			copyOrigToBuff();
 		}
 		return( retobj );
 	}
 
-	public CFGenKbGenItemEditObj update() {
-		getSchema().getGenRuleTableObj().updateGenRule( (ICFGenKbGenRuleObj)this );
+	public YCFGenKbGenItemEditObj update() {
+		getSchema().getGenRuleTableObj().updateGenRule( (IYCFGenKbGenRuleObj)this );
 		return( null );
 	}
 
-	public CFGenKbGenItemEditObj deleteInstance() {
+	public YCFGenKbGenItemEditObj deleteInstance() {
 		if( getIsNew() ) {
-			throw new CFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
+			throw new YCFLibUsageException( getClass(), "delete", "Cannot delete a new instance" );
 		}
 		getSchema().getGenRuleTableObj().deleteGenRule( getOrigAsGenRule() );
 		return( null );
 	}
 
-	public ICFGenKbGenRuleTableObj getGenRuleTable() {
+	public IYCFGenKbGenRuleTableObj getGenRuleTable() {
 		return( orig.getSchema().getGenRuleTableObj() );
 	}
 
-	public ICFGenKbGenRuleEditObj getEditAsGenRule() {
-		return( (ICFGenKbGenRuleEditObj)this );
+	public IYCFGenKbGenRuleEditObj getEditAsGenRule() {
+		return( (IYCFGenKbGenRuleEditObj)this );
 	}
 
-	public ICFGenKbGenRuleObj getOrigAsGenRule() {
-		return( (ICFGenKbGenRuleObj)orig );
+	public IYCFGenKbGenRuleObj getOrigAsGenRule() {
+		return( (IYCFGenKbGenRuleObj)orig );
 	}
 
-	public CFGenKbGenItemBuff getBuff() {
+	public YCFGenKbGenItemBuff getBuff() {
 		if( buff == null ) {
-			buff = ((ICFGenKbSchema)getOrigAsGenRule().getSchema().getBackingStore()).getFactoryGenRule().newBuff();
+			buff = ((IYCFGenKbSchema)getOrigAsGenRule().getSchema().getBackingStore()).getFactoryGenRule().newBuff();
 			buff.set( orig.getBuff() );
 		}
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGenItemBuff value ) {
+	public void setBuff( YCFGenKbGenItemBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
 		}
 	}
 
-	public CFGenKbGenRuleBuff getGenRuleBuff() {
-		return( (CFGenKbGenRuleBuff)getBuff() );
+	public YCFGenKbGenRuleBuff getGenRuleBuff() {
+		return( (YCFGenKbGenRuleBuff)getBuff() );
 	}
 
 	public String getRequiredDefinedNear() {
@@ -240,11 +240,11 @@ public class CFGenKbGenRuleEditObj
 		return( getGenRuleBuff().getOptionalBodyGelId() );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsBodyGel() {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsBodyGel() {
 		return( getOptionalComponentsBodyGel( false ) );
 	}
 
-	public ICFGenKbGelExecutableObj getOptionalComponentsBodyGel( boolean forceRead ) {
+	public IYCFGenKbGelExecutableObj getOptionalComponentsBodyGel( boolean forceRead ) {
 		if( forceRead || ( optionalComponentsBodyGel == null ) ) {
 			boolean anyMissing = false;
 			if( getGenRuleBuff().getOptionalBodyTenantId() == null ) {
@@ -257,7 +257,7 @@ public class CFGenKbGenRuleEditObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				ICFGenKbGelExecutableObj obj = ((ICFGenKbSchemaObj)getOrigAsGenRule().getSchema()).getGelExecutableTableObj().readGelExecutableByPIdx( getGenRuleBuff().getOptionalBodyTenantId(),
+				IYCFGenKbGelExecutableObj obj = ((IYCFGenKbSchemaObj)getOrigAsGenRule().getSchema()).getGelExecutableTableObj().readGelExecutableByPIdx( getGenRuleBuff().getOptionalBodyTenantId(),
 					getGenRuleBuff().getOptionalBodyGelCacheId(),
 					getGenRuleBuff().getOptionalBodyGelId() );
 				optionalComponentsBodyGel = obj;
@@ -266,7 +266,7 @@ public class CFGenKbGenRuleEditObj
 		return( optionalComponentsBodyGel );
 	}
 
-	public void setOptionalComponentsBodyGel( ICFGenKbGelExecutableObj value ) {
+	public void setOptionalComponentsBodyGel( IYCFGenKbGelExecutableObj value ) {
 			if( buff == null ) {
 				getGenRuleBuff();
 			}
@@ -284,14 +284,14 @@ public class CFGenKbGenRuleEditObj
 	}
 
 	public void copyBuffToOrig() {
-		CFGenKbGenRuleBuff origBuff = getOrigAsGenRule().getGenRuleBuff();
-		CFGenKbGenRuleBuff myBuff = getGenRuleBuff();
+		YCFGenKbGenRuleBuff origBuff = getOrigAsGenRule().getGenRuleBuff();
+		YCFGenKbGenRuleBuff myBuff = getGenRuleBuff();
 		origBuff.set( myBuff );
 	}
 
 	public void copyOrigToBuff() {
-		CFGenKbGenRuleBuff origBuff = getOrigAsGenRule().getGenRuleBuff();
-		CFGenKbGenRuleBuff myBuff = getGenRuleBuff();
+		YCFGenKbGenRuleBuff origBuff = getOrigAsGenRule().getGenRuleBuff();
+		YCFGenKbGenRuleBuff myBuff = getGenRuleBuff();
 		myBuff.set( origBuff );
 	}
 }

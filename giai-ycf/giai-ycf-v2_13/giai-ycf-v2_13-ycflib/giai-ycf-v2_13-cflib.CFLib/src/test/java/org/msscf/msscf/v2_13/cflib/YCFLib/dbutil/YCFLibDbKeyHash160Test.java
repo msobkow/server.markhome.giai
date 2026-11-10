@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,47 +21,47 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.dbutil;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.dbutil;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CFLibDbKeyHash160Test {
+public class YCFLibDbKeyHash160Test {
 
     @Test
     void testGetHashAlgo() {
-		assertEquals("SHA-1", CFLibDbKeyHash160.HASH_ALGO);
-		CFLibDbKeyHash160 k = new CFLibDbKeyHash160();
+		assertEquals("SHA-1", YCFLibDbKeyHash160.HASH_ALGO);
+		YCFLibDbKeyHash160 k = new YCFLibDbKeyHash160();
 		assertEquals("SHA-1", k.getHashAlgo());
     }
 
     @Test
     void testGetHashLength() {
-		assertEquals(20, CFLibDbKeyHash160.HASH_LENGTH);
-		CFLibDbKeyHash160 k = new CFLibDbKeyHash160();
+		assertEquals(20, YCFLibDbKeyHash160.HASH_LENGTH);
+		YCFLibDbKeyHash160 k = new YCFLibDbKeyHash160();
 		assertEquals(20, k.getHashLength());
     }
 
     @Test
     void testGetHashLengthString() {
-		assertEquals(40, CFLibDbKeyHash160.HASH_LENGTH_STRING);
-		CFLibDbKeyHash160 k = new CFLibDbKeyHash160();
+		assertEquals(40, YCFLibDbKeyHash160.HASH_LENGTH_STRING);
+		YCFLibDbKeyHash160 k = new YCFLibDbKeyHash160();
 		assertEquals(40, k.getHashLengthString());
     }
 
     @Test
     void testGetBytes() {
-		CFLibDbKeyHash160 k = new CFLibDbKeyHash160();
+		YCFLibDbKeyHash160 k = new YCFLibDbKeyHash160();
 		byte[] bytes = k.getBytes();
 		assertNull(bytes);
-		CFLibDbKeyHash160 k2 = CFLibDbKeyHash160.nullGet();
+		YCFLibDbKeyHash160 k2 = YCFLibDbKeyHash160.nullGet();
 		byte[] bytes2 = k2.getBytes();
 		assertNotNull(bytes2);
     }
 
     @Test
     void testNullGet() {
-		CFLibDbKeyHash160 n = CFLibDbKeyHash160.nullGet();
+		YCFLibDbKeyHash160 n = YCFLibDbKeyHash160.nullGet();
 		byte[] bytes = n.getBytes();
 		assertNotNull(bytes);
 		assertEquals(20, bytes.length);
@@ -73,23 +73,23 @@ public class CFLibDbKeyHash160Test {
 	@Test
     void testCompareOrdered() {
 
-		CFLibDbKeyHash160 nullA = CFLibDbKeyHash160.nullGet();
-		CFLibDbKeyHash160 nullB = CFLibDbKeyHash160.nullGet();
-		assertEquals(0, CFLibDbKeyHash160.compareOrdered(nullA, nullB));
+		YCFLibDbKeyHash160 nullA = YCFLibDbKeyHash160.nullGet();
+		YCFLibDbKeyHash160 nullB = YCFLibDbKeyHash160.nullGet();
+		assertEquals(0, YCFLibDbKeyHash160.compareOrdered(nullA, nullB));
 
 		byte[] bA = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 		byte[] bB = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21};
-		CFLibDbKeyHash160 valA = new CFLibDbKeyHash160(bA);
-		assertEquals(0, CFLibDbKeyHash160.compareOrdered(valA, valA));
-		CFLibDbKeyHash160 anotherA = new CFLibDbKeyHash160(bA);
-		assertEquals(0, CFLibDbKeyHash160.compareOrdered(valA, anotherA));
+		YCFLibDbKeyHash160 valA = new YCFLibDbKeyHash160(bA);
+		assertEquals(0, YCFLibDbKeyHash160.compareOrdered(valA, valA));
+		YCFLibDbKeyHash160 anotherA = new YCFLibDbKeyHash160(bA);
+		assertEquals(0, YCFLibDbKeyHash160.compareOrdered(valA, anotherA));
 
-		CFLibDbKeyHash160 valB = new CFLibDbKeyHash160(bB);
-		assertTrue(CFLibDbKeyHash160.compareOrdered(valA, valB) < 0);
-		assertTrue(CFLibDbKeyHash160.compareOrdered(valB, valA) > 0);
+		YCFLibDbKeyHash160 valB = new YCFLibDbKeyHash160(bB);
+		assertTrue(YCFLibDbKeyHash160.compareOrdered(valA, valB) < 0);
+		assertTrue(YCFLibDbKeyHash160.compareOrdered(valB, valA) > 0);
 
-		CFLibDbKeyHash160 notNull = new CFLibDbKeyHash160(0);
-		assertTrue(CFLibDbKeyHash160.compareOrdered(nullA, notNull) != 0);
-		assertTrue(CFLibDbKeyHash160.compareOrdered(notNull, nullA) != 0);
+		YCFLibDbKeyHash160 notNull = new YCFLibDbKeyHash160(0);
+		assertTrue(YCFLibDbKeyHash160.compareOrdered(nullA, notNull) != 0);
+		assertTrue(YCFLibDbKeyHash160.compareOrdered(notNull, nullA) != 0);
     }
 }

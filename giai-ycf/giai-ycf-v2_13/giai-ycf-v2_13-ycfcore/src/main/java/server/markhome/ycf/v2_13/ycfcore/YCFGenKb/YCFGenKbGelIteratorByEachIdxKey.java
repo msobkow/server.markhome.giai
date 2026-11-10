@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a GelIterator by EachIdx index key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,16 +37,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbGelIteratorByEachIdxKey
+public class YCFGenKbGelIteratorByEachIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected String requiredExpandEach;
-	public CFGenKbGelIteratorByEachIdxKey() {
-		requiredExpandEach = new String( CFGenKbGelIteratorBuff.EXPANDEACH_INIT_VALUE );
+	public YCFGenKbGelIteratorByEachIdxKey() {
+		requiredExpandEach = new String( YCFGenKbGelIteratorBuff.EXPANDEACH_INIT_VALUE );
 	}
 
 	public String getRequiredExpandEach() {
@@ -55,13 +55,13 @@ public class CFGenKbGelIteratorByEachIdxKey
 
 	public void setRequiredExpandEach( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredExpandEach",
 				1,
 				"value" );
 		}
 		if( value.length() > 127 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredExpandEach",
 				1,
 				"value.length()",
@@ -75,15 +75,15 @@ public class CFGenKbGelIteratorByEachIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbGelIteratorByEachIdxKey ) {
-			CFGenKbGelIteratorByEachIdxKey rhs = (CFGenKbGelIteratorByEachIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelIteratorByEachIdxKey ) {
+			YCFGenKbGelIteratorByEachIdxKey rhs = (YCFGenKbGelIteratorByEachIdxKey)obj;
 			if( ! getRequiredExpandEach().equals( rhs.getRequiredExpandEach() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbGelIteratorBuff ) {
-			CFGenKbGelIteratorBuff rhs = (CFGenKbGelIteratorBuff)obj;
+		else if( obj instanceof YCFGenKbGelIteratorBuff ) {
+			YCFGenKbGelIteratorBuff rhs = (YCFGenKbGelIteratorBuff)obj;
 			if( ! getRequiredExpandEach().equals( rhs.getRequiredExpandEach() ) ) {
 				return( false );
 			}
@@ -106,8 +106,8 @@ public class CFGenKbGelIteratorByEachIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFGenKbGelIteratorByEachIdxKey ) {
-			CFGenKbGelIteratorByEachIdxKey rhs = (CFGenKbGelIteratorByEachIdxKey)obj;
+		else if( obj instanceof YCFGenKbGelIteratorByEachIdxKey ) {
+			YCFGenKbGelIteratorByEachIdxKey rhs = (YCFGenKbGelIteratorByEachIdxKey)obj;
 			{
 				int cmp = getRequiredExpandEach().compareTo( rhs.getRequiredExpandEach() );
 				if( cmp != 0 ) {
@@ -116,8 +116,8 @@ public class CFGenKbGelIteratorByEachIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbGelIteratorBuff ) {
-			CFGenKbGelIteratorBuff rhs = (CFGenKbGelIteratorBuff)obj;
+		else if( obj instanceof YCFGenKbGelIteratorBuff ) {
+			YCFGenKbGelIteratorBuff rhs = (YCFGenKbGelIteratorBuff)obj;
 			{
 				int cmp = getRequiredExpandEach().compareTo( rhs.getRequiredExpandEach() );
 				if( cmp != 0 ) {
@@ -127,7 +127,7 @@ public class CFGenKbGelIteratorByEachIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -136,8 +136,8 @@ public class CFGenKbGelIteratorByEachIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbGelIteratorByEachIdx"
-			+ " RequiredExpandEach=" + "\"" + CFGenKbSchema.xmlEncodeString( getRequiredExpandEach() ) + "\""
+		String ret = "<YCFGenKbGelIteratorByEachIdx"
+			+ " RequiredExpandEach=" + "\"" + YCFGenKbSchema.xmlEncodeString( getRequiredExpandEach() ) + "\""
 			+ "/>";
 		return( ret );
 	}

@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for License
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,21 +35,21 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSaxLoaderLicenseParse XML SAX Element Handler implementation
+ *	YCFIntSaxLoaderLicenseParse XML SAX Element Handler implementation
  *	for License.
  */
-public class CFIntSaxLoaderLicense
-	extends CFLibXmlCoreElementHandler
+public class YCFIntSaxLoaderLicense
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFIntSaxLoaderLicense( CFIntSaxLoader saxLoader ) {
+	public YCFIntSaxLoaderLicense( YCFIntSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -61,8 +61,8 @@ public class CFIntSaxLoaderLicense
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFIntLicenseObj origBuff = null;
-		ICFIntLicenseEditObj editBuff = null;
+		IYCFIntLicenseObj origBuff = null;
+		IYCFIntLicenseEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// License Attributes
@@ -71,8 +71,8 @@ public class CFIntSaxLoaderLicense
 		String attrEmbeddedText = null;
 		String attrFullText = null;
 		// License References
-		ICFIntTenantObj refTenant = null;
-		ICFIntTopDomainObj refTopDomain = null;
+		IYCFIntTenantObj refTenant = null;
+		IYCFIntTopDomainObj refTopDomain = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -81,25 +81,25 @@ public class CFIntSaxLoaderLicense
 		try {
 			assert qName.equals( "License" );
 
-			CFIntSaxLoader saxLoader = (CFIntSaxLoader)getParser();
+			YCFIntSaxLoader saxLoader = (YCFIntSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFIntLicenseObj)schemaObj.getLicenseTableObj().newInstance();
-			editBuff = (ICFIntLicenseEditObj)origBuff.beginEdit();
+			origBuff = (IYCFIntLicenseObj)schemaObj.getLicenseTableObj().newInstance();
+			editBuff = (IYCFIntLicenseEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -107,7 +107,7 @@ public class CFIntSaxLoaderLicense
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -116,7 +116,7 @@ public class CFIntSaxLoaderLicense
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -125,7 +125,7 @@ public class CFIntSaxLoaderLicense
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -134,7 +134,7 @@ public class CFIntSaxLoaderLicense
 				}
 				else if( attrLocalName.equals( "EmbeddedText" ) ) {
 					if( attrEmbeddedText != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -143,7 +143,7 @@ public class CFIntSaxLoaderLicense
 				}
 				else if( attrLocalName.equals( "FullText" ) ) {
 					if( attrFullText != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -154,7 +154,7 @@ public class CFIntSaxLoaderLicense
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -163,14 +163,14 @@ public class CFIntSaxLoaderLicense
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "Description", attrDescription );
@@ -201,7 +201,7 @@ public class CFIntSaxLoaderLicense
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -213,42 +213,42 @@ public class CFIntSaxLoaderLicense
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFIntTopDomainObj ) {
-				refTopDomain = (ICFIntTopDomainObj) scopeObj;
+			else if( scopeObj instanceof IYCFIntTopDomainObj ) {
+				refTopDomain = (IYCFIntTopDomainObj) scopeObj;
 				editBuff.setRequiredContainerTopDomain( refTopDomain );
-				refTenant = (ICFIntTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFIntTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFIntTopDomainObj" );
+					"IYCFIntTopDomainObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFIntTenantObj ) {
-					refTenant = (ICFIntTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFIntTenantObj ) {
+					refTenant = (IYCFIntTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
 				}
 			}
 
-			CFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getLicenseLoaderBehaviour();
-			ICFIntLicenseEditObj editLicense = null;
-			ICFIntLicenseObj origLicense = (ICFIntLicenseObj)schemaObj.getLicenseTableObj().readLicenseByUNameIdx( refTenant.getRequiredId(),
+			YCFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getLicenseLoaderBehaviour();
+			IYCFIntLicenseEditObj editLicense = null;
+			IYCFIntLicenseObj origLicense = (IYCFIntLicenseObj)schemaObj.getLicenseTableObj().readLicenseByUNameIdx( refTenant.getRequiredId(),
 			refTopDomain.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origLicense == null ) {
@@ -259,14 +259,14 @@ public class CFIntSaxLoaderLicense
 					case Insert:
 						break;
 					case Update:
-						editLicense = (ICFIntLicenseEditObj)origLicense.beginEdit();
+						editLicense = (IYCFIntLicenseEditObj)origLicense.beginEdit();
 						editLicense.setRequiredName( editBuff.getRequiredName() );
 						editLicense.setOptionalDescription( editBuff.getOptionalDescription() );
 						editLicense.setOptionalEmbeddedText( editBuff.getOptionalEmbeddedText() );
 						editLicense.setOptionalFullText( editBuff.getOptionalFullText() );
 						break;
 					case Replace:
-						editLicense = (ICFIntLicenseEditObj)origLicense.beginEdit();
+						editLicense = (IYCFIntLicenseEditObj)origLicense.beginEdit();
 						editLicense.deleteInstance();
 						editLicense = null;
 						origLicense = null;
@@ -280,7 +280,7 @@ public class CFIntSaxLoaderLicense
 					editLicense.update();
 				}
 				else {
-					origLicense = (ICFIntLicenseObj)editLicense.create();
+					origLicense = (IYCFIntLicenseObj)editLicense.create();
 				}
 				editLicense = null;
 			}

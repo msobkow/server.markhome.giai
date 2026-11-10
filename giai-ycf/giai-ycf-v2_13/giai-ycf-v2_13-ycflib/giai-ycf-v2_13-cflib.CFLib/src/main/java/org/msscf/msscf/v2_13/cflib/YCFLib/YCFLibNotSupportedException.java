@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,17 +21,17 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
-public class CFLibNotSupportedException extends UnsupportedOperationException {
+public class YCFLibNotSupportedException extends UnsupportedOperationException {
 
-	public CFLibNotSupportedException(
+	public YCFLibNotSupportedException(
 		String msg )
 	{
 		super( msg );
 	}
 
-	public CFLibNotSupportedException(
+	public YCFLibNotSupportedException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -46,7 +46,7 @@ public class CFLibNotSupportedException extends UnsupportedOperationException {
 						: "" ) );
 	}
 
-	public CFLibNotSupportedException(
+	public YCFLibNotSupportedException(
 		Class throwingClass,
 		String methName,
 		String msg,
@@ -63,7 +63,7 @@ public class CFLibNotSupportedException extends UnsupportedOperationException {
 				th );
 	}
 
-	public CFLibNotSupportedException(
+	public YCFLibNotSupportedException(
 		String fieldName,
 		String msg )
 	{
@@ -73,7 +73,7 @@ public class CFLibNotSupportedException extends UnsupportedOperationException {
 						: "" ) );
 	}
 
-	public CFLibNotSupportedException(
+	public YCFLibNotSupportedException(
 		String fieldName,
 		String methName,
 		String msg )
@@ -88,7 +88,7 @@ public class CFLibNotSupportedException extends UnsupportedOperationException {
 						: "" ) );
 	}
 
-	public CFLibNotSupportedException(
+	public YCFLibNotSupportedException(
 		String fieldName,
 		String methName,
 		String msg,
@@ -105,12 +105,12 @@ public class CFLibNotSupportedException extends UnsupportedOperationException {
 				th );
 	}
 
-	public CFLibNotSupportedException()
+	public YCFLibNotSupportedException()
 	{
 		super( "Method is not supported" );
 	}
 
-	public CFLibNotSupportedException(
+	public YCFLibNotSupportedException(
 		Class throwingClass,
 		String methName )
 	{
@@ -121,7 +121,7 @@ public class CFLibNotSupportedException extends UnsupportedOperationException {
 					+ "() Method is not supported" );
 	}
 
-	public CFLibNotSupportedException(
+	public YCFLibNotSupportedException(
 		Class throwingClass,
 		String methName,
 		Throwable th )
@@ -134,7 +134,7 @@ public class CFLibNotSupportedException extends UnsupportedOperationException {
 				th );
 	}
 
-	public CFLibNotSupportedException(
+	public YCFLibNotSupportedException(
 		String fieldName,
 		String methName,
 		Throwable th )

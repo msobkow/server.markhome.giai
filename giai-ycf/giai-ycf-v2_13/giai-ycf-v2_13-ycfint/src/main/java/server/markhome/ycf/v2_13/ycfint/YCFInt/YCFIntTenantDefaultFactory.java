@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for Tenant.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,54 +35,54 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntTenantFactory implementation for Tenant
+	 *	YCFIntTenantFactory implementation for Tenant
 	 */
-public class CFIntTenantDefaultFactory
-	extends CFSecTenantDefaultFactory
-	implements ICFIntTenantFactory
+public class YCFIntTenantDefaultFactory
+	extends YCFSecTenantDefaultFactory
+	implements IYCFIntTenantFactory
 {
-	public CFIntTenantDefaultFactory() {
+	public YCFIntTenantDefaultFactory() {
 		super();
 	}
 
-	public CFSecTenantPKey newPKey() {
-		CFSecTenantPKey pkey =
-			new CFSecTenantPKey();
+	public YCFSecTenantPKey newPKey() {
+		YCFSecTenantPKey pkey =
+			new YCFSecTenantPKey();
 		return( pkey );
 	}
 
-	public CFSecTenantHPKey newHPKey() {
-		CFSecTenantHPKey hpkey =
-			new CFSecTenantHPKey();
+	public YCFSecTenantHPKey newHPKey() {
+		YCFSecTenantHPKey hpkey =
+			new YCFSecTenantHPKey();
 		return( hpkey );
 	}
 
-	public CFSecTenantByClusterIdxKey newClusterIdxKey() {
-		CFSecTenantByClusterIdxKey key =
-			new CFSecTenantByClusterIdxKey();
+	public YCFSecTenantByClusterIdxKey newClusterIdxKey() {
+		YCFSecTenantByClusterIdxKey key =
+			new YCFSecTenantByClusterIdxKey();
 		return( key );
 	}
 
-	public CFSecTenantByUNameIdxKey newUNameIdxKey() {
-		CFSecTenantByUNameIdxKey key =
-			new CFSecTenantByUNameIdxKey();
+	public YCFSecTenantByUNameIdxKey newUNameIdxKey() {
+		YCFSecTenantByUNameIdxKey key =
+			new YCFSecTenantByUNameIdxKey();
 		return( key );
 	}
 
-	public CFSecTenantBuff newBuff() {
-		CFSecTenantBuff buff =
-			new CFSecTenantBuff();
+	public YCFSecTenantBuff newBuff() {
+		YCFSecTenantBuff buff =
+			new YCFSecTenantBuff();
 		return( buff );
 	}
 
-	public CFSecTenantHBuff newHBuff() {
-		CFSecTenantHBuff hbuff =
-			new CFSecTenantHBuff();
+	public YCFSecTenantHBuff newHBuff() {
+		YCFSecTenantHBuff hbuff =
+			new YCFSecTenantHBuff();
 		return( hbuff );
 	}
 }

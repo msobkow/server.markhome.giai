@@ -1,15 +1,15 @@
-// Description: Java 11 Instance Edit Object interface for CFInt SubProject.
+// Description: Java 11 Instance Edit Object interface for YCFInt SubProject.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,34 +26,34 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntObj;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public interface ICFIntSubProjectEditObj
-	extends ICFIntSubProjectObj
+public interface IYCFIntSubProjectEditObj
+	extends IYCFIntSubProjectObj
 {
 	/*
 	 *	Get the original for this edition as the base type for the class hierarchy.
 	 *
-	 *	@return The original, non-modifiable instance as a base ICFIntSubProjectObj.
+	 *	@return The original, non-modifiable instance as a base IYCFIntSubProjectObj.
 	 */
-	ICFIntSubProjectObj getOrig();
+	IYCFIntSubProjectObj getOrig();
 
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFIntSubProjectObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFIntSubProjectObj.
 	 */
-	ICFIntSubProjectObj getOrigAsSubProject();
+	IYCFIntSubProjectObj getOrigAsSubProject();
 
 	/*
 	 *	create() may return a different instance than the
@@ -64,17 +64,17 @@ public interface ICFIntSubProjectEditObj
 	 *
 	 *	@return The created instance.
 	 */
-	ICFIntSubProjectObj create();
+	IYCFIntSubProjectObj create();
 
 	/*
 	 *	Update the instance.
 	 */
-	CFIntSubProjectEditObj update();
+	YCFIntSubProjectEditObj update();
 
 	/*
 	 *	Delete the instance.
 	 */
-	CFIntSubProjectEditObj deleteInstance();
+	YCFIntSubProjectEditObj deleteInstance();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -105,39 +105,39 @@ public interface ICFIntSubProjectEditObj
 	void setOptionalDescription( String value );
 
 	/**
-	 *	Get the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Get the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@return	The ICFSecTenantObj instance referenced by the Tenant key.
+	 *	@return	The IYCFSecTenantObj instance referenced by the Tenant key.
 	 */
-	ICFSecTenantObj getRequiredOwnerTenant();
+	IYCFSecTenantObj getRequiredOwnerTenant();
 
 	/**
-	 *	Set the ICFSecTenantObj instance referenced by the Tenant key.
+	 *	Set the IYCFSecTenantObj instance referenced by the Tenant key.
 	 *
-	 *	@param	value	the ICFSecTenantObj instance to be referenced by the Tenant key.
+	 *	@param	value	the IYCFSecTenantObj instance to be referenced by the Tenant key.
 	 */
-	void setRequiredOwnerTenant( ICFSecTenantObj value );
+	void setRequiredOwnerTenant( IYCFSecTenantObj value );
 
 	/**
-	 *	Get the ICFIntTopProjectObj instance referenced by the ParentTPrj key.
+	 *	Get the IYCFIntTopProjectObj instance referenced by the ParentTPrj key.
 	 *
-	 *	@return	The ICFIntTopProjectObj instance referenced by the ParentTPrj key.
+	 *	@return	The IYCFIntTopProjectObj instance referenced by the ParentTPrj key.
 	 */
-	ICFIntTopProjectObj getRequiredContainerParentTPrj();
+	IYCFIntTopProjectObj getRequiredContainerParentTPrj();
 
 	/**
-	 *	Set the ICFIntTopProjectObj instance referenced by the ParentTPrj key.
+	 *	Set the IYCFIntTopProjectObj instance referenced by the ParentTPrj key.
 	 *
-	 *	@param	value	the ICFIntTopProjectObj instance to be referenced by the ParentTPrj key.
+	 *	@param	value	the IYCFIntTopProjectObj instance to be referenced by the ParentTPrj key.
 	 */
-	void setRequiredContainerParentTPrj( ICFIntTopProjectObj value );
+	void setRequiredContainerParentTPrj( IYCFIntTopProjectObj value );
 
 	/**
 	 *	Set the user who created this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who created this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who created this instance.
 	 */
-	void setCreatedBy( ICFSecSecUserObj value );
+	void setCreatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was created.
@@ -149,9 +149,9 @@ public interface ICFIntSubProjectEditObj
 	/**
 	 *	Set the user who updated this instance.
 	 *
-	 *	@param	value	The ICFSecSecUserObj instance who updated this instance.
+	 *	@param	value	The IYCFSecSecUserObj instance who updated this instance.
 	 */
-	void setUpdatedBy( ICFSecSecUserObj value );
+	void setUpdatedBy( IYCFSecSecUserObj value );
 
 	/**
 	 *	Set the Calendar date-time this instance was updated.

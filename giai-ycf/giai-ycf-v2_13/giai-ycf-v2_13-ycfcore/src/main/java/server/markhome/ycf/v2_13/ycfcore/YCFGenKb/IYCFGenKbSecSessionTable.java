@@ -2,11 +2,11 @@
 // Description: Java 11 DbIO interface for SecSession.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,14 +36,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbSecSessionTable database interface for SecSession
+ *	YCFGenKbSecSessionTable database interface for SecSession
  */
-public interface ICFGenKbSecSessionTable
+public interface IYCFGenKbSecSessionTable
 {
 
 	/**
@@ -54,8 +54,8 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createSecSession( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionBuff Buff );
+	void createSecSession( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionBuff Buff );
 
 
 	/**
@@ -66,8 +66,8 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateSecSession( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionBuff Buff );
+	void updateSecSession( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionBuff Buff );
 
 
 	/**
@@ -77,8 +77,8 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteSecSession( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionBuff Buff );
+	void deleteSecSession( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionBuff Buff );
 	/**
 	 *	Delete the SecSession instance identified by the primary key attributes.
 	 *
@@ -86,7 +86,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argSecSessionId	The SecSession key attribute of the instance generating the id.
 	 */
-	void deleteSecSessionByIdIdx( CFGenKbAuthorization Authorization,
+	void deleteSecSessionByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecSessionId );
 
 	/**
@@ -96,8 +96,8 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteSecSessionByIdIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionPKey argKey );
+	void deleteSecSessionByIdIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionPKey argKey );
 	/**
 	 *	Delete the SecSession instances identified by the key SecUserIdx.
 	 *
@@ -105,7 +105,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argSecUserId	The SecSession key attribute of the instance generating the id.
 	 */
-	void deleteSecSessionBySecUserIdx( CFGenKbAuthorization Authorization,
+	void deleteSecSessionBySecUserIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecUserId );
 
 	/**
@@ -115,8 +115,8 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecSessionBySecUserIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionBySecUserIdxKey argKey );
+	void deleteSecSessionBySecUserIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionBySecUserIdxKey argKey );
 	/**
 	 *	Delete the SecSession instances identified by the key SecDevIdx.
 	 *
@@ -126,7 +126,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argSecDevName	The SecSession key attribute of the instance generating the id.
 	 */
-	void deleteSecSessionBySecDevIdx( CFGenKbAuthorization Authorization,
+	void deleteSecSessionBySecDevIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecUserId,
 		String argSecDevName );
 
@@ -137,8 +137,8 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecSessionBySecDevIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionBySecDevIdxKey argKey );
+	void deleteSecSessionBySecDevIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionBySecDevIdxKey argKey );
 	/**
 	 *	Delete the SecSession instances identified by the key StartIdx.
 	 *
@@ -148,7 +148,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argStart	The SecSession key attribute of the instance generating the id.
 	 */
-	void deleteSecSessionByStartIdx( CFGenKbAuthorization Authorization,
+	void deleteSecSessionByStartIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecUserId,
 		Calendar argStart );
 
@@ -159,8 +159,8 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecSessionByStartIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionByStartIdxKey argKey );
+	void deleteSecSessionByStartIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionByStartIdxKey argKey );
 	/**
 	 *	Delete the SecSession instances identified by the key FinishIdx.
 	 *
@@ -170,7 +170,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argFinish	The SecSession key attribute of the instance generating the id.
 	 */
-	void deleteSecSessionByFinishIdx( CFGenKbAuthorization Authorization,
+	void deleteSecSessionByFinishIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecUserId,
 		Calendar argFinish );
 
@@ -181,8 +181,8 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecSessionByFinishIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionByFinishIdxKey argKey );
+	void deleteSecSessionByFinishIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionByFinishIdxKey argKey );
 	/**
 	 *	Delete the SecSession instances identified by the key SecProxyIdx.
 	 *
@@ -190,7 +190,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argSecProxyId	The SecSession key attribute of the instance generating the id.
 	 */
-	void deleteSecSessionBySecProxyIdx( CFGenKbAuthorization Authorization,
+	void deleteSecSessionBySecProxyIdx( YCFGenKbAuthorization Authorization,
 		UUID argSecProxyId );
 
 	/**
@@ -200,8 +200,8 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteSecSessionBySecProxyIdx( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionBySecProxyIdxKey argKey );
+	void deleteSecSessionBySecProxyIdx( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionBySecProxyIdxKey argKey );
 
 
 	/**
@@ -214,8 +214,8 @@ public interface ICFGenKbSecSessionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecSessionBuff readDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionPKey PKey );
+	YCFGenKbSecSessionBuff readDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionPKey PKey );
 
 	/**
 	 *	Lock the derived SecSession buffer instance by primary key.
@@ -227,8 +227,8 @@ public interface ICFGenKbSecSessionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecSessionBuff lockDerived( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionPKey PKey );
+	YCFGenKbSecSessionBuff lockDerived( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionPKey PKey );
 
 	/**
 	 *	Read all SecSession instances.
@@ -237,7 +237,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecSessionBuff[] readAllDerived( CFGenKbAuthorization Authorization );
+	YCFGenKbSecSessionBuff[] readAllDerived( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read the derived SecSession buffer instance identified by the unique key IdIdx.
@@ -249,7 +249,7 @@ public interface ICFGenKbSecSessionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecSessionBuff readDerivedByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff readDerivedByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID SecSessionId );
 
 	/**
@@ -261,7 +261,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecSessionBuff[] readDerivedBySecUserIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] readDerivedBySecUserIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -275,7 +275,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecSessionBuff[] readDerivedBySecDevIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] readDerivedBySecDevIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		String SecDevName );
 
@@ -291,7 +291,7 @@ public interface ICFGenKbSecSessionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFGenKbSecSessionBuff readDerivedByStartIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff readDerivedByStartIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		Calendar Start );
 
@@ -306,7 +306,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecSessionBuff[] readDerivedByFinishIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] readDerivedByFinishIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		Calendar Finish );
 
@@ -319,7 +319,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFGenKbSecSessionBuff[] readDerivedBySecProxyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] readDerivedBySecProxyIdx( YCFGenKbAuthorization Authorization,
 		UUID SecProxyId );
 
 	/**
@@ -332,10 +332,10 @@ public interface ICFGenKbSecSessionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff readBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionPKey PKey );
+	YCFGenKbSecSessionBuff readBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionPKey PKey );
 
 	/**
 	 *	Lock the specific SecSession buffer instance identified by the primary key.
@@ -347,10 +347,10 @@ public interface ICFGenKbSecSessionTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff lockBuff( CFGenKbAuthorization Authorization,
-		CFGenKbSecSessionPKey PKey );
+	YCFGenKbSecSessionBuff lockBuff( YCFGenKbAuthorization Authorization,
+		YCFGenKbSecSessionPKey PKey );
 
 	/**
 	 *	Read all the specific SecSession buffer instances.
@@ -359,7 +359,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return All the specific SecSession instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSecSessionBuff[] readAllBuff( CFGenKbAuthorization Authorization );
+	YCFGenKbSecSessionBuff[] readAllBuff( YCFGenKbAuthorization Authorization );
 
 	/**
 	 *	Read a page of all the specific SecSession buffer instances.
@@ -368,7 +368,7 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return All the specific SecSession instances in the database accessible for the Authorization.
 	 */
-	CFGenKbSecSessionBuff[] pageAllBuff( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] pageAllBuff( YCFGenKbAuthorization Authorization,
 		UUID priorSecSessionId );
 
 	/**
@@ -381,9 +381,9 @@ public interface ICFGenKbSecSessionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff readBuffByIdIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff readBuffByIdIdx( YCFGenKbAuthorization Authorization,
 		UUID SecSessionId );
 
 	/**
@@ -395,9 +395,9 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff[] readBuffBySecUserIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] readBuffBySecUserIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId );
 
 	/**
@@ -411,9 +411,9 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff[] readBuffBySecDevIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] readBuffBySecDevIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		String SecDevName );
 
@@ -429,9 +429,9 @@ public interface ICFGenKbSecSessionTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff readBuffByStartIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff readBuffByStartIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		Calendar Start );
 
@@ -446,9 +446,9 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff[] readBuffByFinishIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] readBuffByFinishIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		Calendar Finish );
 
@@ -461,9 +461,9 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff[] readBuffBySecProxyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] readBuffBySecProxyIdx( YCFGenKbAuthorization Authorization,
 		UUID SecProxyId );
 
 	/**
@@ -475,9 +475,9 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff[] pageBuffBySecUserIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] pageBuffBySecUserIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		UUID priorSecSessionId );
 
@@ -492,9 +492,9 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff[] pageBuffBySecDevIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] pageBuffBySecDevIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		String SecDevName,
 		UUID priorSecSessionId );
@@ -510,9 +510,9 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff[] pageBuffByFinishIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] pageBuffByFinishIdx( YCFGenKbAuthorization Authorization,
 		UUID SecUserId,
 		Calendar Finish,
 		UUID priorSecSessionId );
@@ -526,16 +526,16 @@ public interface ICFGenKbSecSessionTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFGenKbSecSessionBuff[] pageBuffBySecProxyIdx( CFGenKbAuthorization Authorization,
+	YCFGenKbSecSessionBuff[] pageBuffBySecProxyIdx( YCFGenKbAuthorization Authorization,
 		UUID SecProxyId,
 		UUID priorSecSessionId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

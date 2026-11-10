@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for TopDomain.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,58 +35,58 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 	/*
-	 *	CFIntTopDomainFactory implementation for TopDomain
+	 *	YCFIntTopDomainFactory implementation for TopDomain
 	 */
-public class CFIntTopDomainDefaultFactory
-	implements ICFIntTopDomainFactory
+public class YCFIntTopDomainDefaultFactory
+	implements IYCFIntTopDomainFactory
 {
-	public CFIntTopDomainDefaultFactory() {
+	public YCFIntTopDomainDefaultFactory() {
 	}
 
-	public CFIntTopDomainPKey newPKey() {
-		CFIntTopDomainPKey pkey =
-			new CFIntTopDomainPKey();
+	public YCFIntTopDomainPKey newPKey() {
+		YCFIntTopDomainPKey pkey =
+			new YCFIntTopDomainPKey();
 		return( pkey );
 	}
 
-	public CFIntTopDomainHPKey newHPKey() {
-		CFIntTopDomainHPKey hpkey =
-			new CFIntTopDomainHPKey();
+	public YCFIntTopDomainHPKey newHPKey() {
+		YCFIntTopDomainHPKey hpkey =
+			new YCFIntTopDomainHPKey();
 		return( hpkey );
 	}
 
-	public CFIntTopDomainByTenantIdxKey newTenantIdxKey() {
-		CFIntTopDomainByTenantIdxKey key =
-			new CFIntTopDomainByTenantIdxKey();
+	public YCFIntTopDomainByTenantIdxKey newTenantIdxKey() {
+		YCFIntTopDomainByTenantIdxKey key =
+			new YCFIntTopDomainByTenantIdxKey();
 		return( key );
 	}
 
-	public CFIntTopDomainByTldIdxKey newTldIdxKey() {
-		CFIntTopDomainByTldIdxKey key =
-			new CFIntTopDomainByTldIdxKey();
+	public YCFIntTopDomainByTldIdxKey newTldIdxKey() {
+		YCFIntTopDomainByTldIdxKey key =
+			new YCFIntTopDomainByTldIdxKey();
 		return( key );
 	}
 
-	public CFIntTopDomainByNameIdxKey newNameIdxKey() {
-		CFIntTopDomainByNameIdxKey key =
-			new CFIntTopDomainByNameIdxKey();
+	public YCFIntTopDomainByNameIdxKey newNameIdxKey() {
+		YCFIntTopDomainByNameIdxKey key =
+			new YCFIntTopDomainByNameIdxKey();
 		return( key );
 	}
 
-	public CFIntTopDomainBuff newBuff() {
-		CFIntTopDomainBuff buff =
-			new CFIntTopDomainBuff();
+	public YCFIntTopDomainBuff newBuff() {
+		YCFIntTopDomainBuff buff =
+			new YCFIntTopDomainBuff();
 		return( buff );
 	}
 
-	public CFIntTopDomainHBuff newHBuff() {
-		CFIntTopDomainHBuff hbuff =
-			new CFIntTopDomainHBuff();
+	public YCFIntTopDomainHBuff newHBuff() {
+		YCFIntTopDomainHBuff hbuff =
+			new YCFIntTopDomainHBuff();
 		return( hbuff );
 	}
 }

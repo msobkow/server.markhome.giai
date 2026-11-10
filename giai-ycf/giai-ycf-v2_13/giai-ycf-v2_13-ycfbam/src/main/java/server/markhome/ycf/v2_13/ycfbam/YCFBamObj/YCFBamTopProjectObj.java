@@ -1,15 +1,15 @@
-// Description: Java 11 base object instance implementation for CFBam TopProject.
+// Description: Java 11 base object instance implementation for YCFBam TopProject.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,41 +26,41 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public class CFBamTopProjectObj
-	implements ICFBamTopProjectObj
+public class YCFBamTopProjectObj
+	implements IYCFBamTopProjectObj
 {
 	public final static String CLASS_CODE = "a108";
-	protected ICFSecSecUserObj createdBy = null;
-	protected ICFSecSecUserObj updatedBy = null;
+	protected IYCFSecSecUserObj createdBy = null;
+	protected IYCFSecSecUserObj updatedBy = null;
 	protected boolean isNew;
-	protected ICFIntTopProjectEditObj edit;
-	protected ICFIntSchemaObj schema;
-	protected CFIntTopProjectPKey pKey;
-	protected CFIntTopProjectBuff buff;
-	protected ICFSecTenantObj requiredOwnerTenant;
-	protected ICFIntTopDomainObj requiredContainerParentSDom;
+	protected IYCFIntTopProjectEditObj edit;
+	protected IYCFIntSchemaObj schema;
+	protected YCFIntTopProjectPKey pKey;
+	protected YCFIntTopProjectBuff buff;
+	protected IYCFSecTenantObj requiredOwnerTenant;
+	protected IYCFIntTopDomainObj requiredContainerParentSDom;
 
-	public CFBamTopProjectObj() {
+	public YCFBamTopProjectObj() {
 		isNew = true;
 		requiredOwnerTenant = null;
 		requiredContainerParentSDom = null;
 	}
 
-	public CFBamTopProjectObj( ICFIntSchemaObj argSchema ) {
+	public YCFBamTopProjectObj( IYCFIntSchemaObj argSchema ) {
 		schema = argSchema;
 		isNew = true;
 		edit = null;
@@ -76,13 +76,13 @@ public class CFBamTopProjectObj
 		return( "TopProject" );
 	}
 
-	public ICFLibAnyObj getScope() {
-		ICFIntTopDomainObj scope = getRequiredContainerParentSDom();
+	public IYCFLibAnyObj getScope() {
+		IYCFIntTopDomainObj scope = getRequiredContainerParentSDom();
 		return( scope );
 	}
 
-	public ICFLibAnyObj getObjScope() {
-		ICFIntTopDomainObj scope = getRequiredContainerParentSDom();
+	public IYCFLibAnyObj getObjScope() {
+		IYCFIntTopDomainObj scope = getRequiredContainerParentSDom();
 		return( scope );
 	}
 
@@ -92,14 +92,14 @@ public class CFBamTopProjectObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -110,10 +110,10 @@ public class CFBamTopProjectObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFBamClusterObj ) {
+				if( container instanceof IYCFBamClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFBamTenantObj ) {
+				else if( container instanceof IYCFBamTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -122,20 +122,20 @@ public class CFBamTopProjectObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
-		ICFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
+	public IYCFLibAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		IYCFLibAnyObj topContainer = getObjQualifier( qualifyingClass );
 		if( topContainer == null ) {
 			return( null );
 		}
-		ICFLibAnyObj namedObject = topContainer.getNamedObject( objName );
+		IYCFLibAnyObj namedObject = topContainer.getNamedObject( objName );
 		return( namedObject );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -146,7 +146,7 @@ public class CFBamTopProjectObj
 			remainingName = null;
 		}
 		if( subObj == null ) {
-			subObj = ((ICFBamSchemaObj)getSchema()).getSubProjectTableObj().readSubProjectByNameIdx( getRequiredTenantId(),
+			subObj = ((IYCFBamSchemaObj)getSchema()).getSubProjectTableObj().readSubProjectByNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
@@ -164,16 +164,16 @@ public class CFBamTopProjectObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFIntTenantObj ) {
+			else if( container instanceof IYCFIntTenantObj ) {
 				container = null;
 			}
 			else {
@@ -187,13 +187,13 @@ public class CFBamTopProjectObj
 
 	public String getObjFullName() {
 		String fullName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFSecClusterObj ) {
+			if( container instanceof IYCFSecClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFSecTenantObj ) {
+			else if( container instanceof IYCFSecTenantObj ) {
 				container = null;
 			}
 			else {
@@ -205,48 +205,48 @@ public class CFBamTopProjectObj
 		return( fullName );
 	}
 
-	public ICFIntTopProjectObj realise() {
-		ICFIntTopProjectObj retobj = ((ICFBamSchemaObj)schema).getTopProjectTableObj().realiseTopProject(
-			(ICFIntTopProjectObj)this );
-		return( (ICFIntTopProjectObj)retobj );
+	public IYCFIntTopProjectObj realise() {
+		IYCFIntTopProjectObj retobj = ((IYCFBamSchemaObj)schema).getTopProjectTableObj().realiseTopProject(
+			(IYCFIntTopProjectObj)this );
+		return( (IYCFIntTopProjectObj)retobj );
 	}
 
 	public void forget() {
-		((ICFBamSchemaObj)schema).getTopProjectTableObj().reallyDeepDisposeTopProject( (ICFIntTopProjectObj)this );
+		((IYCFBamSchemaObj)schema).getTopProjectTableObj().reallyDeepDisposeTopProject( (IYCFIntTopProjectObj)this );
 	}
 
-	public ICFIntTopProjectObj read() {
-		ICFIntTopProjectObj retobj = ((ICFBamSchemaObj)schema).getTopProjectTableObj().readTopProjectByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFIntTopProjectObj read() {
+		IYCFIntTopProjectObj retobj = ((IYCFBamSchemaObj)schema).getTopProjectTableObj().readTopProjectByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), false );
-		return( (ICFIntTopProjectObj)retobj );
+		return( (IYCFIntTopProjectObj)retobj );
 	}
 
-	public ICFIntTopProjectObj read( boolean forceRead ) {
-		ICFIntTopProjectObj retobj = ((ICFBamSchemaObj)schema).getTopProjectTableObj().readTopProjectByIdIdx( getPKey().getRequiredTenantId(),
+	public IYCFIntTopProjectObj read( boolean forceRead ) {
+		IYCFIntTopProjectObj retobj = ((IYCFBamSchemaObj)schema).getTopProjectTableObj().readTopProjectByIdIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredId(), forceRead );
-		return( (ICFIntTopProjectObj)retobj );
+		return( (IYCFIntTopProjectObj)retobj );
 	}
 
-	public ICFIntTopProjectTableObj getTopProjectTable() {
-		return( ((ICFBamSchemaObj)schema).getTopProjectTableObj() );
+	public IYCFIntTopProjectTableObj getTopProjectTable() {
+		return( ((IYCFBamSchemaObj)schema).getTopProjectTableObj() );
 	}
 
-	public ICFIntSchemaObj getSchema() {
+	public IYCFIntSchemaObj getSchema() {
 		return( schema );
 	}
 
-	public void setSchema( ICFIntSchemaObj value ) {
+	public void setSchema( IYCFIntSchemaObj value ) {
 		schema = value;
 	}
 
-	public CFIntTopProjectBuff getBuff() {
+	public YCFIntTopProjectBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFBamSchema)schema.getBackingStore()).getFactoryTopProject().newBuff();
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getFactoryTopProject().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFBamSchema)schema.getBackingStore()).getTableTopProject().readDerivedByIdIdx( ((ICFBamSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFBamSchema)schema.getBackingStore()).getTableTopProject().readDerivedByIdIdx( ((IYCFBamSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredId() );
 				if( buff != null ) {
@@ -257,13 +257,13 @@ public class CFBamTopProjectObj
 		return( buff );
 	}
 
-	public void setBuff( CFIntTopProjectBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFIntTopProjectBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFIntTopProjectBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFIntTopProjectBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFIntTopProjectBuff" );
+				"YCFIntTopProjectBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -271,18 +271,18 @@ public class CFBamTopProjectObj
 		requiredContainerParentSDom = null;
 	}
 
-	public CFIntTopProjectBuff getTopProjectBuff() {
-		return( (CFIntTopProjectBuff)getBuff() );
+	public YCFIntTopProjectBuff getTopProjectBuff() {
+		return( (YCFIntTopProjectBuff)getBuff() );
 	}
 
-	public CFIntTopProjectPKey getPKey() {
+	public YCFIntTopProjectPKey getPKey() {
 		if( pKey == null ) {
-			pKey = ((ICFBamSchema)schema.getBackingStore()).getFactoryTopProject().newPKey();
+			pKey = ((IYCFBamSchema)schema.getBackingStore()).getFactoryTopProject().newPKey();
 		}
 		return( pKey );
 	}
 
-	public void setPKey( CFIntTopProjectPKey value ) {
+	public void setPKey( YCFIntTopProjectPKey value ) {
 		if( pKey != value ) {
 			pKey = value;
 			copyPKeyToBuff();
@@ -297,37 +297,37 @@ public class CFBamTopProjectObj
 		isNew = value;
 	}
 
-	public ICFIntTopProjectEditObj beginEdit() {
+	public IYCFIntTopProjectEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFIntTopProjectObj lockobj;
+		IYCFIntTopProjectObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFIntTopProjectObj)this;
+			lockobj = (IYCFIntTopProjectObj)this;
 		}
 		else {
-			lockobj = ((ICFBamSchemaObj)schema).getTopProjectTableObj().lockTopProject( getPKey() );
+			lockobj = ((IYCFBamSchemaObj)schema).getTopProjectTableObj().lockTopProject( getPKey() );
 		}
-		edit = ((ICFBamSchemaObj)schema).getTopProjectTableObj().newEditInstance( lockobj );
-		return( (ICFIntTopProjectEditObj)edit );
+		edit = ((IYCFBamSchemaObj)schema).getTopProjectTableObj().newEditInstance( lockobj );
+		return( (IYCFIntTopProjectEditObj)edit );
 	}
 
 	public void endEdit() {
 		edit = null;
 	}
 
-	public ICFIntTopProjectEditObj getEdit() {
+	public IYCFIntTopProjectEditObj getEdit() {
 		return( edit );
 	}
 
-	public ICFIntTopProjectEditObj getEditAsTopProject() {
-		return( (ICFIntTopProjectEditObj)edit );
+	public IYCFIntTopProjectEditObj getEditAsTopProject() {
+		return( (IYCFIntTopProjectEditObj)edit );
 	}
 
-	public ICFSecSecUserObj getCreatedBy() {
+	public IYCFSecSecUserObj getCreatedBy() {
 		if( createdBy == null ) {
-			CFIntTopProjectBuff buff = getBuff();
-			createdBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
+			YCFIntTopProjectBuff buff = getBuff();
+			createdBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getCreatedByUserId() );
 		}
 		return( createdBy );
 	}
@@ -336,10 +336,10 @@ public class CFBamTopProjectObj
 		return( getBuff().getCreatedAt() );
 	}
 
-	public ICFSecSecUserObj getUpdatedBy() {
+	public IYCFSecSecUserObj getUpdatedBy() {
 		if( updatedBy == null ) {
-			CFIntTopProjectBuff buff = getBuff();
-			updatedBy = ((ICFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
+			YCFIntTopProjectBuff buff = getBuff();
+			updatedBy = ((IYCFBamSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( buff.getUpdatedByUserId() );
 		}
 		return( updatedBy );
 	}
@@ -368,46 +368,46 @@ public class CFBamTopProjectObj
 		return( getTopProjectBuff().getOptionalDescription() );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant() {
+	public IYCFSecTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}
 
-	public ICFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
+	public IYCFSecTenantObj getRequiredOwnerTenant( boolean forceRead ) {
 		if( ( requiredOwnerTenant == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredOwnerTenant = ((ICFBamSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
+				requiredOwnerTenant = ((IYCFBamSchemaObj)schema).getTenantTableObj().readTenantByIdIdx( getPKey().getRequiredTenantId(), forceRead );
 			}
 		}
 		return( requiredOwnerTenant );
 	}
 
-	public ICFIntTopDomainObj getRequiredContainerParentSDom() {
+	public IYCFIntTopDomainObj getRequiredContainerParentSDom() {
 		return( getRequiredContainerParentSDom( false ) );
 	}
 
-	public ICFIntTopDomainObj getRequiredContainerParentSDom( boolean forceRead ) {
+	public IYCFIntTopDomainObj getRequiredContainerParentSDom( boolean forceRead ) {
 		if( ( requiredContainerParentSDom == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( ! anyMissing ) {
-				requiredContainerParentSDom = ((ICFBamSchemaObj)schema).getTopDomainTableObj().readTopDomainByIdIdx( getPKey().getRequiredTenantId(),
+				requiredContainerParentSDom = ((IYCFBamSchemaObj)schema).getTopDomainTableObj().readTopDomainByIdIdx( getPKey().getRequiredTenantId(),
 					getTopProjectBuff().getRequiredTopDomainId(), forceRead );
 			}
 		}
 		return( requiredContainerParentSDom );
 	}
 
-	public List<ICFIntSubProjectObj> getOptionalComponentsSubProject() {
-		List<ICFIntSubProjectObj> retval;
-		retval = ((ICFBamSchemaObj)schema).getSubProjectTableObj().readSubProjectByTopProjectIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFIntSubProjectObj> getOptionalComponentsSubProject() {
+		List<IYCFIntSubProjectObj> retval;
+		retval = ((IYCFBamSchemaObj)schema).getSubProjectTableObj().readSubProjectByTopProjectIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			false );
 		return( retval );
 	}
 
-	public List<ICFIntSubProjectObj> getOptionalComponentsSubProject( boolean forceRead ) {
-		List<ICFIntSubProjectObj> retval;
-		retval = ((ICFBamSchemaObj)schema).getSubProjectTableObj().readSubProjectByTopProjectIdx( getPKey().getRequiredTenantId(),
+	public List<IYCFIntSubProjectObj> getOptionalComponentsSubProject( boolean forceRead ) {
+		List<IYCFIntSubProjectObj> retval;
+		retval = ((IYCFBamSchemaObj)schema).getSubProjectTableObj().readSubProjectByTopProjectIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );

@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecServiceTypeTableObj
+public interface IYCFSecServiceTypeTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecServiceTypeTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecServiceTypeObj newInstance();
+	IYCFSecServiceTypeObj newInstance();
 
 	/**
 	 *	Instantiate a new ServiceType edition of the specified ServiceType instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecServiceTypeEditObj newEditInstance( ICFSecServiceTypeObj orig );
+	IYCFSecServiceTypeEditObj newEditInstance( IYCFSecServiceTypeObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecServiceTypeObj realiseServiceType( ICFSecServiceTypeObj Obj );
+	IYCFSecServiceTypeObj realiseServiceType( IYCFSecServiceTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecServiceTypeObj createServiceType( ICFSecServiceTypeObj Obj );
+	IYCFSecServiceTypeObj createServiceType( IYCFSecServiceTypeObj Obj );
 
 	/**
 	 *	Read a ServiceType-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecServiceTypeTableObj
 	 *	@return	The ServiceType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecServiceTypeObj readServiceType( CFSecServiceTypePKey pkey );
+	IYCFSecServiceTypeObj readServiceType( YCFSecServiceTypePKey pkey );
 
 	/**
 	 *	Read a ServiceType-derived instance by it's primary key.
@@ -90,83 +90,83 @@ public interface ICFSecServiceTypeTableObj
 	 *	@return	The ServiceType-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecServiceTypeObj readServiceType( CFSecServiceTypePKey pkey,
+	IYCFSecServiceTypeObj readServiceType( YCFSecServiceTypePKey pkey,
 		boolean forceRead );
 
-	ICFSecServiceTypeObj readCachedServiceType( CFSecServiceTypePKey pkey );
+	IYCFSecServiceTypeObj readCachedServiceType( YCFSecServiceTypePKey pkey );
 
-	public void reallyDeepDisposeServiceType( ICFSecServiceTypeObj obj );
+	public void reallyDeepDisposeServiceType( IYCFSecServiceTypeObj obj );
 
-	void deepDisposeServiceType( CFSecServiceTypePKey pkey );
+	void deepDisposeServiceType( YCFSecServiceTypePKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecServiceTypeObj lockServiceType( CFSecServiceTypePKey pkey );
+	IYCFSecServiceTypeObj lockServiceType( YCFSecServiceTypePKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ServiceType-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecServiceTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecServiceTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecServiceTypeObj> readAllServiceType();
+	List<IYCFSecServiceTypeObj> readAllServiceType();
 
 	/**
 	 *	Return a sorted map of all the ServiceType-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecServiceTypeObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecServiceTypeObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecServiceTypeObj> readAllServiceType( boolean forceRead );
+	List<IYCFSecServiceTypeObj> readAllServiceType( boolean forceRead );
 
-	List<ICFSecServiceTypeObj> readCachedAllServiceType();
+	List<IYCFSecServiceTypeObj> readCachedAllServiceType();
 
 	/**
-	 *	Get the CFSecServiceTypeObj instance for the primary key attributes.
+	 *	Get the YCFSecServiceTypeObj instance for the primary key attributes.
 	 *
 	 *	@param	argServiceTypeId	The ServiceType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecServiceTypeObj cached instance for the primary key, or
+	 *	@return	YCFSecServiceTypeObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecServiceTypeObj readServiceTypeByIdIdx( int ServiceTypeId );
+	IYCFSecServiceTypeObj readServiceTypeByIdIdx( int ServiceTypeId );
 
 	/**
-	 *	Get the CFSecServiceTypeObj instance for the primary key attributes.
+	 *	Get the YCFSecServiceTypeObj instance for the primary key attributes.
 	 *
 	 *	@param	argServiceTypeId	The ServiceType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecServiceTypeObj refreshed instance for the primary key, or
+	 *	@return	YCFSecServiceTypeObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecServiceTypeObj readServiceTypeByIdIdx( int ServiceTypeId,
+	IYCFSecServiceTypeObj readServiceTypeByIdIdx( int ServiceTypeId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecServiceTypeObj instance for the unique UDescrIdx key.
+	 *	Get the YCFSecServiceTypeObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argDescription	The ServiceType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecServiceTypeObj cached instance for the unique UDescrIdx key, or
+	 *	@return	YCFSecServiceTypeObj cached instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecServiceTypeObj readServiceTypeByUDescrIdx(String Description );
+	IYCFSecServiceTypeObj readServiceTypeByUDescrIdx(String Description );
 
 	/**
-	 *	Get the CFSecServiceTypeObj instance for the unique UDescrIdx key.
+	 *	Get the YCFSecServiceTypeObj instance for the unique UDescrIdx key.
 	 *
 	 *	@param	argDescription	The ServiceType key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecServiceTypeObj refreshed instance for the unique UDescrIdx key, or
+	 *	@return	YCFSecServiceTypeObj refreshed instance for the unique UDescrIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecServiceTypeObj readServiceTypeByUDescrIdx(String Description,
+	IYCFSecServiceTypeObj readServiceTypeByUDescrIdx(String Description,
 		boolean forceRead );
 
-	ICFSecServiceTypeObj readCachedServiceTypeByIdIdx( int ServiceTypeId );
+	IYCFSecServiceTypeObj readCachedServiceTypeByIdIdx( int ServiceTypeId );
 
-	ICFSecServiceTypeObj readCachedServiceTypeByUDescrIdx( String Description );
+	IYCFSecServiceTypeObj readCachedServiceTypeByUDescrIdx( String Description );
 
 	void deepDisposeServiceTypeByIdIdx( int ServiceTypeId );
 
@@ -175,12 +175,12 @@ public interface ICFSecServiceTypeTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecServiceTypeObj updateServiceType( ICFSecServiceTypeObj Obj );
+	IYCFSecServiceTypeObj updateServiceType( IYCFSecServiceTypeObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteServiceType( ICFSecServiceTypeObj Obj );
+	void deleteServiceType( IYCFSecServiceTypeObj Obj );
 
 	/**
 	 *	Internal use only.

@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for License.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,16 +35,16 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntLicenseTable database interface for License
+ *	YCFIntLicenseTable database interface for License
  */
-public interface ICFIntLicenseTable
+public interface IYCFIntLicenseTable
 {
 
 	/**
@@ -55,8 +55,8 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createLicense( CFSecAuthorization Authorization,
-		CFIntLicenseBuff Buff );
+	void createLicense( YCFSecAuthorization Authorization,
+		YCFIntLicenseBuff Buff );
 
 
 	/**
@@ -67,8 +67,8 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateLicense( CFSecAuthorization Authorization,
-		CFIntLicenseBuff Buff );
+	void updateLicense( YCFSecAuthorization Authorization,
+		YCFIntLicenseBuff Buff );
 
 
 	/**
@@ -78,8 +78,8 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteLicense( CFSecAuthorization Authorization,
-		CFIntLicenseBuff Buff );
+	void deleteLicense( YCFSecAuthorization Authorization,
+		YCFIntLicenseBuff Buff );
 	/**
 	 *	Delete the License instance identified by the primary key attributes.
 	 *
@@ -89,7 +89,7 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	argId	The License key attribute of the instance generating the id.
 	 */
-	void deleteLicenseByIdIdx( CFSecAuthorization Authorization,
+	void deleteLicenseByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -100,8 +100,8 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteLicenseByIdIdx( CFSecAuthorization Authorization,
-		CFIntLicensePKey argKey );
+	void deleteLicenseByIdIdx( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey argKey );
 	/**
 	 *	Delete the License instances identified by the key LicnTenantIdx.
 	 *
@@ -109,7 +109,7 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	argTenantId	The License key attribute of the instance generating the id.
 	 */
-	void deleteLicenseByLicnTenantIdx( CFSecAuthorization Authorization,
+	void deleteLicenseByLicnTenantIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -119,8 +119,8 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteLicenseByLicnTenantIdx( CFSecAuthorization Authorization,
-		CFIntLicenseByLicnTenantIdxKey argKey );
+	void deleteLicenseByLicnTenantIdx( YCFSecAuthorization Authorization,
+		YCFIntLicenseByLicnTenantIdxKey argKey );
 	/**
 	 *	Delete the License instances identified by the key DomainIdx.
 	 *
@@ -130,7 +130,7 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	argTopDomainId	The License key attribute of the instance generating the id.
 	 */
-	void deleteLicenseByDomainIdx( CFSecAuthorization Authorization,
+	void deleteLicenseByDomainIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopDomainId );
 
@@ -141,8 +141,8 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteLicenseByDomainIdx( CFSecAuthorization Authorization,
-		CFIntLicenseByDomainIdxKey argKey );
+	void deleteLicenseByDomainIdx( YCFSecAuthorization Authorization,
+		YCFIntLicenseByDomainIdxKey argKey );
 	/**
 	 *	Delete the License instances identified by the key UNameIdx.
 	 *
@@ -154,7 +154,7 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	argName	The License key attribute of the instance generating the id.
 	 */
-	void deleteLicenseByUNameIdx( CFSecAuthorization Authorization,
+	void deleteLicenseByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTopDomainId,
 		String argName );
@@ -166,8 +166,8 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteLicenseByUNameIdx( CFSecAuthorization Authorization,
-		CFIntLicenseByUNameIdxKey argKey );
+	void deleteLicenseByUNameIdx( YCFSecAuthorization Authorization,
+		YCFIntLicenseByUNameIdxKey argKey );
 
 
 	/**
@@ -180,8 +180,8 @@ public interface ICFIntLicenseTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntLicenseBuff readDerived( CFSecAuthorization Authorization,
-		CFIntLicensePKey PKey );
+	YCFIntLicenseBuff readDerived( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey PKey );
 
 	/**
 	 *	Lock the derived License buffer instance by primary key.
@@ -193,8 +193,8 @@ public interface ICFIntLicenseTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntLicenseBuff lockDerived( CFSecAuthorization Authorization,
-		CFIntLicensePKey PKey );
+	YCFIntLicenseBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey PKey );
 
 	/**
 	 *	Read all License instances.
@@ -203,7 +203,7 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFIntLicenseBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFIntLicenseBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived License buffer instance identified by the unique key IdIdx.
@@ -217,7 +217,7 @@ public interface ICFIntLicenseTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntLicenseBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFIntLicenseBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -230,7 +230,7 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntLicenseBuff[] readDerivedByLicnTenantIdx( CFSecAuthorization Authorization,
+	YCFIntLicenseBuff[] readDerivedByLicnTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -244,7 +244,7 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFIntLicenseBuff[] readDerivedByDomainIdx( CFSecAuthorization Authorization,
+	YCFIntLicenseBuff[] readDerivedByDomainIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId );
 
@@ -262,7 +262,7 @@ public interface ICFIntLicenseTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFIntLicenseBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFIntLicenseBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId,
 		String Name );
@@ -277,10 +277,10 @@ public interface ICFIntLicenseTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntLicenseBuff readBuff( CFSecAuthorization Authorization,
-		CFIntLicensePKey PKey );
+	YCFIntLicenseBuff readBuff( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey PKey );
 
 	/**
 	 *	Lock the specific License buffer instance identified by the primary key.
@@ -292,10 +292,10 @@ public interface ICFIntLicenseTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntLicenseBuff lockBuff( CFSecAuthorization Authorization,
-		CFIntLicensePKey PKey );
+	YCFIntLicenseBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFIntLicensePKey PKey );
 
 	/**
 	 *	Read all the specific License buffer instances.
@@ -304,7 +304,7 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@return All the specific License instances in the database accessible for the Authorization.
 	 */
-	CFIntLicenseBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFIntLicenseBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific License buffer instance identified by the unique key IdIdx.
@@ -318,9 +318,9 @@ public interface ICFIntLicenseTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntLicenseBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFIntLicenseBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -333,9 +333,9 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntLicenseBuff[] readBuffByLicnTenantIdx( CFSecAuthorization Authorization,
+	YCFIntLicenseBuff[] readBuffByLicnTenantIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -349,9 +349,9 @@ public interface ICFIntLicenseTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntLicenseBuff[] readBuffByDomainIdx( CFSecAuthorization Authorization,
+	YCFIntLicenseBuff[] readBuffByDomainIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId );
 
@@ -369,9 +369,9 @@ public interface ICFIntLicenseTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFIntLicenseBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFIntLicenseBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TopDomainId,
 		String Name );
@@ -379,7 +379,7 @@ public interface ICFIntLicenseTable
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

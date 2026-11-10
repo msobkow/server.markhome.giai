@@ -2,15 +2,15 @@
 // Description: Java 11 Default Factory implementation for SecGroupForm.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,73 +35,73 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 	/*
-	 *	CFBamSecGroupFormFactory implementation for SecGroupForm
+	 *	YCFBamSecGroupFormFactory implementation for SecGroupForm
 	 */
-public class CFBamSecGroupFormDefaultFactory
-	extends CFSecSecGroupFormDefaultFactory
-	implements ICFBamSecGroupFormFactory
+public class YCFBamSecGroupFormDefaultFactory
+	extends YCFSecSecGroupFormDefaultFactory
+	implements IYCFBamSecGroupFormFactory
 {
-	public CFBamSecGroupFormDefaultFactory() {
+	public YCFBamSecGroupFormDefaultFactory() {
 		super();
 	}
 
-	public CFSecSecGroupFormPKey newPKey() {
-		CFSecSecGroupFormPKey pkey =
-			new CFSecSecGroupFormPKey();
+	public YCFSecSecGroupFormPKey newPKey() {
+		YCFSecSecGroupFormPKey pkey =
+			new YCFSecSecGroupFormPKey();
 		return( pkey );
 	}
 
-	public CFSecSecGroupFormHPKey newHPKey() {
-		CFSecSecGroupFormHPKey hpkey =
-			new CFSecSecGroupFormHPKey();
+	public YCFSecSecGroupFormHPKey newHPKey() {
+		YCFSecSecGroupFormHPKey hpkey =
+			new YCFSecSecGroupFormHPKey();
 		return( hpkey );
 	}
 
-	public CFSecSecGroupFormByClusterIdxKey newClusterIdxKey() {
-		CFSecSecGroupFormByClusterIdxKey key =
-			new CFSecSecGroupFormByClusterIdxKey();
+	public YCFSecSecGroupFormByClusterIdxKey newClusterIdxKey() {
+		YCFSecSecGroupFormByClusterIdxKey key =
+			new YCFSecSecGroupFormByClusterIdxKey();
 		return( key );
 	}
 
-	public CFSecSecGroupFormByGroupIdxKey newGroupIdxKey() {
-		CFSecSecGroupFormByGroupIdxKey key =
-			new CFSecSecGroupFormByGroupIdxKey();
+	public YCFSecSecGroupFormByGroupIdxKey newGroupIdxKey() {
+		YCFSecSecGroupFormByGroupIdxKey key =
+			new YCFSecSecGroupFormByGroupIdxKey();
 		return( key );
 	}
 
-	public CFSecSecGroupFormByAppIdxKey newAppIdxKey() {
-		CFSecSecGroupFormByAppIdxKey key =
-			new CFSecSecGroupFormByAppIdxKey();
+	public YCFSecSecGroupFormByAppIdxKey newAppIdxKey() {
+		YCFSecSecGroupFormByAppIdxKey key =
+			new YCFSecSecGroupFormByAppIdxKey();
 		return( key );
 	}
 
-	public CFSecSecGroupFormByFormIdxKey newFormIdxKey() {
-		CFSecSecGroupFormByFormIdxKey key =
-			new CFSecSecGroupFormByFormIdxKey();
+	public YCFSecSecGroupFormByFormIdxKey newFormIdxKey() {
+		YCFSecSecGroupFormByFormIdxKey key =
+			new YCFSecSecGroupFormByFormIdxKey();
 		return( key );
 	}
 
-	public CFSecSecGroupFormByUFormIdxKey newUFormIdxKey() {
-		CFSecSecGroupFormByUFormIdxKey key =
-			new CFSecSecGroupFormByUFormIdxKey();
+	public YCFSecSecGroupFormByUFormIdxKey newUFormIdxKey() {
+		YCFSecSecGroupFormByUFormIdxKey key =
+			new YCFSecSecGroupFormByUFormIdxKey();
 		return( key );
 	}
 
-	public CFSecSecGroupFormBuff newBuff() {
-		CFSecSecGroupFormBuff buff =
-			new CFSecSecGroupFormBuff();
+	public YCFSecSecGroupFormBuff newBuff() {
+		YCFSecSecGroupFormBuff buff =
+			new YCFSecSecGroupFormBuff();
 		return( buff );
 	}
 
-	public CFSecSecGroupFormHBuff newHBuff() {
-		CFSecSecGroupFormHBuff hbuff =
-			new CFSecSecGroupFormHBuff();
+	public YCFSecSecGroupFormHBuff newHBuff() {
+		YCFSecSecGroupFormHBuff hbuff =
+			new YCFSecSecGroupFormHBuff();
 		return( hbuff );
 	}
 }

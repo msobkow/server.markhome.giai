@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GelBoilerplate.
+// Description: Java 11 base object instance implementation for YCFGenKb GelBoilerplate.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,29 +27,29 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public class CFGenKbGelBoilerplateObj
-	extends CFGenKbGelInstructionObj
-	implements ICFGenKbGelBoilerplateObj
+public class YCFGenKbGelBoilerplateObj
+	extends YCFGenKbGelInstructionObj
+	implements IYCFGenKbGelBoilerplateObj
 {
 	public final static String CLASS_CODE = "a929";
 
-	public CFGenKbGelBoilerplateObj() {
+	public YCFGenKbGelBoilerplateObj() {
 		super();
 	}
 
-	public CFGenKbGelBoilerplateObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGelBoilerplateObj( IYCFGenKbSchemaObj argSchema ) {
 		super( argSchema );
 	}
 
@@ -61,11 +61,11 @@ public class CFGenKbGelBoilerplateObj
 		return( "GelBoilerplate" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -76,14 +76,14 @@ public class CFGenKbGelBoilerplateObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -94,10 +94,10 @@ public class CFGenKbGelBoilerplateObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -106,11 +106,11 @@ public class CFGenKbGelBoilerplateObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -134,13 +134,13 @@ public class CFGenKbGelBoilerplateObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -152,42 +152,42 @@ public class CFGenKbGelBoilerplateObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
-		ICFGenKbGelBoilerplateObj retobj = ((ICFGenKbSchemaObj)schema).getGelBoilerplateTableObj().realiseGelBoilerplate(
-			(ICFGenKbGelBoilerplateObj)this );
-		return( (ICFGenKbGelInstructionObj)retobj );
+	public IYCFGenKbGelInstructionObj realise() {
+		IYCFGenKbGelBoilerplateObj retobj = ((IYCFGenKbSchemaObj)schema).getGelBoilerplateTableObj().realiseGelBoilerplate(
+			(IYCFGenKbGelBoilerplateObj)this );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGelBoilerplateTableObj().reallyDeepDisposeGelBoilerplate( (ICFGenKbGelBoilerplateObj)this );
+		((IYCFGenKbSchemaObj)schema).getGelBoilerplateTableObj().reallyDeepDisposeGelBoilerplate( (IYCFGenKbGelBoilerplateObj)this );
 	}
 
-	public ICFGenKbGelInstructionObj read() {
-		ICFGenKbGelBoilerplateObj retobj = ((ICFGenKbSchemaObj)schema).getGelBoilerplateTableObj().readGelBoilerplateByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read() {
+		IYCFGenKbGelBoilerplateObj retobj = ((IYCFGenKbSchemaObj)schema).getGelBoilerplateTableObj().readGelBoilerplateByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), false );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelInstructionObj read( boolean forceRead ) {
-		ICFGenKbGelBoilerplateObj retobj = ((ICFGenKbSchemaObj)schema).getGelBoilerplateTableObj().readGelBoilerplateByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read( boolean forceRead ) {
+		IYCFGenKbGelBoilerplateObj retobj = ((IYCFGenKbSchemaObj)schema).getGelBoilerplateTableObj().readGelBoilerplateByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), forceRead );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelBoilerplateTableObj getGelBoilerplateTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGelBoilerplateTableObj() );
+	public IYCFGenKbGelBoilerplateTableObj getGelBoilerplateTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGelBoilerplateTableObj() );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelBoilerplate().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelBoilerplate().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelBoilerplate().readDerivedByPIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelBoilerplate().readDerivedByPIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredGelCacheId(),
 						getPKey().getRequiredGelInstId() );
@@ -199,13 +199,13 @@ public class CFGenKbGelBoilerplateObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGelBoilerplateBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGelBoilerplateBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGelBoilerplateBuff" );
+				"YCFGenKbGelBoilerplateBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -214,30 +214,30 @@ public class CFGenKbGelBoilerplateObj
 		optionalLookupChainInst = null;
 	}
 
-	public CFGenKbGelBoilerplateBuff getGelBoilerplateBuff() {
-		return( (CFGenKbGelBoilerplateBuff)getBuff() );
+	public YCFGenKbGelBoilerplateBuff getGelBoilerplateBuff() {
+		return( (YCFGenKbGelBoilerplateBuff)getBuff() );
 	}
 
-	public ICFGenKbGelInstructionEditObj beginEdit() {
+	public IYCFGenKbGelInstructionEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGelBoilerplateObj lockobj;
+		IYCFGenKbGelBoilerplateObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGelBoilerplateObj)this;
+			lockobj = (IYCFGenKbGelBoilerplateObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGelBoilerplateTableObj().lockGelBoilerplate( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGelBoilerplateTableObj().lockGelBoilerplate( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGelBoilerplateTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGelInstructionEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGelBoilerplateTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGelInstructionEditObj)edit );
 	}
 
-	public ICFGenKbGelBoilerplateEditObj getEditAsGelBoilerplate() {
-		return( (ICFGenKbGelBoilerplateEditObj)edit );
+	public IYCFGenKbGelBoilerplateEditObj getEditAsGelBoilerplate() {
+		return( (IYCFGenKbGelBoilerplateEditObj)edit );
 	}
 
-	public String expand( MssCFGenContext genContext ) {
+	public String expand( MssYCFGenContext genContext ) {
 		String expansion = getRequiredSourceText();
 		return( expansion );
 	}

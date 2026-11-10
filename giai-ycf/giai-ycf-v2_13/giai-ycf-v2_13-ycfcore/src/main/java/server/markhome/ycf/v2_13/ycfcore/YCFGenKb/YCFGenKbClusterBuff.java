@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a Cluster buffer object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,10 +37,10 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFGenKbClusterBuff
+public class YCFGenKbClusterBuff
 {
 	public final static String CLASS_CODE = "a901";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
@@ -51,18 +51,18 @@ public class CFGenKbClusterBuff
 	public static final String FULLDOMNAME_INIT_VALUE = new String( "" );
 	public static final String DESCRIPTION_INIT_VALUE = new String( "" );
 	public static final long ID_MIN_VALUE = 0L;
-	protected UUID createdByUserId = CFGenKbClusterBuff.INIT_CREATEDBY;
+	protected UUID createdByUserId = YCFGenKbClusterBuff.INIT_CREATEDBY;
 	protected Calendar createdAt = Calendar.getInstance();
-	protected UUID updatedByUserId = CFGenKbClusterBuff.INIT_UPDATEDBY;
+	protected UUID updatedByUserId = YCFGenKbClusterBuff.INIT_UPDATEDBY;
 	protected Calendar updatedAt = Calendar.getInstance();
 	protected long requiredId;
 	protected String requiredFullDomName;
 	protected String requiredDescription;
 	protected int requiredRevision;
-	public CFGenKbClusterBuff() {
-		requiredId = CFGenKbClusterBuff.ID_INIT_VALUE;
-		requiredFullDomName = new String( CFGenKbClusterBuff.FULLDOMNAME_INIT_VALUE );
-		requiredDescription = new String( CFGenKbClusterBuff.DESCRIPTION_INIT_VALUE );
+	public YCFGenKbClusterBuff() {
+		requiredId = YCFGenKbClusterBuff.ID_INIT_VALUE;
+		requiredFullDomName = new String( YCFGenKbClusterBuff.FULLDOMNAME_INIT_VALUE );
+		requiredDescription = new String( YCFGenKbClusterBuff.DESCRIPTION_INIT_VALUE );
 	}
 
 	public String getClassCode() {
@@ -105,13 +105,13 @@ public class CFGenKbClusterBuff
 	}
 
 	public void setRequiredId( long value ) {
-		if( value < CFGenKbClusterBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbClusterBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbClusterBuff.ID_MIN_VALUE );
+				YCFGenKbClusterBuff.ID_MIN_VALUE );
 		}
 		requiredId = value;
 	}
@@ -122,13 +122,13 @@ public class CFGenKbClusterBuff
 
 	public void setRequiredFullDomName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredFullDomName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredFullDomName",
 				1,
 				"value.length()",
@@ -144,13 +144,13 @@ public class CFGenKbClusterBuff
 
 	public void setRequiredDescription( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredDescription",
 				1,
 				"value" );
 		}
 		if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredDescription",
 				1,
 				"value.length()",
@@ -172,8 +172,8 @@ public class CFGenKbClusterBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbClusterBuff ) {
-			CFGenKbClusterBuff rhs = (CFGenKbClusterBuff)obj;
+		else if( obj instanceof YCFGenKbClusterBuff ) {
+			YCFGenKbClusterBuff rhs = (YCFGenKbClusterBuff)obj;
 			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
 				return( false );
 			}
@@ -197,22 +197,22 @@ public class CFGenKbClusterBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbClusterPKey ) {
-			CFGenKbClusterPKey rhs = (CFGenKbClusterPKey)obj;
+		else if( obj instanceof YCFGenKbClusterPKey ) {
+			YCFGenKbClusterPKey rhs = (YCFGenKbClusterPKey)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbClusterByUDomNameIdxKey ) {
-			CFGenKbClusterByUDomNameIdxKey rhs = (CFGenKbClusterByUDomNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbClusterByUDomNameIdxKey ) {
+			YCFGenKbClusterByUDomNameIdxKey rhs = (YCFGenKbClusterByUDomNameIdxKey)obj;
 			if( ! getRequiredFullDomName().equals( rhs.getRequiredFullDomName() ) ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbClusterByUDescrIdxKey ) {
-			CFGenKbClusterByUDescrIdxKey rhs = (CFGenKbClusterByUDescrIdxKey)obj;
+		else if( obj instanceof YCFGenKbClusterByUDescrIdxKey ) {
+			YCFGenKbClusterByUDescrIdxKey rhs = (YCFGenKbClusterByUDescrIdxKey)obj;
 			if( ! getRequiredDescription().equals( rhs.getRequiredDescription() ) ) {
 				return( false );
 			}
@@ -244,8 +244,8 @@ public class CFGenKbClusterBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbClusterBuff ) {
-			CFGenKbClusterBuff rhs = (CFGenKbClusterBuff)obj;
+		else if( obj instanceof YCFGenKbClusterBuff ) {
+			YCFGenKbClusterBuff rhs = (YCFGenKbClusterBuff)obj;
 			int retval = 0;
 			{
 				int cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
@@ -288,8 +288,8 @@ public class CFGenKbClusterBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbClusterPKey ) {
-			CFGenKbClusterPKey rhs = (CFGenKbClusterPKey)obj;
+		else if( obj instanceof YCFGenKbClusterPKey ) {
+			YCFGenKbClusterPKey rhs = (YCFGenKbClusterPKey)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -298,8 +298,8 @@ public class CFGenKbClusterBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbClusterByUDomNameIdxKey ) {
-			CFGenKbClusterByUDomNameIdxKey rhs = (CFGenKbClusterByUDomNameIdxKey)obj;
+		else if( obj instanceof YCFGenKbClusterByUDomNameIdxKey ) {
+			YCFGenKbClusterByUDomNameIdxKey rhs = (YCFGenKbClusterByUDomNameIdxKey)obj;
 
 			{
 				int cmp = getRequiredFullDomName().compareTo( rhs.getRequiredFullDomName() );
@@ -308,8 +308,8 @@ public class CFGenKbClusterBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFGenKbClusterByUDescrIdxKey ) {
-			CFGenKbClusterByUDescrIdxKey rhs = (CFGenKbClusterByUDescrIdxKey)obj;
+		else if( obj instanceof YCFGenKbClusterByUDescrIdxKey ) {
+			YCFGenKbClusterByUDescrIdxKey rhs = (YCFGenKbClusterByUDescrIdxKey)obj;
 
 			{
 				int cmp = getRequiredDescription().compareTo( rhs.getRequiredDescription() );
@@ -319,7 +319,7 @@ public class CFGenKbClusterBuff
 			}			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -327,11 +327,11 @@ public class CFGenKbClusterBuff
 		}
 	}
 
-	public void set( CFGenKbClusterBuff src ) {
+	public void set( YCFGenKbClusterBuff src ) {
 		setClusterBuff( src );
 	}
 
-	public void setClusterBuff( CFGenKbClusterBuff src ) {
+	public void setClusterBuff( YCFGenKbClusterBuff src ) {
 		setRequiredId( src.getRequiredId() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );

@@ -2,15 +2,15 @@
 // Description: Java 11 XML SAX Element Handler for Tld
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -35,21 +35,21 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntSaxLoaderTldParse XML SAX Element Handler implementation
+ *	YCFIntSaxLoaderTldParse XML SAX Element Handler implementation
  *	for Tld.
  */
-public class CFIntSaxLoaderTld
-	extends CFLibXmlCoreElementHandler
+public class YCFIntSaxLoaderTld
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFIntSaxLoaderTld( CFIntSaxLoader saxLoader ) {
+	public YCFIntSaxLoaderTld( YCFIntSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -61,15 +61,15 @@ public class CFIntSaxLoaderTld
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFIntTldObj origBuff = null;
-		ICFIntTldEditObj editBuff = null;
+		IYCFIntTldObj origBuff = null;
+		IYCFIntTldEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// Tld Attributes
 		String attrName = null;
 		String attrDescription = null;
 		// Tld References
-		ICFIntTenantObj refTenant = null;
+		IYCFIntTenantObj refTenant = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -78,25 +78,25 @@ public class CFIntSaxLoaderTld
 		try {
 			assert qName.equals( "Tld" );
 
-			CFIntSaxLoader saxLoader = (CFIntSaxLoader)getParser();
+			YCFIntSaxLoader saxLoader = (YCFIntSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFIntSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFIntTldObj)schemaObj.getTldTableObj().newInstance();
-			editBuff = (ICFIntTldEditObj)origBuff.beginEdit();
+			origBuff = (IYCFIntTldObj)schemaObj.getTldTableObj().newInstance();
+			editBuff = (IYCFIntTldEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -104,7 +104,7 @@ public class CFIntSaxLoaderTld
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -113,7 +113,7 @@ public class CFIntSaxLoaderTld
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -122,7 +122,7 @@ public class CFIntSaxLoaderTld
 				}
 				else if( attrLocalName.equals( "Description" ) ) {
 					if( attrDescription != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -133,7 +133,7 @@ public class CFIntSaxLoaderTld
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -142,14 +142,14 @@ public class CFIntSaxLoaderTld
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "Description", attrDescription );
@@ -172,7 +172,7 @@ public class CFIntSaxLoaderTld
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -184,26 +184,26 @@ public class CFIntSaxLoaderTld
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFIntTenantObj ) {
-				refTenant = (ICFIntTenantObj) scopeObj;
+			else if( scopeObj instanceof IYCFIntTenantObj ) {
+				refTenant = (IYCFIntTenantObj) scopeObj;
 				editBuff.setRequiredContainerTenant( refTenant );
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFIntTenantObj" );
+					"IYCFIntTenantObj" );
 			}
 
-			CFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTldLoaderBehaviour();
-			ICFIntTldEditObj editTld = null;
-			ICFIntTldObj origTld = (ICFIntTldObj)schemaObj.getTldTableObj().readTldByNameIdx( refTenant.getRequiredId(),
+			YCFIntSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTldLoaderBehaviour();
+			IYCFIntTldEditObj editTld = null;
+			IYCFIntTldObj origTld = (IYCFIntTldObj)schemaObj.getTldTableObj().readTldByNameIdx( refTenant.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origTld == null ) {
 				editTld = editBuff;
@@ -213,12 +213,12 @@ public class CFIntSaxLoaderTld
 					case Insert:
 						break;
 					case Update:
-						editTld = (ICFIntTldEditObj)origTld.beginEdit();
+						editTld = (IYCFIntTldEditObj)origTld.beginEdit();
 						editTld.setRequiredName( editBuff.getRequiredName() );
 						editTld.setOptionalDescription( editBuff.getOptionalDescription() );
 						break;
 					case Replace:
-						editTld = (ICFIntTldEditObj)origTld.beginEdit();
+						editTld = (IYCFIntTldEditObj)origTld.beginEdit();
 						editTld.deleteInstance();
 						editTld = null;
 						origTld = null;
@@ -232,7 +232,7 @@ public class CFIntSaxLoaderTld
 					editTld.update();
 				}
 				else {
-					origTld = (ICFIntTldObj)editTld.create();
+					origTld = (IYCFIntTldObj)editTld.create();
 				}
 				editTld = null;
 			}

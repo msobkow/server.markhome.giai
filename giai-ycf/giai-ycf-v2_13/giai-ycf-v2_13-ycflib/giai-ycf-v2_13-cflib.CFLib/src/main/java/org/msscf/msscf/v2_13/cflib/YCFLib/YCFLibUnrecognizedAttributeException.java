@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,19 +21,19 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
 import java.util.*;
 
-public class CFLibUnrecognizedAttributeException extends NoSuchElementException {
+public class YCFLibUnrecognizedAttributeException extends NoSuchElementException {
 
-	public CFLibUnrecognizedAttributeException(
+	public YCFLibUnrecognizedAttributeException(
 		String msg )
 	{
 		super( msg );
 	}
 
-	public CFLibUnrecognizedAttributeException(
+	public YCFLibUnrecognizedAttributeException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -48,7 +48,7 @@ public class CFLibUnrecognizedAttributeException extends NoSuchElementException 
 						: "" ) );
 	}
 
-	public CFLibUnrecognizedAttributeException(
+	public YCFLibUnrecognizedAttributeException(
 		String fieldName,
 		String msg )
 	{
@@ -58,7 +58,7 @@ public class CFLibUnrecognizedAttributeException extends NoSuchElementException 
 						: "" ) );
 	}
 
-	public CFLibUnrecognizedAttributeException(
+	public YCFLibUnrecognizedAttributeException(
 		String fieldName,
 		String methName,
 		String msg )
@@ -73,12 +73,12 @@ public class CFLibUnrecognizedAttributeException extends NoSuchElementException 
 						: "" ) );
 	}
 
-	public CFLibUnrecognizedAttributeException()
+	public YCFLibUnrecognizedAttributeException()
 	{
 		super( "Unrecognized attribute" );
 	}
 
-	public CFLibUnrecognizedAttributeException(
+	public YCFLibUnrecognizedAttributeException(
 		Class throwingClass,
 		String methName )
 	{
@@ -89,7 +89,7 @@ public class CFLibUnrecognizedAttributeException extends NoSuchElementException 
 					+ "() Unrecognized attribute" );
 	}
 
-	public CFLibUnrecognizedAttributeException(
+	public YCFLibUnrecognizedAttributeException(
 		Class throwingClass,
 		String methName,
 		String locInfo,

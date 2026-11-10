@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a FloatDef history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamFloatDefHBuff
-	extends CFBamAtomHBuff
+public class YCFBamFloatDefHBuff
+	extends YCFBamAtomHBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -79,7 +79,7 @@ public class CFBamFloatDefHBuff
 	protected Float optionalInitValue;
 	protected Float optionalMinValue;
 	protected Float optionalMaxValue;
-	public CFBamFloatDefHBuff() {
+	public YCFBamFloatDefHBuff() {
 		super();
 		optionalInitValue = null;
 		optionalMinValue = null;
@@ -87,7 +87,7 @@ public class CFBamFloatDefHBuff
 	}
 
 	public String getClassCode() {
-		return( CFBamFloatDefBuff.CLASS_CODE );
+		return( YCFBamFloatDefBuff.CLASS_CODE );
 	}
 
 	public Float getOptionalInitValue() {
@@ -98,21 +98,21 @@ public class CFBamFloatDefHBuff
 		if( value == null ) {
 			optionalInitValue = null;
 		}
-		else if( value < CFBamFloatDefBuff.INITVALUE_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamFloatDefBuff.INITVALUE_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalInitValue",
 				1,
 				"value",
 				value,
-				CFBamFloatDefBuff.INITVALUE_MIN_VALUE );
+				YCFBamFloatDefBuff.INITVALUE_MIN_VALUE );
 		}
-		else if( value > CFBamFloatDefBuff.INITVALUE_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFBamFloatDefBuff.INITVALUE_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalInitValue",
 				1,
 				"value",
 				value,
-				CFBamFloatDefBuff.INITVALUE_MAX_VALUE );
+				YCFBamFloatDefBuff.INITVALUE_MAX_VALUE );
 		}
 		else {
 			optionalInitValue = value;
@@ -127,21 +127,21 @@ public class CFBamFloatDefHBuff
 		if( value == null ) {
 			optionalMinValue = null;
 		}
-		else if( value < CFBamFloatDefBuff.MINVALUE_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamFloatDefBuff.MINVALUE_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalMinValue",
 				1,
 				"value",
 				value,
-				CFBamFloatDefBuff.MINVALUE_MIN_VALUE );
+				YCFBamFloatDefBuff.MINVALUE_MIN_VALUE );
 		}
-		else if( value > CFBamFloatDefBuff.MINVALUE_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFBamFloatDefBuff.MINVALUE_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalMinValue",
 				1,
 				"value",
 				value,
-				CFBamFloatDefBuff.MINVALUE_MAX_VALUE );
+				YCFBamFloatDefBuff.MINVALUE_MAX_VALUE );
 		}
 		else {
 			optionalMinValue = value;
@@ -156,21 +156,21 @@ public class CFBamFloatDefHBuff
 		if( value == null ) {
 			optionalMaxValue = null;
 		}
-		else if( value < CFBamFloatDefBuff.MAXVALUE_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value < YCFBamFloatDefBuff.MAXVALUE_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalMaxValue",
 				1,
 				"value",
 				value,
-				CFBamFloatDefBuff.MAXVALUE_MIN_VALUE );
+				YCFBamFloatDefBuff.MAXVALUE_MIN_VALUE );
 		}
-		else if( value > CFBamFloatDefBuff.MAXVALUE_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		else if( value > YCFBamFloatDefBuff.MAXVALUE_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setOptionalMaxValue",
 				1,
 				"value",
 				value,
-				CFBamFloatDefBuff.MAXVALUE_MAX_VALUE );
+				YCFBamFloatDefBuff.MAXVALUE_MAX_VALUE );
 		}
 		else {
 			optionalMaxValue = value;
@@ -181,8 +181,8 @@ public class CFBamFloatDefHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamFloatDefHBuff ) {
-			CFBamFloatDefHBuff rhs = (CFBamFloatDefHBuff)obj;
+		else if( obj instanceof YCFBamFloatDefHBuff ) {
+			YCFBamFloatDefHBuff rhs = (YCFBamFloatDefHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -230,8 +230,8 @@ public class CFBamFloatDefHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamFloatDefBuff ) {
-			CFBamFloatDefBuff rhs = (CFBamFloatDefBuff)obj;
+		else if( obj instanceof YCFBamFloatDefBuff ) {
+			YCFBamFloatDefBuff rhs = (YCFBamFloatDefBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -302,16 +302,16 @@ public class CFBamFloatDefHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamFloatDefBuff ) {
-			CFBamFloatDefBuff rhs = (CFBamFloatDefBuff)obj;
+		else if( obj instanceof YCFBamFloatDefBuff ) {
+			YCFBamFloatDefBuff rhs = (YCFBamFloatDefBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamFloatDefHBuff ) {
-			CFBamFloatDefHBuff rhs = (CFBamFloatDefHBuff)obj;
+		else if( obj instanceof YCFBamFloatDefHBuff ) {
+			YCFBamFloatDefHBuff rhs = (YCFBamFloatDefHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -722,40 +722,40 @@ public class CFBamFloatDefHBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamFloatDefBuff ) {
-			setFloatDefBuff( (CFBamFloatDefBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamFloatDefBuff ) {
+			setFloatDefBuff( (YCFBamFloatDefBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamFloatDefBuff" );
+				"YCFBamFloatDefBuff" );
 		}
 	}
 
-	public void setFloatDefBuff( CFBamFloatDefBuff src ) {
+	public void setFloatDefBuff( YCFBamFloatDefBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalInitValue( src.getOptionalInitValue() );
 		setOptionalMinValue( src.getOptionalMinValue() );
 		setOptionalMaxValue( src.getOptionalMaxValue() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamFloatDefHBuff ) {
-			setFloatDefBuff( (CFBamFloatDefHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamFloatDefHBuff ) {
+			setFloatDefBuff( (YCFBamFloatDefHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamFloatDefHBuff" );
+				"YCFBamFloatDefHBuff" );
 		}
 	}
 
-	public void setFloatDefBuff( CFBamFloatDefHBuff src ) {
+	public void setFloatDefBuff( YCFBamFloatDefHBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalInitValue( src.getOptionalInitValue() );
 		setOptionalMinValue( src.getOptionalMinValue() );

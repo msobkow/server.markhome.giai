@@ -2,15 +2,15 @@
 // Description: Java 11 in-memory RAM DbIO implementation for ISOTZone.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,79 +27,79 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFIntRam;
+package org.mssycf.mssycf.v2_13.ycfint.YCFIntRam;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
 
 /*
- *	CFIntRamISOTZoneTable in-memory RAM DbIO implementation
+ *	YCFIntRamISOTZoneTable in-memory RAM DbIO implementation
  *	for ISOTZone.
  */
-public class CFIntRamISOTZoneTable
-	implements ICFIntISOTZoneTable
+public class YCFIntRamISOTZoneTable
+	implements IYCFIntISOTZoneTable
 {
-	private ICFIntSchema schema;
-	private Map< CFSecISOTZonePKey,
-				CFSecISOTZoneBuff > dictByPKey
-		= new HashMap< CFSecISOTZonePKey,
-				CFSecISOTZoneBuff >();
-	private Map< CFSecISOTZoneByOffsetIdxKey,
-				Map< CFSecISOTZonePKey,
-					CFSecISOTZoneBuff >> dictByOffsetIdx
-		= new HashMap< CFSecISOTZoneByOffsetIdxKey,
-				Map< CFSecISOTZonePKey,
-					CFSecISOTZoneBuff >>();
-	private Map< CFSecISOTZoneByUTZNameIdxKey,
-			CFSecISOTZoneBuff > dictByUTZNameIdx
-		= new HashMap< CFSecISOTZoneByUTZNameIdxKey,
-			CFSecISOTZoneBuff >();
-	private Map< CFSecISOTZoneByIso8601IdxKey,
-				Map< CFSecISOTZonePKey,
-					CFSecISOTZoneBuff >> dictByIso8601Idx
-		= new HashMap< CFSecISOTZoneByIso8601IdxKey,
-				Map< CFSecISOTZonePKey,
-					CFSecISOTZoneBuff >>();
+	private IYCFIntSchema schema;
+	private Map< YCFSecISOTZonePKey,
+				YCFSecISOTZoneBuff > dictByPKey
+		= new HashMap< YCFSecISOTZonePKey,
+				YCFSecISOTZoneBuff >();
+	private Map< YCFSecISOTZoneByOffsetIdxKey,
+				Map< YCFSecISOTZonePKey,
+					YCFSecISOTZoneBuff >> dictByOffsetIdx
+		= new HashMap< YCFSecISOTZoneByOffsetIdxKey,
+				Map< YCFSecISOTZonePKey,
+					YCFSecISOTZoneBuff >>();
+	private Map< YCFSecISOTZoneByUTZNameIdxKey,
+			YCFSecISOTZoneBuff > dictByUTZNameIdx
+		= new HashMap< YCFSecISOTZoneByUTZNameIdxKey,
+			YCFSecISOTZoneBuff >();
+	private Map< YCFSecISOTZoneByIso8601IdxKey,
+				Map< YCFSecISOTZonePKey,
+					YCFSecISOTZoneBuff >> dictByIso8601Idx
+		= new HashMap< YCFSecISOTZoneByIso8601IdxKey,
+				Map< YCFSecISOTZonePKey,
+					YCFSecISOTZoneBuff >>();
 
-	public CFIntRamISOTZoneTable( ICFIntSchema argSchema ) {
+	public YCFIntRamISOTZoneTable( IYCFIntSchema argSchema ) {
 		schema = argSchema;
 	}
 
-	public void createISOTZone( CFSecAuthorization Authorization,
-		CFSecISOTZoneBuff Buff )
+	public void createISOTZone( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneBuff Buff )
 	{
 		final String S_ProcName = "createISOTZone";
-		CFSecISOTZonePKey pkey = schema.getFactoryISOTZone().newPKey();
+		YCFSecISOTZonePKey pkey = schema.getFactoryISOTZone().newPKey();
 		pkey.setRequiredISOTZoneId( schema.nextISOTZoneIdGen() );
 		Buff.setRequiredISOTZoneId( pkey.getRequiredISOTZoneId() );
-		CFSecISOTZoneByOffsetIdxKey keyOffsetIdx = schema.getFactoryISOTZone().newOffsetIdxKey();
+		YCFSecISOTZoneByOffsetIdxKey keyOffsetIdx = schema.getFactoryISOTZone().newOffsetIdxKey();
 		keyOffsetIdx.setRequiredTZHourOffset( Buff.getRequiredTZHourOffset() );
 		keyOffsetIdx.setRequiredTZMinOffset( Buff.getRequiredTZMinOffset() );
 
-		CFSecISOTZoneByUTZNameIdxKey keyUTZNameIdx = schema.getFactoryISOTZone().newUTZNameIdxKey();
+		YCFSecISOTZoneByUTZNameIdxKey keyUTZNameIdx = schema.getFactoryISOTZone().newUTZNameIdxKey();
 		keyUTZNameIdx.setRequiredTZName( Buff.getRequiredTZName() );
 
-		CFSecISOTZoneByIso8601IdxKey keyIso8601Idx = schema.getFactoryISOTZone().newIso8601IdxKey();
+		YCFSecISOTZoneByIso8601IdxKey keyIso8601Idx = schema.getFactoryISOTZone().newIso8601IdxKey();
 		keyIso8601Idx.setRequiredIso8601( Buff.getRequiredIso8601() );
 
 		// Validate unique indexes
 
 		if( dictByPKey.containsKey( pkey ) ) {
-			throw new CFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
+			throw new YCFLibPrimaryKeyNotNewException( getClass(), S_ProcName, pkey );
 		}
 
 		if( dictByUTZNameIdx.containsKey( keyUTZNameIdx ) ) {
-			throw new CFLibUniqueIndexViolationException( getClass(),
+			throw new YCFLibUniqueIndexViolationException( getClass(),
 				S_ProcName,
 				"ISOTZoneUTZNameIdx",
 				keyUTZNameIdx );
@@ -111,37 +111,37 @@ public class CFIntRamISOTZoneTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< CFSecISOTZonePKey, CFSecISOTZoneBuff > subdictOffsetIdx;
+		Map< YCFSecISOTZonePKey, YCFSecISOTZoneBuff > subdictOffsetIdx;
 		if( dictByOffsetIdx.containsKey( keyOffsetIdx ) ) {
 			subdictOffsetIdx = dictByOffsetIdx.get( keyOffsetIdx );
 		}
 		else {
-			subdictOffsetIdx = new HashMap< CFSecISOTZonePKey, CFSecISOTZoneBuff >();
+			subdictOffsetIdx = new HashMap< YCFSecISOTZonePKey, YCFSecISOTZoneBuff >();
 			dictByOffsetIdx.put( keyOffsetIdx, subdictOffsetIdx );
 		}
 		subdictOffsetIdx.put( pkey, Buff );
 
 		dictByUTZNameIdx.put( keyUTZNameIdx, Buff );
 
-		Map< CFSecISOTZonePKey, CFSecISOTZoneBuff > subdictIso8601Idx;
+		Map< YCFSecISOTZonePKey, YCFSecISOTZoneBuff > subdictIso8601Idx;
 		if( dictByIso8601Idx.containsKey( keyIso8601Idx ) ) {
 			subdictIso8601Idx = dictByIso8601Idx.get( keyIso8601Idx );
 		}
 		else {
-			subdictIso8601Idx = new HashMap< CFSecISOTZonePKey, CFSecISOTZoneBuff >();
+			subdictIso8601Idx = new HashMap< YCFSecISOTZonePKey, YCFSecISOTZoneBuff >();
 			dictByIso8601Idx.put( keyIso8601Idx, subdictIso8601Idx );
 		}
 		subdictIso8601Idx.put( pkey, Buff );
 
 	}
 
-	public CFSecISOTZoneBuff readDerived( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey PKey )
+	public YCFSecISOTZoneBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey PKey )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readDerived";
-		CFSecISOTZonePKey key = schema.getFactoryISOTZone().newPKey();
+		final String S_ProcName = "YCFIntRamISOTZone.readDerived";
+		YCFSecISOTZonePKey key = schema.getFactoryISOTZone().newPKey();
 		key.setRequiredISOTZoneId( PKey.getRequiredISOTZoneId() );
-		CFSecISOTZoneBuff buff;
+		YCFSecISOTZoneBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -151,13 +151,13 @@ public class CFIntRamISOTZoneTable
 		return( buff );
 	}
 
-	public CFSecISOTZoneBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey PKey )
+	public YCFSecISOTZoneBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey PKey )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readDerived";
-		CFSecISOTZonePKey key = schema.getFactoryISOTZone().newPKey();
+		final String S_ProcName = "YCFIntRamISOTZone.readDerived";
+		YCFSecISOTZonePKey key = schema.getFactoryISOTZone().newPKey();
 		key.setRequiredISOTZoneId( PKey.getRequiredISOTZoneId() );
-		CFSecISOTZoneBuff buff;
+		YCFSecISOTZoneBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -167,10 +167,10 @@ public class CFIntRamISOTZoneTable
 		return( buff );
 	}
 
-	public CFSecISOTZoneBuff[] readAllDerived( CFSecAuthorization Authorization ) {
-		final String S_ProcName = "CFIntRamISOTZone.readAllDerived";
-		CFSecISOTZoneBuff[] retList = new CFSecISOTZoneBuff[ dictByPKey.values().size() ];
-		Iterator< CFSecISOTZoneBuff > iter = dictByPKey.values().iterator();
+	public YCFSecISOTZoneBuff[] readAllDerived( YCFSecAuthorization Authorization ) {
+		final String S_ProcName = "YCFIntRamISOTZone.readAllDerived";
+		YCFSecISOTZoneBuff[] retList = new YCFSecISOTZoneBuff[ dictByPKey.values().size() ];
+		Iterator< YCFSecISOTZoneBuff > iter = dictByPKey.values().iterator();
 		int idx = 0;
 		while( iter.hasNext() ) {
 			retList[ idx++ ] = iter.next();
@@ -178,43 +178,43 @@ public class CFIntRamISOTZoneTable
 		return( retList );
 	}
 
-	public CFSecISOTZoneBuff[] readDerivedByOffsetIdx( CFSecAuthorization Authorization,
+	public YCFSecISOTZoneBuff[] readDerivedByOffsetIdx( YCFSecAuthorization Authorization,
 		short TZHourOffset,
 		short TZMinOffset )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readDerivedByOffsetIdx";
-		CFSecISOTZoneByOffsetIdxKey key = schema.getFactoryISOTZone().newOffsetIdxKey();
+		final String S_ProcName = "YCFIntRamISOTZone.readDerivedByOffsetIdx";
+		YCFSecISOTZoneByOffsetIdxKey key = schema.getFactoryISOTZone().newOffsetIdxKey();
 		key.setRequiredTZHourOffset( TZHourOffset );
 		key.setRequiredTZMinOffset( TZMinOffset );
 
-		CFSecISOTZoneBuff[] recArray;
+		YCFSecISOTZoneBuff[] recArray;
 		if( dictByOffsetIdx.containsKey( key ) ) {
-			Map< CFSecISOTZonePKey, CFSecISOTZoneBuff > subdictOffsetIdx
+			Map< YCFSecISOTZonePKey, YCFSecISOTZoneBuff > subdictOffsetIdx
 				= dictByOffsetIdx.get( key );
-			recArray = new CFSecISOTZoneBuff[ subdictOffsetIdx.size() ];
-			Iterator< CFSecISOTZoneBuff > iter = subdictOffsetIdx.values().iterator();
+			recArray = new YCFSecISOTZoneBuff[ subdictOffsetIdx.size() ];
+			Iterator< YCFSecISOTZoneBuff > iter = subdictOffsetIdx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecISOTZonePKey, CFSecISOTZoneBuff > subdictOffsetIdx
-				= new HashMap< CFSecISOTZonePKey, CFSecISOTZoneBuff >();
+			Map< YCFSecISOTZonePKey, YCFSecISOTZoneBuff > subdictOffsetIdx
+				= new HashMap< YCFSecISOTZonePKey, YCFSecISOTZoneBuff >();
 			dictByOffsetIdx.put( key, subdictOffsetIdx );
-			recArray = new CFSecISOTZoneBuff[0];
+			recArray = new YCFSecISOTZoneBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecISOTZoneBuff readDerivedByUTZNameIdx( CFSecAuthorization Authorization,
+	public YCFSecISOTZoneBuff readDerivedByUTZNameIdx( YCFSecAuthorization Authorization,
 		String TZName )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readDerivedByUTZNameIdx";
-		CFSecISOTZoneByUTZNameIdxKey key = schema.getFactoryISOTZone().newUTZNameIdxKey();
+		final String S_ProcName = "YCFIntRamISOTZone.readDerivedByUTZNameIdx";
+		YCFSecISOTZoneByUTZNameIdxKey key = schema.getFactoryISOTZone().newUTZNameIdxKey();
 		key.setRequiredTZName( TZName );
 
-		CFSecISOTZoneBuff buff;
+		YCFSecISOTZoneBuff buff;
 		if( dictByUTZNameIdx.containsKey( key ) ) {
 			buff = dictByUTZNameIdx.get( key );
 		}
@@ -224,41 +224,41 @@ public class CFIntRamISOTZoneTable
 		return( buff );
 	}
 
-	public CFSecISOTZoneBuff[] readDerivedByIso8601Idx( CFSecAuthorization Authorization,
+	public YCFSecISOTZoneBuff[] readDerivedByIso8601Idx( YCFSecAuthorization Authorization,
 		String Iso8601 )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readDerivedByIso8601Idx";
-		CFSecISOTZoneByIso8601IdxKey key = schema.getFactoryISOTZone().newIso8601IdxKey();
+		final String S_ProcName = "YCFIntRamISOTZone.readDerivedByIso8601Idx";
+		YCFSecISOTZoneByIso8601IdxKey key = schema.getFactoryISOTZone().newIso8601IdxKey();
 		key.setRequiredIso8601( Iso8601 );
 
-		CFSecISOTZoneBuff[] recArray;
+		YCFSecISOTZoneBuff[] recArray;
 		if( dictByIso8601Idx.containsKey( key ) ) {
-			Map< CFSecISOTZonePKey, CFSecISOTZoneBuff > subdictIso8601Idx
+			Map< YCFSecISOTZonePKey, YCFSecISOTZoneBuff > subdictIso8601Idx
 				= dictByIso8601Idx.get( key );
-			recArray = new CFSecISOTZoneBuff[ subdictIso8601Idx.size() ];
-			Iterator< CFSecISOTZoneBuff > iter = subdictIso8601Idx.values().iterator();
+			recArray = new YCFSecISOTZoneBuff[ subdictIso8601Idx.size() ];
+			Iterator< YCFSecISOTZoneBuff > iter = subdictIso8601Idx.values().iterator();
 			int idx = 0;
 			while( iter.hasNext() ) {
 				recArray[ idx++ ] = iter.next();
 			}
 		}
 		else {
-			Map< CFSecISOTZonePKey, CFSecISOTZoneBuff > subdictIso8601Idx
-				= new HashMap< CFSecISOTZonePKey, CFSecISOTZoneBuff >();
+			Map< YCFSecISOTZonePKey, YCFSecISOTZoneBuff > subdictIso8601Idx
+				= new HashMap< YCFSecISOTZonePKey, YCFSecISOTZoneBuff >();
 			dictByIso8601Idx.put( key, subdictIso8601Idx );
-			recArray = new CFSecISOTZoneBuff[0];
+			recArray = new YCFSecISOTZoneBuff[0];
 		}
 		return( recArray );
 	}
 
-	public CFSecISOTZoneBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecISOTZoneBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		short ISOTZoneId )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readDerivedByIdIdx() ";
-		CFSecISOTZonePKey key = schema.getFactoryISOTZone().newPKey();
+		final String S_ProcName = "YCFIntRamISOTZone.readDerivedByIdIdx() ";
+		YCFSecISOTZonePKey key = schema.getFactoryISOTZone().newPKey();
 		key.setRequiredISOTZoneId( ISOTZoneId );
 
-		CFSecISOTZoneBuff buff;
+		YCFSecISOTZoneBuff buff;
 		if( dictByPKey.containsKey( key ) ) {
 			buff = dictByPKey.get( key );
 		}
@@ -268,151 +268,151 @@ public class CFIntRamISOTZoneTable
 		return( buff );
 	}
 
-	public CFSecISOTZoneBuff readBuff( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey PKey )
+	public YCFSecISOTZoneBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey PKey )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readBuff";
-		CFSecISOTZoneBuff buff = readDerived( Authorization, PKey );
+		final String S_ProcName = "YCFIntRamISOTZone.readBuff";
+		YCFSecISOTZoneBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a008" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecISOTZoneBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey PKey )
+	public YCFSecISOTZoneBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey PKey )
 	{
 		final String S_ProcName = "lockBuff";
-		CFSecISOTZoneBuff buff = readDerived( Authorization, PKey );
+		YCFSecISOTZoneBuff buff = readDerived( Authorization, PKey );
 		if( ( buff != null ) && ( ! buff.getClassCode().equals( "a008" ) ) ) {
 			buff = null;
 		}
 		return( buff );
 	}
 
-	public CFSecISOTZoneBuff[] readAllBuff( CFSecAuthorization Authorization )
+	public YCFSecISOTZoneBuff[] readAllBuff( YCFSecAuthorization Authorization )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readAllBuff";
-		CFSecISOTZoneBuff buff;
-		ArrayList<CFSecISOTZoneBuff> filteredList = new ArrayList<CFSecISOTZoneBuff>();
-		CFSecISOTZoneBuff[] buffList = readAllDerived( Authorization );
+		final String S_ProcName = "YCFIntRamISOTZone.readAllBuff";
+		YCFSecISOTZoneBuff buff;
+		ArrayList<YCFSecISOTZoneBuff> filteredList = new ArrayList<YCFSecISOTZoneBuff>();
+		YCFSecISOTZoneBuff[] buffList = readAllDerived( Authorization );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a008" ) ) {
 				filteredList.add( buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecISOTZoneBuff[0] ) );
+		return( filteredList.toArray( new YCFSecISOTZoneBuff[0] ) );
 	}
 
-	public CFSecISOTZoneBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	public YCFSecISOTZoneBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		short ISOTZoneId )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readBuffByIdIdx() ";
-		CFSecISOTZoneBuff buff = readDerivedByIdIdx( Authorization,
+		final String S_ProcName = "YCFIntRamISOTZone.readBuffByIdIdx() ";
+		YCFSecISOTZoneBuff buff = readDerivedByIdIdx( Authorization,
 			ISOTZoneId );
 		if( ( buff != null ) && buff.getClassCode().equals( "a008" ) ) {
-			return( (CFSecISOTZoneBuff)buff );
+			return( (YCFSecISOTZoneBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecISOTZoneBuff[] readBuffByOffsetIdx( CFSecAuthorization Authorization,
+	public YCFSecISOTZoneBuff[] readBuffByOffsetIdx( YCFSecAuthorization Authorization,
 		short TZHourOffset,
 		short TZMinOffset )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readBuffByOffsetIdx() ";
-		CFSecISOTZoneBuff buff;
-		ArrayList<CFSecISOTZoneBuff> filteredList = new ArrayList<CFSecISOTZoneBuff>();
-		CFSecISOTZoneBuff[] buffList = readDerivedByOffsetIdx( Authorization,
+		final String S_ProcName = "YCFIntRamISOTZone.readBuffByOffsetIdx() ";
+		YCFSecISOTZoneBuff buff;
+		ArrayList<YCFSecISOTZoneBuff> filteredList = new ArrayList<YCFSecISOTZoneBuff>();
+		YCFSecISOTZoneBuff[] buffList = readDerivedByOffsetIdx( Authorization,
 			TZHourOffset,
 			TZMinOffset );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a008" ) ) {
-				filteredList.add( (CFSecISOTZoneBuff)buff );
+				filteredList.add( (YCFSecISOTZoneBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecISOTZoneBuff[0] ) );
+		return( filteredList.toArray( new YCFSecISOTZoneBuff[0] ) );
 	}
 
-	public CFSecISOTZoneBuff readBuffByUTZNameIdx( CFSecAuthorization Authorization,
+	public YCFSecISOTZoneBuff readBuffByUTZNameIdx( YCFSecAuthorization Authorization,
 		String TZName )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readBuffByUTZNameIdx() ";
-		CFSecISOTZoneBuff buff = readDerivedByUTZNameIdx( Authorization,
+		final String S_ProcName = "YCFIntRamISOTZone.readBuffByUTZNameIdx() ";
+		YCFSecISOTZoneBuff buff = readDerivedByUTZNameIdx( Authorization,
 			TZName );
 		if( ( buff != null ) && buff.getClassCode().equals( "a008" ) ) {
-			return( (CFSecISOTZoneBuff)buff );
+			return( (YCFSecISOTZoneBuff)buff );
 		}
 		else {
 			return( null );
 		}
 	}
 
-	public CFSecISOTZoneBuff[] readBuffByIso8601Idx( CFSecAuthorization Authorization,
+	public YCFSecISOTZoneBuff[] readBuffByIso8601Idx( YCFSecAuthorization Authorization,
 		String Iso8601 )
 	{
-		final String S_ProcName = "CFIntRamISOTZone.readBuffByIso8601Idx() ";
-		CFSecISOTZoneBuff buff;
-		ArrayList<CFSecISOTZoneBuff> filteredList = new ArrayList<CFSecISOTZoneBuff>();
-		CFSecISOTZoneBuff[] buffList = readDerivedByIso8601Idx( Authorization,
+		final String S_ProcName = "YCFIntRamISOTZone.readBuffByIso8601Idx() ";
+		YCFSecISOTZoneBuff buff;
+		ArrayList<YCFSecISOTZoneBuff> filteredList = new ArrayList<YCFSecISOTZoneBuff>();
+		YCFSecISOTZoneBuff[] buffList = readDerivedByIso8601Idx( Authorization,
 			Iso8601 );
 		for( int idx = 0; idx < buffList.length; idx ++ ) {
 			buff = buffList[idx];
 			if( ( buff != null ) && buff.getClassCode().equals( "a008" ) ) {
-				filteredList.add( (CFSecISOTZoneBuff)buff );
+				filteredList.add( (YCFSecISOTZoneBuff)buff );
 			}
 		}
-		return( filteredList.toArray( new CFSecISOTZoneBuff[0] ) );
+		return( filteredList.toArray( new YCFSecISOTZoneBuff[0] ) );
 	}
 
-	public void updateISOTZone( CFSecAuthorization Authorization,
-		CFSecISOTZoneBuff Buff )
+	public void updateISOTZone( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneBuff Buff )
 	{
-		CFSecISOTZonePKey pkey = schema.getFactoryISOTZone().newPKey();
+		YCFSecISOTZonePKey pkey = schema.getFactoryISOTZone().newPKey();
 		pkey.setRequiredISOTZoneId( Buff.getRequiredISOTZoneId() );
-		CFSecISOTZoneBuff existing = dictByPKey.get( pkey );
+		YCFSecISOTZoneBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
-			throw new CFLibStaleCacheDetectedException( getClass(),
+			throw new YCFLibStaleCacheDetectedException( getClass(),
 				"updateISOTZone",
 				"Existing record not found",
 				"ISOTZone",
 				pkey );
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() ) {
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"updateISOTZone",
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFSecISOTZoneByOffsetIdxKey existingKeyOffsetIdx = schema.getFactoryISOTZone().newOffsetIdxKey();
+		YCFSecISOTZoneByOffsetIdxKey existingKeyOffsetIdx = schema.getFactoryISOTZone().newOffsetIdxKey();
 		existingKeyOffsetIdx.setRequiredTZHourOffset( existing.getRequiredTZHourOffset() );
 		existingKeyOffsetIdx.setRequiredTZMinOffset( existing.getRequiredTZMinOffset() );
 
-		CFSecISOTZoneByOffsetIdxKey newKeyOffsetIdx = schema.getFactoryISOTZone().newOffsetIdxKey();
+		YCFSecISOTZoneByOffsetIdxKey newKeyOffsetIdx = schema.getFactoryISOTZone().newOffsetIdxKey();
 		newKeyOffsetIdx.setRequiredTZHourOffset( Buff.getRequiredTZHourOffset() );
 		newKeyOffsetIdx.setRequiredTZMinOffset( Buff.getRequiredTZMinOffset() );
 
-		CFSecISOTZoneByUTZNameIdxKey existingKeyUTZNameIdx = schema.getFactoryISOTZone().newUTZNameIdxKey();
+		YCFSecISOTZoneByUTZNameIdxKey existingKeyUTZNameIdx = schema.getFactoryISOTZone().newUTZNameIdxKey();
 		existingKeyUTZNameIdx.setRequiredTZName( existing.getRequiredTZName() );
 
-		CFSecISOTZoneByUTZNameIdxKey newKeyUTZNameIdx = schema.getFactoryISOTZone().newUTZNameIdxKey();
+		YCFSecISOTZoneByUTZNameIdxKey newKeyUTZNameIdx = schema.getFactoryISOTZone().newUTZNameIdxKey();
 		newKeyUTZNameIdx.setRequiredTZName( Buff.getRequiredTZName() );
 
-		CFSecISOTZoneByIso8601IdxKey existingKeyIso8601Idx = schema.getFactoryISOTZone().newIso8601IdxKey();
+		YCFSecISOTZoneByIso8601IdxKey existingKeyIso8601Idx = schema.getFactoryISOTZone().newIso8601IdxKey();
 		existingKeyIso8601Idx.setRequiredIso8601( existing.getRequiredIso8601() );
 
-		CFSecISOTZoneByIso8601IdxKey newKeyIso8601Idx = schema.getFactoryISOTZone().newIso8601IdxKey();
+		YCFSecISOTZoneByIso8601IdxKey newKeyIso8601Idx = schema.getFactoryISOTZone().newIso8601IdxKey();
 		newKeyIso8601Idx.setRequiredIso8601( Buff.getRequiredIso8601() );
 
 		// Check unique indexes
 
 		if( ! existingKeyUTZNameIdx.equals( newKeyUTZNameIdx ) ) {
 			if( dictByUTZNameIdx.containsKey( newKeyUTZNameIdx ) ) {
-				throw new CFLibUniqueIndexViolationException( getClass(),
+				throw new YCFLibUniqueIndexViolationException( getClass(),
 					"updateISOTZone",
 					"ISOTZoneUTZNameIdx",
 					newKeyUTZNameIdx );
@@ -423,7 +423,7 @@ public class CFIntRamISOTZoneTable
 
 		// Update is valid
 
-		Map< CFSecISOTZonePKey, CFSecISOTZoneBuff > subdict;
+		Map< YCFSecISOTZonePKey, YCFSecISOTZoneBuff > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -436,7 +436,7 @@ public class CFIntRamISOTZoneTable
 			subdict = dictByOffsetIdx.get( newKeyOffsetIdx );
 		}
 		else {
-			subdict = new HashMap< CFSecISOTZonePKey, CFSecISOTZoneBuff >();
+			subdict = new HashMap< YCFSecISOTZonePKey, YCFSecISOTZoneBuff >();
 			dictByOffsetIdx.put( newKeyOffsetIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -452,44 +452,44 @@ public class CFIntRamISOTZoneTable
 			subdict = dictByIso8601Idx.get( newKeyIso8601Idx );
 		}
 		else {
-			subdict = new HashMap< CFSecISOTZonePKey, CFSecISOTZoneBuff >();
+			subdict = new HashMap< YCFSecISOTZonePKey, YCFSecISOTZoneBuff >();
 			dictByIso8601Idx.put( newKeyIso8601Idx, subdict );
 		}
 		subdict.put( pkey, Buff );
 
 	}
 
-	public void deleteISOTZone( CFSecAuthorization Authorization,
-		CFSecISOTZoneBuff Buff )
+	public void deleteISOTZone( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneBuff Buff )
 	{
-		final String S_ProcName = "CFIntRamISOTZoneTable.deleteISOTZone() ";
+		final String S_ProcName = "YCFIntRamISOTZoneTable.deleteISOTZone() ";
 		String classCode;
-		CFSecISOTZonePKey pkey = schema.getFactoryISOTZone().newPKey();
+		YCFSecISOTZonePKey pkey = schema.getFactoryISOTZone().newPKey();
 		pkey.setRequiredISOTZoneId( Buff.getRequiredISOTZoneId() );
-		CFSecISOTZoneBuff existing = dictByPKey.get( pkey );
+		YCFSecISOTZoneBuff existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
 		}
 		if( existing.getRequiredRevision() != Buff.getRequiredRevision() )
 		{
-			throw new CFLibCollisionDetectedException( getClass(),
+			throw new YCFLibCollisionDetectedException( getClass(),
 				"deleteISOTZone",
 				pkey );
 		}
-		CFSecISOTZoneByOffsetIdxKey keyOffsetIdx = schema.getFactoryISOTZone().newOffsetIdxKey();
+		YCFSecISOTZoneByOffsetIdxKey keyOffsetIdx = schema.getFactoryISOTZone().newOffsetIdxKey();
 		keyOffsetIdx.setRequiredTZHourOffset( existing.getRequiredTZHourOffset() );
 		keyOffsetIdx.setRequiredTZMinOffset( existing.getRequiredTZMinOffset() );
 
-		CFSecISOTZoneByUTZNameIdxKey keyUTZNameIdx = schema.getFactoryISOTZone().newUTZNameIdxKey();
+		YCFSecISOTZoneByUTZNameIdxKey keyUTZNameIdx = schema.getFactoryISOTZone().newUTZNameIdxKey();
 		keyUTZNameIdx.setRequiredTZName( existing.getRequiredTZName() );
 
-		CFSecISOTZoneByIso8601IdxKey keyIso8601Idx = schema.getFactoryISOTZone().newIso8601IdxKey();
+		YCFSecISOTZoneByIso8601IdxKey keyIso8601Idx = schema.getFactoryISOTZone().newIso8601IdxKey();
 		keyIso8601Idx.setRequiredIso8601( existing.getRequiredIso8601() );
 
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< CFSecISOTZonePKey, CFSecISOTZoneBuff > subdict;
+		Map< YCFSecISOTZonePKey, YCFSecISOTZoneBuff > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -502,32 +502,32 @@ public class CFIntRamISOTZoneTable
 		subdict.remove( pkey );
 
 	}
-	public void deleteISOTZoneByIdIdx( CFSecAuthorization Authorization,
+	public void deleteISOTZoneByIdIdx( YCFSecAuthorization Authorization,
 		short argISOTZoneId )
 	{
-		CFSecISOTZonePKey key = schema.getFactoryISOTZone().newPKey();
+		YCFSecISOTZonePKey key = schema.getFactoryISOTZone().newPKey();
 		key.setRequiredISOTZoneId( argISOTZoneId );
 		deleteISOTZoneByIdIdx( Authorization, key );
 	}
 
-	public void deleteISOTZoneByIdIdx( CFSecAuthorization Authorization,
-		CFSecISOTZonePKey argKey )
+	public void deleteISOTZoneByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecISOTZonePKey argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		CFSecISOTZoneBuff cur;
-		LinkedList<CFSecISOTZoneBuff> matchSet = new LinkedList<CFSecISOTZoneBuff>();
-		Iterator<CFSecISOTZoneBuff> values = dictByPKey.values().iterator();
+		YCFSecISOTZoneBuff cur;
+		LinkedList<YCFSecISOTZoneBuff> matchSet = new LinkedList<YCFSecISOTZoneBuff>();
+		Iterator<YCFSecISOTZoneBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOTZoneBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOTZoneBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOTZone().readDerivedByIdIdx( Authorization,
@@ -536,35 +536,35 @@ public class CFIntRamISOTZoneTable
 		}
 	}
 
-	public void deleteISOTZoneByOffsetIdx( CFSecAuthorization Authorization,
+	public void deleteISOTZoneByOffsetIdx( YCFSecAuthorization Authorization,
 		short argTZHourOffset,
 		short argTZMinOffset )
 	{
-		CFSecISOTZoneByOffsetIdxKey key = schema.getFactoryISOTZone().newOffsetIdxKey();
+		YCFSecISOTZoneByOffsetIdxKey key = schema.getFactoryISOTZone().newOffsetIdxKey();
 		key.setRequiredTZHourOffset( argTZHourOffset );
 		key.setRequiredTZMinOffset( argTZMinOffset );
 		deleteISOTZoneByOffsetIdx( Authorization, key );
 	}
 
-	public void deleteISOTZoneByOffsetIdx( CFSecAuthorization Authorization,
-		CFSecISOTZoneByOffsetIdxKey argKey )
+	public void deleteISOTZoneByOffsetIdx( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneByOffsetIdxKey argKey )
 	{
-		CFSecISOTZoneBuff cur;
+		YCFSecISOTZoneBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecISOTZoneBuff> matchSet = new LinkedList<CFSecISOTZoneBuff>();
-		Iterator<CFSecISOTZoneBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecISOTZoneBuff> matchSet = new LinkedList<YCFSecISOTZoneBuff>();
+		Iterator<YCFSecISOTZoneBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOTZoneBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOTZoneBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOTZone().readDerivedByIdIdx( Authorization,
@@ -573,32 +573,32 @@ public class CFIntRamISOTZoneTable
 		}
 	}
 
-	public void deleteISOTZoneByUTZNameIdx( CFSecAuthorization Authorization,
+	public void deleteISOTZoneByUTZNameIdx( YCFSecAuthorization Authorization,
 		String argTZName )
 	{
-		CFSecISOTZoneByUTZNameIdxKey key = schema.getFactoryISOTZone().newUTZNameIdxKey();
+		YCFSecISOTZoneByUTZNameIdxKey key = schema.getFactoryISOTZone().newUTZNameIdxKey();
 		key.setRequiredTZName( argTZName );
 		deleteISOTZoneByUTZNameIdx( Authorization, key );
 	}
 
-	public void deleteISOTZoneByUTZNameIdx( CFSecAuthorization Authorization,
-		CFSecISOTZoneByUTZNameIdxKey argKey )
+	public void deleteISOTZoneByUTZNameIdx( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneByUTZNameIdxKey argKey )
 	{
-		CFSecISOTZoneBuff cur;
+		YCFSecISOTZoneBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecISOTZoneBuff> matchSet = new LinkedList<CFSecISOTZoneBuff>();
-		Iterator<CFSecISOTZoneBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecISOTZoneBuff> matchSet = new LinkedList<YCFSecISOTZoneBuff>();
+		Iterator<YCFSecISOTZoneBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOTZoneBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOTZoneBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOTZone().readDerivedByIdIdx( Authorization,
@@ -607,32 +607,32 @@ public class CFIntRamISOTZoneTable
 		}
 	}
 
-	public void deleteISOTZoneByIso8601Idx( CFSecAuthorization Authorization,
+	public void deleteISOTZoneByIso8601Idx( YCFSecAuthorization Authorization,
 		String argIso8601 )
 	{
-		CFSecISOTZoneByIso8601IdxKey key = schema.getFactoryISOTZone().newIso8601IdxKey();
+		YCFSecISOTZoneByIso8601IdxKey key = schema.getFactoryISOTZone().newIso8601IdxKey();
 		key.setRequiredIso8601( argIso8601 );
 		deleteISOTZoneByIso8601Idx( Authorization, key );
 	}
 
-	public void deleteISOTZoneByIso8601Idx( CFSecAuthorization Authorization,
-		CFSecISOTZoneByIso8601IdxKey argKey )
+	public void deleteISOTZoneByIso8601Idx( YCFSecAuthorization Authorization,
+		YCFSecISOTZoneByIso8601IdxKey argKey )
 	{
-		CFSecISOTZoneBuff cur;
+		YCFSecISOTZoneBuff cur;
 		boolean anyNotNull = false;
 		anyNotNull = true;
 		if( ! anyNotNull ) {
 			return;
 		}
-		LinkedList<CFSecISOTZoneBuff> matchSet = new LinkedList<CFSecISOTZoneBuff>();
-		Iterator<CFSecISOTZoneBuff> values = dictByPKey.values().iterator();
+		LinkedList<YCFSecISOTZoneBuff> matchSet = new LinkedList<YCFSecISOTZoneBuff>();
+		Iterator<YCFSecISOTZoneBuff> values = dictByPKey.values().iterator();
 		while( values.hasNext() ) {
 			cur = values.next();
 			if( argKey.equals( cur ) ) {
 				matchSet.add( cur );
 			}
 		}
-		Iterator<CFSecISOTZoneBuff> iterMatch = matchSet.iterator();
+		Iterator<YCFSecISOTZoneBuff> iterMatch = matchSet.iterator();
 		while( iterMatch.hasNext() ) {
 			cur = iterMatch.next();
 			cur = schema.getTableISOTZone().readDerivedByIdIdx( Authorization,

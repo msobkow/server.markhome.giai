@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecISOCtryTableObj
+public interface IYCFSecISOCtryTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecISOCtryTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecISOCtryObj newInstance();
+	IYCFSecISOCtryObj newInstance();
 
 	/**
 	 *	Instantiate a new ISOCtry edition of the specified ISOCtry instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecISOCtryEditObj newEditInstance( ICFSecISOCtryObj orig );
+	IYCFSecISOCtryEditObj newEditInstance( IYCFSecISOCtryObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryObj realiseISOCtry( ICFSecISOCtryObj Obj );
+	IYCFSecISOCtryObj realiseISOCtry( IYCFSecISOCtryObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryObj createISOCtry( ICFSecISOCtryObj Obj );
+	IYCFSecISOCtryObj createISOCtry( IYCFSecISOCtryObj Obj );
 
 	/**
 	 *	Read a ISOCtry-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecISOCtryTableObj
 	 *	@return	The ISOCtry-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOCtryObj readISOCtry( CFSecISOCtryPKey pkey );
+	IYCFSecISOCtryObj readISOCtry( YCFSecISOCtryPKey pkey );
 
 	/**
 	 *	Read a ISOCtry-derived instance by it's primary key.
@@ -90,106 +90,106 @@ public interface ICFSecISOCtryTableObj
 	 *	@return	The ISOCtry-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecISOCtryObj readISOCtry( CFSecISOCtryPKey pkey,
+	IYCFSecISOCtryObj readISOCtry( YCFSecISOCtryPKey pkey,
 		boolean forceRead );
 
-	ICFSecISOCtryObj readCachedISOCtry( CFSecISOCtryPKey pkey );
+	IYCFSecISOCtryObj readCachedISOCtry( YCFSecISOCtryPKey pkey );
 
-	public void reallyDeepDisposeISOCtry( ICFSecISOCtryObj obj );
+	public void reallyDeepDisposeISOCtry( IYCFSecISOCtryObj obj );
 
-	void deepDisposeISOCtry( CFSecISOCtryPKey pkey );
+	void deepDisposeISOCtry( YCFSecISOCtryPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryObj lockISOCtry( CFSecISOCtryPKey pkey );
+	IYCFSecISOCtryObj lockISOCtry( YCFSecISOCtryPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the ISOCtry-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOCtryObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOCtryObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOCtryObj> readAllISOCtry();
+	List<IYCFSecISOCtryObj> readAllISOCtry();
 
 	/**
 	 *	Return a sorted map of all the ISOCtry-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecISOCtryObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecISOCtryObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecISOCtryObj> readAllISOCtry( boolean forceRead );
+	List<IYCFSecISOCtryObj> readAllISOCtry( boolean forceRead );
 
-	List<ICFSecISOCtryObj> readCachedAllISOCtry();
+	List<IYCFSecISOCtryObj> readCachedAllISOCtry();
 
 	/**
-	 *	Get the CFSecISOCtryObj instance for the primary key attributes.
+	 *	Get the YCFSecISOCtryObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOCtryId	The ISOCtry key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryObj cached instance for the primary key, or
+	 *	@return	YCFSecISOCtryObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryObj readISOCtryByIdIdx( short ISOCtryId );
+	IYCFSecISOCtryObj readISOCtryByIdIdx( short ISOCtryId );
 
 	/**
-	 *	Get the CFSecISOCtryObj instance for the primary key attributes.
+	 *	Get the YCFSecISOCtryObj instance for the primary key attributes.
 	 *
 	 *	@param	argISOCtryId	The ISOCtry key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryObj refreshed instance for the primary key, or
+	 *	@return	YCFSecISOCtryObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryObj readISOCtryByIdIdx( short ISOCtryId,
+	IYCFSecISOCtryObj readISOCtryByIdIdx( short ISOCtryId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecISOCtryObj instance for the unique ISOCodeIdx key.
+	 *	Get the YCFSecISOCtryObj instance for the unique ISOCodeIdx key.
 	 *
 	 *	@param	argISOCode	The ISOCtry key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryObj cached instance for the unique ISOCodeIdx key, or
+	 *	@return	YCFSecISOCtryObj cached instance for the unique ISOCodeIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryObj readISOCtryByISOCodeIdx(String ISOCode );
+	IYCFSecISOCtryObj readISOCtryByISOCodeIdx(String ISOCode );
 
 	/**
-	 *	Get the CFSecISOCtryObj instance for the unique ISOCodeIdx key.
+	 *	Get the YCFSecISOCtryObj instance for the unique ISOCodeIdx key.
 	 *
 	 *	@param	argISOCode	The ISOCtry key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryObj refreshed instance for the unique ISOCodeIdx key, or
+	 *	@return	YCFSecISOCtryObj refreshed instance for the unique ISOCodeIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryObj readISOCtryByISOCodeIdx(String ISOCode,
+	IYCFSecISOCtryObj readISOCtryByISOCodeIdx(String ISOCode,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecISOCtryObj instance for the unique NameIdx key.
+	 *	Get the YCFSecISOCtryObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The ISOCtry key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryObj cached instance for the unique NameIdx key, or
+	 *	@return	YCFSecISOCtryObj cached instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryObj readISOCtryByNameIdx(String Name );
+	IYCFSecISOCtryObj readISOCtryByNameIdx(String Name );
 
 	/**
-	 *	Get the CFSecISOCtryObj instance for the unique NameIdx key.
+	 *	Get the YCFSecISOCtryObj instance for the unique NameIdx key.
 	 *
 	 *	@param	argName	The ISOCtry key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecISOCtryObj refreshed instance for the unique NameIdx key, or
+	 *	@return	YCFSecISOCtryObj refreshed instance for the unique NameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecISOCtryObj readISOCtryByNameIdx(String Name,
+	IYCFSecISOCtryObj readISOCtryByNameIdx(String Name,
 		boolean forceRead );
 
-	ICFSecISOCtryObj readCachedISOCtryByIdIdx( short ISOCtryId );
+	IYCFSecISOCtryObj readCachedISOCtryByIdIdx( short ISOCtryId );
 
-	ICFSecISOCtryObj readCachedISOCtryByISOCodeIdx( String ISOCode );
+	IYCFSecISOCtryObj readCachedISOCtryByISOCodeIdx( String ISOCode );
 
-	ICFSecISOCtryObj readCachedISOCtryByNameIdx( String Name );
+	IYCFSecISOCtryObj readCachedISOCtryByNameIdx( String Name );
 
 	void deepDisposeISOCtryByIdIdx( short ISOCtryId );
 
@@ -200,12 +200,12 @@ public interface ICFSecISOCtryTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecISOCtryObj updateISOCtry( ICFSecISOCtryObj Obj );
+	IYCFSecISOCtryObj updateISOCtry( IYCFSecISOCtryObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteISOCtry( ICFSecISOCtryObj Obj );
+	void deleteISOCtry( IYCFSecISOCtryObj Obj );
 
 	/**
 	 *	Internal use only.

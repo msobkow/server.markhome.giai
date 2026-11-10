@@ -1,11 +1,11 @@
-// Description: Java 11 Table Object interface for CFGenKb.
+// Description: Java 11 Table Object interface for YCFGenKb.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,20 +27,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
-public interface ICFGenKbSysClusterTableObj
+public interface IYCFGenKbSysClusterTableObj
 {
-	ICFGenKbSchemaObj getSchema();
-	void setSchema( ICFGenKbSchemaObj value );
+	IYCFGenKbSchemaObj getSchema();
+	void setSchema( IYCFGenKbSchemaObj value );
 
 	void minimizeMemory();
 
@@ -54,24 +54,24 @@ public interface ICFGenKbSysClusterTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFGenKbSysClusterObj newInstance();
+	IYCFGenKbSysClusterObj newInstance();
 
 	/**
 	 *	Instantiate a new SysCluster edition of the specified SysCluster instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFGenKbSysClusterEditObj newEditInstance( ICFGenKbSysClusterObj orig );
+	IYCFGenKbSysClusterEditObj newEditInstance( IYCFGenKbSysClusterObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSysClusterObj realiseSysCluster( ICFGenKbSysClusterObj Obj );
+	IYCFGenKbSysClusterObj realiseSysCluster( IYCFGenKbSysClusterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSysClusterObj createSysCluster( ICFGenKbSysClusterObj Obj );
+	IYCFGenKbSysClusterObj createSysCluster( IYCFGenKbSysClusterObj Obj );
 
 	/**
 	 *	Read a SysCluster-derived instance by it's primary key.
@@ -81,7 +81,7 @@ public interface ICFGenKbSysClusterTableObj
 	 *	@return	The SysCluster-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbSysClusterObj readSysCluster( CFGenKbSysClusterPKey pkey );
+	IYCFGenKbSysClusterObj readSysCluster( YCFGenKbSysClusterPKey pkey );
 
 	/**
 	 *	Read a SysCluster-derived instance by it's primary key.
@@ -91,83 +91,83 @@ public interface ICFGenKbSysClusterTableObj
 	 *	@return	The SysCluster-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFGenKbSysClusterObj readSysCluster( CFGenKbSysClusterPKey pkey,
+	IYCFGenKbSysClusterObj readSysCluster( YCFGenKbSysClusterPKey pkey,
 		boolean forceRead );
 
-	ICFGenKbSysClusterObj readCachedSysCluster( CFGenKbSysClusterPKey pkey );
+	IYCFGenKbSysClusterObj readCachedSysCluster( YCFGenKbSysClusterPKey pkey );
 
-	public void reallyDeepDisposeSysCluster( ICFGenKbSysClusterObj obj );
+	public void reallyDeepDisposeSysCluster( IYCFGenKbSysClusterObj obj );
 
-	void deepDisposeSysCluster( CFGenKbSysClusterPKey pkey );
+	void deepDisposeSysCluster( YCFGenKbSysClusterPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSysClusterObj lockSysCluster( CFGenKbSysClusterPKey pkey );
+	IYCFGenKbSysClusterObj lockSysCluster( YCFGenKbSysClusterPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the SysCluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSysClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSysClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSysClusterObj> readAllSysCluster();
+	List<IYCFGenKbSysClusterObj> readAllSysCluster();
 
 	/**
 	 *	Return a sorted map of all the SysCluster-derived instances in the database.
 	 *
-	 *	@return	List of ICFGenKbSysClusterObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFGenKbSysClusterObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFGenKbSysClusterObj> readAllSysCluster( boolean forceRead );
+	List<IYCFGenKbSysClusterObj> readAllSysCluster( boolean forceRead );
 
-	List<ICFGenKbSysClusterObj> readCachedAllSysCluster();
+	List<IYCFGenKbSysClusterObj> readCachedAllSysCluster();
 
 	/**
-	 *	Get the CFGenKbSysClusterObj instance for the primary key attributes.
+	 *	Get the YCFGenKbSysClusterObj instance for the primary key attributes.
 	 *
 	 *	@param	argSingletonId	The SysCluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSysClusterObj cached instance for the primary key, or
+	 *	@return	YCFGenKbSysClusterObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSysClusterObj readSysClusterByIdIdx( int SingletonId );
+	IYCFGenKbSysClusterObj readSysClusterByIdIdx( int SingletonId );
 
 	/**
-	 *	Get the CFGenKbSysClusterObj instance for the primary key attributes.
+	 *	Get the YCFGenKbSysClusterObj instance for the primary key attributes.
 	 *
 	 *	@param	argSingletonId	The SysCluster key attribute of the instance generating the id.
 	 *
-	 *	@return	CFGenKbSysClusterObj refreshed instance for the primary key, or
+	 *	@return	YCFGenKbSysClusterObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFGenKbSysClusterObj readSysClusterByIdIdx( int SingletonId,
+	IYCFGenKbSysClusterObj readSysClusterByIdIdx( int SingletonId,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFGenKbSysClusterObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbSysClusterObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SysCluster key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSysClusterObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbSysClusterObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSysClusterObj> readSysClusterByClusterIdx( long ClusterId );
+	List<IYCFGenKbSysClusterObj> readSysClusterByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFGenKbSysClusterObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFGenKbSysClusterObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The SysCluster key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFGenKbSysClusterObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFGenKbSysClusterObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFGenKbSysClusterObj> readSysClusterByClusterIdx( long ClusterId,
+	List<IYCFGenKbSysClusterObj> readSysClusterByClusterIdx( long ClusterId,
 		boolean forceRead );
 
-	ICFGenKbSysClusterObj readCachedSysClusterByIdIdx( int SingletonId );
+	IYCFGenKbSysClusterObj readCachedSysClusterByIdIdx( int SingletonId );
 
-	List<ICFGenKbSysClusterObj> readCachedSysClusterByClusterIdx( long ClusterId );
+	List<IYCFGenKbSysClusterObj> readCachedSysClusterByClusterIdx( long ClusterId );
 
 	void deepDisposeSysClusterByIdIdx( int SingletonId );
 
@@ -176,12 +176,12 @@ public interface ICFGenKbSysClusterTableObj
 	/**
 	 *	Internal use only.
 	 */
-	ICFGenKbSysClusterObj updateSysCluster( ICFGenKbSysClusterObj Obj );
+	IYCFGenKbSysClusterObj updateSysCluster( IYCFGenKbSysClusterObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteSysCluster( ICFGenKbSysClusterObj Obj );
+	void deleteSysCluster( IYCFGenKbSysClusterObj Obj );
 
 	/**
 	 *	Internal use only.

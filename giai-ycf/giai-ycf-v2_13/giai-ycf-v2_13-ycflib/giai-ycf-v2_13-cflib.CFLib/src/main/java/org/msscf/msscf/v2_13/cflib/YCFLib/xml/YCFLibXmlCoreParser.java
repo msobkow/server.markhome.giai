@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,7 +21,7 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.xml;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml;
 
 import java.util.*;
 
@@ -31,7 +31,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.ICFLibMessageLog;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.IYCFLibMessageLog;
 
 /**
  *	An OmxParser is an abstract Xerces-J DefaultHandler.
@@ -44,9 +44,9 @@ import org.msscf.msscf.v2_13.cflib.CFLib.ICFLibMessageLog;
  *
  *	@see	http://xerces.apache.org/
  */
-public abstract class CFLibXmlCoreParser
+public abstract class YCFLibXmlCoreParser
 extends DefaultHandler
-implements CFLibXmlCoreContextFactory
+implements YCFLibXmlCoreContextFactory
 {
 
 //	Constants
@@ -85,7 +85,7 @@ implements CFLibXmlCoreContextFactory
 	 */
 	private boolean secureProcessingEnabled = DEFAULT_SECURE_PROCESSING;
 
-	private ICFLibMessageLog log = null;
+	private IYCFLibMessageLog log = null;
 
 	/**
 	 *	The current document locator of the parse.
@@ -95,14 +95,14 @@ implements CFLibXmlCoreContextFactory
 	/**
 	 *	The root element handler for processing schema documents.
 	 */
-	private CFLibXmlCoreElementHandler rootElementHandler = null;
+	private YCFLibXmlCoreElementHandler rootElementHandler = null;
 
 	/**
 	 *	The processing of startDocument, endDocument,
 	 *	startElement, and stopElement events maintains
 	 *	the processing context stack of the parser.
 	 */
-	private volatile LinkedList<CFLibXmlCoreContext> contextStack = new LinkedList<CFLibXmlCoreContext>();
+	private volatile LinkedList<YCFLibXmlCoreContext> contextStack = new LinkedList<YCFLibXmlCoreContext>();
 
 	/**
 	 *	The Context factory to use.
@@ -110,7 +110,7 @@ implements CFLibXmlCoreContextFactory
 	 *	If no context factory is ever specified, the default "this"
 	 *	factory is used.
 	 */
-	private CFLibXmlCoreContextFactory xmlCoreContextFactory = null;
+	private YCFLibXmlCoreContextFactory xmlCoreContextFactory = null;
 
 	// private static XMLGrammarPoolImpl grammarPool = new XMLGrammarPoolImpl();
 	
@@ -155,7 +155,7 @@ implements CFLibXmlCoreContextFactory
 	/**
 	 *	Construct a default parser.
 	 */
-	public CFLibXmlCoreParser() {
+	public YCFLibXmlCoreParser() {
 		this.
 		log = null;
 	}
@@ -166,7 +166,7 @@ implements CFLibXmlCoreContextFactory
 	 *
 	 *	@param	jlog - Log4J log
 	 */
-	public CFLibXmlCoreParser( ICFLibMessageLog jlog ) {
+	public YCFLibXmlCoreParser( IYCFLibMessageLog jlog ) {
 		assert jlog != null
 			: "jlog (arg 1) is null";
 		log = jlog;
@@ -226,7 +226,7 @@ implements CFLibXmlCoreContextFactory
 	 *
 	 *	@return	The Log4J log 
 	 */
-	public ICFLibMessageLog getLog() {
+	public IYCFLibMessageLog getLog() {
 		return( log );
 	}
 	
@@ -235,7 +235,7 @@ implements CFLibXmlCoreContextFactory
 	 *
 	 *	@param	jlog - The log to use
 	 */
-	public void setLog( ICFLibMessageLog jlog ) {
+	public void setLog( IYCFLibMessageLog jlog ) {
 		assert jlog != null
 			: "jlog (arg 1) is null";
 		log = jlog;
@@ -248,7 +248,7 @@ implements CFLibXmlCoreContextFactory
 	 *
 	 *	@return	The root element handler
 	 */
-	public CFLibXmlCoreElementHandler getRootElementHandler() {
+	public YCFLibXmlCoreElementHandler getRootElementHandler() {
 		return( rootElementHandler );
 	}
 	
@@ -257,7 +257,7 @@ implements CFLibXmlCoreContextFactory
 	 *
 	 *	@param	handler	The root element handler to use.
 	 */
-	protected void setRootElementHandler( CFLibXmlCoreElementHandler handler ) {
+	protected void setRootElementHandler( YCFLibXmlCoreElementHandler handler ) {
 		assert handler != null : "handler (arg 1) is null";
 		rootElementHandler = handler;
 	}
@@ -326,12 +326,12 @@ implements CFLibXmlCoreContextFactory
 	 *
 	 *	@return	The top element handler on the stack.
 	 */
-	public CFLibXmlCoreContext getCurContext() {
+	public YCFLibXmlCoreContext getCurContext() {
 		if( contextStack.isEmpty() ) {
 			return( null );
 		}
 		
-		CFLibXmlCoreContext curContext = (CFLibXmlCoreContext)( contextStack.getLast() );
+		YCFLibXmlCoreContext curContext = (YCFLibXmlCoreContext)( contextStack.getLast() );
 		return( curContext );
 	}
 
@@ -342,7 +342,7 @@ implements CFLibXmlCoreContextFactory
 	 *
 	 *	@return	The context factory to use.
 	 */
-	public CFLibXmlCoreContextFactory getXmlCoreContextFactory() {
+	public YCFLibXmlCoreContextFactory getXmlCoreContextFactory() {
 		return( xmlCoreContextFactory );
 	}
 
@@ -351,7 +351,7 @@ implements CFLibXmlCoreContextFactory
 	 *
 	 *	@param	factory	The context factory to use.	
 	 */
-	public void setXmlCoreContextFactory( CFLibXmlCoreContextFactory factory ) {
+	public void setXmlCoreContextFactory( YCFLibXmlCoreContextFactory factory ) {
 		assert factory != null : "factory (arg 1) is null";
 		xmlCoreContextFactory = factory;
 	}
@@ -365,17 +365,17 @@ implements CFLibXmlCoreContextFactory
 	 *	@param	qName	The QName of the element about to be processed.
 	 *	@param	handler	The XmlCoreElementHandler which will be used for processing.
 	 */
-	public CFLibXmlCoreContext newXmlCoreContext(
-		CFLibXmlCoreContext src,
+	public YCFLibXmlCoreContext newXmlCoreContext(
+		YCFLibXmlCoreContext src,
 		String qName,
-		CFLibXmlCoreElementHandler handler )
+		YCFLibXmlCoreElementHandler handler )
 	{
-		CFLibXmlCoreContext retval;
+		YCFLibXmlCoreContext retval;
 		if( ( xmlCoreContextFactory != null ) && ( xmlCoreContextFactory != this ) ) {
 			retval = xmlCoreContextFactory.newXmlCoreContext( src, qName, handler );
 		}
 		else {
-			retval = new CFLibXmlCoreContext( src, qName, handler );
+			retval = new YCFLibXmlCoreContext( src, qName, handler );
 		}
 		
 		return( retval );
@@ -388,17 +388,17 @@ implements CFLibXmlCoreContextFactory
 	 *	@param	jlog	Log4J log to use, if null, use parser's log.
 	 *	@param	handler	The XmlCoreElementHandler which will be processing the doc root.
 	 */
-	public CFLibXmlCoreContext newXmlCoreContext(
-		CFLibXmlCoreParser coreParser,
-		ICFLibMessageLog jlog,
-		CFLibXmlCoreElementHandler elementHandler )
+	public YCFLibXmlCoreContext newXmlCoreContext(
+		YCFLibXmlCoreParser coreParser,
+		IYCFLibMessageLog jlog,
+		YCFLibXmlCoreElementHandler elementHandler )
 	{
-		CFLibXmlCoreContext retval;
+		YCFLibXmlCoreContext retval;
 		if( ( xmlCoreContextFactory != null ) && ( xmlCoreContextFactory != this ) ) {
 			retval = xmlCoreContextFactory.newXmlCoreContext( coreParser, jlog, elementHandler );
 		}
 		else {
-			retval = new CFLibXmlCoreContext( coreParser, jlog, elementHandler );
+			retval = new YCFLibXmlCoreContext( coreParser, jlog, elementHandler );
 		}
 		return( retval );
 	}
@@ -562,32 +562,32 @@ implements CFLibXmlCoreContextFactory
 		Attributes	attrs )
 	throws SAXException
 	{
-    	CFLibXmlCoreContext curContext;
+    	YCFLibXmlCoreContext curContext;
     	if( contextStack.isEmpty() ) {
-    		CFLibXmlCoreElementHandler rootHandler = getRootElementHandler();
+    		YCFLibXmlCoreElementHandler rootHandler = getRootElementHandler();
     		assert rootHandler != null;
-    		CFLibXmlCoreContext rootContext = new CFLibXmlCoreContext( this, getLog(), rootHandler );
+    		YCFLibXmlCoreContext rootContext = new YCFLibXmlCoreContext( this, getLog(), rootHandler );
     		contextStack.addLast( rootContext );
     	}
 
-		CFLibXmlCoreContext prev = (CFLibXmlCoreContext)contextStack.getLast();
+		YCFLibXmlCoreContext prev = (YCFLibXmlCoreContext)contextStack.getLast();
 		if( prev == null ) {
 			throw new RuntimeException( "ContextStack.top is a null value" );
 		}
 
-		CFLibXmlCoreElementHandler prevHandler = prev.getElementHandler();
+		YCFLibXmlCoreElementHandler prevHandler = prev.getElementHandler();
 		if( prevHandler == null ) {
 			throw new RuntimeException( "ContextStack.top.ElementHandler is null" );
 		}
 
-		CFLibXmlCoreElementHandler curHandler = prevHandler.getElementHandler( qName );
+		YCFLibXmlCoreElementHandler curHandler = prevHandler.getElementHandler( qName );
 		if( curHandler == null ) {
 			throw new RuntimeException( "ContextStack.top.ElementHandler<"
 				+ prevHandler.getClass().getSimpleName() + ">.getElementHandler( \""
 				+ qName + "\" ) has no such mapping" );
 		}
 
-    	curContext = new CFLibXmlCoreContext( prev, qName, curHandler );
+    	curContext = new YCFLibXmlCoreContext( prev, qName, curHandler );
 
     	contextStack.addLast( curContext );
 
@@ -620,8 +620,8 @@ implements CFLibXmlCoreContextFactory
 	{
     	assert ! contextStack.isEmpty() : "ContextStack underflow";
 
-    	CFLibXmlCoreContext curContext = (CFLibXmlCoreContext)contextStack.getLast();
-    	CFLibXmlCoreElementHandler curHandler = curContext.getElementHandler();
+    	YCFLibXmlCoreContext curContext = (YCFLibXmlCoreContext)contextStack.getLast();
+    	YCFLibXmlCoreElementHandler curHandler = curContext.getElementHandler();
 
     	try {
     		curHandler.endElement( uri, localName, qName );

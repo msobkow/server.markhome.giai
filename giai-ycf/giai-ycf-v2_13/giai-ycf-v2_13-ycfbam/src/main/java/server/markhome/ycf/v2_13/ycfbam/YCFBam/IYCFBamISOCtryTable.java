@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for ISOCtry.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,20 +35,20 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamISOCtryTable database interface for ISOCtry
+ *	YCFBamISOCtryTable database interface for ISOCtry
  */
-public interface ICFBamISOCtryTable
-extends ICFSecISOCtryTable,
-	ICFIntISOCtryTable
+public interface IYCFBamISOCtryTable
+extends IYCFSecISOCtryTable,
+	IYCFIntISOCtryTable
 {
 
 	/**
@@ -59,8 +59,8 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createISOCtry( CFSecAuthorization Authorization,
-		CFSecISOCtryBuff Buff );
+	void createISOCtry( YCFSecAuthorization Authorization,
+		YCFSecISOCtryBuff Buff );
 
 
 	/**
@@ -71,8 +71,8 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateISOCtry( CFSecAuthorization Authorization,
-		CFSecISOCtryBuff Buff );
+	void updateISOCtry( YCFSecAuthorization Authorization,
+		YCFSecISOCtryBuff Buff );
 
 
 	/**
@@ -82,8 +82,8 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteISOCtry( CFSecAuthorization Authorization,
-		CFSecISOCtryBuff Buff );
+	void deleteISOCtry( YCFSecAuthorization Authorization,
+		YCFSecISOCtryBuff Buff );
 	/**
 	 *	Delete the ISOCtry instance identified by the primary key attributes.
 	 *
@@ -91,7 +91,7 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@param	argISOCtryId	The ISOCtry key attribute of the instance generating the id.
 	 */
-	void deleteISOCtryByIdIdx( CFSecAuthorization Authorization,
+	void deleteISOCtryByIdIdx( YCFSecAuthorization Authorization,
 		short argISOCtryId );
 
 	/**
@@ -101,8 +101,8 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteISOCtryByIdIdx( CFSecAuthorization Authorization,
-		CFSecISOCtryPKey argKey );
+	void deleteISOCtryByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecISOCtryPKey argKey );
 	/**
 	 *	Delete the ISOCtry instances identified by the key ISOCodeIdx.
 	 *
@@ -110,7 +110,7 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@param	argISOCode	The ISOCtry key attribute of the instance generating the id.
 	 */
-	void deleteISOCtryByISOCodeIdx( CFSecAuthorization Authorization,
+	void deleteISOCtryByISOCodeIdx( YCFSecAuthorization Authorization,
 		String argISOCode );
 
 	/**
@@ -120,8 +120,8 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteISOCtryByISOCodeIdx( CFSecAuthorization Authorization,
-		CFSecISOCtryByISOCodeIdxKey argKey );
+	void deleteISOCtryByISOCodeIdx( YCFSecAuthorization Authorization,
+		YCFSecISOCtryByISOCodeIdxKey argKey );
 	/**
 	 *	Delete the ISOCtry instances identified by the key NameIdx.
 	 *
@@ -129,7 +129,7 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@param	argName	The ISOCtry key attribute of the instance generating the id.
 	 */
-	void deleteISOCtryByNameIdx( CFSecAuthorization Authorization,
+	void deleteISOCtryByNameIdx( YCFSecAuthorization Authorization,
 		String argName );
 
 	/**
@@ -139,8 +139,8 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteISOCtryByNameIdx( CFSecAuthorization Authorization,
-		CFSecISOCtryByNameIdxKey argKey );
+	void deleteISOCtryByNameIdx( YCFSecAuthorization Authorization,
+		YCFSecISOCtryByNameIdxKey argKey );
 
 
 	/**
@@ -153,8 +153,8 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOCtryBuff readDerived( CFSecAuthorization Authorization,
-		CFSecISOCtryPKey PKey );
+	YCFSecISOCtryBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecISOCtryPKey PKey );
 
 	/**
 	 *	Lock the derived ISOCtry buffer instance by primary key.
@@ -166,8 +166,8 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOCtryBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecISOCtryPKey PKey );
+	YCFSecISOCtryBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecISOCtryPKey PKey );
 
 	/**
 	 *	Read all ISOCtry instances.
@@ -176,7 +176,7 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecISOCtryBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecISOCtryBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived ISOCtry buffer instance identified by the unique key IdIdx.
@@ -188,7 +188,7 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOCtryBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId );
 
 	/**
@@ -201,7 +201,7 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOCtryBuff readDerivedByISOCodeIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryBuff readDerivedByISOCodeIdx( YCFSecAuthorization Authorization,
 		String ISOCode );
 
 	/**
@@ -214,7 +214,7 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOCtryBuff readDerivedByNameIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryBuff readDerivedByNameIdx( YCFSecAuthorization Authorization,
 		String Name );
 
 	/**
@@ -227,10 +227,10 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryBuff readBuff( CFSecAuthorization Authorization,
-		CFSecISOCtryPKey PKey );
+	YCFSecISOCtryBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecISOCtryPKey PKey );
 
 	/**
 	 *	Lock the specific ISOCtry buffer instance identified by the primary key.
@@ -242,10 +242,10 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecISOCtryPKey PKey );
+	YCFSecISOCtryBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecISOCtryPKey PKey );
 
 	/**
 	 *	Read all the specific ISOCtry buffer instances.
@@ -254,7 +254,7 @@ extends ICFSecISOCtryTable,
 	 *
 	 *	@return All the specific ISOCtry instances in the database accessible for the Authorization.
 	 */
-	CFSecISOCtryBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecISOCtryBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific ISOCtry buffer instance identified by the unique key IdIdx.
@@ -266,9 +266,9 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId );
 
 	/**
@@ -281,9 +281,9 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryBuff readBuffByISOCodeIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryBuff readBuffByISOCodeIdx( YCFSecAuthorization Authorization,
 		String ISOCode );
 
 	/**
@@ -296,15 +296,15 @@ extends ICFSecISOCtryTable,
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryBuff readBuffByNameIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryBuff readBuffByNameIdx( YCFSecAuthorization Authorization,
 		String Name );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

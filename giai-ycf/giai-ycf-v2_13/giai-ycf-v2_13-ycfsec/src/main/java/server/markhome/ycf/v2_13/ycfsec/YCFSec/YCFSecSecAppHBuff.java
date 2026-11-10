@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a SecApp history buffer object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,12 +36,12 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-public class CFSecSecAppHBuff
+public class YCFSecSecAppHBuff
 
-	extends CFSecHPKey	implements Comparable<Object>,
+	extends YCFSecHPKey	implements Comparable<Object>,
 		Serializable
 {
 	public static final long CLUSTERID_INIT_VALUE = 0L;
@@ -53,15 +53,15 @@ public class CFSecSecAppHBuff
 	protected long requiredClusterId;
 	protected int requiredSecAppId;
 	protected String requiredJEEMountName;
-	public CFSecSecAppHBuff() {
+	public YCFSecSecAppHBuff() {
 		super();
-		requiredClusterId = CFSecSecAppBuff.CLUSTERID_INIT_VALUE;
-		requiredSecAppId = CFSecSecAppBuff.SECAPPID_INIT_VALUE;
-		requiredJEEMountName = new String( CFSecSecAppBuff.JEEMOUNTNAME_INIT_VALUE );
+		requiredClusterId = YCFSecSecAppBuff.CLUSTERID_INIT_VALUE;
+		requiredSecAppId = YCFSecSecAppBuff.SECAPPID_INIT_VALUE;
+		requiredJEEMountName = new String( YCFSecSecAppBuff.JEEMOUNTNAME_INIT_VALUE );
 	}
 
 	public String getClassCode() {
-		return( CFSecSecAppBuff.CLASS_CODE );
+		return( YCFSecSecAppBuff.CLASS_CODE );
 	}
 
 	public long getRequiredClusterId() {
@@ -69,13 +69,13 @@ public class CFSecSecAppHBuff
 	}
 
 	public void setRequiredClusterId( long value ) {
-		if( value < CFSecSecAppBuff.CLUSTERID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecAppBuff.CLUSTERID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredClusterId",
 				1,
 				"value",
 				value,
-				CFSecSecAppBuff.CLUSTERID_MIN_VALUE );
+				YCFSecSecAppBuff.CLUSTERID_MIN_VALUE );
 		}
 		requiredClusterId = value;
 	}
@@ -85,13 +85,13 @@ public class CFSecSecAppHBuff
 	}
 
 	public void setRequiredSecAppId( int value ) {
-		if( value < CFSecSecAppBuff.SECAPPID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecSecAppBuff.SECAPPID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSecAppId",
 				1,
 				"value",
 				value,
-				CFSecSecAppBuff.SECAPPID_MIN_VALUE );
+				YCFSecSecAppBuff.SECAPPID_MIN_VALUE );
 		}
 		requiredSecAppId = value;
 	}
@@ -102,13 +102,13 @@ public class CFSecSecAppHBuff
 
 	public void setRequiredJEEMountName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredJEEMountName",
 				1,
 				"value" );
 		}
 		if( value.length() > 192 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredJEEMountName",
 				1,
 				"value.length()",
@@ -122,8 +122,8 @@ public class CFSecSecAppHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecSecAppHBuff ) {
-			CFSecSecAppHBuff rhs = (CFSecSecAppHBuff)obj;
+		else if( obj instanceof YCFSecSecAppHBuff ) {
+			YCFSecSecAppHBuff rhs = (YCFSecSecAppHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -138,8 +138,8 @@ public class CFSecSecAppHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecAppBuff ) {
-			CFSecSecAppBuff rhs = (CFSecSecAppBuff)obj;
+		else if( obj instanceof YCFSecSecAppBuff ) {
+			YCFSecSecAppBuff rhs = (YCFSecSecAppBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -154,15 +154,15 @@ public class CFSecSecAppHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecAppByClusterIdxKey ) {
-			CFSecSecAppByClusterIdxKey rhs = (CFSecSecAppByClusterIdxKey)obj;
+		else if( obj instanceof YCFSecSecAppByClusterIdxKey ) {
+			YCFSecSecAppByClusterIdxKey rhs = (YCFSecSecAppByClusterIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecAppByUJEEMountIdxKey ) {
-			CFSecSecAppByUJEEMountIdxKey rhs = (CFSecSecAppByUJEEMountIdxKey)obj;
+		else if( obj instanceof YCFSecSecAppByUJEEMountIdxKey ) {
+			YCFSecSecAppByUJEEMountIdxKey rhs = (YCFSecSecAppByUJEEMountIdxKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -171,8 +171,8 @@ public class CFSecSecAppHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecAppHPKey ) {
-			CFSecSecAppHPKey rhs = (CFSecSecAppHPKey)obj;
+		else if( obj instanceof YCFSecSecAppHPKey ) {
+			YCFSecSecAppHPKey rhs = (YCFSecSecAppHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -236,8 +236,8 @@ public class CFSecSecAppHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				long lhsClusterId = getAuditClusterId();
 				long rhsClusterId = rhs.getAuditClusterId();
@@ -295,8 +295,8 @@ public class CFSecSecAppHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecSecAppPKey ) {
-			CFSecSecAppPKey rhs = (CFSecSecAppPKey)obj;
+		else if( obj instanceof YCFSecSecAppPKey ) {
+			YCFSecSecAppPKey rhs = (YCFSecSecAppPKey)obj;
 			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
 				return( false );
 			}
@@ -324,16 +324,16 @@ public class CFSecSecAppHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecSecAppBuff ) {
-			CFSecSecAppBuff rhs = (CFSecSecAppBuff)obj;
+		else if( obj instanceof YCFSecSecAppBuff ) {
+			YCFSecSecAppBuff rhs = (YCFSecSecAppBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecAppByClusterIdxKey ) {
-			CFSecSecAppByClusterIdxKey rhs = (CFSecSecAppByClusterIdxKey)obj;
+		else if( obj instanceof YCFSecSecAppByClusterIdxKey ) {
+			YCFSecSecAppByClusterIdxKey rhs = (YCFSecSecAppByClusterIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -342,8 +342,8 @@ public class CFSecSecAppHBuff
 				return( 1 );
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecAppByUJEEMountIdxKey ) {
-			CFSecSecAppByUJEEMountIdxKey rhs = (CFSecSecAppByUJEEMountIdxKey)obj;
+		else if( obj instanceof YCFSecSecAppByUJEEMountIdxKey ) {
+			YCFSecSecAppByUJEEMountIdxKey rhs = (YCFSecSecAppByUJEEMountIdxKey)obj;
 
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
@@ -358,8 +358,8 @@ public class CFSecSecAppHBuff
 				}
 			}			return( 0 );
 		}
-		else if( obj instanceof CFSecSecAppHBuff ) {
-			CFSecSecAppHBuff rhs = (CFSecSecAppHBuff)obj;
+		else if( obj instanceof YCFSecSecAppHBuff ) {
+			YCFSecSecAppHBuff rhs = (YCFSecSecAppHBuff)obj;
 
 			int retval = 0;
 			{
@@ -514,8 +514,8 @@ public class CFSecSecAppHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecAppHPKey ) {
-			CFSecSecAppHPKey rhs = (CFSecSecAppHPKey)obj;
+		else if( obj instanceof YCFSecSecAppHPKey ) {
+			YCFSecSecAppHPKey rhs = (YCFSecSecAppHPKey)obj;
 			{
 				long lhsAuditClusterId = getAuditClusterId();
 				long rhsAuditClusterId = rhs.getAuditClusterId();
@@ -596,8 +596,8 @@ public class CFSecSecAppHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecSecAppPKey ) {
-			CFSecSecAppPKey rhs = (CFSecSecAppPKey)obj;
+		else if( obj instanceof YCFSecSecAppPKey ) {
+			YCFSecSecAppPKey rhs = (YCFSecSecAppPKey)obj;
 			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
 				return( -1 );
 			}
@@ -612,8 +612,8 @@ public class CFSecSecAppHBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecHPKey ) {
-			CFSecHPKey rhs = (CFSecHPKey)obj;
+		else if( obj instanceof YCFSecHPKey ) {
+			YCFSecHPKey rhs = (YCFSecHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -631,22 +631,22 @@ public class CFSecSecAppHBuff
 		}
 	}
 
-	public void set( CFSecSecAppBuff src ) {
+	public void set( YCFSecSecAppBuff src ) {
 		setSecAppBuff( src );
 	}
 
-	public void setSecAppBuff( CFSecSecAppBuff src ) {
+	public void setSecAppBuff( YCFSecSecAppBuff src ) {
 		setRequiredClusterId( src.getRequiredClusterId() );
 		setRequiredSecAppId( src.getRequiredSecAppId() );
 		setRequiredJEEMountName( src.getRequiredJEEMountName() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
-	public void set( CFSecSecAppHBuff src ) {
+	public void set( YCFSecSecAppHBuff src ) {
 		setSecAppBuff( src );
 	}
 
-	public void setSecAppBuff( CFSecSecAppHBuff src ) {
+	public void setSecAppBuff( YCFSecSecAppHBuff src ) {
 		setRequiredClusterId( src.getRequiredClusterId() );
 		setRequiredSecAppId( src.getRequiredSecAppId() );
 		setRequiredJEEMountName( src.getRequiredJEEMountName() );

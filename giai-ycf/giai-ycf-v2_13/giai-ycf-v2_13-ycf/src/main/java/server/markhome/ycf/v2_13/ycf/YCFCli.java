@@ -1,7 +1,7 @@
-// Description: Main for CFCli
+// Description: Main for YCFCli
 
 /*
- *  MSS Code Factory MssCF 2.13 CLI
+ *  MSS Code Factory MssYCF 2.13 CLI
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
@@ -20,7 +20,7 @@
  *	limitations under the License.
  */
 
-package org.msscf.msscf.v2_13.CFCli;
+package org.mssycf.mssycf.v2_13.YCFCli;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -50,21 +50,21 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.ConfigurableEnvironment;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbRam.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamRam.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamMssCF.*;
-import org.msscf.msscf.v2_13.cfbamcust.CFBamXmlLoader.CFBamXmlLoader;
-import org.msscf.msscf.v2_13.cfbamcust.MSSBamCF.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbRam.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamRam.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamMssYCF.*;
+import org.mssycf.mssycf.v2_13.ycfbamcust.YCFBamXmlLoader.YCFBamXmlLoader;
+import org.mssycf.mssycf.v2_13.ycfbamcust.MSSBamYCF.*;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {
@@ -73,7 +73,7 @@ import org.msscf.msscf.v2_13.cfbamcust.MSSBamCF.*;
     DataSourceAutoConfiguration.class,
     DataSourceTransactionManagerAutoConfiguration.class
 })
-public class CFCli {
+public class YCFCli {
     private static final AtomicReference<Properties> systemProperties = new AtomicReference<>(null);
     private static final AtomicReference<Properties> applicationProperties = new AtomicReference<>(null);
     private static final AtomicReference<Properties> userDefaultProperties = new AtomicReference<>(null);
@@ -86,7 +86,7 @@ public class CFCli {
     public static Properties getApplicationProperties() {
         if (applicationProperties.get() == null) {
             Properties props = new Properties();
-            try (var in = CFCli.class.getClassLoader().getResourceAsStream("application.properties")) {
+            try (var in = YCFCli.class.getClassLoader().getResourceAsStream("application.properties")) {
                 if (in != null) {
                     props.load(in);
                 } else {
@@ -118,7 +118,7 @@ public class CFCli {
     public static Properties getUserDefaultProperties() {
         if (userDefaultProperties.get() == null) {
             Properties props = new Properties();
-            try (var in = CFCli.class.getClassLoader().getResourceAsStream("user-default.properties")) {
+            try (var in = YCFCli.class.getClassLoader().getResourceAsStream("user-default.properties")) {
                 if (in != null) {
                     props.load(in);
                 } else {
@@ -138,15 +138,15 @@ public class CFCli {
     public static Properties getUserProperties() {
         if (userProperties.get() == null) {
             Properties props = new Properties();
-            File userFile = new File(System.getProperty("user.home"), ".cfcli.properties");
+            File userFile = new File(System.getProperty("user.home"), ".ycfcli.properties");
             if (userFile.exists()) {
                 try (FileInputStream fis = new FileInputStream(userFile)) {
                     props.load(fis);
                 } catch (IOException e) {
-                    throw new RuntimeException("Failed to load user properties from .cfcli.properties", e);
+                    throw new RuntimeException("Failed to load user properties from .ycfcli.properties", e);
                 }
             } else {
-                try (var in = CFCli.class.getClassLoader().getResourceAsStream("user-default.properties")) {
+                try (var in = YCFCli.class.getClassLoader().getResourceAsStream("user-default.properties")) {
                     if (in != null) {
                         Files.copy(in, userFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                         System.out.println(String.format("A new user properties file has been created at: %s", userFile.getAbsolutePath()));
@@ -154,7 +154,7 @@ public class CFCli {
                         System.exit(0);
                     }
                     else {
-                        var subin = CFCli.class.getClassLoader().getResourceAsStream("application.properties");
+                        var subin = YCFCli.class.getClassLoader().getResourceAsStream("application.properties");
                         if (subin != null) {
                             Files.copy(subin, userFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                         	System.out.println(String.format("A new user properties file has been created at: %s", userFile.getAbsolutePath()));
@@ -198,7 +198,7 @@ public class CFCli {
         mergedProperties = getMergedProperties();
         System.getProperties().putAll(mergedProperties);
 
-        SpringApplication app = new SpringApplication(CFCli.class);
+        SpringApplication app = new SpringApplication(YCFCli.class);
         app.addInitializers((applicationContext) -> {
             ConfigurableEnvironment env = applicationContext.getEnvironment();
             env.getPropertySources().addLast(new org.springframework.core.env.PropertiesPropertySource("userProperties", userProperties.get()));
@@ -209,17 +209,17 @@ public class CFCli {
 	public final static String LogFileName = "ManufactureProject.log";
 	public final static String ProductName = "MSS Code Factory 2.13";
 	public final static String ProductWithVersion = "MSS Code Factory 2.13.42-alpha15-202611010900";
-	private static MSSBamCFPrefs _UserPrefs = null;
+	private static MSSBamYCFPrefs _UserPrefs = null;
 	private static String parsedToolSetNames[] = null;
-	private static ICFLibMessageLog	log = new CFLibConsoleMessageLog();
-	private static MSSBamCFEngine cfEngine = null;
+	private static IYCFLibMessageLog	log = new YCFLibConsoleMessageLog();
+	private static MSSBamYCFEngine ycfEngine = null;
 	
-	public static MSSBamCFEngine getEngine() {
-		return( cfEngine );
+	public static MSSBamYCFEngine getEngine() {
+		return( ycfEngine );
 	}
 	
-	public static void setEngine( MSSBamCFEngine engine ) {
-		cfEngine = engine;
+	public static void setEngine( MSSBamYCFEngine engine ) {
+		ycfEngine = engine;
 	}
 
 	/**
@@ -250,11 +250,11 @@ public class CFCli {
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 
-			final String S_ProcName = "CFCli.main() ";
+			final String S_ProcName = "YCFCli.main() ";
 		
 			initConsoleLog();
 	
-			MSSBamCFGelCompiler.setCodeFactoryVersion( ProductName );
+			MSSBamYCFGelCompiler.setCodeFactoryVersion( ProductName );
 	
 		//	System.setProperty( "org.apache.xerces.xni.parser.XMLParserConfiguration",
 		//		"org.apache.xerces.parsers.XMLGrammarCachingConfiguration" );
@@ -268,7 +268,7 @@ public class CFCli {
 			String generatingBuild = "1";	
 			Timestamp				genstarttime = null;
 			Timestamp				genendtime = null;
-			ICFLibAnyObj			version = null;
+			IYCFLibAnyObj			version = null;
 			ArrayList<String>		listOfToolsetName = new ArrayList<String>();
 			String					toolsetName = null;
 			
@@ -289,7 +289,7 @@ public class CFCli {
 					case 2:
 						testOnly = true;
 						toolsetName = null;
-						String msg = "org.msscf.msscf.CFCli.CFCli build_string model_name_or_uri cartridge_name [debug] [toolsetName{ toolsetName}]\n"
+						String msg = "org.mssycf.mssycf.YCFCli.YCFCli build_string model_name_or_uri cartridge_name [debug] [toolsetName{ toolsetName}]\n"
 							+ "\tWHERE\n"
 							+ "\t\tbuild_string is the name of the build to be manufactured,\n"
 							+ "\t\tmodel_name_or_uri is the name of the application model to generate,\n"
@@ -314,7 +314,7 @@ public class CFCli {
 							toolsetName = args[idxArg];
 							if( ( toolsetName != null ) && ( toolsetName.length() > 0 ) ) {
 								if (toolsetName.equalsIgnoreCase("debug")) {
-									MssCFEngine.enableDebugMode();
+									MssYCFEngine.enableDebugMode();
 								}
 								else {
 									listOfToolsetName.add( toolsetName );
@@ -330,7 +330,7 @@ public class CFCli {
 		//		Load the user preferences
 		
 		//	    log.message( "Loading user preferences..." );
-				_UserPrefs = new MSSBamCFPrefs();
+				_UserPrefs = new MSSBamYCFPrefs();
 				if( ! _UserPrefs.loadPreferences( log, false ) ) {
 					log.message( "Cannot continue." );
 					return;
@@ -370,8 +370,8 @@ public class CFCli {
 		
 		//		Initialize the generation engine
 		
-				ICFGenKbSchema genKbSchema = new CFGenKbRamSchema();
-				ICFGenKbSchemaObj genKbSchemaObj = new CFGenKbSchemaObj();
+				IYCFGenKbSchema genKbSchema = new YCFGenKbRamSchema();
+				IYCFGenKbSchemaObj genKbSchemaObj = new YCFGenKbSchemaObj();
 				genKbSchemaObj.setBackingStore( genKbSchema );
 				genKbSchema.connect( "system", "system", "system", "system" );
 				genKbSchema.rollback();
@@ -379,44 +379,44 @@ public class CFCli {
 				genKbSchemaObj.setSecCluster( genKbSchemaObj.getClusterTableObj().getSystemCluster() );
 				genKbSchemaObj.setSecTenant( genKbSchemaObj.getTenantTableObj().getSystemTenant() );
 				genKbSchemaObj.setSecSession( genKbSchemaObj.getSecSessionTableObj().getSystemSession() );
-				CFGenKbAuthorization genKbAuth = new CFGenKbAuthorization();
+				YCFGenKbAuthorization genKbAuth = new YCFGenKbAuthorization();
 				genKbAuth.setSecCluster( genKbSchemaObj.getSecCluster() );
 				genKbAuth.setSecTenant( genKbSchemaObj.getSecTenant() );
 				genKbAuth.setSecSession( genKbSchemaObj.getSecSession() );
 				genKbSchemaObj.setAuthorization( genKbAuth );
 	
-				ICFBamSchema cfBamSchema = new CFBamRamSchema();
-				ICFBamSchemaObj cfBamSchemaObj = new CFBamSchemaObj();
-				cfBamSchemaObj.setBackingStore( cfBamSchema );
-				cfBamSchema.connect( "system", "system", "system", "system" );
-				cfBamSchema.rollback();
-				cfBamSchema.beginTransaction();
-				cfBamSchemaObj.setSecCluster( cfBamSchemaObj.getClusterTableObj().getSystemCluster() );
-				cfBamSchemaObj.setSecTenant( cfBamSchemaObj.getTenantTableObj().getSystemTenant() );
-				cfBamSchemaObj.setSecSession( cfBamSchemaObj.getSecSessionTableObj().getSystemSession() );
-				CFSecAuthorization cfBamAuth = new CFSecAuthorization();
-				cfBamAuth.setSecCluster( cfBamSchemaObj.getSecCluster() );
-				cfBamAuth.setSecTenant( cfBamSchemaObj.getSecTenant() );
-				cfBamAuth.setSecSession( cfBamSchemaObj.getSecSession() );
-				cfBamSchemaObj.setAuthorization( cfBamAuth );
+				IYCFBamSchema ycfBamSchema = new YCFBamRamSchema();
+				IYCFBamSchemaObj ycfBamSchemaObj = new YCFBamSchemaObj();
+				ycfBamSchemaObj.setBackingStore( ycfBamSchema );
+				ycfBamSchema.connect( "system", "system", "system", "system" );
+				ycfBamSchema.rollback();
+				ycfBamSchema.beginTransaction();
+				ycfBamSchemaObj.setSecCluster( ycfBamSchemaObj.getClusterTableObj().getSystemCluster() );
+				ycfBamSchemaObj.setSecTenant( ycfBamSchemaObj.getTenantTableObj().getSystemTenant() );
+				ycfBamSchemaObj.setSecSession( ycfBamSchemaObj.getSecSessionTableObj().getSystemSession() );
+				YCFSecAuthorization ycfBamAuth = new YCFSecAuthorization();
+				ycfBamAuth.setSecCluster( ycfBamSchemaObj.getSecCluster() );
+				ycfBamAuth.setSecTenant( ycfBamSchemaObj.getSecTenant() );
+				ycfBamAuth.setSecSession( ycfBamSchemaObj.getSecSession() );
+				ycfBamSchemaObj.setAuthorization( ycfBamAuth );
 	
-				cfEngine = new MSSBamCFEngine();
-				cfEngine.setLog( log );
+				ycfEngine = new MSSBamYCFEngine();
+				ycfEngine.setLog( log );
 				
-				((MSSBamCFEngine)cfEngine).init( generatingBuild, genKbSchemaObj, genKbSchemaObj.getSecTenant(), cfBamSchemaObj, rootGenDir );
+				((MSSBamYCFEngine)ycfEngine).init( generatingBuild, genKbSchemaObj, genKbSchemaObj.getSecTenant(), ycfBamSchemaObj, rootGenDir );
 				
 				log.message( "Linked with "
-						+ CFLib.LinkName
+						+ YCFLib.LinkName
 						+ " version "
-						+ CFLib.LinkVersion );
+						+ YCFLib.LinkVersion );
 				log.message( "Linked with "
-						+ MssCFEngine.GeneratorName
+						+ MssYCFEngine.GeneratorName
 						+ " version "
-						+ MssCFEngine.GeneratorVersion );
+						+ MssYCFEngine.GeneratorVersion );
 				log.message( "Linked with "
-						+ MSSBamCFEngine.GeneratorName
+						+ MSSBamYCFEngine.GeneratorName
 						+ " version "
-						+ MSSBamCFEngine.GeneratorVersion );
+						+ MSSBamYCFEngine.GeneratorVersion );
 		
 		//		Configure parser
 		
@@ -426,13 +426,13 @@ public class CFCli {
 				while( cartridgePath.hasNext() ) {
 					String cartridgeDir = (String)cartridgePath.next();
 					if( ( cartridgeDir != null ) && ( cartridgeDir.length() > 0 ) ) {
-						MssCFRuleCartridgeParser.addCartridgePath( cartridgeDir );
+						MssYCFRuleCartridgeParser.addCartridgePath( cartridgeDir );
 					}
 				}
 		
-				URL url = cfEngine.getClass().getResource( "/cartridge-2.13/org-msscf-msscf-2-13-toolset-java/rulecartridge.xml" );
+				URL url = ycfEngine.getClass().getResource( "/cartridge-2.13/org-mssycf-mssycf-2-13-toolset-java/rulecartridge.xml" );
 				if( url == null ) {
-					url = cfEngine.getClass().getResource( "cartridge-2.13/org-msscf-msscf-2-13-toolset-java/rulecartridge.xml" );
+					url = ycfEngine.getClass().getResource( "cartridge-2.13/org-mssycf-mssycf-2-13-toolset-java/rulecartridge.xml" );
 				}
 				if( url != null ) {
 					String str = url.toString();
@@ -444,7 +444,7 @@ public class CFCli {
 						if( lastSlash > 0 ) {
 							// strip off /net...java, keeping trailing slash
 							str = str.substring( 0, lastSlash + 1 );
-							MssCFRuleCartridgeParser.addCartridgePath( str );
+							MssYCFRuleCartridgeParser.addCartridgePath( str );
 						}
 					}
 				}
@@ -452,12 +452,12 @@ public class CFCli {
 				Iterator<String> modelPath = _UserPrefs.getModelPathIterator();
 				while( modelPath.hasNext() ) {
 					String modelDir = (String)modelPath.next();
-					CFBamXmlLoader.addModelPath( modelDir );
+					YCFBamXmlLoader.addModelPath( modelDir );
 				}
 		
 		//		Load the cartridge
 		
-				MssCFRuleCartridgeParser cartridgeParser = new MssCFRuleCartridgeParser( cfEngine, log );
+				MssYCFRuleCartridgeParser cartridgeParser = new MssYCFRuleCartridgeParser( ycfEngine, log );
 				
 				parsedToolSetNames = null;
 				try {
@@ -471,7 +471,7 @@ public class CFCli {
 					log.message( "Could not load rule cartridge: " + e.getMessage() );
 		            throw( e );
 				}
-				parsedToolSetNames = MssCFRuleCartridgeParser.getToolSetNames();
+				parsedToolSetNames = MssYCFRuleCartridgeParser.getToolSetNames();
 		
 				if( ( parsedToolSetNames != null )
 				 && ( parsedToolSetNames.length > 0 ) )
@@ -494,24 +494,24 @@ public class CFCli {
 	
 		//		Initialize the cluster and tenant for the dictionary
 	
-//				ICFBamClusterObj origBamCluster = (ICFBamClusterObj)bamBLSchema.getClusterTableObj().newInstance();
-//				ICFBamClusterEditObj editBamCluster = (ICFBamClusterEditObj)origBamCluster.beginEdit();
+//				IYCFBamClusterObj origBamCluster = (IYCFBamClusterObj)bamBLSchema.getClusterTableObj().newInstance();
+//				IYCFBamClusterEditObj editBamCluster = (IYCFBamClusterEditObj)origBamCluster.beginEdit();
 //				editBamCluster.setRequiredFullDomName( "system" );
-//				origBamCluster = (ICFBamClusterObj)editBamCluster.create();
+//				origBamCluster = (IYCFBamClusterObj)editBamCluster.create();
 //				editBamCluster.endEdit();
 	
-//				ICFBamTenantObj origBamTenant = (ICFBamTenantObj)bamBLSchema.getTenantTableObj().newInstance();
-//				ICFBamTenantEditObj editBamTenant = (ICFBamTenantEditObj)origBamTenant.beginEdit();
+//				IYCFBamTenantObj origBamTenant = (IYCFBamTenantObj)bamBLSchema.getTenantTableObj().newInstance();
+//				IYCFBamTenantEditObj editBamTenant = (IYCFBamTenantEditObj)origBamTenant.beginEdit();
 //				editBamTenant.setRequiredContainerCluster( origBamCluster );
 //				editBamTenant.setRequiredTenantName( "system" );
-//				origBamTenant = (ICFBamTenantObj)editBamTenant.create();
+//				origBamTenant = (IYCFBamTenantObj)editBamTenant.create();
 //				editBamTenant.endEdit();
 		
 		//		Instantiate Bam Model parser
 	
-				CFBamXmlLoader bamParser = new CFBamXmlLoader( (MSSBamCFEngine)cfEngine, log );
-				bamParser.setSchemaObj( cfBamSchemaObj );
-				bamParser.setTenant( (ICFBamTenantObj)( cfBamSchemaObj.getSecTenant() ) );
+				YCFBamXmlLoader bamParser = new YCFBamXmlLoader( (MSSBamYCFEngine)ycfEngine, log );
+				bamParser.setSchemaObj( ycfBamSchemaObj );
+				bamParser.setTenant( (IYCFBamTenantObj)( ycfBamSchemaObj.getSecTenant() ) );
 				
 		//		Parse the model
 		
@@ -527,7 +527,7 @@ public class CFCli {
 		            throw( e );
 				}
 		
-				ICFBamTenantObj Tenant = bamParser.getTenant();
+				IYCFBamTenantObj Tenant = bamParser.getTenant();
 				version = bamParser.getDefinedProjectVersion();
 	
 				try {
@@ -537,7 +537,7 @@ public class CFCli {
 						}
 					}
 					if( ( listOfToolsetName.size() > 0 ) && ( version != null ) ) {
-						cfEngine.generate(generatingBuild, rootGenDir, version, listOfToolsetName, MSSBamCFEngine.ITEMNAME_TOP);
+						ycfEngine.generate(generatingBuild, rootGenDir, version, listOfToolsetName, MSSBamYCFEngine.ITEMNAME_TOP);
 					}
 				}
 				catch( Exception e )
@@ -564,12 +564,12 @@ public class CFCli {
 					( msec % 1000 ) );
 			log.message( 
 					( ( version != null )
-						? MSSBamCFAnyObj.getFullName( version )
+						? MSSBamYCFAnyObj.getFullName( version )
 						: "Code" )
 				+ " manufacturing took " + elapsed );
 		
-			log.message( "Releasing MSS Code Factory " + MSSBamCFEngine.GeneratorVersion + " engine..." );
-			cfEngine = null;
+			log.message( "Releasing MSS Code Factory " + MSSBamYCFEngine.GeneratorVersion + " engine..." );
+			ycfEngine = null;
 		
 			log.message( ProductWithVersion + " finished." );
 //			log.closeLogFile();

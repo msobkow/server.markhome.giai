@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,27 +21,27 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
 
 /**
- *	Any Node being set as a display form must be castable to ICFForm.
+ *	Any Node being set as a display form must be castable to IYCFForm.
  *
  *	The form manager makes calls through this interface to ensure
  *	that forms are cleaned up when an application logs out or resets
  *	to the root form for a facet.
  */
-public interface ICFForm
+public interface IYCFForm
 {
 	/**
 	 *	Get the form manager associated with this form.
 	 */
-	ICFFormManager getCFFormManager();
+	IYCFFormManager getYCFFormManager();
 
 	/**
 	 *	Force the form to cancel and close.  The form should invoke
-	 *	ICFFormManager.closeCurrentForm(), but if it doesn't, the
+	 *	IYCFFormManager.closeCurrentForm(), but if it doesn't, the
 	 *	form manager will force the form off the stack after
 	 *	invoking this callback.
 	 */

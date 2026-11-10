@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a Int32Type buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,13 +55,13 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamInt32TypeBuff
-	extends CFBamInt32DefBuff
+public class YCFBamInt32TypeBuff
+	extends YCFBamInt32DefBuff
 	implements Comparable<Object>,
 		Serializable
 {
@@ -73,9 +73,9 @@ public class CFBamInt32TypeBuff
 	public static final long ID_MIN_VALUE = 0L;
 	public static final long SCHEMADEFID_MIN_VALUE = 0L;
 	protected long requiredSchemaDefId;
-	public CFBamInt32TypeBuff() {
+	public YCFBamInt32TypeBuff() {
 		super();
-		requiredSchemaDefId = CFBamInt32TypeBuff.SCHEMADEFID_INIT_VALUE;
+		requiredSchemaDefId = YCFBamInt32TypeBuff.SCHEMADEFID_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -87,13 +87,13 @@ public class CFBamInt32TypeBuff
 	}
 
 	public void setRequiredSchemaDefId( long value ) {
-		if( value < CFBamInt32TypeBuff.SCHEMADEFID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFBamInt32TypeBuff.SCHEMADEFID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredSchemaDefId",
 				1,
 				"value",
 				value,
-				CFBamInt32TypeBuff.SCHEMADEFID_MIN_VALUE );
+				YCFBamInt32TypeBuff.SCHEMADEFID_MIN_VALUE );
 		}
 		requiredSchemaDefId = value;
 	}
@@ -102,8 +102,8 @@ public class CFBamInt32TypeBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamInt32TypeBuff ) {
-			CFBamInt32TypeBuff rhs = (CFBamInt32TypeBuff)obj;
+		else if( obj instanceof YCFBamInt32TypeBuff ) {
+			YCFBamInt32TypeBuff rhs = (YCFBamInt32TypeBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -115,8 +115,8 @@ public class CFBamInt32TypeBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValuePKey ) {
-			CFBamValuePKey rhs = (CFBamValuePKey)obj;
+		else if( obj instanceof YCFBamValuePKey ) {
+			YCFBamValuePKey rhs = (YCFBamValuePKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -125,8 +125,8 @@ public class CFBamInt32TypeBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamInt32TypeHBuff ) {
-			CFBamInt32TypeHBuff rhs = (CFBamInt32TypeHBuff)obj;
+		else if( obj instanceof YCFBamInt32TypeHBuff ) {
+			YCFBamInt32TypeHBuff rhs = (YCFBamInt32TypeHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -138,8 +138,8 @@ public class CFBamInt32TypeBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamValueHPKey ) {
-			CFBamValueHPKey rhs = (CFBamValueHPKey)obj;
+		else if( obj instanceof YCFBamValueHPKey ) {
+			YCFBamValueHPKey rhs = (YCFBamValueHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -148,8 +148,8 @@ public class CFBamInt32TypeBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamInt32TypeBySchemaIdxKey ) {
-			CFBamInt32TypeBySchemaIdxKey rhs = (CFBamInt32TypeBySchemaIdxKey)obj;
+		else if( obj instanceof YCFBamInt32TypeBySchemaIdxKey ) {
+			YCFBamInt32TypeBySchemaIdxKey rhs = (YCFBamInt32TypeBySchemaIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -174,8 +174,8 @@ public class CFBamInt32TypeBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamInt32TypeBuff ) {
-			CFBamInt32TypeBuff rhs = (CFBamInt32TypeBuff)obj;
+		else if( obj instanceof YCFBamInt32TypeBuff ) {
+			YCFBamInt32TypeBuff rhs = (YCFBamInt32TypeBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -188,8 +188,8 @@ public class CFBamInt32TypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamValuePKey ) {
-			CFBamValuePKey rhs = (CFBamValuePKey)obj;
+		else if( obj instanceof YCFBamValuePKey ) {
+			YCFBamValuePKey rhs = (YCFBamValuePKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -204,8 +204,8 @@ public class CFBamInt32TypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamValueHPKey ) {
-			CFBamValueHPKey rhs = (CFBamValueHPKey)obj;
+		else if( obj instanceof YCFBamValueHPKey ) {
+			YCFBamValueHPKey rhs = (YCFBamValueHPKey)obj;
 			{
 				int lhsRequiredRevision = getRequiredRevision();
 				int rhsRequiredRevision = rhs.getRequiredRevision();
@@ -230,8 +230,8 @@ public class CFBamInt32TypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamInt32TypeHBuff ) {
-			CFBamInt32TypeHBuff rhs = (CFBamInt32TypeHBuff)obj;
+		else if( obj instanceof YCFBamInt32TypeHBuff ) {
+			YCFBamInt32TypeHBuff rhs = (YCFBamInt32TypeHBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
@@ -244,8 +244,8 @@ public class CFBamInt32TypeBuff
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamInt32TypeBySchemaIdxKey ) {
-			CFBamInt32TypeBySchemaIdxKey rhs = (CFBamInt32TypeBySchemaIdxKey)obj;
+		else if( obj instanceof YCFBamInt32TypeBySchemaIdxKey ) {
+			YCFBamInt32TypeBySchemaIdxKey rhs = (YCFBamInt32TypeBySchemaIdxKey)obj;
 
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
@@ -266,38 +266,38 @@ public class CFBamInt32TypeBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamInt32TypeBuff ) {
-			setInt32TypeBuff( (CFBamInt32TypeBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamInt32TypeBuff ) {
+			setInt32TypeBuff( (YCFBamInt32TypeBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamInt32TypeBuff" );
+				"YCFBamInt32TypeBuff" );
 		}
 	}
 
-	public void setInt32TypeBuff( CFBamInt32TypeBuff src ) {
+	public void setInt32TypeBuff( YCFBamInt32TypeBuff src ) {
 		super.setInt32DefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamInt32TypeHBuff ) {
-			setInt32TypeBuff( (CFBamInt32TypeHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamInt32TypeHBuff ) {
+			setInt32TypeBuff( (YCFBamInt32TypeHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamInt32TypeHBuff" );
+				"YCFBamInt32TypeHBuff" );
 		}
 	}
 
-	public void setInt32TypeBuff( CFBamInt32TypeHBuff src ) {
+	public void setInt32TypeBuff( YCFBamInt32TypeHBuff src ) {
 		super.setInt32DefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
 	}

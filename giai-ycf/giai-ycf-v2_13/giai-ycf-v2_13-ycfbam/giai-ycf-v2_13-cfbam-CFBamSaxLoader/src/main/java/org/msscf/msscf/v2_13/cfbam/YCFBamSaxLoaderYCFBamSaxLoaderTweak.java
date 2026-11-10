@@ -2,17 +2,17 @@
 // Description: Java 11 XML SAX Element Handler for Tweak
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamSaxLoader;
 
 import java.math.*;
 import java.sql.*;
@@ -54,23 +54,23 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamSaxLoaderTweakParse XML SAX Element Handler implementation
+ *	YCFBamSaxLoaderTweakParse XML SAX Element Handler implementation
  *	for Tweak.
  */
-public class CFBamSaxLoaderTweak
-	extends CFLibXmlCoreElementHandler
+public class YCFBamSaxLoaderTweak
+	extends YCFLibXmlCoreElementHandler
 {
-	public CFBamSaxLoaderTweak( CFBamSaxLoader saxLoader ) {
+	public YCFBamSaxLoaderTweak( YCFBamSaxLoader saxLoader ) {
 		super( saxLoader );
 	}
 
@@ -82,8 +82,8 @@ public class CFBamSaxLoaderTweak
 	throws SAXException
 	{
 		final String S_ProcName = "startElement";
-		ICFBamTweakObj origBuff = null;
-		ICFBamTweakEditObj editBuff = null;
+		IYCFBamTweakObj origBuff = null;
+		IYCFBamTweakEditObj editBuff = null;
 		// Common XML Attributes
 		String attrId = null;
 		// Tweak Attributes
@@ -92,9 +92,9 @@ public class CFBamSaxLoaderTweak
 		String attrTweakGelText = null;
 		String attrDefSchema = null;
 		// Tweak References
-		ICFBamTenantObj refTenant = null;
-		ICFBamScopeObj refScopeDef = null;
-		ICFBamSchemaDefObj refDefSchema = null;
+		IYCFBamTenantObj refTenant = null;
+		IYCFBamScopeObj refScopeDef = null;
+		IYCFBamSchemaDefObj refDefSchema = null;
 		// Attribute Extraction
 		String attrLocalName;
 		int numAttrs;
@@ -103,25 +103,25 @@ public class CFBamSaxLoaderTweak
 		try {
 			assert qName.equals( "Tweak" );
 
-			CFBamSaxLoader saxLoader = (CFBamSaxLoader)getParser();
+			YCFBamSaxLoader saxLoader = (YCFBamSaxLoader)getParser();
 			if( saxLoader == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser()" );
 			}
 
-			ICFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
+			IYCFBamSchemaObj schemaObj = saxLoader.getSchemaObj();
 			if( schemaObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"getParser().getSchemaObj()" );
 			}
 
 			// Instantiate an edit buffer for the parsed information
-			origBuff = (ICFBamTweakObj)schemaObj.getTweakTableObj().newInstance();
-			editBuff = (ICFBamTweakEditObj)origBuff.beginEdit();
+			origBuff = (IYCFBamTweakObj)schemaObj.getTweakTableObj().newInstance();
+			editBuff = (IYCFBamTweakEditObj)origBuff.beginEdit();
 
 			// Extract Attributes
 			numAttrs = attrs.getLength();
@@ -129,7 +129,7 @@ public class CFBamSaxLoaderTweak
 				attrLocalName = attrs.getLocalName( idxAttr );
 				if( attrLocalName.equals( "Id" ) ) {
 					if( attrId != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -138,7 +138,7 @@ public class CFBamSaxLoaderTweak
 				}
 				else if( attrLocalName.equals( "Name" ) ) {
 					if( attrName != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -147,7 +147,7 @@ public class CFBamSaxLoaderTweak
 				}
 				else if( attrLocalName.equals( "ReplacesInherited" ) ) {
 					if( attrReplacesInherited != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -156,7 +156,7 @@ public class CFBamSaxLoaderTweak
 				}
 				else if( attrLocalName.equals( "TweakGelText" ) ) {
 					if( attrTweakGelText != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -165,7 +165,7 @@ public class CFBamSaxLoaderTweak
 				}
 				else if( attrLocalName.equals( "DefSchema" ) ) {
 					if( attrDefSchema != null ) {
-						throw new CFLibUniqueIndexViolationException( getClass(),
+						throw new YCFLibUniqueIndexViolationException( getClass(),
 							S_ProcName,
 							S_LocalName,
 							attrLocalName );
@@ -176,7 +176,7 @@ public class CFBamSaxLoaderTweak
 					// ignored
 				}
 				else {
-					throw new CFLibUnrecognizedAttributeException( getClass(),
+					throw new YCFLibUnrecognizedAttributeException( getClass(),
 						S_ProcName,
 						getParser().getLocationInfo(),
 						attrLocalName );
@@ -185,26 +185,26 @@ public class CFBamSaxLoaderTweak
 
 			// Ensure that required attributes have values
 			if( attrName == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"Name" );
 			}
 			if( ( attrReplacesInherited == null ) || ( attrReplacesInherited.length() <= 0 ) ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"ReplacesInherited" );
 			}
 			if( attrTweakGelText == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"TweakGelText" );
 			}
 
 			// Save named attributes to context
-			CFLibXmlCoreContext curContext = getParser().getCurContext();
+			YCFLibXmlCoreContext curContext = getParser().getCurContext();
 			curContext.putNamedValue( "Id", attrId );
 			curContext.putNamedValue( "Name", attrName );
 			curContext.putNamedValue( "ReplacesInherited", attrReplacesInherited );
@@ -232,7 +232,7 @@ public class CFBamSaxLoaderTweak
 				natReplacesInherited = false;
 			}
 			else {
-				throw new CFLibUsageException( getClass(),
+				throw new YCFLibUsageException( getClass(),
 					S_ProcName,
 					"Unexpected ReplacesInherited value, must be one of true, false, yes, no, 1, or 0, not \"" + attrReplacesInherited + "\"" );
 			}
@@ -243,7 +243,7 @@ public class CFBamSaxLoaderTweak
 
 			// Get the scope/container object
 
-			CFLibXmlCoreContext parentContext = curContext.getPrevContext();
+			YCFLibXmlCoreContext parentContext = curContext.getPrevContext();
 			Object scopeObj;
 			if( parentContext != null ) {
 				scopeObj = parentContext.getNamedValue( "Object" );
@@ -255,33 +255,33 @@ public class CFBamSaxLoaderTweak
 			// Resolve and apply required Container reference
 
 			if( scopeObj == null ) {
-				throw new CFLibNullArgumentException( getClass(),
+				throw new YCFLibNullArgumentException( getClass(),
 					S_ProcName,
 					0,
 					"scopeObj" );
 			}
-			else if( scopeObj instanceof ICFBamScopeObj ) {
-				refScopeDef = (ICFBamScopeObj) scopeObj;
+			else if( scopeObj instanceof IYCFBamScopeObj ) {
+				refScopeDef = (IYCFBamScopeObj) scopeObj;
 				editBuff.setRequiredContainerScopeDef( refScopeDef );
-				refTenant = (ICFBamTenantObj)editBuff.getRequiredOwnerTenant();
+				refTenant = (IYCFBamTenantObj)editBuff.getRequiredOwnerTenant();
 			}
 			else {
-				throw new CFLibUnsupportedClassException( getClass(),
+				throw new YCFLibUnsupportedClassException( getClass(),
 					S_ProcName,
 					"scopeObj",
 					scopeObj,
-					"ICFBamScopeObj" );
+					"IYCFBamScopeObj" );
 			}
 
 			// Resolve and apply Owner reference
 
 			if( refTenant == null ) {
-				if( scopeObj instanceof ICFBamTenantObj ) {
-					refTenant = (ICFBamTenantObj) scopeObj;
+				if( scopeObj instanceof IYCFBamTenantObj ) {
+					refTenant = (IYCFBamTenantObj) scopeObj;
 					editBuff.setRequiredOwnerTenant( refTenant );
 				}
 				else {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Owner<Tenant>" );
@@ -290,10 +290,10 @@ public class CFBamSaxLoaderTweak
 
 			// Lookup refDefSchema by qualified name
 			if( ( attrDefSchema != null ) && ( attrDefSchema.length() > 0 ) ) {
-				refDefSchema = (ICFBamSchemaDefObj)(editBuff.getNamedObject( schemaObj.getSchemaDefTableObj().getObjQualifyingClass(),
+				refDefSchema = (IYCFBamSchemaDefObj)(editBuff.getNamedObject( schemaObj.getSchemaDefTableObj().getObjQualifyingClass(),
 					attrDefSchema ) );
 				if( refDefSchema == null ) {
-					throw new CFLibNullArgumentException( getClass(),
+					throw new YCFLibNullArgumentException( getClass(),
 						S_ProcName,
 						0,
 						"Resolve DefSchema reference qualified name \"" + attrDefSchema + "\" to table SchemaDef" );
@@ -304,9 +304,9 @@ public class CFBamSaxLoaderTweak
 			}
 			editBuff.setOptionalLookupDefSchema( refDefSchema );
 
-			CFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTweakLoaderBehaviour();
-			ICFBamTweakEditObj editTweak = null;
-			ICFBamTweakObj origTweak = (ICFBamTweakObj)schemaObj.getTweakTableObj().readTweakByUNameIdx( refTenant.getRequiredId(),
+			YCFBamSaxLoader.LoaderBehaviourEnum loaderBehaviour = saxLoader.getTweakLoaderBehaviour();
+			IYCFBamTweakEditObj editTweak = null;
+			IYCFBamTweakObj origTweak = (IYCFBamTweakObj)schemaObj.getTweakTableObj().readTweakByUNameIdx( refTenant.getRequiredId(),
 			refScopeDef.getRequiredId(),
 			editBuff.getRequiredName() );
 			if( origTweak == null ) {
@@ -317,14 +317,14 @@ public class CFBamSaxLoaderTweak
 					case Insert:
 						break;
 					case Update:
-						editTweak = (ICFBamTweakEditObj)origTweak.beginEdit();
+						editTweak = (IYCFBamTweakEditObj)origTweak.beginEdit();
 						editTweak.setRequiredName( editBuff.getRequiredName() );
 						editTweak.setRequiredReplacesInherited( editBuff.getRequiredReplacesInherited() );
 						editTweak.setRequiredTweakGelText( editBuff.getRequiredTweakGelText() );
 						editTweak.setOptionalLookupDefSchema( editBuff.getOptionalLookupDefSchema() );
 						break;
 					case Replace:
-						editTweak = (ICFBamTweakEditObj)origTweak.beginEdit();
+						editTweak = (IYCFBamTweakEditObj)origTweak.beginEdit();
 						editTweak.deleteInstance();
 						editTweak = null;
 						origTweak = null;
@@ -338,7 +338,7 @@ public class CFBamSaxLoaderTweak
 					editTweak.update();
 				}
 				else {
-					origTweak = (ICFBamTweakObj)editTweak.create();
+					origTweak = (IYCFBamTweakObj)editTweak.create();
 				}
 				editTweak = null;
 			}

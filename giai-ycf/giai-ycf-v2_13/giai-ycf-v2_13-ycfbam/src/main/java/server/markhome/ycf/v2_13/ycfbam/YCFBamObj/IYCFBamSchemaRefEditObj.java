@@ -1,17 +1,17 @@
-// Description: Java 11 Instance Edit Object interface for CFBam SchemaRef.
+// Description: Java 11 Instance Edit Object interface for YCFBam SchemaRef.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,30 +45,30 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBamObj;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBam.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBam.*;
 
-public interface ICFBamSchemaRefEditObj
-	extends ICFBamSchemaRefObj,
-		ICFBamScopeEditObj
+public interface IYCFBamSchemaRefEditObj
+	extends IYCFBamSchemaRefObj,
+		IYCFBamScopeEditObj
 {
 	/*
 	 *	Get the original for this edition cast as the specified type.
 	 *
-	 *	@return The original, non-modifiable instance cast to a ICFBamSchemaRefObj.
+	 *	@return The original, non-modifiable instance cast to a IYCFBamSchemaRefObj.
 	 */
-	ICFBamSchemaRefObj getOrigAsSchemaRef();
+	IYCFBamSchemaRefObj getOrigAsSchemaRef();
 
 	/**
 	 *	Get the required String attribute Name.
@@ -113,58 +113,58 @@ public interface ICFBamSchemaRefEditObj
 	void setRequiredIncludeRoot( String value );
 
 	/**
-	 *	Get the ICFBamSchemaDefObj instance referenced by the Schema key.
+	 *	Get the IYCFBamSchemaDefObj instance referenced by the Schema key.
 	 *
-	 *	@return	The ICFBamSchemaDefObj instance referenced by the Schema key.
+	 *	@return	The IYCFBamSchemaDefObj instance referenced by the Schema key.
 	 */
-	ICFBamSchemaDefObj getRequiredContainerSchema();
+	IYCFBamSchemaDefObj getRequiredContainerSchema();
 
 	/**
-	 *	Set the ICFBamSchemaDefObj instance referenced by the Schema key.
+	 *	Set the IYCFBamSchemaDefObj instance referenced by the Schema key.
 	 *
-	 *	@param	value	the ICFBamSchemaDefObj instance to be referenced by the Schema key.
+	 *	@param	value	the IYCFBamSchemaDefObj instance to be referenced by the Schema key.
 	 */
-	void setRequiredContainerSchema( ICFBamSchemaDefObj value );
+	void setRequiredContainerSchema( IYCFBamSchemaDefObj value );
 
 	/**
-	 *	Get the ICFBamSchemaDefObj instance referenced by the RefSchema key.
+	 *	Get the IYCFBamSchemaDefObj instance referenced by the RefSchema key.
 	 *
-	 *	@return	The ICFBamSchemaDefObj instance referenced by the RefSchema key.
+	 *	@return	The IYCFBamSchemaDefObj instance referenced by the RefSchema key.
 	 */
-	ICFBamSchemaDefObj getOptionalLookupRefSchema();
+	IYCFBamSchemaDefObj getOptionalLookupRefSchema();
 
 	/**
-	 *	Set the ICFBamSchemaDefObj instance referenced by the RefSchema key.
+	 *	Set the IYCFBamSchemaDefObj instance referenced by the RefSchema key.
 	 *
-	 *	@param	value	the ICFBamSchemaDefObj instance to be referenced by the RefSchema key.
+	 *	@param	value	the IYCFBamSchemaDefObj instance to be referenced by the RefSchema key.
 	 */
-	void setOptionalLookupRefSchema( ICFBamSchemaDefObj value );
+	void setOptionalLookupRefSchema( IYCFBamSchemaDefObj value );
 
 	/**
-	 *	Get the ICFBamSchemaRefObj instance referenced by the Prev key.
+	 *	Get the IYCFBamSchemaRefObj instance referenced by the Prev key.
 	 *
-	 *	@return	The ICFBamSchemaRefObj instance referenced by the Prev key.
+	 *	@return	The IYCFBamSchemaRefObj instance referenced by the Prev key.
 	 */
-	ICFBamSchemaRefObj getOptionalLookupPrev();
+	IYCFBamSchemaRefObj getOptionalLookupPrev();
 
 	/**
-	 *	Set the ICFBamSchemaRefObj instance referenced by the Prev key.
+	 *	Set the IYCFBamSchemaRefObj instance referenced by the Prev key.
 	 *
-	 *	@param	value	the ICFBamSchemaRefObj instance to be referenced by the Prev key.
+	 *	@param	value	the IYCFBamSchemaRefObj instance to be referenced by the Prev key.
 	 */
-	void setOptionalLookupPrev( ICFBamSchemaRefObj value );
+	void setOptionalLookupPrev( IYCFBamSchemaRefObj value );
 
 	/**
-	 *	Get the ICFBamSchemaRefObj instance referenced by the Next key.
+	 *	Get the IYCFBamSchemaRefObj instance referenced by the Next key.
 	 *
-	 *	@return	The ICFBamSchemaRefObj instance referenced by the Next key.
+	 *	@return	The IYCFBamSchemaRefObj instance referenced by the Next key.
 	 */
-	ICFBamSchemaRefObj getOptionalLookupNext();
+	IYCFBamSchemaRefObj getOptionalLookupNext();
 
 	/**
-	 *	Set the ICFBamSchemaRefObj instance referenced by the Next key.
+	 *	Set the IYCFBamSchemaRefObj instance referenced by the Next key.
 	 *
-	 *	@param	value	the ICFBamSchemaRefObj instance to be referenced by the Next key.
+	 *	@param	value	the IYCFBamSchemaRefObj instance to be referenced by the Next key.
 	 */
-	void setOptionalLookupNext( ICFBamSchemaRefObj value );
+	void setOptionalLookupNext( IYCFBamSchemaRefObj value );
 }

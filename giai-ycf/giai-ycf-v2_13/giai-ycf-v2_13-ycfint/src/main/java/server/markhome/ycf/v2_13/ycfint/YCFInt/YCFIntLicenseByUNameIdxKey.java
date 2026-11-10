@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a License by UNameIdx index key object.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,21 +36,21 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public class CFIntLicenseByUNameIdxKey
+public class YCFIntLicenseByUNameIdxKey
 	implements Comparable<Object>,
 		Serializable
 {
 	protected long requiredTenantId;
 	protected long requiredTopDomainId;
 	protected String requiredName;
-	public CFIntLicenseByUNameIdxKey() {
-		requiredTenantId = CFIntLicenseBuff.TENANTID_INIT_VALUE;
-		requiredTopDomainId = CFIntLicenseBuff.TOPDOMAINID_INIT_VALUE;
-		requiredName = new String( CFIntLicenseBuff.NAME_INIT_VALUE );
+	public YCFIntLicenseByUNameIdxKey() {
+		requiredTenantId = YCFIntLicenseBuff.TENANTID_INIT_VALUE;
+		requiredTopDomainId = YCFIntLicenseBuff.TOPDOMAINID_INIT_VALUE;
+		requiredName = new String( YCFIntLicenseBuff.NAME_INIT_VALUE );
 	}
 
 	public long getRequiredTenantId() {
@@ -58,13 +58,13 @@ public class CFIntLicenseByUNameIdxKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFIntLicenseBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntLicenseBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFIntLicenseBuff.TENANTID_MIN_VALUE );
+				YCFIntLicenseBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -74,13 +74,13 @@ public class CFIntLicenseByUNameIdxKey
 	}
 
 	public void setRequiredTopDomainId( long value ) {
-		if( value < CFIntLicenseBuff.TOPDOMAINID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFIntLicenseBuff.TOPDOMAINID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTopDomainId",
 				1,
 				"value",
 				value,
-				CFIntLicenseBuff.TOPDOMAINID_MIN_VALUE );
+				YCFIntLicenseBuff.TOPDOMAINID_MIN_VALUE );
 		}
 		requiredTopDomainId = value;
 	}
@@ -91,13 +91,13 @@ public class CFIntLicenseByUNameIdxKey
 
 	public void setRequiredName( String value ) {
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				"setRequiredName",
 				1,
 				"value" );
 		}
 		if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredName",
 				1,
 				"value.length()",
@@ -111,8 +111,8 @@ public class CFIntLicenseByUNameIdxKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFIntLicenseByUNameIdxKey ) {
-			CFIntLicenseByUNameIdxKey rhs = (CFIntLicenseByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntLicenseByUNameIdxKey ) {
+			YCFIntLicenseByUNameIdxKey rhs = (YCFIntLicenseByUNameIdxKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -124,8 +124,8 @@ public class CFIntLicenseByUNameIdxKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFIntLicenseBuff ) {
-			CFIntLicenseBuff rhs = (CFIntLicenseBuff)obj;
+		else if( obj instanceof YCFIntLicenseBuff ) {
+			YCFIntLicenseBuff rhs = (YCFIntLicenseBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -156,8 +156,8 @@ public class CFIntLicenseByUNameIdxKey
 		if( obj == null ) {
 			return( 1 );
 		}
-		else if( obj instanceof CFIntLicenseByUNameIdxKey ) {
-			CFIntLicenseByUNameIdxKey rhs = (CFIntLicenseByUNameIdxKey)obj;
+		else if( obj instanceof YCFIntLicenseByUNameIdxKey ) {
+			YCFIntLicenseByUNameIdxKey rhs = (YCFIntLicenseByUNameIdxKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -178,8 +178,8 @@ public class CFIntLicenseByUNameIdxKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFIntLicenseBuff ) {
-			CFIntLicenseBuff rhs = (CFIntLicenseBuff)obj;
+		else if( obj instanceof YCFIntLicenseBuff ) {
+			YCFIntLicenseBuff rhs = (YCFIntLicenseBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -201,7 +201,7 @@ public class CFIntLicenseByUNameIdxKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
@@ -210,10 +210,10 @@ public class CFIntLicenseByUNameIdxKey
 	}
 
 	public String toString() {
-		String ret = "<CFIntLicenseByUNameIdx"
+		String ret = "<YCFIntLicenseByUNameIdx"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredTopDomainId=" + "\"" + Long.toString( getRequiredTopDomainId() ) + "\""
-			+ " RequiredName=" + "\"" + CFIntSchema.xmlEncodeString( getRequiredName() ) + "\""
+			+ " RequiredName=" + "\"" + YCFIntSchema.xmlEncodeString( getRequiredName() ) + "\""
 			+ "/>";
 		return( ret );
 	}

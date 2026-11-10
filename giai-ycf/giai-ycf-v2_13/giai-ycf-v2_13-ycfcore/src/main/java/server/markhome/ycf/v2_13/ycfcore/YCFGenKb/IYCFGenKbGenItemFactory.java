@@ -2,11 +2,11 @@
 // Description: Java 11 Factory interface for GenItem.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,15 +36,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
 
 /*
- *	CFGenKbGenItemFactory interface for GenItem
+ *	YCFGenKbGenItemFactory interface for GenItem
  */
-public interface ICFGenKbGenItemFactory
+public interface IYCFGenKbGenItemFactory
 {
 
 	/**
@@ -52,76 +52,76 @@ public interface ICFGenKbGenItemFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemPKey newPKey();
+	YCFGenKbGenItemPKey newPKey();
 
 	/**
 	 *	Allocate a TenantIdx key over GenItem instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemByTenantIdxKey newTenantIdxKey();
+	YCFGenKbGenItemByTenantIdxKey newTenantIdxKey();
 
 	/**
 	 *	Allocate a CartIdx key over GenItem instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemByCartIdxKey newCartIdxKey();
+	YCFGenKbGenItemByCartIdxKey newCartIdxKey();
 
 	/**
 	 *	Allocate a RuleTypeIdx key over GenItem instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemByRuleTypeIdxKey newRuleTypeIdxKey();
+	YCFGenKbGenItemByRuleTypeIdxKey newRuleTypeIdxKey();
 
 	/**
 	 *	Allocate a ToolSetIdx key over GenItem instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemByToolSetIdxKey newToolSetIdxKey();
+	YCFGenKbGenItemByToolSetIdxKey newToolSetIdxKey();
 
 	/**
 	 *	Allocate a ScopeIdx key over GenItem instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemByScopeIdxKey newScopeIdxKey();
+	YCFGenKbGenItemByScopeIdxKey newScopeIdxKey();
 
 	/**
 	 *	Allocate a GenDefIdx key over GenItem instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemByGenDefIdxKey newGenDefIdxKey();
+	YCFGenKbGenItemByGenDefIdxKey newGenDefIdxKey();
 
 	/**
 	 *	Allocate a AltIdx key over GenItem instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemByAltIdxKey newAltIdxKey();
+	YCFGenKbGenItemByAltIdxKey newAltIdxKey();
 
 	/**
 	 *	Allocate a GelExecIdx key over GenItem instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemByGelExecIdxKey newGelExecIdxKey();
+	YCFGenKbGenItemByGelExecIdxKey newGelExecIdxKey();
 
 	/**
 	 *	Allocate a ProbeIdx key over GenItem instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemByProbeIdxKey newProbeIdxKey();
+	YCFGenKbGenItemByProbeIdxKey newProbeIdxKey();
 
 	/**
 	 *	Allocate a GenItem instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFGenKbGenItemBuff newBuff();
+	YCFGenKbGenItemBuff newBuff();
 
 }

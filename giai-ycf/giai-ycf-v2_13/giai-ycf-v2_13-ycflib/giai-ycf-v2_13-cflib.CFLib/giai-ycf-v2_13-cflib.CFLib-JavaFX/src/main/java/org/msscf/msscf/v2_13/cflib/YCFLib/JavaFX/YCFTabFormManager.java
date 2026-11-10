@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 JavaFX Support
+ *	MSS Code Factory YCFLib 2.13 JavaFX Support
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,25 +21,25 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib.JavaFX;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX;
 
 import java.util.LinkedList;
 import javafx.scene.Node;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.JavaFX.CFTab;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.JavaFX.YCFTab;
 
 /**
- *	The ICFDesktopManager specifies the interface from an application's
+ *	The IYCFDesktopManager specifies the interface from an application's
  *	forms to the desktop display manager in charge of that facet of forms.
  */
-public abstract class CFTabFormManager
-extends CFTab
-implements ICFFormManager
+public abstract class YCFTabFormManager
+extends YCFTab
+implements IYCFFormManager
 {
 	protected LinkedList<Node> formStack = new LinkedList<Node>();
 
-	public CFTabFormManager() {
+	public YCFTabFormManager() {
 		super();
 	}
 	
@@ -62,19 +62,19 @@ implements ICFFormManager
 	public void setRootForm( Node value ) {
 		final String S_ProcName = "setRootForm";
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"value" );
 		}
-		if( ! ( value instanceof ICFForm ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+		if( ! ( value instanceof IYCFForm ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
-				"Specified node value can not be cast to ICFForm" );
+				"Specified node value can not be cast to IYCFForm" );
 		}
 		while( ! formStack.isEmpty() ) {
 			Node top = formStack.getLast();
-			ICFForm form = (ICFForm)top;
+			IYCFForm form = (IYCFForm)top;
 			try {
 				form.forceCancelAndClose();
 			}
@@ -100,15 +100,15 @@ implements ICFFormManager
 	public void pushForm( Node value ) {
 		final String S_ProcName = "pushForm";
 		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
+			throw new YCFLibNullArgumentException( getClass(),
 				S_ProcName,
 				1,
 				"value" );
 		}
-		if( ! ( value instanceof ICFForm ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+		if( ! ( value instanceof IYCFForm ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				S_ProcName,
-				"Specified node value can not be cast to ICFForm" );
+				"Specified node value can not be cast to IYCFForm" );
 		}
 		formStack.add( value );
 		setContent( value );

@@ -2,17 +2,17 @@
 // Description: Java 11 Factory interface for Value.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,15 +54,15 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
 /*
- *	CFBamValueFactory interface for Value
+ *	YCFBamValueFactory interface for Value
  */
-public interface ICFBamValueFactory
+public interface IYCFBamValueFactory
 {
 
 	/**
@@ -70,97 +70,97 @@ public interface ICFBamValueFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValuePKey newPKey();
+	YCFBamValuePKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueHPKey newHPKey();
+	YCFBamValueHPKey newHPKey();
 
 	/**
 	 *	Allocate a UNameIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByUNameIdxKey newUNameIdxKey();
+	YCFBamValueByUNameIdxKey newUNameIdxKey();
 
 	/**
 	 *	Allocate a ValTentIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByValTentIdxKey newValTentIdxKey();
+	YCFBamValueByValTentIdxKey newValTentIdxKey();
 
 	/**
 	 *	Allocate a ScopeIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByScopeIdxKey newScopeIdxKey();
+	YCFBamValueByScopeIdxKey newScopeIdxKey();
 
 	/**
 	 *	Allocate a DefSchemaIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByDefSchemaIdxKey newDefSchemaIdxKey();
+	YCFBamValueByDefSchemaIdxKey newDefSchemaIdxKey();
 
 	/**
 	 *	Allocate a PrevIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByPrevIdxKey newPrevIdxKey();
+	YCFBamValueByPrevIdxKey newPrevIdxKey();
 
 	/**
 	 *	Allocate a NextIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByNextIdxKey newNextIdxKey();
+	YCFBamValueByNextIdxKey newNextIdxKey();
 
 	/**
 	 *	Allocate a ContPrevIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByContPrevIdxKey newContPrevIdxKey();
+	YCFBamValueByContPrevIdxKey newContPrevIdxKey();
 
 	/**
 	 *	Allocate a ContNextIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByContNextIdxKey newContNextIdxKey();
+	YCFBamValueByContNextIdxKey newContNextIdxKey();
 
 	/**
 	 *	Allocate a CodeVisIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByCodeVisIdxKey newCodeVisIdxKey();
+	YCFBamValueByCodeVisIdxKey newCodeVisIdxKey();
 
 	/**
 	 *	Allocate a ScopeCodeVisIdx key over Value instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueByScopeCodeVisIdxKey newScopeCodeVisIdxKey();
+	YCFBamValueByScopeCodeVisIdxKey newScopeCodeVisIdxKey();
 
 	/**
 	 *	Allocate a Value instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueBuff newBuff();
+	YCFBamValueBuff newBuff();
 
 	/**
 	 *	Allocate a Value history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFBamValueHBuff newHBuff();
+	YCFBamValueHBuff newHBuff();
 
 }

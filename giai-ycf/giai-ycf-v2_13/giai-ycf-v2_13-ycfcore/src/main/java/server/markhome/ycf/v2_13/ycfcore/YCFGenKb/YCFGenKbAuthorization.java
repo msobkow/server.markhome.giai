@@ -1,11 +1,11 @@
-// Description: Java 11 CFGenKb Authorization Interface.
+// Description: Java 11 YCFGenKb Authorization Interface.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -35,20 +35,20 @@ import java.net.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.ICFGenKbClusterObj;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.ICFGenKbTenantObj;
-import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.ICFGenKbSecSessionObj;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.IYCFGenKbClusterObj;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.IYCFGenKbTenantObj;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj.IYCFGenKbSecSessionObj;
 
 /*
- *	A CFGenKbAuthorization is an authorization ticket
+ *	A YCFGenKbAuthorization is an authorization ticket
  *	for the system providing services.  For example, a
  *	database layer implements an Authorization that
  *	resolves a database connection (which may be under the
  *	control of an active cursor).
  */
-public class CFGenKbAuthorization
+public class YCFGenKbAuthorization
 	implements Serializable
 {
 	protected UUID authUUID;
@@ -59,7 +59,7 @@ public class CFGenKbAuthorization
 	protected UUID secSessionId = UUID.randomUUID();
 	protected UUID secUserId = UUID.randomUUID();
 
-	public CFGenKbAuthorization() {
+	public YCFGenKbAuthorization() {
 		authUUID = UUID.randomUUID();
 		authUUIDStr = authUUID.toString();
 	}
@@ -85,7 +85,7 @@ public class CFGenKbAuthorization
 		secClusterId = clusterId;
 	}
 
-	public void setSecCluster( ICFGenKbClusterObj value ) {
+	public void setSecCluster( IYCFGenKbClusterObj value ) {
 		// The cluster id is never cleared to 0 after it's been set
 		if( value != null ) {
 			secClusterId = value.getRequiredId();
@@ -100,7 +100,7 @@ public class CFGenKbAuthorization
 		secTenantId = tenantId;
 	}
 
-	public void setSecTenant( ICFGenKbTenantObj value ) {
+	public void setSecTenant( IYCFGenKbTenantObj value ) {
 		// The tenant id is never cleared to 0 after it's been set
 		if( value != null ) {
 			secTenantId = value.getRequiredId();
@@ -115,7 +115,7 @@ public class CFGenKbAuthorization
 		secSessionId = sessionId;
 	}
 
-	public void setSecSession( ICFGenKbSecSessionObj value )
+	public void setSecSession( IYCFGenKbSecSessionObj value )
 	{
 		// The session and user id are never cleared after they've been set
 		if( value != null ) {

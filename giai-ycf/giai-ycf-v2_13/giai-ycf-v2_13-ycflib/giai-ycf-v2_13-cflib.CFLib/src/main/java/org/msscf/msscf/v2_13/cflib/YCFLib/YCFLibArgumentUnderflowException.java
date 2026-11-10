@@ -1,5 +1,5 @@
 /*
- *	MSS Code Factory CFLib 2.13 Common Application Functionality
+ *	MSS Code Factory YCFLib 2.13 Common Application Functionality
  *
  *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
  *	
@@ -21,20 +21,20 @@
  *	for a commercial license at mark.sobkow@gmail.com
  */
 
-package org.msscf.msscf.v2_13.cflib.CFLib;
+package org.mssycf.mssycf.v2_13.ycflib.YCFLib;
 
 import java.util.Calendar;
 import java.math.*;
 
-public class CFLibArgumentUnderflowException extends CFLibArgumentException {
+public class YCFLibArgumentUnderflowException extends YCFLibArgumentException {
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String msg )
 	{
 		super( msg );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		String msg )
@@ -42,7 +42,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 		super( throwingClass, methName, msg );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		String msg,
@@ -51,7 +51,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 		super( throwingClass, methName, msg, th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -61,7 +61,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 		super( throwingClass, methName, argNo, argName, msg );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -72,7 +72,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 		super( throwingClass, methName, argNo, argName, msg, th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -86,7 +86,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Short.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -102,7 +102,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -116,7 +116,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Integer.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -132,7 +132,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -146,7 +146,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Long.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -162,7 +162,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -176,7 +176,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Float.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -192,7 +192,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -206,7 +206,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Double.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -222,7 +222,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -236,7 +236,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -252,7 +252,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -266,7 +266,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -282,7 +282,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -296,7 +296,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		Class throwingClass,
 		String methName,
 		int argNo,
@@ -312,14 +312,14 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String msg )
 	{
 		super( fieldName, msg );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		String msg )
@@ -327,7 +327,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 		super( fieldName, methName, msg );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		String msg,
@@ -336,7 +336,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 		super( fieldName, methName, msg, th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -346,7 +346,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 		super( fieldName, methName, argNo, argName, msg );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -357,7 +357,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 		super( fieldName, methName, argNo, argName, msg, th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -371,7 +371,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Short.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -387,7 +387,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -401,7 +401,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Integer.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -417,7 +417,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -431,7 +431,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Long.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -447,7 +447,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -461,7 +461,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Float.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -477,7 +477,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -491,7 +491,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ Double.toString( maxValue ) );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -507,7 +507,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -521,7 +521,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -537,7 +537,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -551,7 +551,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -567,7 +567,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 			th );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,
@@ -581,7 +581,7 @@ public class CFLibArgumentUnderflowException extends CFLibArgumentException {
 				+ maxValue.toString() );
 	}
 
-	public CFLibArgumentUnderflowException(
+	public YCFLibArgumentUnderflowException(
 		String fieldName,
 		String methName,
 		int argNo,

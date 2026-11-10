@@ -1,17 +1,17 @@
 // Description: Java 11 implementation of a UInt64Def history buffer object.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -25,18 +25,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -45,7 +45,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -55,31 +55,31 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
 
-public class CFBamUInt64DefHBuff
-	extends CFBamAtomHBuff
+public class YCFBamUInt64DefHBuff
+	extends YCFBamAtomHBuff
 	implements Comparable<Object>,
 		Serializable
 {
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
-	public static final BigDecimal INITVALUE_INIT_VALUE = CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.InitValue", 19, 0, "0" );
-	public static final BigDecimal MINVALUE_INIT_VALUE = CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.MinValue", 19, 0, "0" );
-	public static final BigDecimal MAXVALUE_INIT_VALUE = CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.MaxValue", 19, 0, "0" );
+	public static final BigDecimal INITVALUE_INIT_VALUE = YCFLibBigDecimalUtil.parse( "YCFBam.UInt64Def.InitValue", 19, 0, "0" );
+	public static final BigDecimal MINVALUE_INIT_VALUE = YCFLibBigDecimalUtil.parse( "YCFBam.UInt64Def.MinValue", 19, 0, "0" );
+	public static final BigDecimal MAXVALUE_INIT_VALUE = YCFLibBigDecimalUtil.parse( "YCFBam.UInt64Def.MaxValue", 19, 0, "0" );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
-	public static final BigDecimal INITVALUE_MIN_VALUE = CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.InitValue", 19, 0, "0" );
-	public static final BigDecimal MINVALUE_MIN_VALUE = CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.MinValue", 19, 0, "0" );
-	public static final BigDecimal MAXVALUE_MIN_VALUE = CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.MaxValue", 19, 0, "0" );
+	public static final BigDecimal INITVALUE_MIN_VALUE = YCFLibBigDecimalUtil.parse( "YCFBam.UInt64Def.InitValue", 19, 0, "0" );
+	public static final BigDecimal MINVALUE_MIN_VALUE = YCFLibBigDecimalUtil.parse( "YCFBam.UInt64Def.MinValue", 19, 0, "0" );
+	public static final BigDecimal MAXVALUE_MIN_VALUE = YCFLibBigDecimalUtil.parse( "YCFBam.UInt64Def.MaxValue", 19, 0, "0" );
 
 	protected BigDecimal optionalInitValue;
 	protected BigDecimal optionalMinValue;
 	protected BigDecimal optionalMaxValue;
-	public CFBamUInt64DefHBuff() {
+	public YCFBamUInt64DefHBuff() {
 		super();
 		optionalInitValue = null;
 		optionalMinValue = null;
@@ -87,7 +87,7 @@ public class CFBamUInt64DefHBuff
 	}
 
 	public String getClassCode() {
-		return( CFBamUInt64DefBuff.CLASS_CODE );
+		return( YCFBamUInt64DefBuff.CLASS_CODE );
 	}
 
 	public BigDecimal getOptionalInitValue() {
@@ -98,16 +98,16 @@ public class CFBamUInt64DefHBuff
 		if( value == null ) {
 			optionalInitValue = null;
 		}
-		else if( value.compareTo( CFBamUInt64DefBuff.INITVALUE_MIN_VALUE ) < 0 ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value.compareTo( YCFBamUInt64DefBuff.INITVALUE_MIN_VALUE ) < 0 ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalInitValue",
 				1,
 				"value",
 				value.toString(),
-				CFBamUInt64DefBuff.INITVALUE_MIN_VALUE.toString() );
+				YCFBamUInt64DefBuff.INITVALUE_MIN_VALUE.toString() );
 		}
 		else {
-			optionalInitValue = CFLibBigDecimalUtil.coerce( getClass().getName() + ".InitValue", 19, 0, value );
+			optionalInitValue = YCFLibBigDecimalUtil.coerce( getClass().getName() + ".InitValue", 19, 0, value );
 		}
 	}
 
@@ -119,16 +119,16 @@ public class CFBamUInt64DefHBuff
 		if( value == null ) {
 			optionalMinValue = null;
 		}
-		else if( value.compareTo( CFBamUInt64DefBuff.MINVALUE_MIN_VALUE ) < 0 ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value.compareTo( YCFBamUInt64DefBuff.MINVALUE_MIN_VALUE ) < 0 ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalMinValue",
 				1,
 				"value",
 				value.toString(),
-				CFBamUInt64DefBuff.MINVALUE_MIN_VALUE.toString() );
+				YCFBamUInt64DefBuff.MINVALUE_MIN_VALUE.toString() );
 		}
 		else {
-			optionalMinValue = CFLibBigDecimalUtil.coerce( getClass().getName() + ".MinValue", 19, 0, value );
+			optionalMinValue = YCFLibBigDecimalUtil.coerce( getClass().getName() + ".MinValue", 19, 0, value );
 		}
 	}
 
@@ -140,16 +140,16 @@ public class CFBamUInt64DefHBuff
 		if( value == null ) {
 			optionalMaxValue = null;
 		}
-		else if( value.compareTo( CFBamUInt64DefBuff.MAXVALUE_MIN_VALUE ) < 0 ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		else if( value.compareTo( YCFBamUInt64DefBuff.MAXVALUE_MIN_VALUE ) < 0 ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setOptionalMaxValue",
 				1,
 				"value",
 				value.toString(),
-				CFBamUInt64DefBuff.MAXVALUE_MIN_VALUE.toString() );
+				YCFBamUInt64DefBuff.MAXVALUE_MIN_VALUE.toString() );
 		}
 		else {
-			optionalMaxValue = CFLibBigDecimalUtil.coerce( getClass().getName() + ".MaxValue", 19, 0, value );
+			optionalMaxValue = YCFLibBigDecimalUtil.coerce( getClass().getName() + ".MaxValue", 19, 0, value );
 		}
 	}
 
@@ -157,8 +157,8 @@ public class CFBamUInt64DefHBuff
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFBamUInt64DefHBuff ) {
-			CFBamUInt64DefHBuff rhs = (CFBamUInt64DefHBuff)obj;
+		else if( obj instanceof YCFBamUInt64DefHBuff ) {
+			YCFBamUInt64DefHBuff rhs = (YCFBamUInt64DefHBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -206,8 +206,8 @@ public class CFBamUInt64DefHBuff
 			}
 			return( true );
 		}
-		else if( obj instanceof CFBamUInt64DefBuff ) {
-			CFBamUInt64DefBuff rhs = (CFBamUInt64DefBuff)obj;
+		else if( obj instanceof YCFBamUInt64DefBuff ) {
+			YCFBamUInt64DefBuff rhs = (YCFBamUInt64DefBuff)obj;
 			if( ! super.equals( obj ) ) {
 				return( false );
 			}
@@ -278,16 +278,16 @@ public class CFBamUInt64DefHBuff
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFBamUInt64DefBuff ) {
-			CFBamUInt64DefBuff rhs = (CFBamUInt64DefBuff)obj;
+		else if( obj instanceof YCFBamUInt64DefBuff ) {
+			YCFBamUInt64DefBuff rhs = (YCFBamUInt64DefBuff)obj;
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFBamUInt64DefHBuff ) {
-			CFBamUInt64DefHBuff rhs = (CFBamUInt64DefHBuff)obj;
+		else if( obj instanceof YCFBamUInt64DefHBuff ) {
+			YCFBamUInt64DefHBuff rhs = (YCFBamUInt64DefHBuff)obj;
 
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
@@ -692,40 +692,40 @@ public class CFBamUInt64DefHBuff
 		}
 	}
 
-	public void set( CFBamValueBuff src ) {
-		if( src instanceof CFBamUInt64DefBuff ) {
-			setUInt64DefBuff( (CFBamUInt64DefBuff)src );
+	public void set( YCFBamValueBuff src ) {
+		if( src instanceof YCFBamUInt64DefBuff ) {
+			setUInt64DefBuff( (YCFBamUInt64DefBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamUInt64DefBuff" );
+				"YCFBamUInt64DefBuff" );
 		}
 	}
 
-	public void setUInt64DefBuff( CFBamUInt64DefBuff src ) {
+	public void setUInt64DefBuff( YCFBamUInt64DefBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalInitValue( src.getOptionalInitValue() );
 		setOptionalMinValue( src.getOptionalMinValue() );
 		setOptionalMaxValue( src.getOptionalMaxValue() );
 	}
 
-	public void set( CFBamValueHBuff src ) {
-		if( src instanceof CFBamUInt64DefHBuff ) {
-			setUInt64DefBuff( (CFBamUInt64DefHBuff)src );
+	public void set( YCFBamValueHBuff src ) {
+		if( src instanceof YCFBamUInt64DefHBuff ) {
+			setUInt64DefBuff( (YCFBamUInt64DefHBuff)src );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"src",
 				src,
-				"CFBamUInt64DefHBuff" );
+				"YCFBamUInt64DefHBuff" );
 		}
 	}
 
-	public void setUInt64DefBuff( CFBamUInt64DefHBuff src ) {
+	public void setUInt64DefBuff( YCFBamUInt64DefHBuff src ) {
 		super.setAtomBuff( src );
 		setOptionalInitValue( src.getOptionalInitValue() );
 		setOptionalMinValue( src.getOptionalMinValue() );

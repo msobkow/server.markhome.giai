@@ -1,15 +1,15 @@
-// Description: Java 11 XML SAX Parser for CFSec.
+// Description: Java 11 XML SAX Parser for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecSaxLoader;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecSaxLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,48 +43,48 @@ import javax.sql.*;
 import org.apache.commons.codec.binary.Base64;
 import org.xml.sax.*;
 
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
-public class CFSecSaxLoader
-	extends CFLibXmlCoreSaxParser
+public class YCFSecSaxLoader
+	extends YCFLibXmlCoreSaxParser
 	implements ContentHandler
 {
 
 	// The namespace URI of the supported schema
-	public final static String	SCHEMA_XMLNS = "http://mcf.markhome.server/msscf/2.0.13/xsd/cfsec-structured.xsd";
+	public final static String	SCHEMA_XMLNS = "http://mycf.markhome.server/mssycf/2.0.13/xsd/ycfsec-structured.xsd";
 
 	// The source for loading the supported schema
-	public final static String	SCHEMA_URI = "http://mcf.markhome.server/msscf/2.0.13/xsd/cfsec-structured.xsd";
-	public final static String	SCHEMA_ROOT_URI = "http://mcf.markhome.server/msscf/2.0.13/xsd/cfsec-structured.xsd";
+	public final static String	SCHEMA_URI = "http://mycf.markhome.server/mssycf/2.0.13/xsd/ycfsec-structured.xsd";
+	public final static String	SCHEMA_ROOT_URI = "http://mycf.markhome.server/mssycf/2.0.13/xsd/ycfsec-structured.xsd";
 
 	// The schema instance to load in to
 
-	private ICFSecSchemaObj schemaObj = null;
+	private IYCFSecSchemaObj schemaObj = null;
 
 	// The cluster to use for loading
 
-	private ICFSecClusterObj useCluster = null;
+	private IYCFSecClusterObj useCluster = null;
 
-	public ICFSecClusterObj getUseCluster() {
+	public IYCFSecClusterObj getUseCluster() {
 		return( useCluster );
 	}
 
-	public void setUseCluster( ICFSecClusterObj value ) {
+	public void setUseCluster( IYCFSecClusterObj value ) {
 		useCluster = value;
 	}
 
 	// The tenant to use for loading
 
-	private ICFSecTenantObj useTenant = null;
+	private IYCFSecTenantObj useTenant = null;
 
-	public ICFSecTenantObj getUseTenant() {
+	public IYCFSecTenantObj getUseTenant() {
 		return( useTenant );
 	}
 
-	public void setUseTenant( ICFSecTenantObj value ) {
+	public void setUseTenant( IYCFSecTenantObj value ) {
 		useTenant = value;
 	}
 
@@ -123,13 +123,13 @@ public class CFSecSaxLoader
 
 	// Constructors
 
-	public CFSecSaxLoader() {
+	public YCFSecSaxLoader() {
 		super();
 		setRootElementHandler( getSaxRootHandler() );
 		initParser();
 	}
 
-	public CFSecSaxLoader( ICFLibMessageLog logger ) {
+	public YCFSecSaxLoader( IYCFLibMessageLog logger ) {
 		super( logger );
 		setRootElementHandler( getSaxRootHandler() );
 		initParser();
@@ -137,51 +137,51 @@ public class CFSecSaxLoader
 
 	// Element Handler instances
 
-	private CFSecSaxLoaderCluster clusterHandler = null;
-	private CFSecSaxLoaderHostNode hostNodeHandler = null;
-	private CFSecSaxLoaderISOCcy iSOCcyHandler = null;
-	private CFSecSaxLoaderISOCtry iSOCtryHandler = null;
-	private CFSecSaxLoaderISOCtryCcy iSOCtryCcyHandler = null;
-	private CFSecSaxLoaderISOCtryLang iSOCtryLangHandler = null;
-	private CFSecSaxLoaderISOLang iSOLangHandler = null;
-	private CFSecSaxLoaderISOTZone iSOTZoneHandler = null;
-	private CFSecSaxLoaderSecApp secAppHandler = null;
-	private CFSecSaxLoaderSecDevice secDeviceHandler = null;
-	private CFSecSaxLoaderSecForm secFormHandler = null;
-	private CFSecSaxLoaderSecGroup secGroupHandler = null;
-	private CFSecSaxLoaderSecGroupForm secGroupFormHandler = null;
-	private CFSecSaxLoaderSecGrpInc secGrpIncHandler = null;
-	private CFSecSaxLoaderSecGrpMemb secGrpMembHandler = null;
-	private CFSecSaxLoaderSecSession secSessionHandler = null;
-	private CFSecSaxLoaderSecUser secUserHandler = null;
-	private CFSecSaxLoaderService serviceHandler = null;
-	private CFSecSaxLoaderServiceType serviceTypeHandler = null;
-	private CFSecSaxLoaderSysCluster sysClusterHandler = null;
-	private CFSecSaxLoaderTSecGroup tSecGroupHandler = null;
-	private CFSecSaxLoaderTSecGrpInc tSecGrpIncHandler = null;
-	private CFSecSaxLoaderTSecGrpMemb tSecGrpMembHandler = null;
-	private CFSecSaxLoaderTenant tenantHandler = null;
-	private CFSecSaxRootHandler saxRootHandler = null;
+	private YCFSecSaxLoaderCluster clusterHandler = null;
+	private YCFSecSaxLoaderHostNode hostNodeHandler = null;
+	private YCFSecSaxLoaderISOCcy iSOCcyHandler = null;
+	private YCFSecSaxLoaderISOCtry iSOCtryHandler = null;
+	private YCFSecSaxLoaderISOCtryCcy iSOCtryCcyHandler = null;
+	private YCFSecSaxLoaderISOCtryLang iSOCtryLangHandler = null;
+	private YCFSecSaxLoaderISOLang iSOLangHandler = null;
+	private YCFSecSaxLoaderISOTZone iSOTZoneHandler = null;
+	private YCFSecSaxLoaderSecApp secAppHandler = null;
+	private YCFSecSaxLoaderSecDevice secDeviceHandler = null;
+	private YCFSecSaxLoaderSecForm secFormHandler = null;
+	private YCFSecSaxLoaderSecGroup secGroupHandler = null;
+	private YCFSecSaxLoaderSecGroupForm secGroupFormHandler = null;
+	private YCFSecSaxLoaderSecGrpInc secGrpIncHandler = null;
+	private YCFSecSaxLoaderSecGrpMemb secGrpMembHandler = null;
+	private YCFSecSaxLoaderSecSession secSessionHandler = null;
+	private YCFSecSaxLoaderSecUser secUserHandler = null;
+	private YCFSecSaxLoaderService serviceHandler = null;
+	private YCFSecSaxLoaderServiceType serviceTypeHandler = null;
+	private YCFSecSaxLoaderSysCluster sysClusterHandler = null;
+	private YCFSecSaxLoaderTSecGroup tSecGroupHandler = null;
+	private YCFSecSaxLoaderTSecGrpInc tSecGrpIncHandler = null;
+	private YCFSecSaxLoaderTSecGrpMemb tSecGrpMembHandler = null;
+	private YCFSecSaxLoaderTenant tenantHandler = null;
+	private YCFSecSaxRootHandler saxRootHandler = null;
 
-	private CFSecSaxDocHandler saxDocHandler = null;
+	private YCFSecSaxDocHandler saxDocHandler = null;
 
 	// Schema object accessors
 
 	// SchemaObj accessors
 
-	public ICFSecSchemaObj getSchemaObj() {
+	public IYCFSecSchemaObj getSchemaObj() {
 		return( schemaObj );
 	}
 
-	public void setSchemaObj( ICFSecSchemaObj value ) {
+	public void setSchemaObj( IYCFSecSchemaObj value ) {
 		schemaObj = value;
 	}
 
 	// Element Handler Resolver Factories
 
-	protected CFSecSaxLoaderCluster getClusterHandler() {
+	protected YCFSecSaxLoaderCluster getClusterHandler() {
 		if( clusterHandler == null ) {
-			clusterHandler = new CFSecSaxLoaderCluster( this );
+			clusterHandler = new YCFSecSaxLoaderCluster( this );
 			clusterHandler.addElementHandler( "HostNode", getHostNodeHandler() );
 			clusterHandler.addElementHandler( "Tenant", getTenantHandler() );
 			clusterHandler.addElementHandler( "SecApp", getSecAppHandler() );
@@ -190,162 +190,162 @@ public class CFSecSaxLoader
 		}
 		return( clusterHandler );
 	}
-	protected CFSecSaxLoaderHostNode getHostNodeHandler() {
+	protected YCFSecSaxLoaderHostNode getHostNodeHandler() {
 		if( hostNodeHandler == null ) {
-			hostNodeHandler = new CFSecSaxLoaderHostNode( this );
+			hostNodeHandler = new YCFSecSaxLoaderHostNode( this );
 			hostNodeHandler.addElementHandler( "Service", getServiceHandler() );
 		}
 		return( hostNodeHandler );
 	}
-	protected CFSecSaxLoaderISOCcy getISOCcyHandler() {
+	protected YCFSecSaxLoaderISOCcy getISOCcyHandler() {
 		if( iSOCcyHandler == null ) {
-			iSOCcyHandler = new CFSecSaxLoaderISOCcy( this );
+			iSOCcyHandler = new YCFSecSaxLoaderISOCcy( this );
 		}
 		return( iSOCcyHandler );
 	}
-	protected CFSecSaxLoaderISOCtry getISOCtryHandler() {
+	protected YCFSecSaxLoaderISOCtry getISOCtryHandler() {
 		if( iSOCtryHandler == null ) {
-			iSOCtryHandler = new CFSecSaxLoaderISOCtry( this );
+			iSOCtryHandler = new YCFSecSaxLoaderISOCtry( this );
 			iSOCtryHandler.addElementHandler( "ISOCtryCcy", getISOCtryCcyHandler() );
 			iSOCtryHandler.addElementHandler( "ISOCtryLang", getISOCtryLangHandler() );
 		}
 		return( iSOCtryHandler );
 	}
-	protected CFSecSaxLoaderISOCtryCcy getISOCtryCcyHandler() {
+	protected YCFSecSaxLoaderISOCtryCcy getISOCtryCcyHandler() {
 		if( iSOCtryCcyHandler == null ) {
-			iSOCtryCcyHandler = new CFSecSaxLoaderISOCtryCcy( this );
+			iSOCtryCcyHandler = new YCFSecSaxLoaderISOCtryCcy( this );
 		}
 		return( iSOCtryCcyHandler );
 	}
-	protected CFSecSaxLoaderISOCtryLang getISOCtryLangHandler() {
+	protected YCFSecSaxLoaderISOCtryLang getISOCtryLangHandler() {
 		if( iSOCtryLangHandler == null ) {
-			iSOCtryLangHandler = new CFSecSaxLoaderISOCtryLang( this );
+			iSOCtryLangHandler = new YCFSecSaxLoaderISOCtryLang( this );
 		}
 		return( iSOCtryLangHandler );
 	}
-	protected CFSecSaxLoaderISOLang getISOLangHandler() {
+	protected YCFSecSaxLoaderISOLang getISOLangHandler() {
 		if( iSOLangHandler == null ) {
-			iSOLangHandler = new CFSecSaxLoaderISOLang( this );
+			iSOLangHandler = new YCFSecSaxLoaderISOLang( this );
 		}
 		return( iSOLangHandler );
 	}
-	protected CFSecSaxLoaderISOTZone getISOTZoneHandler() {
+	protected YCFSecSaxLoaderISOTZone getISOTZoneHandler() {
 		if( iSOTZoneHandler == null ) {
-			iSOTZoneHandler = new CFSecSaxLoaderISOTZone( this );
+			iSOTZoneHandler = new YCFSecSaxLoaderISOTZone( this );
 		}
 		return( iSOTZoneHandler );
 	}
-	protected CFSecSaxLoaderSecApp getSecAppHandler() {
+	protected YCFSecSaxLoaderSecApp getSecAppHandler() {
 		if( secAppHandler == null ) {
-			secAppHandler = new CFSecSaxLoaderSecApp( this );
+			secAppHandler = new YCFSecSaxLoaderSecApp( this );
 			secAppHandler.addElementHandler( "SecForm", getSecFormHandler() );
 		}
 		return( secAppHandler );
 	}
-	protected CFSecSaxLoaderSecDevice getSecDeviceHandler() {
+	protected YCFSecSaxLoaderSecDevice getSecDeviceHandler() {
 		if( secDeviceHandler == null ) {
-			secDeviceHandler = new CFSecSaxLoaderSecDevice( this );
+			secDeviceHandler = new YCFSecSaxLoaderSecDevice( this );
 		}
 		return( secDeviceHandler );
 	}
-	protected CFSecSaxLoaderSecForm getSecFormHandler() {
+	protected YCFSecSaxLoaderSecForm getSecFormHandler() {
 		if( secFormHandler == null ) {
-			secFormHandler = new CFSecSaxLoaderSecForm( this );
+			secFormHandler = new YCFSecSaxLoaderSecForm( this );
 		}
 		return( secFormHandler );
 	}
-	protected CFSecSaxLoaderSecGroup getSecGroupHandler() {
+	protected YCFSecSaxLoaderSecGroup getSecGroupHandler() {
 		if( secGroupHandler == null ) {
-			secGroupHandler = new CFSecSaxLoaderSecGroup( this );
+			secGroupHandler = new YCFSecSaxLoaderSecGroup( this );
 			secGroupHandler.addElementHandler( "SecGrpInc", getSecGrpIncHandler() );
 			secGroupHandler.addElementHandler( "SecGrpMemb", getSecGrpMembHandler() );
 			secGroupHandler.addElementHandler( "SecGroupForm", getSecGroupFormHandler() );
 		}
 		return( secGroupHandler );
 	}
-	protected CFSecSaxLoaderSecGroupForm getSecGroupFormHandler() {
+	protected YCFSecSaxLoaderSecGroupForm getSecGroupFormHandler() {
 		if( secGroupFormHandler == null ) {
-			secGroupFormHandler = new CFSecSaxLoaderSecGroupForm( this );
+			secGroupFormHandler = new YCFSecSaxLoaderSecGroupForm( this );
 		}
 		return( secGroupFormHandler );
 	}
-	protected CFSecSaxLoaderSecGrpInc getSecGrpIncHandler() {
+	protected YCFSecSaxLoaderSecGrpInc getSecGrpIncHandler() {
 		if( secGrpIncHandler == null ) {
-			secGrpIncHandler = new CFSecSaxLoaderSecGrpInc( this );
+			secGrpIncHandler = new YCFSecSaxLoaderSecGrpInc( this );
 		}
 		return( secGrpIncHandler );
 	}
-	protected CFSecSaxLoaderSecGrpMemb getSecGrpMembHandler() {
+	protected YCFSecSaxLoaderSecGrpMemb getSecGrpMembHandler() {
 		if( secGrpMembHandler == null ) {
-			secGrpMembHandler = new CFSecSaxLoaderSecGrpMemb( this );
+			secGrpMembHandler = new YCFSecSaxLoaderSecGrpMemb( this );
 		}
 		return( secGrpMembHandler );
 	}
-	protected CFSecSaxLoaderSecSession getSecSessionHandler() {
+	protected YCFSecSaxLoaderSecSession getSecSessionHandler() {
 		if( secSessionHandler == null ) {
-			secSessionHandler = new CFSecSaxLoaderSecSession( this );
+			secSessionHandler = new YCFSecSaxLoaderSecSession( this );
 		}
 		return( secSessionHandler );
 	}
-	protected CFSecSaxLoaderSecUser getSecUserHandler() {
+	protected YCFSecSaxLoaderSecUser getSecUserHandler() {
 		if( secUserHandler == null ) {
-			secUserHandler = new CFSecSaxLoaderSecUser( this );
+			secUserHandler = new YCFSecSaxLoaderSecUser( this );
 			secUserHandler.addElementHandler( "SecDevice", getSecDeviceHandler() );
 			secUserHandler.addElementHandler( "SecSession", getSecSessionHandler() );
 		}
 		return( secUserHandler );
 	}
-	protected CFSecSaxLoaderService getServiceHandler() {
+	protected YCFSecSaxLoaderService getServiceHandler() {
 		if( serviceHandler == null ) {
-			serviceHandler = new CFSecSaxLoaderService( this );
+			serviceHandler = new YCFSecSaxLoaderService( this );
 		}
 		return( serviceHandler );
 	}
-	protected CFSecSaxLoaderServiceType getServiceTypeHandler() {
+	protected YCFSecSaxLoaderServiceType getServiceTypeHandler() {
 		if( serviceTypeHandler == null ) {
-			serviceTypeHandler = new CFSecSaxLoaderServiceType( this );
+			serviceTypeHandler = new YCFSecSaxLoaderServiceType( this );
 		}
 		return( serviceTypeHandler );
 	}
-	protected CFSecSaxLoaderSysCluster getSysClusterHandler() {
+	protected YCFSecSaxLoaderSysCluster getSysClusterHandler() {
 		if( sysClusterHandler == null ) {
-			sysClusterHandler = new CFSecSaxLoaderSysCluster( this );
+			sysClusterHandler = new YCFSecSaxLoaderSysCluster( this );
 		}
 		return( sysClusterHandler );
 	}
-	protected CFSecSaxLoaderTSecGroup getTSecGroupHandler() {
+	protected YCFSecSaxLoaderTSecGroup getTSecGroupHandler() {
 		if( tSecGroupHandler == null ) {
-			tSecGroupHandler = new CFSecSaxLoaderTSecGroup( this );
+			tSecGroupHandler = new YCFSecSaxLoaderTSecGroup( this );
 			tSecGroupHandler.addElementHandler( "TSecGrpInc", getTSecGrpIncHandler() );
 			tSecGroupHandler.addElementHandler( "TSecGrpMemb", getTSecGrpMembHandler() );
 		}
 		return( tSecGroupHandler );
 	}
-	protected CFSecSaxLoaderTSecGrpInc getTSecGrpIncHandler() {
+	protected YCFSecSaxLoaderTSecGrpInc getTSecGrpIncHandler() {
 		if( tSecGrpIncHandler == null ) {
-			tSecGrpIncHandler = new CFSecSaxLoaderTSecGrpInc( this );
+			tSecGrpIncHandler = new YCFSecSaxLoaderTSecGrpInc( this );
 		}
 		return( tSecGrpIncHandler );
 	}
-	protected CFSecSaxLoaderTSecGrpMemb getTSecGrpMembHandler() {
+	protected YCFSecSaxLoaderTSecGrpMemb getTSecGrpMembHandler() {
 		if( tSecGrpMembHandler == null ) {
-			tSecGrpMembHandler = new CFSecSaxLoaderTSecGrpMemb( this );
+			tSecGrpMembHandler = new YCFSecSaxLoaderTSecGrpMemb( this );
 		}
 		return( tSecGrpMembHandler );
 	}
-	protected CFSecSaxLoaderTenant getTenantHandler() {
+	protected YCFSecSaxLoaderTenant getTenantHandler() {
 		if( tenantHandler == null ) {
-			tenantHandler = new CFSecSaxLoaderTenant( this );
+			tenantHandler = new YCFSecSaxLoaderTenant( this );
 			tenantHandler.addElementHandler( "TSecGroup", getTSecGroupHandler() );
 		}
 		return( tenantHandler );
 	}
 	// Root Element Handler Resolver Factory
 
-	protected CFSecSaxRootHandler getSaxRootHandler() {
+	protected YCFSecSaxRootHandler getSaxRootHandler() {
 		if( saxRootHandler == null ) {
-			saxRootHandler = new CFSecSaxRootHandler( this );
-			saxRootHandler.addElementHandler( "CFSec", getSaxDocHandler() );
+			saxRootHandler = new YCFSecSaxRootHandler( this );
+			saxRootHandler.addElementHandler( "YCFSec", getSaxDocHandler() );
 		}
 		return( saxRootHandler );
 	}
@@ -353,12 +353,12 @@ public class CFSecSaxLoader
 	// Root Element Handler
 
 	/*
-	 *	CFSecSaxRootHandler XML SAX Root Element Handler implementation
+	 *	YCFSecSaxRootHandler XML SAX Root Element Handler implementation
 	 */
-	public class CFSecSaxRootHandler
-		extends CFLibXmlCoreElementHandler
+	public class YCFSecSaxRootHandler
+		extends YCFLibXmlCoreElementHandler
 	{
-		public CFSecSaxRootHandler( CFSecSaxLoader saxLoader ) {
+		public YCFSecSaxRootHandler( YCFSecSaxLoader saxLoader ) {
 			super( saxLoader );
 		}
 
@@ -382,9 +382,9 @@ public class CFSecSaxLoader
 
 	// Document Element Handler Resolver Factory
 
-	protected CFSecSaxDocHandler getSaxDocHandler() {
+	protected YCFSecSaxDocHandler getSaxDocHandler() {
 		if( saxDocHandler == null ) {
-			saxDocHandler = new CFSecSaxDocHandler( this );
+			saxDocHandler = new YCFSecSaxDocHandler( this );
 			saxDocHandler.addElementHandler( "Cluster", getClusterHandler() );
 			saxDocHandler.addElementHandler( "ISOCcy", getISOCcyHandler() );
 			saxDocHandler.addElementHandler( "ISOCtry", getISOCtryHandler() );
@@ -399,12 +399,12 @@ public class CFSecSaxLoader
 	// Document Element Handler
 
 	/*
-	 *	CFSecSaxDocHandler XML SAX Doc Element Handler implementation
+	 *	YCFSecSaxDocHandler XML SAX Doc Element Handler implementation
 	 */
-	public class CFSecSaxDocHandler
-		extends CFLibXmlCoreElementHandler
+	public class YCFSecSaxDocHandler
+		extends YCFLibXmlCoreElementHandler
 	{
-		public CFSecSaxDocHandler( CFSecSaxLoader saxLoader ) {
+		public YCFSecSaxDocHandler( YCFSecSaxLoader saxLoader ) {
 			super( saxLoader );
 		}
 

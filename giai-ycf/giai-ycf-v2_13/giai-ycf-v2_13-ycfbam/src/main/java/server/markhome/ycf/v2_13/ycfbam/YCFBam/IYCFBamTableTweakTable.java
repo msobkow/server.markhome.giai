@@ -2,17 +2,17 @@
 // Description: Java 11 DbIO interface for TableTweak.
 
 /*
- *	org.msscf.msscf.CFBam
+ *	org.mssycf.mssycf.YCFBam
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFBam 2.13 Business Application Model
+ *	Mark's Code Fractal YCFBam 2.13 Business Application Model
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Mark's Code Fractal YCFBam.
  *	
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Mark's Code Fractal YCFBam is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *	
@@ -26,18 +26,18 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *	
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Mark's Code Fractal YCFBam is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *	
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Mark's Code Fractal YCFBam is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *	
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see <https://www.gnu.org/licenses/>.
+ *	along with Mark's Code Fractal YCFBam.  If not, see <https://www.gnu.org/licenses/>.
  *	
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
@@ -46,7 +46,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfbam.CFBam;
+package org.mssycf.mssycf.v2_13.ycfbam.YCFBam;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -54,18 +54,18 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
-import org.msscf.msscf.v2_13.cfint.CFInt.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
-import org.msscf.msscf.v2_13.cfint.CFIntObj.*;
-import org.msscf.msscf.v2_13.cfbam.CFBamObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFInt.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycfint.YCFIntObj.*;
+import org.mssycf.mssycf.v2_13.ycfbam.YCFBamObj.*;
 
 /*
- *	CFBamTableTweakTable database interface for TableTweak
+ *	YCFBamTableTweakTable database interface for TableTweak
  */
-public interface ICFBamTableTweakTable
+public interface IYCFBamTableTweakTable
 {
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createTableTweak( CFSecAuthorization Authorization,
-		CFBamTableTweakBuff Buff );
+	void createTableTweak( YCFSecAuthorization Authorization,
+		YCFBamTableTweakBuff Buff );
 
 
 	/**
@@ -88,8 +88,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateTableTweak( CFSecAuthorization Authorization,
-		CFBamTableTweakBuff Buff );
+	void updateTableTweak( YCFSecAuthorization Authorization,
+		YCFBamTableTweakBuff Buff );
 
 
 	/**
@@ -99,8 +99,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteTableTweak( CFSecAuthorization Authorization,
-		CFBamTableTweakBuff Buff );
+	void deleteTableTweak( YCFSecAuthorization Authorization,
+		YCFBamTableTweakBuff Buff );
 	/**
 	 *	Delete the TableTweak instances identified by the key TableIdx.
 	 *
@@ -110,7 +110,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argTableId	The TableTweak key attribute of the instance generating the id.
 	 */
-	void deleteTableTweakByTableIdx( CFSecAuthorization Authorization,
+	void deleteTableTweakByTableIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argTableId );
 
@@ -121,8 +121,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTableTweakByTableIdx( CFSecAuthorization Authorization,
-		CFBamTableTweakByTableIdxKey argKey );
+	void deleteTableTweakByTableIdx( YCFSecAuthorization Authorization,
+		YCFBamTableTweakByTableIdxKey argKey );
 	/**
 	 *	Delete the TableTweak instance identified by the primary key attributes.
 	 *
@@ -132,7 +132,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argId	The TableTweak key attribute of the instance generating the id.
 	 */
-	void deleteTableTweakByIdIdx( CFSecAuthorization Authorization,
+	void deleteTableTweakByIdIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argId );
 
@@ -143,8 +143,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteTableTweakByIdIdx( CFSecAuthorization Authorization,
-		CFBamTweakPKey argKey );
+	void deleteTableTweakByIdIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey argKey );
 	/**
 	 *	Delete the TableTweak instances identified by the key UNameIdx.
 	 *
@@ -156,7 +156,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argName	The TableTweak key attribute of the instance generating the id.
 	 */
-	void deleteTableTweakByUNameIdx( CFSecAuthorization Authorization,
+	void deleteTableTweakByUNameIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		String argName );
@@ -168,8 +168,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTableTweakByUNameIdx( CFSecAuthorization Authorization,
-		CFBamTweakByUNameIdxKey argKey );
+	void deleteTableTweakByUNameIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByUNameIdxKey argKey );
 	/**
 	 *	Delete the TableTweak instances identified by the key UDefIdx.
 	 *
@@ -185,7 +185,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argName	The TableTweak key attribute of the instance generating the id.
 	 */
-	void deleteTableTweakByUDefIdx( CFSecAuthorization Authorization,
+	void deleteTableTweakByUDefIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId,
 		Long argDefSchemaTenantId,
@@ -199,8 +199,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTableTweakByUDefIdx( CFSecAuthorization Authorization,
-		CFBamTweakByUDefIdxKey argKey );
+	void deleteTableTweakByUDefIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByUDefIdxKey argKey );
 	/**
 	 *	Delete the TableTweak instances identified by the key ValTentIdx.
 	 *
@@ -208,7 +208,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argTenantId	The TableTweak key attribute of the instance generating the id.
 	 */
-	void deleteTableTweakByValTentIdx( CFSecAuthorization Authorization,
+	void deleteTableTweakByValTentIdx( YCFSecAuthorization Authorization,
 		long argTenantId );
 
 	/**
@@ -218,8 +218,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTableTweakByValTentIdx( CFSecAuthorization Authorization,
-		CFBamTweakByValTentIdxKey argKey );
+	void deleteTableTweakByValTentIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByValTentIdxKey argKey );
 	/**
 	 *	Delete the TableTweak instances identified by the key ScopeIdx.
 	 *
@@ -229,7 +229,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argScopeId	The TableTweak key attribute of the instance generating the id.
 	 */
-	void deleteTableTweakByScopeIdx( CFSecAuthorization Authorization,
+	void deleteTableTweakByScopeIdx( YCFSecAuthorization Authorization,
 		long argTenantId,
 		long argScopeId );
 
@@ -240,8 +240,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTableTweakByScopeIdx( CFSecAuthorization Authorization,
-		CFBamTweakByScopeIdxKey argKey );
+	void deleteTableTweakByScopeIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByScopeIdxKey argKey );
 	/**
 	 *	Delete the TableTweak instances identified by the key DefSchemaIdx.
 	 *
@@ -251,7 +251,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argDefSchemaId	The TableTweak key attribute of the instance generating the id.
 	 */
-	void deleteTableTweakByDefSchemaIdx( CFSecAuthorization Authorization,
+	void deleteTableTweakByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long argDefSchemaTenantId,
 		Long argDefSchemaId );
 
@@ -262,8 +262,8 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteTableTweakByDefSchemaIdx( CFSecAuthorization Authorization,
-		CFBamTweakByDefSchemaIdxKey argKey );
+	void deleteTableTweakByDefSchemaIdx( YCFSecAuthorization Authorization,
+		YCFBamTweakByDefSchemaIdxKey argKey );
 
 
 	/**
@@ -276,8 +276,8 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTableTweakBuff readDerived( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey );
+	YCFBamTableTweakBuff readDerived( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey );
 
 	/**
 	 *	Lock the derived TableTweak buffer instance by primary key.
@@ -289,8 +289,8 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTableTweakBuff lockDerived( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey );
+	YCFBamTableTweakBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey );
 
 	/**
 	 *	Read all TableTweak instances.
@@ -299,7 +299,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFBamTableTweakBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFBamTableTweakBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived TableTweak buffer instance identified by the unique key IdIdx.
@@ -313,7 +313,7 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTableTweakBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -331,7 +331,7 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTableTweakBuff readDerivedByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff readDerivedByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -354,7 +354,7 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFBamTableTweakBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff readDerivedByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
@@ -370,7 +370,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTableTweakBuff[] readDerivedByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff[] readDerivedByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -384,7 +384,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTableTweakBuff[] readDerivedByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff[] readDerivedByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -399,7 +399,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTableTweakBuff[] readDerivedByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff[] readDerivedByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -414,7 +414,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFBamTableTweakBuff[] readDerivedByTableIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff[] readDerivedByTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
@@ -428,10 +428,10 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTableTweakBuff readBuff( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey );
+	YCFBamTableTweakBuff readBuff( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey );
 
 	/**
 	 *	Lock the specific TableTweak buffer instance identified by the primary key.
@@ -443,10 +443,10 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTableTweakBuff lockBuff( CFSecAuthorization Authorization,
-		CFBamTweakPKey PKey );
+	YCFBamTableTweakBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFBamTweakPKey PKey );
 
 	/**
 	 *	Read all the specific TableTweak buffer instances.
@@ -455,7 +455,7 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return All the specific TableTweak instances in the database accessible for the Authorization.
 	 */
-	CFBamTableTweakBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFBamTableTweakBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific TableTweak buffer instance identified by the unique key IdIdx.
@@ -469,9 +469,9 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTableTweakBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long Id );
 
@@ -489,9 +489,9 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTableTweakBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff readBuffByUNameIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		String Name );
@@ -514,9 +514,9 @@ public interface ICFBamTableTweakTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTableTweakBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff readBuffByUDefIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
 		Long DefSchemaTenantId,
@@ -532,9 +532,9 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTableTweakBuff[] readBuffByValTentIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff[] readBuffByValTentIdx( YCFSecAuthorization Authorization,
 		long TenantId );
 
 	/**
@@ -548,9 +548,9 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTableTweakBuff[] readBuffByScopeIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff[] readBuffByScopeIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId );
 
@@ -565,9 +565,9 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTableTweakBuff[] readBuffByDefSchemaIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff[] readBuffByDefSchemaIdx( YCFSecAuthorization Authorization,
 		Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -582,16 +582,16 @@ public interface ICFBamTableTweakTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFBamTableTweakBuff[] readBuffByTableIdx( CFSecAuthorization Authorization,
+	YCFBamTableTweakBuff[] readBuffByTableIdx( YCFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

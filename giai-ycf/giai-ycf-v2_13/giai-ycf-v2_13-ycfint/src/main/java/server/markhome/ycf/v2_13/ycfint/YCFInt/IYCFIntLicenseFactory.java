@@ -2,15 +2,15 @@
 // Description: Java 11 Factory interface for License.
 
 /*
- *	org.msscf.msscf.CFInt
+ *	org.mssycf.mssycf.YCFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFInt 2.13 Internet Essentials
+ *	Mark's Code Fractal YCFInt 2.13 Internet Essentials
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Mark's Code Fractal YCFInt.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfint.CFInt;
+package org.mssycf.mssycf.v2_13.ycfint.YCFInt;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,14 +35,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
 /*
- *	CFIntLicenseFactory interface for License
+ *	YCFIntLicenseFactory interface for License
  */
-public interface ICFIntLicenseFactory
+public interface IYCFIntLicenseFactory
 {
 
 	/**
@@ -50,48 +50,48 @@ public interface ICFIntLicenseFactory
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntLicensePKey newPKey();
+	YCFIntLicensePKey newPKey();
 
 	/**
 	 *	Allocate a primary history key for License instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntLicenseHPKey newHPKey();
+	YCFIntLicenseHPKey newHPKey();
 
 	/**
 	 *	Allocate a LicnTenantIdx key over License instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntLicenseByLicnTenantIdxKey newLicnTenantIdxKey();
+	YCFIntLicenseByLicnTenantIdxKey newLicnTenantIdxKey();
 
 	/**
 	 *	Allocate a DomainIdx key over License instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntLicenseByDomainIdxKey newDomainIdxKey();
+	YCFIntLicenseByDomainIdxKey newDomainIdxKey();
 
 	/**
 	 *	Allocate a UNameIdx key over License instances.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntLicenseByUNameIdxKey newUNameIdxKey();
+	YCFIntLicenseByUNameIdxKey newUNameIdxKey();
 
 	/**
 	 *	Allocate a License instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntLicenseBuff newBuff();
+	YCFIntLicenseBuff newBuff();
 
 	/**
 	 *	Allocate a License history instance buffer.
 	 *
 	 *	@return	The new instance.
 	 */
-	CFIntLicenseHBuff newHBuff();
+	YCFIntLicenseHBuff newHBuff();
 
 }

@@ -2,15 +2,15 @@
 // Description: Java 11 DbIO interface for ISOCtryLang.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -35,14 +35,14 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj.*;
 
 /*
- *	CFSecISOCtryLangTable database interface for ISOCtryLang
+ *	YCFSecISOCtryLangTable database interface for ISOCtryLang
  */
-public interface ICFSecISOCtryLangTable
+public interface IYCFSecISOCtryLangTable
 {
 
 	/**
@@ -53,8 +53,8 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@param	Buff	The buffer to be created.
 	 */
-	void createISOCtryLang( CFSecAuthorization Authorization,
-		CFSecISOCtryLangBuff Buff );
+	void createISOCtryLang( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangBuff Buff );
 
 
 	/**
@@ -65,8 +65,8 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@param	Buff	The buffer to be updated.
 	 */
-	void updateISOCtryLang( CFSecAuthorization Authorization,
-		CFSecISOCtryLangBuff Buff );
+	void updateISOCtryLang( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangBuff Buff );
 
 
 	/**
@@ -76,8 +76,8 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@param	Buff	The buffer to be deleted.
 	 */
-	void deleteISOCtryLang( CFSecAuthorization Authorization,
-		CFSecISOCtryLangBuff Buff );
+	void deleteISOCtryLang( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangBuff Buff );
 	/**
 	 *	Delete the ISOCtryLang instance identified by the primary key attributes.
 	 *
@@ -87,7 +87,7 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@param	argISOLangId	The ISOCtryLang key attribute of the instance generating the id.
 	 */
-	void deleteISOCtryLangByIdIdx( CFSecAuthorization Authorization,
+	void deleteISOCtryLangByIdIdx( YCFSecAuthorization Authorization,
 		short argISOCtryId,
 		short argISOLangId );
 
@@ -98,8 +98,8 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@param	argKey	The primary key identifying the instance to be deleted.
 	 */
-	void deleteISOCtryLangByIdIdx( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey argKey );
+	void deleteISOCtryLangByIdIdx( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey argKey );
 	/**
 	 *	Delete the ISOCtryLang instances identified by the key CtryIdx.
 	 *
@@ -107,7 +107,7 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@param	argISOCtryId	The ISOCtryLang key attribute of the instance generating the id.
 	 */
-	void deleteISOCtryLangByCtryIdx( CFSecAuthorization Authorization,
+	void deleteISOCtryLangByCtryIdx( YCFSecAuthorization Authorization,
 		short argISOCtryId );
 
 	/**
@@ -117,8 +117,8 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteISOCtryLangByCtryIdx( CFSecAuthorization Authorization,
-		CFSecISOCtryLangByCtryIdxKey argKey );
+	void deleteISOCtryLangByCtryIdx( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangByCtryIdxKey argKey );
 	/**
 	 *	Delete the ISOCtryLang instances identified by the key LangIdx.
 	 *
@@ -126,7 +126,7 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@param	argISOLangId	The ISOCtryLang key attribute of the instance generating the id.
 	 */
-	void deleteISOCtryLangByLangIdx( CFSecAuthorization Authorization,
+	void deleteISOCtryLangByLangIdx( YCFSecAuthorization Authorization,
 		short argISOLangId );
 
 	/**
@@ -136,8 +136,8 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@param	argKey	The key identifying the instances to be deleted.
 	 */
-	void deleteISOCtryLangByLangIdx( CFSecAuthorization Authorization,
-		CFSecISOCtryLangByLangIdxKey argKey );
+	void deleteISOCtryLangByLangIdx( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangByLangIdxKey argKey );
 
 
 	/**
@@ -150,8 +150,8 @@ public interface ICFSecISOCtryLangTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOCtryLangBuff readDerived( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey PKey );
+	YCFSecISOCtryLangBuff readDerived( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey PKey );
 
 	/**
 	 *	Lock the derived ISOCtryLang buffer instance by primary key.
@@ -163,8 +163,8 @@ public interface ICFSecISOCtryLangTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOCtryLangBuff lockDerived( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey PKey );
+	YCFSecISOCtryLangBuff lockDerived( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey PKey );
 
 	/**
 	 *	Read all ISOCtryLang instances.
@@ -173,7 +173,7 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@return An array of derived buffer instances, potentially with 0 elements in the set.
 	 */
-	CFSecISOCtryLangBuff[] readAllDerived( CFSecAuthorization Authorization );
+	YCFSecISOCtryLangBuff[] readAllDerived( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the derived ISOCtryLang buffer instance identified by the unique key IdIdx.
@@ -187,7 +187,7 @@ public interface ICFSecISOCtryLangTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 */
-	CFSecISOCtryLangBuff readDerivedByIdIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryLangBuff readDerivedByIdIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId,
 		short ISOLangId );
 
@@ -200,7 +200,7 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecISOCtryLangBuff[] readDerivedByCtryIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryLangBuff[] readDerivedByCtryIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId );
 
 	/**
@@ -212,7 +212,7 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 */
-	CFSecISOCtryLangBuff[] readDerivedByLangIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryLangBuff[] readDerivedByLangIdx( YCFSecAuthorization Authorization,
 		short ISOLangId );
 
 	/**
@@ -225,10 +225,10 @@ public interface ICFSecISOCtryLangTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryLangBuff readBuff( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey PKey );
+	YCFSecISOCtryLangBuff readBuff( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey PKey );
 
 	/**
 	 *	Lock the specific ISOCtryLang buffer instance identified by the primary key.
@@ -240,10 +240,10 @@ public interface ICFSecISOCtryLangTable
 	 *	@return The buffer instance for the specified primary key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryLangBuff lockBuff( CFSecAuthorization Authorization,
-		CFSecISOCtryLangPKey PKey );
+	YCFSecISOCtryLangBuff lockBuff( YCFSecAuthorization Authorization,
+		YCFSecISOCtryLangPKey PKey );
 
 	/**
 	 *	Read all the specific ISOCtryLang buffer instances.
@@ -252,7 +252,7 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@return All the specific ISOCtryLang instances in the database accessible for the Authorization.
 	 */
-	CFSecISOCtryLangBuff[] readAllBuff( CFSecAuthorization Authorization );
+	YCFSecISOCtryLangBuff[] readAllBuff( YCFSecAuthorization Authorization );
 
 	/**
 	 *	Read the specific ISOCtryLang buffer instance identified by the unique key IdIdx.
@@ -266,9 +266,9 @@ public interface ICFSecISOCtryLangTable
 	 *	@return The buffer instance for the specified key, or null if there is
 	 *		no such existing key value.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryLangBuff readBuffByIdIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryLangBuff readBuffByIdIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId,
 		short ISOLangId );
 
@@ -281,9 +281,9 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryLangBuff[] readBuffByCtryIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryLangBuff[] readBuffByCtryIdx( YCFSecAuthorization Authorization,
 		short ISOCtryId );
 
 	/**
@@ -295,15 +295,15 @@ public interface ICFSecISOCtryLangTable
 	 *
 	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
 	 *
-	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws	YCFLibNotSupportedException thrown by client-side implementations.
 	 */
-	CFSecISOCtryLangBuff[] readBuffByLangIdx( CFSecAuthorization Authorization,
+	YCFSecISOCtryLangBuff[] readBuffByLangIdx( YCFSecAuthorization Authorization,
 		short ISOLangId );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
 	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 *	@throws YCFLibNotSupportedException thrown by client-side implementations.
 	 */
 	void releasePreparedStatements();
 }

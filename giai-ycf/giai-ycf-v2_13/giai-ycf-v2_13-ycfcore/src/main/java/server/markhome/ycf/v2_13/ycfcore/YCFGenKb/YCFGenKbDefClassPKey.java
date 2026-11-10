@@ -1,11 +1,11 @@
 // Description: Java 11 implementation of a DefClass primary key object.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -37,22 +37,22 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFGenKbDefClassPKey Primary Key for DefClass
+ *	YCFGenKbDefClassPKey Primary Key for DefClass
 
  *		requiredId	Required object attribute Id. */
-public class CFGenKbDefClassPKey
+public class YCFGenKbDefClassPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected short requiredId;
-	public CFGenKbDefClassPKey() {
-		requiredId = CFGenKbDefClassBuff.ID_INIT_VALUE;
+	public YCFGenKbDefClassPKey() {
+		requiredId = YCFGenKbDefClassBuff.ID_INIT_VALUE;
 	}
 
 	public short getRequiredId() {
@@ -60,21 +60,21 @@ public class CFGenKbDefClassPKey
 	}
 
 	public void setRequiredId( short value ) {
-		if( value < CFGenKbDefClassBuff.ID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFGenKbDefClassBuff.ID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbDefClassBuff.ID_MIN_VALUE );
+				YCFGenKbDefClassBuff.ID_MIN_VALUE );
 		}
-		if( value > CFGenKbDefClassBuff.ID_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
+		if( value > YCFGenKbDefClassBuff.ID_MAX_VALUE ) {
+			throw new YCFLibArgumentOverflowException( getClass(),
 				"setRequiredId",
 				1,
 				"value",
 				value,
-				CFGenKbDefClassBuff.ID_MAX_VALUE );
+				YCFGenKbDefClassBuff.ID_MAX_VALUE );
 		}
 		requiredId = value;
 	}
@@ -83,15 +83,15 @@ public class CFGenKbDefClassPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFGenKbDefClassPKey ) {
-			CFGenKbDefClassPKey rhs = (CFGenKbDefClassPKey)obj;
+		else if( obj instanceof YCFGenKbDefClassPKey ) {
+			YCFGenKbDefClassPKey rhs = (YCFGenKbDefClassPKey)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
 			return( true );
 		}
-		else if( obj instanceof CFGenKbDefClassBuff ) {
-			CFGenKbDefClassBuff rhs = (CFGenKbDefClassBuff)obj;
+		else if( obj instanceof YCFGenKbDefClassBuff ) {
+			YCFGenKbDefClassBuff rhs = (YCFGenKbDefClassBuff)obj;
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
@@ -112,8 +112,8 @@ public class CFGenKbDefClassPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFGenKbDefClassPKey ) {
-			CFGenKbDefClassPKey rhs = (CFGenKbDefClassPKey)obj;
+		else if( obj instanceof YCFGenKbDefClassPKey ) {
+			YCFGenKbDefClassPKey rhs = (YCFGenKbDefClassPKey)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -122,8 +122,8 @@ public class CFGenKbDefClassPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFGenKbDefClassBuff ) {
-			CFGenKbDefClassBuff rhs = (CFGenKbDefClassBuff)obj;
+		else if( obj instanceof YCFGenKbDefClassBuff ) {
+			YCFGenKbDefClassBuff rhs = (YCFGenKbDefClassBuff)obj;
 			if( getRequiredId() < rhs.getRequiredId() ) {
 				return( -1 );
 			}
@@ -133,16 +133,16 @@ public class CFGenKbDefClassPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFGenKbDefClassPKey, CFGenKbDefClassBuff" );
+				"YCFGenKbDefClassPKey, YCFGenKbDefClassBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFGenKbDefClassPKey"
+		String ret = "<YCFGenKbDefClassPKey"
 			+ " RequiredId=" + "\"" + Short.toString( getRequiredId() ) + "\""
 			+ "/>";
 		return( ret );

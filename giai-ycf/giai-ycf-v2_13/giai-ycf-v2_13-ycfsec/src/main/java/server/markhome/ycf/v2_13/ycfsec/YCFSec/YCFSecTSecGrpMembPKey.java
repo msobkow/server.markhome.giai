@@ -1,15 +1,15 @@
 // Description: Java 11 implementation of a TSecGrpMemb primary key object.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSec;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSec;
 
 import java.lang.reflect.*;
 import java.io.*;
@@ -36,25 +36,25 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 import org.apache.commons.codec.binary.Base64;
 
 /*
- *	CFSecTSecGrpMembPKey Primary Key for TSecGrpMemb
+ *	YCFSecTSecGrpMembPKey Primary Key for TSecGrpMemb
 
  *		requiredTenantId	Required object attribute TenantId.
  *		requiredTSecGrpMembId	Required object attribute TSecGrpMembId. */
-public class CFSecTSecGrpMembPKey
+public class YCFSecTSecGrpMembPKey
 	implements Comparable<Object>,
 		Serializable
 {
 
 	protected long requiredTenantId;
 	protected long requiredTSecGrpMembId;
-	public CFSecTSecGrpMembPKey() {
-		requiredTenantId = CFSecTSecGrpMembBuff.TENANTID_INIT_VALUE;
-		requiredTSecGrpMembId = CFSecTSecGrpMembBuff.TSECGRPMEMBID_INIT_VALUE;
+	public YCFSecTSecGrpMembPKey() {
+		requiredTenantId = YCFSecTSecGrpMembBuff.TENANTID_INIT_VALUE;
+		requiredTSecGrpMembId = YCFSecTSecGrpMembBuff.TSECGRPMEMBID_INIT_VALUE;
 	}
 
 	public long getRequiredTenantId() {
@@ -62,13 +62,13 @@ public class CFSecTSecGrpMembPKey
 	}
 
 	public void setRequiredTenantId( long value ) {
-		if( value < CFSecTSecGrpMembBuff.TENANTID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecTSecGrpMembBuff.TENANTID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTenantId",
 				1,
 				"value",
 				value,
-				CFSecTSecGrpMembBuff.TENANTID_MIN_VALUE );
+				YCFSecTSecGrpMembBuff.TENANTID_MIN_VALUE );
 		}
 		requiredTenantId = value;
 	}
@@ -78,13 +78,13 @@ public class CFSecTSecGrpMembPKey
 	}
 
 	public void setRequiredTSecGrpMembId( long value ) {
-		if( value < CFSecTSecGrpMembBuff.TSECGRPMEMBID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
+		if( value < YCFSecTSecGrpMembBuff.TSECGRPMEMBID_MIN_VALUE ) {
+			throw new YCFLibArgumentUnderflowException( getClass(),
 				"setRequiredTSecGrpMembId",
 				1,
 				"value",
 				value,
-				CFSecTSecGrpMembBuff.TSECGRPMEMBID_MIN_VALUE );
+				YCFSecTSecGrpMembBuff.TSECGRPMEMBID_MIN_VALUE );
 		}
 		requiredTSecGrpMembId = value;
 	}
@@ -93,8 +93,8 @@ public class CFSecTSecGrpMembPKey
 		if( obj == null ) {
 			return( false );
 		}
-		else if( obj instanceof CFSecTSecGrpMembHPKey ) {
-			CFSecTSecGrpMembHPKey rhs = (CFSecTSecGrpMembHPKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembHPKey ) {
+			YCFSecTSecGrpMembHPKey rhs = (YCFSecTSecGrpMembHPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -103,8 +103,8 @@ public class CFSecTSecGrpMembPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecTSecGrpMembPKey ) {
-			CFSecTSecGrpMembPKey rhs = (CFSecTSecGrpMembPKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembPKey ) {
+			YCFSecTSecGrpMembPKey rhs = (YCFSecTSecGrpMembPKey)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -113,8 +113,8 @@ public class CFSecTSecGrpMembPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecTSecGrpMembHBuff ) {
-			CFSecTSecGrpMembHBuff rhs = (CFSecTSecGrpMembHBuff)obj;
+		else if( obj instanceof YCFSecTSecGrpMembHBuff ) {
+			YCFSecTSecGrpMembHBuff rhs = (YCFSecTSecGrpMembHBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -123,8 +123,8 @@ public class CFSecTSecGrpMembPKey
 			}
 			return( true );
 		}
-		else if( obj instanceof CFSecTSecGrpMembBuff ) {
-			CFSecTSecGrpMembBuff rhs = (CFSecTSecGrpMembBuff)obj;
+		else if( obj instanceof YCFSecTSecGrpMembBuff ) {
+			YCFSecTSecGrpMembBuff rhs = (YCFSecTSecGrpMembBuff)obj;
 			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
 				return( false );
 			}
@@ -149,8 +149,8 @@ public class CFSecTSecGrpMembPKey
 		if( obj == null ) {
 			return( -1 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembHPKey ) {
-			CFSecTSecGrpMembHPKey rhs = (CFSecTSecGrpMembHPKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembHPKey ) {
+			YCFSecTSecGrpMembHPKey rhs = (YCFSecTSecGrpMembHPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -165,8 +165,8 @@ public class CFSecTSecGrpMembPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembPKey ) {
-			CFSecTSecGrpMembPKey rhs = (CFSecTSecGrpMembPKey)obj;
+		else if( obj instanceof YCFSecTSecGrpMembPKey ) {
+			YCFSecTSecGrpMembPKey rhs = (YCFSecTSecGrpMembPKey)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -181,8 +181,8 @@ public class CFSecTSecGrpMembPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembBuff ) {
-			CFSecTSecGrpMembBuff rhs = (CFSecTSecGrpMembBuff)obj;
+		else if( obj instanceof YCFSecTSecGrpMembBuff ) {
+			YCFSecTSecGrpMembBuff rhs = (YCFSecTSecGrpMembBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -197,8 +197,8 @@ public class CFSecTSecGrpMembPKey
 			}
 			return( 0 );
 		}
-		else if( obj instanceof CFSecTSecGrpMembHBuff ) {
-			CFSecTSecGrpMembHBuff rhs = (CFSecTSecGrpMembHBuff)obj;
+		else if( obj instanceof YCFSecTSecGrpMembHBuff ) {
+			YCFSecTSecGrpMembHBuff rhs = (YCFSecTSecGrpMembHBuff)obj;
 			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
 				return( -1 );
 			}
@@ -214,16 +214,16 @@ public class CFSecTSecGrpMembPKey
 			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"CFSecTSecGrpMembPKey, CFSecTSecGrpMembBuff" );
+				"YCFSecTSecGrpMembPKey, YCFSecTSecGrpMembBuff" );
 		}
 	}
 
 	public String toString() {
-		String ret = "<CFSecTSecGrpMembPKey"
+		String ret = "<YCFSecTSecGrpMembPKey"
 			+ " RequiredTenantId=" + "\"" + Long.toString( getRequiredTenantId() ) + "\""
 			+ " RequiredTSecGrpMembId=" + "\"" + Long.toString( getRequiredTSecGrpMembId() ) + "\""
 			+ "/>";

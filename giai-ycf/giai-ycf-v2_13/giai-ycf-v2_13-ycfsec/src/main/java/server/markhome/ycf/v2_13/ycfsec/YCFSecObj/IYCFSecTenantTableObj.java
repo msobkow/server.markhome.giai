@@ -1,15 +1,15 @@
-// Description: Java 11 Table Object interface for CFSec.
+// Description: Java 11 Table Object interface for YCFSec.
 
 /*
- *	org.msscf.msscf.CFSec
+ *	org.mssycf.mssycf.YCFSec
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	Mark's Code Fractal CFSec 2.13 Security Services
+ *	Mark's Code Fractal YCFSec 2.13 Security Services
  *	
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *	
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Mark's Code Fractal YCFSec.
  *	
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfsec.CFSecObj;
+package org.mssycf.mssycf.v2_13.ycfsec.YCFSecObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfsec.CFSec.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfsec.YCFSec.*;
 
-public interface ICFSecTenantTableObj
+public interface IYCFSecTenantTableObj
 {
-	ICFSecSchemaObj getSchema();
-	void setSchema( ICFSecSchemaObj value );
+	IYCFSecSchemaObj getSchema();
+	void setSchema( IYCFSecSchemaObj value );
 
 	void minimizeMemory();
 
@@ -53,24 +53,24 @@ public interface ICFSecTenantTableObj
 	 *
 	 *	@return	A new instance.
 	 */
-	ICFSecTenantObj newInstance();
+	IYCFSecTenantObj newInstance();
 
 	/**
 	 *	Instantiate a new Tenant edition of the specified Tenant instance.
 	 *
 	 *	@return	A new edition.
 	 */
-	ICFSecTenantEditObj newEditInstance( ICFSecTenantObj orig );
+	IYCFSecTenantEditObj newEditInstance( IYCFSecTenantObj orig );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecTenantObj realiseTenant( ICFSecTenantObj Obj );
+	IYCFSecTenantObj realiseTenant( IYCFSecTenantObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecTenantObj createTenant( ICFSecTenantObj Obj );
+	IYCFSecTenantObj createTenant( IYCFSecTenantObj Obj );
 
 	/**
 	 *	Read a Tenant-derived instance by it's primary key.
@@ -80,7 +80,7 @@ public interface ICFSecTenantTableObj
 	 *	@return	The Tenant-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecTenantObj readTenant( CFSecTenantPKey pkey );
+	IYCFSecTenantObj readTenant( YCFSecTenantPKey pkey );
 
 	/**
 	 *	Read a Tenant-derived instance by it's primary key.
@@ -90,120 +90,120 @@ public interface ICFSecTenantTableObj
 	 *	@return	The Tenant-derived instance identified by the primary key,
 	 *		or null if no such key value exists.
 	 */
-	ICFSecTenantObj readTenant( CFSecTenantPKey pkey,
+	IYCFSecTenantObj readTenant( YCFSecTenantPKey pkey,
 		boolean forceRead );
 
-	ICFSecTenantObj readCachedTenant( CFSecTenantPKey pkey );
+	IYCFSecTenantObj readCachedTenant( YCFSecTenantPKey pkey );
 
-	public void reallyDeepDisposeTenant( ICFSecTenantObj obj );
+	public void reallyDeepDisposeTenant( IYCFSecTenantObj obj );
 
-	void deepDisposeTenant( CFSecTenantPKey pkey );
+	void deepDisposeTenant( YCFSecTenantPKey pkey );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecTenantObj lockTenant( CFSecTenantPKey pkey );
+	IYCFSecTenantObj lockTenant( YCFSecTenantPKey pkey );
 
 	/**
 	 *	Return a sorted list of all the Tenant-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecTenantObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecTenantObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecTenantObj> readAllTenant();
+	List<IYCFSecTenantObj> readAllTenant();
 
 	/**
 	 *	Return a sorted map of all the Tenant-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecTenantObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecTenantObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecTenantObj> readAllTenant( boolean forceRead );
+	List<IYCFSecTenantObj> readAllTenant( boolean forceRead );
 
-	List<ICFSecTenantObj> readCachedAllTenant();
+	List<IYCFSecTenantObj> readCachedAllTenant();
 
 	/**
 	 *	Return a sorted map of a page of the Tenant-derived instances in the database.
 	 *
-	 *	@return	List of ICFSecTenantObj instance, sorted by their primary keys, which
+	 *	@return	List of IYCFSecTenantObj instance, sorted by their primary keys, which
 	 *		may include an empty set.
 	 */
-	List<ICFSecTenantObj> pageAllTenant(Long priorId );
+	List<IYCFSecTenantObj> pageAllTenant(Long priorId );
 
 	/**
-	 *	Get the CFSecTenantObj instance for the primary key attributes.
+	 *	Get the YCFSecTenantObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecTenantObj cached instance for the primary key, or
+	 *	@return	YCFSecTenantObj cached instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecTenantObj readTenantByIdIdx( long Id );
+	IYCFSecTenantObj readTenantByIdIdx( long Id );
 
 	/**
-	 *	Get the CFSecTenantObj instance for the primary key attributes.
+	 *	Get the YCFSecTenantObj instance for the primary key attributes.
 	 *
 	 *	@param	argId	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecTenantObj refreshed instance for the primary key, or
+	 *	@return	YCFSecTenantObj refreshed instance for the primary key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecTenantObj readTenantByIdIdx( long Id,
+	IYCFSecTenantObj readTenantByIdIdx( long Id,
 		boolean forceRead );
 
 	/**
-	 *	Get the map of CFSecTenantObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecTenantObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecTenantObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecTenantObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecTenantObj> readTenantByClusterIdx( long ClusterId );
+	List<IYCFSecTenantObj> readTenantByClusterIdx( long ClusterId );
 
 	/**
-	 *	Get the map of CFSecTenantObj instances sorted by their primary keys for the duplicate ClusterIdx key.
+	 *	Get the map of YCFSecTenantObj instances sorted by their primary keys for the duplicate ClusterIdx key.
 	 *
 	 *	@param	argClusterId	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	List of CFSecTenantObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
+	 *	@return	List of YCFSecTenantObj cached instances sorted by their primary keys for the duplicate ClusterIdx key,
 	 *		which may be an empty set.
 	 */
-	List<ICFSecTenantObj> readTenantByClusterIdx( long ClusterId,
+	List<IYCFSecTenantObj> readTenantByClusterIdx( long ClusterId,
 		boolean forceRead );
 
 	/**
-	 *	Get the CFSecTenantObj instance for the unique UNameIdx key.
+	 *	Get the YCFSecTenantObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClusterId	The Tenant key attribute of the instance generating the id.
 	 *
 	 *	@param	argTenantName	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecTenantObj cached instance for the unique UNameIdx key, or
+	 *	@return	YCFSecTenantObj cached instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecTenantObj readTenantByUNameIdx(long ClusterId,
+	IYCFSecTenantObj readTenantByUNameIdx(long ClusterId,
 		String TenantName );
 
 	/**
-	 *	Get the CFSecTenantObj instance for the unique UNameIdx key.
+	 *	Get the YCFSecTenantObj instance for the unique UNameIdx key.
 	 *
 	 *	@param	argClusterId	The Tenant key attribute of the instance generating the id.
 	 *
 	 *	@param	argTenantName	The Tenant key attribute of the instance generating the id.
 	 *
-	 *	@return	CFSecTenantObj refreshed instance for the unique UNameIdx key, or
+	 *	@return	YCFSecTenantObj refreshed instance for the unique UNameIdx key, or
 	 *		null if no such instance exists.
 	 */
-	ICFSecTenantObj readTenantByUNameIdx(long ClusterId,
+	IYCFSecTenantObj readTenantByUNameIdx(long ClusterId,
 		String TenantName,
 		boolean forceRead );
 
-	ICFSecTenantObj readCachedTenantByIdIdx( long Id );
+	IYCFSecTenantObj readCachedTenantByIdIdx( long Id );
 
-	List<ICFSecTenantObj> readCachedTenantByClusterIdx( long ClusterId );
+	List<IYCFSecTenantObj> readCachedTenantByClusterIdx( long ClusterId );
 
-	ICFSecTenantObj readCachedTenantByUNameIdx( long ClusterId,
+	IYCFSecTenantObj readCachedTenantByUNameIdx( long ClusterId,
 		String TenantName );
 
 	void deepDisposeTenantByIdIdx( long Id );
@@ -222,18 +222,18 @@ public interface ICFSecTenantTableObj
 	 *	@return	A List of Tenant-derived instances sorted by their primary keys,
 	 *		as identified by the key attributes, which may be an empty set.
 	 */
-	List<ICFSecTenantObj> pageTenantByClusterIdx( long ClusterId,
+	List<IYCFSecTenantObj> pageTenantByClusterIdx( long ClusterId,
 		Long priorId );
 
 	/**
 	 *	Internal use only.
 	 */
-	ICFSecTenantObj updateTenant( ICFSecTenantObj Obj );
+	IYCFSecTenantObj updateTenant( IYCFSecTenantObj Obj );
 
 	/**
 	 *	Internal use only.
 	 */
-	void deleteTenant( ICFSecTenantObj Obj );
+	void deleteTenant( IYCFSecTenantObj Obj );
 
 	/**
 	 *	Internal use only.
@@ -259,5 +259,5 @@ public interface ICFSecTenantTableObj
 	void deleteTenantByUNameIdx(long ClusterId,
 		String TenantName );
 
-	ICFSecTenantObj getSystemTenant();
+	IYCFSecTenantObj getSystemTenant();
 }

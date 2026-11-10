@@ -1,11 +1,11 @@
-// Description: Java 11 base object instance implementation for CFGenKb GelPushContext.
+// Description: Java 11 base object instance implementation for YCFGenKb GelPushContext.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -27,31 +27,31 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKbObj;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKbObj;
 
 import java.math.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
-import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFEngine;
-import org.msscf.msscf.v2_13.cfcore.MssCF.MssCFGenContext;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb.*;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFEngine;
+import org.mssycf.mssycf.v2_13.ycfcore.MssYCF.MssYCFGenContext;
 
-public class CFGenKbGelPushContextObj
-	extends CFGenKbGelInstructionObj
-	implements ICFGenKbGelPushContextObj
+public class YCFGenKbGelPushContextObj
+	extends YCFGenKbGelInstructionObj
+	implements IYCFGenKbGelPushContextObj
 {
 	public final static String CLASS_CODE = "a933";
-	protected ICFGenKbGelInstructionObj optionalLookupRemainder;
+	protected IYCFGenKbGelInstructionObj optionalLookupRemainder;
 
-	public CFGenKbGelPushContextObj() {
+	public YCFGenKbGelPushContextObj() {
 		super();
 		optionalLookupRemainder = null;
 	}
 
-	public CFGenKbGelPushContextObj( ICFGenKbSchemaObj argSchema ) {
+	public YCFGenKbGelPushContextObj( IYCFGenKbSchemaObj argSchema ) {
 		super( argSchema );
 		optionalLookupRemainder = null;
 	}
@@ -64,11 +64,11 @@ public class CFGenKbGelPushContextObj
 		return( "GelPushContext" );
 	}
 
-	public ICFLibAnyObj getScope() {
+	public IYCFLibAnyObj getScope() {
 		return( super.getScope() );
 	}
 
-	public ICFLibAnyObj getObjScope() {
+	public IYCFLibAnyObj getObjScope() {
 		return( super.getObjScope() );
 	}
 
@@ -79,14 +79,14 @@ public class CFGenKbGelPushContextObj
 		return( objName );
 	}
 
-	public ICFLibAnyObj getObjQualifier( Class qualifyingClass ) {
-		ICFLibAnyObj container = this;
+	public IYCFLibAnyObj getObjQualifier( Class qualifyingClass ) {
+		IYCFLibAnyObj container = this;
 		if( qualifyingClass != null ) {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				else if( qualifyingClass.isInstance( container ) ) {
@@ -97,10 +97,10 @@ public class CFGenKbGelPushContextObj
 		}
 		else {
 			while( container != null ) {
-				if( container instanceof ICFGenKbClusterObj ) {
+				if( container instanceof IYCFGenKbClusterObj ) {
 					break;
 				}
-				else if( container instanceof ICFGenKbTenantObj ) {
+				else if( container instanceof IYCFGenKbTenantObj ) {
 					break;
 				}
 				container = container.getObjScope();
@@ -109,11 +109,11 @@ public class CFGenKbGelPushContextObj
 		return( container );
 	}
 
-	public ICFLibAnyObj getNamedObject( String objName ) {
+	public IYCFLibAnyObj getNamedObject( String objName ) {
 		String nextName;
 		String remainingName;
-		ICFLibAnyObj subObj = null;
-		ICFLibAnyObj retObj;
+		IYCFLibAnyObj subObj = null;
+		IYCFLibAnyObj retObj;
 		int nextDot = objName.indexOf( '.' );
 		if( nextDot >= 0 ) {
 			nextName = objName.substring( 0, nextDot );
@@ -137,13 +137,13 @@ public class CFGenKbGelPushContextObj
 
 	public String getObjQualifiedName() {
 		String qualName = getObjName();
-		ICFLibAnyObj container = getObjScope();
+		IYCFLibAnyObj container = getObjScope();
 		String containerName;
 		while( container != null ) {
-			if( container instanceof ICFGenKbClusterObj ) {
+			if( container instanceof IYCFGenKbClusterObj ) {
 				container = null;
 			}
-			else if( container instanceof ICFGenKbTenantObj ) {
+			else if( container instanceof IYCFGenKbTenantObj ) {
 				container = null;
 			}
 			else {
@@ -155,41 +155,41 @@ public class CFGenKbGelPushContextObj
 		return( qualName );
 	}
 
-	public ICFGenKbGelInstructionObj realise() {
-		ICFGenKbGelPushContextObj retobj = ((ICFGenKbSchemaObj)schema).getGelPushContextTableObj().realiseGelPushContext((ICFGenKbGelPushContextObj)this );
-		return( (ICFGenKbGelInstructionObj)retobj );
+	public IYCFGenKbGelInstructionObj realise() {
+		IYCFGenKbGelPushContextObj retobj = ((IYCFGenKbSchemaObj)schema).getGelPushContextTableObj().realiseGelPushContext((IYCFGenKbGelPushContextObj)this );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
 	public void forget() {
-		((ICFGenKbSchemaObj)schema).getGelPushContextTableObj().reallyDeepDisposeGelPushContext((ICFGenKbGelPushContextObj)this );
+		((IYCFGenKbSchemaObj)schema).getGelPushContextTableObj().reallyDeepDisposeGelPushContext((IYCFGenKbGelPushContextObj)this );
 	}
 
-	public ICFGenKbGelInstructionObj read() {
-		ICFGenKbGelPushContextObj retobj = ((ICFGenKbSchemaObj)schema).getGelPushContextTableObj().readGelPushContextByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read() {
+		IYCFGenKbGelPushContextObj retobj = ((IYCFGenKbSchemaObj)schema).getGelPushContextTableObj().readGelPushContextByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), false );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelInstructionObj read( boolean forceRead ) {
-		ICFGenKbGelPushContextObj retobj = ((ICFGenKbSchemaObj)schema).getGelPushContextTableObj().readGelPushContextByPIdx( getPKey().getRequiredTenantId(),
+	public IYCFGenKbGelInstructionObj read( boolean forceRead ) {
+		IYCFGenKbGelPushContextObj retobj = ((IYCFGenKbSchemaObj)schema).getGelPushContextTableObj().readGelPushContextByPIdx( getPKey().getRequiredTenantId(),
 			getPKey().getRequiredGelCacheId(),
 			getPKey().getRequiredGelInstId(), forceRead );
-		return( (ICFGenKbGelInstructionObj)retobj );
+		return( (IYCFGenKbGelInstructionObj)retobj );
 	}
 
-	public ICFGenKbGelPushContextTableObj getGelPushContextTable() {
-		return( ((ICFGenKbSchemaObj)schema).getGelPushContextTableObj() );
+	public IYCFGenKbGelPushContextTableObj getGelPushContextTable() {
+		return( ((IYCFGenKbSchemaObj)schema).getGelPushContextTableObj() );
 	}
 
-	public CFGenKbGelInstructionBuff getBuff() {
+	public YCFGenKbGelInstructionBuff getBuff() {
 		if( buff == null ) {
 			if( isNew ) {
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getFactoryGelPushContext().newBuff();
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getFactoryGelPushContext().newBuff();
 			}
 			else {
 				// Read the data buff via the backing store
-				buff = ((ICFGenKbSchema)schema.getBackingStore()).getTableGelPushContext().readDerivedByPIdx( ((ICFGenKbSchemaObj)schema).getAuthorization(),
+				buff = ((IYCFGenKbSchema)schema.getBackingStore()).getTableGelPushContext().readDerivedByPIdx( ((IYCFGenKbSchemaObj)schema).getAuthorization(),
 						getPKey().getRequiredTenantId(),
 						getPKey().getRequiredGelCacheId(),
 						getPKey().getRequiredGelInstId() );
@@ -201,13 +201,13 @@ public class CFGenKbGelPushContextObj
 		return( buff );
 	}
 
-	public void setBuff( CFGenKbGelInstructionBuff value ) {
-		if( ! ( ( value == null ) || ( value instanceof CFGenKbGelPushContextBuff ) ) ) {
-			throw new CFLibUnsupportedClassException( getClass(),
+	public void setBuff( YCFGenKbGelInstructionBuff value ) {
+		if( ! ( ( value == null ) || ( value instanceof YCFGenKbGelPushContextBuff ) ) ) {
+			throw new YCFLibUnsupportedClassException( getClass(),
 				"setBuff",
 				"value",
 				value,
-				"CFGenKbGelPushContextBuff" );
+				"YCFGenKbGelPushContextBuff" );
 		}
 		buff = value;
 		copyBuffToPKey();
@@ -217,27 +217,27 @@ public class CFGenKbGelPushContextObj
 		optionalLookupRemainder = null;
 	}
 
-	public CFGenKbGelPushContextBuff getGelPushContextBuff() {
-		return( (CFGenKbGelPushContextBuff)getBuff() );
+	public YCFGenKbGelPushContextBuff getGelPushContextBuff() {
+		return( (YCFGenKbGelPushContextBuff)getBuff() );
 	}
 
-	public ICFGenKbGelInstructionEditObj beginEdit() {
+	public IYCFGenKbGelInstructionEditObj beginEdit() {
 		if( edit != null ) {
-			throw new CFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
+			throw new YCFLibUsageException( getClass(), "beginEdit", "An edit is already open" );
 		}
-		ICFGenKbGelPushContextObj lockobj;
+		IYCFGenKbGelPushContextObj lockobj;
 		if( getIsNew() ) {
-			lockobj = (ICFGenKbGelPushContextObj)this;
+			lockobj = (IYCFGenKbGelPushContextObj)this;
 		}
 		else {
-			lockobj = ((ICFGenKbSchemaObj)schema).getGelPushContextTableObj().lockGelPushContext( getPKey() );
+			lockobj = ((IYCFGenKbSchemaObj)schema).getGelPushContextTableObj().lockGelPushContext( getPKey() );
 		}
-		edit = ((ICFGenKbSchemaObj)schema).getGelPushContextTableObj().newEditInstance( lockobj );
-		return( (ICFGenKbGelInstructionEditObj)edit );
+		edit = ((IYCFGenKbSchemaObj)schema).getGelPushContextTableObj().newEditInstance( lockobj );
+		return( (IYCFGenKbGelInstructionEditObj)edit );
 	}
 
-	public ICFGenKbGelPushContextEditObj getEditAsGelPushContext() {
-		return( (ICFGenKbGelPushContextEditObj)edit );
+	public IYCFGenKbGelPushContextEditObj getEditAsGelPushContext() {
+		return( (IYCFGenKbGelPushContextEditObj)edit );
 	}
 
 	public String getRequiredGoalTypeName() {
@@ -256,11 +256,11 @@ public class CFGenKbGelPushContextObj
 		return( getGelPushContextBuff().getOptionalRemainderInstId() );
 	}
 
-	public ICFGenKbGelInstructionObj getOptionalLookupRemainder() {
+	public IYCFGenKbGelInstructionObj getOptionalLookupRemainder() {
 		return( getOptionalLookupRemainder( false ) );
 	}
 
-	public ICFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead ) {
+	public IYCFGenKbGelInstructionObj getOptionalLookupRemainder( boolean forceRead ) {
 		if( ( optionalLookupRemainder == null ) || forceRead ) {
 			boolean anyMissing = false;
 			if( getGelPushContextBuff().getOptionalRemainderTenantId() == null ) {
@@ -270,7 +270,7 @@ public class CFGenKbGelPushContextObj
 				anyMissing = true;
 			}
 			if( ! anyMissing ) {
-				optionalLookupRemainder = ((ICFGenKbSchemaObj)schema).getGelInstructionTableObj().readGelInstructionByPIdx( getGelPushContextBuff().getOptionalRemainderTenantId(),
+				optionalLookupRemainder = ((IYCFGenKbSchemaObj)schema).getGelInstructionTableObj().readGelInstructionByPIdx( getGelPushContextBuff().getOptionalRemainderTenantId(),
 					getGelPushContextBuff().getRequiredRemainderGelCacheId(),
 					getGelPushContextBuff().getOptionalRemainderInstId(), forceRead );
 			}
@@ -278,7 +278,7 @@ public class CFGenKbGelPushContextObj
 		return( optionalLookupRemainder );
 	}
 
-	public String expand( MssCFGenContext genContext ) {
-		throw new RuntimeException( "CFGenKbGelPushContextObj.expand() must be specialized by the push implementation" );
+	public String expand( MssYCFGenContext genContext ) {
+		throw new RuntimeException( "YCFGenKbGelPushContextObj.expand() must be specialized by the push implementation" );
 	}
 }

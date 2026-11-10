@@ -2,11 +2,11 @@
 // Description: Java 11 Default Factory implementation for RuleType.
 
 /*
- *	org.msscf.msscf.CFCore
+ *	org.mssycf.mssycf.YCFCore
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
- *	MSS Code Factory CFCore 2.13 Generation Knowledgebase
+ *	MSS Code Factory YCFCore 2.13 Generation Knowledgebase
  *	
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
  *	Manufactured by MSS Code Factory 2.12
  */
 
-package org.msscf.msscf.v2_13.cfcore.CFGenKb;
+package org.mssycf.mssycf.v2_13.ycfcore.YCFGenKb;
 
 import java.lang.reflect.*;
 import java.net.*;
@@ -36,33 +36,33 @@ import java.rmi.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.*;
-import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.*;
+import org.mssycf.mssycf.v2_13.ycflib.YCFLib.xml.*;
 
 	/*
-	 *	CFGenKbRuleTypeFactory implementation for RuleType
+	 *	YCFGenKbRuleTypeFactory implementation for RuleType
 	 */
-public class CFGenKbRuleTypeDefaultFactory
-	implements ICFGenKbRuleTypeFactory
+public class YCFGenKbRuleTypeDefaultFactory
+	implements IYCFGenKbRuleTypeFactory
 {
-	public CFGenKbRuleTypeDefaultFactory() {
+	public YCFGenKbRuleTypeDefaultFactory() {
 	}
 
-	public CFGenKbRuleTypePKey newPKey() {
-		CFGenKbRuleTypePKey pkey =
-			new CFGenKbRuleTypePKey();
+	public YCFGenKbRuleTypePKey newPKey() {
+		YCFGenKbRuleTypePKey pkey =
+			new YCFGenKbRuleTypePKey();
 		return( pkey );
 	}
 
-	public CFGenKbRuleTypeByNameIdxKey newNameIdxKey() {
-		CFGenKbRuleTypeByNameIdxKey key =
-			new CFGenKbRuleTypeByNameIdxKey();
+	public YCFGenKbRuleTypeByNameIdxKey newNameIdxKey() {
+		YCFGenKbRuleTypeByNameIdxKey key =
+			new YCFGenKbRuleTypeByNameIdxKey();
 		return( key );
 	}
 
-	public CFGenKbRuleTypeBuff newBuff() {
-		CFGenKbRuleTypeBuff buff =
-			new CFGenKbRuleTypeBuff();
+	public YCFGenKbRuleTypeBuff newBuff() {
+		YCFGenKbRuleTypeBuff buff =
+			new YCFGenKbRuleTypeBuff();
 		return( buff );
 	}
 }
